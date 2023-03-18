@@ -1,0 +1,132 @@
+{
+  "fromFile": true,
+  "index": "39",
+  "name": "Corrupted Camp",
+  "edition": "fh",
+  "unlocks": [
+    "47"
+  ],
+  "monsters": [
+    "algox-guard",
+    "algox-scout",
+    "black-imp",
+    "deep-terror",
+    "frozen-corpse"
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 4,
+    "metal": 2,
+    "hide": 3,
+    "flamefruit": 1,
+    "snowthistle": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-scout",
+          "type": "normal"
+        },
+        {
+          "name": "algox-scout",
+          "type": "normal"
+        },
+        {
+          "name": "algox-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

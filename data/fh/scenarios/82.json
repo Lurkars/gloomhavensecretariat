@@ -1,0 +1,49 @@
+{
+  "fromFile": true,
+  "index": "82",
+  "name": "Expedition North",
+  "edition": "fh",
+  "monsters": [
+    "frost-demon",
+    "wind-demon"
+  ],
+  "lootDeckConfig": {
+    "money": 12,
+    "rockroot": 1,
+    "arrowvine": 1,
+    "snowthistle": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "elite"
+        }
+      ]
+    }
+  ]
+}

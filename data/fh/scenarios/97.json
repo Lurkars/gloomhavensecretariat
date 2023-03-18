@@ -1,0 +1,90 @@
+{
+  "fromFile": true,
+  "index": "97",
+  "name": "Program Control Nexus",
+  "edition": "fh",
+  "unlocks": [
+    "98"
+  ],
+  "forcedLinks": [
+    "98"
+  ],
+  "monsters": [
+    "flaming-bladespinner",
+    "program-director",
+    "robotic-boltshooter",
+    "ruined-machine",
+    "steel-automaton"
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 2,
+    "metal": 4,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flaming-bladespinner",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "program-director",
+          "type": "boss"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "type": "normal"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "normal"
+        },
+        {
+          "name": "steel-automaton",
+          "type": "normal"
+        },
+        {
+          "name": "steel-automaton",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "index": "95.2",
+  "name": "My Private Empire",
+  "edition": "fh",
+  "parent": "107",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

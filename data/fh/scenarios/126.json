@@ -1,0 +1,76 @@
+{
+  "fromFile": true,
+  "index": "126",
+  "name": "Joseph the Lion",
+  "edition": "fh",
+  "monsters": [
+    "ice-wraith",
+    "living-spirit",
+    "snow-imp"
+  ],
+  "objectives": [
+    {
+      "name": "Helper",
+      "escort": true,
+      "health": "2xL+3",
+      "initiative": 50,
+      "marker": "f",
+      "count": 5
+    },
+    {
+      "name": "Helper",
+      "escort": true,
+      "health": "2xL+3",
+      "initiative": 50,
+      "marker": "g",
+      "count": "C > 2 ? 1 : 0"
+    },
+    {
+      "name": "Helper",
+      "escort": true,
+      "health": "2xL+3",
+      "initiative": 50,
+      "marker": "h",
+      "count": "C > 3 ? 1 : 0"
+    },
+    {
+      "name": "Crate",
+      "health": "L+1",
+      "count": 2
+    },
+    {
+      "name": "Barrel",
+      "health": "L+1",
+      "count": 3
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 5,
+    "lumber": 3,
+    "metal": 3,
+    "hide": 2,
+    "flamefruit": 1,
+    "snowthistle": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "snow-imp",
+          "type": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "type": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "fromFile": true,
+  "index": "40.2",
+  "name": "Dead Pass",
+  "edition": "fh",
+  "parent": "46",
+  "resetRound": "visible",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "type": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "shrike-fiend",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

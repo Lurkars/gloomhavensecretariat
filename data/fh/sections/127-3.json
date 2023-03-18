@@ -1,0 +1,41 @@
+{
+  "index": "127.3",
+  "name": "Prison Break",
+  "edition": "fh",
+  "parent": "99",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "type": "normal"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

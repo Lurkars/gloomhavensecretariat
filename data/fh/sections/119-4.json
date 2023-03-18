@@ -1,0 +1,42 @@
+{
+  "index": "119.4",
+  "name": "A Growing Problem",
+  "edition": "fh",
+  "parent": "124",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

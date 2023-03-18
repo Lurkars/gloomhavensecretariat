@@ -1,0 +1,61 @@
+{
+  "fromFile": true,
+  "index": "121",
+  "name": "Black Memories",
+  "edition": "fh",
+  "monsters": [
+    "vermling-priest",
+    "vermling-scout"
+  ],
+  "lootDeckConfig": {
+    "money": 9,
+    "lumber": 3,
+    "metal": 3,
+    "hide": 2,
+    "rockroot": 1,
+    "axenut": 1,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "vermling-priest",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-priest",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

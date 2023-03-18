@@ -1,0 +1,46 @@
+{
+  "index": "116.2",
+  "name": "Underground Station",
+  "edition": "fh",
+  "parent": "96",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

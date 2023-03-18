@@ -1,0 +1,34 @@
+{
+  "fromFile": true,
+  "index": "131",
+  "name": "The Dancing Iceberg",
+  "edition": "fh",
+  "monsters": [
+    "lurker-mindsnipper",
+    "lurker-soldier",
+    "lurker-wavethrower-scenario-131"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lurker-mindsnipper",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

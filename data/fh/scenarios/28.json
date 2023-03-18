@@ -1,0 +1,117 @@
+{
+  "fromFile": true,
+  "index": "28",
+  "name": "Summit Meeting",
+  "edition": "fh",
+  "allyDeck": true,
+  "unlocks": [
+    "38"
+  ],
+  "blocks": [
+    "29",
+    "30"
+  ],
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "algox-icespeaker",
+    "algox-snowspeaker"
+  ],
+  "objectives": [
+    {
+      "name": "Emissary",
+      "escort": true,
+      "health": "2x(L+2)",
+      "initiative": 99,
+      "marker": "a",
+      "count": 2
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 11,
+    "lumber": 2,
+    "hide": 3,
+    "rockroot": 2,
+    "arrowvine": 1,
+    "axenut": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-icespeaker",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-icespeaker",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-icespeaker",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-icespeaker",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-snowspeaker",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-snowspeaker",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-snowspeaker",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-snowspeaker",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

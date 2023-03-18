@@ -1,0 +1,82 @@
+{
+  "fromFile": true,
+  "index": "64",
+  "name": "The Frosthaven Seal",
+  "edition": "fh",
+  "monsters": [
+    "burrowing-blade",
+    "guard-captain",
+    "living-doom",
+    "living-spirit",
+    "shrike-fiend",
+    "vestige-of-the-imprisoned-god"
+  ],
+  "allies": [
+    "guard-captain"
+  ],
+  "objectives": [
+    {
+      "name": "Tree",
+      "escort": true,
+      "health": "(L+C)x3",
+      "initiative": 1
+    },
+    {
+      "name": "Militia",
+      "escort": true,
+      "health": "L/2+2",
+      "initiative": 51,
+      "count": "Cx2"
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 5,
+    "lumber": 4,
+    "metal": 4,
+    "hide": 4,
+    "axenut": 2,
+    "flamefruit": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "living-doom",
+          "type": "normal"
+        },
+        {
+          "name": "living-doom",
+          "type": "normal"
+        },
+        {
+          "name": "living-doom",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-doom",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

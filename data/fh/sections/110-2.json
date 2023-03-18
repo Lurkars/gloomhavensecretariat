@@ -1,0 +1,34 @@
+{
+  "index": "110.2",
+  "name": "Temple of Feline Power",
+  "edition": "fh",
+  "parent": "132",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

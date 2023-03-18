@@ -1,0 +1,56 @@
+{
+  "fromFile": true,
+  "index": "110",
+  "name": "Guardian's Temple",
+  "edition": "fh",
+  "random": true,
+  "monsters": [
+    "living-doom",
+    "living-spirit",
+    "ruined-machine",
+    "shrike-fiend"
+  ],
+  "lootDeckConfig": {
+    "money": 6,
+    "lumber": 2,
+    "metal": 3,
+    "hide": 2,
+    "rockroot": 1,
+    "corpsecap": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "type": "normal"
+        },
+        {
+          "name": "shrike-fiend",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

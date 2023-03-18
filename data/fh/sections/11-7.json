@@ -1,0 +1,26 @@
+{
+  "fromFile": true,
+  "index": "11.7",
+  "name": "The Lead Door",
+  "edition": "fh",
+  "parent": "103",
+  "objectives": [
+    {
+      "name": "Ice Pillar",
+      "health": "(2xL)+4"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

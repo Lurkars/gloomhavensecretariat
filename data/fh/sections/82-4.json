@@ -1,0 +1,33 @@
+{
+  "index": "82.4",
+  "name": "The Lurker Problem",
+  "edition": "fh",
+  "parent": "78",
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lurker-soldier",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "index": "141.1",
+  "name": "A Giant Block of Ice",
+  "edition": "fh",
+  "parent": "72",
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

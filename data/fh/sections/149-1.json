@@ -1,0 +1,39 @@
+{
+  "index": "149.1",
+  "name": "Nerve Center",
+  "edition": "fh",
+  "parent": "44",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "type": "elite"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

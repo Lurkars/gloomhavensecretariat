@@ -1,0 +1,44 @@
+{
+  "index": "138.2",
+  "name": "Ice Cave",
+  "edition": "fh",
+  "parent": "111",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

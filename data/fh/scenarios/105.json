@@ -1,0 +1,64 @@
+{
+  "fromFile": true,
+  "index": "105",
+  "name": "Ruins of the Equinox",
+  "edition": "fh",
+  "unlocks": [
+    "106"
+  ],
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "rending-drake",
+    "savvas-lavaflow",
+    "wind-demon"
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 3,
+    "metal": 3,
+    "hide": 2,
+    "corpsecap": 1,
+    "flamefruit": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "savvas-lavaflow",
+          "type": "elite"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

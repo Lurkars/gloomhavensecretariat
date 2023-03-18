@@ -1,0 +1,31 @@
+{
+  "index": "105.4",
+  "name": "Apotheosis",
+  "edition": "fh",
+  "parent": "76",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flaming-bladespinner",
+          "type": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "type": "elite"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

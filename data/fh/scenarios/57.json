@@ -1,0 +1,22 @@
+{
+  "fromFile": true,
+  "index": "57",
+  "name": "Sanctuary of Snow",
+  "edition": "fh",
+  "monsters": [
+    "render",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "render",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

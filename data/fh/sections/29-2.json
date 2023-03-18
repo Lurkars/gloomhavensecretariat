@@ -1,0 +1,22 @@
+{
+  "fromFile": true,
+  "index": "29.2",
+  "name": "Crystal Trench",
+  "edition": "fh",
+  "parent": "106",
+  "monsters": [
+    "blacksmith"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "blacksmith",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

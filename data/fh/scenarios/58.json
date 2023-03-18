@@ -1,0 +1,61 @@
+{
+  "fromFile": true,
+  "index": "58",
+  "name": "Orphan's Core",
+  "edition": "fh",
+  "blocks": [
+    "59"
+  ],
+  "monsters": [
+    "flaming-bladespinner",
+    "orphan",
+    "ruined-machine",
+    "steel-automaton"
+  ],
+  "objectives": [
+    {
+      "name": "Glowing Orb",
+      "health": "(L+3)x2xC"
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 6,
+    "lumber": 2,
+    "metal": 4,
+    "corpsecap": 1,
+    "flamefruit": 1,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flaming-bladespinner",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "orphan",
+          "type": "boss"
+        },
+        {
+          "name": "steel-automaton",
+          "type": "normal"
+        },
+        {
+          "name": "steel-automaton",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

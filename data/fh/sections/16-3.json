@@ -1,0 +1,58 @@
+{
+  "index": "16.3",
+  "name": "Beneath Sea and Stone",
+  "edition": "fh",
+  "parent": "49",
+  "parentSections": [
+    "94.2"
+  ],
+  "marker": "2",
+  "objectives": [
+    {
+      "name": "Ice Pillar",
+      "health": "[(L+1)xC/2{$math.floor}]",
+      "marker": "b"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "04-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

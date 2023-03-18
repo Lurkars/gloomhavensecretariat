@@ -1,0 +1,44 @@
+{
+  "index": "191.3",
+  "name": "Ruins of the Equinox",
+  "edition": "fh",
+  "parent": "105",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "type": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

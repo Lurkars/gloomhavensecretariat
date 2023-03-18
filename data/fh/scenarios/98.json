@@ -1,0 +1,59 @@
+{
+  "fromFile": true,
+  "index": "98",
+  "name": "Collapsing Vent",
+  "edition": "fh",
+  "monsters": [
+    "ancient-artillery",
+    "black-imp",
+    "burrowing-blade",
+    "spitting-drake"
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 1,
+    "metal": 4,
+    "hide": 3,
+    "rockroot": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

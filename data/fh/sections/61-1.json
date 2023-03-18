@@ -1,0 +1,48 @@
+{
+  "index": "61.1",
+  "name": "Orphan's Core",
+  "edition": "fh",
+  "parent": "58",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

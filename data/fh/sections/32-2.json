@@ -1,0 +1,29 @@
+{
+  "index": "32.2",
+  "name": "Crackling Tunnel",
+  "edition": "fh",
+  "parent": "31",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flaming-bladespinner",
+          "type": "elite"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

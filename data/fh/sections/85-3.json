@@ -1,0 +1,24 @@
+{
+  "index": "85.3",
+  "name": "Relic",
+  "edition": "fh",
+  "parent": "79",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "polar-bear",
+          "type": "elite"
+        },
+        {
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

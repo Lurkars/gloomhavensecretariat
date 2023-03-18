@@ -1,0 +1,39 @@
+{
+  "fromFile": true,
+  "index": "17.1",
+  "name": "Unfettered Shard",
+  "edition": "fh",
+  "parent": "41",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "living-doom",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

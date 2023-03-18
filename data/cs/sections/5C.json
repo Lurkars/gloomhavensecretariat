@@ -42,11 +42,11 @@
         },
         {
           "name": "city-guard-scenario-4:-1",
+          "type": "normal",
           "marker": "b",
           "tags": [
             "5C"
-          ],
-          "type": "normal"
+          ]
         },
         {
           "name": "toxic-imp",

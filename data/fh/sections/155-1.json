@@ -1,0 +1,48 @@
+{
+  "index": "155.1",
+  "name": "My Private Empire",
+  "edition": "fh",
+  "parent": "107",
+  "rooms": [
+    {
+      "roomNumber": 7,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flaming-bladespinner",
+          "type": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "type": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

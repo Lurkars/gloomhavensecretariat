@@ -1,0 +1,33 @@
+{
+  "index": "162.1",
+  "name": "Furious Factory",
+  "edition": "fh",
+  "parent": "109",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal"
+        }
+      ]
+    }
+  ]
+}

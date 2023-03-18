@@ -1,0 +1,16 @@
+{
+  "index": "36.1",
+  "name": "A Contained Fire",
+  "edition": "fh",
+  "parent": "89",
+  "objectives": [
+    {
+      "name": "Altar a",
+      "health": "(L+1)xC/2"
+    },
+    {
+      "name": "Altar b",
+      "health": "(L+1)xC/2"
+    }
+  ]
+}

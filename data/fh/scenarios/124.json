@@ -1,0 +1,50 @@
+{
+  "fromFile": true,
+  "index": "124",
+  "name": "A Growing Problem",
+  "edition": "fh",
+  "unlocks": [
+    "125"
+  ],
+  "monsters": [
+    "living-bones",
+    "living-spirit"
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 4,
+    "metal": 2,
+    "hide": 2,
+    "snowthistle": 1,
+    "arrowvine": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

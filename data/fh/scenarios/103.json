@@ -1,0 +1,45 @@
+{
+  "fromFile": true,
+  "index": "103",
+  "name": "The Lead Door",
+  "edition": "fh",
+  "monsters": [
+    "living-doom",
+    "living-spirit",
+    "lurker-clawcrusher",
+    "shrike-fiend"
+  ],
+  "objectives": [
+    {
+      "name": "Ice Pillar",
+      "health": "(2xL)+4",
+      "count": 4
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 15,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

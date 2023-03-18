@@ -1,0 +1,67 @@
+{
+  "fromFile": true,
+  "index": "137",
+  "name": "The Pirate Queen's Lair",
+  "edition": "fh",
+  "monsters": [
+    "ancient-artillery",
+    "flaming-bladespinner",
+    "forest-imp",
+    "piranha-pig",
+    "polar-bear",
+    "robotic-boltshooter"
+  ],
+  "lootDeckConfig": {
+    "money": 12,
+    "lumber": 4,
+    "metal": 4,
+    "hide": 4,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

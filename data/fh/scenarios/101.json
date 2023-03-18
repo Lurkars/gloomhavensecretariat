@@ -1,0 +1,50 @@
+{
+  "fromFile": true,
+  "index": "101",
+  "name": "Harrower Library",
+  "edition": "fh",
+  "unlocks": [
+    "102"
+  ],
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "algox-priest"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 3,
+    "metal": 3,
+    "hide": 3,
+    "rockroot": 1,
+    "arrowvine": 1,
+    "snowthistle": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "player3": "normal"
+        }
+      ]
+    }
+  ]
+}

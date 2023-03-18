@@ -1,0 +1,64 @@
+{
+  "index": "94.2",
+  "name": "Beneath Sea and Stone",
+  "edition": "fh",
+  "parent": "49",
+  "marker": "1",
+  "objectives": [
+    {
+      "name": "Ice Pillar",
+      "health": "[(L+1)xC/2{$math.floor}]"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "11-D",
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        }
+      ],
+      "objectives": [
+        1,
+        1
+      ]
+    }
+  ]
+}

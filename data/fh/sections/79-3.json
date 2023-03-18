@@ -1,0 +1,24 @@
+{
+  "index": "79.3",
+  "name": "Collection's Capstone",
+  "edition": "fh",
+  "parent": "88",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lurker-clawcrusher",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-clawcrusher",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

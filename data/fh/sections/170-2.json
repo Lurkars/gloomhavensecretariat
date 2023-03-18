@@ -1,0 +1,50 @@
+{
+  "index": "170.2",
+  "name": "Abandoned Hideout",
+  "edition": "fh",
+  "parent": "136",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lightning-eel",
+          "type": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

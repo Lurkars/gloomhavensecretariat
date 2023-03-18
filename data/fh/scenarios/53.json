@@ -1,0 +1,125 @@
+{
+  "index": "53",
+  "name": "Underwater Throne",
+  "edition": "fh",
+  "unlocks": [
+    "60"
+  ],
+  "monsters": [
+    "lurker-clawcrusher",
+    "lurker-mindsnipper",
+    "lurker-soldier",
+    "seeker-of-the-abyss"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 2,
+    "metal": 2,
+    "hide": 3,
+    "arrowvine": 2,
+    "axenut": 2,
+    "random_item": 1
+  },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "minus1:3",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": "(?!.*coral|kelp).*"
+          },
+          "type": "amAdd",
+          "value": "curse:2"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-soldier",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "lurker-mindsnipper",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "16-B",
+      "initial": true,
+      "monster": [
+        {
+          "name": "lurker-clawcrusher",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "seeker-of-the-abyss",
+          "type": "boss"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "07-A",
+      "initial": true,
+      "treasures": [
+        "63"
+      ],
+      "monster": [
+        {
+          "name": "lurker-soldier",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

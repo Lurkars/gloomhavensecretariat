@@ -1,0 +1,33 @@
+{
+  "index": "99.4",
+  "name": "Call of the Harbinger",
+  "edition": "fh",
+  "parent": "56",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player4": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "type": "normal"
+        },
+        {
+          "name": "shrike-fiend",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

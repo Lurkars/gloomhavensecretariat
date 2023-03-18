@@ -1,0 +1,71 @@
+{
+  "fromFile": true,
+  "index": "99",
+  "name": "Prison Break",
+  "edition": "fh",
+  "unlocks": [
+    "100"
+  ],
+  "monsters": [
+    "frozen-corpse",
+    "robotic-boltshooter",
+    "steel-automaton"
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 2,
+    "metal": 4,
+    "hide": 2,
+    "arrowvine": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-corpse",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "type": "normal"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "type": "normal"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player4": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

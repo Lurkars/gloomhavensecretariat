@@ -1,0 +1,69 @@
+{
+  "fromFile": true,
+  "index": "136",
+  "name": "Abandoned Hideout",
+  "edition": "fh",
+  "monsters": [
+    "lightning-eel",
+    "living-bones",
+    "living-spirit",
+    "lurker-wavethrower",
+    "piranha-pig"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 4,
+    "hide": 4,
+    "snowthistle": 1,
+    "arrowvine": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lightning-eel",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

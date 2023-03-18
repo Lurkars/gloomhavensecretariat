@@ -1,0 +1,27 @@
+{
+  "index": "124.2",
+  "name": "Bolt",
+  "edition": "fh",
+  "parent": "133",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "polar-bear",
+          "type": "normal"
+        },
+        {
+          "name": "polar-bear",
+          "type": "elite"
+        },
+        {
+          "name": "polar-bear",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

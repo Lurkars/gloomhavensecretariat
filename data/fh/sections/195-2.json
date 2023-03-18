@@ -1,0 +1,22 @@
+{
+  "fromFile": true,
+  "index": "195.2",
+  "name": "Furios Factory",
+  "edition": "fh",
+  "parent": "109",
+  "monsters": [
+    "laser-spires"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 7,
+      "initial": true,
+      "monster": [
+        {
+          "name": "laser-spire-controller",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

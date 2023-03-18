@@ -1,0 +1,41 @@
+{
+  "index": "173.3",
+  "name": "Bolt",
+  "edition": "fh",
+  "parent": "133",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "forest-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

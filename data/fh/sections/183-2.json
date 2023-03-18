@@ -1,0 +1,28 @@
+{
+  "index": "183.2",
+  "name": "Lush Grotto",
+  "edition": "fh",
+  "parent": "113",
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

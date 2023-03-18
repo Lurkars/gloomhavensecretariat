@@ -1,0 +1,63 @@
+{
+  "fromFile": true,
+  "index": "112",
+  "name": "Raised by Wolves",
+  "edition": "fh",
+  "random": true,
+  "monsters": [
+    "burrowing-blade",
+    "chaos-demon",
+    "earth-demon",
+    "hound-scenario-112"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 1,
+    "metal": 3,
+    "hide": 5,
+    "rockroot": 2,
+    "axenut": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "burrowing-blade",
+          "type": "elite"
+        },
+        {
+          "name": "burrowing-blade",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "burrowing-blade",
+          "player4": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound-scenario-112",
+          "type": "normal"
+        },
+        {
+          "name": "hound-scenario-112",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

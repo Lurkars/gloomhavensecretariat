@@ -1,0 +1,18 @@
+{
+  "index": "154.4",
+  "name": "Tower of Knowledge",
+  "edition": "fh",
+  "parent": "134",
+  "rooms": [
+    {
+      "roomNumber": 8,
+      "initial": true,
+      "monster": [
+        {
+          "name": "steel-automaton-scenario-134",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

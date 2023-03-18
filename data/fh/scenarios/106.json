@@ -1,0 +1,29 @@
+{
+  "fromFile": true,
+  "index": "106",
+  "name": "The Tempus Forge",
+  "edition": "fh",
+  "monsters": [
+    "city-guard",
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "wind-demon"
+  ],
+  "lootDeckConfig": {
+    "money": 7,
+    "lumber": 2,
+    "metal": 4,
+    "hide": 2,
+    "rockroot": 2,
+    "arrowvine": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "index": "71",
+  "name": "Invasion of the Dock",
+  "edition": "fh",
+  "allyDeck": true,
+  "unlocks": [
+    "72"
+  ],
+  "monsters": [
+    "abael-scout",
+    "lightning-eel",
+    "lurker-clawcrusher",
+    "lurker-mindsnipper",
+    "lurker-wavethrower",
+    "piranha-pig"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 4,
+    "metal": 4,
+    "hide": 4
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "09-D",
+      "initial": true,
+      "monster": [
+        {
+          "name": "abael-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "abael-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

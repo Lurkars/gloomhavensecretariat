@@ -1,0 +1,70 @@
+{
+  "fromFile": true,
+  "index": "130",
+  "name": "And Then, A Stream",
+  "edition": "fh",
+  "monsters": [
+    "frozen-corpse",
+    "lightning-eel",
+    "shrike-fiend"
+  ],
+  "lootDeckConfig": {
+    "money": 6,
+    "lumber": 5,
+    "metal": 2,
+    "hide": 3,
+    "flamefruit": 1,
+    "arrowvine": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-corpse",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player4": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "type": "normal"
+        },
+        {
+          "name": "shrike-fiend",
+          "type": "normal"
+        },
+        {
+          "name": "shrike-fiend",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

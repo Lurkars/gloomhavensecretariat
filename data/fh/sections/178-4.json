@@ -1,0 +1,13 @@
+{
+  "index": "178.4",
+  "name": "Deadly Pastimes",
+  "edition": "fh",
+  "parent": "85",
+  "rooms": [
+    {
+      "roomNumber": 16,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

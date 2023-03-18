@@ -1,0 +1,13 @@
+{
+  "index": "171.1",
+  "name": "Temple of Feline Power",
+  "edition": "fh",
+  "parent": "132",
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

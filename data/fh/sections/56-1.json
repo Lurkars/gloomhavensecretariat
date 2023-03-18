@@ -1,0 +1,28 @@
+{
+  "index": "56.1",
+  "name": "Deadly Pastimes",
+  "edition": "fh",
+  "parent": "85",
+  "rooms": [
+    {
+      "roomNumber": 6,
+      "initial": true,
+      "monster": [
+        {
+          "name": "burrowing-blade",
+          "type": "normal"
+        },
+        {
+          "name": "burrowing-blade",
+          "player4": "normal"
+        },
+        {
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

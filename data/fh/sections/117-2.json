@@ -1,0 +1,43 @@
+{
+  "index": "117.2",
+  "name": "Overrun Barricade",
+  "edition": "fh",
+  "parent": "43",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "robotic-boltshooter",
+          "type": "normal"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "type": "normal"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player4": "normal"
+        },
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

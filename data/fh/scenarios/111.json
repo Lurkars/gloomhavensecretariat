@@ -1,0 +1,63 @@
+{
+  "fromFile": true,
+  "index": "111",
+  "name": "Ice Cave",
+  "edition": "fh",
+  "random": true,
+  "monsters": [
+    "frost-demon",
+    "hound",
+    "night-demon",
+    "wind-demon"
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 1,
+    "metal": 3,
+    "hide": 3,
+    "corpse": 1,
+    "arrowvine": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "index": "154.2",
+  "name": "How to Lay an Ambush",
+  "edition": "fh",
+  "parent": "129",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-priest",
+          "type": "normal"
+        },
+        {
+          "name": "algox-priest",
+          "type": "normal"
+        },
+        {
+          "name": "algox-priest",
+          "type": "elite"
+        },
+        {
+          "name": "algox-priest",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

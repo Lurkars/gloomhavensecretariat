@@ -1,0 +1,13 @@
+{
+  "index": "33.3",
+  "name": "Tower of Knowledge",
+  "edition": "fh",
+  "parent": "134",
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

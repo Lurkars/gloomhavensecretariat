@@ -1,0 +1,52 @@
+{
+  "fromFile": true,
+  "index": "56",
+  "name": "Call of the Harbinger",
+  "edition": "fh",
+  "monsters": [
+    "black-imp",
+    "harbinger-of-shadow",
+    "harrower-infester",
+    "shrike-fiend"
+  ],
+  "objectives": [
+    {
+      "name": "Altar",
+      "health": "(L+1)xC"
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 6,
+    "lumber": 5,
+    "metal": 2,
+    "hide": 2,
+    "rockroot": 2,
+    "flamefruit": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

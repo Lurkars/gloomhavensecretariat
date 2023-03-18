@@ -1,0 +1,40 @@
+{
+  "index": "45.1",
+  "name": "Carrion Ridge",
+  "edition": "fh",
+  "parent": "47",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-icespeaker",
+          "type": "normal"
+        },
+        {
+          "name": "algox-icespeaker",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

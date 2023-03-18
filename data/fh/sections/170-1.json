@@ -1,0 +1,48 @@
+{
+  "index": "170.1",
+  "name": "A Tall Drunken Trail",
+  "edition": "fh",
+  "parent": "128",
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "abael-scout",
+          "type": "elite"
+        },
+        {
+          "name": "abael-scout",
+          "type": "elite"
+        },
+        {
+          "name": "abael-scout",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "abael-scout",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-wavethrower-scenario-128",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-wavethrower-scenario-128",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-wavethrower-scenario-128",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-wavethrower-scenario-128",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

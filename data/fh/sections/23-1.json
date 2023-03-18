@@ -1,0 +1,29 @@
+{
+  "fromFile": true,
+  "index": "23.1",
+  "name": "The Way Forward",
+  "edition": "fh",
+  "parent": "38",
+  "resetRound": "visible",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "sun-demon",
+          "type": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

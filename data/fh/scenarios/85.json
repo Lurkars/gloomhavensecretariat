@@ -1,0 +1,83 @@
+{
+  "fromFile": true,
+  "index": "85",
+  "name": "Deadly Pastimes",
+  "edition": "fh",
+  "monsters": [
+    "black-imp",
+    "burrowing-blade",
+    "lightning-eel",
+    "polar-bear"
+  ],
+  "lootDeckConfig": {
+    "money": 7,
+    "lumber": 2,
+    "metal": 3,
+    "hide": 4,
+    "rockroot": 2,
+    "snowthistle": 1,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "burrowing-blade",
+          "type": "elite"
+        },
+        {
+          "name": "burrowing-blade",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player4": "elite"
+        },
+        {
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

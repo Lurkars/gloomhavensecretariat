@@ -1,0 +1,41 @@
+{
+  "fromFile": true,
+  "index": "58.2",
+  "name": "Rusted Tunnels",
+  "edition": "fh",
+  "parent": "25",
+  "objectives": [
+    {
+      "name": "Large Debris 1",
+      "health": "(L+2)xC"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flaming-bladespinner",
+          "type": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "type": "normal"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

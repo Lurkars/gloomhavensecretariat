@@ -1,0 +1,13 @@
+{
+  "index": "131.3",
+  "name": "Collapsing Vent",
+  "edition": "fh",
+  "parent": "98",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

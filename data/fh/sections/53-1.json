@@ -1,0 +1,38 @@
+{
+  "index": "53.1",
+  "name": "Realm of Endless Frost",
+  "edition": "fh",
+  "parent": "21",
+  "parentSections": [
+    "48.1"
+  ],
+  "marker": "3",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "13-E",
+      "initial": true,
+      "monster": [
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "prince-of-frost",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

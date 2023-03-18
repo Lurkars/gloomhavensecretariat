@@ -1,0 +1,52 @@
+{
+  "fromFile": true,
+  "index": "62",
+  "name": "The Unfettered Seal",
+  "edition": "fh",
+  "unlocks": [
+    "63"
+  ],
+  "monsters": [
+    "black-imp",
+    "chaos-demon",
+    "harrower-infester"
+  ],
+  "objectives": [
+    {
+      "name": "Crain",
+      "escort": true,
+      "health": "(L+C)x2+2",
+      "initiative": 99,
+      "marker": "a"
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 5,
+    "lumber": 4,
+    "metal": 4,
+    "hide": 4,
+    "snowthistle": 2,
+    "arrowvine": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

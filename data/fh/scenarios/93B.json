@@ -1,0 +1,78 @@
+{
+  "fromFile": true,
+  "index": "93B",
+  "name": "Midwinter Brawl B",
+  "edition": "fh",
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "algox-scout",
+    "hound",
+    "polar-bear",
+    "scabwit",
+    "vermling-scout",
+    "yoglang"
+  ],
+  "lootDeckConfig": {
+    "money": 9,
+    "lumber": 4,
+    "metal": 2,
+    "hide": 2,
+    "axenut": 1,
+    "flamefruit": 1,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "polar-bear",
+          "type": "normal"
+        },
+        {
+          "name": "polar-bear",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "scabwit",
+          "type": "boss"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "elite"
+        },
+        {
+          "name": "yoglang",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

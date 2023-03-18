@@ -1,0 +1,81 @@
+{
+  "fromFile": true,
+  "index": "60",
+  "name": "Uniting the Crown",
+  "edition": "fh",
+  "monsters": [
+    "fracture-of-the-deep",
+    "lightning-eel",
+    "lurker-clawcrusher",
+    "lurker-mindsnipper",
+    "lurker-wavethrower"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "arrowvine": 1,
+    "axenut": 1,
+    "corpsecap": 1,
+    "rockroot": 1,
+    "flamefruit": 1,
+    "snowthistle": 1,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "fracture-of-the-deep",
+          "type": "boss"
+        },
+        {
+          "name": "lightning-eel",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-clawcrusher",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-clawcrusher",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

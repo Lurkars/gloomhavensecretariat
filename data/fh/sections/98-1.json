@@ -1,0 +1,50 @@
+{
+  "index": "98.1",
+  "name": "The Eternal Crave",
+  "edition": "fh",
+  "parent": "122",
+  "blockedSections": [
+    "152.1"
+  ],
+  "marker": "1",
+  "monsters": [
+    "hungry-maw",
+    "snow-imp"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "15-C",
+      "initial": true,
+      "monster": [
+        {
+          "name": "hungry-maw",
+          "type": "boss"
+        },
+        {
+          "name": "snow-imp",
+          "type": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "type": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

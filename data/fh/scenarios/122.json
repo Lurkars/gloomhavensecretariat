@@ -1,0 +1,22 @@
+{
+  "fromFile": true,
+  "index": "122",
+  "name": "The Eternal Crave",
+  "edition": "fh",
+  "lootDeckConfig": {
+    "money": 6,
+    "lumber": 3,
+    "metal": 3,
+    "hide": 4,
+    "rockroot": 2,
+    "axenut": 1,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

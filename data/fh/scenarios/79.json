@@ -1,0 +1,71 @@
+{
+  "fromFile": true,
+  "index": "79",
+  "name": "Relic",
+  "edition": "fh",
+  "unlocks": [
+    "80"
+  ],
+  "monsters": [
+    "frozen-corpse",
+    "ice-wraith",
+    "polar-bear",
+    "snow-imp"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 3,
+    "metal": 5,
+    "hide": 2,
+    "corpsecap": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "player4": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "type": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "type": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

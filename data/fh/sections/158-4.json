@@ -1,0 +1,36 @@
+{
+  "index": "158.4",
+  "name": "The Longest Second",
+  "edition": "fh",
+  "parent": "125",
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "robotic-boltshooter",
+          "type": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

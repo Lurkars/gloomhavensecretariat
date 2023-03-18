@@ -1,0 +1,13 @@
+{
+  "index": "149.4",
+  "name": "My Private Empire",
+  "edition": "fh",
+  "parent": "107",
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "fromFile": true,
+  "index": "41",
+  "name": "Unfettered Shard",
+  "edition": "fh",
+  "monsters": [
+    "deep-terror",
+    "living-doom",
+    "living-spirit",
+    "night-demon"
+  ],
+  "lootDeckConfig": {
+    "money": 9,
+    "lumber": 2,
+    "metal": 2,
+    "hide": 2,
+    "rockroot": 2,
+    "corpsecap": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "elite"
+        },
+        {
+          "name": "living-doom",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

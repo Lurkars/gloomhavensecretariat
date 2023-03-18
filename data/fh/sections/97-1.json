@@ -1,0 +1,35 @@
+{
+  "index": "97.1",
+  "name": "Raised by Wolves",
+  "edition": "fh",
+  "parent": "112",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "type": "elite"
+        },
+        {
+          "name": "chaos-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

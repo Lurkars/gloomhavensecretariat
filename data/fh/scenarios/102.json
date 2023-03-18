@@ -1,0 +1,27 @@
+{
+  "fromFile": true,
+  "index": "102",
+  "name": "Into the Black",
+  "edition": "fh",
+  "unlocks": [
+    "103"
+  ],
+  "monsters": [
+    "chaos-demon",
+    "frost-demon",
+    "living-spirit",
+    "night-demon",
+    "savvas-icestorm",
+    "wind-demon"
+  ],
+  "lootDeckConfig": {
+    "money": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

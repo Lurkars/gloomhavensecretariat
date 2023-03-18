@@ -1,0 +1,44 @@
+{
+  "fromFile": true,
+  "index": "115.2",
+  "name": "Black Memories",
+  "edition": "fh",
+  "parent": "121",
+  "monsters": [
+    "large-vermling-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "large-vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "large-vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "large-vermling-scout",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-priest",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-priest",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-priest",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

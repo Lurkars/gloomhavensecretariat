@@ -1,0 +1,42 @@
+{
+  "fromFile": true,
+  "index": "72",
+  "name": "A Giant Block of Ice",
+  "edition": "fh",
+  "unlocks": [
+    "73"
+  ],
+  "forcedLinks": [
+    "73"
+  ],
+  "monsters": [
+    "frozen-corpse",
+    "ice-wraith",
+    "living-bones",
+    "steel-automaton"
+  ],
+  "lootDeckConfig": {
+    "money": 9,
+    "lumber": 3,
+    "metal": 5,
+    "corpsecap": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ice-wraith",
+          "type": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

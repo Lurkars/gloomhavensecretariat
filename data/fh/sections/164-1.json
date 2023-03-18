@@ -1,0 +1,33 @@
+{
+  "index": "164.1",
+  "name": "Gaps in the Road",
+  "edition": "fh",
+  "parent": "74",
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-priest",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

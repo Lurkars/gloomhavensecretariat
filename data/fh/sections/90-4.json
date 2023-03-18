@@ -1,0 +1,29 @@
+{
+  "index": "90.4",
+  "name": "Call of the Harbinger",
+  "edition": "fh",
+  "parent": "56",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "type": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

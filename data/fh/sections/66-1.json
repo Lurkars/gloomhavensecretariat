@@ -1,0 +1,98 @@
+{
+  "index": "66.1",
+  "name": "Ravens' Roost",
+  "edition": "fh",
+  "parent": "32",
+  "marker": "1",
+  "objectives": [
+    {
+      "name": "Raven Nest",
+      "health": "(L+2)xCx3",
+      "marker": "a",
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "[(L+1)/3{$math.ceil}]",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 10
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "R % 4 == 1",
+      "start": false,
+      "spawns": [
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R % 4 == 3",
+      "start": false,
+      "spawns": [
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "13-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "15-A",
+      "initial": "true",
+      "treasures": [
+        67
+      ],
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

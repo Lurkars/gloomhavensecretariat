@@ -1,0 +1,36 @@
+{
+  "index": "116.1",
+  "name": "My Private Empire",
+  "edition": "fh",
+  "parent": "107",
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
+        },
+        {
+          "name": "living-doom",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

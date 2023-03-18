@@ -1,0 +1,39 @@
+{
+  "fromFile": true,
+  "index": "157.1",
+  "name": "Orphan's Halls",
+  "edition": "fh",
+  "parent": "120",
+  "objectives": [
+    {
+      "name": "Glowing Orb",
+      "health": "((Lx2)+3)xC"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "robotic-boltshooter",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

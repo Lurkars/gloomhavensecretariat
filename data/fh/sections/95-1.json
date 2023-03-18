@@ -1,0 +1,26 @@
+{
+  "index": "95.1",
+  "name": "Depths of Delirium",
+  "edition": "fh",
+  "parent": "27",
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

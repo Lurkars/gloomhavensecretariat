@@ -1,0 +1,43 @@
+{
+  "index": "152.1",
+  "name": "The Eternal Crave",
+  "edition": "fh",
+  "parent": "122",
+  "blockedSections": [
+    "98.1"
+  ],
+  "marker": "2",
+  "monsters": [
+    "polar-bear",
+    "snow-imp"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "12-B",
+      "initial": true,
+      "monster": [
+        {
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "type": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

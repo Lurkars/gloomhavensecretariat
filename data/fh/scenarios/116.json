@@ -1,0 +1,60 @@
+{
+  "fromFile": true,
+  "index": "116",
+  "name": "Caravan Guards",
+  "edition": "fh",
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "algox-icespeaker",
+    "algox-scout"
+  ],
+  "objectives": [
+    {
+      "name": "Caravan Wagon",
+      "escort": true,
+      "health": "Cx2+L",
+      "initiative": 50,
+      "marker": "a",
+      "count": 5
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 5,
+    "lumber": 4,
+    "metal": 4,
+    "hide": 4,
+    "rockroot": 1,
+    "arrowvine": 1,
+    "axenut": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-scout",
+          "type": "normal"
+        },
+        {
+          "name": "algox-scout",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

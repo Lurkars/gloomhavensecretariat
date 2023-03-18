@@ -29,7 +29,7 @@
         },
         {
           "name": "ancient-artillery",
-          "player4": "normal"
+          "player3": "normal"
         },
         {
           "name": "ancient-artillery",
@@ -37,7 +37,7 @@
         },
         {
           "name": "ancient-artillery",
-          "playe3": "normal"
+          "player4": "normal"
         }
       ]
     }

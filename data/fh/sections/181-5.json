@@ -1,0 +1,24 @@
+{
+  "index": "181.5",
+  "name": "The Dancing Iceberg",
+  "edition": "fh",
+  "parent": "131",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lurker-mindsnipper",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

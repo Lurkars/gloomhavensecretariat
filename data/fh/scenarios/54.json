@@ -1,0 +1,33 @@
+{
+  "fromFile": true,
+  "index": "54",
+  "name": "Among the Wreckage",
+  "edition": "fh",
+  "unlocks": [
+    "60"
+  ],
+  "monsters": [
+    "lightning-eel",
+    "lurker-clawcrusher",
+    "lurker-mindsnipper",
+    "lurker-soldier",
+    "lurker-wavethrower",
+    "seeker-of-the-abyss"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 2,
+    "metal": 2,
+    "hide": 3,
+    "axenut": 2,
+    "arrowvine": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "index": "22",
+  "name": "Ice Floes",
+  "edition": "fh",
+  "unlocks": [
+    "33"
+  ],
+  "monsters": [
+    "lightning-eel",
+    "lurker-clawcrusher",
+    "lurker-wavethrower"
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 5,
+    "hide": 2,
+    "arrowvine": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "14-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "lurker-clawcrusher",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-clawcrusher",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

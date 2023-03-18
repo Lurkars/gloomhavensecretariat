@@ -1,0 +1,40 @@
+{
+  "index": "186.2",
+  "name": "Furious Factory",
+  "edition": "fh",
+  "parent": "109",
+  "rooms": [
+    {
+      "roomNumber": 6,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

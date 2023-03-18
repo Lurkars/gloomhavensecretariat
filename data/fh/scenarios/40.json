@@ -1,0 +1,52 @@
+{
+  "fromFile": true,
+  "index": "40",
+  "name": "Relief Effort",
+  "edition": "fh",
+  "unlocks": [
+    "48"
+  ],
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "flaming-bladespinner",
+    "ruined-machine",
+    "steel-automaton"
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 3,
+    "metal": 4,
+    "hide": 2,
+    "rockroot": 1,
+    "arrowvine": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "type": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

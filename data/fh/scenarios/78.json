@@ -1,0 +1,48 @@
+{
+  "fromFile": true,
+  "index": "78",
+  "name": "The Lurker Problem",
+  "edition": "fh",
+  "monsters": [
+    "abael-herder",
+    "abael-scout",
+    "lightning-eel",
+    "lurker-soldier",
+    "lurker-wavethrower",
+    "piranha-pig"
+  ],
+  "lootDeckConfig": {
+    "money": 6,
+    "lumber": 3,
+    "metal": 3,
+    "hide": 4,
+    "rockroot": 2,
+    "arrowvine": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lurker-soldier",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

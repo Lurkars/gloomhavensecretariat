@@ -1,0 +1,69 @@
+{
+  "index": "115.3",
+  "name": "Relief Effort",
+  "edition": "fh",
+  "parent": "40",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

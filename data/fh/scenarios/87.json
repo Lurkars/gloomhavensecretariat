@@ -1,0 +1,54 @@
+{
+  "fromFile": true,
+  "index": "87",
+  "name": "The Collection",
+  "edition": "fh",
+  "unlocks": [
+    "88"
+  ],
+  "links": [
+    "88"
+  ],
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "flaming-bladespinner",
+    "lurker-clawcrusher",
+    "polar-bear",
+    "steel-automaton"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 2,
+    "metal": 4,
+    "hide": 3,
+    "rockroot": 1,
+    "arrowvine": 1,
+    "corpsecap": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "type": "elite"
+        },
+        {
+          "name": "algox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

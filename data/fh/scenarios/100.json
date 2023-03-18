@@ -1,0 +1,41 @@
+{
+  "fromFile": true,
+  "index": "100",
+  "name": "Inside the Swarm",
+  "edition": "fh",
+  "unlocks": [
+    "101"
+  ],
+  "monsters": [
+    "burrowing-blade",
+    "earth-demon",
+    "lurker-mindsnipper",
+    "shrike-fiend"
+  ],
+  "lootDeckConfig": {
+    "money": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lurker-mindsnipper",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "shrike-fiend",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

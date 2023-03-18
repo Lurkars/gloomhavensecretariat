@@ -1,0 +1,72 @@
+{
+  "fromFile": true,
+  "index": "52",
+  "name": "Fleeting Permanence",
+  "edition": "fh",
+  "unlocks": [
+    "55"
+  ],
+  "requires": [
+    [
+      "45",
+      "46"
+    ]
+  ],
+  "monsters": [
+    "frost-demon",
+    "snow-imp"
+  ],
+  "lootDeckConfig": {
+    "money": 6,
+    "lumber": 2,
+    "metal": 2,
+    "hide": 5,
+    "corpsecap": 2,
+    "snowthistle": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

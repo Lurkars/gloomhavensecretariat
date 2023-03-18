@@ -1,0 +1,27 @@
+{
+  "index": "102.2",
+  "name": "Fish King's Ascension",
+  "edition": "fh",
+  "parent": "77",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

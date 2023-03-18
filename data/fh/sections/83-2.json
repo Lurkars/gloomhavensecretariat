@@ -1,0 +1,45 @@
+{
+  "index": "83.2",
+  "name": "Upper Spire",
+  "edition": "fh",
+  "parent": "24",
+  "monsters": [
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "08-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

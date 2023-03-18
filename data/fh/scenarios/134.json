@@ -1,0 +1,65 @@
+{
+  "fromFile": true,
+  "index": "134",
+  "name": "Tower of Knowledge",
+  "edition": "fh",
+  "monsters": [
+    "flaming-bladespinner",
+    "robotic-boltshooter",
+    "ruined-machine",
+    "shrike-fiend",
+    "steel-automaton-scenario-134"
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 2,
+    "metal": 4,
+    "hide": 2,
+    "arrowvine": 1,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flaming-bladespinner",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

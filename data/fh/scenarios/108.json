@@ -1,0 +1,61 @@
+{
+  "fromFile": true,
+  "index": "108",
+  "name": "Lustrous Pit",
+  "edition": "fh",
+  "random": true,
+  "monsters": [
+    "ice-wraith",
+    "snow-imp"
+  ],
+  "lootDeckConfig": {
+    "money": 15,
+    "lumber": 2,
+    "metal": 2,
+    "hide": 2,
+    "rockroot": 1,
+    "arrowvine": 1,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "type": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "type": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "type": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

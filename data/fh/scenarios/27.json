@@ -1,0 +1,68 @@
+{
+  "fromFile": true,
+  "index": "27",
+  "name": "Depths of Delirium",
+  "edition": "fh",
+  "monsters": [
+    "deep-terror",
+    "living-bones",
+    "ooze"
+  ],
+  "lootDeckConfig": {
+    "money": 13,
+    "lumber": 2,
+    "metal": 2,
+    "hide": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "index": "109.3",
+  "name": "The Eternal Crave",
+  "edition": "fh",
+  "parent": "122",
+  "parentSections": [
+    "8.4",
+    "145.1"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "15-B",
+      "initial": true,
+      "monster": [
+        {
+          "name": "ice-wraith",
+          "player2": "elite",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "player4": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "player4": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "elite"
+        }
+      ]
+    }
+  ]
+}

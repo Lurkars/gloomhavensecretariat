@@ -1,0 +1,32 @@
+{
+  "fromFile": true,
+  "index": "107",
+  "name": "My Private Empire",
+  "edition": "fh",
+  "random": true,
+  "monsters": [
+    "flaming-bladespinner",
+    "living-bones",
+    "living-doom",
+    "living-spirit",
+    "robotic-boltshooter",
+    "ruined-machine",
+    "steel-automaton"
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 3,
+    "metal": 3,
+    "flamefruit": 1,
+    "axenut": 1,
+    "arrowvine": 1,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

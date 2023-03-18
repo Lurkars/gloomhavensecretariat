@@ -1,0 +1,14 @@
+{
+  "index": "119.2",
+  "name": "A Contained Fire",
+  "edition": "fh",
+  "parent": "89",
+  "objectives": [
+    {
+      "name": "Faye",
+      "escort": true,
+      "health": "(Lx3)+8",
+      "initiative": 11
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "index": "48.1",
+  "name": "Realm of Endless Frost",
+  "edition": "fh",
+  "parent": "21",
+  "parentSections": [
+    "51.1"
+  ],
+  "marker": "2",
+  "objectives": [
+    {
+      "name": "Crate",
+      "health": "L+2"
+    },
+    {
+      "name": "Bookshelf",
+      "health": "L+2"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "07-E",
+      "initial": true,
+      "treasures": [
+        84
+      ],
+      "monster": [
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "normal"
+        }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ]
+    }
+  ]
+}

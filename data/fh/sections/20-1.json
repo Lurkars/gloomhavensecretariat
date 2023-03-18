@@ -1,0 +1,44 @@
+{
+  "index": "20.1",
+  "name": "Thawed Wood",
+  "edition": "fh",
+  "parent": "33",
+  "marker": "1",
+  "resetRound": "hidden",
+  "rules": [
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-imp",
+            "player2": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R > 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-imp",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "16-B",
+      "initial": true
+    }
+  ]
+}

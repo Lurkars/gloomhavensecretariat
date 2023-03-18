@@ -1,0 +1,30 @@
+{
+  "index": "186.3",
+  "name": "Guardian's Temple",
+  "edition": "fh",
+  "parent": "110",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal"
+        }
+      ]
+    }
+  ]
+}

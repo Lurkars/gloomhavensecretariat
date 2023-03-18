@@ -1,0 +1,26 @@
+{
+  "fromFile": true,
+  "index": "91",
+  "name": "Shoreline Scramble",
+  "edition": "fh",
+  "monsters": [
+    "lightning-eel",
+    "lurker-clawcrusher",
+    "lurker-mindsnipper",
+    "lurker-wavethrower"
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 4,
+    "hide": 4,
+    "flamefruit": 1,
+    "snowthistle": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

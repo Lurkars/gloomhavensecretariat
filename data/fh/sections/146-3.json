@@ -1,0 +1,39 @@
+{
+  "fromFile": true,
+  "index": "146.3",
+  "name": "A Contained Fire",
+  "edition": "fh",
+  "parent": "89",
+  "monsters": [
+    "vanjal"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-priest",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vanjal",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

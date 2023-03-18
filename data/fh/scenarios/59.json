@@ -1,0 +1,52 @@
+{
+  "fromFile": true,
+  "index": "59",
+  "name": "Automaton Uprising",
+  "edition": "fh",
+  "blocks": [
+    "58"
+  ],
+  "monsters": [
+    "flaming-bladespinner",
+    "robotic-boltshooter",
+    "ruined-machine",
+    "steel-automaton"
+  ],
+  "objectives": [
+    {
+      "name": "Orphan",
+      "escort": true,
+      "health": "(L+C)x2",
+      "initiative": 1,
+      "marker": "a"
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 11,
+    "metal": 4,
+    "rockroot": 1,
+    "snowthistle": 2,
+    "axenut": 1,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "robotic-boltshooter",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

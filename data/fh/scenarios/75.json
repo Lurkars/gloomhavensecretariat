@@ -1,0 +1,69 @@
+{
+  "fromFile": true,
+  "index": "75",
+  "name": "Infiltrating the Lair",
+  "edition": "fh",
+  "unlocks": [
+    "77"
+  ],
+  "forcedLinks": [
+    "77"
+  ],
+  "monsters": [
+    "abael-herder",
+    "abael-scout",
+    "chaos-demon",
+    "frost-demon",
+    "lightning-eel",
+    "piranha-pig"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "metal": 2,
+    "hide": 5,
+    "axenut": 1,
+    "snowthistle": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "abael-herder",
+          "type": "normal"
+        },
+        {
+          "name": "lightning-eel",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

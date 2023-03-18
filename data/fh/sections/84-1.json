@@ -1,0 +1,51 @@
+{
+  "fromFile": true,
+  "index": "84.1",
+  "name": "To Bury the Dead",
+  "edition": "fh",
+  "parent": "95",
+  "monsters": [
+    "reluctant-ghost"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-doom",
+          "type": "normal"
+        },
+        {
+          "name": "living-doom",
+          "player4": "normal"
+        },
+        {
+          "name": "reluctant-ghost",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

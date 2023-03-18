@@ -1,0 +1,47 @@
+{
+  "index": "96.2",
+  "name": "Radiant Dust",
+  "edition": "fh",
+  "parent": "119",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "burrowing-blade",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "type": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "player4": "normal"
+        },
+        {
+          "name": "shrike-fiend",
+          "type": "normal"
+        },
+        {
+          "name": "shrike-fiend",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

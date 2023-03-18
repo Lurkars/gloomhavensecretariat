@@ -1,0 +1,84 @@
+{
+  "fromFile": true,
+  "index": "76",
+  "name": "Apotheosis",
+  "edition": "fh",
+  "unlocks": [
+    "77"
+  ],
+  "forcedLinks": [
+    "77"
+  ],
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "fish-king",
+    "flaming-bladespinner",
+    "lurker-mindsnipper",
+    "piranha-pig"
+  ],
+  "lootDeckConfig": {
+    "money": 9,
+    "metal": 2,
+    "hide": 5,
+    "axenut": 1,
+    "snowthistle": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-archer",
+          "player3": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "fish-king",
+          "type": "boss"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

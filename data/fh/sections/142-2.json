@@ -1,0 +1,46 @@
+{
+  "index": "142.2",
+  "name": "A Strong Foundation",
+  "edition": "fh",
+  "parent": "65",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse-scenario-65",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones-scenario-65",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones-scenario-65",
+          "player4": "normal"
+        },
+        {
+          "name": "snow-imp-scenario-65",
+          "type": "normal"
+        },
+        {
+          "name": "snow-imp-scenario-65",
+          "type": "elite"
+        },
+        {
+          "name": "snow-imp-scenario-65",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "snow-imp-scenario-65",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

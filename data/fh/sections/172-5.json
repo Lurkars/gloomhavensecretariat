@@ -1,0 +1,26 @@
+{
+  "index": "172.5",
+  "name": "Furious Factory",
+  "edition": "fh",
+  "parent": "109",
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "type": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

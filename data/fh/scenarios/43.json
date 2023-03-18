@@ -1,0 +1,72 @@
+{
+  "fromFile": true,
+  "index": "43",
+  "name": "Overrun Barricade",
+  "edition": "fh",
+  "unlocks": [
+    "51"
+  ],
+  "forcedLinks": [
+    "51"
+  ],
+  "monsters": [
+    "robotic-boltshooter",
+    "ruined-machine",
+    "steel-automaton"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 2,
+    "metal": 4,
+    "rockroot": 1,
+    "arrowvine": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "robotic-boltshooter",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "fromFile": true,
+  "index": "89",
+  "name": "A Contained Fire",
+  "edition": "fh",
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "algox-priest"
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 2,
+    "metal": 2,
+    "hide": 2,
+    "flamefruit": 1,
+    "arrowvine": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

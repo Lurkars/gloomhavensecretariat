@@ -1,0 +1,40 @@
+{
+  "fromFile": true,
+  "index": "31",
+  "name": "Crackling Tunnel",
+  "edition": "fh",
+  "unlocks": [
+    "41"
+  ],
+  "monsters": [
+    "flaming-bladespinner",
+    "robotic-boltshooter",
+    "steel-automaton"
+  ],
+  "lootDeckConfig": {
+    "money": 11,
+    "lumber": 2,
+    "metal": 3,
+    "rockroot": 2,
+    "arrowvine": 1,
+    "flamefruit": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flaming-bladespinner",
+          "player3": "normal"
+        },
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

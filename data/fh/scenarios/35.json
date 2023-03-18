@@ -1,0 +1,66 @@
+{
+  "fromFile": true,
+  "index": "35",
+  "name": "Scrap Pit",
+  "edition": "fh",
+  "unlocks": [
+    "43"
+  ],
+  "monsters": [
+    "living-bones",
+    "ruined-machine",
+    "spitting-drake"
+  ],
+  "objectives": [
+    {
+      "name": "Crain",
+      "escort": true,
+      "health": "Cx(L+3)/2",
+      "initiative": 50,
+      "marker": "a"
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 7,
+    "lumber": 5,
+    "metal": 5,
+    "hide": 2,
+    "rockroot": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

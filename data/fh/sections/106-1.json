@@ -1,0 +1,31 @@
+{
+  "index": "106.1",
+  "name": "Corrupted Camp",
+  "edition": "fh",
+  "parent": "39",
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-scout",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "fromFile": true,
+  "index": "123",
+  "name": "The Titan",
+  "edition": "fh",
+  "monsters": [
+    "algox-snowspeaker",
+    "ancient-artillery"
+  ],
+  "lootDeckConfig": {
+    "money": 9,
+    "lumber": 2,
+    "metal": 6,
+    "flamefruit": 1,
+    "snowthistle": 1,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

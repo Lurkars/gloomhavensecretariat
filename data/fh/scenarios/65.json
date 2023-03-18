@@ -1,0 +1,64 @@
+{
+  "fromFile": true,
+  "index": "65",
+  "name": "A Strong Foundation",
+  "edition": "fh",
+  "unlocks": [
+    "66"
+  ],
+  "monsters": [
+    "frozen-corpse-scenario-65",
+    "living-bones-scenario-65",
+    "snow-imp-scenario-65"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 2,
+    "metal": 2,
+    "hide": 4,
+    "snowthistle": 2,
+    "arrowvine": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse-scenario-65",
+          "type": "elite"
+        },
+        {
+          "name": "frozen-corpse-scenario-65",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "frozen-corpse-scenario-65",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones-scenario-65",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones-scenario-65",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "snow-imp-scenario-65",
+          "type": "normal"
+        },
+        {
+          "name": "snow-imp-scenario-65",
+          "type": "normal"
+        },
+        {
+          "name": "snow-imp-scenario-65",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "fromFile": true,
+  "index": "128.4",
+  "name": "The Titan",
+  "edition": "fh",
+  "parent": "123",
+  "monsters": [
+    "power-core"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "power-core",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

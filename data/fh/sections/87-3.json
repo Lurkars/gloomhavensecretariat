@@ -1,0 +1,23 @@
+{
+  "index": "87.3",
+  "name": "A Grand View",
+  "edition": "fh",
+  "parent": "94",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

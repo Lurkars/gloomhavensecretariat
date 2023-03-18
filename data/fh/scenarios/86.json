@@ -1,0 +1,71 @@
+{
+  "fromFile": true,
+  "index": "86",
+  "name": "Lady in White",
+  "edition": "fh",
+  "monsters": [
+    "black-imp",
+    "earth-demon",
+    "ice-wraith"
+  ],
+  "objectives": [
+    {
+      "name": "Tree",
+      "health": "(2+L)xC"
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 4,
+    "hide": 2,
+    "axenut": 1,
+    "arrowvine": 2,
+    "flamefruit": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

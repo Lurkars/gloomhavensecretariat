@@ -1,0 +1,33 @@
+{
+  "fromFile": true,
+  "index": "14.3",
+  "name": "Temple of Liberation",
+  "edition": "fh",
+  "parent": "20",
+  "objectives": [
+    {
+      "name": "Glowing Orb",
+      "health": "(L+2)xC"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

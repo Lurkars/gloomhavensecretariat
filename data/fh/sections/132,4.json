@@ -1,0 +1,31 @@
+{
+  "index": "132,4",
+  "name": "A Tall Drunken Trail",
+  "edition": "fh",
+  "parent": "128",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

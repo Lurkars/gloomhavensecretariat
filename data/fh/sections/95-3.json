@@ -1,0 +1,60 @@
+{
+  "index": "95.3",
+  "name": "Invasion of the Dock",
+  "edition": "fh",
+  "parent": "71",
+  "parentSections": [
+    "111.2"
+  ],
+  "objectives": [
+    {
+      "name": "Artificer",
+      "escort": true,
+      "health": "(LxC)+2",
+      "initiative": 99,
+      "marker": "c",
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "always",
+      "once": true,
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "marker": "c",
+            "edition": "escort",
+            "name": "Artificer"
+          },
+          "type": "transfer",
+          "value": "1"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true
+    }
+  ]
+}

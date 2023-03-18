@@ -1,0 +1,73 @@
+{
+  "index": "150.2",
+  "name": "A Grand View",
+  "edition": "fh",
+  "parent": "94",
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "normal"
+        },
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "steel-automaton",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "fromFile": true,
+  "index": "73",
+  "name": "Flotsam",
+  "edition": "fh",
+  "unlocks": [
+    "74"
+  ],
+  "monsters": [
+    "abael-herder",
+    "abael-scout",
+    "fish-king",
+    "lightning-eel",
+    "piranha-pig"
+  ],
+  "lootDeckConfig": {
+    "money": 9,
+    "lumber": 5,
+    "hide": 3,
+    "flamefruit": 1,
+    "arrowvine": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lightning-eel",
+          "type": "normal"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "normal"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "normal"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "normal"
+        },
+        {
+          "name": "lightning-eel",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "index": "93.1",
+  "name": "Deadly Pastimes",
+  "edition": "fh",
+  "parent": "85",
+  "rooms": [
+    {
+      "roomNumber": 9,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

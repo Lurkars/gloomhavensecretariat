@@ -1,0 +1,55 @@
+{
+  "fromFile": true,
+  "index": "44",
+  "name": "Nerve Center",
+  "edition": "fh",
+  "unlocks": [
+    "58",
+    "59"
+  ],
+  "forcedLinks": [
+    "58",
+    "59"
+  ],
+  "monsters": [
+    "ancient-artillery",
+    "flaming-bladespinner",
+    "ruined-machine",
+    "steel-automaton"
+  ],
+  "objectives": [
+    {
+      "name": "Metal Cabinet",
+      "health": "Cx(L+3)/2"
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 2,
+    "metal": 4,
+    "rockroot": 1,
+    "arrowvine": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flaming-bladespinner",
+          "type": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "type": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

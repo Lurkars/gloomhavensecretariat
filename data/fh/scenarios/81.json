@@ -1,0 +1,95 @@
+{
+  "fromFile": true,
+  "index": "81",
+  "name": "Ruinous Research Lab",
+  "edition": "fh",
+  "monsters": [
+    "aesther-ashblade",
+    "aesther-scout",
+    "ancient-artillery",
+    "flaming-bladespinner",
+    "ruined-machine",
+    "steel-automaton"
+  ],
+  "objectives": [
+    {
+      "name": "Door",
+      "health": "(1+L)x2",
+      "marker": "1"
+    },
+    {
+      "name": "Door",
+      "health": "(1+L)x2",
+      "marker": "2"
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 9,
+    "lumber": 2,
+    "metal": 5,
+    "hide": 2,
+    "rockroot": 1,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "aesther-ashblade",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "aesther-ashblade",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

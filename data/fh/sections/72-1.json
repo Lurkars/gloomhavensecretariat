@@ -1,0 +1,18 @@
+{
+  "index": "72.1",
+  "name": "The Frosthaven Seal",
+  "edition": "fh",
+  "parent": "64",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "vestige-of-the-imprisoned-god",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

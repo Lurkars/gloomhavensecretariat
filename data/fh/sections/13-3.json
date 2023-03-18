@@ -1,0 +1,13 @@
+{
+  "index": "13.3",
+  "name": "Among the Wreckage",
+  "edition": "fh",
+  "parent": "54",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

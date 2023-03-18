@@ -1,0 +1,66 @@
+{
+  "index": "39.2",
+  "name": "Living Glacier",
+  "edition": "fh",
+  "parent": "45",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "abael-scout",
+          "type": "normal"
+        },
+        {
+          "name": "abael-scout",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

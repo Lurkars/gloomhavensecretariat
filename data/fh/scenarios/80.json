@@ -1,0 +1,82 @@
+{
+  "fromFile": true,
+  "index": "80",
+  "name": "Relic Renewed",
+  "edition": "fh",
+  "monsters": [
+    "robotic-boltshooter",
+    "ruined-machine",
+    "steel-automaton",
+    "the-relic"
+  ],
+  "objectives": [
+    {
+      "name": "Metal Cabinet",
+      "health": "(2+L)xC/2",
+      "marker": 2
+    },
+    {
+      "name": "Metal Cabinet",
+      "health": "(2+L)xC/2",
+      "marker": "b"
+    },
+    {
+      "name": "Metal Cabinet",
+      "health": "(2+L)xC/2",
+      "marker": "c"
+    },
+    {
+      "name": "Metal Cabinet",
+      "health": "(2+L)xC/2",
+      "marker": "d"
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 2,
+    "metal": 3,
+    "hide": 2,
+    "rockroot": 1,
+    "axenut": 1,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "robotic-boltshooter",
+          "type": "normal"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "type": "normal"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "type": "normal"
+        },
+        {
+          "name": "steel-automaton",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "steel-automaton",
+          "player4": "normal"
+        },
+        {
+          "name": "the-relic",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

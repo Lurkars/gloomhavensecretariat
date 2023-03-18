@@ -1,0 +1,45 @@
+{
+  "fromFile": true,
+  "index": "63",
+  "name": "The Savvas Seal",
+  "edition": "fh",
+  "unlocks": [
+    "64"
+  ],
+  "forcedLinks": [
+    "64"
+  ],
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "savvas-icestorm",
+    "savvas-lavaflow",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Crain",
+      "escort": true,
+      "health": "(L+C)x2+2",
+      "initiative": 99,
+      "marker": "a"
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 5,
+    "lumber": 4,
+    "metal": 4,
+    "hide": 4,
+    "rockroot": 2,
+    "corpsecap": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "fromFile": true,
+  "index": "83",
+  "name": "Rising Brine",
+  "edition": "fh",
+  "monsters": [
+    "ancient-artillery",
+    "giant-piranha-pig",
+    "lurker-mindsnipper",
+    "piranha-pig"
+  ],
+  "lootDeckConfig": {
+    "money": 7,
+    "lumber": 3,
+    "metal": 3,
+    "hide": 3,
+    "flamefruit": 1,
+    "arrowvine": 2,
+    "snowthistle": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "type": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-piranha-pig",
+          "type": "boss"
+        },
+        {
+          "name": "giant-piranha-pig-water",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

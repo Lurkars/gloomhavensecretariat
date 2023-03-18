@@ -1,0 +1,49 @@
+{
+  "fromFile": true,
+  "index": "127",
+  "name": "Derelict Freighter",
+  "edition": "fh",
+  "monsters": [
+    "ancient-artillery",
+    "frozen-corpse",
+    "ice-wraith"
+  ],
+  "lootDeckConfig": {
+    "money": 5,
+    "lumber": 6,
+    "metal": 4,
+    "hide": 4,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

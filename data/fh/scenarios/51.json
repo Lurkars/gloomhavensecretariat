@@ -1,0 +1,59 @@
+{
+  "fromFile": true,
+  "index": "51",
+  "name": "Orphan's Halls",
+  "edition": "fh",
+  "unlocks": [
+    "58",
+    "59"
+  ],
+  "forcedLinks": [
+    "58",
+    "59"
+  ],
+  "monsters": [
+    "ancient-artillery",
+    "flaming-bladespinner",
+    "ruined-machine",
+    "steel-automaton"
+  ],
+  "lootDeckConfig": {
+    "money": 12,
+    "lumber": 2,
+    "metal": 4,
+    "flamefruit": 1,
+    "arrowvine": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

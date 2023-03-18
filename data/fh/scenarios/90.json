@@ -1,0 +1,107 @@
+{
+  "fromFile": true,
+  "index": "90",
+  "name": "Frozen Treasure",
+  "edition": "fh",
+  "unlocks": [
+    "91"
+  ],
+  "forcedLinks": [
+    "91"
+  ],
+  "monsters": [
+    "frozen-corpse",
+    "ice-wraith",
+    "polar-bear",
+    "snow-imp"
+  ],
+  "lootDeckConfig": {
+    "money": 5,
+    "lumber": 4,
+    "hide": 4,
+    "snowthistle": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "player4": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "player4": "elite"
+        },
+        {
+          "name": "polar-bear",
+          "type": "normal"
+        },
+        {
+          "name": "polar-bear",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "type": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "type": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "fromFile": true,
+  "index": "106.2",
+  "name": "The True Oak",
+  "edition": "fh",
+  "parent": "70",
+  "monsters": [
+    "flaming-sword-of-justice"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "flaming-sword-of-justice",
+          "type": "boss"
+        },
+        {
+          "name": "sun-demon",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

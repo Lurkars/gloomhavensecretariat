@@ -1,0 +1,112 @@
+{
+  "fromFile": true,
+  "index": "117",
+  "name": "A Waiting Game",
+  "edition": "fh",
+  "monsters": [
+    "hound",
+    "polar-bear-scenario-117",
+    "vermling-priest",
+    "vermling-scout"
+  ],
+  "lootDeckConfig": {
+    "money": 6,
+    "lumber": 4,
+    "hide": 6,
+    "axenut": 1,
+    "arrowvine": 2,
+    "flamefruit": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        },
+        {
+          "name": "polar-bear",
+          "type": "elite"
+        },
+        {
+          "name": "polar-bear",
+          "type": "elite"
+        },
+        {
+          "name": "polar-bear",
+          "type": "elite"
+        },
+        {
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-priest",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-priest",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-priest",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

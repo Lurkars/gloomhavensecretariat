@@ -1,0 +1,100 @@
+{
+  "index": "42",
+  "name": "Sunless Trench",
+  "edition": "fh",
+  "unlocks": [
+    "49",
+    "50"
+  ],
+  "monsters": [
+    "deep-terror",
+    "night-demon",
+    "ooze"
+  ],
+  "lootDeckConfig": {
+    "money": 12,
+    "lumber": 2,
+    "metal": 3,
+    "flamefruit": 1,
+    "snowthistle": 1,
+    "random_item": 1
+  },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "minus1:3",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": "(?!.*coral|kelp).*"
+          },
+          "type": "amAdd",
+          "value": "curse:2"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "11-D",
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "type": "normal"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

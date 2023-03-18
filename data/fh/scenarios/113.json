@@ -1,0 +1,61 @@
+{
+  "fromFile": true,
+  "index": "113",
+  "name": "Lush Grotto",
+  "edition": "fh",
+  "monsters": [
+    "chaos-demon",
+    "forest-imp",
+    "polar-bear"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 4,
+    "rockroot": 2,
+    "arrowvine": 2,
+    "flamefruit": 1,
+    "snowthistle": 2,
+    "axenut": 1,
+    "corpsecap": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "chaos-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "fromFile": true,
+  "index": "61.2",
+  "name": "Rusted Tunnels",
+  "edition": "fh",
+  "parent": "25",
+  "objectives": [
+    {
+      "name": "Large Debris 2",
+      "health": "(L+2)xC"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "robotic-boltshooter",
+          "type": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

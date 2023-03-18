@@ -1,0 +1,51 @@
+{
+  "fromFile": true,
+  "index": "174.3",
+  "name": "Ruinous Research Lab",
+  "edition": "fh",
+  "parent": "81",
+  "objectives": [
+    {
+      "name": "Barricade",
+      "health": "L+5"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "elite"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "type": "elite"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

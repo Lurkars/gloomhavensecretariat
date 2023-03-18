@@ -1,0 +1,26 @@
+{
+  "index": "104.2",
+  "name": "The Titan",
+  "edition": "fh",
+  "parent": "123",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-snowspeaker",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-snowspeaker",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

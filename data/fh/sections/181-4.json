@@ -1,0 +1,22 @@
+{
+  "fromFile": true,
+  "index": "181.4",
+  "name": "The Lady in White",
+  "edition": "fh",
+  "parent": "86",
+  "monsters": [
+    "lady-in-white"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lady-in-white",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

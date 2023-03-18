@@ -1,0 +1,35 @@
+{
+  "index": "162.4",
+  "name": "Elemental Cores",
+  "edition": "fh",
+  "parent": "66",
+  "rooms": [
+    {
+      "roomNumber": 6,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

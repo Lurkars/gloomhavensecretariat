@@ -1,0 +1,45 @@
+{
+  "fromFile": true,
+  "index": "2.3",
+  "name": "Overrun Barricade",
+  "edition": "fh",
+  "parent": "43",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "type": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

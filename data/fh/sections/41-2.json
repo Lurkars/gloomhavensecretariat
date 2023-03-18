@@ -1,0 +1,66 @@
+{
+  "index": "41.2",
+  "name": "Ice Floes",
+  "edition": "fh",
+  "parent": "22",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "07-G",
+      "initial": true,
+      "monster": [
+        {
+          "name": "lightning-eel",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-clawcrusher",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-clawcrusher",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-clawcrusher",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

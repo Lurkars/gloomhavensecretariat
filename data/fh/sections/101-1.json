@@ -1,0 +1,70 @@
+{
+  "fromFile": true,
+  "index": "101.1",
+  "name": "Under the Influence",
+  "edition": "fh",
+  "parent": "120",
+  "objectives": [
+    {
+      "name": "Door 2",
+      "health": "(L+1)xC"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "vermling-priest",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-priest",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-priest",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

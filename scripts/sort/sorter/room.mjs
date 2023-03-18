@@ -10,6 +10,7 @@ export const sortRoom = function (room) {
     });
 
     if (room.monster) {
+        room.monster = room.monster.map((standeeData) => sortObjectKeys(standeeData, 'name', 'type', 'player2', 'player3', 'player4', 'marker', 'tags'));
         room.monster = sortMonsterStandees(room.monster);
     }
 

@@ -1,0 +1,83 @@
+{
+  "index": "24",
+  "name": "Upper Spire",
+  "edition": "fh",
+  "unlocks": [
+    "34"
+  ],
+  "links": [
+    "34"
+  ],
+  "monsters": [
+    "chaos-demon",
+    "living-bones",
+    "wind-demon"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 2,
+    "metal": 4,
+    "hide": 2,
+    "axenut": 2,
+    "flamefruit": 1,
+    "random_item": 1
+  },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:2",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "15-D",
+      "initial": true,
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "type": "elite"
+        },
+        {
+          "name": "chaos-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

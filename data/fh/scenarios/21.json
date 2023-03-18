@@ -1,0 +1,85 @@
+{
+  "index": "21",
+  "name": "Realm of Endless Frost",
+  "edition": "fh",
+  "monsters": [
+    "frost-demon",
+    "living-bones",
+    "living-spirit",
+    "prince-of-frost",
+    "snow-imp"
+  ],
+  "lootDeckConfig": {
+    "money": 6,
+    "lumber": 4,
+    "metal": 3,
+    "hide": 3,
+    "flamefruit": 1,
+    "snowthistle": 2,
+    "random_item": 1
+  },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle",
+          "scenarioEffect": true
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "discard",
+          "value": "2",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "14-B",
+      "initial": true,
+      "monster": [
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

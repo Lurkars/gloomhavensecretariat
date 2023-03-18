@@ -1,0 +1,48 @@
+{
+  "index": "51.2",
+  "name": "The Lurker Problem",
+  "edition": "fh",
+  "parent": "78",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "abael-scout",
+          "type": "normal"
+        },
+        {
+          "name": "abael-scout",
+          "type": "normal"
+        },
+        {
+          "name": "abael-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "abael-scout",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

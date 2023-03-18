@@ -1,0 +1,95 @@
+{
+  "fromFile": true,
+  "index": "26",
+  "name": "Quatryl Library",
+  "edition": "fh",
+  "unlocks": [
+    "36",
+    "37"
+  ],
+  "blocks": [
+    "25"
+  ],
+  "monsters": [
+    "ancient-artillery",
+    "ruined-machine",
+    "steel-automaton"
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 2,
+    "metal": 4,
+    "rockroot": 1,
+    "arrowvine": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "normal"
+        },
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

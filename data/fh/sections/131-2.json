@@ -1,0 +1,24 @@
+{
+  "index": "131.2",
+  "name": "Fish King's Ascension",
+  "edition": "fh",
+  "parent": "77",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

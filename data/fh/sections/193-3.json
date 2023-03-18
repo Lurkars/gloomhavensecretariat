@@ -1,0 +1,32 @@
+{
+  "index": "193.3",
+  "name": "The Titan",
+  "edition": "fh",
+  "parent": "123",
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-snowspeaker",
+          "type": "elite"
+        },
+        {
+          "name": "algox-snowspeaker",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "type": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

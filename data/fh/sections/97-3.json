@@ -1,0 +1,39 @@
+{
+  "index": "97.3",
+  "name": "Life and Death",
+  "edition": "fh",
+  "parent": "61",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

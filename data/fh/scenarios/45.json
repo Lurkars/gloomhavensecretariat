@@ -1,0 +1,67 @@
+{
+  "fromFile": true,
+  "index": "45",
+  "name": "Living Glacier",
+  "edition": "fh",
+  "unlocks": [
+    "52"
+  ],
+  "monsters": [
+    "abael-herder",
+    "abael-scout",
+    "lightning-eel",
+    "piranha-pig"
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 3,
+    "hide": 5,
+    "rockroot": 1,
+    "flamefruit": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "abael-herder",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "abael-scout",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

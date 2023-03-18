@@ -1,0 +1,61 @@
+{
+  "fromFile": true,
+  "index": "37",
+  "name": "The Dead Mile",
+  "edition": "fh",
+  "unlocks": [
+    "44"
+  ],
+  "blocks": [
+    "36"
+  ],
+  "forcedLinks": [
+    "44"
+  ],
+  "monsters": [
+    "living-bones",
+    "living-spirit",
+    "ruined-machine"
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 3,
+    "metal": 3,
+    "rockroot": 1,
+    "arrowvine": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

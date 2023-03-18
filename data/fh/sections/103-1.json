@@ -1,0 +1,23 @@
+{
+  "index": "103.1",
+  "name": "My Private Empire",
+  "edition": "fh",
+  "parent": "107",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "steel-automaton",
+          "type": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

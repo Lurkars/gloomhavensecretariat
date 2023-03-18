@@ -1,0 +1,50 @@
+{
+  "fromFile": true,
+  "index": "74",
+  "name": "Gaps in the Road",
+  "edition": "fh",
+  "unlocks": [
+    "75",
+    "76"
+  ],
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "algox-priest",
+    "forest-imp",
+    "piranha-pig",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Small Tree",
+      "health": "CxL/2"
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 7,
+    "lumber": 5,
+    "metal": 2,
+    "hide": 3,
+    "arrowvine": 2,
+    "flamefruit": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

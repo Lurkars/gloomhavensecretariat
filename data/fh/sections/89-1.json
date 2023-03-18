@@ -1,0 +1,59 @@
+{
+  "fromFile": true,
+  "index": "89.1",
+  "name": "A Strong Foundation",
+  "edition": "fh",
+  "parent": "65",
+  "monsters": [
+    "rimeheart"
+  ],
+  "objectives": [
+    {
+      "name": "Elemental Anchor",
+      "escort": true,
+      "health": "2xCx(L+1)"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse-scenario-65",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "frozen-corpse-scenario-65",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones-scenario-65",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones-scenario-65",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones-scenario-65",
+          "player4": "normal"
+        },
+        {
+          "name": "rimeheart",
+          "type": "elite"
+        },
+        {
+          "name": "snow-imp-scenario-65",
+          "type": "elite"
+        },
+        {
+          "name": "snow-imp-scenario-65",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

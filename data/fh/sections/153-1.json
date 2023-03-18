@@ -1,0 +1,32 @@
+{
+  "index": "153.1",
+  "name": "Derelict Freighter",
+  "edition": "fh",
+  "parent": "127",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "player4": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

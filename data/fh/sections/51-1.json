@@ -1,0 +1,80 @@
+{
+  "index": "51.1",
+  "name": "Realm of Endless Frost",
+  "edition": "fh",
+  "parent": "21",
+  "marker": "1",
+  "objectives": [
+    {
+      "name": "Glowing Orb",
+      "health": "(L+2)xC",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Whenever it suffers damage, all characters and monsters suffer %game.damage:2%"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "start": false,
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Glowing Orb"
+          }
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-bones",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "living-bones",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "15-C",
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "fromFile": true,
+  "index": "104",
+  "name": "Ruins of the Solstice",
+  "edition": "fh",
+  "random": true,
+  "unlocks": [
+    "105"
+  ],
+  "monsters": [
+    "earth-demon",
+    "forest-imp",
+    "frost-demon",
+    "savvas-icestorm",
+    "wind-demon"
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 3,
+    "metal": 3,
+    "hide": 2,
+    "axenut": 1,
+    "snowthistle": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

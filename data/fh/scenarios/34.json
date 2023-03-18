@@ -1,0 +1,21 @@
+{
+  "fromFile": true,
+  "index": "34",
+  "name": "Top of the Spire",
+  "edition": "fh",
+  "monsters": [
+    "lord-of-chaos"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lord-of-chaos",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

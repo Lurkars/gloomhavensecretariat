@@ -1,0 +1,71 @@
+{
+  "index": "145.1",
+  "name": "The Eternal Crave",
+  "edition": "fh",
+  "parent": "122",
+  "parentSections": [
+    "179.2"
+  ],
+  "marker": "5",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "11-B",
+      "initial": true,
+      "treasures": [
+        31
+      ],
+      "monster": [
+        {
+          "name": "ice-wraith",
+          "type": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "polar-bear",
+          "player4": "normal"
+        },
+        {
+          "name": "polar-bear",
+          "player4": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

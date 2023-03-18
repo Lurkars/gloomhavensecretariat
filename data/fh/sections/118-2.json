@@ -1,0 +1,48 @@
+{
+  "index": "118.2",
+  "name": "Lurker Necromancy",
+  "edition": "fh",
+  "parent": "118",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-corpse",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "index": "176.3",
+  "name": "A Tall Drunken Trail",
+  "edition": "fh",
+  "parent": "128",
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "abael-scout",
+          "type": "normal"
+        },
+        {
+          "name": "abael-scout",
+          "type": "normal"
+        },
+        {
+          "name": "abael-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "abael-scout",
+          "player4": "normal"
+        },
+        {
+          "name": "steel-automaton-scenario-128",
+          "type": "elite"
+        },
+        {
+          "name": "steel-automaton-scenario-128",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "fromFile": true,
+  "index": "123.1",
+  "name": "Black Memories",
+  "edition": "fh",
+  "parent": "121",
+  "monsters": [
+    "augmented-mindthief",
+    "large-vermling-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "augmented-mindthief",
+          "type": "boss"
+        },
+        {
+          "name": "large-vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "large-vermling-scout",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

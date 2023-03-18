@@ -1,0 +1,13 @@
+{
+  "index": "42.3",
+  "name": "Haunted Vault",
+  "edition": "fh",
+  "parent": "17",
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

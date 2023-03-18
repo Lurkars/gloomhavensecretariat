@@ -1,0 +1,13 @@
+{
+  "index": "76.2",
+  "name": "Black Memories",
+  "edition": "fh",
+  "parent": "121",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

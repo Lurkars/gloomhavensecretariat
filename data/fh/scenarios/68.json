@@ -1,0 +1,47 @@
+{
+  "fromFile": true,
+  "index": "68",
+  "name": "The Face of Torment",
+  "edition": "fh",
+  "monsters": [
+    "chaos-demon",
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "night-demon",
+    "sun-demon",
+    "tormentor",
+    "wind-demon"
+  ],
+  "lootDeckConfig": {
+    "lumber": 5,
+    "metal": 5,
+    "hide": 5,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "tormentor",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

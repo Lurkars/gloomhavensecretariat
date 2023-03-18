@@ -1,0 +1,34 @@
+{
+  "fromFile": true,
+  "index": "182.2",
+  "name": "Ice Cave",
+  "edition": "fh",
+  "parent": "111",
+  "monsters": [
+    "the-shimmer"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "the-shimmer",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

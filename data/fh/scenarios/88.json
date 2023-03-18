@@ -1,0 +1,47 @@
+{
+  "fromFile": true,
+  "index": "88",
+  "name": "Collection's Capstone",
+  "edition": "fh",
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "lurker-clawcrusher",
+    "savvas-icestorm",
+    "savvas-lavaflow",
+    "the-collector",
+    "wind-demon"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 3,
+    "metal": 4,
+    "hide": 2,
+    "rockroot": 1,
+    "corpsecap": 1,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "savvas-icestorm",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "type": "normal"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

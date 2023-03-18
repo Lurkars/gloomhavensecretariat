@@ -1,0 +1,38 @@
+{
+  "index": "105.1",
+  "name": "Life and Death",
+  "edition": "fh",
+  "parent": "61",
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

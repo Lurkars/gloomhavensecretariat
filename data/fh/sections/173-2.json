@@ -1,0 +1,48 @@
+{
+  "index": "173.2",
+  "name": "And Then, A Stream",
+  "edition": "fh",
+  "parent": "130",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-corpse",
+          "player4": "normal"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "normal"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "normal"
+        },
+        {
+          "name": "lightning-eel",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lightning-eel",
+          "player4": "normal"
+        },
+        {
+          "name": "shrike-fiend",
+          "type": "normal"
+        },
+        {
+          "name": "shrike-fiend",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

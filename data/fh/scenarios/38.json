@@ -1,0 +1,84 @@
+{
+  "fromFile": true,
+  "index": "38",
+  "name": "The Way Forward",
+  "edition": "fh",
+  "unlocks": [
+    "45",
+    "46"
+  ],
+  "monsters": [
+    "hound",
+    "polar-bear",
+    "sun-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Emissary",
+      "escort": true,
+      "health": "3x(L+2)",
+      "initiative": 99,
+      "marker": "a"
+    },
+    {
+      "name": "Emissary",
+      "escort": true,
+      "health": "3x(L+2)",
+      "initiative": 99,
+      "marker": "b"
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 5,
+    "hide": 3,
+    "axenut": 2,
+    "arrowvine": 1,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "elite"
+        },
+        {
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "index": "160.1",
+  "name": "Collapsing Vent",
+  "edition": "fh",
+  "parent": "98",
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "burrowing-blade",
+          "type": "normal"
+        },
+        {
+          "name": "burrowing-blade",
+          "type": "normal"
+        },
+        {
+          "name": "burrowing-blade",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

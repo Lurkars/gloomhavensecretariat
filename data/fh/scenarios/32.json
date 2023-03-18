@@ -1,0 +1,69 @@
+{
+  "index": "32",
+  "name": "Ravens' Roost",
+  "edition": "fh",
+  "monsters": [
+    "frozen-corpse-scenario-32",
+    "harrower-infester",
+    "shrike-fiend"
+  ],
+  "lootDeckConfig": {
+    "money": 7,
+    "lumber": 5,
+    "hide": 3,
+    "axenut": 2,
+    "flamefruit": 2,
+    "random_item": 1
+  },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "wound",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "05-B",
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse-scenario-32",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-corpse-scenario-32",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-corpse-scenario-32",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-corpse-scenario-32",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "frozen-corpse-scenario-32",
+          "player4": "normal"
+        },
+        {
+          "name": "frozen-corpse-scenario-32",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

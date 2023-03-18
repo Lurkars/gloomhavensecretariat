@@ -1,0 +1,24 @@
+{
+  "index": "25.1",
+  "name": "Collection's Capstone",
+  "edition": "fh",
+  "parent": "88",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "savvas-icestorm",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "the-collector",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

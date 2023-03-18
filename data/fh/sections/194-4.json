@@ -1,0 +1,33 @@
+{
+  "index": "194.4",
+  "name": "Harrower Library",
+  "edition": "fh",
+  "parent": "101",
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-priest",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

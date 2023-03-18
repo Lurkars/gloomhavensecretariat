@@ -1,0 +1,45 @@
+{
+  "fromFile": true,
+  "index": "118",
+  "name": "Lurker Necromancy",
+  "edition": "fh",
+  "monsters": [
+    "frozen-corpse",
+    "living-bones",
+    "lurker-mindsnipper",
+    "lurker-soldier"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 3,
+    "metal": 3,
+    "hide": 3,
+    "rockroot": 1,
+    "snowthistle": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "fromFile": true,
+  "index": "120",
+  "name": "Under the Influence",
+  "edition": "fh",
+  "unlocks": [
+    "121"
+  ],
+  "monsters": [
+    "city-guard",
+    "hound",
+    "robotic-boltshooter",
+    "steel-automaton",
+    "vermling-priest",
+    "vermling-scout"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 4,
+    "metal": 4,
+    "hide": 4
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

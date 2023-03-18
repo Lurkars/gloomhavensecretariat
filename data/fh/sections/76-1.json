@@ -1,0 +1,43 @@
+{
+  "index": "76.1",
+  "name": "Relic",
+  "edition": "fh",
+  "parent": "79",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-corpse",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "player4": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "fromFile": true,
+  "index": "109",
+  "name": "Furious Factory",
+  "edition": "fh",
+  "random": true,
+  "monsters": [
+    "ancient-artillery",
+    "flaming-bladespinner",
+    "ruined-machine",
+    "steel-automaton"
+  ],
+  "lootDeckConfig": {
+    "money": 11,
+    "lumber": 2,
+    "metal": 4,
+    "rockroot": 2,
+    "flamefruit": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "type": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

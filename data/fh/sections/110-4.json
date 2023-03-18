@@ -1,0 +1,28 @@
+{
+  "index": "110.4",
+  "name": "Deadly Pastimes",
+  "edition": "fh",
+  "parent": "85",
+  "rooms": [
+    {
+      "roomNumber": 10,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "burrowing-blade",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

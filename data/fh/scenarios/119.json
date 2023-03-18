@@ -1,0 +1,46 @@
+{
+  "fromFile": true,
+  "index": "119",
+  "name": "Radiant Dust",
+  "edition": "fh",
+  "monsters": [
+    "burrowing-blade",
+    "polar-bear",
+    "rending-drake",
+    "shrike-fiend",
+    "spitting-drake"
+  ],
+  "objectives": [
+    {
+      "name": "Infuser",
+      "escort": true,
+      "health": "3xL+5",
+      "initiative": 99,
+      "marker": "a"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "burrowing-blade",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "index": "19",
+  "name": "Skyhall",
+  "edition": "fh",
+  "unlocks": [
+    "28",
+    "30"
+  ],
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "ice-wraith"
+  ],
+  "lootDeckConfig": {
+    "money": 11,
+    "lumber": 2,
+    "metal": 2,
+    "hide": 2,
+    "rockroot": 1,
+    "corpsecap": 1,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "16-B",
+      "initial": true
+    }
+  ]
+}

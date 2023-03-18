@@ -1,0 +1,62 @@
+{
+  "fromFile": true,
+  "index": "70",
+  "name": "The True Oak",
+  "edition": "fh",
+  "monsters": [
+    "city-guard",
+    "hound",
+    "sun-demon"
+  ],
+  "objectives": [
+    {
+      "name": "The Great Oak",
+      "escort": true,
+      "health": "2xCx(L+3)",
+      "initiative": 1
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 7,
+    "lumber": 5,
+    "hide": 3,
+    "axenut": 2,
+    "flamefruit": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

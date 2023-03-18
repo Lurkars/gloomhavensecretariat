@@ -1,0 +1,64 @@
+{
+  "index": "28.3",
+  "name": "Flotsam",
+  "edition": "fh",
+  "parent": "73",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "abael-herder",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "abael-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "abael-scout",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "normal"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "normal"
+        },
+        {
+          "name": "lightning-eel",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lightning-eel",
+          "player4": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

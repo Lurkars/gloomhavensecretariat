@@ -1,0 +1,38 @@
+{
+  "fromFile": true,
+  "index": "50",
+  "name": "Explosive Descent",
+  "edition": "fh",
+  "unlocks": [
+    "54"
+  ],
+  "forcedLinks": [
+    "54"
+  ],
+  "monsters": [
+    "lightning-eel",
+    "lurker-clawcrusher",
+    "lurker-mindsnipper",
+    "lurker-wavethrower"
+  ],
+  "objectives": [
+    {
+      "name": "Pulse Emitter",
+      "escort": true,
+      "health": "6+(3xL)"
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 13,
+    "lumber": 2,
+    "hide": 3,
+    "arrowvine": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

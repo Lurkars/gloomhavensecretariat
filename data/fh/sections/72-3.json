@@ -1,0 +1,20 @@
+{
+  "index": "72.3",
+  "name": "Furious Factory",
+  "edition": "fh",
+  "parent": "109",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

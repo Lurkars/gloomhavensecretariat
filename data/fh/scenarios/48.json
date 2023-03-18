@@ -1,0 +1,58 @@
+{
+  "fromFile": true,
+  "index": "48",
+  "name": "Blizzard Island",
+  "edition": "fh",
+  "unlocks": [
+    "57"
+  ],
+  "links": [
+    "57"
+  ],
+  "monsters": [
+    "abael-scout",
+    "frost-demon",
+    "wind-demon"
+  ],
+  "lootDeckConfig": {
+    "money": 7,
+    "lumber": 2,
+    "metal": 2,
+    "hide": 5,
+    "corpsecap": 2,
+    "snowthistle": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "abael-scout",
+          "type": "normal"
+        },
+        {
+          "name": "abael-scout",
+          "type": "elite"
+        },
+        {
+          "name": "abael-scout",
+          "player4": "normal"
+        },
+        {
+          "name": "abael-scout",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

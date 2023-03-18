@@ -1,0 +1,49 @@
+{
+  "index": "63.3",
+  "name": "Sunless Trench",
+  "edition": "fh",
+  "parent": "42",
+  "marker": "1",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "11-B",
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

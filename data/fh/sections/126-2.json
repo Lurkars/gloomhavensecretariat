@@ -1,0 +1,53 @@
+{
+  "index": "126.2",
+  "name": "Harrower Library",
+  "edition": "fh",
+  "parent": "101",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "player3": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-priest",
+          "type": "normal"
+        },
+        {
+          "name": "algox-priest",
+          "type": "elite"
+        },
+        {
+          "name": "algox-priest",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

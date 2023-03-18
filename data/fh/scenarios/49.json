@@ -1,0 +1,139 @@
+{
+  "index": "49",
+  "name": "Beneath Sea and Stone",
+  "edition": "fh",
+  "unlocks": [
+    "53"
+  ],
+  "forcedLinks": [
+    "53"
+  ],
+  "monsters": [
+    "black-imp",
+    "deep-terror",
+    "frost-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Ice Pillar",
+      "health": "[(L+1)xC/2{$math.floor}]"
+    },
+    {
+      "name": "Large Cave Rock",
+      "health": "[(L+1)xC/2{$math.floor}]"
+    },
+    {
+      "name": "Stalagmites",
+      "health": "[(L+1)xC/2{$math.floor}]"
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 13,
+    "metal": 3,
+    "hide": 2,
+    "snowthistle": 2
+  },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "minus1:3",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": "(?!.*coral|kelp).*"
+          },
+          "type": "amAdd",
+          "value": "curse:2"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "16-B",
+      "initial": true,
+      "treasures": [
+        5
+      ],
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "normal"
+        }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  ]
+}

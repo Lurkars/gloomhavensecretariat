@@ -1,0 +1,46 @@
+{
+  "fromFile": true,
+  "index": "84",
+  "name": "Here There Be Oozes",
+  "edition": "fh",
+  "monsters": [
+    "elder-ooze",
+    "ooze"
+  ],
+  "lootDeckConfig": {
+    "money": 15,
+    "lumber": 3,
+    "metal": 3,
+    "corpsecap": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "elder-ooze",
+          "type": "boss"
+        },
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

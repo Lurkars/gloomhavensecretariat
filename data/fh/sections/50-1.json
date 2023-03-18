@@ -1,0 +1,18 @@
+{
+  "index": "50.1",
+  "name": "Among the Wreckage",
+  "edition": "fh",
+  "parent": "54",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "seeker-of-the-abyss",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

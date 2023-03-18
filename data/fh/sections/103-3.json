@@ -1,0 +1,41 @@
+{
+  "index": "103.3",
+  "name": "Sunless Trench",
+  "edition": "fh",
+  "parent": "42",
+  "marker": "2",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "03-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

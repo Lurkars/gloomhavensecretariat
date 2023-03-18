@@ -1,0 +1,45 @@
+{
+  "index": "191.2",
+  "name": "The Pirate Queen's Lair",
+  "edition": "fh",
+  "parent": "137",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player4": "elite"
+        },
+        {
+          "name": "polar-bear",
+          "type": "elite"
+        },
+        {
+          "name": "polar-bear",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

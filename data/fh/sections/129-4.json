@@ -1,0 +1,54 @@
+{
+  "index": "129.4",
+  "name": "Temple of Feline Power",
+  "edition": "fh",
+  "parent": "132",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "type": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

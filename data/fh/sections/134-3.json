@@ -1,0 +1,30 @@
+{
+  "index": "134.3",
+  "name": "Flotsam",
+  "edition": "fh",
+  "parent": "73",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "abael-herder",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "fish-king",
+          "type": "boss"
+        },
+        {
+          "name": "piranha-pig",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

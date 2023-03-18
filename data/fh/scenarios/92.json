@@ -1,0 +1,50 @@
+{
+  "fromFile": true,
+  "index": "92",
+  "name": "Sinking Ship",
+  "edition": "fh",
+  "monsters": [
+    "lightning-eel",
+    "lurker-clawcrusher",
+    "lurker-mindsnipper",
+    "lurker-soldier",
+    "lurker-wavethrower"
+  ],
+  "lootDeckConfig": {
+    "money": 7,
+    "lumber": 4,
+    "metal": 3,
+    "hide": 2,
+    "flamefruit": 1,
+    "axenut": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lurker-clawcrusher",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

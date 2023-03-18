@@ -1,0 +1,27 @@
+{
+  "index": "131.5",
+  "name": "A Contained Fire",
+  "edition": "fh",
+  "parent": "89",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-priest",
+          "type": "elite"
+        },
+        {
+          "name": "algox-priest",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

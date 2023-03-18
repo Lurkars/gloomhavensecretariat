@@ -1,0 +1,33 @@
+{
+  "index": "141.3",
+  "name": "Inside the Swarm",
+  "edition": "fh",
+  "parent": "100",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "burrowing-blade",
+          "type": "normal"
+        },
+        {
+          "name": "burrowing-blade",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "index": "130.5",
+  "name": "Blizzard Island",
+  "edition": "fh",
+  "parent": "48",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

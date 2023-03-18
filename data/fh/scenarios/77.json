@@ -1,0 +1,44 @@
+{
+  "fromFile": true,
+  "index": "77",
+  "name": "Fish King's Ascension",
+  "edition": "fh",
+  "monsters": [
+    "fish-king",
+    "frost-demon",
+    "night-demon",
+    "piranha-pig",
+    "wind-demon"
+  ],
+  "lootDeckConfig": {
+    "money": 4,
+    "lumber": 2,
+    "metal": 2,
+    "hide": 2,
+    "corpsecap": 2,
+    "flamefruit": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "fish-king",
+          "type": "boss"
+        },
+        {
+          "name": "piranha-pig",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

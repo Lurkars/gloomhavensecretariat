@@ -1,0 +1,95 @@
+{
+  "fromFile": true,
+  "index": "30",
+  "name": "War of the Spire B",
+  "edition": "fh",
+  "unlocks": [
+    "40"
+  ],
+  "blocks": [
+    "28"
+  ],
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "algox-icespeaker",
+    "algox-scout",
+    "algox-snowspeaker"
+  ],
+  "lootDeckConfig": {
+    "money": 12,
+    "lumber": 2,
+    "hide": 2,
+    "axenut": 1,
+    "arrowvine": 1,
+    "snowthistle": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-icespeaker",
+          "type": "normal"
+        },
+        {
+          "name": "algox-icespeaker",
+          "type": "normal"
+        },
+        {
+          "name": "algox-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-scout",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-snowspeaker",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-snowspeaker",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

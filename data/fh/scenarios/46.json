@@ -1,0 +1,49 @@
+{
+  "fromFile": true,
+  "index": "46",
+  "name": "Dead Pass",
+  "edition": "fh",
+  "unlocks": [
+    "52"
+  ],
+  "monsters": [
+    "burrowing-blade",
+    "frozen-corpse",
+    "shrike-fiend"
+  ],
+  "lootDeckConfig": {
+    "money": 9,
+    "lumber": 3,
+    "metal": 3,
+    "hide": 3,
+    "rockroot": 1,
+    "corpsecap": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "burrowing-blade",
+          "type": "normal"
+        },
+        {
+          "name": "burrowing-blade",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "type": "normal"
+        },
+        {
+          "name": "shrike-fiend",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

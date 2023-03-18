@@ -1,0 +1,44 @@
+{
+  "fromFile": true,
+  "index": "96",
+  "name": "Underground Station",
+  "edition": "fh",
+  "unlocks": [
+    "97"
+  ],
+  "forcedLinks": [
+    "97"
+  ],
+  "monsters": [
+    "ancient-artillery",
+    "black-imp",
+    "rending-drake"
+  ],
+  "lootDeckConfig": {
+    "money": 14,
+    "lumber": 1,
+    "metal": 3,
+    "axenut": 1,
+    "rockroot": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

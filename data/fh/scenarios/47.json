@@ -1,0 +1,54 @@
+{
+  "fromFile": true,
+  "index": "47",
+  "name": "Carrion Ridge",
+  "edition": "fh",
+  "unlocks": [
+    "56"
+  ],
+  "links": [
+    "56"
+  ],
+  "monsters": [
+    "algox-icespeaker",
+    "harrower-infester",
+    "shrike-fiend"
+  ],
+  "lootDeckConfig": {
+    "money": 7,
+    "lumber": 5,
+    "metal": 2,
+    "hide": 2,
+    "rockroot": 2,
+    "flamefruit": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-icespeaker",
+          "type": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "type": "normal"
+        },
+        {
+          "name": "shrike-fiend",
+          "type": "normal"
+        },
+        {
+          "name": "shrike-fiend",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

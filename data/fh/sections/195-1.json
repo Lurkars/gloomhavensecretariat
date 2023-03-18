@@ -1,0 +1,44 @@
+{
+  "fromFile": true,
+  "index": "195.1",
+  "name": "Belara's Keep",
+  "edition": "fh",
+  "parent": "135",
+  "monsters": [
+    "belara"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "belara",
+          "type": "boss"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "type": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

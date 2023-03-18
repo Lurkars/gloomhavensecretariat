@@ -1,0 +1,13 @@
+{
+  "index": "91.1",
+  "name": "The Lurker Problem",
+  "edition": "fh",
+  "parent": "78",
+  "rooms": [
+    {
+      "roomNumber": 6,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}
