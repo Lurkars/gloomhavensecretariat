@@ -21,7 +21,7 @@ export class ActionSummonComponent implements OnChanges {
   @Input() monster: Monster | undefined;
   @Input() action!: Action;
   @Input() right: boolean = false;
-  @Input() spawn: boolean = false;
+  @Input('spawn') isSpawn: boolean = false;
   @Input() additional: boolean = false;
   @Input() highlight: boolean = true;
   spawners: MonsterEntity[] = [];
@@ -100,13 +100,11 @@ export class ActionSummonComponent implements OnChanges {
           }
         }
 
-        if (summonValue.length > 2) {
-          if (!isNaN(+summonValue[2])) {
-            monsterSpawn.count = +summonValue[2];
-          }
+        if (summonValue.length > 2 && summonValue[2]) {
+          monsterSpawn.count = summonValue[2];
         }
 
-        if (summonValue.length > 3) {
+        if (summonValue.length > 3 && summonValue[3]) {
           monsterStandee.health = summonValue[3];
         }
 
@@ -187,7 +185,7 @@ export class ActionSummonComponent implements OnChanges {
         spawners.forEach((spawner) => {
           if (this.monster && spawn.monster && spawn.monster.type) {
             for (let i = 0; i < count; i++) {
-              const entity = gameManager.monsterManager.spawnMonsterEntity(spawn.monster.name, spawn.monster.type, this.monster.edition, this.monster.isAlly, false, !this.spawn);
+              const entity = gameManager.monsterManager.spawnMonsterEntity(spawn.monster.name, spawn.monster.type, this.monster.edition, this.monster.isAlly, false, !this.isSpawn);
               if (entity) {
                 const tag = this.getTag(index);
                 entity.tags = entity.tags || [];

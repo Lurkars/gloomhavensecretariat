@@ -170,7 +170,7 @@
           "1": "Create a %game.damage:3% trap in an adjacent empty hex closest to an enemy."
         },
         "deep-terror": {
-          "1": "%game.action.summon% %data.monster.deep-terror% (%monster.normal%) in a hex adjacent to the target"
+          "1": "in a hex adjacent to the target"
         },
         "flame-demon": {
           "1": "All adjacent enemies suffer %game.damage:2%.",
@@ -447,7 +447,7 @@
           "1": "Erstelle eine %game.damage:3% Falle in einem leeren angrenzenden Feld zum nächsten Gegner."
         },
         "deep-terror": {
-          "1": "%game.action.summon% %data.monster.deep-terror% (%monster.normal%) in einem am Ziel angrenzenden Feld."
+          "1": "in einem am Ziel angrenzenden Feld."
         },
         "flame-demon": {
           "1": "Alle angrenzenden Gegner erleiden %game.damage:2%.",

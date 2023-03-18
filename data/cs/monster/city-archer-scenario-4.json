@@ -3,6 +3,7 @@
   "thumbnail": "gh-city-archer",
   "edition": "cs",
   "deck": "archer",
+  "hidden": true,
   "count": 6,
   "baseStat": {
     "type": "normal"

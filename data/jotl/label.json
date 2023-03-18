@@ -51,9 +51,6 @@
           "15": {
             "1": "one for every Black Imp within Range 3 of a Zealot which then gain %game.condition.stun%"
           },
-          "16": {
-            "1": "Spawn Rat Monstrosities"
-          },
           "20": {
             "1": "Loot is represented with Objectives, after looting exhaust corresponding Objective to find good",
             "2": "Find 1 good",
@@ -113,8 +110,7 @@
         },
         "first-of-the-order": {
           "1": "All enemies within %game.action.range:2% suffer %game.damage:2%",
-          "2": "Spawn [C/2{math.ceil}] %data.monster.black-imp%",
-          "3": "within %game.action.range:2% of target"
+          "2": "within %game.action.range:2% of target"
         },
         "rat-monstrosity": {
           "1": "all adjacent figures suffer %game.damage:1%",
@@ -535,18 +531,7 @@
       "Unfriendly Message": "적대적인 전언",
       "The Best of the Best": "왕중왕전",
       "Warding the Void": " 공허 감시",
-      "The Greatest Job in the World": "세계 최고의 직업",
-      "rules": {
-        "jotl": {
-          "15": {
-            "1": "Spawn Black Imps adjacent to revealed tables.",
-            "2": "Each Zealot kills one Black Imp within %game.action.range:3% and gains %game.condition.stun%. Spwan elite Blood Imps."
-          },
-          "16": {
-            "1": "Spawn Rat Monstrosities"
-          }
-        }
-      }
+      "The Greatest Job in the World": "세계 최고의 직업"
     },
     "custom": {
       "jotl": {

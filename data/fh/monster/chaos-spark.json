@@ -9,7 +9,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Cannot focus character summons."
+        "value": "Cannot focus on character summons."
       }
     ]
   },

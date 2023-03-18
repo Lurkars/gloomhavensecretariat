@@ -671,7 +671,9 @@
       "hint": "Gruppen- und Kampagnen-Progression bearbeiten"
     },
     "password": {
-      ".": "Neues Passwort für Berechtigungen"
+      ".": "Neuer Spiel Code für Berechtigungen",
+      "hint": "Der Spiel Code identifiziert dein Spiel. Jeder mit dem gleichen Code verbindet sich zum gleichen Spiel. Vorher hieß der Spiel Code \"Passwort\" und wurde umbenannt um Verwirrungen zu vermeiden.", 
+      "uuid": "Code generieren (UUID)"
     },
     "round": {
       ".": "Runde",
@@ -858,7 +860,7 @@
       "connected": "Server Verbindung"
     },
     "password": {
-      ".": "Passwort",
+      ".": "Spiel Code",
       "uuid": "UUID generieren"
     },
     "port": "Port",

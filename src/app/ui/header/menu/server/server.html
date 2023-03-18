@@ -68,8 +68,14 @@
           <a *ngIf="!settingsManager.settings.serverPassword" (click)="createUUID()">{{'server.password.uuid' |
             ghsLabel}}</a>
         </div>
-        <input type="text" #serverPassword [value]="settingsManager.settings.serverPassword || ''" (keyup)="0"
-          (change)="setServerPassword($event)" placeholder="{{'server.password' | ghsLabel}}">
+        <div class="hint-container">
+          <input type="text" #serverPassword [value]="settingsManager.settings.serverPassword || ''" (keyup)="0"
+            (change)="setServerPassword($event)" placeholder="{{'server.password' | ghsLabel}}">
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <span class="hint">
+            <span class="text">{{'server.password.hint' | ghsLabel}}</span>
+          </span>
+        </div>
       </div>
 
       <div class="columns" [ngClass]="{'hidden' : selectedServerIndex != -1}">
@@ -226,8 +232,7 @@
       <div class="line">
         <div class="hint-container">
           <label [ngClass]="{'disabled' : gameManager.stateManager.permissions}">
-            <input type="checkbox" [checked]="permissions.party"
-              (change)="permissions.party = !permissions.party">
+            <input type="checkbox" [checked]="permissions.party" (change)="permissions.party = !permissions.party">
             {{'permissions.party' | ghsLabel}}
           </label>
           <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">

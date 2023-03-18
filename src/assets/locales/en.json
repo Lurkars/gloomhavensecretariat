@@ -772,7 +772,7 @@
       "hint": "Update and change Party and Campaign progress"
     },
     "password": {
-      ".": "New Password for Permissions"
+      ".": "New Game Code for Permissions"
     },
     "round": {
       ".": "Round",
@@ -959,8 +959,9 @@
       "connected": "Server Connection"
     },
     "password": {
-      ".": "Password",
-      "uuid": "Generate UUID"
+      ".": "Game Code",
+      "hint": "The Game Code identifies your game. Everyone with the same Code connect to the same game. This was previously called \"Password\", but to avoid confusion it is renamed now.", 
+      "uuid": "Generate Code (UUID)"
     },
     "port": "Port",
     "reconnect": "Reconnect",

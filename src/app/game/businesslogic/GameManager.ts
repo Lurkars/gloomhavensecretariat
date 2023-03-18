@@ -153,7 +153,7 @@ export class GameManager {
   itemData(edition: string | undefined = undefined, all: boolean = false): ItemData[] {
     const prosperityLevel = this.prosperityLevel();
     return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(edition).indexOf(edition) != -1).map((editionData) => editionData.items).flat().filter((itemData) => {
-      if (all || !this.game.party.campaignMode) {
+      if (all || !this.game.party.campaignMode || edition == 'fh') {
         return true;
       }
 
@@ -187,7 +187,7 @@ export class GameManager {
   }
 
   maxItemIndex(edition: string): number {
-    return Math.max(...this.itemData().filter((itemData) => itemData.edition == edition || this.editionExtensions(edition).indexOf(itemData.edition) != -1).map((itemData) => itemData.id));
+    return Math.max(...this.itemData(edition).map((itemData) => itemData.id));
   }
 
   conditions(edition: string | undefined = undefined): Condition[] {

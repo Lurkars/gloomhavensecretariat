@@ -199,11 +199,17 @@
               "type": "range",
               "value": 6,
               "small": true
-            },
+            }
+          ]
+        },
+        {
+          "type": "summon",
+          "value": "undead-archer:normal",
+          "small": true,
+          "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.terror-drone.1%",
-              "small": true
+              "value": "%data.custom.gh.deep-terror.1%"
             }
           ]
         }

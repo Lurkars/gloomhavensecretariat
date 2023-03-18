@@ -21,8 +21,8 @@
           "small": true
         },
         {
-          "type": "custom",
-          "value": "%data.custom.jotl.first-of-the-order.2%",
+          "type": "spawn",
+          "value": "black-imp:normal:[C/2{math.ceil}]",
           "small": true
         }
       ],
@@ -39,7 +39,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.jotl.first-of-the-order.3%",
+              "value": "%data.custom.jotl.first-of-the-order.2%",
               "small": true
             }
           ]
@@ -51,7 +51,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.jotl.first-of-the-order.3%",
+              "value": "%data.custom.jotl.first-of-the-order.2%",
               "small": true
             }
           ]

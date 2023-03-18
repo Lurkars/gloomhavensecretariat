@@ -221,9 +221,6 @@
         "terrible-two-archer": {
           "1": "Create a %game.damage:3% trap in an adjacent empty hex closest to an enemy"
         },
-        "terror-drone": {
-          "1": "Summon a normal %data.monster.dead-archer% in a hex adjacent to the target"
-        },
         "terrorscale-drake": {
           "1": "all enemies adjacent to the target suffer %game.damage:1%",
           "2": "destroy the occupied obstacle"
