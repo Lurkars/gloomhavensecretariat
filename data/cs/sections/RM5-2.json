@@ -1,0 +1,32 @@
+{
+  "index": "5-2",
+  "group": "RM",
+  "name": "Unseen Plight",
+  "edition": "cs",
+  "parent": "5",
+  "monsters": [
+    "guttermaw",
+    "ravenous-gharial"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "guttermaw",
+          "type": "boss"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

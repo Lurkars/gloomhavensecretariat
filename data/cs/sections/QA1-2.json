@@ -1,0 +1,39 @@
+{
+  "index": "1-2",
+  "group": "QA",
+  "name": "Capstone Test",
+  "edition": "cs",
+  "parent": "1",
+  "monsters": [
+    "clockwork-bombard",
+    "clockwork-soldier"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "clockwork-bombard",
+          "type": "boss"
+        },
+        {
+          "name": "clockwork-soldier",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "clockwork-soldier",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "clockwork-soldier",
+          "player3": "normal"
+        }
+      ]
+    }
+  ]
+}

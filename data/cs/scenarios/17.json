@@ -9,7 +9,6 @@
     "18"
   ],
   "monsters": [
-    "earth-demon",
     "flame-demon",
     "frost-demon",
     "savvas-icestorm",
@@ -20,9 +19,6 @@
       "roomNumber": 1,
       "ref": "h1",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "monster": [
         {
           "name": "flame-demon",
@@ -41,76 +37,6 @@
         {
           "name": "savvas-icestorm",
           "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "f1",
-      "rooms": [
-        3
-      ],
-      "monster": [
-        {
-          "name": "frost-demon",
-          "type": "normal"
-        },
-        {
-          "name": "frost-demon",
-          "type": "normal"
-        },
-        {
-          "name": "frost-demon",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "savvas-icestorm",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "wind-demon",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "wind-demon",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "d2",
-      "monster": [
-        {
-          "name": "earth-demon",
-          "type": "normal"
-        },
-        {
-          "name": "earth-demon",
-          "type": "normal"
-        },
-        {
-          "name": "earth-demon",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "flame-demon",
-          "type": "normal"
-        },
-        {
-          "name": "flame-demon",
-          "type": "elite"
-        },
-        {
-          "name": "flame-demon",
           "player3": "normal",
           "player4": "elite"
         }

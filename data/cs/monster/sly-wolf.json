@@ -5,7 +5,7 @@
   "deck": "hound",
   "boss": true,
   "hidden": true,
-  "count": 6,
+  "count": 1,
   "baseStat": {
     "type": "boss"
   },

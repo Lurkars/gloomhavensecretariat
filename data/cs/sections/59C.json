@@ -1,0 +1,41 @@
+{
+  "index": "59C",
+  "name": "Cave of Currents",
+  "edition": "cs",
+  "parent": "53",
+  "monsters": [
+    "lurker",
+    "water-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lurker",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker",
+          "player4": "elite"
+        },
+        {
+          "name": "water-spirit",
+          "type": "elite"
+        },
+        {
+          "name": "water-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

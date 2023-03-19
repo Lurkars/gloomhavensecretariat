@@ -4,6 +4,18 @@
   "name": "Mechanical Menace",
   "edition": "cs",
   "monsters": [
-    "clockwork-devastator"
+    "steel-construct"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "steel-construct",
+          "type": "boss"
+        }
+      ]
+    }
   ]
 }

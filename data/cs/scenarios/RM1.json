@@ -9,40 +9,34 @@
   ],
   "monsters": [
     "bandit-archer-hired-muscle",
-    "bandit-guard-hired-muscle",
-    "inox-archer",
-    "inox-guard"
+    "bandit-guard-hired-muscle"
   ],
   "rooms": [
     {
       "roomNumber": 1,
       "ref": "g2",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "monster": [
         {
           "name": "bandit-archer-hired-muscle",
           "player2": "elite",
-          "player3": "normal"
-        },
-        {
-          "name": "bandit-archer-hired-muscle",
           "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "bandit-archer-hired-muscle",
           "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "bandit-archer-hired-muscle",
           "player4": "normal"
         },
         {
           "name": "bandit-archer-hired-muscle",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard-hired-muscle",
+          "player2": "normal",
+          "player3": "elite",
           "player4": "normal"
         },
         {
@@ -58,99 +52,7 @@
         },
         {
           "name": "bandit-guard-hired-muscle",
-          "player2": "normal",
           "player4": "normal"
-        },
-        {
-          "name": "bandit-guard-hired-muscle",
-          "player3": "elite",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "h1",
-      "rooms": [
-        3
-      ],
-      "monster": [
-        {
-          "name": "inox-archer",
-          "player2": "normal",
-          "player3": "normal"
-        },
-        {
-          "name": "inox-archer",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "inox-archer",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "inox-archer",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "type": "elite"
-        },
-        {
-          "name": "inox-guard",
-          "player2": "normal",
-          "player3": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player2": "elite",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "inox-guard",
-          "player3": "elite",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "d2",
-      "monster": [
-        {
-          "name": "bandit-archer-hired-muscle",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "bandit-guard-hired-muscle",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "harrower-aegis",
-          "type": "elite"
-        },
-        {
-          "name": "inox-archer",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
         }
       ]
     }

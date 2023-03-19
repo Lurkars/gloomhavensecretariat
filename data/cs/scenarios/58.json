@@ -11,71 +11,11 @@
       "roomNumber": 1,
       "ref": "f1",
       "initial": true,
-      "rooms": [
-        3,
-        4,
-        5,
-        6
-      ],
       "monster": [
         {
           "name": "bandit-archer",
           "type": "elite"
         },
-        {
-          "name": "bandit-guard",
-          "type": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "f1",
-      "monster": [
-        {
-          "name": "bandit-archer",
-          "type": "elite"
-        },
-        {
-          "name": "bandit-guard",
-          "type": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "a3",
-      "monster": [
-        {
-          "name": "bandit-guard",
-          "type": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
-      "ref": "a2",
-      "monster": [
-        {
-          "name": "bandit-archer",
-          "type": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 5,
-      "ref": "a1",
-      "monster": [
-        {
-          "name": "bandit-archer",
-          "type": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 6,
-      "ref": "a4",
-      "monster": [
         {
           "name": "bandit-guard",
           "type": "elite"

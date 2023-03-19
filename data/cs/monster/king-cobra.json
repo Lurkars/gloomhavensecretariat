@@ -5,7 +5,7 @@
   "deck": "giant-viper",
   "boss": true,
   "hidden": true,
-  "count": 10,
+  "count": 1,
   "baseStat": {
     "type": "boss",
     "actions": [

@@ -1,0 +1,25 @@
+{
+  "index": "65C",
+  "name": "Elemental Converter",
+  "edition": "cs",
+  "parent": "57",
+  "monsters": [
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

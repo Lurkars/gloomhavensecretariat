@@ -5,5 +5,17 @@
   "parent": "36",
   "monsters": [
     "terrible-two-archer"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "terrible-two-archer",
+          "type": "boss"
+        }
+      ]
+    }
   ]
 }

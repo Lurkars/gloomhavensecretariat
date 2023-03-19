@@ -1,0 +1,52 @@
+{
+  "index": "13B",
+  "name": "Voyage Abound",
+  "edition": "cs",
+  "parent": "11",
+  "monsters": [
+    "inox-guard",
+    "inox-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-shaman",
+          "type": "elite"
+        },
+        {
+          "name": "inox-shaman",
+          "type": "elite"
+        },
+        {
+          "name": "inox-shaman",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-shaman",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

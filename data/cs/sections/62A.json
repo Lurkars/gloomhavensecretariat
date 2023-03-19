@@ -6,5 +6,33 @@
   "monsters": [
     "black-bear",
     "cave-imp"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-bear",
+          "type": "normal"
+        },
+        {
+          "name": "cave-imp",
+          "type": "normal"
+        },
+        {
+          "name": "cave-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "cave-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
   ]
 }

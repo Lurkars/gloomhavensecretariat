@@ -1,0 +1,25 @@
+{
+  "index": "69C",
+  "name": "Archaic Preservation",
+  "edition": "cs",
+  "parent": "61",
+  "monsters": [
+    "stone-golem"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "stone-golem",
+          "type": "normal"
+        },
+        {
+          "name": "stone-golem",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

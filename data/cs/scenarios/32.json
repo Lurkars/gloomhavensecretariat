@@ -3,21 +3,12 @@
   "name": "Confronting the Past",
   "edition": "cs",
   "monsters": [
-    "ancient-artillery",
-    "inox-archer",
-    "inox-bodyguard",
-    "inox-guard",
-    "jekserah",
     "living-bones"
   ],
   "rooms": [
     {
       "roomNumber": 1,
-      "initial": true
-    },
-    {
-      "roomNumber": 2,
-      "ref": "g2",
+      "initial": true,
       "monster": [
         {
           "name": "living-bones",
@@ -25,13 +16,11 @@
         },
         {
           "name": "living-bones",
-          "player2": "normal",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "living-bones",
-          "player2": "elite",
-          "player3": "normal"
+          "type": "elite"
         },
         {
           "name": "living-bones",
@@ -40,71 +29,9 @@
         },
         {
           "name": "living-bones",
-          "player3": "elite"
-        },
-        {
-          "name": "living-bones",
-          "player4": "elite"
-        },
-        {
-          "name": "living-bones",
           "player4": "elite"
         }
       ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "l2",
-      "rooms": [
-        4
-      ],
-      "monster": [
-        {
-          "name": "inox-archer",
-          "type": "normal"
-        },
-        {
-          "name": "inox-archer",
-          "type": "normal"
-        },
-        {
-          "name": "inox-archer",
-          "player4": "elite"
-        },
-        {
-          "name": "inox-bodyguard",
-          "type": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "inox-guard",
-          "player3": "normal",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
-      "ref": "i2",
-      "monster": [
-        {
-          "name": "jekserah",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 5
     }
   ]
 }

@@ -1,0 +1,64 @@
+{
+  "index": "2-AA2",
+  "group": "AA",
+  "name": "Malign Echoes",
+  "edition": "cs",
+  "parent": "2",
+  "monsters": [
+    "black-imp",
+    "harrower-aegis",
+    "harrower-infester",
+    "the-echo"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-aegis",
+          "type": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player4": "normal"
+        },
+        {
+          "name": "the-echo",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

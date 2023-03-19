@@ -4,9 +4,7 @@
   "edition": "cs",
   "monsters": [
     "giant-viper",
-    "inox-archer",
     "inox-guard",
-    "inox-shaman",
     "spitting-drake"
   ],
   "rooms": [
@@ -14,9 +12,6 @@
       "roomNumber": 1,
       "ref": "d1",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "monster": [
         {
           "name": "giant-viper",
@@ -32,8 +27,7 @@
         },
         {
           "name": "inox-guard",
-          "player3": "normal",
-          "player4": "normal"
+          "player3": "normal"
         },
         {
           "name": "spitting-drake",
@@ -42,89 +36,6 @@
         {
           "name": "spitting-drake",
           "player3": "normal",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "l1",
-      "rooms": [
-        3
-      ],
-      "monster": [
-        {
-          "name": "giant-viper",
-          "type": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "type": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "inox-archer",
-          "type": "normal"
-        },
-        {
-          "name": "inox-archer",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "type": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "inox-guard",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-shaman",
-          "player2": "normal",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "l3",
-      "monster": [
-        {
-          "name": "inox-archer",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "inox-archer",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "inox-archer",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "inox-shaman",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "spitting-drake",
-          "player3": "elite",
           "player4": "elite"
         }
       ]

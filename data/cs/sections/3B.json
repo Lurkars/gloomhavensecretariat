@@ -7,10 +7,17 @@
     "3A"
   ],
   "marker": "2",
+  "monsters": [
+    "deep-terror",
+    "inox-archer",
+    "inox-guard",
+    "water-spirit"
+  ],
   "rooms": [
     {
       "roomNumber": 3,
       "ref": "e1",
+      "initial": true,
       "monster": [
         {
           "name": "deep-terror",
@@ -24,10 +31,7 @@
         },
         {
           "name": "inox-guard",
-          "player2": "elite"
-        },
-        {
-          "name": "inox-guard",
+          "player2": "elite",
           "player3": "normal",
           "player4": "elite"
         },
@@ -41,10 +45,7 @@
         },
         {
           "name": "water-spirit",
-          "player3": "elite"
-        },
-        {
-          "name": "water-spirit",
+          "player3": "elite",
           "player4": "elite"
         }
       ]

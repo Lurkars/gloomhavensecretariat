@@ -1,0 +1,51 @@
+{
+  "index": "23C",
+  "name": "Icicle Chambers",
+  "edition": "cs",
+  "parent": "23",
+  "monsters": [
+    "frozen-cadaver",
+    "hail-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-cadaver",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-cadaver",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-cadaver",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-cadaver",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-cadaver",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hail-demon",
+          "type": "normal"
+        },
+        {
+          "name": "hail-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -16,7 +16,6 @@
   },
   "monsters": [
     "blood-ooze",
-    "flaming-drake",
     "toxic-imp",
     "water-spirit"
   ],
@@ -36,19 +35,17 @@
         },
         {
           "name": "toxic-imp",
-          "player2": "normal",
+          "type": "normal"
+        },
+        {
+          "name": "toxic-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "toxic-imp",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "toxic-imp",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "toxic-imp",
-          "player3": "normal",
-          "player4": "normal"
         },
         {
           "name": "water-spirit",
@@ -58,10 +55,6 @@
           "name": "water-spirit",
           "player2": "normal",
           "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "water-spirit",
           "player4": "elite"
         }
       ]

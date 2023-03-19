@@ -11,9 +11,6 @@
       "roomNumber": 1,
       "ref": "i2",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "monster": [
         {
           "name": "dark-lurker",
@@ -29,90 +26,15 @@
         },
         {
           "name": "hanging-snake",
+          "type": "normal"
+        },
+        {
+          "name": "hanging-snake",
           "type": "elite"
         },
         {
           "name": "hanging-snake",
-          "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "hanging-snake",
-          "player3": "normal",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "k1",
-      "rooms": [
-        3
-      ],
-      "monster": [
-        {
-          "name": "living-bones",
-          "type": "normal"
-        },
-        {
-          "name": "living-bones",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "living-bones",
-          "player4": "normal"
-        },
-        {
-          "name": "stone-golem",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "stone-golem",
-          "player2": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "stone-golem",
-          "player3": "normal",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "d2",
-      "monster": [
-        {
-          "name": "cave-bear",
-          "type": "elite"
-        },
-        {
-          "name": "forest-imp",
-          "type": "normal"
-        },
-        {
-          "name": "forest-imp",
-          "player2": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "forest-imp",
-          "player2": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "forest-imp",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "forest-imp",
-          "player3": "elite",
           "player4": "elite"
         }
       ]

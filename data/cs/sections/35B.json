@@ -1,0 +1,23 @@
+{
+  "index": "35B",
+  "name": "Confronting the Past",
+  "edition": "cs",
+  "parent": "32",
+  "monsters": [
+    "jekserah",
+    "living-bones",
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "jekserah",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

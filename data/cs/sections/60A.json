@@ -5,5 +5,17 @@
   "parent": "53",
   "monsters": [
     "morphling"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "morphling",
+          "type": "boss"
+        }
+      ]
+    }
   ]
 }

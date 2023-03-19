@@ -10,8 +10,6 @@
   ],
   "monsters": [
     "gnashing-drake",
-    "rending-drake",
-    "spitting-drake",
     "vermling-scout-ally",
     "vermling-shaman-ally"
   ],
@@ -54,86 +52,28 @@
           "type": "normal"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout-ally",
           "type": "elite"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout-ally",
           "type": "elite"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout-ally",
           "type": "elite"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout-ally",
           "type": "elite"
         },
         {
-          "name": "vermling-shaman",
+          "name": "vermling-shaman-ally",
           "type": "normal"
         },
         {
-          "name": "vermling-shaman",
+          "name": "vermling-shaman-ally",
           "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "l2",
-      "monster": [
-        {
-          "name": "gnashing-drake",
-          "type": "normal"
-        },
-        {
-          "name": "gnashing-drake",
-          "type": "normal"
-        },
-        {
-          "name": "rending-drake",
-          "type": "normal"
-        },
-        {
-          "name": "rending-drake",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "l2",
-      "monster": [
-        {
-          "name": "gnashing-drake",
-          "type": "normal"
-        },
-        {
-          "name": "gnashing-drake",
-          "type": "normal"
-        },
-        {
-          "name": "gnashing-drake",
-          "type": "normal"
-        },
-        {
-          "name": "gnashing-drake",
-          "type": "normal"
-        },
-        {
-          "name": "spitting-drake",
-          "type": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
-      "ref": "l2",
-      "monster": [
-        {
-          "name": "terrorscale-drake",
-          "type": "elite"
         }
       ]
     }

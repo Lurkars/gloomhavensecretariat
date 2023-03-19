@@ -1,0 +1,44 @@
+{
+  "index": "39C",
+  "name": "Prison Riot",
+  "edition": "cs",
+  "parent": "35",
+  "monsters": [
+    "bandit-archer",
+    "night-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal"
+        }
+      ]
+    }
+  ]
+}

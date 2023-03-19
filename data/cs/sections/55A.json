@@ -1,0 +1,94 @@
+{
+  "index": "55A",
+  "name": "Oak Invasion A",
+  "edition": "cs",
+  "parent": "49",
+  "monsters": [
+    "city-archer:-1",
+    "city-guard:-1",
+    "inox-archer",
+    "inox-bodyguard",
+    "inox-guard",
+    "inox-shaman"
+  ],
+  "allies": [
+    "city-archer",
+    "city-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-bodyguard",
+          "type": "boss"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-shaman",
+          "type": "elite"
+        },
+        {
+          "name": "inox-shaman",
+          "type": "elite"
+        },
+        {
+          "name": "inox-shaman",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "index": "3-1",
+  "group": "RM",
+  "name": "Ruined Colony",
+  "edition": "cs",
+  "parent": "3",
+  "monsters": [
+    "cave-bear",
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal"
+        }
+      ]
+    }
+  ]
+}

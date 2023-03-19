@@ -4,19 +4,13 @@
   "edition": "cs",
   "monsters": [
     "harrower-infester",
-    "living-spirit",
-    "night-demon"
+    "living-spirit"
   ],
   "rooms": [
     {
       "roomNumber": 1,
       "ref": "f1",
       "initial": true,
-      "rooms": [
-        2,
-        3,
-        4
-      ],
       "monster": [
         {
           "name": "harrower-infester",
@@ -26,110 +20,12 @@
         {
           "name": "living-spirit",
           "player2": "elite",
-          "player3": "elite"
-        },
-        {
-          "name": "living-spirit",
+          "player3": "elite",
           "player4": "normal"
         },
         {
           "name": "living-spirit",
           "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "a3",
-      "monster": [
-        {
-          "name": "living-spirit",
-          "type": "elite"
-        },
-        {
-          "name": "night-demon",
-          "type": "elite"
-        },
-        {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "b3",
-      "monster": [
-        {
-          "name": "harrower-infester",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "harrower-infester",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "living-spirit",
-          "type": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "living-spirit",
-          "player4": "elite"
-        },
-        {
-          "name": "night-demon",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
-      "ref": "b4",
-      "monster": [
-        {
-          "name": "harrower-infester",
-          "type": "normal"
-        },
-        {
-          "name": "harrower-infester",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "living-spirit",
-          "type": "elite"
-        },
-        {
-          "name": "living-spirit",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "player4": "elite"
-        },
-        {
-          "name": "night-demon",
-          "type": "normal"
-        },
-        {
-          "name": "night-demon",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
         }
       ]
     }

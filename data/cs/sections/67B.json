@@ -1,0 +1,26 @@
+{
+  "index": "67B",
+  "name": "Forest Invaders",
+  "edition": "cs",
+  "parent": "59",
+  "monsters": [
+    "cave-bear",
+    "vermling-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

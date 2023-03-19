@@ -11,9 +11,6 @@
       "roomNumber": 1,
       "ref": "h3",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "monster": [
         {
           "name": "bandit-archer",
@@ -28,18 +25,8 @@
           "player4": "elite"
         },
         {
-          "name": "bandit-archer",
-          "player4": "normal"
-        },
-        {
-          "name": "bandit-archer",
-          "player4": "normal"
-        },
-        {
           "name": "bandit-guard",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
+          "type": "normal"
         },
         {
           "name": "bandit-guard",
@@ -51,17 +38,7 @@
           "name": "bandit-guard",
           "player2": "normal",
           "player3": "elite",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "n1",
-      "monster": [
-        {
-          "name": "the-colorless",
-          "type": "elite"
+          "player4": "elite"
         }
       ]
     }

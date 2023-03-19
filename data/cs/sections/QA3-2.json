@@ -4,6 +4,18 @@
   "name": "Inspection Chamber",
   "edition": "cs",
   "monsters": [
-    "steel-construct"
+    "clockwork-devastator"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "clockwork-devastator",
+          "type": "boss"
+        }
+      ]
+    }
   ]
 }

@@ -1,0 +1,54 @@
+{
+  "index": "15B",
+  "name": "Cultist Cave",
+  "edition": "cs",
+  "parent": "14",
+  "monsters": [
+    "cultist-scenario-14",
+    "deep-terror",
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cultist-scenario-14",
+          "type": "elite"
+        },
+        {
+          "name": "cultist-scenario-14",
+          "type": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

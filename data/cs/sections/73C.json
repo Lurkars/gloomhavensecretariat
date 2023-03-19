@@ -3,12 +3,27 @@
   "name": "Scenario 65",
   "edition": "cs",
   "parent": "65",
+  "monsters": [
+    "vermling-shaman"
+  ],
   "objectives": [
     {
       "name": "Vile Spirit",
       "health": 4,
       "marker": "b",
       "count": 2
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,31 @@
+{
+  "index": "12B",
+  "name": "Den of Monstrosity",
+  "edition": "cs",
+  "parent": "10",
+  "monsters": [
+    "black-imp",
+    "lurker"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "index": "26D",
+  "name": "Brightspark, Behold!",
+  "edition": "cs",
+  "parent": "25",
+  "monsters": [
+    "giant-viper",
+    "lurker"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker",
+          "type": "elite"
+        },
+        {
+          "name": "lurker",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -3,11 +3,8 @@
   "name": "Forest Invaders",
   "edition": "cs",
   "monsters": [
-    "cave-bear",
     "giant-viper",
-    "hound",
-    "vermling-scout",
-    "vermling-shaman"
+    "vermling-scout"
   ],
   "rooms": [
     {
@@ -22,45 +19,6 @@
         {
           "name": "vermling-scout",
           "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "monster": [
-        {
-          "name": "giant-viper",
-          "type": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "monster": [
-        {
-          "name": "hound",
-          "type": "elite"
-        },
-        {
-          "name": "vermling-shaman",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
-      "monster": [
-        {
-          "name": "cave-bear",
-          "type": "elite"
-        },
-        {
-          "name": "vermling-shaman",
-          "type": "elite"
         }
       ]
     }

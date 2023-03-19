@@ -3,7 +3,6 @@
   "name": "Festering Mire",
   "edition": "cs",
   "monsters": [
-    "earth-demon",
     "giant-viper"
   ],
   "rooms": [
@@ -14,50 +13,42 @@
       "monster": [
         {
           "name": "giant-viper",
-          "player2": "normal",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
           "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "giant-viper",
-          "player2": "normal",
-          "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "giant-viper",
-          "player2": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player2": "elite",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "player4": "normal"
         }
       ]
     }

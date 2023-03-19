@@ -5,10 +5,7 @@
   "monsters": [
     "city-archer",
     "city-guard",
-    "earth-demon",
-    "harrower-infester",
-    "night-demon",
-    "sun-demon"
+    "night-demon"
   ],
   "rooms": [
     {
@@ -46,56 +43,6 @@
         },
         {
           "name": "night-demon",
-          "type": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "n1",
-      "monster": [
-        {
-          "name": "earth-demon",
-          "type": "normal"
-        },
-        {
-          "name": "earth-demon",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "n1",
-      "monster": [
-        {
-          "name": "harrower-infester",
-          "type": "normal"
-        },
-        {
-          "name": "harrower-infester",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
-      "ref": "n1",
-      "monster": [
-        {
-          "name": "earth-demon",
-          "type": "elite"
-        },
-        {
-          "name": "earth-demon",
-          "type": "elite"
-        },
-        {
-          "name": "sun-demon",
-          "type": "elite"
-        },
-        {
-          "name": "sun-demon",
           "type": "elite"
         }
       ]

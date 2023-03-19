@@ -3,11 +3,56 @@
   "name": "Scenario 46",
   "edition": "cs",
   "parent": "46",
+  "monsters": [
+    "cave-bear",
+    "hound",
+    "vermling-scout",
+    "vermling-shaman"
+  ],
   "objectives": [
     {
       "name": "Tree of Death",
       "health": "Cx(L+5)",
       "marker": "c"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
     }
   ]
 }

@@ -7,10 +7,7 @@
     "3"
   ],
   "monsters": [
-    "black-imp",
     "giant-viper",
-    "harrower-aegis",
-    "harrower-infester",
     "ravenous-gharial"
   ],
   "rooms": [
@@ -18,148 +15,37 @@
       "roomNumber": 1,
       "ref": "m1",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "monster": [
         {
           "name": "giant-viper",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player2": "elite",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player4": "elite"
-        },
-        {
-          "name": "ravenous-gharial",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "ravenous-gharial",
-          "player2": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "ravenous-gharial",
-          "player3": "elite",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "g1",
-      "rooms": [
-        3
-      ],
-      "monster": [
-        {
-          "name": "giant-viper",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "player2": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "ravenous-gharial",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "ravenous-gharial",
-          "player2": "normal",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "g1",
-      "monster": [
-        {
-          "name": "black-imp",
           "type": "normal"
         },
         {
-          "name": "black-imp",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "black-imp",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "black-imp",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "harrower-aegis",
-          "type": "normal"
-        },
-        {
-          "name": "harrower-infester",
-          "player2": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "harrower-infester",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "harrower-infester",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-spirit",
+          "name": "giant-viper",
           "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player4": "elite"
+        },
+        {
+          "name": "ravenous-gharial",
+          "type": "elite"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         }
       ]
     }

@@ -1,0 +1,21 @@
+{
+  "index": "71B",
+  "name": "Hallow Redemption",
+  "edition": "cs",
+  "parent": "62",
+  "monsters": [
+    "aesther-ashblade:-1"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "aesther-ashblade",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

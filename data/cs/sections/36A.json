@@ -1,0 +1,46 @@
+{
+  "index": "36A",
+  "name": "Siege Tower",
+  "edition": "cs",
+  "parent": "33",
+  "monsters": [
+    "hound",
+    "inox-archer",
+    "inox-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-shaman",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

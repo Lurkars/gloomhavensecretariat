@@ -3,11 +3,53 @@
   "name": "Scenario 26",
   "edition": "cs",
   "parent": "26",
+  "monsters": [
+    "frozen-cadaver",
+    "hail-demon"
+  ],
   "objectives": [
     {
       "name": "Icy Flame thermal stone",
       "health": "C+6",
       "marker": "c"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-cadaver",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-cadaver",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-cadaver",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-cadaver",
+          "player4": "elite"
+        },
+        {
+          "name": "hail-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hail-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,40 @@
+{
+  "index": "14C",
+  "name": "Corpse Cavern",
+  "edition": "cs",
+  "parent": "13",
+  "monsters": [
+    "living-corpse",
+    "lurker"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-corpse",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker",
+          "player2": "normal"
+        }
+      ]
+    }
+  ]
+}

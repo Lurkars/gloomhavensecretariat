@@ -5,5 +5,17 @@
   "parent": "62",
   "monsters": [
     "your-shadow"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "your-shadow",
+          "type": "boss"
+        }
+      ]
+    }
   ]
 }

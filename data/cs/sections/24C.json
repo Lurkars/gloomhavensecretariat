@@ -1,0 +1,35 @@
+{
+  "index": "24C",
+  "name": "Eerie Grotto",
+  "edition": "cs",
+  "parent": "24",
+  "monsters": [
+    "frozen-cadaver",
+    "hail-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-cadaver",
+          "type": "elite"
+        },
+        {
+          "name": "frozen-cadaver",
+          "type": "elite"
+        },
+        {
+          "name": "frozen-cadaver",
+          "player4": "normal"
+        },
+        {
+          "name": "hail-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

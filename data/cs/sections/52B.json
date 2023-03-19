@@ -1,0 +1,59 @@
+{
+  "index": "52B",
+  "name": "Forest Fire",
+  "edition": "cs",
+  "parent": "48",
+  "monsters": [
+    "giant-viper",
+    "inox-archer",
+    "inox-guard",
+    "inox-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-shaman",
+          "player2": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

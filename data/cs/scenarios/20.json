@@ -7,7 +7,6 @@
   ],
   "monsters": [
     "deep-terror",
-    "living-bones",
     "living-spirit",
     "the-cultist"
   ],
@@ -44,8 +43,7 @@
         },
         {
           "name": "deep-terror",
-          "player2": "normal",
-          "player4": "elite"
+          "type": "normal"
         },
         {
           "name": "deep-terror",
@@ -59,12 +57,11 @@
         },
         {
           "name": "deep-terror",
-          "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "deep-terror",
-          "player4": "normal"
+          "player4": "elite"
         },
         {
           "name": "living-spirit",

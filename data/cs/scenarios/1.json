@@ -28,16 +28,13 @@
         {
           "name": "vermling-scout",
           "player2": "elite",
+          "player3": "elite",
           "player4": "normal"
         },
         {
           "name": "vermling-scout",
           "player3": "elite",
           "player4": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "player3": "elite"
         },
         {
           "name": "vermling-scout",
@@ -49,14 +46,8 @@
         },
         {
           "name": "water-spirit",
-          "player2": "normal"
-        },
-        {
-          "name": "water-spirit",
-          "player3": "normal"
-        },
-        {
-          "name": "water-spirit",
+          "player2": "normal",
+          "player3": "normal",
           "player4": "elite"
         }
       ]

@@ -20,32 +20,12 @@
       "roomNumber": 1,
       "ref": "i1",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "monster": [
         {
           "name": "vermling-shaman",
           "type": "elite"
         }
       ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "e1",
-      "rooms": [
-        3
-      ],
-      "monster": [
-        {
-          "name": "vermling-shaman",
-          "type": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "c1"
     }
   ]
 }

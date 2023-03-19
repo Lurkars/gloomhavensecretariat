@@ -18,89 +18,33 @@
       "initial": true,
       "monster": [
         {
-          "name": "city-archer",
+          "name": "clockwork-railcaster",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "city-archer",
-          "player4": "normal"
-        },
-        {
-          "name": "city-guard",
+          "name": "clockwork-soldier",
           "type": "normal"
         },
         {
-          "name": "city-guard",
+          "name": "clockwork-soldier",
           "type": "normal"
         },
         {
-          "name": "city-guard",
+          "name": "clockwork-soldier",
           "type": "normal"
         },
         {
-          "name": "city-guard",
+          "name": "clockwork-soldier",
           "type": "elite"
         },
         {
-          "name": "city-guard",
+          "name": "clockwork-soldier",
           "player4": "normal"
         },
         {
-          "name": "city-guard",
+          "name": "clockwork-soldier",
           "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "monster": [
-        {
-          "name": "city-archer",
-          "type": "normal"
-        },
-        {
-          "name": "city-archer",
-          "type": "normal"
-        },
-        {
-          "name": "city-archer",
-          "type": "normal"
-        },
-        {
-          "name": "city-archer",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "city-archer",
-          "player4": "elite"
-        },
-        {
-          "name": "city-guard",
-          "type": "normal"
-        },
-        {
-          "name": "city-guard",
-          "type": "normal"
-        },
-        {
-          "name": "city-guard",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "city-guard",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "monster": [
-        {
-          "name": "lurker",
-          "type": "elite"
         }
       ]
     }

@@ -3,10 +3,8 @@
   "name": "Great Oak Rescue",
   "edition": "cs",
   "monsters": [
-    "hound",
     "inox-archer",
-    "inox-guard",
-    "inox-shaman"
+    "inox-guard"
   ],
   "objectives": [
     {
@@ -22,9 +20,6 @@
       "roomNumber": 1,
       "ref": "l1",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "monster": [
         {
           "name": "inox-archer",
@@ -59,88 +54,6 @@
         {
           "name": "inox-guard",
           "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "h3",
-      "rooms": [
-        3
-      ],
-      "monster": [
-        {
-          "name": "hound",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "hound",
-          "player2": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "hound",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "hound",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-shaman",
-          "type": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "d1",
-      "rooms": [
-        4
-      ],
-      "monster": [
-        {
-          "name": "inox-guard",
-          "type": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "type": "normal"
-        },
-        {
-          "name": "inox-shaman",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
-      "ref": "e1",
-      "monster": [
-        {
-          "name": "hound",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-archer",
-          "type": "normal"
-        },
-        {
-          "name": "inox-archer",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "inox-archer",
-          "player4": "normal"
         }
       ]
     }

@@ -1,0 +1,29 @@
+{
+  "index": "22E",
+  "name": "Imp Temple",
+  "edition": "cs",
+  "parent": "22",
+  "monsters": [
+    "forest-imp",
+    "harrower-infester"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "forest-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "index": "2-AA1",
+  "group": "AA",
+  "name": "Malign Echoes",
+  "edition": "cs",
+  "parent": "2",
+  "monsters": [
+    "giant-viper",
+    "ravenous-gharial"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player4": "normal"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player2": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

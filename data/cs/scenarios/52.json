@@ -3,8 +3,6 @@
   "name": "Wishing Well",
   "edition": "cs",
   "monsters": [
-    "black-imp",
-    "living-corpse",
     "ooze",
     "spitting-drake"
   ],
@@ -43,10 +41,6 @@
       "roomNumber": 1,
       "ref": "e1",
       "initial": true,
-      "rooms": [
-        2,
-        3
-      ],
       "monster": [
         {
           "name": "ooze",
@@ -64,63 +58,6 @@
         },
         {
           "name": "ooze",
-          "player3": "normal",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "b2",
-      "monster": [
-        {
-          "name": "black-imp",
-          "type": "elite"
-        },
-        {
-          "name": "black-imp",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "black-imp",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "living-corpse",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "living-corpse",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "b3",
-      "monster": [
-        {
-          "name": "black-imp",
-          "type": "elite"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "living-corpse",
           "player3": "normal",
           "player4": "elite"
         }

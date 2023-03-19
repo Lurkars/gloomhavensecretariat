@@ -1,0 +1,31 @@
+{
+  "index": "49A",
+  "name": "Haunted Manor",
+  "edition": "cs",
+  "parent": "44",
+  "monsters": [
+    "living-spirit",
+    "night-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-spirit",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

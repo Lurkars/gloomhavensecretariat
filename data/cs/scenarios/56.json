@@ -3,8 +3,7 @@
   "name": "Disarm the Machine",
   "edition": "cs",
   "monsters": [
-    "ancient-artillery",
-    "stone-golem"
+    "ancient-artillery"
   ],
   "rooms": [
     {
@@ -26,20 +25,6 @@
         },
         {
           "name": "ancient-artillery",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "n1",
-      "monster": [
-        {
-          "name": "stone-golem",
-          "type": "normal"
-        },
-        {
-          "name": "stone-golem",
           "type": "normal"
         }
       ]

@@ -1,0 +1,27 @@
+{
+  "index": "36C",
+  "name": "Siege Tower",
+  "edition": "cs",
+  "parent": "33",
+  "monsters": [
+    "inox-bodyguard",
+    "inox-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-bodyguard",
+          "type": "boss"
+        },
+        {
+          "name": "inox-shaman",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

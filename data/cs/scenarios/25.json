@@ -6,11 +6,8 @@
     "31"
   ],
   "monsters": [
-    "forest-imp",
     "giant-viper",
-    "lurker",
-    "spitting-drake",
-    "sun-demon"
+    "spitting-drake"
   ],
   "objectives": [
     {
@@ -26,11 +23,6 @@
       "roomNumber": 1,
       "ref": "i1",
       "initial": true,
-      "rooms": [
-        2,
-        3,
-        5
-      ],
       "monster": [
         {
           "name": "giant-viper",
@@ -48,145 +40,10 @@
           "name": "spitting-drake",
           "player2": "normal",
           "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "spitting-drake",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "spitting-drake",
           "player4": "elite"
         },
         {
           "name": "spitting-drake",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "b4",
-      "monster": [
-        {
-          "name": "spitting-drake",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "spitting-drake",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "sun-demon",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "b2",
-      "rooms": [
-        4
-      ],
-      "monster": [
-        {
-          "name": "forest-imp",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "forest-imp",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "forest-imp",
-          "player4": "elite"
-        },
-        {
-          "name": "sun-demon",
-          "type": "elite"
-        },
-        {
-          "name": "sun-demon",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
-      "ref": "b3",
-      "monster": [
-        {
-          "name": "giant-viper",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player4": "elite"
-        },
-        {
-          "name": "lurker",
-          "type": "elite"
-        },
-        {
-          "name": "lurker",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 5,
-      "ref": "b4",
-      "monster": [
-        {
-          "name": "giant-viper",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player4": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "player4": "normal"
-        },
-        {
-          "name": "lurker",
-          "type": "elite"
-        },
-        {
-          "name": "lurker",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"

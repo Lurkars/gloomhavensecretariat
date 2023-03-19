@@ -3,11 +3,62 @@
   "name": "Scenario 28",
   "edition": "cs",
   "parent": "28",
+  "monsters": [
+    "cultist",
+    "living-bones",
+    "ooze"
+  ],
   "objectives": [
     {
       "name": "Fountain of Bones",
       "health": "Cx(L+8)",
       "marker": "a"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "type": "normal"
+        },
+        {
+          "name": "ooze",
+          "type": "normal"
+        }
+      ]
     }
   ]
 }

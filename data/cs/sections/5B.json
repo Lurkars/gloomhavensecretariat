@@ -4,6 +4,15 @@
   "edition": "cs",
   "parent": "4",
   "marker": "2",
+  "monsters": [
+    "blood-ooze",
+    "city-archer-scenario-4:-1",
+    "flaming-drake",
+    "toxic-imp"
+  ],
+  "allies": [
+    "city-archer-scenario-4"
+  ],
   "rules": [
     {
       "round": "always",

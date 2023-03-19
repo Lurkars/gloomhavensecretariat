@@ -11,14 +11,8 @@
   },
   "monsters": [
     "blood-ooze",
-    "city-archer-scenario-4:-1",
-    "city-guard-scenario-4:-1",
     "flaming-drake",
     "toxic-imp"
-  ],
-  "allies": [
-    "city-archer-scenario-4",
-    "city-guard-scenario-4"
   ],
   "rooms": [
     {
@@ -28,9 +22,7 @@
       "monster": [
         {
           "name": "flaming-drake",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
+          "type": "normal"
         },
         {
           "name": "flaming-drake",
@@ -40,37 +32,23 @@
         },
         {
           "name": "flaming-drake",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "toxic-imp",
-          "player2": "normal",
-          "player3": "elite"
-        },
-        {
-          "name": "toxic-imp",
-          "player2": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "toxic-imp",
-          "player2": "elite",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "toxic-imp",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "toxic-imp",
-          "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "toxic-imp",
+          "type": "normal"
+        },
+        {
+          "name": "toxic-imp",
+          "type": "normal"
+        },
+        {
+          "name": "toxic-imp",
+          "type": "elite"
+        },
+        {
+          "name": "toxic-imp",
+          "player3": "elite",
           "player4": "elite"
         }
       ]

@@ -12,5 +12,17 @@
       "health": "C+L",
       "count": 6
     }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "rogue-hollowpact",
+          "type": "boss"
+        }
+      ]
+    }
   ]
 }

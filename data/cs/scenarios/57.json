@@ -3,76 +3,14 @@
   "name": "Elemental Converter",
   "edition": "cs",
   "monsters": [
-    "black-imp",
-    "deep-terror",
-    "hound",
-    "lurker",
-    "rending-drake",
-    "spitting-drake"
+    "deep-terror"
   ],
   "rooms": [
     {
       "roomNumber": 1,
       "ref": "i2",
       "initial": true,
-      "rooms": [
-        2,
-        3,
-        4,
-        5
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "b2",
-      "monster": [
-        {
-          "name": "rending-drake",
-          "type": "normal"
-        },
-        {
-          "name": "spitting-drake",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "a1",
-      "monster": [
-        {
-          "name": "lurker",
-          "type": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
-      "ref": "b3",
-      "monster": [
-        {
-          "name": "black-imp",
-          "type": "normal"
-        },
-        {
-          "name": "deep-terror",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 5,
-      "ref": "a2",
-      "monster": [
-        {
-          "name": "hound",
-          "type": "normal"
-        },
-        {
-          "name": "hound",
-          "type": "normal"
-        }
-      ]
+      "monster": []
     }
   ]
 }

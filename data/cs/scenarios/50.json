@@ -3,25 +3,15 @@
   "name": "Oak Invasion B",
   "edition": "cs",
   "monsters": [
-    "captain-of-the-guard",
     "cave-bear",
     "city-archer",
-    "city-guard",
-    "inox-archer:-1",
-    "inox-guard:-1"
-  ],
-  "allies": [
-    "inox-archer",
-    "inox-guard"
+    "city-guard"
   ],
   "rooms": [
     {
       "roomNumber": 1,
       "ref": "k2",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "monster": [
         {
           "name": "cave-bear",
@@ -29,107 +19,31 @@
         },
         {
           "name": "city-archer",
-          "player2": "elite",
-          "player3": "normal"
-        },
-        {
-          "name": "city-archer",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "city-archer",
-          "player4": "normal"
-        },
-        {
-          "name": "city-archer",
-          "player4": "normal"
-        },
-        {
-          "name": "city-archer",
-          "player4": "elite"
-        },
-        {
-          "name": "city-guard",
-          "player2": "normal",
-          "player3": "normal"
-        },
-        {
-          "name": "city-guard",
-          "player2": "normal",
-          "player3": "elite"
-        },
-        {
-          "name": "city-guard",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "city-guard",
-          "player4": "normal"
-        },
-        {
-          "name": "city-guard",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "l1",
-      "monster": [
-        {
-          "name": "captain-of-the-guard",
           "type": "elite"
         },
         {
-          "name": "cave-bear",
-          "type": "elite"
-        },
-        {
-          "name": "cave-bear",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "city-archer",
-          "type": "normal"
-        },
-        {
           "name": "city-archer",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "city-guard",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "city-guard",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "inox-archer",
-          "type": "normal"
-        },
-        {
-          "name": "inox-archer",
-          "player3": "normal",
+          "name": "city-archer",
           "player4": "normal"
         },
         {
-          "name": "inox-guard",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "name": "city-archer",
+          "player4": "normal"
         },
         {
-          "name": "inox-guard",
-          "player2": "normal",
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
           "player3": "elite",
           "player4": "elite"
         }

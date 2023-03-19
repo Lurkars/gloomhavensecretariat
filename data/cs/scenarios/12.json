@@ -9,7 +9,6 @@
     "15"
   ],
   "monsters": [
-    "flame-demon",
     "giant-viper",
     "rending-drake",
     "spitting-drake"
@@ -19,15 +18,12 @@
       "roomNumber": 1,
       "ref": "d1",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "monster": [
         {
           "name": "giant-viper",
           "player2": "normal",
           "player3": "elite",
-          "player4": "normal"
+          "player4": "elite"
         },
         {
           "name": "giant-viper",
@@ -38,96 +34,37 @@
         {
           "name": "giant-viper",
           "player2": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player2": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
           "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "rending-drake",
-          "player2": "normal",
-          "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "rending-drake",
-          "player2": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "rending-drake",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "rending-drake",
-          "player3": "elite"
-        },
-        {
-          "name": "spitting-drake",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "spitting-drake",
+          "name": "giant-viper",
           "player2": "normal"
         },
         {
-          "name": "spitting-drake",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "spitting-drake",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "g1",
-      "monster": [
-        {
-          "name": "flame-demon",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "flame-demon",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "name": "rending-drake",
+          "type": "normal"
         },
         {
           "name": "rending-drake",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "rending-drake",
-          "player4": "normal"
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player4": "elite"
         }
       ]
     }

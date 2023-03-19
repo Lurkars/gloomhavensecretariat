@@ -4,6 +4,36 @@
   "edition": "cs",
   "parent": "42",
   "monsters": [
+    "giant-viper",
     "king-cobra"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player4": "normal"
+        },
+        {
+          "name": "king-cobra",
+          "type": "boss"
+        }
+      ]
+    }
   ]
 }

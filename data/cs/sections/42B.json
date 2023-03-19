@@ -3,11 +3,49 @@
   "name": "Scenario 38",
   "edition": "cs",
   "parent": "38",
+  "monsters": [
+    "living-spirit",
+    "night-demon"
+  ],
   "objectives": [
     {
       "name": "Altar of Mystification",
       "health": "Cx(L+3)",
       "marker": "a"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player4": "elite"
+        }
+      ]
     }
   ]
 }

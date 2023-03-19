@@ -10,8 +10,6 @@
   ],
   "monsters": [
     "flame-demon",
-    "frost-demon",
-    "night-demon",
     "sun-demon",
     "vermling-scout"
   ],
@@ -32,15 +30,10 @@
       "roomNumber": 1,
       "ref": "d1",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "monster": [
         {
           "name": "flame-demon",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
+          "type": "normal"
         },
         {
           "name": "flame-demon",
@@ -50,7 +43,11 @@
         },
         {
           "name": "flame-demon",
-          "player4": "normal"
+          "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "type": "normal"
         },
         {
           "name": "sun-demon",
@@ -58,22 +55,10 @@
         },
         {
           "name": "sun-demon",
-          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "sun-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
           "name": "vermling-scout",
           "player2": "normal",
           "player3": "elite",
@@ -87,66 +72,8 @@
         },
         {
           "name": "vermling-scout",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "c1",
-      "monster": [
-        {
-          "name": "frost-demon",
-          "type": "elite"
-        },
-        {
-          "name": "frost-demon",
           "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "frost-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "night-demon",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "night-demon",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "night-demon",
-          "player4": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "player4": "normal"
+          "player3": "elite"
         }
       ]
     }

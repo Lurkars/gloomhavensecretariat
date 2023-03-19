@@ -21,10 +21,6 @@
       "roomNumber": 1,
       "ref": "i1",
       "initial": true,
-      "rooms": [
-        2,
-        3
-      ],
       "monster": [
         {
           "name": "earth-demon",
@@ -71,108 +67,6 @@
           "name": "wind-demon",
           "player2": "normal",
           "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "i2",
-      "rooms": [
-        3
-      ],
-      "monster": [
-        {
-          "name": "earth-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "flame-demon",
-          "player2": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "frost-demon",
-          "type": "normal"
-        },
-        {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "sun-demon",
-          "player2": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "wind-demon",
-          "player3": "normal",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "g1",
-      "monster": [
-        {
-          "name": "flame-demon",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "night-demon",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "sun-demon",
-          "type": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "player2": "elite",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "wind-demon",
-          "type": "normal"
         }
       ]
     }

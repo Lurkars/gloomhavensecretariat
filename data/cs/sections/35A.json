@@ -1,0 +1,48 @@
+{
+  "index": "35A",
+  "name": "Confronting the Past",
+  "edition": "cs",
+  "parent": "32",
+  "monsters": [
+    "inox-archer",
+    "inox-bodyguard",
+    "inox-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-bodyguard",
+          "type": "boss"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

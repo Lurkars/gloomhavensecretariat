@@ -7,6 +7,11 @@
     "2A"
   ],
   "marker": "2",
+  "monsters": [
+    "spitting-drake",
+    "vermling-scout",
+    "water-spirit"
+  ],
   "rooms": [
     {
       "roomNumber": 3,
@@ -18,17 +23,12 @@
       "monster": [
         {
           "name": "spitting-drake",
-          "player2": "normal",
-          "player4": "elite"
+          "type": "normal"
         },
         {
           "name": "spitting-drake",
           "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "spitting-drake",
-          "player3": "normal"
+          "player4": "elite"
         },
         {
           "name": "vermling-scout",
@@ -42,12 +42,10 @@
         },
         {
           "name": "water-spirit",
-          "player2": "elite",
-          "player4": "elite"
+          "type": "elite"
         },
         {
           "name": "water-spirit",
-          "player3": "elite",
           "player4": "normal"
         }
       ]

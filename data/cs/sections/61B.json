@@ -6,5 +6,33 @@
   "monsters": [
     "terror-drone",
     "undead-archer"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "terror-drone",
+          "type": "normal"
+        },
+        {
+          "name": "terror-drone",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "undead-archer",
+          "type": "normal"
+        },
+        {
+          "name": "undead-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
   ]
 }

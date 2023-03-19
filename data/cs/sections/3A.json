@@ -4,6 +4,11 @@
   "edition": "cs",
   "parent": "2",
   "marker": "1",
+  "monsters": [
+    "deep-terror",
+    "inox-archer",
+    "water-spirit"
+  ],
   "rooms": [
     {
       "roomNumber": 2,
@@ -16,32 +21,25 @@
         },
         {
           "name": "deep-terror",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
+          "type": "normal"
         },
         {
           "name": "deep-terror",
           "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-archer",
-          "player2": "normal",
-          "player3": "normal"
-        },
-        {
-          "name": "inox-archer",
-          "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "normal",
           "player4": "normal"
         },
         {
           "name": "inox-archer",
-          "player4": "normal"
+          "player4": "elite"
         },
         {
           "name": "water-spirit",

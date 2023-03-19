@@ -2,98 +2,13 @@
   "index": "42",
   "name": "Unnatural Beasts",
   "edition": "cs",
-  "monsters": [
-    "cave-bear",
-    "giant-viper",
-    "hound"
-  ],
+  "monsters": [],
   "rooms": [
     {
       "roomNumber": 1,
       "ref": "g1",
       "initial": true,
-      "rooms": [
-        2,
-        3,
-        4
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "i2",
-      "monster": [
-        {
-          "name": "hound",
-          "type": "normal"
-        },
-        {
-          "name": "hound",
-          "type": "normal"
-        },
-        {
-          "name": "hound",
-          "type": "elite"
-        },
-        {
-          "name": "hound",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "hound",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "d1",
-      "monster": [
-        {
-          "name": "cave-bear",
-          "type": "normal"
-        },
-        {
-          "name": "cave-bear",
-          "type": "elite"
-        },
-        {
-          "name": "cave-bear",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "cave-bear",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
-      "ref": "b1",
-      "monster": [
-        {
-          "name": "giant-viper",
-          "type": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "type": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "type": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "player4": "normal"
-        }
-      ]
+      "monster": []
     }
   ]
 }

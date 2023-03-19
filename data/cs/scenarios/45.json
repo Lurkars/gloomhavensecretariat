@@ -4,17 +4,13 @@
   "edition": "cs",
   "monsters": [
     "black-imp",
-    "forest-imp",
-    "land-leviathan:+1"
+    "forest-imp"
   ],
   "rooms": [
     {
       "roomNumber": 1,
       "ref": "c2",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "monster": [
         {
           "name": "black-imp",
@@ -22,18 +18,20 @@
         },
         {
           "name": "black-imp",
-          "player2": "elite",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp",
           "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "black-imp",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "black-imp",
           "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
         },
         {
           "name": "forest-imp",
@@ -41,129 +39,8 @@
         },
         {
           "name": "forest-imp",
-          "player2": "normal",
           "player3": "elite",
           "player4": "elite"
-        },
-        {
-          "name": "forest-imp",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "forest-imp",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "m1",
-      "monster": [
-        {
-          "name": "black-imp",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "black-imp",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "black-imp",
-          "player2": "normal",
-          "player3": "normal"
-        },
-        {
-          "name": "black-imp",
-          "player2": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "black-imp",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "black-imp",
-          "player4": "normal"
-        },
-        {
-          "name": "forest-imp",
-          "type": "elite"
-        },
-        {
-          "name": "forest-imp",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "forest-imp",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "forest-imp",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "forest-imp",
-          "player4": "normal"
-        },
-        {
-          "name": "land-leviathan:+1",
-          "type": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "m1",
-      "monster": [
-        {
-          "name": "cave-bear",
-          "type": "normal"
-        },
-        {
-          "name": "cave-bear",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
-      "ref": "m1",
-      "monster": [
-        {
-          "name": "rending-drake",
-          "type": "normal"
-        },
-        {
-          "name": "spitting-drake",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 5,
-      "ref": "m1",
-      "monster": [
-        {
-          "name": "giant-viper",
-          "type": "elite"
-        },
-        {
-          "name": "lurker",
-          "type": "normal"
-        },
-        {
-          "name": "lurker",
-          "type": "normal"
         }
       ]
     }

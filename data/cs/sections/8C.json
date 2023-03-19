@@ -1,0 +1,23 @@
+{
+  "index": "8C",
+  "name": "Rescue Mission",
+  "edition": "cs",
+  "parent": "9",
+  "monsters": [
+    "cave-bear-scenario-9"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear-scenario-9",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

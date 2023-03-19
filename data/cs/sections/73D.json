@@ -10,5 +10,12 @@
       "initiative": 50,
       "marker": "c"
     }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": []
+    }
   ]
 }

@@ -1,0 +1,49 @@
+{
+  "index": "7-2",
+  "group": "RM",
+  "name": "Insatiable",
+  "edition": "cs",
+  "parent": "7",
+  "monsters": [
+    "giant-viper",
+    "hound",
+    "ruinmaw"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruinmaw",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

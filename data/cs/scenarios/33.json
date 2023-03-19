@@ -10,7 +10,6 @@
   ],
   "monsters": [
     "inox-archer",
-    "inox-bodyguard",
     "inox-guard",
     "inox-shaman"
   ],
@@ -39,54 +38,6 @@
         {
           "name": "inox-shaman",
           "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "n1",
-      "monster": [
-        {
-          "name": "hound",
-          "type": "elite"
-        },
-        {
-          "name": "hound",
-          "type": "elite"
-        },
-        {
-          "name": "inox-archer",
-          "type": "normal"
-        },
-        {
-          "name": "inox-archer",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "inox-archer",
-          "player4": "elite"
-        },
-        {
-          "name": "inox-shaman",
-          "player3": "elite",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "n1",
-      "monster": [
-        {
-          "name": "inox-bodyguard",
-          "type": "normal"
-        },
-        {
-          "name": "inox-shaman",
-          "player3": "normal",
-          "player4": "elite"
         }
       ]
     }

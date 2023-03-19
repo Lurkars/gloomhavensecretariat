@@ -3,8 +3,7 @@
   "name": "Eternal Portals",
   "edition": "cs",
   "monsters": [
-    "harrower-infester",
-    "living-spirit",
+    "earth-demon",
     "rending-drake",
     "spitting-drake"
   ],

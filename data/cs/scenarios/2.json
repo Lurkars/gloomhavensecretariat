@@ -10,7 +10,6 @@
   ],
   "monsters": [
     "deep-terror",
-    "inox-archer",
     "inox-guard",
     "water-spirit"
   ],
@@ -33,28 +32,19 @@
         },
         {
           "name": "inox-guard",
-          "player2": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player2": "normal"
-        },
-        {
-          "name": "inox-guard",
+          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "inox-guard",
+          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "water-spirit",
-          "player2": "normal"
-        },
-        {
-          "name": "water-spirit",
+          "player2": "normal",
           "player3": "elite",
           "player4": "normal"
         },

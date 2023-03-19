@@ -4,8 +4,6 @@
   "edition": "cs",
   "monsters": [
     "ancient-artillery",
-    "black-imp",
-    "lurker",
     "rending-drake",
     "stone-golem"
   ],
@@ -34,42 +32,6 @@
         {
           "name": "stone-golem",
           "type": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "i1",
-      "monster": [
-        {
-          "name": "black-imp",
-          "type": "elite"
-        },
-        {
-          "name": "black-imp",
-          "type": "elite"
-        },
-        {
-          "name": "lurker",
-          "type": "normal"
-        },
-        {
-          "name": "lurker",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "i1",
-      "monster": [
-        {
-          "name": "stone-golem",
-          "type": "normal"
-        },
-        {
-          "name": "stone-golem",
-          "type": "normal"
         }
       ]
     }

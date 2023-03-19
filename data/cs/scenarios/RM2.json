@@ -7,11 +7,7 @@
     "3"
   ],
   "monsters": [
-    "bandit-archer",
     "bandit-guard",
-    "goremyon-shatter-mind",
-    "inox-archer",
-    "inox-bloodguard",
     "inox-guard"
   ],
   "rooms": [
@@ -23,115 +19,27 @@
         {
           "name": "bandit-guard",
           "player2": "normal",
-          "player3": "normal"
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "bandit-guard",
           "player2": "normal",
-          "player3": "elite"
-        },
-        {
-          "name": "bandit-guard",
           "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "bandit-guard",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "inox-guard",
-          "player2": "elite",
           "player3": "normal"
         },
         {
           "name": "inox-guard",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "f1",
-      "monster": [
-        {
-          "name": "bandit-archer",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "bandit-archer",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "bandit-archer",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-archer",
           "player2": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-archer",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-archer",
-          "player3": "elite",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "i1",
-      "monster": [
-        {
-          "name": "bandit-archer",
-          "type": "normal"
-        },
-        {
-          "name": "bandit-guard",
-          "type": "normal"
-        },
-        {
-          "name": "bandit-guard",
-          "type": "normal"
-        },
-        {
-          "name": "goremyon-shatter-mind",
-          "type": "elite"
-        },
-        {
-          "name": "inox-archer",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-bloodguard",
-          "type": "elite"
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "inox-guard",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player3": "normal",
           "player4": "normal"
         }
       ]

@@ -1,0 +1,30 @@
+{
+  "index": "3-3",
+  "group": "RM",
+  "name": "Ruined Colony",
+  "edition": "cs",
+  "parent": "3",
+  "monsters": [
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

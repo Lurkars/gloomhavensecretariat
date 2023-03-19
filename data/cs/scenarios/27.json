@@ -15,9 +15,6 @@
       "roomNumber": 1,
       "ref": "g2",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "monster": [
         {
           "name": "frost-demon",
@@ -30,12 +27,7 @@
         },
         {
           "name": "stone-golem",
-          "player2": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "stone-golem",
-          "player3": "normal"
+          "type": "normal"
         },
         {
           "name": "wind-demon",
@@ -45,38 +37,6 @@
           "name": "wind-demon",
           "player3": "normal",
           "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "a3",
-      "monster": [
-        {
-          "name": "savvas-icestorm",
-          "type": "normal"
-        },
-        {
-          "name": "stone-golem",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "stone-golem",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "stone-golem",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "stone-golem",
-          "player3": "normal",
-          "player4": "normal"
         }
       ]
     }

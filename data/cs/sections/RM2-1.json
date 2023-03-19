@@ -4,6 +4,44 @@
   "name": "Courtyard",
   "edition": "cs",
   "monsters": [
-    "living-wall"
+    "bandit-archer",
+    "inox-archer"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player2": "elite",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "normal"
+        }
+      ]
+    }
   ]
 }

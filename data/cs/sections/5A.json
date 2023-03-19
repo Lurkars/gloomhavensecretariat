@@ -4,6 +4,14 @@
   "edition": "cs",
   "parent": "4",
   "marker": "1",
+  "monsters": [
+    "blood-ooze",
+    "city-guard-scenario-4:-1",
+    "toxic-imp"
+  ],
+  "allies": [
+    "city-guard-scenario-4"
+  ],
   "rules": [
     {
       "round": "always",
@@ -37,11 +45,8 @@
         {
           "name": "blood-ooze",
           "player2": "normal",
+          "player3": "elite",
           "player4": "elite"
-        },
-        {
-          "name": "blood-ooze",
-          "player3": "elite"
         },
         {
           "name": "city-guard-scenario-4:-1",
@@ -57,10 +62,7 @@
         },
         {
           "name": "toxic-imp",
-          "player3": "normal"
-        },
-        {
-          "name": "toxic-imp",
+          "player3": "normal",
           "player4": "normal"
         },
         {

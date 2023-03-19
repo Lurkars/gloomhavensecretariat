@@ -1,0 +1,28 @@
+{
+  "index": "22D",
+  "name": "Imp Temple",
+  "edition": "cs",
+  "parent": "22",
+  "monsters": [
+    "black-imp",
+    "forest-imp"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

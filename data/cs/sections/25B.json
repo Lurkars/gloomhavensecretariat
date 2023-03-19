@@ -1,0 +1,41 @@
+{
+  "index": "25B",
+  "name": "Eerie Grotto",
+  "edition": "cs",
+  "parent": "24",
+  "monsters": [
+    "hail-demon",
+    "harrower-icecrawlers"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hail-demon",
+          "type": "normal"
+        },
+        {
+          "name": "hail-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-icecrawlers",
+          "type": "normal"
+        },
+        {
+          "name": "harrower-icecrawlers",
+          "type": "normal"
+        },
+        {
+          "name": "harrower-icecrawlers",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

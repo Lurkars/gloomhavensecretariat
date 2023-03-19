@@ -1,0 +1,24 @@
+{
+  "index": "1-AA1",
+  "group": "AA",
+  "name": "The Riches of the Steelsilk",
+  "edition": "cs",
+  "parent": "1",
+  "monsters": [
+    "frost-demon",
+    "the-gilded-one",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "the-gilded-one",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

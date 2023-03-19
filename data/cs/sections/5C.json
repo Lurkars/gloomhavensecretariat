@@ -4,6 +4,14 @@
   "edition": "cs",
   "parent": "4",
   "marker": "3",
+  "monsters": [
+    "blood-ooze",
+    "city-guard-scenario-4:-1",
+    "toxic-imp"
+  ],
+  "allies": [
+    "city-guard-scenario-4"
+  ],
   "rules": [
     {
       "round": "always",

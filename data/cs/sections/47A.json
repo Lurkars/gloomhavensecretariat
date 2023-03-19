@@ -4,6 +4,36 @@
   "edition": "cs",
   "parent": "42",
   "monsters": [
+    "hound",
     "sly-wolf"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        },
+        {
+          "name": "sly-wolf",
+          "type": "boss"
+        }
+      ]
+    }
   ]
 }

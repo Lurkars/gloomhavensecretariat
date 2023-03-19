@@ -1,0 +1,48 @@
+{
+  "index": "1-2",
+  "group": "RM",
+  "name": "Mind Your Manners",
+  "edition": "cs",
+  "parent": "1",
+  "monsters": [
+    "bandit-archer-hired-muscle",
+    "bandit-guard-hired-muscle",
+    "inox-archer",
+    "inox-guard",
+    "living-wall"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer-hired-muscle",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard-hired-muscle",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-wall",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

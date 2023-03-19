@@ -1,0 +1,31 @@
+{
+  "index": "5-3",
+  "group": "RM",
+  "name": "Unseen Plight",
+  "edition": "cs",
+  "parent": "5",
+  "monsters": [
+    "ravenous-gharial"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ravenous-gharial",
+          "type": "normal"
+        },
+        {
+          "name": "ravenous-gharial",
+          "type": "elite"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

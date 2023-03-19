@@ -13,12 +13,8 @@
     "collectiveGold": 30
   },
   "monsters": [
-    "cave-bear",
-    "forest-imp",
     "giant-viper",
-    "hound",
-    "rending-drake",
-    "spitting-drake"
+    "hound"
   ],
   "rooms": [
     {
@@ -28,12 +24,7 @@
       "monster": [
         {
           "name": "giant-viper",
-          "player2": "normal",
-          "player3": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "giant-viper",
@@ -42,10 +33,7 @@
         {
           "name": "hound",
           "player2": "normal",
-          "player3": "elite"
-        },
-        {
-          "name": "hound",
+          "player3": "elite",
           "player4": "normal"
         },
         {

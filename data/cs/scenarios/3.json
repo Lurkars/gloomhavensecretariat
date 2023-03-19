@@ -22,15 +22,15 @@
       "monster": [
         {
           "name": "giant-viper",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
+          "type": "normal"
         },
         {
           "name": "giant-viper",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
         },
         {
           "name": "giant-viper",
@@ -48,13 +48,7 @@
           "name": "giant-viper",
           "player2": "normal",
           "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "player2": "elite",
-          "player3": "elite",
-          "player4": "normal"
+          "player4": "elite"
         },
         {
           "name": "giant-viper",
@@ -62,20 +56,18 @@
         },
         {
           "name": "hydra-spirit",
+          "type": "boss"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
           "type": "elite"
         },
         {
           "name": "lurker",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "lurker",
-          "player2": "elite"
-        },
-        {
-          "name": "lurker",
           "player3": "normal",
           "player4": "normal"
         },
@@ -86,12 +78,7 @@
         },
         {
           "name": "lurker",
-          "player3": "elite",
           "player4": "elite"
-        },
-        {
-          "name": "lurker",
-          "player4": "normal"
         }
       ]
     }

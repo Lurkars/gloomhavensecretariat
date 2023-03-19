@@ -1,0 +1,53 @@
+{
+  "index": "4-3",
+  "group": "RM",
+  "name": "Terrorscale Lair",
+  "edition": "cs",
+  "parent": "4",
+  "monsters": [
+    "gnashing-drake",
+    "rending-drake",
+    "spitting-drake",
+    "terrorscale-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "gnashing-drake",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "player2": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "player2": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "terrorscale-drake",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

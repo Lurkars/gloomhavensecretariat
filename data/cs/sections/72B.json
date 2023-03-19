@@ -1,0 +1,30 @@
+{
+  "index": "72B",
+  "name": "Glowing Crystals",
+  "edition": "cs",
+  "parent": "64",
+  "monsters": [
+    "deep-terror",
+    "lurker"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

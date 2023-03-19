@@ -5,5 +5,21 @@
   "parent": "30",
   "monsters": [
     "twin-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "twin-corpse",
+          "type": "boss"
+        },
+        {
+          "name": "twin-corpse",
+          "type": "boss"
+        }
+      ]
+    }
   ]
 }

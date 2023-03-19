@@ -1,0 +1,32 @@
+{
+  "index": "7-1",
+  "group": "RM",
+  "name": "Insatiable",
+  "edition": "cs",
+  "parent": "7",
+  "monsters": [
+    "vermling-scout",
+    "vermling-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

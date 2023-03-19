@@ -1,0 +1,43 @@
+{
+  "index": "55B",
+  "name": "Forest Fire",
+  "edition": "cs",
+  "parent": "48",
+  "monsters": [
+    "inox-archer",
+    "inox-shaman",
+    "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-shaman",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

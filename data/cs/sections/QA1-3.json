@@ -1,0 +1,22 @@
+{
+  "index": "1-3",
+  "group": "QA",
+  "name": "Capstone Test",
+  "edition": "cs",
+  "parent": "1",
+  "monsters": [
+    "clockwork-guardian"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "clockwork-guardian",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

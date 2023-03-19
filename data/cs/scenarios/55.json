@@ -4,29 +4,24 @@
   "edition": "cs",
   "monsters": [
     "bandit-archer",
-    "earth-demon",
-    "harrower-infester",
-    "living-bones",
-    "living-corpse",
-    "stone-golem"
+    "earth-demon"
   ],
   "rooms": [
     {
       "roomNumber": 1,
       "ref": "l1",
       "initial": true,
-      "rooms": [
-        3
-      ],
       "monster": [
         {
           "name": "bandit-archer",
           "player2": "normal",
-          "player3": "elite"
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "bandit-archer",
           "player2": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
@@ -34,161 +29,15 @@
           "player2": "normal"
         },
         {
-          "name": "bandit-archer",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
           "name": "earth-demon",
           "player2": "elite",
+          "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "earth-demon",
           "player3": "normal",
           "player4": "normal"
-        },
-        {
-          "name": "earth-demon",
-          "player3": "normal"
-        },
-        {
-          "name": "earth-demon",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "l1",
-      "monster": [
-        {
-          "name": "living-bones-ally",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "i1",
-      "rooms": [
-        6
-      ],
-      "monster": [
-        {
-          "name": "bandit-archer",
-          "type": "normal"
-        },
-        {
-          "name": "bandit-archer",
-          "player4": "normal"
-        },
-        {
-          "name": "earth-demon",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "earth-demon",
-          "player4": "elite"
-        },
-        {
-          "name": "harrower-infester",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "harrower-infester",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "player2": "elite"
-        },
-        {
-          "name": "living-corpse",
-          "player3": "elite",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
-      "ref": "j1",
-      "monster": [
-        {
-          "name": "living-bones-ally",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 5,
-      "ref": "j1",
-      "monster": [
-        {
-          "name": "living-bones-ally",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 6,
-      "ref": "d1",
-      "monster": [
-        {
-          "name": "harrower-infester",
-          "type": "elite"
-        },
-        {
-          "name": "harrower-infester",
-          "player4": "elite"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "player2": "elite",
-          "player3": "elite"
-        },
-        {
-          "name": "living-corpse",
-          "player4": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "player4": "elite"
-        },
-        {
-          "name": "living-corpse",
-          "player4": "elite"
-        },
-        {
-          "name": "stone-golem",
-          "type": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 7,
-      "ref": "d1",
-      "monster": [
-        {
-          "name": "living-bones-ally",
-          "type": "normal"
         }
       ]
     }

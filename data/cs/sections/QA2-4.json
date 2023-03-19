@@ -1,0 +1,39 @@
+{
+  "index": "2-4",
+  "group": "QA",
+  "name": "Mother Lode",
+  "edition": "cs",
+  "parent": "2",
+  "monsters": [
+    "living-bones"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

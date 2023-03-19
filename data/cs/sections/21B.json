@@ -4,6 +4,40 @@
   "edition": "cs",
   "parent": "21",
   "monsters": [
+    "earth-demon",
+    "flame-demon",
     "lavalite"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lavalite",
+          "type": "boss"
+        }
+      ]
+    }
   ]
 }

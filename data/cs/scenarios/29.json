@@ -10,18 +10,13 @@
   ],
   "monsters": [
     "living-bones",
-    "living-corpse",
-    "living-spirit"
+    "living-corpse"
   ],
   "rooms": [
     {
       "roomNumber": 1,
       "ref": "h3",
       "initial": true,
-      "rooms": [
-        2,
-        3
-      ],
       "monster": [
         {
           "name": "living-bones",
@@ -39,85 +34,6 @@
         {
           "name": "living-corpse",
           "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "living-corpse",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "h3",
-      "rooms": [
-        3
-      ],
-      "monster": [
-        {
-          "name": "living-bones",
-          "type": "elite"
-        },
-        {
-          "name": "living-bones",
-          "type": "elite"
-        },
-        {
-          "name": "living-bones",
-          "player4": "elite"
-        },
-        {
-          "name": "living-bones",
-          "player4": "elite"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "type": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "type": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "player3": "normal",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "h3",
-      "monster": [
-        {
-          "name": "living-bones",
-          "type": "elite"
-        },
-        {
-          "name": "living-bones",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "living-corpse",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
         },
         {
           "name": "living-corpse",

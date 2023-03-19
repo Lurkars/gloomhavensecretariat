@@ -1,0 +1,57 @@
+{
+  "index": "51A",
+  "name": "Vermling Gardens",
+  "edition": "cs",
+  "parent": "46",
+  "monsters": [
+    "cave-bear",
+    "vermling-scout",
+    "vermling-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

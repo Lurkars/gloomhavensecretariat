@@ -1,0 +1,21 @@
+{
+  "index": "66B",
+  "name": "Penitentiary Lockdown",
+  "edition": "cs",
+  "parent": "58",
+  "monsters": [
+    "bandit-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-guard",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

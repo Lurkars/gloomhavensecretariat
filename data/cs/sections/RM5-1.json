@@ -1,0 +1,62 @@
+{
+  "index": "5-1",
+  "group": "RM",
+  "name": "Unseen Plight",
+  "edition": "cs",
+  "parent": "5",
+  "monsters": [
+    "black-imp",
+    "carrion-scavenger",
+    "ravenous-gharial"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "carrion-scavenger",
+          "type": "normal"
+        },
+        {
+          "name": "carrion-scavenger",
+          "type": "normal"
+        },
+        {
+          "name": "carrion-scavenger",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "carrion-scavenger",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

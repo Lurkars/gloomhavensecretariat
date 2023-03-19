@@ -3,12 +3,38 @@
   "name": "Scenario 34",
   "edition": "cs",
   "parent": "34",
+  "monsters": [
+    "inox-guard",
+    "inox-shaman"
+  ],
   "objectives": [
     {
       "name": "Revered Monk",
       "health": "C+L+2",
       "marker": "c",
       "count": 2
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-shaman",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
     }
   ]
 }

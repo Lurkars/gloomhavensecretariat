@@ -10,9 +10,7 @@
   ],
   "monsters": [
     "bandit-archer",
-    "bandit-guard",
-    "night-demon",
-    "wind-demon"
+    "bandit-guard"
   ],
   "objectives": [
     {
@@ -28,9 +26,6 @@
       "roomNumber": 1,
       "ref": "l2",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "monster": [
         {
           "name": "bandit-archer",
@@ -50,115 +45,10 @@
         },
         {
           "name": "bandit-guard",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "bandit-guard",
-          "player3": "normal",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "g2",
-      "rooms": [
-        3,
-        4
-      ],
-      "monster": [
-        {
-          "name": "night-demon",
           "type": "normal"
         },
         {
-          "name": "night-demon",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "night-demon",
-          "player4": "elite"
-        },
-        {
-          "name": "wind-demon",
-          "type": "normal"
-        },
-        {
-          "name": "wind-demon",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "wind-demon",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "i2",
-      "monster": [
-        {
-          "name": "bandit-archer",
-          "type": "normal"
-        },
-        {
-          "name": "bandit-archer",
-          "player2": "normal",
-          "player3": "elite"
-        },
-        {
-          "name": "bandit-archer",
-          "player2": "normal",
-          "player3": "elite"
-        },
-        {
-          "name": "bandit-archer",
-          "player4": "elite"
-        },
-        {
-          "name": "bandit-archer",
-          "player4": "elite"
-        },
-        {
-          "name": "night-demon",
-          "player2": "elite",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
-      "ref": "b4",
-      "monster": [
-        {
           "name": "bandit-guard",
-          "type": "elite"
-        },
-        {
-          "name": "bandit-guard",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "wind-demon",
-          "player2": "elite",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "wind-demon",
           "player3": "normal",
           "player4": "elite"
         }

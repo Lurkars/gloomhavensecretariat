@@ -3,12 +3,49 @@
   "name": "Scenario 26",
   "edition": "cs",
   "parent": "26",
+  "monsters": [
+    "frozen-cadaver",
+    "harrower-icecrawlers"
+  ],
   "objectives": [
     {
       "name": "Hot thermal stone",
       "health": "C+3",
       "marker": "b",
       "count": 2
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-cadaver",
+          "type": "elite"
+        },
+        {
+          "name": "frozen-cadaver",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-cadaver",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-icecrawlers",
+          "type": "normal"
+        },
+        {
+          "name": "harrower-icecrawlers",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
     }
   ]
 }
