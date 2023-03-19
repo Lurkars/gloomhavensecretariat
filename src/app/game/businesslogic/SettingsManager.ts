@@ -1,6 +1,5 @@
 import { CharacterData } from "../model/data/CharacterData";
 import { EditionData } from "../model/data/EditionData";
-import { ScenarioData } from "../model/data/ScenarioData";
 import { Settings } from "../model/Settings";
 import { Spoilable } from "../model/Spoilable";
 import { gameManager } from "./GameManager";
@@ -547,7 +546,7 @@ export class SettingsManager {
                 console.warn("Invalid monster: " + monsterStandeeData.name + " | scenario", scenarioData.edition, scenarioData.index);
               }
 
-              if (!scenarioData.monsters || scenarioData.monsters.indexOf(monsterStandeeData.name) == -1) {
+              if (!scenarioData.monsters || !scenarioData.monsters.find((name) => name == monsterStandeeData.name || name.split(':')[0] == monsterStandeeData.name)) {
                 console.debug("Missing monster '" + monsterStandeeData.name + "' from room '" + roomData.roomNumber + "' in monsters", scenarioData.edition, scenarioData.index);
               }
             })
@@ -578,12 +577,6 @@ export class SettingsManager {
 
       if (sectionData.rooms) {
         sectionData.rooms.forEach((roomData) => {
-          let scenarioData: ScenarioData | undefined = undefined;
-          if (sectionData.parent) {
-            scenarioData = gameManager.scenarioData().find((scenarioData) => scenarioData.index == sectionData.parent && scenarioData.edition == sectionData.edition && scenarioData.group == sectionData.group);
-          }
-
-
           if (roomData.monster) {
             roomData.monster.forEach((monsterStandeeData) => {
 
@@ -591,7 +584,7 @@ export class SettingsManager {
                 console.warn("Invalid monster: " + monsterStandeeData.name + " | section", sectionData.edition, sectionData.index);
               }
 
-              if ((!sectionData.monsters || sectionData.monsters.indexOf(monsterStandeeData.name) == -1) && (!scenarioData || !scenarioData.monsters || scenarioData.monsters.indexOf(monsterStandeeData.name) == -1)) {
+              if ((!sectionData.monsters || !sectionData.monsters.find((name) => name == monsterStandeeData.name || name.split(':')[0] == monsterStandeeData.name))) {
                 console.debug("Missing monster '" + monsterStandeeData.name + "' from room '" + roomData.roomNumber + "' in monsters | section", sectionData.edition, sectionData.index);
               }
             })

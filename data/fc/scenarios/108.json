@@ -82,11 +82,11 @@
         },
         {
           "name": "human-commander",
-          "type": "normal"
+          "type": "boss"
         },
         {
           "name": "valrath-commander",
-          "type": "normal"
+          "type": "boss"
         },
         {
           "name": "valrath-savage",

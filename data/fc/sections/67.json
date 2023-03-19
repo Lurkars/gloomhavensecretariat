@@ -4,6 +4,11 @@
   "edition": "fc",
   "parent": "111",
   "marker": "1",
+  "monsters": [
+    "aesther-scout",
+    "black-imp",
+    "night-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

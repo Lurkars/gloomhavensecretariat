@@ -60,9 +60,6 @@
       "roomNumber": 1,
       "ref": "i2b",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "monster": [
         {
           "name": "aesther-ashblade",

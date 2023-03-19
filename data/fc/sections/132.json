@@ -8,6 +8,11 @@
     "106"
   ],
   "marker": "4",
+  "monsters": [
+    "aesther-scout",
+    "black-imp",
+    "night-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 6,

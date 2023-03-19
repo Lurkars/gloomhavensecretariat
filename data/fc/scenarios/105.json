@@ -47,10 +47,6 @@
       "roomNumber": 1,
       "ref": "l3a",
       "initial": true,
-      "rooms": [
-        2,
-        3
-      ],
       "monster": [
         {
           "name": "bandit-guard",

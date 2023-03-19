@@ -8,6 +8,10 @@
     "132"
   ],
   "marker": "3",
+  "monsters": [
+    "harrower-infester",
+    "vermling-shaman"
+  ],
   "rooms": [
     {
       "roomNumber": 5,

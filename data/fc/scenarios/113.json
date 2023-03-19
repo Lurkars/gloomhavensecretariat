@@ -35,9 +35,6 @@
       "roomNumber": 1,
       "ref": "d2b",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "monster": [
         {
           "name": "warden",
