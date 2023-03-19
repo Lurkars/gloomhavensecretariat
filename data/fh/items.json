@@ -300,7 +300,7 @@
     "name": "Heavy Chain Armor",
     "count": 2,
     "edition": "fh",
-    "slot": "head",
+    "slot": "body",
     "spent": true,
     "minusOne": 2,
     "resources": {
