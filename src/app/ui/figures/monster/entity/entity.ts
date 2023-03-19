@@ -12,7 +12,7 @@ import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { SummonState } from 'src/app/game/model/Summon';
 import { ghsDefaultDialogPositions } from 'src/app/ui/helper/Static';
 import { EntityMenuDialogComponent } from '../../entity-menu/entity-menu-dialog';
-import { MonsterNumberPickerDialog } from '../dialogs/numberpicker';
+import { MonsterNumberPickerDialog } from '../dialogs/numberpicker-dialog';
 
 @Component({
   selector: 'ghs-monster-entity',
@@ -116,7 +116,8 @@ export class MonsterEntityComponent implements OnInit {
             min: 1,
             max: count,
             range: [],
-            entity: this.entity
+            entity: this.entity,
+            entities: this.monster.entities
           },
           positionStrategy: this.overlay.position().flexibleConnectedTo(this.standee).withPositions(ghsDefaultDialogPositions())
         })

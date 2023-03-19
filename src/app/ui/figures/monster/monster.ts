@@ -10,7 +10,6 @@ import { MonsterType } from 'src/app/game/model/MonsterType';
 import { SummonState } from 'src/app/game/model/Summon';
 import { ghsDefaultDialogPositions } from '../../helper/Static';
 import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
-import { MonsterNumberPickerDialog } from './dialogs/numberpicker';
 
 @Component({
   selector: 'ghs-monster',
@@ -25,7 +24,7 @@ export class MonsterComponent implements OnInit {
   settingsManager: SettingsManager = settingsManager;
 
   nonDead: number = 0;
-  count: number= 0;
+  count: number = 0;
 
   constructor(private dialog: Dialog, private overlay: Overlay) {
     gameManager.uiChange.subscribe({
@@ -39,37 +38,6 @@ export class MonsterComponent implements OnInit {
   ngOnInit(): void {
     this.nonDead = gameManager.monsterManager.monsterEntityCount(this.monster);
     this.count = EntityValueFunction(this.monster.count, this.monster.level);
-  }
-
-  addMissingStandees() {
-    const missingStandees = this.monster.entities.filter((monsterEntity) => monsterEntity.number < 0).sort((a, b) => {
-      if (settingsManager.settings.eliteFirst && a.type != b.type) {
-        return a.type == MonsterType.elite ? -1 : 1;
-      }
-      return 0;
-    });
-    this.addMissingStandee(0, missingStandees);
-  }
-
-  addMissingStandee(index: number, entites: MonsterEntity[]) {
-    if (index < entites.length) {
-      const monsterEntity = entites[index];
-      const dialogRef = this.dialog.open(MonsterNumberPickerDialog, {
-        panelClass: 'dialog',
-        data: {
-          monster: this.monster,
-          type: monsterEntity.type,
-          min: 1,
-          max: this.count,
-          range: [],
-          entity: monsterEntity
-        }
-      })
-
-      dialogRef.closed.subscribe(() => {
-        this.addMissingStandee(index + 1, entites);
-      })
-    }
   }
 
   sortedEntites(): MonsterEntity[] {
