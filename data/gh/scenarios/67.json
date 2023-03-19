@@ -92,7 +92,7 @@
       "monster": [
         {
           "name": "arcane-golem:+1",
-          "type": "elite"
+          "type": "boss"
         },
         {
           "name": "forest-imp",

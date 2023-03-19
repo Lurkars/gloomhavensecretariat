@@ -129,9 +129,6 @@
       "roomNumber": 1,
       "ref": "b2b",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "treasures": [
         2
       ],

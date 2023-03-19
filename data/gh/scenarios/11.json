@@ -247,7 +247,7 @@
       "monster": [
         {
           "name": "captain-of-the-guard",
-          "type": "normal"
+          "type": "boss"
         },
         {
           "name": "city-archer",

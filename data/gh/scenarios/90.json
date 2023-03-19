@@ -13,13 +13,46 @@
     "night-demon",
     "wind-demon"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "rooms": [
+        3
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b",
+          "count": 2
+        },
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c",
+          "count": 2
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
       "ref": "m1b",
       "initial": true,
       "rooms": [
-        2
+        2,
+        3
       ],
       "monster": [
         {
@@ -84,6 +117,10 @@
           "player4": "normal"
         }
       ]
+    },
+    {
+      "roomNumber": 3,
+      "marker": 1
     }
   ]
 }

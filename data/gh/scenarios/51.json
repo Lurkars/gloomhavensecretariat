@@ -44,7 +44,7 @@
       "monster": [
         {
           "name": "the-gloom",
-          "type": "normal"
+          "type": "boss"
         }
       ]
     }

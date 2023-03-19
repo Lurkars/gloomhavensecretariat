@@ -118,7 +118,7 @@
       "monster": [
         {
           "name": "prime-demon",
-          "type": "normal"
+          "type": "boss"
         }
       ]
     }

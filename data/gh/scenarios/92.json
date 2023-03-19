@@ -16,6 +16,40 @@
     "inox-guard",
     "savvas-lavaflow"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "rooms": [
+        2
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "city-archer",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        },
+        {
+          "monster": {
+            "name": "city-guard",
+            "type": "normal"
+          }
+        },
+        {
+          "monster": {
+            "name": "city-guard",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

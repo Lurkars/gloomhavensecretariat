@@ -112,11 +112,11 @@
       "monster": [
         {
           "name": "inox-bodyguard",
-          "type": "normal"
+          "type": "boss"
         },
         {
           "name": "inox-bodyguard",
-          "type": "normal"
+          "type": "boss"
         }
       ]
     }

@@ -64,7 +64,7 @@
       "monster": [
         {
           "name": "merciless-overseer",
-          "type": "normal"
+          "type": "boss"
         },
         {
           "name": "vermling-scout",
