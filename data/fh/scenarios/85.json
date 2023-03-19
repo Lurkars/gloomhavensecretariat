@@ -33,45 +33,6 @@
           "player4": "elite"
         },
         {
-          "name": "lurker-mindsnipper",
-          "type": "normal"
-        },
-        {
-          "name": "lurker-mindsnipper",
-          "type": "elite"
-        },
-        {
-          "name": "lurker-mindsnipper",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "piranha-pig",
-          "type": "normal"
-        },
-        {
-          "name": "piranha-pig",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "piranha-pig",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "piranha-pig",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "piranha-pig",
-          "player4": "elite"
-        },
-        {
           "name": "polar-bear",
           "player2": "normal",
           "player3": "elite",

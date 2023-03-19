@@ -6,6 +6,7 @@
   "monsters": [
     "ancient-artillery",
     "giant-piranha-pig",
+    "giant-piranha-pig-boss",
     "lurker-mindsnipper",
     "piranha-pig"
   ],
@@ -49,11 +50,11 @@
         },
         {
           "name": "giant-piranha-pig",
-          "type": "boss"
+          "type": "elite"
         },
         {
-          "name": "giant-piranha-pig-water",
-          "type": "normal"
+          "name": "giant-piranha-pig-boss",
+          "type": "boss"
         },
         {
           "name": "lurker-mindsnipper",

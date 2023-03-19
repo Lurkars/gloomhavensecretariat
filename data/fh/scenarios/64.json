@@ -44,19 +44,19 @@
       "initial": true,
       "monster": [
         {
-          "name": "city-guard",
+          "name": "guard-captain",
           "type": "elite"
         },
         {
-          "name": "city-guard",
+          "name": "guard-captain",
           "type": "elite"
         },
         {
-          "name": "city-guard",
+          "name": "guard-captain",
           "type": "elite"
         },
         {
-          "name": "city-guard",
+          "name": "guard-captain",
           "type": "elite"
         },
         {
