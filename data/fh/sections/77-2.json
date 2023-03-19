@@ -3,6 +3,9 @@
   "name": "The Collection",
   "edition": "fh",
   "parent": "87",
+  "monsters": [
+    "lurker-clawcrusher"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

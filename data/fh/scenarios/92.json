@@ -4,9 +4,7 @@
   "name": "Sinking Ship",
   "edition": "fh",
   "monsters": [
-    "lightning-eel",
     "lurker-clawcrusher",
-    "lurker-mindsnipper",
     "lurker-soldier",
     "lurker-wavethrower"
   ],

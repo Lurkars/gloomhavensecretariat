@@ -4,6 +4,12 @@
   "name": "Living Glacier",
   "edition": "fh",
   "parent": "45",
+  "monsters": [
+    "abael-herder",
+    "abael-scout",
+    "lightning-eel",
+    "piranha-pig"
+  ],
   "objectives": [
     {
       "name": "Ice Pillar",

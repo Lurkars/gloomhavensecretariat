@@ -5,6 +5,10 @@
   "edition": "fh",
   "parent": "46",
   "resetRound": "visible",
+  "monsters": [
+    "frozen-corpse",
+    "shrike-fiend"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

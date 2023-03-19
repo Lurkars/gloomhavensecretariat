@@ -5,7 +5,10 @@
   "edition": "fh",
   "parent": "111",
   "monsters": [
-    "the-shimmer"
+    "frost-demon",
+    "night-demon",
+    "the-shimmer",
+    "wind-demon"
   ],
   "rooms": [
     {

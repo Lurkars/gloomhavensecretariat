@@ -3,6 +3,11 @@
   "name": "The Pirate Queen's Lair",
   "edition": "fh",
   "parent": "137",
+  "monsters": [
+    "forest-imp",
+    "piranha-pig",
+    "polar-bear"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

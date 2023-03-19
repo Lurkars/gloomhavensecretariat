@@ -3,6 +3,9 @@
   "name": "Quatryl Library",
   "edition": "fh",
   "parent": "26",
+  "monsters": [
+    "ruined-machine"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

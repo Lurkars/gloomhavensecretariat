@@ -10,9 +10,7 @@
   ],
   "monsters": [
     "algox-archer",
-    "algox-guard",
-    "frozen-fist",
-    "snowdancer"
+    "algox-guard"
   ],
   "drawExtra": [
     "snowdancer"

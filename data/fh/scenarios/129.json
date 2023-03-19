@@ -10,9 +10,6 @@
     "130"
   ],
   "monsters": [
-    "algox-guard",
-    "algox-priest",
-    "algox-scout",
     "city-guard"
   ],
   "lootDeckConfig": {

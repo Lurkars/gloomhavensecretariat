@@ -5,6 +5,9 @@
   "edition": "fh",
   "parent": "38",
   "resetRound": "visible",
+  "monsters": [
+    "sun-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

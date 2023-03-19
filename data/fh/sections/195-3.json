@@ -3,6 +3,10 @@
   "name": "A Growing Problem",
   "edition": "fh",
   "parent": "124",
+  "monsters": [
+    "living-bones",
+    "living-spirit"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

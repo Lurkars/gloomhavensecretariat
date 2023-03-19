@@ -6,14 +6,7 @@
   "unlocks": [
     "60"
   ],
-  "monsters": [
-    "lightning-eel",
-    "lurker-clawcrusher",
-    "lurker-mindsnipper",
-    "lurker-soldier",
-    "lurker-wavethrower",
-    "seeker-of-the-abyss"
-  ],
+  "monsters": [],
   "lootDeckConfig": {
     "money": 8,
     "lumber": 2,

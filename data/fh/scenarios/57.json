@@ -4,8 +4,7 @@
   "name": "Sanctuary of Snow",
   "edition": "fh",
   "monsters": [
-    "render",
-    "wind-demon"
+    "render"
   ],
   "rooms": [
     {

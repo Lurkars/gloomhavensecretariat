@@ -3,6 +3,10 @@
   "name": "Lush Grotto",
   "edition": "fh",
   "parent": "113",
+  "monsters": [
+    "forest-imp",
+    "polar-bear"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

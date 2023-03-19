@@ -8,8 +8,7 @@
   ],
   "monsters": [
     "algox-archer",
-    "algox-guard",
-    "algox-priest"
+    "algox-guard"
   ],
   "lootDeckConfig": {
     "money": 8,

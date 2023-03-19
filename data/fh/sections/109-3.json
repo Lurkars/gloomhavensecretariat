@@ -7,6 +7,10 @@
     "8.4",
     "145.1"
   ],
+  "monsters": [
+    "ice-wraith",
+    "snow-imp"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

@@ -3,6 +3,11 @@
   "name": "Collapsing Vent",
   "edition": "fh",
   "parent": "98",
+  "monsters": [
+    "ancient-artillery",
+    "burrowing-blade",
+    "spitting-drake"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

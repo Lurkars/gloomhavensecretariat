@@ -11,11 +11,7 @@
   ],
   "monsters": [
     "algox-archer",
-    "algox-guard",
-    "flaming-bladespinner",
-    "lurker-clawcrusher",
-    "polar-bear",
-    "steel-automaton"
+    "algox-guard"
   ],
   "lootDeckConfig": {
     "money": 8,

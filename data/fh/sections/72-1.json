@@ -3,6 +3,9 @@
   "name": "The Frosthaven Seal",
   "edition": "fh",
   "parent": "64",
+  "monsters": [
+    "vestige-of-the-imprisoned-god"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

@@ -3,6 +3,9 @@
   "name": "Tower of Knowledge",
   "edition": "fh",
   "parent": "134",
+  "monsters": [
+    "shrike-fiend"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

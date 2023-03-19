@@ -3,6 +3,12 @@
   "name": "Relief Effort",
   "edition": "fh",
   "parent": "40",
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "flaming-bladespinner",
+    "ruined-machine"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

@@ -3,6 +3,9 @@
   "name": "My Private Empire",
   "edition": "fh",
   "parent": "107",
+  "monsters": [
+    "steel-automaton"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

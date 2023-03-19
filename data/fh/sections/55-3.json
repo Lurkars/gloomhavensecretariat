@@ -5,7 +5,8 @@
   "edition": "fh",
   "parent": "23",
   "monsters": [
-    "hateful-corpse"
+    "hateful-corpse",
+    "living-bones"
   ],
   "rooms": [
     {

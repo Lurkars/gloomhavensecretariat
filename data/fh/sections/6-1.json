@@ -7,6 +7,10 @@
     "27.1"
   ],
   "marker": "2",
+  "monsters": [
+    "algox-guard",
+    "algox-scout"
+  ],
   "objectives": [
     {
       "name": "Ice Sheet",

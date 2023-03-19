@@ -3,6 +3,11 @@
   "name": "Flotsam",
   "edition": "fh",
   "parent": "73",
+  "monsters": [
+    "abael-herder",
+    "abael-scout",
+    "piranha-pig"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

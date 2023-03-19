@@ -4,9 +4,6 @@
   "name": "Midwinter Brawl B",
   "edition": "fh",
   "monsters": [
-    "algox-archer",
-    "algox-guard",
-    "algox-scout",
     "hound",
     "polar-bear",
     "scabwit",

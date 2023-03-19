@@ -3,6 +3,9 @@
   "name": "Gaps in the Road",
   "edition": "fh",
   "parent": "74",
+  "monsters": [
+    "piranha-pig"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

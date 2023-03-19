@@ -4,6 +4,12 @@
   "name": "Ruinous Research Lab",
   "edition": "fh",
   "parent": "81",
+  "monsters": [
+    "ancient-artillery",
+    "flaming-bladespinner",
+    "ruined-machine",
+    "steel-automaton"
+  ],
   "objectives": [
     {
       "name": "Barricade",

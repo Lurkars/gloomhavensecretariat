@@ -3,6 +3,10 @@
   "name": "Overrun Barricade",
   "edition": "fh",
   "parent": "43",
+  "monsters": [
+    "robotic-boltshooter",
+    "steel-automaton"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

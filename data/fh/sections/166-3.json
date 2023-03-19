@@ -3,6 +3,10 @@
   "name": "Furious Factory",
   "edition": "fh",
   "parent": "109",
+  "monsters": [
+    "ancient-artillery",
+    "ruined-machine"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

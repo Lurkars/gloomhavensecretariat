@@ -3,6 +3,9 @@
   "name": "Bolt",
   "edition": "fh",
   "parent": "133",
+  "monsters": [
+    "polar-bear"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

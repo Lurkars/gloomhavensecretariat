@@ -3,6 +3,12 @@
   "name": "The Pirate Queen's Lair",
   "edition": "fh",
   "parent": "137",
+  "monsters": [
+    "ancient-artillery",
+    "flaming-bladespinner",
+    "piranha-pig",
+    "robotic-boltshooter"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

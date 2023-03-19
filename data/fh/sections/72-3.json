@@ -3,6 +3,9 @@
   "name": "Furious Factory",
   "edition": "fh",
   "parent": "109",
+  "monsters": [
+    "steel-automaton"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

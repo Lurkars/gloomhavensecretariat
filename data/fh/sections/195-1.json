@@ -5,7 +5,11 @@
   "edition": "fh",
   "parent": "135",
   "monsters": [
-    "belara"
+    "belara",
+    "earth-demon",
+    "flame-demon",
+    "rending-drake",
+    "sun-demon"
   ],
   "rooms": [
     {

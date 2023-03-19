@@ -5,7 +5,6 @@
   "edition": "fh",
   "random": true,
   "monsters": [
-    "living-doom",
     "living-spirit",
     "ruined-machine",
     "shrike-fiend"

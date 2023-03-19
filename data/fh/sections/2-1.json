@@ -4,6 +4,9 @@
   "edition": "fh",
   "parent": "0",
   "marker": "1",
+  "monsters": [
+    "hound-scenario-0"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

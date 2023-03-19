@@ -3,6 +3,11 @@
   "name": "The True Oak",
   "edition": "fh",
   "parent": "70",
+  "monsters": [
+    "city-guard",
+    "hound",
+    "sun-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

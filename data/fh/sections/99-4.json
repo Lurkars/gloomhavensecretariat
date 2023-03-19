@@ -3,6 +3,10 @@
   "name": "Call of the Harbinger",
   "edition": "fh",
   "parent": "56",
+  "monsters": [
+    "black-imp",
+    "shrike-fiend"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

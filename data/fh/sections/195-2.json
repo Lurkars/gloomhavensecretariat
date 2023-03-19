@@ -14,7 +14,7 @@
       "monster": [
         {
           "name": "laser-spires",
-          "type": "normal"
+          "type": "boss"
         }
       ]
     }

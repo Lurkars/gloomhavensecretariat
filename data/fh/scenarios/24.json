@@ -10,8 +10,7 @@
   ],
   "monsters": [
     "chaos-demon",
-    "living-bones",
-    "wind-demon"
+    "living-bones"
   ],
   "lootDeckConfig": {
     "money": 8,

@@ -3,6 +3,10 @@
   "name": "Life and Death",
   "edition": "fh",
   "parent": "61",
+  "monsters": [
+    "deep-terror",
+    "earth-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

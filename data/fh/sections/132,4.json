@@ -3,6 +3,9 @@
   "name": "A Tall Drunken Trail",
   "edition": "fh",
   "parent": "128",
+  "monsters": [
+    "vermling-scout"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

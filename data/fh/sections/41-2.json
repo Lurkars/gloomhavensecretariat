@@ -3,6 +3,11 @@
   "name": "Ice Floes",
   "edition": "fh",
   "parent": "22",
+  "monsters": [
+    "lightning-eel",
+    "lurker-clawcrusher",
+    "lurker-wavethrower"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

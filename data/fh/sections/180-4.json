@@ -3,6 +3,10 @@
   "name": "Abandoned Hideout",
   "edition": "fh",
   "parent": "136",
+  "monsters": [
+    "living-bones",
+    "living-spirit"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

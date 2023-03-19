@@ -5,9 +5,7 @@
   "edition": "fh",
   "monsters": [
     "deep-terror",
-    "living-doom",
-    "living-spirit",
-    "night-demon"
+    "living-doom"
   ],
   "lootDeckConfig": {
     "money": 9,

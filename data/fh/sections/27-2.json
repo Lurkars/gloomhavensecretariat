@@ -6,6 +6,9 @@
   "parentSections": [
     "90.3"
   ],
+  "monsters": [
+    "ancient-artillery"
+  ],
   "rules": [
     {
       "round": "R == 7",

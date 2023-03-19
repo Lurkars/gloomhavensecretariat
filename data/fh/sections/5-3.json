@@ -4,6 +4,12 @@
   "edition": "fh",
   "parent": "1",
   "marker": "1",
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "algox-priest",
+    "city-guard-scenario-1"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

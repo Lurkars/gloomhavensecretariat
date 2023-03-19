@@ -4,6 +4,10 @@
   "edition": "fh",
   "parent": "32",
   "marker": "1",
+  "monsters": [
+    "harrower-infester",
+    "shrike-fiend"
+  ],
   "objectives": [
     {
       "name": "Raven Nest",

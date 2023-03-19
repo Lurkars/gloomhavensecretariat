@@ -3,6 +3,9 @@
   "name": "Among the Wreckage",
   "edition": "fh",
   "parent": "54",
+  "monsters": [
+    "seeker-of-the-abyss"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

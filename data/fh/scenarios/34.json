@@ -4,6 +4,7 @@
   "name": "Top of the Spire",
   "edition": "fh",
   "monsters": [
+    "chaos-spark",
     "lord-of-chaos"
   ],
   "rooms": [

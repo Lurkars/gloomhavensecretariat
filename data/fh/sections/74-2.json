@@ -6,6 +6,11 @@
   "parentSections": [
     "83.2"
   ],
+  "monsters": [
+    "chaos-demon",
+    "living-bones",
+    "wind-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

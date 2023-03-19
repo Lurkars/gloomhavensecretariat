@@ -5,10 +5,7 @@
   "edition": "fh",
   "monsters": [
     "lightning-eel",
-    "living-bones",
-    "living-spirit",
-    "lurker-wavethrower",
-    "piranha-pig"
+    "lurker-wavethrower"
   ],
   "lootDeckConfig": {
     "money": 8,

@@ -5,7 +5,8 @@
   "edition": "fh",
   "parent": "121",
   "monsters": [
-    "large-vermling-scout"
+    "large-vermling-scout",
+    "vermling-priest"
   ],
   "rooms": [
     {

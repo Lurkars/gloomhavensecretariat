@@ -3,6 +3,11 @@
   "name": "Ruinous Research Lab",
   "edition": "fh",
   "parent": "81",
+  "monsters": [
+    "ancient-artillery",
+    "ruined-machine",
+    "steel-automaton"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

@@ -3,6 +3,11 @@
   "name": "Sacred Soil",
   "edition": "fh",
   "parent": "69",
+  "monsters": [
+    "earth-demon",
+    "forest-imp",
+    "rending-drake"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

@@ -5,8 +5,7 @@
   "edition": "fh",
   "monsters": [
     "city-guard",
-    "hound",
-    "sun-demon"
+    "hound"
   ],
   "objectives": [
     {

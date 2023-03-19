@@ -3,6 +3,10 @@
   "name": "Crackling Tunnel",
   "edition": "fh",
   "parent": "31",
+  "monsters": [
+    "flaming-bladespinner",
+    "steel-automaton"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

@@ -5,9 +5,7 @@
   "edition": "fh",
   "monsters": [
     "black-imp",
-    "harbinger-of-shadow",
-    "harrower-infester",
-    "shrike-fiend"
+    "harrower-infester"
   ],
   "objectives": [
     {

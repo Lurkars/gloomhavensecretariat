@@ -4,6 +4,10 @@
   "name": "Rusted Tunnels",
   "edition": "fh",
   "parent": "25",
+  "monsters": [
+    "flaming-bladespinner",
+    "robotic-boltshooter"
+  ],
   "objectives": [
     {
       "name": "Large Debris 1",

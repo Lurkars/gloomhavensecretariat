@@ -5,10 +5,7 @@
   "edition": "fh",
   "monsters": [
     "fish-king",
-    "frost-demon",
-    "night-demon",
-    "piranha-pig",
-    "wind-demon"
+    "piranha-pig"
   ],
   "lootDeckConfig": {
     "money": 4,

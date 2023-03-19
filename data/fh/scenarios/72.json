@@ -10,10 +10,7 @@
     "73"
   ],
   "monsters": [
-    "frozen-corpse",
-    "ice-wraith",
-    "living-bones",
-    "steel-automaton"
+    "ice-wraith"
   ],
   "lootDeckConfig": {
     "money": 9,

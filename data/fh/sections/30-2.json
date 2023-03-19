@@ -4,6 +4,10 @@
   "edition": "fh",
   "parent": "3",
   "marker": "1",
+  "monsters": [
+    "algox-archer",
+    "algox-guard"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

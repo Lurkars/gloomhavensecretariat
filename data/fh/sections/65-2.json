@@ -4,6 +4,10 @@
   "name": "Unfettered Shard",
   "edition": "fh",
   "parent": "41",
+  "monsters": [
+    "deep-terror",
+    "night-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

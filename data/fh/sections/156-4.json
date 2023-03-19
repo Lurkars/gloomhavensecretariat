@@ -3,6 +3,10 @@
   "name": "How to Lay an Ambush",
   "edition": "fh",
   "parent": "129",
+  "monsters": [
+    "algox-guard",
+    "algox-scout"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

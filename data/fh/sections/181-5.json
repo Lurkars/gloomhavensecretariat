@@ -3,6 +3,10 @@
   "name": "The Dancing Iceberg",
   "edition": "fh",
   "parent": "131",
+  "monsters": [
+    "lurker-mindsnipper",
+    "lurker-soldier"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

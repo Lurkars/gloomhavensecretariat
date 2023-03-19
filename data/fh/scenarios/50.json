@@ -9,12 +9,7 @@
   "forcedLinks": [
     "54"
   ],
-  "monsters": [
-    "lightning-eel",
-    "lurker-clawcrusher",
-    "lurker-mindsnipper",
-    "lurker-wavethrower"
-  ],
+  "monsters": [],
   "objectives": [
     {
       "name": "Pulse Emitter",

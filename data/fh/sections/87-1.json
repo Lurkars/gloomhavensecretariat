@@ -3,6 +3,11 @@
   "name": "And Then, A Stream",
   "edition": "fh",
   "parent": "130",
+  "monsters": [
+    "frozen-corpse",
+    "lightning-eel",
+    "shrike-fiend"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

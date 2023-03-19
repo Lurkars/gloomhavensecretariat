@@ -6,9 +6,7 @@
   "random": true,
   "monsters": [
     "frost-demon",
-    "hound",
-    "night-demon",
-    "wind-demon"
+    "hound"
   ],
   "lootDeckConfig": {
     "money": 10,

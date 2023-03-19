@@ -3,6 +3,10 @@
   "name": "Heart of Ice B",
   "edition": "fh",
   "parent": "4B",
+  "monsters": [
+    "frozen-fist",
+    "snowdancer"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

@@ -4,8 +4,6 @@
   "name": "Joseph the Lion",
   "edition": "fh",
   "monsters": [
-    "ice-wraith",
-    "living-spirit",
     "snow-imp"
   ],
   "objectives": [

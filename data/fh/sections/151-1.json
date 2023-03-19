@@ -8,7 +8,8 @@
   ],
   "marker": "2",
   "monsters": [
-    "polar-bear"
+    "polar-bear",
+    "snow-imp"
   ],
   "rooms": [
     {

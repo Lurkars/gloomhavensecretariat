@@ -3,6 +3,9 @@
   "name": "Deadly Pastimes",
   "edition": "fh",
   "parent": "85",
+  "monsters": [
+    "lightning-eel"
+  ],
   "rooms": [
     {
       "roomNumber": 14,

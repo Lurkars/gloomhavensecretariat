@@ -4,6 +4,10 @@
   "name": "Overrun Barricade",
   "edition": "fh",
   "parent": "43",
+  "monsters": [
+    "ruined-machine",
+    "steel-automaton"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

@@ -5,7 +5,9 @@
   "parent": "10",
   "marker": "1",
   "monsters": [
-    "algox-icespeaker"
+    "algox-guard",
+    "algox-icespeaker",
+    "algox-priest"
   ],
   "objectives": [
     {

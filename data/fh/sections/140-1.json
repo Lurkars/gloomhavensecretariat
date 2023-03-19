@@ -3,6 +3,10 @@
   "name": "Lustrous Pit",
   "edition": "fh",
   "parent": "108",
+  "monsters": [
+    "ice-wraith",
+    "snow-imp"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

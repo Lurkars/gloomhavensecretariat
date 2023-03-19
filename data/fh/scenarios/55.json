@@ -6,9 +6,7 @@
   "monsters": [
     "algox-archer",
     "algox-guard",
-    "algox-priest",
-    "frozen-fist",
-    "snowdancer"
+    "algox-priest"
   ],
   "lootDeckConfig": {
     "money": 3,

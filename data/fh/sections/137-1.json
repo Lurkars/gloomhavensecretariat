@@ -4,6 +4,10 @@
   "name": "Orphan's Halls",
   "edition": "fh",
   "parent": "51",
+  "monsters": [
+    "ancient-artillery",
+    "flaming-bladespinner"
+  ],
   "objectives": [
     {
       "name": "Door 2",

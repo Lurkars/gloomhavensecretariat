@@ -3,6 +3,11 @@
   "name": "Elemental Cores",
   "edition": "fh",
   "parent": "66",
+  "monsters": [
+    "earth-demon",
+    "frost-demon",
+    "sun-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

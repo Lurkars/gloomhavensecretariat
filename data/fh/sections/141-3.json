@@ -3,6 +3,10 @@
   "name": "Inside the Swarm",
   "edition": "fh",
   "parent": "100",
+  "monsters": [
+    "burrowing-blade",
+    "lurker-mindsnipper"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

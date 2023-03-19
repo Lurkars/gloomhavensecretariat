@@ -5,7 +5,6 @@
   "edition": "fh",
   "monsters": [
     "forest-imp",
-    "polar-bear",
     "rending-drake",
     "spitting-drake"
   ],

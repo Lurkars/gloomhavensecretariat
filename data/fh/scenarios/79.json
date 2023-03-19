@@ -7,9 +7,7 @@
     "80"
   ],
   "monsters": [
-    "frozen-corpse",
     "ice-wraith",
-    "polar-bear",
     "snow-imp"
   ],
   "lootDeckConfig": {

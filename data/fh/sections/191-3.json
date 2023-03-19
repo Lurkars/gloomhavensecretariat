@@ -3,6 +3,10 @@
   "name": "Ruins of the Equinox",
   "edition": "fh",
   "parent": "105",
+  "monsters": [
+    "flame-demon",
+    "rending-drake"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

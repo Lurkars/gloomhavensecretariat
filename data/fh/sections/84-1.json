@@ -5,6 +5,9 @@
   "edition": "fh",
   "parent": "95",
   "monsters": [
+    "ice-wraith",
+    "living-bones",
+    "living-doom",
     "reluctant-ghost"
   ],
   "rooms": [

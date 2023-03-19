@@ -3,6 +3,11 @@
   "name": "Living Glacier",
   "edition": "fh",
   "parent": "45",
+  "monsters": [
+    "abael-scout",
+    "lightning-eel",
+    "piranha-pig"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

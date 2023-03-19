@@ -3,6 +3,10 @@
   "name": "Ice Cave",
   "edition": "fh",
   "parent": "111",
+  "monsters": [
+    "frost-demon",
+    "hound"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

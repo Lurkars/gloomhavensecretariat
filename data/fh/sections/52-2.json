@@ -3,6 +3,12 @@
   "name": "Gaps in the Road",
   "edition": "fh",
   "parent": "74",
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "algox-priest",
+    "forest-imp"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

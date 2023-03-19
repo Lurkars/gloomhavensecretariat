@@ -4,10 +4,7 @@
   "name": "The Lead Door",
   "edition": "fh",
   "monsters": [
-    "living-doom",
-    "living-spirit",
-    "lurker-clawcrusher",
-    "shrike-fiend"
+    "living-spirit"
   ],
   "objectives": [
     {

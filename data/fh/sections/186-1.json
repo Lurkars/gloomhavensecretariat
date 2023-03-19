@@ -3,6 +3,11 @@
   "name": "Bolt",
   "edition": "fh",
   "parent": "133",
+  "monsters": [
+    "forest-imp",
+    "rending-drake",
+    "spitting-drake"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

@@ -5,7 +5,10 @@
   "edition": "fh",
   "parent": "65",
   "monsters": [
-    "rimeheart"
+    "frozen-corpse-scenario-65",
+    "living-bones-scenario-65",
+    "rimeheart",
+    "snow-imp-scenario-65"
   ],
   "objectives": [
     {

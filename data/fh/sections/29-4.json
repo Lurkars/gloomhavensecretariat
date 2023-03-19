@@ -3,6 +3,9 @@
   "name": "Fleeting Permanence",
   "edition": "fh",
   "parent": "52",
+  "monsters": [
+    "frost-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

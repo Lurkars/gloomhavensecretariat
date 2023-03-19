@@ -4,9 +4,7 @@
   "name": "A Contained Fire",
   "edition": "fh",
   "monsters": [
-    "algox-archer",
-    "algox-guard",
-    "algox-priest"
+    "algox-guard"
   ],
   "lootDeckConfig": {
     "money": 10,

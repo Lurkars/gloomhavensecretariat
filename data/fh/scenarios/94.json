@@ -9,9 +9,7 @@
   "monsters": [
     "ancient-artillery",
     "flaming-bladespinner",
-    "ruined-machine",
-    "steel-automaton",
-    "vermling-scout"
+    "ruined-machine"
   ],
   "lootDeckConfig": {
     "money": 9,

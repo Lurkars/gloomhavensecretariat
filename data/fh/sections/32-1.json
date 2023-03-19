@@ -3,6 +3,11 @@
   "name": "Orphan's Halls",
   "edition": "fh",
   "parent": "51",
+  "monsters": [
+    "ancient-artillery",
+    "ruined-machine",
+    "steel-automaton"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

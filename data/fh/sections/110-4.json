@@ -3,6 +3,10 @@
   "name": "Deadly Pastimes",
   "edition": "fh",
   "parent": "85",
+  "monsters": [
+    "black-imp",
+    "burrowing-blade"
+  ],
   "rooms": [
     {
       "roomNumber": 10,

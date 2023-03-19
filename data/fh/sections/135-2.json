@@ -4,6 +4,9 @@
   "edition": "fh",
   "parent": "42",
   "marker": "3",
+  "monsters": [
+    "ooze"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

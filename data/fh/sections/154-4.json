@@ -3,6 +3,9 @@
   "name": "Tower of Knowledge",
   "edition": "fh",
   "parent": "134",
+  "monsters": [
+    "steel-automaton-scenario-134"
+  ],
   "rooms": [
     {
       "roomNumber": 8,

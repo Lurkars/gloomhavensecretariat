@@ -4,6 +4,10 @@
   "edition": "fh",
   "parent": "42",
   "marker": "1",
+  "monsters": [
+    "deep-terror",
+    "night-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

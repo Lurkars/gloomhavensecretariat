@@ -3,6 +3,10 @@
   "name": "Crackling Tunnel",
   "edition": "fh",
   "parent": "31",
+  "monsters": [
+    "robotic-boltshooter",
+    "steel-automaton"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

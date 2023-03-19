@@ -3,6 +3,11 @@
   "name": "Temple of Feline Power",
   "edition": "fh",
   "parent": "132",
+  "monsters": [
+    "frost-demon",
+    "ice-wraith",
+    "snow-imp"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

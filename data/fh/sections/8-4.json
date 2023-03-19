@@ -7,6 +7,10 @@
     "172.1"
   ],
   "marker": "6",
+  "monsters": [
+    "ice-wraith",
+    "snow-imp"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

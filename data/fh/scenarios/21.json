@@ -4,9 +4,7 @@
   "edition": "fh",
   "monsters": [
     "frost-demon",
-    "living-bones",
     "living-spirit",
-    "prince-of-frost",
     "snow-imp"
   ],
   "lootDeckConfig": {

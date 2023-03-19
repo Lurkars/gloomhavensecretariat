@@ -3,6 +3,12 @@
   "name": "Radiant Dust",
   "edition": "fh",
   "parent": "119",
+  "monsters": [
+    "burrowing-blade",
+    "polar-bear",
+    "shrike-fiend",
+    "spitting-drake"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

@@ -4,6 +4,10 @@
   "name": "Orphan's Halls",
   "edition": "fh",
   "parent": "120",
+  "monsters": [
+    "robotic-boltshooter",
+    "steel-automaton"
+  ],
   "objectives": [
     {
       "name": "Glowing Orb",

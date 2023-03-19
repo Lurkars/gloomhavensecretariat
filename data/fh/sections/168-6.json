@@ -3,6 +3,11 @@
   "name": "A Waiting Game",
   "edition": "fh",
   "parent": "117",
+  "monsters": [
+    "hound",
+    "vermling-priest",
+    "vermling-scout"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

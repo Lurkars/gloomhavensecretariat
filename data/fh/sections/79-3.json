@@ -3,6 +3,9 @@
   "name": "Collection's Capstone",
   "edition": "fh",
   "parent": "88",
+  "monsters": [
+    "lurker-clawcrusher"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

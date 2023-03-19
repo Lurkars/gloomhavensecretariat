@@ -4,6 +4,10 @@
   "edition": "fh",
   "parent": "4B",
   "marker": "1",
+  "monsters": [
+    "frozen-fist",
+    "snowdancer"
+  ],
   "drawExtra": [
     "snowdancer"
   ],

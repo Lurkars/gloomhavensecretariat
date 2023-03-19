@@ -5,9 +5,7 @@
   "edition": "fh",
   "monsters": [
     "burrowing-blade",
-    "polar-bear",
     "rending-drake",
-    "shrike-fiend",
     "spitting-drake"
   ],
   "objectives": [

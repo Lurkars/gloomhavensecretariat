@@ -5,9 +5,7 @@
   "edition": "fh",
   "monsters": [
     "aesther-ashblade",
-    "aesther-scout",
     "ancient-artillery",
-    "flaming-bladespinner",
     "ruined-machine",
     "steel-automaton"
   ],

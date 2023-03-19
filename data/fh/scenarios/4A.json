@@ -10,9 +10,7 @@
   ],
   "monsters": [
     "algox-guard",
-    "algox-scout",
-    "frozen-fist",
-    "snowdancer"
+    "algox-scout"
   ],
   "allies": [
     "algox-scout"

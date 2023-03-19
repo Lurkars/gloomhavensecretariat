@@ -4,6 +4,10 @@
   "name": "Under the Influence",
   "edition": "fh",
   "parent": "120",
+  "monsters": [
+    "vermling-priest",
+    "vermling-scout"
+  ],
   "objectives": [
     {
       "name": "Door 2",

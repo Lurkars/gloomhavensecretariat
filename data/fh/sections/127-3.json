@@ -3,6 +3,11 @@
   "name": "Prison Break",
   "edition": "fh",
   "parent": "99",
+  "monsters": [
+    "frozen-corpse",
+    "robotic-boltshooter",
+    "steel-automaton"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

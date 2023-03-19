@@ -3,6 +3,10 @@
   "name": "Abandoned Hideout",
   "edition": "fh",
   "parent": "136",
+  "monsters": [
+    "lightning-eel",
+    "piranha-pig"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

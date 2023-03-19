@@ -9,9 +9,7 @@
   "monsters": [
     "abael-scout",
     "lurker-wavethrower-scenario-128",
-    "snow-imp",
-    "steel-automaton-scenario-128",
-    "vermling-scout"
+    "steel-automaton-scenario-128"
   ],
   "lootDeckConfig": {
     "money": 2,

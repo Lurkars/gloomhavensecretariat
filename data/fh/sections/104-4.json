@@ -3,6 +3,10 @@
   "name": "Scrap Pit",
   "edition": "fh",
   "parent": "35",
+  "monsters": [
+    "living-bones",
+    "ruined-machine"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

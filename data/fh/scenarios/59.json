@@ -7,10 +7,7 @@
     "58"
   ],
   "monsters": [
-    "flaming-bladespinner",
-    "robotic-boltshooter",
-    "ruined-machine",
-    "steel-automaton"
+    "robotic-boltshooter"
   ],
   "objectives": [
     {

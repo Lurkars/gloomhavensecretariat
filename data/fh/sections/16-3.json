@@ -7,6 +7,10 @@
     "94.2"
   ],
   "marker": "2",
+  "monsters": [
+    "deep-terror",
+    "frost-demon"
+  ],
   "objectives": [
     {
       "name": "Ice Pillar",

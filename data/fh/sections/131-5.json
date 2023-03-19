@@ -3,6 +3,10 @@
   "name": "A Contained Fire",
   "edition": "fh",
   "parent": "89",
+  "monsters": [
+    "algox-guard",
+    "algox-priest"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

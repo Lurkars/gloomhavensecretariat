@@ -3,6 +3,12 @@
   "name": "Collection's Capstone",
   "edition": "fh",
   "parent": "88",
+  "monsters": [
+    "frost-demon",
+    "savvas-icestorm",
+    "the-collector",
+    "wind-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

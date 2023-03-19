@@ -3,6 +3,9 @@
   "name": "Orphan's Core",
   "edition": "fh",
   "parent": "58",
+  "monsters": [
+    "ruined-machine"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

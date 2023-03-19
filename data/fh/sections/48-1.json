@@ -7,6 +7,10 @@
     "51.1"
   ],
   "marker": "2",
+  "monsters": [
+    "living-bones",
+    "living-spirit"
+  ],
   "objectives": [
     {
       "name": "Crate",

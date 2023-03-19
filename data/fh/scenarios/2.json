@@ -14,9 +14,7 @@
   ],
   "monsters": [
     "algox-archer",
-    "algox-guard",
-    "algox-priest",
-    "algox-scout"
+    "algox-guard"
   ],
   "allies": [
     "algox-priest"

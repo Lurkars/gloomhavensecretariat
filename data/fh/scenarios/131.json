@@ -5,8 +5,7 @@
   "edition": "fh",
   "monsters": [
     "lurker-mindsnipper",
-    "lurker-soldier",
-    "lurker-wavethrower-scenario-131"
+    "lurker-soldier"
   ],
   "rooms": [
     {

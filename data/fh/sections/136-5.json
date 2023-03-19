@@ -3,6 +3,10 @@
   "name": "The Longest Second",
   "edition": "fh",
   "parent": "125",
+  "monsters": [
+    "robotic-boltshooter",
+    "ruined-machine"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

@@ -3,6 +3,10 @@
   "name": "A Grand View",
   "edition": "fh",
   "parent": "94",
+  "monsters": [
+    "ancient-artillery",
+    "ruined-machine"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

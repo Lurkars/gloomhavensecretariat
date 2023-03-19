@@ -6,9 +6,7 @@
   "monsters": [
     "flaming-bladespinner",
     "robotic-boltshooter",
-    "ruined-machine",
-    "shrike-fiend",
-    "steel-automaton-scenario-134"
+    "ruined-machine"
   ],
   "lootDeckConfig": {
     "money": 10,

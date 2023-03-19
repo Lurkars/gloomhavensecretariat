@@ -3,6 +3,11 @@
   "name": "Harrower Library",
   "edition": "fh",
   "parent": "101",
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "algox-priest"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

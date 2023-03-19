@@ -3,6 +3,9 @@
   "name": "The Dead Mile",
   "edition": "fh",
   "parent": "37",
+  "monsters": [
+    "ruined-machine"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

@@ -8,11 +8,7 @@
   ],
   "monsters": [
     "city-guard",
-    "hound",
-    "robotic-boltshooter",
-    "steel-automaton",
-    "vermling-priest",
-    "vermling-scout"
+    "hound"
   ],
   "lootDeckConfig": {
     "money": 8,

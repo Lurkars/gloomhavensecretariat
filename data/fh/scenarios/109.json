@@ -5,10 +5,7 @@
   "edition": "fh",
   "random": true,
   "monsters": [
-    "ancient-artillery",
-    "flaming-bladespinner",
-    "ruined-machine",
-    "steel-automaton"
+    "ancient-artillery"
   ],
   "lootDeckConfig": {
     "money": 11,

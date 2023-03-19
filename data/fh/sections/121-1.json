@@ -3,6 +3,9 @@
   "name": "Automaton Uprising",
   "edition": "fh",
   "parent": "59",
+  "monsters": [
+    "steel-automaton"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

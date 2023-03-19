@@ -5,6 +5,10 @@
   "edition": "fh",
   "parent": "72",
   "resetRound": "visible",
+  "monsters": [
+    "frozen-corpse",
+    "steel-automaton"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

@@ -3,6 +3,9 @@
   "name": "The Collection",
   "edition": "fh",
   "parent": "87",
+  "monsters": [
+    "polar-bear"
+  ],
   "rooms": [
     {
       "roomNumber": 5,

@@ -7,6 +7,13 @@
     "129.2"
   ],
   "marker": "a",
+  "monsters": [
+    "abael-scout",
+    "lurker-clawcrusher",
+    "lurker-mindsnipper",
+    "lurker-wavethrower",
+    "piranha-pig"
+  ],
   "objectives": [
     {
       "name": "Artificer",

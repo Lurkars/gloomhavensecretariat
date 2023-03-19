@@ -3,6 +3,11 @@
   "name": "Blizzard Island",
   "edition": "fh",
   "parent": "48",
+  "monsters": [
+    "abael-scout",
+    "frost-demon",
+    "wind-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

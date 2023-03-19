@@ -3,6 +3,10 @@
   "name": "The Titan",
   "edition": "fh",
   "parent": "123",
+  "monsters": [
+    "algox-snowspeaker",
+    "ancient-artillery"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

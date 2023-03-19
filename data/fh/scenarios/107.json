@@ -4,15 +4,7 @@
   "name": "My Private Empire",
   "edition": "fh",
   "random": true,
-  "monsters": [
-    "flaming-bladespinner",
-    "living-bones",
-    "living-doom",
-    "living-spirit",
-    "robotic-boltshooter",
-    "ruined-machine",
-    "steel-automaton"
-  ],
+  "monsters": [],
   "lootDeckConfig": {
     "money": 10,
     "lumber": 3,

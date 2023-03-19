@@ -4,7 +4,6 @@
   "name": "The Titan",
   "edition": "fh",
   "monsters": [
-    "algox-snowspeaker",
     "ancient-artillery"
   ],
   "lootDeckConfig": {

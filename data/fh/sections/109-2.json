@@ -3,6 +3,9 @@
   "name": "Derelict Freighter",
   "edition": "fh",
   "parent": "127",
+  "monsters": [
+    "frozen-corpse"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

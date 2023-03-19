@@ -4,12 +4,8 @@
   "name": "The Frosthaven Seal",
   "edition": "fh",
   "monsters": [
-    "burrowing-blade",
     "guard-captain",
-    "living-doom",
-    "living-spirit",
-    "shrike-fiend",
-    "vestige-of-the-imprisoned-god"
+    "living-doom"
   ],
   "allies": [
     "guard-captain"

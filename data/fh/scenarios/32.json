@@ -3,9 +3,7 @@
   "name": "Ravens' Roost",
   "edition": "fh",
   "monsters": [
-    "frozen-corpse-scenario-32",
-    "harrower-infester",
-    "shrike-fiend"
+    "frozen-corpse-scenario-32"
   ],
   "lootDeckConfig": {
     "money": 7,

@@ -5,9 +5,7 @@
   "edition": "fh",
   "monsters": [
     "frozen-corpse",
-    "living-bones",
-    "lurker-mindsnipper",
-    "lurker-soldier"
+    "living-bones"
   ],
   "lootDeckConfig": {
     "money": 8,

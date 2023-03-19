@@ -4,6 +4,10 @@
   "edition": "fh",
   "parent": "7",
   "marker": "1",
+  "monsters": [
+    "lurker-mindsnipper",
+    "lurker-soldier"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

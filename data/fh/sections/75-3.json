@@ -3,6 +3,9 @@
   "name": "The Way Forward",
   "edition": "fh",
   "parent": "38",
+  "monsters": [
+    "sun-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

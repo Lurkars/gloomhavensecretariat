@@ -3,6 +3,13 @@
   "name": "Ruins of the Solstice",
   "edition": "fh",
   "parent": "104",
+  "monsters": [
+    "earth-demon",
+    "forest-imp",
+    "frost-demon",
+    "savvas-icestorm",
+    "wind-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

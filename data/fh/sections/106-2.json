@@ -5,7 +5,9 @@
   "edition": "fh",
   "parent": "70",
   "monsters": [
-    "flaming-sword-of-justice"
+    "city-guard",
+    "flaming-sword-of-justice",
+    "sun-demon"
   ],
   "rooms": [
     {

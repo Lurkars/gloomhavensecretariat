@@ -5,11 +5,7 @@
   "unlocks": [
     "27"
   ],
-  "monsters": [
-    "ice-wraith",
-    "living-doom",
-    "living-spirit"
-  ],
+  "monsters": [],
   "objectives": [
     {
       "name": "Spectral Helper",

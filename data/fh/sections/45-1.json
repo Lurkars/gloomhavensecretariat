@@ -3,6 +3,10 @@
   "name": "Carrion Ridge",
   "edition": "fh",
   "parent": "47",
+  "monsters": [
+    "algox-icespeaker",
+    "harrower-infester"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

@@ -4,9 +4,7 @@
   "name": "Deadly Pastimes",
   "edition": "fh",
   "monsters": [
-    "black-imp",
     "burrowing-blade",
-    "lightning-eel",
     "polar-bear"
   ],
   "lootDeckConfig": {

@@ -5,8 +5,7 @@
   "edition": "fh",
   "monsters": [
     "chaos-demon",
-    "forest-imp",
-    "polar-bear"
+    "forest-imp"
   ],
   "lootDeckConfig": {
     "money": 8,

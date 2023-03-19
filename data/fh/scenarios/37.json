@@ -14,8 +14,7 @@
   ],
   "monsters": [
     "living-bones",
-    "living-spirit",
-    "ruined-machine"
+    "living-spirit"
   ],
   "lootDeckConfig": {
     "money": 10,

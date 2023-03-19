@@ -4,6 +4,8 @@
   "edition": "fh",
   "parent": "24",
   "monsters": [
+    "chaos-demon",
+    "living-bones",
     "wind-demon"
   ],
   "rooms": [

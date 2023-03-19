@@ -3,6 +3,10 @@
   "name": "Depths of Delirium",
   "edition": "fh",
   "parent": "27",
+  "monsters": [
+    "deep-terror",
+    "living-bones"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

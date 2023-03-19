@@ -3,6 +3,9 @@
   "name": "The Tempus Forge",
   "edition": "fh",
   "parent": "106",
+  "monsters": [
+    "wind-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

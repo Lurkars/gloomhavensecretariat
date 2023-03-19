@@ -4,9 +4,6 @@
   "name": "The Lurker Problem",
   "edition": "fh",
   "monsters": [
-    "abael-herder",
-    "abael-scout",
-    "lightning-eel",
     "lurker-soldier",
     "lurker-wavethrower",
     "piranha-pig"

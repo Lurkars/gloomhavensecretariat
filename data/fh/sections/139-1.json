@@ -3,6 +3,11 @@
   "name": "A Tall Drunken Trail",
   "edition": "fh",
   "parent": "128",
+  "monsters": [
+    "abael-scout",
+    "lurker-wavethrower-scenario-128",
+    "steel-automaton-scenario-128"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

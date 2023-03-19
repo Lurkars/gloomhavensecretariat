@@ -3,6 +3,11 @@
   "name": "Lurker Necromancy",
   "edition": "fh",
   "parent": "118",
+  "monsters": [
+    "frozen-corpse",
+    "living-bones",
+    "lurker-mindsnipper"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

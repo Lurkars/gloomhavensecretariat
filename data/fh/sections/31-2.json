@@ -3,6 +3,10 @@
   "name": "The Collection",
   "edition": "fh",
   "parent": "87",
+  "monsters": [
+    "algox-archer",
+    "steel-automaton"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

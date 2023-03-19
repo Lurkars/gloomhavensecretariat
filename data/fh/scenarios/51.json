@@ -13,8 +13,6 @@
   ],
   "monsters": [
     "ancient-artillery",
-    "flaming-bladespinner",
-    "ruined-machine",
     "steel-automaton"
   ],
   "lootDeckConfig": {

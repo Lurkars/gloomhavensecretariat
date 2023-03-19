@@ -4,6 +4,10 @@
   "edition": "fh",
   "parent": "49",
   "marker": "1",
+  "monsters": [
+    "black-imp",
+    "frost-demon"
+  ],
   "objectives": [
     {
       "name": "Ice Pillar",

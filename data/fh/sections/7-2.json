@@ -5,6 +5,9 @@
   "parent": "5",
   "marker": 1,
   "resetRound": "visible",
+  "monsters": [
+    "frozen-corpse"
+  ],
   "objectives": [
     {
       "name": "Altar",

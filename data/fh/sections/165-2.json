@@ -3,6 +3,9 @@
   "name": "Fish King's Ascension",
   "edition": "fh",
   "parent": "77",
+  "monsters": [
+    "frost-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

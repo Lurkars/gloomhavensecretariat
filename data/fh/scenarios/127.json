@@ -5,7 +5,6 @@
   "edition": "fh",
   "monsters": [
     "ancient-artillery",
-    "frozen-corpse",
     "ice-wraith"
   ],
   "lootDeckConfig": {

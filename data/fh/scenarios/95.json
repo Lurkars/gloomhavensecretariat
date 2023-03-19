@@ -4,9 +4,7 @@
   "name": "To Bury the Dead",
   "edition": "fh",
   "monsters": [
-    "ice-wraith",
-    "living-bones",
-    "living-doom"
+    "ice-wraith"
   ],
   "lootDeckConfig": {
     "money": 8,

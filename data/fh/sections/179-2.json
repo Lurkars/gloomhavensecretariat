@@ -11,7 +11,9 @@
   ],
   "marker": "3",
   "monsters": [
-    "ice-wraith"
+    "ice-wraith",
+    "polar-bear",
+    "snow-imp"
   ],
   "rooms": [
     {

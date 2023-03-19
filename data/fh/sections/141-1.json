@@ -3,6 +3,10 @@
   "name": "A Giant Block of Ice",
   "edition": "fh",
   "parent": "72",
+  "monsters": [
+    "ice-wraith",
+    "living-bones"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

@@ -7,6 +7,9 @@
     "30.2"
   ],
   "marker": "2",
+  "monsters": [
+    "algox-guard"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

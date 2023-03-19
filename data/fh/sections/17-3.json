@@ -3,6 +3,9 @@
   "name": "Haunted Vault",
   "edition": "fh",
   "parent": "17",
+  "monsters": [
+    "living-spirit"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

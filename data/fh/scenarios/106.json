@@ -3,13 +3,7 @@
   "index": "106",
   "name": "The Tempus Forge",
   "edition": "fh",
-  "monsters": [
-    "city-guard",
-    "earth-demon",
-    "flame-demon",
-    "frost-demon",
-    "wind-demon"
-  ],
+  "monsters": [],
   "lootDeckConfig": {
     "money": 7,
     "lumber": 2,

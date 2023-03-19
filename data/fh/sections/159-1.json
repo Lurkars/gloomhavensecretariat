@@ -4,6 +4,11 @@
   "edition": "fh",
   "parent": "114",
   "marker": "b",
+  "monsters": [
+    "hound",
+    "polar-bear",
+    "snow-imp"
+  ],
   "objectives": [
     {
       "name": "Ice Pillar",

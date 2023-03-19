@@ -9,9 +9,7 @@
   ],
   "monsters": [
     "earth-demon",
-    "forest-imp",
     "frost-demon",
-    "savvas-icestorm",
     "wind-demon"
   ],
   "lootDeckConfig": {

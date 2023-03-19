@@ -4,6 +4,9 @@
   "edition": "fh",
   "parent": "21",
   "marker": "1",
+  "monsters": [
+    "living-bones"
+  ],
   "objectives": [
     {
       "name": "Glowing Orb",

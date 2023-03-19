@@ -3,6 +3,10 @@
   "name": "Gaps in the Road",
   "edition": "fh",
   "parent": "74",
+  "monsters": [
+    "algox-priest",
+    "wind-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 5,

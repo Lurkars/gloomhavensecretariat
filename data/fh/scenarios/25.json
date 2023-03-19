@@ -11,8 +11,7 @@
   ],
   "monsters": [
     "flaming-bladespinner",
-    "robotic-boltshooter",
-    "ruined-machine"
+    "robotic-boltshooter"
   ],
   "lootDeckConfig": {
     "money": 10,

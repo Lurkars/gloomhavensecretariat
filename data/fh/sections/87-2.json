@@ -3,6 +3,12 @@
   "name": "Belara's Keep",
   "edition": "fh",
   "parent": "135",
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "rending-drake",
+    "sun-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

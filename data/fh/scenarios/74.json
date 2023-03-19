@@ -8,12 +8,7 @@
     "76"
   ],
   "monsters": [
-    "algox-archer",
-    "algox-guard",
-    "algox-priest",
-    "forest-imp",
-    "piranha-pig",
-    "wind-demon"
+    "algox-archer"
   ],
   "objectives": [
     {

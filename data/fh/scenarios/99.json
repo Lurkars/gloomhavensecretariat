@@ -8,8 +8,7 @@
   ],
   "monsters": [
     "frozen-corpse",
-    "robotic-boltshooter",
-    "steel-automaton"
+    "robotic-boltshooter"
   ],
   "lootDeckConfig": {
     "money": 10,

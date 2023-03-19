@@ -5,13 +5,7 @@
   "edition": "fh",
   "monsters": [
     "chaos-demon",
-    "earth-demon",
-    "flame-demon",
-    "frost-demon",
-    "night-demon",
-    "sun-demon",
-    "tormentor",
-    "wind-demon"
+    "tormentor"
   ],
   "lootDeckConfig": {
     "lumber": 5,

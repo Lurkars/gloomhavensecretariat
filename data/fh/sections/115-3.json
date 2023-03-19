@@ -3,6 +3,12 @@
   "name": "Relief Effort",
   "edition": "fh",
   "parent": "40",
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "ruined-machine",
+    "steel-automaton"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

@@ -3,6 +3,10 @@
   "name": "The Lurker Problem",
   "edition": "fh",
   "parent": "78",
+  "monsters": [
+    "abael-scout",
+    "lurker-wavethrower"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

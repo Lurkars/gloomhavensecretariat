@@ -3,6 +3,10 @@
   "name": "Spire Basement",
   "edition": "fh",
   "parent": "23",
+  "monsters": [
+    "living-bones",
+    "living-spirit"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

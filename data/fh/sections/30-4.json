@@ -4,6 +4,9 @@
   "name": "The Lead Door",
   "edition": "fh",
   "parent": "103",
+  "monsters": [
+    "living-spirit"
+  ],
   "objectives": [
     {
       "name": "Ice Pillar",

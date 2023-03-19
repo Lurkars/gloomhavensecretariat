@@ -3,6 +3,11 @@
   "name": "A Grand View",
   "edition": "fh",
   "parent": "94",
+  "monsters": [
+    "ruined-machine",
+    "steel-automaton",
+    "vermling-scout"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

@@ -4,6 +4,9 @@
   "name": "Temple of Liberation",
   "edition": "fh",
   "parent": "20",
+  "monsters": [
+    "steel-automaton"
+  ],
   "objectives": [
     {
       "name": "Glowing Orb",

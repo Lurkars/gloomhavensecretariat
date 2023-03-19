@@ -3,6 +3,11 @@
   "name": "Relic",
   "edition": "fh",
   "parent": "79",
+  "monsters": [
+    "frozen-corpse",
+    "ice-wraith",
+    "snow-imp"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

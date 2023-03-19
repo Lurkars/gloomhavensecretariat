@@ -3,6 +3,9 @@
   "name": "The Dancing Iceberg",
   "edition": "fh",
   "parent": "131",
+  "monsters": [
+    "lurker-wavethrower-scenario-131"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

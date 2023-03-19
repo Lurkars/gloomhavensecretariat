@@ -3,6 +3,10 @@
   "name": "Deadly Pastimes",
   "edition": "fh",
   "parent": "85",
+  "monsters": [
+    "burrowing-blade",
+    "polar-bear"
+  ],
   "rooms": [
     {
       "roomNumber": 8,

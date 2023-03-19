@@ -4,12 +4,9 @@
   "name": "The Pirate Queen's Lair",
   "edition": "fh",
   "monsters": [
-    "ancient-artillery",
-    "flaming-bladespinner",
     "forest-imp",
     "piranha-pig",
-    "polar-bear",
-    "robotic-boltshooter"
+    "polar-bear"
   ],
   "lootDeckConfig": {
     "money": 12,

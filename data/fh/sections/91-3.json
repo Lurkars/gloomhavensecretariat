@@ -3,6 +3,10 @@
   "name": "Corrupted Camp",
   "edition": "fh",
   "parent": "39",
+  "monsters": [
+    "algox-scout",
+    "deep-terror"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

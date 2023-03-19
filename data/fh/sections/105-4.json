@@ -3,6 +3,9 @@
   "name": "Apotheosis",
   "edition": "fh",
   "parent": "76",
+  "monsters": [
+    "flaming-bladespinner"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

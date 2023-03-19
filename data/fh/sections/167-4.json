@@ -3,6 +3,11 @@
   "name": "Underground Station",
   "edition": "fh",
   "parent": "96",
+  "monsters": [
+    "ancient-artillery",
+    "black-imp",
+    "rending-drake"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

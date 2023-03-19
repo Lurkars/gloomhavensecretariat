@@ -3,12 +3,7 @@
   "index": "91",
   "name": "Shoreline Scramble",
   "edition": "fh",
-  "monsters": [
-    "lightning-eel",
-    "lurker-clawcrusher",
-    "lurker-mindsnipper",
-    "lurker-wavethrower"
-  ],
+  "monsters": [],
   "lootDeckConfig": {
     "money": 10,
     "lumber": 4,

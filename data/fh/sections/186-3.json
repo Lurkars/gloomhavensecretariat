@@ -3,6 +3,9 @@
   "name": "Guardian's Temple",
   "edition": "fh",
   "parent": "110",
+  "monsters": [
+    "living-spirit"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

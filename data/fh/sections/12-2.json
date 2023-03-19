@@ -4,6 +4,10 @@
   "edition": "fh",
   "parent": "6",
   "marker": "1",
+  "monsters": [
+    "frost-demon",
+    "snow-imp"
+  ],
   "objectives": [
     {
       "name": "Snowdrift",

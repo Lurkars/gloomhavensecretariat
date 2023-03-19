@@ -3,6 +3,9 @@
   "name": "My Private Empire",
   "edition": "fh",
   "parent": "107",
+  "monsters": [
+    "ruined-machine"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

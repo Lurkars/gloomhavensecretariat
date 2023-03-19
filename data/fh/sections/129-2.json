@@ -4,6 +4,13 @@
   "edition": "fh",
   "parent": "71",
   "marker": "1",
+  "monsters": [
+    "abael-scout",
+    "lurker-clawcrusher",
+    "lurker-mindsnipper",
+    "lurker-wavethrower",
+    "piranha-pig"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

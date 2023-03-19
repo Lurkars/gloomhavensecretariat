@@ -5,7 +5,10 @@
   "edition": "fh",
   "parent": "87",
   "monsters": [
-    "brother"
+    "algox-archer",
+    "algox-guard",
+    "brother",
+    "flaming-bladespinner"
   ],
   "allies": [
     "brother"

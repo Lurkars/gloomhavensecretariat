@@ -3,6 +3,9 @@
   "name": "Infiltrating the Lair",
   "edition": "fh",
   "parent": "75",
+  "monsters": [
+    "frost-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 5,

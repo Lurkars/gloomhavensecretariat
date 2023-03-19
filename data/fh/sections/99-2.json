@@ -3,6 +3,10 @@
   "name": "Infiltrating the Lair",
   "edition": "fh",
   "parent": "75",
+  "monsters": [
+    "abael-scout",
+    "piranha-pig"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

@@ -3,6 +3,9 @@
   "name": "Relic",
   "edition": "fh",
   "parent": "79",
+  "monsters": [
+    "polar-bear"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

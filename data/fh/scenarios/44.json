@@ -12,10 +12,7 @@
     "59"
   ],
   "monsters": [
-    "ancient-artillery",
-    "flaming-bladespinner",
-    "ruined-machine",
-    "steel-automaton"
+    "flaming-bladespinner"
   ],
   "objectives": [
     {

@@ -7,11 +7,7 @@
     "103"
   ],
   "monsters": [
-    "chaos-demon",
     "frost-demon",
-    "living-spirit",
-    "night-demon",
-    "savvas-icestorm",
     "wind-demon"
   ],
   "lootDeckConfig": {

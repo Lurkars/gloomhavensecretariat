@@ -3,6 +3,10 @@
   "name": "Nerve Center",
   "edition": "fh",
   "parent": "44",
+  "monsters": [
+    "ancient-artillery",
+    "flaming-bladespinner"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

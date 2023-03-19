@@ -3,6 +3,9 @@
   "name": "To Bury the Dead",
   "edition": "fh",
   "parent": "95",
+  "monsters": [
+    "living-bones"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

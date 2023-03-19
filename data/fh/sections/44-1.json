@@ -4,6 +4,10 @@
   "edition": "fh",
   "parent": "13",
   "marker": "1",
+  "monsters": [
+    "shrike-fiend",
+    "wind-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

@@ -3,6 +3,10 @@
   "name": "Lurker Necromancy",
   "edition": "fh",
   "parent": "118",
+  "monsters": [
+    "living-bones",
+    "lurker-soldier"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

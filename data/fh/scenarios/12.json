@@ -6,9 +6,7 @@
     "20"
   ],
   "monsters": [
-    "ancient-artillery",
-    "night-demon",
-    "steel-automaton"
+    "ancient-artillery"
   ],
   "lootDeckConfig": {
     "money": 8,
