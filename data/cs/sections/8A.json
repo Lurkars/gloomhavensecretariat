@@ -4,6 +4,44 @@
   "edition": "cs",
   "parent": "5",
   "monsters": [
+    "earth-demon",
+    "flaming-drake",
     "gelatinous-giant"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "m1",
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "flaming-drake",
+          "type": "normal"
+        },
+        {
+          "name": "flaming-drake",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "gelatinous-giant",
+          "type": "boss"
+        }
+      ]
+    }
   ]
 }

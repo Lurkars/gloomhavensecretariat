@@ -61,6 +61,10 @@
           "player4": "elite"
         },
         {
+          "name": "hydra-spirit",
+          "type": "elite"
+        },
+        {
           "name": "lurker",
           "player2": "normal",
           "player3": "normal",
@@ -88,10 +92,6 @@
         {
           "name": "lurker",
           "player4": "normal"
-        },
-        {
-          "name": "water-spirit",
-          "type": "elite"
         }
       ]
     }
