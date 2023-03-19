@@ -59,7 +59,7 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 | Assign Loot Cards to Character                                                  | :heavy_check_mark:        | :heavy_check_mark:      | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Special Scenario Rules/Notes                                                    | :heavy_check_mark:        | :heavy_check_mark:      | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Apply Special Scenario Rules                                                    | :heavy_check_mark:        | :no_entry_sign:         | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
-| Automatic Standees                                                              | :heavy_check_mark:[^16.2] | :no_entry_sign:         | :heavy_check_mark:        | :heavy_check_mark:       | :no_entry_sign:         |
+| Automatic Standees                                                              | :heavy_check_mark:        | :grey_question:[^16.2]  | :heavy_check_mark:        | :heavy_check_mark:       | :no_entry_sign:         |
 | Assign Standee Numbers                                                          | :heavy_check_mark:        | :heavy_check_mark:      | :white_check_mark:[^18]   | :heavy_check_mark:       | :heavy_check_mark:      |
 | Sort Standees                                                                   | :heavy_check_mark:        | :heavy_check_mark:      | :heavy_check_mark:        | :heavy_check_mark:       | :heavy_check_mark:      |
 | Select multiple standees                                                        | :heavy_check_mark:        | :no_entry_sign:         | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
@@ -92,7 +92,7 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 
 [^1.3]: Not all scenarios available yet, but WIP, some Attackmodifier Rules missing
 
-[^2.1]: some room and special rules data not complete, but fully playable
+[^2.1]: Some special rules data not complete, but fully playable
 
 [^2.2]: Some special rules and setups missing, but fully playable
 
@@ -124,7 +124,7 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 
 [^16.1]: Character only, rest work in progress
 
-[^16.2]: Full data only for GH+FC and JOTL, rest work in progress
+[^16.2]: In developement, available soon
 
 [^17.1]: By default only shown on hovering card or fullscreen card, can be activated permenent in settings
 
