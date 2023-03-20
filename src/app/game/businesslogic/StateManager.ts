@@ -267,21 +267,12 @@ export class StateManager {
           window.document.body.classList.add('server-sync');
           if (settingsManager.settings.serverSettings) {
             let settings: Settings = message.payload as Settings;
-
-            if (!settings.serverUrl) {
-              settings.serverUrl = settingsManager.settings.serverUrl;
-            }
-            if (!settings.serverPort) {
-              settings.serverPort = settingsManager.settings.serverPort;
-            }
-            if (!settings.serverPassword) {
-              settings.serverPassword = settingsManager.settings.serverPassword;
-            }
-            if (!settings.serverSettings) {
-              settings.serverSettings = settingsManager.settings.serverSettings;
-            }
-
             // keep local
+            settings.serverUrl = settingsManager.settings.serverUrl;
+            settings.serverPort = settingsManager.settings.serverPort;
+            settings.serverPassword = settingsManager.settings.serverPassword;
+            settings.serverSettings = settingsManager.settings.serverSettings;
+            settings.serverWss = settingsManager.settings.serverWss;
             settings.fullscreen = settingsManager.settings.fullscreen;
             settings.fhStyle = settingsManager.settings.fhStyle;
             settings.theme = settingsManager.settings.theme;

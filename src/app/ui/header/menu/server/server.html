@@ -100,10 +100,10 @@
       <div class="columns">
         <div class="column">
           <div class="line">
-            <button type="submit" [disabled]="!serverUrl.value || !serverPort.value || !serverPassword.value"
+            <a (click)="reconnect()"
               [ngClass]="{'disabled' : !serverUrl.value || !serverPort.value || !serverPassword.value}">{{(gameManager.stateManager.wsState()
               == WebSocket.OPEN ? 'server.reconnect' : 'server.connect') |
-              ghsLabel}}</button>
+              ghsLabel}}</a>
           </div>
         </div>
         <div class="column" *ngIf="gameManager.stateManager.wsState() == WebSocket.OPEN">

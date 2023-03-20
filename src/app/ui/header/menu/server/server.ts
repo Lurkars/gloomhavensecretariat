@@ -75,6 +75,12 @@ export class ServerMenuComponent implements OnInit {
     this.permissions = gameManager.stateManager.permissions;
   }
 
+  reconnect() {
+    this.disconnect();
+    gameManager.stateManager.connect();
+    this.tryConnect = true;
+  }
+
   selectServer(event: any) {
     this.selectedServerIndex = -1;
     if (!isNaN(+event.target.value)) {
