@@ -206,9 +206,15 @@ export class GameManager {
 
   objectiveDataByScenarioObjectiveIdentifier(objectiveIdentifier: ScenarioObjectiveIdentifier): ObjectiveData | undefined {
     const scenarioData = (objectiveIdentifier.section ? this.sectionData(objectiveIdentifier.edition).find((sectionData) => sectionData.index == objectiveIdentifier.scenario && sectionData.group == objectiveIdentifier.group) : this.scenarioData(objectiveIdentifier.edition).find((scenarioData) => scenarioData.index == objectiveIdentifier.scenario && scenarioData.group == objectiveIdentifier.group));
-
-    if (scenarioData && scenarioData.objectives.length > objectiveIdentifier.index) {
-      return scenarioData.objectives[objectiveIdentifier.index];
+    if (scenarioData) {
+      if (objectiveIdentifier.section && !scenarioData.objectives) {
+        const parent = this.scenarioData(objectiveIdentifier.edition).find((scenarioData) => scenarioData.index == scenarioData.parent && scenarioData.group == objectiveIdentifier.group);
+        if (parent && parent.objectives && parent.objectives.length > objectiveIdentifier.index) {
+          return parent.objectives[objectiveIdentifier.index];
+        }
+      } else if (scenarioData.objectives.length > objectiveIdentifier.index) {
+        return scenarioData.objectives[objectiveIdentifier.index];
+      }
     }
 
     return undefined;
@@ -442,6 +448,19 @@ export class GameManager {
     }
 
     return [];
+  }
+
+  entitiesByIdentifier(identifier: FigureIdentifier, scenarioEffect: boolean): Entity[] {
+    let figures = this.figuresByIdentifier(identifier, scenarioEffect);
+    return figures.map((figure) => {
+      if (figure instanceof Monster) {
+        return figure.entities;
+      } else if (figure instanceof Character || figure instanceof Objective) {
+        return figure as Entity;
+      } else {
+        return undefined;
+      }
+    }).flat().filter((value) => value != undefined).map((value) => value as Entity);
   }
 
   getMonsterData(name: string, edition: string): MonsterData {

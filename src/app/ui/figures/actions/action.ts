@@ -232,14 +232,32 @@ export class ActionComponent implements OnInit {
       const stat = gameManager.monsterManager.getStat(this.monster, this.monster.boss ? MonsterType.boss : MonsterType.normal);
       let eliteStat = this.monster.boss ? undefined : gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
       if (this.action.type == ActionType.attack && this.action.valueType != ActionValueType.add && this.action.valueType != ActionValueType.subtract) {
-        if (stat.range && (!this.action.subActions.some((subAction) => subAction.type == ActionType.range || subAction.type == ActionType.area && ("" + subAction.value).indexOf('active') != -1 || subAction.type == ActionType.specialTarget))) {
-          const newSubAction = new Action(ActionType.range, 0, ActionValueType.plus);
-          newSubAction.small = true;
-          this.additionalSubActions.splice(this.hasAOE ? 1 : 0, 0, newSubAction);
+        let normalActions: Action | undefined = this.additionalSubActions.find((typeAction) => typeAction.type == ActionType.monsterType && typeAction.value == MonsterType.normal);
+        let eliteActions: Action | undefined = this.additionalSubActions.find((typeAction) => typeAction.type == ActionType.monsterType && typeAction.value == MonsterType.elite);;
+
+        if ((stat.range || eliteStat && eliteStat.range) && (!this.action.subActions.some((subAction) => subAction.type == ActionType.range || subAction.type == ActionType.area && ("" + subAction.value).indexOf('active') != -1 || subAction.type == ActionType.specialTarget))) {
+          const newStatAction = new Action(ActionType.range, 0, ActionValueType.plus);
+          newStatAction.small = true;
+          if (stat.range && (eliteStat && eliteStat.range || !eliteStat)) {
+            this.additionalSubActions.splice(this.hasAOE ? 1 : 0, 0, newStatAction);
+          } else if (stat.range) {
+            if (normalActions) {
+              normalActions.subActions.push(newStatAction);
+            } else {
+              normalActions = new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [newStatAction]);
+              newSubActions.push(normalActions);
+            }
+          } else if (eliteStat && eliteStat.range) {
+            if (eliteActions) {
+              eliteActions.subActions.push(newStatAction);
+            } else {
+              eliteActions = new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [newStatAction]);
+              newSubActions.push(eliteActions);
+            }
+          }
         }
 
         if (stat.actions && this.monster.entities.some((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && (monsterEntity.type == MonsterType.normal || monsterEntity.type == MonsterType.boss))) {
-          let normalActions: Action | undefined = undefined;
           stat.actions.filter((statAction) => this.additionAttackSubActionTypes.indexOf(statAction.type) != -1).forEach((statAction) => {
             const newStatAction = new Action(statAction.type, statAction.value, statAction.valueType, statAction.subActions);
             if (this.action && !this.subActionExists(this.action.subActions, newStatAction) && !this.subActionExists(newSubActions, newStatAction)) {
@@ -248,16 +266,15 @@ export class ActionComponent implements OnInit {
                   newStatAction.small = true;
                   newSubActions.push(newStatAction);
                 } else if (eliteStat && (!eliteStat.actions || !this.subActionExists(eliteStat.actions, newStatAction))) {
-                  if (!normalActions && !this.subActionExists(this.action.subActions, newStatAction) && !this.subActionExists(newSubActions, newStatAction)) {
-                    normalActions = this.additionalSubActions.find((typeAction) => typeAction.type == ActionType.monsterType && typeAction.value == MonsterType.normal);
+                  if (!this.subActionExists(this.action.subActions, newStatAction) && !this.subActionExists(newSubActions, newStatAction)) {
                     if (normalActions) {
-                      normalActions.subActions.push(newStatAction);
+                      if (!this.subActionExists(normalActions.subActions, newStatAction)) {
+                        normalActions.subActions.push(newStatAction);
+                      }
                     } else {
                       normalActions = new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [newStatAction]);
                       newSubActions.push(normalActions);
                     }
-                  } else if (normalActions && !this.subActionExists(this.action.subActions, newStatAction) && !this.subActionExists(newSubActions, newStatAction) && !this.subActionExists(normalActions.subActions, newStatAction)) {
-                    normalActions.subActions.push(newStatAction);
                   }
                 }
               }
@@ -265,24 +282,23 @@ export class ActionComponent implements OnInit {
           })
         }
 
-        if (eliteStat && this.monster.entities.some((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.type == MonsterType.elite)) {
-          let eliteActions: Action | undefined = undefined;
+        if (eliteStat && eliteStat.actions && this.monster.entities.some((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.type == MonsterType.elite)) {
           eliteStat.actions.filter((eliteAction) => this.additionAttackSubActionTypes.indexOf(eliteAction.type) != -1).forEach((eliteAction) => {
             const newEliteAction = new Action(eliteAction.type, eliteAction.value, eliteAction.valueType, eliteAction.subActions);
             if (this.action && (!stat.actions || !this.subActionExists(stat.actions, newEliteAction, false) || !this.hasEntities(MonsterType.normal))) {
               if (!this.hasEntities(MonsterType.normal)) {
                 newEliteAction.small = true;
                 newSubActions.push(newEliteAction);
-              } else if (!eliteActions && !this.subActionExists(this.action.subActions, newEliteAction) && !this.subActionExists(newSubActions, newEliteAction)) {
-                eliteActions = this.additionalSubActions.find((typeAction) => typeAction.type == ActionType.monsterType && typeAction.value == MonsterType.elite);
+              } else if (!this.subActionExists(this.action.subActions, newEliteAction) && !this.subActionExists(newSubActions, newEliteAction)) {
+
                 if (eliteActions) {
-                  eliteActions.subActions.push(newEliteAction);
+                  if (!this.subActionExists(eliteActions.subActions, newEliteAction)) {
+                    eliteActions.subActions.push(newEliteAction);
+                  }
                 } else {
                   eliteActions = new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, [newEliteAction]);
                   newSubActions.push(eliteActions);
                 }
-              } else if (eliteActions && !this.subActionExists(this.action.subActions, newEliteAction) && !this.subActionExists(newSubActions, newEliteAction) && !this.subActionExists(eliteActions.subActions, newEliteAction)) {
-                eliteActions.subActions.push(newEliteAction);
               }
             }
           })

@@ -23,6 +23,125 @@
       "count": 6
     }
   ],
+  "rules": [
+    {
+      "round": "R % 2 == 1",
+      "elements": [
+        {
+          "type": "fire",
+          "state": "strong"
+        },
+        {
+          "type": "air",
+          "state": "strong"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "black-imp"
+          },
+          "type": "present"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 0",
+      "elements": [
+        {
+          "type": "ice",
+          "state": "strong"
+        },
+        {
+          "type": "earth",
+          "state": "strong"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "lurker"
+          },
+          "type": "present"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 1",
+      "elements": [
+        {
+          "type": "air",
+          "state": "strong"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "black-imp"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Supply Crate"
+          },
+          "type": "dead",
+          "value": "1"
+        }
+      ],
+      "disableRules": [
+        {
+          "edition": "cs",
+          "scenario": "10",
+          "index": 0,
+          "section": false
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 0",
+      "elements": [
+        {
+          "type": "earth",
+          "state": "strong"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "lurker"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Supply Crate"
+          },
+          "type": "dead"
+        }
+      ],
+      "disableRules": [
+        {
+          "edition": "cs",
+          "scenario": "10",
+          "index": 1,
+          "section": false
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -52,6 +171,10 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1
       ]
     }
   ]

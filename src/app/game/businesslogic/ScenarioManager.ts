@@ -3,8 +3,7 @@ import { ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
 import { RoomData } from "../model/data/RoomData";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { ScenarioRewards, ScenarioRule, ScenarioRuleIdentifier } from "../model/data/ScenarioRule";
-import { EntityValueFunction } from "../model/Entity";
-import { Figure } from "../model/Figure";
+import { Entity, EntityValueFunction } from "../model/Entity";
 import { Game, GameState } from "../model/Game";
 import { Identifier } from "../model/Identifier";
 import { LootDeckConfig } from "../model/Loot";
@@ -350,17 +349,23 @@ export class ScenarioManager {
 
     if (roomData.objectives) {
       roomData.objectives.forEach((index) => {
-        if (typeof index == 'number' && index > 0 && index <= scenarioData.objectives.length) {
+        if (typeof index == 'number' && index > 0) {
           const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "section": section, "index": index - 1 };
-          gameManager.characterManager.addObjective(scenarioData.objectives[index - 1], undefined, objectiveIdentifier);
+          const objective = gameManager.objectiveDataByScenarioObjectiveIdentifier(objectiveIdentifier);
+          if (objective) {
+            gameManager.characterManager.addObjective(objective, undefined, objectiveIdentifier);
+          }
         } else if (typeof index == 'string' && index.indexOf(':') != -1) {
           let split = index.split(':');
           const id = +(split.splice(0, 1));
           const count = EntityValueFunction(split.join(':'));
-          if (id > 0 && id <= scenarioData.objectives.length && count > 0) {
-            for (let i = 0; i < count; i++) {
-              const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "section": section, "index": id - 1 };
-              gameManager.characterManager.addObjective(scenarioData.objectives[id - 1], undefined, objectiveIdentifier);
+          if (id > 0 && count > 0) {
+            const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "section": section, "index": id - 1 };
+            const objective = gameManager.objectiveDataByScenarioObjectiveIdentifier(objectiveIdentifier);
+            if (objective) {
+              for (let i = 0; i < count; i++) {
+                gameManager.characterManager.addObjective(objective, undefined, objectiveIdentifier);
+              }
             }
           }
         }
@@ -539,9 +544,9 @@ export class ScenarioManager {
     if (add) {
       if (rule.figures && rule.figures.filter((figureRule) => figureRule.type == "present" || figureRule.type == "dead").length > 0) {
         rule.figures.filter((figureRule) => figureRule.type == "present" || figureRule.type == "dead").forEach((figureRule) => {
-          const gameplayFigures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((figure) => gameManager.gameplayFigure(figure) && (!(figure instanceof Monster) || (!(figureRule.identifier?.marker) || (figure instanceof Monster && figure.entities.some((entity) => entity.marker == figureRule.identifier?.marker && gameManager.entityManager.isAlive(entity)))) && (!(figureRule.identifier?.tag) || (figure instanceof Monster && figure.entities.some((entity) => figureRule.identifier?.tag && entity.tags.indexOf(figureRule.identifier?.tag) != -1 && gameManager.entityManager.isAlive(entity))))));
+          const gameplayFigures: Entity[] = gameManager.entitiesByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((entity) => gameManager.entityManager.isAlive(entity) && (!(entity instanceof MonsterEntity) || (!(figureRule.identifier?.marker) || (entity instanceof MonsterEntity && entity.marker == figureRule.identifier?.marker && (!(figureRule.identifier?.tag)) || (entity instanceof MonsterEntity && figureRule.identifier?.tag && entity.tags.indexOf(figureRule.identifier?.tag) != -1)))));
           const tolerance: number = figureRule.value ? EntityValueFunction(figureRule.value.split(':')[0]) : 0;
-          add = add && (figureRule.type == "present" ? gameplayFigures.length > tolerance : gameplayFigures.length <= tolerance);
+          add = add && tolerance >= 0 && (figureRule.type == "present" ? gameplayFigures.length > tolerance : gameplayFigures.length <= tolerance);
 
           if ((figureRule.identifier?.marker || figureRule.identifier?.tag) && !settingsManager.settings.automaticStandees) {
             add = false;

@@ -3,6 +3,10 @@
   "name": "Den of Monstrosity",
   "edition": "cs",
   "parent": "10",
+  "parentSections": [
+    "12A"
+  ],
+  "marker": "3",
   "monsters": [
     "black-imp",
     "lurker"
@@ -25,6 +29,9 @@
           "name": "lurker",
           "type": "normal"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

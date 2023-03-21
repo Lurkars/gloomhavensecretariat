@@ -960,7 +960,7 @@
     },
     "password": {
       ".": "Game Code",
-      "hint": "The Game Code identifies your game. Everyone with the same Code connect to the same game. This was previously called \"Password\", but to avoid confusion it is renamed now.", 
+      "hint": "The Game Code identifies your game. For a new game just enter a new code of your choice or generate one. Everyone with the same Code connect to the same game.<br><br>This was previously called \"Password\", but to avoid confusion it is renamed now.", 
       "uuid": "Generate Code (UUID)"
     },
     "port": "Port",

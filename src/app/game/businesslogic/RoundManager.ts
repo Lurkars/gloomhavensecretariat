@@ -356,6 +356,7 @@ export class RoundManager {
     this.game.disgardedScenarioRules = [];
     this.game.round = 0;
     this.game.roundResets = [];
+    this.game.roundResetsHidden = [];
     this.game.state = GameState.draw;
     this.game.elementBoard.forEach((element) => element.state = ElementState.inert);
     this.game.monsterAttackModifierDeck.fromModel(new AttackModifierDeck().toModel());

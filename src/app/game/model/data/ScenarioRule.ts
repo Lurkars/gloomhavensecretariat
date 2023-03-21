@@ -89,6 +89,12 @@ export class ScenarioRewardHints {
   events: string[] = [];
 }
 
-export type ScenarioRuleIdentifier = { "edition": string, "scenario": string, "group": string | undefined, "index": number, "section": boolean };
+export class ScenarioRuleIdentifier {
+  edition: string = "";
+  scenario: string = "";
+  group: string | undefined;
+  index: number = -1;
+  section: boolean = false;
+};
 
 export type FigureIdentifier = { "type": string, "edition": string, "name": string, "marker": string | undefined, "tag": string | undefined } | undefined;

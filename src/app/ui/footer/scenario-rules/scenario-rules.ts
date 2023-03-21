@@ -17,6 +17,7 @@ import { Figure } from "src/app/game/model/Figure";
 import { ScenarioObjectiveIdentifier } from "src/app/game/model/data/ObjectiveData";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
+import { FigureError, FigureErrorType } from "src/app/game/model/FigureError";
 
 @Component({
     selector: 'ghs-scenario-rules',
@@ -58,9 +59,9 @@ export class ScenarioRulesComponent {
         if (count && rule.figures) {
             const figureRule = rule.figures.find((figureRule) => figureRule.type == "present" || figureRule.type == "dead");
             if (figureRule) {
-                const gameplayFigures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((figure) => gameManager.gameplayFigure(figure) && (!(figure instanceof Monster) || !(figureRule.identifier?.marker) || (figure instanceof Monster && figure.entities.some((entity) => entity.marker == figureRule.identifier?.marker && gameManager.entityManager.isAlive(entity)))));
+                const gameplayEntities: Entity[] = gameManager.entitiesByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((entity) => gameManager.entityManager.isAlive(entity) && (!(entity instanceof MonsterEntity) || !(figureRule.identifier?.marker) || (entity instanceof MonsterEntity && entity.marker == figureRule.identifier?.marker)));
                 const max: number = figureRule.value && figureRule.value.split(':').length > 1 ? EntityValueFunction(figureRule.value.split(':')[1]) : 0;
-                F = figureRule.type == "present" ? gameplayFigures.length : Math.max(0, max - gameplayFigures.length);
+                F = figureRule.type == "present" ? gameplayEntities.length : Math.max(0, max - gameplayEntities.length);
             }
         }
 
@@ -242,7 +243,7 @@ export class ScenarioRulesComponent {
 
                 if (rule.figures) {
                     rule.figures.filter((figureRule) => figureRule.type == "gainCondition" || figureRule.type == "looseCondition" || figureRule.type == "damage" || figureRule.type == "hp").forEach((figureRule) => {
-                        let figures = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
+                        let figures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
                         figures.forEach((figure) => {
                             let entities: Entity[] = gameManager.entityManager.entities(figure).filter((entity) => (!figureRule.identifier?.marker || !(entity instanceof MonsterEntity) || entity.marker == figureRule.identifier.marker) && (!figureRule.identifier?.tag || entity.tags.indexOf(figureRule.identifier.tag) != -1));
                             entities.forEach((entity) => {
@@ -293,14 +294,14 @@ export class ScenarioRulesComponent {
                     })
 
                     rule.figures.filter((figureRule) => figureRule.type == "toggleOff" || figureRule.type == "toggleOn").forEach((figureRule) => {
-                        const figures = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
+                        const figures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
                         figures.forEach((figure) => {
                             figure.off = figureRule.type == "toggleOff";
                         })
                     })
 
                     rule.figures.filter((figureRule) => figureRule.type == "transfer").forEach((figureRule) => {
-                        const figures = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
+                        const figures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
                         if (figures.length == 1 && figures[0] instanceof Monster) {
                             const figure = figures[0];
                             const monster = gameManager.monsterManager.addMonsterByName(figureRule.value, scenario.edition);
@@ -316,9 +317,27 @@ export class ScenarioRulesComponent {
                                 monster.ability = figure.ability;
                                 monster.isAlly = figure.isAlly;
                                 monster.entities = figure.entities;
+
                                 monster.entities.forEach((entity) => {
-                                    if (entity.health > EntityValueFunction(entity.maxHealth)) {
-                                        entity.health = EntityValueFunction(entity.maxHealth);
+                                    const maxHealth = entity.maxHealth;
+                                    const stat = monster.stats.find((stat) => {
+                                        return stat.level == monster.level && stat.type == entity.type;
+                                    });
+
+                                    if (!stat) {
+                                        monster.errors = monster.errors || [];
+                                        if (!monster.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !monster.errors.find((figureError) => figureError.type == FigureErrorType.stat)) {
+                                            console.error("Could not find '" + entity.type + "' stats for monster: " + monster.name + " level: " + monster.level);
+                                            monster.errors.push(new FigureError(FigureErrorType.stat, "monster", monster.name, monster.edition, entity.type, "" + monster.level));
+                                        }
+                                    } else {
+                                        entity.stat = stat;
+                                        entity.maxHealth = EntityValueFunction(stat.health);
+                                    }
+
+
+                                    if (entity.health > entity.maxHealth || maxHealth == 0 && entity.maxHealth > 0) {
+                                        entity.health = entity.maxHealth;
                                     }
                                 })
 
@@ -348,7 +367,7 @@ export class ScenarioRulesComponent {
 
 
                     rule.figures.filter((figureRule) => figureRule.type == "remove").forEach((figureRule) => {
-                        const figures = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
+                        const figures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
                         figures.forEach((figure) => {
                             if (figure instanceof Objective) {
                                 gameManager.characterManager.removeObjective(figure);
@@ -359,7 +378,7 @@ export class ScenarioRulesComponent {
                     })
 
                     rule.figures.filter((figureRule) => figureRule.type == "amAdd" || figureRule.type == "amRemove").forEach((figureRule) => {
-                        const figures = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
+                        const figures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
                         figures.forEach((figure) => {
                             const deck = gameManager.attackModifierManager.byFigure(figure);
                             const type: AttackModifierType = figureRule.value.split(':')[0] as AttackModifierType;

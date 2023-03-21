@@ -191,8 +191,8 @@ export class ActionSummonComponent implements OnChanges {
                 entity.tags = entity.tags || [];
                 entity.tags.push(tag);
                 this.tags.push(tag);
-                if (spawn.marker) {
-                  entity.marker = spawn.marker;
+                if (spawn.monster.marker) {
+                  entity.marker = spawn.monster.marker;
                 }
                 if (spawn.monster.health) {
                   let health = spawn.monster.health;

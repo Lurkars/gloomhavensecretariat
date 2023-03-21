@@ -29,8 +29,8 @@ export class MonsterEntity implements Entity {
     this.number = number;
     this.type = type;
 
-    const stat = monster.stats.find((element) => {
-      return element.level == monster.level && element.type == type;
+    const stat = monster.stats.find((stat) => {
+      return stat.level == monster.level && stat.type == type;
     });
 
     if (!stat) {

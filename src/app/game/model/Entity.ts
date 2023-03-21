@@ -1,5 +1,6 @@
 import { gameManager } from "../businesslogic/GameManager";
 import { EntityCondition } from "./Condition";
+import { GameState } from "./Game";
 
 export interface Entity {
   health: number;
@@ -33,15 +34,14 @@ export function EntityValueFunction(value: string | number, L: number | undefine
     func = match[3];
   }
 
-
-  let C = Math.max(2, gameManager.characterManager.characterCount());
   if (L == undefined) {
     L = gameManager.game.level;
   }
 
   expression = expression.replace(/[x]/g, "*");
-  expression = expression.replace(/[C]/g, "" + C);
+  expression = expression.replace(/[C]/g, "" + Math.max(2, gameManager.characterManager.characterCount()));
   expression = expression.replace(/[L]/g, "" + L);
+  expression = expression.replace(/[R]/g, "" + (gameManager.game.round + (gameManager.game.state == GameState.draw ? 1 : 0)));
 
   let result = 0;
   try {

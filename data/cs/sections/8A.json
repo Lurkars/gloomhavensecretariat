@@ -3,10 +3,55 @@
   "name": "Scenario 5",
   "edition": "cs",
   "parent": "5",
+  "resetRound": "hidden",
   "monsters": [
     "earth-demon",
     "flaming-drake",
-    "gelatinous-giant"
+    "gelatinous-giant",
+    "gelatinous-giant-immune"
+  ],
+  "rules": [
+    {
+      "round": "R > 1",
+      "spawns": [
+        {
+          "monster": {
+            "name": "blood-ooze",
+            "type": "elite",
+            "tags": [
+              "water-a"
+            ]
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R > (1+C)",
+      "once": true,
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "blood-ooze",
+            "tag": "water-a"
+          },
+          "type": "dead",
+          "value": "R-C-2"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "gelatinous-giant-immune"
+          },
+          "type": "transfer",
+          "value": "gelatinous-giant"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -33,7 +78,7 @@
           "player4": "elite"
         },
         {
-          "name": "gelatinous-giant",
+          "name": "gelatinous-giant-immune",
           "type": "boss"
         }
       ]
