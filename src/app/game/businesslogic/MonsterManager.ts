@@ -222,8 +222,8 @@ export class MonsterManager {
     return this.monsterStandeeShared(monster, []).map((monster) => monster.entities).flat().some((entity) => gameManager.entityManager.isAlive(entity) && entity.number == number);
   }
 
-  monsterStandeeCount(monster: Monster): number {
-    return this.monsterStandeeShared(monster, []).map((monster) => monster.entities).flat().filter((entity) => gameManager.entityManager.isAlive(entity)).length;
+  monsterStandeeCount(monster: Monster, all: boolean = true): number {
+    return this.monsterStandeeShared(monster, []).map((monster) => monster.entities).flat().filter((entity) => gameManager.entityManager.isAlive(entity) && (all || entity.number > 0)).length;
   }
 
   monsterStandeeMax(monster: Monster): number {
@@ -319,7 +319,7 @@ export class MonsterManager {
           while (gameManager.monsterManager.monsterStandeeUsed(monster, number)) {
             number = Math.floor(Math.random() * monsterCount) + 1;
           }
-        } else if (this.monsterStandeeCount(monster) == monsterCount - 1) {
+        } else if (this.monsterStandeeCount(monster, false) == monsterCount - 1) {
           number = 1;
           while (gameManager.monsterManager.monsterStandeeUsed(monster, number)) {
             number++;
