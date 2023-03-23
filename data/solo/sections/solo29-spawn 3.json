@@ -1,0 +1,27 @@
+{
+  "index": "29-spawn 3",
+  "group": "solo",
+  "name": "A Magnificent Trap",
+  "edition": "fh",
+  "parent": "29",
+  "monsters": [
+    "algox-guard",
+    "algox-snowspeaker-trapper-special"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-snowspeaker-trapper-special",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

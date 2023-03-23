@@ -1,0 +1,35 @@
+{
+  "index": "33",
+  "group": "solo",
+  "name": "Recharge",
+  "edition": "fh",
+  "spoiler": true,
+  "solo": "prism",
+  "monsters": [
+    "energized-corpse",
+    "frozen-corpse",
+    "living-bones",
+    "living-bones-fh",
+    "living-spirit",
+    "living-spirit-fh"
+  ],
+  "lootDeckConfig": {
+    "coin": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "index": "13-A1b(2)",
+  "group": "solo",
+  "name": "Battle of the Bards",
+  "edition": "gh",
+  "parent": "13",
+  "monsters": [
+    "city-guard",
+    "song-of-the-deep"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "song-of-the-deep",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

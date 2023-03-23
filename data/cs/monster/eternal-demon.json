@@ -5,7 +5,9 @@
   "deck": "boss",
   "boss": true,
   "hidden": true,
-  "count": 6,
+  "count": 1,
+  "standeeShare": "earth-demon",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss",
     "immunities": [

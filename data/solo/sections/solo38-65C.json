@@ -1,0 +1,26 @@
+{
+  "index": "38-65C",
+  "group": "solo",
+  "name": "Elemental Converter",
+  "edition": "cs",
+  "parent": "38",
+  "monsters": [
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

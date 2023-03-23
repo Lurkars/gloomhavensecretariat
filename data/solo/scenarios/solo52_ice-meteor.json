@@ -1,0 +1,35 @@
+{
+  "index": "52",
+  "group": "solo",
+  "name": "Conflux of Power",
+  "edition": "toa",
+  "spoiler": true,
+  "solo": "ice-meteor",
+  "monsters": [
+    "flame-demon",
+    "frost-demon",
+    "glacier-demon",
+    "inferno-demon",
+    "savvas-acolyte"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "glacier-demon",
+          "type": "normal"
+        },
+        {
+          "name": "inferno-demon",
+          "type": "normal"
+        },
+        {
+          "name": "savvas-acolyte",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

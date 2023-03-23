@@ -3,7 +3,7 @@
   "edition": "cs",
   "deck": "boss",
   "boss": true,
-  "count": 2,
+  "count": 1,
   "baseStat": {
     "type": "boss",
     "immunities": [

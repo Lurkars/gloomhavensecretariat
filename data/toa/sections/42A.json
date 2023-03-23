@@ -1,0 +1,18 @@
+{
+  "index": "42A",
+  "name": "Conflux of Power",
+  "edition": "toa",
+  "parent": "80",
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "glacier-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

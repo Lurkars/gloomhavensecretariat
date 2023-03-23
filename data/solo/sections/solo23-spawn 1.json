@@ -1,0 +1,26 @@
+{
+  "index": "23-spawn 1",
+  "group": "solo",
+  "name": "The Dead of Night",
+  "edition": "fh",
+  "parent": "23",
+  "monsters": [
+    "night-demon-deathwalker-special"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "night-demon-deathwalker-special",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon-deathwalker-special",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

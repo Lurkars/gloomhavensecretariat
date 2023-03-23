@@ -5,6 +5,7 @@
   "deck": "giant-viper",
   "hidden": true,
   "count": 10,
+  "standeeShare": "giant-viper",
   "baseStat": {
     "type": "normal",
     "actions": [

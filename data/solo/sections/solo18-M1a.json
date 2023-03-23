@@ -1,0 +1,22 @@
+{
+  "index": "18-M1a",
+  "group": "solo",
+  "name": "The Sands of Time",
+  "edition": "gh",
+  "parent": "18",
+  "monsters": [
+    "stone-golem"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "stone-golem",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "index": "36-spawn 3",
+  "group": "solo",
+  "name": "Crash Against the Waves",
+  "edition": "fh",
+  "parent": "36",
+  "monsters": [
+    "plea-for-help-without-answer"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "plea-for-help-without-answer",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

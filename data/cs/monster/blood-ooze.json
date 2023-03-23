@@ -3,6 +3,8 @@
   "thumbnail": "gh-ooze",
   "edition": "cs",
   "count": 10,
+  "standeeShare": "ooze",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

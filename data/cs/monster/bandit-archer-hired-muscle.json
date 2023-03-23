@@ -5,6 +5,8 @@
   "deck": "archer",
   "hidden": true,
   "count": 6,
+  "standeeShare": "bandit-archer",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

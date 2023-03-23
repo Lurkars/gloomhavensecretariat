@@ -1,0 +1,14 @@
+{
+  "index": "73D",
+  "group": "solo",
+  "name": "Scenario 65",
+  "edition": "cs",
+  "parent": "46",
+  "objectives": [
+    {
+      "name": "Haunted Ghoul Spirit 1",
+      "health": 10,
+      "initiative": 50
+    }
+  ]
+}

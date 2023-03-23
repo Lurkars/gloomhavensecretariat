@@ -1,0 +1,38 @@
+{
+  "index": "11-C2b(D)",
+  "group": "solo",
+  "name": "Plagued Crypt",
+  "edition": "gh",
+  "parent": "11",
+  "monsters": [
+    "black-imp"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

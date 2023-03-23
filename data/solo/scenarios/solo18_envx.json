@@ -1,0 +1,45 @@
+{
+  "index": "18",
+  "group": "solo",
+  "name": "The Sands of Time",
+  "edition": "gh",
+  "spoiler": true,
+  "solo": "envx",
+  "monsters": [
+    "giant-viper",
+    "living-spirit",
+    "stone-golem"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

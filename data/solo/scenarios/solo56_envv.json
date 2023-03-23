@@ -1,0 +1,33 @@
+{
+  "index": "56",
+  "group": "solo",
+  "name": "Return to Crystal Gardens",
+  "edition": "toa",
+  "spoiler": true,
+  "solo": "envv",
+  "monsters": [
+    "shardrender-scenario-84",
+    "shardrender-scenario-84",
+    "smoke-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "shardrender-scenario-84",
+          "type": "normal"
+        },
+        {
+          "name": "smoke-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "smoke-spirit",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

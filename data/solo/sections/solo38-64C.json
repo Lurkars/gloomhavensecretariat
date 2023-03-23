@@ -1,0 +1,27 @@
+{
+  "index": "38-64C",
+  "group": "solo",
+  "name": "Elemental Converter",
+  "edition": "cs",
+  "parent": "38",
+  "monsters": [
+    "rending-drake",
+    "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -5,6 +5,7 @@
   "deck": "hound",
   "hidden": true,
   "count": 6,
+  "standeeShare": "hound",
   "baseStat": {
     "type": "normal"
   },

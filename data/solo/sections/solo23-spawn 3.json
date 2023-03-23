@@ -1,0 +1,26 @@
+{
+  "index": "23-spawn 3",
+  "group": "solo",
+  "name": "The Dead of Night",
+  "edition": "fh",
+  "parent": "23",
+  "monsters": [
+    "black-imp-deathwalker-special"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp-deathwalker-special",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp-deathwalker-special",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

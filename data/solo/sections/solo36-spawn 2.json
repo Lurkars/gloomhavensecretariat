@@ -1,0 +1,22 @@
+{
+  "index": "36-spawn 2",
+  "group": "solo",
+  "name": "Crash Against the Waves",
+  "edition": "fh",
+  "parent": "36",
+  "monsters": [
+    "shape-blocks-out-the-sun"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "shape-blocks-out-the-sun",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

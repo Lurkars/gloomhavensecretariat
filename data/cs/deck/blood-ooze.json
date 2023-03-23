@@ -147,7 +147,7 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemyRange:2",
+              "value": "enemyRangeExact:2",
               "small": true
             }
           ]

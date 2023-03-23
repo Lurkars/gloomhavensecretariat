@@ -5,7 +5,8 @@
   "deck": "living-doom",
   "boss": true,
   "hidden": true,
-  "count": 4,
+  "count": 1,
+  "standeeShare": "living-doom",
   "baseStat": {
     "type": "boss"
   },

@@ -1,0 +1,63 @@
+{
+  "index": "83",
+  "name": "Collapsed Cavern",
+  "edition": "toa",
+  "monsters": [
+    "black-imp",
+    "cave-bear",
+    "deep-terror",
+    "earth-demon",
+    "forest-imp",
+    "living-bones"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

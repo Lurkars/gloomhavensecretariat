@@ -5,7 +5,8 @@
   "deck": "savvas-lavaflow",
   "boss": true,
   "hidden": true,
-  "count": 4,
+  "count": 1,
+  "standeeShare": "savvas-lavaflow",
   "baseStat": {
     "type": "boss"
   },

@@ -5,7 +5,8 @@
   "deck": "living-spirit",
   "boss": true,
   "hidden": true,
-  "count": 10,
+  "count": 1,
+  "standeeShare": "living-spirit",
   "baseStat": {
     "type": "boss",
     "movement": 2,

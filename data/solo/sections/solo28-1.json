@@ -1,0 +1,22 @@
+{
+  "index": "28-1",
+  "group": "solo",
+  "name": "Tuning the Resonance",
+  "edition": "fh",
+  "parent": "28",
+  "monsters": [
+    "chief-of-spikes"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "chief-of-spikes",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

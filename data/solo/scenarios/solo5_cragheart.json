@@ -1,0 +1,19 @@
+{
+  "index": "5",
+  "group": "solo",
+  "name": "Stone Defense",
+  "edition": "gh",
+  "solo": "cragheart",
+  "monsters": [
+    "cave-bear",
+    "ooze",
+    "sun-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

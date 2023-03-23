@@ -1,0 +1,26 @@
+{
+  "index": "42-69C",
+  "group": "solo",
+  "name": "Archaic Preservation",
+  "edition": "cs",
+  "parent": "42",
+  "monsters": [
+    "stone-golem"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "stone-golem",
+          "type": "normal"
+        },
+        {
+          "name": "stone-golem",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

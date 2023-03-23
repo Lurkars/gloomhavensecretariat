@@ -5,6 +5,7 @@
   "deck": "cave-bear",
   "hidden": true,
   "count": 4,
+  "standeeShare": "cave-bear",
   "baseStat": {
     "type": "normal",
     "actions": [

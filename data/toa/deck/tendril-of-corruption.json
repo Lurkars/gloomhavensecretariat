@@ -1,0 +1,68 @@
+{
+  "name": "tendril-of-corruption",
+  "edition": "gh",
+  "abilities": [
+    {
+      "cardId": 572,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "special",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "cardId": 573,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "special",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "cardId": 574,
+      "initiative": 17,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "special",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "cardId": 575,
+      "initiative": 85,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "special",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "cardId": 576,
+      "initiative": 79,
+      "actions": [
+        {
+          "type": "special",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "cardId": 577,
+      "initiative": 73,
+      "actions": [
+        {
+          "type": "special",
+          "value": 1
+        }
+      ]
+    }
+  ]
+}

@@ -4,6 +4,8 @@
   "edition": "cs",
   "flying": true,
   "count": 6,
+  "standeeShare": "spitting-drake",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

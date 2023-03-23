@@ -22,7 +22,9 @@ export class ScenarioComponent {
   constructor(private dialog: Dialog) { }
 
   open(event: any) {
-    this.dialog.open(ScenarioDialogComponent, { panelClass: 'dialog' });
+    if (gameManager.game.scenario) {
+      this.dialog.open(ScenarioDialogComponent, { data: gameManager.game.scenario, panelClass: 'dialog' });
+    }
   }
 
   openTreasures(event: any) {

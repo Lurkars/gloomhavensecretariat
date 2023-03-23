@@ -1,0 +1,53 @@
+{
+  "index": "19",
+  "group": "solo",
+  "name": "Forecast of the Inevitable",
+  "edition": "fc",
+  "solo": "diviner",
+  "monsters": [
+    "earth-demon-diviner-special",
+    "valrath-savage"
+  ],
+  "objectives": [
+    {
+      "name": "Rift 1",
+      "escort": true,
+      "health": "3+L"
+    },
+    {
+      "name": "Rift 2",
+      "escort": true,
+      "health": "3+L"
+    },
+    {
+      "name": "Rift 3",
+      "escort": true,
+      "health": "3+L"
+    },
+    {
+      "name": "Rift 4",
+      "escort": true,
+      "health": "3+L"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon-diviner-special",
+          "type": "elite"
+        },
+        {
+          "name": "valrath-savage",
+          "type": "normal"
+        },
+        {
+          "name": "valrath-savage",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

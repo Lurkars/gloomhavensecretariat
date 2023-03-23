@@ -1,0 +1,51 @@
+{
+  "index": "70",
+  "name": "Spirits Rising",
+  "edition": "toa",
+  "monsters": [
+    "bandit-archer",
+    "forest-imp",
+    "smoke-spirit",
+    "vermling-scavenger",
+    "water-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "smoke-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "smoke-spirit",
+          "type": "elite"
+        },
+        {
+          "name": "smoke-spirit",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "smoke-spirit",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scavenger",
+          "player2": "elite",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scavenger",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

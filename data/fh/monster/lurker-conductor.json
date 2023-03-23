@@ -5,7 +5,8 @@
   "deck": "lurker-clawcrusher",
   "boss": true,
   "hidden": true,
-  "count": 4,
+  "count": 1,
+  "standeeShare": "lurker-clawcrusher",
   "baseStat": {
     "type": "boss",
     "immunities": [

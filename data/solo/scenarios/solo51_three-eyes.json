@@ -1,0 +1,61 @@
+{
+  "index": "51",
+  "group": "solo",
+  "name": "Unsouled",
+  "edition": "toa",
+  "spoiler": true,
+  "solo": "three-eyes",
+  "monsters": [
+    "inox-archer",
+    "inox-guard",
+    "inox-guard-ally"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-archer",
+          "type": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard-ally",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard-ally",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

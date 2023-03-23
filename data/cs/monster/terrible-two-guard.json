@@ -5,7 +5,9 @@
   "deck": "guard",
   "boss": true,
   "hidden": true,
-  "count": 6,
+  "count": 1,
+  "standeeShare": "bandit-guard",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss",
     "immunities": [

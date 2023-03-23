@@ -1,0 +1,43 @@
+{
+  "index": "15-N1b(1)",
+  "group": "solo",
+  "name": "Aftermath",
+  "edition": "gh",
+  "parent": "15",
+  "monsters": [
+    "city-guard",
+    "lieutenant"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "lieutenant",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

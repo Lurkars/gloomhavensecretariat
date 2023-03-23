@@ -5,7 +5,8 @@
   "deck": "steel-automaton",
   "boss": true,
   "hidden": true,
-  "count": 6,
+  "count": 1,
+  "standeeShare": "steel-automaton",
   "baseStat": {
     "type": "boss",
     "immunities": [

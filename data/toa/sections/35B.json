@@ -1,0 +1,11 @@
+{
+  "index": "35B",
+  "name": "(Scenario 78)",
+  "edition": "toa",
+  "parent": "78",
+  "monsters": [
+    "conqueror",
+    "reaver",
+    "ritualist"
+  ]
+}

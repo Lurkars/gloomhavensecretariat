@@ -5,7 +5,9 @@
   "deck": "savvas-icestorm",
   "boss": true,
   "hidden": true,
-  "count": 4,
+  "count": 1,
+  "standeeShare": "savvas-icestorm",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss",
     "immunities": [

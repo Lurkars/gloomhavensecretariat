@@ -1,0 +1,57 @@
+{
+  "index": "76",
+  "name": "Untold Woe",
+  "edition": "toa",
+  "monsters": [
+    "flame-demon",
+    "gnashing-drake",
+    "hound",
+    "spitting-drake",
+    "sun-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "gnashing-drake",
+          "type": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "type": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "type": "elite"
+        },
+        {
+          "name": "gnashing-drake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "gnashing-drake",
+          "player4": "elite"
+        },
+        {
+          "name": "gnashing-drake",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

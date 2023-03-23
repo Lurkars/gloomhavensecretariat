@@ -1,0 +1,22 @@
+{
+  "index": "6-3",
+  "group": "solo",
+  "name": "Rodent Liberation",
+  "edition": "gh",
+  "parent": "6",
+  "monsters": [
+    "earth-demon-mindthief-special"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon-mindthief-special",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

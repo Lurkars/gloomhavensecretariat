@@ -5,6 +5,7 @@
   "deck": "cultist",
   "hidden": true,
   "count": 6,
+  "standeeShare": "cultist",
   "baseStat": {
     "type": "normal",
     "immunities": [

@@ -1,0 +1,39 @@
+{
+  "index": "78",
+  "name": "Ternion Tomb",
+  "edition": "toa",
+  "monsters": [
+    "ancient-artillery",
+    "cultist",
+    "living-bones",
+    "stone-golem"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

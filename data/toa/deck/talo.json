@@ -1,0 +1,94 @@
+{
+  "name": "talo",
+  "edition": "toa",
+  "abilities": [
+    {
+      "cardId": 714.2,
+      "initiative": 57,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 715.2,
+      "initiative": 67,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "bless",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allyAffectRange:2",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 716.2,
+      "initiative": 39,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 717.2,
+      "initiative": 63,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

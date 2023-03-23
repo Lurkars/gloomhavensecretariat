@@ -1,0 +1,27 @@
+{
+  "index": "16-C2b",
+  "group": "solo",
+  "name": "Elemental Secrets",
+  "edition": "gh",
+  "parent": "16",
+  "monsters": [
+    "earth-demon",
+    "frost-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

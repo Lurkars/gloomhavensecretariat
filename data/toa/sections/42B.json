@@ -1,0 +1,22 @@
+{
+  "index": "42B",
+  "name": "Corrupted Presence",
+  "edition": "toa",
+  "parent": "81",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

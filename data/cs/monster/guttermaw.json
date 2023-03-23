@@ -5,7 +5,8 @@
   "deck": "ravenous-gharial",
   "boss": true,
   "hidden": true,
-  "count": 6,
+  "count": 1,
+  "standeeShare": "ravenous-gharial",
   "baseStat": {
     "type": "boss",
     "note": "%data.custom.cs.ravenous-gharial.1%",

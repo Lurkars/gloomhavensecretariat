@@ -5,6 +5,7 @@
   "deck": "frozen-corpse",
   "hidden": true,
   "count": 6,
+  "standeeShare": "frozen-corpse",
   "baseStat": {
     "type": "normal"
   },

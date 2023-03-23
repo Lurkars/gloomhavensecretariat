@@ -1,0 +1,33 @@
+{
+  "index": "11B",
+  "name": "The Dark Valley",
+  "edition": "toa",
+  "parent": "67",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "smoke-spirit",
+          "type": "elite"
+        },
+        {
+          "name": "smoke-spirit",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

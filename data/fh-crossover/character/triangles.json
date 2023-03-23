@@ -68,7 +68,7 @@
       "range": 3,
       "action": {
         "type": "element",
-        "value": "any",
+        "value": "wild",
         "subActions": [
           {
             "type": "custom",

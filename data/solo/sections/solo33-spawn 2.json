@@ -1,0 +1,26 @@
+{
+  "index": "33-spawn 2",
+  "group": "solo",
+  "name": "Recharge",
+  "edition": "fh",
+  "parent": "33",
+  "monsters": [
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

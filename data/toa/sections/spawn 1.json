@@ -1,0 +1,26 @@
+{
+  "index": "spawn 1",
+  "name": "Ternion Tomb",
+  "edition": "toa",
+  "parent": "78",
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "conqueror",
+          "type": "normal"
+        },
+        {
+          "name": "reaver",
+          "type": "normal"
+        },
+        {
+          "name": "ritualist",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

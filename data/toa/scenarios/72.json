@@ -1,0 +1,36 @@
+{
+  "index": "72",
+  "name": "Inox Salvation",
+  "edition": "toa",
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "inox-archer",
+    "smoke-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "smoke-spirit",
+          "type": "elite"
+        },
+        {
+          "name": "smoke-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

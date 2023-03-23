@@ -1,0 +1,31 @@
+{
+  "index": "40",
+  "group": "solo",
+  "name": "Forest Invaders",
+  "edition": "cs",
+  "spoiler": true,
+  "solo": "tusks",
+  "monsters": [
+    "cave-bear",
+    "giant-viper",
+    "hound",
+    "vermling-scout",
+    "vermling-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

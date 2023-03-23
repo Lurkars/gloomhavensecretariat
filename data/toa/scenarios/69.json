@@ -1,0 +1,44 @@
+{
+  "index": "69",
+  "name": "Shaman Chaperone",
+  "edition": "toa",
+  "monsters": [
+    "cave-bear",
+    "earth-demon",
+    "hound",
+    "inox-shaman",
+    "talo",
+    "vermling-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "talo",
+          "type": "boss"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

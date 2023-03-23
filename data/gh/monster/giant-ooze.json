@@ -5,7 +5,8 @@
   "deck": "ooze",
   "boss": true,
   "hidden": true,
-  "count": 10,
+  "count": 1,
+  "standeeShare": "ooze",
   "baseStat": {
     "type": "boss"
   },

@@ -5,6 +5,8 @@
   "deck": "earth-demon",
   "hidden": true,
   "count": 6,
+  "standeeShare": "earth-demon",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

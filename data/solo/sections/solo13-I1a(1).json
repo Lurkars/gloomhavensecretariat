@@ -1,0 +1,39 @@
+{
+  "index": "13-I1a(1)",
+  "group": "solo",
+  "name": "Battle of the Bards",
+  "edition": "gh",
+  "parent": "13",
+  "monsters": [
+    "city-archer",
+    "city-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

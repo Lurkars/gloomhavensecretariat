@@ -1,0 +1,31 @@
+{
+  "index": "6-D1a(2)",
+  "group": "solo",
+  "name": "Rodent Liberation",
+  "edition": "gh",
+  "parent": "6",
+  "monsters": [
+    "vermling-scout",
+    "vermling-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

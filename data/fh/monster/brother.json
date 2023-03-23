@@ -6,6 +6,7 @@
   "boss": true,
   "hidden": true,
   "count": 2,
+  "standeeShare": "city-guard",
   "baseStat": {
     "type": "boss",
     "movement": 0,

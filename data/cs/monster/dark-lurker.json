@@ -5,6 +5,8 @@
   "deck": "harrower-infester",
   "hidden": true,
   "count": 6,
+  "standeeShare": "lurker",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

@@ -1,0 +1,27 @@
+{
+  "index": "17-E1b(3)",
+  "group": "solo",
+  "name": "The Caged Bear",
+  "edition": "gh",
+  "parent": "17",
+  "monsters": [
+    "cave-bear",
+    "vermling-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

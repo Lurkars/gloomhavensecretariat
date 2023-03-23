@@ -1,0 +1,27 @@
+{
+  "index": "53-43C",
+  "group": "solo",
+  "name": "Corrupted Presence",
+  "edition": "toa",
+  "parent": "53",
+  "monsters": [
+    "living-spirit",
+    "night-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "index": "9-spawn 3",
+  "group": "solo",
+  "name": "Plane of Wild Beasts",
+  "edition": "gh",
+  "parent": "9",
+  "monsters": [
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

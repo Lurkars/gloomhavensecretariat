@@ -5,7 +5,9 @@
   "deck": "living-bones",
   "boss": true,
   "hidden": true,
-  "count": 10,
+  "count": 1,
+  "standeeShare": "living-bones",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss",
     "immunities": [

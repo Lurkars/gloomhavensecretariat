@@ -102,9 +102,10 @@ import { PartyWeekDialogComponent } from './ui/header/party/week-dialog';
 import { CharacterItemsComponent } from './ui/figures/character/items/items';
 import { PartyBuildingsComponent } from './ui/header/party/buildings/buildings';
 import { ScenarioTreasuresDialogComponent } from './ui/footer/scenario/treasures/treasures-dialog';
+import { TreasureLabelComponent } from './ui/footer/scenario/treasures/label/label';
+import { StatsListComponent } from './ui/footer/scenario/dialog/abilities/stats-list';
 
 import 'hammerjs'
-import { TreasureLabelComponent } from './ui/footer/scenario/treasures/label/label';
 
 @Injectable()
 export class GhsHammerConfig extends HammerGestureConfig {
@@ -127,7 +128,7 @@ export class GhsHammerConfig extends HammerGestureConfig {
     HintDialogComponent, ScenarioRulesComponent,
     AttackModifierComponent, AttackModifierEffectsComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent, AttackModifierStandaloneComponent,
     LevelComponent, LevelDialogComponent,
-    ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent,
+    ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, StatsListComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
     EntityMenuDialogComponent, EntitiesMenuDialogComponent,
     CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterItemsComponent,

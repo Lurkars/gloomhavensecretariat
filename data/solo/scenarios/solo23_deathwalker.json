@@ -1,0 +1,37 @@
+{
+  "index": "23",
+  "group": "solo",
+  "name": "The Dead of Night",
+  "edition": "fh",
+  "solo": "deathwalker",
+  "monsters": [
+    "black-imp-deathwalker-special",
+    "night-demon-deathwalker-special"
+  ],
+  "objectives": [
+    {
+      "name": "Glowing Orb",
+      "escort": true,
+      "health": "6+3xL"
+    }
+  ],
+  "lootDeckConfig": {
+    "coin": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp-deathwalker-special",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp-deathwalker-special",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

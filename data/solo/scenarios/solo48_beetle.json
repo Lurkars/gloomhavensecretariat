@@ -1,0 +1,84 @@
+{
+  "index": "48",
+  "group": "solo",
+  "name": "Hive Guardian",
+  "edition": "cs",
+  "spoiler": true,
+  "solo": "beetle",
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "night-demon",
+    "sun-demon",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Soul Leech Egg 1",
+      "escort": true,
+      "health": "3+L",
+      "initiative": 25
+    },
+    {
+      "name": "Soul Leech Egg 2",
+      "escort": true,
+      "health": "3+L",
+      "initiative": 25
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

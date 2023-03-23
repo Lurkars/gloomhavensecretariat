@@ -6,6 +6,7 @@
   "boss": true,
   "hidden": true,
   "count": 6,
+  "standeeShare": "aesther-ashblade",
   "baseStat": {
     "type": "boss",
     "immunities": [

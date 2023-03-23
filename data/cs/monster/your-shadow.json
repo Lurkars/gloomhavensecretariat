@@ -6,6 +6,8 @@
   "boss": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "the-colorless",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss",
     "note": "%game.custom.scenarioBook%",

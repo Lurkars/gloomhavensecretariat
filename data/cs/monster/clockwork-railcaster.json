@@ -5,6 +5,8 @@
   "deck": "archer",
   "hidden": true,
   "count": 6,
+  "standeeShare": "city-archer",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal",
     "immunities": [

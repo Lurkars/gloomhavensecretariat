@@ -5,7 +5,8 @@
   "deck": "algox-snowspeaker",
   "boss": true,
   "hidden": true,
-  "count": 4,
+  "count": 1,
+  "standeeShare": "algox-snowspeaker",
   "baseStat": {
     "type": "boss"
   },

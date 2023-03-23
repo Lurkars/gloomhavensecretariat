@@ -5,7 +5,8 @@
   "deck": "chaos-demon",
   "boss": true,
   "hidden": true,
-  "count": 4,
+  "count": 1,
+  "standeeShare": "chaos-demon",
   "baseStat": {
     "type": "boss",
     "actions": [

@@ -1,0 +1,41 @@
+{
+  "index": "35",
+  "group": "solo",
+  "name": "Wet Work",
+  "edition": "fh",
+  "spoiler": true,
+  "solo": "kelp",
+  "monsters": [
+    "abael-scout",
+    "abael-warlord",
+    "burrowing-blade",
+    "piranha-pig"
+  ],
+  "lootDeckConfig": {
+    "coin": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "abael-scout",
+          "type": "normal"
+        },
+        {
+          "name": "abael-scout",
+          "type": "normal"
+        },
+        {
+          "name": "abael-scout",
+          "type": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

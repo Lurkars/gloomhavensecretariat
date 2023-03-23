@@ -1,0 +1,49 @@
+{
+  "index": "32",
+  "group": "solo",
+  "name": "Under the Ice",
+  "edition": "fh",
+  "spoiler": true,
+  "solo": "fist",
+  "monsters": [
+    "ancient-artillery-fh",
+    "flaming-bladespinner",
+    "ruined-machine",
+    "steel-automaton"
+  ],
+  "objectives": [
+    {
+      "name": "Altar 1",
+      "escort": true,
+      "health": "Lx2+6",
+      "initiative": 99
+    },
+    {
+      "name": "Altar 2",
+      "escort": true,
+      "health": "Lx2+6",
+      "initiative": 99
+    },
+    {
+      "name": "Altar 3",
+      "escort": true,
+      "health": "Lx2+6",
+      "initiative": 99
+    }
+  ],
+  "lootDeckConfig": {
+    "coin": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "steel-automaton",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

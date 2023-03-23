@@ -6,6 +6,8 @@
   "boss": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "vermling-shaman",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss"
   },

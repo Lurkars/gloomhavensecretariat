@@ -5,6 +5,8 @@
   "deck": "savvas-lavaflow",
   "hidden": true,
   "count": 4,
+  "standeeShare": "savvas-lavaflow",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal",
     "actions": [

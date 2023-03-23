@@ -1,0 +1,60 @@
+{
+  "index": "31",
+  "group": "solo",
+  "name": "Fighting Snow with Snow",
+  "edition": "fh",
+  "spoiler": true,
+  "solo": "snowflake",
+  "monsters": [
+    "algox-snowspeaker",
+    "frost-demon",
+    "frost-demon-fh",
+    "wind-demon",
+    "wind-demon-fh"
+  ],
+  "objectives": [
+    {
+      "name": "Rune Worker 1",
+      "escort": true,
+      "health": "L+1",
+      "initiative": 99
+    },
+    {
+      "name": "Rune Worker 2",
+      "escort": true,
+      "health": "L+1",
+      "initiative": 99
+    }
+  ],
+  "lootDeckConfig": {
+    "coin": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-snowspeaker",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

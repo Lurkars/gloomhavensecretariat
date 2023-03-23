@@ -5,6 +5,8 @@
   "deck": "stone-golem",
   "hidden": true,
   "count": 1,
+  "standeeShare": "stone-golem",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal",
     "health": 0

@@ -4,6 +4,8 @@
   "edition": "fc",
   "hidden": true,
   "count": 6,
+  "standeeShare": "hound",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

@@ -5,6 +5,7 @@
   "boss": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "piranha-pig",
   "baseStat": {
     "type": "boss",
     "health": 0,

@@ -1,0 +1,42 @@
+{
+  "index": "14C",
+  "name": "Shaman Chaperone",
+  "edition": "toa",
+  "parent": "69",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

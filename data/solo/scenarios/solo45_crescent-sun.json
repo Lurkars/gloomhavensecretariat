@@ -1,0 +1,28 @@
+{
+  "index": "45",
+  "group": "solo",
+  "name": "Glowing Crystals",
+  "edition": "cs",
+  "spoiler": true,
+  "solo": "crescent-sun",
+  "monsters": [
+    "deep-terror",
+    "lurker"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

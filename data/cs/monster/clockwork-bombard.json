@@ -5,7 +5,9 @@
   "deck": "ancient-artillery",
   "boss": true,
   "hidden": true,
-  "count": 6,
+  "count": 1,
+  "standeeShare": "ancient-artillery",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss",
     "immunities": [

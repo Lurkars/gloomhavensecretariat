@@ -4,6 +4,7 @@
   "boss": true,
   "hidden": true,
   "count": "Cx2",
+  "standeeCount": 12,
   "baseStat": {
     "type": "boss",
     "actions": [

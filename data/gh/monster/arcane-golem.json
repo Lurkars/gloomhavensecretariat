@@ -5,7 +5,8 @@
   "deck": "stone-golem",
   "boss": true,
   "hidden": true,
-  "count": 6,
+  "count": 1,
+  "standeeShare": "stone-golem",
   "baseStat": {
     "type": "boss"
   },

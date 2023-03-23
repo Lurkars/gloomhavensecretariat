@@ -1,0 +1,27 @@
+{
+  "index": "14",
+  "group": "solo",
+  "name": "Corrupted Hunt",
+  "edition": "gh",
+  "spoiler": true,
+  "solo": "angry-face",
+  "monsters": [
+    "deep-earth",
+    "ghost-wolf",
+    "giant-viper-angry-face-special",
+    "high-flame",
+    "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ghost-wolf",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

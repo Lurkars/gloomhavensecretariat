@@ -4,6 +4,8 @@
   "edition": "cs",
   "hidden": true,
   "count": 6,
+  "standeeShare": "cultist",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

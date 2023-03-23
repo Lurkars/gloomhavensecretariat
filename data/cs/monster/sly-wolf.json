@@ -6,6 +6,8 @@
   "boss": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "hound",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss"
   },

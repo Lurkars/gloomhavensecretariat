@@ -5,6 +5,7 @@
   "deck": "scout",
   "hidden": true,
   "count": 10,
+  "standeeShare": "vermling-scout",
   "baseStat": {
     "type": "normal",
     "actions": [

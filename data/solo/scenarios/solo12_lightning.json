@@ -1,0 +1,34 @@
+{
+  "index": "12",
+  "group": "solo",
+  "name": "Unnatural Insults",
+  "edition": "gh",
+  "spoiler": true,
+  "solo": "lightning",
+  "monsters": [
+    "cultist",
+    "inox-necromancer",
+    "living-bones",
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

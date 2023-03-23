@@ -1,0 +1,42 @@
+{
+  "index": "77",
+  "name": "Rat Traps",
+  "edition": "toa",
+  "monsters": [
+    "bandit-archer",
+    "living-bones",
+    "living-corpse",
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-bones",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

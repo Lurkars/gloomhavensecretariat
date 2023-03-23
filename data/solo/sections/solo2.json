@@ -1,0 +1,10 @@
+{
+  "index": "2",
+  "group": "solo",
+  "name": "Mechanical Menace",
+  "edition": "cs",
+  "parent": "49",
+  "monsters": [
+    "clockwork-devastator"
+  ]
+}

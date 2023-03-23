@@ -1,0 +1,40 @@
+{
+  "index": "81",
+  "name": "Corrupted Presence",
+  "edition": "toa",
+  "monsters": [
+    "deep-terror-scenario-81",
+    "frost-demon",
+    "living-spirit",
+    "night-demon",
+    "tendril-of-corruption"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror-toa-scenario-81",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror-toa-scenario-81",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "tendril-of-corruption",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

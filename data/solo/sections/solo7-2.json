@@ -1,0 +1,44 @@
+{
+  "index": "7-2",
+  "group": "solo",
+  "name": "Caravan Escort",
+  "edition": "gh",
+  "parent": "7",
+  "monsters": [
+    "cave-bear",
+    "vermling-scout",
+    "vermling-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

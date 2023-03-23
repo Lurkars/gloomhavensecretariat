@@ -1,0 +1,76 @@
+{
+  "index": "30C",
+  "name": "(Scenario 76)",
+  "edition": "toa",
+  "parent": "76",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "type": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

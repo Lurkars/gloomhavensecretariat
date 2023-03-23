@@ -1,0 +1,22 @@
+{
+  "index": "16-B2b",
+  "group": "solo",
+  "name": "Elemental Secrets",
+  "edition": "gh",
+  "parent": "16",
+  "monsters": [
+    "flame-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

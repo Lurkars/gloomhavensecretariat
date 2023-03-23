@@ -1,0 +1,44 @@
+{
+  "index": "21",
+  "group": "solo",
+  "name": "Race Against the Clock",
+  "edition": "fh",
+  "solo": "blinkblade",
+  "monsters": [
+    "ancient-artillery-fh",
+    "robotic-boltshooter",
+    "ruined-machine",
+    "steel-automaton"
+  ],
+  "lootDeckConfig": {
+    "coin": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "robotic-boltshooter",
+          "type": "normal"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "type": "normal"
+        },
+        {
+          "name": "steel-automaton",
+          "type": "normal"
+        },
+        {
+          "name": "steel-automaton",
+          "type": "normal"
+        },
+        {
+          "name": "steel-automaton",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

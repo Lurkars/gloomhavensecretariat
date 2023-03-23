@@ -26,6 +26,7 @@
     overflow-x: hidden;
 
     .stats {
+      cursor: pointer;
       position: relative;
       width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
       min-height: calc(var(--ghs-unit) * 21.5 * var(--ghs-dialog-factor));

@@ -4,11 +4,30 @@
       "toa": "Trail Of Ashes <%wip%(!)>"
     },
     "monster": {
+      "active-mechanism": "Active Mechanism",
+      "conqueror": "Conqueror",
+      "enraged-vanquisher": "Enraged Vanquisher",
+      "glacier-demon": "Glacier Demon",
       "harrower-bugflute": "Harrower Bugflute",
+      "inferno-demon": "Inferno Demon",
+      "inox-guard-ally": "Inox Guard (ally)",
+      "lootbot": "Lootbot",
+      "okeda": "Okeda",
+      "reaver": "Reaver",
+      "ritualist": "Ritualist",
+      "savvas-acolyte": "Savvas Acolyte",
       "shardrender": "Shardrender",
+      "shardrender-monster": "Shardrender (monster)",
       "smoke-spirit": "Smoke Spirit",
       "talo": "Talo",
-      "valrath-vanquisher": "Valrath Vanquisher"
+      "tendril-of-corruption": "Tendril of Corruption",
+      "valrath-vanquisher": "Valrath Vanquisher",
+      "vermling-scavenger": "Vermling Scavenger",
+      "volt-demon": "Volt Demon"
+    
+    },
+    "deck": {
+      "scavenger": "Scavenger"
     }
   }
 }

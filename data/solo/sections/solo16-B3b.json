@@ -1,0 +1,22 @@
+{
+  "index": "16-B3b",
+  "group": "solo",
+  "name": "Elemental Secrets",
+  "edition": "gh",
+  "parent": "16",
+  "monsters": [
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

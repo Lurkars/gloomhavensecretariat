@@ -1,0 +1,51 @@
+{
+  "index": "11",
+  "group": "solo",
+  "name": "Plagued Crypt",
+  "edition": "gh",
+  "spoiler": true,
+  "solo": "squidface",
+  "monsters": [
+    "black-imp",
+    "giant-viper"
+  ],
+  "objectives": [
+    {
+      "name": "Spirit of Xorn 1",
+      "escort": true,
+      "health": "4+L"
+    },
+    {
+      "name": "Spirit of Xorn 2",
+      "escort": true,
+      "health": "4+L"
+    },
+    {
+      "name": "Spirit of Xorn 3",
+      "escort": true,
+      "health": "4+L"
+    },
+    {
+      "name": "Spirit of Xorn 4",
+      "escort": true,
+      "health": "4+L"
+    },
+    {
+      "name": "Spirit of Xorn 5",
+      "escort": true,
+      "health": "4+L"
+    },
+    {
+      "name": "Spirit of Xorn 6",
+      "escort": true,
+      "health": "4+L"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "vermling-scenario-68",
+  "edition": "toa",
+  "abilities": [
+    {
+      "cardId": 999,
+      "initiative": 50,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "custom",
+          "value": "Å*",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Move towards exit a"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

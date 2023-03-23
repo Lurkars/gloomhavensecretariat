@@ -1,0 +1,47 @@
+{
+  "index": "19A",
+  "name": "(Scenario 71)",
+  "edition": "toa",
+  "parent": "71",
+  "monsters": [
+    "enraged-vanquisher",
+    "shardrender-monster"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "enraged-vanquisher",
+          "type": "normal"
+        },
+        {
+          "name": "enraged-vanquisher",
+          "type": "normal"
+        },
+        {
+          "name": "shardrender-monster",
+          "type": "normal"
+        },
+        {
+          "name": "smoke-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "smoke-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "smoke-spirit",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "smoke-spirit",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -6,7 +6,9 @@
   "boss": true,
   "flying": true,
   "hidden": true,
-  "count": 6,
+  "count": 1,
+  "standeeShare": "living-spirit",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss",
     "health": "6xC",

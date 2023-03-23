@@ -1,0 +1,36 @@
+{
+  "index": "26B",
+  "name": "Sunken Temple",
+  "edition": "toa",
+  "parent": "75",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "stone-golem",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

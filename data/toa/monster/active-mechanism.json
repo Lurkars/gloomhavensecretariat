@@ -1,0 +1,161 @@
+{
+  "name": "active-mechanism",
+  "thumbnail": "gh-deep-terror",
+  "edition": "toa",
+  "deck": "boss",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "standeeShare": "deep-terror",
+  "standeeShareEdition": "gh",
+  "baseStat": {
+    "type": "boss",
+    "movement": 0,
+    "actions": [],
+    "immunities": [
+      "stun",
+      "push",
+      "pull"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "Reference the scenario"
+        },
+        {
+          "type": "custom",
+          "value": "Special Rules"
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Reference the scenario"
+        },
+        {
+          "type": "custom",
+          "value": "Special Rules"
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "3x(Cx5)",
+      "attack": 3,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "^Extra turn with Deep Terror Deck"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "3x(Cx6)",
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1
+        },
+        {
+          "type": "custom",
+          "value": "^Extra turn with Deep Terror Deck"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "3x(Cx7)",
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1
+        },
+        {
+          "type": "custom",
+          "value": "^Extra turn with Deep Terror Deck"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "3x(Cx8)",
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        },
+        {
+          "type": "custom",
+          "value": "^Extra turn with Deep Terror Deck"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "3x(Cx9)",
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        },
+        {
+          "type": "custom",
+          "value": "^Extra turn with Deep Terror Deck"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "3x(Cx11)",
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        },
+        {
+          "type": "custom",
+          "value": "^Extra turn with Deep Terror Deck"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "3x(Cx13)",
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        },
+        {
+          "type": "custom",
+          "value": "^Extra turn with Deep Terror Deck"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "3x(Cx15)",
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4
+        },
+        {
+          "type": "custom",
+          "value": "^Extra turn with Deep Terror Deck"
+        }
+      ]
+    }
+  ]
+}

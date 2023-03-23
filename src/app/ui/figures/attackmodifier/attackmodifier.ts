@@ -48,7 +48,7 @@ export class AttackModifierComponent implements OnInit, OnChanges {
 
         this.multipe = this.effects().length > 1 && this.effects().every((effect) => effect.type == AttackModifierEffectType.element) || this.effects().length > 1 && this.effects().every((effect) => effect.type == AttackModifierEffectType.condition || effect.type == AttackModifierEffectType.pierce || effect.type == AttackModifierEffectType.pull || effect.type == AttackModifierEffectType.push) || this.effects().length == 1 && this.effects().every((effect) => effect.type == AttackModifierEffectType.elementHalf) || false;
 
-        this.anyElement = this.effects().length == 1 && this.effects().every((effect) => (effect.type == AttackModifierEffectType.element || effect.type == AttackModifierEffectType.elementConsume) && effect.value == 'any');
+        this.anyElement = this.effects().length == 1 && this.effects().every((effect) => (effect.type == AttackModifierEffectType.element || effect.type == AttackModifierEffectType.elementConsume) && effect.value == 'wild');
 
         this.orTypeEffect = this.effects().find((effect) => effect.type == AttackModifierEffectType.or);
 

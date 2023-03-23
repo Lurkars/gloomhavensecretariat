@@ -1,0 +1,32 @@
+{
+  "index": "7-1",
+  "group": "solo",
+  "name": "Caravan Escort",
+  "edition": "gh",
+  "parent": "7",
+  "monsters": [
+    "inox-archer",
+    "inox-guard",
+    "inox-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-archer",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-shaman",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

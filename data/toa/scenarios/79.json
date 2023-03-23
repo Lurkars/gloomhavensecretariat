@@ -1,0 +1,58 @@
+{
+  "index": "79",
+  "name": "Unsouled",
+  "edition": "toa",
+  "monsters": [
+    "inox-archer",
+    "inox-guard",
+    "inox-guard-ally"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-archer",
+          "type": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard-ally",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard-ally",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

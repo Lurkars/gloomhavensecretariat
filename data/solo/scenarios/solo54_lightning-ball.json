@@ -1,0 +1,37 @@
+{
+  "index": "54",
+  "group": "solo",
+  "name": "Storm Mountain",
+  "edition": "toa",
+  "spoiler": true,
+  "solo": "lightning-ball",
+  "monsters": [
+    "stone-golem",
+    "volt-demon",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "volt-demon",
+          "type": "normal"
+        },
+        {
+          "name": "volt-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

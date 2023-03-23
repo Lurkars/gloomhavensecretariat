@@ -5,6 +5,8 @@
   "boss": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "earth-demon",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss",
     "immunities": [

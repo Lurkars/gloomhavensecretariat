@@ -6,6 +6,7 @@
   "boss": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "aesther-ashblade",
   "baseStat": {
     "type": "normal",
     "actions": [

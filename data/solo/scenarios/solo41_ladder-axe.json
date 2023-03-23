@@ -1,0 +1,27 @@
+{
+  "index": "41",
+  "group": "solo",
+  "name": "Through the Fire and the Flames",
+  "edition": "cs",
+  "spoiler": true,
+  "solo": "ladder-axe",
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "rending-drake-#60-special",
+    "savvas-lavaflow",
+    "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "savvas-lavaflow",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

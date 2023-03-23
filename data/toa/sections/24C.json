@@ -1,0 +1,31 @@
+{
+  "index": "24C",
+  "name": "Song of the Harrower",
+  "edition": "toa",
+  "parent": "74",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "type": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

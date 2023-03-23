@@ -1,0 +1,58 @@
+{
+  "index": "6",
+  "group": "solo",
+  "name": "Rodent Liberation",
+  "edition": "gh",
+  "solo": "mindthief",
+  "monsters": [
+    "earth-demon-mindthief-special",
+    "vermling-scout",
+    "vermling-shaman"
+  ],
+  "objectives": [
+    {
+      "name": "Altar 1",
+      "health": "3+L"
+    },
+    {
+      "name": "Altar 2",
+      "health": "3+L"
+    },
+    {
+      "name": "Altar 3",
+      "health": "3+L"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "index": "29",
+  "group": "solo",
+  "name": "A Magnificent Trap",
+  "edition": "fh",
+  "spoiler": true,
+  "solo": "trap",
+  "monsters": [
+    "algox-guard",
+    "algox-snowspeaker-trapper-special",
+    "wind-demon-fh"
+  ],
+  "lootDeckConfig": {
+    "coin": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

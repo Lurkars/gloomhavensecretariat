@@ -1,0 +1,38 @@
+{
+  "index": "16",
+  "group": "solo",
+  "name": "Elemental Secrets",
+  "edition": "gh",
+  "spoiler": true,
+  "solo": "triangles",
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

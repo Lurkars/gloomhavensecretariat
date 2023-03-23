@@ -1,5 +1,5 @@
 <div class="card-container ability"
-  [ngClass]="{'fh' : settingsManager.settings.fhStyle, 'denied' : monster && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition] || character && !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]}"
+  [ngClass]="{'fh' : settingsManager.settings.fhStyle, 'denied' : monster && gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition] || character && !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]}"
   [style.--ghs-ability-color]="character && character.color">
   <div class="card" [ngClass]="{'flipped' : flipped || ability && ability.revealed}" card-reveal
     (change)="onChange($event)" [disabled]="!reveal || !ability" #card

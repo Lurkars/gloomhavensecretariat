@@ -1,0 +1,38 @@
+{
+  "index": "34",
+  "group": "solo",
+  "name": "Boiler Room",
+  "edition": "fh",
+  "spoiler": true,
+  "solo": "drill",
+  "monsters": [
+    "ancient-artillery",
+    "ancient-artillery-fh",
+    "flaming-bladespinner",
+    "ruined-machine",
+    "steel-automaton"
+  ],
+  "lootDeckConfig": {
+    "coin": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -5,6 +5,7 @@
   "deck": "guard",
   "hidden": true,
   "count": 6,
+  "standeeShare": "city-guard",
   "baseStat": {
     "type": "normal"
   },

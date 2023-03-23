@@ -1,0 +1,56 @@
+{
+  "index": "47",
+  "group": "solo",
+  "name": "Otherworldly Strangers",
+  "edition": "cs",
+  "spoiler": true,
+  "solo": "galaxy",
+  "monsters": [
+    "city-archer",
+    "city-guard",
+    "earth-demon",
+    "harrower-infester",
+    "night-demon",
+    "sun-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

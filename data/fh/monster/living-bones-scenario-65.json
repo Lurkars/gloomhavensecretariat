@@ -5,6 +5,7 @@
   "deck": "living-bones",
   "hidden": true,
   "count": 6,
+  "standeeShare": "living-bones",
   "baseStat": {
     "type": "normal"
   },

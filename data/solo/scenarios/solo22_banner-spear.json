@@ -1,0 +1,68 @@
+{
+  "index": "22",
+  "group": "solo",
+  "name": "Scouting Ambush",
+  "edition": "fh",
+  "solo": "banner-spear",
+  "monsters": [
+    "city-guard-banner-spear-special",
+    "polar-bear",
+    "vermling-scout",
+    "vermling-scout-fh"
+  ],
+  "lootDeckConfig": {
+    "coin": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-guard-banner-spear-special",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-banner-spear-special",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-banner-spear-special",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-banner-spear-special",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-banner-spear-special",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-banner-spear-special",
+          "type": "normal"
+        },
+        {
+          "name": "polar-bear",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

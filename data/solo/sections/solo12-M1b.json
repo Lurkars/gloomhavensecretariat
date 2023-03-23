@@ -1,0 +1,31 @@
+{
+  "index": "12-M1b",
+  "group": "solo",
+  "name": "Unnatural Insults",
+  "edition": "gh",
+  "parent": "12",
+  "monsters": [
+    "cultist",
+    "living-bones"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cultist",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

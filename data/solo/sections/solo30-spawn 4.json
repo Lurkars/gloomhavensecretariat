@@ -1,0 +1,22 @@
+{
+  "index": "30-spawn 4",
+  "group": "solo",
+  "name": "A Collection of Suffering",
+  "edition": "fh",
+  "parent": "30",
+  "monsters": [
+    "chaos-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

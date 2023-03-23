@@ -1,0 +1,34 @@
+{
+  "index": "2-spawn 1",
+  "group": "solo",
+  "name": "An Unfortunate Intrusion",
+  "edition": "gh",
+  "parent": "2",
+  "monsters": [
+    "vermling-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

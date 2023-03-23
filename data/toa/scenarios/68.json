@@ -1,0 +1,93 @@
+{
+  "index": "68",
+  "name": "Rival Explorers",
+  "edition": "toa",
+  "monsters": [
+    "ancient-artillery",
+    "smoke-spirit",
+    "vermling-scout-scenario-68",
+    "vermling-shaman-scenario-68"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "elite"
+        },
+        {
+          "name": "smoke-spirit",
+          "type": "elite"
+        },
+        {
+          "name": "smoke-spirit",
+          "type": "elite"
+        },
+        {
+          "name": "smoke-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout-toa-scenario-68",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout-toa-scenario-68",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout-toa-scenario-68",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout-toa-scenario-68",
+          "player3": "elite"
+        },
+        {
+          "name": "vermling-shaman-toa-scenario-68",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman-toa-scenario-68",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-shaman-toa-scenario-68",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

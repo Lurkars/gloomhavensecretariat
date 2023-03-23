@@ -1,0 +1,36 @@
+{
+  "index": "37",
+  "group": "solo",
+  "name": "Disarm the Machine",
+  "edition": "cs",
+  "spoiler": true,
+  "solo": "target",
+  "monsters": [
+    "ancient-artillery",
+    "stone-golem"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

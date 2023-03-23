@@ -1,0 +1,24 @@
+{
+  "index": "15",
+  "group": "solo",
+  "name": "Aftermath",
+  "edition": "gh",
+  "spoiler": true,
+  "solo": "saw",
+  "monsters": [
+    "city-guard",
+    "lieutenant"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-guard",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

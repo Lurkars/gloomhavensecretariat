@@ -1,0 +1,44 @@
+{
+  "index": "26",
+  "group": "solo",
+  "name": "Path of Ancestry",
+  "edition": "fh",
+  "spoiler": true,
+  "solo": "astral",
+  "monsters": [
+    "incarnation-of-ancestors"
+  ],
+  "objectives": [
+    {
+      "name": "Orb of Energy a",
+      "health": "L+1"
+    },
+    {
+      "name": "Orb of Energy b",
+      "health": "L+1"
+    },
+    {
+      "name": "Orb of Energy c",
+      "health": "L+1"
+    },
+    {
+      "name": "Orb of Energy d",
+      "health": "L+1"
+    }
+  ],
+  "lootDeckConfig": {
+    "coin": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "incarnation-of-ancestors",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

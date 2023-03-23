@@ -1,0 +1,22 @@
+{
+  "index": "29-spawn 2",
+  "group": "solo",
+  "name": "A Magnificent Trap",
+  "edition": "fh",
+  "parent": "29",
+  "monsters": [
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

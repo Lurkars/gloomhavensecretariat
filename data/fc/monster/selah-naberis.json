@@ -6,6 +6,7 @@
   "boss": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "valrath-tracker",
   "baseStat": {
     "type": "boss",
     "actions": [

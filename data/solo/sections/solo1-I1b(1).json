@@ -1,0 +1,35 @@
+{
+  "index": "1-I1b(1)",
+  "group": "solo",
+  "name": "Return to the Black Barrow",
+  "edition": "gh",
+  "parent": "1",
+  "monsters": [
+    "bandit-archer",
+    "living-bones"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

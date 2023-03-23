@@ -4,6 +4,7 @@
   "edition": "fh",
   "hidden": true,
   "count": 6,
+  "standeeShare": "lurker-wavethrower",
   "baseStat": {
     "type": "normal"
   },

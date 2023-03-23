@@ -1,0 +1,22 @@
+{
+  "index": "30-spawn 2",
+  "group": "solo",
+  "name": "A Collection of Suffering",
+  "edition": "fh",
+  "parent": "30",
+  "monsters": [
+    "sun-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "sun-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "name": "reaver",
+  "thumbnail": "gh-inox-guard",
+  "edition": "toa",
+  "deck": "guard",
+  "boss": true,
+  "hidden": true,
+  "count": 6,
+  "standeeShare": "inox-guard",
+  "standeeShareEdition": "gh",
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [
+      "stun"
+    ],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "9xC/2",
+      "movement": 1,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1
+        },
+        {
+          "type": "custom",
+          "value": "*........."
+        },
+        {
+          "type": "custom",
+          "value": "^All enemies gain advantage"
+        },
+        {
+          "type": "custom",
+          "value": "^on all attacks when dead."
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "10xC/2",
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        },
+        {
+          "type": "custom",
+          "value": "*........."
+        },
+        {
+          "type": "custom",
+          "value": "^All enemies gain advantage"
+        },
+        {
+          "type": "custom",
+          "value": "^on all attacks when dead."
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "12xC/2",
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        },
+        {
+          "type": "custom",
+          "value": "*........."
+        },
+        {
+          "type": "custom",
+          "value": "^All enemies gain advantage"
+        },
+        {
+          "type": "custom",
+          "value": "^on all attacks when dead."
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "15xC/2",
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        },
+        {
+          "type": "custom",
+          "value": "*........."
+        },
+        {
+          "type": "custom",
+          "value": "^All enemies gain advantage"
+        },
+        {
+          "type": "custom",
+          "value": "^on all attacks when dead."
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "17xC/2",
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        },
+        {
+          "type": "custom",
+          "value": "*........."
+        },
+        {
+          "type": "custom",
+          "value": "^All enemies gain advantage"
+        },
+        {
+          "type": "custom",
+          "value": "^on all attacks when dead."
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "19xC/2",
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4
+        },
+        {
+          "type": "custom",
+          "value": "*........."
+        },
+        {
+          "type": "custom",
+          "value": "^All enemies gain advantage"
+        },
+        {
+          "type": "custom",
+          "value": "^on all attacks when dead."
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "21xC/2",
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4
+        },
+        {
+          "type": "custom",
+          "value": "*........."
+        },
+        {
+          "type": "custom",
+          "value": "^All enemies gain advantage"
+        },
+        {
+          "type": "custom",
+          "value": "^on all attacks when dead."
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "23xC/2",
+      "movement": 3,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4
+        },
+        {
+          "type": "custom",
+          "value": "*........."
+        },
+        {
+          "type": "custom",
+          "value": "^All enemies gain advantage"
+        },
+        {
+          "type": "custom",
+          "value": "^on all attacks when dead."
+        }
+      ]
+    }
+  ]
+}

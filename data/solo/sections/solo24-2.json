@@ -1,0 +1,31 @@
+{
+  "index": "24-2",
+  "group": "solo",
+  "name": "Bones in the Dirt",
+  "edition": "fh",
+  "parent": "24",
+  "monsters": [
+    "hollow-scholar",
+    "snow-imp"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hollow-scholar",
+          "type": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "type": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

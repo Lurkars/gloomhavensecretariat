@@ -1,0 +1,26 @@
+{
+  "index": "47-74C",
+  "group": "solo",
+  "name": "Otherworldly Strangers",
+  "edition": "cs",
+  "parent": "47",
+  "monsters": [
+    "earth-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

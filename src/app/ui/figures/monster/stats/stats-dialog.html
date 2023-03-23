@@ -1,10 +1,12 @@
 <div class="stats-dialog">
   <a class="close" (click)="dialogRef.close()" [title]="'close' | ghsLabel"><img src="./assets/images/close.svg"></a>
-  <span class="name">{{'data.monster.' + monster.name | ghsLabel}}  <span *ngIf="monster.isAlly">({{'game.ally' | ghsLabel}})</span> <span class="edition"
-      *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span>
+  <span class="name">{{'data.monster.' + monster.name | ghsLabel}} <span *ngIf="monster.isAlly">({{'game.ally' |
+      ghsLabel}})</span> <span class="edition" *ngIf="getEdition()">[{{'data.edition.' + getEdition()|
+      ghsLabel}}]</span>
   </span>
   <div class="stats-container">
-    <div class="stats" *ngFor="let level of levels">
+    <div class="stats" *ngFor="let level of levels" ghs-drag-click (singleClick)="dialogRef.close()"
+      (doubleClick)="openStatPopup(level)">
       <ghs-monster-stats [monster]="getMonsterForLevel(level)" [forceStats]="true" [noClick]="true">
       </ghs-monster-stats>
     </div>

@@ -1,0 +1,18 @@
+{
+  "index": "40C",
+  "name": "Conflux of Power",
+  "edition": "toa",
+  "parent": "80",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inferno-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

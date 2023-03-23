@@ -18,7 +18,6 @@ export class MonsterNumberPickerDialog implements OnInit {
 
     monster: Monster;
     type: MonsterType;
-    min: number;
     max: number;
     range: number[];
     summon: boolean = false;
@@ -27,11 +26,10 @@ export class MonsterNumberPickerDialog implements OnInit {
     entities: MonsterEntity[] | undefined;
     settingsManager: SettingsManager = settingsManager;
 
-    constructor(@Inject(DIALOG_DATA) data: { monster: Monster, type: MonsterType, min: number, max: number, range: number[], entity: MonsterEntity | undefined, entities: MonsterEntity[] | undefined }, private dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) data: { monster: Monster, type: MonsterType, range: number[], entity: MonsterEntity | undefined, entities: MonsterEntity[] | undefined }, private dialogRef: DialogRef) {
         this.monster = data.monster;
         this.type = data.type;
-        this.min = data.min;
-        this.max = data.max;
+        this.max = gameManager.monsterManager.monsterStandeeMax(this.monster);
         this.range = data.range;
         this.entity = data.entity;
         this.entities = data.entities;
@@ -44,21 +42,23 @@ export class MonsterNumberPickerDialog implements OnInit {
     }
 
     ngOnInit(): void {
-        this.range = Array.from(Array(this.max).keys()).map(x => x + this.min);
+        this.range = Array.from(Array(this.max).keys()).map(x => x + 1);
     }
 
     hasEntity(): boolean {
         return this.monster.entities.filter((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && (!settingsManager.settings.hideStats || monsterEntity.type == this.type)).length > 0;
     }
 
-    hasNumber(number: number) {
-        return this.monster.entities.some((monsterEntity) => {
-            return monsterEntity.number == number && gameManager.entityManager.isAlive(monsterEntity);
-        })
+    hasNumber(number: number): boolean {
+        return gameManager.monsterManager.monsterStandeeUsed(this.monster, number);
+    }
+
+    entitiesLeft(): number {
+        return this.entities && this.entities.filter((entity) => entity.type == this.type && entity.number < 1).length || 0;
     }
 
     randomStandee() {
-        const count = EntityValueFunction(this.monster.count, this.monster.level);
+        const count = EntityValueFunction(this.monster.standeeCount || this.monster.count, this.monster.level);
         let number = Math.floor(Math.random() * count) + 1;
         while (this.monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
             number = Math.floor(Math.random() * count) + 1;

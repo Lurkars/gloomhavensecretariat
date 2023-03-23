@@ -1,0 +1,22 @@
+{
+  "index": "50-4",
+  "group": "solo",
+  "name": "The Fall of Shadow’s Respite",
+  "edition": "cs",
+  "parent": "50",
+  "monsters": [
+    "brood-mother"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "brood-mother",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

@@ -7,6 +7,9 @@ export class MonsterData implements Editional, Spoilable {
 
   name: string;
   count: number | string;
+  standeeCount: number | string | undefined;
+  standeeShare: string | undefined;
+  standeeShareEdition: string | undefined;
   baseStat: MonsterStat;
   stats: MonsterStat[];
   deck: string;
@@ -31,11 +34,14 @@ export class MonsterData implements Editional, Spoilable {
 
   replace: boolean = false;
 
-  constructor(name: string, count: number | string, baseStat: MonsterStat, stats: MonsterStat[], edition: string, deck: string | undefined = undefined, boss: boolean = false, flying: boolean = false, thumbnail: string | undefined = undefined, thumbnailUrl: string | undefined = undefined,
+  constructor(name: string, count: number | string, standeeCount: number | string | undefined, standeeShare: string | undefined, standeeShareEdition: string | undefined, baseStat: MonsterStat, stats: MonsterStat[], edition: string, deck: string | undefined = undefined, boss: boolean = false, flying: boolean = false, thumbnail: string | undefined = undefined, thumbnailUrl: string | undefined = undefined,
     spoiler: boolean = false, catching: boolean = false) {
     this.errors = [];
     this.name = name;
     this.count = count;
+    this.standeeCount = standeeCount;
+    this.standeeShare = standeeShare;
+    this.standeeShareEdition = standeeShareEdition;
     this.baseStat = baseStat;
     this.stats = stats;
     this.edition = edition;

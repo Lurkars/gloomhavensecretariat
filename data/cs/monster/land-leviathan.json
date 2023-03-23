@@ -5,7 +5,9 @@
   "deck": "boss",
   "boss": true,
   "hidden": true,
-  "count": 10,
+  "count": 1,
+  "standeeShare": "deep-terror",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss",
     "immunities": [

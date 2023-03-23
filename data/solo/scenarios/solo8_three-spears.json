@@ -1,0 +1,20 @@
+{
+  "index": "8",
+  "group": "solo",
+  "name": "Storage Fees",
+  "edition": "gh",
+  "spoiler": true,
+  "solo": "three-spears",
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard",
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

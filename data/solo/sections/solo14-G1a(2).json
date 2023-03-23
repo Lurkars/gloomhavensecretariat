@@ -1,0 +1,22 @@
+{
+  "index": "14-G1a(2)",
+  "group": "solo",
+  "name": "Corrupted Hunt",
+  "edition": "gh",
+  "parent": "14",
+  "monsters": [
+    "high-flame"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "high-flame",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

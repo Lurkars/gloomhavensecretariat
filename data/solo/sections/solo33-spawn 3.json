@@ -1,0 +1,22 @@
+{
+  "index": "33-spawn 3",
+  "group": "solo",
+  "name": "Recharge",
+  "edition": "fh",
+  "parent": "33",
+  "monsters": [
+    "frozen-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

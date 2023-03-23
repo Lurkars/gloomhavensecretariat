@@ -1,0 +1,34 @@
+{
+  "index": "25",
+  "group": "solo",
+  "name": "Divide and Conquer",
+  "edition": "fh",
+  "solo": "geminate",
+  "monsters": [
+    "flaming-bladespinner",
+    "ice-wraith",
+    "lightning-eel",
+    "lurker-soldier",
+    "lurker-wavethrower",
+    "robotic-boltshooter"
+  ],
+  "lootDeckConfig": {
+    "coin": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lightning-eel",
+          "type": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

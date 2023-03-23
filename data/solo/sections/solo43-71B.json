@@ -1,0 +1,22 @@
+{
+  "index": "43-71B",
+  "group": "solo",
+  "name": "Hallow Redemption",
+  "edition": "cs",
+  "parent": "43",
+  "monsters": [
+    "aesther-ashblade"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "aesther-ashblade",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

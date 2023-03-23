@@ -1,0 +1,31 @@
+{
+  "index": "4-H1b",
+  "group": "solo",
+  "name": "Armory Heist",
+  "edition": "gh",
+  "parent": "4",
+  "monsters": [
+    "city-guard-scoundrel-special",
+    "stone-golem-scoundrel-special"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-guard-scoundrel-special",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-scoundrel-special",
+          "type": "normal"
+        },
+        {
+          "name": "stone-golem-scoundrel-special",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -5,6 +5,8 @@
   "deck": "rending-drake",
   "hidden": true,
   "count": 6,
+  "standeeShare": "rending-drake",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

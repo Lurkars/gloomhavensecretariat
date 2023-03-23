@@ -1,0 +1,31 @@
+{
+  "index": "11-A1a(B)",
+  "group": "solo",
+  "name": "Plagued Crypt",
+  "edition": "gh",
+  "parent": "11",
+  "monsters": [
+    "black-imp",
+    "giant-viper"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

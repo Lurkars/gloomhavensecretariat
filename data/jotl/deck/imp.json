@@ -24,7 +24,7 @@
         },
         {
           "type": "element",
-          "value": "any"
+          "value": "wild"
         }
       ]
     },

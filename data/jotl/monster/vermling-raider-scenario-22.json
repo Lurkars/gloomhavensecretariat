@@ -4,6 +4,7 @@
   "edition": "jotl",
   "hidden": true,
   "count": 6,
+  "standeeShare": "vermling-raider",
   "baseStat": {
     "type": "normal",
     "movement": 0

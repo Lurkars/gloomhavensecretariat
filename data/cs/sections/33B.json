@@ -1,0 +1,21 @@
+{
+  "index": "33B",
+  "name": "Scenario 31",
+  "edition": "cs",
+  "parent": "31",
+  "monsters": [
+    "eternal-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "eternal-demon",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

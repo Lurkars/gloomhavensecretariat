@@ -1,0 +1,35 @@
+{
+  "index": "42-69B",
+  "group": "solo",
+  "name": "Archaic Preservation",
+  "edition": "cs",
+  "parent": "42",
+  "monsters": [
+    "black-imp",
+    "lurker"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

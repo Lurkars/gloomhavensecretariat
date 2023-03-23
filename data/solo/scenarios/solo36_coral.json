@@ -1,0 +1,24 @@
+{
+  "index": "36",
+  "group": "solo",
+  "name": "Crash Against the Waves",
+  "edition": "fh",
+  "spoiler": true,
+  "solo": "coral",
+  "monsters": [
+    "lightning-eel",
+    "lost-in-seaweed",
+    "plea-for-help-without-answer",
+    "shape-blocks-out-the-sun"
+  ],
+  "lootDeckConfig": {
+    "coin": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

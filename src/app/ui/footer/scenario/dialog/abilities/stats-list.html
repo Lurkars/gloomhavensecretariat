@@ -1,0 +1,24 @@
+<div class="stats-dialog">
+  <a class="close" (click)="dialogRef.close()" [title]="'close' | ghsLabel"><img src="./assets/images/close.svg"></a>
+  <div class="scroll-container">
+    <div class="container">
+      <div class="stats-container">
+        <div class="stats" *ngFor="let level of [] | ghsRange:8" ghs-drag-click (singleClick)="dialogRef.close()"
+          (doubleClick)="openStatPopup(level)">
+          <ghs-monster-stats [monster]="getMonsterForLevel(level)" [forceStats]="true" [noClick]="true">
+          </ghs-monster-stats>
+        </div>
+      </div>
+      <div class="abilities-container">
+        <ng-container *ngFor="let ability of gameManager.abilities(monster);let index = index;">
+          <div class="container" [ngClass]="{'bottom-actions' : gameManager.hasBottomAbility(ability)}" ghs-drag-click
+            (singleClick)="dialogRef.close()" (doubleClick)="openAbility(ability)">
+            <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true" [reveal]="true" [relative]="true"
+              [statsCalculation]="false">
+            </ghs-ability>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+{
+  "index": "17-G2a(1)",
+  "group": "solo",
+  "name": "The Caged Bear",
+  "edition": "gh",
+  "parent": "17",
+  "monsters": [
+    "rending-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

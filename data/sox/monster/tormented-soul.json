@@ -6,6 +6,8 @@
   "boss": true,
   "hidden": true,
   "count": 6,
+  "standeeShare": "living-spirit",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss",
     "immunities": [

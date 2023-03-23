@@ -223,8 +223,8 @@ export const CsOakDeckAttackModifier: AttackModifier[] = [
   new AttackModifier(AttackModifierType.double, 0, 'cs-oak-528', [new AttackModifierEffect(AttackModifierEffectType.condition, 'bless', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'allyShort')])]),
   new AttackModifier(AttackModifierType.double, 0, 'cs-oak-529', [new AttackModifierEffect(AttackModifierEffectType.heal, '2', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])]),
   new AttackModifier(AttackModifierType.double, 0, 'cs-oak-530', [new AttackModifierEffect(AttackModifierEffectType.heal, '2', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])]),
-  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-531', [new AttackModifierEffect(AttackModifierEffectType.element, 'any')]),
-  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-532', [new AttackModifierEffect(AttackModifierEffectType.element, 'any')]),
+  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-531', [new AttackModifierEffect(AttackModifierEffectType.element, 'wild')]),
+  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-532', [new AttackModifierEffect(AttackModifierEffectType.element, 'wild')]),
   new AttackModifier(AttackModifierType.double, 0, 'cs-oak-533', [new AttackModifierEffect(AttackModifierEffectType.custom, 'All enemies adjacent to the target suffer %game.damage:1%')]),
   new AttackModifier(AttackModifierType.double, 0, 'cs-oak-534', [new AttackModifierEffect(AttackModifierEffectType.custom, 'All enemies adjacent to the target suffer %game.damage:1%')]),
   // 8x rolling

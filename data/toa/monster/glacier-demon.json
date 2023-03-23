@@ -1,0 +1,137 @@
+{
+  "name": "glacier-demon",
+  "thumbnail": "gh-frost-demon",
+  "edition": "toa",
+  "deck": "frost-demon",
+  "boss": true,
+  "hidden": true,
+  "count": 6,
+  "standeeShare": "frost-demon",
+  "standeeShareEdition": "gh",
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "10x(C+1)",
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 1,
+      "health": "10x(C+1)",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "12x(C+1)",
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "14x(C+1)",
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "18x(C+1)",
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "20x(C+1)",
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "22x(C+1)",
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "25x(C+1)",
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    }
+  ]
+}

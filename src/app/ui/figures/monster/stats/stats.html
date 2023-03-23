@@ -1,5 +1,5 @@
 <div class="stats-container"
-  [ngClass]="{'boss' : monster.boss, 'fh' : settingsManager.settings.fhStyle, 'full-ability': fullAbility, 'no-click': noClick, 'denied' : !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}"
+  [ngClass]="{'boss' : monster.boss, 'fh' : settingsManager.settings.fhStyle, 'full-ability': fullAbility, 'no-click': noClick, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}"
   #card [style.fontSize]="card.offsetWidth * 0.03 + 'px'">
   <div #levelButton (click)="openLevelDialog()" class="level" title="{{'game.level' | ghsLabel}}">{{monster.level}}
   </div>

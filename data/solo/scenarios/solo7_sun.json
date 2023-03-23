@@ -1,0 +1,71 @@
+{
+  "index": "7",
+  "group": "solo",
+  "name": "Caravan Escort",
+  "edition": "gh",
+  "spoiler": true,
+  "solo": "sun",
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard",
+    "cave-bear",
+    "city-guard-sun-special",
+    "inox-archer",
+    "inox-guard",
+    "inox-shaman",
+    "vermling-scout",
+    "vermling-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard-sun-special",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-sun-special",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-sun-special",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-sun-special",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-sun-special",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-sun-special",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

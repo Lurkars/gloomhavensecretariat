@@ -1,0 +1,22 @@
+{
+  "index": "52-40C",
+  "group": "solo",
+  "name": "Conflux of Power",
+  "edition": "toa",
+  "parent": "52",
+  "monsters": [
+    "inferno-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inferno-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

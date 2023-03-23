@@ -1,0 +1,36 @@
+{
+  "index": "27",
+  "group": "solo",
+  "name": "Crumbling Descent",
+  "edition": "fh",
+  "spoiler": true,
+  "solo": "meteor",
+  "monsters": [
+    "burrowing-blade",
+    "mountain's-heart",
+    "rending-drake-fh"
+  ],
+  "lootDeckConfig": {
+    "coin": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "burrowing-blade",
+          "type": "normal"
+        },
+        {
+          "name": "burrowing-blade",
+          "type": "elite"
+        },
+        {
+          "name": "burrowing-blade",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

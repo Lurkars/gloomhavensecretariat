@@ -1,0 +1,26 @@
+{
+  "index": "4-B2b",
+  "group": "solo",
+  "name": "Armory Heist",
+  "edition": "gh",
+  "parent": "4",
+  "monsters": [
+    "ancient-artillery"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

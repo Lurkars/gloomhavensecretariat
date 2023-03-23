@@ -1,0 +1,26 @@
+{
+  "index": "33-spawn 4",
+  "group": "solo",
+  "name": "Recharge",
+  "edition": "fh",
+  "parent": "33",
+  "monsters": [
+    "living-bones"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 6,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

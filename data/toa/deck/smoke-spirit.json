@@ -1,0 +1,220 @@
+{
+  "name": "smoke-spirit",
+  "edition": "toa",
+  "abilities": [
+    {
+      "cardId": 698.2,
+      "initiative": 49,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Add +2 %game.action.attack% if the target<br>is occupying hazardous terrain",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 699.2,
+      "initiative": 39,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Create a hazardous terrain tile in the<br>hex occupied by the target if it contains<br>no overlay tiles.",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 700.2,
+      "initiative": 21,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "pull",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 701.2,
+      "initiative": 54,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)"
+            },
+            {
+              "type": "custom",
+              "value": "Create a hazardous terrain tile in<br>all hexes occupied by a the target if<br>it contains no overlay tiles.",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 702.2,
+      "initiative": 18,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target one enemy within two hexes",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "If the target of the attack ability is adjacent,<br>add %game.action.push% 2 to the attack.",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 703.2,
+      "initiative": 45,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "Create a hazardous terrain tile in the hex<br>the Smoke Spirit is occupying if it contains<br>no overlay tiles.",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 704.2,
+      "initiative": 78,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "Create a hazardous terrain tile in an empty<br>adjacent hex closest to an enemy.",
+          "small": true
+        }
+      ]
+    },
+    {
+      "cardId": 705.2,
+      "initiative": 63,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "push",
+              "value": 1,
+              "small": true
+            },
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

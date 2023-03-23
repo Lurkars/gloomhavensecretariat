@@ -193,7 +193,7 @@
             "effects": [
               {
                 "type": "element",
-                "value": "any"
+                "value": "wild"
               }
             ]
           }

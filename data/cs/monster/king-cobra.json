@@ -6,6 +6,8 @@
   "boss": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "giant-viper",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss",
     "actions": [

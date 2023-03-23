@@ -5,7 +5,8 @@
   "deck": "harrower-infester",
   "boss": true,
   "hidden": true,
-  "count": 4,
+  "count": 1,
+  "standeeShare": "harrower-infester",
   "baseStat": {
     "type": "boss"
   },

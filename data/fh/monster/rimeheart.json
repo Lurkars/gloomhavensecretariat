@@ -5,6 +5,7 @@
   "deck": "ice-wraith",
   "hidden": true,
   "count": 1,
+  "standeeShare": "ice-wraith",
   "baseStat": {
     "type": "normal",
     "immunities": [

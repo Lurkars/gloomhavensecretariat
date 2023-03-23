@@ -1,0 +1,22 @@
+{
+  "index": "14-F1b",
+  "group": "solo",
+  "name": "Corrupted Hunt",
+  "edition": "gh",
+  "parent": "14",
+  "monsters": [
+    "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "spitting-drake",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

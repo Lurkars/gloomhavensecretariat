@@ -231,7 +231,7 @@
         },
         {
           "type": "element",
-          "value": "any",
+          "value": "wild",
           "valueType": "minus",
           "subActions": [
             {

@@ -1,0 +1,68 @@
+{
+  "index": "2",
+  "group": "solo",
+  "name": "An Unfortunate Intrusion",
+  "edition": "gh",
+  "solo": "tinkerer",
+  "monsters": [
+    "city-guard-ally",
+    "vermling-scout",
+    "vermling-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-guard-ally",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-ally",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-ally",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-ally",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "index": "28",
+  "group": "solo",
+  "name": "Tuning the Resonance",
+  "edition": "fh",
+  "spoiler": true,
+  "solo": "shards",
+  "monsters": [
+    "algox-archer",
+    "algox-icespeaker-shattersong-special",
+    "chief-of-spikes"
+  ],
+  "lootDeckConfig": {
+    "coin": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "algox-icespeaker-shattersong-special",
+          "type": "normal"
+        },
+        {
+          "name": "algox-icespeaker-shattersong-special",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

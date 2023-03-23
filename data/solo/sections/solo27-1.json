@@ -1,0 +1,30 @@
+{
+  "index": "27-1",
+  "group": "solo",
+  "name": "Crumbling Descent",
+  "edition": "fh",
+  "parent": "27",
+  "monsters": [
+    "rending-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

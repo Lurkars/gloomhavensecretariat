@@ -1,0 +1,10 @@
+{
+  "index": "71A",
+  "group": "solo",
+  "name": "Scenario 62",
+  "edition": "cs",
+  "parent": "43",
+  "monsters": [
+    "your-shadow"
+  ]
+}

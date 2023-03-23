@@ -215,7 +215,7 @@
             "effects": [
               {
                 "type": "element",
-                "value": "any"
+                "value": "wild"
               }
             ]
           }
@@ -297,11 +297,11 @@
             "effects": [
               {
                 "type": "elementConsume",
-                "value": "any",
+                "value": "wild",
                 "effects": [
                   {
                     "type": "element",
-                    "value": "any"
+                    "value": "wild"
                   }
                 ]
               }

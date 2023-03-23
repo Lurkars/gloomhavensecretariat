@@ -1,4 +1,4 @@
-<div class="scenario-container">
+<div class="scenario-container" [ngClass]="{'setup' : gameManager.game.round < 1}">
   <div class="button" (click)="open($event)">
     <div class="scenario" *ngIf="gameManager.game.scenario">
       <span *ngIf="gameManager.game.scenario.index" class="index">#{{gameManager.game.scenario.index}}</span>

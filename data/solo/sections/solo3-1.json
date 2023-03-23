@@ -1,0 +1,22 @@
+{
+  "index": "3-1",
+  "group": "solo",
+  "name": "Corrupted Laboratory",
+  "edition": "gh",
+  "parent": "3",
+  "monsters": [
+    "stone-golem"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "stone-golem",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

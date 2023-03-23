@@ -1,0 +1,45 @@
+{
+  "index": "17A",
+  "name": "Spirits Rising",
+  "edition": "toa",
+  "parent": "70",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scavenger",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scavenger",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "water-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "water-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "water-spirit",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "water-spirit",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -5,6 +5,8 @@
   "boss": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "cultist",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss",
     "immunities": [

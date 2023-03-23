@@ -1,0 +1,31 @@
+{
+  "index": "22-spawn 2",
+  "group": "solo",
+  "name": "Scouting Ambush",
+  "edition": "fh",
+  "parent": "22",
+  "monsters": [
+    "polar-bear",
+    "vermling-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "polar-bear",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

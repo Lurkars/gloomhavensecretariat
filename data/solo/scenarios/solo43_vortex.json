@@ -1,0 +1,30 @@
+{
+  "index": "43",
+  "group": "solo",
+  "name": "Hallow Redemption",
+  "edition": "cs",
+  "spoiler": true,
+  "solo": "vortex",
+  "monsters": [
+    "aesther-ashblade",
+    "cave-bear",
+    "forest-imp",
+    "vermling-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

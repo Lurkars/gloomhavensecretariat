@@ -1,0 +1,32 @@
+{
+  "index": "80",
+  "name": "Conflux of Power",
+  "edition": "toa",
+  "monsters": [
+    "flame-demon",
+    "frost-demon",
+    "glacier-demon",
+    "inferno-demon",
+    "savvas-acolyte"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "glacier-demon",
+          "type": "normal"
+        },
+        {
+          "name": "inferno-demon",
+          "type": "normal"
+        },
+        {
+          "name": "savvas-acolyte",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

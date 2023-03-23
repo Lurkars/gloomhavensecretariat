@@ -1,0 +1,23 @@
+{
+  "index": "38",
+  "group": "solo",
+  "name": "Elemental Converter",
+  "edition": "cs",
+  "spoiler": true,
+  "solo": "flask",
+  "monsters": [
+    "black-imp",
+    "deep-terror",
+    "hound",
+    "lurker",
+    "rending-drake",
+    "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

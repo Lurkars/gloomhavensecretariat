@@ -1,0 +1,31 @@
+{
+  "index": "5-spawn 2",
+  "group": "solo",
+  "name": "Stone Defense",
+  "edition": "gh",
+  "parent": "5",
+  "monsters": [
+    "ooze",
+    "sun-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ooze",
+          "type": "normal"
+        },
+        {
+          "name": "ooze",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

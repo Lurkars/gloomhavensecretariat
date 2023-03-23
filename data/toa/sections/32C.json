@@ -1,0 +1,29 @@
+{
+  "index": "32C",
+  "name": "Rat Traps",
+  "edition": "toa",
+  "parent": "77",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

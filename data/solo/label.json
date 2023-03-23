@@ -1,7 +1,7 @@
 {
   "en": {
     "edition": {
-      "solo": "Solo Scenarios (all Editions)"
+      "solo": "Solo Scenarios (all Editions) <%wip%(!)>"
     },
     "monster": {
       "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.music-note% %solo%)",

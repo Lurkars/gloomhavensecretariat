@@ -1,0 +1,179 @@
+{
+  "name": "shardrender",
+  "edition": "toa",
+  "abilities": [
+    {
+      "cardId": 722.2,
+      "initiative": 76,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 723.2,
+      "initiative": 14,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "ward",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 724.2,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump",
+              "value": "",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "One adjacent enemy suffer %game.damage:2%.",
+          "small": true
+        },
+        {
+          "type": "shield",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "retaliate",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 725.2,
+      "initiative": 58,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,active)|(1,0,target)|(2,0,target)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 726.2,
+      "initiative": 24,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 727.2,
+      "initiative": 82,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ]
+    }
+  ]
+}

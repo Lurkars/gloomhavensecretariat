@@ -507,12 +507,6 @@ export class SettingsManager {
       }
     })
 
-    gameManager.monstersData().forEach((monsterData, index, self) => {
-      if (self.find((other) => !monsterData.replace && !other.replace && self.indexOf(other) != self.indexOf(monsterData) && monsterData.name == other.name && monsterData.edition == other.edition)) {
-        console.warn("Duplicate Monster: " + monsterData.name + " (Edition: " + monsterData.edition + ")");
-      }
-    })
-
     gameManager.decksData().forEach((deckData, index, self) => {
       if (self.find((other) => self.indexOf(other) != self.indexOf(deckData) && deckData.name == other.name && deckData.edition == other.edition)) {
         console.warn("Duplicate Deck: " + deckData.name + " (Edition: " + deckData.edition + ")");
@@ -528,12 +522,6 @@ export class SettingsManager {
         scenarioData.monsters.forEach((name) => {
           if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).indexOf(monsterData.edition) != -1) && monsterData.name == name.split(':')[0])) {
             console.warn("Invalid monster: " + name + " | scenario", scenarioData.edition, scenarioData.index);
-          }
-
-          if (!scenarioData.rooms || !scenarioData.rooms.some((roomData) => roomData.monster && roomData.monster.some((monsterStandeeData) => monsterStandeeData.name == name))) {
-            if ((!scenarioData.rules || !scenarioData.rules.some((scenarioRule) => scenarioRule.spawns && scenarioRule.spawns.some((spawnData) => spawnData.monster && spawnData.monster.name == name)))) {
-              // console.debug("Missing monster '" + name + "' in rooms", scenarioData.edition, scenarioData.index);
-            }
           }
         })
       }
@@ -566,12 +554,6 @@ export class SettingsManager {
           if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == sectionData.edition || gameManager.editionExtensions(sectionData.edition).indexOf(monsterData.edition) != -1) && monsterData.name == name.split(':')[0])) {
             console.warn("Invalid monster: " + name + " | section", sectionData.edition, sectionData.index);
           }
-
-          if (!sectionData.rooms || !sectionData.rooms.some((roomData) => roomData.monster && roomData.monster.some((monsterStandeeData) => monsterStandeeData.name == name))) {
-            if ((!sectionData.rules || !sectionData.rules.some((scenarioRule) => scenarioRule.spawns && scenarioRule.spawns.some((spawnData) => spawnData.monster && spawnData.monster.name == name)))) {
-              // console.debug("Missing monster '" + name + "' in rooms | section", sectionData.edition, sectionData.index);
-            }
-          }
         })
       }
 
@@ -600,11 +582,19 @@ export class SettingsManager {
       }
     })
 
-    gameManager.monstersData().forEach((monsterData) => {
+    gameManager.monstersData().forEach((monsterData, index, self) => {
+      if (self.find((other) => !monsterData.replace && !other.replace && self.indexOf(other) != self.indexOf(monsterData) && monsterData.name == other.name && monsterData.edition == other.edition)) {
+        console.warn("Duplicate Monster: " + monsterData.name + " (Edition: " + monsterData.edition + ")");
+      }
+
+      // boss hints
+      if (monsterData.boss && monsterData.count > 1) {
+        console.warn("Boss count check: " + monsterData.name + " (Edition: " + monsterData.edition + ")");
+      }
       let found: boolean = false;
 
       gameManager.scenarioData().forEach((scenarioData) => {
-        if (scenarioData.monsters && scenarioData.monsters.map((name) => name.split(':')[0]).indexOf(monsterData.name) != -1) {
+        if (scenarioData.monsters && scenarioData.monsters.some((name) => name.split(':')[0] == monsterData.name)) {
           found = true;
         }
 
@@ -619,7 +609,7 @@ export class SettingsManager {
 
       if (!found) {
         gameManager.sectionData().forEach((sectionData) => {
-          if (sectionData.monsters && sectionData.monsters.map((name) => name.split(':')[0]).indexOf(monsterData.name) != -1) {
+          if (sectionData.monsters && sectionData.monsters.find((name) => name.split(':')[0] == monsterData.name)) {
             found = true;
           }
 

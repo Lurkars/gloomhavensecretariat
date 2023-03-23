@@ -5,6 +5,7 @@
   "edition": "fh",
   "monsters": [
     "black-imp",
+    "harbinger-of-shadow",
     "harrower-infester"
   ],
   "objectives": [
@@ -37,6 +38,11 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "harbinger-of-shadow",
+          "type": "boss",
+          "marker": "2"
         },
         {
           "name": "harrower-infester",

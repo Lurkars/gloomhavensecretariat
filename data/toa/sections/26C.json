@@ -1,0 +1,21 @@
+{
+  "index": "26C",
+  "name": "(Scenario 75)",
+  "edition": "toa",
+  "parent": "75",
+  "monsters": [
+    "active-mechanism"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "active-mechanism",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

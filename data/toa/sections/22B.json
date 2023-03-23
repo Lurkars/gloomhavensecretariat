@@ -1,0 +1,42 @@
+{
+  "index": "22B",
+  "name": "Lootpalooza",
+  "edition": "toa",
+  "parent": "73",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

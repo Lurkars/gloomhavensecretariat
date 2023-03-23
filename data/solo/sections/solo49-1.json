@@ -1,0 +1,57 @@
+{
+  "index": "49-1",
+  "group": "solo",
+  "name": "Magnum Opus",
+  "edition": "cs",
+  "parent": "49",
+  "monsters": [
+    "clockwork-railcaster",
+    "clockwork-soldier"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "clockwork-railcaster",
+          "type": "normal"
+        },
+        {
+          "name": "clockwork-railcaster",
+          "type": "normal"
+        },
+        {
+          "name": "clockwork-railcaster",
+          "type": "normal"
+        },
+        {
+          "name": "clockwork-railcaster",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "clockwork-railcaster",
+          "player4": "elite"
+        },
+        {
+          "name": "clockwork-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "clockwork-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "clockwork-soldier",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "clockwork-soldier",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

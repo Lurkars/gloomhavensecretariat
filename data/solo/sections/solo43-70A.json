@@ -1,0 +1,32 @@
+{
+  "index": "43-70A",
+  "group": "solo",
+  "name": "Hallow Redemption",
+  "edition": "cs",
+  "parent": "43",
+  "monsters": [
+    "cave-bear",
+    "forest-imp",
+    "vermling-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

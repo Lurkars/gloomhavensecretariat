@@ -1,0 +1,30 @@
+{
+  "index": "35-1",
+  "group": "solo",
+  "name": "Wet Work",
+  "edition": "fh",
+  "parent": "35",
+  "monsters": [
+    "burrowing-blade"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "burrowing-blade",
+          "type": "elite"
+        },
+        {
+          "name": "burrowing-blade",
+          "type": "elite"
+        },
+        {
+          "name": "burrowing-blade",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

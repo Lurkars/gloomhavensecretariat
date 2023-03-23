@@ -1,0 +1,30 @@
+{
+  "index": "32B",
+  "name": "Rat Traps",
+  "edition": "toa",
+  "parent": "77",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-corpse",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

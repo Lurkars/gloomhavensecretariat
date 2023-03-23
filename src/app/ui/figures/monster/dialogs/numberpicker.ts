@@ -1,9 +1,8 @@
 import { Dialog } from "@angular/cdk/dialog";
 import { Overlay } from "@angular/cdk/overlay";
-import { Component, ElementRef, Input } from "@angular/core";
+import { Component, ElementRef, Input, OnInit } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { EntityValueFunction } from "src/app/game/model/Entity";
 import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/MonsterType";
@@ -16,35 +15,38 @@ import { MonsterNumberPickerDialog } from "./numberpicker-dialog";
   templateUrl: 'numberpicker.html',
   styleUrls: ['./numberpicker.scss']
 })
-export class MonsterNumberPicker {
+export class MonsterNumberPicker implements OnInit {
 
   @Input() monster!: Monster;
   @Input() type!: MonsterType;
-  @Input() min: number = 1;
-  @Input() max: number = 10;
   @Input() range: number[] = [];
-
+  @Input() nonDead: number = 0;
+  @Input() count: number = 0;
 
   settingsManager: SettingsManager = settingsManager;
 
-  constructor(private elementRef: ElementRef, private dialog: Dialog, private overlay: Overlay) { }
+  maxStandees: number = 0;
+  usedStandees: number = 0;
 
-  nonDead(): number {
-    return gameManager.monsterManager.monsterEntityCount(this.monster);
+  constructor(private elementRef: ElementRef, private dialog: Dialog, private overlay: Overlay) {
+    gameManager.uiChange.subscribe({ next: () => this.update() })
+  }
+
+  ngOnInit(): void {
+    this.update();
+  }
+
+  update() {
+    this.maxStandees = gameManager.monsterManager.monsterStandeeMax(this.monster);
+    this.usedStandees = gameManager.monsterManager.monsterStandeeCount(this.monster);
   }
 
   hasEntity(): boolean {
     return this.monster.entities.filter((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && (!settingsManager.settings.hideStats || monsterEntity.type == this.type)).length > 0;
   }
 
-  hasNumber(number: number) {
-    return this.monster.entities.some((monsterEntity) => {
-      return monsterEntity.number == number && gameManager.entityManager.isAlive(monsterEntity);
-    })
-  }
-
   open(): void {
-    if (this.nonDead() >= this.max) {
+    if (this.nonDead >= this.count) {
       return;
     }
 
@@ -62,8 +64,8 @@ export class MonsterNumberPicker {
       return;
     }
 
-    if (this.nonDead() == this.max - 1 && this.monster.entities.every((me) => me.number > 0)) {
-      for (let i = 0; i < this.max; i++) {
+    if (this.maxStandees == this.count && this.nonDead == this.count - 1 && this.monster.entities.every((me) => me.number > 0)) {
+      for (let i = 0; i < this.count; i++) {
         if (!this.monster.entities.some((me) => gameManager.entityManager.isAlive(me) && me.number == i + 1)) {
           this.pickNumber(i + 1);
         }
@@ -76,8 +78,6 @@ export class MonsterNumberPicker {
         data: {
           monster: this.monster,
           type: this.type,
-          min: this.min,
-          max: this.max,
           range: this.range
         },
         positionStrategy: this.overlay.position().flexibleConnectedTo(this.elementRef).withPositions(ghsDefaultDialogPositions(this.type == MonsterType.elite ? 'left' : 'right'))
@@ -86,10 +86,9 @@ export class MonsterNumberPicker {
   }
 
   randomStandee() {
-    const count = EntityValueFunction(this.monster.count, this.monster.level);
-    let number = Math.floor(Math.random() * count) + 1;
-    while (this.monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
-      number = Math.floor(Math.random() * count) + 1;
+    let number = Math.floor(Math.random() * this.maxStandees) + 1;
+    while (gameManager.monsterManager.monsterStandeeUsed(this.monster, number)) {
+      number = Math.floor(Math.random() * this.maxStandees) + 1;
     }
     this.pickNumber(number, true, false);
   }
@@ -103,7 +102,7 @@ export class MonsterNumberPicker {
   }
 
   pickNumber(number: number, automatic: boolean = false, next: boolean = false) {
-    if (!this.hasNumber(number) && this.type) {
+    if (!gameManager.monsterManager.monsterStandeeUsed(this.monster, number) && this.type) {
       let undoType = "addStandee";
       if (automatic && !next) {
         undoType = "addRandomStandee";

@@ -1,0 +1,34 @@
+{
+  "index": "71",
+  "name": "Embers of Corruption",
+  "edition": "toa",
+  "monsters": [
+    "smoke-spirit",
+    "valrath-vanquisher"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "smoke-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "smoke-spirit",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-vanquisher",
+          "type": "boss"
+        },
+        {
+          "name": "valrath-vanquisher",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

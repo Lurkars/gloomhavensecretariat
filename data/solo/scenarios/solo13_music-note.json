@@ -1,0 +1,56 @@
+{
+  "index": "13",
+  "group": "solo",
+  "name": "Battle of the Bards",
+  "edition": "gh",
+  "spoiler": true,
+  "solo": "music-note",
+  "monsters": [
+    "bandit-archer-note-special",
+    "bandit-guard-note-special",
+    "city-archer",
+    "city-guard",
+    "song-of-the-deep",
+    "stone-golem"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer-note-special",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer-note-special",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard-note-special",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard-note-special",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard-note-special",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard-note-special",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

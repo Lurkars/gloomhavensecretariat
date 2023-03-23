@@ -5,6 +5,8 @@
   "deck": "deep-terror",
   "hidden": true,
   "count": 6,
+  "standeeShare": "stone-golem",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

@@ -1,0 +1,35 @@
+{
+  "index": "47-74E",
+  "group": "solo",
+  "name": "Otherworldly Strangers",
+  "edition": "cs",
+  "parent": "47",
+  "monsters": [
+    "earth-demon",
+    "sun-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "type": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

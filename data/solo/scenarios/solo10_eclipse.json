@@ -1,0 +1,32 @@
+{
+  "index": "10",
+  "group": "solo",
+  "name": "Harvesting the Night",
+  "edition": "gh",
+  "spoiler": true,
+  "solo": "eclipse",
+  "monsters": [
+    "deep-terror",
+    "night-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

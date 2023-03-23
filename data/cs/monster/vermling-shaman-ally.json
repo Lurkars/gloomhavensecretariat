@@ -5,6 +5,8 @@
   "deck": "shaman-ally",
   "hidden": true,
   "count": 6,
+  "standeeShare": "vermling-shaman",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

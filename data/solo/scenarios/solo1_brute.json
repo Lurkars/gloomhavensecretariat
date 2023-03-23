@@ -1,0 +1,32 @@
+{
+  "index": "1",
+  "group": "solo",
+  "name": "Return to the Black Barrow",
+  "edition": "gh",
+  "solo": "brute",
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard",
+    "living-bones"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

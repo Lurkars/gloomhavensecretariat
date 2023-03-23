@@ -1,0 +1,21 @@
+{
+  "index": "22C",
+  "name": "(Scenario 73)",
+  "edition": "toa",
+  "parent": "73",
+  "monsters": [
+    "lootbot"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lootbot",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

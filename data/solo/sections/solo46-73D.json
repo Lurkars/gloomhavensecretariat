@@ -1,0 +1,14 @@
+{
+  "index": "46-73D",
+  "group": "solo",
+  "name": "Beyond the Grave",
+  "edition": "cs",
+  "parent": "46",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import { Character } from "../model/Character";
+import { MonsterData } from "../model/data/MonsterData";
 import { ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
 import { RoomData } from "../model/data/RoomData";
 import { ScenarioData } from "../model/data/ScenarioData";
@@ -252,8 +253,12 @@ export class ScenarioManager {
 
     if (scenarioData.solo) {
       gameManager.game.figures.forEach((figure) => {
-        if (figure instanceof Character && (figure.name != scenarioData.solo || figure.edition != scenarioData.edition)) {
-          figure.absent = true;
+        if (figure instanceof Character) {
+          if ((figure.name != scenarioData.solo || figure.edition != scenarioData.edition)) {
+            figure.absent = true;
+          } else {
+            figure.absent = false;
+          }
         }
       });
 
@@ -604,7 +609,7 @@ export class ScenarioManager {
       return [];
     }
 
-    return gameManager.sectionData(this.game.scenario.edition).filter((sectionData) => (this.game.scenario && sectionData.edition == this.game.scenario.edition && sectionData.parent == this.game.scenario.index && sectionData.group == this.game.scenario.group && (!sectionData.parentSections || sectionData.parentSections.length == 0) || this.game.sections.find((active) => active.edition == sectionData.edition && sectionData.parentSections && sectionData.parentSections.indexOf(active.index) != -1)) && !this.game.sections.find((active) => active.edition == sectionData.edition && active.index == sectionData.index) && !this.game.sections.find((active) => active.edition == sectionData.edition && sectionData.blockedSections && sectionData.blockedSections.indexOf(active.index) != -1)).sort(this.sortScenarios);
+    return gameManager.sectionData().filter((sectionData) => (this.game.scenario && sectionData.edition == this.game.scenario.edition && sectionData.parent == this.game.scenario.index && sectionData.group == this.game.scenario.group && (!sectionData.parentSections || sectionData.parentSections.length == 0) || this.game.sections.find((active) => active.edition == sectionData.edition && sectionData.parentSections && sectionData.parentSections.indexOf(active.index) != -1)) && !this.game.sections.find((active) => active.edition == sectionData.edition && active.index == sectionData.index) && !this.game.sections.find((active) => active.edition == sectionData.edition && sectionData.blockedSections && sectionData.blockedSections.indexOf(active.index) != -1)).sort(this.sortScenarios);
   }
 
   getTreasures(scenario: Scenario, sections: Scenario[], unlooted: boolean = false): ('G' | number)[] {
@@ -637,6 +642,48 @@ export class ScenarioManager {
     }
 
     return treasures;
+  }
+
+  getMonsters(scenarioData: ScenarioData): MonsterData[] {
+    let monsters: MonsterData[] = [];
+    let data: ScenarioData[] = [];
+
+    data.push(scenarioData);
+    data.push(...gameManager.sectionData(scenarioData.edition).filter((sectionData) => sectionData.group == scenarioData.group && sectionData.parent == scenarioData.index));
+
+    data.forEach((scenario) => {
+      if (scenario.monsters) {
+        scenario.monsters.forEach((name) => {
+          const monster = gameManager.monstersData((scenario.edition)).find((monsterData) => monsterData.name == name);
+          if (monster && monsters.indexOf(monster) == -1) {
+            monsters.push(monster);
+          }
+        })
+      }
+
+      if (scenario.rules) {
+        scenario.rules.forEach((rule) => {
+          if (rule.spawns) {
+            rule.spawns.forEach((spawn) => {
+              const monster = gameManager.monstersData((scenario.edition)).find((monsterData) => monsterData.name == spawn.monster.name);
+              if (monster && monsters.indexOf(monster) == -1) {
+                monsters.push(monster);
+              }
+            })
+          }
+        })
+      }
+    });
+
+    monsters.forEach((monster) => {
+      gameManager.monsterManager.getMonsterSpawns(monster).forEach((summon) => {
+        if (monsters.indexOf(summon) == -1) {
+          monsters.push(summon);
+        }
+      })
+    })
+
+    return monsters;
   }
 
   sortScenarios(a: ScenarioData, b: ScenarioData): number {

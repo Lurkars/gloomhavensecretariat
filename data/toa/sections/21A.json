@@ -1,0 +1,63 @@
+{
+  "index": "21A",
+  "name": "(Scenario 72)",
+  "edition": "toa",
+  "parent": "72",
+  "objectives": [
+    {
+      "name": "Small Tree 1",
+      "health": "L+C"
+    },
+    {
+      "name": "Small Tree 2",
+      "health": "L+C"
+    },
+    {
+      "name": "Large Tree 1",
+      "health": "L+C"
+    },
+    {
+      "name": "Large Tree 2",
+      "health": "L+C"
+    },
+    {
+      "name": "Large Tree d",
+      "health": "L+C"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "type": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "smoke-spirit",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

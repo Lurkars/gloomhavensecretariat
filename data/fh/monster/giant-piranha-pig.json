@@ -5,6 +5,7 @@
   "deck": "piranha-pig",
   "hidden": true,
   "count": 1,
+  "standeeShare": "piranha-pig",
   "baseStat": {
     "type": "normal",
     "movement": 1

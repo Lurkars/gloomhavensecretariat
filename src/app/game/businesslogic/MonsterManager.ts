@@ -12,6 +12,8 @@ import { FigureError, FigureErrorType } from "../model/FigureError";
 import { ConditionType, EntityConditionState } from "../model/Condition";
 import { EntityValueFunction } from "../model/Entity";
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
+import { Action, ActionType } from "../model/Action";
+import { MonsterSpawnData } from "../model/data/ScenarioRule";
 
 export class MonsterManager {
 
@@ -45,6 +47,59 @@ export class MonsterManager {
       return new MonsterStat(type, monster.level, 0, 0, 0, 0);
     }
     return stat;
+  }
+
+
+
+  getMonsterSpawns(monster: MonsterData): MonsterData[] {
+    let monsters: MonsterData[] = [];
+    const deck = gameManager.deckData(new Monster(monster));
+    if (deck && deck.abilities) {
+      deck.abilities.forEach((ability) => {
+        ability.actions.forEach((action) => {
+          const summon = this.getMonsterSpawn(monster, action);
+          if (summon && monsters.indexOf(summon) == -1) {
+            monsters.push(summon);
+          }
+        })
+      })
+    }
+
+    if (monster.baseStat.special) {
+      monster.baseStat.special.forEach((special) => {
+        special.forEach((action) => {
+          const summon = this.getMonsterSpawn(monster, action);
+          if (summon && monsters.indexOf(summon) == -1) {
+            monsters.push(summon);
+          }
+        })
+      })
+    }
+
+    monster.stats.forEach((stat) => {
+      if (stat.special) {
+        stat.special.forEach((special) => {
+          special.forEach((action) => {
+            const summon = this.getMonsterSpawn(monster, action);
+            if (summon && monsters.indexOf(summon) == -1) {
+              monsters.push(summon);
+            }
+          })
+        })
+      }
+    })
+    return monsters;
+  }
+
+  getMonsterSpawn(monster: MonsterData, action: Action): MonsterData | undefined {
+    if (action.type == ActionType.summon || action.type == ActionType.spawn) {
+      if (action.value != 'summonData' && action.value != 'monsterStandee') {
+        return gameManager.monstersData(monster.edition).find((monsterData) => monsterData.name == ('' + action.value).split(':')[0]);
+      } else if (action.value == 'monsterStandee' && action.valueObject && (action.valueObject as MonsterSpawnData).monster && (action.valueObject as MonsterSpawnData).monster.name) {
+        return gameManager.monstersData(monster.edition).find((monsterData) => monsterData.name == (action.valueObject as MonsterSpawnData).monster.name);
+      }
+    }
+    return undefined;
   }
 
   addMonsterByName(name: string, edition: string): Monster | undefined {
@@ -134,6 +189,54 @@ export class MonsterManager {
     return gameManager.entityManager.entities(monster).length;
   }
 
+  monsterStandeeShared(monster: Monster, list: Monster[]): Monster[] {
+
+    if (list.indexOf(monster) == -1) {
+      list.push(monster);
+    }
+
+    if (monster.standeeShare) {
+      let parent: Monster[] = this.game.figures.filter((figure) => figure instanceof Monster && monster.standeeShare && figure.name == monster.standeeShare && figure.edition == (monster.standeeShareEdition || monster.edition)).map((figure) => figure as Monster);
+
+      parent.forEach((parentMonster) => {
+        if (list.indexOf(parentMonster) == -1) {
+          list.push(parentMonster);
+          this.monsterStandeeShared(parentMonster, list);
+        }
+      })
+    }
+
+    let children: Monster[] = this.game.figures.filter((figure) => figure instanceof Monster && figure.standeeShare && monster.name == figure.standeeShare && monster.edition == (figure.standeeShareEdition || figure.edition)).map((figure) => figure as Monster);
+
+    children.forEach((childMonster) => {
+      if (list.indexOf(childMonster) == -1) {
+        list.push(childMonster);
+        this.monsterStandeeShared(childMonster, list);
+      }
+    })
+
+    return list;
+  }
+
+  monsterStandeeUsed(monster: Monster, number: number): boolean {
+    return this.monsterStandeeShared(monster, []).map((monster) => monster.entities).flat().some((entity) => gameManager.entityManager.isAlive(entity) && entity.number == number);
+  }
+
+  monsterStandeeCount(monster: Monster): number {
+    return this.monsterStandeeShared(monster, []).map((monster) => monster.entities).flat().filter((entity) => gameManager.entityManager.isAlive(entity)).length;
+  }
+
+  monsterStandeeMax(monster: Monster): number {
+    let max = EntityValueFunction(monster.standeeCount || monster.count, monster.level);
+    if (monster.standeeShare) {
+      const share = gameManager.monstersData(monster.standeeShareEdition || monster.edition).find((value) => value.name == monster.standeeShare);
+      if (share) {
+        max = EntityValueFunction(share.standeeCount || share.count, monster.level);
+      }
+    }
+    return max;
+  }
+
   addMonsterEntity(monster: Monster, number: number, type: MonsterType, summon: boolean = false): MonsterEntity | undefined {
     if (!monster.stats.some((monsterStat) => {
       return monsterStat.type == type;
@@ -207,18 +310,18 @@ export class MonsterManager {
     if (monster) {
       monster.isAlly = isAlly;
       monster.drawExtra = drawExtra;
-      const monsterCount = EntityValueFunction(monster.count, monster.level);
-      if (settingsManager.settings.automaticStandees && this.monsterEntityCountAll(monster) < monsterCount) {
+      const monsterCount = this.monsterStandeeMax(monster);
+      if (settingsManager.settings.automaticStandees && this.monsterStandeeCount(monster) < monsterCount) {
         let number = (monster.entities.length + 1) * -1;
 
         if (settingsManager.settings.randomStandees) {
           number = Math.floor(Math.random() * monsterCount) + 1;
-          while (monster.entities.some((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.number == number)) {
+          while (gameManager.monsterManager.monsterStandeeUsed(monster, number)) {
             number = Math.floor(Math.random() * monsterCount) + 1;
           }
-        } else if (this.monsterEntityCountAll(monster) == monsterCount - 1 && this.monsterEntityCount(monster, true) == this.monsterEntityCountAll(monster)) {
+        } else if (this.monsterStandeeCount(monster) == monsterCount - 1) {
           number = 1;
-          while (monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
+          while (gameManager.monsterManager.monsterStandeeUsed(monster, number)) {
             number++;
           }
         }

@@ -468,7 +468,7 @@ export class GameManager {
     if (!monsterData) {
       monsterData = this.monstersData().find((value) => value.name == name);
       if (!monsterData) {
-        monsterData = new MonsterData(name, 0, new MonsterStat(MonsterType.normal, 0, 0, 0, 0, 0), [], "");
+        monsterData = new MonsterData(name, 0, undefined, undefined, undefined, new MonsterStat(MonsterType.normal, 0, 0, 0, 0, 0), [], "");
         monsterData.errors = monsterData.errors || [];
         monsterData.name = name;
         monsterData.edition = edition;

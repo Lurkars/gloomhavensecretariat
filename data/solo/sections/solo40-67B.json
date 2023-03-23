@@ -1,0 +1,27 @@
+{
+  "index": "40-67B",
+  "group": "solo",
+  "name": "Forest Invaders",
+  "edition": "cs",
+  "parent": "40",
+  "monsters": [
+    "cave-bear",
+    "vermling-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

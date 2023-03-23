@@ -1,0 +1,22 @@
+{
+  "index": "32-spawn 2",
+  "group": "solo",
+  "name": "Under the Ice",
+  "edition": "fh",
+  "parent": "32",
+  "monsters": [
+    "ancient-artillery"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

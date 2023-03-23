@@ -1,0 +1,44 @@
+{
+  "index": "8-1",
+  "group": "solo",
+  "name": "Storage Fees",
+  "edition": "gh",
+  "parent": "8",
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard",
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

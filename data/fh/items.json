@@ -1699,7 +1699,7 @@
     "slot": "small",
     "spent": true,
     "resources": {
-      "any": [
+      "wild": [
         2,
         1
       ]

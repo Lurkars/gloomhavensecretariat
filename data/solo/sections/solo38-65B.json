@@ -1,0 +1,27 @@
+{
+  "index": "38-65B",
+  "group": "solo",
+  "name": "Elemental Converter",
+  "edition": "cs",
+  "parent": "38",
+  "monsters": [
+    "black-imp",
+    "deep-terror"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

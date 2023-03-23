@@ -5,6 +5,7 @@
   "deck": "monstrosity",
   "hidden": true,
   "count": 10,
+  "standeeShare": "rat-monstrosity",
   "baseStat": {
     "type": "normal",
     "actions": [

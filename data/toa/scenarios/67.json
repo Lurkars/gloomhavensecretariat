@@ -1,0 +1,45 @@
+{
+  "index": "67",
+  "name": "The Dark Valley",
+  "edition": "toa",
+  "monsters": [
+    "deep-terror",
+    "smoke-spirit",
+    "spitting-drake",
+    "vermling-scavenger"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "smoke-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "smoke-spirit",
+          "type": "elite"
+        },
+        {
+          "name": "smoke-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scavenger",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scavenger",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scavenger",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

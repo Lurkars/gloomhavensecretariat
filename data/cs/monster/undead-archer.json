@@ -4,6 +4,8 @@
   "edition": "cs",
   "hidden": true,
   "count": 10,
+  "standeeShare": "living-bones",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal",
     "range": 3

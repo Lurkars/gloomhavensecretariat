@@ -4,6 +4,7 @@
   </span>
   <span [ngClass]="{'elite' : type == MonsterType.elite, 'boss' : type == MonsterType.boss }">
     {{(monster.isAlly ? 'game.ally.addEntity.': 'monster.addEntity.') + type | ghsLabel}}
+    <span *ngIf="entities && entities.length > 0">({{entitiesLeft()}})</span>
   </span>
 </div>
 

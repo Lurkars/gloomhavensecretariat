@@ -1,0 +1,22 @@
+{
+  "index": "27-2",
+  "group": "solo",
+  "name": "Crumbling Descent",
+  "edition": "fh",
+  "parent": "27",
+  "monsters": [
+    "mountain's-heart"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "mountain's-heart",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

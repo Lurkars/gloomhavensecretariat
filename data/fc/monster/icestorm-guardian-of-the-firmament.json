@@ -5,6 +5,8 @@
   "deck": "savvas-icestorm",
   "hidden": true,
   "count": 4,
+  "standeeShare": "savvas-icestorm",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal",
     "actions": [

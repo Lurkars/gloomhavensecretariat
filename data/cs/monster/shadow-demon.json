@@ -5,7 +5,9 @@
   "deck": "night-demon",
   "boss": true,
   "hidden": true,
-  "count": 6,
+  "count": 1,
+  "standeeShare": "night-demon",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss",
     "actions": [

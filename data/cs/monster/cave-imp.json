@@ -6,6 +6,8 @@
   "flying": true,
   "hidden": true,
   "count": 10,
+  "standeeShare": "forest-imp",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

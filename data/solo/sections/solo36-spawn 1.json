@@ -1,0 +1,39 @@
+{
+  "index": "36-spawn 1",
+  "group": "solo",
+  "name": "Crash Against the Waves",
+  "edition": "fh",
+  "parent": "36",
+  "monsters": [
+    "lightning-eel",
+    "lost-in-seaweed"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lightning-eel",
+          "type": "normal"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "normal"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "normal"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "normal"
+        },
+        {
+          "name": "lost-in-seaweed",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

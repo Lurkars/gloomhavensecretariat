@@ -5,7 +5,9 @@
   "deck": "living-corpse",
   "boss": true,
   "hidden": true,
-  "count": 6,
+  "count": 2,
+  "standeeShare": "living-corpse",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss"
   },

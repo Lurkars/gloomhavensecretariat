@@ -1,0 +1,30 @@
+{
+  "index": "30",
+  "group": "solo",
+  "name": "A Collection of Suffering",
+  "edition": "fh",
+  "spoiler": true,
+  "solo": "shackles",
+  "monsters": [
+    "chaos-demon",
+    "chaos-demon-fh",
+    "earth-demon-fh",
+    "flame-demon-fh",
+    "sun-demon-fh"
+  ],
+  "lootDeckConfig": {
+    "coin": 15
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

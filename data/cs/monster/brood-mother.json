@@ -4,6 +4,7 @@
   "edition": "cs",
   "boss": true,
   "count": 1,
+  "standeeShare": "terrorscale-drake",
   "baseStat": {
     "type": "boss",
     "note": "%data.custom.cs.brood-mother.1%",
