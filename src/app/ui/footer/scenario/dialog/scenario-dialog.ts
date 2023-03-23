@@ -39,14 +39,20 @@ export class ScenarioDialogComponent {
                     this.monsters.push(monster);
                 }
             } else {
-                const standee = gameManager.monstersData(monster.standeeShareEdition || this.scenario.edition).find((monsterData) => monsterData.name == monster.standeeShare);
-                if (standee && this.monsters.indexOf(standee) == -1) {
-                    this.monsters.push(standee);
+                const standee = gameManager.monstersData().find((monsterData) => monsterData.name == monster.standeeShare && monsterData.edition == (monster.standeeShareEdition || monster.edition));
+                if (standee) {
+                    const changedStandee = JSON.parse(JSON.stringify(standee));
+                    changedStandee.standeeShare = monster.edition;
+                    changedStandee.standeeShareEdition = monster.name;
+                    changedStandee.boss = monster.boss;
+                    if (!this.monsters.find((m) => m.name == changedStandee.name && m.edition == changedStandee.edition)) {
+                        this.monsters.push(changedStandee);
+                    }
                 }
             }
         })
 
-        this.monsters.sort((a, b) => {
+        this.monsters = this.monsters.filter((monsterData, index, self) => !self.find((m) => monsterData.standeeShare == m.edition && monsterData.standeeShareEdition == m.name)).sort((a, b) => {
             const textA = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
             const textB = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
             return textA < textB ? -1 : 1;

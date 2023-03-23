@@ -654,7 +654,7 @@ export class ScenarioManager {
     data.forEach((scenario) => {
       if (scenario.monsters) {
         scenario.monsters.forEach((name) => {
-          const monster = gameManager.monstersData((scenario.edition)).find((monsterData) => monsterData.name == name);
+          const monster = gameManager.monstersData().find((monsterData) => monsterData.name == name.split(':')[0] && (monsterData.edition == scenario.edition || gameManager.editionExtensions(scenario.edition).indexOf(monsterData.edition) != -1));
           if (monster && monsters.indexOf(monster) == -1) {
             monsters.push(monster);
           }
@@ -665,7 +665,7 @@ export class ScenarioManager {
         scenario.rules.forEach((rule) => {
           if (rule.spawns) {
             rule.spawns.forEach((spawn) => {
-              const monster = gameManager.monstersData((scenario.edition)).find((monsterData) => monsterData.name == spawn.monster.name);
+              const monster = gameManager.monstersData().find((monsterData) => monsterData.name == spawn.monster.name.split(':')[0] && (monsterData.edition == scenario.edition || gameManager.editionExtensions(scenario.edition).indexOf(monsterData.edition) != -1));
               if (monster && monsters.indexOf(monster) == -1) {
                 monsters.push(monster);
               }
