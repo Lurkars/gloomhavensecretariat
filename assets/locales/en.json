@@ -404,7 +404,7 @@
     "dead": "Dead",
     "element": {
       "air": "Air",
-      "any": "Any",
+      "wild": "Wild",
       "dark": "Dark",
       "earth": "Earth",
       "fire": "Fire",
@@ -561,8 +561,10 @@
       "enemiesAdjacent": "%game.target% all adjacent enemies",
       "enemiesMovedThrough": "%game.target% all enemies moved through",
       "enemiesMovedThroughAdjacent": "%game.target% all enemies occupying or adjecent to<br>hexes entered during the move ability",
-      "enemiesRange": "%game.target% all enemies at exactly %game.action.range% {0}",
+      "enemiesRange": "%game.target% all enemies within %game.action.range% {0}",
+      "enemiesRangeExact": "%game.target% all enemies at exactly %game.action.range% {0}",
       "enemiesRangeAffect": "%game.affect% all enemies within %game.action.range% {0}",
+      "enemiesRangeAffectExact": "%game.affect% all enemies at exactly %game.action.range% {0}",
       "enemy": "%game.target% one enemy",
       "enemyAdjacent": "%game.target% one adjacent enemy",
       "enemyOneAll": "%game.target% one enemy with all attacks",
@@ -885,6 +887,12 @@
       "conclusion": "Finish scenario with {0}?"
     },
     "set": "Set Scenario",
+    "setup": {
+      ".": "Scenario Setup",
+      "abilities": "Abilities",
+      "spoiler": "Spoiler",
+      "stats": "Monster Stats"
+    },
     "summary": {
       ".": "Scenario Summary",
       "alreadyWarning": {
@@ -960,7 +968,7 @@
     },
     "password": {
       ".": "Game Code",
-      "hint": "The Game Code identifies your game. For a new game just enter a new code of your choice or generate one. Everyone with the same Code connect to the same game.<br><br>This was previously called \"Password\", but to avoid confusion it is renamed now.", 
+      "hint": "The Game Code identifies your game. For a new game just enter a new code of your choice or generate one. Everyone with the same Code connect to the same game.<br><br>This was previously called \"Password\", but to avoid confusion it is renamed now.",
       "uuid": "Generate Code (UUID)"
     },
     "port": "Port",

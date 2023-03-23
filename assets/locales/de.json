@@ -303,7 +303,7 @@
     "dead": "Tot",
     "element": {
       "air": "Luft",
-      "any": "Beliebig",
+      "wild": "Beliebig",
       "dark": "Dunkel",
       "earth": "Erde",
       "fire": "Feuer",
@@ -460,8 +460,10 @@
       "enemiesAdjacent": "%game.target% alle angrenzenden Gegner an",
       "enemiesMovedThrough": "%game.target% alle durchquerten Gegner an",
       "enemiesMovedThroughAdjacent": "%game.target% alle Gegner auf besetzten oder angrenzenden<br>durchquerten Feldern der Beweungsfertigkeit",
-      "enemiesRange": "%game.target% alle Gegner genau in %game.action.range% {0} an",
+      "enemiesRange": "%game.target% alle Gegner in %game.action.range% {0} an",
+      "enemiesRangeExact": "%game.target% alle Gegner genau in %game.action.range% {0} an",
       "enemiesRangeAffect": "%game.target% alle Gegner in %game.action.range% {0}",
+      "enemiesRangeAffectExtact": "%game.target% alle Gegner genau in %game.action.range% {0}",
       "enemy": "%game.target% einen Gegner an",
       "enemyAdjacent": "%game.target% einen angrenzenden Gegner an",
       "enemyOneAll": "%game.target% einen Gegner für alle Angriffe an",
@@ -672,7 +674,7 @@
     },
     "password": {
       ".": "Neuer Spielcode für Berechtigungen",
-      "hint": "Der Spielcode identifiziert dein Spiel. Für ein neues Spiel, überlege dir einfach deinen eigenen Code oder generiere dir einen. Die anderen Spieler tragen dann einfach denselben Code ein um mit dem gleichen Spiel verbunden zu werden.<br><br>Vorher hieß der Spielcode \"Passwort\" und wurde umbenannt um Verwirrungen zu vermeiden.", 
+      "hint": "Der Spielcode identifiziert dein Spiel. Für ein neues Spiel, überlege dir einfach deinen eigenen Code oder generiere dir einen. Die anderen Spieler tragen dann einfach denselben Code ein um mit dem gleichen Spiel verbunden zu werden.<br><br>Vorher hieß der Spielcode \"Passwort\" und wurde umbenannt um Verwirrungen zu vermeiden.",
       "uuid": "Code generieren (UUID)"
     },
     "round": {
@@ -786,6 +788,12 @@
       "conclusion": "Szenario beenden mit {0}?"
     },
     "set": "Szenario auswählen",
+    "setup": {
+      ".": "Szenario Setup",
+      "abilites": "Fertigkeitskarten",
+      "spoiler": "Spoiler",
+      "stats": "Monsterwerte"
+    },
     "summary": {
       ".": "Szenario Zusammenfassung",
       "alreadyWarning": {
