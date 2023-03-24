@@ -4,9 +4,12 @@
       "solo": "Solo Scenarios (all Editions) <%wip%(!)>"
     },
     "monster": {
+      "abael-warlord": "Abael Warlord",
+      "algox-icespeaker-shards-solo": "%data.monster.algox-icespeaker% (%data.character.shards% %solo%)",
       "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.music-note% %solo%)",
       "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.music-note% %solo%)",
       "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.circles% %solo%)",
+      "chief-of-spikes": "Chief of Spikes",
       "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.saw% %solo%)",
       "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.scoundrel% %solo%)",
       "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.sun% %solo%)",

@@ -6,7 +6,7 @@
   "spoiler": true,
   "solo": "circles",
   "monsters": [
-    "cave-bear-circles-special",
+    "cave-bear-circles-solo",
     "hound",
     "spitting-drake"
   ],

@@ -5,11 +5,9 @@
   "edition": "fh",
   "solo": "drifter",
   "monsters": [
-    "flame-demon-fh",
+    "flame-demon",
     "forest-imp",
-    "forest-imp-fh",
-    "hound",
-    "hound-fh"
+    "hound"
   ],
   "lootDeckConfig": {
     "coin": 15

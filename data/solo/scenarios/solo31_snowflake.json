@@ -8,9 +8,7 @@
   "monsters": [
     "algox-snowspeaker",
     "frost-demon",
-    "frost-demon-fh",
-    "wind-demon",
-    "wind-demon-fh"
+    "wind-demon"
   ],
   "objectives": [
     {

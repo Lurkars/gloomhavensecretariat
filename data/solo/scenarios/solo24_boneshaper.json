@@ -5,7 +5,7 @@
   "edition": "fh",
   "solo": "boneshaper",
   "monsters": [
-    "earth-demon-fh",
+    "earth-demon",
     "hollow-scholar",
     "snow-imp"
   ],

@@ -5,7 +5,7 @@
   "edition": "fh",
   "parent": "23",
   "monsters": [
-    "night-demon-deathwalker-special"
+    "night-demon-deathwalker-solo"
   ],
   "rooms": [
     {
@@ -13,11 +13,11 @@
       "initial": true,
       "monster": [
         {
-          "name": "night-demon-deathwalker-special",
+          "name": "night-demon-deathwalker-solo",
           "type": "elite"
         },
         {
-          "name": "night-demon-deathwalker-special",
+          "name": "night-demon-deathwalker-solo",
           "type": "elite"
         }
       ]

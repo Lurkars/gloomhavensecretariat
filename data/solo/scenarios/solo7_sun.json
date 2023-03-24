@@ -9,7 +9,7 @@
     "bandit-archer",
     "bandit-guard",
     "cave-bear",
-    "city-guard-sun-special",
+    "city-guard-sun-solo",
     "inox-archer",
     "inox-guard",
     "inox-shaman",
@@ -42,27 +42,27 @@
           "type": "elite"
         },
         {
-          "name": "city-guard-sun-special",
+          "name": "city-guard-sun-solo",
           "type": "normal"
         },
         {
-          "name": "city-guard-sun-special",
+          "name": "city-guard-sun-solo",
           "type": "normal"
         },
         {
-          "name": "city-guard-sun-special",
+          "name": "city-guard-sun-solo",
           "type": "normal"
         },
         {
-          "name": "city-guard-sun-special",
+          "name": "city-guard-sun-solo",
           "type": "normal"
         },
         {
-          "name": "city-guard-sun-special",
+          "name": "city-guard-sun-solo",
           "type": "normal"
         },
         {
-          "name": "city-guard-sun-special",
+          "name": "city-guard-sun-solo",
           "type": "normal"
         }
       ]

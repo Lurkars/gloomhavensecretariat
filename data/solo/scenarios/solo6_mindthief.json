@@ -5,7 +5,7 @@
   "edition": "gh",
   "solo": "mindthief",
   "monsters": [
-    "earth-demon-mindthief-special",
+    "earth-demon-mindthief-solo",
     "vermling-scout",
     "vermling-shaman"
   ],

@@ -6,7 +6,7 @@
   "parent": "29",
   "monsters": [
     "algox-guard",
-    "algox-snowspeaker-trapper-special"
+    "algox-icespeaker-trap-solo"
   ],
   "rooms": [
     {
@@ -18,7 +18,7 @@
           "type": "normal"
         },
         {
-          "name": "algox-snowspeaker-trapper-special",
+          "name": "algox-icespeaker-trap-solo",
           "type": "normal"
         }
       ]

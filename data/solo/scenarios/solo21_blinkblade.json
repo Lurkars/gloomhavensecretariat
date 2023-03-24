@@ -5,7 +5,7 @@
   "edition": "fh",
   "solo": "blinkblade",
   "monsters": [
-    "ancient-artillery-fh",
+    "ancient-artillery",
     "robotic-boltshooter",
     "ruined-machine",
     "steel-automaton"

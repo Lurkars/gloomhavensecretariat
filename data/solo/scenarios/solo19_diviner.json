@@ -5,7 +5,7 @@
   "edition": "fc",
   "solo": "diviner",
   "monsters": [
-    "earth-demon-diviner-special",
+    "earth-demon-diviner-solo",
     "valrath-savage"
   ],
   "objectives": [
@@ -36,7 +36,7 @@
       "initial": true,
       "monster": [
         {
-          "name": "earth-demon-diviner-special",
+          "name": "earth-demon-diviner-solo",
           "type": "elite"
         },
         {

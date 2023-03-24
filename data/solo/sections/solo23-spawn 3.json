@@ -5,7 +5,7 @@
   "edition": "fh",
   "parent": "23",
   "monsters": [
-    "black-imp-deathwalker-special"
+    "black-imp-deathwalker-solo"
   ],
   "rooms": [
     {
@@ -13,11 +13,11 @@
       "initial": true,
       "monster": [
         {
-          "name": "black-imp-deathwalker-special",
+          "name": "black-imp-deathwalker-solo",
           "type": "elite"
         },
         {
-          "name": "black-imp-deathwalker-special",
+          "name": "black-imp-deathwalker-solo",
           "type": "elite"
         }
       ]

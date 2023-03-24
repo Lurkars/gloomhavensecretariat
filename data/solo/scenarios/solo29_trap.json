@@ -7,8 +7,8 @@
   "solo": "trap",
   "monsters": [
     "algox-guard",
-    "algox-snowspeaker-trapper-special",
-    "wind-demon-fh"
+    "algox-icespeaker-trap-solo",
+    "wind-demon"
   ],
   "lootDeckConfig": {
     "coin": 15

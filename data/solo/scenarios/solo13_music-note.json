@@ -6,8 +6,8 @@
   "spoiler": true,
   "solo": "music-note",
   "monsters": [
-    "bandit-archer-note-special",
-    "bandit-guard-note-special",
+    "bandit-archer-music-note-solo",
+    "bandit-guard-music-note-solo",
     "city-archer",
     "city-guard",
     "song-of-the-deep",
@@ -19,27 +19,27 @@
       "initial": true,
       "monster": [
         {
-          "name": "bandit-archer-note-special",
+          "name": "bandit-archer-music-note-solo",
           "type": "normal"
         },
         {
-          "name": "bandit-archer-note-special",
+          "name": "bandit-archer-music-note-solo",
           "type": "normal"
         },
         {
-          "name": "bandit-guard-note-special",
+          "name": "bandit-guard-music-note-solo",
           "type": "normal"
         },
         {
-          "name": "bandit-guard-note-special",
+          "name": "bandit-guard-music-note-solo",
           "type": "normal"
         },
         {
-          "name": "bandit-guard-note-special",
+          "name": "bandit-guard-music-note-solo",
           "type": "normal"
         },
         {
-          "name": "bandit-guard-note-special",
+          "name": "bandit-guard-music-note-solo",
           "type": "normal"
         },
         {

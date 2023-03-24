@@ -7,7 +7,7 @@
   "solo": "shards",
   "monsters": [
     "algox-archer",
-    "algox-icespeaker-shattersong-special",
+    "algox-icespeaker-shards-solo",
     "chief-of-spikes"
   ],
   "lootDeckConfig": {
@@ -27,11 +27,11 @@
           "type": "normal"
         },
         {
-          "name": "algox-icespeaker-shattersong-special",
+          "name": "algox-icespeaker-shards-solo",
           "type": "normal"
         },
         {
-          "name": "algox-icespeaker-shattersong-special",
+          "name": "algox-icespeaker-shards-solo",
           "type": "normal"
         }
       ]

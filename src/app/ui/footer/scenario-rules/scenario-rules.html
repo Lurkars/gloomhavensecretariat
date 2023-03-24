@@ -25,7 +25,6 @@
       </div>
       <div class="sections rooms" *ngIf="rooms(index).length > 0">
         <ng-container *ngFor="let roomData of rooms(index); let i = index">
-          <span class="and" *ngIf="i > 0">,</span>
           <span class="section room">
             <img class="ghs-svg" src="./assets/images/scenario/door.svg">
             <span class="text-white"

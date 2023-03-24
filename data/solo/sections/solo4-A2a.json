@@ -5,8 +5,8 @@
   "edition": "gh",
   "parent": "4",
   "monsters": [
-    "city-guard-scoundrel-special",
-    "stone-golem-scoundrel-special"
+    "city-guard-scoundrel-solo",
+    "stone-golem-scoundrel-solo"
   ],
   "rooms": [
     {
@@ -14,11 +14,11 @@
       "initial": true,
       "monster": [
         {
-          "name": "city-guard-scoundrel-special",
+          "name": "city-guard-scoundrel-solo",
           "type": "elite"
         },
         {
-          "name": "stone-golem-scoundrel-special",
+          "name": "stone-golem-scoundrel-solo",
           "type": "normal"
         }
       ]

@@ -5,14 +5,18 @@
   "edition": "gh",
   "solo": "brute",
   "monsters": [
-    "bandit-archer",
-    "bandit-guard",
-    "living-bones"
+    "bandit-archer:-1",
+    "bandit-guard:-1",
+    "living-bones:-1"
   ],
   "rooms": [
     {
       "roomNumber": 1,
+      "ref": "l1a",
       "initial": true,
+      "rooms": [
+        2
+      ],
       "monster": [
         {
           "name": "bandit-guard",
@@ -25,6 +29,50 @@
         {
           "name": "bandit-guard",
           "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "g1b",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "i1b",
+      "marker": "1",
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
         }
       ]
     }

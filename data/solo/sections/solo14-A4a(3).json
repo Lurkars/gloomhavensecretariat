@@ -5,7 +5,7 @@
   "edition": "gh",
   "parent": "14",
   "monsters": [
-    "giant-viper-angry-face-special"
+    "giant-viper-angry-face-solo"
   ],
   "rooms": [
     {
@@ -13,19 +13,19 @@
       "initial": true,
       "monster": [
         {
-          "name": "giant-viper-angry-face-special",
+          "name": "giant-viper-angry-face-solo",
           "type": "normal"
         },
         {
-          "name": "giant-viper-angry-face-special",
+          "name": "giant-viper-angry-face-solo",
           "type": "normal"
         },
         {
-          "name": "giant-viper-angry-face-special",
+          "name": "giant-viper-angry-face-solo",
           "type": "elite"
         },
         {
-          "name": "giant-viper-angry-face-special",
+          "name": "giant-viper-angry-face-solo",
           "type": "elite"
         }
       ]

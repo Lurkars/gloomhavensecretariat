@@ -5,7 +5,7 @@
   "edition": "fh",
   "parent": "29",
   "monsters": [
-    "algox-snowspeaker-trapper-special"
+    "algox-icespeaker-trap-solo"
   ],
   "rooms": [
     {
@@ -13,7 +13,7 @@
       "initial": true,
       "monster": [
         {
-          "name": "algox-snowspeaker-trapper-special",
+          "name": "algox-icespeaker-trap-solo",
           "type": "normal"
         }
       ]

@@ -5,8 +5,8 @@
   "edition": "fh",
   "solo": "deathwalker",
   "monsters": [
-    "black-imp-deathwalker-special",
-    "night-demon-deathwalker-special"
+    "black-imp-deathwalker-solo",
+    "night-demon-deathwalker-solo"
   ],
   "objectives": [
     {
@@ -24,11 +24,11 @@
       "initial": true,
       "monster": [
         {
-          "name": "black-imp-deathwalker-special",
+          "name": "black-imp-deathwalker-solo",
           "type": "normal"
         },
         {
-          "name": "black-imp-deathwalker-special",
+          "name": "black-imp-deathwalker-solo",
           "type": "normal"
         }
       ]

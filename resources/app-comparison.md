@@ -40,7 +40,7 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 | Jaws Of The Lion                                                                | :heavy_check_mark:        | :heavy_check_mark:        | :no_entry_sign:           | :heavy_check_mark:       | :heavy_check_mark:      |
 | Frosthaven                                                                      | :heavy_check_mark:[^2.1]  | :heavy_check_mark:        | :heavy_check_mark:        | :heavy_check_mark:[^2.2] | :no_entry_sign:         |
 | The Crimson Scales                                                              | :heavy_check_mark:        | :heavy_check_mark:        | :no_entry_sign:           | :white_check_mark:[^1.3] | :no_entry_sign:         |
-| Solo Scenarios (for supported Editions)                                         | :heavy_check_mark:        | :heavy_check_mark:        | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
+| Solo Scenarios (for supported Editions)                                         | :white_check_mark:        | :heavy_check_mark:        | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Seeker Of Xorn                                                                  | :heavy_check_mark:[^3]    | :heavy_check_mark:        | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
 | Blood and Sand                                                                  | :heavy_check_mark:[^3]    | :no_entry_sign:           | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
 | Trail Of Ashes                                                                  | :white_check_mark:[^16.1] | :heavy_check_mark:        | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
@@ -122,7 +122,7 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 
 [^15]: [Source Code](https://github.com/Tarmslitaren/FrosthavenAssistant) ([AGPL 3.0](https://github.com/Tarmslitaren/FrosthavenAssistant/blob/main/LICENCE))
 
-[^16.1]: Character only, rest work in progress
+[^16.1]: Some special monsters missing
 
 [^16.2]: Only spawns rules yet
 

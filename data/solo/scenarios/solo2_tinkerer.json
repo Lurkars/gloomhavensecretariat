@@ -5,9 +5,27 @@
   "edition": "gh",
   "solo": "tinkerer",
   "monsters": [
-    "city-guard-ally",
+    "city-guard-tinkerer-solo",
     "vermling-scout",
     "vermling-shaman"
+  ],
+  "allies": [
+    "city-guard-tinkerer-solo"
+  ],
+  "rules": [
+    {
+      "round": "R % 2 == 0",
+      "spawns": [
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "normal"
+          },
+          "marker": "a",
+          "count": 4
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -15,19 +33,19 @@
       "initial": true,
       "monster": [
         {
-          "name": "city-guard-ally",
+          "name": "city-guard-tinkerer-solo",
           "type": "normal"
         },
         {
-          "name": "city-guard-ally",
+          "name": "city-guard-tinkerer-solo",
           "type": "normal"
         },
         {
-          "name": "city-guard-ally",
+          "name": "city-guard-tinkerer-solo",
           "type": "normal"
         },
         {
-          "name": "city-guard-ally",
+          "name": "city-guard-tinkerer-solo",
           "type": "normal"
         },
         {

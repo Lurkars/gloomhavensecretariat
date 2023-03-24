@@ -7,10 +7,9 @@
   "solo": "shackles",
   "monsters": [
     "chaos-demon",
-    "chaos-demon-fh",
-    "earth-demon-fh",
-    "flame-demon-fh",
-    "sun-demon-fh"
+    "earth-demon",
+    "flame-demon",
+    "sun-demon"
   ],
   "lootDeckConfig": {
     "coin": 15

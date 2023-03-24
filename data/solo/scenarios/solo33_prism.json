@@ -9,9 +9,7 @@
     "energized-corpse",
     "frozen-corpse",
     "living-bones",
-    "living-bones-fh",
-    "living-spirit",
-    "living-spirit-fh"
+    "living-spirit"
   ],
   "lootDeckConfig": {
     "coin": 15

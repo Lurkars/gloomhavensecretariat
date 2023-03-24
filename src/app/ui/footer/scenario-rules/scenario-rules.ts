@@ -99,7 +99,7 @@ export class ScenarioRulesComponent {
                 if (rule && rule.rooms) {
                     rule.rooms.forEach((roomNumber) => {
                         const roomData = scenario.rooms.find((roomData) => roomData.roomNumber == roomNumber);
-                        if (roomData) {
+                        if (roomData && gameManager.game.scenario && gameManager.game.scenario.revealedRooms.indexOf(roomNumber) == -1) {
                             rooms.push(roomData);
                         }
                     })

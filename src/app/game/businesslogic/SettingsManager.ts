@@ -521,7 +521,7 @@ export class SettingsManager {
       if (scenarioData.monsters) {
         scenarioData.monsters.forEach((name) => {
           if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).indexOf(monsterData.edition) != -1) && monsterData.name == name.split(':')[0])) {
-            console.warn("Invalid monster: " + name + " | scenario", scenarioData.edition, scenarioData.index);
+            console.warn("Invalid monster: " + name + " | scenario", scenarioData.edition, scenarioData.group || '', scenarioData.index);
           }
         })
       }
@@ -531,11 +531,11 @@ export class SettingsManager {
           if (roomData.monster) {
             roomData.monster.forEach((monsterStandeeData) => {
               if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).indexOf(monsterData.edition) != -1) && monsterData.name == monsterStandeeData.name.split(':')[0])) {
-                console.warn("Invalid monster: " + monsterStandeeData.name + " | scenario", scenarioData.edition, scenarioData.index);
+                console.warn("Invalid monster: " + monsterStandeeData.name + " | scenario", scenarioData.edition, scenarioData.group || '',scenarioData.index);
               }
 
               if (!scenarioData.monsters || !scenarioData.monsters.find((name) => name == monsterStandeeData.name || name.split(':')[0] == monsterStandeeData.name)) {
-                console.debug("Missing monster '" + monsterStandeeData.name + "' from room '" + roomData.roomNumber + "' in monsters", scenarioData.edition, scenarioData.index);
+                console.debug("Missing monster '" + monsterStandeeData.name + "' from room '" + roomData.roomNumber + "' in monsters", scenarioData.edition, scenarioData.group || '',scenarioData.index);
               }
             })
           }
@@ -552,7 +552,7 @@ export class SettingsManager {
         sectionData.monsters.forEach((name) => {
 
           if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == sectionData.edition || gameManager.editionExtensions(sectionData.edition).indexOf(monsterData.edition) != -1) && monsterData.name == name.split(':')[0])) {
-            console.warn("Invalid monster: " + name + " | section", sectionData.edition, sectionData.index);
+            console.warn("Invalid monster: " + name + " | section", sectionData.edition, sectionData.group || '', sectionData.index);
           }
         })
       }
@@ -563,11 +563,11 @@ export class SettingsManager {
             roomData.monster.forEach((monsterStandeeData) => {
 
               if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == sectionData.edition || gameManager.editionExtensions(sectionData.edition).indexOf(monsterData.edition) != -1) && monsterData.name == monsterStandeeData.name.split(':')[0])) {
-                console.warn("Invalid monster: " + monsterStandeeData.name + " | section", sectionData.edition, sectionData.index);
+                console.warn("Invalid monster: " + monsterStandeeData.name + " | section", sectionData.edition, sectionData.group || '', sectionData.index);
               }
 
               if ((!sectionData.monsters || !sectionData.monsters.find((name) => name == monsterStandeeData.name || name.split(':')[0] == monsterStandeeData.name))) {
-                console.debug("Missing monster '" + monsterStandeeData.name + "' from room '" + roomData.roomNumber + "' in monsters | section", sectionData.edition, sectionData.index);
+                console.debug("Missing monster '" + monsterStandeeData.name + "' from room '" + roomData.roomNumber + "' in monsters | section", sectionData.edition, sectionData.group || '', sectionData.index);
               }
             })
           }

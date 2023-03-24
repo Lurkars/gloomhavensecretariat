@@ -7,7 +7,6 @@
   "solo": "gemstone",
   "monsters": [
     "deep-terror-scenario-81",
-    "deep-terror-toa-scenario-81",
     "frost-demon",
     "living-spirit",
     "night-demon",
@@ -19,11 +18,11 @@
       "initial": true,
       "monster": [
         {
-          "name": "deep-terror-toa-scenario-81",
+          "name": "deep-terror-scenario-81",
           "type": "normal"
         },
         {
-          "name": "deep-terror-toa-scenario-81",
+          "name": "deep-terror-scenario-81",
           "type": "normal"
         },
         {
