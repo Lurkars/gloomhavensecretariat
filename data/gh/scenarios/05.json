@@ -1,6 +1,7 @@
 {
   "index": "5",
   "name": "Ruinous Crypt",
+  "gridLocation": "D:6:-7:9",
   "edition": "gh",
   "unlocks": [
     "10",

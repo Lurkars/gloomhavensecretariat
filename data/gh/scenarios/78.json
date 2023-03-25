@@ -1,6 +1,7 @@
 {
   "index": "78",
   "name": "Sacrifice Pit",
+  "gridLocation": "B:14",
   "edition": "gh",
   "rewards": {
     "reputation": 3

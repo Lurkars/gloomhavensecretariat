@@ -24,7 +24,7 @@ export class ScenarioManager {
   }
 
   createScenario(): Scenario {
-    return new Scenario(new ScenarioData("", "", [], [], [], [], [], undefined, [], [], [], [], [], "", [], ""), [], true);
+    return new Scenario(new ScenarioData(), [], true);
   }
 
   getScenario(index: string, edition: string, group: string | undefined): ScenarioData | undefined {
@@ -736,7 +736,9 @@ export class ScenarioManager {
 
   scenarioDataForModel(model: GameScenarioModel): ScenarioData | undefined {
     if (model.isCustom) {
-      return new ScenarioData(model.custom, "", [], [], [], [], [], undefined, [], [], [], [], [], "", [], "");
+      const scenarioData = new ScenarioData();
+      scenarioData.name = model.custom;
+      return scenarioData;
     }
 
     const scenarioData = gameManager.scenarioData().find((scenarioData) => scenarioData.index == model.index && scenarioData.edition == model.edition && scenarioData.group == model.group);

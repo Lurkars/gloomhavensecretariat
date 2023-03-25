@@ -1,6 +1,7 @@
 {
   "index": "3",
   "name": "Inox Encampment",
+  "gridLocation": "G:3:-3:-3",
   "edition": "gh",
   "unlocks": [
     "8",

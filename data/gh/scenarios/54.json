@@ -1,6 +1,7 @@
 {
   "index": "54",
   "name": "Palace of Ice",
+  "gridLocation": "D:8:80:-60",
   "edition": "gh",
   "rewards": {
     "envelopes": [

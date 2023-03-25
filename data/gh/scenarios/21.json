@@ -1,6 +1,7 @@
 {
   "index": "21",
   "name": "Infernal Throne",
+  "gridLocation": "C:7:40:56",
   "edition": "gh",
   "blocks": [
     "10",

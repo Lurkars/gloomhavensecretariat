@@ -1,6 +1,7 @@
 {
   "index": "23",
   "name": "Deep Ruins",
+  "gridLocation": "C:15",
   "edition": "gh",
   "unlocks": [
     "26"

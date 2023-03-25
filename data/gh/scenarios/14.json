@@ -1,6 +1,7 @@
 {
   "index": "14",
   "name": "Frozen Hollow",
+  "gridLocation": "C:10:8:-8",
   "edition": "gh",
   "rewards": {
     "globalAchievements": [

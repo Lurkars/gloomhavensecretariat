@@ -1,6 +1,7 @@
 {
   "index": "42",
   "name": "Realm of the Voice",
+  "gridLocation": "C:5:-116:-52",
   "edition": "gh",
   "requires": [
     [

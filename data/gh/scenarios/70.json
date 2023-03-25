@@ -1,6 +1,7 @@
 {
   "index": "70",
   "name": "Chained Isle",
+  "gridLocation": "J:17",
   "edition": "gh",
   "random": true,
   "rewards": {

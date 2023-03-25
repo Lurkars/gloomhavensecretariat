@@ -1,6 +1,7 @@
 {
   "index": "84",
   "name": "Crystalline Cave",
+  "gridLocation": "D:12:50:50",
   "edition": "gh",
   "rewards": {
     "prosperity": 1,

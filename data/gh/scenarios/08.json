@@ -1,6 +1,7 @@
 {
   "index": "8",
   "name": "Gloomhaven Warehouse",
+  "gridLocation": "C:18",
   "edition": "gh",
   "unlocks": [
     "13",

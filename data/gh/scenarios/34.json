@@ -1,6 +1,7 @@
 {
   "index": "34",
   "name": "Scorched Summit",
+  "gridLocation": "A:4:-32:-33",
   "edition": "gh",
   "requires": [
     [

@@ -1,6 +1,7 @@
 {
   "index": "19",
   "name": "Forgotten Crypt",
+  "gridLocation": "M:7",
   "edition": "gh",
   "unlocks": [
     "27"

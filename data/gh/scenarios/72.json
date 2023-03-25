@@ -1,6 +1,7 @@
 {
   "index": "72",
   "name": "Oozing Grove",
+  "gridLocation": "H:12",
   "edition": "gh",
   "rewards": {
     "reputation": 1,

@@ -1,6 +1,7 @@
 {
   "index": "73",
   "name": "Rockslide Ridge",
+  "gridLocation": "N:5",
   "edition": "gh",
   "rewards": {
     "reputation": 1

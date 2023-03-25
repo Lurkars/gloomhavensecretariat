@@ -1,6 +1,7 @@
 {
   "index": "80",
   "name": "Vigil Keep",
+  "gridLocation": "K:1",
   "edition": "gh",
   "rewards": {
     "experience": 10

@@ -1,6 +1,7 @@
 {
   "index": "82",
   "name": "Burning Mountain",
+  "gridLocation": "M:6",
   "edition": "gh",
   "monsters": [
     "earth-demon",

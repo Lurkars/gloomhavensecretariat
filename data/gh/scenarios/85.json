@@ -1,6 +1,7 @@
 {
   "index": "85",
   "name": "Sun Temple",
+  "gridLocation": "M:3",
   "edition": "gh",
   "rewards": {
     "items": [

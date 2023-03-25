@@ -1,6 +1,7 @@
 {
   "index": "13",
   "name": "Temple of the Seer",
+  "gridLocation": "N:3",
   "edition": "gh",
   "unlocks": [
     "15",

@@ -1,6 +1,7 @@
 {
   "index": "63",
   "name": "Magma Pit",
+  "gridLocation": "M:1",
   "edition": "gh",
   "random": true,
   "rewards": {

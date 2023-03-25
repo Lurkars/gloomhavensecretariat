@@ -1,6 +1,7 @@
 {
   "index": "6",
   "name": "Decaying Crypt",
+  "gridLocation": "F:10:-125:49",
   "edition": "gh",
   "unlocks": [
     "8"

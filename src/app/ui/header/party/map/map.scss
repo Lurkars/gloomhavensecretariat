@@ -1,0 +1,29 @@
+.map {
+    position: relative;
+    width: 2958px;
+    height: 2410px;
+
+    display: grid;
+    grid-template-columns: 106px repeat(19, 1fr);
+    grid-template-rows: 80px repeat(15, 1fr) 80px;
+    background-position: top left;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+
+    &.gh {
+        background-image: url('~src/assets/images/maps/gh-map.jpg');
+    }
+
+    .scenario {
+        position: relative;
+        display: flex;
+        border: 1px solid red;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.6;
+        }
+    }
+}

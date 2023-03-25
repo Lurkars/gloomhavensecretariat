@@ -1,6 +1,7 @@
 {
   "index": "86",
   "name": "Harried Village",
+  "gridLocation": "D:15",
   "edition": "gh",
   "unlocks": [
     "87"

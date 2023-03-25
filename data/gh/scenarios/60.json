@@ -1,6 +1,7 @@
 {
   "index": "60",
   "name": "Alchemy Lab",
+  "gridLocation": "B:15",
   "edition": "gh",
   "rewards": {
     "envelopes": [

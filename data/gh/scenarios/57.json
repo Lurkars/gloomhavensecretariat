@@ -1,6 +1,7 @@
 {
   "index": "57",
   "name": "Investigation",
+  "gridLocation": "D:14",
   "edition": "gh",
   "unlocks": [
     "58"

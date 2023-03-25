@@ -1,6 +1,7 @@
 {
   "index": "33",
   "name": "Savvas Armory",
+  "gridLocation": "A:7:-61:14",
   "edition": "gh",
   "requires": [
     [

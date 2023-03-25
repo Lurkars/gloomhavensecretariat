@@ -1,6 +1,7 @@
 {
   "index": "44",
   "name": "Tribal Assault",
+  "gridLocation": "F:3",
   "edition": "gh",
   "requires": [
     [

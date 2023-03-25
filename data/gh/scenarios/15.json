@@ -1,6 +1,7 @@
 {
   "index": "15",
   "name": "Shrine of Strength",
+  "gridLocation": "B:11:-23:76",
   "edition": "gh",
   "rewards": {
     "experience": 20

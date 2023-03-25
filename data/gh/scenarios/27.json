@@ -1,6 +1,7 @@
 {
   "index": "27",
   "name": "Ruinous Rift",
+  "gridLocation": "E:6:23:-37",
   "edition": "gh",
   "requires": [
     [

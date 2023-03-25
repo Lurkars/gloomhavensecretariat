@@ -1,6 +1,7 @@
 {
   "index": "16",
   "name": "Mountain Pass",
+  "gridLocation": "B:6:9:99",
   "edition": "gh",
   "unlocks": [
     "24",

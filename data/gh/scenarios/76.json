@@ -1,6 +1,7 @@
 {
   "index": "76",
   "name": "Harrower Hive",
+  "gridLocation": "L:3",
   "edition": "gh",
   "monsters": [
     "giant-viper",

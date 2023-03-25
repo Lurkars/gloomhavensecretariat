@@ -1,6 +1,7 @@
 {
   "index": "66",
   "name": "Clockwork Cove",
+  "gridLocation": "G:14",
   "edition": "gh",
   "random": true,
   "rewards": {

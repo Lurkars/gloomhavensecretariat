@@ -1,6 +1,7 @@
 {
   "index": "93",
   "name": "Sunken Vessel",
+  "gridLocation": "N:17",
   "edition": "gh",
   "rewards": {
     "experience": 10

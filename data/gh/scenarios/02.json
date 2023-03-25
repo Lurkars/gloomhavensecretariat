@@ -1,6 +1,7 @@
 {
   "index": "2",
   "name": "Barrow Lair",
+  "gridLocation": "G:11:-35:-15",
   "edition": "gh",
   "unlocks": [
     "3",

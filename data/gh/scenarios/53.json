@@ -1,6 +1,7 @@
 {
   "index": "53",
   "name": "Crypt Basement",
+  "gridLocation": "F:11",
   "edition": "gh",
   "unlocks": [
     "54"

@@ -7,21 +7,22 @@ import { ScenarioRewards, ScenarioRule } from "./ScenarioRule";
 
 export class ScenarioData implements Editional, Spoilable {
 
-  name: string;
-  index: string;
-  unlocks: string[];
-  blocks: string[];
-  requires: string[][];
-  links: string[];
-  forcedLinks: string[];
+  name: string = "";
+  index: string = "";
+  gridLocation: string = "";
+  unlocks: string[] = [];
+  blocks: string[] = [];
+  requires: string[][] = [];
+  links: string[] = [];
+  forcedLinks: string[] = [];
   group: string | undefined;
-  monsters: string[];
-  allies: string[];
-  drawExtra: string[];
-  objectives: ObjectiveData[];
-  rooms: RoomData[] = [];
+  monsters: string[] = [];
+  allies: string[] = [];
+  drawExtra: string[] = [];
+  objectives: ObjectiveData[] = [];
+  rooms: RoomData[] = [] = [];
   marker: string = "";
-  rules: ScenarioRule[];
+  rules: ScenarioRule[] = [];
   initial: boolean = false;
   random: boolean = false;
   solo: string | undefined;
@@ -35,32 +36,42 @@ export class ScenarioData implements Editional, Spoilable {
   conclusion: boolean = false;
 
   // from Editional
-  edition: string;
+  edition: string = "";
 
   // from Spoilable
-  spoiler: boolean;
+  spoiler: boolean = false;
 
-  constructor(name: string, index: string, unlocks: string[], blocks: string[], requires: string[][], links: string[], forcedLinks: string[], rewards: ScenarioRewards | undefined, monsters: string[], allies: string[], drawExtra: string[], objectives: ObjectiveData[], rooms: RoomData[], marker: string, rules: ScenarioRule[], edition: string, group: string | undefined = undefined,
-    spoiler: boolean = false, allyDeck: boolean = false, conclusion : boolean = false) {
-    this.name = name;
-    this.index = index;
-    this.unlocks = unlocks;
-    this.blocks = blocks;
-    this.requires = requires;
-    this.links = links;
-    this.forcedLinks = forcedLinks;
-    this.rewards = rewards;
-    this.monsters = monsters;
-    this.allies = allies;
-    this.drawExtra = drawExtra;
-    this.edition = edition;
-    this.objectives = objectives;
-    this.rooms = rooms || [];
-    this.marker = marker || "";
-    this.rules = rules;
-    this.group = group;
-    this.spoiler = spoiler;
-    this.allyDeck = allyDeck;
-    this.conclusion = conclusion;
+  constructor(scenarioData: ScenarioData | undefined = undefined) {
+    if (scenarioData) {
+      this.name = scenarioData.name;
+      this.index = scenarioData.index;
+      this.gridLocation = scenarioData.gridLocation;
+      this.unlocks = scenarioData.unlocks;
+      this.blocks = scenarioData.blocks;
+      this.requires = scenarioData.requires;
+      this.links = scenarioData.links;
+      this.forcedLinks = scenarioData.forcedLinks;
+      this.group = scenarioData.group;
+      this.monsters = scenarioData.monsters;
+      this.allies = scenarioData.allies;
+      this.drawExtra = scenarioData.drawExtra;
+      this.objectives = scenarioData.objectives;
+      this.rooms = scenarioData.rooms;
+      this.marker = scenarioData.marker;
+      this.rules = scenarioData.rules;
+      this.initial = scenarioData.initial;
+      this.random = scenarioData.random;
+      this.solo = scenarioData.solo;
+      this.allyDeck = scenarioData.allyDeck;
+      this.lootDeckConfig = scenarioData.lootDeckConfig;
+      this.parent = scenarioData.parent;
+      this.parentSections = scenarioData.parentSections;
+      this.blockedSections = scenarioData.blockedSections;
+      this.resetRound = scenarioData.resetRound;
+      this.rewards = scenarioData.rewards;
+      this.conclusion = scenarioData.conclusion;
+      this.edition = scenarioData.edition;
+      this.spoiler = scenarioData.spoiler;
+    }
   }
 }

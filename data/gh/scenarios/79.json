@@ -1,6 +1,7 @@
 {
   "index": "79",
   "name": "Lost Temple",
+  "gridLocation": "K:12",
   "edition": "gh",
   "rewards": {
     "gold": 15

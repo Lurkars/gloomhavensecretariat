@@ -1,6 +1,7 @@
 {
   "index": "35",
   "name": "Gloomhaven Battlements A",
+  "gridLocation": "A:14:46:56",
   "edition": "gh",
   "unlocks": [
     "45"

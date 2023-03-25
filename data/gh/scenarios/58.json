@@ -1,6 +1,7 @@
 {
   "index": "58",
   "name": "Bloody Shack",
+  "gridLocation": "E:15",
   "edition": "gh",
   "rewards": {
     "envelopes": [

@@ -1,6 +1,7 @@
 {
   "index": "59",
   "name": "Forgotten Grove",
+  "gridLocation": "F:1",
   "edition": "gh",
   "unlocks": [
     "60"

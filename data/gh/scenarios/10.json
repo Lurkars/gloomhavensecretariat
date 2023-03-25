@@ -1,6 +1,7 @@
 {
   "index": "10",
   "name": "Plane of Elemental Power",
+  "gridLocation": "C:7:-60:82",
   "edition": "gh",
   "unlocks": [
     "21",

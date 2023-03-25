@@ -1,6 +1,7 @@
 {
   "index": "29",
   "name": "Sanctuary of Gloom",
+  "gridLocation": "E:3",
   "edition": "gh",
   "requires": [
     [

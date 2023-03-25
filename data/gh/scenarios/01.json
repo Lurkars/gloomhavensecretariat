@@ -1,6 +1,7 @@
 {
   "index": "1",
   "name": "Black Barrow",
+  "gridLocation": "G:10:-25:-7",
   "edition": "gh",
   "initial": true,
   "unlocks": [

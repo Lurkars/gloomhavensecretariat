@@ -1,6 +1,7 @@
 {
   "index": "38",
   "name": "Slave Pens",
+  "gridLocation": "G:2",
   "edition": "gh",
   "unlocks": [
     "44",

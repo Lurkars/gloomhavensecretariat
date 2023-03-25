@@ -1,6 +1,7 @@
 {
   "index": "65",
   "name": "Sulfur Mine",
+  "gridLocation": "L:5",
   "edition": "gh",
   "random": true,
   "rewards": {

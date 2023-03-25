@@ -1,6 +1,7 @@
 {
   "index": "18",
   "name": "Abandoned Sewers",
+  "gridLocation": "C:14",
   "edition": "gh",
   "unlocks": [
     "14",

@@ -1,6 +1,7 @@
 {
   "index": "11",
   "name": "Gloomhaven Square A",
+  "gridLocation": "B:16",
   "edition": "gh",
   "unlocks": [
     "16",

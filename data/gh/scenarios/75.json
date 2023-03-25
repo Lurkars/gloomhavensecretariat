@@ -1,6 +1,7 @@
 {
   "index": "75",
   "name": "Overgrown Graveyard",
+  "gridLocation": "G:12",
   "edition": "gh",
   "rewards": {
     "gold": 60

@@ -1,6 +1,7 @@
 {
   "index": "26",
   "name": "Ancient Cistern",
+  "gridLocation": "D:15",
   "edition": "gh",
   "unlocks": [
     "22"

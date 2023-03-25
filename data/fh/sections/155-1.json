@@ -5,7 +5,7 @@
   "parent": "107",
   "monsters": [
     "flaming-bladespinner",
-    "ruined-machine"
+    "robotic-boltshooter"
   ],
   "rooms": [
     {
@@ -30,20 +30,20 @@
           "player4": "normal"
         },
         {
-          "name": "ruined-machine",
+          "name": "robotic-boltshooter",
           "type": "normal"
         },
         {
-          "name": "ruined-machine",
+          "name": "robotic-boltshooter",
           "type": "normal"
         },
         {
-          "name": "ruined-machine",
+          "name": "robotic-boltshooter",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "ruined-machine",
+          "name": "robotic-boltshooter",
           "player4": "normal"
         }
       ]

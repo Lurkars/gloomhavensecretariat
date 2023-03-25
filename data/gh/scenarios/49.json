@@ -1,6 +1,7 @@
 {
   "index": "49",
   "name": "Rebel's Stand",
+  "gridLocation": "N:7",
   "edition": "gh",
   "requires": [
     [

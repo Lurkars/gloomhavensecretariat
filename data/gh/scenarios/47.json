@@ -1,6 +1,7 @@
 {
   "index": "47",
   "name": "Lair of the Unseeing Eye",
+  "gridLocation": "H:18",
   "edition": "gh",
   "unlocks": [
     "51"

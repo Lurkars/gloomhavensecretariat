@@ -1,6 +1,7 @@
 {
   "index": "61",
   "name": "Fading Lighthouse",
+  "gridLocation": "N:11",
   "edition": "gh",
   "unlocks": [
     "62"

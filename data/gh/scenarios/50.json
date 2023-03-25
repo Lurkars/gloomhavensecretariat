@@ -1,6 +1,7 @@
 {
   "index": "50",
   "name": "Ghost Fortress",
+  "gridLocation": "C:17",
   "edition": "gh",
   "requires": [
     [

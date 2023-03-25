@@ -1,6 +1,7 @@
 {
   "index": "64",
   "name": "Underwater Lagoon",
+  "gridLocation": "K:16",
   "edition": "gh",
   "random": true,
   "requires": [

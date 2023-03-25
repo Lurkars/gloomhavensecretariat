@@ -1,6 +1,7 @@
 {
   "index": "32",
   "name": "Decrepit Wood",
+  "gridLocation": "L:11",
   "edition": "gh",
   "unlocks": [
     "33",
