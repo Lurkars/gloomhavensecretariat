@@ -817,6 +817,12 @@ export class EntityMenuDialogComponent {
     if (this.data.entity) {
       this.data.entity.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
         if (this.data.entity) {
+
+          if (this.data.entity instanceof Character && entityCondition.name == ConditionName.muddle && entityCondition.state == EntityConditionState.new &&
+            this.data.entity.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '108')) {
+            entityCondition.name = ConditionName.strengthen;
+          }
+
           entityCondition.expired = entityCondition.state == EntityConditionState.new;
           gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition"), "game.condition." + entityCondition.name, this.data.entity instanceof MonsterEntity ? 'monster.' + this.data.entity.type + ' ' : '');
           gameManager.entityManager.toggleCondition(this.data.entity, entityCondition, this.data.figure.active, this.data.figure.off);

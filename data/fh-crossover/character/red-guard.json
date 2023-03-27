@@ -48,19 +48,7 @@
   "perks": [
     {
       "type": "remove",
-      "count": 1,
-      "cards": [
-        {
-          "count": 4,
-          "attackModifier": {
-            "type": "plus0"
-          }
-        }
-      ]
-    },
-    {
-      "type": "remove",
-      "count": 1,
+      "count": 2,
       "cards": [
         {
           "count": 2,
@@ -79,121 +67,27 @@
           "attackModifier": {
             "type": "minus2"
           }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1"
-          }
         }
       ]
     },
     {
       "type": "replace",
-      "count": 2,
+      "count": 1,
       "cards": [
         {
           "count": 1,
           "attackModifier": {
-            "type": "minus1"
+            "type": "plus0"
           }
         },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1"
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 2,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus2",
-            "effects": [
-              {
-                "type": "element",
-                "value": "fire"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 2,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus2",
-            "effects": [
-              {
-                "type": "element",
-                "value": "light"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 2,
-      "cards": [
         {
           "count": 1,
           "attackModifier": {
             "type": "plus1",
             "effects": [
               {
-                "type": "element",
-                "value": "fire"
-              },
-              {
-                "type": "element",
-                "value": "light"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 2,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1",
-            "effects": [
-              {
-                "type": "shield",
-                "value": 1,
-                "effects": [
-                  {
-                    "type": "specialTarget",
-                    "value": "self"
-                  }
-                ]
+                "type": "condition",
+                "value": "wound"
               }
             ]
           }
@@ -237,20 +131,111 @@
         {
           "count": 1,
           "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
+          "count": 2,
+          "attackModifier": {
             "type": "plus1",
             "effects": [
               {
-                "type": "condition",
-                "value": "wound"
+                "type": "shield",
+                "value": 1
               }
             ]
           }
         }
       ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "element",
+                "value": "fire"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "element",
+                "value": "light"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "elementHalf",
+                "value": "fire|light"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeItemFh%",
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 2,
+      "combine": true,
+      "custom": "<b>Brilliant Aegis:</b> Whenever you are attacked, you may %game.element.consume.light% to gain %game.action.shield% 1 for the attack and have the attacker gain disadvantage for the attack"
     }
   ],
   "masteries": [
-    "",
-    ""
+    "Kill at least five enemies during their turns",
+    "Force each enemy in the scenario to move at least one hex, forcing at least six enemies to move"
   ]
 }

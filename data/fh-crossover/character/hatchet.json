@@ -72,11 +72,11 @@
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus2",
+            "type": "plus0",
             "effects": [
               {
                 "type": "condition",
-                "value": "muddle"
+                "value": "stun"
               }
             ]
           }
@@ -90,7 +90,7 @@
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus0"
+            "type": "plus1"
           }
         },
         {
@@ -100,7 +100,7 @@
             "effects": [
               {
                 "type": "condition",
-                "value": "poison"
+                "value": "stun"
               }
             ]
           }
@@ -148,6 +148,30 @@
             "effects": [
               {
                 "type": "condition",
+                "value": "poison"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
                 "value": "immobilize"
               }
             ]
@@ -168,77 +192,11 @@
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus1",
-            "effects": [
-              {
-                "type": "push",
-                "value": 2
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "stun"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "stun"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 3,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
             "type": "plus2",
             "effects": [
               {
-                "type": "element",
-                "value": "air"
+                "type": "condition",
+                "value": "muddle"
               }
             ]
           }
@@ -262,10 +220,33 @@
           }
         }
       ]
+    },
+    {
+      "type": "add",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "element",
+                "value": "air"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "<b>Hasty Pick-up:</b> Once each scenario, during your turn, if the Favourite is in a hex on the map, you may %game.element.consume.air% to return it to it's ability card"
     }
   ],
   "masteries": [
-    "",
-    ""
+    "%game.element.air% or %game.element.consume.air% during each of your turns",
+    "During each round in which there is at least one enemy on the map at the start of your turn, either place one of your tokens on an ability card of yours or on an enemy"
   ]
 }

@@ -60,18 +60,6 @@
       ]
     },
     {
-      "type": "remove",
-      "count": 1,
-      "cards": [
-        {
-          "count": 4,
-          "attackModifier": {
-            "type": "plus0"
-          }
-        }
-      ]
-    },
-    {
       "type": "replace",
       "count": 2,
       "cards": [
@@ -100,6 +88,31 @@
           }
         },
         {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "wound"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
           "count": 1,
           "attackModifier": {
             "type": "plus2",
@@ -113,14 +126,13 @@
       "count": 2,
       "cards": [
         {
-          "count": 2,
+          "count": 1,
           "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
+            "type": "plus2",
             "effects": [
               {
-                "type": "condition",
-                "value": "wound"
+                "type": "element",
+                "value": "fire"
               }
             ]
           }
@@ -191,31 +203,18 @@
       ]
     },
     {
-      "type": "add",
-      "count": 2,
-      "cards": [
-        {
-          "count": 2,
-          "attackModifier": {
-            "type": "plus2",
-            "effects": [
-              {
-                "type": "element",
-                "value": "fire"
-              }
-            ]
-          }
-        }
-      ]
+      "type": "custom",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeItemFh%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "%game.custom.perks.ignoreNegativeItem%"
+      "custom": "<b>Rapid Recovery:</b> Whenever you heal from a long rest, add +1 %game.action.heal%"
     }
   ],
   "masteries": [
-    "",
-    ""
+    "Lose at least one hit point during each of your turns, without ever performing the bottom action of <i>Blood Pact</i>",
+    "Have exactly one hit point at the end of each of your turns"
   ]
 }

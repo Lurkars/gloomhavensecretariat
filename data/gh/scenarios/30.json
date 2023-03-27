@@ -1,7 +1,7 @@
 {
   "index": "30",
   "name": "Shrine of the Depths",
-  "gridLocation": "N:15",
+  "gridLocation": "N:15:-21:16",
   "edition": "gh",
   "unlocks": [
     "42"

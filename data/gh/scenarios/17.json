@@ -1,7 +1,7 @@
 {
   "index": "17",
   "name": "Lost Island",
-  "gridLocation": "K:17",
+  "gridLocation": "K:17:65:-53",
   "edition": "gh",
   "rewards": {
     "gold": 25

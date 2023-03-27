@@ -80,6 +80,7 @@
       "import": "Importieren",
       "items": {
         ".": "Gegenstände",
+        "effect": "Falls der Gegenstand angelegt ist, wird der Effekt automatisch angewendet. Um einen Gegenstand anzulegen, einfach auf den Namen klicken.",
         "wip": "%wip%! Gegenstände für %data.edition.{0}% sind noch nicht vollständig."
       },
       "level": "Level",
@@ -925,7 +926,7 @@
     },
     "applyConditions": {
       ".": "Zustände automatisch anweden",
-      "hint": "Entsprechende Zustände werden automatisch vor und nach einem Zug angewendet, bei Wunde z.B. wird zu Beginn des Zuges automaitsch 1 TP abgezogen"
+      "hint": "Entsprechende Zustände werden automatisch vor und nach einem Zug angewendet, bei Wunde z.B. wird zu Beginn des Zuges automatisch 1 TP abgezogen"
     },
     "applyLoot": {
       ".": "Beute Charakter zuweisen",
@@ -1260,7 +1261,7 @@
       "lootDeckReorder": "Beute Deck neu anordnen",
       "lootDeckShow": "Beute Deck einblenden",
       "lootDeckShuffle": "Beute Deck mischen",
-      "lootCharTreasure": "{2} erbeutet Schatz {1}",
+      "lootCharTreasure": "{2} erbeutet Schatz {0}",
       "moveResource": "{2} {1} von {0} zur Frosthaven Versorgung hinzufügen",
       "monsterConsumeElement": "{0} verbraucht {1}",
       "monsterDead": "Töte alle {1}{0}",

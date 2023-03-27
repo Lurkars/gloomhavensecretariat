@@ -1,7 +1,7 @@
 {
   "index": "45",
   "name": "Rebel Swamp",
-  "gridLocation": "M:9",
+  "gridLocation": "M:9:-97:-72",
   "edition": "gh",
   "unlocks": [
     "49",

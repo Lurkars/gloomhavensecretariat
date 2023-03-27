@@ -1,7 +1,7 @@
 {
   "index": "28",
   "name": "Outer Ritual Chamber",
-  "gridLocation": "E:4",
+  "gridLocation": "E:4:-24:-10",
   "edition": "gh",
   "unlocks": [
     "29"

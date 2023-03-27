@@ -1,7 +1,7 @@
 {
   "index": "81",
   "name": "Temple of the Eclipse",
-  "gridLocation": "D:2",
+  "gridLocation": "D:2:-3:-6",
   "edition": "gh",
   "rewards": {
     "experience": 10

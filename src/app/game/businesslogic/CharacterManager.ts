@@ -1,8 +1,9 @@
 import { AttackModifier, AttackModifierType, CsOakDeckAttackModifier } from "../model/AttackModifier";
 import { Character } from "../model/Character";
 import { CharacterStat } from "../model/CharacterStat";
-import { ConditionType, EntityConditionState } from "../model/Condition";
+import { Condition, ConditionName, ConditionType, EntityConditionState } from "../model/Condition";
 import { CharacterData } from "../model/data/CharacterData";
+import { ItemData } from "../model/data/ItemData";
 import { ObjectiveData, ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
 import { SummonData } from "../model/data/SummonData";
 import { EntityValueFunction } from "../model/Entity";
@@ -233,6 +234,51 @@ export class CharacterManager {
         }
       }
     }
+
+    if (character.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '101')) {
+      let minus1 = character.attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus1);
+      if (minus1) {
+        character.attackModifierDeck.cards.splice(character.attackModifierDeck.cards.indexOf(minus1), 1);
+        minus1 = character.attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus1);
+        if (minus1) {
+          character.attackModifierDeck.cards.splice(character.attackModifierDeck.cards.indexOf(minus1), 1);
+        }
+      }
+    }
+
+    if (character.progress.equippedItems.find((identifier) => identifier.edition == 'toa' && identifier.name == '107')) {
+      const minus2 = character.attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus2);
+      if (minus2) {
+        character.attackModifierDeck.cards.splice(character.attackModifierDeck.cards.indexOf(minus2), 1);
+      }
+    }
+
+    if (character.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '3')) {
+      const stats = gameManager.getCharacterData(character.name, character.edition).stats.find((stats) => stats.level == character.level);
+      if (stats && character.maxHealth <= stats.health) {
+        character.maxHealth = stats.health + 1;
+        character.health = character.maxHealth;
+      }
+    }
+
+    if (character.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '11')) {
+      const minus1 = character.attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus1);
+      if (minus1) {
+        character.attackModifierDeck.cards.splice(character.attackModifierDeck.cards.indexOf(minus1), 1);
+      }
+    }
+
+    if (character.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '41')) {
+      const plus0 = character.attackModifierDeck.cards.find((am) => am.id == AttackModifierType.plus0);
+      if (plus0) {
+        character.attackModifierDeck.cards.splice(character.attackModifierDeck.cards.indexOf(plus0), 1);
+      }
+
+      const minus1 = character.attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus1);
+      if (minus1) {
+        character.attackModifierDeck.cards.splice(character.attackModifierDeck.cards.indexOf(minus1), 1);
+      }
+    }
   }
 
   ignoreNegativeItemEffects(character: Character): boolean {
@@ -253,6 +299,19 @@ export class CharacterManager {
       const perkIndex = character.perks.indexOf(perk);
       return character.progress.perks[perkIndex] && perk.combined ? (character.progress.perks[perkIndex] == perk.count) : character.progress.perks[perkIndex] > 0;
     }
+  }
+
+  itemEffect(itemData: ItemData): boolean {
+    if (itemData.edition == 'gh') {
+      return [16, 38, 52, 101, 103, 108].indexOf(itemData.id) != -1;
+    } else if (itemData.edition == 'cs') {
+      return [157, 71].indexOf(itemData.id) != -1;
+    } else if (itemData.edition == 'toa') {
+      return [101, 107].indexOf(itemData.id) != -1;
+    } else if (itemData.edition == 'fh') {
+      return [3, 11, 41, 60, 132, 138].indexOf(itemData.id) != -1;
+    }
+    return false;
   }
 
   applyDonations(character: Character) {
@@ -332,6 +391,11 @@ export class CharacterManager {
             });
           });
         }
+
+        if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '57') && gameManager.entityManager.hasCondition(figure, new Condition(ConditionName.wound)) && !gameManager.entityManager.hasCondition(figure, new Condition(ConditionName.regenerate))) {
+          gameManager.entityManager.toggleCondition(figure, new Condition(ConditionName.regenerate), figure.active, figure.off);
+        }
+
       } else if (figure instanceof Objective) {
         figure.off = false;
 
@@ -351,7 +415,7 @@ export class CharacterManager {
               if (entityCondition.state == EntityConditionState.normal) {
                 entityCondition.lastState = entityCondition.state;
                 entityCondition.state = EntityConditionState.expire;
-              } 
+              }
             }
           })
         }

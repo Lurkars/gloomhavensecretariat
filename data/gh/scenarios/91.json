@@ -1,7 +1,7 @@
 {
   "index": "91",
   "name": "Wild Melee",
-  "gridLocation": "E:2",
+  "gridLocation": "E:2:27:-33",
   "edition": "gh",
   "rewards": {
     "battleGoals": 2

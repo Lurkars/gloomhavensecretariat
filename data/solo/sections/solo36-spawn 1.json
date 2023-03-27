@@ -15,23 +15,23 @@
       "monster": [
         {
           "name": "lightning-eel",
-          "type": "normal"
+          "type": "elite"
         },
         {
           "name": "lightning-eel",
-          "type": "normal"
+          "type": "elite"
         },
         {
           "name": "lightning-eel",
-          "type": "normal"
+          "type": "elite"
         },
         {
           "name": "lightning-eel",
-          "type": "normal"
+          "type": "elite"
         },
         {
           "name": "lost-in-seaweed",
-          "type": "normal"
+          "type": "elite"
         }
       ]
     }

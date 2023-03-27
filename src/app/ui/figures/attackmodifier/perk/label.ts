@@ -1,4 +1,5 @@
 import { Component, Input, ViewEncapsulation } from "@angular/core";
+import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType, AttackModifierValueType } from "src/app/game/model/AttackModifier";
 import { Perk, PerkType } from "src/app/game/model/Perks";
@@ -25,12 +26,17 @@ export class PerkLabelComponent {
             if (cardLabel.length < 2 || perk.type == PerkType.replace && cardLabel.length == 2) {
                 label = cardLabel;
             } else if (perk.type == PerkType.replace) {
-                label.push(cardLabel[0]);
-                cardLabel.forEach((value, index, self) => {
-                    if (index > 0 && index % 2 == 1 && index < self.length - 1) {
-                        label.push(settingsManager.getLabel('game.attackModifiers.perks.additional', [value, cardLabel[index + 1]]));
-                    }
-                });
+                if (gameManager.attackModifierManager.replaceThreeCheck(perk)) {
+                    label.push(settingsManager.getLabel('game.attackModifiers.perks.additional', [cardLabel[0], cardLabel[1]]));
+                    label.push(cardLabel[2]);
+                } else {
+                    label.push(cardLabel[0]);
+                    cardLabel.forEach((value, index, self) => {
+                        if (index > 0 && index % 2 == 1 && index < self.length - 1) {
+                            label.push(settingsManager.getLabel('game.attackModifiers.perks.additional', [value, cardLabel[index + 1]]));
+                        }
+                    });
+                }
             } else {
                 cardLabel.forEach((value, index, self) => {
                     if (index % 2 == 0 && index < self.length - 1) {

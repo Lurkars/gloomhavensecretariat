@@ -80,6 +80,7 @@
       "import": "Import",
       "items": {
         ".": "Items",
+        "effect": "If the item is equipped, it's effect is automatically applied. To equip an item, just click it's name.",
         "wip": "%wip%! Items for %data.edition.{0}% not complete yet."
       },
       "level": "Level",
@@ -1359,7 +1360,7 @@
       "lootDeckReorder": "Reorder Loot deck",
       "lootDeckShow": "Show Loot deck",
       "lootDeckShuffle": "Shuffle Loot deck",
-      "lootCharTreasure": "{2} loots treasure {1}",
+      "lootCharTreasure": "{2} loots treasure {0}",
       "moveResource": "Move {2} {1} from {0} to Frosthaven Supply",
       "monsterConsumeElement": "{0} consume {1}",
       "monsterDead": "Kill all {1}{0}",

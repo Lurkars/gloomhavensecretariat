@@ -1,7 +1,7 @@
 {
   "index": "20",
   "name": "Necromancer's Sanctum",
-  "gridLocation": "H:13",
+  "gridLocation": "H:13:-110:-42",
   "edition": "gh",
   "unlocks": [
     "16",

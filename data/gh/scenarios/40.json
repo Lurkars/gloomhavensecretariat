@@ -1,7 +1,7 @@
 {
   "index": "40",
   "name": "Ancient Defense Network",
-  "gridLocation": "F:12",
+  "gridLocation": "F:12:-12:-18",
   "edition": "gh",
   "unlocks": [
     "41"

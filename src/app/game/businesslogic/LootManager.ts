@@ -1,6 +1,6 @@
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { Character } from "../model/Character";
-import { ConditionName } from "../model/Condition";
+import { Condition, ConditionName } from "../model/Condition";
 import { TreasureData, TreasureReward, TreasureRewardType } from "../model/data/RoomData";
 import { Game } from "../model/Game";
 import { Identifier } from "../model/Identifier";
@@ -132,7 +132,9 @@ export class LootManager {
       case TreasureRewardType.condition:
         if (typeof reward.value === 'string') {
           reward.value.split('+').forEach((condition) => {
-            gameManager.entityManager.applyCondition(character, condition as ConditionName)
+            if (!gameManager.entityManager.hasCondition(character, new Condition(condition as ConditionName))) {
+              gameManager.entityManager.toggleCondition(character, new Condition(condition as ConditionName), character.active, character.off);
+            }
           })
         }
         break;

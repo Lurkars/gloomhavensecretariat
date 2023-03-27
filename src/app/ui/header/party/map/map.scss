@@ -14,16 +14,39 @@
         background-image: url('~src/assets/images/maps/gh-map.jpg');
     }
 
-    .scenario {
+    .scenario-container {
         position: relative;
         display: flex;
-        border: 1px solid red;
 
-        img {
+        .scenario {
             position: absolute;
             top: 0;
             left: 0;
-            opacity: 0.6;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                filter: brightness(1.3);
+            }
+
+            &:hover {
+                cursor: pointer;
+                z-index: 99;
+
+                img {
+                    filter: brightness(1.1);
+                }
+            }
+
+            &.success,
+            &.succes:hover {
+                cursor: initial;
+
+                img {
+                    filter: none;
+                }
+            }
         }
     }
 }

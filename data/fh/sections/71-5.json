@@ -30,6 +30,10 @@
           "player3": "normal",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1
       ]
     }
   ]

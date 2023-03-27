@@ -7,8 +7,7 @@
   "monsters": [
     "ancient-artillery",
     "robotic-boltshooter",
-    "ruined-machine",
-    "steel-automaton"
+    "ruined-machine"
   ],
   "lootDeckConfig": {
     "coin": 15
@@ -27,15 +26,15 @@
           "type": "normal"
         },
         {
-          "name": "steel-automaton",
+          "name": "ruined-machine",
           "type": "normal"
         },
         {
-          "name": "steel-automaton",
+          "name": "ruined-machine",
           "type": "normal"
         },
         {
-          "name": "steel-automaton",
+          "name": "ruined-machine",
           "type": "elite"
         }
       ]

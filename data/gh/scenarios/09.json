@@ -1,7 +1,7 @@
 {
   "index": "9",
   "name": "Diamond Mine",
-  "gridLocation": "L:2",
+  "gridLocation": "L:2:-20:-17",
   "edition": "gh",
   "unlocks": [
     "11",

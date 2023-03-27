@@ -1,7 +1,7 @@
 {
   "index": "48",
   "name": "Shadow Weald",
-  "gridLocation": "E:1",
+  "gridLocation": "E:1:37:-11",
   "edition": "gh",
   "unlocks": [
     "51"

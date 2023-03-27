@@ -268,25 +268,26 @@ export class StateManager {
           if (settingsManager.settings.serverSettings) {
             let settings: Settings = message.payload as Settings;
             // keep local
-            settings.serverUrl = settingsManager.settings.serverUrl;
-            settings.serverPort = settingsManager.settings.serverPort;
-            settings.serverPassword = settingsManager.settings.serverPassword;
-            settings.serverSettings = settingsManager.settings.serverSettings;
-            settings.serverWss = settingsManager.settings.serverWss;
-            settings.fullscreen = settingsManager.settings.fullscreen;
-            settings.fhStyle = settingsManager.settings.fhStyle;
-            settings.theme = settingsManager.settings.theme;
-            settings.autoscroll = settingsManager.settings.autoscroll;
-            settings.disableColumns = settingsManager.settings.disableColumns;
-            settings.disableAnimations = settingsManager.settings.disableAnimations;
-            settings.dragValues = settingsManager.settings.dragValues;
-            settings.pressDoubleClick = settingsManager.settings.pressDoubleClick;
             settings.automaticAttackModifierFullscreen = settingsManager.settings.automaticAttackModifierFullscreen;
-            settings.disableWakeLock = settingsManager.settings.disableWakeLock;
+            settings.autoscroll = settingsManager.settings.autoscroll;
             settings.barsize = settingsManager.settings.barsize;
-            settings.fontsize = settingsManager.settings.fontsize;
-            settings.locale = settingsManager.settings.locale;
+            settings.browserNavigation = settingsManager.settings.browserNavigation;
             settings.debugRightClick = settingsManager.settings.debugRightClick;
+            settings.disableAnimations = settingsManager.settings.disableAnimations;
+            settings.disableColumns = settingsManager.settings.disableColumns;
+            settings.disableWakeLock = settingsManager.settings.disableWakeLock;
+            settings.dragValues = settingsManager.settings.dragValues;
+            settings.fhStyle = settingsManager.settings.fhStyle;
+            settings.fontsize = settingsManager.settings.fontsize;
+            settings.fullscreen = settingsManager.settings.fullscreen;
+            settings.pressDoubleClick = settingsManager.settings.pressDoubleClick;
+            settings.serverAutoconnect = settingsManager.settings.serverAutoconnect;
+            settings.serverPassword = settingsManager.settings.serverPassword;
+            settings.serverPort = settingsManager.settings.serverPort;
+            settings.serverSettings = settingsManager.settings.serverSettings;
+            settings.serverUrl = settingsManager.settings.serverUrl;
+            settings.serverWss = settingsManager.settings.serverWss;
+            settings.theme = settingsManager.settings.theme;
             settings.zoom = settingsManager.settings.zoom;
 
             settingsManager.setSettings(settings);

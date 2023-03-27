@@ -1,9 +1,11 @@
 <div class="scroll-container">
     <div class="map gh">
-        <div class="scenario" *ngFor="let scenario of scenarios; let i = index;" [style.grid-column]="columns[i]"
-            [style.grid-row]="rows[i]">
-            <img [src]="'./assets/images/maps/scenarios/' + scenario.edition + '-' + scenario.index + '.png'"
-                [style.margin-left]="offsetX[i] + 'px'" [style.margin-top]="offsetY[i] + 'px'">
+        <div class="scenario-container" *ngFor="let scenario of scenarios; let i = index;"
+            [style.grid-column]="columns[i]" [style.grid-row]="rows[i]">
+            <div class="scenario" [style.margin-left]="offsetX[i] + 'px'" [style.margin-top]="offsetY[i] + 'px'"
+                [ngClass]="{'success' : success[i] || !gameManager.game.party.campaignMode}" (click)="startScenario(i)">
+                <img [src]="'./assets/images/maps/scenarios/' + scenario.edition + '-' + scenario.index + '.png'">
+            </div>
         </div>
     </div>
 </div>

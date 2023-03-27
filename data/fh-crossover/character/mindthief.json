@@ -83,7 +83,7 @@
   "perks": [
     {
       "type": "remove",
-      "count": 2,
+      "count": 1,
       "cards": [
         {
           "count": 2,
@@ -94,31 +94,26 @@
       ]
     },
     {
-      "type": "remove",
-      "count": 1,
-      "cards": [
-        {
-          "count": 4,
-          "attackModifier": {
-            "type": "plus0"
-          }
-        }
-      ]
-    },
-    {
       "type": "replace",
-      "count": 1,
+      "count": 2,
       "cards": [
         {
-          "count": 2,
+          "count": 1,
           "attackModifier": {
-            "type": "plus1"
+            "type": "minus1"
           }
         },
         {
-          "count": 2,
+          "count": 1,
           "attackModifier": {
-            "type": "plus2"
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "immobilize"
+              }
+            ]
           }
         }
       ]
@@ -137,6 +132,74 @@
           "count": 1,
           "attackModifier": {
             "type": "plus0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 3,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "push",
+                "value": 1
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 3,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "muddle"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus2"
           }
         }
       ]
@@ -168,63 +231,6 @@
           "attackModifier": {
             "type": "plus1",
             "rolling": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 3,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "pull",
-                "value": 1
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 3,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "condition",
-                "value": "muddle"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 2,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "condition",
-                "value": "immobilize"
-              }
-            ]
           }
         }
       ]
@@ -284,10 +290,15 @@
       "type": "custom",
       "count": 1,
       "custom": "%game.custom.perks.ignoreScenario%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "<b>Lying Low:</b> You are considered to be last in initiative order when determining monster focus"
     }
   ],
   "masteries": [
-    "",
-    ""
+    "Trigger the on-attack effect of four different Augments thrice each",
+    "Never be targeted by an attack"
   ]
 }

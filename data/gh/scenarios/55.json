@@ -1,7 +1,7 @@
 {
   "index": "55",
   "name": "Foggy Ticket",
-  "gridLocation": "G:5",
+  "gridLocation": "G:5:-55:0",
   "edition": "gh",
   "unlocks": [
     "56"

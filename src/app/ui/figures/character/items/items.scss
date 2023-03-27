@@ -138,6 +138,19 @@
                 }
             }
 
+            .effect {
+                &.hint-container {
+                    .hint-trigger.ghs-svg {
+                        filter: var(--ghs-filter-gray);
+                    }
+
+                    .hint {
+                        left: initial;
+                        right: 0;
+                    }
+                }
+            }
+
             .minus-one {
                 font-family: var(--ghs-font-title);
                 display: flex;

@@ -1,7 +1,7 @@
 {
   "index": "68",
   "name": "Toxic Moor",
-  "gridLocation": "N:8",
+  "gridLocation": "N:8:26:-24",
   "edition": "gh",
   "random": true,
   "rewards": {

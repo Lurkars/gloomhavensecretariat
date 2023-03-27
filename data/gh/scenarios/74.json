@@ -1,7 +1,7 @@
 {
   "index": "74",
   "name": "Merchant Ship",
-  "gridLocation": "I:14",
+  "gridLocation": "I:14:-7:44",
   "edition": "gh",
   "rewards": {
     "gold": 10,

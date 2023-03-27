@@ -303,8 +303,11 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
         } else {
             if (item.slot == ItemSlot.small) {
                 let allowed = Math.ceil(this.character.level / 2);
-                if (equippedItems.find((itemData) => itemData.id == 16 && itemData.edition == 'gh')) {
+                if (equippedItems.find((itemData) => itemData.id == 16 && itemData.edition == 'gh' || itemData.id == 60 && itemData.edition == 'fh')) {
                     allowed += 2;
+                }
+                if (equippedItems.find((itemData) => itemData.id == 132 && itemData.edition == 'fh')) {
+                    allowed += 1;
                 }
 
                 if (equippedItems.filter((itemData) => itemData.slot == item.slot).length >= allowed) {

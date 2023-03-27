@@ -1,7 +1,7 @@
 {
   "index": "52",
   "name": "Noxious Cellar",
-  "gridLocation": "D:14",
+  "gridLocation": "D:14:-25:-70",
   "edition": "gh",
   "unlocks": [
     "53"

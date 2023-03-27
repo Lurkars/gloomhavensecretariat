@@ -8,6 +8,13 @@
     "living-bones",
     "ooze"
   ],
+  "objectives": [
+    {
+      "name": "Altar",
+      "health": "L+2",
+      "initiative": 99
+    }
+  ],
   "lootDeckConfig": {
     "money": 13,
     "lumber": 2,

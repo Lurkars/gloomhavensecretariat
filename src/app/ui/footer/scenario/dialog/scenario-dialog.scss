@@ -74,6 +74,7 @@
       height: 100%;
 
       .monster {
+        cursor: pointer;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -81,12 +82,8 @@
         align-items: center;
         width: calc(var(--ghs-unit) * 13 * var(--ghs-dialog-factor));
 
-        &.spoiler {
-          cursor: pointer;
-
-          &:hover {
-            opacity: 0.7;
-          }
+        &:hover {
+          opacity: 0.7;
         }
 
         .image {

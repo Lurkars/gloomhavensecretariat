@@ -49,7 +49,7 @@ export class SettingsManager {
 
   setSettings(settings: Settings) {
     if (settings.locale != this.settings.locale) {
-      this.updateLocale(this.settings.locale);
+      this.updateLocale(settings.locale);
     }
     this.settings = settings;
     if (!this.settings.editions || this.settings.editions.length == 0) {
@@ -531,11 +531,11 @@ export class SettingsManager {
           if (roomData.monster) {
             roomData.monster.forEach((monsterStandeeData) => {
               if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).indexOf(monsterData.edition) != -1) && monsterData.name == monsterStandeeData.name.split(':')[0])) {
-                console.warn("Invalid monster: " + monsterStandeeData.name + " | scenario", scenarioData.edition, scenarioData.group || '',scenarioData.index);
+                console.warn("Invalid monster: " + monsterStandeeData.name + " | scenario", scenarioData.edition, scenarioData.group || '', scenarioData.index);
               }
 
               if (!scenarioData.monsters || !scenarioData.monsters.find((name) => name == monsterStandeeData.name || name.split(':')[0] == monsterStandeeData.name)) {
-                console.debug("Missing monster '" + monsterStandeeData.name + "' from room '" + roomData.roomNumber + "' in monsters", scenarioData.edition, scenarioData.group || '',scenarioData.index);
+                console.debug("Missing monster '" + monsterStandeeData.name + "' from room '" + roomData.roomNumber + "' in monsters", scenarioData.edition, scenarioData.group || '', scenarioData.index);
               }
             })
           }
@@ -846,6 +846,7 @@ export class SettingsManager {
     for (let editionData of gameManager.editionData) {
       this.loadDataLabel(editionData);
     }
+    gameManager.uiChange.emit();
   }
 
   async setLocale(locale: string) {

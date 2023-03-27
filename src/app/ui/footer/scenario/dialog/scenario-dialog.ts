@@ -25,6 +25,7 @@ export class ScenarioDialogComponent {
 
     monsters: MonsterData[] = [];
     setup: boolean = false;
+    hasSpoiler: boolean = false;
     spoiler: boolean = false;
 
     constructor(@Inject(DIALOG_DATA) public scenario: Scenario, public dialogRef: DialogRef, private dialog: Dialog) {
@@ -33,6 +34,7 @@ export class ScenarioDialogComponent {
 
     updateMonster() {
         this.monsters = [];
+        this.hasSpoiler = this.spoiler;
         gameManager.scenarioManager.getMonsters(this.scenario).forEach((monster) => {
             if (this.spoiler || !monster.standeeShare || gameManager.scenarioManager.openRooms().find((room) => room.initial && room.monster.find((standee) => standee.name.split(':')[0] == monster.name)) || gameManager.game.figures.some((figure) => figure instanceof Monster && figure.name == monster.name && figure.edition == monster.edition)) {
                 if (this.monsters.indexOf(monster) == -1) {
@@ -42,11 +44,12 @@ export class ScenarioDialogComponent {
                 const standee = gameManager.monstersData().find((monsterData) => monsterData.name == monster.standeeShare && monsterData.edition == (monster.standeeShareEdition || monster.edition));
                 if (standee) {
                     const changedStandee = JSON.parse(JSON.stringify(standee));
-                    changedStandee.standeeShare = monster.edition;
+                    changedStandee.tag = monster.edition;
                     changedStandee.standeeShareEdition = monster.name;
                     changedStandee.boss = monster.boss;
                     if (!this.monsters.find((m) => m.name == changedStandee.name && m.edition == changedStandee.edition)) {
                         this.monsters.push(changedStandee);
+                        this.hasSpoiler = true;
                     }
                 }
             }
@@ -60,11 +63,9 @@ export class ScenarioDialogComponent {
     }
 
     openStats(monsterData: MonsterData) {
-        if (this.spoiler) {
-            const monster = new Monster(monsterData);
-            gameManager.monsterManager.resetMonsterAbilities(monster);
-            this.dialog.open(StatsListComponent, { panelClass: 'dialog', data: monster });
-        }
+        const monster = new Monster(monsterData);
+        gameManager.monsterManager.resetMonsterAbilities(monster);
+        this.dialog.open(StatsListComponent, { panelClass: 'dialog', data: monster });
     }
 
     finishScenario(success: boolean) {

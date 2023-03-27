@@ -339,14 +339,12 @@ export class ScenarioManager {
       if (this.game.state == GameState.next) {
         this.game.figures.forEach((figure) => {
           if (figure instanceof Monster && (figure.edition == scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).indexOf(figure.edition) != -1) && figure.entities.some((entity) => entities.indexOf(entity) != -1)) {
-            figure.active = !this.game.figures.some((figure) => figure.active);
-            if (this.game.state == GameState.next) {
-              figure.entities.forEach((entity) => {
-                if (entities.indexOf(entity) != -1) {
-                  entity.active = figure.active || gameManager.game.figures.some((figure, index, self) => figure.active && index > self.indexOf(figure));
-                }
-              })
-            }
+            figure.active = figure.active || !this.game.figures.some((other) => other.active);
+            figure.entities.forEach((entity) => {
+              if (entities.indexOf(entity) != -1) {
+                entity.active = figure.active || gameManager.game.figures.some((other, index, self) => other.active && index > self.indexOf(figure));
+              }
+            })
           }
         })
       }

@@ -1,7 +1,7 @@
 {
   "index": "22",
   "name": "Temple of the Elements",
-  "gridLocation": "K:8",
+  "gridLocation": "K:8:12:3",
   "edition": "gh",
   "unlocks": [
     "31",

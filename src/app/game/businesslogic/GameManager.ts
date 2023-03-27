@@ -208,7 +208,7 @@ export class GameManager {
     const scenarioData = (objectiveIdentifier.section ? this.sectionData(objectiveIdentifier.edition).find((sectionData) => sectionData.index == objectiveIdentifier.scenario && sectionData.group == objectiveIdentifier.group) : this.scenarioData(objectiveIdentifier.edition).find((scenarioData) => scenarioData.index == objectiveIdentifier.scenario && scenarioData.group == objectiveIdentifier.group));
     if (scenarioData) {
       if (objectiveIdentifier.section && !scenarioData.objectives) {
-        const parent = this.scenarioData(objectiveIdentifier.edition).find((scenarioData) => scenarioData.index == scenarioData.parent && scenarioData.group == objectiveIdentifier.group);
+        const parent = this.scenarioData(objectiveIdentifier.edition).find((scenario) => scenario.index == scenarioData.parent && scenario.group == scenarioData.group);
         if (parent && parent.objectives && parent.objectives.length > objectiveIdentifier.index) {
           return parent.objectives[objectiveIdentifier.index];
         }

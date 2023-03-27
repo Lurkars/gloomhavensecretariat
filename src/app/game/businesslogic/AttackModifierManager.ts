@@ -255,7 +255,7 @@ export class AttackModifierManager {
     perk.cards = perk.cards || [];
 
     perk.cards.forEach((card, index) => {
-      if (!this.findByAttackModifier(characterCards, card.attackModifier) || perk.type == PerkType.add || perk.type == PerkType.replace && index > 0) {
+      if (!this.findByAttackModifier(characterCards, card.attackModifier) || perk.type == PerkType.add || perk.type == PerkType.replace && (index > 0 && !this.replaceThreeCheck(perk) || index > 1 && this.replaceThreeCheck(perk))) {
         card.attackModifier.character = true;
       }
     })
@@ -265,9 +265,18 @@ export class AttackModifierManager {
     } else if (perk.type == PerkType.remove) {
       this.removeCards(attackModifierDeck, perk.cards);
     } else if (perk.type == PerkType.replace) {
-      this.removeCards(attackModifierDeck, [perk.cards[0]]);
-      this.addCards(attackModifierDeck, perk.cards.slice(1, perk.cards.length));
+      if (this.replaceThreeCheck(perk)) {
+        this.removeCards(attackModifierDeck, [perk.cards[0], perk.cards[1]]);
+        this.addCards(attackModifierDeck, [perk.cards[2]]);
+      } else {
+        this.removeCards(attackModifierDeck, [perk.cards[0]]);
+        this.addCards(attackModifierDeck, perk.cards.slice(1, perk.cards.length));
+      }
     }
+  }
+
+  replaceThreeCheck(perk: Perk) {
+    return perk.type == PerkType.replace && perk.cards.length == 3 && (perk.cards[0].count + perk.cards[1].count) == perk.cards[2].count
   }
 
   findByAttackModifier(attackModifiers: AttackModifier[], attackModifier: AttackModifier): AttackModifier | undefined {

@@ -18,12 +18,11 @@
       <span>{{'scenario.setup' | ghsLabel}}</span>
     </span>
 
-    <label class="checkbox">
+    <label class="checkbox" *ngIf="hasSpoiler">
       <input type="checkbox" [(ngModel)]="spoiler" (change)="updateMonster()">{{'scenario.setup.spoiler' | ghsLabel}}
     </label>
     <div class="monsters">
-      <div class="monster" *ngFor="let monster of monsters" (click)="openStats(monster)"
-        [ngClass]="{'spoiler' : spoiler}">
+      <div class="monster" *ngFor="let monster of monsters" (click)="openStats(monster)">
         <div class="image">
           <div class="outer-border">
             <div class="inner-border">

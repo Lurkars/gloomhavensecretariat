@@ -351,6 +351,14 @@ export class EntityManager {
 
 
         entity.health = entity.health - entityCondition.value;
+
+        if (entity instanceof Character && entity.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '71')) {
+          entity.health = entity.health + entityCondition.value + 1;
+          if (entity.health > entity.maxHealth) {
+            entity.health = entity.maxHealth;
+          }
+        }
+
         if (entity.health < 0) {
           entity.health = 0;
         }
@@ -366,7 +374,7 @@ export class EntityManager {
         entityCondition.highlight = true;
         setTimeout(() => {
           entityCondition.highlight = false;
-          if (entity.health > 0) {
+          if (entity.health > 0 && (!(entity instanceof Character) || !entity.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '71'))) {
             this.sufferDamageHighlightConditions(entity, - entityCondition.value);
           }
         }, 1000);

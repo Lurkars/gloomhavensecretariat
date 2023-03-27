@@ -28,6 +28,10 @@
           "name": "living-bones",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1
       ]
     }
   ]

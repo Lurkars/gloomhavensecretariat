@@ -73,18 +73,24 @@
     },
     {
       "type": "replace",
-      "count": 2,
+      "count": 1,
       "cards": [
         {
-          "count": 2,
+          "count": 1,
           "attackModifier": {
-            "type": "plus1"
+            "type": "minus1"
           }
         },
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus4"
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "stun"
+              }
+            ]
           }
         }
       ]
@@ -235,24 +241,18 @@
     },
     {
       "type": "replace",
-      "count": 1,
+      "count": 2,
       "cards": [
         {
-          "count": 1,
+          "count": 2,
           "attackModifier": {
-            "type": "minus1"
+            "type": "plus1"
           }
         },
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus0",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "stun"
-              }
-            ]
+            "type": "plus4"
           }
         }
       ]
@@ -272,10 +272,10 @@
     },
     {
       "type": "add",
-      "count": 2,
+      "count": 1,
       "cards": [
         {
-          "count": 2,
+          "count": 3,
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
@@ -288,10 +288,15 @@
           }
         }
       ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "<b>Storyteller:</b> At the end of each scenario, each character in that scenario gains 8 experience if you successfully completed your battle goal"
     }
   ],
   "masteries": [
-    "",
-    ""
+    "On your first turn of the scenario and the turn after each of your rests, perform one Song action that you have not yet performed this scenario",
+    "Havel all 10 monster %game.condition.curse% cards and all 10 %game.condition.bless% cards in modifier decks at the same time"
   ]
 }

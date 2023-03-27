@@ -1,5 +1,5 @@
 {
-  "index": "66.3",
+  "index": "68.3",
   "name": "Depths of Delirium",
   "edition": "fh",
   "parent": "27",
@@ -24,6 +24,10 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        "1:C>2?1:0"
       ]
     }
   ]

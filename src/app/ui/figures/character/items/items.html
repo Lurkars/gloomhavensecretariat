@@ -12,7 +12,15 @@
                     ghsLabel}})</ng-container>
             </span>
             <span class="spacer"></span>
-            <span class="equipped" *ngIf="isEquipped(item)"><img src="./assets/images/check.svg"></span>
+            <span class="equipped" *ngIf="isEquipped(item)">
+                <img src="./assets/images/check.svg">
+            </span>
+            <div class="effect hint-container" *ngIf="gameManager.characterManager.itemEffect(item)">
+                <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+                <span class="hint">
+                    <span class="text">{{'character.progress.items.effect' | ghsLabel}}</span>
+                </span>
+            </div>
             <span class="minus-one" *ngIf="isEquipped(item) && item.minusOne"
                 [ngClass]="{'ignore' : gameManager.characterManager.ignoreNegativeItemEffects(character)}">
                 <img src="./assets/images/action/card/minus1.svg">
@@ -25,8 +33,9 @@
         </div>
     </div>
     <div class="item-form">
-        <span class="prev" (click)="itemChange(-1)"><img
-                src="./assets/images/left.svg"></span>
+        <span class="prev" (click)="itemChange(-1)">
+            <img src="./assets/images/left.svg">
+        </span>
         <input type="number" (change)="itemChange()" [(ngModel)]="itemIndex" min="1" value="1"
             [ngClass]="{ 'error': !item}">
         <select [(ngModel)]="itemEdition" (change)="editionChange()" [ngClass]="{'error': !item}">
@@ -35,7 +44,9 @@
         </select>
         <a class="button add" (click)="addItem(item)" [ngClass]="{'disabled': !canAdd(item)}"><img
                 src="./assets/images/plus.svg" [ngClass]="{'warn' : !canAdd}"></a>
-        <span class="next" (click)="itemChange(+1)"> <img src="./assets/images/right.svg"></span>
+        <span class="next" (click)="itemChange(+1)">
+            <img src="./assets/images/right.svg">
+        </span>
         <ng-container *ngIf="item">
             <span class="icon"><img [src]="'./assets/images/items/slots/' + item.slot +'.svg'"></span>
             <span class="name" [ngClass]="{'disabled' : !canAdd(item)}">{{item.name}}</span>

@@ -1,7 +1,7 @@
 {
   "index": "88",
   "name": "Plane of Water",
-  "gridLocation": "D:16",
+  "gridLocation": "D:16:68:-7",
   "edition": "gh",
   "requires": [
     [
