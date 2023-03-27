@@ -1,0 +1,44 @@
+{
+  "index": "144.1",
+  "name": "The Dead Mile",
+  "edition": "fh",
+  "parent": "37",
+  "monsters": [
+    "living-bones"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player2": "elite",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}
