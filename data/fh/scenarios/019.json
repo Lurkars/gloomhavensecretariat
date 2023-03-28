@@ -24,6 +24,17 @@
     {
       "round": "R == 1",
       "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "wound",
+          "scenarioEffect": true
+        }
+      ],
       "spawns": [
         {
           "monster": {
@@ -120,6 +131,125 @@
           },
           "marker": "d"
         }
+      ]
+    },
+    {
+      "round": "R == 6",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "earth-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "flame-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "earth-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 8",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "flame-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "earth-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "earth-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 9",
+      "end": true,
+      "sections": [
+        "75.2"
       ]
     }
   ],
