@@ -35,6 +35,44 @@
           "marker": "a"
         }
       ]
+    },
+    {
+      "round": "R == 2",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "earth-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 3",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "player2": "elite",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "d"
+        }
+      ]
     }
   ],
   "rooms": [
