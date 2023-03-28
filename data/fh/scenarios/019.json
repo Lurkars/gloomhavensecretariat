@@ -247,7 +247,7 @@
     },
     {
       "round": "R == 9",
-      "start": true,
+      "start": false,
       "sections": [
         "75.2"
       ]
