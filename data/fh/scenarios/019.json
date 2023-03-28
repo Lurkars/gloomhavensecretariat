@@ -20,6 +20,23 @@
     "corpsecap": 1,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "flame-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
