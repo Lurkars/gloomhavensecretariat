@@ -562,6 +562,7 @@
       "achievements": "Globale Erfolge",
       "donations": "Spenden an den Tempel der Großen Eiche",
       "items": "Freigeschaltete Gegenstände",
+      "map": "Karte",
       "retirements": {
         ".": "Charaktere im Ruhestand",
         "character": "Charakter",
@@ -848,6 +849,10 @@
     "connect": "Verbinden",
     "connected": "Verbunden",
     "connecting": "Verbinde",
+    "connectionTries": {
+      ".": "(Anzahl Versuche: {0})",
+      "hint": "Es kann anscheinend keine erfolgreiche Verbindung hergestellt werden. Prüfe deine Netzwerkverbindungen oder deine Verbindungseinstellungen."
+    },
     "disconnect": "Trennen",
     "disconnected": "Keine Verbindung",
     "force": "Lokale Änderungen zulassen",
@@ -857,6 +862,7 @@
       ".": "Info",
       "description": "Beschreibung",
       "location": "Standort",
+      "status": "Statusseite",
       "privacy": "Datenschutzerklärung",
       "website": "Website"
     },
@@ -874,7 +880,10 @@
     },
     "port": "Port",
     "reconnect": "Neu Verbinden",
-    "settings": "Einstellungen synchronisieren",
+    "settings": {
+      ".": "Einstellungen synchronisieren",
+      "hint": "Synchronisiert neben dem Spiel auch die Einstellungen zwischen allen Clients die dies aktiviert haben. Einige Einstellungen die nur die Anzeige oder die Oberfläche betreffen werden allerdings <b>nicht</b> synchronisiert."
+    },
     "undefined": "Verbindung nicht definiert",
     "url": "Host",
     "wss": {
