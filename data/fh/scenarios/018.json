@@ -32,7 +32,7 @@
             "name": ".*"
           },
           "type": "amAdd",
-          "value": "minus1:1",
+          "value": "curse:1",
           "scenarioEffect": true
         }
       ]
