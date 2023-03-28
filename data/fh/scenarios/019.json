@@ -6,11 +6,7 @@
     "28",
     "30"
   ],
-  "monsters": [
-    "earth-demon",
-    "flame-demon",
-    "ice-wraith"
-  ],
+  "monsters": [],
   "lootDeckConfig": {
     "money": 11,
     "lumber": 2,
