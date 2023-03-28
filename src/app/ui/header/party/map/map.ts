@@ -20,6 +20,9 @@ export class MapComponent {
     offsetY: number[] = [];
     success: boolean[] = [];
 
+    scale: number = 1;
+    zooming: boolean = false;
+
     constructor(@Inject(DIALOG_DATA) public edition: string = 'gh', public dialogRef: DialogRef) {
         this.scenarios = gameManager.scenarioManager.scenarioData(this.edition);
 
@@ -52,14 +55,25 @@ export class MapComponent {
         })
     }
 
-    startScenario(index: number) {
-        if (!this.success[index] && gameManager.game.party.campaignMode) {
+    startScenario(index: number, event: any) {
+        if (!this.success[index] && gameManager.game.party.campaignMode && !gameManager.scenarioManager.isBlocked(this.scenarios[index])) {
             const scenario = new Scenario(this.scenarios[index]);
             gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
             gameManager.scenarioManager.setScenario(scenario);
             this.dialogRef.close();
             gameManager.stateManager.after();
         }
+        event.preventDefault();
+        event.stopPropagation();
+    }
+
+
+    changeScale(change: number) {
+        this.zooming = true;
+        this.scale += change;
+        setTimeout(() => {
+            this.zooming = false;
+        }, 100);
     }
 }
 

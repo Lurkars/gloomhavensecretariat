@@ -24,6 +24,7 @@ export class StateManager {
   lastAction: "update" | "undo" | "redo" = "update";
   updateBlocked: boolean = false;
   permissionBackup: Permissions | undefined;
+  connectionTries: number = 0;
 
   undoPermission: boolean = false;
   redoPermission: boolean = false;
@@ -217,6 +218,7 @@ export class StateManager {
   connect() {
     if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword) {
       this.disconnect();
+      this.connectionTries++;
       const protocol = settingsManager.settings.serverWss ? "wss://" : "ws://";
       this.ws = new WebSocket(this.buildWsUrl(protocol, settingsManager.settings.serverUrl, settingsManager.settings.serverPort));
       this.ws.onmessage = this.onMessage;
@@ -243,6 +245,12 @@ export class StateManager {
           window.document.body.classList.add('working');
           window.document.body.classList.add('server-sync');
           let gameModel: GameModel = message.payload as GameModel;
+          if (gameManager.game.revision > gameModel.revision) {
+            gameManager.stateManager.before();
+            localStorage.setItem("ghs-game-rev." + gameManager.game.revision, JSON.stringify(gameManager.game.toModel()));
+            console.warn("An older revision was loaded from server, created a backup of previous state.");
+            gameManager.stateManager.saveLocal();
+          }
           const undoinfo = message.undoinfo;
           if (undoinfo) {
             if (undoinfo.length > 0 && undoinfo[0] == "serverSync") {
@@ -250,10 +258,6 @@ export class StateManager {
             } else {
               gameManager.stateManager.before("serverSync", ...undoinfo);
             }
-          }
-          if (gameManager.game.revision > gameModel.revision) {
-            localStorage.setItem("ghs-game-rev." + gameManager.game.revision, JSON.stringify(gameManager.game.toModel()));
-            console.warn("An older revision was loaded from server, created a backup of previous state.");
           }
           gameManager.game.fromModel(gameModel, true);
           gameManager.stateManager.saveLocal();
@@ -328,6 +332,7 @@ export class StateManager {
   onOpen(ev: Event) {
     const ws = ev.target as WebSocket;
     if (ws && ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
+      gameManager.stateManager.connectionTries = 0;
       gameManager.stateManager.updateBlocked = false;
       gameManager.stateManager.permissions = gameManager.stateManager.permissionBackup;
       let message = {
@@ -366,6 +371,7 @@ export class StateManager {
   forceUpdateState() {
     gameManager.stateManager.updateBlocked = false;
     gameManager.stateManager.permissions = gameManager.stateManager.permissionBackup;
+    gameManager.stateManager.updatePermissions();
   }
 
   requestSettings() {

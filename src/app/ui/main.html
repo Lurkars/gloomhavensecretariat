@@ -1,13 +1,21 @@
 <ghs-header #header></ghs-header>
 <main [ngClass]="{'compact' : footer.compact}">
-  <div *ngIf="gameManager.stateManager.updateBlocked && settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword" class="dialog blocked">
+  <div
+    *ngIf="gameManager.stateManager.updateBlocked && settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword"
+    class="dialog blocked">
     {{'server.blocked' | ghsLabel}}
     <div class="buttons">
       <a class="force" (click)="gameManager.stateManager.forceUpdateState()">
         {{'server.force' | ghsLabel}}
         <span class="force-hint">{{'server.forceHint' | ghsLabel}}</span>
       </a>
-      <a class="connect" (click)="gameManager.stateManager.connect()">{{'server.connect' | ghsLabel}}</a>
+      <a class="connect" (click)="gameManager.stateManager.connect()">
+        {{'server.connect' | ghsLabel}}
+        <span class="tries" *ngIf="gameManager.stateManager.connectionTries > 0">{{'server.connectionTries' |
+          ghsLabel:['' + gameManager.stateManager.connectionTries]}}</span>
+        <span class="tries-hint" *ngIf="gameManager.stateManager.connectionTries > 4">{{'server.connectionTries.hint' |
+          ghsLabel}}</span>
+      </a>
     </div>
   </div>
   <div *ngIf="!fullviewChar && welcome" class="welcome" [ngClass]="{'fh': settingsManager.settings.theme == 'fh'}">

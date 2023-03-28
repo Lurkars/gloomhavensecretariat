@@ -663,6 +663,7 @@
       "achievements": "Global Achievements",
       "donations": "Donations to Sanctuary of the Great Oak",
       "items": "Unlocked Items",
+      "map": "Map",
       "retirements": {
         ".": "Retired Characters",
         "character": "Character",
@@ -947,6 +948,10 @@
     "connect": "Connect",
     "connected": "Connected",
     "connecting": "Connecting",
+    "connectionTries": {
+      ".": "(Tries: {0})",
+      "hint": "It does not appear that a successful connection can be established. You may check your network connection or your connection configuration."
+    },
     "disconnect": "Disconnect",
     "disconnected": "No Connection",
     "force": "Allow local changes",
@@ -957,6 +962,7 @@
       "description": "Description",
       "location": "Location",
       "privacy": "Privacy Policy",
+      "status": "Status Page",
       "website": "Website"
     },
     "list": {
@@ -974,7 +980,10 @@
     },
     "port": "Port",
     "reconnect": "Reconnect",
-    "settings": "Synchronize Settings",
+    "settings": {
+      ".": "Synchronize Settings",
+      "hint": "Synchronize besides the game also the settings for all clients using this option. Certainly, <b>not</b> all settings will be synced, like some options for visuals or the interface."
+    },
     "undefined": "Connection not specified",
     "url": "Host",
     "wss": {

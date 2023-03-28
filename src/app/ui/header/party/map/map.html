@@ -1,11 +1,18 @@
-<div class="scroll-container">
-    <div class="map gh">
-        <div class="scenario-container" *ngFor="let scenario of scenarios; let i = index;"
-            [style.grid-column]="columns[i]" [style.grid-row]="rows[i]">
-            <div class="scenario" [style.margin-left]="offsetX[i] + 'px'" [style.margin-top]="offsetY[i] + 'px'"
-                [ngClass]="{'success' : success[i] || !gameManager.game.party.campaignMode}" (click)="startScenario(i)">
-                <img [src]="'./assets/images/maps/scenarios/' + scenario.edition + '-' + scenario.index + '.png'">
+<div class="container">
+    <div class="map-container" (click)="dialogRef.close()">
+        <div class="map gh" [style.transform]="'scale(' + scale + ')'">
+            <div class="scenario-container" *ngFor="let scenario of scenarios; let i = index;"
+                [style.grid-column]="columns[i]" [style.grid-row]="rows[i]">
+                <div class="scenario" [style.margin-left]="offsetX[i] + 'px'" [style.margin-top]="offsetY[i] + 'px'"
+                    [ngClass]="{'success' : success[i] || !gameManager.game.party.campaignMode,  'blocked' : gameManager.scenarioManager.isBlocked(scenario)}"
+                    (click)="startScenario(i, $event)">
+                    <img [src]="'./assets/images/maps/scenarios/' + scenario.edition + '-' + scenario.index + '.png'">
+                </div>
             </div>
         </div>
+    </div>
+    <div class="controls">
+        <a (click)="changeScale(-0.1)">-</a>
+        <a (click)="changeScale(0.1)">+</a>
     </div>
 </div>

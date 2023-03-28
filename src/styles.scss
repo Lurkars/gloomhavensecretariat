@@ -644,6 +644,14 @@ ghs-drag-click {
     overflow: auto;
   }
 
+  &.fullscreen-panel {
+    max-height: 100vh;
+
+    .scroll-container {
+      max-height: 100vh;
+    }
+  }
+
 }
 
 .dialog,

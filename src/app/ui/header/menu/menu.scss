@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.hint-container .hint .text {
+  white-space: break-spaces;
+}
+
 .back {
   cursor: pointer;
   position: absolute;
