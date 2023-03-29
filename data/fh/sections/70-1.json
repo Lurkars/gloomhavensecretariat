@@ -10,6 +10,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        56
+      ],
       "monster": [
         {
           "name": "ruined-machine",
