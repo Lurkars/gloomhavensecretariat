@@ -1,0 +1,47 @@
+{
+  "index": "6.3",
+  "name": "Algox Scouting",
+  "edition": "fh",
+  "parent": "86",
+  "marker": "1",
+  "monsters": [
+    "earth-demon",
+    "ice-wraith"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "16-A",
+      "initial": true,
+      "treasures": [
+        17
+      ],
+      "monster": [
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1,
+        1
+      ]
+    }
+  ]
+}

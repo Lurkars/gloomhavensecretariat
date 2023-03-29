@@ -11,7 +11,20 @@
   "objectives": [
     {
       "name": "Tree",
-      "health": "(2+L)xC"
+      "health": "(2+L)xC",
+      "actions": [
+        {
+          "type": "summon",
+          "value": "black-imp:normal",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "whenever suffering damage without beeing destroyed",
+              "small": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "lootDeckConfig": {
@@ -65,6 +78,9 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

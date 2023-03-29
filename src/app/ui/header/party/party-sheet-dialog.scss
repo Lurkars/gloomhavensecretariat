@@ -7,7 +7,7 @@
     flex-direction: column;
     width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
 
-    .campaign-toggle {
+    .campaign-toggle, .map {
       cursor: pointer;
       display: flex;
       align-items: center;

@@ -45,7 +45,7 @@
 
     <div class="enhancements" *ngIf="enhancements">
       <div class="loot-container" *ngFor="let loot of enhancementDeck">
-        <ghs-loot class="drag-hidden" [loot]="loot" [flipped]="true">
+        <ghs-loot class="drag-hidden" [loot]="loot" [flipped]="true" [highlight]="false">
         </ghs-loot>
         <a class="button-enhance" (click)="enhanceCard(loot)" [title]="'game.loot.enhancements.add' | ghsLabel">
           <img class="ghs-svg" src="./assets/images/fh/loot/plus1.svg">

@@ -105,6 +105,11 @@ export class RoundManager {
     } else if (figure.active && !figure.off) {
       if (settingsManager.settings.activeStandees && figure instanceof Character && figure.summons.find((summon) => summon.active)) {
         figure.summons.forEach((summon) => summon.active = false);
+        this.game.elementBoard.forEach((element) => {
+          if (element.state == ElementState.new) {
+            element.state = ElementState.strong;
+          }
+        })
       } else {
         this.afterTurn(figure);
       }

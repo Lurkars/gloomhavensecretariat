@@ -15,6 +15,7 @@ import { Party } from "src/app/game/model/Party";
 import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
 import { AttackModiferDeckChange } from "../../figures/attackmodifier/attackmodifierdeck";
 import { ghsInputFullScreenCheck } from "../../helper/Static";
+import { MapComponent } from "./map/map";
 import { PartyWeekDialogComponent } from "./week-dialog";
 
 @Component({
@@ -85,6 +86,14 @@ export class PartySheetDialogComponent implements OnInit {
     }
     gameManager.stateManager.after();
     this.update();
+  }
+
+  openMap() {
+    this.dialog.open(MapComponent, {
+      backdropClass: 'fullscreen-backdrop',
+      panelClass: 'fullscreen-panel'
+    })
+    this.close();
   }
 
   changePlayer(event: any, index: number) {

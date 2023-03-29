@@ -285,7 +285,9 @@
 
           <span class="stat" (click)="openLevelDialog()">
             <img class="ghs-svg" src="./assets/images/action/attack.svg" />
-            <span [value-calc]="gameManager.toSummon(data.entity).attack" [empty]="true">></span>
+            <span *ngIf="gameManager.toSummon(data.entity).attack != 0"
+              [i18n]="'' + gameManager.toSummon(data.entity).attack"></span>
+            <span *ngIf="gameManager.toSummon(data.entity).attack == 0">-</span>
           </span>
 
           <span class="stat" (click)="openLevelDialog()">

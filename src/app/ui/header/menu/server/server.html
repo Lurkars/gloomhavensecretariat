@@ -11,9 +11,14 @@
 
       <div class="line">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.serverSettings"
-            (change)="settingsManager.setServerSettings(!settingsManager.settings.serverSettings)">
-          {{'server.settings' | ghsLabel}}
+          <div class="hint-container">
+            <input type="checkbox" [checked]="settingsManager.settings.serverSettings"
+              (change)="settingsManager.setServerSettings(!settingsManager.settings.serverSettings)">
+            {{'server.settings' | ghsLabel}}<img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+            <span class="hint">
+              <span class="text" [i18n]="'server.settings.hint'"></span>
+            </span>
+          </div>
         </label>
       </div>
 
@@ -35,8 +40,10 @@
       </div>
 
       <div class="server-info" *ngIf="selectedServerIndex != -1">
-        <a [href]="publicServer[selectedServerIndex].privacy" target="_blank">{{'server.info.privacy' | ghsLabel}}</a>
-        <a [href]="publicServer[selectedServerIndex].website" target="_blank">{{'server.info.website' | ghsLabel}}</a>
+        <ng-container *ngFor="let url of publicServer[selectedServerIndex].urls | keyvalue">
+          <label>{{'server.info.' + url.key| ghsLabel}}</label>
+          <p><a [href]="url.value" target="_blank">{{url.value.replace('http://', '').replace('https://', '')}}</a></p>
+        </ng-container>
 
         <label>{{'server.info.description' | ghsLabel}}</label>
         <p>{{publicServer[selectedServerIndex].description}}</p>

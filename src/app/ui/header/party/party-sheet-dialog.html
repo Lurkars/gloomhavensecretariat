@@ -13,6 +13,9 @@
               <label class="headline">{{'party.sheet' | ghsLabel}}
               </label>
               <span class="spacer"></span>
+              <span class="map" *ngIf="gameManager.game.edition == 'gh'" (click)="openMap()">
+                <img src="./assets/images/fullscreen.svg">{{'party.campaign.map' | ghsLabel}}
+              </span>
               <select *ngIf="gameManager.game.parties.length > 1 && !gameManager.game.scenario" class="select-party"
                 (change)="selectParty($event)" [title]="'party.change' | ghsLabel">
                 <option *ngFor="let p of gameManager.game.parties" [selected]="p.id == party.id"
