@@ -11,6 +11,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        14
+      ],
       "monster": [
         {
           "name": "robotic-boltshooter",
