@@ -713,7 +713,7 @@
     "conclusion": "Lösung",
     "custom": "Benutzerdefiniert",
     "filter": "Szenario filtern",
-    "filterSuccess": "Abgeschlossene Szenarien ausblenden",
+    "filterSuccess": "Nur neue Szenarien anzeigen",
     "finish": {
       ".": "Szenario beenden",
       "failure": "Niederlage",

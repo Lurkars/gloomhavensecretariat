@@ -58,7 +58,7 @@
       [cdkDropListDisabled]="settingsManager.settings.disableDragFigures || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters && !gameManager.stateManager.permissions.monsters"
       [ngClass]="{'column' : columns > 1, 'column-left' : columns > 1 && i < columnSize, 'column-right' : columns > 1 && i >= columnSize}">
 
-      <div cdkDrag #figureDrag [cdkDragStartDelay]="500" [ngClass]="{'enabled' : draggingEnabled}"
+      <div cdkDrag #figureDrag [cdkDragStartDelay]="isTouch ? 500 : 0" [ngClass]="{'enabled' : draggingEnabled}"
         (cdkDragStarted)="startedDrag($event, figureDrag)" (cdkDragReleased)="releasedDrag($event, figureDrag)">
 
         <div cdkDragHandle class="handle" (click)="handleClick($event)" (press)="enabledDragging($event, figureDrag)"

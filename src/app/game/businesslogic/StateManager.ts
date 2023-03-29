@@ -261,7 +261,7 @@ export class StateManager {
           }
           gameManager.game.fromModel(gameModel, true);
           gameManager.stateManager.saveLocal();
-          gameManager.uiChange.emit();
+          gameManager.uiChange.emit(true);
           setTimeout(() => {
             window.document.body.classList.remove('working');
             window.document.body.classList.remove('server-sync');

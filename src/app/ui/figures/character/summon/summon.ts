@@ -5,6 +5,7 @@ import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { ConditionType, EntityCondition } from 'src/app/game/model/Condition';
+import { ElementState } from 'src/app/game/model/Element';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
@@ -126,6 +127,13 @@ export class SummonEntityComponent implements OnInit {
     if (this.summon.active) {
       gameManager.stateManager.before("summonInactive", "data.character." + this.character.name, "data.summon." + this.summon.name);
       const summon = this.character.summons.find((summon, index, self) => index > self.indexOf(this.summon) && gameManager.entityManager.isAlive(summon, true) && !summon.active);
+
+      gameManager.game.elementBoard.forEach((element) => {
+        if (element.state == ElementState.new) {
+          element.state = ElementState.strong;
+        }
+      })
+      
       if (this.character.active && summon && settingsManager.settings.activeSummons) {
         summon.active = true;
       }

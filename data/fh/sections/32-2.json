@@ -5,7 +5,7 @@
   "parent": "31",
   "monsters": [
     "flaming-bladespinner",
-    "steel-automaton"
+    "robotic-boltshooter"
   ],
   "rooms": [
     {
@@ -22,7 +22,7 @@
           "player4": "elite"
         },
         {
-          "name": "steel-automaton",
+          "name": "robotic-boltshooter",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"

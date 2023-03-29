@@ -46,7 +46,7 @@ export class GameManager {
   roundManager: RoundManager;
   lootManager: LootManager;
 
-  uiChange = new EventEmitter();
+  uiChange = new EventEmitter<boolean>();
 
   constructor() {
     this.stateManager = new StateManager(this.game);

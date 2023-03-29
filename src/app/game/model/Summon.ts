@@ -56,7 +56,7 @@ export class Summon implements Entity {
     if (summonData) {
       this.maxHealth = EntityValueFunction(summonData.health, level);
       this.health = this.maxHealth;
-      this.attack = summonData.attack;
+      this.attack = summonData.attack || 0;
       this.movement = EntityValueFunction(summonData.movement, level);
       this.range = EntityValueFunction(summonData.range, level);
       this.flying = summonData.flying;

@@ -4,6 +4,9 @@
   "name": "The Lady in White",
   "edition": "fh",
   "parent": "86",
+  "parentSections": [
+    "6.3"
+  ],
   "monsters": [
     "lady-in-white"
   ],
@@ -14,7 +17,7 @@
       "monster": [
         {
           "name": "lady-in-white",
-          "type": "normal"
+          "type": "elite"
         }
       ]
     }

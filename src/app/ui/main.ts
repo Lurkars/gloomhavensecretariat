@@ -36,6 +36,7 @@ export class MainComponent implements OnInit {
 
   draggingEnabled: boolean = false;
   draggingeTimeout: any = null;
+  isTouch: boolean = false;
 
   @ViewChild('footer') footer!: FooterComponent;
 
@@ -100,6 +101,7 @@ export class MainComponent implements OnInit {
   }
 
   async ngOnInit() {
+    this.isTouch = window.matchMedia("(pointer: coarse)").matches;
     document.body.classList.add('no-select');
     await settingsManager.init(!environment.production);
     gameManager.stateManager.init();
