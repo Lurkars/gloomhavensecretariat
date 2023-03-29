@@ -14,6 +14,58 @@
       "health": "(L+2)xC"
     }
   ],
+  "rules": [
+    {
+      "round": "R % 2 == 0",
+      "start": false,
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Large Debris 1"
+          }
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 1",
+      "start": false,
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Large Debris 1"
+          }
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 2,
@@ -30,6 +82,10 @@
           "player4": "elite"
         },
         {
+          "name": "flaming-bladespinner",
+          "player4": "normal"
+        },
+        {
           "name": "robotic-boltshooter",
           "type": "normal"
         },
@@ -38,7 +94,14 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player4": "normal"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

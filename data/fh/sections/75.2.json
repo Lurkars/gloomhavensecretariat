@@ -1,0 +1,35 @@
+{
+  "fromFile": true,
+  "index": "75.2",
+  "name": "Skyhall",
+  "edition": "fh",
+  "parent": "19",
+  "monsters": [],
+  "objectives": [
+    {
+      "name": "Alter",
+      "health": "Cx(L+2)"
+    },
+    {
+      "name": "Dark Fog",
+      "health": "Cx(L+2)",
+      "initiative": 1
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "16-B",
+      "initial": true,
+      "monster": [],
+      "objectives": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ]
+    }
+  ]
+}
