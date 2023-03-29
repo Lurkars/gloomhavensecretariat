@@ -10,6 +10,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        55
+      ],
       "monster": [
         {
           "name": "flaming-bladespinner",
