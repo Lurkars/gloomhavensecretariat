@@ -10,6 +10,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        34
+      ],
       "monster": [
         {
           "name": "polar-bear",
