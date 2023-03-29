@@ -13,6 +13,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        41
+      ],
       "monster": [
         {
           "name": "algox-archer",
