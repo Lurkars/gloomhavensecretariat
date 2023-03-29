@@ -22,10 +22,22 @@
     "rockroot": 1,
     "arrowvine": 1
   },
+  "rules": [
+    {
+      "round": "R == 7",
+      "start": true,
+      "sections": [
+        "131.4"
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        73
+      ],
       "monster": [
         {
           "name": "ancient-artillery",

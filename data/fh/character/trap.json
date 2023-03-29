@@ -235,7 +235,7 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "Ignore scenario effects"
+      "custom": "%game.custom.perks.ignoreScenario%"
     },
     {
       "type": "custom",
