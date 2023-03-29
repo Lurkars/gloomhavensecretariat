@@ -11,6 +11,9 @@
     {
       "roomNumber": 6,
       "initial": true,
+      "treasures": [
+        24
+      ],
       "monster": [
         {
           "name": "deep-terror",
