@@ -812,7 +812,7 @@
     "conclusion": "Conclusion",
     "custom": "Custom",
     "filter": "Filter Scenario",
-    "filterSuccess": "Hide successfully finished scenarios",
+    "filterSuccess": "Show new scenarios only",
     "finish": {
       ".": "Finish Scenario",
       "failure": "Failure",
