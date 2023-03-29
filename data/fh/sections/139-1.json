@@ -12,6 +12,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        54
+      ],
       "monster": [
         {
           "name": "abael-scout",
