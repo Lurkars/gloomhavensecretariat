@@ -2,10 +2,13 @@
     {
         "url": "gloomhaven-secretariat.de",
         "port": 8443,
-        "privacy": "https://github.com/Lurkars/ghs-server#privacy",
         "secure": true,
-        "website": "https://github.com/Lurkars/ghs-server",
         "description": "Public instance hosted by Lurkars",
-        "location": "Germany"
+        "location": "Germany",
+        "urls": {
+            "website": "https://github.com/Lurkars/ghs-server",
+            "status": "https://status.gloomhaven-secretariat.de",
+            "privacy": "https://github.com/Lurkars/ghs-server#privacy"
+        }
     }
 ]

@@ -1,13 +1,21 @@
 <ghs-header #header></ghs-header>
 <main [ngClass]="{'compact' : footer.compact}">
-  <div *ngIf="gameManager.stateManager.updateBlocked && settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword" class="dialog blocked">
+  <div
+    *ngIf="gameManager.stateManager.updateBlocked && settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword"
+    class="dialog blocked">
     {{'server.blocked' | ghsLabel}}
     <div class="buttons">
       <a class="force" (click)="gameManager.stateManager.forceUpdateState()">
         {{'server.force' | ghsLabel}}
         <span class="force-hint">{{'server.forceHint' | ghsLabel}}</span>
       </a>
-      <a class="connect" (click)="gameManager.stateManager.connect()">{{'server.connect' | ghsLabel}}</a>
+      <a class="connect" (click)="gameManager.stateManager.connect()">
+        {{'server.connect' | ghsLabel}}
+        <span class="tries" *ngIf="gameManager.stateManager.connectionTries > 0">{{'server.connectionTries' |
+          ghsLabel:['' + gameManager.stateManager.connectionTries]}}</span>
+        <span class="tries-hint" *ngIf="gameManager.stateManager.connectionTries > 4">{{'server.connectionTries.hint' |
+          ghsLabel}}</span>
+      </a>
     </div>
   </div>
   <div *ngIf="!fullviewChar && welcome" class="welcome" [ngClass]="{'fh': settingsManager.settings.theme == 'fh'}">
@@ -50,7 +58,7 @@
       [cdkDropListDisabled]="settingsManager.settings.disableDragFigures || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters && !gameManager.stateManager.permissions.monsters"
       [ngClass]="{'column' : columns > 1, 'column-left' : columns > 1 && i < columnSize, 'column-right' : columns > 1 && i >= columnSize}">
 
-      <div cdkDrag #figureDrag [cdkDragStartDelay]="500" [ngClass]="{'enabled' : draggingEnabled}"
+      <div cdkDrag #figureDrag [cdkDragStartDelay]="isTouch ? 500 : 0" [ngClass]="{'enabled' : draggingEnabled}"
         (cdkDragStarted)="startedDrag($event, figureDrag)" (cdkDragReleased)="releasedDrag($event, figureDrag)">
 
         <div cdkDragHandle class="handle" (click)="handleClick($event)" (press)="enabledDragging($event, figureDrag)"

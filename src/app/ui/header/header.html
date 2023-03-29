@@ -30,21 +30,35 @@
     </ng-container>
 
     <img src="./assets/images/shuffle.svg" class="server-connection syncing" *ngIf="syncing()">
-    <span class="game-server" *ngIf="!syncing() && gameManager.stateManager.wsState() != -99 && gameManager.game.server">°</span>
+    <span class="game-server"
+      *ngIf="!syncing() && gameManager.stateManager.wsState() != -99 && gameManager.game.server">°</span>
 
     <div class="hints" *ngIf="settingsManager.settings.hints" [ngClass]="{'visible' : init}">
       <ng-container [ngSwitch]="hintState">
         <ng-container *ngSwitchCase="'characters'">
-          <a class="menu-hint" (click)="openMenu($event, SubMenu.character_add)">{{'hints.addCharacters' |
-            ghsLabel}}</a>
+          <a class="menu-hint" (click)="openMenu($event, SubMenu.character_add)">
+            <span
+              [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">{{'hints.addCharacters'
+              | ghsLabel}}</span>
+          </a>
         </ng-container>
         <ng-container *ngSwitchCase="'scenario'">
-          <a class="menu-hint" (click)="openMenu($event, SubMenu.scenario)">{{'hints.setScenario' | ghsLabel}}</a>
+          <a class="menu-hint"
+            [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
+            <span (click)="openMenu($event, SubMenu.scenario)">{{'hints.setScenario' | ghsLabel}}</span>
+          </a>
           <span>{{'or' | ghsLabel}}</span>
-          <a class="menu-hint" (click)="openMenu($event, SubMenu.monster_add)">{{'hints.addMonsters' | ghsLabel}}</a>
+          <a class="menu-hint"
+            [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.monsters}">
+            <span (click)="openMenu($event, SubMenu.monster_add)">{{'hints.addMonsters' | ghsLabel}}</span>
+          </a>
         </ng-container>
         <ng-container *ngSwitchCase="'monsters'">
-          <a class="menu-hint" (click)="openMenu($event, SubMenu.monster_add)">{{'hints.addMonsters' | ghsLabel}}</a>
+          <a class="menu-hint" (click)="openMenu($event, SubMenu.monster_add)">
+            <span
+              [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.monsters}">{{'hints.addMonsters'
+              | ghsLabel}}</span>
+          </a>
         </ng-container>
         <ng-container *ngSwitchDefault>{{'hints.' + hintState | ghsLabel}}</ng-container>
       </ng-container>

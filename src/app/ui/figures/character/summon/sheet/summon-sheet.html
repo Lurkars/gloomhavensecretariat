@@ -26,7 +26,8 @@
             <img class="ghs-svg"
                 [src]="'./assets/images/' +(settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/attack.svg'" />
             <span>:</span>
-            <span [i18n]="'' + summon.attack"></span>
+            <span *ngIf="summon.attack != 0" [i18n]="'' + summon.attack"></span>
+            <span *ngIf="summon.attack == 0">-</span>
         </span>
         <span class="item range">
             <img class="ghs-svg"

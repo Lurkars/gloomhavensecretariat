@@ -10,7 +10,6 @@ import { SummonState } from "./Summon";
 export class MonsterEntity implements Entity {
   number: number;
   marker: string = "";
-  tags: string[] = [];
   type: MonsterType;
   stat: MonsterStat;
   dead: boolean = false;
@@ -24,6 +23,7 @@ export class MonsterEntity implements Entity {
   maxHealth: number;
   entityConditions: EntityCondition[] = [];
   markers: string[] = [];
+  tags: string[] = [];
 
   constructor(number: number, type: MonsterType, monster: Monster) {
     this.number = number;

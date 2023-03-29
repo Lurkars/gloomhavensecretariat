@@ -6,7 +6,6 @@
     "games",
     "utilities"
   ],
-  "theme_color": "#936658",
   "background_color": "#000000",
   "display": "standalone",
   "orienatation": "any",

@@ -56,7 +56,7 @@ export class Summon implements Entity {
     if (summonData) {
       this.maxHealth = EntityValueFunction(summonData.health, level);
       this.health = this.maxHealth;
-      this.attack = summonData.attack;
+      this.attack = summonData.attack || 0;
       this.movement = EntityValueFunction(summonData.movement, level);
       this.range = EntityValueFunction(summonData.range, level);
       this.flying = summonData.flying;
@@ -70,7 +70,7 @@ export class Summon implements Entity {
   }
 
   toModel(): GameSummonModel {
-    return new GameSummonModel(this.name, this.cardId, this.number, this.color, this.attack + '', this.movement, this.range, this.flying, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined, this.active, this.thumbnail);
+    return new GameSummonModel(this.name, this.cardId, this.number, this.color, this.attack && this.attack + '' || '0', this.movement, this.range, this.flying, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined, this.active, this.thumbnail);
   }
 
   fromModel(model: GameSummonModel) {
@@ -78,7 +78,7 @@ export class Summon implements Entity {
     this.cardId = model.cardId || "";
     this.number = model.number;
     this.color = model.color;
-    this.attack = !isNaN(+model.attack) ? +model.attack : model.attack;
+    this.attack = model.attack && !isNaN(+model.attack) ? +model.attack : model.attack || 0;
     this.movement = model.movement;
     this.range = model.range;
     this.flying = model.flying;
