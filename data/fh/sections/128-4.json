@@ -11,6 +11,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        52
+      ],
       "monster": [
         {
           "name": "power-core",
