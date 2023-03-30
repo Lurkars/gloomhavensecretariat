@@ -21,6 +21,9 @@
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        11
+      ],
       "monster": [
         {
           "name": "frozen-corpse",

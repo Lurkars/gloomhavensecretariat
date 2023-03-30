@@ -11,6 +11,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        25
+      ],
       "monster": [
         {
           "name": "burrowing-blade",

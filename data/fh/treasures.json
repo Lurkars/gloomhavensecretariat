@@ -1,6 +1,6 @@
 [
     "lootCards:4",
-    "damage:4|condition:muddle",
+    "damage:3|condition:muddle",
     "randomItemBlueprint",
     "itemFh:200",
     "itemFh:204",
@@ -15,7 +15,7 @@
     "randomItemBlueprint",
     "randomScenario",
     "itemFh:183",
-    "resource:lumber-1",
+    "resource:lumber-3",
     "lootCards:3",
     "resource:axenut-1+corpsecap-1+flamefruit-1",
     "lootCards:4",

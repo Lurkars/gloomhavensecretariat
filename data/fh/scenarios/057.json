@@ -10,6 +10,9 @@
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        53
+      ],
       "monster": [
         {
           "name": "render",

@@ -17,6 +17,9 @@
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        59
+      ],
       "monster": [
         {
           "name": "chaos-demon",

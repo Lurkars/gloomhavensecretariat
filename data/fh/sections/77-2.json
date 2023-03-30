@@ -10,6 +10,9 @@
     {
       "roomNumber": 4,
       "initial": true,
+      "treasures": [
+        27
+      ],
       "monster": [
         {
           "name": "lurker-clawcrusher",

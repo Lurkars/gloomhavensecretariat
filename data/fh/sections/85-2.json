@@ -20,6 +20,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        15
+      ],
       "monster": [
         {
           "name": "abael-herder",

@@ -10,6 +10,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        7
+      ],
       "monster": [
         {
           "name": "steel-automaton",

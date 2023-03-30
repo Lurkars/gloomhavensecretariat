@@ -18,6 +18,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        50
+      ],
       "monster": [
         {
           "name": "vermling-priest",

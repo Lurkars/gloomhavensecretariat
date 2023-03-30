@@ -12,6 +12,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        10
+      ],
       "monster": [
         {
           "name": "ancient-artillery",

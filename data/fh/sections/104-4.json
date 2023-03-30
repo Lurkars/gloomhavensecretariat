@@ -11,6 +11,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        61
+      ],
       "monster": [
         {
           "name": "living-bones",

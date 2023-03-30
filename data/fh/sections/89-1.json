@@ -21,6 +21,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        39
+      ],
       "monster": [
         {
           "name": "frozen-corpse-scenario-65",

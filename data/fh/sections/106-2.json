@@ -13,6 +13,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        82
+      ],
       "monster": [
         {
           "name": "city-guard",

@@ -12,6 +12,9 @@
       "roomNumber": 1,
       "ref": "16-A",
       "initial": true,
+      "treasures": [
+        47
+      ],
       "monster": [
         {
           "name": "hound-scenario-0",
