@@ -49,8 +49,8 @@
   },
   "rules": [
     {
-      "round": "R % 2 == 0",
-      "start": true,
+      "round": "R % 4 == 1",
+      "start": false,
       "spawns": [
         {
           "monster": {
@@ -66,6 +66,30 @@
             "name": "algox-guard",
             "player2": "normal",
             "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R % 4 == 3",
+      "start": false,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-archer",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "algox-guard",
+            "player2": "normal",
+            "player3": "elite",
             "player4": "elite"
           },
           "marker": "e"
