@@ -24,7 +24,19 @@
       "health": "2x(L+2)",
       "initiative": 99,
       "marker": "a",
-      "count": 2
+      "count": 2,
+      "actions": [
+        {
+          "type": "move",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Players control the movement"
+            }
+          ]
+        }
+      ]
     }
   ],
   "lootDeckConfig": {
@@ -35,10 +47,40 @@
     "arrowvine": 1,
     "axenut": 1
   },
+  "rules": [
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-archer",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "algox-guard",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        48,
+        60
+      ],
       "monster": [
         {
           "name": "algox-archer",
@@ -51,17 +93,23 @@
           "player4": "elite"
         },
         {
+          "name": "algox-archer",
+          "player4": "normal"
+        },
+        {
           "name": "algox-guard",
           "type": "normal"
         },
         {
           "name": "algox-guard",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "algox-guard",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "algox-icespeaker",
@@ -111,6 +159,10 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1
       ]
     }
   ]
