@@ -46,6 +46,23 @@
     "arrowvine": 2,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "damage",
+          "value": "2",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -76,6 +93,12 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4
       ]
     }
   ]
