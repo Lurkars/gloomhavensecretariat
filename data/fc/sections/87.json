@@ -5,7 +5,7 @@
   "parent": "106",
   "rules": [
     {
-      "round": "always",
+      "round": "true",
       "always": true,
       "once": true,
       "figures": [

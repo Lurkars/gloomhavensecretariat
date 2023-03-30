@@ -623,7 +623,10 @@
     "import": "Importieren",
     "location": "Ort",
     "name": "Name",
-    "new": "Neue Gruppe erstellen",
+    "new": {
+      ".": "Neue Gruppe erstellen",
+      "hint": "Während eines Szenarios ist das Erstellen einer neuen Grupp deaktiviert. Beende oder breche das aktuelle Szenario ab um eine neue Grupp zu erstellen."
+    },
     "notes": "Notizen",
     "prosperity": "Wohlstand",
     "remove": "Gruppe löschen",
@@ -915,7 +918,7 @@
     },
     "alwaysAllyAttackModifierDeck": {
       ".": "Immer Angriffsmodifikatordeck für Verbündete",
-      "hint": "Immer Frosthaven Regel anwenden, dass Verbündete ein eigenes Angriffsmodifikatordeck verwenden anstelle des Monsterdecks"
+      "hint": "Das zusätzlich das Angriffsmodifikatordeck für Verbündete anzeigen"
     },
     "alwaysHazardousTerrain": {
       ".": "Immer Gefährliches Gelände",

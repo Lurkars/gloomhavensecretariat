@@ -76,14 +76,14 @@
   "rules": [
     {
       "round": "true",
-      "once": true,
       "start": true,
+      "once": true,
       "note": "%data.scenario.rules.jotl.20.1%"
     },
     {
-      "round": "always",
-      "once": true,
+      "round": "true",
       "always": true,
+      "once": true,
       "note": "%data.scenario.rules.jotl.20.2%",
       "figures": [
         {
@@ -98,9 +98,20 @@
       ]
     },
     {
-      "round": "always",
-      "once": true,
+      "round": "true",
       "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "B"
+          },
+          "type": "dead"
+        }
+      ],
       "spawns": [
         {
           "monster": {
@@ -125,23 +136,23 @@
           },
           "marker": "B"
         }
-      ],
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
       "figures": [
         {
           "identifier": {
             "type": "objective",
             "edition": "objective",
             "name": "Loot",
-            "marker": "B"
+            "marker": "C"
           },
           "type": "dead"
         }
-      ]
-    },
-    {
-      "round": "always",
-      "once": true,
-      "always": true,
+      ],
       "spawns": [
         {
           "monster": {
@@ -166,23 +177,23 @@
           },
           "marker": "C"
         }
-      ],
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
       "figures": [
         {
           "identifier": {
             "type": "objective",
             "edition": "objective",
             "name": "Loot",
-            "marker": "C"
+            "marker": "D"
           },
           "type": "dead"
         }
-      ]
-    },
-    {
-      "round": "always",
-      "once": true,
-      "always": true,
+      ],
       "spawns": [
         {
           "monster": {
@@ -208,23 +219,12 @@
           "marker": "D",
           "count": 2
         }
-      ],
-      "figures": [
-        {
-          "identifier": {
-            "type": "objective",
-            "edition": "objective",
-            "name": "Loot",
-            "marker": "D"
-          },
-          "type": "dead"
-        }
       ]
     },
     {
-      "round": "always",
-      "once": true,
+      "round": "true",
       "always": true,
+      "once": true,
       "note": "%data.scenario.rules.jotl.20.2%",
       "figures": [
         {
@@ -239,9 +239,9 @@
       ]
     },
     {
-      "round": "always",
-      "once": true,
+      "round": "true",
       "always": true,
+      "once": true,
       "note": "%data.scenario.rules.jotl.20.3%",
       "figures": [
         {
@@ -256,9 +256,20 @@
       ]
     },
     {
-      "round": "always",
-      "once": true,
+      "round": "true",
       "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "G"
+          },
+          "type": "dead"
+        }
+      ],
       "spawns": [
         {
           "monster": {
@@ -283,23 +294,12 @@
           },
           "marker": "G"
         }
-      ],
-      "figures": [
-        {
-          "identifier": {
-            "type": "objective",
-            "edition": "objective",
-            "name": "Loot",
-            "marker": "G"
-          },
-          "type": "dead"
-        }
       ]
     },
     {
-      "round": "always",
-      "once": true,
+      "round": "true",
       "always": true,
+      "once": true,
       "note": "%data.scenario.rules.jotl.20.2%",
       "figures": [
         {
@@ -314,9 +314,9 @@
       ]
     },
     {
-      "round": "always",
-      "once": true,
+      "round": "true",
       "always": true,
+      "once": true,
       "note": "%data.scenario.rules.jotl.20.2%",
       "figures": [
         {
@@ -331,9 +331,20 @@
       ]
     },
     {
-      "round": "always",
-      "once": true,
+      "round": "true",
       "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "K"
+          },
+          "type": "dead"
+        }
+      ],
       "spawns": [
         {
           "monster": {
@@ -358,34 +369,12 @@
           },
           "marker": "K"
         }
-      ],
-      "figures": [
-        {
-          "identifier": {
-            "type": "objective",
-            "edition": "objective",
-            "name": "Loot",
-            "marker": "K"
-          },
-          "type": "dead"
-        }
       ]
     },
     {
-      "round": "always",
-      "once": true,
+      "round": "true",
       "always": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "chaos-demon",
-            "player2": "normal",
-            "player3": "elite",
-            "player4": "elite"
-          },
-          "marker": "L"
-        }
-      ],
+      "once": true,
       "figures": [
         {
           "identifier": {
@@ -396,12 +385,23 @@
           },
           "type": "dead"
         }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "chaos-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "L"
+        }
       ]
     },
     {
-      "round": "always",
-      "once": true,
+      "round": "true",
       "always": true,
+      "once": true,
       "note": "%data.scenario.rules.jotl.20.2%",
       "figures": [
         {
@@ -416,10 +416,9 @@
       ]
     },
     {
-      "round": "always",
-      "once": true,
+      "round": "true",
       "always": true,
-      "finish": "won",
+      "once": true,
       "figures": [
         {
           "identifier": {
@@ -466,7 +465,8 @@
           },
           "type": "dead"
         }
-      ]
+      ],
+      "finish": "won"
     }
   ],
   "rooms": [

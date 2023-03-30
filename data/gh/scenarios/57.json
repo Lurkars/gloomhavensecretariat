@@ -17,9 +17,12 @@
   ],
   "rules": [
     {
-      "round": "always",
-      "once": true,
+      "round": "true",
       "always": true,
+      "once": true,
+      "requiredRooms": [
+        3
+      ],
       "figures": [
         {
           "identifier": {
@@ -38,15 +41,15 @@
             "type": "boss"
           }
         }
-      ],
-      "requiredRooms": [
-        3
       ]
     },
     {
-      "round": "always",
-      "once": true,
+      "round": "true",
       "always": true,
+      "once": true,
+      "requiredRooms": [
+        4
+      ],
       "spawns": [
         {
           "monster": {
@@ -71,9 +74,6 @@
           },
           "marker": "a"
         }
-      ],
-      "requiredRooms": [
-        4
       ]
     }
   ],

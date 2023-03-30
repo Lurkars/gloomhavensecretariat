@@ -46,8 +46,11 @@
       ]
     },
     {
-      "round": "always",
+      "round": "true",
       "always": true,
+      "requiredRooms": [
+        6
+      ],
       "disableRules": [
         {
           "edition": "gh",
@@ -61,9 +64,6 @@
           "index": 1,
           "section": false
         }
-      ],
-      "requiredRooms": [
-        6
       ]
     }
   ],

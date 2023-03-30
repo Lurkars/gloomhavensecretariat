@@ -9,13 +9,13 @@
   "marker": "f",
   "rules": [
     {
-      "round": "always",
+      "round": "true",
       "always": true,
       "once": true,
       "note": "%data.section.rules.fc.5.1%"
     },
     {
-      "round": "always",
+      "round": "true",
       "always": true,
       "once": true,
       "note": "%data.section.rules.fc.5.2%"

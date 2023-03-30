@@ -10,6 +10,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
 import { MonsterType } from 'src/app/game/model/MonsterType';
+import { Objective } from 'src/app/game/model/Objective';
 import { valueCalc } from '../../helper/valueCalc';
 
 @Component({
@@ -20,6 +21,7 @@ import { valueCalc } from '../../helper/valueCalc';
 export class ActionComponent implements OnInit {
 
   @Input() monster: Monster | undefined;
+  @Input() objective: Objective | undefined;
   @Input('action') origAction!: Action | undefined;
   @Input() relative: boolean = false;
   @Input() inline: boolean = false;

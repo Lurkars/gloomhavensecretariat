@@ -17,8 +17,11 @@
   "rules": [
     {
       "round": "true",
-      "once": true,
       "always": true,
+      "once": true,
+      "requiredRooms": [
+        3
+      ],
       "spawns": [
         {
           "monster": {
@@ -39,9 +42,6 @@
           },
           "marker": "c"
         }
-      ],
-      "requiredRooms": [
-        3
       ]
     }
   ],

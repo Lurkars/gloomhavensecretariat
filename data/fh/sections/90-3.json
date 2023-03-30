@@ -6,8 +6,8 @@
   "rules": [
     {
       "round": "true",
-      "once": true,
       "always": true,
+      "once": true,
       "note": "Pebbles rain down at each %game.mapMarker.a%. This has no effect"
     },
     {

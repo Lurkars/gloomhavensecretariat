@@ -64,9 +64,9 @@
   ],
   "rules": [
     {
-      "round": "always",
-      "once": true,
+      "round": "true",
       "always": true,
+      "once": true,
       "note": "%data.section.rules.fh.65-3.1%",
       "figures": [
         {

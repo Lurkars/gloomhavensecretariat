@@ -3,19 +3,19 @@ import { MonsterStandeeData } from "./RoomData";
 
 export class ScenarioRule {
   round: string;
-  once: boolean = false;
-  always: boolean = false;
-  note: string = "";
   start: boolean = false;
-  spawns: MonsterSpawnData[] = [];
-  elements: ElementModel[] = [];
-  rooms: number[] = [];
-  sections: string[] = [];
-  disableRules: ScenarioRuleIdentifier[] = [];
-  finish: "won" | "lost" | undefined = undefined;
-  figures: ScenarioFigureRule[] = [];
+  always: boolean = false;
+  once: boolean = false;
   requiredRooms: number[] = [];
   requiredRules: ScenarioRuleIdentifier[] = [];
+  note: string = "";
+  rooms: number[] = [];
+  sections: string[] = [];
+  figures: ScenarioFigureRule[] = [];
+  spawns: MonsterSpawnData[] = [];
+  elements: ElementModel[] = [];
+  disableRules: ScenarioRuleIdentifier[] = [];
+  finish: "won" | "lost" | undefined = undefined;
 
   constructor(round: string, note: string = "", start: boolean = false) {
     this.round = round;

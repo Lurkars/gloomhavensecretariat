@@ -66,16 +66,6 @@
     },
     {
       "round": "true",
-      "spawns": [
-        {
-          "monster": {
-            "name": "black-imp",
-            "type": "normal"
-          },
-          "marker": "a",
-          "count": "F"
-        }
-      ],
       "figures": [
         {
           "identifier": {
@@ -86,20 +76,20 @@
           },
           "type": "present"
         }
-      ]
-    },
-    {
-      "round": "true",
+      ],
       "spawns": [
         {
           "monster": {
             "name": "black-imp",
             "type": "normal"
           },
-          "marker": "b",
+          "marker": "a",
           "count": "F"
         }
-      ],
+      ]
+    },
+    {
+      "round": "true",
       "figures": [
         {
           "identifier": {
@@ -110,20 +100,20 @@
           },
           "type": "present"
         }
-      ]
-    },
-    {
-      "round": "true",
+      ],
       "spawns": [
         {
           "monster": {
             "name": "black-imp",
             "type": "normal"
           },
-          "marker": "c",
+          "marker": "b",
           "count": "F"
         }
-      ],
+      ]
+    },
+    {
+      "round": "true",
       "figures": [
         {
           "identifier": {
@@ -133,6 +123,16 @@
             "marker": "c"
           },
           "type": "present"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-imp",
+            "type": "normal"
+          },
+          "marker": "c",
+          "count": "F"
         }
       ]
     }

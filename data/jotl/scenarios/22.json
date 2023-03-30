@@ -16,6 +16,17 @@
     {
       "round": "R > 1",
       "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "stone-golem-scenario-22"
+          },
+          "type": "damage",
+          "value": "[C/2{$math.floor}]"
+        }
+      ],
       "spawns": [
         {
           "monster": {
@@ -36,17 +47,6 @@
             "name": "giant-viper",
             "player3": "elite"
           }
-        }
-      ],
-      "figures": [
-        {
-          "identifier": {
-            "type": "monster",
-            "edition": "jotl",
-            "name": "stone-golem-scenario-22"
-          },
-          "type": "damage",
-          "value": "[C/2{$math.floor}]"
         }
       ]
     }

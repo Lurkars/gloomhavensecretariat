@@ -11,7 +11,7 @@
   ],
   "rules": [
     {
-      "round": "always",
+      "round": "true",
       "always": true,
       "once": true,
       "requiredRooms": [
@@ -29,7 +29,7 @@
       ]
     },
     {
-      "round": "always",
+      "round": "true",
       "always": true,
       "once": true,
       "rooms": [

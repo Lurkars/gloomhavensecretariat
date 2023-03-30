@@ -28,8 +28,8 @@
     },
     {
       "round": "R > (1+C)",
-      "once": true,
       "always": true,
+      "once": true,
       "figures": [
         {
           "identifier": {

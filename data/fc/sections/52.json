@@ -86,7 +86,7 @@
       ]
     },
     {
-      "round": "always",
+      "round": "true",
       "always": true,
       "disableRules": [
         {
@@ -98,9 +98,9 @@
       ]
     },
     {
-      "round": "always",
-      "once": true,
+      "round": "true",
       "always": true,
+      "once": true,
       "figures": [
         {
           "identifier": {

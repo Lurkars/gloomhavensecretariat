@@ -40,6 +40,10 @@
 
     }
 
+    .hint-container {
+      z-index: 99;
+    }
+
     .columns {
       display: flex;
 
@@ -163,6 +167,7 @@
       font-family: var(--ghs-font-text);
       font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
       line-height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+      flex-grow: 1;
     }
 
     input[type="number"] {

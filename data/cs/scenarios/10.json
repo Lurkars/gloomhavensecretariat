@@ -26,16 +26,6 @@
   "rules": [
     {
       "round": "R % 2 == 1",
-      "elements": [
-        {
-          "type": "fire",
-          "state": "strong"
-        },
-        {
-          "type": "air",
-          "state": "strong"
-        }
-      ],
       "figures": [
         {
           "identifier": {
@@ -45,20 +35,20 @@
           },
           "type": "present"
         }
+      ],
+      "elements": [
+        {
+          "type": "fire",
+          "state": "strong"
+        },
+        {
+          "type": "air",
+          "state": "strong"
+        }
       ]
     },
     {
       "round": "R % 2 == 0",
-      "elements": [
-        {
-          "type": "ice",
-          "state": "strong"
-        },
-        {
-          "type": "earth",
-          "state": "strong"
-        }
-      ],
       "figures": [
         {
           "identifier": {
@@ -68,16 +58,20 @@
           },
           "type": "present"
         }
+      ],
+      "elements": [
+        {
+          "type": "ice",
+          "state": "strong"
+        },
+        {
+          "type": "earth",
+          "state": "strong"
+        }
       ]
     },
     {
       "round": "R % 2 == 1",
-      "elements": [
-        {
-          "type": "air",
-          "state": "strong"
-        }
-      ],
       "figures": [
         {
           "identifier": {
@@ -97,6 +91,12 @@
           "value": "1"
         }
       ],
+      "elements": [
+        {
+          "type": "air",
+          "state": "strong"
+        }
+      ],
       "disableRules": [
         {
           "edition": "cs",
@@ -108,12 +108,6 @@
     },
     {
       "round": "R % 2 == 0",
-      "elements": [
-        {
-          "type": "earth",
-          "state": "strong"
-        }
-      ],
       "figures": [
         {
           "identifier": {
@@ -130,6 +124,12 @@
             "name": "Supply Crate"
           },
           "type": "dead"
+        }
+      ],
+      "elements": [
+        {
+          "type": "earth",
+          "state": "strong"
         }
       ],
       "disableRules": [

@@ -22,7 +22,6 @@
   "rules": [
     {
       "round": "true",
-      "start": false,
       "figures": [
         {
           "type": "present",

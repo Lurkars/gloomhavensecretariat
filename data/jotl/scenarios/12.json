@@ -53,8 +53,19 @@
   "rules": [
     {
       "round": "true",
-      "once": true,
       "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Pillar left",
+            "marker": "A"
+          },
+          "type": "dead"
+        }
+      ],
       "spawns": [
         {
           "monster": {
@@ -65,23 +76,23 @@
           },
           "marker": "A"
         }
-      ],
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
       "figures": [
         {
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Pillar left",
+            "name": "Pillar right",
             "marker": "A"
           },
           "type": "dead"
         }
-      ]
-    },
-    {
-      "round": "true",
-      "once": true,
-      "always": true,
+      ],
       "spawns": [
         {
           "monster": {
@@ -92,23 +103,23 @@
           },
           "marker": "A"
         }
-      ],
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
       "figures": [
         {
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Pillar right",
-            "marker": "A"
+            "name": "Pillar left",
+            "marker": "B"
           },
           "type": "dead"
         }
-      ]
-    },
-    {
-      "round": "true",
-      "once": true,
-      "always": true,
+      ],
       "spawns": [
         {
           "monster": {
@@ -119,23 +130,23 @@
           },
           "marker": "B"
         }
-      ],
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
       "figures": [
         {
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Pillar left",
+            "name": "Pillar right",
             "marker": "B"
           },
           "type": "dead"
         }
-      ]
-    },
-    {
-      "round": "true",
-      "once": true,
-      "always": true,
+      ],
       "spawns": [
         {
           "monster": {
@@ -146,69 +157,60 @@
           },
           "marker": "B"
         }
-      ],
-      "figures": [
-        {
-          "identifier": {
-            "type": "objective",
-            "edition": "objective",
-            "name": "Pillar right",
-            "marker": "B"
-          },
-          "type": "dead"
-        }
       ]
     },
     {
       "round": "true",
-      "once": true,
       "always": true,
-      "figures": [
-        {
-          "identifier": {
-            "type": "objective",
-            "edition": "objective",
-            "name": "Pillar left",
-            "marker": "A"
-          },
-          "type": "dead"
-        },
-        {
-          "identifier": {
-            "type": "objective",
-            "edition": "objective",
-            "name": "Pillar right",
-            "marker": "A"
-          },
-          "type": "dead"
-        },
-        {
-          "identifier": {
-            "type": "objective",
-            "edition": "objective",
-            "name": "Pillar left",
-            "marker": "B"
-          },
-          "type": "dead"
-        },
-        {
-          "identifier": {
-            "type": "objective",
-            "edition": "objective",
-            "name": "Pillar right",
-            "marker": "B"
-          },
-          "type": "dead"
-        }
-      ],
+      "once": true,
       "rooms": [
         2
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Pillar left",
+            "marker": "A"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Pillar right",
+            "marker": "A"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Pillar left",
+            "marker": "B"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Pillar right",
+            "marker": "B"
+          },
+          "type": "dead"
+        }
       ]
     },
     {
       "round": "true",
       "once": true,
-      "finish": "won",
+      "requiredRooms": [
+        2
+      ],
       "figures": [
         {
           "identifier": {
@@ -229,9 +231,7 @@
           "type": "dead"
         }
       ],
-      "requiredRooms": [
-        2
-      ]
+      "finish": "won"
     }
   ],
   "rooms": [

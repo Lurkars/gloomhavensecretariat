@@ -22,17 +22,6 @@
     {
       "round": "true",
       "start": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "ooze",
-            "player2": "normal",
-            "player3": "elite",
-            "player4": "elite"
-          },
-          "count": "F"
-        }
-      ],
       "figures": [
         {
           "identifier": {
@@ -42,6 +31,17 @@
             "marker": "a"
           },
           "type": "present"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "count": "F"
         }
       ]
     }

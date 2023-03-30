@@ -150,7 +150,7 @@
   </span>
 
   <span class="action-summon" *ngSwitchCase="ActionType.summon" [ngClass]="{'small' : action.small}">
-    <ghs-action-summon [action]="action" [right]="right" [monster]="monster"
+    <ghs-action-summon [action]="action" [right]="right" [monster]="monster" [objective]="objective"
       [highlight]="highlightElements"></ghs-action-summon>
     <ng-container *ngIf="action.subActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type"
@@ -162,7 +162,7 @@
   </span>
 
   <span class="action-summon" *ngSwitchCase="ActionType.spawn" [ngClass]="{'small' : action.small}">
-    <ghs-action-summon [action]="action" [right]="right" [monster]="monster" [spawn]="true"
+    <ghs-action-summon [action]="action" [right]="right" [monster]="monster" [objective]="objective" [spawn]="true"
       [highlight]="highlightElements"></ghs-action-summon>
     <ng-container *ngIf="action.subActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type"

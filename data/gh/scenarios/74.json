@@ -32,8 +32,11 @@
     },
     {
       "round": "true",
-      "once": true,
       "always": true,
+      "once": true,
+      "requiredRooms": [
+        2
+      ],
       "spawns": [
         {
           "monster": {
@@ -51,15 +54,15 @@
           "marker": "b",
           "count": 2
         }
-      ],
-      "requiredRooms": [
-        2
       ]
     },
     {
       "round": "true",
-      "once": true,
       "always": true,
+      "once": true,
+      "requiredRooms": [
+        3
+      ],
       "spawns": [
         {
           "monster": {
@@ -71,9 +74,6 @@
           "marker": "c",
           "count": 2
         }
-      ],
-      "requiredRooms": [
-        3
       ]
     }
   ],

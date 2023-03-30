@@ -19,20 +19,13 @@
   ],
   "rules": [
     {
-      "round": "always",
-      "once": true,
+      "round": "true",
       "always": true,
-      "note": "%data.scenario.rules.jotl.21.1%",
-      "spawns": [
-        {
-          "monster": {
-            "name": "chaos-demon",
-            "player2": "normal",
-            "player3": "elite",
-            "player4": "elite"
-          }
-        }
+      "once": true,
+      "requiredRooms": [
+        2
       ],
+      "note": "%data.scenario.rules.jotl.21.1%",
       "figures": [
         {
           "identifier": {
@@ -43,14 +36,24 @@
           "type": "dead"
         }
       ],
-      "requiredRooms": [
-        2
+      "spawns": [
+        {
+          "monster": {
+            "name": "chaos-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        }
       ]
     },
     {
-      "round": "always",
-      "once": true,
+      "round": "true",
       "always": true,
+      "once": true,
+      "requiredRooms": [
+        4
+      ],
       "figures": [
         {
           "identifier": {
@@ -70,14 +73,14 @@
           "type": "transfer",
           "value": "giant-viper"
         }
-      ],
-      "requiredRooms": [
-        4
       ]
     },
     {
       "round": "true",
       "start": true,
+      "requiredRooms": [
+        5
+      ],
       "note": "%data.scenario.rules.jotl.21.2%",
       "figures": [
         {
@@ -89,9 +92,6 @@
           },
           "type": "present"
         }
-      ],
-      "requiredRooms": [
-        5
       ]
     }
   ],

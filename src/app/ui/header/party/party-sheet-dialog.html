@@ -12,27 +12,37 @@
               </span>
               <label class="headline">{{'party.sheet' | ghsLabel}}
               </label>
-              <span class="spacer"></span>
-              <span class="map" *ngIf="gameManager.game.edition == 'gh'" (click)="openMap()">
-                <img src="./assets/images/fullscreen.svg">{{'party.campaign.map' | ghsLabel}}
-              </span>
               <select *ngIf="gameManager.game.parties.length > 1 && !gameManager.game.scenario" class="select-party"
                 (change)="selectParty($event)" [title]="'party.change' | ghsLabel">
                 <option *ngFor="let p of gameManager.game.parties" [selected]="p.id == party.id"
                   [disabled]="p.id == party.id" value="{{p.id}}">{{p.name || ('party' | ghsLabel) + ' ' + p.id}}
                 </option>
               </select>
+              <span class="spacer"></span>
+              <span class="map" *ngIf="gameManager.game.edition == 'gh'" (click)="openMap()">
+                <img src="./assets/images/fullscreen.svg">{{'party.campaign.map' | ghsLabel}}
+              </span>
             </div>
             <div class="row name">
               <label>{{'party.name' | ghsLabel}}:</label>
               <input type="text" [value]="party.name" (change)="setName($event)"
                 placeholder="{{'party.name' | ghsLabel}}">
+                
               <ng-container *ngIf="!gameManager.game.scenario">
                 <img *ngIf="gameManager.game.parties.length > 1" class="remove-party" src="./assets/images/minus.svg"
                   (click)="removeParty()" [title]="'party.remove' | ghsLabel">
                 <span class="spacer"></span>
                 <img class="new-party" src="./assets/images/plus.svg" (click)="newParty()"
                   [title]="'party.new' | ghsLabel">
+              </ng-container>
+
+              <ng-container *ngIf="gameManager.game.scenario">
+                <div class="hint-container new-party-hint">
+                  <img src="./assets/images/plus.svg" class="hint-trigger ghs-svg">
+                  <span class="hint">
+                    <span class="text">{{'party.new.hint' | ghsLabel}}</span>
+                  </span>
+                </div>
               </ng-container>
             </div>
             <div class="row location">
@@ -143,6 +153,15 @@
               </option>
             </select>
             <img class="new-party" src="./assets/images/plus.svg" (click)="newParty()" [title]="'party.new' | ghsLabel">
+          </ng-container>
+
+          <ng-container *ngIf="gameManager.game.scenario">
+            <div class="hint-container new-party-hint">
+              <img src="./assets/images/plus.svg" class="hint-trigger ghs-svg">
+              <span class="hint">
+                <span class="text">{{'party.new.hint' | ghsLabel}}</span>
+              </span>
+            </div>
           </ng-container>
         </div>
 
@@ -480,7 +499,8 @@
             </div>
 
             <div class="item-list">
-              <label class="item" (click)="removeItem(item)" *ngFor="let item of items()" [ngClass]="{'edition' : !party.edition}">
+              <label class="item" (click)="removeItem(item)" *ngFor="let item of items()"
+                [ngClass]="{'edition' : !party.edition}">
                 <span class="item-index">
                   <img class="icon" [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
                   <span class="index">{{item.id}}</span>
@@ -514,8 +534,9 @@
               </select>
             </div>
 
-            <div class="treasure-list"> 
-              <label class="treasure" (click)="removeTreasure(treasure)" *ngFor="let treasure of treasures()" [ngClass]="{'edition' : !party.edition}">
+            <div class="treasure-list">
+              <label class="treasure" (click)="removeTreasure(treasure)" *ngFor="let treasure of treasures()"
+                [ngClass]="{'edition' : !party.edition}">
                 <span class="index">{{treasure.name}}</span>
                 <span class="separator">:</span>
                 <span class="checkbox"><img class="check" src="./assets/images/check.svg"><img class="close"

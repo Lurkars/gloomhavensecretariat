@@ -34,8 +34,19 @@
   "rules": [
     {
       "round": "true",
-      "once": true,
       "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Grave",
+            "marker": "a"
+          },
+          "type": "dead"
+        }
+      ],
       "spawns": [
         {
           "monster": {
@@ -47,23 +58,23 @@
           "marker": "a",
           "count": "F"
         }
-      ],
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
       "figures": [
         {
           "identifier": {
             "type": "objective",
             "edition": "objective",
             "name": "Grave",
-            "marker": "a"
+            "marker": "b"
           },
           "type": "dead"
         }
-      ]
-    },
-    {
-      "round": "true",
-      "once": true,
-      "always": true,
+      ],
       "spawns": [
         {
           "monster": {
@@ -75,31 +86,14 @@
           "marker": "b",
           "count": "F"
         }
-      ],
-      "figures": [
-        {
-          "identifier": {
-            "type": "objective",
-            "edition": "objective",
-            "name": "Grave",
-            "marker": "b"
-          },
-          "type": "dead"
-        }
       ]
     },
     {
       "round": "true",
-      "once": true,
       "always": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "bloated-regent",
-            "type": "boss"
-          },
-          "marker": "c"
-        }
+      "once": true,
+      "requiredRooms": [
+        3
       ],
       "figures": [
         {
@@ -112,8 +106,14 @@
           "type": "dead"
         }
       ],
-      "requiredRooms": [
-        3
+      "spawns": [
+        {
+          "monster": {
+            "name": "bloated-regent",
+            "type": "boss"
+          },
+          "marker": "c"
+        }
       ]
     }
   ],

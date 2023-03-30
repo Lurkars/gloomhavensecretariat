@@ -41,8 +41,11 @@
   "rules": [
     {
       "round": "true",
-      "once": true,
       "always": true,
+      "once": true,
+      "requiredRooms": [
+        4
+      ],
       "figures": [
         {
           "identifier": {
@@ -54,10 +57,7 @@
           "type": "dead"
         }
       ],
-      "finish": "lost",
-      "requiredRooms": [
-        4
-      ]
+      "finish": "lost"
     }
   ],
   "rooms": [

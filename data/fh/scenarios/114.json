@@ -43,7 +43,6 @@
   "rules": [
     {
       "round": "R % 2 == 0",
-      "start": false,
       "spawns": [
         {
           "monster": {
@@ -65,7 +64,6 @@
     },
     {
       "round": "R % 2 == 1",
-      "start": false,
       "spawns": [
         {
           "monster": {

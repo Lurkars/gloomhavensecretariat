@@ -16,8 +16,18 @@
   "rules": [
     {
       "round": "true",
-      "once": true,
       "start": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "rat-monstrosity"
+          },
+          "type": "dead"
+        }
+      ],
       "spawns": [
         {
           "monster": {
@@ -34,29 +44,18 @@
           },
           "marker": "B"
         }
-      ],
-      "figures": [
-        {
-          "identifier": {
-            "type": "monster",
-            "edition": "jotl",
-            "name": "rat-monstrosity"
-          },
-          "type": "dead"
-        }
       ]
     },
     {
       "round": "true",
-      "once": true,
       "start": true,
-      "spawns": [
+      "once": true,
+      "requiredRules": [
         {
-          "monster": {
-            "name": "stone-golem",
-            "type": "elite"
-          },
-          "marker": "D"
+          "edition": "jotl",
+          "scenario": "23",
+          "index": 0,
+          "section": false
         }
       ],
       "figures": [
@@ -77,12 +76,13 @@
           "type": "dead"
         }
       ],
-      "requiredRules": [
+      "spawns": [
         {
-          "edition": "jotl",
-          "scenario": "23",
-          "index": 0,
-          "section": false
+          "monster": {
+            "name": "stone-golem",
+            "type": "elite"
+          },
+          "marker": "D"
         }
       ]
     }

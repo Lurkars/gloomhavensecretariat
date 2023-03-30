@@ -18,7 +18,8 @@
       "roomNumber": 1,
       "initial": true,
       "treasures": [
-        57, 85
+        57,
+        85
       ],
       "monster": []
     }

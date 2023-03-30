@@ -64,8 +64,8 @@
     },
     {
       "round": "R > 2",
-      "once": true,
       "start": true,
+      "once": true,
       "rooms": [
         2
       ],
@@ -82,8 +82,11 @@
     },
     {
       "round": "true",
-      "once": true,
       "always": true,
+      "once": true,
+      "requiredRooms": [
+        2
+      ],
       "spawns": [
         {
           "monster": {
@@ -121,15 +124,15 @@
           "marker": "D",
           "count": 1
         }
-      ],
-      "requiredRooms": [
-        2
       ]
     },
     {
       "round": "true",
-      "once": true,
       "start": true,
+      "once": true,
+      "requiredRooms": [
+        2
+      ],
       "rooms": [
         3
       ],
@@ -142,15 +145,15 @@
           },
           "type": "dead"
         }
-      ],
-      "requiredRooms": [
-        2
       ]
     },
     {
       "round": "true",
-      "once": true,
       "always": true,
+      "once": true,
+      "requiredRooms": [
+        3
+      ],
       "spawns": [
         {
           "monster": {
@@ -191,9 +194,6 @@
           "marker": "D",
           "count": 1
         }
-      ],
-      "requiredRooms": [
-        3
       ]
     }
   ],

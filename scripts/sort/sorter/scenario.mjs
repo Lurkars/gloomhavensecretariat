@@ -1,4 +1,5 @@
 import { sortRoom } from "./room.mjs";
+import { sortScenarioRule } from "./scenario-rule.mjs";
 import { sortObjectKeys } from './sort-helper.mjs';
 
 export const sortScenario = function (scenario) {
@@ -29,6 +30,10 @@ export const sortScenario = function (scenario) {
         }
 
         scenario.rewards = sortObjectKeys(scenario.rewards, "globalAchievements", "partyAchievements", "lostPartyAchievements", "envelopes", "gold", "experience", "collectiveGold", "reputation", "prosperity", "perks", "battleGoals", "items", "chooseItem", "itemDesigns", "events", "custom", "ignoredBonus", "hints");
+    }
+
+    if (scenario.rules) {
+        scenario.rules = scenario.rules.map((rule) => sortScenarioRule(rule));
     }
 
     return sortObjectKeys(scenario, 'index', 'group', 'name', 'gridLocation', 'edition', 'parent', 'parentSections', 'blockedSections', 'marker', 'spoiler', 'initial', 'random', 'solo', 'allyDeck', 'resetRound', 'unlocks', 'requires', 'blocks', 'links', "forcedLinks", "rewards", 'monsters', 'allies', 'drawExtra', 'objectives', 'lootDeckConfig', 'rules', 'rooms');

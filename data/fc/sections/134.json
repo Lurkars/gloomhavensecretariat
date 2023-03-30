@@ -10,9 +10,9 @@
   "rules": [
     {
       "round": "true",
-      "once": true,
       "start": true,
       "always": true,
+      "once": true,
       "note": "All Lurkers are enemies to you and all other monster types."
     }
   ],

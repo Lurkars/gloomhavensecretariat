@@ -32,17 +32,6 @@
   "rules": [
     {
       "round": "R % 6 == 1",
-      "spawns": [
-        {
-          "monster": {
-            "name": "ooze",
-            "player2": "normal",
-            "player3": "normal",
-            "player4": "elite"
-          },
-          "marker": "a"
-        }
-      ],
       "figures": [
         {
           "identifier": {
@@ -53,21 +42,21 @@
           },
           "type": "present"
         }
-      ]
-    },
-    {
-      "round": "R % 6 == 2",
+      ],
       "spawns": [
         {
           "monster": {
             "name": "ooze",
             "player2": "normal",
-            "player3": "elite",
+            "player3": "normal",
             "player4": "elite"
           },
-          "marker": "b"
+          "marker": "a"
         }
-      ],
+      ]
+    },
+    {
+      "round": "R % 6 == 2",
       "figures": [
         {
           "identifier": {
@@ -78,21 +67,21 @@
           },
           "type": "present"
         }
-      ]
-    },
-    {
-      "round": "R % 6 == 3",
+      ],
       "spawns": [
         {
           "monster": {
             "name": "ooze",
             "player2": "normal",
-            "player3": "normal",
+            "player3": "elite",
             "player4": "elite"
           },
-          "marker": "c"
+          "marker": "b"
         }
-      ],
+      ]
+    },
+    {
+      "round": "R % 6 == 3",
       "figures": [
         {
           "identifier": {
@@ -103,10 +92,31 @@
           },
           "type": "present"
         }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
       ]
     },
     {
       "round": "R % 6 == 4",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Tree A"
+          },
+          "type": "present"
+        }
+      ],
       "spawns": [
         {
           "monster": {
@@ -117,20 +127,20 @@
           },
           "marker": "a"
         }
-      ],
+      ]
+    },
+    {
+      "round": "R % 6 == 5",
       "figures": [
         {
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Tree A"
+            "name": "Tree B"
           },
           "type": "present"
         }
-      ]
-    },
-    {
-      "round": "R % 6 == 5",
+      ],
       "spawns": [
         {
           "monster": {
@@ -141,20 +151,20 @@
           },
           "marker": "b"
         }
-      ],
+      ]
+    },
+    {
+      "round": "R % 6 == 0",
       "figures": [
         {
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Tree B"
+            "name": "Tree C"
           },
           "type": "present"
         }
-      ]
-    },
-    {
-      "round": "R % 6 == 0",
+      ],
       "spawns": [
         {
           "monster": {
@@ -164,16 +174,6 @@
             "player4": "elite"
           },
           "marker": "c"
-        }
-      ],
-      "figures": [
-        {
-          "identifier": {
-            "type": "objective",
-            "edition": "objective",
-            "name": "Tree C"
-          },
-          "type": "present"
         }
       ]
     }

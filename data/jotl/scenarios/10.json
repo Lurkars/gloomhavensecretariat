@@ -15,18 +15,18 @@
     {
       "round": "true",
       "start": true,
-      "note": "%data.scenario.rules.jotl.10.1%",
       "requiredRooms": [
         2
-      ]
+      ],
+      "note": "%data.scenario.rules.jotl.10.1%"
     },
     {
       "round": "true",
       "start": true,
-      "note": "%data.scenario.rules.jotl.10.2%",
       "requiredRooms": [
         3
-      ]
+      ],
+      "note": "%data.scenario.rules.jotl.10.2%"
     }
   ],
   "rooms": [

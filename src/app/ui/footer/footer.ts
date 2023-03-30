@@ -36,13 +36,13 @@ export class FooterComponent implements OnInit {
   constructor(private dialog: Dialog, private overlay: Overlay) { }
 
   ngOnInit(): void {
-    this.hasAllyAttackModifierDeck = (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules()) && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly || figure instanceof Objective && figure.objectiveId && gameManager.objectiveDataByScenarioObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck || false;
+    this.hasAllyAttackModifierDeck = settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly || figure instanceof Objective && figure.objectiveId && gameManager.objectiveDataByScenarioObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck || false;
 
     this.lootDeck = Object.keys(gameManager.game.lootDeck.cards).length > 0;
 
     gameManager.uiChange.subscribe({
       next: () => {
-        this.hasAllyAttackModifierDeck = (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules()) && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly || figure instanceof Objective && figure.objectiveId && gameManager.objectiveDataByScenarioObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck || false;
+        this.hasAllyAttackModifierDeck = settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly || figure instanceof Objective && figure.objectiveId && gameManager.objectiveDataByScenarioObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck || false;
         this.lootDeck = Object.keys(gameManager.game.lootDeck.cards).length > 0;
       }
     })
@@ -185,7 +185,7 @@ export class FooterComponent implements OnInit {
   }
 
   missingInitiative(): boolean {
-    return gameManager.game.figures.some((figure) => figure instanceof Character && settingsManager.settings.initiativeRequired && figure.initiative < 1 &&  gameManager.entityManager.isAlive(figure) && !figure.absent);
+    return gameManager.game.figures.some((figure) => figure instanceof Character && settingsManager.settings.initiativeRequired && figure.initiative < 1 && gameManager.entityManager.isAlive(figure) && !figure.absent);
   }
 
   active(): boolean {

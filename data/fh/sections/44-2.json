@@ -21,14 +21,14 @@
     },
     {
       "round": "true",
-      "once": true,
       "always": true,
+      "once": true,
       "note": "Pebbles rain down at each %game.mapMarker.c%. This has no effect"
     },
     {
       "round": "true",
-      "once": true,
       "always": true,
+      "once": true,
       "note": "Any figure occupying %game.mapMarker.b% suffers trap damage and is placed in the closest empty hex.",
       "spawns": [
         {
@@ -44,8 +44,8 @@
     },
     {
       "round": "true",
-      "once": true,
       "always": true,
+      "once": true,
       "spawns": [
         {
           "monster": {

@@ -69,6 +69,9 @@
     {
       "round": "R % 2 == 1",
       "start": true,
+      "requiredRooms": [
+        3
+      ],
       "spawns": [
         {
           "monster": {
@@ -79,14 +82,14 @@
           },
           "marker": "b"
         }
-      ],
-      "requiredRooms": [
-        3
       ]
     },
     {
       "round": "R % 2 == 0",
       "start": true,
+      "requiredRooms": [
+        3
+      ],
       "spawns": [
         {
           "monster": {
@@ -97,9 +100,6 @@
           },
           "marker": "c"
         }
-      ],
-      "requiredRooms": [
-        3
       ]
     }
   ],

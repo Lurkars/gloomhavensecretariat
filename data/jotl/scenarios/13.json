@@ -17,17 +17,6 @@
     {
       "round": "true",
       "start": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "blood-imp",
-            "player2": "normal",
-            "player3": "elite",
-            "player4": "elite"
-          },
-          "marker": "A"
-        }
-      ],
       "figures": [
         {
           "identifier": {
@@ -37,6 +26,17 @@
             "marker": "A"
           },
           "type": "present"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "blood-imp",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "A"
         }
       ]
     }

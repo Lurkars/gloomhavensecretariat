@@ -4,6 +4,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { Action, ActionType, ActionValueType } from "src/app/game/model/Action";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/MonsterType";
+import { Objective } from "src/app/game/model/Objective";
 
 @Component({
   selector: 'ghs-actions',
@@ -13,6 +14,7 @@ import { MonsterType } from "src/app/game/model/MonsterType";
 export class ActionsComponent {
 
   @Input() monster: Monster | undefined;
+  @Input() objective: Objective | undefined;
   @Input() actions!: Action[];
   @Input() relative: boolean = false;
   @Input() inline: boolean = false;

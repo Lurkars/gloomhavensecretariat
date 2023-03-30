@@ -63,6 +63,9 @@
     {
       "round": "true",
       "once": true,
+      "requiredRooms": [
+        3
+      ],
       "spawns": [
         {
           "monster": {
@@ -80,14 +83,14 @@
           },
           "marker": "c"
         }
-      ],
-      "requiredRooms": [
-        3
       ]
     },
     {
       "round": "true",
       "once": true,
+      "requiredRooms": [
+        4
+      ],
       "spawns": [
         {
           "monster": {
@@ -105,14 +108,14 @@
           },
           "marker": "d"
         }
-      ],
-      "requiredRooms": [
-        4
       ]
     },
     {
       "round": "true",
       "once": true,
+      "requiredRooms": [
+        5
+      ],
       "spawns": [
         {
           "monster": {
@@ -130,9 +133,6 @@
           },
           "marker": "e"
         }
-      ],
-      "requiredRooms": [
-        5
       ]
     }
   ],

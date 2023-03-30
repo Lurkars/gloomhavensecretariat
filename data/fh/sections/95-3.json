@@ -34,9 +34,9 @@
   ],
   "rules": [
     {
-      "round": "always",
-      "once": true,
+      "round": "true",
       "always": true,
+      "once": true,
       "figures": [
         {
           "identifier": {

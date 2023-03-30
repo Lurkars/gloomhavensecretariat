@@ -24,8 +24,19 @@
   "rules": [
     {
       "round": "true",
-      "once": true,
       "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Summoning Stone"
+          },
+          "type": "dead",
+          "value": "2"
+        }
+      ],
       "spawns": [
         {
           "monster": {
@@ -63,7 +74,12 @@
           },
           "marker": "C"
         }
-      ],
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
       "figures": [
         {
           "identifier": {
@@ -71,15 +87,9 @@
             "edition": "objective",
             "name": "Summoning Stone"
           },
-          "type": "dead",
-          "value": "2"
+          "type": "dead"
         }
-      ]
-    },
-    {
-      "round": "true",
-      "once": true,
-      "always": true,
+      ],
       "spawns": [
         {
           "monster": {
@@ -110,16 +120,6 @@
             "player4": "elite"
           },
           "marker": "C"
-        }
-      ],
-      "figures": [
-        {
-          "identifier": {
-            "type": "objective",
-            "edition": "objective",
-            "name": "Summoning Stone"
-          },
-          "type": "dead"
         }
       ]
     }

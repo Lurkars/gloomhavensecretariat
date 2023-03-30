@@ -193,7 +193,9 @@ export class ScenarioManager {
       this.applyScenarioData(section, true);
       if (section.rules) {
         section.rules.forEach((rule, index) => {
-          this.addScenarioRule(section, rule, index, true);
+          if (rule.always) {
+            this.addScenarioRule(section, rule, index, true);
+          }
         })
 
         this.filterDisabledScenarioRules();
@@ -533,15 +535,11 @@ export class ScenarioManager {
       round = round.replace('C', '' + gameManager.characterManager.characterCount());
     }
 
-    if (round == "always") {
-      add = true
-    } else {
-      try {
-        add = eval(round) && (this.game.state == GameState.next || rule.start && initial);
-      } catch (error) {
-        console.warn("Cannot apply scenario rule: '" + rule.round + "'", "index: " + index, error);
-        add = false;
-      }
+    try {
+      add = eval(round) && (rule.always || this.game.state == GameState.next || rule.start && initial);
+    } catch (error) {
+      console.warn("Cannot apply scenario rule: '" + rule.round + "'", "index: " + index, error);
+      add = false;
     }
 
     if (add) {

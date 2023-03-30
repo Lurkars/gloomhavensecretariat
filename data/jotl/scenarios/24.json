@@ -20,9 +20,8 @@
   ],
   "rules": [
     {
-      "round": "always",
+      "round": "true",
       "always": true,
-      "finish": "lost",
       "figures": [
         {
           "identifier": {
@@ -33,12 +32,23 @@
           "type": "dead",
           "value": "2"
         }
-      ]
+      ],
+      "finish": "lost"
     },
     {
       "round": "true",
-      "once": true,
       "start": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": ".*"
+          },
+          "type": "dead"
+        }
+      ],
       "spawns": [
         {
           "monster": {
@@ -69,22 +79,30 @@
           },
           "marker": "C"
         }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "once": true,
+      "requiredRules": [
+        {
+          "edition": "jotl",
+          "scenario": "24",
+          "index": 1,
+          "section": false
+        }
       ],
       "figures": [
         {
           "identifier": {
             "type": "monster",
             "edition": "jotl",
-            "name": ".*"
+            "name": "chaos-demon"
           },
           "type": "dead"
         }
-      ]
-    },
-    {
-      "round": "true",
-      "once": true,
-      "start": true,
+      ],
       "spawns": [
         {
           "monster": {
@@ -104,24 +122,6 @@
           },
           "marker": "D",
           "count": 2
-        }
-      ],
-      "figures": [
-        {
-          "identifier": {
-            "type": "monster",
-            "edition": "jotl",
-            "name": "chaos-demon"
-          },
-          "type": "dead"
-        }
-      ],
-      "requiredRules": [
-        {
-          "edition": "jotl",
-          "scenario": "24",
-          "index": 1,
-          "section": false
         }
       ]
     }

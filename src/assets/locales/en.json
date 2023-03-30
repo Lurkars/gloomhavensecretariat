@@ -724,7 +724,10 @@
     "import": "Import",
     "location": "Location",
     "name": "Name",
-    "new": "Create new party",
+    "new": {
+      ".": "Create new Party",
+      "hint": "Creation of new party is disabled during a scenario. Finish or cancel current scenario to create a new party."
+    },
     "notes": "Notes",
     "prosperity": "Prosperity",
     "remove": "Remove party",
@@ -904,7 +907,7 @@
         "reapply": "Switch back to casual mode"
       },
       "apply": "Finish",
-      "battlegoals": "Battel Goals",
+      "battlegoals": "Battle Goals",
       "cancel": "Cancel",
       "casualWarning": "Casual Mode",
       "casualFhWarning": {
@@ -1015,7 +1018,7 @@
     },
     "alwaysAllyAttackModifierDeck": {
       ".": "Always Attack Modifier Deck for allies",
-      "hint": "Always apply Frosthaven rule that allies uses their own Attack Modifier Deck instead of Monster's one"
+      "hint": "Always show the Attack Modifier Deck for allies"
     },
     "alwaysHazardousTerrain": {
       ".": "Always Hazardous Terrain",
@@ -1177,7 +1180,7 @@
     },
     "interactiveAbilities": {
       ".": "Interactive Abilities",
-      "hint": "On abilitiy cards, click on a highlighted action like summons or element actions to perform that action directly."
+      "hint": "On ability cards, click on a highlighted action like summons or element actions to perform that action directly."
     },
     "interface": "Interface",
     "levelAdjustment": {
