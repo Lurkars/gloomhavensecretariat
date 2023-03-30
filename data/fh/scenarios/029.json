@@ -26,6 +26,9 @@
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        49
+      ],
       "monster": [
         {
           "name": "algox-icespeaker",
