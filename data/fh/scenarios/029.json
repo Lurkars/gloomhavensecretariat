@@ -10,6 +10,8 @@
     "28"
   ],
   "monsters": [
+    "algox-archer",
+    "algox-guard",
     "algox-icespeaker",
     "algox-priest",
     "algox-scout"
@@ -22,10 +24,30 @@
     "arrowvine": 1,
     "axenut": 1
   },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "brittle",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        45
+      ],
       "monster": [
         {
           "name": "algox-icespeaker",
