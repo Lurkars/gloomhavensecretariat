@@ -19,7 +19,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "When destroyed:",
+          "value": "When destroyed, at the Glowing Orb:",
           "small": true
         },
         {
@@ -32,8 +32,7 @@
                 "player2": "normal",
                 "player3": "normal",
                 "player4": "elite"
-              },
-              "marker": "Glowing Orb"
+              }
             }
           ]
         }
