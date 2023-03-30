@@ -24,10 +24,157 @@
     "arrowvine": 1,
     "snowthistle": 2
   },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "brittle",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "R == 2",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-scout",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R == 3",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-archer",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 4",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-guard",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-snowspeaker",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 6",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-scout",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-archer",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 8",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-guard",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-snowspeaker",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 12",
+      "start": false,
+      "sections": [
+        "53.2"
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        45
+      ],
       "monster": [
         {
           "name": "algox-archer",
