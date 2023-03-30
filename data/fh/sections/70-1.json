@@ -3,49 +3,16 @@
   "name": "The Dead Mile",
   "edition": "fh",
   "parent": "37",
-  "marker": "1",
   "monsters": [
-    "living-spirit",
     "ruined-machine"
-  ],
-  "rules": [
-    {
-      "round": "R % 2 == 0",
-      "start": true,
-      "spawns": [
-        {
-          "manual": true,
-          "monster": {
-            "name": "living-spirit",
-            "player2": "normal",
-            "player3": "elite",
-            "player4": "elite"
-          },
-          "marker": "b"
-        }
-      ]
-    },
-    {
-      "round": "R % 2 == 1",
-      "start": "true",
-      "spawns": [
-        {
-          "manual": true,
-          "monster": {
-            "name": "living-spirit",
-            "player2": "normal",
-            "player3": "normal",
-            "player4": "elite"
-          },
-          "marker": "b"
-        }
-      ]
-    }
   ],
   "rooms": [
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        56
+      ],
       "monster": [
         {
           "name": "ruined-machine",
