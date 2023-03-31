@@ -15,7 +15,28 @@
       "name": "Cabinet",
       "health": "Cx(L+2)",
       "initiative": 1,
-      "count": 4
+      "count": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "When destroyed, at the Glowing Orb:",
+          "small": true
+        },
+        {
+          "type": "spawn",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "flaming-bladespinner",
+                "player2": "normal",
+                "player3": "normal",
+                "player4": "elite"
+              }
+            }
+          ]
+        }
+      ]
     }
   ],
   "lootDeckConfig": {
@@ -29,6 +50,16 @@
     {
       "round": "R % 2 == 0",
       "start": true,
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Cabinet"
+          }
+        }
+      ],
       "spawns": [
         {
           "monster": {

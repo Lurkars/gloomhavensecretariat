@@ -39,16 +39,22 @@
         },
         {
           "name": "ruined-machine",
-          "type": "normal"
-        },
-        {
-          "name": "ruined-machine",
           "type": "elite"
         },
         {
           "name": "ruined-machine",
+          "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "normal"
         },
         {
           "name": "ruined-machine",
