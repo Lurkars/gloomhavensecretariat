@@ -259,12 +259,12 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you short rest, you may %game.element.consume.any% to %game.card.recover% on spent %game.items.slots.onehand% or %game.items.slots.twohand% item"
+      "custom": "Whenever you short rest, you may %game.element.consume.wild% to %game.card.recover% on spent %game.items.slots.onehand% or %game.items.slots.twohand% item"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Once each scenario, during ordering of initiative, after all ability cards have been revealed, %game.element.any%"
+      "custom": "Once each scenario, during ordering of initiative, after all ability cards have been revealed, %game.element.wild%"
     }
   ],
   "masteries": [

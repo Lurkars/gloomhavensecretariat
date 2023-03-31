@@ -3,7 +3,7 @@
   "characterClass": "human",
   "gender": "f",
   "icon": "jotl-voidwarden",
-  "thumbnail": "jotl-bvoidwardenrute",
+  "thumbnail": "jotl-voidwarden",
   "edition": "fh-crossover",
   "handSize": 11,
   "color": "#e8e9e9",
@@ -77,54 +77,6 @@
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus0"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1",
-            "effects": [
-              {
-                "type": "element",
-                "value": "dark"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 2,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1",
-            "effects": [
-              {
-                "type": "element",
-                "value": "ice"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 2,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
             "type": "minus1"
           }
         },
@@ -149,9 +101,15 @@
       ]
     },
     {
-      "type": "add",
+      "type": "replace",
       "count": 3,
       "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
         {
           "count": 1,
           "attackModifier": {
@@ -173,9 +131,15 @@
       ]
     },
     {
-      "type": "add",
+      "type": "replace",
       "count": 1,
       "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
         {
           "count": 1,
           "attackModifier": {
@@ -184,6 +148,66 @@
               {
                 "type": "condition",
                 "value": "poison"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "curse"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "element",
+                "value": "ice"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "element",
+                "value": "dark"
               }
             ]
           }
@@ -203,26 +227,18 @@
       ]
     },
     {
-      "type": "add",
-      "count": 2,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "curse"
-              }
-            ]
-          }
-        }
-      ]
+      "type": "custom",
+      "custom": "%game.custom.perks.ignoreScenario%",
+      "count": 1
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "<b>Grave Defense:</b> Whenever you rest, you may %game.elementHalf.consume:ice|dark% to give %game.condition.ward% to one ally who has %game.condition.poison%"
     }
   ],
   "masteries": [
-    "",
-    ""
+    "Cause enemies to suffer 20 or more damage in a single turn with granted or commanded attacks",
+    "Give at least one ally or enemy %game.condition.poison%, %game.condition.strengthen%, %game.condition.bless%, or %game.condition.ward% each round"
   ]
 }

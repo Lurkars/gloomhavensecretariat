@@ -5,7 +5,7 @@
       <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
     </div>
     <div class="card-front front">
-      <div *ngIf="!mixedElement && !multipe || anyElement" class="type {{effectClasses}}"
+      <div *ngIf="!mixedElement && !multipe || wildElement" class="type {{effectClasses}}"
         [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
         <img
           [src]="'./assets/images/attackmodifier/' + (defaultType && !csOak && (!newStyle || attackModifier.valueType != AttackModifierValueType.plus || !attackModifier.effects || attackModifier.effects.length == 0) ? attackModifier.type : 'am-front') + '.png'" />
@@ -45,13 +45,13 @@
           [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
         </div>
       </ng-container>
-      <ng-container *ngIf="anyElement">
-        <div class="type multiple any air"></div>
-        <div class="type multiple any ice"></div>
-        <div class="type multiple any fire"></div>
-        <div class="type multiple any earth"></div>
-        <div class="type multiple any light"></div>
-        <div class="type multiple any dark"></div>
+      <ng-container *ngIf="wildElement">
+        <div class="type multiple wild air"></div>
+        <div class="type multiple wild ice"></div>
+        <div class="type multiple wild fire"></div>
+        <div class="type multiple wild earth"></div>
+        <div class="type multiple wild light"></div>
+        <div class="type multiple wild dark"></div>
       </ng-container>
 
       <div class="type cs-oak" *ngIf="csOak">

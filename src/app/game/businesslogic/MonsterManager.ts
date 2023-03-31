@@ -49,8 +49,6 @@ export class MonsterManager {
     return stat;
   }
 
-
-
   getMonsterSpawns(monster: MonsterData): MonsterData[] {
     let monsters: MonsterData[] = [];
     const deck = gameManager.deckData(new Monster(monster));
@@ -253,6 +251,7 @@ export class MonsterManager {
 
     monster.entities = monster.entities.filter((other) => other.number != number);
     monster.entities.push(monsterEntity);
+    gameManager.addFigureCount(monster);
 
     if (summon) {
       monsterEntity.summon = SummonState.new;

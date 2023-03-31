@@ -174,14 +174,14 @@ export class FooterComponent implements OnInit {
     if (gameManager.game.roundResetsHidden.length == 0) {
       return gameManager.game.round + offset;
     }
-    return gameManager.game.round + offset + gameManager.game.roundResetsHidden.reduce((a, b) => (a ? a - 1 : 0) + (b ? b - 1 : 0));
+    return gameManager.game.round + offset + gameManager.game.roundResetsHidden.reduce((a, b) => (a ? a + 1 : 1) + (b ? b + 1 : 1));
   }
 
   totalRounds() {
     if (gameManager.game.roundResets.length == 0) {
       return 0;
     }
-    return gameManager.game.roundResets.reduce((a, b) => (a ? a - 1 : 0) + (b ? b : 0)) + this.round() - 1;
+    return gameManager.game.roundResets.reduce((a, b) => (a ? a  : 0) + (b ? b : 0)) + this.round();
   }
 
   missingInitiative(): boolean {

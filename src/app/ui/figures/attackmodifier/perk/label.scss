@@ -6,6 +6,14 @@
         text-transform: uppercase;
     }
 
+    .attack-modifier-container {
+        white-space: nowrap;
+
+        * {
+            white-space: initial;
+        }
+    }
+
     .attack-modifier-effect {
         position: relative;
         margin-left: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));

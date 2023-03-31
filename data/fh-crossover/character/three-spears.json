@@ -60,13 +60,50 @@
       ]
     },
     {
-      "type": "remove",
+      "type": "replace",
       "count": 1,
       "cards": [
         {
-          "count": 4,
+          "count": 2,
           "attackModifier": {
             "type": "plus0"
+          }
+        },
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "pierce",
+                "value": 3
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "target",
+                "value": 1
+              }
+            ]
           }
         }
       ]
@@ -91,6 +128,23 @@
     },
     {
       "type": "add",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "refreshItem"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
       "count": 2,
       "cards": [
         {
@@ -98,44 +152,6 @@
           "attackModifier": {
             "type": "plus1",
             "rolling": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 3,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "condition",
-                "value": "muddle"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 2,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "pierce",
-                "value": 3
-              }
-            ]
           }
         }
       ]
@@ -161,43 +177,7 @@
     },
     {
       "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "target",
-                "value": 1
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 3,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "effects": [
-              {
-                "type": "refreshItem"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "custom": "%game.custom.perks.ignoreNegativeItem%",
+      "custom": "%game.custom.perks.ignoreNegativeItemFh%",
       "count": 1,
       "cards": [
         {
@@ -207,10 +187,16 @@
           }
         }
       ]
+    },
+    {
+      "type": "custom",
+      "custom": "<b>Well Supplied:</b> Once each scenario, during your turn, if you have a persistend Quartermaster ability card in your active area, you may recover up to four cards from your discard pile",
+      "count": 2,
+      "combined": true
     }
   ],
   "masteries": [
-    "",
-    ""
+    "Spend, lose, or refresh one or more items on each of your turns without ever performing the top action of <i>Reinforced Steel</i>",
+    "Loot six or more loot tokens in a single turn"
   ]
 }

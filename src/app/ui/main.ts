@@ -26,6 +26,7 @@ export class MainComponent implements OnInit {
   resizeObserver: ResizeObserver;
   SubMenu = SubMenu;
 
+  initialized : boolean = false;
   loading: boolean = true;
   cancelLoading: boolean = false;
   welcome: boolean = false;
@@ -43,16 +44,18 @@ export class MainComponent implements OnInit {
   constructor(private element: ElementRef, private swUpdate: SwUpdate) {
     gameManager.uiChange.subscribe({
       next: () => {
-        const figure = gameManager.game.figures.find((figure) => figure instanceof Character && figure.fullview);
-        if (figure) {
-          this.fullviewChar = figure as Character;
-          this.welcome = false;
-        } else if (gameManager.game.figures.length == 0) {
-          this.welcome = true;
-        } else {
-          this.fullviewChar = undefined;
-          this.welcome = false;
-          this.calcColumns();
+        if (this.initialized) {
+          const figure = gameManager.game.figures.find((figure) => figure instanceof Character && figure.fullview);
+          if (figure) {
+            this.fullviewChar = figure as Character;
+            this.welcome = false;
+          } else if (gameManager.game.figures.length == 0) {
+            this.welcome = true;
+          } else {
+            this.fullviewChar = undefined;
+            this.welcome = false;
+            this.calcColumns();
+          }
         }
       }
     })
@@ -104,8 +107,8 @@ export class MainComponent implements OnInit {
     this.isTouch = window.matchMedia("(pointer: coarse)").matches;
     document.body.classList.add('no-select');
     await settingsManager.init(!environment.production);
+    this.initialized = true;
     gameManager.stateManager.init();
-    gameManager.uiChange.emit();
     document.body.style.setProperty('--ghs-factor', settingsManager.settings.zoom + '');
     document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
     document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');

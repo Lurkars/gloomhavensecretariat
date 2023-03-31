@@ -162,7 +162,6 @@
     },
     {
       "round": "R == 12",
-      "start": false,
       "sections": [
         "53.2"
       ]

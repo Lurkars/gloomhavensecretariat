@@ -49,24 +49,37 @@
   "perks": [
     {
       "type": "remove",
-      "count": 2,
+      "count": 1,
       "cards": [
         {
-          "count": 2,
+          "count": 1,
           "attackModifier": {
-            "type": "minus1"
+            "type": "minus2"
           }
         }
       ]
     },
     {
-      "type": "remove",
-      "count": 1,
+      "type": "replace",
+      "count": 3,
       "cards": [
         {
-          "count": 4,
+          "count": 1,
           "attackModifier": {
-            "type": "plus0"
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "wound"
+              }
+            ]
           }
         }
       ]
@@ -90,22 +103,15 @@
       ]
     },
     {
-      "type": "add",
+      "type": "replace",
       "count": 2,
       "cards": [
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus2",
-            "rolling": true
+            "type": "plus0"
           }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 2,
-      "cards": [
+        },
         {
           "count": 1,
           "attackModifier": {
@@ -122,19 +128,30 @@
     },
     {
       "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "refreshItem"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
       "count": 2,
       "cards": [
         {
-          "count": 2,
+          "count": 1,
           "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "condition",
-                "value": "wound"
-              }
-            ]
+            "type": "plus2",
+            "rolling": true
           }
         }
       ]
@@ -184,25 +201,13 @@
       ]
     },
     {
-      "type": "add",
+      "type": "custom",
       "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "effects": [
-              {
-                "type": "refreshItem"
-              }
-            ]
-          }
-        }
-      ]
+      "custom": "<b>Revitalizing Medicine:</b> Whenever an ally performs the Heal ability of <i>Medical Pack</i> or <i>Large Medical Pack</i>, that character may first remove one negative condition"
     }
   ],
   "masteries": [
-    "",
-    ""
+    "On each of your turns, give an ally an ability card, target an ally with a heal ability, grant an ally shield, or place an ability card in an ally's active area",
+    "Deal at least %game.damage:20% with a single attack ability"
   ]
 }

@@ -1,4 +1,5 @@
 import { Editional } from "./Editional";
+import { Identifier } from "./Identifier";
 
 export interface Figure extends Editional {
   name: string;
@@ -7,3 +8,5 @@ export interface Figure extends Editional {
   active: boolean;
   getInitiative(): number;
 }
+
+export type FigureCounter = { identifier: Identifier, total: number, killed: number };

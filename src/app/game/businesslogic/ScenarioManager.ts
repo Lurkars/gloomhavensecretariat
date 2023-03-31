@@ -284,9 +284,9 @@ export class ScenarioManager {
 
     if (scenarioData.resetRound) {
       if (scenarioData.resetRound == "visible") {
-        this.game.roundResets.push(this.game.round + (this.game.state == GameState.draw ? 1 : 0));
+        this.game.roundResets.push(this.game.round + (this.game.state == GameState.draw ? 0 : -1));
       } else {
-        this.game.roundResetsHidden.push(this.game.round + (this.game.state == GameState.draw ? 1 : 0));
+        this.game.roundResetsHidden.push(this.game.round + (this.game.state == GameState.draw ? 0 : -1));
       }
       this.game.round = this.game.state == GameState.draw ? 0 : 1;
     }

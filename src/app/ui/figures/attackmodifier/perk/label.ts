@@ -53,6 +53,8 @@ export class PerkLabelComponent {
         let html = "";
         attackModifier = new AttackModifier(attackModifier.type, attackModifier.value, attackModifier.id, attackModifier.effects, attackModifier.rolling);
 
+        html += '<span class="attack-modifier-container">'
+
         if (!settingsManager.settings.fhStyle && attackModifier.rolling) {
             html += '<span class="attack-modifier-effect rolling">&zwj;<img class="action-icon sw" src="./assets/images/attackmodifier/rolling.svg"></span>';
         }
@@ -87,6 +89,8 @@ export class PerkLabelComponent {
         if (settingsManager.settings.fhStyle && attackModifier.rolling) {
             html += '<span class="attack-modifier-effect rolling">&zwj;<img class="action-icon sw" src="./assets/images/attackmodifier/rolling.svg"></span>';
         }
+
+        html += '</span>';
 
         return html;
     }
@@ -141,7 +145,7 @@ export class PerkLabelComponent {
                 }
                 break;
             case AttackModifierEffectType.refreshItem:
-                html += '<span class="placeholder attack-modifier-effect card">' + settingsManager.getLabel('game.attackModifiers.perks.effects.' + effect.type) + '</span>';
+                html += '<span class="placeholder attack-modifier-effect card">' + settingsManager.getLabel('game.attackModifiers.perks.effects.' + effect.type + (settingsManager.settings.fhStyle ? 'Fh' : '')) + '</span>';
                 break;
             case AttackModifierEffectType.refreshSpentItem:
                 html += '<span class="placeholder attack-modifier-effect card">' + settingsManager.getLabel('game.attackModifiers.perks.effects.' + effect.type) + '</span>';

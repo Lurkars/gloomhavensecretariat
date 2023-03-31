@@ -204,6 +204,7 @@
         "effects": {
           "recoverRandomDiscard": "Hole %game.card.recover% eine zufällig Karte vom Abwurfstapel zurück",
           "refreshItem": "Einen Gegenstand erneuern",
+          "refreshItemFh": "%game.card.recover% einen Gegenstand",
           "refreshSpentItem": "Einen verbrauchten Gegenstand erneuern"
         },
         "type": {

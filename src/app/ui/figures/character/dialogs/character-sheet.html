@@ -1,6 +1,7 @@
 <div class="light character-sheet-dialog" [ngClass]="{'cs-sheet' : csSheet, 'fh-sheet' : fhSheet}">
   <a class="close" (click)="close()" [title]="'close' | ghsLabel"><img src="./assets/images/close.svg"></a>
-  <div class="scroll-container" [ngClass]="{'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]}">
+  <div class="scroll-container"
+    [ngClass]="{'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]}">
     <div class="container">
       <div class="columns">
         <div class="column column-left">
@@ -243,6 +244,9 @@
                 <img src="./assets/images/import.svg">{{'character.progress.import' | ghsLabel}}
               </label>
             </div>
+            <span class="toggle-fh-sheet" (click)="fhSheet = !fhSheet">
+              {{'character.progress.fh.' + (fhSheet ? 'disable': 'enable') | ghsLabel}}
+            </span>
           </div>
         </div>
       </div>

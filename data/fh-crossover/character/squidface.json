@@ -47,7 +47,7 @@
   ],
   "perks": [
     {
-      "type": "replace",
+      "type": "remove",
       "count": 1,
       "cards": [
         {
@@ -55,18 +55,12 @@
           "attackModifier": {
             "type": "minus2"
           }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0"
-          }
         }
       ]
     },
     {
       "type": "replace",
-      "count": 2,
+      "count": 3,
       "cards": [
         {
           "count": 1,
@@ -105,19 +99,7 @@
       "count": 1,
       "cards": [
         {
-          "count": 2,
-          "attackModifier": {
-            "type": "plus1"
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 3,
-      "cards": [
-        {
-          "count": 1,
+          "count": 3,
           "attackModifier": {
             "type": "plus1",
             "effects": [
@@ -143,25 +125,6 @@
               {
                 "type": "condition",
                 "value": "poison"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 2,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "condition",
-                "value": "curse"
               }
             ]
           }
@@ -208,6 +171,25 @@
     },
     {
       "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "curse"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
       "custom": "%game.custom.perks.ignoreScenario%",
       "count": 1,
       "cards": [
@@ -218,10 +200,16 @@
           }
         }
       ]
+    },
+    {
+      "type": "custom",
+      "custom": "<b>Xorn's Boom:</b> Once each scenario, during your turn, cause each enemy that has %game.condition.poison% to duffer %game.damage:1% and gain %game.condition.muddle% and each ally who has %game.condition.poison% to suffer %game.damage:1% to gain %game.condition.strengthen%",
+      "count": 2,
+      "combined": true
     }
   ],
   "masteries": [
-    "",
-    ""
+    "Kill at least five enemies with non-attack abilities",
+    "Perform three different attack abilities that target at least four enemies each"
   ]
 }

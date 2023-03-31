@@ -186,9 +186,15 @@
       ]
     },
     {
-      "type": "add",
+      "type": "replace",
       "count": 2,
       "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
         {
           "count": 1,
           "attackModifier": {
@@ -205,10 +211,10 @@
     },
     {
       "type": "add",
-      "count": 2,
+      "count": 1,
       "cards": [
         {
-          "count": 1,
+          "count": 2,
           "attackModifier": {
             "type": "plus1",
             "effects": [
@@ -249,6 +255,7 @@
     {
       "type": "add",
       "count": 1,
+      "custom": "%game.custom.perks.ignoreScenario%",
       "cards": [
         {
           "count": 2,
@@ -267,12 +274,13 @@
     },
     {
       "type": "custom",
-      "count": 1,
-      "custom": "%game.custom.perks.ignoreScenario%"
+      "custom": "<b>Bear Treat:</b> During each round in which you long rest, at initiative 99, you may skip the bear's normal turn to Command: \"%game.action.move%3; %game.action.loot%1; If the loot ability was performed: %gamae.action.heal%3, self\"",
+      "count": 2,
+      "combined": true
     }
   ],
   "masteries": [
-    "",
-    ""
+    "Have your bear summon deal 10 or more damage in three consecutive rounds",
+    "You or your summons must apply a negative condition to at least 10 different enemies"
   ]
 }

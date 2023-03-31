@@ -93,9 +93,9 @@
       "count": 1,
       "cards": [
         {
-          "count": 4,
+          "count": 1,
           "attackModifier": {
-            "type": "plus0"
+            "type": "minus2"
           }
         }
       ]
@@ -119,29 +119,37 @@
       ]
     },
     {
-      "type": "add",
-      "count": 2,
-      "cards": [
-        {
-          "count": 2,
-          "attackModifier": {
-            "type": "plus1"
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
+      "type": "replace",
       "count": 1,
       "cards": [
         {
           "count": 1,
           "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
             "type": "plus0",
+            "rolling": true,
             "effects": [
               {
-                "type": "condition",
-                "value": "stun"
+                "type": "element",
+                "value": "air"
+              }
+            ]
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "element",
+                "value": "earth"
               }
             ]
           }
@@ -149,9 +157,53 @@
       ]
     },
     {
-      "type": "add",
+      "type": "replace",
       "count": 1,
       "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "element",
+                "value": "light"
+              }
+            ]
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "element",
+                "value": "dark"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
         {
           "count": 1,
           "attackModifier": {
@@ -167,9 +219,15 @@
       ]
     },
     {
-      "type": "add",
+      "type": "replace",
       "count": 1,
       "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
         {
           "count": 1,
           "attackModifier": {
@@ -185,9 +243,39 @@
       ]
     },
     {
-      "type": "add",
+      "type": "replace",
       "count": 1,
       "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "stun"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
         {
           "count": 1,
           "attackModifier": {
@@ -239,72 +327,18 @@
       ]
     },
     {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "element",
-                "value": "earth"
-              }
-            ]
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "element",
-                "value": "air"
-              }
-            ]
-          }
-        }
-      ]
+      "type": "custom",
+      "custom": "%game.custom.perks.ignoreScenario%",
+      "count": 1
     },
     {
-      "type": "add",
+      "type": "custom",
       "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "element",
-                "value": "light"
-              }
-            ]
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "element",
-                "value": "dark"
-              }
-            ]
-          }
-        }
-      ]
+      "custom": "<b>Etheric Bound:</b> Whenever you short rest, if <i>Reviving Ether</i> is in your discard pile, first return it to your hand"
     }
   ],
   "masteries": [
-    "",
-    ""
+    "Infuse and consume all six elements",
+    "Perform four different loss actions twice each"
   ]
 }

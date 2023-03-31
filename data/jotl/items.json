@@ -15,7 +15,7 @@
   {
     "id": 2,
     "name": "Iron Helmet",
-    "cost": 10,
+    "cost": 20,
     "count": 2,
     "edition": "jotl",
     "slot": "head",

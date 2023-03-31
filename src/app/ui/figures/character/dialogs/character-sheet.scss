@@ -683,4 +683,13 @@
       pointer-events: initial;
     }
   }
+
+  .toggle-fh-sheet {
+    margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+  }
 }

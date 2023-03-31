@@ -49,18 +49,6 @@
   "perks": [
     {
       "type": "remove",
-      "count": 2,
-      "cards": [
-        {
-          "count": 2,
-          "attackModifier": {
-            "type": "minus1"
-          }
-        }
-      ]
-    },
-    {
-      "type": "remove",
       "count": 1,
       "cards": [
         {
@@ -73,18 +61,50 @@
     },
     {
       "type": "replace",
-      "count": 1,
+      "count": 2,
       "cards": [
         {
           "count": 1,
           "attackModifier": {
-            "type": "minus2"
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "element",
+                "value": "light"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
           }
         },
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus0"
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "shield",
+                "value": 1
+              }
+            ]
           }
         }
       ]
@@ -122,31 +142,6 @@
     },
     {
       "type": "add",
-      "count": 2,
-      "cards": [
-        {
-          "count": 2,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "heal",
-                "value": 1,
-                "effects": [
-                  {
-                    "type": "specialTarget",
-                    "value": "self"
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
       "count": 1,
       "cards": [
         {
@@ -175,26 +170,7 @@
             "rolling": true,
             "effects": [
               {
-                "type": "element",
-                "value": "light"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 2,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "shield",
+                "type": "heal",
                 "value": 1,
                 "effects": [
                   {
@@ -210,7 +186,7 @@
     },
     {
       "type": "add",
-      "custom": "%game.custom.perks.ignoreNegativeItem%",
+      "custom": "%game.custom.perks.ignoreNegativeItemFh%",
       "count": 1,
       "cards": [
         {
@@ -225,10 +201,16 @@
       "type": "custom",
       "custom": "%game.custom.perks.ignoreScenario%",
       "count": 1
+    },
+    {
+      "type": "custom",
+      "custom": "<b>Shielding Light:</b> Whenever one of your heals would cause an ally's current hit point value to increase beyond their maximum hit point value, that ally gains %game.condition.ward%",
+      "count": 2,
+      "combined": true
     }
   ],
   "masteries": [
-    "",
-    ""
+    "Reduce attacks targeting you by a total of 20 or more through Shield effects in a single round",
+    "%game.element.light% or %game.element.consume.light% during each of your turns"
   ]
 }

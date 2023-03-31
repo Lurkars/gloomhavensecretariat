@@ -2,12 +2,12 @@ import { Ability } from "../model/Ability";
 import { Character } from "../model/Character";
 import { CharacterData } from "../model/data/CharacterData";
 import { DeckData } from "../model/data/DeckData";
-import { EditionData } from "../model/data/EditionData";
+import { EditionData, FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "../model/data/EditionData";
 import { MonsterData } from "../model/data/MonsterData";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { FigureError, FigureErrorType } from "../model/FigureError";
 import { Figure } from "../model/Figure";
-import { FH_PROSPERITY_STEPS, Game, GameState, GH_PROSPERITY_STEPS } from "../model/Game";
+import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { MonsterStat } from "../model/MonsterStat";
 import { MonsterType } from "../model/MonsterType";
@@ -30,6 +30,7 @@ import { Summon } from "../model/Summon";
 import { LootManager } from "./LootManager";
 import { FigureIdentifier } from "../model/data/ScenarioRule";
 import { ObjectiveData, ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
+import { Identifier } from "../model/Identifier";
 
 
 export class GameManager {
@@ -60,6 +61,7 @@ export class GameManager {
     this.lootManager = new LootManager(this.game);
     this.uiChange.subscribe({
       next: () => {
+        this.checkFiguresKilled();
         if (this.game.levelCalculation) {
           this.levelManager.calculateScenarioLevel();
         }
@@ -131,7 +133,7 @@ export class GameManager {
   }
 
   charactersData(edition: string | undefined = undefined): CharacterData[] {
-    return this.editionData.map((editionData) => editionData.characters).flat().filter((characterData, index, characters) => (!edition || characterData.edition == edition) && (characterData.replace || !characterData.replace && !characters.find((characterDataReplacement) => characterDataReplacement.replace && characterDataReplacement.name == characterData.name && characterDataReplacement.edition == characterData.edition)));
+    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(edition).indexOf(edition) != -1).map((editionData) => editionData.characters).flat().filter((characterData, index, characters) => (!edition || characterData.edition == edition) && (characterData.replace || !characterData.replace && !characters.find((characterDataReplacement) => characterDataReplacement.replace && characterDataReplacement.name == characterData.name && characterDataReplacement.edition == characterData.edition)));
   }
 
   monstersData(edition: string | undefined = undefined): MonsterData[] {
@@ -500,6 +502,61 @@ export class GameManager {
 
   editionRules(edition: string): boolean {
     return this.currentEdition() == edition || this.editionExtensions(this.currentEdition()).indexOf(edition) != -1;
+  }
+
+  addFigureCount(figure: Figure) {
+    const identifier = new Identifier(figure.name, figure instanceof Objective ? 'objective' : figure.edition);
+    let figureCount = this.game.figuresCounter.find((figureCount) => figureCount.identifier.name == identifier.name && figureCount.identifier.edition == identifier.edition);
+
+    if (!figureCount) {
+      figureCount = { identifier: identifier, total: 0, killed: 0 };
+      this.game.figuresCounter.push(figureCount);
+    }
+
+    figureCount.total++;
+  }
+
+  checkFiguresKilled() {
+
+    this.game.figures.forEach((figure) => {
+      const identifier = new Identifier(figure.name, figure instanceof Objective ? 'objective' : figure.edition);
+      let figureCount = this.game.figuresCounter.find((figureCount) => figureCount.identifier.name == identifier.name && figureCount.identifier.edition == identifier.edition);
+      if (!figureCount) {
+        if (figure instanceof Character || figure instanceof Objective) {
+          this.addFigureCount(figure);
+        } else if (figure instanceof Monster) {
+          for (let i = 0; i < this.monsterManager.monsterEntityCount(figure); i++) {
+            this.addFigureCount(figure);
+          }
+        }
+      }
+    })
+
+    this.game.figuresCounter.forEach((figureCounter) => {
+      let figures = this.game.figures.filter((figure) => figure.name == figureCounter.identifier.name && (figure instanceof Objective && figureCounter.identifier.edition == 'objective' || figure.edition == figureCounter.identifier.edition));
+
+      if (figures.length == 0 && figureCounter.total > figureCounter.killed) {
+        figureCounter.killed = figureCounter.total;
+      } else {
+        if (figures.every((figure) => figure instanceof Character || figure instanceof Objective)) {
+          figures = figures.filter((figure) => (figure instanceof Character || figure instanceof Objective) && this.entityManager.isAlive(figure));
+          if (figures.length + figureCounter.killed < figureCounter.total) {
+            figureCounter.killed = figureCounter.total - figures.length
+          } else if (figures.length + figureCounter.killed > figureCounter.total) {
+            figureCounter.total = figures.length + figureCounter.killed;
+            console.warn("More killed then figures counted", figureCounter.identifier);
+          }
+        } else if (figures.every((figure) => figure instanceof Monster)) {
+          const count = figures.map((figure) => this.monsterManager.monsterEntityCount(figure as Monster)).reduce((a, b) => a + b);
+          if (count + figureCounter.killed < figureCounter.total) {
+            figureCounter.killed = figureCounter.total - count
+          } else if (count + figureCounter.killed > figureCounter.total) {
+            figureCounter.total = count + figureCounter.killed;
+            console.warn("More killed then figures counted", figureCounter.identifier);
+          }
+        }
+      }
+    })
   }
 
 }

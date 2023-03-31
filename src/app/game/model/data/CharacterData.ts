@@ -81,6 +81,7 @@ export class CharacterData implements Editional, Spoilable {
       this.color = characterData.color || "#00000";
       this.marker = characterData.marker || false;
       this.spoiler = characterData.spoiler || false;
+      this.locked = characterData.locked || false;
       this.deck = characterData.deck;
       if (characterData.deck) {
         this.deck = characterData.deck;

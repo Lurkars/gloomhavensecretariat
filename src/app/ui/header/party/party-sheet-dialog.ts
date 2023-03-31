@@ -4,10 +4,9 @@ import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifierDeck } from "src/app/game/model/AttackModifier";
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
-import { CampaignData, TownGuardPerk } from "src/app/game/model/data/EditionData";
+import { CampaignData, FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS, TownGuardPerk } from "src/app/game/model/data/EditionData";
 import { ItemData } from "src/app/game/model/data/ItemData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
-import { FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "src/app/game/model/Game";
 import { Identifier } from "src/app/game/model/Identifier";
 import { LootType } from "src/app/game/model/Loot";
 
