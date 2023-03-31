@@ -75,6 +75,10 @@
       "donate": "Donate",
       "donations": "Donations to Sanctuary of the Great Oak",
       "export": "Export",
+      "fh": {
+        "enable": "Go to Frosthaven Character Sheet",
+        "disable": "Go to Gloomhaven Character Sheet"
+      },
       "gold": "Gold",
       "gold-notes": "Gold Notes",
       "import": "Import",
@@ -305,6 +309,7 @@
         "effects": {
           "recoverRandomDiscard": "Recover %game.card.recover% one random card from your dicard pile",
           "refreshItem": "Refresh an item",
+          "refreshItemFh": "%game.card.recover% one item",
           "refreshSpentItem": "Refresh a spent item"
         },
         "type": {

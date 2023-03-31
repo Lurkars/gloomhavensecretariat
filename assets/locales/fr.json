@@ -81,6 +81,7 @@
         "effects": {
           "recoverRandomDiscard": "Récupérer %game.card.recover% une carte aléatoire de votre pile de dicards",
           "refreshItem": "Rafraîchir un objet",
+          "refreshItemFh": "%game.card.recover% un objet",
           "refreshSpentItem": "Rafraîchir un objet consommé"
         },
         "type": {
