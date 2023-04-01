@@ -4,6 +4,10 @@
   "name": "Spire Basement",
   "edition": "fh",
   "parent": "23",
+  "parentSections": [
+    "38.4"
+  ],
+  "marker": "2",
   "monsters": [
     "hateful-corpse",
     "living-bones"
