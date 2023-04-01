@@ -175,9 +175,8 @@ Assets/Data used:
 
 - [Creator Pack by Isaac Childres](https://boardgamegeek.com/thread/1733586/files-creation) CC BY-NC-SA 4.0
 - [Worldhaven](https://github.com/any2cards/worldhaven)
-- [Frosthaven spoiler images](https://drive.google.com/drive/folders/18UUgAemymABv5ljdCn3myonk8EUfNNu3) ([u/Juar99](https://www.reddit.com/user/Juar99))
 - [Nerdhaven Images](https://drive.google.com/drive/folders/16wSfzvrSlpbGY8l4eWn8dnHjDUF7A2_e)
-- [X-Haven Assistant](https://github.com/Tarmslitaren/FrosthavenAssistant)
+- [X-haven Assistant](https://github.com/Tarmslitaren/FrosthavenAssistant)
 - [Gloomhaven Item DB](https://github.com/heisch/gloomhaven-item-db)
 - [Virtual Gloomhaven Board](https://github.com/PurpleKingdomGames/virtual-gloomhaven-board)
 - some other assets used are public domain licensed
