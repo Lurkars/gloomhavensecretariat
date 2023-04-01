@@ -112,7 +112,7 @@ export class EditionEditorComponent implements OnInit {
                         const monster: MonsterData = JSON.parse(reader.result as string);
                         if (monster) {
                             if (!this.editionData.monsters.find((monsterData) => monster.name == monsterData.name && monster.edition == monsterData.edition)) {
-                                this.editionData.monsters.push(new MonsterData(monster.name, monster.count, monster.standeeCount, monster.standeeShare, monster.standeeShareEdition, monster.baseStat, monster.stats, monster.edition, monster.deck, monster.boss, monster.flying, monster.thumbnail, monster.thumbnailUrl, monster.spoiler));
+                                this.editionData.monsters.push(new MonsterData(monster.name, monster.count, monster.standeeCount, monster.standeeShare, monster.standeeShareEdition, monster.baseStat, monster.stats, monster.edition, monster.deck, monster.boss, monster.flying, monster.immortal, monster.thumbnail, monster.thumbnailUrl, monster.spoiler));
                                 this.editionDataToJson();
                             }
                         }

@@ -68,16 +68,18 @@ export class MonsterEntityComponent implements OnInit {
   }
 
   dragHpMove(value: number) {
-    this.health = value;
-    if (this.entity.health + this.health > this.entity.maxHealth) {
-      this.health = EntityValueFunction(this.entity.maxHealth) - this.entity.health;
-    } else if (this.entity.health + this.health < 0) {
-      this.health = - this.entity.health;
+    if (this.entity.maxHealth > 0 && !this.monster.immortal) {
+      this.health = value;
+      if (this.entity.health + this.health > this.entity.maxHealth) {
+        this.health = EntityValueFunction(this.entity.maxHealth) - this.entity.health;
+      } else if (this.entity.health + this.health < 0) {
+        this.health = - this.entity.health;
+      }
     }
   }
 
   dragHpEnd(value: number) {
-    if (this.health != 0 && this.entity.maxHealth > 0) {
+    if (this.health != 0 && this.entity.maxHealth > 0 && !this.monster.immortal) {
       gameManager.stateManager.before("changeEntityHp", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + this.health);
       gameManager.entityManager.changeHealth(this.entity, this.health);
       if (this.entity.health <= 0 || this.entity.dead && this.health >= 0 && this.entity.health > 0) {

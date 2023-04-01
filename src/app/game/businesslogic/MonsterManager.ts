@@ -14,6 +14,7 @@ import { EntityValueFunction } from "../model/Entity";
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { Action, ActionType } from "../model/Action";
 import { MonsterSpawnData } from "../model/data/ScenarioRule";
+import { AdditionalIdentifier } from "../model/Identifier";
 
 export class MonsterManager {
 
@@ -183,6 +184,14 @@ export class MonsterManager {
     return monster.entities.filter((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity, standee) && (!standee || monsterEntity.number > 0) && (!type || monsterEntity.type == type)).length;
   }
 
+  monsterEntityCountIdentifier(monster: Monster, identifier: AdditionalIdentifier): number {
+    if (identifier.type != 'all' && (identifier.name != monster.name || identifier.edition != monster.edition) || identifier.type != 'monster') {
+      return 0;
+    }
+
+    return monster.entities.filter((entity) => gameManager.entityManager.isAlive(entity) && (!identifier.marker || identifier.marker == entity.marker) && (!identifier.tags || identifier.tags.length == 0 || identifier.tags.every((tag) => entity.tags.indexOf(tag) != -1))).length;
+  }
+
   monsterEntityCountAll(monster: Monster): number {
     return gameManager.entityManager.entities(monster).length;
   }
@@ -251,7 +260,7 @@ export class MonsterManager {
 
     monster.entities = monster.entities.filter((other) => other.number != number);
     monster.entities.push(monsterEntity);
-    gameManager.addFigureCount(monster);
+    gameManager.addEntityCount(monster, monsterEntity);
 
     if (summon) {
       monsterEntity.summon = SummonState.new;
@@ -304,33 +313,30 @@ export class MonsterManager {
     return monsterEntity;
   }
 
-  spawnMonsterEntity(name: string, type: MonsterType, edition: string, isAlly: boolean = false, drawExtra: boolean = false, summon: boolean = false): MonsterEntity | undefined {
-    let monster = this.addMonsterByName(name, edition);
-    if (monster) {
-      monster.isAlly = isAlly;
-      monster.drawExtra = drawExtra;
-      const monsterCount = this.monsterStandeeMax(monster);
-      if (settingsManager.settings.automaticStandees && this.monsterStandeeCount(monster) < monsterCount) {
-        let number = (monster.entities.length + 1) * -1;
+  spawnMonsterEntity(monster: Monster, type: MonsterType, isAlly: boolean = false, drawExtra: boolean = false, summon: boolean = false): MonsterEntity | undefined {
+    monster.isAlly = isAlly;
+    monster.drawExtra = drawExtra;
+    const monsterCount = this.monsterStandeeMax(monster);
+    if (settingsManager.settings.automaticStandees && this.monsterStandeeCount(monster) < monsterCount) {
+      let number = (monster.entities.length + 1) * -1;
 
-        if (settingsManager.settings.randomStandees) {
+      if (settingsManager.settings.randomStandees) {
+        number = Math.floor(Math.random() * monsterCount) + 1;
+        while (gameManager.monsterManager.monsterStandeeUsed(monster, number)) {
           number = Math.floor(Math.random() * monsterCount) + 1;
-          while (gameManager.monsterManager.monsterStandeeUsed(monster, number)) {
-            number = Math.floor(Math.random() * monsterCount) + 1;
-          }
-        } else if (this.monsterStandeeCount(monster, false) == monsterCount - 1) {
-          number = 1;
-          while (gameManager.monsterManager.monsterStandeeUsed(monster, number)) {
-            number++;
-          }
         }
-
-        if (monster.boss) {
-          type = MonsterType.boss;
+      } else if (this.monsterStandeeCount(monster, false) == monsterCount - 1) {
+        number = 1;
+        while (gameManager.monsterManager.monsterStandeeUsed(monster, number)) {
+          number++;
         }
-
-        return this.addMonsterEntity(monster, number, type, summon);
       }
+
+      if (monster.boss) {
+        type = MonsterType.boss;
+      }
+
+      return this.addMonsterEntity(monster, number, type, summon);
     }
     return undefined;
   }

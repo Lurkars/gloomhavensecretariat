@@ -367,7 +367,7 @@ export class RoundManager {
     this.game.monsterAttackModifierDeck.fromModel(new AttackModifierDeck().toModel());
     this.game.allyAttackModifierDeck.fromModel(new AttackModifierDeck().toModel());
     this.game.figures = this.game.figures.filter((figure) => figure instanceof Character || this.game.scenario && this.game.scenario.custom);
-    this.game.figuresCounter = [];
+    this.game.entitiesCounter = [];
     this.game.lootDeck.fromModel(new LootDeck());
 
     this.game.figures.forEach((figure) => {

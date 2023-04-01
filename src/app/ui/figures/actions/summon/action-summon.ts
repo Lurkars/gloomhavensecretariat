@@ -195,31 +195,37 @@ export class ActionSummonComponent implements OnChanges {
         gameManager.stateManager.before("summonAction", "data.monster." + spawn.monster.name, "game.monsterType." + spawn.monster.type, '' + count * spawners.length);
         spawners.forEach((spawner) => {
           if (spawn.monster && spawn.monster.type) {
-            for (let i = 0; i < count; i++) {
-              const entity = gameManager.monsterManager.spawnMonsterEntity(spawn.monster.name, spawn.monster.type, this.monster && this.monster.edition || gameManager.currentEdition(), false, false, !this.isSpawn);
-              if (entity) {
-                const tag = this.getTag(index);
-                entity.tags = entity.tags || [];
-                entity.tags.push(tag);
-                this.tags.push(tag);
-                if (spawn.monster.marker) {
-                  entity.marker = spawn.monster.marker;
-                }
-                if (spawn.monster.health) {
-                  let health = spawn.monster.health;
-                  if (typeof health === 'string') {
-                    health = health.replaceAll('H', '' + spawner.health);
+            const monster = gameManager.monsterManager.addMonsterByName(spawn.monster.name, this.monster && this.monster.edition || gameManager.currentEdition());
+            if (monster) {
+              for (let i = 0; i < count; i++) {
+                const entity = gameManager.monsterManager.spawnMonsterEntity(monster, spawn.monster.type, false, false, !this.isSpawn);
+                if (entity) {
+                  const tag = this.getTag(index);
+                  entity.tags = entity.tags || [];
+                  entity.tags.push(tag);
+                  this.tags.push(tag);
+                  if (spawn.monster.marker) {
+                    entity.marker = spawn.monster.marker;
                   }
+                  if (spawn.monster.health) {
+                    let health = spawn.monster.health;
+                    if (typeof health === 'string') {
+                      health = health.replaceAll('H', '' + spawner.health);
+                    }
 
-                  entity.health = EntityValueFunction(health);
+                    entity.health = EntityValueFunction(health);
 
-                  if (entity.health > entity.maxHealth) {
-                    entity.health = entity.maxHealth;
+                    if (entity.health > entity.maxHealth) {
+                      entity.health = entity.maxHealth;
+                    }
+                  }
+                  if (entity.marker || entity.tags.length > 0) {
+                    gameManager.addEntityCount(monster, entity);
                   }
                 }
               }
+              spawner.tags.push(spawnerTag);
             }
-            spawner.tags.push(spawnerTag);
           }
         })
         this.update();

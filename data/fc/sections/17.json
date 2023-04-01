@@ -45,7 +45,9 @@
           "identifier": {
             "type": "objective",
             "name": "Hail",
-            "tag": "hail-#114"
+            "tags": [
+              "hail-#114"
+            ]
           },
           "type": "damage",
           "value": "H/2"
@@ -54,7 +56,9 @@
           "identifier": {
             "type": "objective",
             "name": "Hail",
-            "tag": "hail-#114"
+            "tags": [
+              "hail-#114"
+            ]
           },
           "type": "gainCondition",
           "value": "poison"
@@ -63,7 +67,9 @@
           "identifier": {
             "type": "objective",
             "name": "Hail",
-            "tag": "hail-#114"
+            "tags": [
+              "hail-#114"
+            ]
           },
           "type": "transfer",
           "value": "1"

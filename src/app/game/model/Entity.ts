@@ -1,6 +1,7 @@
 import { gameManager } from "../businesslogic/GameManager";
 import { EntityCondition } from "./Condition";
 import { GameState } from "./Game";
+import { AdditionalIdentifier } from "./Identifier";
 
 export interface Entity {
   health: number;
@@ -10,6 +11,8 @@ export interface Entity {
   markers: string[];
   tags: string[];
 }
+
+export type EntityCounter = { identifier: AdditionalIdentifier, total: number, killed: number };
 
 export const EntityExpressionRegex = /^([xCL0-9\.\+\/\-\*\(\)\=\?\:\|\s\>\<]+)$/;
 export const EntityValueRegex = /\[([xCL0-9\.\+\/\-\*\(\)\=\?\:\|\s\>\<]+)(\{(.*)\})?\]/;

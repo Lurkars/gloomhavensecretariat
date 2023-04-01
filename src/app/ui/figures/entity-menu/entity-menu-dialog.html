@@ -75,7 +75,8 @@
       <div class="retaliate-action" *ngIf="gameManager.isMonster(data.figure) && +retaliateAction().value > 0">
         <ghs-action [action]="retaliateAction()" [highlight]="true"></ghs-action>
       </div>
-      <ng-container *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0">
+      <ng-container
+        *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal)">
         <span class="item">
           <ghs-drag-click class="button" [ngClass]="{'disabled' : data.entity.health + health == 0}"
             (singleClick)="changeHealth(-1)" [repeat]="true">
@@ -133,7 +134,7 @@
       </ng-container>
 
       <ng-container
-        *ngIf="(gameManager.isCharacter(data.figure) || gameManager.isMonster(data.figure)) && (!data.entity || EntityValueFunction(data.entity.maxHealth) > 0)">
+        *ngIf="(gameManager.isCharacter(data.figure) || gameManager.isMonster(data.figure)) && (!data.entity || EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal))">
 
         <span class="item">
           <ghs-drag-click class="button"
@@ -307,7 +308,7 @@
 
       <div class="marker-container">
         <a class="summon"
-          *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && gameManager.isMonsterEntity(data.entity)"
+          *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal) && gameManager.isMonsterEntity(data.entity)"
           [ngClass]="{'active' : gameManager.toMonsterEntity(data.entity).summon == SummonState.true, 'new' : gameManager.toMonsterEntity(data.entity).summon == SummonState.new }"
           (click)="toggleSummon()">
           <img src="./assets/images/summons/{{gameManager.toMonster(data.figure).summonColor}}.png">
@@ -398,7 +399,7 @@
     </div>
 
     <ng-container
-      *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isObjective(data.entity) || gameManager.toObjective(data.entity).escort)">
+      *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isObjective(data.entity) || gameManager.toObjective(data.entity).escort) && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal)">
       <ghs-conditions [entity]="data.entity" [figure]="data.figure" [type]="conditionType"></ghs-conditions>
     </ng-container>
   </div>

@@ -33,6 +33,14 @@ export function ghsNotSpoiled(items: Spoilable[]): Spoilable[] {
   return items.filter((spoilable) => !ghsIsSpoiled(spoilable));
 }
 
+export function ghsTextSearch(target: string, search: string, match: boolean = false): boolean {
+  if (match) {
+    return target.toLowerCase() == search.toLowerCase();
+  }
+
+  return search.split(' ').every((part) => target.toLowerCase().indexOf(part.toLowerCase()) != -1);
+}
+
 export function ghsValueSign(value: number, empty: boolean = false): string {
   if (value > 0) {
     return "+" + value;

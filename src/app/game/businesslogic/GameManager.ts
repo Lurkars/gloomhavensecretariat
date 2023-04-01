@@ -24,13 +24,12 @@ import { ItemData } from "../model/data/ItemData";
 import { LevelManager } from "./LevelManager";
 import { ScenarioManager } from "./ScenarioManager";
 import { RoundManager } from "./RoundManager";
-import { Entity } from "../model/Entity";
+import { Entity, EntityCounter } from "../model/Entity";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { Summon } from "../model/Summon";
 import { LootManager } from "./LootManager";
-import { FigureIdentifier } from "../model/data/ScenarioRule";
 import { ObjectiveData, ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
-import { Identifier } from "../model/Identifier";
+import { AdditionalIdentifier } from "../model/Identifier";
 
 
 export class GameManager {
@@ -61,7 +60,7 @@ export class GameManager {
     this.lootManager = new LootManager(this.game);
     this.uiChange.subscribe({
       next: () => {
-        this.checkFiguresKilled();
+        this.checkEntitiesKilled();
         if (this.game.levelCalculation) {
           this.levelManager.calculateScenarioLevel();
         }
@@ -413,7 +412,7 @@ export class GameManager {
     return figure instanceof Monster && this.entityManager.entities(figure).length > 0 || figure instanceof Character && gameManager.entityManager.isAlive(figure) || figure instanceof Objective && gameManager.entityManager.isAlive(figure);
   }
 
-  figuresByIdentifier(identifier: FigureIdentifier, scenarioEffect: boolean): Figure[] {
+  figuresByIdentifier(identifier: AdditionalIdentifier | undefined, scenarioEffect: boolean = false): Figure[] {
     if (identifier && identifier.type) {
       const type = identifier.type;
       if (type == "all") {
@@ -430,10 +429,10 @@ export class GameManager {
         const name = new RegExp('^' + identifier.name + '$');
         switch (type) {
           case "monster":
-            return this.game.figures.filter((figure) => figure instanceof Monster && (!edition || figure.edition == edition) && figure.name.match(name) && (!identifier.marker || figure.entities.some((entity) => entity.marker == identifier.marker)) && (!identifier.tag || figure.entities.some((entity) => identifier.tag && entity.tags.indexOf(identifier.tag) != -1)));
+            return this.game.figures.filter((figure) => figure instanceof Monster && (!edition || figure.edition == edition) && figure.name.match(name) && (!identifier.marker || figure.entities.some((entity) => entity.marker == identifier.marker)) && (!identifier.tags || identifier.tags.length == 0 || figure.entities.some((entity) => identifier.tags && identifier.tags.every((tag) => entity.tags.indexOf(tag) != -1))));
           case "character":
             return this.game.figures.filter((figure) => {
-              if (figure instanceof Character && (!edition || figure.edition == edition) && figure.name.match(name) && (!identifier.tag || figure.tags && figure.tags.indexOf(identifier.tag) != -1)) {
+              if (figure instanceof Character && (!edition || figure.edition == edition) && figure.name.match(name) && (!identifier.tags || identifier.tags.length == 0 || identifier.tags && identifier.tags.every((tag) => figure.tags && figure.tags.indexOf(tag) != -1))) {
                 if (scenarioEffect) {
                   return !this.characterManager.ignoreNegativeScenarioffects(figure);
                 } else {
@@ -444,7 +443,7 @@ export class GameManager {
               }
             });
           case "objective":
-            return this.game.figures.filter((figure) => figure instanceof Objective && figure.name.match(name) && (edition != "escort" || figure.escort) && (!identifier.marker || figure.marker == identifier.marker) && (!identifier.tag || figure.tags && figure.tags.indexOf(identifier.tag) != -1));
+            return this.game.figures.filter((figure) => figure instanceof Objective && figure.name.match(name) && (edition != "escort" || figure.escort) && (!identifier.marker || figure.marker == identifier.marker) && (!identifier.tags || identifier.tags.length == 0 || identifier.tags.every((tag) => figure.tags && figure.tags.indexOf(tag) != -1)));
         }
       }
     }
@@ -452,7 +451,7 @@ export class GameManager {
     return [];
   }
 
-  entitiesByIdentifier(identifier: FigureIdentifier, scenarioEffect: boolean): Entity[] {
+  entitiesByIdentifier(identifier: AdditionalIdentifier | undefined, scenarioEffect: boolean): Entity[] {
     let figures = this.figuresByIdentifier(identifier, scenarioEffect);
     return figures.map((figure) => {
       if (figure instanceof Monster) {
@@ -504,55 +503,71 @@ export class GameManager {
     return this.currentEdition() == edition || this.editionExtensions(this.currentEdition()).indexOf(edition) != -1;
   }
 
-  addFigureCount(figure: Figure) {
-    const identifier = new Identifier(figure.name, figure instanceof Objective ? 'objective' : figure.edition);
-    let figureCount = this.game.figuresCounter.find((figureCount) => figureCount.identifier.name == identifier.name && figureCount.identifier.edition == identifier.edition);
-
-    if (!figureCount) {
-      figureCount = { identifier: identifier, total: 0, killed: 0 };
-      this.game.figuresCounter.push(figureCount);
+  additionalIdentifier(figure: Figure, entity: Entity | undefined = undefined): AdditionalIdentifier {
+    if (figure instanceof Character) {
+      return new AdditionalIdentifier("character", figure.name, figure.edition, undefined, figure.tags);
+    } else if (figure instanceof Objective) {
+      return new AdditionalIdentifier("objective", figure.name, figure.escort ? "escort" : "objective", figure.marker, figure.tags);
+    } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
+      return new AdditionalIdentifier("monster", figure.name, figure.edition, entity.marker, entity.tags);
     }
 
-    figureCount.total++;
+    return new AdditionalIdentifier(undefined, figure.name, figure.edition, undefined, entity && entity.tags || []);
   }
 
-  checkFiguresKilled() {
+  entityCounter(identifier: AdditionalIdentifier): EntityCounter | undefined {
+    return this.game.entitiesCounter.find((entityCounter) => identifier.type == entityCounter.identifier.type && identifier.name == entityCounter.identifier.name && identifier.edition == entityCounter.identifier.edition && (!identifier.marker || identifier.marker == entityCounter.identifier.marker) && (!identifier.tags || identifier.tags.length == 0 || identifier.tags.every((tag) => entityCounter.identifier.tags && entityCounter.identifier.tags.indexOf(tag) != -1)));
+  }
 
+  addEntityCount(figure: Figure, entity: Entity | undefined = undefined) {
+
+    const identifier = this.additionalIdentifier(figure, entity);
+    let counter = this.entityCounter(identifier);
+
+    if (!counter) {
+      counter = { identifier: identifier, total: 0, killed: 0 };
+      this.game.entitiesCounter.push(counter);
+    }
+
+    counter.total++;
+  }
+
+  checkEntitiesKilled() {
     this.game.figures.forEach((figure) => {
-      const identifier = new Identifier(figure.name, figure instanceof Objective ? 'objective' : figure.edition);
-      let figureCount = this.game.figuresCounter.find((figureCount) => figureCount.identifier.name == identifier.name && figureCount.identifier.edition == identifier.edition);
-      if (!figureCount) {
-        if (figure instanceof Character || figure instanceof Objective) {
-          this.addFigureCount(figure);
-        } else if (figure instanceof Monster) {
-          for (let i = 0; i < this.monsterManager.monsterEntityCount(figure); i++) {
-            this.addFigureCount(figure);
-          }
+      if (figure instanceof Character || figure instanceof Objective) {
+        if (!this.entityCounter(this.additionalIdentifier(figure))) {
+          this.addEntityCount(figure);
         }
+      } else if (figure instanceof Monster) {
+        figure.entities.forEach((entity) => {
+          if (this.entityManager.isAlive(entity) && !this.entityCounter(this.additionalIdentifier(figure, entity))) {
+            this.addEntityCount(figure, entity);
+          }
+
+        })
       }
     })
 
-    this.game.figuresCounter.forEach((figureCounter) => {
-      let figures = this.game.figures.filter((figure) => figure.name == figureCounter.identifier.name && (figure instanceof Objective && figureCounter.identifier.edition == 'objective' || figure.edition == figureCounter.identifier.edition));
-
-      if (figures.length == 0 && figureCounter.total > figureCounter.killed) {
-        figureCounter.killed = figureCounter.total;
+    this.game.entitiesCounter.forEach((entityCounter) => {
+      let figures = this.figuresByIdentifier(entityCounter.identifier);
+      if (figures.length == 0 && entityCounter.total > entityCounter.killed) {
+        entityCounter.killed = entityCounter.total;
       } else {
         if (figures.every((figure) => figure instanceof Character || figure instanceof Objective)) {
           figures = figures.filter((figure) => (figure instanceof Character || figure instanceof Objective) && this.entityManager.isAlive(figure));
-          if (figures.length + figureCounter.killed < figureCounter.total) {
-            figureCounter.killed = figureCounter.total - figures.length
-          } else if (figures.length + figureCounter.killed > figureCounter.total) {
-            figureCounter.total = figures.length + figureCounter.killed;
-            console.warn("More killed then figures counted", figureCounter.identifier);
+          if (figures.length + entityCounter.killed < entityCounter.total) {
+            entityCounter.killed = entityCounter.total - figures.length
+          } else if (figures.length + entityCounter.killed > entityCounter.total) {
+            console.warn("More killed then figures counted", entityCounter.identifier, figures.length, entityCounter.killed, entityCounter.total);
+            entityCounter.total = figures.length + entityCounter.killed;
           }
         } else if (figures.every((figure) => figure instanceof Monster)) {
-          const count = figures.map((figure) => this.monsterManager.monsterEntityCount(figure as Monster)).reduce((a, b) => a + b);
-          if (count + figureCounter.killed < figureCounter.total) {
-            figureCounter.killed = figureCounter.total - count
-          } else if (count + figureCounter.killed > figureCounter.total) {
-            figureCounter.total = count + figureCounter.killed;
-            console.warn("More killed then figures counted", figureCounter.identifier);
+          const count = figures.map((figure) => this.monsterManager.monsterEntityCountIdentifier(figure as Monster, entityCounter.identifier)).reduce((a, b) => a + b);
+          if (count + entityCounter.killed < entityCounter.total) {
+            entityCounter.killed = entityCounter.total - count
+          } else if (count + entityCounter.killed > entityCounter.total) {
+            console.warn("More killed then figures counted", entityCounter.identifier, count, entityCounter.killed, entityCounter.total);
+            entityCounter.total = count + entityCounter.killed;
           }
         }
       }

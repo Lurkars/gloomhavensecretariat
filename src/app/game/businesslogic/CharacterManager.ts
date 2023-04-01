@@ -81,7 +81,7 @@ export class CharacterManager {
       }
 
       this.game.figures.push(character);
-      gameManager.addFigureCount(character);
+      gameManager.addEntityCount(character);
 
       if (this.game.state == GameState.next) {
         gameManager.attackModifierManager.shuffleModifiers(character.attackModifierDeck);
@@ -161,7 +161,7 @@ export class CharacterManager {
     }
 
     this.game.figures.push(objective);
-    gameManager.addFigureCount(objective);
+    gameManager.addEntityCount(objective);
     gameManager.sortFigures();
     return objective;
   }

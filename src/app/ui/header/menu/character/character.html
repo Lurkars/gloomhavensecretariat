@@ -10,7 +10,7 @@
   </div>
   <div class="columns">
     <ng-container *ngFor="let edition of gameManager.currentEditions(true)">
-      <div class="column spoilers" *ngIf="characterData('', edition).length > 0">
+      <div class="column spoilers" *ngIf="characterData(filter, edition).length > 0">
         <div class="line title sticky">
           <label>{{'data.edition.' + edition | ghsLabel}}</label>
         </div>
@@ -33,5 +33,10 @@
         </div>
       </div>
     </ng-container>
+    <div class="column" *ngIf="filter && noResults()">
+      <div class="line">
+        <label>{{'character.filter.noResult' | ghsLabel}}</label>
+      </div>
+    </div>
   </div>
 </div>

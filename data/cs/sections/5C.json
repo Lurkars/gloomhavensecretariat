@@ -22,7 +22,9 @@
           "identifier": {
             "type": "monster",
             "name": "city-.*",
-            "tag": "5C"
+            "tags": [
+              "5C"
+            ]
           },
           "type": "gainCondition",
           "value": "infect"

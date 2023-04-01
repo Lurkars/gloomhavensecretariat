@@ -7,3 +7,16 @@ export class Identifier {
     this.edition = edition;
   }
 }
+
+export class AdditionalIdentifier extends Identifier {
+  type: "all" | "character" | "objective" | "monster" | undefined;
+  marker: string | undefined;
+  tags: string[] | undefined;;
+
+  constructor(type: "all" | "character" | "objective" | "monster" | undefined, name: string, edition: string, marker: string | undefined = undefined, tags: string[] | undefined = undefined) {
+    super(name, edition);
+    this.type = type;
+    this.marker = marker;
+    this.tags = tags;
+  }
+}

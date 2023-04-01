@@ -8,11 +8,11 @@
     "earth-demon",
     "flaming-drake",
     "gelatinous-giant",
-    "gelatinous-giant-immune"
+    "gelatinous-giant-immortal"
   ],
   "rules": [
     {
-      "round": "R > 1",
+      "round": "R % 2 == 0",
       "spawns": [
         {
           "monster": {
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "round": "R > (1+C)",
+      "round": "true",
       "always": true,
       "once": true,
       "figures": [
@@ -36,16 +36,18 @@
             "type": "monster",
             "edition": "cs",
             "name": "blood-ooze",
-            "tag": "water-a"
+            "tags": [
+              "water-a"
+            ]
           },
-          "type": "dead",
-          "value": "R-C-2"
+          "type": "killed",
+          "value": "C"
         },
         {
           "identifier": {
             "type": "monster",
             "edition": "cs",
-            "name": "gelatinous-giant-immune"
+            "name": "gelatinous-giant-immortal"
           },
           "type": "transfer",
           "value": "gelatinous-giant"
@@ -78,7 +80,7 @@
           "player4": "elite"
         },
         {
-          "name": "gelatinous-giant-immune",
+          "name": "gelatinous-giant-immortal",
           "type": "boss"
         }
       ]

@@ -3,7 +3,7 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { CharacterData } from "src/app/game/model/data/CharacterData";
-import { ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled } from "src/app/ui/helper/Static";
+import { ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled, ghsTextSearch } from "src/app/ui/helper/Static";
 
 @Component({
   selector: 'ghs-character-menu',
@@ -22,7 +22,7 @@ export class CharacterMenuComponent {
   filter: string = "";
 
   characterData(filter: string, edition: string | undefined = undefined): CharacterData[] {
-    return gameManager.charactersData(edition).filter((characterData) => (!characterData.locked || this.isSpoiled(characterData)) && (characterData.name.toLowerCase().indexOf(filter.toLowerCase()) != -1 || settingsManager.getLabel('data.character.' + characterData.name).toLowerCase().indexOf(filter.toLowerCase()) != -1) || characterData.locked && settingsManager.getLabel('data.character.' + characterData.name).toLowerCase() == filter.toLowerCase()).sort((a, b) => {
+    return gameManager.charactersData(edition).filter((characterData) => (!characterData.locked || this.isSpoiled(characterData)) && (ghsTextSearch(characterData.name, filter) || this.isSpoiled(characterData) && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.name), filter)) || characterData.locked && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.name), filter, true)).sort((a, b) => {
       const aName = settingsManager.getLabel('data.character.' + a.name).toLowerCase();
       const bName = settingsManager.getLabel('data.character.' + b.name).toLowerCase();
 
@@ -52,7 +52,9 @@ export class CharacterMenuComponent {
     });
   }
 
-
+  noResults(): boolean {
+    return gameManager.currentEditions(true).every((edition) => this.characterData(this.filter, edition).length == 0);
+  }
 
   addCharacter(characterData: CharacterData) {
     gameManager.stateManager.before("addChar", "data.character." + characterData.name);

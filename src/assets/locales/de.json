@@ -62,7 +62,10 @@
       "valrath": "Valrath",
       "vermling": "Ratzen"
     },
-    "filter": "Charaktere filtern",
+    "filter": {
+      ".": "Charaktere filtern",
+      "noResult": "Kein Ergebnis"
+    },
     "lootCards": {
       "drawn": "In gezogener Reihenfolge anordnen",
       "sort": "Nach Typ anordnen"
@@ -716,7 +719,10 @@
     "cancel": "Szenario abbrechen",
     "conclusion": "Lösung",
     "custom": "Benutzerdefiniert",
-    "filter": "Szenario filtern",
+    "filter": {
+      ".": "Szenario filtern",
+      "noResult": "Kein Ergebnis"
+    },
     "filterSuccess": "Nur neue Szenarien anzeigen",
     "finish": {
       ".": "Szenario beenden",

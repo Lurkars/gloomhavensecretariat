@@ -1,4 +1,5 @@
 import { ElementModel } from "../Element";
+import { AdditionalIdentifier } from "../Identifier";
 import { MonsterStandeeData } from "./RoomData";
 
 export class ScenarioRule {
@@ -40,8 +41,8 @@ export class MonsterSpawnData {
 
 export class ScenarioFigureRule {
 
-  identifier: FigureIdentifier = undefined;
-  type: "present" | "dead" | "gainCondition" | "looseCondition" | "damage" | "hp" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove" | "amAdd" | "amRemove" = "present";
+  identifier: AdditionalIdentifier | undefined = undefined;
+  type: "present" | "dead" | "killed" | "gainCondition" | "looseCondition" | "damage" | "hp" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove" | "amAdd" | "amRemove" = "present";
   value: string = "";
   scenarioEffect: boolean = false;
 
@@ -96,5 +97,3 @@ export class ScenarioRuleIdentifier {
   index: number = -1;
   section: boolean = false;
 };
-
-export type FigureIdentifier = { "type": string, "edition": string, "name": string, "marker": string | undefined, "tag": string | undefined } | undefined;

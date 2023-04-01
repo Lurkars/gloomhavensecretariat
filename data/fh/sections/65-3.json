@@ -74,7 +74,9 @@
             "type": "objective",
             "edition": "objective",
             "name": "Ice Pillar",
-            "tag": "scenario-10"
+            "tags": [
+              "scenario-10"
+            ]
           },
           "type": "remove"
         }
