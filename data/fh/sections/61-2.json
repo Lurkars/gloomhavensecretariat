@@ -4,6 +4,8 @@
   "name": "Rusted Tunnels",
   "edition": "fh",
   "parent": "25",
+  "marker": "2",
+  "resetRound": "hidden",
   "monsters": [
     "robotic-boltshooter",
     "ruined-machine"
@@ -31,14 +33,7 @@
         {
           "monster": {
             "name": "ruined-machine",
-            "player2": "normal"
-          },
-          "marker": "c",
-          "count": 2
-        },
-        {
-          "monster": {
-            "name": "ruined-machine",
+            "player2": "normal",
             "player4": "elite"
           },
           "marker": "c",
