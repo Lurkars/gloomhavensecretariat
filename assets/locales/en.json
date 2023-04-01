@@ -62,7 +62,10 @@
       "valrath": "Valrath",
       "vermling": "Vermling"
     },
-    "filter": "Filter Character",
+    "filter": {
+      ".": "Filter Character",
+      "noResult": "No Result"
+    },
     "lootCards": {
       "drawn": "Order by time drawn",
       "sort": "Order by type"
@@ -819,7 +822,10 @@
     "cancel": "Cancel Scenario",
     "conclusion": "Conclusion",
     "custom": "Custom",
-    "filter": "Filter Scenario",
+    "filter": {
+      ".": "Filter Scenario",
+      "noResult": "No Result"
+    },
     "filterSuccess": "Show new scenarios only",
     "finish": {
       ".": "Finish Scenario",
