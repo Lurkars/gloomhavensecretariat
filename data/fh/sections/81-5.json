@@ -3,9 +3,49 @@
   "name": "The Dead Mile",
   "edition": "fh",
   "parent": "37",
+  "parentSections": [
+    "70.1"
+  ],
+  "marker": "2",
+  "resetRound": "hidden",
   "monsters": [
+    "living-bones",
     "living-spirit",
     "ruined-machine"
+  ],
+  "rules": [
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-bones",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "count": 1,
+          "marker": "1"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 1",
+      "start": "true",
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-bones",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "count": 1,
+          "marker": "1"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
