@@ -7,8 +7,8 @@
             <span class="number" *ngIf="deck.current < deck.cards.length -1" (click)="open($event)">{{
                 deck.cards.length - deck.current - 1}}</span>
             <span class="number" *ngIf="deck.cards.length == 0" (click)="open($event)">0</span>
-            <img [title]="'game.cards.fullscreen' | ghsLabel" *ngIf="fullscreen" (click)="openFullscreen($event)"
-                class="fullscreen" src="./assets/images/fullscreen.svg">
+            <img [title]="'game.cards.fullscreen' | ghsLabel" *ngIf="fullscreen && !compact && this.deck.cards.length > 0"
+                (click)="openFullscreen($event)" class="fullscreen" src="./assets/images/fullscreen.svg">
         </div>
     </div>
 

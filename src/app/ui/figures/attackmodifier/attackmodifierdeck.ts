@@ -62,6 +62,7 @@ export class AttackModifierDeckComponent implements OnInit {
 
   rollingIndex: number[] = [];
   rollingIndexPrev: number[] = [];
+  compact: boolean = false;
 
   @ViewChild('drawCard') drawCard!: ElementRef;
 
@@ -84,13 +85,14 @@ export class AttackModifierDeckComponent implements OnInit {
     }
     this.current = this.deck.current;
     this.internalDraw = -99;
+    this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
 
     this.deck.cards.forEach((card, index) => {
       this.rollingIndex[index] = this.calcRollingIndex(index, this.current);
       this.rollingIndexPrev[index] = this.calcRollingIndex(index, this.current - 1);
     });
     gameManager.uiChange.subscribe({
-      next: (fromServer : boolean) => {
+      next: (fromServer: boolean) => {
         if (this.internalDraw == -99 && this.current < this.deck.current) {
           this.current = this.deck.current;
           this.internalDraw = this.deck.current;
@@ -126,6 +128,9 @@ export class AttackModifierDeckComponent implements OnInit {
           this.rollingIndex[index] = this.calcRollingIndex(index, this.current);
           this.rollingIndexPrev[index] = this.calcRollingIndex(index, this.current - 1);
         });
+
+
+        this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
       }
     })
 
@@ -136,6 +141,14 @@ export class AttackModifierDeckComponent implements OnInit {
     if (settingsManager.settings.fhStyle) {
       this.newStyle = true;
     }
+
+    window.addEventListener('resize', (event) => {
+      this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+    });
+
+    window.addEventListener('fullscreenchange', (event) => {
+      this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+    });
   }
 
   drawAnimation() {
@@ -155,7 +168,7 @@ export class AttackModifierDeckComponent implements OnInit {
   }
 
   draw(event: any) {
-    if (!this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
+    if (this.compact) {
       this.openFullscreen(event);
     } else if (this.standalone || gameManager.game.state == GameState.next) {
       if (!this.drawTimeout && this.deck.current < (this.deck.cards.length - (this.queue == 0 ? 0 : 1))) {
@@ -177,7 +190,6 @@ export class AttackModifierDeckComponent implements OnInit {
       this.open(event);
     }
   }
-
 
   openFullscreen(event: any) {
     this.dialog.open(AttackModifierDeckFullscreenComponent, {

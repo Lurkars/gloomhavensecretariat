@@ -142,12 +142,6 @@ export class FooterComponent implements OnInit {
     gameManager.stateManager.after();
   }
 
-  toggleLootDeck() {
-    gameManager.stateManager.before(gameManager.game.lootDeck.active ? 'lootDeckHide' : 'lootDeckShow');
-    gameManager.game.lootDeck.active = !gameManager.game.lootDeck.active;
-    gameManager.stateManager.after();
-  }
-
   confirmTurns() {
     gameManager.game.figures.forEach((figure) => gameManager.roundManager.afterTurn(figure));
     this.next(true);
@@ -181,7 +175,7 @@ export class FooterComponent implements OnInit {
     if (gameManager.game.roundResets.length == 0) {
       return 0;
     }
-    return gameManager.game.roundResets.reduce((a, b) => (a ? a  : 0) + (b ? b : 0)) + this.round();
+    return gameManager.game.roundResets.reduce((a, b) => (a ? a : 0) + (b ? b : 0)) + this.round();
   }
 
   missingInitiative(): boolean {
@@ -214,6 +208,34 @@ export class FooterComponent implements OnInit {
 
   nextDisabled(): boolean {
     return this.activeHint() || this.finish() || this.failed();
+  }
+
+  toggleActiveAllyAttackModifierDeck() {
+    this.beforeAllyAttackModifierDeck(new AttackModiferDeckChange(gameManager.game.allyAttackModifierDeck, gameManager.game.allyAttackModifierDeck.active && (!this.compact || !gameManager.game.lootDeck.active) ? 'amDeckHide' : 'amDeckShow'));
+    if (this.compact && gameManager.game.lootDeck.active) {
+      gameManager.game.lootDeck.active = false;
+      gameManager.game.allyAttackModifierDeck.active = true;
+    } else {
+      gameManager.game.allyAttackModifierDeck.active = !gameManager.game.allyAttackModifierDeck.active;
+    }
+    this.afterAllyAttackModifierDeck(new AttackModiferDeckChange(gameManager.game.allyAttackModifierDeck, !gameManager.game.allyAttackModifierDeck.active ? 'amDeckHide' : 'amDeckShow'));
+  }
+
+  toggleActiveMonsterAttackModifierDeck() {
+    this.beforeMonsterAttackModifierDeck(new AttackModiferDeckChange(gameManager.game.monsterAttackModifierDeck, gameManager.game.monsterAttackModifierDeck.active && (!this.compact || !gameManager.game.lootDeck.active) ? 'amDeckHide' : 'amDeckShow'));
+    if (this.compact && gameManager.game.lootDeck.active) {
+      gameManager.game.lootDeck.active = false;
+      gameManager.game.monsterAttackModifierDeck.active = true;
+    } else {
+      gameManager.game.monsterAttackModifierDeck.active = !gameManager.game.monsterAttackModifierDeck.active;
+    }
+    this.afterMonsterAttackModifierDeck(new AttackModiferDeckChange(gameManager.game.monsterAttackModifierDeck, !gameManager.game.monsterAttackModifierDeck.active ? 'amDeckHide' : 'amDeckShow'));
+  }
+
+  toggleLootDeck() {
+    this.beforeLootDeck(new LootDeckChange(gameManager.game.lootDeck, gameManager.game.lootDeck.active ? 'lootDeckHide' : 'lootDeckShow'));
+    gameManager.game.lootDeck.active = !gameManager.game.lootDeck.active;
+    this.afterLootDeck(new LootDeckChange(gameManager.game.lootDeck, !gameManager.game.lootDeck.active ? 'lootDeckHide' : 'lootDeckShow'));
   }
 
 }

@@ -1400,6 +1400,8 @@
         "addCard": "Karte {1} zu {0} AM Deck hinzufügen",
         "addCardShuffled": "Neue {1} Karte in {0} AM Deck mischen",
         "addCurse": "Fluch zu {0} AM Deck zufügen",
+        "amDeckHide": "{0} AM Deck ausblenden",
+        "amDeckShow": "{0} AM Deck einblenden",
         "draw": "{0} AM Karte ziehen",
         "removeBless": "Segen von {0} AM Deck entfernen",
         "removeCard": "Karte {1} von {0} AM Deck entfernen",

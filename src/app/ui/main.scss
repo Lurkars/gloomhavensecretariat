@@ -352,15 +352,15 @@ main {
 
 .figures {
 
-  &.loot-deck {
-    .figure:last-child {
-      padding-bottom: calc(var(--ghs-unit) * 13.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+  &.ally-deck {
+    .figure.last {
+      padding-bottom: calc(var(--ghs-unit) * 11.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
   }
 
-  &.ally-deck {
-    .figure:last-child {
-      padding-bottom: calc(var(--ghs-unit) * 12.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+  &.loot-deck {
+    .figure.last {
+      padding-bottom: calc(var(--ghs-unit) * 23.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
   }
 
@@ -373,20 +373,21 @@ main {
 
 .compact {
 
-  .figure:last-child {
-    padding-bottom: calc(var(--ghs-unit) * 12.5 * var(--ghs-text-factor) * var(--ghs-barsize));
-  }
-
   .figures {
-    &.loot-deck {
-      .figure:last-child {
-        padding-bottom: calc(var(--ghs-unit) * 25 * var(--ghs-text-factor) * var(--ghs-barsize));
-      }
+
+    .figure.last {
+      padding-bottom: calc(var(--ghs-unit) * 11.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
 
     &.ally-deck {
-      .figure:last-child {
-        padding-bottom: calc(var(--ghs-unit) * 24 * var(--ghs-text-factor) * var(--ghs-barsize));
+      .figure.last {
+        padding-bottom: calc(var(--ghs-unit) * 22.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      }
+    }
+
+    &.loot-deck {
+      .figure.last {
+        padding-bottom: calc(var(--ghs-unit) * 24.5 * var(--ghs-text-factor) * var(--ghs-barsize));
       }
     }
   }

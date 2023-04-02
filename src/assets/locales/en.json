@@ -1503,6 +1503,8 @@
         "addCard": "Add {1} card to {0} AM deck",
         "addCardShuffled": "Shuffle new {1} card into {0} AM deck",
         "addCurse": "Add Curse to {0} AM deck",
+        "amDeckHide": "Hide {0} AM deck",
+        "amDeckShow": "Show {0} AM deck",
         "draw": "Draw {0} AM",
         "removeBless": "Remove Bless from {0} AM deck",
         "removeCard": "Remove card {1} from {0} AM deck ",

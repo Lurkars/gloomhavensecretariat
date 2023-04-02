@@ -1,5 +1,6 @@
 <div class="attack-modifiers"
   [ngClass]="{'disabled' : gameManager.game.state == GameState.draw, 'vertical' : vertical}">
+
   <div #drawCard class="am-container draw"
     title="{{(gameManager.game.state == GameState.next ? (deck.current == deck.cards.length -1 ? 'game.cards.shuffle' : 'game.cards.draw') : 'game.cards.openDialog') | ghsLabel}}"
     [ngClass]="{'open-dialog' : gameManager.game.state == GameState.draw, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers && (!character || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition])}"
@@ -10,11 +11,11 @@
         deck.cards.length - deck.current - 1 }}</span>
       <img *ngIf="deck.current == deck.cards.length -1" class="shuffle" title="{{'game.cards.openDialog' | ghsLabel}}"
         (click)="open($event)" src="./assets/images/shuffle.svg">
-      <img [title]="'game.cards.fullscreen' | ghsLabel" *ngIf="fullscreen" (click)="openFullscreen($event)"
+      <img [title]="'game.cards.fullscreen' | ghsLabel" *ngIf="fullscreen && !compact" (click)="openFullscreen($event)"
         class="fullscreen" src="./assets/images/fullscreen.svg">
 
-      <span *ngIf="!characterIcon" class="numeration">{{numeration}}</span>
-      <span *ngIf="characterIcon" class="character-icon">
+      <span *ngIf="!characterIcon && !bottom" class="numeration">{{numeration}}</span>
+      <span *ngIf="characterIcon && !bottom" class="character-icon">
         <img [src]="characterIcon" />
       </span>
     </div>

@@ -7,8 +7,8 @@
         position: absolute;
         width: 40%;
         padding-top: 60%;
-        bottom: 5%;
-        left: 0;
+        bottom: 0;
+        right: 0;
     }
 
     .loot-card {
@@ -83,12 +83,12 @@
 
     @keyframes loot-draw {
         0% {
-            transform: scale(1) translate(-102%, 16.5%);
+            transform: scale(1) translate(102%, 16.5%);
         }
 
         35%,
         70% {
-            transform: scale(1.1) translate(-51%, 25%);
+            transform: scale(1.1) translate(51%, 25%);
         }
 
         100% {
@@ -98,12 +98,12 @@
 
     @keyframes loot-draw-bottom {
         0% {
-            transform: scale(1) translate(-102%, -16.5%);
+            transform: scale(1) translate(102%, -16.5%);
         }
 
         35%,
         70% {
-            transform: scale(1.6) translate(-110%, -90%);
+            transform: scale(1.6) translate(110%, -90%);
         }
 
         100% {
@@ -113,37 +113,34 @@
 
     @keyframes loot-last {
         0% {
-            bottom: 5%;
-            left: 42%;
+            right: 42%;
             transform: rotate(0);
         }
 
         70% {
-            bottom: 5%;
-            left: 42%;
+            right: 42%;
             transform: rotate(0);
         }
 
         100% {
-            bottom: 10%;
-            left: 75%;
-            transform: rotate(5deg);
+            right: 75%;
+            transform: rotate(-5deg);
         }
     }
 
     .current {
         position: absolute;
-        bottom: 5%;
-        left: 42%;
+        bottom: 0;
+        right: 42%;
         z-index: 1;
     }
 
     .disgarded,
     .last {
         position: absolute;
-        bottom: 10%;
-        left: 75%;
-        transform: rotate(5deg);
+        bottom: 0;
+        right: 75%;
+        transform: rotate(-5deg);
         z-index: 0;
 
         &.last:hover {

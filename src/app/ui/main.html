@@ -51,12 +51,12 @@
     </ng-container>
   </div>
   <div *ngIf="!fullviewChar && !welcome" class="figures" cdkDropListGroup cdkScrollable
-    [ngClass]="{'loot-deck' : gameManager.game.lootDeck.active, 'ally-deck' : !gameManager.game.lootDeck.active && footer.hasAllyAttackModifierDeck, 'drag-disabled': settingsManager.settings.disableDragFigures}">
+    [ngClass]="{'loot-deck' : footer.lootDeck || settingsManager.settings.alwaysLootDeck && gameManager.game.lootDeck.active , 'ally-deck' :  footer.hasAllyAttackModifierDeck, 'drag-disabled': settingsManager.settings.disableDragFigures}">
     <div class="figure" *ngFor="let figure of gameManager.game.figures; let i = index;" [figure-autoscroll]="figure"
       [cdkDropListData]="i" cdkDropList (cdkDropListDropped)="drop($event)" cdkDropListAutoScrollStep="20"
       (cdkDropListEntered)="entered($event)" (cdkDropListExited)="exited($event)"
       [cdkDropListDisabled]="settingsManager.settings.disableDragFigures || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters && !gameManager.stateManager.permissions.monsters"
-      [ngClass]="{'column' : columns > 1, 'column-left' : columns > 1 && i < columnSize, 'column-right' : columns > 1 && i >= columnSize}">
+      [ngClass]="{'column' : columns > 1, 'column-left' : columns > 1 && i < columnSize, 'column-right' : columns > 1 && i >= columnSize, 'last' : i == columnSize - 1 || i == gameManager.game.figures.length - 1}">
 
       <div cdkDrag #figureDrag [cdkDragStartDelay]="isTouch ? 500 : 0" [ngClass]="{'enabled' : draggingEnabled}"
         (cdkDragStarted)="startedDrag($event, figureDrag)" (cdkDragReleased)="releasedDrag($event, figureDrag)">

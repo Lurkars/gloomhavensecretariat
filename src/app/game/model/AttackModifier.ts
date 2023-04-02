@@ -244,6 +244,7 @@ export class AttackModifierDeck {
   current: number;
   cards: AttackModifier[];
   disgarded: number[] = [];
+  active: boolean = true;
 
   constructor(attackModifiers: AttackModifier[] | undefined = undefined) {
     this.attackModifiers = attackModifiers ? JSON.parse(JSON.stringify(attackModifiers.filter((am, index, self) => self.indexOf(am) == index))) : JSON.parse(JSON.stringify(defaultAttackModifier));
@@ -266,7 +267,7 @@ export class AttackModifierDeck {
   }
 
   toModel(): GameAttackModifierDeckModel {
-    return new GameAttackModifierDeckModel(this.current, this.cards.map((attackModifier) => attackModifier && attackModifier.id), this.disgarded);
+    return new GameAttackModifierDeckModel(this.current, this.cards.map((attackModifier) => attackModifier && attackModifier.id), this.disgarded, this.active);
   }
 
   fromModel(model: GameAttackModifierDeckModel) {
@@ -276,6 +277,7 @@ export class AttackModifierDeck {
 
     this.cards = model.cards.map((id) => this.cardById(id) || new AttackModifier(AttackModifierType.invalid));
     this.disgarded = model.disgarded || [];
+    this.active = model.active;
   }
 
   merge(attackModifierDeck: AttackModifierDeck) {
@@ -290,12 +292,15 @@ export class GameAttackModifierDeckModel {
   current: number;
   cards: string[];
   disgarded: number[];
+  active: boolean;
 
   constructor(current: number,
     cards: string[],
-    disgarded: number[]) {
+    disgarded: number[],
+    active: boolean) {
     this.current = current;
     this.cards = cards;
     this.disgarded = JSON.parse(JSON.stringify(disgarded));
+    this.active = active;
   }
 }
