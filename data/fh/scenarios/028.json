@@ -93,6 +93,23 @@
           "marker": "e"
         }
       ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "fh",
+            "name": "Emissary"
+          },
+          "type": "dead",
+          "value": "1"
+        }
+      ],
+      "finish": "lost"
     }
   ],
   "rooms": [
