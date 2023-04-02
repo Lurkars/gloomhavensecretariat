@@ -10,11 +10,25 @@
     "28"
   ],
   "monsters": [
-    "algox-archer",
-    "algox-guard",
     "algox-icespeaker",
     "algox-priest",
     "algox-scout"
+  ],
+  "allies": [
+    "algox-archer",
+    "algox-guard"
+  ],
+  "objectives": [
+    {
+      "name": "Ice Pillar",
+      "health": "[(L+2)xC/2{$math.floor}]",
+      "count": 9
+    },
+    {
+      "name": "Ice Core",
+      "health": "[(L+2)xC/2{$math.floor}]",
+      "count": 3
+    }
   ],
   "lootDeckConfig": {
     "money": 12,
@@ -37,6 +51,28 @@
           "type": "gainCondition",
           "value": "brittle",
           "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "R == 1",
+      "start": true,
+      "once": true,
+      "note": "Spawn 6-C Algox Guards or Algox Archers at any empty starting hex",
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-archer",
+            "type": "normal"
+          },
+          "manual": true
+        },
+        {
+          "monster": {
+            "name": "algox-guard",
+            "type": "normal"
+          },
+          "manual": true
         }
       ]
     }
@@ -110,7 +146,8 @@
           "name": "algox-scout",
           "player2": "normal"
         }
-      ]
+      ],
+      "objectives": []
     }
   ]
 }

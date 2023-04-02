@@ -12,7 +12,7 @@
     {
       "name": "Snowdrift",
       "health": "L+C",
-      "count": 5
+      "count": 6
     },
     {
       "name": "Snow Rock",
@@ -58,6 +58,7 @@
         }
       ],
       "objectives": [
+        1,
         1,
         1,
         1,

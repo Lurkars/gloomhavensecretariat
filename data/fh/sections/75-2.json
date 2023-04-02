@@ -7,7 +7,7 @@
   "monsters": [],
   "objectives": [
     {
-      "name": "Alter",
+      "name": "Altar",
       "health": "Cx(L+2)"
     },
     {

@@ -162,9 +162,7 @@
     },
     {
       "round": "R == 12",
-      "sections": [
-        "53.2"
-      ]
+      "finish": "won"
     }
   ],
   "rooms": [

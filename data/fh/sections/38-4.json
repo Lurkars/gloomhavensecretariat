@@ -3,6 +3,7 @@
   "name": "Spire Basement",
   "edition": "fh",
   "parent": "23",
+  "marker": "1",
   "monsters": [
     "living-bones",
     "living-spirit"

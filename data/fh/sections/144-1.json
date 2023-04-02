@@ -3,18 +3,78 @@
   "name": "The Dead Mile",
   "edition": "fh",
   "parent": "37",
+  "parentSections": [
+    "81.5"
+  ],
+  "marker": "3",
+  "resetRound": "hidden",
   "monsters": [
-    "living-bones"
+    "living-bones",
+    "living-spirit",
+    "ruined-machine"
+  ],
+  "rules": [
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "count": 1,
+          "marker": "1"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "count": 1,
+          "marker": "1"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "fh",
+          "scenario": "81.5",
+          "index": 1,
+          "section": true
+        },
+        {
+          "edition": "fh",
+          "scenario": "81.5",
+          "index": 2,
+          "section": true
+        }
+      ]
+    }
   ],
   "rooms": [
     {
       "roomNumber": 4,
+      "ref": "07-H",
       "initial": true,
       "monster": [
         {
           "name": "living-bones",
           "player2": "normal",
-          "player3": "elite",
+          "player3": "normal",
           "player4": "elite"
         },
         {

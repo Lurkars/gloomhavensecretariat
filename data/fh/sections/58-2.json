@@ -4,6 +4,8 @@
   "name": "Rusted Tunnels",
   "edition": "fh",
   "parent": "25",
+  "marker": "1",
+  "resetRound": "hidden",
   "monsters": [
     "flaming-bladespinner",
     "robotic-boltshooter"
@@ -16,7 +18,7 @@
   ],
   "rules": [
     {
-      "round": "R % 2 == 0",
+      "round": "R % 2 == 1",
       "figures": [
         {
           "type": "present",
@@ -40,7 +42,7 @@
       ]
     },
     {
-      "round": "R % 2 == 1",
+      "round": "R % 2 == 0",
       "figures": [
         {
           "type": "present",

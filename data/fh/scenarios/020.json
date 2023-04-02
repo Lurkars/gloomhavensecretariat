@@ -15,28 +15,7 @@
       "name": "Cabinet",
       "health": "Cx(L+2)",
       "initiative": 1,
-      "count": 4,
-      "actions": [
-        {
-          "type": "custom",
-          "value": "When destroyed, at the Glowing Orb:",
-          "small": true
-        },
-        {
-          "type": "spawn",
-          "value": "monsterStandee",
-          "valueObject": [
-            {
-              "monster": {
-                "name": "flaming-bladespinner",
-                "player2": "normal",
-                "player3": "normal",
-                "player4": "elite"
-              }
-            }
-          ]
-        }
-      ]
+      "count": 4
     }
   ],
   "lootDeckConfig": {
@@ -47,6 +26,103 @@
     "arrowvine": 2
   },
   "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Cabinet"
+          },
+          "type": "dead",
+          "value": "3"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Cabinet"
+          },
+          "type": "dead",
+          "value": "2"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Cabinet"
+          },
+          "type": "dead",
+          "value": "1"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "14.3"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Cabinet"
+          },
+          "type": "dead",
+          "value": "0"
+        }
+      ]
+    },
     {
       "round": "R % 2 == 0",
       "start": true,
