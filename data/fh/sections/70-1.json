@@ -28,7 +28,7 @@
     },
     {
       "round": "R % 2 == 1",
-      "start": "true",
+      "start": true,
       "note": "%data.section.rules.fh.70-1.1%",
       "spawns": [
         {
@@ -46,6 +46,7 @@
   "rooms": [
     {
       "roomNumber": 2,
+      "ref": "07-H",
       "initial": true,
       "treasures": [
         56

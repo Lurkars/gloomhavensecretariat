@@ -32,7 +32,7 @@
     },
     {
       "round": "R % 2 == 1",
-      "start": "true",
+      "start": true,
       "spawns": [
         {
           "monster": {
@@ -45,11 +45,30 @@
           "marker": "1"
         }
       ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "fh",
+          "scenario": "70.1",
+          "index": 0,
+          "section": true
+        },
+        {
+          "edition": "fh",
+          "scenario": "70.1",
+          "index": 1,
+          "section": true
+        }
+      ]
     }
   ],
   "rooms": [
     {
       "roomNumber": 3,
+      "ref": "07-F",
       "initial": true,
       "monster": [
         {
