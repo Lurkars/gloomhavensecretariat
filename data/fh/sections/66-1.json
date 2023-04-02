@@ -4,6 +4,7 @@
   "edition": "fh",
   "parent": "32",
   "marker": "1",
+  "resetRound": "hidden",
   "monsters": [
     "harrower-infester",
     "shrike-fiend"
