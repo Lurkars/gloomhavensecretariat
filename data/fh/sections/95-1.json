@@ -3,6 +3,7 @@
   "name": "Depths of Delirium",
   "edition": "fh",
   "parent": "27",
+  "marker": "1",
   "monsters": [
     "deep-terror",
     "living-bones"
