@@ -21,6 +21,30 @@
     "rockroot": 2,
     "flamefruit": 2
   },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:2",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "R == 6",
+      "start": true,
+      "sections": [
+        "45.1"
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -32,20 +56,24 @@
         },
         {
           "name": "shrike-fiend",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "shrike-fiend",
-          "type": "normal"
-        },
-        {
-          "name": "shrike-fiend",
+          "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "shrike-fiend",
-          "player4": "elite"
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "shrike-fiend",
+          "player4": "normal"
         }
       ]
     }
