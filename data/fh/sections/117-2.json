@@ -3,6 +3,7 @@
   "name": "Overrun Barricade",
   "edition": "fh",
   "parent": "43",
+  "marker": "1",
   "monsters": [
     "robotic-boltshooter",
     "steel-automaton"

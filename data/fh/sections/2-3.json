@@ -4,9 +4,46 @@
   "name": "Overrun Barricade",
   "edition": "fh",
   "parent": "43",
+  "parentSections": [
+    "117.2"
+  ],
+  "marker": "2",
+  "resetRound": "hidden",
   "monsters": [
     "ruined-machine",
     "steel-automaton"
+  ],
+  "rules": [
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
