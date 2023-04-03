@@ -3,6 +3,10 @@
   "name": "Blizzard Island",
   "edition": "fh",
   "parent": "48",
+  "parentSections": [
+    "130.5"
+  ],
+  "marker": "2",
   "monsters": [
     "abael-scout",
     "frost-demon",
