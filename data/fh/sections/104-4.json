@@ -3,6 +3,7 @@
   "name": "Scrap Pit",
   "edition": "fh",
   "parent": "35",
+  "marker": "1",
   "monsters": [
     "living-bones",
     "ruined-machine"
@@ -28,6 +29,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
         },
         {
           "name": "living-bones",

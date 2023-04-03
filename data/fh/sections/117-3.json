@@ -1,0 +1,36 @@
+{
+  "index": "117.3",
+  "name": "Scrap Pit",
+  "edition": "fh",
+  "parent": "35",
+  "parentSections": [
+    "104.4"
+  ],
+  "monsters": [
+    "ruined-machine"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player2": "elite"
+          },
+          "marker": "f"
+        },
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "f",
+          "count": "2"
+        }
+      ]
+    }
+  ]
+}

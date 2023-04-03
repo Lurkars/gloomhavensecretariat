@@ -1,0 +1,37 @@
+{
+  "index": "126.3",
+  "name": "Scrap Pit",
+  "edition": "fh",
+  "parent": "35",
+  "parentSections": [
+    "117.3"
+  ],
+  "monsters": [
+    "spitting-drake"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "spitting-drake",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "g"
+        }
+      ],
+      "disableRules": [
+        {
+          "edition": "fh",
+          "scenario": "117.3",
+          "index": 0,
+          "section": true
+        }
+      ]
+    }
+  ]
+}
