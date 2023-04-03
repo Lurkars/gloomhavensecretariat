@@ -4,10 +4,162 @@
   "name": "Dead Pass",
   "edition": "fh",
   "parent": "46",
+  "marker": "1",
   "resetRound": "visible",
   "monsters": [
+    "burrowing-blade",
     "frozen-corpse",
     "shrike-fiend"
+  ],
+  "rules": [
+    {
+      "round": "R == 2",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "burrowing-blade",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "burrowing-blade",
+            "player4": "normal"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 4",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "burrowing-blade",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "burrowing-blade",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "burrowing-blade",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 6",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "frozen-corpse",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "frozen-corpse",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 8",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R > 9 && R % 2 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "frozen-corpse",
+            "player2": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "frozen-corpse",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "b",
+          "count": "2"
+        },
+        {
+          "monster": {
+            "name": "burrowing-blade",
+            "player2": "elite",
+            "player3": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "burrowing-blade",
+            "player4": "elite"
+          },
+          "marker": "c",
+          "count": "2"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
