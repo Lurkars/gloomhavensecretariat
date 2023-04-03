@@ -1,27 +1,28 @@
 {
-  "index": "149.1",
+  "index": "52.1",
   "name": "Nerve Center",
   "edition": "fh",
   "parent": "44",
-  "parentSections": [
-    "52.1"
-  ],
-  "marker": "2",
+  "marker": "1",
   "monsters": [
     "ancient-artillery",
-    "flaming-bladespinner"
+    "ruined-machine",
+    "steel-automaton"
   ],
   "objectives": [
     {
       "name": "Metal Cabinet",
       "health": "[Cx(L+3)/2{$math.ceil}]",
-      "count": 1
+      "count": 4
     }
   ],
   "rooms": [
     {
-      "roomNumber": 3,
+      "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        61
+      ],
       "monster": [
         {
           "name": "ancient-artillery",
@@ -36,20 +37,28 @@
           "player4": "elite"
         },
         {
-          "name": "flaming-bladespinner",
-          "type": "elite"
+          "name": "ruined-machine",
+          "player3": "normal"
         },
         {
-          "name": "flaming-bladespinner",
+          "name": "ruined-machine",
+          "player3": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "normal"
+        },
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
           "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "flaming-bladespinner",
-          "player4": "normal"
+          "player4": "elite"
         }
       ],
       "objectives": [
+        1,
+        1,
+        1,
         1
       ]
     }

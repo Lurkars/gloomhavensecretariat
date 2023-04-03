@@ -3,11 +3,16 @@
   "name": "Relief Effort",
   "edition": "fh",
   "parent": "40",
+  "marker": "1",
   "monsters": [
     "algox-archer",
     "algox-guard",
     "ruined-machine",
     "steel-automaton"
+  ],
+  "allies": [
+    "algox-archer",
+    "algox-guard"
   ],
   "rooms": [
     {
@@ -59,6 +64,7 @@
         },
         {
           "name": "ruined-machine",
+          "player3": "elite",
           "player4": "elite"
         },
         {

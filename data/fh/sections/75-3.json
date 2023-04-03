@@ -3,6 +3,9 @@
   "name": "The Way Forward",
   "edition": "fh",
   "parent": "38",
+  "parentSections": [
+    "23.1"
+  ],
   "monsters": [
     "sun-demon"
   ],

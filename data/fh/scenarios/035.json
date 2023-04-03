@@ -15,9 +15,15 @@
     {
       "name": "Crain",
       "escort": true,
-      "health": "Cx(L+3)/2",
+      "health": "[(Cx(L+3)/2){$math.floor}]",
       "initiative": 50,
-      "marker": "a"
+      "marker": "a",
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        }
+      ]
     }
   ],
   "lootDeckConfig": {
@@ -43,6 +49,22 @@
           "scenarioEffect": true
         }
       ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Crain"
+          },
+          "type": "dead"
+        }
+      ],
+      "finish": "lost"
     }
   ],
   "rooms": [
@@ -77,6 +99,9 @@
           "name": "spitting-drake",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

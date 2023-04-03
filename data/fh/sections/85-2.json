@@ -4,6 +4,7 @@
   "name": "Living Glacier",
   "edition": "fh",
   "parent": "45",
+  "marker": "1",
   "monsters": [
     "abael-herder",
     "abael-scout",
@@ -59,8 +60,12 @@
         },
         {
           "name": "piranha-pig",
+          "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

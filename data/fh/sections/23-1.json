@@ -8,6 +8,79 @@
   "monsters": [
     "sun-demon"
   ],
+  "rules": [
+    {
+      "round": "R % 3 == 2",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "hound",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R % 3 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "hound",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R % 3 == 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "polar-bear",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "polar-bear",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "e"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 2,

@@ -3,6 +3,7 @@
   "name": "Blizzard Island",
   "edition": "fh",
   "parent": "48",
+  "marker": "1",
   "monsters": [
     "frost-demon",
     "wind-demon"

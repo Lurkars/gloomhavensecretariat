@@ -3,11 +3,16 @@
   "name": "Relief Effort",
   "edition": "fh",
   "parent": "40",
+  "marker": "2",
   "monsters": [
     "algox-archer",
     "algox-guard",
     "flaming-bladespinner",
     "ruined-machine"
+  ],
+  "allies": [
+    "algox-archer",
+    "algox-guard"
   ],
   "rooms": [
     {

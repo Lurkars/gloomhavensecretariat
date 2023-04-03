@@ -17,14 +17,26 @@
       "escort": true,
       "health": "3x(L+2)",
       "initiative": 99,
-      "marker": "a"
+      "marker": "a",
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        }
+      ]
     },
     {
       "name": "Emissary",
       "escort": true,
       "health": "3x(L+2)",
       "initiative": 99,
-      "marker": "b"
+      "marker": "b",
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        }
+      ]
     }
   ],
   "lootDeckConfig": {
@@ -35,6 +47,25 @@
     "arrowvine": 1,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Emissary"
+          },
+          "type": "dead",
+          "value": "1"
+        }
+      ],
+      "finish": "lost"
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -77,6 +108,10 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        2
       ]
     }
   ]

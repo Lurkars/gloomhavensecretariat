@@ -3,9 +3,13 @@
   "name": "Corrupted Camp",
   "edition": "fh",
   "parent": "39",
+  "marker": "2",
   "monsters": [
     "algox-scout",
     "deep-terror"
+  ],
+  "allies": [
+    "algox-scout"
   ],
   "rooms": [
     {

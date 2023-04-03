@@ -12,6 +12,10 @@
     "black-imp",
     "frozen-corpse"
   ],
+  "allies": [
+    "algox-guard",
+    "algox-scout"
+  ],
   "lootDeckConfig": {
     "money": 10,
     "lumber": 4,
@@ -112,7 +116,7 @@
         {
           "name": "frozen-corpse",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
@@ -123,6 +127,7 @@
         },
         {
           "name": "frozen-corpse",
+          "player3": "normal",
           "player4": "elite"
         }
       ]
