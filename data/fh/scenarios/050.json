@@ -9,7 +9,12 @@
   "forcedLinks": [
     "54"
   ],
-  "monsters": [],
+  "monsters": [
+    "lightning-eel",
+    "lurker-clawcrusher",
+    "lurker-mindsnipper",
+    "lurker-wavethrower"
+  ],
   "objectives": [
     {
       "name": "Pulse Emitter",
@@ -23,11 +28,323 @@
     "hide": 3,
     "arrowvine": 2
   },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "minus1:3",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": "(?!.*coral|kelp).*"
+          },
+          "type": "amAdd",
+          "value": "curse:2"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Pulse Emitter"
+          },
+          "type": "dead"
+        }
+      ],
+      "finish": "lost"
+    },
+    {
+      "round": "R == 2",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-wavethrower",
+            "type": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "lurker-wavethrower",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 3",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-wavethrower",
+            "player4": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "lurker-wavethrower",
+            "type": "normal"
+          },
+          "marker": "g"
+        }
+      ]
+    },
+    {
+      "round": "R == 4",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-mindsnipper",
+            "player3": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "lurker-mindsnipper",
+            "player2": "normal",
+            "player3": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "lurker-mindsnipper",
+            "player4": "normal"
+          },
+          "marker": "d",
+          "count": "2"
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "lightning-eel",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "e"
+        },
+        {
+          "monster": {
+            "name": "lightning-eel",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "g",
+          "count": "2"
+        }
+      ]
+    },
+    {
+      "round": "R == 6",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-wavethrower",
+            "player3": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "lurker-clawcrusher",
+            "player4": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "lurker-clawcrusher",
+            "type": "normal"
+          },
+          "marker": "f"
+        }
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-wavethrower",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "lurker-wavethrower",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 8",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-wavethrower",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "lurker-mindsnipper",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "g"
+        }
+      ]
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-clawcrusher",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "lurker-clawcrusher",
+            "player4": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "lightning-eel",
+            "player2": "normal"
+          },
+          "marker": "e"
+        },
+        {
+          "monster": {
+            "name": "lightning-eel",
+            "player3": "normal"
+          },
+          "marker": "e",
+          "count": "3"
+        },
+        {
+          "monster": {
+            "name": "lightning-eel",
+            "player4": "normal"
+          },
+          "marker": "e",
+          "count": "2"
+        }
+      ]
+    },
+    {
+      "round": "R == 10",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-mindsnipper",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "lurker-mindsnipper",
+            "type": "elite"
+          },
+          "marker": "f"
+        }
+      ]
+    },
+    {
+      "round": "R == 11",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-wavethrower",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "e"
+        },
+        {
+          "monster": {
+            "name": "lurker-clawcrusher",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "g"
+        }
+      ]
+    },
+    {
+      "round": "R == 12",
+      "finish": "won"
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
       "initial": true,
-      "monster": []
+      "monster": [],
+      "objectives": [
+        1
+      ]
     }
   ]
 }
