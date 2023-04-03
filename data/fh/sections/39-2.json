@@ -3,6 +3,9 @@
   "name": "Living Glacier",
   "edition": "fh",
   "parent": "45",
+  "parentSections": [
+    "85.2"
+  ],
   "monsters": [
     "abael-scout",
     "lightning-eel",
