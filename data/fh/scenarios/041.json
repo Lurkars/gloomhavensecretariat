@@ -5,7 +5,8 @@
   "edition": "fh",
   "monsters": [
     "deep-terror",
-    "living-doom"
+    "living-doom",
+    "living-spirit"
   ],
   "lootDeckConfig": {
     "money": 9,
@@ -16,6 +17,22 @@
     "corpsecap": 2,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "R % 2 == 1",
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

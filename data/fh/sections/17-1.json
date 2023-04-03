@@ -4,41 +4,86 @@
   "name": "Unfettered Shard",
   "edition": "fh",
   "parent": "41",
+  "parentSections": [
+    "65.2"
+  ],
   "monsters": [
     "deep-terror",
     "living-doom",
     "night-demon"
   ],
+  "rules": [
+    {
+      "round": "R % 2 == 1",
+      "spawns": [
+        {
+          "monster": {
+            "name": "deep-terror",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "deep-terror",
+            "type": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "living-doom",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "night-demon",
+            "player2": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "night-demon",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "b",
+          "count": "3"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "fh",
+          "scenario": "65.2",
+          "index": 0,
+          "section": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 2,
       "initial": true,
-      "monster": [
-        {
-          "name": "deep-terror",
-          "type": "elite"
-        },
-        {
-          "name": "living-doom",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "night-demon",
-          "type": "normal"
-        },
-        {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "normal"
-        }
-      ]
+      "monster": []
     }
   ]
 }
