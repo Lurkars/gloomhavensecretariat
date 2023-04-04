@@ -1,0 +1,33 @@
+{
+  "index": "148.1",
+  "name": "The Savvas Seal",
+  "edition": "fh",
+  "parent": "63",
+  "parentSections": [
+    "7.1"
+  ],
+  "monsters": [
+    "savvas-icestorm",
+    "savvas-lavaflow"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "All monsters gain %game.condition.wound%. Monsters cannot remove %game.condition.wound% with healing"
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "All monsters gain disadvantage on all their attacks"
+    },
+    {
+      "round": "R == 10",
+      "sections": [
+        "122.5"
+      ]
+    }
+  ]
+}
