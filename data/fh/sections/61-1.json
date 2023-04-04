@@ -6,6 +6,23 @@
   "monsters": [
     "ruined-machine"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "orphan"
+          },
+          "type": "damage",
+          "value": "(L+3)xC"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 2,
