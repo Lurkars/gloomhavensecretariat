@@ -4,7 +4,96 @@
   "name": "Sanctuary of Snow",
   "edition": "fh",
   "monsters": [
-    "render"
+    "render",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Denpang",
+      "escort": true,
+      "initiative": 40,
+      "marker": "a",
+      "actions": [
+        {
+          "type": "move",
+          "value": 4
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 2",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 4",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 10",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -18,6 +107,9 @@
           "name": "render",
           "type": "boss"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]
