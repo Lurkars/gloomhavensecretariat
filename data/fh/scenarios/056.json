@@ -10,7 +10,7 @@
   ],
   "objectives": [
     {
-      "name": "Altar",
+      "name": "Altar 1",
       "health": "(L+1)xC"
     }
   ],
@@ -22,6 +22,26 @@
     "rockroot": 2,
     "flamefruit": 2
   },
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "3.2"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Altar 1"
+          },
+          "type": "dead"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -50,6 +70,9 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

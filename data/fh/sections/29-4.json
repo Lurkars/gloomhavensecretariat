@@ -3,6 +3,7 @@
   "name": "Fleeting Permanence",
   "edition": "fh",
   "parent": "52",
+  "marker": "4",
   "monsters": [
     "frost-demon"
   ],

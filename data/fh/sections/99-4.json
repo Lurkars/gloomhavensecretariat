@@ -3,9 +3,39 @@
   "name": "Call of the Harbinger",
   "edition": "fh",
   "parent": "56",
+  "parentSections": [
+    "3.2"
+  ],
+  "marker": "1",
   "monsters": [
     "black-imp",
     "shrike-fiend"
+  ],
+  "objectives": [
+    {
+      "name": "Altar 2",
+      "health": "(L+1)xC"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "66.3"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Altar 2"
+          },
+          "type": "dead"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -15,11 +45,12 @@
         {
           "name": "black-imp",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "black-imp",
+          "player3": "normal",
           "player4": "elite"
         },
         {
@@ -31,6 +62,9 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

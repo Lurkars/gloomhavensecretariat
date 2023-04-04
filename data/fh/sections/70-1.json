@@ -13,7 +13,7 @@
     {
       "round": "R % 2 == 0",
       "start": true,
-      "note": "%data.section.rules.fh.70-1.1%",
+      "note": "at any empty starting hex",
       "spawns": [
         {
           "monster": {
@@ -21,15 +21,14 @@
             "player2": "normal",
             "player3": "normal",
             "player4": "elite"
-          },
-          "count": 1
+          }
         }
       ]
     },
     {
       "round": "R % 2 == 1",
       "start": true,
-      "note": "%data.section.rules.fh.70-1.1%",
+      "note": "at any empty starting hex",
       "spawns": [
         {
           "monster": {
@@ -37,8 +36,7 @@
             "player2": "normal",
             "player3": "elite",
             "player4": "elite"
-          },
-          "count": 1
+          }
         }
       ]
     }

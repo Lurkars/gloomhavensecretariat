@@ -1,0 +1,26 @@
+{
+  "index": "3.2",
+  "name": "Call of the Harbinger",
+  "edition": "fh",
+  "parent": "56",
+  "monsters": [
+    "harbinger-of-shadow"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "ref": "15-B",
+      "initial": true,
+      "treasures": [
+        4
+      ],
+      "monster": [
+        {
+          "name": "harbinger-of-shadow",
+          "type": "boss",
+          "marker": "1"
+        }
+      ]
+    }
+  ]
+}

@@ -3,9 +3,39 @@
   "name": "Call of the Harbinger",
   "edition": "fh",
   "parent": "56",
+  "parentSections": [
+    "99.4"
+  ],
+  "marker": "2",
   "monsters": [
     "harrower-infester",
     "shrike-fiend"
+  ],
+  "objectives": [
+    {
+      "name": "Altar 3",
+      "health": "(L+1)xC"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "69.3"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Altar 3"
+          },
+          "type": "dead"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -26,7 +56,14 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "player4": "normal"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

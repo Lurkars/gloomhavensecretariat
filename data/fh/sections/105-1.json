@@ -3,9 +3,54 @@
   "name": "Life and Death",
   "edition": "fh",
   "parent": "61",
+  "marker": "1",
   "monsters": [
     "deep-terror",
     "earth-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Moonshard",
+      "escort": true,
+      "health": "(L+(2xC))x2",
+      "initiative": 50,
+      "marker": "a",
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": "L+2"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "marker": "a",
+            "edition": "escort",
+            "name": "Moonshard"
+          },
+          "type": "transfer",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "All characters and character summons gain disadvantage on all their attacks"
+    }
   ],
   "rooms": [
     {

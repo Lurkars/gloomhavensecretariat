@@ -3,11 +3,45 @@
   "name": "Among the Wreckage",
   "edition": "fh",
   "parent": "54",
+  "parentSections": [
+    "167.1"
+  ],
+  "marker": "2",
+  "objectives": [
+    {
+      "name": "Large Cave Rock 4-A",
+      "health": "[(L+1)xC/2{$math.floor}]",
+      "count": 1
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "50.1"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Large Cave Rock 4-A"
+          },
+          "type": "dead"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 2,
       "initial": true,
-      "monster": []
+      "monster": [],
+      "objectives": [
+        1
+      ]
     }
   ]
 }

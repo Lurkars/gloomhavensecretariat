@@ -16,7 +16,16 @@
       "escort": true,
       "health": "(L+C)x2+2",
       "initiative": 99,
-      "marker": "a"
+      "marker": "a",
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "jump"
+        }
+      ]
     }
   ],
   "lootDeckConfig": {
@@ -48,6 +57,9 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

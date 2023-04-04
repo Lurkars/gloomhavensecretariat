@@ -13,6 +13,8 @@
     "earth-demon",
     "flame-demon",
     "frost-demon",
+    "savvas-icestorm",
+    "savvas-lavaflow",
     "wind-demon"
   ],
   "objectives": [
@@ -33,6 +35,188 @@
     "corpsecap": 2,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "R == 1 || R == 3",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "savvas-icestorm",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 2 || R == 4",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "savvas-lavaflow",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 4",
+      "sections": [
+        "7.1"
+      ]
+    },
+    {
+      "round": "R == 5 || R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "savvas-icestorm",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 6 || R == 8",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "savvas-lavaflow",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "earth-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "flame-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 10",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "frost-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 11",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "savvas-lavaflow",
+            "player2": "elite",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "earth-demon",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 12",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "savvas-icestorm",
+            "player2": "elite",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "frost-demon",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 12",
+      "finish": "won"
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Crain"
+          },
+          "type": "dead"
+        }
+      ],
+      "finish": "lost"
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -40,7 +224,10 @@
       "treasures": [
         72
       ],
-      "monster": []
+      "monster": [],
+      "objectives": [
+        1
+      ]
     }
   ]
 }
