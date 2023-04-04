@@ -3,10 +3,70 @@
   "name": "Life and Death",
   "edition": "fh",
   "parent": "61",
+  "parentSections": [
+    "82.2"
+  ],
+  "marker": "3",
   "monsters": [
     "deep-terror",
     "earth-demon",
     "harrower-infester"
+  ],
+  "objectives": [
+    {
+      "name": "Moonshard",
+      "escort": true,
+      "health": "(L+(2xC))x2",
+      "initiative": 50,
+      "marker": "a",
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": "L+4"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "marker": "a",
+            "edition": "escort",
+            "name": "Moonshard"
+          },
+          "type": "transfer",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "All characters and character summons gain disadvantage on all their attacks"
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "All characters and character summons add -1 %game.action.attack% to all their attacks and -1 %game.action.move% to all their move abilities"
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "All monsters add +1 %game.action.attack% to all their attacks targeting characters or character summons"
+    }
   ],
   "rooms": [
     {
@@ -17,7 +77,7 @@
           "name": "deep-terror",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "deep-terror",
@@ -28,7 +88,8 @@
         {
           "name": "deep-terror",
           "player2": "normal",
-          "player3": "elite"
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "earth-demon",

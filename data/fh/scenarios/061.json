@@ -14,9 +14,19 @@
     {
       "name": "Moonshard",
       "escort": true,
-      "health": "(L+Cx2)x2",
+      "health": "(L+(2xC))x2",
       "initiative": 50,
-      "marker": "a"
+      "marker": "a",
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": "L+1"
+        }
+      ]
     }
   ],
   "lootDeckConfig": {
@@ -28,6 +38,48 @@
     "corpsecap": 2,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "minus1:2",
+          "scenarioEffect": true
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Moonshard"
+          },
+          "type": "dead"
+        }
+      ],
+      "finish": "lost"
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -58,6 +110,9 @@
           "name": "harrower-infester",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]
