@@ -3,10 +3,46 @@
   "name": "Orphan's Halls",
   "edition": "fh",
   "parent": "51",
+  "marker": "1",
   "monsters": [
     "ancient-artillery",
     "ruined-machine",
     "steel-automaton"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "steel-automaton",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    }
   ],
   "rooms": [
     {

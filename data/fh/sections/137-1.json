@@ -4,6 +4,10 @@
   "name": "Orphan's Halls",
   "edition": "fh",
   "parent": "51",
+  "parentSections": [
+    "32.1"
+  ],
+  "marker": "2",
   "monsters": [
     "ancient-artillery",
     "flaming-bladespinner"
@@ -44,6 +48,9 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]
