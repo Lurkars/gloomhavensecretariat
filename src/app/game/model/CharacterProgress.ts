@@ -1,5 +1,5 @@
-import { Identifier } from "./Identifier";
-import { LootType } from "./Loot";
+import { Identifier } from "./data/Identifier";
+import { LootType } from "./data/Loot";
 
 export class CharacterProgress {
 

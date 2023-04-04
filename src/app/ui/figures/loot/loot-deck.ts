@@ -5,7 +5,7 @@ import { LootManager } from "src/app/game/businesslogic/LootManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
-import { appliableLootTypes, LootDeck, LootType } from "src/app/game/model/Loot";
+import { appliableLootTypes, LootDeck, LootType } from "src/app/game/model/data/Loot";
 import { LootApplyDialogComponent } from "./loot-apply-dialog";
 import { LootDeckDialogComponent } from "./loot-deck-dialog";
 import { LootDeckFullscreenComponent } from "./loot-deck-fullscreen";

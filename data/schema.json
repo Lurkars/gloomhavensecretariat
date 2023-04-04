@@ -1,0 +1,1965 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "Ability": {
+            "properties": {
+                "actions": {
+                    "items": {
+                        "$ref": "#/definitions/Action"
+                    },
+                    "type": "array"
+                },
+                "bottomActions": {
+                    "items": {
+                        "$ref": "#/definitions/Action"
+                    },
+                    "type": "array"
+                },
+                "bottomLost": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "bottomShuffle": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "cardId": {
+                    "type": "number"
+                },
+                "hint": {
+                    "type": "string"
+                },
+                "initiative": {
+                    "type": "number"
+                },
+                "level": {
+                    "default": 0,
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "lost": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "revealed": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "shuffle": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "Action": {
+            "properties": {
+                "small": {
+                    "type": "boolean"
+                },
+                "subActions": {
+                    "items": {
+                        "$ref": "#/definitions/Action"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "$ref": "#/definitions/ActionType"
+                },
+                "value": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "valueObject": {
+                    "additionalProperties": true,
+                    "properties": {},
+                    "type": "object"
+                },
+                "valueType": {
+                    "$ref": "#/definitions/ActionValueType"
+                }
+            },
+            "type": "object"
+        },
+        "ActionType": {
+            "enum": [
+                "area",
+                "attack",
+                "box",
+                "card",
+                "concatenation",
+                "condition",
+                "custom",
+                "element",
+                "elementHalf",
+                "fly",
+                "grant",
+                "grid",
+                "heal",
+                "jump",
+                "loot",
+                "monsterType",
+                "move",
+                "pierce",
+                "pull",
+                "push",
+                "range",
+                "retaliate",
+                "shield",
+                "spawn",
+                "special",
+                "specialTarget",
+                "sufferDamage",
+                "summon",
+                "swing",
+                "target",
+                "teleport",
+                "trigger"
+            ],
+            "type": "string"
+        },
+        "ActionValueType": {
+            "enum": [
+                "add",
+                "fixed",
+                "minus",
+                "plus",
+                "subtract"
+            ],
+            "type": "string"
+        },
+        "AdditionalIdentifier": {
+            "properties": {
+                "edition": {
+                    "default": "",
+                    "type": "string"
+                },
+                "marker": {
+                    "type": "string"
+                },
+                "name": {
+                    "default": "",
+                    "type": "string"
+                },
+                "tags": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "enum": [
+                        "all",
+                        "character",
+                        "monster",
+                        "objective"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AttackModifier": {
+            "properties": {
+                "active": {
+                    "type": "boolean"
+                },
+                "character": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "effects": {
+                    "items": {
+                        "$ref": "#/definitions/AttackModifierEffect"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "revealed": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "rolling": {
+                    "type": "boolean"
+                },
+                "shuffle": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "type": {
+                    "$ref": "#/definitions/AttackModifierType"
+                },
+                "value": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "valueType": {
+                    "$ref": "#/definitions/AttackModifierValueType"
+                }
+            },
+            "type": "object"
+        },
+        "AttackModifierDeck": {
+            "properties": {
+                "active": {
+                    "default": true,
+                    "type": "boolean"
+                },
+                "attackModifiers": {
+                    "items": {
+                        "$ref": "#/definitions/AttackModifier"
+                    },
+                    "type": "array"
+                },
+                "cards": {
+                    "items": {
+                        "$ref": "#/definitions/AttackModifier"
+                    },
+                    "type": "array"
+                },
+                "current": {
+                    "type": "number"
+                },
+                "disgarded": {
+                    "default": [],
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AttackModifierEffect": {
+            "properties": {
+                "effects": {
+                    "items": {
+                        "$ref": "#/definitions/AttackModifierEffect"
+                    },
+                    "type": "array"
+                },
+                "hint": {
+                    "type": "string"
+                },
+                "icon": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "type": {
+                    "$ref": "#/definitions/AttackModifierEffectType"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AttackModifierEffectType": {
+            "enum": [
+                "area",
+                "attack",
+                "changeType",
+                "condition",
+                "custom",
+                "element",
+                "elementConsume",
+                "elementHalf",
+                "heal",
+                "or",
+                "pierce",
+                "pull",
+                "push",
+                "range",
+                "recoverRandomDiscard",
+                "refreshItem",
+                "refreshSpentItem",
+                "retaliate",
+                "shield",
+                "specialTarget",
+                "summon",
+                "swing",
+                "target"
+            ],
+            "type": "string"
+        },
+        "AttackModifierType": {
+            "enum": [
+                "bless",
+                "curse",
+                "double",
+                "empower",
+                "enfeeble",
+                "invalid",
+                "minus",
+                "minus1",
+                "minus1extra",
+                "minus2",
+                "null",
+                "plus",
+                "plus0",
+                "plus1",
+                "plus2",
+                "plus3",
+                "plus4",
+                "plusX",
+                "success",
+                "wreck"
+            ],
+            "type": "string"
+        },
+        "AttackModifierValueType": {
+            "enum": [
+                "minus",
+                "multiply",
+                "plus"
+            ],
+            "type": "string"
+        },
+        "BuildingData": {
+            "properties": {
+                "costs": {
+                    "$ref": "#/definitions/Record<\"hide\"|\"prosperity\"|\"lumber\"|\"metal\"|\"gold\",number>"
+                },
+                "name": {
+                    "default": "",
+                    "type": "string"
+                },
+                "rebuild": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/Record<\"hide\"|\"lumber\"|\"metal\",number>"
+                    },
+                    "type": "array"
+                },
+                "repair": {
+                    "default": [],
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "upgrades": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/Record<\"hide\"|\"prosperity\"|\"lumber\"|\"metal\",number>"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BuildingModel": {
+            "properties": {
+                "level": {
+                    "default": 1,
+                    "type": "number"
+                },
+                "name": {
+                    "default": "",
+                    "type": "string"
+                },
+                "state": {
+                    "default": "normal",
+                    "enum": [
+                        "damaged",
+                        "normal",
+                        "wrecked"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CampaignData": {
+            "properties": {
+                "buildings": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/BuildingData"
+                    },
+                    "type": "array"
+                },
+                "campaignStickers": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "highMorale": {
+                    "default": "",
+                    "type": "string"
+                },
+                "lootSpecial1Sections": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "lootSpecial2Sections": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "lowMorale": {
+                    "default": "",
+                    "type": "string"
+                },
+                "townGuardPerks": {
+                    "default": [],
+                    "items": {
+                        "properties": {
+                            "perk": {
+                                "$ref": "#/definitions/Perk"
+                            },
+                            "sections": {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "weeks": {
+                    "additionalProperties": false,
+                    "patternProperties": {
+                        "^[0-9]+$": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "CharacterClass": {
+            "enum": [
+                "aesther",
+                "algox",
+                "harrower",
+                "human",
+                "inox",
+                "lurker",
+                "orchid",
+                "quatryl",
+                "savvas",
+                "unfettered",
+                "valrath",
+                "vermling"
+            ],
+            "type": "string"
+        },
+        "CharacterData": {
+            "properties": {
+                "additionalModifier": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/PerkCard"
+                    },
+                    "type": "array"
+                },
+                "availableSummons": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/SummonData"
+                    },
+                    "type": "array"
+                },
+                "characterClass": {
+                    "$ref": "#/definitions/CharacterClass"
+                },
+                "color": {
+                    "default": "#aaaaaa",
+                    "type": "string"
+                },
+                "deck": {
+                    "default": "",
+                    "type": "string"
+                },
+                "edition": {
+                    "default": "",
+                    "type": "string"
+                },
+                "errors": {
+                    "items": {
+                        "$ref": "#/definitions/FigureError"
+                    },
+                    "type": "array"
+                },
+                "gender": {
+                    "$ref": "#/definitions/CharacterGender"
+                },
+                "handSize": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "icon": {
+                    "default": "",
+                    "type": "string"
+                },
+                "iconUrl": {
+                    "default": "",
+                    "type": "string"
+                },
+                "locked": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "marker": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "masteries": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "default": "",
+                    "type": "string"
+                },
+                "perks": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/Perk"
+                    },
+                    "type": "array"
+                },
+                "replace": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "spoiler": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "stats": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/CharacterStat"
+                    },
+                    "type": "array"
+                },
+                "thumbnail": {
+                    "type": "string"
+                },
+                "thumbnailUrl": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CharacterGender": {
+            "enum": [
+                "",
+                "f",
+                "m"
+            ],
+            "type": "string"
+        },
+        "CharacterStat": {
+            "properties": {
+                "health": {
+                    "type": "number"
+                },
+                "level": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "DeckData": {
+            "properties": {
+                "abilities": {
+                    "items": {
+                        "$ref": "#/definitions/Ability"
+                    },
+                    "type": "array"
+                },
+                "character": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "edition": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EditionData": {
+            "properties": {
+                "additional": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "campaign": {
+                    "$ref": "#/definitions/CampaignData"
+                },
+                "characters": {
+                    "items": {
+                        "$ref": "#/definitions/CharacterData"
+                    },
+                    "type": "array"
+                },
+                "conditions": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "decks": {
+                    "items": {
+                        "$ref": "#/definitions/DeckData"
+                    },
+                    "type": "array"
+                },
+                "edition": {
+                    "type": "string"
+                },
+                "extensions": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "items": {
+                    "items": {
+                        "$ref": "#/definitions/ItemData"
+                    },
+                    "type": "array"
+                },
+                "label": {},
+                "labelSpoiler": {},
+                "monsters": {
+                    "items": {
+                        "$ref": "#/definitions/MonsterData"
+                    },
+                    "type": "array"
+                },
+                "newAmStyle": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "scenarios": {
+                    "items": {
+                        "$ref": "#/definitions/ScenarioData"
+                    },
+                    "type": "array"
+                },
+                "sections": {
+                    "items": {
+                        "$ref": "#/definitions/ScenarioData"
+                    },
+                    "type": "array"
+                },
+                "treasureOffset": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "treasures": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "url": {
+                    "default": "",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Element": {
+            "enum": [
+                "air",
+                "dark",
+                "earth",
+                "fire",
+                "ice",
+                "light",
+                "wild"
+            ],
+            "type": "string"
+        },
+        "ElementModel": {
+            "properties": {
+                "state": {
+                    "$ref": "#/definitions/ElementState"
+                },
+                "type": {
+                    "$ref": "#/definitions/Element"
+                }
+            },
+            "type": "object"
+        },
+        "ElementState": {
+            "enum": [
+                "inert",
+                "new",
+                "strong",
+                "waning"
+            ],
+            "type": "string"
+        },
+        "FigureError": {
+            "properties": {
+                "args": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "$ref": "#/definitions/FigureErrorType"
+                }
+            },
+            "type": "object"
+        },
+        "FigureErrorType": {
+            "enum": [
+                "deck",
+                "monsterEdition",
+                "monsterType",
+                "stat",
+                "unknown"
+            ],
+            "type": "string"
+        },
+        "GameAttackModifierDeckModel": {
+            "properties": {
+                "active": {
+                    "type": "boolean"
+                },
+                "cards": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "current": {
+                    "type": "number"
+                },
+                "disgarded": {
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Identifier": {
+            "properties": {
+                "edition": {
+                    "default": "",
+                    "type": "string"
+                },
+                "name": {
+                    "default": "",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ItemData": {
+            "properties": {
+                "consumed": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "cost": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "count": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "edition": {
+                    "default": "",
+                    "type": "string"
+                },
+                "id": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "minusOne": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "name": {
+                    "default": "",
+                    "type": "string"
+                },
+                "random": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "requiredBuilding": {
+                    "default": "",
+                    "type": "string"
+                },
+                "requiredBuildingLevel": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "requiredItems": {
+                    "default": [],
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resources": {
+                    "$ref": "#/definitions/Partial<Record<LootType,number>>_1"
+                },
+                "slot": {
+                    "$ref": "#/definitions/ItemSlot"
+                },
+                "slots": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "solo": {
+                    "default": "",
+                    "type": "string"
+                },
+                "spent": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "summon": {
+                    "$ref": "#/definitions/SummonData"
+                },
+                "unlockProsperity": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "unlockScenario": {
+                    "$ref": "#/definitions/Identifier"
+                }
+            },
+            "type": "object"
+        },
+        "ItemSlot": {
+            "enum": [
+                "body",
+                "head",
+                "legs",
+                "onehand",
+                "small",
+                "twohand"
+            ],
+            "type": "string"
+        },
+        "MonsterData": {
+            "properties": {
+                "baseStat": {
+                    "$ref": "#/definitions/MonsterStat"
+                },
+                "boss": {
+                    "type": "boolean"
+                },
+                "catching": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "count": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "deck": {
+                    "type": "string"
+                },
+                "edition": {
+                    "type": "string"
+                },
+                "errors": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/FigureError"
+                    },
+                    "type": "array"
+                },
+                "flying": {
+                    "type": "boolean"
+                },
+                "hidden": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "immortal": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "replace": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "spoiler": {
+                    "type": "boolean"
+                },
+                "standeeCount": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "standeeShare": {
+                    "type": "string"
+                },
+                "standeeShareEdition": {
+                    "type": "string"
+                },
+                "stats": {
+                    "items": {
+                        "$ref": "#/definitions/MonsterStat"
+                    },
+                    "type": "array"
+                },
+                "thumbnail": {
+                    "type": "string"
+                },
+                "thumbnailUrl": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MonsterSpawnData": {
+            "properties": {
+                "count": {
+                    "default": "",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "manual": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "marker": {
+                    "default": "",
+                    "type": "string"
+                },
+                "monster": {
+                    "$ref": "#/definitions/MonsterStandeeData"
+                },
+                "summon": {
+                    "default": false,
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "MonsterStandeeData": {
+            "properties": {
+                "health": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "marker": {
+                    "default": "",
+                    "type": "string"
+                },
+                "name": {
+                    "default": "",
+                    "type": "string"
+                },
+                "player2": {
+                    "$ref": "#/definitions/MonsterType"
+                },
+                "player3": {
+                    "$ref": "#/definitions/MonsterType"
+                },
+                "player4": {
+                    "$ref": "#/definitions/MonsterType"
+                },
+                "tags": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "$ref": "#/definitions/MonsterType"
+                }
+            },
+            "type": "object"
+        },
+        "MonsterStat": {
+            "properties": {
+                "actions": {
+                    "items": {
+                        "$ref": "#/definitions/Action"
+                    },
+                    "type": "array"
+                },
+                "attack": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "health": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "immunities": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "level": {
+                    "type": "number"
+                },
+                "movement": {
+                    "type": "number"
+                },
+                "note": {
+                    "type": "string"
+                },
+                "range": {
+                    "type": "number"
+                },
+                "special": {
+                    "items": {
+                        "items": {
+                            "$ref": "#/definitions/Action"
+                        },
+                        "type": "array"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "$ref": "#/definitions/MonsterType"
+                }
+            },
+            "type": "object"
+        },
+        "MonsterType": {
+            "enum": [
+                "boss",
+                "elite",
+                "normal"
+            ],
+            "type": "string"
+        },
+        "ObjectiveData": {
+            "properties": {
+                "actions": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/Action"
+                    },
+                    "type": "array"
+                },
+                "allyDeck": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "count": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "escort": {
+                    "type": "boolean"
+                },
+                "health": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "id": {
+                    "type": "number"
+                },
+                "initiative": {
+                    "type": "number"
+                },
+                "marker": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Partial<Record<LootType,number>>": {
+            "properties": {
+                "arrowvine": {
+                    "type": "number"
+                },
+                "axenut": {
+                    "type": "number"
+                },
+                "corpsecap": {
+                    "type": "number"
+                },
+                "flamefruit": {
+                    "type": "number"
+                },
+                "hide": {
+                    "type": "number"
+                },
+                "lumber": {
+                    "type": "number"
+                },
+                "metal": {
+                    "type": "number"
+                },
+                "money": {
+                    "type": "number"
+                },
+                "random_item": {
+                    "type": "number"
+                },
+                "rockroot": {
+                    "type": "number"
+                },
+                "snowthistle": {
+                    "type": "number"
+                },
+                "special1": {
+                    "type": "number"
+                },
+                "special2": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Partial<Record<LootType,number>>_1": {
+            "properties": {
+                "arrowvine": {
+                    "type": "number"
+                },
+                "axenut": {
+                    "type": "number"
+                },
+                "corpsecap": {
+                    "type": "number"
+                },
+                "flamefruit": {
+                    "type": "number"
+                },
+                "hide": {
+                    "type": "number"
+                },
+                "lumber": {
+                    "type": "number"
+                },
+                "metal": {
+                    "type": "number"
+                },
+                "money": {
+                    "type": "number"
+                },
+                "random_item": {
+                    "type": "number"
+                },
+                "rockroot": {
+                    "type": "number"
+                },
+                "snowthistle": {
+                    "type": "number"
+                },
+                "special1": {
+                    "type": "number"
+                },
+                "special2": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Perk": {
+            "properties": {
+                "cards": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/PerkCard"
+                    },
+                    "type": "array"
+                },
+                "combined": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "count": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "custom": {
+                    "default": "",
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/definitions/PerkType"
+                }
+            },
+            "type": "object"
+        },
+        "PerkCard": {
+            "properties": {
+                "attackModifier": {
+                    "$ref": "#/definitions/AttackModifier"
+                },
+                "count": {
+                    "default": 1,
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "PerkType": {
+            "enum": [
+                "add",
+                "custom",
+                "remove",
+                "replace"
+            ],
+            "type": "string"
+        },
+        "Record<\"hide\"|\"lumber\"|\"metal\",number>": {
+            "properties": {
+                "hide": {
+                    "type": "number"
+                },
+                "lumber": {
+                    "type": "number"
+                },
+                "metal": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Record<\"hide\"|\"prosperity\"|\"lumber\"|\"metal\",number>": {
+            "properties": {
+                "hide": {
+                    "type": "number"
+                },
+                "lumber": {
+                    "type": "number"
+                },
+                "metal": {
+                    "type": "number"
+                },
+                "prosperity": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Record<\"hide\"|\"prosperity\"|\"lumber\"|\"metal\"|\"gold\",number>": {
+            "properties": {
+                "gold": {
+                    "type": "number"
+                },
+                "hide": {
+                    "type": "number"
+                },
+                "lumber": {
+                    "type": "number"
+                },
+                "metal": {
+                    "type": "number"
+                },
+                "prosperity": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RoomData": {
+            "properties": {
+                "allies": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "initial": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "marker": {
+                    "default": "",
+                    "type": "string"
+                },
+                "monster": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/MonsterStandeeData"
+                    },
+                    "type": "array"
+                },
+                "objectives": {
+                    "default": [],
+                    "items": {
+                        "type": [
+                            "string",
+                            "number"
+                        ]
+                    },
+                    "type": "array"
+                },
+                "ref": {
+                    "default": "",
+                    "type": "string"
+                },
+                "roomNumber": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "rooms": {
+                    "default": [],
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "treasures": {
+                    "default": [],
+                    "items": {
+                        "anyOf": [
+                            {
+                                "enum": [
+                                    "G"
+                                ],
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ScenarioData": {
+            "properties": {
+                "allies": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "allyDeck": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "blockedSections": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "blocks": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "conclusion": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "drawExtra": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "edition": {
+                    "default": "",
+                    "type": "string"
+                },
+                "forcedLinks": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "gridLocation": {
+                    "default": "",
+                    "type": "string"
+                },
+                "group": {
+                    "type": "string"
+                },
+                "index": {
+                    "default": "",
+                    "type": "string"
+                },
+                "initial": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "links": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "lootDeckConfig": {
+                    "$ref": "#/definitions/Partial<Record<LootType,number>>"
+                },
+                "marker": {
+                    "default": "",
+                    "type": "string"
+                },
+                "monsters": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "default": "",
+                    "type": "string"
+                },
+                "objectives": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/ObjectiveData"
+                    },
+                    "type": "array"
+                },
+                "parent": {
+                    "type": "string"
+                },
+                "parentSections": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "random": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "requires": {
+                    "default": [],
+                    "items": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "type": "array"
+                },
+                "resetRound": {
+                    "enum": [
+                        "hidden",
+                        "visible"
+                    ],
+                    "type": "string"
+                },
+                "rewards": {
+                    "$ref": "#/definitions/ScenarioRewards"
+                },
+                "rooms": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/RoomData"
+                    },
+                    "type": "array"
+                },
+                "rules": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/ScenarioRule"
+                    },
+                    "type": "array"
+                },
+                "solo": {
+                    "type": "string"
+                },
+                "spoiler": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "unlocks": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ScenarioFigureRule": {
+            "properties": {
+                "identifier": {
+                    "$ref": "#/definitions/AdditionalIdentifier"
+                },
+                "scenarioEffect": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "type": {
+                    "default": "present",
+                    "enum": [
+                        "amAdd",
+                        "amRemove",
+                        "damage",
+                        "dead",
+                        "discard",
+                        "gainCondition",
+                        "hp",
+                        "killed",
+                        "looseCondition",
+                        "present",
+                        "remove",
+                        "toggleOff",
+                        "toggleOn",
+                        "transfer"
+                    ],
+                    "type": "string"
+                },
+                "value": {
+                    "default": "",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ScenarioRewardHints": {
+            "properties": {
+                "battleGoals": {
+                    "default": "",
+                    "type": "string"
+                },
+                "chooseItem": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "collectiveGold": {
+                    "default": "",
+                    "type": "string"
+                },
+                "envelopes": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "events": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "experience": {
+                    "default": "",
+                    "type": "string"
+                },
+                "globalAchievements": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "gold": {
+                    "default": "",
+                    "type": "string"
+                },
+                "itemDesigns": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "items": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "lostPartyAchievements": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "partyAchievements": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "perks": {
+                    "default": "",
+                    "type": "string"
+                },
+                "prosperity": {
+                    "default": "",
+                    "type": "string"
+                },
+                "reputation": {
+                    "default": "",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ScenarioRewards": {
+            "properties": {
+                "battleGoals": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "chooseItem": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "collectiveGold": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "custom": {
+                    "default": "",
+                    "type": "string"
+                },
+                "envelopes": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "events": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "experience": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "globalAchievements": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "gold": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "hints": {
+                    "$ref": "#/definitions/ScenarioRewardHints"
+                },
+                "ignoredBonus": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "itemDesigns": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "items": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "lostPartyAchievements": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "partyAchievements": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "perks": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "prosperity": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "reputation": {
+                    "default": 0,
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ScenarioRule": {
+            "properties": {
+                "always": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "disableRules": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/ScenarioRuleIdentifier"
+                    },
+                    "type": "array"
+                },
+                "elements": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/ElementModel"
+                    },
+                    "type": "array"
+                },
+                "figures": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/ScenarioFigureRule"
+                    },
+                    "type": "array"
+                },
+                "finish": {
+                    "enum": [
+                        "lost",
+                        "won"
+                    ],
+                    "type": "string"
+                },
+                "note": {
+                    "default": "",
+                    "type": "string"
+                },
+                "once": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "requiredRooms": {
+                    "default": [],
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "requiredRules": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/ScenarioRuleIdentifier"
+                    },
+                    "type": "array"
+                },
+                "rooms": {
+                    "default": [],
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "round": {
+                    "type": "string"
+                },
+                "sections": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "spawns": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/MonsterSpawnData"
+                    },
+                    "type": "array"
+                },
+                "start": {
+                    "default": false,
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ScenarioRuleIdentifier": {
+            "properties": {
+                "edition": {
+                    "default": "",
+                    "type": "string"
+                },
+                "group": {
+                    "type": "string"
+                },
+                "index": {
+                    "default": -1,
+                    "type": "number"
+                },
+                "scenario": {
+                    "default": "",
+                    "type": "string"
+                },
+                "section": {
+                    "default": false,
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "SummonData": {
+            "properties": {
+                "action": {
+                    "$ref": "#/definitions/Action"
+                },
+                "additionalAction": {
+                    "$ref": "#/definitions/Action"
+                },
+                "attack": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "cardId": {
+                    "type": "string"
+                },
+                "count": {
+                    "type": "number"
+                },
+                "edition": {
+                    "type": "string"
+                },
+                "flying": {
+                    "type": "boolean"
+                },
+                "health": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "level": {
+                    "type": "number"
+                },
+                "movement": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "range": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "special": {
+                    "type": "boolean"
+                },
+                "thumbnail": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "TownGuardPerk": {
+            "properties": {
+                "perk": {
+                    "$ref": "#/definitions/Perk"
+                },
+                "sections": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
+

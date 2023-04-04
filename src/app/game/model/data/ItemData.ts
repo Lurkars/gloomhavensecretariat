@@ -1,6 +1,6 @@
-import { Editional } from "../Editional";
-import { Identifier } from "../Identifier";
-import { LootType } from "../Loot";
+import { Editional } from "./Editional";
+import { Identifier } from "./Identifier";
+import { LootType } from "./Loot";
 import { SummonData } from "./SummonData";
 
 export class ItemData implements Editional {

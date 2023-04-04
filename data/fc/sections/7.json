@@ -1,8 +1,8 @@
 {
-  "conclusion": true,
   "index": "7",
   "edition": "fc",
   "parent": "97",
+  "conclusion": true,
   "rewards": {
     "gold": 10,
     "events": [

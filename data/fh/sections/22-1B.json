@@ -1,0 +1,15 @@
+{
+  "index": "22.1B",
+  "name": "Frozen Fist is dead",
+  "edition": "fh",
+  "parent": "4B",
+  "parentSections": [
+    "75.1B"
+  ],
+  "conclusion": true,
+  "unlocks": [
+    "5",
+    "7",
+    "8"
+  ]
+}

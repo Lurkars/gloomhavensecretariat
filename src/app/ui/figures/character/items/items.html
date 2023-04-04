@@ -6,7 +6,10 @@
                 <img [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
             </span>
             <span class="id">{{item.id}}.</span>
-            <span class="name" (click)="toggleEquippedItem(item)">{{item.name}}
+            <span class="name"
+                [ngClass]="{'disabled' : gameManager.game.state != GameState.draw || gameManager.game.round > 0}"
+                ghs-drag-click (singleClick)="toggleEquippedItem(item)"
+                (doubleClick)="toggleEquippedItem(item,true)">{{item.name}}
                 <ng-container *ngIf="item.edition != itemEdition">&nbsp;({{'data.edition.' +
                     item.edition |
                     ghsLabel}})</ng-container>
@@ -27,7 +30,7 @@
                 x{{item.minusOne}}
             </span>
             <a class="button loot" (click)="sellItem(item)"><img src="./assets/images/loot.svg">
-                {{sellValue(item)}}
+                {{gameManager.lootManager.itemSellValue(item)}}
             </a>
             <a class="button remove" (click)="removeItem(item)"><img src="./assets/images/close.svg"></a>
         </div>

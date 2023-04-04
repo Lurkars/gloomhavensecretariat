@@ -6,7 +6,7 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
-import { MonsterType } from 'src/app/game/model/MonsterType';
+import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { SummonState } from 'src/app/game/model/Summon';
 import { ghsDefaultDialogPositions } from '../../helper/Static';
 import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';

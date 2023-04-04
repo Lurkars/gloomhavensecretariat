@@ -35,6 +35,7 @@ export enum ConditionType {
   upgrade = "upgrade",
   stack = "stack",
   turn = "turn",
+  afterTurn = "afterTurn",
   expire = "expire",
   value = "value",
   clearHeal = "clearHeal",
@@ -104,6 +105,10 @@ export class Condition {
 
     if ([ConditionName.wound, ConditionName.wound_x, ConditionName.regenerate].indexOf(this.name) != -1) {
       this.types.push(ConditionType.turn);
+    }
+
+    if ([ConditionName.bane].indexOf(this.name) != -1) {
+      this.types.push(ConditionType.afterTurn);
     }
 
     if ([ConditionName.wound, ConditionName.wound_x, ConditionName.poison, ConditionName.poison_x, ConditionName.bane, ConditionName.brittle, ConditionName.infect, ConditionName.rupture].indexOf(this.name) != -1) {

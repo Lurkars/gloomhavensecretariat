@@ -1,5 +1,5 @@
 import { GameMonsterEntityModel, MonsterEntity } from "./MonsterEntity";
-import { Ability } from "./Ability";
+import { Ability } from "./data/Ability";
 import { Figure } from "./Figure";
 import { MonsterData } from "./data/MonsterData";
 import { gameManager } from "../businesslogic/GameManager";

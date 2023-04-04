@@ -2,7 +2,7 @@ import { Component, OnInit, } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
-import { Identifier } from "src/app/game/model/Identifier";
+import { Identifier } from "src/app/game/model/data/Identifier";
 import { Monster } from "src/app/game/model/Monster";
 import { Permissions } from "src/app/game/model/Permissions";
 import { ServerInfo } from "src/app/game/model/ServerInfo";

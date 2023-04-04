@@ -4,7 +4,7 @@ import { settingsManager, SettingsManager } from "src/app/game/businesslogic/Set
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameState } from "src/app/game/model/Game";
 import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
-import { Spoilable, SpoilableMock } from "src/app/game/model/Spoilable";
+import { Spoilable, SpoilableMock } from "src/app/game/model/data/Spoilable";
 
 @Component({
   selector: 'ghs-scenario-menu',

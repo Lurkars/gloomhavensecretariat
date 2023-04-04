@@ -3,11 +3,12 @@ import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Action, ActionCardType, ActionHex, ActionHexType, ActionSpecialTarget, ActionType, ActionValueType } from "src/app/game/model/Action";
+import { Action, ActionCardType, ActionSpecialTarget, ActionType, ActionValueType } from "src/app/game/model/data/Action";
 import { Condition, ConditionName, ConditionType } from "src/app/game/model/Condition";
 import { SummonData } from "src/app/game/model/data/SummonData";
-import { Element } from "src/app/game/model/Element";
-import { MonsterType } from "src/app/game/model/MonsterType";
+import { Element } from "src/app/game/model/data/Element";
+import { MonsterType } from "src/app/game/model/data/MonsterType";
+import { ActionHex, ActionHexType } from "src/app/game/model/ActionHex";
 
 @Component({
   selector: 'ghs-editor-action',
@@ -279,7 +280,7 @@ export class EditorActionComponent implements OnInit {
       this.summon = undefined;
       this.changeSummonMonster();
     } else if (event.target.value == 'summon') {
-      this.summon = new SummonData("", "", "", 0, 0, 0, 0,false);
+      this.summon = new SummonData("", "", "", 0, 0, 0, 0, false);
       this.action.value = JSON.stringify(this.summon);
     }
   }

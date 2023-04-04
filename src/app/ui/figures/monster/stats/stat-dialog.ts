@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { Monster } from 'src/app/game/model/Monster';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { MonsterType } from 'src/app/game/model/MonsterType';
+import { MonsterType } from 'src/app/game/model/data/MonsterType';
 
 @Component({
   selector: 'ghs-stat-dialog',

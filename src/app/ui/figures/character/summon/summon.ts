@@ -5,7 +5,7 @@ import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { ConditionType, EntityCondition } from 'src/app/game/model/Condition';
-import { ElementState } from 'src/app/game/model/Element';
+import { ElementState } from 'src/app/game/model/data/Element';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Summon, SummonState } from 'src/app/game/model/Summon';

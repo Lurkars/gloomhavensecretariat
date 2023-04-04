@@ -1,7 +1,7 @@
 import { CharacterData } from "../model/data/CharacterData";
 import { EditionData } from "../model/data/EditionData";
 import { Settings } from "../model/Settings";
-import { Spoilable } from "../model/Spoilable";
+import { Spoilable } from "../model/data/Spoilable";
 import { gameManager } from "./GameManager";
 
 export class SettingsManager {

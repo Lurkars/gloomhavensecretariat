@@ -83,7 +83,7 @@
       "import": "Importieren",
       "items": {
         ".": "Gegenstände",
-        "effect": "Falls der Gegenstand angelegt ist, wird der Effekt automatisch angewendet. Um einen Gegenstand anzulegen, einfach auf den Namen klicken.",
+        "effect": "Falls der Gegenstand angelegt ist, wird der Effekt automatisch angewendet. Um einen Gegenstand anzulegen, einfach auf den Namen klicken. Anlegen von Gegenständen ist nur vor oder zwischen Scenarien möglich. Durch Doppelclick kann das Anlegen erzwungen werden.",
         "wip": "%wip%! Gegenstände für %data.edition.{0}% sind noch nicht vollständig."
       },
       "level": "Level",
@@ -784,6 +784,7 @@
         "remove": "Entferne {0}"
       },
       "hide": "Nicht mehr anzeigen",
+      "finishWithConclusion": "Szenario beenden mit #{0} {1}",
       "lost": "Szenario verloren!",
       "openRoom": "Raum öffnen",
       "openRoomMarker": "Raum %game.mapMarker.{0}% öffnen",

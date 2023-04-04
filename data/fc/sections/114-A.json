@@ -1,9 +1,9 @@
 {
-  "conclusion": true,
   "index": "114-A",
   "name": "> 2+C inhabitants",
   "edition": "fc",
   "parent": "102",
+  "conclusion": true,
   "rewards": {
     "experience": 15,
     "reputation": 2

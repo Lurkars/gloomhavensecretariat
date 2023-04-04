@@ -6,11 +6,11 @@ import { ScenarioData } from "../model/data/ScenarioData";
 import { ScenarioRewards, ScenarioRule, ScenarioRuleIdentifier } from "../model/data/ScenarioRule";
 import { Entity, EntityValueFunction } from "../model/Entity";
 import { Game, GameState } from "../model/Game";
-import { Identifier } from "../model/Identifier";
-import { LootDeckConfig } from "../model/Loot";
+import { Identifier } from "src/app/game/model/data/Identifier";
+import { LootDeckConfig } from "../model/data/Loot";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
-import { MonsterType } from "../model/MonsterType";
+import { MonsterType } from "../model/data/MonsterType";
 import { GameScenarioModel, Scenario } from "../model/Scenario";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
@@ -573,7 +573,6 @@ export class ScenarioManager {
               const counter = gameManager.entityCounter(figureRule.identifier);
               add = add && counter && counter.killed >= value || false;
             }
-
           })
         }
       }

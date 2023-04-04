@@ -1,8 +1,8 @@
-import { CharacterStat } from "../CharacterStat";
-import { Editional } from "../Editional";
-import { FigureError } from "../FigureError";
-import { Perk, PerkCard } from "../Perks";
-import { Spoilable } from "../Spoilable";
+import { CharacterStat } from "./CharacterStat";
+import { Editional } from "./Editional";
+import { FigureError } from "./FigureError";
+import { Perk, PerkCard } from "./Perks";
+import { Spoilable } from "./Spoilable";
 import { SummonData } from "./SummonData";
 
 export enum CharacterClass {

@@ -11,6 +11,46 @@
   "drawExtra": [
     "snowdancer"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "15.2A"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "snowdancer"
+          },
+          "type": "killed",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "22.1A"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "frozen-fist"
+          },
+          "type": "killed",
+          "value": "1"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

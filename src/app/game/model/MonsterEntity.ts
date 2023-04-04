@@ -1,10 +1,10 @@
 import { NumberSymbol } from "@angular/common";
 import { EntityCondition, GameEntityConditionModel } from "./Condition";
 import { Entity, EntityValueFunction } from "./Entity";
-import { FigureError, FigureErrorType } from "./FigureError";
+import { FigureError, FigureErrorType } from "./data/FigureError";
 import { Monster } from "./Monster";
-import { MonsterStat } from "./MonsterStat";
-import { MonsterType } from "./MonsterType";
+import { MonsterStat } from "./data/MonsterStat";
+import { MonsterType } from "./data/MonsterType";
 import { SummonState } from "./Summon";
 
 export class MonsterEntity implements Entity {

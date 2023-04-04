@@ -4,7 +4,7 @@ import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager
 
 import { Character } from "src/app/game/model/Character";
 import { CharacterProgress } from "src/app/game/model/CharacterProgress";
-import { LootType } from "src/app/game/model/Loot";
+import { LootType } from "src/app/game/model/data/Loot";
 
 @Component({
     selector: 'ghs-character-move-resources',

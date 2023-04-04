@@ -1,14 +1,14 @@
 import { Component, Input, OnChanges } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Action } from "src/app/game/model/Action";
+import { Action } from "src/app/game/model/data/Action";
 import { MonsterStandeeData } from "src/app/game/model/data/RoomData";
 import { MonsterSpawnData } from "src/app/game/model/data/ScenarioRule";
 import { SummonData } from "src/app/game/model/data/SummonData";
 import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
-import { MonsterType } from "src/app/game/model/MonsterType";
+import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { Objective } from "src/app/game/model/Objective";
 import { Summon, SummonColor } from "src/app/game/model/Summon";
 

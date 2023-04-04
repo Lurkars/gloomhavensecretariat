@@ -6,7 +6,7 @@ import { EntityValueFunction } from "src/app/game/model/Entity";
 import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
-import { MonsterType } from "src/app/game/model/MonsterType";
+import { MonsterType } from "src/app/game/model/data/MonsterType";
 
 
 @Component({

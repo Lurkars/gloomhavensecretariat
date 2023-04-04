@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType } from "src/app/game/model/AttackModifier";
+import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType } from "src/app/game/model/data/AttackModifier";
 
 @Component({
   selector: 'ghs-attackmodifier-effects',

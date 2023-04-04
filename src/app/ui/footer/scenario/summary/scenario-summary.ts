@@ -5,8 +5,8 @@ import { Character } from "src/app/game/model/Character";
 import { ItemData } from "src/app/game/model/data/ItemData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ScenarioRewards } from "src/app/game/model/data/ScenarioRule";
-import { Identifier } from "src/app/game/model/Identifier";
-import { LootType } from "src/app/game/model/Loot";
+import { Identifier } from "src/app/game/model/data/Identifier";
+import { LootType } from "src/app/game/model/data/Loot";
 import { Scenario } from "src/app/game/model/Scenario";
 
 

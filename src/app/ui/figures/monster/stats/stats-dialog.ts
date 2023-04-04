@@ -3,7 +3,7 @@ import { Component, Inject } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Monster } from "src/app/game/model/Monster";
-import { MonsterType } from "src/app/game/model/MonsterType";
+import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { MonsterStatDialogComponent } from "./stat-dialog";
 
 @Component({

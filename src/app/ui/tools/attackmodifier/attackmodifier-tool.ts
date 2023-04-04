@@ -2,9 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { AttackModifier, defaultAttackModifier } from "src/app/game/model/AttackModifier";
+import { AttackModifier, defaultAttackModifier } from "src/app/game/model/data/AttackModifier";
 import { Character } from "src/app/game/model/Character";
-import { PerkType } from "src/app/game/model/Perks";
+import { PerkType } from "src/app/game/model/data/Perks";
 import { environment } from "src/environments/environment";
 
 @Component({

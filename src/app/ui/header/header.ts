@@ -4,7 +4,7 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager, SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { Element } from 'src/app/game/model/Element';
+import { Element } from 'src/app/game/model/data/Element';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MainMenuComponent, SubMenu } from './menu/menu';

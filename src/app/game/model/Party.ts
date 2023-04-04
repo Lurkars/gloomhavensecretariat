@@ -1,8 +1,8 @@
-import { GameAttackModifierDeckModel } from "./AttackModifier";
+import { GameAttackModifierDeckModel } from "./data/AttackModifier";
 import { GameCharacterModel } from "./Character";
 import { BuildingModel } from "./data/BuildingData";
-import { Identifier } from "./Identifier";
-import { LootType } from "./Loot";
+import { Identifier } from "./data/Identifier";
+import { LootType } from "./data/Loot";
 import { GameScenarioModel } from "./Scenario";
 
 export class Party {

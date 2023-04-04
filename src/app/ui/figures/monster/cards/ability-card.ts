@@ -2,7 +2,7 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
-import { Ability } from 'src/app/game/model/Ability';
+import { Ability } from 'src/app/game/model/data/Ability';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Dialog } from '@angular/cdk/dialog';

@@ -2,7 +2,7 @@ import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { Component, Inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { Character } from "src/app/game/model/Character";
-import { Loot } from "src/app/game/model/Loot";
+import { Loot } from "src/app/game/model/data/Loot";
 
 @Component({
     selector: 'ghs-loot-apply-dialog',

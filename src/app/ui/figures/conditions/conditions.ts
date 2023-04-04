@@ -7,7 +7,7 @@ import { Entity } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
-import { MonsterType } from "src/app/game/model/MonsterType";
+import { MonsterType } from "src/app/game/model/data/MonsterType";
 
 @Component({
   selector: 'ghs-conditions',
@@ -16,6 +16,7 @@ import { MonsterType } from "src/app/game/model/MonsterType";
 })
 export class ConditionsComponent implements OnInit {
 
+  @Input() entityConditions!: EntityCondition[];
   @Input() entity!: Entity;
   @Input() entities!: Entity[];
   @Input() figure!: Figure;
@@ -62,7 +63,9 @@ export class ConditionsComponent implements OnInit {
   }
 
   hasCondition(condition: Condition): boolean {
-    if (this.entity) {
+    if (this.entityConditions) {
+      return this.entityConditions.some((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
+    } else if (this.entity) {
       return gameManager.entityManager.hasCondition(this.entity, condition);
     } else {
       return this.entities.every((entity) => gameManager.entityManager.hasCondition(entity, condition));
@@ -116,54 +119,35 @@ export class ConditionsComponent implements OnInit {
   }
 
   getValue(condition: Condition): number {
-    const entity = this.entity || this.entities[0];
-    if (entity) {
-      const entityCondition = entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
-      if (entityCondition) {
-        return entityCondition.value;
-      }
-      return condition.value;
+    const entityCondition = this.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
+    if (entityCondition) {
+      return entityCondition.value;
     }
-    return 1;
+    return condition.value;
   }
 
   checkUpdate(condition: Condition) {
-    const entity = this.entity || this.entities[0];
-    if (entity) {
-      const entityCondition = entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
-      if (entityCondition) {
-        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(entity, this.figure, "setConditionValue"), "game.condition." + condition.name, "" + condition.value, this.monsterType ? 'monster.' + this.monsterType + ' ' : '');
-        entityCondition.value = condition.value;
-        gameManager.stateManager.after();
-      }
+    const entityCondition = this.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
+    if (entityCondition) {
+      entityCondition.value = condition.value;
     }
   }
 
   toggleCondition(condition: Condition) {
-    if (this.entity) {
-      this.setCondition(this.entity, this.hasCondition(condition), condition);
-    } else {
-      this.entities.forEach((entity) => {
-        this.setCondition(entity, this.hasCondition(condition), condition);
-      })
-    }
-  }
-
-  setCondition(entity: Entity, remove: boolean, condition: Condition) {
-    if (remove) {
-      let entityCondition: EntityCondition | undefined = entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name);
+    if (this.hasCondition(condition)) {
+      let entityCondition: EntityCondition | undefined = this.entityConditions.find((entityCondition) => entityCondition.name == condition.name);
       if (entityCondition) {
         entityCondition.expired = true;
         entityCondition.lastState = entityCondition.state;
         entityCondition.state = EntityConditionState.removed;
       }
     } else {
-      let entityCondition: EntityCondition | undefined = entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name);
+      let entityCondition: EntityCondition | undefined = this.entityConditions.find((entityCondition) => entityCondition.name == condition.name);
       if (!entityCondition) {
         entityCondition = new EntityCondition(condition.name, condition.value);
         entityCondition.lastState = entityCondition.state;
         entityCondition.state = EntityConditionState.new;
-        entity.entityConditions.push(entityCondition);
+        this.entityConditions.push(entityCondition);
       } else {
         entityCondition.expired = false;
         entityCondition.lastState = entityCondition.state;
@@ -171,5 +155,5 @@ export class ConditionsComponent implements OnInit {
       }
     }
   }
-}
 
+}

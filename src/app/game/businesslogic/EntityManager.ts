@@ -154,32 +154,42 @@ export class EntityManager {
   }
 
   toggleCondition(entity: Entity, condition: Condition, active: boolean, off: boolean) {
-    if (!this.hasCondition(entity, condition)) {
-      let entityCondition: EntityCondition | undefined = entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name);
-      if (!entityCondition) {
-        entityCondition = new EntityCondition(condition.name, condition.value);
-        entity.entityConditions.push(entityCondition);
-      } else {
-        entityCondition.expired = false;
-        entityCondition.lastState = entityCondition.state;
-        entityCondition.state = EntityConditionState.normal;
-      }
-
-      if (!active && entityCondition.types.indexOf(ConditionType.expire) != -1) {
-        entityCondition.lastState = entityCondition.state;
-        entityCondition.state = EntityConditionState.expire;
-      } else if (active && entityCondition.types.indexOf(ConditionType.turn) != -1) {
-        entityCondition.lastState = entityCondition.state;
-        entityCondition.state = EntityConditionState.turn;
-      }
-
-      if (off && entityCondition.types.indexOf(ConditionType.turn) != -1) {
-        entityCondition.lastState = entityCondition.state;
-        entityCondition.state = EntityConditionState.expire;
-      }
+    if (this.hasCondition(entity, condition)) {
+      this.removeCondition(entity, condition)
     } else {
-      entity.entityConditions = entity.entityConditions.filter((entityCondition) => entityCondition.name != condition.name);
+      this.addCondition(entity, condition, active, off);
     }
+  }
+
+  addCondition(entity: Entity, condition: Condition, active: boolean, off: boolean) {
+    let entityCondition: EntityCondition | undefined = entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name);
+    if (!entityCondition) {
+      entityCondition = new EntityCondition(condition.name, condition.value);
+      entity.entityConditions.push(entityCondition);
+    } else {
+      entityCondition.expired = false;
+      entityCondition.lastState = entityCondition.state;
+      entityCondition.state = EntityConditionState.normal;
+    }
+
+    if (!active && entityCondition.types.indexOf(ConditionType.expire) != -1) {
+      entityCondition.lastState = entityCondition.state;
+      entityCondition.state = EntityConditionState.expire;
+    } else if (active && entityCondition.types.indexOf(ConditionType.turn) != -1) {
+      entityCondition.lastState = entityCondition.state;
+      entityCondition.state = EntityConditionState.turn;
+    } else if (active && entityCondition.types.indexOf(ConditionType.afterTurn) != -1) {
+      entityCondition.state = EntityConditionState.new;
+    }
+
+    if (off && entityCondition.types.indexOf(ConditionType.turn) != -1) {
+      entityCondition.lastState = entityCondition.state;
+      entityCondition.state = EntityConditionState.expire;
+    }
+  }
+
+  removeCondition(entity: Entity, condition: Condition) {
+    entity.entityConditions = entity.entityConditions.filter((entityCondition) => entityCondition.name != condition.name);
   }
 
   applyCondition(entity: Entity, name: ConditionName) {
@@ -380,6 +390,16 @@ export class EntityManager {
         }, 1000);
       }
     })
+
+    entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.afterTurn) != -1).forEach((entityCondition) => {
+      if (entityCondition.state == EntityConditionState.normal) {
+        entityCondition.lastState = entityCondition.state;
+        entityCondition.state = EntityConditionState.turn;
+      } else if (entityCondition.state == EntityConditionState.new) {
+        entityCondition.lastState = entityCondition.state;
+        entityCondition.state = EntityConditionState.normal;
+      }
+    })
   }
 
   unapplyConditionsTurn(entity: Entity) {
@@ -426,44 +446,62 @@ export class EntityManager {
   }
 
   applyConditionsAfter(entity: Entity) {
-    const baneCondition = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.name == ConditionName.bane);
+    entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.afterTurn) != -1).forEach((entityCondition) => {
+      if (entityCondition.state == EntityConditionState.turn) {
 
-    if (baneCondition) {
+        if (entityCondition.name == ConditionName.bane) {
+          entity.health = entity.health - 10;
+          if (entity.health < 0) {
+            entity.health = 0;
+          }
 
-      entity.health = entity.health - 10;
-      if (entity.health < 0) {
-        entity.health = 0;
+          if (entity.health == 0 && (entity instanceof MonsterEntity || entity instanceof Summon) && !entity.dead) {
+            entity.dead = true;
+          }
+        }
+
+        entityCondition.expired = true;
+        entityCondition.highlight = true;
+        setTimeout(() => {
+          entityCondition.highlight = false;
+        }, 1000);
+
+      } else if (entityCondition.state == EntityConditionState.normal) {
+        entityCondition.lastState = entityCondition.state;
+        entityCondition.state = EntityConditionState.turn;
+      } else if (entityCondition.state == EntityConditionState.new) {
+        entityCondition.lastState = entityCondition.state;
+        entityCondition.state = EntityConditionState.normal;
       }
-
-      if (entity.health == 0 && (entity instanceof MonsterEntity || entity instanceof Summon) && !entity.dead) {
-        entity.dead = true;
-      }
-
-      baneCondition.expired = true;
-      baneCondition.highlight = true;
-      setTimeout(() => {
-        baneCondition.highlight = false;
-      }, 1000);
-    }
+    })
   }
 
   unapplyConditionsAfter(entity: Entity) {
-    const baneCondition = entity.entityConditions.find((entityCondition) => entityCondition.expired && entityCondition.name == ConditionName.bane);
-    if (baneCondition) {
+    entity.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.afterTurn) != -1).forEach((entityCondition) => {
+      if (entityCondition.expired) {
+        if (entityCondition.name == ConditionName.bane) {
+          entity.health = entity.health + 10;
+          const maxHealth = EntityValueFunction(entity.maxHealth);
+          if (entity.health > maxHealth) {
+            entity.health = maxHealth;
+          }
 
-      entity.health = entity.health + 10;
-      const maxHealth = EntityValueFunction(entity.maxHealth);
-      if (entity.health > maxHealth) {
-        entity.health = maxHealth;
+          if (entity.health > 0 && (entity instanceof MonsterEntity || entity instanceof Summon) && entity.dead) {
+            entity.dead = false;
+          }
+        }
+
+        entityCondition.highlight = false;
+        entityCondition.expired = false;
+      } else if (entityCondition.state == EntityConditionState.normal) {
+        entityCondition.state = entityCondition.lastState;
+        entityCondition.lastState = EntityConditionState.normal;
+      } else if (entityCondition.state == EntityConditionState.new) {
+        entityCondition.state = entityCondition.lastState;
+        entityCondition.lastState = EntityConditionState.new;
       }
 
-      if (entity.health > 0 && (entity instanceof MonsterEntity || entity instanceof Summon) && entity.dead) {
-        entity.dead = false;
-      }
-
-      baneCondition.highlight = false;
-      baneCondition.expired = false;
-    }
+    })
   }
 
   highlightedConditions(entity: Entity): EntityCondition[] {

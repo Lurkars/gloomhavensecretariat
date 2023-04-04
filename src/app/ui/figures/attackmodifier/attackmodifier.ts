@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from "@angular/core";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType, AttackModifierValueType } from "src/app/game/model/AttackModifier";
+import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType, AttackModifierValueType } from "src/app/game/model/data/AttackModifier";
 
 @Component({
   selector: 'ghs-attackmodifier',

@@ -3,7 +3,7 @@ import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, ElementRef, EventEmitter, Inject, OnInit, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/AttackModifier";
+import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { AttackModiferDeckChange } from "./attackmodifierdeck";

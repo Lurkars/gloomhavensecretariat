@@ -1,5 +1,5 @@
-import { Editional } from "../Editional";
-import { Ability } from "../Ability";
+import { Editional } from "./Editional";
+import { Ability } from "./Ability";
 
 export class DeckData implements Editional {
 

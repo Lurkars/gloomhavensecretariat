@@ -1,16 +1,16 @@
-import { Ability } from "../model/Ability";
+import { Ability } from "../model/data/Ability";
 import { Character } from "../model/Character";
 import { CharacterData } from "../model/data/CharacterData";
 import { DeckData } from "../model/data/DeckData";
 import { EditionData, FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "../model/data/EditionData";
 import { MonsterData } from "../model/data/MonsterData";
 import { ScenarioData } from "../model/data/ScenarioData";
-import { FigureError, FigureErrorType } from "../model/FigureError";
+import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
-import { MonsterStat } from "../model/MonsterStat";
-import { MonsterType } from "../model/MonsterType";
+import { MonsterStat } from "../model/data/MonsterStat";
+import { MonsterType } from "../model/data/MonsterType";
 import { Objective } from "../model/Objective";
 import { AttackModifierManager } from "./AttackModifierManager";
 import { CharacterManager } from "./CharacterManager";
@@ -29,7 +29,7 @@ import { MonsterEntity } from "../model/MonsterEntity";
 import { Summon } from "../model/Summon";
 import { LootManager } from "./LootManager";
 import { ObjectiveData, ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
-import { AdditionalIdentifier } from "../model/Identifier";
+import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
 
 
 export class GameManager {

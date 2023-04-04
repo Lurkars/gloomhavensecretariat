@@ -1,17 +1,19 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Action, ActionType, ActionTypesIcons, ActionValueType, ActionSpecialTarget } from 'src/app/game/model/Action';
+import { Action, ActionType, ActionValueType, ActionSpecialTarget } from 'src/app/game/model/data/Action';
 import { Condition, ConditionType } from 'src/app/game/model/Condition';
-import { ElementState } from 'src/app/game/model/Element';
+import { ElementState } from 'src/app/game/model/data/Element';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
-import { MonsterStat } from 'src/app/game/model/MonsterStat';
-import { MonsterType } from 'src/app/game/model/MonsterType';
+import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
+import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { Objective } from 'src/app/game/model/Objective';
 import { valueCalc } from '../../helper/valueCalc';
+
+export const ActionTypesIcons: ActionType[] = [ActionType.attack, ActionType.fly, ActionType.heal, ActionType.jump, ActionType.loot, ActionType.move, ActionType.range, ActionType.retaliate, ActionType.shield, ActionType.target, ActionType.teleport];
 
 @Component({
   selector: 'ghs-action',

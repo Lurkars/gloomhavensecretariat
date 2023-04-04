@@ -1,10 +1,10 @@
-import { AttackModifierDeck } from "../model/AttackModifier";
+import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
 import { Character } from "../model/Character";
-import { ElementState } from "../model/Element";
+import { ElementState } from "../model/data/Element";
 import { EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
-import { LootDeck } from "../model/Loot";
+import { LootDeck } from "../model/data/Loot";
 import { Monster } from "../model/Monster";
 import { Objective } from "../model/Objective";
 import { SummonState } from "../model/Summon";
@@ -211,9 +211,7 @@ export class RoundManager {
           });
         }
       }
-    }
 
-    if (settingsManager.settings.applyConditions) {
       if (figure instanceof Character) {
         gameManager.entityManager.unapplyConditionsAfter(figure);
         figure.summons.forEach((summon) => {

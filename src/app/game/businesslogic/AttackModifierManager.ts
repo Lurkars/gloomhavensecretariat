@@ -1,12 +1,12 @@
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
-import { AttackModifier, AttackModifierDeck, AttackModifierType, defaultAttackModifier, defaultTownGuardAttackModifier } from "../model/AttackModifier";
+import { AttackModifier, AttackModifierDeck, AttackModifierType, defaultAttackModifier, defaultTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
 import { Character } from "../model/Character";
 import { CampaignData } from "../model/data/EditionData";
 import { Figure } from "../model/Figure";
 import { Game } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { Party } from "../model/Party";
-import { Perk, PerkCard, PerkType } from "../model/Perks";
+import { Perk, PerkCard, PerkType } from "../model/data/Perks";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
@@ -199,6 +199,43 @@ export class AttackModifierManager {
           }
         }
       })
+    }
+
+    if (character.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '101')) {
+      let minus1 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus1);
+      if (minus1) {
+        attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(minus1), 1);
+        minus1 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus1);
+        if (minus1) {
+          attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(minus1), 1);
+        }
+      }
+    }
+
+    if (character.progress.equippedItems.find((identifier) => identifier.edition == 'toa' && identifier.name == '107')) {
+      const minus2 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus2);
+      if (minus2) {
+        attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(minus2), 1);
+      }
+    }
+
+    if (character.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '11')) {
+      const minus1 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus1);
+      if (minus1) {
+        attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(minus1), 1);
+      }
+    }
+
+    if (character.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '41')) {
+      const plus0 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.plus0);
+      if (plus0) {
+        attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(plus0), 1);
+      }
+
+      const minus1 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus1);
+      if (minus1) {
+        attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(minus1), 1);
+      }
     }
 
     return attackModifierDeck;

@@ -1,11 +1,11 @@
 {
-  "conclusion": true,
   "index": "75",
   "edition": "fc",
   "parent": "107",
   "parentSections": [
     "96"
   ],
+  "conclusion": true,
   "rewards": {
     "globalAchievements": [
       "Pieces of an Artifact"

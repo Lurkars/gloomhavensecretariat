@@ -1,6 +1,6 @@
 import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { Component, EventEmitter, Inject, OnInit } from "@angular/core";
-import { LootDeck } from "src/app/game/model/Loot";
+import { LootDeck } from "src/app/game/model/data/Loot";
 import { LootDeckChange } from "./loot-deck";
 
 @Component({

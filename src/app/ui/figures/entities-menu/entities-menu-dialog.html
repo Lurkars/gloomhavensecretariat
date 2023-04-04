@@ -25,7 +25,8 @@
         </ghs-drag-click>
       </span>
 
-      <ghs-conditions [entities]="entities" [figure]="data.monster" [type]="'monster'"></ghs-conditions>
+      <ghs-conditions [entityConditions]="entityConditions" [entities]="entities" [figure]="data.monster"
+        [type]="'monster'"></ghs-conditions>
 
       <span class="item" title="{{'game.dead' | ghsLabel}}">
         <a class="button" (click)="toggleDead()">

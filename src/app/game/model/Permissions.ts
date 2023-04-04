@@ -1,4 +1,4 @@
-import { Identifier } from "./Identifier";
+import { Identifier } from "./data/Identifier";
 
 export class Permissions {
 

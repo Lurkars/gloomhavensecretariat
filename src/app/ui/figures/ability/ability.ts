@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Ability } from "src/app/game/model/Ability";
+import { Ability } from "src/app/game/model/data/Ability";
 import { Character } from "src/app/game/model/Character";
 import { Monster } from "src/app/game/model/Monster";
 import { applyPlaceholder } from "../../helper/i18n";

@@ -3,9 +3,9 @@ import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager
 import { Monster } from 'src/app/game/model/Monster';
 import { Dialog, DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { AbilityDialogComponent } from 'src/app/ui/figures/ability/ability-dialog';
-import { Ability } from 'src/app/game/model/Ability';
+import { Ability } from 'src/app/game/model/data/Ability';
 import { MonsterStatDialogComponent } from 'src/app/ui/figures/monster/stats/stat-dialog';
-import { MonsterType } from 'src/app/game/model/MonsterType';
+import { MonsterType } from 'src/app/game/model/data/MonsterType';
 
 @Component({
   selector: 'ghs-stats-list',

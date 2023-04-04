@@ -7,17 +7,17 @@ import { MonsterStandeeData, RoomData } from "src/app/game/model/data/RoomData";
 import { ScenarioRule, ScenarioFigureRule, MonsterSpawnData } from "src/app/game/model/data/ScenarioRule";
 import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
 import { Monster } from "src/app/game/model/Monster";
-import { MonsterType } from "src/app/game/model/MonsterType";
+import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { Objective } from "src/app/game/model/Objective";
 import { Condition } from "src/app/game/model/Condition";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameState } from "src/app/game/model/Game";
-import { AttackModifier, AttackModifierType } from "src/app/game/model/AttackModifier";
+import { AttackModifier, AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { Figure } from "src/app/game/model/Figure";
 import { ScenarioObjectiveIdentifier } from "src/app/game/model/data/ObjectiveData";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
-import { FigureError, FigureErrorType } from "src/app/game/model/FigureError";
+import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
 
 @Component({
     selector: 'ghs-scenario-rules',
@@ -257,7 +257,18 @@ export class ScenarioRulesComponent {
 
                 if (rule.sections) {
                     this.sections(index).forEach((sectionData) => {
-                        gameManager.scenarioManager.addSection(sectionData);
+                        if (sectionData.conclusion) {
+                            this.dialog.open(ScenarioSummaryComponent, {
+                                panelClass: 'dialog',
+                                data: {
+                                    scenario: gameManager.game.scenario,
+                                    success: true,
+                                    conclusion: sectionData
+                                }
+                            })
+                        } else {
+                            gameManager.scenarioManager.addSection(sectionData);
+                        }
                     })
                 }
 

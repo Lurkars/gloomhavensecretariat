@@ -1,10 +1,10 @@
-import { Editional } from "../Editional";
+import { Editional } from "./Editional";
 import { CharacterData } from "./CharacterData";
 import { ScenarioData } from "./ScenarioData";
 import { MonsterData } from "./MonsterData";
 import { DeckData } from "./DeckData";
 import { ItemData } from "./ItemData";
-import { Perk } from "../Perks";
+import { Perk } from "./Perks";
 import { BuildingData } from "./BuildingData";
 
 export const GH_PROSPERITY_STEPS = [3, 8, 14, 21, 29, 38, 49, 63];

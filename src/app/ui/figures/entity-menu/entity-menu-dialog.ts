@@ -2,8 +2,8 @@ import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { ChangeDetectorRef, Component, ElementRef, Inject, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Action, ActionType, ActionValueType } from "src/app/game/model/Action";
-import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/AttackModifier";
+import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Action";
+import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { Character } from "src/app/game/model/Character";
 import { ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/Condition";
 import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
@@ -11,7 +11,7 @@ import { Figure } from "src/app/game/model/Figure";
 import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
-import { MonsterType } from "src/app/game/model/MonsterType";
+import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { Objective, OBJECTIV_MARKERS } from "src/app/game/model/Objective";
 import { Summon, SummonState } from "src/app/game/model/Summon";
 import { ghsModulo, ghsValueSign } from "../../helper/Static";
@@ -815,7 +815,7 @@ export class EntityMenuDialogComponent {
 
   closeConditions() {
     if (this.data.entity) {
-      this.data.entity.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
+      this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
         if (this.data.entity) {
 
           if (this.data.entity instanceof Character && entityCondition.name == ConditionName.muddle && entityCondition.state == EntityConditionState.new &&
@@ -827,6 +827,17 @@ export class EntityMenuDialogComponent {
           gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition"), "game.condition." + entityCondition.name, this.data.entity instanceof MonsterEntity ? 'monster.' + this.data.entity.type + ' ' : '');
           gameManager.entityManager.toggleCondition(this.data.entity, entityCondition, this.data.figure.active, this.data.figure.off);
           gameManager.stateManager.after();
+        }
+      })
+
+      this.entityConditions.forEach((condition) => {
+        if (this.data.entity) {
+          const entityCondition = this.data.entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
+          if (entityCondition && entityCondition.value != condition.value) {
+            gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, "setConditionValue"), "game.condition." + condition.name, "" + condition.value, this.data.entity instanceof MonsterEntity ? 'monster.' + (this.data.entity as MonsterEntity).type + ' ' : '');
+            entityCondition.value = condition.value;
+            gameManager.stateManager.after();
+          }
         }
       })
     }

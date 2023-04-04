@@ -1,6 +1,6 @@
 import { Component, Input, ViewEncapsulation } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
-import { ElementModel, ElementState } from "src/app/game/model/Element";
+import { ElementModel, ElementState } from "src/app/game/model/data/Element";
 import { GameState } from "src/app/game/model/Game";
 
 @Component({

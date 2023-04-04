@@ -36,5 +36,5 @@ export const sortScenario = function (scenario) {
         scenario.rules = scenario.rules.map((rule) => sortScenarioRule(rule));
     }
 
-    return sortObjectKeys(scenario, 'index', 'group', 'name', 'gridLocation', 'edition', 'parent', 'parentSections', 'blockedSections', 'marker', 'spoiler', 'initial', 'random', 'solo', 'allyDeck', 'resetRound', 'unlocks', 'requires', 'blocks', 'links', "forcedLinks", "rewards", 'monsters', 'allies', 'drawExtra', 'objectives', 'lootDeckConfig', 'rules', 'rooms');
+    return sortObjectKeys(scenario, 'index', 'group', 'name', 'gridLocation', 'edition', 'parent', 'parentSections', 'conclusion', 'blockedSections', 'marker', 'spoiler', 'initial', 'random', 'solo', 'allyDeck', 'resetRound', 'unlocks', 'requires', 'blocks', 'links', "forcedLinks", "rewards", 'monsters', 'allies', 'drawExtra', 'objectives', 'lootDeckConfig', 'rules', 'rooms');
 }

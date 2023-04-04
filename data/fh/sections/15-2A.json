@@ -1,0 +1,15 @@
+{
+  "index": "15.2A",
+  "name": "Snowdancer is dead",
+  "edition": "fh",
+  "parent": "4A",
+  "parentSections": [
+    "75.1A"
+  ],
+  "conclusion": true,
+  "unlocks": [
+    "6",
+    "7",
+    "8"
+  ]
+}

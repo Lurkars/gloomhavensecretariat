@@ -3,7 +3,7 @@ import { Overlay } from '@angular/cdk/overlay';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { AttackModifierType } from 'src/app/game/model/AttackModifier';
+import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Condition, ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';

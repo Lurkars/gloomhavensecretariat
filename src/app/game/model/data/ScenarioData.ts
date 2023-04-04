@@ -1,6 +1,6 @@
-import { Editional } from "../Editional";
-import { LootDeckConfig } from "../Loot";
-import { Spoilable } from "../Spoilable";
+import { Editional } from "./Editional";
+import { LootDeckConfig } from "./Loot";
+import { Spoilable } from "./Spoilable";
 import { ObjectiveData } from "./ObjectiveData";
 import { RoomData } from "./RoomData";
 import { ScenarioRewards, ScenarioRule } from "./ScenarioRule";

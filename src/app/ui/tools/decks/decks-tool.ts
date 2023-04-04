@@ -5,7 +5,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { Character } from "src/app/game/model/Character";
 import { DeckData } from "src/app/game/model/data/DeckData";
 import { Monster } from "src/app/game/model/Monster";
-import { MonsterType } from "src/app/game/model/MonsterType";
+import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { environment } from "src/environments/environment";
 
 @Component({

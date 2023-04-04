@@ -1,7 +1,7 @@
 import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { Component, EventEmitter, Inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { AttackModifierDeck } from "src/app/game/model/AttackModifier";
+import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
 import { Character } from "src/app/game/model/Character";
 import { AttackModiferDeckChange } from "./attackmodifierdeck";
 

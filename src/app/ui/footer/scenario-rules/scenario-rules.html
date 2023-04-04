@@ -38,8 +38,10 @@
           <span class="and" *ngIf="i > 0">,</span>
           <span class="section">
             <img class="ghs-svg" src="./assets/images/scenario/lock.svg">
-            <span class="text-white"
+            <span class="text-white" *ngIf="!sectionData.conclusion"
               [i18n]="sectionData.marker ? 'scenario.rules.addSectionMarker' : 'scenario.rules.addSection'"
+              [i18n-args]="[sectionData.index, 'data.section.' + sectionData.name, sectionData.marker || '']"></span>
+            <span class="text-white" *ngIf="sectionData.conclusion" [i18n]=" 'scenario.rules.finishWithConclusion'"
               [i18n-args]="[sectionData.index, 'data.section.' + sectionData.name, sectionData.marker || '']"></span>
           </span>
         </ng-container>

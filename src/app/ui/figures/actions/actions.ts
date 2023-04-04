@@ -1,9 +1,9 @@
 import { Component, Input } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Action, ActionType, ActionValueType } from "src/app/game/model/Action";
+import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Action";
 import { Monster } from "src/app/game/model/Monster";
-import { MonsterType } from "src/app/game/model/MonsterType";
+import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { Objective } from "src/app/game/model/Objective";
 
 @Component({

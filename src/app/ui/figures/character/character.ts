@@ -4,7 +4,7 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, ViewChild } from '@
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { AttackModifierType } from 'src/app/game/model/AttackModifier';
+import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Character } from 'src/app/game/model/Character';
 import { ConditionType, EntityCondition } from 'src/app/game/model/Condition';
 import { GameState } from 'src/app/game/model/Game';

@@ -1,4 +1,4 @@
-import { Editional } from "./Editional";
+import { Editional } from "./data/Editional";
 
 export interface Figure extends Editional {
   name: string;

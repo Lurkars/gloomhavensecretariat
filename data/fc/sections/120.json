@@ -1,11 +1,11 @@
 {
-  "conclusion": true,
   "index": "120",
   "edition": "fc",
   "parent": "108",
   "parentSections": [
     "101"
   ],
+  "conclusion": true,
   "rewards": {
     "partyAchievements": [
       "Angels of Death"

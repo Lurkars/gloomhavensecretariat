@@ -74,7 +74,7 @@
         font-family: var(--ghs-font-text);
         display: flex;
         flex-direction: column;
-        overflow-y: auto;
+        overflow: visible;
 
         .item-entry {
             display: flex;
@@ -103,6 +103,10 @@
 
             .name {
                 cursor: pointer;
+
+                &.disabled {
+                    cursor: initial;
+                }
             }
 
             .edition {

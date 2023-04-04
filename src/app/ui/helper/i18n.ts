@@ -1,9 +1,11 @@
 import { Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { ActionHex, ActionType, ActionTypesIcons } from "src/app/game/model/Action";
+import {  ActionType } from "src/app/game/model/data/Action";
 import { Character } from "src/app/game/model/Character";
 import { EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity";
+import { ActionHex } from "src/app/game/model/ActionHex";
+import { ActionTypesIcons } from "../figures/actions/action";
 
 export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\,|\+|\(|\)|\||\_|\[|\]|\||\{|\}|\$|\\|\/|\%U+200B)+)\%/;
 

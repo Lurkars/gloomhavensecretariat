@@ -1,13 +1,13 @@
 import { Figure } from "./Figure";
 import { Entity } from "./Entity";
-import { CharacterStat } from "./CharacterStat";
+import { CharacterStat } from "./data/CharacterStat";
 import { CharacterData } from "./data/CharacterData";
 import { GameSummonModel, Summon } from "./Summon";
 import { gameManager } from "../businesslogic/GameManager";
-import { FigureError, FigureErrorType } from "./FigureError";
+import { FigureError, FigureErrorType } from "./data/FigureError";
 import { EntityCondition, GameEntityConditionModel } from "./Condition";
 import { CharacterProgress } from "./CharacterProgress";
-import { AttackModifierDeck, GameAttackModifierDeckModel } from "./AttackModifier";
+import { AttackModifierDeck, GameAttackModifierDeckModel } from "./data/AttackModifier";
 
 export class Character extends CharacterData implements Entity, Figure {
   title: string = "";

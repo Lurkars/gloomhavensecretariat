@@ -2,8 +2,9 @@ import { Component, Input, OnDestroy, OnInit, ViewEncapsulation } from "@angular
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { Character } from "src/app/game/model/Character";
 import { ItemData, ItemSlot } from "src/app/game/model/data/ItemData";
-import { Identifier } from "src/app/game/model/Identifier";
-import { getLootClass, LootClass, LootType } from "src/app/game/model/Loot";
+import { Identifier } from "src/app/game/model/data/Identifier";
+import { getLootClass, LootClass, LootType } from "src/app/game/model/data/Loot";
+import { GameState } from "src/app/game/model/Game";
 
 
 @Component({
@@ -22,6 +23,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
     itemEdition: string = "";
 
     gameManager: GameManager = gameManager;
+    GameState = GameState;
 
     ngOnInit() {
         this.updateItems();
@@ -248,10 +250,10 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
 
     sellItem(itemData: ItemData) {
         const item = this.character.progress.items.find((item) => item.name == "" + itemData.id && item.edition == itemData.edition);
-        if (item && this.sellValue(itemData)) {
+        if (item && gameManager.lootManager.itemSellValue(itemData)) {
             const index = this.character.progress.items.indexOf(item)
             gameManager.stateManager.before("sellItem", "data.character." + this.character.name, this.character.progress.items[index].name, this.character.progress.items[index].edition);
-            this.character.progress.gold += this.sellValue(itemData);
+            this.character.progress.gold += gameManager.lootManager.itemSellValue(itemData);
             this.character.progress.items.splice(index, 1);
             this.character.progress.equippedItems = this.character.progress.equippedItems.filter((identifier) => identifier.name != itemData.name || identifier.edition != itemData.edition);
             this.items.splice(index, 1);
@@ -260,81 +262,64 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
         }
     }
 
-    sellValue(itemData: ItemData): number {
-        if (itemData.cost) {
-            return Math.ceil(itemData.cost / 2);
-        } else {
-            let costs = 0;
-            if (itemData.resources) {
-                Object.keys(itemData.resources).forEach(key => {
-                    const lootType = key as LootType;
-                    costs += (itemData.resources[lootType] || 0) * 2;
-                });
-
-                if (itemData.requiredItems) {
-                    itemData.requiredItems.forEach(() => {
-                        costs += 2;
-                    })
-                }
-            }
-            return costs;
-        }
-    }
-
     isEquipped(item: ItemData) {
         return this.character.progress.equippedItems.find((identifier) => identifier.name == '' + item.id && identifier.edition == item.edition);
     }
 
-    toggleEquippedItem(item: ItemData) {
-        let equippedItems: ItemData[] = this.character.progress.equippedItems.map((identifier) => this.items.find((itemData) => identifier.name == '' + itemData.id && itemData.edition == identifier.edition)).filter((itemData) => itemData).map((itemData) => itemData as ItemData);
-        const equipIndex = equippedItems.indexOf(item);
-        if (equipIndex != -1) {
-            equippedItems.splice(equipIndex, 1);
-            const allowed = Math.ceil(this.character.level / 2);
-            const smallEquipped = equippedItems.filter((itemData) => itemData.slot == ItemSlot.small).length;
-            if (item.id == 16 && item.edition == 'gh' && smallEquipped >= allowed) {
-                for (let i = 0; i < (smallEquipped - allowed); i++) {
-                    const equipped = equippedItems.find((itemData) => itemData.slot == ItemSlot.small);
-                    if (equipped) {
-                        equippedItems.splice(equippedItems.indexOf(equipped), 1);
+    toggleEquippedItem(item: ItemData, force: boolean = false) {
+        const disabled = gameManager.game.state != GameState.draw || gameManager.game.round > 0;
+        if (!disabled || force) {
+            let equippedItems: ItemData[] = this.character.progress.equippedItems.map((identifier) => this.items.find((itemData) => identifier.name == '' + itemData.id && itemData.edition == identifier.edition)).filter((itemData) => itemData).map((itemData) => itemData as ItemData);
+            const equipIndex = equippedItems.indexOf(item);
+            if (equipIndex != -1) {
+                equippedItems.splice(equipIndex, 1);
+                const allowed = Math.ceil(this.character.level / 2);
+                const smallEquipped = equippedItems.filter((itemData) => itemData.slot == ItemSlot.small).length;
+                if (item.id == 16 && item.edition == 'gh' && smallEquipped >= allowed) {
+                    for (let i = 0; i < (smallEquipped - allowed); i++) {
+                        const equipped = equippedItems.find((itemData) => itemData.slot == ItemSlot.small);
+                        if (equipped) {
+                            equippedItems.splice(equippedItems.indexOf(equipped), 1);
+                        }
                     }
                 }
-            }
-        } else {
-            if (item.slot == ItemSlot.small) {
-                let allowed = Math.ceil(this.character.level / 2);
-                if (equippedItems.find((itemData) => itemData.id == 16 && itemData.edition == 'gh' || itemData.id == 60 && itemData.edition == 'fh')) {
-                    allowed += 2;
-                }
-                if (equippedItems.find((itemData) => itemData.id == 132 && itemData.edition == 'fh')) {
-                    allowed += 1;
-                }
-
-                if (equippedItems.filter((itemData) => itemData.slot == item.slot).length >= allowed) {
-                    const equipped = equippedItems.find((itemData) => itemData.slot == item.slot);
-                    if (equipped) {
-                        equippedItems.splice(equippedItems.indexOf(equipped), 1);
-                    }
-                }
-            } else if (item.slot == ItemSlot.onehand) {
-                equippedItems = equippedItems.filter((equipped) => equipped.slot != ItemSlot.twohand);
-                if (equippedItems.filter((equipped) => equipped.slot == item.slot).length > 1) {
-                    const equipped = equippedItems.find((equipped) => equipped.slot == item.slot);
-                    if (equipped) {
-                        equippedItems.splice(equippedItems.indexOf(equipped), 1);
-                    }
-                }
-            } else if (item.slot == ItemSlot.twohand) {
-                equippedItems = equippedItems.filter((equipped) => equipped.slot != ItemSlot.onehand && equipped.slot != ItemSlot.twohand);
             } else {
-                equippedItems = equippedItems.filter((equipped) => equipped.slot != item.slot);
+                if (item.slot == ItemSlot.small) {
+                    let allowed = Math.ceil(this.character.level / 2);
+                    if (equippedItems.find((itemData) => itemData.id == 16 && itemData.edition == 'gh' || itemData.id == 60 && itemData.edition == 'fh')) {
+                        allowed += 2;
+                    }
+                    if (equippedItems.find((itemData) => itemData.id == 132 && itemData.edition == 'fh')) {
+                        allowed += 1;
+                    }
+
+                    if (equippedItems.filter((itemData) => itemData.slot == item.slot).length >= allowed) {
+                        const equipped = equippedItems.find((itemData) => itemData.slot == item.slot);
+                        if (equipped) {
+                            equippedItems.splice(equippedItems.indexOf(equipped), 1);
+                        }
+                    }
+                } else if (item.slot == ItemSlot.onehand) {
+                    equippedItems = equippedItems.filter((equipped) => equipped.slot != ItemSlot.twohand);
+                    if (equippedItems.filter((equipped) => equipped.slot == item.slot).length > 1) {
+                        const equipped = equippedItems.find((equipped) => equipped.slot == item.slot);
+                        if (equipped) {
+                            equippedItems.splice(equippedItems.indexOf(equipped), 1);
+                        }
+                    }
+                } else if (item.slot == ItemSlot.twohand) {
+                    equippedItems = equippedItems.filter((equipped) => equipped.slot != ItemSlot.onehand && equipped.slot != ItemSlot.twohand);
+                } else {
+                    equippedItems = equippedItems.filter((equipped) => equipped.slot != item.slot);
+                }
+
+                equippedItems.push(item);
             }
 
-            equippedItems.push(item);
+            gameManager.stateManager.before(equipIndex != -1 ? 'unequipItem' : 'equipItem', "data.character." + this.character.name, item.name, item.edition)
+            this.character.progress.equippedItems = equippedItems.map((itemData) => new Identifier(itemData.id + '', itemData.edition));
+            this.character.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character);
+            gameManager.stateManager.after();
         }
-
-        gameManager.stateManager.before(equipIndex != -1 ? 'unequipItem' : 'equipItem', "data.character." + this.character.name, item.name, item.edition)
-        this.character.progress.equippedItems = equippedItems.map((itemData) => new Identifier(itemData.id + '', itemData.edition));
-        gameManager.stateManager.after();
     }
 }

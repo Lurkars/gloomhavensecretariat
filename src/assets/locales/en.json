@@ -87,7 +87,7 @@
       "import": "Import",
       "items": {
         ".": "Items",
-        "effect": "If the item is equipped, it's effect is automatically applied. To equip an item, just click it's name.",
+        "effect": "If the item is equipped, it's effect is automatically applied. To equip an item, just click it's name. Equipping items is only allowed before and between scenarios. Doubleclick to force equipping.",
         "wip": "%wip%! Items for %data.edition.{0}% not complete yet."
       },
       "level": "Level",
@@ -886,6 +886,7 @@
         "transfer": "{0} become %data.monster.{1}% {4}",
         "remove": "Remove {0}"
       },
+      "finishWithConclusion": "Finish scenario with #{0} {1}",
       "hide": "Don't show again",
       "lost": "Scenario lost!",
       "openRoom": "Open door",

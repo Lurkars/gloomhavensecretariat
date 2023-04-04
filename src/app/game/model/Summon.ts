@@ -1,4 +1,4 @@
-import { Action } from "./Action";
+import { Action } from "./data/Action";
 import { EntityCondition, GameEntityConditionModel } from "./Condition";
 import { SummonData } from "./data/SummonData";
 import { Entity, EntityValueFunction } from "./Entity";

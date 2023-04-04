@@ -161,7 +161,7 @@
               <div class="perk" *ngFor="let perk of character.perks; let i = index;">
                 <div class="checkboxes" [ngClass]="{'combined' : perk.combined}">
                   <span class="checkbox" *ngFor="let count of []|ghsRange:perk.count"
-                    [ngClass]="{'checked' : character.progress.perks[i] && character.progress.perks[i] > count, 'disabled' : gameManager.game.state == GameState.next || character.progress.perks[i] <= count && availablePerks < count - character.progress.perks[i] + 1}"
+                    [ngClass]="{'checked' : character.progress.perks[i] && character.progress.perks[i] > count, 'disabled' : gameManager.game.state != GameState.draw || gameManager.game.round > 0 || character.progress.perks[i] <= count && availablePerks < count - character.progress.perks[i] + 1}"
                     ghs-drag-click (singleClick)="addPerk(i, count+1)" (doubleClick)="addPerk(i, count+1, true)"></span>
                 </div>
                 <ghs-perk-label [perk]="perk"></ghs-perk-label>

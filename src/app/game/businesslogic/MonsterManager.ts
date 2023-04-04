@@ -1,20 +1,20 @@
 import { Game, GameState } from "../model/Game";
 import { Monster } from '../model/Monster';
 import { gameManager } from "./GameManager";
-import { MonsterType } from "../model/MonsterType";
-import { MonsterStat } from "../model/MonsterStat";
+import { MonsterType } from "../model/data/MonsterType";
+import { MonsterStat } from "../model/data/MonsterStat";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { MonsterData } from "../model/data/MonsterData";
-import { Ability } from "../model/Ability";
+import { Ability } from "../model/data/Ability";
 import { SummonState } from "../model/Summon";
 import { settingsManager } from "./SettingsManager";
-import { FigureError, FigureErrorType } from "../model/FigureError";
+import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
 import { ConditionType, EntityConditionState } from "../model/Condition";
 import { EntityValueFunction } from "../model/Entity";
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
-import { Action, ActionType } from "../model/Action";
+import { Action, ActionType } from "src/app/game/model/data/Action";
 import { MonsterSpawnData } from "../model/data/ScenarioRule";
-import { AdditionalIdentifier } from "../model/Identifier";
+import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
 
 export class MonsterManager {
 

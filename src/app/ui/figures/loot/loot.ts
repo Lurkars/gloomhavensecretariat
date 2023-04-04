@@ -3,7 +3,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/cor
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
-import { Loot, LootType } from "src/app/game/model/Loot";
+import { Loot, LootType } from "src/app/game/model/data/Loot";
 import { LootApplyDialogComponent } from "./loot-apply-dialog";
 
 @Component({

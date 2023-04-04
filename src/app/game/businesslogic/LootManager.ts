@@ -1,10 +1,11 @@
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { Character } from "../model/Character";
 import { Condition, ConditionName } from "../model/Condition";
+import { ItemData } from "../model/data/ItemData";
 import { TreasureData, TreasureReward, TreasureRewardType } from "../model/data/RoomData";
 import { Game } from "../model/Game";
-import { Identifier } from "../model/Identifier";
-import { appliableLootTypes, fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from "../model/Loot";
+import { Identifier } from "../model/data/Identifier";
+import { appliableLootTypes, fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from "../model/data/Loot";
 import { GameScenarioModel } from "../model/Scenario";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
@@ -154,8 +155,11 @@ export class LootManager {
             if (item) {
               const identifier = new Identifier('' + item.id, item.edition);
               if (reward.type == TreasureRewardType.item) {
-                character.progress.items.push(identifier);
-                // TODO: sell duplicate item!
+                if (character.progress.items.find((existing) => existing.name == identifier.name && existing.edition == identifier.edition)) {
+                  character.progress.gold += this.itemSellValue(item);
+                } else {
+                  character.progress.items.push(identifier);
+                }
               } else {
                 gameManager.game.party.unlockedItems.push(identifier);
               }
@@ -170,8 +174,11 @@ export class LootManager {
           if (item) {
             const identifier = new Identifier('' + item.id, item.edition);
             if (reward.type == TreasureRewardType.itemFh) {
-              character.progress.items.push(identifier);
-              // TODO: sell duplicate item!
+              if (character.progress.items.find((existing) => existing.name == identifier.name && existing.edition == identifier.edition)) {
+                character.progress.gold += this.itemSellValue(item);
+              } else {
+                character.progress.items.push(identifier);
+              }
             } else {
               gameManager.game.party.unlockedItems.push(identifier);
             }
@@ -261,6 +268,27 @@ export class LootManager {
     value += loot.enhancements;
 
     return value;
+  }
+
+  itemSellValue(itemData: ItemData): number {
+    if (itemData.cost) {
+      return Math.ceil(itemData.cost / 2);
+    } else {
+      let costs = 0;
+      if (itemData.resources) {
+        Object.keys(itemData.resources).forEach(key => {
+          const lootType = key as LootType;
+          costs += (itemData.resources[lootType] || 0) * 2;
+        });
+
+        if (itemData.requiredItems) {
+          itemData.requiredItems.forEach(() => {
+            costs += 2;
+          })
+        }
+      }
+      return costs;
+    }
   }
 
   draw(): void {

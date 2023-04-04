@@ -2,7 +2,7 @@ import { Dialog } from '@angular/cdk/dialog';
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/AttackModifier';
+import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
 import { AttackModifierDeckDialogComponent } from './attackmodifierdeck-dialog';

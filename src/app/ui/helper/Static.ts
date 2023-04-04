@@ -1,6 +1,6 @@
 import { ConnectionPositionPair } from "@angular/cdk/overlay";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Spoilable } from "src/app/game/model/Spoilable";
+import { Spoilable } from "src/app/game/model/data/Spoilable";
 
 export function ghsUnit(): number {
   return +window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace(/[^\d\+]/g, '') / +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor');

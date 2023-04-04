@@ -1,4 +1,4 @@
-import { MonsterType } from "../MonsterType";
+import { MonsterType } from "./MonsterType";
 
 export class RoomData {
     roomNumber: number = 0;

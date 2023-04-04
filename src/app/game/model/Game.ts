@@ -1,11 +1,11 @@
 import { gameManager } from "../businesslogic/GameManager";
-import { AttackModifierDeck, defaultAttackModifierCards, GameAttackModifierDeckModel } from "./AttackModifier";
+import { AttackModifierDeck, defaultAttackModifierCards, GameAttackModifierDeckModel } from "./data/AttackModifier";
 import { Character, GameCharacterModel } from "./Character";
 import { ScenarioRule, ScenarioRuleIdentifier } from "./data/ScenarioRule";
-import { defaultElementBoard, ElementModel, } from "./Element";
+import { defaultElementBoard, ElementModel, } from "./data/Element";
 import { EntityCounter } from "./Entity";
 import { Figure } from "./Figure";
-import { Loot, lootCardIdMigration, LootDeck, LootType } from "./Loot";
+import { Loot, lootCardIdMigration, LootDeck, LootType } from "./data/Loot";
 import { GameMonsterModel, Monster } from "./Monster";
 import { GameObjectiveModel, Objective } from "./Objective";
 import { Party } from "./Party";

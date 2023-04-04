@@ -1,8 +1,8 @@
 {
-  "conclusion": true,
   "index": "36",
   "edition": "fc",
   "parent": "100",
+  "conclusion": true,
   "rewards": {
     "globalAchievements": [
       "Knowledge is Power"

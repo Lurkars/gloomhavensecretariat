@@ -1,8 +1,8 @@
 import { Component, Input, ViewEncapsulation } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType, AttackModifierValueType } from "src/app/game/model/AttackModifier";
-import { Perk, PerkType } from "src/app/game/model/Perks";
+import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType, AttackModifierValueType } from "src/app/game/model/data/AttackModifier";
+import { Perk, PerkType } from "src/app/game/model/data/Perks";
 
 @Component({
     selector: 'ghs-perk-label',

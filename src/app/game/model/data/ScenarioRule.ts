@@ -1,5 +1,5 @@
-import { ElementModel } from "../Element";
-import { AdditionalIdentifier } from "../Identifier";
+import { ElementModel } from "./Element";
+import { AdditionalIdentifier } from "./Identifier";
 import { MonsterStandeeData } from "./RoomData";
 
 export class ScenarioRule {

@@ -1,7 +1,7 @@
-import { Editional } from "../Editional";
-import { FigureError } from "../FigureError";
-import { MonsterStat } from "../MonsterStat";
-import { Spoilable } from "../Spoilable";
+import { Editional } from "./Editional";
+import { FigureError } from "./FigureError";
+import { MonsterStat } from "./MonsterStat";
+import { Spoilable } from "./Spoilable";
 
 export class MonsterData implements Editional, Spoilable {
 

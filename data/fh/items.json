@@ -822,7 +822,7 @@
     "name": "Scavenger's Magnet",
     "count": 2,
     "edition": "fh",
-    "slot": "head",
+    "slot": "onehand",
     "spent": true,
     "resources": {
       "lumber": 1,

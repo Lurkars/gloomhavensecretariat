@@ -2,13 +2,13 @@ import { Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { AttackModifierDeck } from "src/app/game/model/AttackModifier";
+import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
 import { CampaignData, FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS, TownGuardPerk } from "src/app/game/model/data/EditionData";
 import { ItemData } from "src/app/game/model/data/ItemData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
-import { Identifier } from "src/app/game/model/Identifier";
-import { LootType } from "src/app/game/model/Loot";
+import { Identifier } from "src/app/game/model/data/Identifier";
+import { LootType } from "src/app/game/model/data/Loot";
 
 import { Party } from "src/app/game/model/Party";
 import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";

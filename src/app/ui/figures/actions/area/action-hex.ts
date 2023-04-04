@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, Output } from "@angular/core";
-import { Action, ActionHex } from "src/app/game/model/Action";
+import { Action } from "src/app/game/model/data/Action";
 import { ConditionName } from "src/app/game/model/Condition";
+import { ActionHex } from "src/app/game/model/ActionHex";
 
 @Component({
   selector: 'ghs-action-hex',

@@ -6,8 +6,8 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
 import { CharacterProgress } from "src/app/game/model/CharacterProgress";
 import { GameState } from "src/app/game/model/Game";
-import { LootType } from "src/app/game/model/Loot";
-import { PerkType } from "src/app/game/model/Perks";
+import { LootType } from "src/app/game/model/data/Loot";
+import { PerkType } from "src/app/game/model/data/Perks";
 import { ghsInputFullScreenCheck, ghsValueSign } from "src/app/ui/helper/Static";
 import { CharacterMoveResourcesDialog } from "./move-resources";
 
@@ -271,7 +271,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
   }
 
   addPerk(index: number, value: number, force: boolean = false) {
-    const disabled: boolean = gameManager.game.state == GameState.next || this.character.progress.perks[index] < value && this.availablePerks < value - this.character.progress.perks[index];
+    const disabled: boolean = gameManager.game.state != GameState.draw || gameManager.game.round > 0 || this.character.progress.perks[index] < value && this.availablePerks < value - this.character.progress.perks[index];
 
     if (!disabled || force) {
       gameManager.stateManager.before("setPerk", "data.character." + this.character.name, "" + index, "" + value);

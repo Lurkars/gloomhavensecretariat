@@ -1,11 +1,11 @@
 {
-  "conclusion": true,
   "index": "135",
   "edition": "fc",
   "parent": "111",
   "parentSections": [
     "128"
   ],
+  "conclusion": true,
   "rewards": {
     "globalAchievements": [
       "A Peril Averted"
