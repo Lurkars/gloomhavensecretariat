@@ -14,6 +14,7 @@ export class ScenarioRule {
   sections: string[] = [];
   figures: ScenarioFigureRule[] = [];
   spawns: MonsterSpawnData[] = [];
+  objectiveSpawns: ObjectiveSpawnData[] = [];
   elements: ElementModel[] = [];
   disableRules: ScenarioRuleIdentifier[] = [];
   finish: "won" | "lost" | undefined = undefined;
@@ -35,6 +36,32 @@ export class MonsterSpawnData {
 
   constructor(monster: MonsterStandeeData) {
     this.monster = monster;
+  }
+
+}
+
+export class ObjectiveSpawnData {
+
+  objective: {
+    index: number,
+    name: string | undefined,
+    escort: boolean,
+    marker: string | undefined,
+    tags: string[] | undefined
+  };
+  count: string | number = "";
+  marker: string = "";
+  summon: boolean = false;
+  manual: boolean = false;
+
+  constructor(objective: {
+    index: number,
+    name: string | undefined,
+    escort: boolean,
+    marker: string | undefined,
+    tags: string[] | undefined
+  }) {
+    this.objective = objective;
   }
 
 }

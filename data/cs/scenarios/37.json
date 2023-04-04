@@ -75,6 +75,10 @@
           "player2": "normal",
           "player3": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        2
       ]
     }
   ]

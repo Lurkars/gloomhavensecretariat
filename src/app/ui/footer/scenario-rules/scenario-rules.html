@@ -8,8 +8,17 @@
       <div class="spawns" *ngIf="spawns(ruleModel.rule).length > 0">
         <ng-container *ngFor="let spawn of spawns(ruleModel.rule); let i = index">
           <span class="and" *ngIf="i > 0" [i18n]="'and'"></span>
-          <span class="text-white text" [i18n]="spawn.marker ? 'scenario.rules.spawnMarker' : 'scenario.rules.spawn'"
+          <span class="text-white text" [i18n]="'scenario.rules.spawn' + (spawn.marker ? 'Marker' : '')"
             [i18n-args]="[spawn.monster.name, spawnType(spawn.monster) || '', spawn.count ? spawnCount(ruleModel.rule, spawn) + ' ' : '', spawn.marker]"></span>
+          <input type="number" *ngIf="spawn.manual" [(ngModel)]="spawn.count" min="0" [value]="spawn.count || 1">
+        </ng-container>
+      </div>
+      <div class="objective-spawns" *ngIf="ruleModel.rule.objectiveSpawns && ruleModel.rule.objectiveSpawns.length > 0">
+        <ng-container *ngFor="let spawn of ruleModel.rule.objectiveSpawns; let i = index">
+          <span class="and" *ngIf="i > 0" [i18n]="'and'"></span>
+          <span class="text-white text"
+            [i18n]="'scenario.rules.spawnObjective' + ( EntityValueFunction(spawn.count || 1) > 1 ? 's' : '') + (spawn.objective.escort ? 'Escort' : '') + (spawn.marker ? 'Marker' : '')"
+            [i18n-args]="[spawn.objective.name || '', spawn.count ? EntityValueFunction(spawn.count || 1) + ' ' : '', spawn.marker]"></span>
           <input type="number" *ngIf="spawn.manual" [(ngModel)]="spawn.count" min="0" [value]="spawn.count || 1">
         </ng-container>
       </div>

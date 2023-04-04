@@ -22,6 +22,14 @@
           "name": "rogue-hollowpact",
           "type": "boss"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
       ]
     }
   ]

@@ -133,6 +133,10 @@
           "name": "wind-demon",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1
       ]
     }
   ]

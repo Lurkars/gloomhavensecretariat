@@ -607,6 +607,13 @@ export class ScenarioManager {
           }
         });
       }
+      if (rule.objectiveSpawns) {
+        rule.objectiveSpawns.forEach((spawn) => {
+          if (spawn.manual && !spawn.count && spawn.count != 0) {
+            spawn.count = 1;
+          }
+        });
+      }
       this.game.scenarioRules.push({ "identifier": identifier, "rule": rule });
     }
 

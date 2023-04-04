@@ -18,7 +18,24 @@
       "escort": true,
       "health": "6+(3xL)",
       "initiative": 50,
-      "marker": "a"
+      "marker": "a",
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "rooms": [
@@ -52,6 +69,9 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

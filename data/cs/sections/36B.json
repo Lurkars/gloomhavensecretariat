@@ -10,9 +10,23 @@
   "objectives": [
     {
       "name": "Holy Monk",
+      "escort": true,
       "health": "C+L+2",
       "marker": "b",
-      "count": 3
+      "count": 3,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allyAdjacent",
+              "small": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "rooms": [
@@ -36,6 +50,11 @@
           "name": "inox-shaman",
           "type": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1
       ]
     }
   ]

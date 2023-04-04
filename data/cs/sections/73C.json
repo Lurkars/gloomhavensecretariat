@@ -11,7 +11,29 @@
       "name": "Vile Spirit",
       "health": 4,
       "marker": "b",
-      "count": 2
+      "count": 2,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "rooms": [
@@ -23,6 +45,10 @@
           "name": "vermling-shaman",
           "type": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1
       ]
     }
   ]

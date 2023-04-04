@@ -10,8 +10,26 @@
   "objectives": [
     {
       "name": "Ordained Monk",
+      "escort": true,
       "health": "C+L+2",
-      "marker": "d"
+      "marker": "d",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "rooms": [
@@ -37,6 +55,9 @@
           "name": "inox-archer",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

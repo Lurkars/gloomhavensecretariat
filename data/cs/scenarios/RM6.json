@@ -75,6 +75,9 @@
           "name": "vermling-shaman-ally",
           "type": "normal"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

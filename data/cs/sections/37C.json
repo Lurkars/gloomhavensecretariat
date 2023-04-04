@@ -10,9 +10,17 @@
   "objectives": [
     {
       "name": "Revered Monk",
+      "escort": true,
       "health": "C+L+2",
       "marker": "c",
-      "count": 2
+      "count": 2,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "when attacked in %game.action.range% 3, enemy gains %game.condition.curse%",
+          "small": true
+        }
+      ]
     }
   ],
   "rooms": [
@@ -34,6 +42,10 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1
       ]
     }
   ]

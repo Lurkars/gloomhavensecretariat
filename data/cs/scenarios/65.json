@@ -12,7 +12,17 @@
       "escort": true,
       "initiative": 25,
       "marker": "a",
-      "count": 2
+      "count": 2,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": 1
+        }
+      ]
     }
   ],
   "rooms": [
@@ -25,6 +35,10 @@
           "name": "vermling-shaman",
           "type": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1
       ]
     }
   ]

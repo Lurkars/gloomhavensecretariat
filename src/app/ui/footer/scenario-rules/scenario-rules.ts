@@ -171,7 +171,7 @@ export class ScenarioRulesComponent {
     visible(index: number): boolean {
         if (gameManager.game.scenarioRules[index]) {
             const rule = gameManager.game.scenarioRules[index].rule;
-            if (this.spawns(rule).length > 0 || rule.elements && rule.elements.length > 0 || this.sections(index).length > 0 || this.rooms(index).length > 0 || this.figureRules(rule).length > 0 || rule.note || rule.finish) {
+            if (this.spawns(rule).length > 0 || rule.objectiveSpawns && rule.objectiveSpawns.length > 0 || rule.elements && rule.elements.length > 0 || this.sections(index).length > 0 || this.rooms(index).length > 0 || this.figureRules(rule).length > 0 || rule.note || rule.finish) {
                 return true;
             }
         }
@@ -179,7 +179,7 @@ export class ScenarioRulesComponent {
     }
 
     apply(rule: ScenarioRule) {
-        return rule.spawns && gameManager.game.scenario || rule.elements && rule.elements.length > 0 || rule.finish || settingsManager.settings.scenarioRooms && rule.rooms && rule.rooms.length > 0 || rule.sections && rule.sections.length > 0 || rule.figures && rule.figures.length > 0 && rule.figures.some((figureRule) => figureRule.type != "present" && figureRule.type != "dead" && figureRule.type != "killed");
+        return this.spawns(rule).length > 0 || rule.objectiveSpawns && rule.objectiveSpawns.length > 0 || rule.elements && rule.elements.length > 0 || rule.finish || settingsManager.settings.scenarioRooms && rule.rooms && rule.rooms.length > 0 || rule.sections && rule.sections.length > 0 || rule.figures && rule.figures.length > 0 && rule.figures.some((figureRule) => figureRule.type != "present" && figureRule.type != "dead" && figureRule.type != "killed");
     }
 
     applyRule(element: HTMLElement, index: number) {
@@ -208,7 +208,7 @@ export class ScenarioRulesComponent {
                     rule.spawns.forEach((spawn) => {
                         const type = this.spawnType(spawn.monster);
 
-                        if (type && gameManager.game.scenario) {
+                        if (type && scenario) {
                             const monster = gameManager.monsterManager.addMonsterByName(spawn.monster.name, scenario.edition);
                             if (monster) {
                                 for (let i = 0; i < this.spawnCount(rule, spawn); i++) {
@@ -230,6 +230,7 @@ export class ScenarioRulesComponent {
                         }
                     })
 
+
                     if (gameManager.game.state == GameState.next) {
                         gameManager.game.figures.forEach((figure) => {
                             if (figure instanceof Monster && checkActive.indexOf(figure.name) && figure.edition == scenario.edition) {
@@ -237,6 +238,26 @@ export class ScenarioRulesComponent {
                             }
                         })
                     }
+                }
+
+                if (rule.objectiveSpawns) {
+                    rule.objectiveSpawns.forEach((spawn) => {
+                        const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenario.edition, "scenario": scenario.index, "group": scenario.group, "section": section, "index": spawn.objective.index - 1 };
+                        const objectiveData = gameManager.objectiveDataByScenarioObjectiveIdentifier(objectiveIdentifier);
+                        if (objectiveData && spawn.count != 0) {
+                            for (let i = 0; i < EntityValueFunction(spawn.count || 1); i++) {
+                                let objective = gameManager.characterManager.addObjective(objectiveData, objectiveData.name, objectiveIdentifier);
+                                if (objective) {
+                                    if (spawn.objective.marker) {
+                                        objective.marker = spawn.objective.marker;
+                                    }
+                                    if (spawn.objective.tags) {
+                                        objective.tags = spawn.objective.tags;
+                                    }
+                                }
+                            }
+                        }
+                    })
                 }
 
                 if (rule.elements) {

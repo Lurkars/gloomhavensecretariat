@@ -21,5 +21,5 @@ export const sortScenarioRule = function (scenarioRule) {
         })
     };
 
-    return sortObjectKeys(scenarioRule, 'round', 'start', 'always', 'once', 'requiredRooms', 'requiredRules', 'note', 'rooms', 'sections', 'figures', 'spawns', 'elements', 'disableRules', 'finish');
+    return sortObjectKeys(scenarioRule, 'round', 'start', 'always', 'once', 'requiredRooms', 'requiredRules', 'note', 'rooms', 'sections', 'figures', 'spawns', 'objectiveSpawns', 'elements', 'disableRules', 'finish');
 }

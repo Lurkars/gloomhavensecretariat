@@ -12,7 +12,20 @@
       "escort": true,
       "health": "C+L+2",
       "marker": "a",
-      "count": 4
+      "count": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "bless",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "alliesAdjacentAffect",
+              "small": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "rooms": [
@@ -55,6 +68,12 @@
           "name": "inox-guard",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1
       ]
     }
   ]

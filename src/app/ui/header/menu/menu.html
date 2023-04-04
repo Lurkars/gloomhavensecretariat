@@ -135,8 +135,7 @@
     </div>
     <div class="line" *ngFor="let character of characters()">
       <a (click)="removeCharacter(character);">
-        <img class="icon" [src]="character.iconUrl" /><span
-          *ngIf="character.title">{{character.title}} (</span>
+        <img class="icon" [src]="character.iconUrl" /><span *ngIf="character.title">{{character.title}} (</span>
         {{'data.character.' + character.name | ghsLabel}}
         <span *ngIf="character.title">)</span><span class="edition"
           *ngIf="gameManager.getEdition(character)">&nbsp;[{{'data.edition.' + gameManager.getEdition(character) |
@@ -220,8 +219,10 @@
     </div>
     <div class="line" *ngFor="let monster of monsters()">
       <a (click)="removeMonster(monster);">
-        {{'data.monster.' + monster.name | ghsLabel}}<span class="edition"
-          *ngIf="gameManager.getEdition(monster)">&nbsp;[{{'data.edition.' + gameManager.getEdition(monster) |
+        {{'data.monster.' + monster.name | ghsLabel}} <span class="count"
+          *ngIf="gameManager.entityManager.entities(monster).length > 0">&nbsp;({{gameManager.entityManager.entities(monster).length}})</span><span
+          class="edition" *ngIf="gameManager.getEdition(monster)">&nbsp;[{{'data.edition.' +
+          gameManager.getEdition(monster) |
           ghsLabel}}]</span>
       </a>
     </div>

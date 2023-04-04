@@ -284,6 +284,7 @@ main {
   height: 100%;
   max-height: 100%;
   width: 100%;
+  max-width: 100%;
   overflow: auto;
   transform: translate3d(0, 0, 0);
   transform-style: preserve-3d;
@@ -305,7 +306,7 @@ main {
   overflow: unset;
 
   &.column {
-    width: 50%;
+    width: calc(50% - calc(var(--ghs-unit) * 2));
   }
 
   .cdk-drag {

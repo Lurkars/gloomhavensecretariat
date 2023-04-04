@@ -91,6 +91,11 @@
           "name": "the-cultist",
           "type": "boss"
         }
+      ],
+      "objectives": [
+        1,
+        2,
+        3
       ]
     }
   ]

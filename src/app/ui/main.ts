@@ -23,10 +23,9 @@ export class MainComponent implements OnInit {
   columnSize: number = 3;
   columns: number = 2;
 
-  resizeObserver: ResizeObserver;
   SubMenu = SubMenu;
 
-  initialized : boolean = false;
+  initialized: boolean = false;
   loading: boolean = true;
   cancelLoading: boolean = false;
   welcome: boolean = false;
@@ -57,12 +56,6 @@ export class MainComponent implements OnInit {
             this.calcColumns();
           }
         }
-      }
-    })
-
-    this.resizeObserver = new ResizeObserver((elements) => {
-      if (!this.fullviewChar) {
-        this.calcColumns();
       }
     })
 
@@ -231,9 +224,6 @@ export class MainComponent implements OnInit {
           const figureElements: any[] = Array.from(containerElement.getElementsByClassName('figure'));
           const figures = gameManager.game.figures;
 
-          for (let i = 0; i < figureElements.length; i++) {
-            this.resizeObserver.observe(figureElements[i]);
-          }
           let figureWidth = containerElement.clientWidth;
           if (figureElements.length > 0) {
             figureWidth = figureElements[0].firstChild.clientWidth;
@@ -265,21 +255,41 @@ export class MainComponent implements OnInit {
 
               let activeLeftHeight = this.activeFigureSize(0, columnSize, figureElements);
               let activeRightHeight = this.activeFigureSize(columnSize, figures.length, figureElements);
+              let activeLeftHeightMinus = this.activeFigureSize(0, columnSize - 1, figureElements);
+              let activeRightHeightMinus = this.activeFigureSize(columnSize - 1, figures.length, figureElements);
+              let activeLeftHeightPlus = this.activeFigureSize(0, columnSize + 1, figureElements);
+              let activeRightHeightPlus = this.activeFigureSize(columnSize + 1, figures.length, figureElements);
 
-              while (activeRightHeight > containerElement.clientHeight && activeLeftHeight > activeRightHeight) {
-                columnSize++;
-                activeLeftHeight = this.activeFigureSize(0, columnSize, figureElements);
-                activeRightHeight = this.activeFigureSize(columnSize, figures.length, figureElements);
-              }
+              let diff = activeLeftHeight > activeRightHeight ? activeLeftHeight - activeRightHeight : activeRightHeight - activeLeftHeight;
+              let diffMinus = activeLeftHeightMinus > activeRightHeightMinus ? activeLeftHeightMinus - activeRightHeightMinus : activeRightHeightMinus - activeLeftHeightMinus;
+              let diffPlus = activeLeftHeightPlus > activeRightHeightPlus ? activeLeftHeightPlus - activeRightHeightPlus : activeRightHeightPlus - activeLeftHeightPlus;
 
-              while (activeLeftHeight > containerElement.clientHeight && activeLeftHeight > activeRightHeight) {
+              while (diff >= diffMinus) {
                 columnSize--;
                 activeLeftHeight = this.activeFigureSize(0, columnSize, figureElements);
                 activeRightHeight = this.activeFigureSize(columnSize, figures.length, figureElements);
+                activeLeftHeightMinus = this.activeFigureSize(0, columnSize - 1, figureElements);
+                activeRightHeightMinus = this.activeFigureSize(columnSize - 1, figures.length, figureElements);
+                activeLeftHeightPlus = this.activeFigureSize(0, columnSize + 1, figureElements);
+                activeRightHeightPlus = this.activeFigureSize(columnSize + 1, figures.length, figureElements);
+
+                diff = activeLeftHeight > activeRightHeight ? activeLeftHeight - activeRightHeight : activeRightHeight - activeLeftHeight;
+                diffMinus = activeLeftHeightMinus > activeRightHeightMinus ? activeLeftHeightMinus - activeRightHeightMinus : activeRightHeightMinus - activeLeftHeightMinus;
+                diffPlus = activeLeftHeightPlus > activeRightHeightPlus ? activeLeftHeightPlus - activeRightHeightPlus : activeRightHeightPlus - activeLeftHeightPlus;
               }
 
-              if (activeLeftHeight < activeRightHeight && activeLeftHeight + figureElements[columnSize].clientHeight > containerElement.clientHeight && activeRightHeight - figureElements[columnSize].clientHeight > containerElement.clientHeight) {
+              while (diff >= diffPlus) {
                 columnSize++;
+                activeLeftHeight = this.activeFigureSize(0, columnSize, figureElements);
+                activeRightHeight = this.activeFigureSize(columnSize, figures.length, figureElements);
+                activeLeftHeightMinus = this.activeFigureSize(0, columnSize - 1, figureElements);
+                activeRightHeightMinus = this.activeFigureSize(columnSize - 1, figures.length, figureElements);
+                activeLeftHeightPlus = this.activeFigureSize(0, columnSize + 1, figureElements);
+                activeRightHeightPlus = this.activeFigureSize(columnSize + 1, figures.length, figureElements);
+
+                diff = activeLeftHeight > activeRightHeight ? activeLeftHeight - activeRightHeight : activeRightHeight - activeLeftHeight;
+                diffMinus = activeLeftHeightMinus > activeRightHeightMinus ? activeLeftHeightMinus - activeRightHeightMinus : activeRightHeightMinus - activeLeftHeightMinus;
+                diffPlus = activeLeftHeightPlus > activeRightHeightPlus ? activeLeftHeightPlus - activeRightHeightPlus : activeRightHeightPlus - activeLeftHeightPlus;
               }
 
               this.columnSize = columnSize;
@@ -294,12 +304,12 @@ export class MainComponent implements OnInit {
 
           this.translate(scrollTo);
         }
-      }, 0);
+      }, 1);
     }
   }
 
   figureSize(start: number, end: number, figureElements: any[]) {
-    return figureElements.slice(start, end).map((element) => element.clientHeight).reduce((a: any, b: any) => a + b, 0);
+    return figureElements.slice(start, end).map((element) => element.firstChild.clientHeight).reduce((a: any, b: any) => a + b, 0);
   }
 
   activeFigureSize(start: number, end: number, figureElements: any[]) {
@@ -312,23 +322,21 @@ export class MainComponent implements OnInit {
       }
     })
 
-    return figureElements.slice(start, end).filter((element: any, index: number) => index <= lastActive).map((element) => element.clientHeight).reduce((a: any, b: any) => a + b, 0);
+    return figureElements.slice(start, end).filter((element: any, index: number) => index <= lastActive).map((element) => element.firstChild.clientHeight).reduce((a: any, b: any) => a + b, 0);
   }
 
   translate(scrollTo: HTMLElement | undefined = undefined) {
     setTimeout(() => {
       const container = this.element.nativeElement.getElementsByClassName('figures')[0];
       const figures = container.getElementsByClassName('figure');
-      for (let index = 0; index < gameManager.game.figures.length; index++) {
+      for (let index = 0; index < figures.length; index++) {
         let start = 0;
         let left = "-50%";
         if (this.columns > 1) {
-          const lastFigure = figures[0];
-          const leftOffset = Math.floor(((container.clientWidth / 2) - lastFigure.clientWidth) / 4);
           if (index < this.columnSize) {
-            left = "calc(-100% - " + leftOffset + "px)";
+            left = "calc(-100% - var(--ghs-unit) * 0.5)";
           } else {
-            left = "calc(" + leftOffset + "px)";
+            left = "calc(var(--ghs-unit) * 0.5)";
             start = this.columnSize;
           }
         }
@@ -337,7 +345,6 @@ export class MainComponent implements OnInit {
         for (let i = start; i < index; i++) {
           height += figures[i].clientHeight;
         }
-
         figures[index].style.transform = "scale(1) translate(" + left + "," + height + "px)";
 
         if (scrollTo) {

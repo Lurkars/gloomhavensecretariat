@@ -558,7 +558,7 @@ export class GameManager {
           if (figures.length + entityCounter.killed < entityCounter.total) {
             entityCounter.killed = entityCounter.total - figures.length
           } else if (figures.length + entityCounter.killed > entityCounter.total) {
-            console.warn("More killed then figures counted", entityCounter.identifier, figures.length, entityCounter.killed, entityCounter.total);
+            console.warn("More killed then figures counted", entityCounter.identifier, "total: " + entityCounter.total, "killed: " + entityCounter.killed, "current: " + figures.length);
             entityCounter.total = figures.length + entityCounter.killed;
           }
         } else if (figures.every((figure) => figure instanceof Monster)) {
@@ -566,7 +566,7 @@ export class GameManager {
           if (count + entityCounter.killed < entityCounter.total) {
             entityCounter.killed = entityCounter.total - count
           } else if (count + entityCounter.killed > entityCounter.total) {
-            console.warn("More killed then figures counted", entityCounter.identifier, count, entityCounter.killed, entityCounter.total);
+            console.warn("More killed then figures counted", entityCounter.identifier, "total: " + entityCounter.total, "killed: " + entityCounter.killed, "current: " + count);
             entityCounter.total = count + entityCounter.killed;
           }
         }
