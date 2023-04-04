@@ -6,7 +6,25 @@
   "unlocks": [
     "60"
   ],
-  "monsters": [],
+  "monsters": [
+    "lightning-eel",
+    "lurker-clawcrusher",
+    "lurker-mindsnipper",
+    "lurker-soldier",
+    "lurker-wavethrower"
+  ],
+  "objectives": [
+    {
+      "name": "Ice Pillar",
+      "health": "[(L+1)xC/2{$math.floor}]",
+      "count": 4
+    },
+    {
+      "name": "Large Cave Rock",
+      "health": "[(L+1)xC/2{$math.floor}]",
+      "count": 3
+    }
+  ],
   "lootDeckConfig": {
     "money": 8,
     "lumber": 2,
@@ -16,11 +34,51 @@
     "arrowvine": 2,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "minus1:3",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": "(?!.*coral|kelp).*"
+          },
+          "type": "amAdd",
+          "value": "curse:2"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
       "initial": true,
-      "monster": []
+      "monster": [],
+      "objectives": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ]
     }
   ]
 }

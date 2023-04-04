@@ -3,6 +3,20 @@
   "name": "Among the Wreckage",
   "edition": "fh",
   "parent": "54",
+  "marker": "1",
+  "monsters": [],
+  "objectives": [
+    {
+      "name": "Ice Pillar",
+      "health": "[(L+1)xC/2{$math.floor}]",
+      "count": 6
+    },
+    {
+      "name": "Large Cave Rock",
+      "health": "[(L+1)xC/2{$math.floor}]",
+      "count": 3
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 4,
@@ -10,7 +24,18 @@
       "treasures": [
         5
       ],
-      "monster": []
+      "monster": [],
+      "objectives": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ]
     }
   ]
 }
