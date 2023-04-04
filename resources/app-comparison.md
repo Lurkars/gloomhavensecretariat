@@ -60,13 +60,13 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 | Special Scenario Rules/Notes                                                    | :heavy_check_mark:        | :heavy_check_mark:        | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Apply Special Scenario Rules                                                    | :heavy_check_mark:        | :white_check_mark:[^16.2] | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Automatic Standees                                                              | :heavy_check_mark:        | :heavy_check_mark:        | :heavy_check_mark:        | :heavy_check_mark:       | :no_entry_sign:         |
-| Assign Standee Numbers                                                          | :heavy_check_mark:        | :heavy_check_mark:        | :white_check_mark:[^18]   | :heavy_check_mark:       | :heavy_check_mark:      |
+| Assign Standee Numbers                                                          | :heavy_check_mark:        | :heavy_check_mark:        | :heavy_check_mark:        | :heavy_check_mark:       | :heavy_check_mark:      |
 | Sort Standees                                                                   | :heavy_check_mark:        | :heavy_check_mark:        | :heavy_check_mark:        | :heavy_check_mark:       | :heavy_check_mark:      |
 | Select multiple standees                                                        | :heavy_check_mark:        | :no_entry_sign:           | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
-| Random Standees                                                                 | :heavy_check_mark:        | :heavy_check_mark:        | :white_check_mark:[^18]   | :heavy_check_mark:       | :heavy_check_mark:      |
+| Random Standees                                                                 | :heavy_check_mark:        | :heavy_check_mark:        | :heavy_check_mark:        | :heavy_check_mark:       | :heavy_check_mark:      |
 | Active Standees                                                                 | :heavy_check_mark:        | :no_entry_sign:           | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Hide Standees                                                                   | :heavy_check_mark:        | :heavy_check_mark:        | :no_entry_sign:           | :no_entry_sign:          | :heavy_check_mark:      |
-| Drag Values (Initiative, HP, XP, Gold)                                          | :heavy_check_mark:        | :white_check_mark:[^19]   | :no_entry_sign:           | :no_entry_sign:          | :heavy_check_mark:      |
+| Drag Values (Initiative, HP, XP, Gold)                                          | :heavy_check_mark:        | :white_check_mark:[^18]   | :white_check_mark:[^18]   | :no_entry_sign:          | :heavy_check_mark:      |
 | Play without initiative required                                                | :heavy_check_mark:        | :heavy_check_mark:        | :heavy_check_mark:        | :no_entry_sign:          | :heavy_check_mark:      |
 | Automatic level calculation                                                     | :heavy_check_mark:        | :white_check_mark:[^12]   | :no_entry_sign:           | :heavy_check_mark:       | :white_check_mark:[^12] |
 | Ability Card Names                                                              | :heavy_check_mark:[^17.1] | :heavy_check_mark:        | :heavy_check_mark:[^17.2] | :heavy_check_mark:       | :no_entry_sign:         |
@@ -130,6 +130,4 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 
 [^17.2]: only shown on full screen card view
 
-[^18]: Currently a bit inconsitent and buggy
-
-[^19]: Currently HP only
+[^18]: Currently HP only
