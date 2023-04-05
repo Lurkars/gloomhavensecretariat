@@ -71,7 +71,7 @@ export class EntityManager {
     }
 
     if (entity.health > 0) {
-      if ((entity instanceof Character || entity instanceof Objective) && (entity.off || entity.exhausted)) {
+      if ((entity instanceof Character || entity instanceof Objective) && entity.exhausted) {
         entity.off = false;
         entity.exhausted = false;
       } else if ((entity instanceof MonsterEntity || entity instanceof Summon) && entity.dead) {
