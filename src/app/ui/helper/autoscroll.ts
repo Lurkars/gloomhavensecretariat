@@ -43,7 +43,7 @@ export class FigureAutoscrollDirective {
           if (settingsManager.settings.autoscroll && !this.active && this.figure.active) {
             this.el.nativeElement.scrollIntoView({
               behavior: settingsManager.settings.disableAnimations ? 'auto' : 'smooth',
-              block: 'center',
+              block: 'end',
               inline: 'center'
             });
           }

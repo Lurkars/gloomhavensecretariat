@@ -351,7 +351,7 @@ export class MainComponent implements OnInit {
           setTimeout(() => {
             scrollTo.scrollIntoView({
               behavior: settingsManager.settings.disableAnimations ? 'auto' : 'smooth',
-              block: 'center',
+              block: 'end',
               inline: 'center'
             });
           }, settingsManager.settings.disableAnimations ? 0 : 250);
