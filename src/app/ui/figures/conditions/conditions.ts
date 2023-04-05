@@ -64,7 +64,7 @@ export class ConditionsComponent implements OnInit {
 
   hasCondition(condition: Condition): boolean {
     if (this.entityConditions) {
-      return this.entityConditions.some((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
+      return this.entityConditions.some((entityCondition) => entityCondition.name == condition.name && entityCondition.state != EntityConditionState.removed && !entityCondition.expired);
     } else if (this.entity) {
       return gameManager.entityManager.hasCondition(this.entity, condition);
     } else {

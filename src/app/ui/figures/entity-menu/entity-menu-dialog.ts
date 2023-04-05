@@ -89,7 +89,7 @@ export class EntityMenuDialogComponent {
   changeHealth(value: number) {
     this.health += value;
     if (this.data.entity) {
-      if (this.data.entity.health + this.health > this.data.entity.maxHealth) {
+      if (this.data.entity.health + this.health > EntityValueFunction(this.data.entity.maxHealth)) {
         this.health = EntityValueFunction(this.data.entity.maxHealth) - this.data.entity.health;
       } else if (this.data.entity.health + this.health < 0) {
         this.health = - this.data.entity.health;
@@ -753,7 +753,7 @@ export class EntityMenuDialogComponent {
     if (this.data.entity instanceof Objective) {
       if (this.maxHp) {
         gameManager.stateManager.before("changeObjectiveMaxHp", this.data.entity.title || this.data.entity.name || this.data.entity.escort ? 'escort' : 'objective', ghsValueSign(this.maxHp));
-        if (+this.data.entity.maxHealth + this.maxHp < this.data.entity.maxHealth || this.data.entity.health == this.data.entity.maxHealth) {
+        if (+this.data.entity.maxHealth + this.maxHp < EntityValueFunction(this.data.entity.maxHealth) || this.data.entity.health == EntityValueFunction(this.data.entity.maxHealth)) {
           this.data.entity.health = +this.data.entity.maxHealth + this.maxHp;
         }
         this.data.entity.maxHealth = +this.data.entity.maxHealth + this.maxHp;
@@ -816,8 +816,7 @@ export class EntityMenuDialogComponent {
   closeConditions() {
     if (this.data.entity) {
       this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
-        if (this.data.entity) {
-
+        if (this.data.entity && (entityCondition.state == EntityConditionState.new || gameManager.entityManager.hasCondition(this.data.entity, entityCondition))) {
           if (this.data.entity instanceof Character && entityCondition.name == ConditionName.muddle && entityCondition.state == EntityConditionState.new &&
             this.data.entity.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '108')) {
             entityCondition.name = ConditionName.strengthen;

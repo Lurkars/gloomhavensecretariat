@@ -33,6 +33,8 @@ export class MonsterSpawnData {
   marker: string = "";
   summon: boolean = false;
   manual: boolean = false;
+  manualMin: number = 0;
+  manualMax: number = 0;
 
   constructor(monster: MonsterStandeeData) {
     this.monster = monster;
@@ -53,6 +55,8 @@ export class ObjectiveSpawnData {
   marker: string = "";
   summon: boolean = false;
   manual: boolean = false;
+  manualMin: number = 0;
+  manualMax: number = 0;
 
   constructor(objective: {
     index: number,

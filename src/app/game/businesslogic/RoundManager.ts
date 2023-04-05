@@ -82,7 +82,7 @@ export class RoundManager {
           firstFigure = this.game.figures.find((figure, index) => index == i && gameManager.gameplayFigure(figure));
         }
         if (firstFigure) {
-          this.toggleFigure(firstFigure);
+          this.toggleFigure(firstFigure, true);
         }
       }
 
@@ -91,7 +91,7 @@ export class RoundManager {
     setTimeout(() => this.working = false, 1);
   }
 
-  toggleFigure(figure: Figure) {
+  toggleFigure(figure: Figure, initial: boolean = false) {
     const figures: Figure[] = this.game.figures;
     const index = figures.indexOf(figure);
 
@@ -140,7 +140,7 @@ export class RoundManager {
         }
         if (i < index) {
           this.afterTurn(otherFigure);
-        } else if (!(otherFigure instanceof Monster) || (otherFigure instanceof Monster && otherFigure.entities.length > 0)) {
+        } else if (!initial && (!(otherFigure instanceof Monster) || (otherFigure instanceof Monster && otherFigure.entities.length > 0))) {
           this.beforeTurn(otherFigure);
         }
       }
@@ -342,6 +342,9 @@ export class RoundManager {
           });
         }
       }
+
+      figure.off = true;
+      figure.active = false;
     }
   }
 

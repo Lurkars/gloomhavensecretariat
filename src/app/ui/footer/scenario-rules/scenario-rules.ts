@@ -29,7 +29,7 @@ export class ScenarioRulesComponent {
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
     EntityValueFunction = EntityValueFunction;
-
+    
     constructor(private dialog: Dialog) { }
 
     spawns(rule: ScenarioRule): MonsterSpawnData[] {
@@ -253,6 +253,9 @@ export class ScenarioRulesComponent {
                                     }
                                     if (spawn.objective.tags) {
                                         objective.tags = spawn.objective.tags;
+                                    }
+                                    if (objective.marker || objective.tags.length > 0) {
+                                        gameManager.addEntityCount(objective);
                                     }
                                 }
                             }

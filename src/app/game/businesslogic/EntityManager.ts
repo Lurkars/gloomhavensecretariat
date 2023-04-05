@@ -151,7 +151,7 @@ export class EntityManager {
   }
 
   hasCondition(entity: Entity, condition: Condition): boolean {
-    return entity.entityConditions.some((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
+    return entity.entityConditions.some((entityCondition) => entityCondition.name == condition.name && entityCondition.state != EntityConditionState.removed && !entityCondition.expired);
   }
 
   activeConditions(entity: Entity, expiredIndicator: boolean = false, hidden: boolean = false): EntityCondition[] {
@@ -338,7 +338,11 @@ export class EntityManager {
       const maxHealth = EntityValueFunction(entity.maxHealth);
       const heal = entity.entityConditions.every((entityCondition) => entityCondition.expired || entityCondition.types.indexOf(ConditionType.preventHeal) == -1) && entity.health < maxHealth;
 
-      entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.clearHeal) != -1).forEach((entityCondition) => entityCondition.expired = true);
+      entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.clearHeal) != -1).forEach((entityCondition) => {
+        entityCondition.expired = true;
+        entityCondition.lastState = entityCondition.state;
+        entityCondition.state = EntityConditionState.removed;
+      });
 
       if (heal) {
         let clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.expired);
@@ -391,7 +395,7 @@ export class EntityManager {
       if (entityCondition.state == EntityConditionState.normal) {
         entityCondition.lastState = entityCondition.state;
         entityCondition.state = EntityConditionState.turn;
-      } else if (entityCondition.state == EntityConditionState.new) {
+      } else if (entityCondition.state == EntityConditionState.new && entityCondition.lastState != EntityConditionState.new) {
         entityCondition.lastState = entityCondition.state;
         entityCondition.state = EntityConditionState.normal;
       }
@@ -452,15 +456,18 @@ export class EntityManager {
       } else if (entityCondition.state == EntityConditionState.normal) {
         entityCondition.lastState = entityCondition.state;
         entityCondition.state = EntityConditionState.turn;
-      } else if (entityCondition.state == EntityConditionState.new) {
+      } else if (entityCondition.state == EntityConditionState.new && entityCondition.lastState != EntityConditionState.new) {
         entityCondition.lastState = entityCondition.state;
+        entityCondition.state = EntityConditionState.normal;
+      } else if (entityCondition.state == EntityConditionState.new && entityCondition.lastState == EntityConditionState.new) {
+        entityCondition.lastState = EntityConditionState.new;
         entityCondition.state = EntityConditionState.normal;
       }
     })
   }
 
   unapplyConditionsAfter(entity: Entity) {
-    entity.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.afterTurn) != -1).forEach((entityCondition) => {
+    entity.entityConditions.filter((entityCondition) => entityCondition.state != EntityConditionState.removed && entityCondition.types.indexOf(ConditionType.afterTurn) != -1).forEach((entityCondition) => {
       if (entityCondition.expired) {
         if (entityCondition.name == ConditionName.bane) {
           entity.health = entity.health + 10;
@@ -470,13 +477,10 @@ export class EntityManager {
         entityCondition.highlight = false;
         entityCondition.expired = false;
       } else if (entityCondition.state == EntityConditionState.normal) {
-        entityCondition.state = entityCondition.lastState;
-        entityCondition.lastState = EntityConditionState.normal;
-      } else if (entityCondition.state == EntityConditionState.new) {
-        entityCondition.state = entityCondition.lastState;
-        entityCondition.lastState = EntityConditionState.new;
+        entityCondition.state = EntityConditionState.new;
+      } else if (entityCondition.state == EntityConditionState.new && entityCondition.lastState != EntityConditionState.new) {
+        entityCondition.lastState = entityCondition.state;
       }
-
     })
   }
 
