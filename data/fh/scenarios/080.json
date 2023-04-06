@@ -11,23 +11,61 @@
   "objectives": [
     {
       "name": "Metal Cabinet",
-      "health": "(2+L)xC/2",
-      "marker": 2
+      "health": "[(2+L)xC/2{$math.ceil}]",
+      "marker": "a",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "The Relic adds %game.condition.immobilize% to all attacks targeting the primary focus",
+          "small": true
+        }
+      ]
     },
     {
       "name": "Metal Cabinet",
-      "health": "(2+L)xC/2",
-      "marker": "b"
+      "health": "[(2+L)xC/2{$math.ceil}]",
+      "marker": "b",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "The Relic gains %game.action.shield% 1+(L/2) (rounded up)",
+          "small": true
+        }
+      ]
     },
     {
       "name": "Metal Cabinet",
-      "health": "(2+L)xC/2",
-      "marker": "c"
+      "health": "[(2+L)xC/2{$math.ceil}]",
+      "marker": "c",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "The Relic's Special 1 focuses on the farthest attackable enemy and performs:",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%game.action.move%+2, %game.action.jump%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%game.action.attack%+0, %game.action.target% focus (if adjacent) and all enem,ies in or adjacent to hexes entered during the movement",
+          "small": true
+        }
+      ]
     },
     {
       "name": "Metal Cabinet",
-      "health": "(2+L)xC/2",
-      "marker": "d"
+      "health": "[(2+L)xC/2{$math.ceil}]",
+      "marker": "d",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "The Relic's Special 2 summons two Ruined Machines. These are normal for two characters, one is elite for three characters or both are elite for four characters",
+          "small": true
+        }
+      ]
     }
   ],
   "lootDeckConfig": {
@@ -79,6 +117,12 @@
           "name": "the-relic",
           "type": "boss"
         }
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4
       ]
     }
   ]
