@@ -20,6 +20,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
         }
       ]
     }
