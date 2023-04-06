@@ -3,6 +3,10 @@
   "name": "Relic",
   "edition": "fh",
   "parent": "79",
+  "parentSections": [
+    "76.1"
+  ],
+  "marker": "d",
   "monsters": [
     "polar-bear"
   ],
@@ -20,6 +24,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "polar-bear",
+          "player4": "normal"
         }
       ]
     }
