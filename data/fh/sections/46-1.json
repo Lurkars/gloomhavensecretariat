@@ -3,6 +3,7 @@
   "name": "The True Oak",
   "edition": "fh",
   "parent": "70",
+  "marker": "1",
   "monsters": [
     "city-guard",
     "hound",

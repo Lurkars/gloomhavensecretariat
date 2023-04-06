@@ -3,6 +3,7 @@
   "name": "A Strong Foundation",
   "edition": "fh",
   "parent": "65",
+  "marker": "1",
   "monsters": [
     "frozen-corpse-scenario-65",
     "living-bones-scenario-65",

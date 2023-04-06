@@ -3,6 +3,10 @@
   "name": "Infiltrating the Lair",
   "edition": "fh",
   "parent": "75",
+  "parentSections": [
+    "163.2"
+  ],
+  "marker": "4",
   "monsters": [
     "frost-demon"
   ],

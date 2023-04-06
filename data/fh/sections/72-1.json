@@ -6,6 +6,96 @@
   "monsters": [
     "vestige-of-the-imprisoned-god"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "fh",
+          "scenario": "64",
+          "index": 0,
+          "section": false
+        },
+        {
+          "edition": "fh",
+          "scenario": "64",
+          "index": 1,
+          "section": false
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Relocate all characters, character summons and Guard Captains from any outer tiles to the cloest lettered hexes on tile 15-A",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "burrowing-blade|living-doom|living-spirit|shrike-fiend"
+          },
+          "type": "remove"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Tree|Militia"
+          },
+          "type": "remove"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "burrowing-blade",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "g"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "burrowing-blade",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "g"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "burrowing-blade",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "g"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 2,

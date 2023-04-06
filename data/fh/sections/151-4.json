@@ -3,6 +3,10 @@
   "name": "Gaps in the Road",
   "edition": "fh",
   "parent": "74",
+  "parentSections": [
+    "52.2"
+  ],
+  "marker": "3b",
   "monsters": [
     "piranha-pig"
   ],
@@ -17,17 +21,20 @@
         },
         {
           "name": "piranha-pig",
-          "type": "normal"
-        },
-        {
-          "name": "piranha-pig",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "piranha-pig",
+          "player2": "normal",
+          "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     }

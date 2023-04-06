@@ -55,6 +55,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "player4": "normal"
         }
       ]
     }

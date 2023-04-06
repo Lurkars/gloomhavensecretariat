@@ -3,33 +3,54 @@
   "name": "Flotsam",
   "edition": "fh",
   "parent": "73",
+  "parentSections": [
+    "143.1"
+  ],
+  "marker": "a",
   "monsters": [
     "abael-herder",
     "fish-king",
     "piranha-pig"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "fish-king",
+            "type": "boss"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "abael-herder",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "piranha-pig",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "d"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 3,
       "initial": true,
-      "monster": [
-        {
-          "name": "abael-herder",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "fish-king",
-          "type": "boss"
-        },
-        {
-          "name": "piranha-pig",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        }
-      ]
+      "monster": []
     }
   ]
 }

@@ -3,6 +3,7 @@
   "name": "Gaps in the Road",
   "edition": "fh",
   "parent": "74",
+  "marker": "1",
   "monsters": [
     "algox-archer",
     "algox-guard"
@@ -30,6 +31,9 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

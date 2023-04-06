@@ -3,6 +3,10 @@
   "name": "Gaps in the Road",
   "edition": "fh",
   "parent": "74",
+  "parentSections": [
+    "52.2"
+  ],
+  "marker": "3a",
   "monsters": [
     "algox-priest",
     "wind-demon"

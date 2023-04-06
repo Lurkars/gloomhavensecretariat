@@ -16,6 +16,9 @@
     "lurker-mindsnipper",
     "piranha-pig"
   ],
+  "allies": [
+    "piranha-pig"
+  ],
   "lootDeckConfig": {
     "money": 9,
     "metal": 2,
@@ -24,6 +27,72 @@
     "snowthistle": 2,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "once": true,
+      "note": "Spawn one normal Piranha Pig adjacent to each character"
+    },
+    {
+      "round": "R == 3 || R == 6 || R == 9",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-guard",
+            "player2": "normal",
+            "player3": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "algox-guard",
+            "player4": "normal"
+          },
+          "marker": "a",
+          "count": "2"
+        },
+        {
+          "monster": {
+            "name": "algox-archer",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "lurker-mindsnipper",
+            "player2": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "lurker-mindsnipper",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "b",
+          "count": "2"
+        }
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "sections": [
+        "105.4"
+      ]
+    },
+    {
+      "round": "R == 12",
+      "finish": "won"
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -37,10 +106,6 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
-        },
-        {
-          "name": "algox-archer",
-          "player3": "elite"
         },
         {
           "name": "algox-guard",

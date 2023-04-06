@@ -3,9 +3,37 @@
   "name": "A Giant Block of Ice",
   "edition": "fh",
   "parent": "72",
+  "parentSections": [
+    "141.1"
+  ],
+  "marker": "2",
   "monsters": [
     "frozen-corpse",
     "living-bones"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-bones",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "living-bones",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "d"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -20,15 +48,6 @@
           "name": "frozen-corpse",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "living-bones",
-          "type": "normal"
-        },
-        {
-          "name": "living-bones",
-          "player3": "normal",
-          "player4": "normal"
         }
       ]
     }

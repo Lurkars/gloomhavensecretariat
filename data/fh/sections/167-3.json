@@ -1,0 +1,52 @@
+{
+  "index": "167.3",
+  "name": "Infiltrating the Lair",
+  "edition": "fh",
+  "parent": "75",
+  "parentSections": [
+    "81.2",
+    "163.2"
+  ],
+  "monsters": [
+    "chaos-demon"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "chaos-demon",
+            "player2": "normal",
+            "player4": "elite"
+          },
+          "marker": "c",
+          "count": "2"
+        },
+        {
+          "monster": {
+            "name": "chaos-demon",
+            "player3": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "chaos-demon",
+            "player3": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

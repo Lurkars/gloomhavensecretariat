@@ -3,23 +3,39 @@
   "name": "A Giant Block of Ice",
   "edition": "fh",
   "parent": "72",
+  "marker": "1",
   "monsters": [
     "ice-wraith",
     "living-bones"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "type": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
       "roomNumber": 4,
       "initial": true,
       "monster": [
-        {
-          "name": "ice-wraith",
-          "type": "normal"
-        },
-        {
-          "name": "ice-wraith",
-          "player4": "elite"
-        },
         {
           "name": "living-bones",
           "type": "normal"
