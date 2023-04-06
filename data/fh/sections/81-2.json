@@ -3,6 +3,10 @@
   "name": "Infiltrating the Lair",
   "edition": "fh",
   "parent": "75",
+  "parentSections": [
+    "99.2"
+  ],
+  "marker": "2",
   "monsters": [
     "abael-herder",
     "abael-scout",

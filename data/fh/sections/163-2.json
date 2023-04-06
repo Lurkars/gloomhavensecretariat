@@ -3,6 +3,10 @@
   "name": "Infiltrating the Lair",
   "edition": "fh",
   "parent": "75",
+  "parentSections": [
+    "99.2"
+  ],
+  "marker": "3",
   "monsters": [
     "abael-herder",
     "abael-scout",
@@ -33,12 +37,6 @@
         {
           "name": "piranha-pig",
           "type": "normal"
-        },
-        {
-          "name": "piranha-pig",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
         },
         {
           "name": "piranha-pig",
