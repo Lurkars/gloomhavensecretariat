@@ -4,6 +4,10 @@
   "name": "A Strong Foundation",
   "edition": "fh",
   "parent": "65",
+  "parentSections": [
+    "142.2"
+  ],
+  "marker": "2",
   "monsters": [
     "frozen-corpse-scenario-65",
     "living-bones-scenario-65",
@@ -59,6 +63,9 @@
           "name": "snow-imp-scenario-65",
           "type": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]
