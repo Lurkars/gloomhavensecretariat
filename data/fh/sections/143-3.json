@@ -20,7 +20,7 @@
         {
           "name": "forest-imp",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
@@ -30,6 +30,7 @@
         },
         {
           "name": "forest-imp",
+          "player3": "normal",
           "player4": "elite"
         },
         {
@@ -37,6 +38,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "player4": "normal"
         }
       ]
     }
