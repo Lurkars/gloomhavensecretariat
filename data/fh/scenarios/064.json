@@ -4,8 +4,11 @@
   "name": "The Frosthaven Seal",
   "edition": "fh",
   "monsters": [
+    "burrowing-blade",
     "guard-captain",
-    "living-doom"
+    "living-doom",
+    "living-spirit",
+    "shrike-fiend"
   ],
   "allies": [
     "guard-captain"
@@ -20,9 +23,22 @@
     {
       "name": "Militia",
       "escort": true,
-      "health": "L/2+2",
+      "health": "[(L/2)+2{$math.ceil}]",
       "initiative": 51,
-      "count": "Cx2"
+      "count": "Cx2",
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": "[(L/4)+1{$math.floor}]"
+        }
+      ],
+      "tags": [
+        "militia"
+      ]
     }
   ],
   "lootDeckConfig": {
@@ -34,6 +50,455 @@
     "flamefruit": 2,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Tree"
+          },
+          "type": "dead"
+        }
+      ],
+      "finish": "lost"
+    },
+    {
+      "round": "true",
+      "note": "Place up to 2 new Militia members in any empty %game.mapMarker.a%, %game.mapMarker.b%, %game.mapMarker.c% or %game.mapMarker.d%",
+      "objectiveSpawns": [
+        {
+          "objective": {
+            "index": 2,
+            "name": "Militia"
+          },
+          "count": "2",
+          "manual": true,
+          "manualMin": 0,
+          "manualMax": 2
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "note": "Place up to 1 new Militia member in any empty %game.mapMarker.a%, %game.mapMarker.b%, %game.mapMarker.c% or %game.mapMarker.d%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "escort",
+            "name": "Militia"
+          },
+          "type": "present",
+          "value": "11"
+        }
+      ],
+      "objectiveSpawns": [
+        {
+          "objective": {
+            "index": 2,
+            "name": "Militia"
+          },
+          "manual": true,
+          "manualMin": 0,
+          "manualMax": 1
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": "true",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "escort",
+            "name": "Militia"
+          },
+          "type": "present",
+          "value": "11"
+        }
+      ],
+      "disableRules": [
+        {
+          "edition": "fh",
+          "scenario": "64",
+          "index": 1,
+          "section": false
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": "true",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "escort",
+            "name": "Militia"
+          },
+          "type": "present",
+          "value": "12"
+        }
+      ],
+      "disableRules": [
+        {
+          "edition": "fh",
+          "scenario": "64",
+          "index": 1,
+          "section": false
+        },
+        {
+          "edition": "fh",
+          "scenario": "64",
+          "index": 2,
+          "section": false
+        }
+      ]
+    },
+    {
+      "round": "R == 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-doom",
+            "player4": "normal"
+          },
+          "marker": "2"
+        },
+        {
+          "monster": {
+            "name": "living-doom",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "7"
+        },
+        {
+          "monster": {
+            "name": "living-doom",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "11"
+        },
+        {
+          "monster": {
+            "name": "living-doom",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "13"
+        }
+      ]
+    },
+    {
+      "round": "R == 2",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "2"
+        },
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "7"
+        }
+      ]
+    },
+    {
+      "round": "R == 3",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "burrowing-blade",
+            "player2": "normal",
+            "player4": "elite"
+          },
+          "marker": "13",
+          "count": "2"
+        },
+        {
+          "monster": {
+            "name": "burrowing-blade",
+            "player3": "normal"
+          },
+          "marker": "13"
+        },
+        {
+          "monster": {
+            "name": "burrowing-blade",
+            "player3": "elite"
+          },
+          "marker": "13"
+        }
+      ]
+    },
+    {
+      "round": "R == 4",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player2": "normal"
+          },
+          "marker": "11",
+          "count": "3"
+        },
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player3": "normal"
+          },
+          "marker": "11",
+          "count": "4"
+        },
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player4": "normal"
+          },
+          "marker": "11",
+          "count": "5"
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "type": "normal"
+          },
+          "marker": "2"
+        },
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "type": "normal"
+          },
+          "marker": "7"
+        },
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "player4": "normal"
+          },
+          "marker": "11"
+        },
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "13"
+        }
+      ]
+    },
+    {
+      "round": "R == 6",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-doom",
+            "player2": "normal"
+          },
+          "marker": "2"
+        },
+        {
+          "monster": {
+            "name": "living-doom",
+            "type": "elite"
+          },
+          "marker": "11"
+        },
+        {
+          "monster": {
+            "name": "living-doom",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "13"
+        }
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "burrowing-blade",
+            "type": "normal"
+          },
+          "marker": "2"
+        },
+        {
+          "monster": {
+            "name": "burrowing-blade",
+            "type": "normal"
+          },
+          "marker": "7"
+        },
+        {
+          "monster": {
+            "name": "burrowing-blade",
+            "player4": "normal"
+          },
+          "marker": "11"
+        },
+        {
+          "monster": {
+            "name": "burrowing-blade",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "13"
+        }
+      ]
+    },
+    {
+      "round": "R == 8",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "type": "normal"
+          },
+          "marker": "7"
+        },
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "11"
+        },
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "13"
+        }
+      ]
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "2"
+        },
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "7"
+        },
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "11"
+        },
+        {
+          "monster": {
+            "name": "living-spirit",
+            "type": "elite"
+          },
+          "marker": "13"
+        }
+      ]
+    },
+    {
+      "round": "R == 10",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "type": "elite"
+          },
+          "marker": "2"
+        },
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "7"
+        },
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "11"
+        },
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "13"
+        }
+      ]
+    },
+    {
+      "round": "R == 10",
+      "sections": [
+        "72.1"
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -72,6 +537,17 @@
           "name": "living-doom",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        "2:C>2",
+        "2:C>2",
+        "2:C>3",
+        "2:C>3"
       ]
     }
   ]
