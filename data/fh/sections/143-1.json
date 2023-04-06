@@ -3,6 +3,10 @@
   "name": "Flotsam",
   "edition": "fh",
   "parent": "73",
+  "parentSections": [
+    "28.3"
+  ],
+  "marker": "2",
   "monsters": [
     "abael-herder",
     "abael-scout",

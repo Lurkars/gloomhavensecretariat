@@ -3,6 +3,7 @@
   "name": "Flotsam",
   "edition": "fh",
   "parent": "73",
+  "marker": "1",
   "monsters": [
     "abael-herder",
     "abael-scout",
@@ -28,6 +29,7 @@
         },
         {
           "name": "abael-scout",
+          "player3": "elite",
           "player4": "elite"
         },
         {
