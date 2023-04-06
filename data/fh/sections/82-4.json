@@ -3,9 +3,75 @@
   "name": "The Lurker Problem",
   "edition": "fh",
   "parent": "78",
+  "parentSections": [
+    "91.1"
+  ],
+  "marker": "6",
+  "resetRound": "hidden",
   "monsters": [
+    "lightning-eel",
     "lurker-soldier",
     "lurker-wavethrower"
+  ],
+  "rules": [
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "lurker-soldier",
+            "tags": [
+              "lurker-soldier-elite"
+            ]
+          },
+          "type": "present",
+          "value": "1"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "lightning-eel",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "lurker-soldier",
+            "tags": [
+              "lurker-soldier-elite"
+            ]
+          },
+          "type": "present",
+          "value": "1"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "lightning-eel",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -14,7 +80,10 @@
       "monster": [
         {
           "name": "lurker-soldier",
-          "type": "elite"
+          "type": "elite",
+          "tags": [
+            "lurker-soldier-elite"
+          ]
         },
         {
           "name": "lurker-soldier",

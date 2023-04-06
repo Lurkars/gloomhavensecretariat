@@ -3,6 +3,7 @@
   "name": "The Lurker Problem",
   "edition": "fh",
   "parent": "78",
+  "marker": "1",
   "monsters": [
     "lightning-eel",
     "lurker-soldier",

@@ -3,6 +3,10 @@
   "name": "The Lurker Problem",
   "edition": "fh",
   "parent": "78",
+  "parentSections": [
+    "19.1"
+  ],
+  "marker": "a",
   "rooms": [
     {
       "roomNumber": 6,

@@ -3,6 +3,10 @@
   "name": "The Lurker Problem",
   "edition": "fh",
   "parent": "78",
+  "parentSections": [
+    "51.2"
+  ],
+  "marker": "5",
   "monsters": [
     "lurker-soldier",
     "lurker-wavethrower"

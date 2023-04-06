@@ -3,6 +3,7 @@
   "name": "The Lurker Problem",
   "edition": "fh",
   "parent": "78",
+  "marker": "2",
   "monsters": [
     "abael-herder",
     "piranha-pig"
