@@ -34,10 +34,10 @@ export class GhsLabelPipe implements PipeTransform {
   name: 'ghsRange'
 })
 export class GhsRangePipe implements PipeTransform {
-  transform(items: any[], quantity: number): any {
+  transform(items: any[], quantity: number, reverse: boolean = false): any {
     items.length = 0;
     for (let i = 0; i < quantity; i++) {
-      items.push(i);
+      items.push(reverse ? quantity - i - 1 : i);
     }
     return items;
   }

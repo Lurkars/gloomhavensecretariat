@@ -23,6 +23,8 @@ export class StateManager {
 
   lastAction: "update" | "undo" | "redo" = "update";
   updateBlocked: boolean = false;
+  serverError: boolean = false;
+  errorLog: any[] = [];
   permissionBackup: Permissions | undefined;
   connectionTries: number = 0;
 
@@ -96,7 +98,7 @@ export class StateManager {
         this.updatePermissions();
       }
     })
-    
+
     gameManager.uiChange.emit();
   }
 
@@ -205,6 +207,16 @@ export class StateManager {
     }
   }
 
+  createBackup() {
+    let count = 1;
+    let backup = localStorage.getItem("ghs-game-backup-" + count);
+    while (backup) {
+      count++;
+      backup = localStorage.getItem("ghs-game-backup-" + count);
+    }
+    localStorage.setItem("ghs-game-backup-" + count, JSON.stringify(gameManager.game.toModel()));
+  }
+
   buildWsUrl(protocol: string, serverUrl: string, port: number | string) {
     let urls = serverUrl.split("/");
     const url = urls[0];
@@ -248,7 +260,7 @@ export class StateManager {
           let gameModel: GameModel = message.payload as GameModel;
           if (gameManager.game.revision > gameModel.revision) {
             gameManager.stateManager.before();
-            localStorage.setItem("ghs-game-rev." + gameManager.game.revision, JSON.stringify(gameManager.game.toModel()));
+            gameManager.stateManager.createBackup();
             console.warn("An older revision was loaded from server, created a backup of previous state.");
             gameManager.stateManager.saveLocal();
           }
@@ -267,6 +279,7 @@ export class StateManager {
             window.document.body.classList.remove('working');
             window.document.body.classList.remove('server-sync');
           }, 1);
+          gameManager.stateManager.serverError = false;
           break;
         case "settings":
           window.document.body.classList.add('server-sync');
@@ -301,14 +314,17 @@ export class StateManager {
               window.document.body.classList.remove('server-sync');
             }, 1);
           }
+          gameManager.stateManager.serverError = false;
           break;
         case "permissions":
           gameManager.stateManager.permissions = message.payload as Permissions || undefined;
           gameManager.stateManager.permissionBackup = gameManager.stateManager.permissions && JSON.parse(JSON.stringify(gameManager.stateManager.permissions)) || undefined;
           gameManager.stateManager.updatePermissions();
+          gameManager.stateManager.serverError = false;
           break;
         case "requestUpdate":
           gameManager.stateManager.after();
+          gameManager.stateManager.serverError = false;
           break;
         case "error":
           console.warn("[GHS] Error: " + message.message);
@@ -323,9 +339,12 @@ export class StateManager {
             console.warn("Disconnect...");
             ev.target?.close();
           }
+          gameManager.stateManager.serverError = false;
           break;
       }
     } catch (e) {
+      gameManager.stateManager.errorLog.push(ev.data);
+      gameManager.stateManager.serverError = true;
       console.error("[GHS] " + ev.data, e);
     }
   }
@@ -394,6 +413,7 @@ export class StateManager {
   }
 
   reset() {
+    this.createBackup();
     const revision = this.game.revision;
     this.game = new Game();
     this.game.revision = revision;

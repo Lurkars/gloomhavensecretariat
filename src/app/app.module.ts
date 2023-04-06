@@ -1,4 +1,4 @@
-import { Injectable, NgModule } from '@angular/core';
+import { Injectable, NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule, HammerGestureConfig, HammerModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -19,6 +19,8 @@ import { MonsterNumberPicker } from './ui/figures/monster/dialogs/numberpicker';
 import { MonsterNumberPickerDialog } from './ui/figures/monster/dialogs/numberpicker-dialog';
 import { MonsterEntityComponent } from './ui/figures/monster/entity/entity';
 import { MonsterComponent } from './ui/figures/monster/monster';
+import { gameManager } from './game/businesslogic/GameManager';
+import { UndoDialogComponent } from './ui/header/menu/undo/dialog';
 import { FooterComponent } from './ui/footer/footer';
 import { LevelComponent } from './ui/footer/level/level';
 import { LevelDialogComponent } from './ui/footer/level/level-dialog';
@@ -117,13 +119,22 @@ export class GhsHammerConfig extends HammerGestureConfig {
   };
 }
 
+@Injectable()
+export class GhsErrorHandler extends ErrorHandler {
+
+  override handleError(error: any) {
+    gameManager.stateManager.errorLog.push(error);
+    super.handleError(error);
+  }
+}
+
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     HeaderComponent, ElementIconComponent, ElementComponent,
     PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, MapComponent,
-    MainMenuComponent, CharacterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent,
+    MainMenuComponent, CharacterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent,
     FooterComponent,
     LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
     HintDialogComponent, ScenarioRulesComponent,
@@ -169,6 +180,10 @@ export class GhsHammerConfig extends HammerGestureConfig {
         autoFocus: 'dialog',
         hasBackdrop: true
       }
+    },
+    {
+      provide: ErrorHandler,
+      useClass: GhsErrorHandler
     },
     {
       provide: HAMMER_GESTURE_CONFIG,

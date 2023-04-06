@@ -32,16 +32,18 @@
             <option value="characterStat">{{'tools.feedback.reportIssue.type.characterStat' | ghsLabel}}</option>
             <option value="artwork">{{'tools.feedback.reportIssue.type.artwork' | ghsLabel}}</option>
             <option value="software">{{'tools.feedback.reportIssue.type.software' | ghsLabel}}</option>
+            <option value="feedback">{{'tools.feedback.reportIssue.type.feedback' | ghsLabel}}</option>
         </select>
 
-        <p class="hint">{{'tools.feedback.reportIssue.type.' + issueType.value + '.hint' | ghsLabel}}</p>
-        <p class="hint">{{'tools.feedback.reportIssue.specify' | ghsLabel}}</p>
+        <p class="hint" [i18n]="'tools.feedback.reportIssue.type.' + issueType.value + '.hint'"></p>
+        <p class="hint" [i18n]="'tools.feedback.reportIssue.specify'"></p>
 
-        <label>{{'tools.feedback.reportIssue.text' | ghsLabel}}</label>
+        <label [i18n]="'tools.feedback.reportIssue.text'"></label>
         <textarea #issuerText></textarea>
+        <p class="hint">Please write in English or German / Bitte in Englisch oder Deutsch verfassen!</p>
 
         <div class="buttons">
-            <a class="button" (click)="downloadGameData()">{{'tools.feedback.reportIssue.download' | ghsLabel}}</a>
+            <a class="button" (click)="downloadDataDump()">{{'tools.feedback.reportIssue.download' | ghsLabel}}</a>
 
             <a class="button" [ngClass]="{'disabled' : !issuerText.value}"
                 [href]="issueMail(issueType.value, issuerText.value)">{{'tools.feedback.reportIssue.send' |

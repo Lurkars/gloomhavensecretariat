@@ -8,9 +8,13 @@
     <div class="line span-xs">
       <a class="state undo" [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission }"
         (click)="gameManager.stateManager.undo()">
-        {{'state.undo' | ghsLabel}}
+        <span>
+          {{'state.undo' | ghsLabel}}
+          <span class="undo-dialog" (click)="openUndoDialog($event)"><img class="ghs-svg"
+              src="./assets/images/long-rest.svg"></span>
+        </span>
         <span class="info text-white" *ngIf="undoInfo.length > 0" [i18n]="'state.info.' + undoInfo[0]"
-          [i18n-args]="(undoInfo | slice:1:undoInfo.length)"></span> </a>
+          [i18n-args]="(undoInfo | slice:1:undoInfo.length)"></span></a>
     </div>
     <div class="line span-xs">
       <a class="state redo" [ngClass]="{'disabled' :!gameManager.stateManager.redoPermission}"

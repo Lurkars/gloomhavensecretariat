@@ -180,14 +180,6 @@ export class EntityManager {
     return immune;
   }
 
-  toggleCondition(entity: Entity, condition: Condition, active: boolean, off: boolean) {
-    if (this.hasCondition(entity, condition)) {
-      this.removeCondition(entity, condition)
-    } else {
-      this.addCondition(entity, condition, active, off);
-    }
-  }
-
   addCondition(entity: Entity, condition: Condition, active: boolean, off: boolean) {
     let entityCondition: EntityCondition | undefined = entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name);
     if (!entityCondition) {

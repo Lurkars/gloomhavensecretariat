@@ -117,6 +117,11 @@
     ".": "Data Management",
     "addEditionDataUrl": "Add Edition Data Url",
     "addSpoiler": "Add Spoiler",
+    "backup": {
+      ".": "Game Backups",
+      "all": "Download all Game Backups ({0})",
+      "latest": "Download latest Game Backup"
+    },
     "editionDataUrls": {
       ".": "Manage Edition Data",
       "custom": "Additional Edition Data",
@@ -1552,34 +1557,44 @@
     "decks": "Ability Decks",
     "feedback": {
       ".": "Feedback",
-      "githubIssue": "File a GitHub Issue",
+      "githubIssue": "File a GitHub Issue instead",
       "reportIssue": {
         ".": "Report an Issue",
-        "download": "Download all data",
+        "download": "Download data dump",
         "send": "Send Issue (Email)",
-        "specify": "Please specify in text.",
+        "specify": "Please specify details in text.<br>If you are unsure what's exactly the issue, please download and attach the data dump below!",
         "text": "Text",
         "type": {
           ".": "Issue Type",
           "abilityCard": {
-            ".": "Ability Card(s)",
-            "hint": "Wrong value(s) on ability card(s)."
+            ".": "Ability Cards",
+            "hint": "Wrong values on ability cards.",
+            "subject": "Found issue with Ability Cards"
           },
           "artwork": {
             ".": "Artwork",
-            "hint": "Wrong or missing artwork."
+            "hint": "Wrong or missing artwork.",
+            "subject": "Found issue with Artwork"
           },
           "characterStat": {
-            ".": "Character Stat(s)",
-            "hint": "Wrong value(s) on character stat(s)."
+            ".": "Character Stats",
+            "hint": "Wrong values on character stats.",
+            "subject": "Found issue with Character Stats"
+          },
+          "feedback": {
+            ".": "General Feedback",
+            "hint": "A general message to the developer.",
+            "subject": "General Feedback"
           },
           "monsterStat": {
-            ".": "Monster Stat(s)",
-            "hint": "Wrong value(s) on monster stat(s)."
+            ".": "Monster Stats",
+            "hint": "Wrong values on monster stats.",
+            "subject": "Found issue with Monster Stats"
           },
           "software": {
             ".": "Software",
-            "hint": "A software bug, something not working as expected."
+            "hint": "A software bug, something not working as expected.",
+            "subject": "Found Software Issue"
           }
         }
       },

@@ -1,0 +1,29 @@
+<div class="undo-dialog">
+
+    <div class="menu">
+        <a class="state undo" [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission }"
+            (click)="gameManager.stateManager.undo()">{{'state.undo' | ghsLabel}}</a>
+        <a class="state redo" [ngClass]="{'disabled' : !gameManager.stateManager.redoPermission }"
+            (click)="gameManager.stateManager.redo()">{{'state.redo' | ghsLabel}}</a>
+    </div>
+
+    <div class="container">
+        <div class="list redos">
+            <ng-container *ngFor="let i of [] | ghsRange:gameManager.stateManager.redos.length:true;">
+                <span class="info text-white" *ngIf="getRedoInfo(i).length > 0"
+                    [i18n]="'state.info.' + getRedoInfo(i)[0]"
+                    [i18n-args]="(getRedoInfo(i) | slice:1:getRedoInfo(i).length)"></span>
+            </ng-container>
+        </div>
+
+        <hr>
+
+        <div class="list undos">
+            <ng-container *ngFor="let i of [] | ghsRange:gameManager.stateManager.undos.length:true;">
+                <span class="info text-white" *ngIf="getUndoInfo(i).length > 0"
+                    [i18n]="'state.info.' + getUndoInfo(i)[0]"
+                    [i18n-args]="(getUndoInfo(i) | slice:1:getUndoInfo(i).length)"></span>
+            </ng-container>
+        </div>
+    </div>
+</div>

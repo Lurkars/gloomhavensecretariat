@@ -14,8 +14,7 @@ import { Objective } from "src/app/game/model/Objective";
 export class FeedbackDialogComponent {
 
     gameManager: GameManager = gameManager;
-    form: string = "";
-
+    form: string = "issue";
 
     scenarioMail(scenarioName: string, index: string, notes: string): string {
         let mailto = 'mailto:scenario@gloomhaven-secretariat.de';
@@ -46,38 +45,30 @@ export class FeedbackDialogComponent {
     issueMail(type: string, text: string): string {
         let mailto = 'mailto:issue@gloomhaven-secretariat.de';
 
-        mailto += '?subject=Found issue with ' + settingsManager.getLabel('tools.feedback.reportIssue.type.' + type);
+        mailto += '?subject=[GHS] ' + settingsManager.getLabel('tools.feedback.reportIssue.type.' + type + '.subject');
 
-        mailto += '&body=' + settingsManager.getLabel('tools.feedback.reportIssue.type.' + type) + ' Issue%0D%0A%0D%0A' + text;
+        mailto += '&body=' + settingsManager.getLabel('tools.feedback.reportIssue.type.' + type + '.hint') + '%0D%0A%0D%0A' + text;
 
         return mailto;
     }
 
-    downloadGameData() {
-        this.downloadDataHelper('ghs-game');
-        this.downloadDataHelper('ghs-settings');
-        this.downloadDataHelper('ghs-undo', true);
-        this.downloadDataHelper('ghs-undo-infos', true);
-        this.downloadDataHelper('ghs-redo', true);
-    }
-
-    downloadDataHelper(name: string, multiple: boolean = false): boolean {
-        const data = localStorage.getItem(name);
-        if (data) {
-            let downloadButton = document.createElement('a');
-            downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(data));
-            downloadButton.setAttribute('download', name + ".json");
-            document.body.appendChild(downloadButton);
-            downloadButton.click();
-            document.body.removeChild(downloadButton);
-            if (multiple) {
-                let count = 1;
-                while (this.downloadDataHelper(name + "-" + count)) {
-                    count++;
+    downloadDataDump() {
+        let gameData: any = {};
+        gameData.errorLog = gameManager.stateManager.errorLog;
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key) {
+                const data = localStorage.getItem(key);
+                if (data) {
+                    gameData[key] = JSON.parse(data);
                 }
             }
-            return true;
         }
-        return false;
+        let downloadButton = document.createElement('a');
+        downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(gameData)));
+        downloadButton.setAttribute('download', "ghs-data-dump.json");
+        document.body.appendChild(downloadButton);
+        downloadButton.click();
+        document.body.removeChild(downloadButton);
     }
 }

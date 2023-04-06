@@ -1,4 +1,4 @@
-import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { DialogRef, DIALOG_DATA, Dialog } from "@angular/cdk/dialog";
 import { Component, Inject } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { Character } from "src/app/game/model/Character";
@@ -8,6 +8,7 @@ import { ScenarioRewards } from "src/app/game/model/data/ScenarioRule";
 import { Identifier } from "src/app/game/model/data/Identifier";
 import { LootType } from "src/app/game/model/data/Loot";
 import { Scenario } from "src/app/game/model/Scenario";
+import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/character-sheet";
 
 
 @Component({
@@ -35,7 +36,7 @@ export class ScenarioSummaryComponent {
     items: number[][] = [];
     rewards: ScenarioRewards | undefined = undefined;
 
-    constructor(@Inject(DIALOG_DATA) data: { scenario: Scenario, success: boolean, conclusion: ScenarioData | undefined }, private dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) data: { scenario: Scenario, success: boolean, conclusion: ScenarioData | undefined }, private dialogRef: DialogRef, private dialog: Dialog) {
         this.scenario = data.scenario;
         this.success = data.success;
         this.conclusion = data.conclusion;
@@ -156,8 +157,19 @@ export class ScenarioSummaryComponent {
         }
     }
 
+    openCharacterSheet(character: Character): void {
+        this.dialog.open(CharacterSheetDialog, {
+            panelClass: ['dialog-invert'],
+            data: character
+        });
+    }
+
     apply() {
         gameManager.stateManager.before("finishScenario." + (this.success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
+        gameManager.game.figures.filter((figure) => figure instanceof Character).forEach((figure, index) => {
+            (figure as Character).fromModel(this.characters[index].toModel());
+        });
+        
         if (this.success) {
             gameManager.game.figures.filter((figure) => figure instanceof Character).forEach((figure, index) => {
                 const character = (figure as Character);

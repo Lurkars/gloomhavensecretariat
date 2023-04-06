@@ -824,7 +824,11 @@ export class EntityMenuDialogComponent {
 
           entityCondition.expired = entityCondition.state == EntityConditionState.new;
           gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition"), "game.condition." + entityCondition.name, this.data.entity instanceof MonsterEntity ? 'monster.' + this.data.entity.type + ' ' : '');
-          gameManager.entityManager.toggleCondition(this.data.entity, entityCondition, this.data.figure.active, this.data.figure.off);
+          if (entityCondition.state == EntityConditionState.removed) {
+            gameManager.entityManager.removeCondition(this.data.entity, entityCondition);
+          } else {
+            gameManager.entityManager.addCondition(this.data.entity, entityCondition, this.data.figure.active, this.data.figure.off);
+          }
           gameManager.stateManager.after();
         }
       })

@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
-import { Component, ElementRef, ViewChild } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { EditionData } from "src/app/game/model/data/EditionData";
@@ -13,14 +13,25 @@ import { ghsInputFullScreenCheck } from "src/app/ui/helper/Static";
   templateUrl: 'datamanagement.html',
   styleUrls: ['../menu.scss', 'datamanagement.scss']
 })
-export class DatamanagementMenuComponent {
+export class DatamanagementMenuComponent implements OnInit {
 
   @ViewChild('inputEditionDataUrl', { static: true }) editionDataUrlElement!: ElementRef;
   @ViewChild('inputSpoiler', { static: true }) spoilerElement!: ElementRef;
 
   settingsManager: SettingsManager = settingsManager;
   gameManager: GameManager = gameManager;
+  backups: number = 0;
   ghsInputFullScreenCheck = ghsInputFullScreenCheck;
+
+  ngOnInit(): void {
+    let count = 1;
+    let backup = localStorage.getItem("ghs-game-backup-" + count);
+    while (backup) {
+      this.backups = count;
+      count++;
+      backup = localStorage.getItem("ghs-game-backup-" + count);
+    }
+  }
 
   async addEditionDataUrl() {
     if (this.editionDataUrlElement.nativeElement.value) {
@@ -80,12 +91,50 @@ export class DatamanagementMenuComponent {
   exportGame() {
     const gameJson = localStorage.getItem("ghs-game");
     if (gameJson) {
+      const game = JSON.parse(gameJson) as GameModel;
       const downloadButton = document.createElement('a');
       downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(gameJson));
-      downloadButton.setAttribute('download', "ghs-game.json");
+      downloadButton.setAttribute('download', 'ghs-game' + (game.party.name ? '_' + game.party.name : '') + '.json');
       document.body.appendChild(downloadButton);
       downloadButton.click();
       document.body.removeChild(downloadButton);
+    }
+  }
+
+  exportLatestBackup() {
+    let count = 1;
+    let backup = localStorage.getItem("ghs-game-backup-" + count);
+    while (backup) {
+      count++;
+      backup = localStorage.getItem("ghs-game-backup-" + count);
+    }
+
+    count--;
+    backup = localStorage.getItem("ghs-game-backup-" + count);
+    if (backup) {
+      const game = JSON.parse(backup) as GameModel;
+      const downloadButton = document.createElement('a');
+      downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(backup));
+      downloadButton.setAttribute('download', 'ghs-game' + (game.party.name ? '_' + game.party.name : '') + '-rev' + game.revision + '.json');
+      document.body.appendChild(downloadButton);
+      downloadButton.click();
+      document.body.removeChild(downloadButton);
+    }
+  }
+
+  exportAllBackups() {
+    let count = 1;
+    let backup = localStorage.getItem("ghs-game-backup-" + count);
+    while (backup) {
+      const game = JSON.parse(backup) as GameModel;
+      const downloadButton = document.createElement('a');
+      downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(backup));
+      downloadButton.setAttribute('download', 'ghs-game' + (game.party.name ? '_' + game.party.name : '') + '-rev' + game.revision + '.json');
+      document.body.appendChild(downloadButton);
+      downloadButton.click();
+      document.body.removeChild(downloadButton);
+      count++;
+      backup = localStorage.getItem("ghs-game-backup-" + count);
     }
   }
 

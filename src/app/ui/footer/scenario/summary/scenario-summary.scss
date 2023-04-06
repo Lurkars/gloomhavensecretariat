@@ -68,8 +68,17 @@
     filter: var(--ghs-filter-white);
   }
 
-  .name {
+  .character-icon,
+  .absent-icon {
     cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &.absent-icon {
+      margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+    }
   }
 
   .absent {
@@ -131,7 +140,7 @@
 
   .treasures {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     align-items: center;
 

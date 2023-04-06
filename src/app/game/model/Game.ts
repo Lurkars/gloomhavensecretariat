@@ -346,7 +346,9 @@ export class GameModel {
   lootDeckSections: string[];
   server: boolean;
 
-  constructor(revision: number = 0, edition: string | undefined = undefined,
+  constructor(
+    revision: number = 0,
+    edition: string | undefined = undefined,
     figures: string[] = [],
     entitiesCounter: EntityCounter[] = [],
     characters: GameCharacterModel[] = [],

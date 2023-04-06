@@ -134,7 +134,7 @@ export class LootManager {
         if (typeof reward.value === 'string') {
           reward.value.split('+').forEach((condition) => {
             if (!gameManager.entityManager.hasCondition(character, new Condition(condition as ConditionName))) {
-              gameManager.entityManager.toggleCondition(character, new Condition(condition as ConditionName), character.active, character.off);
+              gameManager.entityManager.addCondition(character, new Condition(condition as ConditionName), character.active, character.off);
             }
           })
         }
@@ -235,7 +235,7 @@ export class LootManager {
         break;
       case TreasureRewardType.randomItemDesign:
       case TreasureRewardType.randomItemBlueprint:
-        let availableItems = gameManager.itemData(edition).filter((itemData) => itemData.random && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == itemData.name && identifier.edition == itemData.edition));
+        let availableItems = gameManager.itemData(edition).filter((itemData) => itemData.random && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition));
         if (typeof reward.value === 'string' && reward.value.indexOf('-') != -1) {
           const from = + reward.value.split('-')[0];
           const to = + reward.value.split('-')[1];

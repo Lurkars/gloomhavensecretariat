@@ -151,6 +151,26 @@
 
       &.undo {
         align-items: flex-start;
+
+        .undo-dialog {
+          display: none;
+
+          img.ghs-svg {
+            filter: var(--ghs-filter-gray) !important;
+          }
+
+          &:hover {
+            img.ghs-svg {
+              filter: var(--ghs-filter-white) !important;
+            }
+          }
+        }
+
+        &:hover .undo-dialog,
+        .undo-dialog:hover {
+          cursor: pointer;
+          display: inline-block;
+        }
       }
 
       &.redo {
@@ -343,5 +363,9 @@
     .span-xs {
       grid-column: 2 span;
     }
+  }
+
+  .menu-container .columns.columns-break {
+    flex-wrap: wrap;
   }
 }

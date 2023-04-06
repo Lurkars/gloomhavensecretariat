@@ -1,0 +1,41 @@
+.undo-dialog {
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+
+    .menu {
+        display: flex;
+        justify-content: space-between;
+
+        .state {
+            cursor: pointer;
+            
+            &.disabled {
+                pointer-events: none;
+                color: var(--ghs-color-darkgray);
+            }
+        }
+    }
+
+    .container {
+        padding: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        max-height: calc(var(--ghs-unit) * 80 * var(--ghs-dialog-factor));;
+        overflow: auto;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+
+        .warning {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--ghs-color-red);
+
+            img {
+                filter: var(--ghs-filter-red);
+                height: 0.8em;
+                width: auto;
+            }
+        }
+    }
+}

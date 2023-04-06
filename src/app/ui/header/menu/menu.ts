@@ -12,6 +12,7 @@ import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
 import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { FeedbackDialogComponent } from "../../tools/feedback/feedback-dialog";
 import { SwUpdate } from "@angular/service-worker";
+import { UndoDialogComponent } from "./undo/dialog";
 
 export enum SubMenu {
   main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_add, objective_remove, settings, debug, server, datamanagement, about
@@ -90,6 +91,15 @@ export class MainMenuComponent implements OnInit {
     } else {
       this.redoInfo = [];
     }
+  }
+
+  openUndoDialog(event : any) {
+    this.dialog.open(UndoDialogComponent, {
+      panelClass: 'dialog'
+    })
+    this.close();
+    event.preventDefault();
+    event.stopPropagation();
   }
 
   setActive(active: SubMenu) {

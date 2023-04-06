@@ -443,7 +443,7 @@ export class ActionComponent implements OnInit {
               entity.health == entity.maxHealth;
             }
           } else if (this.action.type == ActionType.condition) {
-            gameManager.entityManager.toggleCondition(entity, new Condition('' + this.action.value), this.monster?.active || false, this.monster?.off || false);
+            gameManager.entityManager.addCondition(entity, new Condition('' + this.action.value), this.monster?.active || false, this.monster?.off || false);
           } else if (this.action.type == ActionType.sufferDamage) {
             entity.health -= EntityValueFunction(this.action.value);
             if (entity.health <= 0) {

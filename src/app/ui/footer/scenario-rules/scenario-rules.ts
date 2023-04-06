@@ -306,13 +306,13 @@ export class ScenarioRulesComponent {
                                     case "gainCondition":
                                         let gainCondition = new Condition(figureRule.value);
                                         if (!gameManager.entityManager.hasCondition(entity, gainCondition)) {
-                                            gameManager.entityManager.toggleCondition(entity, gainCondition, figure.active, figure.off);
+                                            gameManager.entityManager.addCondition(entity, gainCondition, figure.active, figure.off);
                                         }
                                         break;
                                     case "looseCondition":
                                         let looseCondition = new Condition(figureRule.value);
                                         if (gameManager.entityManager.hasCondition(entity, looseCondition)) {
-                                            gameManager.entityManager.toggleCondition(entity, looseCondition, figure.active, figure.off);
+                                            gameManager.entityManager.removeCondition(entity, looseCondition);
                                         }
                                         break;
                                     case "damage": let damage = 0;
