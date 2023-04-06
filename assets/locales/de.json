@@ -113,6 +113,11 @@
     ".": "Daten verwalten",
     "addEditionDataUrl": "Editionasdaten Url hinzufügen",
     "addSpoiler": "Spoiler hinzufügen",
+    "backup": {
+      ".": "Spielsicherungen",
+      "all": "Alle Spielsicherungen herunterladen ({0})",
+      "latest": "Aktuellste Spielsicherung herunterladen"
+    },
     "editionDataUrls": {
       ".": "Editionsdaten bearbeiten",
       "custom": "Zusätzliche Editionsdaten",
@@ -1449,34 +1454,44 @@
     "decks": "Fertigkeitskarten",
     "feedback": {
       ".": "Feedback",
-      "githubIssue": "GitHub Issue erstellen",
+      "githubIssue": "Stattdessen GitHub Issue erstellen",
       "reportIssue": {
         ".": "Ein Problem melden",
-        "download": "Alle Daten herunterladen",
+        "download": "Daten herunterladen",
         "send": "Problem senden",
-        "specify": "Bitte Details im Text angeben.",
+        "specify": "Bitte Details im Text angeben.<br>Ist die Ursache unklar, bitte die Daten herunterladen und als Anhang hinzufügen!",
         "text": "Text",
         "type": {
           ".": "Typ des Problems",
           "abilityCard": {
-            ".": "Fertigkeitskarte(n)",
-            "hint": "Falsche(r) Wert(e) auf Fertigkeitskarte(n)."
+            ".": "Fertigkeitskarten",
+            "hint": "Falsche Werte auf Fertigkeitskarten.",
+            "subject": "Fehler bei Fertigkeitskarten"
           },
           "artwork": {
             ".": "Artwork",
-            "hint": "Fehlendes oder fehlerhaftes Artwork."
+            "hint": "Fehlendes oder fehlerhaftes Artwork.",
+            "subject": "Fehler beim Artwork"
           },
           "characterStat": {
             ".": "Charakter Werte",
-            "hint": "Falsche(r) Wert(e) bei Charakter Werten."
+            "hint": "Falsche Werte bei Charakter Werten.",
+            "subject": "Fehler bei Charakter Werten"
+          },
+          "feedback": {
+            ".": "Allgmeines Feedback",
+            "hint": "Eine allgemeine Nachricht an den Entwickler.",
+            "subject": "Allgmeines Feedback"
           },
           "monsterStat": {
             ".": "Monster Werte",
-            "hint": "Falsche(r) Wert(e) bei Monster Werten."
+            "hint": "Falsche Werte bei Monster Werten.",
+            "subject": "Fehler bei Monster Werten"
           },
           "software": {
             ".": "Software",
-            "hint": "Ein Software fehler, etwas funktioniert nicht wie erwartet."
+            "hint": "Ein Softwarefehler, etwas funktioniert nicht wie erwartet.",
+            "subject": "Fehler in der Software"
           }
         }
       },
