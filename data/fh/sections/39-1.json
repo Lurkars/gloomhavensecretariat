@@ -14,7 +14,7 @@
       "round": "true",
       "always": true,
       "once": true,
-      "note": "Place one debris in each %game.mapMarker.d%. Any figure occupying %game.mapMarker.d% suffers trap damage and is placed in the closest empty hex."
+      "note": "Place one debris in %game.mapMarker.d%. Any figure occupying %game.mapMarker.d% suffers trap damage and is placed in the closest empty hex."
     },
     {
       "round": "true",
