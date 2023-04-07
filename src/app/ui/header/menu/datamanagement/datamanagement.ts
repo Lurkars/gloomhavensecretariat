@@ -144,7 +144,7 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   deleteBackups() {
-    if (!this.confirm) {
+    if (this.confirm != "deleteBackups") {
       this.confirm = "deleteBackups";
     } else {
       let count = 1;
@@ -181,7 +181,7 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   resetGame(): void {
-    if (!this.confirm) {
+    if (this.confirm != "resetGame") {
       this.confirm = "resetGame";
     } else {
       gameManager.stateManager.reset();
@@ -219,7 +219,7 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   resetSettings(): void {
-    if (!this.confirm) {
+    if (this.confirm != "resetSettings") {
       this.confirm = "resetSettings";
     } else {
       settingsManager.reset();
@@ -271,7 +271,7 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   clearAllData(): void {
-    if (!this.confirm) {
+    if (this.confirm != "clearAllData") {
       this.confirm = "clearAllData";
     } else {
       localStorage.clear();

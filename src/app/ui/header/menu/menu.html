@@ -8,7 +8,7 @@
     <div class="line span-xs">
       <a class="state undo" [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission }"
         (click)="gameManager.stateManager.undo()">
-        <span>
+        <span class="undo-text">
           {{'state.undo' | ghsLabel}}
           <span class="undo-dialog" (click)="openUndoDialog($event)"><img class="ghs-svg"
               src="./assets/images/long-rest.svg"></span>

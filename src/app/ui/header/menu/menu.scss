@@ -160,16 +160,25 @@
       &.undo {
         align-items: flex-start;
 
+        .undo-text {
+          display: flex;
+          align-items: center;
+        }
+
         .undo-dialog {
-          display: none;
+          display: flex;
+          align-items: center;
+          margin-left: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
 
           img.ghs-svg {
             filter: var(--ghs-filter-gray) !important;
+            opacity: 0.8;
           }
 
           &:hover {
             img.ghs-svg {
               filter: var(--ghs-filter-white) !important;
+              opacity: 1;
             }
           }
         }
@@ -177,7 +186,6 @@
         &:hover .undo-dialog,
         .undo-dialog:hover {
           cursor: pointer;
-          display: inline-block;
         }
       }
 
