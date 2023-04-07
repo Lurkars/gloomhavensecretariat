@@ -1025,6 +1025,10 @@
   },
   "settings": {
     ".": "Settings",
+    "abilities": {
+      ".": "Ability Cards",
+      "hint": "Draw ability cards for monsters. If unchecked, the order of monsters must be set manually with drag&drop."
+    },
     "abilityNumbers": {
       ".": "Show ability numbers",
       "hint": "Show the card number on ability cards"
@@ -1205,7 +1209,7 @@
     },
     "initiativeRequired": {
       ".": "Initiative is required",
-      "hint": "If unchecked, the order of the entities must be set manually with drag&drop "
+      "hint": "If unchecked, the order of the entities must be set manually with drag&drop"
     },
     "interactiveAbilities": {
       ".": "Interactive Abilities",
