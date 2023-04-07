@@ -14,6 +14,103 @@
     "snowthistle": 2,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "minus1:2",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "R > 1 && R % 6 != 1",
+      "start": true,
+      "note": "Relocate corridor %game.mapMarker.c% to the next %game.mapMarker.a% position in clockwise order"
+    },
+    {
+      "round": "R > 1 && R % 4 != 1",
+      "start": true,
+      "note": "Relocate corridor %game.mapMarker.d% to the next %game.mapMarker.b% position in clockwise order"
+    },
+    {
+      "round": "R > 1 && R % 6 == 1",
+      "start": true,
+      "note": "Return corridor %game.mapMarker.c% to starting %game.mapMarker.c% position"
+    },
+    {
+      "round": "R > 1 && R % 4 == 1",
+      "start": true,
+      "note": "Return corridor %game.mapMarker.d% to starting %game.mapMarker.d% position"
+    },
+    {
+      "round": "R > 2 && R % 4 == 3",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "frost-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R > 3 && R % 4 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "f"
+        }
+      ]
+    },
+    {
+      "round": "R > 4 && R % 4 == 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "frost-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "g"
+        }
+      ]
+    },
+    {
+      "round": "R > 5 && R % 4 == 2",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "h"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
