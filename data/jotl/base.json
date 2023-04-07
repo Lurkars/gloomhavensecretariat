@@ -8,5 +8,6 @@
     "poison",
     "strengthen"
   ],
-  "edition": "jotl"
+  "edition": "jotl",
+  "logoUrl": "./assets/images/logos/jotl.png"
 }

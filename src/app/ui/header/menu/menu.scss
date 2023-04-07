@@ -139,6 +139,14 @@
         pointer-events: none;
         color: var(--ghs-color-darkgray);
       }
+
+      &.confirm {
+        color: var(--ghs-color-yellow);
+      }
+
+      &.confirm-delete {
+        color: var(--ghs-color-red);
+      }
     }
 
     &>a {

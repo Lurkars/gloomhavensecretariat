@@ -215,8 +215,11 @@ export class MainComponent implements OnInit {
       this.columns = 1;
       this.columnSize = 99;
       setTimeout(() => {
-        this.translate(scrollTo);
-      }, 0)
+        const containerElement = this.element.nativeElement.getElementsByClassName('figures')[0];
+        if (containerElement) {
+          this.translate(scrollTo);
+        }
+      }, 1)
     } else {
       setTimeout(() => {
         const containerElement = this.element.nativeElement.getElementsByClassName('figures')[0];

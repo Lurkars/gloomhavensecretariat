@@ -207,14 +207,14 @@ export class StateManager {
     }
   }
 
-  createBackup() {
+  createBackup(gameModel: GameModel) {
     let count = 1;
     let backup = localStorage.getItem("ghs-game-backup-" + count);
     while (backup) {
       count++;
       backup = localStorage.getItem("ghs-game-backup-" + count);
     }
-    localStorage.setItem("ghs-game-backup-" + count, JSON.stringify(gameManager.game.toModel()));
+    localStorage.setItem("ghs-game-backup-" + count, JSON.stringify(gameModel));
   }
 
   buildWsUrl(protocol: string, serverUrl: string, port: number | string) {
@@ -260,7 +260,7 @@ export class StateManager {
           let gameModel: GameModel = message.payload as GameModel;
           if (gameManager.game.revision > gameModel.revision) {
             gameManager.stateManager.before();
-            gameManager.stateManager.createBackup();
+            gameManager.stateManager.createBackup(gameManager.game.toModel());
             console.warn("An older revision was loaded from server, created a backup of previous state.");
             gameManager.stateManager.saveLocal();
           }
@@ -413,7 +413,7 @@ export class StateManager {
   }
 
   reset() {
-    this.createBackup();
+    this.createBackup(gameManager.game.toModel());
     const revision = this.game.revision;
     this.game = new Game();
     this.game.revision = revision;
@@ -504,6 +504,10 @@ export class StateManager {
 
       if (this.undoInfos.length > this.undos.length) {
         this.undoInfos.splice(0, this.undoInfos.length - this.undos.length);
+      }
+
+      if (this.redos.length > 0) {
+        this.createBackup(this.redos[0]);
       }
 
       this.redos = [];

@@ -12,7 +12,8 @@
         </label>
       </div>
       <div class="line">
-        <a (click)="resetGame()">&lt;{{'datamanagement.resetGame' | ghsLabel}}(!)&gt;</a>
+        <a (click)="resetGame()" [ngClass]="{'confirm-delete' : confirm == 'resetGame'}"
+          (mouseleave)="cancelConfirm()">&lt;{{'datamanagement.resetGame' | ghsLabel}}(!)&gt;</a>
       </div>
     </div>
 
@@ -27,22 +28,26 @@
         </label>
       </div>
       <div class="line">
-        <a (click)="resetSettings()">&lt;{{'datamanagement.resetSettings' | ghsLabel}}(!)&gt;</a>
+        <a (click)="resetSettings()" [ngClass]="{'confirm-delete' : confirm == 'resetSettings'}"
+          (mouseleave)="cancelConfirm()">&lt;{{'datamanagement.resetSettings' | ghsLabel}}(!)&gt;</a>
       </div>
     </div>
 
-    <div class="column" *ngIf="backups > 0">
-      <div class="line title">
-        <label>{{'datamanagement.backup' | ghsLabel}}</label>
+    <div class="column">
+      <div class="line">
+        <a (click)="exportDataDump()">{{'datamanagement.exportDataDump' | ghsLabel}}</a>
       </div>
       <div class="line">
-        <a (click)="exportLatestBackup()">{{'datamanagement.backup.latest' | ghsLabel}}</a>
+        <label class="input-file" (click)="ghsInputFullScreenCheck()">
+          {{'datamanagement.importDataDump' | ghsLabel}}
+          <input type="file" accept="application/json" (change)="importDataDump($event)" />
+        </label>
       </div>
       <div class="line">
-        <a (click)="exportAllBackups()">{{'datamanagement.backup.all' | ghsLabel:['' + backups]}}</a>
+        <a (click)="clearAllData()" [ngClass]="{'confirm-delete' : confirm == 'clearAllData'}"
+          (mouseleave)="cancelConfirm()">&lt;{{'datamanagement.clearAll' | ghsLabel}}(!)&gt;</a>
       </div>
     </div>
-
   </div>
 
   <div class="separator"></div>
@@ -109,5 +114,23 @@
           ghsLabel}}</a>
       </div>
     </div>
+
+
+    <div class="column" *ngIf="backups > 0">
+      <div class="line title">
+        <label>{{'datamanagement.backup' | ghsLabel}}</label>
+      </div>
+      <div class="line">
+        <a (click)="exportLatestBackup()">{{'datamanagement.backup.latest' | ghsLabel}}</a>
+      </div>
+      <div class="line" *ngIf="backups > 1">
+        <a (click)="exportAllBackups()">{{'datamanagement.backup.all' | ghsLabel:['' + backups]}}</a>
+      </div>
+      <div class="line">
+        <a (click)="deleteBackups()" [ngClass]="{'confirm-delete' : confirm == 'deleteBackups'}"
+          (mouseleave)="cancelConfirm()">&lt;{{'datamanagement.backup.delete' | ghsLabel}}(!)&gt;</a>
+      </div>
+    </div>
+
   </div>
 </div>

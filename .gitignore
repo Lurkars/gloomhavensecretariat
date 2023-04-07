@@ -48,6 +48,7 @@ Thumbs.db
 
 # ignore generated data files
 src/assets/data/*
+ghs-settings-default.json
 
 # temporay local files
 .local

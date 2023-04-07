@@ -116,8 +116,10 @@
     "backup": {
       ".": "Spielsicherungen",
       "all": "Alle Spielsicherungen herunterladen ({0})",
+      "delete": "Spielsicherungen löschen",
       "latest": "Aktuellste Spielsicherung herunterladen"
     },
+    "clearAll": "Alle Daten löschen",
     "editionDataUrls": {
       ".": "Editionsdaten bearbeiten",
       "custom": "Zusätzliche Editionsdaten",
@@ -125,8 +127,10 @@
       "enable": "Edition aktivieren",
       "remove": "Editionsdaten entfernen"
     },
+    "exportDataDump": "Datenauszug exportieren",
     "exportGame": "Spiel in Datei exportieren",
     "exportSettings": "Einstellungen in Datei exportieren",
+    "importDataDump": "Datenauszug importieren",
     "importGame": "Spiel aus Datei importieren",
     "importSettings": "Einstellungen aus Datei importieren",
     "removeAllSpoilers": "Alle löschen",

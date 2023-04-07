@@ -1,7 +1,7 @@
 import { Component, isDevMode, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { gameManager } from './game/businesslogic/GameManager';
-import { settingsManager, SettingsManager } from './game/businesslogic/SettingsManager';
+import { settingsManager } from './game/businesslogic/SettingsManager';
 
 @Component({
   selector: 'app-root',
@@ -11,22 +11,23 @@ import { settingsManager, SettingsManager } from './game/businesslogic/SettingsM
 export class AppComponent implements OnInit {
   title = 'gloomhavensecretariat';
 
-  settingsManager: SettingsManager = settingsManager;
+  theme: string = '';
 
-  constructor(private meta: Meta){}
+  constructor(private meta: Meta) { }
 
   ngOnInit(): void {
-    this.applyFhStyle();
+    this.applyStyle();
     gameManager.uiChange.subscribe({
       next: () => {
-        this.applyFhStyle();
+        this.applyStyle();
         this.applyAnimations();
       }
     })
   }
 
-  applyFhStyle() {
-    if (settingsManager.settings.theme == 'fh') {
+  applyStyle() {
+    this.theme = settingsManager.settings.theme;
+    if (this.theme == 'fh') {
       document.body.classList.add('fh');
       this.meta.updateTag({ name: 'theme-color', content: '#a2bbd1' });
     } else {

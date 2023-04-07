@@ -29,8 +29,11 @@
     <div class="choose-edition" *ngIf="!gameManager.game.edition">
       <p>{{'welcome.chooseEdition' | ghsLabel}}</p>
       <div class="editions">
-        <div class="edition" *ngFor="let edition of gameManager.editions()" (click)="startCampaign(edition)">
-          <img [src]="'./assets/images/logos/' + edition + '.png'" [title]="'data.edition.' + edition | ghsLabel">
+        <div class="edition" *ngFor="let editionData of gameManager.editionsData()"
+          (click)="startCampaign(editionData.edition)">
+          <img *ngIf="editionData.logoUrl" [src]="editionData.logoUrl"
+            [title]="'data.edition.' + editionData.edition | ghsLabel">
+          <span class="text" *ngIf="!editionData.logoUrl">{{'data.edition.' + editionData.edition | ghsLabel}}</span>
         </div>
       </div>
     </div>

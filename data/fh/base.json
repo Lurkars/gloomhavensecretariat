@@ -15,8 +15,9 @@
     "impair"
   ],
   "edition": "fh",
-  "newAmStyle": true,
   "extensions": [
     "fh-crossover"
-  ]
+  ],
+  "newAmStyle": true,
+  "logoUrl": "./assets/images/logos/fh.png"
 }
