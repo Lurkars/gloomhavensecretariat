@@ -41,6 +41,7 @@
     color: var(--ghs-color-white);
     text-shadow: var(--ghs-outline);
     font-size: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
+    -moz-appearance: textfield;
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
@@ -56,7 +57,9 @@
       outline: none !important;
     }
 
-    -moz-appearance: textfield;
+    &.hidden {
+      display: none;
+    }
   }
 
 

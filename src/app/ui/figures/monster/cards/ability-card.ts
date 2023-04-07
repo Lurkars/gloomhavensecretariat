@@ -34,6 +34,10 @@ export class MonsterAbilityCardComponent {
   constructor(private dialog: Dialog) { }
 
   flipped(): boolean {
+    if (!settingsManager.settings.abilities) {
+      return false;
+    }
+
     if (this.index == -1) {
       this.ability = gameManager.monsterManager.getAbility(this.monster);
     } else {
@@ -140,7 +144,7 @@ export class MonsterAbilityCardComponent {
   restoreDefault(): void {
     gameManager.stateManager.before("restoreDefaultAbilities", "data.monster." + this.monster.name);
     const abilities = gameManager.abilities(this.monster);
-    this.monster.abilities = abilities.filter((ability) => !ability.level || isNaN(+ability.level) || ability.level <= this.monster.level).map((ability, index) => index);
+    this.monster.abilities = abilities.filter((ability) => !ability.level || isNaN(+ability.level) || typeof ability.level === 'number' && ability.level <= this.monster.level).map((ability, index) => index);
     this.monster.ability = -1;
     gameManager.stateManager.after();
   }
@@ -171,7 +175,7 @@ export class MonsterAbilityCardComponent {
   }
 
   openAbilities(event: any): void {
-    if (!event.srcEvent || !event.srcEvent.defaultPrevented) {
+    if (settingsManager.settings.abilities && (!event.srcEvent || !event.srcEvent.defaultPrevented)) {
       this.dialog.open(AbiltiesDialogComponent, {
         panelClass: 'dialog', data: this.monster
       });
@@ -179,12 +183,14 @@ export class MonsterAbilityCardComponent {
   }
 
   openAbility(event: any, second: boolean = false): void {
-    if (this.flipped()) {
-      this.dialog.open(AbilityDialogComponent, {
-        data: { ability: second ? this.secondAbility : this.ability, monster: this.monster }
-      });
-    } else {
-      this.openAbilities(event);
+    if (settingsManager.settings.abilities) {
+      if (this.flipped()) {
+        this.dialog.open(AbilityDialogComponent, {
+          data: { ability: second ? this.secondAbility : this.ability, monster: this.monster }
+        });
+      } else {
+        this.openAbilities(event);
+      }
     }
   }
 

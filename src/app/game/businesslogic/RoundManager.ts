@@ -101,7 +101,7 @@ export class RoundManager {
     }
 
     if (!figure.active && !figure.off) {
-      this.turn(figure);
+      this.turn(figure, initial);
     } else if (figure.active && !figure.off) {
       if (settingsManager.settings.activeStandees && figure instanceof Character && figure.summons.find((summon) => summon.active)) {
         figure.summons.forEach((summon) => summon.active = false);
@@ -231,12 +231,12 @@ export class RoundManager {
     }
   }
 
-  turn(figure: Figure) {
+  turn(figure: Figure, initial: boolean = false) {
     figure.active = true;
 
     if (figure instanceof Monster) {
       figure.entities.forEach((monsterEntity) => {
-        if (!monsterEntity.off && monsterEntity.summon != SummonState.new) {
+        if ((!figure.off || initial) && monsterEntity.summon != SummonState.new) {
           monsterEntity.active = true;
         }
       });

@@ -921,6 +921,10 @@
   },
   "settings": {
     ".": "Einstellungen",
+    "abilities": {
+      ".": "Fertigkeitskarten",
+      "hint": "Ziehe Fertigkeitskarten für Monster. Falls deaktiviert muss die Reihenfolge der Monster manuell über drag&drop festgelegt werden"
+    },
     "abilityNumbers": {
       ".": "Zeige Fertigkeitsnummern an",
       "hint": "Fertigkeitsnummern auf den Fertigkeitskarten anzeigen"

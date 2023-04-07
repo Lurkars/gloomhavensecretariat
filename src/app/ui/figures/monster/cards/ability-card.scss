@@ -29,6 +29,10 @@
     z-index: 2;
   }
 
+  &.disabled {
+    pointer-events: none;
+  }
+
   &.flipped {
 
     ghs-ability {

@@ -140,7 +140,20 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.calculate"
+          <input type="checkbox" [checked]="settingsManager.settings.abilities"
+            (change)="settingsManager.setAbilities(!settingsManager.settings.abilities)">
+          {{'settings.abilities' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.abilities.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
+          <input type="checkbox" [checked]="settingsManager.settings.abilities && settingsManager.settings.calculate"
             (change)="settingsManager.setCalculate(!settingsManager.settings.calculate)">
           {{'settings.calc' | ghsLabel}}
         </label>
@@ -152,8 +165,8 @@
     </div>
     <div class="line">
       <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.calculateStats"
+        <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
+          <input type="checkbox" [checked]="settingsManager.settings.abilities && settingsManager.settings.calculateStats"
             (change)="settingsManager.setCalculateStats(!settingsManager.settings.calculateStats)">
           {{'settings.calcStats' | ghsLabel}}
         </label>
@@ -165,8 +178,8 @@
     </div>
     <div class="line">
       <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.abilityReveal"
+        <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
+          <input type="checkbox" [checked]="settingsManager.settings.abilities && settingsManager.settings.abilityReveal"
             (change)="settingsManager.setAbilityReveal(!settingsManager.settings.abilityReveal)">{{'settings.abilityReveal'
           | ghsLabel}}
         </label>
@@ -194,8 +207,8 @@
   <div class="column">
     <div class="line">
       <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.interactiveAbilities"
+        <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
+          <input type="checkbox" [checked]="settingsManager.settings.abilities && settingsManager.settings.interactiveAbilities"
             (change)="settingsManager.setInteractiveAbilities(!settingsManager.settings.interactiveAbilities)">{{'settings.interactiveAbilities'
           |
           ghsLabel}}
@@ -208,9 +221,9 @@
     </div>
     <div class="line">
       <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.interactiveAbilities}">
+        <label [ngClass]="{'disabled' : !settingsManager.settings.abilities || !settingsManager.settings.interactiveAbilities}">
           <input type="checkbox"
-            [checked]="settingsManager.settings.combineSummonAction && settingsManager.settings.interactiveAbilities"
+            [checked]="settingsManager.settings.combineSummonAction && settingsManager.settings.abilities && settingsManager.settings.interactiveAbilities"
             (change)="settingsManager.setCombineSummonAction(!settingsManager.settings.combineSummonAction)">{{'settings.combineSummonAction'
           |
           ghsLabel}}
@@ -223,8 +236,8 @@
     </div>
     <div class="line">
       <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.abilityNumbers"
+        <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
+          <input type="checkbox" [checked]="settingsManager.settings.abilities && settingsManager.settings.abilityNumbers"
             (change)="settingsManager.setAbilityNumbers(!settingsManager.settings.abilityNumbers)">{{'settings.abilityNumbers'
           | ghsLabel}}
         </label>

@@ -1,6 +1,6 @@
 import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { Overlay } from "@angular/cdk/overlay";
-import { Component, ElementRef, HostListener, Inject, Input } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, HostListener, Inject, Input, ViewChild } from "@angular/core";
 import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -16,9 +16,10 @@ import { ghsDefaultDialogPositions } from "src/app/ui/helper/Static";
   templateUrl: 'initiative.html',
   styleUrls: ['./initiative.scss']
 })
-export class CharacterInitiativeComponent {
+export class CharacterInitiativeComponent implements AfterViewInit {
 
   @Input() character!: Character | Objective;
+  @ViewChild('initativeInput', { static: false }) initiativeInput!: ElementRef;
 
   characterManager: CharacterManager = gameManager.characterManager;
   gameManager: GameManager = gameManager;
@@ -26,6 +27,32 @@ export class CharacterInitiativeComponent {
   GameState = GameState;
 
   constructor(private dialog: Dialog, private overlay: Overlay, private elementRef: ElementRef) { };
+
+  ngAfterViewInit(): void {
+    if (this.initiativeInput) {
+      this.initiativeInput.nativeElement.addEventListener('keydown', (event: KeyboardEvent) => {
+        if (event.key === 'Tab' && gameManager.game.state == GameState.draw) {
+          const tabindex = this.tabindex();
+          let nextIndex = event.shiftKey ? tabindex - 1 : tabindex + 1;
+          let next = document.getElementById('initiative-input-' + nextIndex);
+          if (!next && tabindex > 0) {
+            next = document.getElementById('initiative-input-0');
+          } else if (!next && nextIndex < 0) {
+            nextIndex = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length - 1;
+            next = document.getElementById('initiative-input-' + nextIndex);
+            while (!next && nextIndex > 0) {
+              nextIndex--;
+              next = document.getElementById('initiative-input-' + nextIndex);
+            }
+          }
+          if (next) {
+            next.focus();
+          }
+          event.preventDefault();
+        }
+      })
+    }
+  }
 
   initiativeHidden(): boolean {
     return gameManager.game.state == GameState.draw && this.character instanceof Character && !this.character.initiativeVisible;
@@ -82,16 +109,7 @@ export class CharacterInitiativeComponent {
     return gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).indexOf(this.character);
   }
 
-  focusNext(event: any) {
-    const tabindex = this.tabindex();
-    let next = document.getElementById('initiative-input-' + (tabindex + 1));
-    if (!next && tabindex > 0) {
-      next = document.getElementById('initiative-input-0');
-    }
-    if (next) {
-      next.focus();
-    }
-    event.preventDefault();
+  focusNext(event: KeyboardEvent) {
   }
 
 }

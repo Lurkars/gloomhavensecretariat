@@ -355,8 +355,8 @@ export class MonsterManager {
 
   setLevel(monster: Monster, level: number) {
     const abilities = gameManager.abilities(monster);
-    if (monster.abilities.length != abilities.filter((ability) => !ability.level || isNaN(+ability.level) || ability.level <= level).length) {
-      monster.abilities = abilities.filter((ability) => !ability.level || isNaN(+ability.level) || ability.level <= level).map((ability, index) => index);
+    if (monster.abilities.length != abilities.filter((ability) => !ability.level || isNaN(+ability.level) || EntityValueFunction(ability.level) <= level).length) {
+      monster.abilities = abilities.filter((ability) => !ability.level || isNaN(+ability.level) || EntityValueFunction(ability.level) <= level).map((ability, index) => index);
       this.shuffleAbilities(monster);
     }
 
@@ -620,7 +620,7 @@ export class MonsterManager {
   }
 
   getAbility(monster: Monster): Ability | undefined {
-    if (monster.ability < 0 || monster.ability >= monster.abilities.length) {
+    if (monster.ability < 0 || monster.ability >= monster.abilities.length || !settingsManager.settings.abilities) {
       return undefined;
     }
 

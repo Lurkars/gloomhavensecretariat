@@ -94,13 +94,8 @@ export class SettingsManager {
     gameManager.uiChange.emit();
   }
 
-  setCalculate(calculate: boolean) {
-    this.settings.calculate = calculate;
-    this.storeSettings();
-  }
-
-  setCalculateStats(calculateStats: boolean) {
-    this.settings.calculateStats = calculateStats;
+  setAbilities(abilities: boolean) {
+    this.settings.abilities = abilities;
     this.storeSettings();
   }
 
@@ -109,43 +104,13 @@ export class SettingsManager {
     this.storeSettings();
   }
 
-  setCharacterHandSize(characterHandSize: boolean) {
-    this.settings.characterHandSize = characterHandSize;
-    this.storeSettings();
-  }
-
-  setEliteFirst(eliteFirst: boolean) {
-    this.settings.eliteFirst = eliteFirst;
-    this.storeSettings();
-  }
-
-  setExpireConditions(expireConditions: boolean) {
-    this.settings.expireConditions = expireConditions;
-    this.storeSettings();
-  }
-
-  setApplyConditions(applyConditions: boolean) {
-    this.settings.applyConditions = applyConditions;
+  setAbilityReveal(abilityReveal: boolean) {
+    this.settings.abilityReveal = abilityReveal;
     this.storeSettings();
   }
 
   setActiveApplyConditions(activeApplyConditions: boolean) {
     this.settings.activeApplyConditions = activeApplyConditions;
-    this.storeSettings();
-  }
-
-  setMoveElements(moveElements: boolean) {
-    this.settings.moveElements = moveElements;
-    this.storeSettings();
-  }
-
-  setHideStats(hideStats: boolean) {
-    this.settings.hideStats = hideStats;
-    this.storeSettings();
-  }
-
-  setRandomStandees(randomStandees: boolean) {
-    this.settings.randomStandees = randomStandees;
     this.storeSettings();
   }
 
@@ -159,23 +124,8 @@ export class SettingsManager {
     this.storeSettings();
   }
 
-  setInteractiveAbilities(interactiveAbilities: boolean) {
-    this.settings.interactiveAbilities = interactiveAbilities;
-    this.storeSettings();
-  }
-
-  setCombineSummonAction(combineSummonAction: boolean) {
-    this.settings.combineSummonAction = combineSummonAction;
-    this.storeSettings();
-  }
-
   setAlwaysAllyAttackModifierDeck(alwaysAllyAttackModifierDeck: boolean) {
     this.settings.alwaysAllyAttackModifierDeck = alwaysAllyAttackModifierDeck;
-    this.storeSettings();
-  }
-
-  setAlwaysHazardousTerrain(alwaysHazardousTerrain: boolean) {
-    this.settings.alwaysHazardousTerrain = alwaysHazardousTerrain;
     this.storeSettings();
   }
 
@@ -184,38 +134,8 @@ export class SettingsManager {
     this.storeSettings();
   }
 
-  setInitiativeRequired(initiativeRequired: boolean) {
-    this.settings.initiativeRequired = initiativeRequired;
-    this.storeSettings();
-  }
-
-  setDisableStandees(disableStandees: boolean) {
-    this.settings.disableStandees = disableStandees;
-    this.storeSettings();
-  }
-
-  setDragValues(dragValues: boolean) {
-    this.settings.dragValues = dragValues;
-    this.storeSettings();
-  }
-
-  setHideAbsent(hideAbsent: boolean) {
-    this.settings.hideAbsent = hideAbsent;
-    this.storeSettings();
-  }
-
-  setAbilityReveal(abilityReveal: boolean) {
-    this.settings.abilityReveal = abilityReveal;
-    this.storeSettings();
-  }
-
-  setShowFullAbilityCard(showFullAbilityCard: boolean) {
-    this.settings.showFullAbilityCard = showFullAbilityCard;
-    this.storeSettings();
-  }
-
-  setApplyLoot(applyLoot: boolean) {
-    this.settings.applyLoot = applyLoot;
+  setAlwaysHazardousTerrain(alwaysHazardousTerrain: boolean) {
+    this.settings.alwaysHazardousTerrain = alwaysHazardousTerrain;
     this.storeSettings();
   }
 
@@ -229,23 +149,68 @@ export class SettingsManager {
     this.storeSettings();
   }
 
-  setFullscreen(fullscreen: boolean) {
-    this.settings.fullscreen = fullscreen;
+  setApplyConditions(applyConditions: boolean) {
+    this.settings.applyConditions = applyConditions;
     this.storeSettings();
   }
 
-  setTheme(theme: string) {
-    this.settings.theme = theme;
+  setApplyLoot(applyLoot: boolean) {
+    this.settings.applyLoot = applyLoot;
     this.storeSettings();
   }
 
-  setFhStyle(fhStyle: boolean) {
-    this.settings.fhStyle = fhStyle;
-    if (this.settings.fhStyle && this.settings.theme == 'default') {
-      this.settings.theme = 'fh';
-    } else if (!this.settings.fhStyle && this.settings.theme == 'fh') {
-      this.settings.theme = 'default';
-    }
+  setAutomaticAttackModifierFullscreen(automaticAttackModifierFullscreen: boolean) {
+    this.settings.automaticAttackModifierFullscreen = automaticAttackModifierFullscreen;
+    this.storeSettings();
+  }
+
+  setAutomaticStandees(automaticStandees: boolean) {
+    this.settings.automaticStandees = automaticStandees;
+    this.storeSettings();
+  }
+
+  setAutoscroll(autoscroll: boolean) {
+    this.settings.autoscroll = autoscroll;
+    this.storeSettings();
+  }
+
+  setBarsize(barsize: number) {
+    this.settings.barsize = barsize;
+    this.storeSettings();
+  }
+
+  setBrowserNavigation(browserNavigation: boolean) {
+    this.settings.browserNavigation = browserNavigation;
+    this.storeSettings();
+  }
+
+  setCalculateStats(calculateStats: boolean) {
+    this.settings.calculateStats = calculateStats;
+    this.storeSettings();
+  }
+
+  setCalculate(calculate: boolean) {
+    this.settings.calculate = calculate;
+    this.storeSettings();
+  }
+
+  setCharacterHandSize(characterHandSize: boolean) {
+    this.settings.characterHandSize = characterHandSize;
+    this.storeSettings();
+  }
+
+  setCombineSummonAction(combineSummonAction: boolean) {
+    this.settings.combineSummonAction = combineSummonAction;
+    this.storeSettings();
+  }
+
+  setDebugRightClick(debugRightClick: boolean) {
+    this.settings.debugRightClick = debugRightClick;
+    this.storeSettings();
+  }
+
+  setDisableAnimations(disableAnimations: boolean) {
+    this.settings.disableAnimations = disableAnimations;
     this.storeSettings();
   }
 
@@ -259,6 +224,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setDisabledTurnConfirmation(disabledTurnConfirmation: boolean) {
+    this.settings.disabledTurnConfirmation = disabledTurnConfirmation;
+    this.storeSettings();
+  }
+
   setDisableSortFigures(disableSortFigures: boolean) {
     this.settings.disableSortFigures = disableSortFigures;
     if (!disableSortFigures) {
@@ -267,75 +237,8 @@ export class SettingsManager {
     this.storeSettings();
   }
 
-  setDisableAnimations(disableAnimations: boolean) {
-    this.settings.disableAnimations = disableAnimations;
-    this.storeSettings();
-  }
-
-  setAutoscroll(autoscroll: boolean) {
-    this.settings.autoscroll = autoscroll;
-    this.storeSettings();
-  }
-
-  setScenarioRules(scenarioRules: boolean) {
-    this.settings.scenarioRules = scenarioRules;
-    this.storeSettings();
-  }
-
-  setScenarioRooms(scenarioRooms: boolean) {
-    this.settings.scenarioRooms = scenarioRooms;
-    this.storeSettings();
-  }
-
-  setTreasures(treasures: boolean) {
-    this.settings.treasures = treasures;
-    this.storeSettings();
-  }
-
-
-  setTreasuresLoot(treasuresLoot: boolean) {
-    this.settings.treasuresLoot = treasuresLoot;
-    this.storeSettings();
-  }
-
-
-  setDisabledTurnConfirmation(disabledTurnConfirmation: boolean) {
-    this.settings.disabledTurnConfirmation = disabledTurnConfirmation;
-    this.storeSettings();
-  }
-
-  setAutomaticStandees(automaticStandees: boolean) {
-    this.settings.automaticStandees = automaticStandees;
-    this.storeSettings();
-  }
-
-  setScenarioNumberInput(scenarioNumberInput: boolean) {
-    this.settings.scenarioNumberInput = scenarioNumberInput;
-    this.storeSettings();
-  }
-
-  setHints(hints: boolean) {
-    this.settings.hints = hints;
-    this.storeSettings();
-  }
-
-  setBrowserNavigation(browserNavigation: boolean) {
-    this.settings.browserNavigation = browserNavigation;
-    this.storeSettings();
-  }
-
-  setZoom(zoom: number) {
-    this.settings.zoom = zoom;
-    this.storeSettings();
-  }
-
-  setPressDoubleClick(pressDoubleClick: boolean) {
-    this.settings.pressDoubleClick = pressDoubleClick;
-    this.storeSettings();
-  }
-
-  setAutomaticAttackModifierFullscreen(automaticAttackModifierFullscreen: boolean) {
-    this.settings.automaticAttackModifierFullscreen = automaticAttackModifierFullscreen;
+  setDisableStandees(disableStandees: boolean) {
+    this.settings.disableStandees = disableStandees;
     this.storeSettings();
   }
 
@@ -351,8 +254,28 @@ export class SettingsManager {
     this.storeSettings();
   }
 
-  setBarsize(barsize: number) {
-    this.settings.barsize = barsize;
+  setDragValues(dragValues: boolean) {
+    this.settings.dragValues = dragValues;
+    this.storeSettings();
+  }
+
+  setEliteFirst(eliteFirst: boolean) {
+    this.settings.eliteFirst = eliteFirst;
+    this.storeSettings();
+  }
+
+  setExpireConditions(expireConditions: boolean) {
+    this.settings.expireConditions = expireConditions;
+    this.storeSettings();
+  }
+
+  setFhStyle(fhStyle: boolean) {
+    this.settings.fhStyle = fhStyle;
+    if (this.settings.fhStyle && this.settings.theme == 'default') {
+      this.settings.theme = 'fh';
+    } else if (!this.settings.fhStyle && this.settings.theme == 'fh') {
+      this.settings.theme = 'default';
+    }
     this.storeSettings();
   }
 
@@ -361,8 +284,87 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setFullscreen(fullscreen: boolean) {
+    this.settings.fullscreen = fullscreen;
+    this.storeSettings();
+  }
+
+  setHideAbsent(hideAbsent: boolean) {
+    this.settings.hideAbsent = hideAbsent;
+    this.storeSettings();
+  }
+
+  setHideStats(hideStats: boolean) {
+    this.settings.hideStats = hideStats;
+    this.storeSettings();
+  }
+
+  setHints(hints: boolean) {
+    this.settings.hints = hints;
+    this.storeSettings();
+  }
+
+  setInitiativeRequired(initiativeRequired: boolean) {
+    this.settings.initiativeRequired = initiativeRequired;
+    this.storeSettings();
+  }
+
+  setInteractiveAbilities(interactiveAbilities: boolean) {
+    this.settings.interactiveAbilities = interactiveAbilities;
+    this.storeSettings();
+  }
+
+  async setLocale(locale: string) {
+    this.settings.locale = locale;
+    await this.updateLocale(locale);
+    this.storeSettings();
+  }
+
+  setMaxUndo(maxUndo: number) {
+    this.settings.maxUndo = maxUndo;
+    this.storeSettings();
+  }
+
+  setMoveElements(moveElements: boolean) {
+    this.settings.moveElements = moveElements;
+    this.storeSettings();
+  }
+
+  setPressDoubleClick(pressDoubleClick: boolean) {
+    this.settings.pressDoubleClick = pressDoubleClick;
+    this.storeSettings();
+  }
+
+  setRandomStandees(randomStandees: boolean) {
+    this.settings.randomStandees = randomStandees;
+    this.storeSettings();
+  }
+
+  setScenarioNumberInput(scenarioNumberInput: boolean) {
+    this.settings.scenarioNumberInput = scenarioNumberInput;
+    this.storeSettings();
+  }
+
+  setScenarioRooms(scenarioRooms: boolean) {
+    this.settings.scenarioRooms = scenarioRooms;
+    this.storeSettings();
+  }
+
+  setScenarioRules(scenarioRules: boolean) {
+    this.settings.scenarioRules = scenarioRules;
+    this.storeSettings();
+  }
+
   setServerAutoconnect(autoconnect: boolean) {
     this.settings.serverAutoconnect = autoconnect;
+    this.storeSettings();
+  }
+
+
+  setServer(url: string, port: number, password: string): void {
+    this.settings.serverUrl = url;
+    this.settings.serverPort = port;
+    this.settings.serverPassword = password;
     this.storeSettings();
   }
 
@@ -380,20 +382,27 @@ export class SettingsManager {
     this.storeSettings();
   }
 
-  setServer(url: string, port: number, password: string): void {
-    this.settings.serverUrl = url;
-    this.settings.serverPort = port;
-    this.settings.serverPassword = password;
+  setShowFullAbilityCard(showFullAbilityCard: boolean) {
+    this.settings.showFullAbilityCard = showFullAbilityCard;
     this.storeSettings();
   }
 
-  setMaxUndo(maxUndo: number) {
-    this.settings.maxUndo = maxUndo;
+  setTheme(theme: string) {
+    this.settings.theme = theme;
     this.storeSettings();
   }
 
-  setDebugRightClick(debugRightClick: boolean) {
-    this.settings.debugRightClick = debugRightClick;
+  setTreasuresLoot(treasuresLoot: boolean) {
+    this.settings.treasuresLoot = treasuresLoot;
+    this.storeSettings();
+  }
+  setTreasures(treasures: boolean) {
+    this.settings.treasures = treasures;
+    this.storeSettings();
+  }
+
+  setZoom(zoom: number) {
+    this.settings.zoom = zoom;
     this.storeSettings();
   }
 
@@ -845,12 +854,6 @@ export class SettingsManager {
       this.loadDataLabel(editionData);
     }
     gameManager.uiChange.emit();
-  }
-
-  async setLocale(locale: string) {
-    this.settings.locale = locale;
-    await this.updateLocale(locale);
-    this.storeSettings();
   }
 
   getLabel(key: string, args: string[] = [], argLabel: boolean = true, from: any = this.label, path: string = "", empty: boolean = false): string {

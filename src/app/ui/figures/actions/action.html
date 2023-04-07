@@ -32,11 +32,20 @@
     *ngSwitchCase="[ActionType.element, ActionType.elementHalf].includes(action.type) ? action.type : ''">
     <ng-container *ngIf="action.type == ActionType.element">
       <span class="elements">
-        <span class="element" (tap)="elementAction($event, action, '' + action.value)"
-          *ngFor="let element of getValues(action)"
-          [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement('' + element, action.valueType == ActionValueType.minus)}">
+        <span class="element" (tap)="elementAction($event, action, element)" *ngFor="let element of getValues(action)"
+          [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement('' + element, action.valueType == ActionValueType.minus), 'wild' : element == 'wild'}">
           <img
             [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/' + element + '.svg'" />
+
+          <span class="choose-element-container" *ngIf="element == 'wild'">
+            <span class="choose-element"
+              *ngFor="let chooseElement of (action.valueType == ActionValueType.minus ? wildToConsume() : wildToCreate())"
+              (tap)="elementAction($event, action, chooseElement, true)">
+              <img
+                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/' + chooseElement + '.svg'" />
+            </span>
+          </span>
+
         </span>
         <span class="minus" *ngIf="action.valueType == ActionValueType.minus">:</span>
       </span>

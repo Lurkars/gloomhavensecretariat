@@ -8,6 +8,8 @@ import { SettingsManager, settingsManager } from '../game/businesslogic/Settings
 import { Character } from '../game/model/Character';
 import { FooterComponent } from './footer/footer';
 import { SubMenu } from './header/menu/menu';
+import { Monster } from '../game/model/Monster';
+import { Objective } from '../game/model/Objective';
 
 @Component({
   selector: 'ghs-main',
@@ -143,20 +145,38 @@ export class MainComponent implements OnInit {
     });
 
     window.addEventListener('keydown', (event: KeyboardEvent) => {
-      if (event.ctrlKey && event.key.toLowerCase() === 'z' && !event.shiftKey) {
-        gameManager.stateManager.undo();
-      } else if (event.ctrlKey && event.key === 'y' || event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'z') {
-        gameManager.stateManager.redo();
-      } else if (!this.zoomInterval && event.key === 'ArrowUp') {
-        this.zoom(-1);
-        this.zoomInterval = setInterval(() => {
+      if (!event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT')) {
+        if (event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'z') {
+          gameManager.stateManager.undo();
+          event.preventDefault();
+        } else if (event.ctrlKey && !event.shiftKey && event.key === 'y' || event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'z') {
+          gameManager.stateManager.redo();
+          event.preventDefault();
+        } else if (!event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key === 'ArrowUp') {
           this.zoom(-1);
-        }, 30);
-      } else if (!this.zoomInterval && event.key === 'ArrowDown') {
-        this.zoom(1);
-        this.zoomInterval = setInterval(() => {
+          this.zoomInterval = setInterval(() => {
+            this.zoom(-1);
+          }, 30);
+          event.preventDefault();
+        } else if (!event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key === 'ArrowDown') {
           this.zoom(1);
-        }, 30);
+          this.zoomInterval = setInterval(() => {
+            this.zoom(1);
+          }, 30);
+          event.preventDefault();
+        } else if (event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'r') {
+          this.currentZoom = 100;
+          settingsManager.setZoom(this.currentZoom);
+          document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
+          event.preventDefault();
+        } else if (!event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'n') {
+          if (!this.footer.disabled()) {
+            this.footer.next();
+          }
+        } else if (!event.ctrlKey && gameManager.game.state == GameState.next && event.key === 'Tab') {
+          this.toggleEntity(event.shiftKey);
+          event.preventDefault();
+        }
       }
     })
 
@@ -176,6 +196,86 @@ export class MainComponent implements OnInit {
           gameManager.stateManager.wakeLock = await navigator.wakeLock.request("screen");
         }
       });
+    }
+  }
+
+  toggleEntity(reverse: boolean) {
+    const figures = gameManager.game.figures.filter((figure) => gameManager.gameplayFigure(figure));
+    let activeFigure = figures.find((figure) => figure.active);
+
+    if (!activeFigure && reverse) {
+      activeFigure = figures[figures.length - 1];
+    } else if (activeFigure && reverse && figures.indexOf(activeFigure) > 0) {
+      activeFigure = figures[figures.indexOf(activeFigure) - 1];
+    }
+
+    if (activeFigure) {
+      if (activeFigure instanceof Character) {
+        let toggleFigure = true;
+        if (settingsManager.settings.activeSummons) {
+          const summons = activeFigure.summons.filter((summon) => gameManager.entityManager.isAlive(summon));
+          let activeSummon = summons.find((summon) => summon.active);
+          if (!activeSummon && summons.length > 0 && reverse && activeFigure.active) {
+            activeSummon = summons[summons.length - 1];
+            gameManager.stateManager.before("summonActive", "data.character." + activeFigure.name, "data.summon." + activeSummon.name);
+            activeSummon.active = true;
+            toggleFigure = false;
+            gameManager.stateManager.after();
+          } else if (activeSummon && !reverse) {
+            gameManager.stateManager.before("summonInactive", "data.character." + activeFigure.name, "data.summon." + activeSummon.name);
+            activeSummon.active = false;
+            if (summons.indexOf(activeSummon) < summons.length - 1) {
+              summons[summons.indexOf(activeSummon) + 1].active = true;
+            }
+            toggleFigure = false;
+            gameManager.stateManager.after();
+          }
+        }
+        if (toggleFigure) {
+          gameManager.stateManager.before(activeFigure.active ? "unsetActive" : "setActive", "data.character." + activeFigure.name);
+          gameManager.roundManager.toggleFigure(activeFigure);
+          gameManager.stateManager.after();
+        }
+      } else if (activeFigure instanceof Monster) {
+        let toggleFigure = true;
+        const entities = activeFigure.entities.filter((entity) => gameManager.entityManager.isAlive(entity));
+        if (settingsManager.settings.activeStandees) {
+          let activeEntity = entities.find((entity) => entity.active);
+          if (!activeEntity && entities.length > 0 && reverse && activeFigure.active) {
+            activeEntity = entities[entities.length - 1];
+            gameManager.stateManager.before(activeEntity ? "unsetEntityActive" : "setEntityActive", "data.monster." + activeFigure.name, "monster." + activeEntity.type, "" + activeEntity.number);
+            gameManager.monsterManager.toggleActive(activeFigure, activeEntity);
+            activeEntity.active = true;
+            toggleFigure = false;
+            gameManager.stateManager.after();
+          } else if (activeEntity && !reverse) {
+            gameManager.stateManager.before(activeEntity ? "unsetEntityActive" : "setEntityActive", "data.monster." + activeFigure.name, "monster." + activeEntity.type, "" + activeEntity.number);
+            gameManager.monsterManager.toggleActive(activeFigure, activeEntity);
+            if (entities.indexOf(activeEntity) < entities.length - 1) {
+              entities[entities.indexOf(activeEntity) + 1].active = true;
+            }
+            toggleFigure = false;
+            gameManager.stateManager.after();
+          }
+        }
+        if (toggleFigure) {
+          gameManager.stateManager.before(activeFigure.active ? "unsetActive" : "setActive", "data.monster." + activeFigure.name);
+          if (reverse && !activeFigure.active && settingsManager.settings.activeStandees) {
+            activeFigure.entities.forEach((entity) => {
+              if (gameManager.entityManager.isAlive(entity)) {
+                entity.active = true;
+                entity.off = false;
+              }
+            });
+          }
+          gameManager.roundManager.toggleFigure(activeFigure);
+          gameManager.stateManager.after();
+        }
+      } else if (activeFigure instanceof Objective) {
+        gameManager.stateManager.before(activeFigure.active ? "unsetActive" : "setActive", activeFigure.title || activeFigure.name);
+        gameManager.roundManager.toggleFigure(activeFigure);
+        gameManager.stateManager.after();
+      }
     }
   }
 

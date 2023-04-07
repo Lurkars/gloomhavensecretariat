@@ -1,5 +1,6 @@
 
 export class Settings {
+  abilities: boolean = true;
   abilityNumbers: boolean = true;
   abilityReveal: boolean = true;
   activeApplyConditions: boolean = true;

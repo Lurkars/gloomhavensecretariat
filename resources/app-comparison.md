@@ -120,7 +120,7 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 
 [^14]: [Source Code](https://github.com/Lurkars/gloomhavensecretariat) ([AGPL 3.0](https://github.com/Lurkars/gloomhavensecretariat/blob/main/LICENSE))
 
-[^15]: [Source Code](https://github.com/Tarmslitaren/FrosthavenAssistant) ([AGPL 3.0](https://github.com/Tarmslitaren/FrosthavenAssistant/blob/main/LICENCE))
+[^15]: [Source Code](https://github.com/Tarmslitaren/FrosthavenAssistant) ([AGPL 3.0](https://github.com/Tarmslitaren/FrosthavenAssistant/blob/main/LICENSE))
 
 [^16.1]: Some special monsters missing
 
