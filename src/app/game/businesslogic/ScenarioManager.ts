@@ -734,7 +734,7 @@ export class ScenarioManager {
   }
 
   openRooms(initial: boolean = false): RoomData[] {
-    if (!this.game.scenario) {
+    if (!this.game.scenario || !this.game.scenario.rooms) {
       return [];
     }
 
@@ -742,7 +742,7 @@ export class ScenarioManager {
   }
 
   closedRooms(): RoomData[] {
-    if (!this.game.scenario) {
+    if (!this.game.scenario || !this.game.scenario.rooms) {
       return [];
     }
 
