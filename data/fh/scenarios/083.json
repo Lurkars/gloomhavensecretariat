@@ -19,6 +19,31 @@
     "arrowvine": 2,
     "snowthistle": 1
   },
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "giant-piranha-pig"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "giant-piranha-pig-boss"
+          },
+          "type": "remove"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -70,6 +95,10 @@
           "player4": "elite"
         },
         {
+          "name": "lurker-mindsnipper",
+          "player4": "normal"
+        },
+        {
           "name": "piranha-pig",
           "type": "normal"
         },
@@ -88,7 +117,7 @@
         {
           "name": "piranha-pig",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
