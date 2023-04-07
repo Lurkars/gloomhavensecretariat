@@ -3,6 +3,7 @@ import { EditionData } from "../model/data/EditionData";
 import { Settings } from "../model/Settings";
 import { Spoilable } from "../model/data/Spoilable";
 import { gameManager } from "./GameManager";
+import { EntityValueFunction } from "../model/Entity";
 
 export class SettingsManager {
 
@@ -14,10 +15,6 @@ export class SettingsManager {
   label: any = {};
   locales: string[] = ["en", "de", "fr", "ko"];
   developent: boolean = false;
-
-  constructor() {
-    this.loadSettings();
-  }
 
   reset() {
     localStorage.removeItem("ghs-settings");
@@ -76,6 +73,7 @@ export class SettingsManager {
   }
 
   async init(developent: boolean) {
+    await this.loadSettings();
     this.developent = developent;
     for (let defaultEditionDataUrl of this.defaultEditionDataUrls) {
       if (settingsManager.settings.editionDataUrls.indexOf(defaultEditionDataUrl) == -1 && settingsManager.settings.excludeEditionDataUrls.indexOf(defaultEditionDataUrl) == -1) {
@@ -588,7 +586,7 @@ export class SettingsManager {
       }
 
       // boss hints
-      if (monsterData.boss && monsterData.count > 1) {
+      if (monsterData.boss && EntityValueFunction(monsterData.count) > 1) {
         console.warn("Boss count check: " + monsterData.name + " (Edition: " + monsterData.edition + ")");
       }
       let found: boolean = false;

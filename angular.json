@@ -32,7 +32,8 @@
               "src/.htaccess",
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/ghs-settings-default.json"
             ],
             "styles": [
               "src/styles.scss"

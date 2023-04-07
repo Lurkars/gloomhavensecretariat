@@ -11,6 +11,63 @@
   ],
   "rules": [
     {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Place one debris in each %game.mapMarker.a%. Any figure occupying %game.mapMarker.a% suffers trap damage and is placed in the closest empty hex."
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "h",
+          "count": "2"
+        },
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "h",
+          "count": "2"
+        },
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "g"
+        },
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "g"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Pebbles rain down at %game.mapMarker.b%. This has no effect yet."
+    },
+    {
       "round": "R == 7",
       "start": true,
       "sections": [

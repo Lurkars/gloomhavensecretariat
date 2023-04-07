@@ -44,7 +44,7 @@ export class Settings {
   initiativeRequired: boolean = true;
   interactiveAbilities: boolean = true;
   locale: string = "en";
-  maxUndo: number = 50;
+  maxUndo: number = 500;
   moveElements: boolean = true;
   pressDoubleClick: boolean = true;
   randomStandees: boolean = false;

@@ -24,6 +24,7 @@ export class EditionData implements Editional {
   label: any = {};
   labelSpoiler: any = {};
   url: string = "";
+  logoUrl: string = "";
   additional: boolean = false;
   extensions: string[] = [];
   newAmStyle: boolean = false;

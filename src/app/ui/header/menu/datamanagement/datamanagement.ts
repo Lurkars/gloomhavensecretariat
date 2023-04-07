@@ -22,6 +22,7 @@ export class DatamanagementMenuComponent implements OnInit {
   gameManager: GameManager = gameManager;
   backups: number = 0;
   ghsInputFullScreenCheck = ghsInputFullScreenCheck;
+  confirm: string = "";
 
   ngOnInit(): void {
     let count = 1;
@@ -88,6 +89,10 @@ export class DatamanagementMenuComponent implements OnInit {
     }
   }
 
+  cancelConfirm() {
+    this.confirm = "";
+  }
+
   exportGame() {
     const gameJson = localStorage.getItem("ghs-game");
     if (gameJson) {
@@ -138,6 +143,22 @@ export class DatamanagementMenuComponent implements OnInit {
     }
   }
 
+  deleteBackups() {
+    if (this.confirm != "deleteBackups") {
+      this.confirm = "deleteBackups";
+    } else {
+      let count = 1;
+      let backup = localStorage.getItem("ghs-game-backup-" + count);
+      while (backup) {
+        localStorage.removeItem("ghs-game-backup-" + count);
+        count++;
+        backup = localStorage.getItem("ghs-game-backup-" + count);
+      }
+
+      this.backups = 0;
+    }
+  }
+
   importGame(event: any) {
     event.target.parentElement.classList.remove("error");
     try {
@@ -160,9 +181,13 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   resetGame(): void {
-    gameManager.stateManager.reset();
-    gameManager.stateManager.after();
-    window.location.reload();
+    if (this.confirm != "resetGame") {
+      this.confirm = "resetGame";
+    } else {
+      gameManager.stateManager.reset();
+      gameManager.stateManager.after();
+      window.location.reload();
+    }
   }
 
   exportSettings() {
@@ -194,8 +219,64 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   resetSettings(): void {
-    settingsManager.reset();
-    window.location.reload();
+    if (this.confirm != "resetSettings") {
+      this.confirm = "resetSettings";
+    } else {
+      settingsManager.reset();
+      window.location.reload();
+    }
+  }
+
+  exportDataDump() {
+    let datadump: any = {};
+    datadump.errorLog = gameManager.stateManager.errorLog;
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key) {
+        const data = localStorage.getItem(key);
+        if (data) {
+          datadump[key] = JSON.parse(data);
+        }
+      }
+    }
+    let downloadButton = document.createElement('a');
+    downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(datadump)));
+    downloadButton.setAttribute('download', "ghs-data-dump.json");
+    document.body.appendChild(downloadButton);
+    downloadButton.click();
+    document.body.removeChild(downloadButton);
+  }
+
+  importDataDump(event: any) {
+    event.target.parentElement.classList.remove("error");
+    try {
+      const reader = new FileReader();
+      reader.addEventListener('load', (event: any) => {
+        const datadump: any = JSON.parse(event.target.result);
+        gameManager.stateManager.errorLog = datadump.errorLog || [];
+        Object.keys(datadump).forEach((key) => {
+          if (key != 'errorLog') {
+            localStorage.setItem(key, JSON.stringify(datadump[key]));
+          }
+        })
+
+        window.location.reload();
+      });
+
+      reader.readAsText(event.target.files[0]);
+    } catch (e: any) {
+      console.warn(e);
+      event.target.parentElement.classList.add("error");
+    }
+  }
+
+  clearAllData(): void {
+    if (this.confirm != "clearAllData") {
+      this.confirm = "clearAllData";
+    } else {
+      localStorage.clear();
+      window.location.reload();
+    }
   }
 
 }

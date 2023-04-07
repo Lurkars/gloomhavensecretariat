@@ -9,5 +9,6 @@
     "invisible",
     "strengthen"
   ],
-  "edition": "gh"
+  "edition": "gh",
+  "logoUrl": "./assets/images/logos/gh.png"
 }

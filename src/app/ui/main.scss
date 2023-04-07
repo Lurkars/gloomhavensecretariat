@@ -200,19 +200,35 @@ main {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+
+    .edition {
+      cursor: pointer;
+      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+
+      .text {
+        font-family: var(--ghs-font-title);
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+        color: var(--ghs-color-gray);
+        text-shadow: var(--ghs-outline);
+      }
+
+      &:hover {
+        filter: brightness(0.8) grayscale(0.4);
+
+        .text {
+          color: var(--ghs-color-white);
+        }
+      }
+    }
   }
 
 
-  .edition,
   .add-characters {
     color: var(--ghs-color-darkgray);
     cursor: pointer;
     font-family: var(--ghs-font-title);
+    font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
     margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
-
-    &.add-characters {
-      font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
-    }
 
     &:hover {
       opacity: 0.6;

@@ -120,8 +120,10 @@
     "backup": {
       ".": "Game Backups",
       "all": "Download all Game Backups ({0})",
+      "delete": "Delete Game Backups",
       "latest": "Download latest Game Backup"
     },
+    "clearAll": "Reset all Data",
     "editionDataUrls": {
       ".": "Manage Edition Data",
       "custom": "Additional Edition Data",
@@ -129,8 +131,10 @@
       "enable": "Enable Edition",
       "remove": "Remove Edition Data"
     },
+    "exportDataDump": "Export Data Dump",
     "exportGame": "Export Game to File",
     "exportSettings": "Export Settings to File",
+    "importDataDump": "Import Data Dump",
     "importGame": "Import Game from File",
     "importSettings": "Import Settings from File",
     "removeAllSpoilers": "Delete all",

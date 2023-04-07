@@ -17,9 +17,10 @@
     "wound_x"
   ],
   "edition": "toa",
-  "newAmStyle": true,
   "extensions": [
     "cs"
   ],
+  "newAmStyle": true,
+  "logoUrl": "./assets/images/logos/toa.png",
   "treasureOffset": 50
 }
