@@ -23,12 +23,6 @@
       "round": "true",
       "always": true,
       "once": true,
-      "note": "Pebbles rain down at each %game.mapMarker.c%. This has no effect"
-    },
-    {
-      "round": "true",
-      "always": true,
-      "once": true,
       "note": "Any figure occupying %game.mapMarker.b% suffers trap damage and is placed in the closest empty hex.",
       "spawns": [
         {
@@ -52,8 +46,14 @@
             "name": "ruined-machine",
             "type": "elite"
           },
-          "marker": "g",
-          "count": 2
+          "marker": "g"
+        },
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "type": "elite"
+          },
+          "marker": "g"
         },
         {
           "monster": {
@@ -61,10 +61,23 @@
             "player3": "normal",
             "player4": "elite"
           },
-          "marker": "h",
-          "count": 2
+          "marker": "h"
+        },
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "h"
         }
       ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Pebbles rain down at each %game.mapMarker.c%. This has no effect yet."
     }
   ],
   "rooms": [
