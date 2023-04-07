@@ -19,13 +19,13 @@
       "round": "true",
       "always": true,
       "once": true,
-      "note": "Pebbles rain down at %game.mapMarker.d%,%game.mapMarker.e% and %game.mapMarker.f%. This has no effect"
+      "note": "Place one debris in each %game.mapMarker.c%. Any figure occupying %game.mapMarker.c% suffers trap damage and is placed in the closest empty hex."
     },
     {
       "round": "true",
       "always": true,
       "once": true,
-      "note": "Place one debris in each %game.mapMarker.c%. Any figure occupying %game.mapMarker.c% suffers trap damage and is placed in the closest empty hex."
+      "note": "Pebbles rain down at %game.mapMarker.d%,%game.mapMarker.e% and %game.mapMarker.f%. This has no effect yet."
     }
   ]
 }
