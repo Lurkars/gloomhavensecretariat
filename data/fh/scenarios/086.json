@@ -14,15 +14,12 @@
       "health": "(2+L)xC",
       "actions": [
         {
+          "type": "custom",
+          "value": "When suffering damage but not destroyed:"
+        },
+        {
           "type": "summon",
-          "value": "black-imp:normal",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "whenever suffering damage without beeing destroyed",
-              "small": true
-            }
-          ]
+          "value": "black-imp:normal"
         }
       ]
     }
