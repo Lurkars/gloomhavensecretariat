@@ -3,6 +3,7 @@
   "name": "Collection's Capstone",
   "edition": "fh",
   "parent": "88",
+  "marker": "1",
   "monsters": [
     "lurker-clawcrusher"
   ],
@@ -20,6 +21,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "lurker-clawcrusher",
+          "player4": "normal"
         }
       ]
     }
