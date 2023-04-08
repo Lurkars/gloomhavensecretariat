@@ -28,7 +28,7 @@
             "type": "monster",
             "name": ".*"
           },
-          "type": "gainCondition",
+          "type": "permanentCondition",
           "value": "wound"
         }
       ]

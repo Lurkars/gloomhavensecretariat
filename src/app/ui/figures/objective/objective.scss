@@ -207,12 +207,14 @@
     .condition {
       position: relative;
       display: flex;
+      width: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+      height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
       margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
 
       img {
-        width: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
-        height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
         margin: 0;
+        width: 100%;
+        height: auto;
 
         &.stack {
           margin-left: calc(var(--ghs-unit) * -2);

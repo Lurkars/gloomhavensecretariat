@@ -32,6 +32,7 @@ export class ConditionsComponent implements OnInit {
   standardPositive: Condition[] = [];
   upgradePositive: Condition[] = [];
   stackPositive: Condition[] = [];
+  permanent: Condition[] = [];
 
   monsterType: MonsterType | boolean = false;
 
@@ -59,7 +60,29 @@ export class ConditionsComponent implements OnInit {
     this.stackNegative = gameManager.conditionsForTypes('stack', 'negative', this.type);
     this.standardPositive = gameManager.conditionsForTypes('standard', 'positive', this.type);
     this.upgradePositive = gameManager.conditionsForTypes('upgrade', 'positive', this.type);
-    this.stackPositive = gameManager.conditionsForTypes('stack', 'positive', this.type);
+    this.initializePermanentConditions();
+  }
+
+  initializePermanentConditions() {
+    this.permanent = [];
+    this.entityConditions.forEach((entityCondition) => {
+      if (this.isPermanent(entityCondition.name) && this.hasCondition(entityCondition)) {
+        if (!this.permanent.find((condition) => condition.name == entityCondition.name)) {
+          this.permanent.push(new Condition(entityCondition.name));
+        }
+      }
+    })
+    if (this.entity instanceof Character) {
+      this.entity.stats.forEach((stat) => {
+        if (stat.level <= this.entity.level && stat.permanentConditions) {
+          stat.permanentConditions.forEach((conditionName) => {
+            if (!this.permanent.find((condition) => condition.name == conditionName)) {
+              this.permanent.push(new Condition(conditionName));
+            }
+          })
+        }
+      })
+    }
   }
 
   hasCondition(condition: Condition): boolean {
@@ -72,7 +95,7 @@ export class ConditionsComponent implements OnInit {
     }
   }
 
-  isImmune(conditionName: ConditionName) {
+  isImmune(conditionName: ConditionName): boolean {
 
     if (this.figure instanceof Character) {
       let immunities: ConditionName[] = [];
@@ -100,6 +123,14 @@ export class ConditionsComponent implements OnInit {
         return this.entities.every((entity) => this.figure instanceof Monster && entity instanceof MonsterEntity && gameManager.entityManager.isImmune(this.figure, entity, conditionName));
       }
       return gameManager.entityManager.isImmune(this.figure, this.entity, conditionName);
+    }
+
+    return false;
+  }
+
+  isPermanent(conditionName: ConditionName): boolean {
+    if (this.entityConditions) {
+      return this.entityConditions.some((entityCondition) => entityCondition.name == conditionName && entityCondition.permanent && !entityCondition.expired);
     }
 
     return false;
@@ -133,8 +164,8 @@ export class ConditionsComponent implements OnInit {
     }
   }
 
-  toggleCondition(condition: Condition) {
-    if (this.hasCondition(condition)) {
+  toggleCondition(condition: Condition, permanent: boolean = false) {
+    if (this.hasCondition(condition) && (!permanent || this.isPermanent(condition.name))) {
       let entityCondition: EntityCondition | undefined = this.entityConditions.find((entityCondition) => entityCondition.name == condition.name);
       if (entityCondition) {
         entityCondition.expired = true;
@@ -153,6 +184,11 @@ export class ConditionsComponent implements OnInit {
         entityCondition.lastState = entityCondition.state;
         entityCondition.state = EntityConditionState.new;
       }
+      entityCondition.permanent = permanent;
+    }
+
+    if (permanent) {
+      this.initializePermanentConditions();
     }
   }
 

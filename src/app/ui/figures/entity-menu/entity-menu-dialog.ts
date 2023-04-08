@@ -827,7 +827,7 @@ export class EntityMenuDialogComponent {
           if (entityCondition.state == EntityConditionState.removed) {
             gameManager.entityManager.removeCondition(this.data.entity, entityCondition);
           } else {
-            gameManager.entityManager.addCondition(this.data.entity, entityCondition, this.data.figure.active, this.data.figure.off);
+            gameManager.entityManager.addCondition(this.data.entity, entityCondition, this.data.figure.active, this.data.figure.off, entityCondition.permanent);
           }
           gameManager.stateManager.after();
         }

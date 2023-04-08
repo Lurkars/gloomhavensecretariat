@@ -96,7 +96,7 @@ export class EntityManager {
         }
       });
 
-      const regenerate = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.regenerate);
+      const regenerate = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && !entityCondition.permanent && entityCondition.name == ConditionName.regenerate);
 
       if (regenerate && value < 0) {
         regenerate.expired = true;
@@ -150,8 +150,8 @@ export class EntityManager {
     }
   }
 
-  hasCondition(entity: Entity, condition: Condition): boolean {
-    return entity.entityConditions.some((entityCondition) => entityCondition.name == condition.name && entityCondition.state != EntityConditionState.removed && !entityCondition.expired);
+  hasCondition(entity: Entity, condition: Condition, permanent: boolean = false): boolean {
+    return entity.entityConditions.some((entityCondition) => entityCondition.name == condition.name && entityCondition.state != EntityConditionState.removed && !entityCondition.expired && (!permanent || entityCondition.permanent));
   }
 
   activeConditions(entity: Entity, expiredIndicator: boolean = false, hidden: boolean = false): EntityCondition[] {
@@ -180,7 +180,7 @@ export class EntityManager {
     return immune;
   }
 
-  addCondition(entity: Entity, condition: Condition, active: boolean, off: boolean) {
+  addCondition(entity: Entity, condition: Condition, active: boolean, off: boolean, permanent: boolean = false) {
     let entityCondition: EntityCondition | undefined = entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name);
     if (!entityCondition) {
       entityCondition = new EntityCondition(condition.name, condition.value);
@@ -205,6 +205,8 @@ export class EntityManager {
       entityCondition.lastState = entityCondition.state;
       entityCondition.state = EntityConditionState.expire;
     }
+
+    entityCondition.permanent = permanent;
   }
 
   removeCondition(entity: Entity, condition: Condition) {
@@ -248,16 +250,20 @@ export class EntityManager {
           entity.health -= condition.value;
         }
 
-        let clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.expired);
+        let clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.permanent && !condition.expired);
         while (clearHeal) {
           clearHeal.lastState = clearHeal.state;
           clearHeal.state = EntityConditionState.expire;
           clearHeal.expired = true;
-          clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.expired);
+          clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.permanent && !condition.expired);
         }
         condition.expired = true;
         condition.highlight = false;
         this.checkHealth(entity);
+      }
+
+      if (condition.permanent) {
+        condition.expired = false;
       }
     }
   }
@@ -305,7 +311,7 @@ export class EntityManager {
   expireConditions(entity: Entity) {
     entity.entityConditions.forEach((entityCondition) => {
       if (entityCondition.name == ConditionName.chill) {
-        if (entityCondition.value == 1) {
+        if (entityCondition.value == 1 && !entityCondition.permanent) {
           entityCondition.expired = true;
         } else {
           entityCondition.value--;
@@ -315,7 +321,7 @@ export class EntityManager {
 
     entity.entityConditions.forEach((entityCondition) => {
       if (entityCondition.types.indexOf(ConditionType.expire) != -1) {
-        if (entityCondition.state == EntityConditionState.expire) {
+        if (entityCondition.state == EntityConditionState.expire && !entityCondition.permanent) {
           entityCondition.expired = true;
         }
       }
@@ -330,19 +336,19 @@ export class EntityManager {
       const maxHealth = EntityValueFunction(entity.maxHealth);
       const heal = entity.entityConditions.every((entityCondition) => entityCondition.expired || entityCondition.types.indexOf(ConditionType.preventHeal) == -1) && entity.health < maxHealth;
 
-      entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.clearHeal) != -1).forEach((entityCondition) => {
+      entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.clearHeal) != -1 && !entityCondition.permanent).forEach((entityCondition) => {
         entityCondition.expired = true;
         entityCondition.lastState = entityCondition.state;
         entityCondition.state = EntityConditionState.removed;
       });
 
       if (heal) {
-        let clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.expired);
+        let clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.permanent && !condition.expired);
         while (clearHeal) {
           clearHeal.lastState = clearHeal.state;
           clearHeal.state = EntityConditionState.expire;
           clearHeal.expired = true;
-          clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.expired);
+          clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.permanent && !condition.expired);
         }
         regenerateCondition.lastState = regenerateCondition.state;
         regenerateCondition.state = EntityConditionState.expire;
@@ -362,8 +368,6 @@ export class EntityManager {
       entityCondition.lastState = entityCondition.state;
       entityCondition.state = EntityConditionState.turn;
       if (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) {
-
-
         entity.health = entity.health - entityCondition.value;
 
         if (entity instanceof Character && entity.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '71')) {

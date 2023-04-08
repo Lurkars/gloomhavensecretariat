@@ -72,7 +72,7 @@
 
           <span *ngIf="character.absent">
           <span class="loot">/</span>
-          ({{character.progress.loot[lootType]}})
+          ({{character.progress.loot[lootType] || 0}})
           </span>
         </ng-container>
       </ng-container>

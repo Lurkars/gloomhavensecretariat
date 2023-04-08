@@ -79,7 +79,7 @@
     &.disabled {
       pointer-events: none;
       color: var(--ghs-color-gray);
-      filter: grayscale(75%);
+      filter: brightness(0.5) grayscale(0.2);
 
       .ghs-svg {
         filter: var(--ghs-filter-gray) !important;

@@ -156,6 +156,7 @@ export class EntityCondition extends Condition {
 
   state: EntityConditionState;
   lastState: EntityConditionState;
+  permanent: boolean = false;
   expired: boolean = false;
   highlight: boolean = false;
   constructor(name: ConditionName, value: number = 1) {
@@ -165,7 +166,7 @@ export class EntityCondition extends Condition {
   }
 
   toModel(): GameEntityConditionModel {
-    return new GameEntityConditionModel(this.name, this.value, this.state, this.lastState, this.expired, this.highlight);
+    return new GameEntityConditionModel(this.name, this.value, this.state, this.lastState, this.permanent, this.expired, this.highlight);
   }
 
   fromModel(model: GameEntityConditionModel) {
@@ -173,6 +174,7 @@ export class EntityCondition extends Condition {
     this.value = model.value;
     this.state = model.state;
     this.lastState = model.lastState;
+    this.permanent = model.permanent;
     this.expired = model.expired;
     this.highlight = model.highlight;
   }
@@ -185,14 +187,16 @@ export class GameEntityConditionModel {
   value: number;
   state: EntityConditionState;
   lastState: EntityConditionState;
+  permanent: boolean;
   expired: boolean;
   highlight: boolean = false;
 
-  constructor(name: ConditionName, value: number, state: EntityConditionState, lastState: EntityConditionState, expired: boolean, highlight: boolean) {
+  constructor(name: ConditionName, value: number, state: EntityConditionState, lastState: EntityConditionState, permanent: boolean, expired: boolean, highlight: boolean) {
     this.name = name;
     this.value = value;
     this.state = state;
     this.lastState = lastState;
+    this.permanent = permanent;
     this.expired = expired;
     this.highlight = highlight;
   }

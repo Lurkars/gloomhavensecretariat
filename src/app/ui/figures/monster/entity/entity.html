@@ -29,12 +29,14 @@
     <ghs-highlight-conditions [entity]="entity" [figure]="monster"></ghs-highlight-conditions>
 
     <div class="conditions">
-      <span class="condition" *ngFor="let entityCondition of activeConditions; let index = index;"
+      <span class="condition-container" *ngFor="let entityCondition of activeConditions; let index = index;"
         [ngClass]="{'center' : entity.summon == SummonState.false && ((activeConditions).length % 2) == 1 && (activeConditions).length == index + 1, 'expired' : entityCondition.expired}">
-        <img
-          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
-        <span class="value"
-          *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
+        <span class="condition" [ngClass]="{'permanent' : entityCondition.permanent}">
+          <img
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
+          <span class="value"
+            *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
+        </span>
       </span>
       <span *ngIf="entity.summon != SummonState.false" class="summon"
         [ngClass]="{'active' : entity.summon == SummonState.true, 'new' : entity.summon == SummonState.new, 'center' : (entity.entityConditions.length % 2) == 0}">

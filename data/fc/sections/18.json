@@ -13,7 +13,7 @@
             "type": "character",
             "name": ".*"
           },
-          "type": "gainCondition",
+          "type": "permanentCondition",
           "value": "muddle"
         }
       ]
@@ -27,7 +27,7 @@
             "type": "character",
             "name": ".*"
           },
-          "type": "gainCondition",
+          "type": "permanentCondition",
           "value": "poison"
         }
       ]
@@ -41,7 +41,7 @@
             "type": "character",
             "name": ".*"
           },
-          "type": "gainCondition",
+          "type": "permanentCondition",
           "value": "wound"
         }
       ]
