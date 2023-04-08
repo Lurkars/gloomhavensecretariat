@@ -9,6 +9,7 @@ import { Objective } from "../model/Objective";
 import { Summon, SummonState } from "../model/Summon";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
+import { CharacterClass } from "../model/data/CharacterData";
 
 export class EntityManager {
 
@@ -98,7 +99,10 @@ export class EntityManager {
 
       const regenerate = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.regenerate);
 
-      if (regenerate && value < 0) {
+
+      const isAlgox = entity instanceof Character && entity.characterClass === CharacterClass.algox;
+
+      if (regenerate && value < 0 && !isAlgox) {
         regenerate.expired = true;
       }
 
