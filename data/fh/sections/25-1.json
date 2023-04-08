@@ -3,11 +3,48 @@
   "name": "Collection's Capstone",
   "edition": "fh",
   "parent": "88",
+  "parentSections": [
+    "79.3"
+  ],
+  "marker": "2",
+  "resetRound": "hidden",
   "monsters": [
     "frost-demon",
     "savvas-icestorm",
     "the-collector",
     "wind-demon"
+  ],
+  "rules": [
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "savvas-lavaflow",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "savvas-lavaflow",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    }
   ],
   "rooms": [
     {

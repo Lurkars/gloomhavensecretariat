@@ -3,6 +3,10 @@
   "name": "Deadly Pastimes",
   "edition": "fh",
   "parent": "85",
+  "parentSections": [
+    "134.2"
+  ],
+  "marker": "10",
   "rooms": [
     {
       "roomNumber": 17,

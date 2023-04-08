@@ -3,6 +3,11 @@
   "name": "Deadly Pastimes",
   "edition": "fh",
   "parent": "85",
+  "parentSections": [
+    "56.1",
+    "130.1"
+  ],
+  "marker": "9",
   "monsters": [
     "burrowing-blade",
     "polar-bear"

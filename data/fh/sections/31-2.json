@@ -3,6 +3,7 @@
   "name": "The Collection",
   "edition": "fh",
   "parent": "87",
+  "marker": "1",
   "monsters": [
     "algox-archer",
     "steel-automaton"

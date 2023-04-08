@@ -8,7 +8,17 @@
   "count": 1,
   "standeeShare": "algox-icespeaker",
   "baseStat": {
-    "type": "boss"
+    "type": "boss",
+    "immunities": [
+      "bane",
+      "disarm",
+      "curse",
+      "immobilize",
+      "muddle",
+      "poison",
+      "stun",
+      "wound"
+    ]
   },
   "stats": [
     {
@@ -33,7 +43,10 @@
           "type": "shield",
           "value": 2
         },
-        {}
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
       ]
     },
     {
@@ -46,7 +59,10 @@
           "type": "shield",
           "value": 2
         },
-        {}
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
       ]
     },
     {
@@ -59,7 +75,10 @@
           "type": "shield",
           "value": 2
         },
-        {}
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
       ]
     },
     {
@@ -72,7 +91,10 @@
           "type": "shield",
           "value": 2
         },
-        {}
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
       ]
     },
     {
@@ -85,7 +107,10 @@
           "type": "shield",
           "value": 2
         },
-        {}
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
       ]
     },
     {
@@ -98,7 +123,10 @@
           "type": "shield",
           "value": 2
         },
-        {}
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
       ]
     },
     {
@@ -111,7 +139,10 @@
           "type": "shield",
           "value": 2
         },
-        {}
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
       ]
     }
   ]

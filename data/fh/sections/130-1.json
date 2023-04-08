@@ -3,6 +3,7 @@
   "name": "Deadly Pastimes",
   "edition": "fh",
   "parent": "85",
+  "marker": "1",
   "monsters": [
     "black-imp",
     "polar-bear"
@@ -20,6 +21,7 @@
         },
         {
           "name": "black-imp",
+          "player3": "elite",
           "player4": "elite"
         },
         {
