@@ -3,6 +3,7 @@
   "name": "A Contained Fire",
   "edition": "fh",
   "parent": "89",
+  "marker": "1",
   "monsters": [
     "algox-archer",
     "algox-guard"

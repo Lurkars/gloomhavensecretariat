@@ -3,12 +3,33 @@
   "name": "A Contained Fire",
   "edition": "fh",
   "parent": "89",
+  "parentSections": [
+    "36.1"
+  ],
   "objectives": [
     {
       "name": "Faye",
       "escort": true,
       "health": "(Lx3)+8",
-      "initiative": 11
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "move",
+          "value": "2"
+        },
+        {
+          "type": "attack",
+          "value": "L"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Set Faye's current hit point value to 3+L"
     }
   ]
 }
