@@ -4,6 +4,11 @@
   "name": "The Collection",
   "edition": "fh",
   "parent": "87",
+  "parentSections": [
+    "77.2",
+    "184.6"
+  ],
+  "marker": "4",
   "monsters": [
     "algox-archer",
     "algox-guard",
@@ -34,12 +39,16 @@
           "player4": "elite"
         },
         {
-          "name": "brother",
-          "player2": "boss"
+          "name": "algox-guard",
+          "player4": "normal"
         },
         {
           "name": "brother",
-          "player2": "boss"
+          "type": "boss"
+        },
+        {
+          "name": "brother",
+          "type": "boss"
         },
         {
           "name": "flaming-bladespinner",
