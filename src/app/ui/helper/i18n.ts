@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import {  ActionType } from "src/app/game/model/data/Action";
+import { ActionType } from "src/app/game/model/data/Action";
 import { Character } from "src/app/game/model/Character";
 import { EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity";
 import { ActionHex } from "src/app/game/model/ActionHex";
@@ -89,29 +89,34 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
           card = card.split(':')[0];
         }
         image = '<img class="icon ghs-svg" src="./assets/images/action/card/' + card + '.svg">';
-        let cardOverlay = '<img class="card-overlay" src="./assets/images/action/card/overlay/' + card + '.svg">';
+        const cardOverlay = '<img class="card-overlay" src="./assets/images/action/card/overlay/' + card + '.svg">';
         replace = '<span class="placeholder-effect placeholder-card">' + image + cardOverlay + cardValue + '</span>';
       } else if (type == "attackmodifier" && split.length == 3) {
         image = '<img  src="./assets/images/attackmodifier/icons/' + split[2] + '.png" class="icon">';
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';
       } else if (type == "characterIcon" && split.length == 3) {
-        let characterName = split[2];
+        const characterName = split[2];
         image = '<img src="' + gameManager.characterManager.characterIcon(characterName) + '">';
         replace = '<span class="placeholder-character-icon">' + image + '</span>';
       } else if (type == "characterIconColored" && split.length == 3) {
-        let characterName = split[2];
+        const characterName = split[2];
         image = '<img src="' + gameManager.characterManager.characterIcon(characterName) + '">';
         replace = '<span class="placeholder-character-icon-colored" style="background-color:' + gameManager.characterManager.characterColor(characterName) + '">' + image + '</span>';
       } else if (type == "characterToken" && split.length >= 3) {
-        let characterName = split[2];
+        const characterName = split[2];
         let icon = gameManager.characterManager.characterIcon(characterName);
         if (split.length > 3) {
           icon = './assets/images/character/custom/' + split[3] + '.svg';
         }
         image = '<img src="' + icon + '">';
         replace = '<span class="placeholder-character-token" style="--ghs-character-color:' + gameManager.characterManager.characterColor(characterName) + '">' + image + '</span>';
+      } else if (type == "coloredToken" && split.length > 3) {
+        const color = split[2];
+        const icon = './assets/images/character/custom/' + split[3] + '.svg';
+        image = '<img src="' + icon + '">';
+        replace = '<span class="placeholder-character-token" style="--ghs-character-color:#' + color + '">' + image + '</span>';
       } else if (type == "monsterType" && split.length == 3) {
-        let monsterType = split[2];
+        const monsterType = split[2];
         replace = '<span class="placeholder-monster-type ' + monsterType + '">' + settingsManager.getLabel('game.monster.' + monsterType) + '</span>';
       } else if (type == "mapMarker" && split.length == 3) {
         replace = '<span class="map-marker">' + split[2] + '</span>';
