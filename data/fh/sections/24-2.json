@@ -3,6 +3,10 @@
   "name": "Deadly Pastimes",
   "edition": "fh",
   "parent": "85",
+  "parentSections": [
+    "15.1"
+  ],
+  "marker": "c",
   "monsters": [
     "black-imp",
     "burrowing-blade",

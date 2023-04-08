@@ -3,6 +3,10 @@
   "name": "Deadly Pastimes",
   "edition": "fh",
   "parent": "85",
+  "parentSections": [
+    "56.1"
+  ],
+  "marker": "9",
   "monsters": [
     "black-imp",
     "polar-bear"
