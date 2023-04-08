@@ -64,12 +64,17 @@
 
       <ng-container *ngFor="let lootType of lootColumns">
         <span class="head-col"><img class="ghs-svg" [src]="'./assets/images/fh/loot/' + lootType + '.svg'"></span>
-        <span *ngFor="let character of characters; let index = index;">
-          <ng-container *ngIf="!character.absent">
+        <ng-container *ngFor="let character of characters; let index = index;">
+          <span *ngIf="!character.absent">
             <span class="loot">{{lootValue(character, lootType) | ghsValueSign}}</span>
             ({{(character.progress.loot[lootType] || 0) + lootValue(character, lootType)}})
-          </ng-container>
-        </span>
+          </span>
+
+          <span *ngIf="character.absent">
+          <span class="loot">/</span>
+          ({{character.progress.loot[lootType]}})
+          </span>
+        </ng-container>
       </ng-container>
 
       <span class="head-col calc-col">{{'scenario.summary.xpGained' | ghsLabel}}</span>
