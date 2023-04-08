@@ -786,6 +786,7 @@
         "gainCondition": "{0} erlangt %game.condition.{1}%",
         "hp": "{0} TP auf {2}",
         "looseCondition": "{0} loose %game.condition.{1}%",
+        "permanentCondition": "{0} erlangt dauerhaft %game.condition.{1}%",
         "scenarioEffect": "als Szenarioeffekt",
         "toggleOff": "{0} inaktiv setzen",
         "toggleOn": "{0} aktiv setzen",

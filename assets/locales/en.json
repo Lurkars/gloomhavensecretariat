@@ -889,6 +889,7 @@
         "gainCondition": "{0} gain %game.condition.{1}%",
         "hp": "{0} HP to {2}",
         "looseCondition": "{0} loose %game.condition.{1}%",
+        "permanentCondition": "{0} gain permanent %game.condition.{1}%",
         "scenarioEffect": "as scenario effect",
         "toggleOff": "{0} to inactive",
         "toggleOn": "{0} to active",
