@@ -1050,6 +1050,11 @@
       ".": "Active summons",
       "hint": "At start of the characters turn, summons will be activated in its order, double click to toggle active state."
     },
+    "additional": "Additional Gameplay",
+    "allyAttackModifierDeck": {
+      ".": "Attack Modifier Deck for allies",
+      "hint": "Enable the Attack Modifier Deck for allies"
+    },
     "alwaysAllyAttackModifierDeck": {
       ".": "Always Attack Modifier Deck for allies",
       "hint": "Always show the Attack Modifier Deck for allies"
@@ -1114,9 +1119,17 @@
       "hint": "Default stats values are added to the ability value, for example a Range value is automatically added to the Attack ability"
     },
     "character": "Character",
+    "characterAttackModifierDeck": {
+      ".": "Character Attack Modifier Deck",
+      "hint": "Enable Attack Modifier Deck for Characters. To use perks the Character Sheet must be enabled."
+    },
     "characterHandSize": {
       ".": "Display hand size",
       "hint": "Display the hand size on the character's board."
+    },
+    "characterSheet": {
+      ".": "Character Sheet",
+      "hint": "Enable the Character Sheet. To open it, click on the big character icon on the right side."
     },
     "combineSummonAction": {
       ".": "Combine Summon Action",
@@ -1232,14 +1245,25 @@
       "fr": "French (Français)",
       "ko": "Korean (한국어)"
     },
+    "lootDeck": {
+      ".": "Loot Deck",
+      "hint": "Enable Loot Deck"
+    },
     "maxUndo": {
       ".": "Max. number of undos",
       "hint": ""
     },
-    "monsters": "Monster",
+    "monsters": {
+      ".": "Monsters",
+      "hint": ""
+    },
     "moveElements": {
       ".": "Automatic update element state",
       "hint": "The element state is automatically changed before each round "
+    },
+    "partySheet": {
+      ".": "Party Sheet",
+      "hint": "Enables Party- and Campaign Sheet. The campaign sheet is located on the <i>backside</i> of the party sheet."
     },
     "playerCount": {
       ".": "Manual character count",
@@ -1258,8 +1282,8 @@
       "hint": ""
     },
     "scenarioRooms": {
-      ".": "Scenario Rooms (%wip%)",
-      "hint": "Unlocking of seperate rooms in a scenario. If not set, also disables automatic adding of standees. (Unlocking rooms is %wip% and not completely available for all editions yet.)"
+      ".": "Scenario Rooms",
+      "hint": "Unlocking of seperate rooms in a scenario. If not set, also disables automatic adding of standees."
     },
     "scenarioRules": {
       ".": "Show Scenario Rules",
