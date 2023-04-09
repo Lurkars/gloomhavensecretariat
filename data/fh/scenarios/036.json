@@ -19,24 +19,36 @@
   ],
   "objectives": [
     {
-      "name": "Door",
+      "name": "Door a",
       "health": "[((C-1)/2)x(L+3){$math.floor}]",
-      "marker": "a"
+      "marker": "a",
+      "tags": [
+        "door a"
+      ]
     },
     {
-      "name": "Door",
+      "name": "Door b",
       "health": "[((C-1)/2)x(L+3){$math.floor}]",
-      "marker": "b"
+      "marker": "b",
+      "tags": [
+        "door b"
+      ]
     },
     {
-      "name": "Door",
+      "name": "Door c",
       "health": "[((C-1)/2)x(L+3){$math.floor}]",
-      "marker": "c"
+      "marker": "c",
+      "tags": [
+        "door c"
+      ]
     },
     {
-      "name": "Door",
+      "name": "Door d",
       "health": "[((C-1)/2)x(L+3){$math.floor}]",
-      "marker": "d"
+      "marker": "d",
+      "tags": [
+        "door d"
+      ]
     }
   ],
   "lootDeckConfig": {
@@ -59,6 +71,374 @@
           "type": "damage",
           "value": "2",
           "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "R % 3 == 2 && R % 4 == 2",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Door a"
+          },
+          "type": "present",
+          "value": "1"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "type": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "count": "2",
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R % 3 == 0 && R % 4 == 3",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Door b"
+          },
+          "type": "present",
+          "value": "1"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "robotic-boltshooter",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R % 3 == 1 && R % 4 == 0",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Door c"
+          },
+          "type": "present",
+          "value": "1"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "player2": "normal",
+            "player3": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "player4": "normal"
+          },
+          "marker": "c",
+          "count": "2"
+        }
+      ]
+    },
+    {
+      "round": "R % 3 == 2 && R % 4 == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Door d"
+          },
+          "type": "present",
+          "value": "1"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "type": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "count": "2",
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R % 3 == 0 && R % 4 == 2",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Door a"
+          },
+          "type": "present",
+          "value": "1"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "robotic-boltshooter",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R % 3 == 1 && R % 4 == 3",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Door b"
+          },
+          "type": "present",
+          "value": "1"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "player2": "normal",
+            "player3": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "player4": "normal"
+          },
+          "marker": "b",
+          "count": "2"
+        }
+      ]
+    },
+    {
+      "round": "R % 3 == 2 && R % 4 == 0",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Door c"
+          },
+          "type": "present",
+          "value": "1"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "type": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "count": "2",
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R % 3 == 0 && R % 4 == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Door d"
+          },
+          "type": "present",
+          "value": "1"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "robotic-boltshooter",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R % 3 == 1 && R % 4 == 2",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Door a"
+          },
+          "type": "present",
+          "value": "1"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "player2": "normal",
+            "player3": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "player4": "normal"
+          },
+          "marker": "a",
+          "count": "2"
+        }
+      ]
+    },
+    {
+      "round": "R % 3 == 2 && R % 4 == 3",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Door b"
+          },
+          "type": "present",
+          "value": "1"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "type": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "count": "2",
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R % 3 == 0 && R % 4 == 0",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Door c"
+          },
+          "type": "present",
+          "value": "1"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "robotic-boltshooter",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R % 3 == 1 && R % 4 == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Door d"
+          },
+          "type": "present",
+          "value": "1"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "player2": "normal",
+            "player3": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "player4": "normal"
+          },
+          "marker": "d",
+          "count": "2"
         }
       ]
     }
