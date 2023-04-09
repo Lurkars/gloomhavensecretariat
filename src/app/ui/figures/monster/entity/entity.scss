@@ -222,7 +222,7 @@
       grid-auto-flow: column;
 
       .condition-container,
-      .summon {
+      .summon-container {
         position: relative;
         display: flex;
         align-items: center;
@@ -233,7 +233,8 @@
           opacity: 0.6;
         }
 
-        .condition {
+        .condition,
+        .summon {
           position: relative;
           display: flex;
           align-items: center;
@@ -244,7 +245,6 @@
           img {
             width: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
             height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
-  
           }
 
           .value {

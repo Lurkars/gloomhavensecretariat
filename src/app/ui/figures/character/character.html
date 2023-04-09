@@ -19,29 +19,31 @@
   </ghs-character-image>
 
   <ng-container *ngIf="!character.absent">
-    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible && !character.lootCardsVisible" class="drag-initiative"
-      (dragMove)="dragInitiativeMove($event)" (dragEnd)="dragInitiativeEnd($event)" (singleClick)="toggleFigure($event)"
-      (doubleClick)="openInitiativeDialog($event)">
-    </ghs-drag-click>
 
-    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible && !character.lootCardsVisible" class="drag-hp"
-      (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true" [screenWidth]="true"
-      (singleClick)="openEntityMenu($event)"></ghs-drag-click>
+    <ng-container
+      *ngIf="(!settingsManager.settings.characterAttackModifierDeck || !character.attackModifierDeckVisible) && (!settingsManager.settings.lootDeck ||!character.lootCardsVisible)">
+      <ghs-drag-click class="drag-initiative" (dragMove)="dragInitiativeMove($event)"
+        (dragEnd)="dragInitiativeEnd($event)" (singleClick)="toggleFigure($event)"
+        (doubleClick)="openInitiativeDialog($event)">
+      </ghs-drag-click>
 
-    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible && !character.lootCardsVisible" class="drag-xp"
-      (dragMove)="dragXpMove($event)" (dragEnd)="dragXpEnd($event)" [relative]="true" [screenWidth]="true"
-      (singleClick)="openEntityMenu($event)"></ghs-drag-click>
+      <ghs-drag-click class="drag-hp" (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true"
+        [screenWidth]="true" (singleClick)="openEntityMenu($event)"></ghs-drag-click>
 
-    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible && !character.lootCardsVisible" class="drag-loot"
-      (dragMove)="dragLootMove($event)" (dragEnd)="dragLootEnd($event)" [relative]="true" [screenWidth]="true"
-      (singleClick)="openEntityMenu($event)">
-    </ghs-drag-click>
+      <ghs-drag-click class="drag-xp" (dragMove)="dragXpMove($event)" (dragEnd)="dragXpEnd($event)" [relative]="true"
+        [screenWidth]="true" (singleClick)="openEntityMenu($event)"></ghs-drag-click>
+
+      <ghs-drag-click class="drag-loot" (dragMove)="dragLootMove($event)" (dragEnd)="dragLootEnd($event)"
+        [relative]="true" [screenWidth]="true" (singleClick)="openEntityMenu($event)">
+      </ghs-drag-click>
+    </ng-container>
 
     <ghs-character-initiative [character]="character"></ghs-character-initiative>
 
     <ghs-highlight-conditions [entity]="character" [figure]="character"></ghs-highlight-conditions>
 
-    <div *ngIf="character.attackModifierDeckVisible" class="attack-modifierdeck-container">
+    <div *ngIf="settingsManager.settings.characterAttackModifierDeck && character.attackModifierDeckVisible"
+      class="attack-modifierdeck-container">
       <div class="scroll-container">
         <ghs-attackmodifier-deck [character]="character" (before)="beforeAttackModifierDeck($event)"
           (after)="afterAttackModifierDeck($event)">
@@ -49,7 +51,7 @@
       </div>
       <div class="attack-modifierdeck-close" (click)="toggleAttackModifierDeckVisible()"></div>
     </div>
-    <div *ngIf="character.lootCardsVisible" class="loot-cards-container">
+    <div *ngIf="settingsManager.settings.lootDeck && character.lootCardsVisible" class="loot-cards-container">
       <div class="scroll-container">
         <div class="loot-cards">
           <div *ngFor="let index of character.lootCards" class="loot-card" (click)="openLootDeckDialog()">
@@ -117,13 +119,15 @@
     <ng-container *ngIf="!character.absent">
       <span class="spacer" (click)="openEntityMenu($event)"></span>
 
-      <div class="loot-cards-button" *ngIf="character.lootCards && character.lootCards.length > 0"
+      <div class="loot-cards-button"
+        *ngIf="settingsManager.settings.lootDeck && character.lootCards && character.lootCards.length > 0"
         (click)="toggleLootCardsVisible()" [ngClass]="{'disabled': character.lootCardsVisible}">
         <img src="./assets/images/fh/loot-token.png" />
       </div>
 
-      <span class="attack-modifier-button" [ngClass]="{'disabled': character.attackModifierDeckVisible}"
-        (click)="toggleAttackModifierDeckVisible()" title="{{'game.attackModifiers' | ghsLabel}}">
+      <span *ngIf="settingsManager.settings.characterAttackModifierDeck" class="attack-modifier-button"
+        [ngClass]="{'disabled': character.attackModifierDeckVisible}" (click)="toggleAttackModifierDeckVisible()"
+        title="{{'game.attackModifiers' | ghsLabel}}">
         <img src="./assets/images/attackmodifier/icon.png" />
       </span>
 
@@ -155,7 +159,9 @@
     <a class="character-sheet-button" title="{{'character.progress' | ghsLabel}}"
       [ngClass]="{'hand-size-margin' : settingsManager.settings.characterHandSize}">
       <img [src]="character.iconUrl" />
-      <ghs-drag-click (singleClick)="openCharacterSheet()" (doubleClick)="characterFullView()">
+      <ghs-drag-click
+        (singleClick)="settingsManager.settings.characterSheet ? openCharacterSheet() : openEntityMenu($event)"
+        (doubleClick)="characterFullView()">
       </ghs-drag-click>
     </a>
 

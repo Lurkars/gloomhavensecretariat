@@ -8,7 +8,10 @@
   "stats": [
     {
       "level": 1,
-      "health": 8
+      "health": 8,
+      "permanentConditions": [
+        "disarm"
+      ]
     },
     {
       "level": 2,

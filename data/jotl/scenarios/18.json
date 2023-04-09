@@ -21,20 +21,32 @@
       ]
     },
     {
+      "treausres": [
+        7
+      ],
       "roomNumber": 2,
-      "ref": "jotl18-2"
+      "ref": "top-left"
     },
     {
+      "treausres": [
+        6
+      ],
       "roomNumber": 3,
-      "ref": "jotl18-3"
+      "ref": "bottom-left"
     },
     {
+      "treausres": [
+        2
+      ],
       "roomNumber": 4,
-      "ref": "jotl18-4"
+      "ref": "right"
     },
     {
+      "treausres": [
+        13
+      ],
       "roomNumber": 5,
-      "ref": "jotl18-5"
+      "ref": "bottom"
     }
   ]
 }

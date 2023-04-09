@@ -6,6 +6,7 @@ export class Settings {
   activeApplyConditions: boolean = true;
   activeStandees: boolean = true;
   activeSummons: boolean = true;
+  allyAttackModifierDeck: boolean = true;
   alwaysAllyAttackModifierDeck: boolean = false;
   alwaysFhSolo: boolean = false;
   alwaysHazardousTerrain: boolean = false;
@@ -18,9 +19,11 @@ export class Settings {
   autoscroll: boolean = true;
   barsize: number = 1;
   browserNavigation: boolean = false;
-  calculateStats: boolean = true;
   calculate: boolean = true;
+  calculateStats: boolean = true;
+  characterAttackModifierDeck: boolean = true;
   characterHandSize: boolean = false;
+  characterSheet: boolean = true;
   combineSummonAction: boolean = true;
   debugRightClick: boolean = false;
   disableAnimations: boolean = false;
@@ -45,8 +48,11 @@ export class Settings {
   initiativeRequired: boolean = true;
   interactiveAbilities: boolean = true;
   locale: string = "en";
+  lootDeck: boolean = true;
   maxUndo: number = 500;
+  monsters: boolean = true;
   moveElements: boolean = true;
+  partySheet: boolean = true;
   pressDoubleClick: boolean = true;
   randomStandees: boolean = false;
   scenarioNumberInput: boolean = false;
