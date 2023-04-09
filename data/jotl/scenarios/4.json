@@ -101,7 +101,7 @@
         {
           "monster": {
             "name": "zealot",
-            "type": "normal"
+            "type": "elite"
           },
           "marker": "A",
           "count": 2
