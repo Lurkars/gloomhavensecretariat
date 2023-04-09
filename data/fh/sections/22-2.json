@@ -11,16 +11,43 @@
     "frost-demon",
     "snow-imp"
   ],
-  "objectives": [
+  "rules": [
     {
-      "name": "Snowdrift",
-      "health": "L+C",
-      "count": 6
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Remove all snowdrift and snow rock from tiles 2-E and 2-G",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Snowdrift|Snow Rock"
+          },
+          "type": "remove"
+        }
+      ]
     },
     {
-      "name": "Snow Rock",
-      "health": "L+C",
-      "count": 2
+      "round": "true",
+      "always": true,
+      "once": true,
+      "objectiveSpawns": [
+        {
+          "objective": {
+            "index": 1,
+            "name": "Snowdrift"
+          },
+          "count": "6"
+        },
+        {
+          "objective": {
+            "index": 2,
+            "name": "Snow Rock"
+          },
+          "count": "2"
+        }
+      ]
     }
   ],
   "rooms": [
@@ -60,16 +87,7 @@
           "player4": "elite"
         }
       ],
-      "objectives": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        2,
-        2
-      ]
+      "objectives": []
     }
   ]
 }
