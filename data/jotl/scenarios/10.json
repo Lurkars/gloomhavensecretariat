@@ -103,6 +103,9 @@
       "roomNumber": 3,
       "ref": "jotl10-3",
       "marker": 2,
+      "treasures": [
+        8
+      ],
       "monster": [
         {
           "name": "black-sludge",
