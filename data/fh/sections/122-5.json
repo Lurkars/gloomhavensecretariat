@@ -15,18 +15,6 @@
       "round": "true",
       "always": true,
       "once": true,
-      "note": "All monsters gain %game.condition.wound%. Monsters cannot remove %game.condition.wound% with healing"
-    },
-    {
-      "round": "true",
-      "always": true,
-      "once": true,
-      "note": "All monsters gain disadvantage on all their attacks"
-    },
-    {
-      "round": "true",
-      "always": true,
-      "once": true,
       "note": "All monsters add -1 %game.action.attack% to all their attacks"
     },
     {
