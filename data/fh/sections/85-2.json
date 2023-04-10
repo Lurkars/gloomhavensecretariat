@@ -17,6 +17,26 @@
       "health": "(L+2)xCx2"
     }
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "39.2"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Ice Pillar"
+          },
+          "type": "dead"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 3,
