@@ -1,12 +1,12 @@
 {
   "name": "scabwit",
-  "thumbnail": "fh-vermling-shaman",
+  "thumbnail": "fh-vermling-priest",
   "edition": "fh",
   "deck": "priest",
   "boss": true,
   "hidden": true,
   "count": 1,
-  "standeeShare": "vermling-shaman",
+  "standeeShare": "vermling-priest",
   "baseStat": {
     "type": "boss",
     "movement": 2

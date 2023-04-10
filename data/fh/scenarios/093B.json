@@ -10,6 +10,9 @@
     "vermling-scout",
     "yoglang"
   ],
+  "allies": [
+    "yoglang"
+  ],
   "lootDeckConfig": {
     "money": 9,
     "lumber": 4,
@@ -19,6 +22,39 @@
     "flamefruit": 1,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "R == 2 || R == 4 || R == 6",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "polar-bear",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 3 || R == 5 || R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "d",
+          "count": "2"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
