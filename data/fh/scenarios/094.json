@@ -11,6 +11,19 @@
     "flaming-bladespinner",
     "ruined-machine"
   ],
+  "objectives": [
+    {
+      "name": "Flaming Bladespinner",
+      "initiative": "0",
+      "count": "4",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.action.fly% Move 1 hex clockwise around adjacent obstacle %game.mapMarker.a%"
+        }
+      ]
+    }
+  ],
   "lootDeckConfig": {
     "money": 9,
     "lumber": 3,
@@ -19,6 +32,42 @@
     "arrowvine": 1,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "true",
+      "note": "Spawn one Ruined Machine for each character or Vermling Scout adjacent to a Flaming Bladespinner in any empty starting hex. Normal for 2 or 3 characters, elite for 4 characters."
+    },
+    {
+      "round": "R % 6 == 3",
+      "start": true,
+      "note": "At any starting empty hex",
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        }
+      ]
+    },
+    {
+      "round": "R % 6 == 0",
+      "start": true,
+      "note": "At any starting empty hex",
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -49,22 +98,6 @@
           "player4": "elite"
         },
         {
-          "name": "flaming-bladespinner",
-          "type": "normal"
-        },
-        {
-          "name": "flaming-bladespinner",
-          "type": "normal"
-        },
-        {
-          "name": "flaming-bladespinner",
-          "type": "normal"
-        },
-        {
-          "name": "flaming-bladespinner",
-          "type": "normal"
-        },
-        {
           "name": "ruined-machine",
           "player2": "normal",
           "player3": "normal",
@@ -76,6 +109,12 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1
       ]
     }
   ]

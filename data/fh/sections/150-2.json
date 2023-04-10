@@ -8,6 +8,9 @@
     "steel-automaton",
     "vermling-scout"
   ],
+  "allies": [
+    "vermling-scout"
+  ],
   "rooms": [
     {
       "roomNumber": 4,
@@ -32,6 +35,10 @@
           "name": "steel-automaton",
           "player2": "normal",
           "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "steel-automaton",
           "player4": "normal"
         },
         {
