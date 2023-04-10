@@ -21,34 +21,22 @@
     {
       "name": "Door a",
       "health": "[((C-1)/2)x(L+3){$math.floor}]",
-      "marker": "a",
-      "tags": [
-        "door a"
-      ]
+      "marker": "a"
     },
     {
       "name": "Door b",
       "health": "[((C-1)/2)x(L+3){$math.floor}]",
-      "marker": "b",
-      "tags": [
-        "door b"
-      ]
+      "marker": "b"
     },
     {
       "name": "Door c",
       "health": "[((C-1)/2)x(L+3){$math.floor}]",
-      "marker": "c",
-      "tags": [
-        "door c"
-      ]
+      "marker": "c"
     },
     {
       "name": "Door d",
       "health": "[((C-1)/2)x(L+3){$math.floor}]",
-      "marker": "d",
-      "tags": [
-        "door d"
-      ]
+      "marker": "d"
     }
   ],
   "lootDeckConfig": {
@@ -84,8 +72,7 @@
             "edition": "objective",
             "name": "Door a"
           },
-          "type": "present",
-          "value": "1"
+          "type": "present"
         }
       ],
       "spawns": [
@@ -117,8 +104,7 @@
             "edition": "objective",
             "name": "Door b"
           },
-          "type": "present",
-          "value": "1"
+          "type": "present"
         }
       ],
       "spawns": [
@@ -143,8 +129,7 @@
             "edition": "objective",
             "name": "Door c"
           },
-          "type": "present",
-          "value": "1"
+          "type": "present"
         }
       ],
       "spawns": [
@@ -176,8 +161,7 @@
             "edition": "objective",
             "name": "Door d"
           },
-          "type": "present",
-          "value": "1"
+          "type": "present"
         }
       ],
       "spawns": [
@@ -209,8 +193,7 @@
             "edition": "objective",
             "name": "Door a"
           },
-          "type": "present",
-          "value": "1"
+          "type": "present"
         }
       ],
       "spawns": [
@@ -235,8 +218,7 @@
             "edition": "objective",
             "name": "Door b"
           },
-          "type": "present",
-          "value": "1"
+          "type": "present"
         }
       ],
       "spawns": [
@@ -268,8 +250,7 @@
             "edition": "objective",
             "name": "Door c"
           },
-          "type": "present",
-          "value": "1"
+          "type": "present"
         }
       ],
       "spawns": [
@@ -301,8 +282,7 @@
             "edition": "objective",
             "name": "Door d"
           },
-          "type": "present",
-          "value": "1"
+          "type": "present"
         }
       ],
       "spawns": [
@@ -327,8 +307,7 @@
             "edition": "objective",
             "name": "Door a"
           },
-          "type": "present",
-          "value": "1"
+          "type": "present"
         }
       ],
       "spawns": [
@@ -360,8 +339,7 @@
             "edition": "objective",
             "name": "Door b"
           },
-          "type": "present",
-          "value": "1"
+          "type": "present"
         }
       ],
       "spawns": [
@@ -393,8 +371,7 @@
             "edition": "objective",
             "name": "Door c"
           },
-          "type": "present",
-          "value": "1"
+          "type": "present"
         }
       ],
       "spawns": [
@@ -410,7 +387,7 @@
       ]
     },
     {
-      "round": "R % 3 == 1 && R % 4 == 1",
+      "round": "R > 1 && R % 3 == 1 && R % 4 == 1",
       "start": true,
       "figures": [
         {
@@ -419,8 +396,7 @@
             "edition": "objective",
             "name": "Door d"
           },
-          "type": "present",
-          "value": "1"
+          "type": "present"
         }
       ],
       "spawns": [
