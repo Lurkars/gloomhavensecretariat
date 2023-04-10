@@ -3,6 +3,10 @@
   "name": "To Bury the Dead",
   "edition": "fh",
   "parent": "95",
+  "parentSections": [
+    "84.1"
+  ],
+  "marker": "2",
   "monsters": [
     "ice-wraith",
     "living-bones",
