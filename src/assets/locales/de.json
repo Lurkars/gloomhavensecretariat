@@ -946,9 +946,14 @@
       ".": "Aktive Beschwörungen",
       "hint": "Zu Beginn eines Zuges werden die Beschwörungen eines Charakters nacheinander als aktiv markiert und entsprechende Daten angezeigt, durch Doppelklick wird die jeweils nächste Beschwörung ausgewählt."
     },
+    "additional": "Erweiterter Spielablauf",
+    "allyAttackModifierDeck": {
+      ".": "Angriffsmodifikatordeck für Verbündete",
+      "hint": "Das zusätzlich das Angriffsmodifikatordeck für Verbündete anzeigen"
+    },
     "alwaysAllyAttackModifierDeck": {
       ".": "Immer Angriffsmodifikatordeck für Verbündete",
-      "hint": "Das zusätzlich das Angriffsmodifikatordeck für Verbündete anzeigen"
+      "hint": "Das zusätzlich das Angriffsmodifikatordeck für Verbündete immer anzeigen"
     },
     "alwaysHazardousTerrain": {
       ".": "Immer Gefährliches Gelände",
@@ -1010,9 +1015,17 @@
       "hint": "Basiswerte werden zu Fähigkeiten hinzugefügt, z.B. wird die Reichweite automatisch bei einer Angriffsfertigkeit angezeigt"
     },
     "character": "Charakter",
+    "characterAttackModifierDeck": {
+      ".": "Angriffsmodifikatordeck für Charaktere",
+      "hint": "Angriffsmodifikatordeck für Charaktere aktivieren. Um Verbesserungen zu nutzen muss der Charakterbogen ebenfalls aktiviert sein."
+    },
     "characterHandSize": {
       ".": "Handkartenanzahl anzeigen",
-      "hint": "Zeite die Handkartenanzahl auf dem Charakterboard an."
+      "hint": "Zeige die Handkartenanzahl auf dem Charakterboard an."
+    },
+    "characterSheet": {
+      ".": "Charakterbogen",
+      "hint": "Aktiviert den Charakterbogen. Dieser kann mit Klick auf das große Charaktersymbol auf der rechten Seite geöffnet werden."
     },
     "combineSummonAction": {
       ".": "Beschwörung Aktion kombinieren",
@@ -1129,14 +1142,25 @@
       "fr": "Französisch (Français)",
       "ko": "Koreanisch (한국어)"
     },
+    "lootDeck": {
+      ".": "Beute Deck",
+      "hint": "Beute Deck aktivieren"
+    },
     "maxUndo": {
       ".": "Max. Anzahl Rückgängigvorgänge",
       "hint": ""
     },
-    "monsters": "Monster",
+    "monsters": {
+      ".": "Monsters",
+      "hint": ""
+    },
     "moveElements": {
       ".": "Automatisch Elementen Status ändern",
       "hint": "Der Status der Elemente wird automatisch vor jeder Runde angepasst"
+    },
+    "partySheet": {
+      ".": "Gruppenbogen",
+      "hint": "Gruppen- und Kampagnen-Bogen aktivieren. Der Kamapgnenbogen befindet sich auf der <i>Rückseite</i> des Gruppenbogens."
     },
     "playerCount": {
       ".": "Manuelle Charakter Anzahl",
@@ -1155,8 +1179,8 @@
       "hint": ""
     },
     "scenarioRooms": {
-      ".": "Szenario Räume (%wip%)",
-      "hint": "Freischalten einzelner Räume in einem Szenario. Wenn nicht ausgewählt, ist auch das automatische Hinzufügen von Aufstellern deaktiviert. (Räume freischalten ist %wip% und steht bislang nicht in allen Edition vollständig zur Verfügung.)"
+      ".": "Szenario Räume",
+      "hint": "Freischalten einzelner Räume in einem Szenario. Wenn nicht ausgewählt, ist auch das automatische Hinzufügen von Aufstellern deaktiviert."
     },
     "scenarioRules": {
       ".": "Szenario Regeln einblenden",

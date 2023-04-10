@@ -124,6 +124,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setAllyAttackModifierDeck(allyAttackModifierDeck: boolean) {
+    this.settings.allyAttackModifierDeck = allyAttackModifierDeck;
+    this.storeSettings();
+  }
+
   setAlwaysAllyAttackModifierDeck(alwaysAllyAttackModifierDeck: boolean) {
     this.settings.alwaysAllyAttackModifierDeck = alwaysAllyAttackModifierDeck;
     this.storeSettings();
@@ -194,8 +199,18 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setCharacterAttackModifierDeck(characterAttackModifierDeck: boolean) {
+    this.settings.characterAttackModifierDeck = characterAttackModifierDeck;
+    this.storeSettings();
+  }
+
   setCharacterHandSize(characterHandSize: boolean) {
     this.settings.characterHandSize = characterHandSize;
+    this.storeSettings();
+  }
+
+  setCharacterSheet(characterSheet: boolean) {
+    this.settings.characterSheet = characterSheet;
     this.storeSettings();
   }
 
@@ -320,13 +335,28 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setLootDeck(lootDeck: boolean) {
+    this.settings.lootDeck = lootDeck;
+    this.storeSettings();
+  }
+
   setMaxUndo(maxUndo: number) {
     this.settings.maxUndo = maxUndo;
     this.storeSettings();
   }
 
+  setMonsters(monsters: boolean) {
+    this.settings.monsters = monsters;
+    this.storeSettings();
+  }
+
   setMoveElements(moveElements: boolean) {
     this.settings.moveElements = moveElements;
+    this.storeSettings();
+  }
+
+  setPartySheet(partySheet: boolean) {
+    this.settings.partySheet = partySheet;
     this.storeSettings();
   }
 

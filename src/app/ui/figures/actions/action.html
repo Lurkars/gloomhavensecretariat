@@ -290,7 +290,7 @@
         <span class="value">
           <span *ngIf="!relative && !forceRelative">
             <ng-container *ngIf="hasEntities(MonsterType.normal) || !monster">
-              <span [value-calc]="getNormalValue()" [level]="monster && monster.level"></span>
+              <span [value-calc]="getNormalValue()" [level]="level"></span>
             </ng-container>
             <ng-container
               *ngIf="hasEntities(MonsterType.normal) && hasEntities(MonsterType.elite) && getNormalValue() != getEliteValue()">
@@ -299,7 +299,7 @@
             <ng-container
               *ngIf="hasEntities(MonsterType.elite) && (getNormalValue() != getEliteValue() || !hasEntities(MonsterType.normal))">
               <span [ngClass]="{'elite' : hasEntities(MonsterType.normal)}" [value-calc]="getEliteValue()"
-                [level]="monster && monster.level"></span>
+                [level]="level"></span>
             </ng-container>
           </span>
           <span *ngIf="relative || forceRelative">
@@ -324,10 +324,10 @@
         <span class="value">
           {{action.valueType == ActionValueType.add ? '+' : '-'}}
           <span *ngIf="!relative && !forceRelative">
-            <span [value-calc]="getNormalValue()" [level]="monster && monster.level"></span>
+            <span [value-calc]="getNormalValue()" [level]="level"></span>
             <span *ngIf="getEliteValue() && getNormalValue() != getEliteValue()">/</span>
             <span *ngIf="getEliteValue() && getNormalValue() != getEliteValue()" class="elite"
-              [value-calc]="getEliteValue()" [level]="monster && monster.level"></span>
+              [value-calc]="getEliteValue()" [level]="level"></span>
           </span>
           <span *ngIf="relative || forceRelative" [i18n]="getNormalValue() + ''" [relative]="relative || forceRelative">
             <span *ngIf="getNormalValue() != getEliteValue()">/<span class="elite" [i18n]="getEliteValue() + ''"

@@ -506,7 +506,7 @@ export class StateManager {
         this.undoInfos.splice(0, this.undoInfos.length - this.undos.length);
       }
 
-      if (this.redos.length > 0) {
+      if (this.redos.length > 5) {
         this.createBackup(this.redos[0]);
       }
 

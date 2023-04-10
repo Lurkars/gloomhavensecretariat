@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer';
 import { SubMenu } from './header/menu/menu';
 import { Monster } from '../game/model/Monster';
 import { Objective } from '../game/model/Objective';
+import { Figure } from '../game/model/Figure';
 
 @Component({
   selector: 'ghs-main',
@@ -22,6 +23,7 @@ export class MainComponent implements OnInit {
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
 
+  figures: Figure[] = [];
   columnSize: number = 3;
   columns: number = 2;
 
@@ -45,6 +47,9 @@ export class MainComponent implements OnInit {
   constructor(private element: ElementRef, private swUpdate: SwUpdate) {
     gameManager.uiChange.subscribe({
       next: () => {
+
+        this.figures = settingsManager.settings.monsters ? gameManager.game.figures : gameManager.game.figures.filter((figure) => !(figure instanceof Monster));
+
         if (this.initialized) {
           const figure = gameManager.game.figures.find((figure) => figure instanceof Character && figure.fullview);
           if (figure) {
@@ -110,7 +115,7 @@ export class MainComponent implements OnInit {
 
     this.currentZoom = settingsManager.settings.zoom;
 
-    const figure = gameManager.game.figures.find((figure) => figure instanceof Character && figure.fullview);
+    const figure = this.figures.find((figure) => figure instanceof Character && figure.fullview);
     if (figure) {
       this.fullviewChar = figure as Character;
     } else {
@@ -200,7 +205,7 @@ export class MainComponent implements OnInit {
   }
 
   toggleEntity(reverse: boolean) {
-    const figures = gameManager.game.figures.filter((figure) => gameManager.gameplayFigure(figure));
+    const figures = this.figures.filter((figure) => gameManager.gameplayFigure(figure));
     let activeFigure = figures.find((figure) => figure.active);
 
     if (!activeFigure && reverse) {
@@ -325,7 +330,7 @@ export class MainComponent implements OnInit {
         const containerElement = this.element.nativeElement.getElementsByClassName('figures')[0];
         if (containerElement) {
           const figureElements: any[] = Array.from(containerElement.getElementsByClassName('figure'));
-          const figures = gameManager.game.figures;
+          const figures = this.figures;
 
           let figureWidth = containerElement.clientWidth;
           if (figureElements.length > 0) {
@@ -416,7 +421,7 @@ export class MainComponent implements OnInit {
   }
 
   activeFigureSize(start: number, end: number, figureElements: any[]) {
-    const figures = gameManager.game.figures;
+    const figures = this.figures;
     let lastActive = 0;
 
     figures.slice(start, end).forEach((figure, index) => {
