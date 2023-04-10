@@ -3,7 +3,12 @@
   "index": "91",
   "name": "Shoreline Scramble",
   "edition": "fh",
-  "monsters": [],
+  "monsters": [
+    "lightning-eel",
+    "lurker-clawcrusher",
+    "lurker-mindsnipper",
+    "lurker-wavethrower"
+  ],
   "lootDeckConfig": {
     "money": 10,
     "lumber": 4,
@@ -11,6 +16,23 @@
     "flamefruit": 1,
     "snowthistle": 1
   },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "damage",
+          "value": "3",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
