@@ -11,9 +11,186 @@
   ],
   "objectives": [
     {
-      "name": "Metal Cabinet",
-      "health": "[Cx(L+3)/2{$math.ceil}]",
-      "count": 4
+      "name": "Metal Cabinet 1",
+      "health": "[Cx(L+3)/2{$math.ceil}]"
+    },
+    {
+      "name": "Metal Cabinet 2",
+      "health": "[Cx(L+3)/2{$math.ceil}]"
+    },
+    {
+      "name": "Metal Cabinet 3",
+      "health": "[Cx(L+3)/2{$math.ceil}]"
+    },
+    {
+      "name": "Metal Cabinet 4",
+      "health": "[Cx(L+3)/2{$math.ceil}]"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "All monsters within %game.action.range:2% of the Metal Cabinet suffer trap damage",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Metal Cabinet 1"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "All monsters within %game.action.range:2% of the Metal Cabinet suffer trap damage",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Metal Cabinet 2"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "All monsters within %game.action.range:2% of the Metal Cabinet suffer trap damage",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Metal Cabinet 3"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "All monsters within %game.action.range:2% of the Metal Cabinet suffer trap damage",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Metal Cabinet 4"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "ancient-artillery",
+            "tags": [
+              "ancient-artillery-normal-1"
+            ]
+          },
+          "type": "present"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "type": "normal"
+          },
+          "summon": true
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "ancient-artillery",
+            "tags": [
+              "ancient-artillery-normal-2"
+            ]
+          },
+          "type": "present"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "type": "normal"
+          },
+          "summon": true
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "ancient-artillery",
+            "tags": [
+              "ancient-artillery-elite-1"
+            ]
+          },
+          "type": "present"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "type": "elite"
+          },
+          "summon": true
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "ancient-artillery",
+            "tags": [
+              "ancient-artillery-elite-2"
+            ]
+          },
+          "type": "present"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "type": "elite"
+          },
+          "summon": true
+        }
+      ]
     }
   ],
   "rooms": [
@@ -28,13 +205,31 @@
           "name": "ancient-artillery",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "tags": [
+            "ancient-artillery-normal-1"
+          ]
         },
         {
           "name": "ancient-artillery",
           "player2": "normal",
+          "tags": [
+            "ancient-artillery-normal-2"
+          ]
+        },
+        {
+          "name": "ancient-artillery",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "tags": [
+            "ancient-artillery-elite-2"
+          ]
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "elite",
+          "tags": [
+            "ancient-artillery-elite-1"
+          ]
         },
         {
           "name": "ruined-machine",
@@ -57,9 +252,9 @@
       ],
       "objectives": [
         1,
-        1,
-        1,
-        1
+        2,
+        3,
+        4
       ]
     }
   ]
