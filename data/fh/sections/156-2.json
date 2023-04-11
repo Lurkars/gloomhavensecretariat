@@ -3,6 +3,10 @@
   "name": "Raised by Wolves",
   "edition": "fh",
   "parent": "112",
+  "parentSections": [
+    "97.1"
+  ],
+  "marker": "2",
   "monsters": [
     "burrowing-blade",
     "chaos-demon"

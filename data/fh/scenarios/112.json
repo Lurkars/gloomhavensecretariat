@@ -9,6 +9,9 @@
     "earth-demon",
     "hound-scenario-112"
   ],
+  "allies": [
+    "hound-scenario-112"
+  ],
   "lootDeckConfig": {
     "money": 8,
     "lumber": 1,

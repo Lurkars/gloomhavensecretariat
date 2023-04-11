@@ -3,6 +3,7 @@
   "name": "Raised by Wolves",
   "edition": "fh",
   "parent": "112",
+  "marker": "1",
   "monsters": [
     "chaos-demon",
     "earth-demon"
