@@ -43,6 +43,10 @@
           "player4": "elite"
         },
         {
+          "name": "frozen-corpse",
+          "player4": "normal"
+        },
+        {
           "name": "robotic-boltshooter",
           "type": "normal"
         },
@@ -58,6 +62,7 @@
         },
         {
           "name": "robotic-boltshooter",
+          "player3": "elite",
           "player4": "elite"
         },
         {

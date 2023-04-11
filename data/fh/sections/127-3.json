@@ -3,6 +3,7 @@
   "name": "Prison Break",
   "edition": "fh",
   "parent": "99",
+  "marker": "1",
   "monsters": [
     "frozen-corpse",
     "robotic-boltshooter",
