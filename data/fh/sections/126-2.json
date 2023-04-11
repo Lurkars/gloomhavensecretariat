@@ -3,6 +3,7 @@
   "name": "Harrower Library",
   "edition": "fh",
   "parent": "101",
+  "marker": "1",
   "monsters": [
     "algox-archer",
     "algox-guard",
@@ -38,6 +39,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "player4": "normal"
         },
         {
           "name": "algox-priest",
