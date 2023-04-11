@@ -4,6 +4,7 @@
   "name": "Disarm the Machine",
   "edition": "cs",
   "spoiler": true,
+  "initial": true,
   "solo": "target",
   "monsters": [
     "ancient-artillery",

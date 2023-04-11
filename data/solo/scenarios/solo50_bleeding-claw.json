@@ -4,6 +4,7 @@
   "name": "The Fall of Shadow’s Respite",
   "edition": "cs",
   "spoiler": true,
+  "initial": true,
   "solo": "bleeding-claw",
   "monsters": [
     "gnashing-drake",

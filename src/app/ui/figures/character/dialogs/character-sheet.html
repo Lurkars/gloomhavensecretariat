@@ -21,7 +21,13 @@
           <div class="row base">
             <div class="name">
               <label>{{'character.progress.name' | ghsLabel}}:</label>
-              <input #charactertitle type="text" [value]="character.title">
+              <ng-container *ngIf="titles.length == 0">
+                <input #charactertitle type="text" [value]="character.title">
+              </ng-container>
+              <ng-container *ngFor="let i of [] | ghsRange:character.identities.length">
+                <img [src]="gameManager.characterManager.characterIdentityIcon(character, i)">
+                <input type="text" [value]="titles[i]" (change)="setTitle($event, i)">
+              </ng-container>
             </div>
             <div class="level">
               <div class="columns">

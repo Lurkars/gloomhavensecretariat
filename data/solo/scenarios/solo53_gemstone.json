@@ -4,6 +4,7 @@
   "name": "Corrupted Presence",
   "edition": "toa",
   "spoiler": true,
+  "initial": true,
   "solo": "gemstone",
   "monsters": [
     "deep-terror-scenario-81",

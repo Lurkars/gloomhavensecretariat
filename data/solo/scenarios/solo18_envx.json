@@ -4,6 +4,7 @@
   "name": "The Sands of Time",
   "edition": "gh",
   "spoiler": true,
+  "initial": true,
   "solo": "envx",
   "monsters": [
     "giant-viper",

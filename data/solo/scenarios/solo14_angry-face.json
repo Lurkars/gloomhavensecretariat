@@ -4,6 +4,7 @@
   "name": "Corrupted Hunt",
   "edition": "gh",
   "spoiler": true,
+  "initial": true,
   "solo": "angry-face",
   "monsters": [
     "deep-earth",

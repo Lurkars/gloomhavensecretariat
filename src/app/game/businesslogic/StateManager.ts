@@ -268,7 +268,7 @@ export class StateManager {
           if (undoinfo) {
             if (undoinfo.length > 0 && undoinfo[0] == "serverSync") {
               gameManager.stateManager.before("serverSync", ...undoinfo.slice(1));
-            } else {
+            } else if (gameManager.game.revision - (gameManager.game.revisionOffset || 0) < gameModel.revision - (gameModel.revisionOffset || 0)) {
               gameManager.stateManager.before("serverSync", ...undoinfo);
             }
           }
@@ -279,6 +279,71 @@ export class StateManager {
             window.document.body.classList.remove('working');
             window.document.body.classList.remove('server-sync');
           }, 1);
+          gameManager.stateManager.serverError = false;
+          break;
+        case "game-undo":
+          window.document.body.classList.add('working');
+          window.document.body.classList.add('server-sync');
+          let gameUndo: GameModel = message.payload as GameModel;
+
+          const undoGame = gameManager.stateManager.undos[gameManager.stateManager.undos.length - 1];
+          if (undoGame.revision - undoGame.revisionOffset == gameManager.game.revision - gameManager.game.revisionOffset - 1) {
+            gameManager.stateManager.undos.splice(gameManager.stateManager.undos.length - 1, 1);
+          } else {
+            gameManager.stateManager.undoInfos.splice(gameManager.stateManager.undoInfos.length - gameManager.stateManager.redos.length, 0, message.undoinfo && ['serverSync', ...message.undoinfo] || ['serverSync']);
+          }
+
+          gameManager.stateManager.redos.push(gameManager.game.toModel());
+          gameManager.game.fromModel(gameUndo);
+          gameManager.stateManager.saveLocal();
+          gameManager.stateManager.saveLocalStorage();
+          gameManager.uiChange.emit(true);
+          setTimeout(() => {
+            window.document.body.classList.remove('working');
+            window.document.body.classList.remove('server-sync');
+          }, 1);
+          gameManager.stateManager.serverError = false;
+          break;
+        case "game-redo":
+          window.document.body.classList.add('working');
+          window.document.body.classList.add('server-sync');
+          let gameRedo: GameModel = message.payload as GameModel;
+
+          const redoGame = gameManager.stateManager.redos.length > 0 ? gameManager.stateManager.redos[gameManager.stateManager.redos.length - 1] : undefined;
+          if (redoGame && redoGame.revision - redoGame.revisionOffset == gameManager.game.revision - gameManager.game.revisionOffset + 1) {
+            gameManager.stateManager.redos.splice(gameManager.stateManager.redos.length - 1, 1);
+          } else {
+            gameManager.stateManager.undoInfos.splice(gameManager.stateManager.undoInfos.length - gameManager.stateManager.redos.length, 0, message.undoinfo && ['serverSync', ...message.undoinfo] || ['serverSync']);
+          }
+
+          gameManager.stateManager.undos.push(gameManager.game.toModel());
+          gameManager.game.fromModel(gameRedo);
+          gameManager.stateManager.saveLocal();
+          gameManager.stateManager.saveLocalStorage();
+          gameManager.uiChange.emit(true);
+          setTimeout(() => {
+            window.document.body.classList.remove('working');
+            window.document.body.classList.remove('server-sync');
+          }, 1);
+          gameManager.stateManager.serverError = false;
+          break;
+        case "game-update":
+          window.document.body.classList.add('working');
+          window.document.body.classList.add('server-sync');
+          let gameUpdate: GameModel = message.payload as GameModel;
+          if (gameManager.game.revision == gameUpdate.revision) {
+            gameManager.game.playSeconds = gameUpdate.playSeconds;
+            gameManager.stateManager.saveLocal();
+            gameManager.uiChange.emit(true);
+            setTimeout(() => {
+              window.document.body.classList.remove('working');
+              window.document.body.classList.remove('server-sync');
+            }, 1);
+            gameManager.stateManager.serverError = false;
+          }
+          break;
+        case "requestUpdate":
+          gameManager.stateManager.after(1, 0, 'game-update');
           gameManager.stateManager.serverError = false;
           break;
         case "settings":
@@ -322,10 +387,6 @@ export class StateManager {
           gameManager.stateManager.updatePermissions();
           gameManager.stateManager.serverError = false;
           break;
-        case "requestUpdate":
-          gameManager.stateManager.after();
-          gameManager.stateManager.serverError = false;
-          break;
         case "error":
           console.warn("[GHS] Error: " + message.message);
           if (message.message == "Permission(s) missing" || message.message == "invalid revision") {
@@ -346,6 +407,8 @@ export class StateManager {
       gameManager.stateManager.errorLog.push(ev.data);
       gameManager.stateManager.serverError = true;
       console.error("[GHS] " + ev.data, e);
+      window.document.body.classList.remove('working');
+      window.document.body.classList.remove('server-sync');
     }
   }
 
@@ -461,16 +524,22 @@ export class StateManager {
     this.addToUndo(info || []);
   }
 
-  after(timeout: number = 1) {
-    this.game.revision++;
+  after(timeout: number = 1, revisionChange: number = 1, type: string = "game") {
+    this.game.revision += revisionChange;
     this.saveLocal();
     if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
       window.document.body.classList.add('server-sync');
+      let undoInfo = this.undoInfos[this.undos.length - 1];
+
+      if (type == 'game-undo') {
+        undoInfo = this.undoInfos[this.undos.length];
+      }
+
       let message = {
         "password": settingsManager.settings.serverPassword,
-        "type": "game",
+        "type": type,
         "payload": this.game.toModel(),
-        "undoinfo": this.undoInfos[this.undos.length - 1]
+        "undoinfo": undoInfo
       }
       this.ws.send(JSON.stringify(message));
     }
@@ -531,12 +600,14 @@ export class StateManager {
       window.document.body.classList.add('working');
       this.redos.push(this.game.toModel());
       const revision = gameManager.game.revision;
+      const revisionOffset = gameManager.game.revisionOffset;
       const gameModel: GameModel = this.undos.splice(this.undos.length - 1, 1)[0];
       this.game.fromModel(gameModel);
       this.game.revision = revision;
+      this.game.revisionOffset = revisionOffset + 2;
       this.saveLocalStorage();
       if (sync) {
-        this.after();
+        this.after(1, 1, 'game-undo');
       } else {
         gameManager.uiChange.emit();
       }
@@ -553,17 +624,31 @@ export class StateManager {
       window.document.body.classList.add('working');
       this.undos.push(this.game.toModel());
       const revision = gameManager.game.revision;
+      const revisionOffset = gameManager.game.revisionOffset;
       const gameModel: GameModel = this.redos.splice(this.redos.length - 1, 1)[0];
       this.game.fromModel(gameModel);
       this.game.revision = revision;
+      this.game.revisionOffset = revisionOffset;
       this.saveLocalStorage();
       if (sync) {
-        this.after();
+        this.after(1, 1, 'game-redo');
       } else {
         gameManager.uiChange.emit();
       }
       this.lastAction = "undo";
     }
+  }
+
+  revisionOffset(): number {
+    return (gameManager.game.revisionOffset || 0) + this.revisionOffsetUndo() + this.revisionOffsetRedo();
+  }
+
+  revisionOffsetUndo(): number {
+    return this.undos.length > 0 ? this.undos.map((model) => model.revisionOffset || 0).reduce((a, b) => a + b) : 0;
+  }
+
+  revisionOffsetRedo(): number {
+    return this.redos.length > 0 ? this.redos.map((model) => model.revisionOffset || 0).reduce((a, b) => a + b) : 0;
   }
 
   savePermissions(password: string, permissions: Permissions | undefined) {

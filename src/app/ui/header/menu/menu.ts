@@ -41,6 +41,7 @@ export class MainMenuComponent implements OnInit {
   characterLevel: number = 1;
 
   undoInfo: string[] = [];
+  undoOffset: number = 0;
   redoInfo: string[] = [];
 
   constructor(@Inject(DIALOG_DATA) data: { subMenu: SubMenu, standalone: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private swUpdate: SwUpdate) {
@@ -63,8 +64,13 @@ export class MainMenuComponent implements OnInit {
   }
 
   updateUndoRedo() {
-    if (gameManager.stateManager.undos.length > 0 && gameManager.stateManager.undoInfos.length >= gameManager.stateManager.undos.length) {
-      this.undoInfo = gameManager.stateManager.undoInfos[gameManager.stateManager.undos.length - 1];
+    const undos = gameManager.stateManager.undos;
+    const redos = gameManager.stateManager.redos;
+    const undoInfos = gameManager.stateManager.undoInfos;
+    if (undos.length > 0 && undoInfos.length >= undos.length) {
+      this.undoInfo = undoInfos[undos.length - 1];
+      this.undoOffset = (gameManager.game.revision
+        - (gameManager.game.revisionOffset || 0)) - (undos[undos.length - 1].revision - (undos[undos.length - 1].revisionOffset || 0)) - 1;
       if (this.undoInfo.length > 1 && this.undoInfo[0] == "serverSync") {
         if (this.undoInfo[1] == "setInitiative" && this.undoInfo.length > 3) {
           this.undoInfo = ["serverSync", settingsManager.getLabel('state.info.' + this.undoInfo[1], [this.undoInfo[2], ""])];
@@ -76,9 +82,10 @@ export class MainMenuComponent implements OnInit {
       }
     } else {
       this.undoInfo = [];
+      this.undoOffset = 0;
     }
-    if (gameManager.stateManager.redos.length > 0 && gameManager.stateManager.undoInfos.length > gameManager.stateManager.undos.length) {
-      this.redoInfo = gameManager.stateManager.undoInfos[gameManager.stateManager.undos.length];
+    if (redos.length > 0 && undoInfos.length > undos.length) {
+      this.redoInfo = undoInfos[undos.length];
       if (this.redoInfo.length > 1 && this.redoInfo[0] == "serverSync") {
         if (this.redoInfo[1] == "setInitiative" && this.redoInfo.length > 3) {
           this.redoInfo = ["serverSync", settingsManager.getLabel('state.info.' + this.redoInfo[1], [this.redoInfo[2], ""])];
@@ -93,7 +100,7 @@ export class MainMenuComponent implements OnInit {
     }
   }
 
-  openUndoDialog(event : any) {
+  openUndoDialog(event: any) {
     this.dialog.open(UndoDialogComponent, {
       panelClass: 'dialog'
     })

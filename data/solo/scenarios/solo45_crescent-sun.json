@@ -4,6 +4,7 @@
   "name": "Glowing Crystals",
   "edition": "cs",
   "spoiler": true,
+  "initial": true,
   "solo": "crescent-sun",
   "monsters": [
     "deep-terror",

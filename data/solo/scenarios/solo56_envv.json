@@ -4,6 +4,7 @@
   "name": "Return to Crystal Gardens",
   "edition": "toa",
   "spoiler": true,
+  "initial": true,
   "solo": "envv",
   "monsters": [
     "shardrender-scenario-84",

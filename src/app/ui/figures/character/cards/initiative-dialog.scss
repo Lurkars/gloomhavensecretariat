@@ -66,6 +66,24 @@
         filter: var(--ghs-filter-gray);
       }
 
+      &:hover {  
+        img {
+          filter: var(--ghs-filter-white);
+        }
+      }
+
+      &.active {
+        img {
+          filter: var(--ghs-filter-white);
+        }
+
+        &:hover {
+          img {
+            filter: var(--ghs-filter-darkgray);
+          }
+        }
+      }
+
       &.disabled {
         pointer-events: none;
 

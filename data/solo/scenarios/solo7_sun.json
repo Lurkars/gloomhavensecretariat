@@ -4,6 +4,7 @@
   "name": "Caravan Escort",
   "edition": "gh",
   "spoiler": true,
+  "initial": true,
   "solo": "sun",
   "monsters": [
     "bandit-archer",

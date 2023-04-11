@@ -4,6 +4,7 @@
   "name": "Harvesting the Night",
   "edition": "gh",
   "spoiler": true,
+  "initial": true,
   "solo": "eclipse",
   "monsters": [
     "deep-terror",

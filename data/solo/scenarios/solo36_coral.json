@@ -4,6 +4,7 @@
   "name": "Crash Against the Waves",
   "edition": "fh",
   "spoiler": true,
+  "initial": true,
   "solo": "coral",
   "monsters": [
     "lightning-eel",

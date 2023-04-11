@@ -4,6 +4,7 @@
   "name": "Magnum Opus",
   "edition": "cs",
   "spoiler": true,
+  "initial": true,
   "solo": "tools",
   "monsters": [
     "clockwork-railcaster",

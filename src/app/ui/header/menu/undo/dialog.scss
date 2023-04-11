@@ -7,7 +7,7 @@
 
         .state {
             cursor: pointer;
-            
+
             &.disabled {
                 pointer-events: none;
                 color: var(--ghs-color-darkgray);
@@ -17,7 +17,8 @@
 
     .container {
         padding: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-        max-height: calc(var(--ghs-unit) * 80 * var(--ghs-dialog-factor));;
+        max-height: calc(var(--ghs-unit) * 80 * var(--ghs-dialog-factor));
+        ;
         overflow: auto;
     }
 
@@ -25,16 +26,62 @@
         display: flex;
         flex-direction: column;
 
+        .entry {
+            position: relative;
+            display: flex;
+            color: var(--ghs-color-white);
+
+            .revision {
+                display: flex;
+                justify-content: flex-end;
+                text-align: right;
+                width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+                margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            }
+
+            .current {
+                font-style: italic;
+            }
+
+            .revision-hint {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                display: flex;
+                display: none;
+                align-items: center;
+                color: var(--ghs-color-gray);
+                background-color: var(--ghs-color-black);
+                font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                padding: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+                transform: translateY(-50%);
+            }
+
+            &:hover {
+                .revision-hint {
+                    display: inline-block;
+                }
+            }
+        }
+
         .warning {
             display: flex;
-            justify-content: space-between;
             align-items: center;
             color: var(--ghs-color-red);
+
+            &.undo-offset {
+                cursor: zoom-out;
+
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
 
             img {
                 filter: var(--ghs-filter-red);
                 height: 0.8em;
                 width: auto;
+                margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
             }
         }
     }

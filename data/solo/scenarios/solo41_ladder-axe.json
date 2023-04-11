@@ -4,6 +4,7 @@
   "name": "Through the Fire and the Flames",
   "edition": "cs",
   "spoiler": true,
+  "initial": true,
   "solo": "ladder-axe",
   "monsters": [
     "earth-demon",

@@ -2,7 +2,7 @@
   <div class="condition-container negative">
     <a class="item" *ngFor="let condition of standardNegative">
       <span class="condition" (click)="toggleCondition(condition)"
-        title="{{'game.condition.' + condition.name | ghsLabel}}"
+      [ghsTooltip]="'game.condition.' + condition.name +'.hint'"
         [ngClass]="{'active' : hasCondition(condition) && !isPermanent(condition.name), 'disabled' : isImmune(condition.name) || isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
@@ -12,7 +12,7 @@
       <img (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
         src="./assets/images/left.svg" />
       <span class="condition" (click)="toggleCondition(condition)"
-        title="{{'game.condition.' + condition.name | ghsLabel}}"
+         [ghsTooltip]="'game.condition.' + condition.name +'.hint'"
         [ngClass]="{'active' : hasCondition(condition) && !isPermanent(condition.name), 'disabled' : isImmune(condition.name) || isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
@@ -24,7 +24,7 @@
       <img (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
         src="./assets/images/left.svg" />
       <span class="condition" (click)="toggleCondition(condition)"
-        title="{{'game.condition.' + condition.name | ghsLabel}}"
+      [ghsTooltip]="'game.condition.' + condition.name +'.hint'"
         [ngClass]="{'active' : hasCondition(condition) && !isPermanent(condition.name), 'disabled' : isImmune(condition.name) || isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
@@ -37,7 +37,7 @@
   <div class="condition-container positive">
     <a class="item" *ngFor="let condition of standardPositive">
       <span class="condition" (click)="toggleCondition(condition)"
-        title="{{'game.condition.' + condition.name | ghsLabel}}"
+      [ghsTooltip]="'game.condition.' + condition.name +'.hint'"
         [ngClass]="{'active' : hasCondition(condition) && !isPermanent(condition.name), 'disabled' : isImmune(condition.name) || isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
@@ -47,7 +47,7 @@
       <img (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
         src="./assets/images/left.svg" />
       <span class="condition" (click)="toggleCondition(condition)"
-        title="{{'game.condition.' + condition.name | ghsLabel}}"
+      [ghsTooltip]="'game.condition.' + condition.name +'.hint'"
         [ngClass]="{'active' : hasCondition(condition) && !isPermanent(condition.name), 'disabled' : isImmune(condition.name) || isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
@@ -59,7 +59,7 @@
       <img (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
         src="./assets/images/left.svg" />
       <span class="condition" (click)="toggleCondition(condition)"
-        title="{{'game.condition.' + condition.name | ghsLabel}}"
+      [ghsTooltip]="'game.condition.' + condition.name +'.hint'"
         [ngClass]="{'active' : hasCondition(condition) && !isPermanent(condition.name), 'disabled' : isImmune(condition.name) || isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
@@ -72,7 +72,7 @@
   <div class="condition-container permanent" *ngIf="permanent.length > 0">
     <a class="item" *ngFor="let condition of permanent">
       <span class="condition permanent" (click)="toggleCondition(condition, true)"
-        title="{{'game.condition.' + condition.name | ghsLabel}}"
+      [ghsTooltip]="'game.condition.' + condition.name +'.hint'"
         [ngClass]="{'active' : isPermanent(condition.name), 'disabled' : isImmune(condition.name) , 'immunity' : isImmune(condition.name)}">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />

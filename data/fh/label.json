@@ -6,7 +6,11 @@
       "boneshaper": "Boneshaper",
       "deathwalker": "Deathwalker",
       "drifter": "Drifter",
-      "geminate": "Geminate"
+      "geminate": {
+        ".": "Geminate",
+        "melee": "Melee",
+        "range": "Range"
+      }
     },
     "edition": {
       "fh": "Frosthaven"

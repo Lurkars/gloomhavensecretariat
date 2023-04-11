@@ -1,18 +1,17 @@
 <div class="initiative-dialog">
 
   <div class="title">
-    <span class="character" *ngIf="gameManager.isCharacter(character)">
-      <img class="icon" [src]="gameManager.toCharacter(character).iconUrl" />
-      {{character.title || ('data.character.' + character.name | ghsLabel)}}
+    <span class="character" *ngIf="character">
+      <img class="icon" [src]="character.iconUrl" />
+      {{ gameManager.characterManager.characterName(character)}}
       <span *ngIf="character.title">&nbsp;({{'data.character.' + character.name | ghsLabel}})</span>
     </span>
-    <span class="character" *ngIf="gameManager.isObjective(character)">
-      <img class="icon"
-        [src]="'./assets/images/objective/' + (gameManager.toObjective(character).escort ? 'escort' : 'objective') + '.svg'" />
-      {{character.title ? character.title : ((character.name ? ('data.objective.' + character.name) :
-      (gameManager.toObjective(character).escort ? 'escort' : 'objective')) |
+    <span class="character" *ngIf="objective">
+      <img class="icon" [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+      {{objective.title ? objective.title : ((objective.name ? ('data.objective.' + objective.name) :
+      (objective.escort ? 'escort' : 'objective')) |
       ghsLabel)}}
-      <span *ngIf="character.title">&nbsp;({{(gameManager.toObjective(character).escort ? 'escort' :
+      <span *ngIf="objective.title">&nbsp;({{(objective.escort ? 'escort' :
         'objective') | ghsLabel}})</span>
     </span>
     {{'game.figure.setInitiative' | ghsLabel}}
@@ -25,10 +24,11 @@
     <span *ngFor="let number of [1,2,3,4,5,6,7,8,9]" class="number-button" (click)="pickNumber(number)">
       <span class="number">{{number}}</span>
     </span>
-    <span *ngIf="gameManager.isCharacter(character)" class="long-rest-button" title="{{'game.figure.longRest' | ghsLabel}}" (click)="longRest();">
+    <span *ngIf="character" class="long-rest-button" [ngClass]="{'active' : character.longRest}"
+      title="{{'game.figure.longRest' | ghsLabel}}" (click)="longRest()">
       <img class="ghs-svg" src="./assets/images/long-rest.svg">
     </span>
-    <span *ngIf="!gameManager.isCharacter(character)"></span>
+    <span *ngIf="objective"></span>
     <span class="number-button" (click)="pickNumber(0)">
       <span class="number">0</span>
     </span>

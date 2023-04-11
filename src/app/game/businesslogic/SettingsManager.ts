@@ -421,11 +421,17 @@ export class SettingsManager {
     this.settings.theme = theme;
     this.storeSettings();
   }
+  
+  setTooltips(tooltips: boolean) {
+    this.settings.tooltips = tooltips;
+    this.storeSettings();
+  }
 
   setTreasuresLoot(treasuresLoot: boolean) {
     this.settings.treasuresLoot = treasuresLoot;
     this.storeSettings();
   }
+
   setTreasures(treasures: boolean) {
     this.settings.treasures = treasures;
     this.storeSettings();

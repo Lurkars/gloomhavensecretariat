@@ -4,6 +4,7 @@
   "name": "Collapsed Cavern",
   "edition": "toa",
   "spoiler": true,
+  "initial": true,
   "solo": "spiked-ring",
   "monsters": [
     "black-imp",

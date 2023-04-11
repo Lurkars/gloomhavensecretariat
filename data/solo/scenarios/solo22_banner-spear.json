@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "Scouting Ambush",
   "edition": "fh",
+  "initial": true,
   "solo": "banner-spear",
   "monsters": [
     "city-guard-banner-spear-special",

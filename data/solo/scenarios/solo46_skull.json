@@ -4,6 +4,7 @@
   "name": "Beyond the Grave",
   "edition": "cs",
   "spoiler": true,
+  "initial": true,
   "solo": "skull",
   "monsters": [
     "vermling-shaman"

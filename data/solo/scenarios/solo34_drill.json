@@ -4,6 +4,7 @@
   "name": "Boiler Room",
   "edition": "fh",
   "spoiler": true,
+  "initial": true,
   "solo": "drill",
   "monsters": [
     "ancient-artillery",

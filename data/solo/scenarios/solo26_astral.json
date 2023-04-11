@@ -4,6 +4,7 @@
   "name": "Path of Ancestry",
   "edition": "fh",
   "spoiler": true,
+  "initial": true,
   "solo": "astral",
   "monsters": [
     "incarnation-of-ancestors"

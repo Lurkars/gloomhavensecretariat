@@ -19,6 +19,7 @@ export class Character extends CharacterData implements Entity, Figure {
   exhausted: boolean = false;
   stat: CharacterStat;
   summons: Summon[] = [];
+  identity: number = 0;
   progress: CharacterProgress;
   donations: number = 0;
 
@@ -92,7 +93,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   toModel(): GameCharacterModel {
-    return new GameCharacterModel(this.name, this.edition, this.marker, this.title, this.initiative, this.experience, this.loot, this.lootCards || [], this.treasures && this.treasures.map((treasure) => '' + treasure) || [], this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.lootCardsVisible, this.fullview, this.number, this.attackModifierDeck.toModel(), this.donations, this.absent, this.longRest);
+    return new GameCharacterModel(this.name, this.edition, this.marker, this.title, this.initiative, this.experience, this.loot, this.lootCards || [], this.treasures && this.treasures.map((treasure) => '' + treasure) || [], this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.identity, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.lootCardsVisible, this.fullview, this.number, this.attackModifierDeck.toModel(), this.donations, this.absent, this.longRest);
   }
 
   fromModel(model: GameCharacterModel) {
@@ -144,6 +145,7 @@ export class Character extends CharacterData implements Entity, Figure {
     }
     this.markers = model.markers || this.markers;
     this.tags = model.tags || this.tags;
+    this.identity = model.identity || 0;
 
     this.summons = this.summons.filter((summon) => {
       let found: boolean = false;
@@ -243,6 +245,7 @@ export class GameCharacterModel {
   entityConditions: GameEntityConditionModel[];
   markers: string[];
   tags: string[];
+  identity: number;
   summons: GameSummonModel[];
   progress: CharacterProgress | undefined;
   initiativeVisible: boolean;
@@ -273,6 +276,7 @@ export class GameCharacterModel {
     entityConditions: GameEntityConditionModel[],
     markers: string[],
     tags: string[],
+    identity: number,
     summons: GameSummonModel[],
     progress: CharacterProgress | undefined,
     initiativeVisible: boolean,
@@ -302,6 +306,7 @@ export class GameCharacterModel {
     this.entityConditions = JSON.parse(JSON.stringify(entityConditions));
     this.markers = JSON.parse(JSON.stringify(markers));
     this.tags = JSON.parse(JSON.stringify(tags));
+    this.identity = identity;
     this.summons = summons;
     this.progress = JSON.parse(JSON.stringify(progress));
     this.initiativeVisible = initiativeVisible;

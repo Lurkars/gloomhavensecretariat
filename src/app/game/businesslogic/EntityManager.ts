@@ -89,7 +89,7 @@ export class EntityManager {
   changeHealthHighlightConditions(entity: Entity, value: number) {
     if (settingsManager.settings.applyConditions) {
       entity.entityConditions.filter((entityCondition) => entityCondition.name == ConditionName.poison || entityCondition.name == ConditionName.poison_x).forEach((entityCondition) => {
-        if (value < 0 && !entityCondition.expired && entityCondition.state != EntityConditionState.new) {
+        if (value < 0 && !entityCondition.expired && entityCondition.state != EntityConditionState.new && (entity.health + value > 0)) {
           entityCondition.highlight = true;
         } else {
           entityCondition.highlight = false;

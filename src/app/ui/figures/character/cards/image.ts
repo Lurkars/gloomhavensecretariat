@@ -8,7 +8,7 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { ghsDefaultDialogPositions } from "src/app/ui/helper/Static";
-import { CharacterInitiativeDialogComponent } from "./initiative";
+import { CharacterInitiativeDialogComponent } from "./initiative-dialog";
 
 @Component({
   selector: 'ghs-character-image',

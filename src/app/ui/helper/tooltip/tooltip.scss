@@ -4,8 +4,18 @@
 
 div {
     background-color: var(--ghs-color-darkgray);
-    color: var(--ghs-color-white);
-    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
-    padding: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor)) calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+    margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor)) calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+    padding: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor)) calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
     border-radius: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+
+    &.small {
+        font-size: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
+        padding: calc(var(--ghs-unit) * 0.25 * var(--ghs-text-factor)) calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+    }
+
+    &.large {
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+        padding: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor)) calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+    }
 }

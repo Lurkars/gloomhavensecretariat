@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
@@ -7,9 +7,24 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
     templateUrl: './dialog.html',
     styleUrls: ['./dialog.scss']
 })
-export class UndoDialogComponent {
+export class UndoDialogComponent implements OnInit {
 
     gameManager: GameManager = gameManager;
+    undoOffset: number = 0;
+
+
+
+    ngOnInit(): void {
+        this.undoOffset = gameManager.stateManager.undos.length > 0 ? (gameManager.game.revision
+            - (gameManager.game.revisionOffset || 0)) - this.getUndoRevision(gameManager.stateManager.undos.length - 1) - 1 : 0;
+
+        gameManager.uiChange.subscribe({
+            next: () => {
+                this.undoOffset = gameManager.stateManager.undos.length > 0 ? (gameManager.game.revision
+                    - (gameManager.game.revisionOffset || 0)) - this.getUndoRevision(gameManager.stateManager.undos.length - 1) - 1 : 0;
+            }
+        })
+    }
 
     getUndoInfo(index: number): string[] {
         let undoInfo: string[] = [];
@@ -45,5 +60,16 @@ export class UndoDialogComponent {
         }
 
         return redoInfo;
+    }
+
+    getUndoRevision(i: number): number {
+        const undos = gameManager.stateManager.undos;
+        return undos[i].revision - (undos[i].revisionOffset || 0);
+    }
+
+    getRedoRevision(i: number): number {
+        const redos = gameManager.stateManager.redos;
+        const index = redos.length - i - 1;
+        return redos[index].revision - (redos[index].revisionOffset || 0);
     }
 }

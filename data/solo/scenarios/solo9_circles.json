@@ -4,6 +4,7 @@
   "name": "Plane of Wild Beasts",
   "edition": "gh",
   "spoiler": true,
+  "initial": true,
   "solo": "circles",
   "monsters": [
     "cave-bear-circles-solo",

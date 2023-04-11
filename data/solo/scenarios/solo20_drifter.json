@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "Wonder of Nature",
   "edition": "fh",
+  "initial": true,
   "solo": "drifter",
   "monsters": [
     "flame-demon",

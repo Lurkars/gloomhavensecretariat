@@ -5,6 +5,8 @@
     </a>
   </div>
   <ng-container *ngIf="!standalone">
+    <img *ngIf="gameManager.stateManager.serverError" src="./assets/images/warning.svg" class="ghs-svg server-connection closed"
+          [title]="'server.error' | ghsLabel">
     <ng-container [ngSwitch]="gameManager.stateManager.wsState()">
       <a (click)="openMenu($event, SubMenu.server)" [title]="'server.connected' | ghsLabel"
         *ngSwitchCase="WebSocket.OPEN" class="server-connection-status">

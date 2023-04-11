@@ -4,6 +4,7 @@
   "name": "Forest Invaders",
   "edition": "cs",
   "spoiler": true,
+  "initial": true,
   "solo": "tusks",
   "monsters": [
     "cave-bear",

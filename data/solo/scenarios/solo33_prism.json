@@ -4,6 +4,7 @@
   "name": "Recharge",
   "edition": "fh",
   "spoiler": true,
+  "initial": true,
   "solo": "prism",
   "monsters": [
     "energized-corpse",

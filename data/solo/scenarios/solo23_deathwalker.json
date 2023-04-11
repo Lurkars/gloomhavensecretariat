@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "The Dead of Night",
   "edition": "fh",
+  "initial": true,
   "solo": "deathwalker",
   "monsters": [
     "black-imp-deathwalker-solo",

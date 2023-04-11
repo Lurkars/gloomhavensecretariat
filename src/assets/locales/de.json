@@ -64,6 +64,7 @@
     },
     "filter": {
       ".": "Charaktere filtern",
+      "allEditions": "Alle Editionen",
       "noResult": "Kein Ergebnis"
     },
     "lootCards": {
@@ -271,28 +272,94 @@
       "shuffle": "Mischen"
     },
     "condition": {
-      "bane": "Unheil",
-      "bless": "Segen",
-      "brittle": "Gebrechlich",
-      "chill": "Mutlosigkeit",
-      "curse": "Fluch",
-      "disarm": "Entwaffnen",
-      "dodge": "Ausweichen",
-      "heal": "Heilen",
-      "immobilize": "Lähmung",
-      "impair": "Beschädigt",
-      "infect": "Infektion",
-      "invisible": "Unsichtbar",
-      "muddle": "Verwirrrung",
-      "poison": "Gift",
-      "poison_x": "Gift {0}",
-      "regenerate": "Regeneration",
-      "rupture": "Bruch",
-      "strengthen": "Stärkung",
-      "stun": "Betäubung",
-      "ward": "Abwehr",
-      "wound": "Wunde",
-      "wound_x": "Wunde {0}"
+      "bane": {
+        ".": "Ruin",
+        "hint": "Erleide %game.damage:10% am Ende des nächsten Zugs, then remove. Auch bei Heilung entfernt."
+      },
+      "bless": {
+        ".": "Segen",
+        "hint": "Mische eine %game.attackmodifier.bless% Karte ins Angriffsmodifikatordeck"
+      },
+      "brittle": {
+        ".": "Spröde",
+        "hint": "Verdopple den nächsten %game.damage%, anschließend entfernen. Auch bei Heilung entfernt."
+      },
+      "chill": {
+        ".": "Mutlosigkeit",
+        "hint": "Bekomme -1 auf alle Bewegungen und Angriffe für jeden Marker. Entferne einen Marker am Ende des nächsten Zugs."
+      },
+      "curse": {
+        ".": "Fluch",
+        "hint": "Mische eine %game.attackmodifier.curse% Karte ins Angriffsmodifikatordeck"
+      },
+      "disarm": {
+        ".": "Entwaffnen",
+        "hint": "Kein Angriff möglich. Entferne am Ende des nächsten Zugs."
+      },
+      "dodge": {
+        ".": "Ausweichen",
+        "hint": "Discard or lose a card to prevent an attack, then remove."
+      },
+      "heal": {
+        ".": "Heilen",
+        "hint": ""
+      },
+      "immobilize": {
+        ".": "Lähmung",
+        "hint": "Keine Bewegung möglich. Entferne am Ende des nächsten Zugs."
+      },
+      "impair": {
+        ".": "Beschädigt",
+        "hint": "Kein Verwenden von Gegenständen möglich. Entferne am Ende des nächsten Zugs."
+      },
+      "infect": {
+        ".": "Infektion",
+        "hint": "Kein Schild möglich. Bei Heilung entfernen."
+      },
+      "invisible": {
+        ".": "Unsichtbar",
+        "hint": "Kann nicht fokkusiert werden. Entferne am Ende des nächsten Zugs."
+      },
+      "muddle": {
+        ".": "Verwirrrung",
+        "hint": "Nachteil für alle Angriffe. Entferne am Ende des nächsten Zugs."
+      },
+      "poison": {
+        ".": "Gift",
+        "hint": "Alle Angreifer bekommen +1 %game.action.attack%. Verhindert Heilung. Bei Heilung entfernen."
+      },
+      "poison_x": {
+        ".": "Gift {0}",
+        "hint": "Alle Angreifer bekommen +X %game.action.attack%. Verhindert Heilung. Bei Heilung entfernen."
+      },
+      "regenerate": {
+        ".": "Regeneration",
+        "hint": "%game.action.heal% 1 zu Beginn des Zuges. Bei Schaden entfernen."
+      },
+      "rupture": {
+        ".": "Bruch",
+        "hint": "Bei jeder Beweung, erleide %game.damage:1%. Bei Heilung entfernen."
+      },
+      "strengthen": {
+        ".": "Stärkung",
+        "hint": "Vorteil für alle Angriffe. Entferne am Ende des nächsten Zugs."
+      },
+      "stun": {
+        ".": "Betäubung",
+        "hint": "Weder Fertigkeiten ausführen noch Gegenstände verwenden. Entferne am Ende des nächsten Zugs."
+      },
+      "ward": {
+        ".": "Schutz",
+        "hint": "Halbiere (abgerundend) des nächsten %game.damage%, anschließend entfernen."
+      },
+      "wound": {
+        ".": "Wunde",
+        "hint": "Erleide %game.damage:1% zu Beginn jedes Zuges. Bei Heilung entfernen."
+      },
+      "wound_x": {
+        ".": "Wunde {0}",
+        "hint": "Erleide %game.damage:X% zu Beginn jedes Zuges. Bei Heilung entfernen."
+      }
     },
     "custom": {
       "advantage": "Vorteil",
@@ -1198,6 +1265,10 @@
       "hint": "",
       "modern": "Modern (%wip%)"
     },
+    "tooltips": {
+      ".": "Tooltips",
+      "hint": "Tooltips anzeigen"
+    },
     "treasures": {
       ".": "Schätze anzeigen",
       "hint": "Zeige Schätze von aufgedeckten Räumen an und einen Dialog um den Schatz zu öffnen."
@@ -1219,6 +1290,7 @@
     "placeholder": "???"
   },
   "state": {
+    "currentGame": "Aktuell",
     "info": {
       "addBless": "Segen {0}",
       "addBlesses": "{1} Segen {0}",
@@ -1465,6 +1537,7 @@
       "updateManualPlayerCount": "Manuelle Charakter Anzahl auf {0}",
       "updatePartyAchievements": "Gruppenerfolg auf {0}"
     },
+    "missing": "Fehlende Zustände: {0}",
     "redo": "Wiederherstellen",
     "reset": "Zurücksetzen",
     "undo": "Rückgängig"

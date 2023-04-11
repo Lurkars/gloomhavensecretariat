@@ -3,7 +3,7 @@
     <div class="character" *ngFor="let character of characters" (click)="toggleSelect(character.name)"
         [ngClass]="{'selected' : character.name == selected}">
         <img class="icon" [src]="character.iconUrl" />
-        {{character.title || ('data.character.' + character.name | ghsLabel)}}
+        <span>{{gameManager.characterManager.characterName(character)}}</span>
     </div>
 </div>
 

@@ -67,6 +67,7 @@ export class Settings {
   showFullAbilityCard: boolean = false;
   spoilers: string[] = [];
   theme: string = "";
+  tooltips: boolean = true;
   treasuresLoot: boolean = true;
   treasures: boolean = true;
   zoom: number = 100;

@@ -4,6 +4,7 @@
   "name": "Aftermath",
   "edition": "gh",
   "spoiler": true,
+  "initial": true,
   "solo": "saw",
   "monsters": [
     "city-guard",

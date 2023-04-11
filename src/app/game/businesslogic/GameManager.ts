@@ -137,28 +137,28 @@ export class GameManager {
   }
 
   charactersData(edition: string | undefined = undefined): CharacterData[] {
-    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(edition).indexOf(edition) != -1).map((editionData) => editionData.characters).flat().filter((characterData, index, characters) => (!edition || characterData.edition == edition) && (characterData.replace || !characterData.replace && !characters.find((characterDataReplacement) => characterDataReplacement.replace && characterDataReplacement.name == characterData.name && characterDataReplacement.edition == characterData.edition)));
+    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.characters).flat().filter((characterData, index, characters) => (!edition || characterData.edition == edition) && (characterData.replace || !characterData.replace && !characters.find((characterDataReplacement) => characterDataReplacement.replace && characterDataReplacement.name == characterData.name && characterDataReplacement.edition == characterData.edition)));
   }
 
   monstersData(edition: string | undefined = undefined): MonsterData[] {
-    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(edition).indexOf(edition) != -1).map((editionData) => editionData.monsters).flat().filter((monsterData, index, monsters) => monsterData.replace || !monsterData.replace && !monsters.find((monsterDataReplacement) => monsterDataReplacement.replace && monsterDataReplacement.name == monsterData.name && monsterDataReplacement.edition == monsterData.edition));
+    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.monsters).flat().filter((monsterData, index, monsters) => monsterData.replace || !monsterData.replace && !monsters.find((monsterDataReplacement) => monsterDataReplacement.replace && monsterDataReplacement.name == monsterData.name && monsterDataReplacement.edition == monsterData.edition));
   }
 
   decksData(edition: string | undefined = undefined): DeckData[] {
-    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(edition).indexOf(edition) != -1).map((editionData) => editionData.decks).flat();
+    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.decks).flat();
   }
 
   scenarioData(edition: string | undefined = undefined): ScenarioData[] {
-    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(edition).indexOf(edition) != -1).map((editionData) => editionData.scenarios).flat();
+    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.scenarios).flat();
   }
 
   sectionData(edition: string | undefined = undefined): ScenarioData[] {
-    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(edition).indexOf(edition) != -1).map((editionData) => editionData.sections).flat();
+    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.sections).flat();
   }
 
   itemData(edition: string | undefined = undefined, all: boolean = false): ItemData[] {
     const prosperityLevel = this.prosperityLevel();
-    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(edition).indexOf(edition) != -1).map((editionData) => editionData.items).flat().filter((itemData) => {
+    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.items).flat().filter((itemData) => {
       if (all || !this.game.party.campaignMode || edition == 'fh') {
         return true;
       }

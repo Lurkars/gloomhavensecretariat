@@ -27,8 +27,10 @@
         (doubleClick)="openInitiativeDialog($event)">
       </ghs-drag-click>
 
-      <ghs-drag-click class="drag-hp" (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true"
-        [screenWidth]="true" (singleClick)="openEntityMenu($event)"></ghs-drag-click>
+      <ghs-drag-click class="drag-hp"
+        [style.margin-left]="initiativeElement.elementRef.nativeElement.clientWidth + 'px'"
+        (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true" [screenWidth]="true"
+        (singleClick)="openEntityMenu($event)"></ghs-drag-click>
 
       <ghs-drag-click class="drag-xp" (dragMove)="dragXpMove($event)" (dragEnd)="dragXpEnd($event)" [relative]="true"
         [screenWidth]="true" (singleClick)="openEntityMenu($event)"></ghs-drag-click>
@@ -36,9 +38,13 @@
       <ghs-drag-click class="drag-loot" (dragMove)="dragLootMove($event)" (dragEnd)="dragLootEnd($event)"
         [relative]="true" [screenWidth]="true" (singleClick)="openEntityMenu($event)">
       </ghs-drag-click>
+
+      <ghs-drag-click *ngIf="character.identities && character.identities.length > 1"
+        [style.margin-left]="initiativeElement.elementRef.nativeElement.clientWidth + 'px'" class="next-identity"
+        (singleClick)="nextIdentity($event)"></ghs-drag-click>
     </ng-container>
 
-    <ghs-character-initiative [character]="character"></ghs-character-initiative>
+    <ghs-character-initiative #initiativeElement [figure]="character"></ghs-character-initiative>
 
     <ghs-highlight-conditions [entity]="character" [figure]="character"></ghs-highlight-conditions>
 
@@ -70,8 +76,9 @@
       <div class="column col-1" (click)="openEntityMenu($event)">
         <div class="title-bar">
           <div class="title" #characterName>
-            <img class="icon" [src]="character.iconUrl" />
-            {{character.title || ('data.character.' + character.name | ghsLabel)}}
+            <img class="icon" [ngClass]="{'identities' : character.identities && character.identities.length > 1}"
+              [src]="character.identities.length == 0 ? character.iconUrl : gameManager.characterManager.characterIdentityIcon(character)" />
+            {{gameManager.characterManager.characterName(character)}}
             <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" />
           </div>
           <div class="markers">

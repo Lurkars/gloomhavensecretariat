@@ -4,6 +4,7 @@
   "name": "Crumbling Descent",
   "edition": "fh",
   "spoiler": true,
+  "initial": true,
   "solo": "meteor",
   "monsters": [
     "burrowing-blade",

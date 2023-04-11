@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "Bones in the Dirt",
   "edition": "fh",
+  "initial": true,
   "solo": "boneshaper",
   "monsters": [
     "earth-demon",

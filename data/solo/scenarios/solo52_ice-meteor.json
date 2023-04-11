@@ -4,6 +4,7 @@
   "name": "Conflux of Power",
   "edition": "toa",
   "spoiler": true,
+  "initial": true,
   "solo": "ice-meteor",
   "monsters": [
     "flame-demon",

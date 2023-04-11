@@ -5,13 +5,8 @@
       <span class="spacer"></span>
       <img (click)="toggleCharacterMarker()" class="icon character-icon"
         [src]="gameManager.toCharacter(data.figure).iconUrl" />
-      <span class="character-title" [ngClass]="{'absent' : gameManager.toCharacter(data.figure).absent}"
-        [title]="(gameManager.toCharacter(data.figure).absent ? 'character.absent' : 'character.present') | ghsLabel">
-        {{gameManager.toCharacter(data.figure).title || ('data.character.' + data.figure.name |
-        ghsLabel)}}
-        <span *ngIf="gameManager.toCharacter(data.figure).title">&nbsp;({{('data.character.' + data.figure.name |
-          ghsLabel)}})</span>
-      </span>
+      <span class="character-title"
+        [ngClass]="{'absent' : gameManager.toCharacter(data.figure).absent}">{{gameManager.characterManager.characterName(gameManager.toCharacter(data.figure),true)}}</span>
       <span class="spacer"></span>
       <img class="absent"
         [src]="'./assets/images/status/' + (gameManager.toCharacter(data.figure).absent ? 'absent': 'present') + '.svg'"
@@ -143,8 +138,9 @@
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </ghs-drag-click>
         </span>
-        <span class="item" title="{{'game.condition.bless' | ghsLabel}}">
-          <span class="condition" [ngClass]="{'immunity disabled' : isImmune(ConditionName.bless)}">
+        <span class="item">
+          <span class="condition" [ghsTooltip]="'game.condition.bless.hint'"
+            [ngClass]="{'immunity disabled' : isImmune(ConditionName.bless)}">
             <img src="./assets/images/status/bless.svg" />
           </span>
           <span class="badge bless-count">{{countUpcomingAttackModifier(AttackModifierType.bless) + this.bless}}</span>
@@ -168,8 +164,9 @@
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </ghs-drag-click>
         </span>
-        <span class="item" title="{{'game.condition.curse' | ghsLabel}}">
-          <span class="condition" [ngClass]="{'immunity disabled' : isImmune(ConditionName.curse)}">
+        <span class="item">
+          <span class="condition" [ghsTooltip]="'game.condition.curse.hint'"
+            [ngClass]="{'immunity disabled' : isImmune(ConditionName.curse)}">
             <img src="./assets/images/status/curse.svg" />
           </span>
           <span class="badge curse-count">{{countUpcomingAttackModifier(AttackModifierType.curse) + this.curse}}</span>

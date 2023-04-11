@@ -4,6 +4,7 @@
   "name": "Storm Mountain",
   "edition": "toa",
   "spoiler": true,
+  "initial": true,
   "solo": "lightning-ball",
   "monsters": [
     "stone-golem",

@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "Return to the Black Barrow",
   "edition": "gh",
+  "initial": true,
   "solo": "brute",
   "monsters": [
     "bandit-archer:-1",

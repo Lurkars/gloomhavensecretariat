@@ -4,6 +4,7 @@
   "name": "Elemental Secrets",
   "edition": "gh",
   "spoiler": true,
+  "initial": true,
   "solo": "triangles",
   "monsters": [
     "earth-demon",

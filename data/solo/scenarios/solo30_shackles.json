@@ -4,6 +4,7 @@
   "name": "A Collection of Suffering",
   "edition": "fh",
   "spoiler": true,
+  "initial": true,
   "solo": "shackles",
   "monsters": [
     "chaos-demon",

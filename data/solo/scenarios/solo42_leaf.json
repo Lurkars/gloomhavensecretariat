@@ -4,6 +4,7 @@
   "name": "Archaic Preservation",
   "edition": "cs",
   "spoiler": true,
+  "initial": true,
   "solo": "leaf",
   "monsters": [
     "ancient-artillery",

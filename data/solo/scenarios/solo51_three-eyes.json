@@ -4,6 +4,7 @@
   "name": "Unsouled",
   "edition": "toa",
   "spoiler": true,
+  "initial": true,
   "solo": "three-eyes",
   "monsters": [
     "inox-archer",

@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "Divide and Conquer",
   "edition": "fh",
+  "initial": true,
   "solo": "geminate",
   "monsters": [
     "flaming-bladespinner",

@@ -10,8 +10,8 @@ import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Objective } from 'src/app/game/model/Objective';
 import { ghsDefaultDialogPositions, ghsValueSign } from '../../helper/Static';
-import { CharacterInitiativeDialogComponent } from '../character/cards/initiative';
 import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
+import { CharacterInitiativeDialogComponent } from '../character/cards/initiative-dialog';
 
 @Component({
   selector: 'ghs-objective',

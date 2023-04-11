@@ -4,6 +4,7 @@
   "name": "Otherworldly Strangers",
   "edition": "cs",
   "spoiler": true,
+  "initial": true,
   "solo": "galaxy",
   "monsters": [
     "city-archer",

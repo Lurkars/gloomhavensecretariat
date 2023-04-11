@@ -1,6 +1,6 @@
 <div class="menu-container two-column server">
   <div class="column">
-    <form (ngSubmit)="connect(serverUrl.value,serverPort.value,serverPassword.value)">
+    <form #serverFrom (ngSubmit)="connect(serverUrl.value,serverPort.value,serverPassword.value)">
       <div class="line">
         <label>
           <input type="checkbox" [checked]="settingsManager.settings.serverAutoconnect"
@@ -76,7 +76,7 @@
             ghsLabel}}</a>
         </div>
         <div class="hint-container">
-          <input type="text" #serverPassword [value]="settingsManager.settings.serverPassword || ''" (keyup)="0"
+          <input type="text" #serverPassword [value]="settingsManager.settings.serverPassword || ''" (keyup)="0" (keydown.enter)="serverFrom.submit()"
             (change)="setServerPassword($event)" placeholder="{{'server.password' | ghsLabel}}">
           <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
           <span class="hint">

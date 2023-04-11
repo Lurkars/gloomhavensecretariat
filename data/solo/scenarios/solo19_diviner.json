@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "Forecast of the Inevitable",
   "edition": "fc",
+  "initial": true,
   "solo": "diviner",
   "monsters": [
     "earth-demon-diviner-solo",

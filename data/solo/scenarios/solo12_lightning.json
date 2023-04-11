@@ -4,6 +4,7 @@
   "name": "Unnatural Insults",
   "edition": "gh",
   "spoiler": true,
+  "initial": true,
   "solo": "lightning",
   "monsters": [
     "cultist",

@@ -4,6 +4,7 @@
   "name": "Hive Guardian",
   "edition": "cs",
   "spoiler": true,
+  "initial": true,
   "solo": "beetle",
   "monsters": [
     "earth-demon",

@@ -1,7 +1,11 @@
 {
   "name": "geminate",
-  "characterClass": "harrowr",
+  "characterClass": "harrower",
   "edition": "fh",
+  "identities": [
+    "melee",
+    "range"
+  ],
   "handSize": 7,
   "color": "#c33e69",
   "stats": [

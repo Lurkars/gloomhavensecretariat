@@ -4,6 +4,7 @@
   "name": "Under the Ice",
   "edition": "fh",
   "spoiler": true,
+  "initial": true,
   "solo": "fist",
   "monsters": [
     "ancient-artillery",

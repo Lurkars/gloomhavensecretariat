@@ -4,6 +4,7 @@
   "name": "Storage Fees",
   "edition": "gh",
   "spoiler": true,
+  "initial": true,
   "solo": "three-spears",
   "monsters": [
     "bandit-archer",

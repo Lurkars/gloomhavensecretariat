@@ -4,6 +4,7 @@
   "name": "The Caged Bear",
   "edition": "gh",
   "spoiler": true,
+  "initial": true,
   "solo": "two-mini",
   "monsters": [
     "cave-bear",

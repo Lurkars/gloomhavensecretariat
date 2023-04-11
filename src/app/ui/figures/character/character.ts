@@ -12,10 +12,10 @@ import { ghsDefaultDialogPositions, ghsValueSign } from '../../helper/Static';
 import { AttackModiferDeckChange } from '../attackmodifier/attackmodifierdeck';
 import { AttackModifierDeckFullscreenComponent } from '../attackmodifier/attackmodifierdeck-fullscreen';
 import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
-import { CharacterInitiativeDialogComponent } from './cards/initiative';
 import { CharacterSheetDialog } from './dialogs/character-sheet';
 import { CharacterLootCardsDialog } from './dialogs/loot-cards';
 import { CharacterSummonDialog } from './dialogs/summondialog';
+import { CharacterInitiativeDialogComponent } from './cards/initiative-dialog';
 
 @Component({
   selector: 'ghs-character',
@@ -144,6 +144,18 @@ export class CharacterComponent implements OnInit {
       } else if (settingsManager.settings.initiativeRequired && this.character.initiative <= 0 || gameManager.game.state == GameState.draw) {
         this.openInitiativeDialog(event);
       }
+    }
+  }
+
+  nextIdentity(event: any): void {
+    if (this.character.identities.length > 1) {
+      gameManager.stateManager.before("nextIdentity", "data.character." + this.character.name);
+      this.character.identity++;
+      if (this.character.identity >= this.character.identities.length) {
+        this.character.identity = 0;
+      }
+      gameManager.stateManager.after();
+      event.preventDefault();
     }
   }
 

@@ -37,6 +37,38 @@ export class CharacterManager {
     return './assets/images/character/icons/' + characterData.edition + '-' + characterData.name + '.svg';
   }
 
+  characterIdentityIcon(character: Character, index: number = -1): string {
+    if (!character.identities || character.identities.length == 0) {
+      return this.characterIcon(character.name);
+    }
+
+    if (index == -1) {
+      index = character.identity || 0;
+    }
+
+    return './assets/images/character/icons/' + character.edition + '-' + character.name + '-' + character.identities[index] + '.svg';
+  }
+
+  characterName(character: Character, full: boolean = false): string {
+    let name = settingsManager.getLabel('data.character.' + character.name);
+    let hasTitle = false;
+    if (character.identities.length > 0) {
+      if (character.title && character.title.split('|')[character.identity]) {
+        name = character.title.split('|')[character.identity];
+        hasTitle = true;
+      } else {
+        name += " (" + settingsManager.getLabel('data.character.' + character.name + '.' + character.identities[character.identity]) + ")"
+      }
+    } else if (character.title) {
+      name = character.title;
+      hasTitle = true;
+    }
+    if (full && hasTitle) {
+      name += " (" + settingsManager.getLabel('data.character.' + character.name) + ")";
+    }
+    return name;
+  }
+
   characterColor(character: CharacterData | string): string {
     let characterData: CharacterData;
     if (character instanceof CharacterData) {
@@ -227,17 +259,6 @@ export class CharacterManager {
   }
 
   applyItemEffects(character: Character) {
-    if (!this.ignoreNegativeItemEffects(character)) {
-      for (let itemIdentifier of character.progress.equippedItems) {
-        const itemData = gameManager.item(+itemIdentifier.name, itemIdentifier.edition, true);
-        if (itemData && itemData.minusOne) {
-          for (let i = 0; i < itemData.minusOne; i++) {
-            gameManager.attackModifierManager.addModifier(character.attackModifierDeck, new AttackModifier(AttackModifierType.minus1));
-          }
-        }
-      }
-    }
-
     if (character.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '3')) {
       const stats = gameManager.getCharacterData(character.name, character.edition).stats.find((stats) => stats.level == character.level);
       if (stats && character.maxHealth <= stats.health) {

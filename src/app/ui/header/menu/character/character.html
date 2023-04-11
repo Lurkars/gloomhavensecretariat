@@ -6,10 +6,14 @@
         +1}}</a></span>
     <div class="line search">
       <input [(ngModel)]="filter" type="text" [placeholder]="'character.filter' | ghsLabel">
+      <label *ngIf="gameManager.game.edition">
+        <input type="checkbox" [checked]="allEditions" (change)="allEditions = !allEditions">
+        {{'character.filter.allEditions' | ghsLabel}}
+      </label>
     </div>
   </div>
   <div class="columns">
-    <ng-container *ngFor="let edition of gameManager.currentEditions(true)">
+    <ng-container *ngFor="let edition of (allEditions ? gameManager.editions() : gameManager.currentEditions(true))">
       <div class="column spoilers" *ngIf="characterData(filter, edition).length > 0">
         <div class="line title sticky">
           <label>{{'data.edition.' + edition | ghsLabel}}</label>

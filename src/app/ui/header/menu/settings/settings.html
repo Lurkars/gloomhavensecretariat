@@ -753,7 +753,19 @@
         </span>
       </div>
     </div>
-
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.tooltips"
+            (change)="settingsManager.setTooltips(!settingsManager.settings.tooltips)">
+          {{'settings.tooltips' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [i18n]="'settings.tooltips.hint'"></span>
+        </span>
+      </div>
+    </div>
     <div class="line">
       <div class="hint-container">
         <label>

@@ -218,6 +218,7 @@
       margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
 
       .item-list {
+        height: calc(var(--ghs-unit) * 24 * var(--ghs-dialog-factor));
         max-height: calc(var(--ghs-unit) * 24 * var(--ghs-dialog-factor));
         overflow: auto;
       }
@@ -452,6 +453,12 @@
 
     .name {
       display: flex;
+
+      img {
+        width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        height: auto;
+        margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+      }
     }
 
     input[type="text"] {

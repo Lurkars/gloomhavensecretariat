@@ -65,10 +65,11 @@
 
   ghs-drag-click.drag-hp,
   ghs-drag-click.drag-xp,
-  ghs-drag-click.drag-loot {
+  ghs-drag-click.drag-loot,
+  ghs-drag-click.next-identity {
     position: absolute;
     bottom: calc(var(--ghs-unit) * 1.5);
-    left: calc(var(--ghs-unit) * 22);
+    left: calc(var(--ghs-unit) * 17);
     width: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor));
     height: calc(var(--ghs-unit) * 5);
     z-index: 4;
@@ -83,6 +84,13 @@
     &.drag-loot {
       left: calc(var(--ghs-unit) * 73);
       width: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
+    }
+
+    &.next-identity {
+      cursor: e-resize;
+      top: calc(var(--ghs-unit) * 1.5);
+      width: calc(var(--ghs-unit) * 5);
+      bottom: initial;
     }
   }
 

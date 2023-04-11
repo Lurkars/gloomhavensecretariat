@@ -201,6 +201,17 @@ export class AttackModifierManager {
       })
     }
 
+    if (!gameManager.characterManager.ignoreNegativeItemEffects(character)) {
+      for (let itemIdentifier of character.progress.equippedItems) {
+        const itemData = gameManager.item(+itemIdentifier.name, itemIdentifier.edition, true);
+        if (itemData && itemData.minusOne) {
+          for (let i = 0; i < itemData.minusOne; i++) {
+            this.addModifier(attackModifierDeck, new AttackModifier(AttackModifierType.minus1));
+          }
+        }
+      }
+    }
+
     if (character.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '101')) {
       let minus1 = attackModifierDeck.cards.find((am) => am.id == AttackModifierType.minus1);
       if (minus1) {

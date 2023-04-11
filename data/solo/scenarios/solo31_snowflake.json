@@ -4,6 +4,7 @@
   "name": "Fighting Snow with Snow",
   "edition": "fh",
   "spoiler": true,
+  "initial": true,
   "solo": "snowflake",
   "monsters": [
     "algox-snowspeaker",

@@ -2,7 +2,6 @@ import { animate, style, transition, trigger } from "@angular/animations";
 import { Overlay, OverlayPositionBuilder, OverlayRef } from "@angular/cdk/overlay";
 import { ComponentPortal } from "@angular/cdk/portal";
 import { ChangeDetectionStrategy, Component, ComponentRef, Directive, ElementRef, HostListener, Input, OnInit } from "@angular/core";
-import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 @Component({
@@ -22,24 +21,25 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
         ]),
     ],
 })
-export class GhsTooltipComponent implements OnInit {
+export class GhsTooltipComponent {
 
-    @Input() label = '';
+    @Input() value = '';
     @Input('i18n-args') args: string[] = [];
-    html: SafeHtml = "";
-
-    constructor(private sanitizer: DomSanitizer) { }
-
-    ngOnInit(): void {
-        this.html = this.sanitizer.bypassSecurityTrustHtml(settingsManager.getLabel(this.label, this.args));
-    }
+    @Input('i18n-arg-label') argLabel: boolean = true;
+    @Input('relative') relative: boolean = false;
+    @Input('fh-force') fhForce: boolean = false;
+    @Input('size') size: 'small' | 'large' | undefined;
 }
 
 @Directive({ selector: '[ghsTooltip]' })
 export class GhsTooltipDirective implements OnInit {
 
-    @Input('ghsTooltip') label = '';
+    @Input('ghsTooltip') value = '';
     @Input('i18n-args') args: string[] = [];
+    @Input('i18n-arg-label') argLabel: boolean = true;
+    @Input('relative') relative: boolean = false;
+    @Input('fh-force') fhForce: boolean = false;
+    @Input('size') size: 'small' | 'large' | undefined;
     private overlayRef!: OverlayRef;
 
     constructor(private overlay: Overlay,
@@ -63,14 +63,22 @@ export class GhsTooltipDirective implements OnInit {
 
     @HostListener('mouseenter')
     show() {
-        const tooltipRef: ComponentRef<GhsTooltipComponent>
-            = this.overlayRef.attach(new ComponentPortal(GhsTooltipComponent));
-        tooltipRef.instance.label = this.label;
-        tooltipRef.instance.args = this.args;
+        if (settingsManager.settings.tooltips) {
+            const tooltipRef: ComponentRef<GhsTooltipComponent>
+                = this.overlayRef.attach(new ComponentPortal(GhsTooltipComponent));
+            tooltipRef.instance.value = this.value;
+            tooltipRef.instance.args = this.args;
+            tooltipRef.instance.argLabel = this.argLabel;
+            tooltipRef.instance.relative = this.relative;
+            tooltipRef.instance.fhForce = this.fhForce;
+            tooltipRef.instance.size = this.size;
+        }
     }
 
     @HostListener('mouseout')
     hide() {
-        this.overlayRef.detach();
+        if (this.overlayRef.hasAttached()) {
+            this.overlayRef.detach();
+        }
     }
 }

@@ -4,6 +4,7 @@
   "name": "Wet Work",
   "edition": "fh",
   "spoiler": true,
+  "initial": true,
   "solo": "kelp",
   "monsters": [
     "abael-scout",

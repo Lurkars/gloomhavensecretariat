@@ -20,9 +20,10 @@ export class CharacterMenuComponent {
   notSpoiled = ghsNotSpoiled;
 
   filter: string = "";
+  allEditions: boolean = false;
 
   characterData(filter: string, edition: string | undefined = undefined): CharacterData[] {
-    return gameManager.charactersData(edition).filter((characterData) => (!characterData.locked || this.isSpoiled(characterData)) && (ghsTextSearch(characterData.name, filter) || this.isSpoiled(characterData) && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.name), filter)) || characterData.locked && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.name), filter, true)).sort((a, b) => {
+    return gameManager.charactersData(edition).filter((characterData) => ((!characterData.locked || this.isSpoiled(characterData)) && (ghsTextSearch(characterData.name, filter) || this.isSpoiled(characterData) && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.name), filter))) || characterData.locked && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.name), filter, true)).sort((a, b) => {
       const aName = settingsManager.getLabel('data.character.' + a.name).toLowerCase();
       const bName = settingsManager.getLabel('data.character.' + b.name).toLowerCase();
 
@@ -53,7 +54,8 @@ export class CharacterMenuComponent {
   }
 
   noResults(): boolean {
-    return gameManager.currentEditions(true).every((edition) => this.characterData(this.filter, edition).length == 0);
+    const editions = this.allEditions ? gameManager.editions() : gameManager.currentEditions(true);
+    return editions.every((edition) => this.characterData(this.filter, edition).length == 0);
   }
 
   addCharacter(characterData: CharacterData) {

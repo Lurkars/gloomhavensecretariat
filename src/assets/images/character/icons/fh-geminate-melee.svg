@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100mm"
+   height="100mm"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg2131"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="fh-geminate-melee.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview2133"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.64765011"
+     inkscape:cx="-132.01573"
+     inkscape:cy="559.7158"
+     inkscape:window-width="1846"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     width="70mm" />
+  <defs
+     id="defs2128">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath764">
+      <path
+         d="m 162.124,231.889 h 7.717 v 7.973 h -7.717 z"
+         id="path762" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g770"
+       transform="matrix(11.012765,0,0,-11.012765,68.105069,73.894747)"
+       style="fill:#c33e69;fill-opacity:1">
+      <path
+         d="m 0,0 c -0.026,-0.36 -0.134,-0.697 -0.268,-0.988 -0.044,-0.095 -0.146,-0.15 -0.25,-0.134 -1.189,0.189 -1.441,1.102 -1.882,1.929 -0.289,0.157 -0.374,0.543 -0.374,0.543 0,0 0.133,0.18 0.121,0.639 -0.162,1.561 0.691,2.875 1.671,3.105 C -1.018,4.978 -1.056,4.803 -1.079,4.686 -1.278,4.591 -1.69,4.385 -1.858,3.826 -1.732,3.535 -1.336,2.765 -0.567,2.418 -0.257,1.686 0.065,0.896 0,0 m -0.685,4.179 c -0.032,0.527 0.141,1.152 0.349,1.59 0.032,0.069 -0.008,0.15 -0.082,0.166 C -0.739,6.004 -1.053,6.086 -1.255,6.142 -1.397,6.181 -1.549,6.138 -1.649,6.03 -2.912,4.667 -3.595,3.225 -3.955,1.669 -3.974,1.586 -3.966,1.498 -3.931,1.42 -3.2,-0.217 -1.85,-1.299 -0.57,-1.762 c 0.11,-0.04 0.233,0.002 0.297,0.1 0.284,0.432 0.633,1.096 0.666,1.794 0.097,2.025 -0.999,2.714 -1.078,4.047"
+         style="fill:#c33e69;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path772" />
+    </g>
+    <g
+       id="g774"
+       transform="matrix(11.012765,0,0,-11.012765,58.044908,55.920813)"
+       style="fill:#c33e69;fill-opacity:1">
+      <path
+         d="m 0,0 c 0.615,-0.795 0.112,-1.418 -0.084,-1.494 -0.128,-0.05 -0.278,-0.073 -0.458,0.108 -0.181,0.181 -0.145,0.434 -0.048,0.446 0.096,0.012 0.076,-0.329 0.325,-0.325 0.133,0.002 0.333,0.229 0.108,0.723 -0.184,0.405 -0.936,0.498 -1.145,0.976 -0.047,0.448 -10e-4,0.829 0.094,1.15 C -1.019,1.169 -0.522,0.676 0,0"
+         style="fill:#c33e69;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path776" />
+    </g>
+  </g>
+</svg>

@@ -4,6 +4,7 @@
   "name": "Tuning the Resonance",
   "edition": "fh",
   "spoiler": true,
+  "initial": true,
   "solo": "shards",
   "monsters": [
     "algox-archer",

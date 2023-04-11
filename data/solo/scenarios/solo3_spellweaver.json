@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "Corrupted Laboratory",
   "edition": "gh",
+  "initial": true,
   "solo": "spellweaver",
   "monsters": [
     "black-imp",

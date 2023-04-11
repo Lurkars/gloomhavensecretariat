@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "Race Against the Clock",
   "edition": "fh",
+  "initial": true,
   "solo": "blinkblade",
   "monsters": [
     "ancient-artillery",

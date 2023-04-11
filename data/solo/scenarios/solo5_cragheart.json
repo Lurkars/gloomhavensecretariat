@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "Stone Defense",
   "edition": "gh",
+  "initial": true,
   "solo": "cragheart",
   "monsters": [
     "cave-bear",

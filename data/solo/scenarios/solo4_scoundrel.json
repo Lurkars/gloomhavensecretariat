@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "Armory Heist",
   "edition": "gh",
+  "initial": true,
   "solo": "scoundrel",
   "monsters": [
     "ancient-artillery",

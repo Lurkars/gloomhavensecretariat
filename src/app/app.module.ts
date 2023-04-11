@@ -38,7 +38,8 @@ import { SummonSheetComponent } from './ui/figures/character/summon/sheet/summon
 import { CharacterImageComponent } from './ui/figures/character/cards/image';
 import { DatamanagementMenuComponent } from './ui/header/menu/datamanagement/datamanagement';
 import { ScenarioMenuComponent } from './ui/header/menu/scenario/scenario';
-import { CharacterInitiativeComponent, CharacterInitiativeDialogComponent } from './ui/figures/character/cards/initiative';
+import { CharacterInitiativeComponent } from './ui/figures/character/cards/initiative';
+import { CharacterInitiativeDialogComponent } from './ui/figures/character/cards/initiative-dialog';
 import { ObjectiveComponent } from './ui/figures/objective/objective';
 import { ServerMenuComponent } from './ui/header/menu/server/server';
 import { FigureErrorsComponent, FigureErrorsDialogComponent } from './ui/figures/errors/errors';

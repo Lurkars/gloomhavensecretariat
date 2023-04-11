@@ -5,18 +5,21 @@
 
 <div class="scroll-container" [ngSwitch]="active">
   <div *ngSwitchCase="SubMenu.main" class="menu-container main two-column">
-    <div class="line span-xs">
-      <a class="state undo" [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission }"
+    <div class="line state-container span">
+      <span class="warning" (click)="undoOffset = 0" *ngIf="undoOffset"> <img src="./assets/images/warning.svg">
+        <span [i18n]="'state.missing'" [i18n-args]="['' + undoOffset]"></span></span>
+      <a class="state undo" [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || undoOffset }"
         (click)="gameManager.stateManager.undo()">
         <span class="undo-text">
           {{'state.undo' | ghsLabel}}
-          <span class="undo-dialog" (click)="openUndoDialog($event)"><img class="ghs-svg"
-              src="./assets/images/long-rest.svg"></span>
         </span>
         <span class="info text-white" *ngIf="undoInfo.length > 0" [i18n]="'state.info.' + undoInfo[0]"
-          [i18n-args]="(undoInfo | slice:1:undoInfo.length)"></span></a>
-    </div>
-    <div class="line span-xs">
+          [i18n-args]="(undoInfo | slice:1:undoInfo.length)"></span>
+      </a>
+
+      <span class="undo-dialog" (click)="openUndoDialog($event)"><img class="ghs-svg"
+          src="./assets/images/long-rest.svg"></span>
+
       <a class="state redo" [ngClass]="{'disabled' :!gameManager.stateManager.redoPermission}"
         (click)="gameManager.stateManager.redo()">
         {{'state.redo' | ghsLabel}}
@@ -139,10 +142,10 @@
     </div>
     <div class="line" *ngFor="let character of characters()">
       <a (click)="removeCharacter(character);">
-        <img class="icon" [src]="character.iconUrl" /><span *ngIf="character.title">{{character.title}} (</span>
-        {{'data.character.' + character.name | ghsLabel}}
-        <span *ngIf="character.title">)</span><span class="edition"
-          *ngIf="gameManager.getEdition(character)">&nbsp;[{{'data.edition.' + gameManager.getEdition(character) |
+        <img class="icon" [src]="character.iconUrl" />
+        <span>{{gameManager.characterManager.characterName(character, true)}}</span>
+        <span class="edition" *ngIf="gameManager.getEdition(character)">&nbsp;[{{'data.edition.' +
+          gameManager.getEdition(character) |
           ghsLabel}}]</span>
       </a>
     </div>

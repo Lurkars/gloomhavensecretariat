@@ -3,6 +3,7 @@
   "group": "solo",
   "name": "An Unfortunate Intrusion",
   "edition": "gh",
+  "initial": true,
   "solo": "tinkerer",
   "monsters": [
     "city-guard-tinkerer-solo",

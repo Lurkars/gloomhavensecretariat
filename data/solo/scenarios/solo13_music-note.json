@@ -4,6 +4,7 @@
   "name": "Battle of the Bards",
   "edition": "gh",
   "spoiler": true,
+  "initial": true,
   "solo": "music-note",
   "monsters": [
     "bandit-archer-music-note-solo",
