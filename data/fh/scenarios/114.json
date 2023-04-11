@@ -15,6 +15,9 @@
       "name": "Ice Pillar",
       "health": "(2xL)+2",
       "marker": "b",
+      "tags": [
+        "ice-pillar-b"
+      ],
       "actions": [
         {
           "type": "shield",
@@ -81,6 +84,27 @@
           "marker": "c"
         }
       ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "159.1"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Ice Pillar",
+            "tags": [
+              "ice-pillar-b"
+            ]
+          },
+          "type": "dead"
+        }
+      ]
     }
   ],
   "rooms": [
@@ -98,10 +122,6 @@
         {
           "name": "hound",
           "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "hound",
           "player4": "normal"
         },
         {

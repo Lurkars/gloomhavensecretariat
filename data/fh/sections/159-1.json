@@ -4,6 +4,7 @@
   "edition": "fh",
   "parent": "114",
   "marker": "b",
+  "resetRound": "hidden",
   "monsters": [
     "hound",
     "polar-bear",
@@ -42,14 +43,6 @@
           },
           "marker": "f"
         }
-      ],
-      "disableRules": [
-        {
-          "edition": "fh",
-          "scenario": "114",
-          "index": 0,
-          "section": true
-        }
       ]
     },
     {
@@ -71,13 +64,23 @@
           },
           "marker": "e"
         }
-      ],
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
       "disableRules": [
         {
           "edition": "fh",
           "scenario": "114",
+          "index": 0,
+          "section": false
+        },
+        {
+          "edition": "fh",
+          "scenario": "114",
           "index": 1,
-          "section": true
+          "section": false
         }
       ]
     }
