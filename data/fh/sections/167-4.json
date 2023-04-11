@@ -3,6 +3,10 @@
   "name": "Underground Station",
   "edition": "fh",
   "parent": "96",
+  "parentSections": [
+    "116.2"
+  ],
+  "marker": "3",
   "monsters": [
     "ancient-artillery",
     "black-imp",

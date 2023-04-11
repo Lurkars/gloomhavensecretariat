@@ -13,6 +13,12 @@
     "ancient-artillery",
     "rending-drake"
   ],
+  "objectives": [
+    {
+      "name": "Debris",
+      "health": "L+10"
+    }
+  ],
   "lootDeckConfig": {
     "money": 14,
     "lumber": 1,
@@ -37,6 +43,10 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1
       ]
     }
   ]
