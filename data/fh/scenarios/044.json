@@ -28,6 +28,24 @@
     "arrowvine": 2,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "All monsters within %game.action.range:2% of the Metal Cabinet suffer trap damage",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Metal Cabinet"
+          },
+          "type": "dead"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

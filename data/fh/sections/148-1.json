@@ -14,8 +14,32 @@
     {
       "round": "true",
       "always": true,
-      "once": true,
-      "note": "All monsters gain %game.condition.wound%. Monsters cannot remove %game.condition.wound% with healing"
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*"
+          },
+          "type": "permanentCondition",
+          "value": "wound"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*"
+          },
+          "type": "permanentCondition",
+          "value": "muddle"
+        }
+      ],
+      "disableRules": [
+        {
+          "edition": "fh",
+          "scenario": "7.1",
+          "index": 0,
+          "section": true
+        }
+      ]
     },
     {
       "round": "true",

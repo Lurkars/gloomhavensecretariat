@@ -29,7 +29,17 @@
       "round": "true",
       "always": true,
       "once": true,
-      "note": "Set Faye's current hit point value to 3+L"
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Faye"
+          },
+          "type": "hp",
+          "value": "3+L"
+        }
+      ]
     }
   ]
 }
