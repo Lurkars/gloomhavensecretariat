@@ -75,9 +75,12 @@
           <a *ngIf="!settingsManager.settings.serverPassword" (click)="createUUID()">{{'server.password.uuid' |
             ghsLabel}}</a>
         </div>
+      </div>
+      <div class="line">
         <div class="hint-container">
-          <input type="text" #serverPassword [value]="settingsManager.settings.serverPassword || ''" (keyup)="0" (keydown.enter)="serverFrom.submit()"
-            (change)="setServerPassword($event)" placeholder="{{'server.password' | ghsLabel}}">
+          <input type="text" #serverPassword [value]="settingsManager.settings.serverPassword || ''" (keyup)="0"
+            (keydown.enter)="serverFrom.submit()" (change)="setServerPassword($event)"
+            placeholder="{{'server.password' | ghsLabel}}">
           <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
           <span class="hint">
             <span class="text" [i18n]="'server.password.hint'"></span>

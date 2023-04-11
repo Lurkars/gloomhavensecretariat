@@ -27,6 +27,7 @@ export class StateManager {
   errorLog: any[] = [];
   permissionBackup: Permissions | undefined;
   connectionTries: number = 0;
+  gameOffsetWarning: boolean = true;
 
   undoPermission: boolean = false;
   redoPermission: boolean = false;

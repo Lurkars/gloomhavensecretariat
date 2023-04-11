@@ -1,7 +1,8 @@
 <div class="undo-dialog">
 
     <div class="menu">
-        <a class="state undo" [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || undoOffset }"
+        <a class="state undo"
+            [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning)}"
             (click)="gameManager.stateManager.undo()">{{'state.undo' | ghsLabel}}</a>
         <a class="state redo" [ngClass]="{'disabled' : !gameManager.stateManager.redoPermission }"
             (click)="gameManager.stateManager.redo()">{{'state.redo' | ghsLabel}}</a>
@@ -39,7 +40,8 @@
                     ({{gameManager.game.revisionOffset}})
                 </span>
             </span>
-            <span class="warning undo-offset" *ngIf="undoOffset" (click)="undoOffset = 0">
+            <span class="warning undo-offset" *ngIf="undoOffset && gameManager.stateManager.gameOffsetWarning"
+                (click)="gameManager.stateManager.gameOffsetWarning = false">
                 <img src="./assets/images/warning.svg">
                 <span [i18n]="'state.missing'" [i18n-args]="['' + undoOffset]"></span>
             </span>
