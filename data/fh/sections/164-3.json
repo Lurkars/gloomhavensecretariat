@@ -3,6 +3,7 @@
   "name": "Ruins of the Solstice",
   "edition": "fh",
   "parent": "104",
+  "marker": "1",
   "monsters": [
     "earth-demon",
     "forest-imp",
