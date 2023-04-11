@@ -3,6 +3,7 @@
   "name": "Inside the Swarm",
   "edition": "fh",
   "parent": "100",
+  "marker": "1",
   "monsters": [
     "burrowing-blade",
     "lurker-mindsnipper"
