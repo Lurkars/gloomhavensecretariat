@@ -3,6 +3,10 @@
   "name": "Collapsing Vent",
   "edition": "fh",
   "parent": "98",
+  "parentSections": [
+    "145.3"
+  ],
+  "marker": "3",
   "rooms": [
     {
       "roomNumber": 2,
