@@ -3,9 +3,56 @@
   "name": "Ruins of the Equinox",
   "edition": "fh",
   "parent": "105",
+  "marker": "1",
   "monsters": [
     "flame-demon",
     "rending-drake"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "fh",
+          "scenario": "105",
+          "index": 1,
+          "section": false
+        },
+        {
+          "edition": "fh",
+          "scenario": "105",
+          "index": 2,
+          "section": false
+        },
+        {
+          "edition": "fh",
+          "scenario": "105",
+          "index": 3,
+          "section": false
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "damage",
+          "value": "1"
+        }
+      ],
+      "elements": [
+        {
+          "type": "fire",
+          "state": "strong"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
