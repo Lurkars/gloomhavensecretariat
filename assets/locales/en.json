@@ -64,6 +64,7 @@
     },
     "filter": {
       ".": "Filter Character",
+      "allEditions": "All Editions",
       "noResult": "No Result"
     },
     "lootCards": {
@@ -376,28 +377,94 @@
       "shuffle": "Shuffle"
     },
     "condition": {
-      "bane": "Bane",
-      "bless": "Bless",
-      "brittle": "Brittle",
-      "chill": "Chill",
-      "curse": "Curse",
-      "disarm": "Disarm",
-      "dodge": "Dodge",
-      "heal": "Heal",
-      "immobilize": "Immobilize",
-      "impair": "Impair",
-      "infect": "Infect",
-      "invisible": "Invisible",
-      "muddle": "Muddle",
-      "poison": "Poison",
-      "poison_x": "Poison {0}",
-      "regenerate": "Regenerate",
-      "rupture": "Rupture",
-      "strengthen": "Strengthen",
-      "stun": "Stun",
-      "ward": "Ward",
-      "wound": "Wound",
-      "wound_x": "Wound {0}"
+      "bane": {
+        ".": "Bane",
+        "hint": "Suffer %game.damage:10% at end of next turn, then remove. Also remove when healed."
+      },
+      "bless": {
+        ".": "Bless",
+        "hint": "Shuffle %game.attackmodifier.bless% card into attack modifier deck"
+      },
+      "brittle": {
+        ".": "Brittle",
+        "hint": "Double next source of %game.damage%, then remove. Also remove when healed."
+      },
+      "chill": {
+        ".": "Chill",
+        "hint": "Gain -1 on all move and attacks for each token. Remove one at end of next turn."
+      },
+      "curse": {
+        ".": "Curse",
+        "hint": "Shuffle %game.attackmodifier.curse% card into attack modifier deck"
+      },
+      "disarm": {
+        ".": "Disarm",
+        "hint": "Cannot attack. Remove at end of next turn."
+      },
+      "dodge": {
+        ".": "Dodge",
+        "hint": "Discard or lose a card to prevent an attack, then remove."
+      },
+      "heal": {
+        ".": "Heal",
+        "hint": ""
+      },
+      "immobilize": {
+        ".": "Immobilize",
+        "hint": "Cannot move. Remove at end of next turn."
+      },
+      "impair": {
+        ".": "Impair",
+        "hint": "Cannot use items. Remove at end of next turn."
+      },
+      "infect": {
+        ".": "Infect",
+        "hint": "Cannot gain shield. Remove when healed."
+      },
+      "invisible": {
+        ".": "Invisible",
+        "hint": "Cannot be targeted. Remove at end of next turn."
+      },
+      "muddle": {
+        ".": "Muddle",
+        "hint": "Disadvantage on all atacks. Remove at end of next turn."
+      },
+      "poison": {
+        ".": "Poison",
+        "hint": "All attackers gain +1 %game.action.attack%. Prevents healing. Remove when healed."
+      },
+      "poison_x": {
+        ".": "Poison {0}",
+        "hint": "All attackers gain +X %game.action.attack%. Prevents healing. Remove when healed."
+      },
+      "regenerate": {
+        ".": "Regenerate",
+        "hint": "%game.action.heal% 1 at start of turn. Removed when damaged."
+      },
+      "rupture": {
+        ".": "Rupture",
+        "hint": "On move suffer %game.damage:1%. Remove when healed."
+      },
+      "strengthen": {
+        ".": "Strengthen",
+        "hint": "Advantage on all atacks. Remove at end of next turn."
+      },
+      "stun": {
+        ".": "Stun",
+        "hint": "Cannot perform abilities or use or trigger items. Remove at end of next turn."
+      },
+      "ward": {
+        ".": "Ward",
+        "hint": "Halve (round down) next source of %game.damage%, then remove."
+      },
+      "wound": {
+        ".": "Wound",
+        "hint": "Suffer %game.damage:1% at start of each turn. Remove when healed."
+      },
+      "wound_x": {
+        ".": "Wound {0}",
+        "hint": "Suffer %game.damage:X% at start of each turn. Remove when healed."
+      }
     },
     "custom": {
       "advantage": "Advantage",
@@ -1301,6 +1368,10 @@
       "hint": "Choose a theme for background, bars and fonts.",
       "modern": "Modern (%wip%)"
     },
+    "tooltips": {
+      ".": "Tooltips",
+      "hint": "Display tooltips"
+    },
     "treasures": {
       ".": "Room Treasures indicator",
       "hint": "Show available treasures for scenario when corresponding room is revealed and add dialog to open the treasure."
@@ -1322,6 +1393,7 @@
     "placeholder": "???"
   },
   "state": {
+    "currentGame": "Current",
     "info": {
       "addBless": "Bless {0}",
       "addBlesses": "{1} Bless' {0}",
@@ -1568,6 +1640,7 @@
       "updateManualPlayerCount": "Set manual player count to {0}",
       "updatePartyAchievements": "Party achievement to {0}"
     },
+    "missing": "Missing states: {0}",
     "redo": "Redo",
     "reset": "Reset",
     "undo": "Undo"
