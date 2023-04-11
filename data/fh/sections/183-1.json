@@ -3,8 +3,31 @@
   "name": "The Tempus Forge",
   "edition": "fh",
   "parent": "106",
+  "marker": "4",
   "monsters": [
     "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Altar 4",
+      "health": "[(L+2)xC/2{$math.floor}]"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "note": "The Altar performs %game.action.push% 1, %game.action.target% all characters, %game.action.range% 5",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Altar 4"
+          }
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -23,6 +46,9 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

@@ -4,8 +4,33 @@
   "name": "Crystal Trench",
   "edition": "fh",
   "parent": "106",
+  "marker": "5",
   "monsters": [
     "blacksmith"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "note": "The Blacksmith performs %game.action.heal% 2 self; %game.action.push% 1, %game.action.target% all characters, %game.action.range% 5, %game.condition.muddle%",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "blacksmith"
+          }
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "damage",
+          "value": "1"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
