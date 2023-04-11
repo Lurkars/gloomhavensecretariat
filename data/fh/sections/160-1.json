@@ -3,6 +3,7 @@
   "name": "Collapsing Vent",
   "edition": "fh",
   "parent": "98",
+  "marker": "1",
   "monsters": [
     "ancient-artillery",
     "black-imp",

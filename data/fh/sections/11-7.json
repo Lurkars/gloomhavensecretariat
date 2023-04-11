@@ -4,6 +4,7 @@
   "name": "The Lead Door",
   "edition": "fh",
   "parent": "103",
+  "marker": "2",
   "monsters": [
     "living-spirit"
   ],
@@ -23,6 +24,9 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

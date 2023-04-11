@@ -6,16 +6,28 @@
   "monsters": [
     "algox-archer",
     "algox-guard",
+    "algox-icespeaker",
     "algox-scout"
   ],
   "objectives": [
     {
       "name": "Caravan Wagon",
-      "escort": true,
       "health": "Cx2+L",
+      "escort": true,
       "initiative": 50,
-      "marker": "a",
-      "count": 5
+      "tags": [
+        "caravan-wagon"
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "value": "3"
+        },
+        {
+          "type": "custom",
+          "value": "Focus on moving towards %game.mapMarker.b%"
+        }
+      ]
     }
   ],
   "lootDeckConfig": {
@@ -27,6 +39,119 @@
     "arrowvine": 1,
     "axenut": 1
   },
+  "rules": [
+    {
+      "round": "R > 1 && R < 6",
+      "start": true,
+      "objectiveSpawns": [
+        {
+          "objective": {
+            "index": 1,
+            "name": "Caravan Wagon",
+            "tags": [
+              "caravan-wagon"
+            ],
+            "escort": true
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R == 3",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-icespeaker",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "algox-icespeaker",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "algox-archer",
+            "player3": "elite",
+            "player4": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "algox-archer",
+            "player3": "elite",
+            "player4": "normal"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 6",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-archer",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "algox-archer",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "algox-icespeaker",
+            "type": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "algox-icespeaker",
+            "type": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "algox-guard",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "algox-guard",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "d"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -53,6 +178,9 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

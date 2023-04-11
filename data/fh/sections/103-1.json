@@ -3,6 +3,10 @@
   "name": "My Private Empire",
   "edition": "fh",
   "parent": "107",
+  "parentSections": [
+    "188.1"
+  ],
+  "marker": "c",
   "monsters": [
     "steel-automaton"
   ],

@@ -3,6 +3,10 @@
   "name": "Lustrous Pit",
   "edition": "fh",
   "parent": "108",
+  "parentSections": [
+    "140.1"
+  ],
+  "marker": "3",
   "monsters": [
     "ice-wraith"
   ],

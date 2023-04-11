@@ -4,6 +4,7 @@
   "name": "To Bury the Dead",
   "edition": "fh",
   "parent": "95",
+  "marker": "1",
   "monsters": [
     "ice-wraith",
     "living-bones",

@@ -3,6 +3,10 @@
   "name": "Collapsing Vent",
   "edition": "fh",
   "parent": "98",
+  "parentSections": [
+    "160.1"
+  ],
+  "marker": "2",
   "monsters": [
     "ancient-artillery",
     "burrowing-blade",

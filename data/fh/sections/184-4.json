@@ -3,8 +3,31 @@
   "name": "The Tempus Forge",
   "edition": "fh",
   "parent": "106",
+  "marker": "2",
   "monsters": [
     "earth-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Altar 2",
+      "health": "[(L+2)xC/2{$math.floor}]"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "note": "All monsters perform %game.action.heal% 2 self",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Altar 2"
+          }
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -23,6 +46,9 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

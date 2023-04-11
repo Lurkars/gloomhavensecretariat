@@ -3,6 +3,10 @@
   "name": "Underground Station",
   "edition": "fh",
   "parent": "96",
+  "parentSections": [
+    "18.1"
+  ],
+  "marker": "2",
   "monsters": [
     "ancient-artillery",
     "black-imp",
@@ -20,21 +24,23 @@
           "name": "ancient-artillery",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "ancient-artillery",
           "player2": "normal",
-          "player3": "elite"
-        },
-        {
-          "name": "black-imp",
-          "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "black-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
           "player4": "elite"
         },
         {
@@ -48,6 +54,12 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1
       ]
     }
   ]

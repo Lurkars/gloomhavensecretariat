@@ -3,6 +3,10 @@
   "name": "Inside the Swarm",
   "edition": "fh",
   "parent": "100",
+  "parentSections": [
+    "141.3"
+  ],
+  "marker": "2",
   "monsters": [
     "burrowing-blade",
     "earth-demon",
@@ -53,6 +57,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "player4": "normal"
         },
         {
           "name": "shrike-fiend",

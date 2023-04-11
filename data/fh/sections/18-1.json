@@ -3,6 +3,7 @@
   "name": "Underground Station",
   "edition": "fh",
   "parent": "96",
+  "marker": "1",
   "monsters": [
     "ancient-artillery",
     "black-imp",
@@ -71,7 +72,16 @@
           "name": "rending-drake",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1
       ]
     }
   ]

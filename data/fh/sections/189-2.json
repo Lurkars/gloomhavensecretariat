@@ -3,8 +3,38 @@
   "name": "The Tempus Forge",
   "edition": "fh",
   "parent": "106",
+  "marker": "3",
   "monsters": [
     "frost-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Altar 3",
+      "health": "[(L+2)xC/2{$math.floor}]"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Altar 3"
+          }
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -23,6 +53,9 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

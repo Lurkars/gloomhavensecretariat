@@ -13,6 +13,15 @@
     "corpsecap": 2,
     "snowthistle": 2
   },
+  "rules": [
+    {
+      "round": "R == 8",
+      "start": true,
+      "sections": [
+        "43.1"
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

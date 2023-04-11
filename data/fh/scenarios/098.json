@@ -15,6 +15,23 @@
     "hide": 3,
     "rockroot": 2
   },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "damage",
+          "value": "3",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -37,11 +54,11 @@
         {
           "name": "black-imp",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "elite"
         },
         {
           "name": "black-imp",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "spitting-drake",

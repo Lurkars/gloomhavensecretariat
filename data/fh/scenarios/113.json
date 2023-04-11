@@ -36,10 +36,6 @@
         },
         {
           "name": "forest-imp",
-          "type": "normal"
-        },
-        {
-          "name": "forest-imp",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
@@ -52,7 +48,14 @@
         },
         {
           "name": "forest-imp",
+          "player2": "normal",
+          "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     }

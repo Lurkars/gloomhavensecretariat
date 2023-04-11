@@ -37,11 +37,12 @@
           "name": "algox-guard",
           "player2": "elite",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "algox-guard",
-          "player3": "normal"
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     }
