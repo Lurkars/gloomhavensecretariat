@@ -4,6 +4,7 @@
   "name": "Ice Cave",
   "edition": "fh",
   "parent": "111",
+  "marker": "1",
   "monsters": [
     "frost-demon",
     "night-demon",

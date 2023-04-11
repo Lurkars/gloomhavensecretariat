@@ -3,6 +3,10 @@
   "name": "Ice Cave",
   "edition": "fh",
   "parent": "111",
+  "parentSections": [
+    "182.2"
+  ],
+  "marker": "2",
   "monsters": [
     "frost-demon",
     "hound"
@@ -41,6 +45,10 @@
           "name": "hound",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
         }
       ]
     }
