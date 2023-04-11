@@ -3,6 +3,7 @@
   "name": "Lustrous Pit",
   "edition": "fh",
   "parent": "108",
+  "marker": "1",
   "monsters": [
     "ice-wraith",
     "snow-imp"
