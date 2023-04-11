@@ -4,7 +4,39 @@
   "edition": "fh",
   "parent": "110",
   "monsters": [
+    "living-doom",
     "living-spirit"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "fh",
+          "scenario": "110",
+          "index": 1,
+          "section": false
+        },
+        {
+          "edition": "fh",
+          "scenario": "110",
+          "index": 2,
+          "section": false
+        },
+        {
+          "edition": "fh",
+          "scenario": "110",
+          "index": 3,
+          "section": false
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "note": "Remaining Ice Pillars active"
+    }
   ],
   "rooms": [
     {
@@ -15,7 +47,7 @@
       ],
       "monster": [
         {
-          "name": "living-spirit",
+          "name": "living-doom",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
