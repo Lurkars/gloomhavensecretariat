@@ -3,6 +3,10 @@
   "name": "My Private Empire",
   "edition": "fh",
   "parent": "107",
+  "parentSections": [
+    "168.4"
+  ],
+  "marker": "1",
   "rooms": [
     {
       "roomNumber": 6,

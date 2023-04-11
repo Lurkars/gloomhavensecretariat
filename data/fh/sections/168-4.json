@@ -3,6 +3,7 @@
   "name": "My Private Empire",
   "edition": "fh",
   "parent": "107",
+  "marker": "a",
   "monsters": [
     "living-bones"
   ],

@@ -3,6 +3,10 @@
   "name": "My Private Empire",
   "edition": "fh",
   "parent": "107",
+  "parentSections": [
+    "149.4"
+  ],
+  "marker": "d",
   "monsters": [
     "living-bones",
     "living-doom"

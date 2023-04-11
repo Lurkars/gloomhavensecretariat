@@ -3,6 +3,10 @@
   "name": "My Private Empire",
   "edition": "fh",
   "parent": "107",
+  "parentSections": [
+    "150.3"
+  ],
+  "marker": "b",
   "monsters": [
     "ruined-machine"
   ],
