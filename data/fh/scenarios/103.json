@@ -4,7 +4,10 @@
   "name": "The Lead Door",
   "edition": "fh",
   "monsters": [
-    "living-spirit"
+    "living-doom",
+    "living-spirit",
+    "lurker-clawcrusher",
+    "shrike-fiend"
   ],
   "objectives": [
     {
@@ -17,6 +20,58 @@
     "money": 15,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "true",
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-spirit",
+            "type": "normal"
+          },
+          "count": "0",
+          "manual": true,
+          "manualMax": 4
+        },
+        {
+          "monster": {
+            "name": "shrike-fiend",
+            "type": "normal"
+          },
+          "count": "0",
+          "manual": true,
+          "manualMax": 4
+        },
+        {
+          "monster": {
+            "name": "living-doom",
+            "type": "normal"
+          },
+          "count": "0",
+          "manual": true,
+          "manualMax": 4
+        },
+        {
+          "monster": {
+            "name": "living-spirit",
+            "type": "elite"
+          },
+          "count": "0",
+          "manual": true,
+          "manualMax": 4
+        },
+        {
+          "monster": {
+            "name": "lurker-clawcrusher",
+            "type": "normal"
+          },
+          "count": "0",
+          "manual": true,
+          "manualMax": 4
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -34,8 +89,15 @@
         },
         {
           "name": "living-spirit",
+          "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1
       ]
     }
   ]
