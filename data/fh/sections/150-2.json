@@ -8,6 +8,27 @@
     "steel-automaton",
     "vermling-scout"
   ],
+  "allies": [
+    "vermling-scout"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "note": "Spawn one Ruined Machine for each character or Vermling Scout adjacent to a Flaming Bladespinner in any empty starting hex. Normal for 2 or 3 characters, elite for 4 characters."
+    },
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "fh",
+          "scenario": "94",
+          "index": 0,
+          "section": false
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 4,
@@ -32,6 +53,10 @@
           "name": "steel-automaton",
           "player2": "normal",
           "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "steel-automaton",
           "player4": "normal"
         },
         {

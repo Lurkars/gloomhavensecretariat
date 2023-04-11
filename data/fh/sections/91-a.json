@@ -1,0 +1,41 @@
+{
+  "fromFile": true,
+  "index": "91-1",
+  "name": "Shoreline Scramble",
+  "edition": "fh",
+  "parent": "91",
+  "marker": "1",
+  "monsters": [
+    "lightning-eel",
+    "lurker-clawcrusher"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lightning-eel",
+          "type": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-clawcrusher",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-clawcrusher",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

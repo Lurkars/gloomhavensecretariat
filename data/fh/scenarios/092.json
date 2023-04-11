@@ -5,6 +5,7 @@
   "edition": "fh",
   "monsters": [
     "lurker-clawcrusher",
+    "lurker-mindsnipper",
     "lurker-soldier",
     "lurker-wavethrower"
   ],
@@ -17,6 +18,176 @@
     "axenut": 2,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "R == 2 || R == 4",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-wavethrower",
+            "player2": "normal"
+          },
+          "marker": "f"
+        },
+        {
+          "monster": {
+            "name": "lurker-wavethrower",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "f",
+          "count": "2"
+        },
+        {
+          "monster": {
+            "name": "lurker-soldier",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "f"
+        }
+      ]
+    },
+    {
+      "round": "R == 3 || R == 5",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-soldier",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "lurker-wavethrower",
+            "player2": "normal"
+          },
+          "marker": "g"
+        },
+        {
+          "monster": {
+            "name": "lurker-wavethrower",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "g",
+          "count": "2"
+        },
+        {
+          "monster": {
+            "name": "lurker-soldier",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "g"
+        }
+      ]
+    },
+    {
+      "round": "R == 6 || R == 8",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-soldier",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "lurker-mindsnipper",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 7 || R == 9",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-clawcrusher",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "lurker-wavethrower",
+            "player2": "normal"
+          },
+          "marker": "e"
+        },
+        {
+          "monster": {
+            "name": "lurker-wavethrower",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "e",
+          "count": "2"
+        },
+        {
+          "monster": {
+            "name": "lurker-soldier",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R > 9",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-clawcrusher",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "lurker-clawcrusher",
+            "type": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 6",
+      "note": "Tile 7-G is submerged"
+    },
+    {
+      "round": "R == 10",
+      "note": "Tiles 2-B and 2-D are submerged"
+    },
+    {
+      "round": "R == 12",
+      "note": "Tile 14-A is submerged"
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

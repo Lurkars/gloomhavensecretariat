@@ -10,6 +10,9 @@
     "scabwit",
     "yoglang"
   ],
+  "allies": [
+    "scabwit"
+  ],
   "lootDeckConfig": {
     "money": 9,
     "lumber": 4,
@@ -19,6 +22,38 @@
     "flamefruit": 1,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "R == 2 || R == 4 || R == 6",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-scout",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R == 3 || R == 5 || R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-guard",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
