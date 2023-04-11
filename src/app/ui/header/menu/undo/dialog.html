@@ -1,5 +1,5 @@
 <div class="undo-dialog">
-
+    <a class="close" (click)="dialogRef.close()" [title]="'close' | ghsLabel"><img src="./assets/images/close.svg"></a>
     <div class="menu">
         <a class="state undo"
             [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning)}"
@@ -16,10 +16,6 @@
                     <span class="info text-white" *ngIf="getRedoInfo(i).length > 0"
                         [i18n]="'state.info.' + getRedoInfo(i)[0]"
                         [i18n-args]="(getRedoInfo(i) | slice:1:getRedoInfo(i).length)"></span>
-                    <span class="revision-hint">{{gameManager.stateManager.redos[i].revision}}
-                        ({{gameManager.stateManager.redos[i].revisionOffset}})
-                        <span></span>
-                    </span>
                 </span>
                 <span class="warning" *ngIf="i > 0 && getRedoRevision(i) - getRedoRevision(i-1) != 1">
                     <img src="./assets/images/warning.svg">
@@ -29,16 +25,12 @@
             </ng-container>
         </div>
 
-        <hr *ngIf="gameManager.stateManager.redos.length > 0">
-
-        <div class="list" [autoscroll]="true">
+        <div class="list current" [autoscroll]="true"
+            [ngClass]="{'has-undos' : gameManager.stateManager.undos.length > 0,'has-redos' : gameManager.stateManager.redos.length > 0}">
             <span class="entry">
                 <span class="revision">{{gameManager.game.revision - (gameManager.game.revisionOffset || 0) +
                     1}}.</span>
-                <span class="info current" [i18n]="'state.currentGame'"></span>
-                <span class="revision-hint">{{gameManager.game.revision}}
-                    ({{gameManager.game.revisionOffset}})
-                </span>
+                <span class="info" [i18n]="'state.currentGame'"></span>
             </span>
             <span class="warning undo-offset" *ngIf="undoOffset && gameManager.stateManager.gameOffsetWarning"
                 (click)="gameManager.stateManager.gameOffsetWarning = false">
@@ -46,8 +38,6 @@
                 <span [i18n]="'state.missing'" [i18n-args]="['' + undoOffset]"></span>
             </span>
         </div>
-
-        <hr *ngIf="gameManager.stateManager.undos.length > 0">
 
         <div class="list undos">
             <ng-container *ngFor="let i of [] | ghsRange:gameManager.stateManager.undos.length:true;">
@@ -69,9 +59,6 @@
                         [i18n]="'state.info.' + getUndoInfo(i)[0]"
                         [i18n-args]="(getUndoInfo(i) | slice:1:getUndoInfo(i).length)"></span>
                     <span class="spacer"></span>
-                    <span class="revision-hint">{{gameManager.stateManager.undos[i].revision}}
-                        ({{gameManager.stateManager.undos[i].revisionOffset}})
-                    </span>
                 </span>
             </ng-container>
         </div>

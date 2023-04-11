@@ -1,3 +1,4 @@
+import { DialogRef } from "@angular/cdk/dialog";
 import { Component, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -12,7 +13,7 @@ export class UndoDialogComponent implements OnInit {
     gameManager: GameManager = gameManager;
     undoOffset: number = 0;
 
-
+    constructor(public dialogRef: DialogRef) { }
 
     ngOnInit(): void {
         this.undoOffset = gameManager.stateManager.undos.length > 0 ? (gameManager.game.revision

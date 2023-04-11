@@ -288,7 +288,7 @@ export class StateManager {
           let gameUndo: GameModel = message.payload as GameModel;
 
           const undoGame = gameManager.stateManager.undos[gameManager.stateManager.undos.length - 1];
-          if (undoGame.revision - undoGame.revisionOffset == gameManager.game.revision - gameManager.game.revisionOffset - 1) {
+          if (undoGame && undoGame.revision - undoGame.revisionOffset == gameManager.game.revision - gameManager.game.revisionOffset - 1) {
             gameManager.stateManager.undos.splice(gameManager.stateManager.undos.length - 1, 1);
           } else {
             gameManager.stateManager.undoInfos.splice(gameManager.stateManager.undoInfos.length - gameManager.stateManager.redos.length, 0, message.undoinfo && ['serverSync', ...message.undoinfo] || ['serverSync']);
@@ -334,6 +334,7 @@ export class StateManager {
           let gameUpdate: GameModel = message.payload as GameModel;
           if (gameManager.game.revision == gameUpdate.revision) {
             gameManager.game.playSeconds = gameUpdate.playSeconds;
+            gameManager.game.server = gameUpdate.server;
             gameManager.stateManager.saveLocal();
             gameManager.uiChange.emit(true);
             setTimeout(() => {

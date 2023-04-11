@@ -1,4 +1,6 @@
 .undo-dialog {
+    position: relative;
+    padding: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
     font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
 
     .menu {
@@ -7,6 +9,7 @@
 
         .state {
             cursor: pointer;
+            font-family: var(--ghs-font-title);
 
             &.disabled {
                 pointer-events: none;
@@ -38,29 +41,24 @@
                 width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
                 margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
             }
+        }
 
-            .current {
+        &.current {
+
+            margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) 0;
+            border-top: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid transparent;
+            border-bottom: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid transparent;
+
+            .entry .info {
                 font-style: italic;
             }
 
-            .revision-hint {
-                position: absolute;
-                top: 50%;
-                right: 0;
-                display: flex;
-                display: none;
-                align-items: center;
-                color: var(--ghs-color-gray);
-                background-color: var(--ghs-color-black);
-                font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-                padding: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-                transform: translateY(-50%);
+            &.has-undos {
+                border-bottom-color: var(--ghs-color-gray);
             }
 
-            &:hover {
-                .revision-hint {
-                    display: inline-block;
-                }
+            &.has-redos {
+                border-top-color: var(--ghs-color-gray);
             }
         }
 
