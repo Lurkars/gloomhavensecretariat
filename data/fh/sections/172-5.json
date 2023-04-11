@@ -3,9 +3,17 @@
   "name": "Furious Factory",
   "edition": "fh",
   "parent": "109",
+  "marker": "4",
   "monsters": [
     "ancient-artillery",
     "flaming-bladespinner"
+  ],
+  "objectives": [
+    {
+      "name": "Metal Cabinet",
+      "health": "(2+L)xC/2",
+      "marker": "b"
+    }
   ],
   "rooms": [
     {
@@ -24,6 +32,9 @@
           "name": "flaming-bladespinner",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

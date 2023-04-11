@@ -3,10 +3,18 @@
   "name": "Furious Factory",
   "edition": "fh",
   "parent": "109",
+  "marker": "3",
   "monsters": [
     "ancient-artillery",
     "flaming-bladespinner",
     "ruined-machine"
+  ],
+  "objectives": [
+    {
+      "name": "Metal Cabinet",
+      "health": "(2+L)xC/2",
+      "marker": "b"
+    }
   ],
   "rooms": [
     {
@@ -32,6 +40,9 @@
           "name": "ruined-machine",
           "player2": "normal"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]
