@@ -112,6 +112,10 @@
           "count": "2"
         }
       ]
+    },
+    {
+      "round": "R == 10",
+      "finish": "won"
     }
   ],
   "rooms": [
