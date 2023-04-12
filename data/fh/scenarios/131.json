@@ -7,6 +7,36 @@
     "lurker-mindsnipper",
     "lurker-soldier"
   ],
+  "rules": [
+    {
+      "round": "R == 3",
+      "start": true,
+      "sections": [
+        "120.2"
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "sections": [
+        "181.5"
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "sections": [
+        "185.1"
+      ]
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "sections": [
+        "194.2"
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

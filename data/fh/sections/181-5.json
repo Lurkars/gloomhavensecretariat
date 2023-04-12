@@ -3,6 +3,9 @@
   "name": "The Dancing Iceberg",
   "edition": "fh",
   "parent": "131",
+  "parentSections": [
+    "120.2"
+  ],
   "monsters": [
     "lurker-mindsnipper",
     "lurker-soldier"
@@ -21,6 +24,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "player4": "normal"
         }
       ]
     }

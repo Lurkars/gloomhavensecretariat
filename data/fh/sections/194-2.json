@@ -4,8 +4,36 @@
   "name": "The Dancing Iceberg",
   "edition": "fh",
   "parent": "131",
+  "parentSections": [
+    "185.1"
+  ],
   "monsters": [
     "lurker-conductor"
+  ],
+  "rules": [
+    {
+      "round": "R % 2 == 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-wavethrower-scenario-131",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "lurker-soldier",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
