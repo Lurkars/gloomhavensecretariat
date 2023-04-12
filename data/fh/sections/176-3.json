@@ -3,9 +3,45 @@
   "name": "A Tall Drunken Tale",
   "edition": "fh",
   "parent": "128",
+  "parentSections": [
+    "152.2"
+  ],
   "monsters": [
     "abael-scout",
     "steel-automaton-scenario-128"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "bane"
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "impair"
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:1"
+        }
+      ]
+    }
   ],
   "rooms": [
     {

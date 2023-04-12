@@ -7,6 +7,23 @@
     "abael-scout",
     "lurker-wavethrower-scenario-128"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "discard",
+          "value": "1"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 4,

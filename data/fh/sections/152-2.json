@@ -1,0 +1,28 @@
+{
+  "index": "152.2",
+  "name": "A Tall Drunken Tale",
+  "edition": "fh",
+  "parent": "128",
+  "parentSections": [
+    "170.1"
+  ],
+  "monsters": [],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "ward"
+        }
+      ]
+    }
+  ],
+  "rooms": []
+}
