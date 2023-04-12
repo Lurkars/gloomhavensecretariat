@@ -3,6 +3,7 @@
   "name": "Derelict Freighter",
   "edition": "fh",
   "parent": "127",
+  "marker": "a",
   "monsters": [
     "frozen-corpse",
     "ice-wraith"
@@ -15,11 +16,12 @@
         {
           "name": "frozen-corpse",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "frozen-corpse",
+          "player3": "normal",
           "player4": "elite"
         },
         {

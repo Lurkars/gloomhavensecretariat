@@ -3,6 +3,10 @@
   "name": "Derelict Freighter",
   "edition": "fh",
   "parent": "127",
+  "parentSections": [
+    "153.1"
+  ],
+  "marker": "c",
   "monsters": [
     "frozen-corpse"
   ],
