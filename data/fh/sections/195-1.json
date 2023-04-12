@@ -4,6 +4,10 @@
   "name": "Belara's Keep",
   "edition": "fh",
   "parent": "135",
+  "parentSections": [
+    "87.2"
+  ],
+  "marker": "f",
   "monsters": [
     "belara",
     "earth-demon",

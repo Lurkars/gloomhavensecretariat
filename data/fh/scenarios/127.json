@@ -30,6 +30,10 @@
           "player4": "elite"
         },
         {
+          "name": "ancient-artillery",
+          "player4": "normal"
+        },
+        {
           "name": "ice-wraith",
           "type": "normal"
         },
@@ -41,6 +45,10 @@
           "name": "ice-wraith",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "player4": "normal"
         }
       ]
     }

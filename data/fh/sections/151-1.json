@@ -11,6 +11,40 @@
     "polar-bear",
     "snow-imp"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "The Hungry Maw performs %game.action.heal% LxC self",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "hungry-maw"
+          },
+          "type": "looseCondition",
+          "value": "bane"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "hungry-maw"
+          },
+          "type": "looseCondition",
+          "value": "brittle"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "hungry-maw"
+          },
+          "type": "looseCondition",
+          "value": "muddle"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

@@ -3,6 +3,7 @@
   "name": "A Waiting Game",
   "edition": "fh",
   "parent": "117",
+  "marker": "1",
   "monsters": [
     "hound",
     "vermling-priest",

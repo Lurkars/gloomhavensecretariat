@@ -3,6 +3,7 @@
   "name": "The Titan",
   "edition": "fh",
   "parent": "123",
+  "marker": "1",
   "monsters": [
     "algox-snowspeaker"
   ],

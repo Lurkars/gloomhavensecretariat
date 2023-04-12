@@ -3,6 +3,7 @@
   "name": "Bolt",
   "edition": "fh",
   "parent": "133",
+  "marker": "2",
   "monsters": [
     "forest-imp",
     "rending-drake",
@@ -28,6 +29,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "player4": "normal"
         },
         {
           "name": "spitting-drake",

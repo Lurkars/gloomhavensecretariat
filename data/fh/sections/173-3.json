@@ -3,6 +3,7 @@
   "name": "Bolt",
   "edition": "fh",
   "parent": "133",
+  "marker": "1",
   "monsters": [
     "forest-imp",
     "rending-drake",

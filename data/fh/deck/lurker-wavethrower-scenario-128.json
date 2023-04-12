@@ -122,11 +122,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "type": "custom",
-              "value": "in an adjacent unoccupied<br>hex with a water tile.",
-              "small": true
             }
           ]
         }
@@ -183,11 +178,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "type": "custom",
-              "value": "in an adjacent unoccupied<br>hex with a water tile.",
-              "small": true
             }
           ]
         }

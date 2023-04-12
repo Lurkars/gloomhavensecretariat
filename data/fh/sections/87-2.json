@@ -3,6 +3,7 @@
   "name": "Belara's Keep",
   "edition": "fh",
   "parent": "135",
+  "marker": "c",
   "monsters": [
     "earth-demon",
     "flame-demon",

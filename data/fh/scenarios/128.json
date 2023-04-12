@@ -20,6 +20,71 @@
     "arrowvine": 1,
     "flamefruit": 2
   },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:2",
+          "scenarioEffect": true
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "R == 2",
+      "start": true,
+      "sections": [
+        "170.1"
+      ]
+    },
+    {
+      "round": "R == 3",
+      "start": true,
+      "sections": [
+        "152.2"
+      ]
+    },
+    {
+      "round": "R == 4",
+      "start": true,
+      "sections": [
+        "176.3"
+      ]
+    },
+    {
+      "round": "R == 6",
+      "start": true,
+      "sections": [
+        "139.1"
+      ]
+    },
+    {
+      "round": "R == 8",
+      "start": true,
+      "sections": [
+        "132.4"
+      ]
+    },
+    {
+      "round": "R == 9",
+      "finish": "won"
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

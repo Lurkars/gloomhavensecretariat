@@ -3,6 +3,7 @@
   "name": "Radiant Dust",
   "edition": "fh",
   "parent": "119",
+  "marker": "1",
   "monsters": [
     "burrowing-blade",
     "rending-drake",

@@ -3,6 +3,17 @@
   "name": "Tower of Knowledge",
   "edition": "fh",
   "parent": "134",
+  "marker": "3",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "44.3"
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 6,

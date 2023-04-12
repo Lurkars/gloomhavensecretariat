@@ -3,6 +3,10 @@
   "name": "Temple of Feline Power",
   "edition": "fh",
   "parent": "132",
+  "parentSections": [
+    "171.1"
+  ],
+  "marker": "b",
   "monsters": [
     "frozen-corpse",
     "ice-wraith"

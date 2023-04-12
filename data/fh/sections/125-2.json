@@ -3,6 +3,7 @@
   "name": "Lurker Necromancy",
   "edition": "fh",
   "parent": "118",
+  "marker": "1",
   "monsters": [
     "living-bones",
     "lurker-soldier"
@@ -21,6 +22,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
         },
         {
           "name": "lurker-soldier",

@@ -3,6 +3,7 @@
   "name": "Pirate Queen's Haul",
   "edition": "fh",
   "parent": "137",
+  "marker": "1",
   "monsters": [
     "forest-imp",
     "piranha-pig",
@@ -29,11 +30,12 @@
         {
           "name": "piranha-pig",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "piranha-pig",
+          "player3": "normal",
           "player4": "elite"
         },
         {

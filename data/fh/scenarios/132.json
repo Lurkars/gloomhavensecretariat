@@ -21,6 +21,50 @@
     "corpsecap": 1,
     "arrowvine": 1
   },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "damage",
+          "value": "2",
+          "scenarioEffect": true
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "wound",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "171.1"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": ".*"
+          },
+          "type": "dead"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

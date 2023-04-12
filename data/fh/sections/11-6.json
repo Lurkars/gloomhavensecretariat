@@ -3,6 +3,11 @@
   "name": "Tower of Knowledge",
   "edition": "fh",
   "parent": "134",
+  "parentSections": [
+    "44.3",
+    "128.1"
+  ],
+  "marker": "a",
   "monsters": [
     "shrike-fiend"
   ],

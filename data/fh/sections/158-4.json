@@ -3,6 +3,7 @@
   "name": "The Longest Second",
   "edition": "fh",
   "parent": "125",
+  "marker": "1",
   "monsters": [
     "robotic-boltshooter",
     "ruined-machine"
