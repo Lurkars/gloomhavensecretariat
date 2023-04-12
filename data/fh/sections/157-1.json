@@ -1,9 +1,13 @@
 {
   "fromFile": true,
   "index": "157.1",
-  "name": "Orphan's Halls",
+  "name": "Under the Influence",
   "edition": "fh",
   "parent": "120",
+  "parentSections": [
+    "101.1"
+  ],
+  "marker": "2",
   "monsters": [
     "robotic-boltshooter",
     "steel-automaton"
@@ -12,6 +16,33 @@
     {
       "name": "Glowing Orb",
       "health": "((Lx2)+3)xC"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle",
+          "scenarioEffect": true
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:1",
+          "scenarioEffect": true
+        }
+      ]
     }
   ],
   "rooms": [
@@ -37,6 +68,9 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]
