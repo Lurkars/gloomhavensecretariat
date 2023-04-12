@@ -3,6 +3,10 @@
   "name": "Abandoned Hideout",
   "edition": "fh",
   "parent": "136",
+  "parentSections": [
+    "170.2"
+  ],
+  "marker": "2",
   "monsters": [
     "living-bones",
     "living-spirit"
@@ -41,11 +45,12 @@
         {
           "name": "living-spirit",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "living-spirit",
+          "player3": "normal",
           "player4": "elite"
         }
       ]
