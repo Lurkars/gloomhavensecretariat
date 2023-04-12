@@ -3,6 +3,7 @@
   "name": "A Growing Problem",
   "edition": "fh",
   "parent": "124",
+  "marker": "1",
   "monsters": [
     "living-bones",
     "living-spirit"
