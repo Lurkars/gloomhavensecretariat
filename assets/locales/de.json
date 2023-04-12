@@ -792,6 +792,7 @@
   },
   "scenario": {
     ".": "Szenario",
+    "blocked": "Gesperrt",
     "cancel": "Szenario abbrechen",
     "conclusion": "Lösung",
     "custom": "Benutzerdefiniert",
@@ -806,7 +807,7 @@
       "reset": "Neustarten",
       "success": "Erfolg"
     },
-    "locked": "Gesperrt",
+    "locked": "Fehlende Vorraussetzungen",
     "manual": {
       "add": "Szenarien freischalten",
       "index": "Szenarionummern, kommasepariert"
@@ -851,10 +852,11 @@
         "damage": "{0} erleiden %game.damage:{2}%",
         "discard": "{0} legen jeweils %number.{2}% Fertigkeitskarten ab",
         "gainCondition": "{0} erlangt %game.condition.{1}%",
-        "hp": "{0} TP auf {2}",
+        "heal": "{0} %game.condition.heal% {2}",
         "looseCondition": "{0} loose %game.condition.{1}%",
         "permanentCondition": "{0} erlangt dauerhaft %game.condition.{1}%",
         "scenarioEffect": "als Szenarioeffekt",
+        "setHp": "{0} TP auf {2}",
         "toggleOff": "{0} inaktiv setzen",
         "toggleOn": "{0} aktiv setzen",
         "transfer": "{0} wird zu %data.monster.{1}% {4}",

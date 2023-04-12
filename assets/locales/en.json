@@ -895,6 +895,7 @@
   },
   "scenario": {
     ".": "Scenario",
+    "blocked": "Blocked",
     "cancel": "Cancel Scenario",
     "conclusion": "Conclusion",
     "custom": "Custom",
@@ -909,7 +910,7 @@
       "reset": "Neustarten",
       "success": "Success"
     },
-    "locked": "Locked",
+    "locked": "Missing Requirements",
     "manual": {
       "add": "Unlock Scenarios",
       "index": "Scenario number, commaseparated"
@@ -954,10 +955,11 @@
         "damage": "{0} suffer %game.damage:{2}%",
         "discard": "{0} discard %number.{2}% ability cards each",
         "gainCondition": "{0} gain %game.condition.{1}%",
-        "hp": "{0} HP to {2}",
+        "heal": "{0} %game.condition.heal% {2}",
         "looseCondition": "{0} loose %game.condition.{1}%",
         "permanentCondition": "{0} gain permanent %game.condition.{1}%",
         "scenarioEffect": "as scenario effect",
+        "setHp": "{0} HP to {2}",
         "toggleOff": "{0} to inactive",
         "toggleOn": "{0} to active",
         "transfer": "{0} become %data.monster.{1}% {4}",

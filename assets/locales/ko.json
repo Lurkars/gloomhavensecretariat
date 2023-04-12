@@ -671,6 +671,7 @@
   },
   "scenario": {
     ".": "시나리오",
+    "blocked": "잠김",
     "cancel": "시나리오 취소",
     "custom": "커스텀",
     "filter": "시나리오 검색",
@@ -680,7 +681,6 @@
       "reset": "초기화",
       "success": "성공"
     },
-    "locked": "잠김",
     "manual": {
       "add": "시나리오 해금하기",
       "index": "쉼표로 구분하여 번호 입력"
@@ -699,9 +699,9 @@
         "amRemove": "{0} remove %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% from Attack Modifier deck",
         "damage": "{0}에게 피해 %game.damage:{1}%점",
         "gainCondition": "{0}에게 %game.condition.{1}% 상태 추가",
-        "hp": "{0} 체력을 {1}",
         "looseCondition": "{0}의 %game.condition.{1}% 상태 해제",
         "scenarioEffect": "(시나리오 효과)",
+        "setHp": "{0} 체력을 {1}",
         "toggleOff": "{0} 비활성화",
         "toggleOn": "{0} 활성화",
         "transfer": "{0} %data.monster.{1}% {4} 전환"

@@ -505,6 +505,7 @@
   },
   "scenario": {
     ".": "Scénario",
+    "blocked": "Bloqué",
     "cancel": "Annuler le scénario",
     "custom": "Custom",
     "finish": {
@@ -513,7 +514,6 @@
       "reset": "Recommencer",
       "success": "Victoire"
     },
-    "locked": "Bloqué",
     "manual": {
       "add": "Débloquer les scénarios",
       "index": "Numéros de scénario, séparés par une virgule"
