@@ -1566,7 +1566,7 @@
                         "dead",
                         "discard",
                         "gainCondition",
-                        "hp",
+                        "setHp",
                         "killed",
                         "looseCondition",
                         "present",

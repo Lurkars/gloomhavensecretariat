@@ -17,22 +17,64 @@ export class LootManager {
     this.game = game;
   }
 
-  drawCard(deck: LootDeck, character: Character | undefined) {
+  drawCard(deck: LootDeck, character: Character | undefined): ItemData | undefined {
+    let result: ItemData | undefined = undefined;
     deck.current++;
     if (deck.current >= deck.cards.length) {
       deck.current = deck.cards.length - 1;
     }
 
-    if (settingsManager.settings.applyLoot && character) {
-      const loot = deck.cards[deck.current];
-      if (loot) {
-        character.lootCards = character.lootCards || [];
-        if (loot.type == LootType.money || loot.type == LootType.special1 || loot.type == LootType.special2) {
-          character.loot += this.getValue(loot);
-        }
-        character.lootCards.push(deck.current);
+    const loot = deck.cards[deck.current];
+    if (loot) {
+      if (settingsManager.settings.applyLoot && character) {
+        result = this.applyLoot(loot, character, deck.current);
+      }
+
+      if (loot.type == LootType.random_item && this.game.scenario && this.game.party.campaignMode) {
+        this.game.party.randomItemLooted.push(new GameScenarioModel(this.game.scenario.index, this.game.scenario.edition, this.game.scenario.group));
       }
     }
+
+    return result;
+  }
+
+  applyLoot(loot: Loot, character: Character, index: number): ItemData | undefined {
+    let result: ItemData | undefined = undefined;
+    character.lootCards = character.lootCards || [];
+    if (loot.type == LootType.money || loot.type == LootType.special1 || loot.type == LootType.special2) {
+      character.loot += this.getValue(loot);
+    } else if (loot.type == LootType.random_item && this.game.scenario && this.game.party.campaignMode) {
+      let availableItems = gameManager.itemData(this.game.scenario.edition).filter((itemData) => itemData.random && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition));
+
+      if (availableItems.length > 0) {
+        let itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
+        let item: Identifier | undefined = new Identifier('' + itemData.id, itemData.edition);
+        while (availableItems.length > 0 && gameManager.game.party.unlockedItems.find((unlocked) => item && unlocked.name == item.name && unlocked.edition == item.edition)) {
+          availableItems = availableItems.filter((available) => item && (available.id + '' != item.name || available.edition != item.edition));
+          if (availableItems.length > 0) {
+            itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
+            item = new Identifier('' + itemData.id, itemData.edition);
+          } else {
+            item = undefined;
+          }
+        }
+        if (item) {
+          if (character.progress.items.find((existing) => item && existing.name == item.name && existing.edition == item.edition)) {
+            character.progress.gold += this.itemSellValue(itemData);
+          } else {
+            character.progress.items.push(item);
+          }
+          result = itemData;
+        }
+      }
+      if (availableItems.length == 0) {
+        character.loot += 3;
+      }
+    }
+
+    character.lootCards.push(index);
+
+    return result;
   }
 
   shuffleDeck(deck: LootDeck) {
@@ -223,13 +265,26 @@ export class LootManager {
         }
         break;
       case TreasureRewardType.randomScenario:
-        const availableScenarios = gameManager.scenarioData(edition).filter((scenarioData) => scenarioData.random && !gameManager.game.party.manualScenarios.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom) && !gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom));
+        let availableScenarios = gameManager.scenarioData(edition).filter((scenarioData) => scenarioData.random && !gameManager.game.party.manualScenarios.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom) && !gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom));
         if (availableScenarios.length > 0) {
-          const scenarioData = availableScenarios[Math.floor(Math.random() * availableScenarios.length)];
-          const scenario = new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []);
-          gameManager.game.party.manualScenarios.push(scenario);
-          result.push(scenarioData.index, scenarioData.name);
-        } else if (gameManager.fhRules()) {
+          let scenarioData = availableScenarios[Math.floor(Math.random() * availableScenarios.length)];
+          let scenario: GameScenarioModel | undefined = {} = new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []);
+          while (availableScenarios.length > 0 && gameManager.game.party.manualScenarios.find((manual) => scenario && manual.index == scenario.index && manual.edition == scenario.edition && manual.group == scenario.group)) {
+            availableScenarios = availableScenarios.filter((available) => scenario && (available.edition != scenario.edition || available.index != scenario.edition || available.group != scenario.group));
+            if (availableScenarios.length > 0) {
+              scenarioData = availableScenarios[Math.floor(Math.random() * availableScenarios.length)];
+              scenario = new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []);
+            } else {
+              scenario = undefined;
+            }
+          }
+          if (scenario) {
+            gameManager.game.party.manualScenarios.push(scenario);
+            result.push(scenarioData.index, scenarioData.name);
+          }
+        }
+
+        if (availableScenarios.length == 0 && gameManager.fhRules()) {
           gameManager.game.party.inspiration += 1;
         }
         break;
@@ -243,11 +298,24 @@ export class LootManager {
         }
 
         if (availableItems.length > 0) {
-          const itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
-          const item = new Identifier('' + itemData.id, itemData.edition);
-          gameManager.game.party.unlockedItems.push(item);
-          result.push('' + itemData.id, itemData.name);
-        } else if (reward.type == TreasureRewardType.randomItemBlueprint) {
+          let itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
+          let item: Identifier | undefined = new Identifier('' + itemData.id, itemData.edition);
+          while (availableItems.length > 0 && gameManager.game.party.unlockedItems.find((unlocked) => item && unlocked.name == item.name && unlocked.edition == item.edition)) {
+            availableItems = availableItems.filter((available) => item && (available.id + '' != item.name || available.edition != item.edition));
+            if (availableItems.length > 0) {
+              itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
+              item = new Identifier('' + itemData.id, itemData.edition);
+            } else {
+              item = undefined;
+            }
+          }
+          if (item) {
+            gameManager.game.party.unlockedItems.push(item);
+            result.push('' + itemData.id, itemData.name);
+          }
+        }
+
+        if (availableItems.length == 0 && reward.type == TreasureRewardType.randomItemBlueprint) {
           gameManager.game.party.inspiration += 1;
         }
         break;
@@ -321,7 +389,9 @@ export class LootManager {
       if (type != LootType.special1 && type != LootType.special2) {
         for (let i = 0; i < count; i++) {
           const loot: Loot = availableTypes[i];
-          deck.cards.push(loot);
+          if (type != LootType.random_item || !this.randomItemLooted()) {
+            deck.cards.push(loot);
+          }
         }
       } else if (count > 0) {
         const loot: Loot = availableTypes[0];
@@ -335,6 +405,10 @@ export class LootManager {
       }
     })
     this.shuffleDeck(deck);
+  }
+
+  randomItemLooted(): boolean {
+    return gameManager.game.party.randomItemLooted.find((model) => this.game.scenario && model.index == this.game.scenario.index && model.edition == this.game.scenario.edition && model.group == this.game.scenario.group) != undefined;
   }
 
   valueLabel(loot: Loot): string {

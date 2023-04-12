@@ -2,7 +2,11 @@
   "en": {
     "character": {
       "banner-spear": "Banner Spear",
-      "blinkblade": "Blinkblade",
+      "blinkblade": {
+        ".": "Blinkblade",
+        "fast": "Fast",
+        "slow": "Slow"
+      },
       "boneshaper": "Boneshaper",
       "deathwalker": "Deathwalker",
       "drifter": "Drifter",

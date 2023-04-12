@@ -38,21 +38,27 @@
     <div *ngIf="group" class="line title"><label>{{'data.scenario.group.' + group | ghsLabel}}</label></div>
     <div class="line scenarios">
       <span (click)="setScenario(scenario)" class="scenario"
-        [ngClass]="{'current' : hasScenario(scenario), 'blocked' : gameManager.scenarioManager.isBlocked(scenario)}"
-        [title]="('data.scenario.' + scenario.name | ghsLabel) + (gameManager.scenarioManager.isBlocked(scenario) ? ' [' + ('scenario.locked' | ghsLabel) + ']' : '')"
+        [ngClass]="{'current' : hasScenario(scenario), 'blocked' : gameManager.scenarioManager.isBlocked(scenario) , 'locked' : gameManager.scenarioManager.isLocked(scenario)}"
+        [ghsTooltip]="('data.scenario.' + scenario.name | ghsLabel) + (gameManager.scenarioManager.isBlocked(scenario) ? ' [' + ('scenario.blocked' | ghsLabel) + ']' : (gameManager.scenarioManager.isLocked(scenario) ? ' [' + ('scenario.locked' | ghsLabel) + ']' : '') )"
         *ngFor="let scenario of scenarios(group) | ghsScenarioSearch:search.value">
-
         <ng-container *ngIf="!scenario.solo">
           <span *ngIf="maxScenario(group) > 2 && scenario.index.length < 3">0</span><span
-            *ngIf="maxScenario(group) > 1 && scenario.index.length < 2">0</span>{{scenario.index}}
+            *ngIf="maxScenario(group) > 1 && scenario.index.length < 2">0</span>
+          <span>{{scenario.index}}</span>
         </ng-container>
         <ng-container *ngIf="scenario.solo">
           <img class="ghs-svg solo" [src]="gameManager.characterManager.characterIcon(scenario.solo)" />
         </ng-container>
-        <span *ngIf="scenarioSuccess(scenario)" class="state success"><img class="ghs-svg"
-            src="./assets/images/check.svg" /></span>
-        <span *ngIf="gameManager.scenarioManager.isBlocked(scenario)" class="state blocked"><img class="ghs-svg"
-            src="./assets/images/close.svg" /></span>
+        <span *ngIf="scenarioSuccess(scenario)" class="state success">
+          <img src="./assets/images/check.svg" />
+        </span>
+        <span *ngIf="gameManager.scenarioManager.isBlocked(scenario)" class="state blocked">
+          <img src="./assets/images/close.svg" />
+        </span>
+        <span *ngIf="!gameManager.scenarioManager.isBlocked(scenario) && gameManager.scenarioManager.isLocked(scenario)"
+          class="state locked">
+          <img src="./assets/images/close.svg" />
+        </span>
       </span>
     </div>
     <div class="line" *ngIf="hasSpoilers(group)">

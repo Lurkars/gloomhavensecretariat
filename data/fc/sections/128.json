@@ -51,8 +51,8 @@
             "edition": "fc",
             "name": "the-husk-section-66"
           },
-          "type": "hp",
-          "value": "25%"
+          "type": "setHp",
+          "value": "HP/4"
         },
         {
           "identifier": {

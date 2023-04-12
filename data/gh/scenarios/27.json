@@ -8,6 +8,16 @@
       "19"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "global": [
+        "!Artifact: Lost"
+      ],
+      "party": [
+        "Stonebreaker's Censer"
+      ]
+    }
+  ],
   "blocks": [
     "10",
     "21",

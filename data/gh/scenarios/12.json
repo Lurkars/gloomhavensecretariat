@@ -8,6 +8,13 @@
     "18",
     "28"
   ],
+  "requiredAchievements": [
+    {
+      "global": [
+        "!End of the Invasion"
+      ]
+    }
+  ],
   "blocks": [
     "11"
   ],

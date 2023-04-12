@@ -3,19 +3,48 @@
 }
 
 div {
-    background-color: var(--ghs-color-darkgray);
-    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+    position: relative;
+    font-size: calc(var(--ghs-unit) * 2.2 * var(--ghs-text-factor));
+    font-weight: 200;
     margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor)) calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
-    padding: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor)) calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
-    border-radius: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+    padding: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor)) calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+
+    &::before {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--ghs-color-darkgray);
+        border-radius: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+        opacity: 0.9;
+        z-index: 0;
+    }
+
+    .placeholder {
+        z-index: 1;
+    }
+
+    &.hint {
+        margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        padding: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+        border: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor)) solid var(--ghs-color-gray);
+        border-radius: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        background-color: var(--ghs-color-black);
+    }
 
     &.small {
+        font-weight: 100;
         font-size: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
-        padding: calc(var(--ghs-unit) * 0.25 * var(--ghs-text-factor)) calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+        margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor)) calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+        padding: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor)) calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
     }
 
     &.large {
+        font-weight: 400;
         font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
-        padding: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor)) calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+        margin: calc(var(--ghs-unit) * 2* var(--ghs-text-factor)) calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+        padding: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor)) calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
     }
 }

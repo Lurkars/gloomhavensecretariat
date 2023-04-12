@@ -32,9 +32,9 @@ export class GameScenarioModel {
   constructor(index: string,
     edition: string,
     group: string | undefined,
-    isCustom: boolean,
-    custom: string,
-    revealedRooms: number[]) {
+    isCustom: boolean = false,
+    custom: string = '',
+    revealedRooms: number[] | undefined = undefined) {
     this.index = index;
     this.edition = edition;
     this.group = group;

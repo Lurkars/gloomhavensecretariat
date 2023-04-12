@@ -23,13 +23,16 @@
           <label><img class="ghs-svg"
               [src]="'./assets/images/fh/loot/' + (type == LootType.special1 || type == LootType.special2 ? LootType.money : type) + '.svg'">
             {{'game.loot.' + type | ghsLabel}}</label>
-          <a class="button" [ngClass]="{'disabled' : !lootDeckConfig[type]}" (click)="changeType(type, -1)">
+          <a class="button"
+            [ngClass]="{'disabled' : !lootDeckConfig[type] || type == LootType.random_item && gameManager.lootManager.randomItemLooted()}"
+            (click)="changeType(type, -1)">
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </a>
           <span class="value" title="{{'game.loot.' + type | ghsLabel}}">
             {{lootDeckConfig[type] && 'x' + lootDeckConfig[type] || '-'}}
           </span>
-          <a class="button" [ngClass]="{'disabled' : lootDeckConfig[type] == maxValue(type)}"
+          <a class="button"
+            [ngClass]="{'disabled' : lootDeckConfig[type] == maxValue(type) || type == LootType.random_item && gameManager.lootManager.randomItemLooted()}"
             (click)="changeType(type,  1)">
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </a>

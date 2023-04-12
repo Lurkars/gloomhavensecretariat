@@ -7,6 +7,13 @@
     "11",
     "12"
   ],
+  "requiredAchievements": [
+    {
+      "global": [
+        "!The Merchant Flees"
+      ]
+    }
+  ],
   "blocks": [
     "8"
   ],

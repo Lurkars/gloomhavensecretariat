@@ -9,6 +9,13 @@
       "43"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "global": [
+        "Water-Breathing"
+      ]
+    }
+  ],
   "rewards": {
     "experience": 10
   },

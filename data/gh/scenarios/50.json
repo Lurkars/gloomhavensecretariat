@@ -8,6 +8,14 @@
       "35"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "global": [
+        "City Rule: Demonic",
+        "!Annihilation of Order"
+      ]
+    }
+  ],
   "rewards": {
     "globalAchievements": [
       "City Rule: Militaristic"

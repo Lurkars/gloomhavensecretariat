@@ -7,6 +7,13 @@
     "21",
     "22"
   ],
+  "requiredAchievements": [
+    {
+      "global": [
+        "!The Rift Neutralized"
+      ]
+    }
+  ],
   "links": [
     "21"
   ],

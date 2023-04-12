@@ -48,8 +48,8 @@
             "edition": "fc",
             "name": "the-husk"
           },
-          "type": "hp",
-          "value": "50%"
+          "type": "setHp",
+          "value": "HP/2"
         },
         {
           "identifier": {

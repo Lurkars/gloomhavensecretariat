@@ -9,7 +9,6 @@ import { ItemData } from "src/app/game/model/data/ItemData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { Identifier } from "src/app/game/model/data/Identifier";
 import { LootType } from "src/app/game/model/data/Loot";
-
 import { Party } from "src/app/game/model/Party";
 import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
 import { AttackModiferDeckChange } from "../../figures/attackmodifier/attackmodifierdeck";
@@ -355,12 +354,8 @@ export class PartySheetDialogComponent implements OnInit {
     return this.party.manualScenarios.find((value) => scenarioData.index == value.index && scenarioData.edition == value.edition && scenarioData.group == value.group) != undefined;
   }
 
-  blocked(scenarioData: ScenarioData): boolean {
-    return gameManager.scenarioManager.isBlocked(scenarioData);
-  }
-
   addSuccess(scenarioData: ScenarioData) {
-    if (!this.blocked(scenarioData) || this.doubleClickAddSuccess) {
+    if (!gameManager.scenarioManager.isBlocked(scenarioData) || this.doubleClickAddSuccess) {
       clearTimeout(this.doubleClickAddSuccess);
       this.doubleClickAddSuccess = null;
       this.addSuccessIntern(scenarioData);
@@ -376,6 +371,19 @@ export class PartySheetDialogComponent implements OnInit {
   addSuccessIntern(scenarioData: ScenarioData) {
     gameManager.stateManager.before("finishScenario.success", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
     this.party.scenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []));
+    if (scenarioData.rewards) {
+      if (scenarioData.rewards.globalAchievements) {
+        this.party.globalAchievementsList.push(...scenarioData.rewards.globalAchievements);
+      }
+
+      if (scenarioData.rewards.partyAchievements) {
+        this.party.achievementsList.push(...scenarioData.rewards.partyAchievements);
+      }
+
+      if (scenarioData.rewards.lostPartyAchievements) {
+        this.party.achievementsList = this.party.achievementsList.filter((achivement) => scenarioData.rewards && scenarioData.rewards.lostPartyAchievements.indexOf(achivement) == -1);
+      }
+    }
     gameManager.stateManager.after();
 
     this.update();

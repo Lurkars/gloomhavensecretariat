@@ -8,6 +8,13 @@
       "38"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "party": [
+        "Redthorn's Aid"
+      ]
+    }
+  ],
   "rewards": {
     "envelopes": [
       "%data.characterIcon.angry-face%"

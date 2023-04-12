@@ -8,6 +8,16 @@
       "30"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "global": [
+        "!The Voice Freed"
+      ],
+      "party": [
+        "The Scepter and the Voice"
+      ]
+    }
+  ],
   "blocks": [
     "30",
     "32",

@@ -24,7 +24,7 @@ export enum LootType {
 
 export const enhancableLootTypes: LootType[] = [LootType.lumber, LootType.metal, LootType.hide, LootType.arrowvine, LootType.axenut, LootType.corpsecap, LootType.flamefruit, LootType.rockroot, LootType.snowthistle, LootType.money];
 
-export const appliableLootTypes: LootType[] = [LootType.money, LootType.lumber, LootType.metal, LootType.hide, LootType.arrowvine, LootType.axenut, LootType.corpsecap, LootType.flamefruit, LootType.rockroot, LootType.snowthistle, LootType.special1, LootType.special2];
+export const appliableLootTypes: LootType[] = [LootType.money, LootType.lumber, LootType.metal, LootType.hide, LootType.arrowvine, LootType.axenut, LootType.corpsecap, LootType.flamefruit, LootType.rockroot, LootType.snowthistle, LootType.special1, LootType.special2, LootType.random_item];
 
 
 export function getLootClass(type: LootType): LootClass {

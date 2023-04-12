@@ -12,6 +12,14 @@
       "8"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "global": [
+        "The Power of Enhancement",
+        "The Merchant Flees"
+      ]
+    }
+  ],
   "monsters": [
     "cave-bear",
     "earth-demon",

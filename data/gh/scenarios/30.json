@@ -11,6 +11,13 @@
       "24"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "party": [
+        "The Voice's Command"
+      ]
+    }
+  ],
   "rewards": {
     "partyAchievements": [
       "The Scepter and the Voice"

@@ -36,7 +36,7 @@
             "edition": "objective",
             "name": "Faye"
           },
-          "type": "hp",
+          "type": "setHp",
           "value": "3+L"
         }
       ]

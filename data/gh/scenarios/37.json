@@ -11,6 +11,13 @@
       "43"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "global": [
+        "Water-Breathing"
+      ]
+    }
+  ],
   "rewards": {
     "partyAchievements": [
       "Through the Trench"

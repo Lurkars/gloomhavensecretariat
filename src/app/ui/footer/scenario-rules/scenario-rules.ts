@@ -18,6 +18,7 @@ import { ScenarioObjectiveIdentifier } from "src/app/game/model/data/ObjectiveDa
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
 import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
+import { ConditionName } from "src/app/game/model/Condition";
 
 @Component({
     selector: 'ghs-scenario-rules',
@@ -59,7 +60,7 @@ export class ScenarioRulesComponent {
         if (count && rule.figures) {
             const figureRule = rule.figures.find((figureRule) => figureRule.type == "present" || figureRule.type == "dead");
             if (figureRule) {
-                const gameplayEntities: Entity[] = gameManager.entitiesByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((entity) => gameManager.entityManager.isAlive(entity) && (!(entity instanceof MonsterEntity) || !(figureRule.identifier?.marker) || (entity instanceof MonsterEntity && entity.marker == figureRule.identifier?.marker)));
+                const gameplayEntities: Entity[] = gameManager.scenarioRulesManager.entitiesByFigureRule(figureRule, rule).filter((entity) => gameManager.entityManager.isAlive(entity) && (!(entity instanceof MonsterEntity) || !(figureRule.identifier?.marker) || (entity instanceof MonsterEntity && entity.marker == figureRule.identifier?.marker)));
                 const max: number = figureRule.value && figureRule.value.split(':').length > 1 ? EntityValueFunction(figureRule.value.split(':')[1]) : 0;
                 F = figureRule.type == "present" ? gameplayEntities.length : Math.max(0, max - gameplayEntities.length);
             }
@@ -79,7 +80,7 @@ export class ScenarioRulesComponent {
 
     sections(index: number): ScenarioData[] {
         if (gameManager.game.scenarioRules[index]) {
-            const scenario = gameManager.scenarioManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).scenario;
+            const scenario = gameManager.scenarioRulesManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).scenario;
             if (scenario) {
                 const rule = gameManager.game.scenarioRules[index].rule;
                 if (rule && rule.sections) {
@@ -93,7 +94,7 @@ export class ScenarioRulesComponent {
     rooms(index: number): RoomData[] {
         let rooms: RoomData[] = [];
         if (gameManager.game.scenarioRules[index]) {
-            const scenario = gameManager.scenarioManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).scenario;
+            const scenario = gameManager.scenarioRulesManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).scenario;
             if (scenario) {
                 const rule = gameManager.game.scenarioRules[index].rule;
                 if (rule && rule.rooms) {
@@ -115,7 +116,7 @@ export class ScenarioRulesComponent {
                 return false;
             }
 
-            const figures = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
+            const figures = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
             if (figures.length == 0) {
                 return false;
             }
@@ -151,12 +152,12 @@ export class ScenarioRulesComponent {
         }) || [];
     }
 
-    figureNames(figureRule: ScenarioFigureRule): string {
+    figureNames(figureRule: ScenarioFigureRule, scenarioRule: ScenarioRule): string {
         if (figureRule.identifier) {
             if (figureRule.identifier.type == "all") {
                 return settingsManager.getLabel('scenario.rules.figures.all');
             }
-            return gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((figure) => {
+            return gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, scenarioRule).filter((figure) => {
                 if (figureRule.type == "gainCondition") {
                     let entities: Entity[] = gameManager.entityManager.entities(figure);
                     let gainCondition = new Condition(figureRule.value);
@@ -214,14 +215,14 @@ export class ScenarioRulesComponent {
     applyRule(element: HTMLElement, index: number) {
         gameManager.stateManager.before("applyScenarioRule");
         if (gameManager.game.scenarioRules[index]) {
-            const scenario = gameManager.scenarioManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).scenario;
-            const section = gameManager.scenarioManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).section;
+            const scenario = gameManager.scenarioRulesManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).scenario;
+            const section = gameManager.scenarioRulesManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).section;
             if (scenario) {
                 const rule = gameManager.game.scenarioRules[index].rule;
 
                 if (rule.figures) {
                     rule.figures.filter((figureRule) => figureRule.type == "remove").forEach((figureRule) => {
-                        const figures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
+                        const figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
                         figures.forEach((figure) => {
                             if (figure instanceof Objective) {
                                 gameManager.characterManager.removeObjective(figure);
@@ -326,8 +327,8 @@ export class ScenarioRulesComponent {
                 }
 
                 if (rule.figures) {
-                    rule.figures.filter((figureRule) => figureRule.type == "gainCondition" || figureRule.type == "permanentCondition" || figureRule.type == "looseCondition" || figureRule.type == "damage" || figureRule.type == "hp").forEach((figureRule) => {
-                        let figures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
+                    rule.figures.filter((figureRule) => figureRule.type == "gainCondition" || figureRule.type == "permanentCondition" || figureRule.type == "looseCondition" || figureRule.type == "damage" || figureRule.type == "heal" || figureRule.type == "setHp").forEach((figureRule) => {
+                        let figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
                         figures.forEach((figure) => {
                             let entities: Entity[] = gameManager.entityManager.entities(figure).filter((entity) => figureRule.identifier && (!figureRule.identifier.marker || !(entity instanceof MonsterEntity) || entity.marker == figureRule.identifier.marker) && (!figureRule.identifier.tags || figureRule.identifier.tags.length == 0 || figureRule.identifier.tags.every((tag) => entity.tags.indexOf(tag) != -1)));
                             entities.forEach((entity) => {
@@ -352,7 +353,7 @@ export class ScenarioRulesComponent {
                                         break;
                                     case "damage": let damage = 0;
                                         if (isNaN(+figureRule.value) && figureRule.value.indexOf('H') != -1) {
-                                            damage = +EntityValueFunction(figureRule.value.replaceAll('HP', '' + EntityValueFunction(entity.maxHealth)).replaceAll('H', '' + entity.health));
+                                            damage = +EntityValueFunction(figureRule.value.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
                                         } else {
                                             damage = +EntityValueFunction(figureRule.value);
                                         }
@@ -363,10 +364,25 @@ export class ScenarioRulesComponent {
                                         }
                                         gameManager.entityManager.changeHealth(entity, -damage);
                                         break;
-                                    case "hp":
+                                    case "heal":
+                                        let heal = 0;
+                                        if (isNaN(+figureRule.value) && figureRule.value.indexOf('H') != -1) {
+                                            heal = +EntityValueFunction(figureRule.value.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
+                                        } else {
+                                            heal = +EntityValueFunction(figureRule.value);
+                                        }
+                                        if (heal < 0) {
+                                            heal = 0;
+                                        }
+
+                                        entity.health += heal;
+                                        gameManager.entityManager.addCondition(entity, new Condition(ConditionName.heal, heal), figure.active, figure.off);
+                                        gameManager.entityManager.applyCondition(entity, ConditionName.heal);
+                                        break;
+                                    case "setHp":
                                         let hp = 0;
                                         if (isNaN(+figureRule.value) && figureRule.value.indexOf('H') != -1) {
-                                            hp = +EntityValueFunction(figureRule.value.replaceAll('HP', '' + EntityValueFunction(entity.maxHealth)).replaceAll('H', '' + entity.health));
+                                            hp = +EntityValueFunction(figureRule.value.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
                                         } else {
                                             hp = +EntityValueFunction(figureRule.value);
                                         }
@@ -384,14 +400,14 @@ export class ScenarioRulesComponent {
                     })
 
                     rule.figures.filter((figureRule) => figureRule.type == "toggleOff" || figureRule.type == "toggleOn").forEach((figureRule) => {
-                        const figures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
+                        const figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
                         figures.forEach((figure) => {
                             figure.off = figureRule.type == "toggleOff";
                         })
                     })
 
                     rule.figures.filter((figureRule) => figureRule.type == "transfer").forEach((figureRule) => {
-                        const figures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
+                        const figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
                         if (figures.length == 1 && figures[0] instanceof Monster) {
                             const figure = figures[0];
                             const monster = gameManager.monsterManager.addMonsterByName(figureRule.value, scenario.edition);
@@ -460,7 +476,7 @@ export class ScenarioRulesComponent {
                     })
 
                     rule.figures.filter((figureRule) => figureRule.type == "amAdd" || figureRule.type == "amRemove").forEach((figureRule) => {
-                        const figures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
+                        const figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
                         figures.forEach((figure) => {
                             const deck = gameManager.attackModifierManager.byFigure(figure);
                             const type: AttackModifierType = figureRule.value.split(':')[0] as AttackModifierType;

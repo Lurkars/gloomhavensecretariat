@@ -8,6 +8,13 @@
       "35"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "global": [
+        "City Rule: Demonic"
+      ]
+    }
+  ],
   "blocks": [
     "50"
   ],

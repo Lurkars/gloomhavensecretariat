@@ -7,7 +7,8 @@
     flex-direction: column;
     width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
 
-    .campaign-toggle, .map {
+    .campaign-toggle,
+    .map {
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -1169,11 +1170,23 @@
               text-align: center;
             }
 
+            .scenario-title {
+              position: relative;
+            }
+
             .blocked {
               text-decoration: line-through;
 
               img {
-                filter: var(--ghs-filter-red) var(--ghs-filter-shadow);
+                filter: var(--ghs-filter-red);
+              }
+            }
+
+            .locked {
+              color: var(--ghs-color-gray);
+
+              img {
+                filter: var(--ghs-filter-yellow);
               }
             }
 

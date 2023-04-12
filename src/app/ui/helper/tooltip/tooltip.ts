@@ -26,9 +26,10 @@ export class GhsTooltipComponent {
     @Input() value = '';
     @Input('i18n-args') args: string[] = [];
     @Input('i18n-arg-label') argLabel: boolean = true;
-    @Input('relative') relative: boolean = false;
     @Input('fh-force') fhForce: boolean = false;
-    @Input('size') size: 'small' | 'large' | undefined;
+    @Input() relative: boolean = false;
+    @Input() size: 'small' | 'large' | undefined;
+    @Input() hint : boolean = false;
 }
 
 @Directive({ selector: '[ghsTooltip]' })
@@ -37,9 +38,17 @@ export class GhsTooltipDirective implements OnInit {
     @Input('ghsTooltip') value = '';
     @Input('i18n-args') args: string[] = [];
     @Input('i18n-arg-label') argLabel: boolean = true;
-    @Input('relative') relative: boolean = false;
     @Input('fh-force') fhForce: boolean = false;
-    @Input('size') size: 'small' | 'large' | undefined;
+    @Input() relative: boolean = false;
+    @Input() size: 'small' | 'large' | undefined;
+    @Input() hint: boolean = false;
+    @Input() toggable: boolean = true;
+    @Input() originX: 'start' | 'center' | 'end' | undefined;
+    @Input() originY: 'top' | 'center' | 'bottom' | undefined;
+    @Input() overlayX: 'start' | 'center' | 'end' | undefined;
+    @Input() overlayY: 'top' | 'center' | 'bottom' | undefined;
+    @Input() offsetX: number = 0;
+    @Input() offsetY: number = 0;
     private overlayRef!: OverlayRef;
 
     constructor(private overlay: Overlay,
@@ -51,11 +60,12 @@ export class GhsTooltipDirective implements OnInit {
         const positionStrategy = this.overlayPositionBuilder
             .flexibleConnectedTo(this.elementRef)
             .withPositions([{
-                originX: 'center',
-                originY: 'top',
-                overlayX: 'center',
-                overlayY: 'bottom',
-                offsetY: -8,
+                originX: this.originX || 'start',
+                originY: this.originY || 'bottom',
+                overlayX: this.overlayX || 'start',
+                overlayY: this.overlayY || 'top',
+                offsetX: this.offsetX,
+                offsetY: this.offsetY
             }]);
 
         this.overlayRef = this.overlay.create({ positionStrategy });
@@ -63,15 +73,16 @@ export class GhsTooltipDirective implements OnInit {
 
     @HostListener('mouseenter')
     show() {
-        if (settingsManager.settings.tooltips) {
+        if ((settingsManager.settings.tooltips || !this.toggable) && this.value) {
             const tooltipRef: ComponentRef<GhsTooltipComponent>
                 = this.overlayRef.attach(new ComponentPortal(GhsTooltipComponent));
             tooltipRef.instance.value = this.value;
             tooltipRef.instance.args = this.args;
             tooltipRef.instance.argLabel = this.argLabel;
-            tooltipRef.instance.relative = this.relative;
             tooltipRef.instance.fhForce = this.fhForce;
+            tooltipRef.instance.relative = this.relative;
             tooltipRef.instance.size = this.size;
+            tooltipRef.instance.hint = this.hint;
         }
     }
 

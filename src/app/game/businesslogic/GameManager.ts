@@ -30,6 +30,7 @@ import { Summon } from "../model/Summon";
 import { LootManager } from "./LootManager";
 import { ObjectiveData, ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
 import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
+import { ScenarioRulesManager } from "./ScenarioRulesManager";
 
 
 export class GameManager {
@@ -43,6 +44,7 @@ export class GameManager {
   attackModifierManager: AttackModifierManager;
   levelManager: LevelManager;
   scenarioManager: ScenarioManager;
+  scenarioRulesManager: ScenarioRulesManager;
   roundManager: RoundManager;
   lootManager: LootManager;
 
@@ -56,6 +58,7 @@ export class GameManager {
     this.attackModifierManager = new AttackModifierManager(this.game);
     this.levelManager = new LevelManager(this.game);
     this.scenarioManager = new ScenarioManager(this.game);
+    this.scenarioRulesManager = new ScenarioRulesManager(this.game);
     this.roundManager = new RoundManager(this.game);
     this.lootManager = new LootManager(this.game);
     this.uiChange.subscribe({
@@ -66,7 +69,7 @@ export class GameManager {
         }
         if (settingsManager.settings.scenarioRules) {
           if (this.game.round > 0) {
-            this.scenarioManager.addScenarioRulesAlways();
+            this.scenarioRulesManager.addScenarioRulesAlways();
           };
         }
       }

@@ -11,6 +11,13 @@
       "37"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "party": [
+        "Through the Trench"
+      ]
+    }
+  ],
   "rewards": {
     "globalAchievements": [
       "End of Corruption"

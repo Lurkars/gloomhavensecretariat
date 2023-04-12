@@ -8,6 +8,13 @@
       "24"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "party": [
+        "The Voice's Command"
+      ]
+    }
+  ],
   "blocks": [
     "42"
   ],

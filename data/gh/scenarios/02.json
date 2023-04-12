@@ -12,6 +12,13 @@
       "1"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "party": [
+        "First Steps"
+      ]
+    }
+  ],
   "rewards": {
     "gold": 10,
     "prosperity": 1

@@ -8,6 +8,16 @@
       "10"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "global": [
+        "!The Rift Neutralized"
+      ],
+      "party": [
+        "A Demon's Errand"
+      ]
+    }
+  ],
   "blocks": [
     "10",
     "21",

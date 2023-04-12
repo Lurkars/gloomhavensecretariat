@@ -16,12 +16,22 @@
       "6"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "global": [
+        "!The Dead Invade"
+      ],
+      "party": [
+        "Jekserah's Plans"
+      ]
+    }
+  ],
   "blocks": [
     "3",
     "9"
   ],
   "rewards": {
-    "partyAchievements": [
+    "globalAchievements": [
       "The Merchant Flees"
     ],
     "reputation": 2

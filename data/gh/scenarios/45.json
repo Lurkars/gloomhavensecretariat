@@ -12,6 +12,13 @@
       "35"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "global": [
+        "City Rule: Demonic"
+      ]
+    }
+  ],
   "rewards": {
     "gold": 20,
     "reputation": -2

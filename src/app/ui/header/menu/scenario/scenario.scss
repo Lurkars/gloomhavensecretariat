@@ -29,6 +29,7 @@
     font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
     color: var(--ghs-color-gray);
     border-radius: 100%;
+    border: calc(var(--ghs-unit) / 5) transparent solid;
 
     &:hover {
       border: calc(var(--ghs-unit) / 5) var(--ghs-color-white) solid;
@@ -47,6 +48,15 @@
 
       &:hover {
         border-color: var(--ghs-color-darkred);
+      }
+    }
+
+    &.locked {
+      cursor: initial;
+      color: var(--ghs-color-darkgray);
+
+      &:hover {
+        border-color: var(--ghs-color-yellow);
       }
     }
 
@@ -70,6 +80,11 @@
       &.blocked {
         right: 0;
         filter: var(--ghs-filter-red) var(--ghs-filter-shadow);
+      }
+
+      &.locked {
+        right: 0;
+        filter: var(--ghs-filter-yellow) var(--ghs-filter-shadow);
       }
 
       img {

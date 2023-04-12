@@ -13,6 +13,13 @@
       "8"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "global": [
+        "The Merchant Flees"
+      ]
+    }
+  ],
   "rewards": {
     "gold": 20,
     "reputation": 2,

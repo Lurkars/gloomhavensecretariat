@@ -21,9 +21,24 @@ export class EntityManager {
   entities(figure: Figure, acting: boolean = false): Entity[] {
     let entities: Entity[] = [];
     if (figure instanceof Character || figure instanceof Objective) {
+      if (this.isAlive(figure, acting)) {
+        entities.push(figure);
+      }
+    } else if (figure instanceof Monster) {
+      entities = figure.entities.filter((entity) => this.isAlive(entity, acting));
+    }
+    return entities;
+  }
+
+  entitiesAll(figure: Figure, alive: boolean = true, acting: boolean = false): Entity[] {
+    let entities: Entity[] = [];
+    if (figure instanceof Character && (!alive || this.isAlive(figure), acting)) {
+      entities.push(figure);
+      entities.push(...figure.summons.filter((summon) => !alive || this.isAlive(summon, acting)));
+    } else if (figure instanceof Objective && (!alive || this.isAlive(figure, acting))) {
       entities.push(figure);
     } else if (figure instanceof Monster) {
-      entities = figure.entities.filter((entity) => gameManager.entityManager.isAlive(entity, acting));
+      entities.push(...figure.entities.filter((entity) => !alive || this.isAlive(entity, acting)));
     }
     return entities;
   }
@@ -199,6 +214,8 @@ export class EntityManager {
       entityCondition.state = EntityConditionState.turn;
     } else if (active && entityCondition.types.indexOf(ConditionType.afterTurn) != -1) {
       entityCondition.state = EntityConditionState.new;
+    } else if (!active && entityCondition.types.indexOf(ConditionType.afterTurn) != -1) {
+      entityCondition.lastState = EntityConditionState.normal;
     }
 
     if (off && entityCondition.types.indexOf(ConditionType.turn) != -1) {
@@ -299,10 +316,7 @@ export class EntityManager {
       if (entityCondition.types.indexOf(ConditionType.expire) != -1) {
         if (entityCondition.expired) {
           entityCondition.expired = false;
-        } else if (entityCondition.state == EntityConditionState.expire) {
-          entityCondition.lastState = entityCondition.state;
-          entityCondition.state = EntityConditionState.normal;
-        }
+        } 
       }
     })
 
@@ -406,17 +420,8 @@ export class EntityManager {
         entityCondition.lastState = entityCondition.state;
         entityCondition.state = EntityConditionState.normal;
         if (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) {
-
           entity.health = entity.health + entityCondition.value;
-          const maxHealth = EntityValueFunction(entity.maxHealth);
-          if (entity.health > maxHealth) {
-            entity.health = maxHealth;
-          }
-
-          if (entity.health > 0 && (entity instanceof MonsterEntity || entity instanceof Summon) && entity.dead) {
-            entity.dead = false;
-          }
-
+          this.checkHealth(entity);
         }
       }
     });
@@ -472,7 +477,7 @@ export class EntityManager {
 
         entityCondition.highlight = false;
         entityCondition.expired = false;
-      } else if (entityCondition.state == EntityConditionState.normal) {
+      } else if (entityCondition.state == EntityConditionState.normal && entityCondition.lastState == EntityConditionState.new) {
         entityCondition.state = EntityConditionState.new;
       } else if (entityCondition.state == EntityConditionState.new && entityCondition.lastState != EntityConditionState.new) {
         entityCondition.lastState = entityCondition.state;
@@ -511,6 +516,31 @@ export class EntityManager {
     }
 
     return infos;
+  }
+
+  next() {
+    this.game.figures.forEach((figure) => {
+      this.entitiesAll(figure).forEach((entity) => {
+        if (settingsManager.settings.expireConditions) {
+          entity.entityConditions = entity.entityConditions.filter((entityCondition) => !entityCondition.expired);
+          entity.entityConditions.forEach((entityCondition) => {
+            if (entityCondition.types.indexOf(ConditionType.expire) != -1) {
+              if (entityCondition.state == EntityConditionState.normal) {
+                entityCondition.lastState = entityCondition.state;
+                entityCondition.state = EntityConditionState.expire;
+              }
+            }
+          })
+        }
+
+        if (settingsManager.settings.applyConditions) {
+          entity.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1 || entityCondition.types.indexOf(ConditionType.afterTurn) != -1).forEach((entityCondition) => {
+            entityCondition.lastState = entityCondition.state;
+            entityCondition.state = EntityConditionState.normal;
+          });
+        }
+      })
+    })
   }
 
 }

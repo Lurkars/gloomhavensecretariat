@@ -11,6 +11,18 @@
       "25"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "party": [
+        "The Voice's Command"
+      ]
+    },
+    {
+      "party": [
+        "The Drake's Command"
+      ]
+    }
+  ],
   "rewards": {
     "partyAchievements": [
       "The Voice's Treasure",

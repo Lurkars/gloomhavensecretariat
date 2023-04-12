@@ -2,6 +2,10 @@
   "name": "blinkblade",
   "characterClass": "quatryl",
   "edition": "fh",
+  "identities": [
+    "fast",
+    "slow"
+  ],
   "handSize": 10,
   "color": "#01b0db",
   "stats": [

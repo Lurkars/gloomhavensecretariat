@@ -1,7 +1,7 @@
 import { AttackModifier, AttackModifierType, CsOakDeckAttackModifier } from "src/app/game/model/data//AttackModifier";
 import { Character } from "../model/Character";
 import { CharacterStat } from "../model/data/CharacterStat";
-import { Condition, ConditionName, ConditionType, EntityConditionState } from "../model/Condition";
+import { Condition, ConditionName } from "../model/Condition";
 import { CharacterData } from "../model/data/CharacterData";
 import { ItemData } from "../model/data/ItemData";
 import { ObjectiveData, ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
@@ -340,72 +340,12 @@ export class CharacterManager {
           }
         });
 
-        if (settingsManager.settings.expireConditions) {
-          figure.entityConditions = figure.entityConditions.filter((entityCondition) => !entityCondition.expired);
-
-          figure.entityConditions.forEach((entityCondition) => {
-            if (entityCondition.types.indexOf(ConditionType.expire) != -1) {
-              if (entityCondition.state == EntityConditionState.normal) {
-                entityCondition.lastState = entityCondition.state;
-                entityCondition.state = EntityConditionState.expire;
-              }
-            }
-          })
-
-          figure.summons.forEach((summon) => {
-            summon.entityConditions = summon.entityConditions.filter((entityCondition) => !entityCondition.expired);
-            summon.entityConditions.forEach((entityCondition) => {
-              if (entityCondition.types.indexOf(ConditionType.expire) != -1) {
-                if (entityCondition.state == EntityConditionState.normal) {
-                  entityCondition.lastState = entityCondition.state;
-                  entityCondition.state = EntityConditionState.expire;
-                }
-              }
-            })
-          });
-        }
-
-        if (settingsManager.settings.applyConditions) {
-          figure.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => {
-            entityCondition.lastState = entityCondition.state;
-            entityCondition.state = EntityConditionState.normal;
-          });
-
-          figure.summons.forEach((summon) => {
-            summon.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => {
-              entityCondition.lastState = entityCondition.state;
-              entityCondition.state = EntityConditionState.normal;
-            });
-          });
-        }
-
         if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '57') && gameManager.entityManager.hasCondition(figure, new Condition(ConditionName.wound)) && !gameManager.entityManager.hasCondition(figure, new Condition(ConditionName.regenerate))) {
           gameManager.entityManager.addCondition(figure, new Condition(ConditionName.regenerate), figure.active, figure.off);
         }
 
       } else if (figure instanceof Objective) {
         figure.off = false;
-
-        if (settingsManager.settings.expireConditions) {
-          figure.entityConditions = figure.entityConditions.filter((entityCondition) => !entityCondition.expired);
-        }
-
-
-        if (settingsManager.settings.applyConditions) {
-          figure.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => {
-            entityCondition.lastState = entityCondition.state;
-            entityCondition.state = EntityConditionState.normal;
-          });
-
-          figure.entityConditions.forEach((entityCondition) => {
-            if (entityCondition.types.indexOf(ConditionType.expire) != -1) {
-              if (entityCondition.state == EntityConditionState.normal) {
-                entityCondition.lastState = entityCondition.state;
-                entityCondition.state = EntityConditionState.expire;
-              }
-            }
-          })
-        }
       }
     })
   }

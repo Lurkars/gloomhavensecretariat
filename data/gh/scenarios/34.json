@@ -8,6 +8,16 @@
       "25"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "global": [
+        "!The Drake Aided"
+      ],
+      "party": [
+        "The Drake's Command"
+      ]
+    }
+  ],
   "blocks": [
     "33"
   ],

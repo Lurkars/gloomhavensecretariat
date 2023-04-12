@@ -130,12 +130,8 @@ export class LootDeckComponent implements OnInit {
                         if (name) {
                             const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == name);
                             if (character instanceof Character) {
-                                gameManager.stateManager.before("addResource", "data.character." + character.name, "game.loot." + loot.type, this.lootManager.getValue(loot) + '');
-                                character.lootCards = character.lootCards || [];
-                                if (loot.type == LootType.money || loot.type == LootType.special1 || loot.type == LootType.special2) {
-                                    character.loot += gameManager.lootManager.getValue(loot);
-                                }
-                                character.lootCards.push(this.deck.current);
+                                gameManager.stateManager.before(loot.type == LootType.random_item ? "lootRandomItem" : "addResource", "data.character." + character.name, "game.loot." + loot.type, this.lootManager.getValue(loot) + '');
+                                gameManager.lootManager.applyLoot(loot, character, this.deck.current);
                                 gameManager.stateManager.after();
                             }
                         }

@@ -13,6 +13,7 @@ export class ScenarioData implements Editional, Spoilable {
   unlocks: string[] = [];
   blocks: string[] = [];
   requires: string[][] = [];
+  requiredAchievements: { party: string[] | undefined, global: string[] | undefined }[] = [];
   links: string[] = [];
   forcedLinks: string[] = [];
   group: string | undefined;
@@ -49,6 +50,7 @@ export class ScenarioData implements Editional, Spoilable {
       this.unlocks = scenarioData.unlocks;
       this.blocks = scenarioData.blocks;
       this.requires = scenarioData.requires;
+      this.requiredAchievements = scenarioData.requiredAchievements || [];
       this.links = scenarioData.links;
       this.forcedLinks = scenarioData.forcedLinks;
       this.group = scenarioData.group;

@@ -3,6 +3,13 @@
   "name": "The Void",
   "gridLocation": "A:15:49:52",
   "edition": "gh",
+  "requiredAchievements": [
+    {
+      "global": [
+        "End of Corruption:3"
+      ]
+    }
+  ],
   "rewards": {
     "globalAchievements": [
       "End of Gloom"

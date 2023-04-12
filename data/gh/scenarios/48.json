@@ -11,6 +11,13 @@
       "38"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "party": [
+        "Redthorn's Aid"
+      ]
+    }
+  ],
   "rewards": {
     "globalAchievements": [
       "End of Corruption"

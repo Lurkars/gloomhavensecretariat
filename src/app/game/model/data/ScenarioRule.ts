@@ -72,10 +72,17 @@ export class ObjectiveSpawnData {
 
 export class ScenarioFigureRule {
 
-  identifier: AdditionalIdentifier | undefined = undefined;
-  type: "present" | "dead" | "killed" | "gainCondition" | "looseCondition" | "permanentCondition" | "damage" | "hp" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove" | "amAdd" | "amRemove" = "present";
+  identifier: ScenarioFigureRuleIdentifier | undefined = undefined;
+  identifierRef: number | undefined = undefined;
+  type: "present" | "dead" | "killed" | "gainCondition" | "looseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove" | "amAdd" | "amRemove" = "present";
   value: string = "";
   scenarioEffect: boolean = false;
+
+}
+
+export class ScenarioFigureRuleIdentifier extends AdditionalIdentifier {
+
+  health : string | undefined;
 
 }
 

@@ -16,6 +16,18 @@
       "26"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "party": [
+        "A Demon's Errand"
+      ]
+    },
+    {
+      "party": [
+        "Following Clues"
+      ]
+    }
+  ],
   "rewards": {
     "globalAchievements": [
       "Artifact: Recovered"

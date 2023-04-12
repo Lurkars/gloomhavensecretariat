@@ -185,7 +185,7 @@ export class Game {
 
     if (model.scenarioRules) {
       model.scenarioRules.forEach((identifier) => {
-        const scenario = gameManager.scenarioManager.getScenarioForRule((identifier)).scenario;
+        const scenario = gameManager.scenarioRulesManager.getScenarioForRule((identifier)).scenario;
         if (scenario && scenario.rules && scenario.rules.length > identifier.index) {
           if (scenario.rules[identifier.index].spawns) {
             scenario.rules[identifier.index].spawns.forEach((spawn) => { if (spawn.manual && !spawn.count) { spawn.count = "1"; } });

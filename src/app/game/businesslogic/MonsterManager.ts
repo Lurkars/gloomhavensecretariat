@@ -115,7 +115,9 @@ export class MonsterManager {
       monsterData = gameManager.monstersData().find((monsterData) => monsterData.name == name);
       if (monsterData) {
         monsterData.errors = monsterData.errors || [];
-        monsterData.errors.push(new FigureError(FigureErrorType.monsterEdition, "monster", monsterData.name, edition, monsterData.edition));
+        if (!monsterData.errors.find((error) => error.type == FigureErrorType.monsterEdition)) {
+          monsterData.errors.push(new FigureError(FigureErrorType.monsterEdition, "monster", monsterData.name, edition, monsterData.edition));
+        }
       }
     }
 
@@ -463,21 +465,6 @@ export class MonsterManager {
           if (ability.shuffle || figure.ability >= figure.abilities.length) {
             this.shuffleAbilities(figure);
           }
-        }
-
-        if (settingsManager.settings.expireConditions) {
-          figure.entities.forEach((monsterEntity) => {
-            monsterEntity.entityConditions = monsterEntity.entityConditions.filter((entityCondition) => !entityCondition.expired);
-          });
-        }
-
-        if (settingsManager.settings.applyConditions) {
-          figure.entities.forEach((monsterEntity) => {
-            monsterEntity.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => {
-              entityCondition.lastState = entityCondition.state;
-              entityCondition.state = EntityConditionState.normal;
-            });
-          });
         }
 
         figure.entities = figure.entities.filter((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity));

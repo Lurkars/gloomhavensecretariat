@@ -8,6 +8,13 @@
       "28"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "party": [
+        "An Invitation"
+      ]
+    }
+  ],
   "rewards": {
     "globalAchievements": [
       "The Edge of Darkness"

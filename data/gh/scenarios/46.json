@@ -11,6 +11,13 @@
       "39"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "party": [
+        "Across the Divide"
+      ]
+    }
+  ],
   "rewards": {
     "globalAchievements": [
       "End of Corruption"

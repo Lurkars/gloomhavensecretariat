@@ -32,6 +32,7 @@ export class Party {
   weeks: number = 0;
   weekSections: Partial<Record<number, string[]>> = {};
   loot: Partial<Record<LootType, number>> = {};
+  randomItemLooted: GameScenarioModel[] = [];
   inspiration: number = 0;
   defense: number = 0;
   soldiers: number = 0;

@@ -11,6 +11,13 @@
       "14"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "global": [
+        "The Power of Enhancement"
+      ]
+    }
+  ],
   "rewards": {
     "partyAchievements": [
       "Stonebreaker's Censer"

@@ -19,6 +19,14 @@
       "22"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "global": [
+        "The Power of Enhancement",
+        "Artifact: Recovered"
+      ]
+    }
+  ],
   "rewards": {
     "globalAchievements": [
       "Artifact: Cleansed"

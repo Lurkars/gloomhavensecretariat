@@ -3,8 +3,8 @@ import { MonsterData } from "../model/data/MonsterData";
 import { ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
 import { RoomData } from "../model/data/RoomData";
 import { ScenarioData } from "../model/data/ScenarioData";
-import { ScenarioRewards, ScenarioRule, ScenarioRuleIdentifier } from "../model/data/ScenarioRule";
-import { Entity, EntityValueFunction } from "../model/Entity";
+import { ScenarioRewards } from "../model/data/ScenarioRule";
+import { EntityValueFunction } from "../model/Entity";
 import { Game, GameState } from "../model/Game";
 import { Identifier } from "src/app/game/model/data/Identifier";
 import { LootDeckConfig } from "../model/data/Loot";
@@ -41,7 +41,7 @@ export class ScenarioManager {
       }
       gameManager.roundManager.resetScenario();
       this.applyScenarioData(scenarioData);
-      this.addScenarioRules(true);
+      gameManager.scenarioRulesManager.addScenarioRules(true);
     } else if (!scenario) {
       gameManager.roundManager.resetScenario();
     }
@@ -194,11 +194,11 @@ export class ScenarioManager {
       if (section.rules) {
         section.rules.forEach((rule, index) => {
           if (rule.always) {
-            this.addScenarioRule(section, rule, index, true);
+            gameManager.scenarioRulesManager.addScenarioRule(section, rule, index, true);
           }
         })
 
-        this.filterDisabledScenarioRules();
+        gameManager.scenarioRulesManager.filterDisabledScenarioRules();
       }
       this.game.sections.push(new Scenario(section, []));
     }
@@ -384,8 +384,8 @@ export class ScenarioManager {
       })
     }
 
-    this.addScenarioRulesRooms();
-    this.addScenarioRulesAlways();
+    gameManager.scenarioRulesManager.addScenarioRulesRooms();
+    gameManager.scenarioRulesManager.addScenarioRulesAlways();
   }
 
   scenarioData(edition: string | undefined, all: boolean = false): ScenarioData[] {
@@ -460,176 +460,40 @@ export class ScenarioManager {
     return blocked;
   }
 
-  addScenarioRules(initial: boolean = false) {
-    this.game.scenarioRules = [];
-    const scenario = this.game.scenario;
-    if (scenario && scenario.rules) {
-      scenario.rules.forEach((rule, index) => {
-        this.addScenarioRule(scenario, rule, index, false, initial);
-      })
-    }
-
-    if (this.game.sections) {
-      this.game.sections.forEach((section) => {
-        if (section.rules) {
-          section.rules.forEach((rule, index) => {
-            this.addScenarioRule(section, rule, index, true, initial);
-          })
-        }
-      })
-    }
-
-    this.filterDisabledScenarioRules();
-  }
-
-  addScenarioRulesAlways() {
-    const scenario = this.game.scenario;
-    if (scenario && scenario.rules) {
-      scenario.rules.filter((rule) => rule.always).forEach((rule) => {
-        this.addScenarioRule(scenario, rule, scenario.rules.indexOf(rule), false);
-      })
-    }
-
-    if (this.game.sections) {
-      this.game.sections.forEach((section) => {
-        if (section.rules) {
-          section.rules.filter((rule) => rule.always).forEach((rule) => {
-            this.addScenarioRule(section, rule, section.rules.indexOf(rule), true);
-          })
-        }
-      })
-    }
-
-    this.filterDisabledScenarioRules();
-  }
-
-  addScenarioRulesRooms() {
-    const scenario = this.game.scenario;
-    if (scenario && scenario.rules) {
-      scenario.rules.filter((rule) => rule.requiredRooms && rule.requiredRooms.length > 0).forEach((rule) => {
-        this.addScenarioRule(scenario, rule, scenario.rules.indexOf(rule), false);
-      })
-    }
-
-    if (this.game.sections) {
-      this.game.sections.forEach((section) => {
-        if (section.rules) {
-          section.rules.sort((a, b) => a.start == b.start ? section.rules.indexOf(a) - section.rules.indexOf(b) : (a.start ? 1 : -1)).filter((rule) => rule.requiredRooms && rule.requiredRooms.length > 0).forEach((rule, index) => {
-            this.addScenarioRule(section, rule, section.rules.indexOf(rule), true);
-          })
-        }
-      })
-    }
-
-    this.filterDisabledScenarioRules();
-  }
-
-  filterDisabledScenarioRules() {
-    this.game.scenarioRules = this.game.scenarioRules.filter((ruleModel, index, self) => !self.find((disableRule) => disableRule.rule.disableRules && disableRule.rule.disableRules.some((value) => value.edition == ruleModel.identifier.edition && value.group == ruleModel.identifier.group && (value.index == ruleModel.identifier.index || value.index == -1) && value.scenario == ruleModel.identifier.scenario && value.section == ruleModel.identifier.section)));
-  }
-
-  addScenarioRule(scenarioData: ScenarioData, rule: ScenarioRule, index: number, section: boolean, initial: boolean = false) {
-    const identifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "index": index, "section": section };
-
-    let round = rule.round || 'false';
-    let add = false;
-
-    while (round.indexOf('R') != -1) {
-      round = round.replace('R', '' + (rule.start ? (this.game.round + 1) : this.game.round));
-    }
-
-    while (round.indexOf('C') != -1) {
-      round = round.replace('C', '' + gameManager.characterManager.characterCount());
-    }
-
-    try {
-      add = eval(round) && (rule.always || this.game.state == GameState.next || rule.start && initial);
-    } catch (error) {
-      console.warn("Cannot apply scenario rule: '" + rule.round + "'", "index: " + index, error);
-      add = false;
-    }
-
-    if (add) {
-      if (rule.figures && rule.figures.filter((figureRule) => figureRule.type == "present" || figureRule.type == "dead").length > 0) {
-        rule.figures.filter((figureRule) => figureRule.type == "present" || figureRule.type == "dead").forEach((figureRule) => {
-          const gameplayFigures: Entity[] = gameManager.entitiesByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((entity) => gameManager.entityManager.isAlive(entity) && (!(entity instanceof MonsterEntity) || (!(figureRule.identifier?.marker) || (entity instanceof MonsterEntity && figureRule.identifier && entity.marker == figureRule.identifier.marker && (!figureRule.identifier.tags || figureRule.identifier.tags.length == 0 || (entity instanceof MonsterEntity && figureRule.identifier.tags.forEach((tag) => entity.tags.indexOf(tag) != -1)))))));
-          const tolerance: number = figureRule.value ? EntityValueFunction(figureRule.value.split(':')[0]) : (figureRule.type == "present" ? 1 : 0);
-          add = add && tolerance >= 0 && (figureRule.type == "present" ? gameplayFigures.length >= tolerance : gameplayFigures.length <= tolerance);
-
-          if (figureRule.identifier && (figureRule.identifier.marker || figureRule.identifier.tags && figureRule.identifier.tags.length > 0) && !settingsManager.settings.automaticStandees) {
-            add = false;
+  isLocked(scenarioData: ScenarioData): boolean {
+    return scenarioData.requiredAchievements &&
+      scenarioData.requiredAchievements && scenarioData.requiredAchievements.every((achivements) =>
+        achivements.global && achivements.global.some((achivement) => {
+          if (achivement.startsWith('!')) {
+            return this.game.party.globalAchievementsList.find((globalAchievement) => globalAchievement.toLowerCase().trim() == achivement.substring(1, achivement.length).toLowerCase().trim());
+          } else if (achivement.indexOf(':') != -1) {
+            let count = +achivement.split(':')[1];
+            this.game.party.globalAchievementsList.forEach((globalAchievement) => {
+              if (globalAchievement.toLowerCase().trim() == achivement.split(':')[0].toLowerCase().trim()) {
+                count--;
+              }
+            })
+            return count > 0;
+          } else {
+            return !this.game.party.globalAchievementsList.find((globalAchievement) => globalAchievement.toLowerCase().trim() == achivement.toLowerCase().trim())
           }
-
         })
-      }
-
-      if (add) {
-        if (rule.figures && rule.figures.filter((figureRule) => figureRule.type == "killed").length > 0) {
-          rule.figures.filter((figureRule) => figureRule.type == "killed").forEach((figureRule) => {
-            const value = EntityValueFunction(figureRule.value || 0);
-            if (!figureRule.identifier) {
-              add = false;
-            } else {
-              const counter = gameManager.entityCounter(figureRule.identifier);
-              add = add && counter && counter.killed >= value || false;
-            }
-          })
-        }
-      }
-
-
-      if (rule.requiredRooms && rule.requiredRooms.length > 0) {
-        rule.requiredRooms.forEach((room) => {
-          add = add && gameManager.game.scenario != undefined && gameManager.game.scenario.revealedRooms.indexOf(room) != -1;
-        })
-      }
-
-      if (rule.requiredRules && rule.requiredRules.length > 0) {
-        rule.requiredRules.forEach((other) => {
-          add = add && this.game.disgardedScenarioRules.some((identifier) => other.edition == identifier.edition && other.scenario == identifier.scenario && other.group == identifier.group && other.index == identifier.index && other.section == identifier.section);
-        })
-      }
-
-      if (rule.rooms && rule.rooms.every((roomNumber) => gameManager.game.scenario && gameManager.game.scenario.revealedRooms.indexOf(roomNumber) != -1)) {
-        add = false;
-      }
-    }
-
-    const disgarded = this.game.disgardedScenarioRules.find((disgarded) => disgarded.edition == identifier.edition && disgarded.scenario == identifier.scenario && disgarded.group == identifier.group && disgarded.index == identifier.index && disgarded.section == identifier.section);
-
-    const visible = this.game.scenarioRules.find((ruleModel) => ruleModel.identifier.edition == identifier.edition && ruleModel.identifier.scenario == identifier.scenario && ruleModel.identifier.group == identifier.group && ruleModel.identifier.index == identifier.index && ruleModel.identifier.section == identifier.section);
-
-    if (add && !disgarded && !visible) {
-      if (rule.spawns) {
-        rule.spawns.forEach((spawn) => {
-          if (spawn.manual && !spawn.count && spawn.count != 0) {
-            spawn.count = 1;
+        ||
+        achivements.party && achivements.party.some((achivement) => {
+          if (achivement.startsWith('!')) {
+            return this.game.party.achievementsList.find((partyAchievement) => partyAchievement.toLowerCase().trim() == achivement.substring(1, achivement.length).toLowerCase().trim());
+          } else if (achivement.indexOf(':') != 0) {
+            let count = +achivement.split(':')[1];
+            this.game.party.achievementsList.forEach((partyAchievement) => {
+              if (partyAchievement.toLowerCase().trim() == achivement.split(':')[0].toLowerCase().trim()) {
+                count--;
+              }
+            })
+            return count > 0;
+          } else {
+            return !this.game.party.achievementsList.find((partyAchievement) => partyAchievement.toLowerCase().trim() == achivement.toLowerCase().trim())
           }
-        });
-      }
-      if (rule.objectiveSpawns) {
-        rule.objectiveSpawns.forEach((spawn) => {
-          if (spawn.manual && !spawn.count && spawn.count != 0) {
-            spawn.count = 1;
-          }
-        });
-      }
-      this.game.scenarioRules.push({ "identifier": identifier, "rule": rule });
-    }
-
-  }
-
-  getScenarioForRule(rule: ScenarioRuleIdentifier): { scenario: ScenarioData | undefined, section: boolean } {
-    if (rule.section) {
-      const sectionData = this.game.sections.find((section) => section.edition == rule.edition && section.group == rule.group && section.index == rule.scenario && section.rules && section.rules.length > rule.index);
-      if (sectionData) {
-        return { scenario: sectionData, section: true };
-      }
-    } else if (this.game.scenario && this.game.scenario.edition == rule.edition && this.game.scenario.group == rule.group && this.game.scenario.index == rule.scenario && this.game.scenario.rules && this.game.scenario.rules.length > rule.index) {
-      return { scenario: this.game.scenario, section: false };
-    }
-
-    return { scenario: undefined, section: false };
+        })) || false;
   }
 
   availableSections(): ScenarioData[] {
