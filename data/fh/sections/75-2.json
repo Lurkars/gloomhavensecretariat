@@ -30,6 +30,7 @@
       "name": "Dark Fog",
       "health": "Cx(L+2)",
       "initiative": 1,
+      "escort": true,
       "tags": [
         "Dark Fog"
       ]
