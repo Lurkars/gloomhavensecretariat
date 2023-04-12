@@ -3,6 +3,10 @@
   "name": "Pirate Queen's Haul",
   "edition": "fh",
   "parent": "137",
+  "parentSections": [
+    "191.2"
+  ],
+  "marker": "2",
   "monsters": [
     "ancient-artillery",
     "flaming-bladespinner",
@@ -55,6 +59,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player4": "normal"
         },
         {
           "name": "robotic-boltshooter",
