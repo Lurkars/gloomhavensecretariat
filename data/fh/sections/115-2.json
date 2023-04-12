@@ -4,6 +4,7 @@
   "name": "Black Memories",
   "edition": "fh",
   "parent": "121",
+  "marker": "1",
   "monsters": [
     "large-vermling-scout",
     "vermling-priest"
