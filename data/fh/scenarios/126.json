@@ -4,6 +4,8 @@
   "name": "Joseph the Lion",
   "edition": "fh",
   "monsters": [
+    "ice-wraith",
+    "living-spirit",
     "snow-imp"
   ],
   "objectives": [
@@ -50,6 +52,207 @@
     "flamefruit": 1,
     "snowthistle": 2
   },
+  "rules": [
+    {
+      "round": "R == 2 || R == 4",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player4": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "snow-imp",
+            "player3": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player2": "normal"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 3",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "snow-imp",
+            "type": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "snow-imp",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "snow-imp",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 5 || R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "type": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "player4": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "snow-imp",
+            "player3": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 6 || R == 8 || R == 10 || R == 12",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "snow-imp",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "snow-imp",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "snow-imp",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 9 || R == 11",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "type": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player2": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R > 12",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "type": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "type": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "player4": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "player3": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -68,6 +271,20 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        "2:C>2",
+        "3:C>3",
+        4,
+        4,
+        5,
+        5,
+        5
       ]
     }
   ]
