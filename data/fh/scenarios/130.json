@@ -17,6 +17,37 @@
     "arrowvine": 2,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "wound",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "sections": [
+        "173.2"
+      ]
+    },
+    {
+      "round": "R == 8",
+      "start": true,
+      "sections": [
+        "87.1"
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
