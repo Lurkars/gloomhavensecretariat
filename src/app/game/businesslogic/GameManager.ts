@@ -144,24 +144,28 @@ export class GameManager {
   }
 
   monstersData(edition: string | undefined = undefined): MonsterData[] {
-    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.monsters).flat().filter((monsterData, index, monsters) => monsterData.replace || !monsterData.replace && !monsters.find((monsterDataReplacement) => monsterDataReplacement.replace && monsterDataReplacement.name == monsterData.name && monsterDataReplacement.edition == monsterData.edition));
+    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.monsters).flat().filter((monsterData, index, monsters) => (!edition || monsterData.edition == edition) && (monsterData.replace || !monsterData.replace && !monsters.find((monsterDataReplacement) => monsterDataReplacement.replace && monsterDataReplacement.name == monsterData.name && monsterDataReplacement.edition == monsterData.edition)));
   }
 
   decksData(edition: string | undefined = undefined): DeckData[] {
-    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.decks).flat();
+    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.decks).flat().filter((deckData) => !edition || deckData.edition == edition);
   }
 
   scenarioData(edition: string | undefined = undefined): ScenarioData[] {
-    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.scenarios).flat();
+    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.scenarios).flat().filter((scenarioData) => !edition || scenarioData.edition == edition);
   }
 
   sectionData(edition: string | undefined = undefined): ScenarioData[] {
-    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.sections).flat();
+    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.sections).flat().filter((sectionData) => !edition || sectionData.edition == edition);
   }
 
   itemData(edition: string | undefined = undefined, all: boolean = false): ItemData[] {
     const prosperityLevel = this.prosperityLevel();
     return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.items).flat().filter((itemData) => {
+      if (edition && itemData.edition != edition) {
+        return false;
+      }
+
       if (all || !this.game.party.campaignMode || edition == 'fh') {
         return true;
       }
