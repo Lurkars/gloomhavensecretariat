@@ -16,7 +16,6 @@
   "rules": [
     {
       "round": "true",
-      "note": "All monsters perform %game.action.heal% 2 self",
       "figures": [
         {
           "type": "present",
@@ -25,6 +24,15 @@
             "edition": "objective",
             "name": "Altar 2"
           }
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": ".*"
+          },
+          "type": "heal",
+          "value": "2"
         }
       ]
     }

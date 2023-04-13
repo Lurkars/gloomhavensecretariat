@@ -16,7 +16,7 @@
   "rules": [
     {
       "round": "true",
-      "note": "The Altar performs %game.action.push% 1, %game.action.target% all characters, %game.action.range% 5",
+      "note": "The Altar performs %game.action.push%1, %game.action.target% all characters, %game.action.range%5",
       "figures": [
         {
           "type": "present",

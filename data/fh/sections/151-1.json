@@ -16,7 +16,6 @@
       "round": "true",
       "always": true,
       "once": true,
-      "note": "The Hungry Maw performs %game.action.heal% LxC self",
       "figures": [
         {
           "identifier": {
@@ -41,6 +40,14 @@
           },
           "type": "looseCondition",
           "value": "muddle"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "hungry-maw"
+          },
+          "type": "heal",
+          "value": "LxC"
         }
       ]
     }
