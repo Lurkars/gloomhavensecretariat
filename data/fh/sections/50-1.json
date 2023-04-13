@@ -9,6 +9,23 @@
   "monsters": [
     "seeker-of-the-abyss"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "seeker-of-the-abyss"
+          },
+          "type": "setHp",
+          "value": "[HP/2{$math.ceil}]"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 3,

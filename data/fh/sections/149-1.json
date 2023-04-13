@@ -11,31 +11,6 @@
     "ancient-artillery",
     "flaming-bladespinner"
   ],
-  "objectives": [
-    {
-      "name": "Metal Cabinet",
-      "health": "[Cx(L+3)/2{$math.ceil}]",
-      "count": 1
-    }
-  ],
-  "rules": [
-    {
-      "round": "true",
-      "always": true,
-      "once": true,
-      "note": "All monsters within %game.action.range:2% of the Metal Cabinet suffer trap damage",
-      "figures": [
-        {
-          "identifier": {
-            "type": "objective",
-            "edition": "objective",
-            "name": "Metal Cabinet"
-          },
-          "type": "dead"
-        }
-      ]
-    }
-  ],
   "rooms": [
     {
       "roomNumber": 3,

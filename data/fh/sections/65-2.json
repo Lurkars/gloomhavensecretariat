@@ -26,54 +26,6 @@
     {
       "round": "true",
       "always": true,
-      "once": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "deep-terror",
-            "type": "elite"
-          },
-          "marker": "b"
-        },
-        {
-          "monster": {
-            "name": "deep-terror",
-            "player2": "normal",
-            "player3": "normal"
-          },
-          "marker": "a",
-          "count": "2"
-        },
-        {
-          "monster": {
-            "name": "deep-terror",
-            "player3": "elite"
-          },
-          "marker": "a"
-        },
-        {
-          "monster": {
-            "name": "deep-terror",
-            "player4": "elite"
-          },
-          "marker": "a",
-          "count": "3"
-        },
-        {
-          "monster": {
-            "name": "night-demon",
-            "player2": "normal",
-            "player3": "elite",
-            "player4": "elite"
-          },
-          "marker": "b",
-          "count": "2"
-        }
-      ]
-    },
-    {
-      "round": "true",
-      "always": true,
       "disableRules": [
         {
           "edition": "fh",
@@ -88,7 +40,41 @@
     {
       "roomNumber": 3,
       "initial": true,
-      "monster": []
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
     }
   ]
 }

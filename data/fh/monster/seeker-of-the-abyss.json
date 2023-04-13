@@ -34,7 +34,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "The targets lose one card.",
+              "value": "All targets lose one card.",
               "small": true
             }
           ]
@@ -48,7 +48,7 @@
         },
         {
           "type": "custom",
-          "value": "All allies add +1 %game.action.attack% to all their attacks.",
+          "value": "All allies add +1 %game.action.attack% to all their attacks this round.",
           "small": true
         }
       ]
