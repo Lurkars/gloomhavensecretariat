@@ -32,7 +32,7 @@ export class EntityManager {
 
   entitiesAll(figure: Figure, alive: boolean = true, acting: boolean = false): Entity[] {
     let entities: Entity[] = [];
-    if (figure instanceof Character && (!alive || this.isAlive(figure), acting)) {
+    if (figure instanceof Character && (!alive || this.isAlive(figure, acting))) {
       entities.push(figure);
       entities.push(...figure.summons.filter((summon) => !alive || this.isAlive(summon, acting)));
     } else if (figure instanceof Objective && (!alive || this.isAlive(figure, acting))) {

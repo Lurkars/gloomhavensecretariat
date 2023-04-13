@@ -1,7 +1,7 @@
 import { animate, style, transition, trigger } from "@angular/animations";
 import { Overlay, OverlayPositionBuilder, OverlayRef } from "@angular/cdk/overlay";
 import { ComponentPortal } from "@angular/cdk/portal";
-import { ChangeDetectionStrategy, Component, ComponentRef, Directive, ElementRef, HostListener, Input, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, ComponentRef, Directive, ElementRef, HostListener, Input, OnDestroy, OnInit } from "@angular/core";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 @Component({
@@ -29,11 +29,11 @@ export class GhsTooltipComponent {
     @Input('fh-force') fhForce: boolean = false;
     @Input() relative: boolean = false;
     @Input() size: 'small' | 'large' | undefined;
-    @Input() hint : boolean = false;
+    @Input() hint: boolean = false;
 }
 
 @Directive({ selector: '[ghsTooltip]' })
-export class GhsTooltipDirective implements OnInit {
+export class GhsTooltipDirective implements OnInit, OnDestroy {
 
     @Input('ghsTooltip') value = '';
     @Input('i18n-args') args: string[] = [];
@@ -88,6 +88,12 @@ export class GhsTooltipDirective implements OnInit {
 
     @HostListener('mouseout')
     hide() {
+        if (this.overlayRef.hasAttached()) {
+            this.overlayRef.detach();
+        }
+    }
+
+    ngOnDestroy(): void {
         if (this.overlayRef.hasAttached()) {
             this.overlayRef.detach();
         }
