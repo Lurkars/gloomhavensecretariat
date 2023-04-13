@@ -12,6 +12,9 @@
   "forcedLinks": [
     "4B"
   ],
+  "rewards": {
+    "battleGoals": 1
+  },
   "monsters": [
     "algox-archer",
     "algox-guard"
