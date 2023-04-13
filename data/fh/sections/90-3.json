@@ -9,13 +9,6 @@
       "always": true,
       "once": true,
       "note": "Pebbles rain down at each %game.mapMarker.a%. This has no effect yet."
-    },
-    {
-      "round": "R == 4",
-      "start": true,
-      "sections": [
-        "27.2"
-      ]
     }
   ]
 }

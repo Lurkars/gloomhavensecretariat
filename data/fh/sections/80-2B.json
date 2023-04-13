@@ -1,0 +1,37 @@
+{
+  "fromFile": true,
+  "index": "80.2B - Snowdancer is unlocked",
+  "name": "Change of Heart",
+  "edition": "fh",
+  "parent": "55",
+  "blockedSections": [
+    "80.2A - Frozen Fist is unlocked"
+  ],
+  "monsters": [
+    "frozen-fist"
+  ],
+  "objectives": [
+    {
+      "name": "Large Ice Crystal",
+      "health": "(L+2)xCx4"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "treasures": [
+        41
+      ],
+      "monster": [
+        {
+          "name": "frozen-fist",
+          "type": "boss"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

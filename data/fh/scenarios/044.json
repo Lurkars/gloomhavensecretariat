@@ -17,7 +17,13 @@
   "objectives": [
     {
       "name": "Metal Cabinet",
-      "health": "[Cx(L+3)/2{$math.ceil}]"
+      "health": "[Cx(L+3)/2{$math.ceil}]",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "When destroyed, all monsters within %game.action.range%2 suffer trap damage"
+        }
+      ]
     }
   ],
   "lootDeckConfig": {
@@ -28,24 +34,6 @@
     "arrowvine": 2,
     "random_item": 1
   },
-  "rules": [
-    {
-      "round": "true",
-      "always": true,
-      "once": true,
-      "note": "All monsters within %game.action.range:2% of the Metal Cabinet suffer trap damage",
-      "figures": [
-        {
-          "identifier": {
-            "type": "objective",
-            "edition": "objective",
-            "name": "Metal Cabinet"
-          },
-          "type": "dead"
-        }
-      ]
-    }
-  ],
   "rooms": [
     {
       "roomNumber": 1,

@@ -25,7 +25,6 @@
             "player3": "normal",
             "player4": "elite"
           },
-          "count": 1,
           "marker": "1"
         }
       ]
@@ -41,7 +40,6 @@
             "player3": "elite",
             "player4": "elite"
           },
-          "count": 1,
           "marker": "1"
         }
       ]

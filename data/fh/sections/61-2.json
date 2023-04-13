@@ -5,7 +5,6 @@
   "edition": "fh",
   "parent": "25",
   "marker": "2",
-  "resetRound": "hidden",
   "monsters": [
     "robotic-boltshooter",
     "ruined-machine"
@@ -19,6 +18,7 @@
   "rules": [
     {
       "round": "true",
+      "start": true,
       "figures": [
         {
           "type": "present",

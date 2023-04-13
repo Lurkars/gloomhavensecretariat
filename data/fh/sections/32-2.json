@@ -3,9 +3,20 @@
   "name": "Crackling Tunnel",
   "edition": "fh",
   "parent": "31",
+  "parentSections": [
+    "37.2"
+  ],
   "monsters": [
     "flaming-bladespinner",
     "robotic-boltshooter"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "All characters must lose one card from their hand or discard pile."
+    }
   ],
   "rooms": [
     {

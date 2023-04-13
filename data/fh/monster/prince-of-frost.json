@@ -37,8 +37,7 @@
       [
         {
           "type": "custom",
-          "value": "One character %game.card.recover% one lost card.",
-          "small": true
+          "value": "One character %game.card.recover% one lost card."
         },
         {
           "type": "heal",
@@ -58,15 +57,23 @@
         },
         {
           "type": "summon",
-          "value": "snow-imp",
-          "small": true
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "snow-imp",
+                "player2": "normal",
+                "player3": "elite",
+                "player4": "elite"
+              }
+            }
+          ]
         }
       ],
       [
         {
           "type": "custom",
-          "value": "One character loses one card.",
-          "small": true
+          "value": "One character loses one card."
         },
         {
           "type": "push",
@@ -91,7 +98,17 @@
         },
         {
           "type": "summon",
-          "value": "snow-imp"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "snow-imp",
+                "player2": "normal",
+                "player3": "normal",
+                "player4": "elite"
+              }
+            }
+          ]
         }
       ]
     ]

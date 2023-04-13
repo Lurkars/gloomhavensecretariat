@@ -19,6 +19,7 @@
   "rules": [
     {
       "round": "R % 2 == 1",
+      "start": true,
       "figures": [
         {
           "type": "present",
@@ -43,6 +44,7 @@
     },
     {
       "round": "R % 2 == 0",
+      "start": true,
       "figures": [
         {
           "type": "present",

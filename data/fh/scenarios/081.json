@@ -3,22 +3,26 @@
   "index": "81",
   "name": "Ruinous Research Lab",
   "edition": "fh",
+  "allyDeck": true,
   "monsters": [
     "aesther-ashblade",
+    "aesther-scout",
     "ancient-artillery",
     "ruined-machine",
     "steel-automaton"
   ],
   "objectives": [
     {
-      "name": "Door",
+      "name": "Door 1",
       "health": "(1+L)x2",
-      "marker": "1"
+      "marker": "1",
+      "initiative": 20
     },
     {
-      "name": "Door",
+      "name": "Door 2",
       "health": "(1+L)x2",
-      "marker": "2"
+      "marker": "2",
+      "initiative": 20
     }
   ],
   "lootDeckConfig": {
@@ -29,6 +33,74 @@
     "rockroot": 1,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "174.3"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Door 1"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "133.2"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Door 2"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "R == 6 || R == 12",
+      "start": true,
+      "note": "at any empty starting hex",
+      "spawns": [
+        {
+          "monster": {
+            "name": "aesther-scout",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        }
+      ]
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "note": "at any empty starting hex",
+      "spawns": [
+        {
+          "monster": {
+            "name": "aesther-scout",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -64,11 +136,9 @@
         },
         {
           "name": "ruined-machine",
-          "type": "normal"
-        },
-        {
-          "name": "ruined-machine",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
         },
         {
           "name": "ruined-machine",
@@ -78,8 +148,12 @@
         },
         {
           "name": "ruined-machine",
-          "player3": "elite",
-          "player4": "elite"
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "normal"
         },
         {
           "name": "steel-automaton",
@@ -87,6 +161,10 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        2
       ]
     }
   ]

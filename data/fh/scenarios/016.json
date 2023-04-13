@@ -28,6 +28,49 @@
       "sections": [
         "90.3"
       ]
+    },
+    {
+      "round": "R == 4",
+      "start": true,
+      "sections": [
+        "27.2"
+      ]
+    },
+    {
+      "round": "R == 6",
+      "start": true,
+      "note": "Remove Tile 1-B.<br>Any characters on it suffer trap damage and move to the cloest empty hex on tile 15-D.<br>All other figures are removed."
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "sections": [
+        "44.2"
+      ]
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "note": "Remove Tile 1-D.<br>Any characters on it suffer trap damage and move to the cloest empty hex on tile 15-D.<br>All other figures are removed."
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "sections": [
+        "15.3"
+      ]
+    },
+    {
+      "round": "R == 12",
+      "start": true,
+      "note": "Remove Tile 1-B.<br>Any characters on it suffer trap damage and move to the cloest empty hex on tile 15-D.<br>All other figures are removed."
+    },
+    {
+      "round": "R == 12",
+      "start": true,
+      "sections": [
+        "39.1"
+      ]
     }
   ],
   "rooms": [
