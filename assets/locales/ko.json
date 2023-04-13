@@ -699,7 +699,7 @@
         "amRemove": "{0} remove %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% from Attack Modifier deck",
         "damage": "{0}에게 피해 %game.damage:{1}%점",
         "gainCondition": "{0}에게 %game.condition.{1}% 상태 추가",
-        "looseCondition": "{0}의 %game.condition.{1}% 상태 해제",
+        "loseCondition": "{0}의 %game.condition.{1}% 상태 해제",
         "scenarioEffect": "(시나리오 효과)",
         "setHp": "{0} 체력을 {1}",
         "toggleOff": "{0} 비활성화",
