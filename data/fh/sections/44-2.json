@@ -13,13 +13,6 @@
   ],
   "rules": [
     {
-      "round": "R == 9",
-      "start": true,
-      "sections": [
-        "15.3"
-      ]
-    },
-    {
       "round": "true",
       "always": true,
       "once": true,

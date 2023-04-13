@@ -66,13 +66,6 @@
       "always": true,
       "once": true,
       "note": "Pebbles rain down at %game.mapMarker.b%. This has no effect yet."
-    },
-    {
-      "round": "R == 7",
-      "start": true,
-      "sections": [
-        "44.2"
-      ]
     }
   ],
   "rooms": [
