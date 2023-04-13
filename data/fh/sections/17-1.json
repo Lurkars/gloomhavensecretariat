@@ -30,45 +30,6 @@
     {
       "round": "true",
       "always": true,
-      "once": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "deep-terror",
-            "type": "elite"
-          },
-          "marker": "c"
-        },
-        {
-          "monster": {
-            "name": "living-doom",
-            "player2": "normal",
-            "player3": "normal",
-            "player4": "elite"
-          },
-          "marker": "a"
-        },
-        {
-          "monster": {
-            "name": "night-demon",
-            "player2": "normal"
-          },
-          "marker": "b"
-        },
-        {
-          "monster": {
-            "name": "night-demon",
-            "player3": "normal",
-            "player4": "normal"
-          },
-          "marker": "b",
-          "count": "3"
-        }
-      ]
-    },
-    {
-      "round": "true",
-      "always": true,
       "disableRules": [
         {
           "edition": "fh",
@@ -83,7 +44,32 @@
     {
       "roomNumber": 2,
       "initial": true,
-      "monster": []
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "living-doom",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
     }
   ]
 }

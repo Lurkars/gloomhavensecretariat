@@ -9,13 +9,6 @@
   "monsters": [],
   "rules": [
     {
-      "round": "R == 12",
-      "start": true,
-      "sections": [
-        "39.1"
-      ]
-    },
-    {
       "round": "true",
       "always": true,
       "once": true,

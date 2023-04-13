@@ -3,7 +3,12 @@
   "name": "Haunted Vault",
   "edition": "fh",
   "parent": "17",
+  "parentSections": [
+    "19.3"
+  ],
+  "marker": "5",
   "monsters": [
+    "living-doom",
     "living-spirit"
   ],
   "rooms": [
@@ -12,7 +17,7 @@
       "initial": true,
       "monster": [
         {
-          "name": "living-spirit",
+          "name": "living-doom",
           "type": "elite"
         },
         {

@@ -10,31 +10,7 @@
   ],
   "rules": [
     {
-      "round": "R % 3 == 2",
-      "start": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "hound",
-            "player2": "normal",
-            "player3": "normal",
-            "player4": "elite"
-          },
-          "marker": "d"
-        },
-        {
-          "monster": {
-            "name": "hound",
-            "player2": "normal",
-            "player3": "normal",
-            "player4": "elite"
-          },
-          "marker": "e"
-        }
-      ]
-    },
-    {
-      "round": "R % 3 == 0",
+      "round": "R % 3 == 0 || R % 3 == 2",
       "start": true,
       "spawns": [
         {

@@ -30,7 +30,18 @@
   ],
   "rules": [
     {
-      "round": "R % 4 == 1",
+      "round": "R % 4 == 2",
+      "start": true,
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Raven Nest"
+          }
+        }
+      ],
       "spawns": [
         {
           "monster": {
@@ -44,7 +55,18 @@
       ]
     },
     {
-      "round": "R % 4 == 3",
+      "round": "R % 4 == 0",
+      "start": true,
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Raven Nest"
+          }
+        }
+      ],
       "spawns": [
         {
           "monster": {

@@ -41,7 +41,7 @@
       ]
     },
     {
-      "round": "R == 2",
+      "round": "R == 2 || R == 6",
       "start": true,
       "spawns": [
         {
@@ -56,7 +56,7 @@
       ]
     },
     {
-      "round": "R == 3",
+      "round": "R == 3 || R == 7",
       "start": true,
       "spawns": [
         {
@@ -71,7 +71,7 @@
       ]
     },
     {
-      "round": "R == 4",
+      "round": "R == 4 || R == 8",
       "start": true,
       "spawns": [
         {
@@ -86,67 +86,7 @@
       ]
     },
     {
-      "round": "R == 5",
-      "start": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "algox-snowspeaker",
-            "player2": "normal",
-            "player3": "normal",
-            "player4": "elite"
-          },
-          "marker": "b"
-        }
-      ]
-    },
-    {
-      "round": "R == 6",
-      "start": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "algox-scout",
-            "player2": "normal",
-            "player3": "elite",
-            "player4": "elite"
-          },
-          "marker": "a"
-        }
-      ]
-    },
-    {
-      "round": "R == 7",
-      "start": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "algox-archer",
-            "player2": "normal",
-            "player3": "normal",
-            "player4": "elite"
-          },
-          "marker": "b"
-        }
-      ]
-    },
-    {
-      "round": "R == 8",
-      "start": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "algox-guard",
-            "player2": "normal",
-            "player3": "elite",
-            "player4": "elite"
-          },
-          "marker": "a"
-        }
-      ]
-    },
-    {
-      "round": "R == 9",
+      "round": "R == 5 || R == 9",
       "start": true,
       "spawns": [
         {
