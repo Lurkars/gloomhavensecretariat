@@ -8,6 +8,14 @@
     "deep-terror",
     "ooze"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "All characters must move one card from their hand or discard pile to their taken pile."
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 3,

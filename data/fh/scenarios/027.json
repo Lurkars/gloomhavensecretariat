@@ -12,7 +12,13 @@
     {
       "name": "Altar",
       "health": "L+2",
-      "initiative": 99
+      "initiative": 99,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "When destroyed, the destroying character may return all their taken cards to their hand"
+        }
+      ]
     }
   ],
   "lootDeckConfig": {

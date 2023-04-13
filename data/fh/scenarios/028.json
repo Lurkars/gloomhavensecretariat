@@ -28,13 +28,7 @@
       "actions": [
         {
           "type": "move",
-          "value": 4,
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "Players control the movement"
-            }
-          ]
+          "value": 4
         }
       ]
     }

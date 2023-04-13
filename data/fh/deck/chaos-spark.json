@@ -12,14 +12,18 @@
         },
         {
           "type": "attack",
-          "value": "(C-2)+(2xT)",
+          "value": "(C-2)",
           "subActions": [
             {
               "type": "custom",
-              "value": "where T is the number of damage tokens on the target’s character mat",
-              "small": true
+              "value": "+(2xT)"
             }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "where T is the number of damage tokens on the target's character mat",
+          "small": true
         }
       ]
     }
