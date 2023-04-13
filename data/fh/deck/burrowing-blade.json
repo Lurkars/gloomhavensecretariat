@@ -161,7 +161,7 @@
         },
         {
           "type": "custom",
-          "value": "All enenmies within %game.action.range:2% suffer %game.damage:2%.",
+          "value": "All enemies within %game.action.range:2% suffer %game.damage:2%.",
           "small": true
         },
         {

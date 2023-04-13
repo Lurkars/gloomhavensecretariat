@@ -23,7 +23,7 @@
             "type": "monster",
             "name": "hungry-maw"
           },
-          "type": "looseCondition",
+          "type": "loseCondition",
           "value": "bane"
         },
         {
@@ -31,7 +31,7 @@
             "type": "monster",
             "name": "hungry-maw"
           },
-          "type": "looseCondition",
+          "type": "loseCondition",
           "value": "brittle"
         },
         {
@@ -39,7 +39,7 @@
             "type": "monster",
             "name": "hungry-maw"
           },
-          "type": "looseCondition",
+          "type": "loseCondition",
           "value": "muddle"
         }
       ]

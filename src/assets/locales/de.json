@@ -853,7 +853,7 @@
         "discard": "{0} legen jeweils %number.{2}% Fertigkeitskarten ab",
         "gainCondition": "{0} erlangt %game.condition.{1}%",
         "heal": "{0} %game.action.heal% {2}",
-        "looseCondition": "{0} loose %game.condition.{1}%",
+        "loseCondition": "{0} verliert %game.condition.{1}%",
         "permanentCondition": "{0} erlangt dauerhaft %game.condition.{1}%",
         "scenarioEffect": "als Szenarioeffekt",
         "setHp": "{0} TP auf {2}",
@@ -1229,7 +1229,7 @@
     },
     "monsters": {
       ".": "Monsters",
-      "hint": ""
+      "hint": "Falls deaktiviert werden keine Monster mehr angezeigt"
     },
     "moveElements": {
       ".": "Automatisch Elementen Status ändern",

@@ -232,12 +232,11 @@ export class I18nDirective implements OnInit, OnChanges {
   }
 
   apply(): void {
-
     let args = this.args || [];
     if (this.argLabel) {
-      args.map((arg) => applyPlaceholder(settingsManager.getLabel(arg), [], this.relative, this.fhStyle))
+      args = args.map((arg) => applyPlaceholder(settingsManager.getLabel(arg), [], this.relative, this.fhStyle));
     }
 
-    this.el.nativeElement.innerHTML = this.value && applyPlaceholder(settingsManager.getLabel(this.value, args, false), this.args, this.relative, this.fhStyle) || "";
+    this.el.nativeElement.innerHTML = this.value && applyPlaceholder(settingsManager.getLabel(this.value, args, false), args, this.relative, this.fhStyle) || "";
   }
 }

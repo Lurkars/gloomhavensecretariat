@@ -304,12 +304,12 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "Immediatley before each of your rests, you may kill one of your summons to perform %game.condition.bless%, self"
+      "custom": "Immediately before each of your rests, you may kill one of your summons to perform %game.condition.bless%, self"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Once each scenario, when any character ally would become exhauseted by suffering %game.damage%, you may suffer %game.damage:2% to reduce their hit point value to 1 instead"
+      "custom": "Once each scenario, when any character ally would become exhausted by suffering %game.damage%, you may suffer %game.damage:2% to reduce their hit point value to 1 instead"
     },
     {
       "type": "custom",
@@ -320,6 +320,6 @@
   ],
   "masteries": [
     "Kill at least fifteen of your summons",
-    "Play a summon action on your first turn, have the summon kill at least six enenmies, and keep it alive for the entire scenario"
+    "Play a summon action on your first turn, have the summon kill at least six enemies, and keep it alive for the entire scenario"
   ]
 }

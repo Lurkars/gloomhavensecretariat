@@ -1568,7 +1568,7 @@
                         "gainCondition",
                         "setHp",
                         "killed",
-                        "looseCondition",
+                        "loseCondition",
                         "present",
                         "remove",
                         "toggleOff",

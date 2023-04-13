@@ -956,7 +956,7 @@
         "discard": "{0} discard %number.{2}% ability cards each",
         "gainCondition": "{0} gain %game.condition.{1}%",
         "heal": "{0} %game.action.heal% {2}",
-        "looseCondition": "{0} loose %game.condition.{1}%",
+        "loseCondition": "{0} lose %game.condition.{1}%",
         "permanentCondition": "{0} gain permanent %game.condition.{1}%",
         "scenarioEffect": "as scenario effect",
         "setHp": "{0} HP to {2}",
@@ -1296,7 +1296,7 @@
     },
     "hints": {
       ".": "Show hints",
-      "hint": "Show shortscuts and hints next to the main menu"
+      "hint": "Show shortcuts and hints next to the main menu"
     },
     "initiativeRequired": {
       ".": "Initiative is required",
@@ -1332,7 +1332,7 @@
     },
     "monsters": {
       ".": "Monsters",
-      "hint": ""
+      "hint": "If disabled no monsters are shown."
     },
     "moveElements": {
       ".": "Automatic update element state",

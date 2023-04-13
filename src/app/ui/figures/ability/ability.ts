@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Ability } from "src/app/game/model/data/Ability";
@@ -12,7 +12,7 @@ import { applyPlaceholder } from "../../helper/i18n";
   templateUrl: './ability.html',
   styleUrls: ['./ability.scss']
 })
-export class AbilityComponent implements OnInit {
+export class AbilityComponent implements OnInit, OnChanges {
 
   @Input() ability: Ability | undefined;
   @Input() abilities!: Ability[];
@@ -39,6 +39,10 @@ export class AbilityComponent implements OnInit {
     });
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    this.update();
+  }
+
   update() {
     this.abilityIndex = -1;
     this.abilityLabel = "";
@@ -59,16 +63,16 @@ export class AbilityComponent implements OnInit {
 
   getAbilityLabel(ability: Ability): string {
     let label = ability.name || "";
-    if (!ability.name && this.monster) {
-      label = 'data.monster.' + this.monster.name;
-      if (ability.name) {
-        label = 'data.ability.' + ability.name;
-      } else if (this.monster.deck != this.monster.name) {
-        label = 'data.deck.' + this.monster.deck;
-        if (label.split('.')[label.split('.').length - 1] === applyPlaceholder(settingsManager.getLabel(label)) && this.monster.deck) {
-          label = 'data.monster.' + this.monster.deck;
-        }
+
+    if (label) {
+      label = 'data.ability.' + label;
+    } else if (this.monster && this.monster.deck != this.monster.name) {
+      label = 'data.deck.' + this.monster.deck;
+      if (label.split('.')[label.split('.').length - 1] === applyPlaceholder(settingsManager.getLabel(label)) && this.monster.deck) {
+        label = 'data.monster.' + this.monster.deck;
       }
+    } else if (this.monster) {
+      label = 'data.monster.' + this.monster.name;
     }
 
     return applyPlaceholder(settingsManager.getLabel(label));

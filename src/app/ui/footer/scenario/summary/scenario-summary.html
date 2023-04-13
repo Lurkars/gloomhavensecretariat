@@ -261,7 +261,7 @@
           <div class="list">
             <div class="item envelope" *ngFor="let envelope of (rewards.envelopes || []); let i = index;">
               <span class="placeholder text-white" [i18n]="'scenario.rewards.envelope'" [i18n-args]="[envelope]"
-                [i18n-arg-label]="true"></span>
+               ></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.envelopes && rewards.hints.envelopes[i]"
                 [i18n]="rewards.hints.envelopes[i]"></span>
@@ -313,10 +313,10 @@
             <div class="item items" *ngFor="let item of (rewards.items || []); let i = index;">
               <span *ngIf="item.indexOf(':') != -1" class="placeholder text-white" [i18n]="'scenario.rewards.items'"
                 [i18n-args]="[item.split(':')[0], gameManager.item(+item.split(':')[0],scenario.edition || '', true)?.name || '', item.split(':')[1]]"
-                [i18n-arg-label]="true"></span>
+               ></span>
               <span *ngIf="item.indexOf(':') == -1" class="placeholder text-white" [i18n]="'scenario.rewards.item'"
                 [i18n-args]="[item, gameManager.item(+item,scenario.edition || '', true)?.name || '']"
-                [i18n-arg-label]="true"></span>
+               ></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.items && rewards.hints.items[i]"
                 [i18n]="rewards.hints.items[i]"></span>
@@ -327,10 +327,10 @@
               <ng-container *ngFor="let item of (rewards.chooseItem || []); let i = index;">
                 <span *ngIf="item.indexOf(':') != -1" class="placeholder text-white" [i18n]="'scenario.rewards.items'"
                   [i18n-args]="[item.split(':')[0], gameManager.item(+item.split(':')[0],scenario.edition || '', true)?.name || '', item.split(':')[1]]"
-                  [i18n-arg-label]="true"></span>
+                 ></span>
                 <span *ngIf="item.indexOf(':') == -1" class="placeholder text-white" [i18n]="'scenario.rewards.item'"
                   [i18n-args]="[item, gameManager.item(+item,scenario.edition || '', true)?.name || '']"
-                  [i18n-arg-label]="true"></span>
+                 ></span>
                 <span class="placeholder text-white hint"
                   *ngIf="rewards.hints && rewards.hints.chooseItem && rewards.hints.chooseItem[i]"
                   [i18n]="rewards.hints.chooseItem[i]"></span>
@@ -343,7 +343,7 @@
               <span *ngIf="item.indexOf('-') == -1" class="placeholder text-white"
                 [i18n]="'scenario.rewards.itemDesign'"
                 [i18n-args]="[item, gameManager.item(+item,scenario.edition || '', true)?.name || '']"
-                [i18n-arg-label]="true"></span>
+               ></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.itemDesigns && rewards.hints.itemDesigns[i]"
                 [i18n]="rewards.hints.itemDesigns[i]"></span>

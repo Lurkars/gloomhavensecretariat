@@ -74,7 +74,7 @@ export class ScenarioFigureRule {
 
   identifier: ScenarioFigureRuleIdentifier | undefined = undefined;
   identifierRef: number | undefined = undefined;
-  type: "present" | "dead" | "killed" | "gainCondition" | "looseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove" | "amAdd" | "amRemove" = "present";
+  type: "present" | "dead" | "killed" | "gainCondition" | "loseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove" | "amAdd" | "amRemove" = "present";
   value: string = "";
   scenarioEffect: boolean = false;
 
@@ -103,6 +103,7 @@ export class ScenarioRewards {
   chooseItem: string[] = [];
   itemDesigns: string[] = [];
   events: string[] = [];
+  campaignSticker: string[] = [];
   custom: string = "";
   ignoredBonus: string[] = [];
   hints: ScenarioRewardHints | undefined = undefined;

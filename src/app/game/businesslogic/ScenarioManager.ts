@@ -139,6 +139,10 @@ export class ScenarioManager {
             this.game.party.achievementsList = this.game.party.achievementsList.filter((achivement) => rewards && rewards.lostPartyAchievements.indexOf(achivement) == -1);
           }
 
+          if (rewards.campaignSticker) {
+            this.game.party.campaignStickers.push(...rewards.campaignSticker);
+          }
+
           if (rewards.itemDesigns) {
             rewards.itemDesigns.forEach((item) => {
               if (item.indexOf('-') != -1) {
@@ -457,11 +461,11 @@ export class ScenarioManager {
         }
       })
     }
-    return blocked;
+    return blocked && this.game.party.campaignMode;
   }
 
   isLocked(scenarioData: ScenarioData): boolean {
-    return scenarioData.requiredAchievements &&
+    return this.game.party.campaignMode && scenarioData.requiredAchievements &&
       scenarioData.requiredAchievements && scenarioData.requiredAchievements.every((achivements) =>
         achivements.global && achivements.global.some((achivement) => {
           if (achivement.startsWith('!')) {

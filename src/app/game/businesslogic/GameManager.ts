@@ -414,7 +414,7 @@ export class GameManager {
   }
 
   getEdition(figure: any): string {
-    if (this.game.figures.some((value) => typeof (figure) == typeof (value) && figure.name == value.name && figure.edition != value.edition || this.game.edition && figure.edition != this.game.edition && this.editionExtensions(this.game.edition).indexOf(figure.edition) == -1)) {
+    if (this.game.figures.some((value) => typeof (figure) == typeof (value) && figure.name == value.name && figure.edition != value.edition || this.game.edition && figure.edition != this.game.edition && this.editionExtensions(this.game.edition).indexOf(figure.edition) == -1 || !this.game.edition && this.game.scenario && figure.edition != this.game.scenario.edition && this.editionExtensions(this.game.scenario.edition).indexOf(figure.edition) == -1)) {
       return figure.edition;
     }
     return "";

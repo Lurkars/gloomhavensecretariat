@@ -121,7 +121,7 @@ export class ScenarioRulesComponent {
                 return false;
             }
 
-            if (figureRule.type == "gainCondition" || figureRule.type == "permanentCondition" || figureRule.type == "looseCondition") {
+            if (figureRule.type == "gainCondition" || figureRule.type == "permanentCondition" || figureRule.type == "loseCondition") {
                 return figures.some((figure) => {
                     if (figureRule.type == "gainCondition") {
                         let entities: Entity[] = gameManager.entityManager.entities(figure);
@@ -135,10 +135,10 @@ export class ScenarioRulesComponent {
                         if (entities.every((entity) => gameManager.entityManager.hasCondition(entity, gainCondition, true))) {
                             return false
                         }
-                    } else if (figureRule.type == "looseCondition") {
+                    } else if (figureRule.type == "loseCondition") {
                         let entities: Entity[] = gameManager.entityManager.entities(figure);
-                        let looseCondition = new Condition(figureRule.value);
-                        if (entities.every((entity) => !gameManager.entityManager.hasCondition(entity, looseCondition))) {
+                        let loseCondition = new Condition(figureRule.value);
+                        if (entities.every((entity) => !gameManager.entityManager.hasCondition(entity, loseCondition))) {
                             return false
                         }
                     }
@@ -170,10 +170,10 @@ export class ScenarioRulesComponent {
                     if (entities.every((entity) => gameManager.entityManager.hasCondition(entity, gainCondition, true))) {
                         return false
                     }
-                } else if (figureRule.type == "looseCondition") {
+                } else if (figureRule.type == "loseCondition") {
                     let entities: Entity[] = gameManager.entityManager.entities(figure);
-                    let looseCondition = new Condition(figureRule.value);
-                    if (entities.every((entity) => !gameManager.entityManager.hasCondition(entity, looseCondition))) {
+                    let loseCondition = new Condition(figureRule.value);
+                    if (entities.every((entity) => !gameManager.entityManager.hasCondition(entity, loseCondition))) {
                         return false
                     }
                 } else if (figureRule.type == "toggleOn" || figureRule.type == "toggleOff") {
@@ -327,7 +327,7 @@ export class ScenarioRulesComponent {
                 }
 
                 if (rule.figures) {
-                    rule.figures.filter((figureRule) => figureRule.type == "gainCondition" || figureRule.type == "permanentCondition" || figureRule.type == "looseCondition" || figureRule.type == "damage" || figureRule.type == "heal" || figureRule.type == "setHp").forEach((figureRule) => {
+                    rule.figures.filter((figureRule) => figureRule.type == "gainCondition" || figureRule.type == "permanentCondition" || figureRule.type == "loseCondition" || figureRule.type == "damage" || figureRule.type == "heal" || figureRule.type == "setHp").forEach((figureRule) => {
                         let figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
                         figures.forEach((figure) => {
                             let entities: Entity[] = gameManager.entityManager.entities(figure).filter((entity) => figureRule.identifier && (!figureRule.identifier.marker || !(entity instanceof MonsterEntity) || entity.marker == figureRule.identifier.marker) && (!figureRule.identifier.tags || figureRule.identifier.tags.length == 0 || figureRule.identifier.tags.every((tag) => entity.tags.indexOf(tag) != -1)));
@@ -345,10 +345,10 @@ export class ScenarioRulesComponent {
                                             gameManager.entityManager.addCondition(entity, permanentCondition, figure.active, figure.off, true);
                                         }
                                         break;
-                                    case "looseCondition":
-                                        let looseCondition = new Condition(figureRule.value);
-                                        if (gameManager.entityManager.hasCondition(entity, looseCondition)) {
-                                            gameManager.entityManager.removeCondition(entity, looseCondition);
+                                    case "loseCondition":
+                                        let loseCondition = new Condition(figureRule.value);
+                                        if (gameManager.entityManager.hasCondition(entity, loseCondition)) {
+                                            gameManager.entityManager.removeCondition(entity, loseCondition);
                                         }
                                         break;
                                     case "damage": let damage = 0;

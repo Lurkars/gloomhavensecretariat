@@ -21,7 +21,7 @@
             "edition": "fc",
             "name": "the-husk"
           },
-          "type": "looseCondition",
+          "type": "loseCondition",
           "value": "wound"
         },
         {
@@ -30,7 +30,7 @@
             "edition": "fc",
             "name": "the-husk"
           },
-          "type": "looseCondition",
+          "type": "loseCondition",
           "value": "muddle"
         },
         {
@@ -39,7 +39,7 @@
             "edition": "fc",
             "name": "the-husk"
           },
-          "type": "looseCondition",
+          "type": "loseCondition",
           "value": "poison"
         },
         {
