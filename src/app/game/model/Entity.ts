@@ -16,6 +16,7 @@ export type EntityCounter = { identifier: AdditionalIdentifier, total: number, k
 
 export const EntityExpressionRegex = /^([xCL0-9\.\+\/\-\*\(\)\=\?\:\|\s\>\<]+)$/;
 export const EntityValueRegex = /\[([xCL0-9\.\+\/\-\*\(\)\=\?\:\|\s\>\<]+)(\{(.*)\})?\]/;
+export const EntityValueRegexExtended = /\[([a-zA-Z0-9\.\+\/\-\*\(\)\=\?\:\|\s\>\<]+)(\{(.*)\})?\]/;
 
 export function EntityValueFunction(value: string | number, L: number | undefined = undefined): number {
 

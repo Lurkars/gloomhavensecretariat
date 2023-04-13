@@ -23,6 +23,8 @@ export class Settings {
   calculateStats: boolean = true;
   characterAttackModifierDeck: boolean = true;
   characterHandSize: boolean = false;
+  characterIdentities: boolean = true;
+  characterIdentityHint: boolean = true;
   characterSheet: boolean = true;
   combineSummonAction: boolean = true;
   debugRightClick: boolean = false;

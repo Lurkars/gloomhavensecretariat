@@ -209,12 +209,12 @@ export class ScenarioRulesManager {
     return gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((figure) => {
       if (figureRule.identifier && figureRule.identifier.health) {
         if (figure instanceof Character || figure instanceof Objective) {
-          const health = EntityValueFunction(figureRule.identifier.health.replaceAll('HP', '' + figure.health).replaceAll('H', '' + EntityValueFunction(figure.maxHealth)));
+          const health = EntityValueFunction(figureRule.identifier.health.replaceAll('H', '' + EntityValueFunction(figure.maxHealth)));
           return figure.health <= health;
         } else if (figure instanceof Monster) {
           return figure.entities.some((entity) => {
             if (figureRule.identifier && figureRule.identifier.health && gameManager.entityManager.isAlive(entity)) {
-              const health = EntityValueFunction(figureRule.identifier.health.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
+              const health = EntityValueFunction(figureRule.identifier.health.replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
               return entity.health <= health;
             }
 
@@ -242,7 +242,7 @@ export class ScenarioRulesManager {
 
     return gameManager.entitiesByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((entity) => {
       if (figureRule.identifier && figureRule.identifier.health && gameManager.entityManager.isAlive(entity)) {
-        const health = EntityValueFunction(figureRule.identifier.health.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
+        const health = EntityValueFunction(figureRule.identifier.health.replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
         return entity.health <= health;
       }
 

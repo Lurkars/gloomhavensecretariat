@@ -98,9 +98,6 @@
         </span>
       </div>
     </div>
-  </div>
-
-  <div class="column">
     <div class="line">
       <div class="hint-container">
         <label
@@ -113,6 +110,36 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text" [i18n]="'settings.treasuresLoot.hint'"></span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.characterIdentities"
+            (change)="settingsManager.setCharacterIdentities(!settingsManager.settings.characterIdentities)">
+          {{'settings.characterIdentities' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [i18n]="'settings.characterIdentities.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : !settingsManager.settings.characterIdentities }">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.characterIdentities && settingsManager.settings.characterIdentityHint"
+            (change)="settingsManager.setCharacterIdentityHint(!settingsManager.settings.characterIdentityHint)">
+          {{'settings.characterIdentityHint' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [i18n]="'settings.characterIdentityHint.hint'"></span>
         </span>
       </div>
     </div>
@@ -465,10 +492,11 @@
         </span>
       </div>
     </div>
-    <div class="line"  [ngClass]="{'disabled' : !settingsManager.settings.lootDeck}">
+    <div class="line" [ngClass]="{'disabled' : !settingsManager.settings.lootDeck}">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.lootDeck && settingsManager.settings.alwaysLootDeck"
+          <input type="checkbox"
+            [checked]="settingsManager.settings.lootDeck && settingsManager.settings.alwaysLootDeck"
             (change)="settingsManager.setAlwaysLootDeck(!settingsManager.settings.alwaysLootDeck)">
           {{'settings.alwaysLootDeck' | ghsLabel}}
         </label>
@@ -484,7 +512,8 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.allyAttackModifierDeck}">
-          <input type="checkbox" [checked]="settingsManager.settings.allyAttackModifierDeck && settingsManager.settings.alwaysAllyAttackModifierDeck"
+          <input type="checkbox"
+            [checked]="settingsManager.settings.allyAttackModifierDeck && settingsManager.settings.alwaysAllyAttackModifierDeck"
             (change)="settingsManager.setAlwaysAllyAttackModifierDeck(!settingsManager.settings.alwaysAllyAttackModifierDeck)">
           {{'settings.alwaysAllyAttackModifierDeck' | ghsLabel}}
         </label>

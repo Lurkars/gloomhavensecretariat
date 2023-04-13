@@ -209,6 +209,16 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setCharacterIdentities(characterIdentities: boolean) {
+    this.settings.characterIdentities = characterIdentities;
+    this.storeSettings();
+  }
+
+  setCharacterIdentityHint(characterIdentityHint: boolean) {
+    this.settings.characterIdentityHint = characterIdentityHint;
+    this.storeSettings();
+  }
+
   setCharacterSheet(characterSheet: boolean) {
     this.settings.characterSheet = characterSheet;
     this.storeSettings();
@@ -421,7 +431,7 @@ export class SettingsManager {
     this.settings.theme = theme;
     this.storeSettings();
   }
-  
+
   setTooltips(tooltips: boolean) {
     this.settings.tooltips = tooltips;
     this.storeSettings();

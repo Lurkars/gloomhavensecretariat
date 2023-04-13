@@ -39,7 +39,8 @@
         [relative]="true" [screenWidth]="true" (singleClick)="openEntityMenu($event)">
       </ghs-drag-click>
 
-      <ghs-drag-click *ngIf="character.identities && character.identities.length > 1"
+      <ghs-drag-click
+        *ngIf="settingsManager.settings.characterIdentities && character.identities && character.identities.length > 1"
         [style.margin-left]="initiativeElement.elementRef.nativeElement.clientWidth + 'px'" class="next-identity"
         (singleClick)="nextIdentity($event)"></ghs-drag-click>
     </ng-container>
@@ -76,8 +77,9 @@
       <div class="column col-1" (click)="openEntityMenu($event)">
         <div class="title-bar">
           <div class="title" #characterName>
-            <img class="icon" [ngClass]="{'identities' : character.identities && character.identities.length > 1}"
-              [src]="character.identities.length == 0 ? character.iconUrl : gameManager.characterManager.characterIdentityIcon(character)" />
+            <img class="icon"
+              [ngClass]="{'identities' : settingsManager.settings.characterIdentities &&  character.identities && character.identities.length > 1}"
+              [src]="character.identities.length == 0 || !settingsManager.settings.characterIdentities ? character.iconUrl : gameManager.characterManager.characterIdentityIcon(character)" />
             {{gameManager.characterManager.characterName(character)}}
             <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" />
           </div>

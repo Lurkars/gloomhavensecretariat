@@ -3,7 +3,7 @@ import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ActionType } from "src/app/game/model/data/Action";
 import { Character } from "src/app/game/model/Character";
-import { EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity";
+import { EntityValueFunction, EntityValueRegex, EntityValueRegexExtended } from "src/app/game/model/Entity";
 import { ActionHex } from "src/app/game/model/ActionHex";
 import { ActionTypesIcons } from "../figures/actions/action";
 
@@ -37,12 +37,12 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         if (value) {
           image += '<span class="value">' + value + '</span>';
         }
-        replace = '<span class="placeholder-condition">' + (fh ? '' : settingsManager.getLabel(label, [''])) + image + '</span>';
+        replace = '<span class="placeholder-condition">' + (fh ? '&nbsp;' : settingsManager.getLabel(label, [''])) + image + '</span>';
       } else if (type == "action" && split.length == 3 && !split[2].startsWith('specialTarget') && !split[2].startsWith('summon') && !split[2].startsWith('area')) {
         split.splice(0, 1);
         const ghsSvg = ActionTypesIcons.indexOf(split[split.length - 1] as ActionType) != -1;
         image = '<img  src="./assets/images/' + (fh ? 'fh/' : '') + split.join('/') + '.svg" class="icon' + (ghsSvg ? ' ghs-svg' : '') + '">';
-        replace = '<span class="placeholder-action">' + (fh ? '' : settingsManager.getLabel(label)) + image + value + '</span>';
+        replace = '<span class="placeholder-action">' + (fh ? '&nbsp;' : settingsManager.getLabel(label)) + image + value + '</span>';
       } else if (type == "element") {
         let element = split[2];
         if (element == "consume") {
@@ -131,7 +131,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         replace = '<span class="damage">' + settingsManager.getLabel('game.damage', [value]) + '</span>';
       } else if (fh && type == "damage") {
         image = '<img  src="./assets/images/fh/action/damage.svg" class="icon ghs-svg">';
-        replace = '<span class="damage">' + image + value + '</span>';
+        replace = '<span class="damage">&nbsp;' + image + value + '</span>';
       } else if (type == "loot" && split.length == 4) {
         image = '<img  src="./assets/images/' + split[3] + '-player.svg" class="icon">';
         replace = '<span class="placeholder-player">' + image + '</span>';
@@ -160,12 +160,23 @@ export const applyValueCalc = function (value: string, relative: boolean): strin
         return "" + result;
       } else {
         let func = args[2];
-        const funcLabel = func && func.startsWith('%');
+        const funcLabel = func && func.startsWith('$');
         if (funcLabel) {
-          func = func.replace('%', '');
+          func = func.replace('$', '');
         }
         return funcLabel ? args[0] + ' ' + settingsManager.getLabel('game.custom.' + func) : args[0];
       }
+    });
+  }
+
+  while (value.match(EntityValueRegexExtended)) {
+    value = value.replace(EntityValueRegexExtended, (match, ...args) => {
+      let func = args[2];
+      const funcLabel = func && func.startsWith('$');
+      if (funcLabel) {
+        func = func.replace('$', '');
+      }
+      return funcLabel ? args[0] + ' ' + settingsManager.getLabel('game.custom.' + func) : args[0];
     });
   }
 
@@ -221,6 +232,12 @@ export class I18nDirective implements OnInit, OnChanges {
   }
 
   apply(): void {
-    this.el.nativeElement.innerHTML = this.value && applyPlaceholder(settingsManager.getLabel(this.value, this.args, this.argLabel), this.args, this.relative, this.fhStyle) || "";
+
+    let args = this.args || [];
+    if (this.argLabel) {
+      args.map((arg) => applyPlaceholder(settingsManager.getLabel(arg), [], this.relative, this.fhStyle))
+    }
+
+    this.el.nativeElement.innerHTML = this.value && applyPlaceholder(settingsManager.getLabel(this.value, args, false), this.args, this.relative, this.fhStyle) || "";
   }
 }

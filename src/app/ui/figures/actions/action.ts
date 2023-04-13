@@ -217,7 +217,7 @@ export class ActionComponent implements OnInit {
     } else if (this.action.valueType == ActionValueType.minus) {
       return "-" + (settingsManager.settings.fhStyle ? '' : ' ') + this.action.value;
     } else {
-      return settingsManager.settings.calculate ? EntityValueFunction(this.action.value, this.level) : this.action.value;
+      return settingsManager.settings.calculate && !('' + this.action.value).startsWith('%') ? EntityValueFunction(this.action.value, this.level) : this.action.value;
     }
   }
 

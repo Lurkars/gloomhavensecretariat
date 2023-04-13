@@ -945,7 +945,8 @@ input[type="radio"] {
   .placeholder-condition,
   .placeholder-initiative {
     white-space: nowrap;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
   }
 
   .placeholder-condition {

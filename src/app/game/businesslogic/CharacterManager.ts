@@ -52,11 +52,11 @@ export class CharacterManager {
   characterName(character: Character, full: boolean = false): string {
     let name = settingsManager.getLabel('data.character.' + character.name);
     let hasTitle = false;
-    if (character.identities.length > 0) {
+    if (character.identities.length > 0 && settingsManager.settings.characterIdentities) {
       if (character.title && character.title.split('|')[character.identity]) {
         name = character.title.split('|')[character.identity];
         hasTitle = true;
-      } else {
+      } else if (settingsManager.settings.characterIdentityHint) {
         name += " (" + settingsManager.getLabel('data.character.' + character.name + '.' + character.identities[character.identity]) + ")"
       }
     } else if (character.title) {
