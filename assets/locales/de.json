@@ -852,7 +852,7 @@
         "damage": "{0} erleiden %game.damage:{2}%",
         "discard": "{0} legen jeweils %number.{2}% Fertigkeitskarten ab",
         "gainCondition": "{0} erlangt %game.condition.{1}%",
-        "heal": "{0} %game.condition.heal% {2}",
+        "heal": "{0} %game.action.heal% {2}",
         "looseCondition": "{0} loose %game.condition.{1}%",
         "permanentCondition": "{0} erlangt dauerhaft %game.condition.{1}%",
         "scenarioEffect": "als Szenarioeffekt",
@@ -1091,6 +1091,14 @@
     "characterHandSize": {
       ".": "Handkartenanzahl anzeigen",
       "hint": "Zeige die Handkartenanzahl auf dem Charakterboard an."
+    },
+    "characterIdentities": {
+      ".": "Charakter Formen",
+      "hint": "Wechsle zwischen verschiedenen Charakter Formen mit Klick auf das Form-Symbol neben dem Charakternamen."
+    },
+    "characterIdentityHint": {
+      ".": "Formhinweis",
+      "hint": "Zeigt die aktive Form hinter dem Charakternamen."
     },
     "characterSheet": {
       ".": "Charakterbogen",
