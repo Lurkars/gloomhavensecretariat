@@ -188,13 +188,8 @@
               "value": "wound",
               "subActions": [
                 {
-                  "type": "target",
-                  "value": "%game.target.all%",
-                  "small": true
-                },
-                {
-                  "type": "range",
-                  "value": 4,
+                  "type": "specialTarget",
+                  "value": "enemiesRange:4",
                   "small": true
                 }
               ]
@@ -211,13 +206,8 @@
               "value": "disarm",
               "subActions": [
                 {
-                  "type": "target",
-                  "value": "%game.target.all%",
-                  "small": true
-                },
-                {
-                  "type": "range",
-                  "value": 4,
+                  "type": "specialTarget",
+                  "value": "enemiesRange:4",
                   "small": true
                 }
               ]

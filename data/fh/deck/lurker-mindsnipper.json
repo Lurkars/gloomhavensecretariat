@@ -37,13 +37,8 @@
           "value": "muddle",
           "subActions": [
             {
-              "type": "target",
-              "value": "%game.target.all%",
-              "small": true
-            },
-            {
-              "type": "range",
-              "value": 3,
+              "type": "specialTarget",
+              "value": "enemiesRange:3",
               "small": true
             }
           ]

@@ -106,13 +106,8 @@
           "value": 1,
           "subActions": [
             {
-              "type": "target",
-              "value": "%game.target.all%",
-              "small": true
-            },
-            {
-              "type": "range",
-              "value": 1,
+              "type": "specialTarget",
+              "value": "enemiesRange:1",
               "small": true
             },
             {
