@@ -175,6 +175,8 @@ export class ScenarioRulesManager {
         });
       }
       this.game.scenarioRules.push({ "identifier": identifier, "rule": rule });
+    } else if (!add && rule.always) {
+      this.game.scenarioRules = this.game.scenarioRules.filter((model) => model.identifier.edition != identifier.edition || model.identifier.group != identifier.group || model.identifier.index != identifier.index || model.identifier.scenario != identifier.scenario || model.identifier.section != identifier.section);
     }
   }
 
