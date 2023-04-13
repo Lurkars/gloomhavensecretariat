@@ -3,6 +3,7 @@
   "name": "Ruinous Research Lab",
   "edition": "fh",
   "parent": "81",
+  "marker": "2",
   "monsters": [
     "ancient-artillery",
     "ruined-machine",
@@ -27,20 +28,25 @@
         },
         {
           "name": "ruined-machine",
-          "type": "normal"
-        },
-        {
-          "name": "ruined-machine",
-          "type": "normal"
-        },
-        {
-          "name": "ruined-machine",
+          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "steel-automaton",
