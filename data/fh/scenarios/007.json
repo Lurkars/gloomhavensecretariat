@@ -6,6 +6,9 @@
     "13",
     "14"
   ],
+  "rewards": {
+    "experience": 10
+  },
   "monsters": [
     "lurker-clawcrusher",
     "lurker-soldier"
