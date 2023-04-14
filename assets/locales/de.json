@@ -608,6 +608,7 @@
       "normal": "Normales Monster platzieren"
     },
     "boss": "Boss",
+    "cancelNumberpicker": "Abbrechen",
     "changeType": "Ändere Typ von %monster.{0}% zu %monster.{1}%",
     "elite": "Elite",
     "normal": "Normal",
@@ -1068,8 +1069,12 @@
       "hint": "Angrifssmodifikatordeck (und Beute Deck) auf kleinen Bildschirmen automatisch in Vollansicht öffnen"
     },
     "automaticStandees": {
-      ".": "Automatische Aufsteller (%wip%)",
-      "hint": "Automatisches Hinzufügen von Aufstellern. (Automatische Aufsteller ist %wip% und steht bislang nicht in allen Edition vollständig zur Verfügung.)"
+      ".": "Automatische Aufsteller",
+      "hint": "Automatisches Hinzufügen von Aufstellern."
+    },
+    "automaticStandeesDialog": {
+      ".": "Automatische Aufsteller Dialoge",
+      "hint": "Öffne automatische Auswahl-Dialoge zur Nummerauswahl für alle neuen Aufsteller."
     },
     "barsize": {
       ".": "Leistengröße",

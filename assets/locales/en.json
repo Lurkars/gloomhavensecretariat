@@ -709,6 +709,7 @@
       "normal": "Spawn Normal Monster"
     },
     "boss": "Boss",
+    "cancelNumberpicker": "Cancel",
     "changeType": "Change type from %monster.{0}% to %monster.{1}%",
     "elite": "Elite",
     "normal": "Normal",
@@ -1167,8 +1168,12 @@
       "hint": "Open Attack Modifier Deck (and also Loot Deck) in fullscreen mode when on small devices."
     },
     "automaticStandees": {
-      ".": "Automatic Standees (%wip%)",
-      "hint": "Automatic addition of standees. (Automatic standees is %wip% and not completely available for all editions yet.)"
+      ".": "Automatic Standees",
+      "hint": "Automatic addition of standees."
+    },
+    "automaticStandeesDialog": {
+      ".": "Automatic Standees Dialogs",
+      "hint": "Automatically open standee number dialogs for all new standees."
     },
     "barsize": {
       ".": "Barsize",
