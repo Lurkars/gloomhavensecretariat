@@ -11,6 +11,9 @@ import { SubMenu } from './header/menu/menu';
 import { Monster } from '../game/model/Monster';
 import { Objective } from '../game/model/Objective';
 import { Figure } from '../game/model/Figure';
+import { Dialog, DialogRef } from '@angular/cdk/dialog';
+import { MonsterNumberPickerDialog } from './figures/monster/dialogs/numberpicker-dialog';
+import { MonsterType } from '../game/model/data/MonsterType';
 
 @Component({
   selector: 'ghs-main',
@@ -42,9 +45,11 @@ export class MainComponent implements OnInit {
   draggingeTimeout: any = null;
   isTouch: boolean = false;
 
+  standeeDialog: DialogRef<unknown, MonsterNumberPickerDialog> | undefined;
+
   @ViewChild('footer') footer!: FooterComponent;
 
-  constructor(private element: ElementRef, private swUpdate: SwUpdate) {
+  constructor(private element: ElementRef, private swUpdate: SwUpdate, private dialog: Dialog) {
     gameManager.uiChange.subscribe({
       next: () => {
 
@@ -61,6 +66,9 @@ export class MainComponent implements OnInit {
             this.fullviewChar = undefined;
             this.welcome = false;
             this.calcColumns();
+            if (settingsManager.settings.automaticStandeesDialog && settingsManager.settings.automaticStandees && !settingsManager.settings.disableStandees && !settingsManager.settings.randomStandees && settingsManager.settings.scenarioRooms) {
+              this.automaticStandeeDialogs();
+            }
           }
         }
       }
@@ -543,5 +551,40 @@ export class MainComponent implements OnInit {
       (elements[1] as HTMLElement).click();
     }
     event.preventDefault();
+  }
+
+  automaticStandeeDialogs() {
+    if (!gameManager.stateManager.standeeDialogCanceled && !this.standeeDialog && gameManager.game.scenarioRules.length == 0) {
+      const figure = gameManager.game.figures.find((figure) => figure instanceof Monster && figure.entities.find((entity) => entity.number < 1 && gameManager.entityManager.isAlive(entity)));
+      if (figure) {
+        const monster = figure as Monster;
+        let entity = monster.entities.find((entity) => entity.number < 1 && gameManager.entityManager.isAlive(entity) && (settingsManager.settings.eliteFirst && entity.type == MonsterType.elite || !settingsManager.settings.eliteFirst && entity.type == MonsterType.normal));
+        if (!entity) {
+          entity = monster.entities.find((entity) => entity.number < 1 && gameManager.entityManager.isAlive(entity));
+        }
+        this.standeeDialog = this.dialog.open(MonsterNumberPickerDialog, {
+          panelClass: 'dialog',
+          disableClose: true,
+          data: {
+            monster: monster,
+            type: entity && entity.type,
+            entity: entity,
+            range: [],
+            entities: monster.entities,
+            automatic: true
+          }
+        })
+
+        this.standeeDialog.closed.subscribe({
+          next: (cancel) => {
+            if (cancel) {
+              gameManager.stateManager.standeeDialogCanceled = true;
+            }
+            this.standeeDialog = undefined;
+            gameManager.uiChange.emit();
+          }
+        })
+      }
+    }
   }
 }

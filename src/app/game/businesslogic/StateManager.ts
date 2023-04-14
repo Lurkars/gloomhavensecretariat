@@ -28,6 +28,7 @@ export class StateManager {
   permissionBackup: Permissions | undefined;
   connectionTries: number = 0;
   gameOffsetWarning: boolean = true;
+  standeeDialogCanceled: boolean = false;
 
   undoPermission: boolean = false;
   redoPermission: boolean = false;

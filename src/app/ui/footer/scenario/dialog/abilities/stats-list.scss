@@ -35,8 +35,7 @@
       flex-direction: column;
       margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
       width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
-      max-height: 80vh;
-
+      
       .container {
         cursor: pointer !important;
         position: relative;

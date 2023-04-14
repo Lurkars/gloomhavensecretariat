@@ -1,5 +1,11 @@
 <div class="title">
   <span class="monster">
+    <div class="standee" *ngIf="automatic">
+      <div class="background-image-container">
+        <div class="background-image"
+          [style.background-image]="'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'"></div>
+      </div>
+    </div>
     {{'data.monster.' + monster.name | ghsLabel}}
   </span>
   <span [ngClass]="{'elite' : type == MonsterType.elite, 'boss' : type == MonsterType.boss }">
@@ -17,4 +23,8 @@
   <div class="summon-button" (click)="summon = !summon" [ngClass]="{'active' : summon }">
     <img class="summon" src="./assets/images/summons/{{monster.summonColor}}.png">
   </div>
+</div>
+
+<div class="cancel" *ngIf="automatic">
+  <a (click)="close()">{{'monster.cancelNumberpicker' | ghsLabel}}</a>
 </div>

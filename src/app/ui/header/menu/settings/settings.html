@@ -345,9 +345,6 @@
         </span>
       </div>
     </div>
-  </div>
-
-  <div class="column" *ngIf="settingsManager.settings.monsters">
     <div class="line">
       <div class="hint-container">
         <label
@@ -360,6 +357,24 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text" [i18n]="'settings.automaticStandees.hint'"></span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="column" *ngIf="settingsManager.settings.monsters">
+    <div class="line">
+      <div class="hint-container">
+        <label
+          [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || settingsManager.settings.disableStandees || !settingsManager.settings.automaticStandees || settingsManager.settings.randomStandees}">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.automaticStandeesDialog && settingsManager.settings.automaticStandees && !settingsManager.settings.disableStandees  && !settingsManager.settings.randomStandees && settingsManager.settings.scenarioRooms"
+            (change)="settingsManager.setAutomaticStandeesDialog(!settingsManager.settings.automaticStandeesDialog)">
+          {{'settings.automaticStandeesDialog' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [i18n]="'settings.automaticStandeesDialog.hint'"></span>
         </span>
       </div>
     </div>

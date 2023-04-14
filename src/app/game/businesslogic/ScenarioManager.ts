@@ -45,6 +45,8 @@ export class ScenarioManager {
     } else if (!scenario) {
       gameManager.roundManager.resetScenario();
     }
+    
+    gameManager.stateManager.standeeDialogCanceled = false;
   }
 
   finishScenario(success: boolean = true, conclusionSection: ScenarioData | undefined, restart: boolean = false, linkedScenario: Scenario | undefined = undefined, casual: boolean = false) {
@@ -205,10 +207,13 @@ export class ScenarioManager {
         gameManager.scenarioRulesManager.filterDisabledScenarioRules();
       }
       this.game.sections.push(new Scenario(section, []));
+    
+      gameManager.stateManager.standeeDialogCanceled = false;
     }
   }
 
   applyScenarioData(scenarioData: ScenarioData, section: boolean = false) {
+    gameManager.stateManager.standeeDialogCanceled = true;
     if (!settingsManager.settings.scenarioRooms || !scenarioData.rooms || scenarioData.rooms.length == 0) {
       if (scenarioData.monsters) {
         scenarioData.monsters.forEach((name) => {

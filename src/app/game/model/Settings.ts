@@ -16,6 +16,7 @@ export class Settings {
   applyLoot: boolean = true;
   automaticAttackModifierFullscreen: boolean = true;
   automaticStandees: boolean = true;
+  automaticStandeesDialog: boolean = false;
   autoscroll: boolean = true;
   barsize: number = 1;
   browserNavigation: boolean = false;

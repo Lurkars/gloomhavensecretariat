@@ -1,6 +1,6 @@
 import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { Component, Inject, OnInit } from "@angular/core";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { EntityValueFunction } from "src/app/game/model/Entity";
 import { GameState } from "src/app/game/model/Game";
@@ -24,15 +24,19 @@ export class MonsterNumberPickerDialog implements OnInit {
     MonsterType = MonsterType;
     entity: MonsterEntity | undefined;
     entities: MonsterEntity[] | undefined;
+    automatic: boolean = false;
     settingsManager: SettingsManager = settingsManager;
 
-    constructor(@Inject(DIALOG_DATA) data: { monster: Monster, type: MonsterType, range: number[], entity: MonsterEntity | undefined, entities: MonsterEntity[] | undefined }, private dialogRef: DialogRef) {
+    gameManager: GameManager = gameManager;
+
+    constructor(@Inject(DIALOG_DATA) data: { monster: Monster, type: MonsterType, range: number[], entity: MonsterEntity | undefined, entities: MonsterEntity[] | undefined, automatic: boolean }, private dialogRef: DialogRef) {
         this.monster = data.monster;
         this.type = data.type;
         this.max = gameManager.monsterManager.monsterStandeeMax(this.monster);
         this.range = data.range;
         this.entity = data.entity;
         this.entities = data.entities;
+        this.automatic = data.automatic;
         if (!this.entity) {
             this.entity = this.entities && this.entities.find((entity) => entity.number < 0) || undefined;
         }
@@ -113,4 +117,7 @@ export class MonsterNumberPickerDialog implements OnInit {
         }
     }
 
+    close() {
+        this.dialogRef.close(true);
+    }
 }

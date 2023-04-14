@@ -174,6 +174,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setAutomaticStandeesDialog(automaticStandeesDialog: boolean) {
+    this.settings.automaticStandeesDialog = automaticStandeesDialog;
+    this.storeSettings();
+  }
+
   setAutoscroll(autoscroll: boolean) {
     this.settings.autoscroll = autoscroll;
     this.storeSettings();

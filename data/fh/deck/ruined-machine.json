@@ -161,7 +161,7 @@
           "subActions": [
             {
               "type": "target",
-              "value": "%game.action.all%",
+              "value": "%game.target.all%",
               "small": true
             },
             {
