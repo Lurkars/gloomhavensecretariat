@@ -4,7 +4,9 @@
   "edition": "fh",
   "parent": "35",
   "parentSections": [
-    "117.3"
+    [
+      "117.3"
+    ]
   ],
   "monsters": [
     "spitting-drake"

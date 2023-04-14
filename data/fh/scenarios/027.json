@@ -3,6 +3,13 @@
   "index": "27",
   "name": "Depths of Delirium",
   "edition": "fh",
+  "rewards": {
+    "campaignSticker": [
+      "Coral Shard"
+    ],
+    "experience": 10,
+    "battleGoals": 1
+  },
   "monsters": [
     "deep-terror",
     "living-bones",

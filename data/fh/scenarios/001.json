@@ -7,6 +7,9 @@
     "2",
     "3"
   ],
+  "rewards": {
+    "custom": "<b>%wip%!</b> manually apply:<br>Gain 2+X morale, where X is the number of City Guards still on the map."
+  },
   "monsters": [
     "algox-archer",
     "algox-guard",

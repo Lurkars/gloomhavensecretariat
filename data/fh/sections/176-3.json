@@ -4,7 +4,9 @@
   "edition": "fh",
   "parent": "128",
   "parentSections": [
-    "152.2"
+    [
+      "152.2"
+    ]
   ],
   "monsters": [
     "abael-scout",

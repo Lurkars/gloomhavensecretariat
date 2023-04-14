@@ -3,6 +3,12 @@
   "index": "131",
   "name": "The Dancing Iceberg",
   "edition": "fh",
+  "rewards": {
+    "experience": 10,
+    "items": [
+      "237"
+    ]
+  },
   "monsters": [
     "lurker-mindsnipper",
     "lurker-soldier"

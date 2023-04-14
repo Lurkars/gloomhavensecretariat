@@ -3,7 +3,9 @@
   "edition": "fc",
   "parent": "108",
   "parentSections": [
-    "101"
+    [
+      "101"
+    ]
   ],
   "conclusion": true,
   "rewards": {

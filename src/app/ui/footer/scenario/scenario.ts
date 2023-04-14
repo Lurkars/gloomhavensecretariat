@@ -38,6 +38,15 @@ export class ScenarioComponent {
     }
   }
 
+  availableSections() {
+    return gameManager.scenarioManager.availableSections().sort((a, b) => {
+      if (a.marker && b.marker) {
+        return a.marker < b.marker ? -1 : 1;
+      }
+      return 0;
+    })
+  }
+
   openRoom(roomData: RoomData, event: any) {
     event.preventDefault();
     event.stopPropagation();

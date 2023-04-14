@@ -4,7 +4,9 @@
   "edition": "fh",
   "parent": "54",
   "parentSections": [
-    "13.3"
+    [
+      "13.3"
+    ]
   ],
   "monsters": [
     "seeker-of-the-abyss"

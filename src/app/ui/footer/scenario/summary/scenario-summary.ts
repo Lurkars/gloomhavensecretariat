@@ -26,6 +26,7 @@ export class ScenarioSummaryComponent {
     conclusionWarning: boolean;
     alreadyWarning: boolean = false;
     casual: boolean = false;
+    forceCampaign: boolean = false;
 
     characters: Character[];
     battleGoals: number[] = [];
@@ -55,12 +56,14 @@ export class ScenarioSummaryComponent {
                 this.lootColumns.push(lootType);
             }
         }
-
         this.alreadyWarning = gameManager.game.party.campaignMode && this.success && gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == this.scenario.index && scenarioModel.edition == this.scenario.edition && scenarioModel.group == this.scenario.group) != undefined;
-
         this.casual = this.alreadyWarning || !gameManager.game.party.campaignMode && gameManager.fhRules();
+        this.updateState()
+    }
 
-        if (gameManager.game.party.campaignMode && this.success) {
+    updateState(forceCampaign : boolean = false): void {
+        this.forceCampaign = forceCampaign;
+        if ((gameManager.game.party.campaignMode || forceCampaign) && this.success) {
             if (this.conclusion) {
                 this.rewards = this.conclusion.rewards;
             }
@@ -169,7 +172,7 @@ export class ScenarioSummaryComponent {
         gameManager.game.figures.filter((figure) => figure instanceof Character).forEach((figure, index) => {
             (figure as Character).fromModel(this.characters[index].toModel());
         });
-        
+
         if (this.success) {
             gameManager.game.figures.filter((figure) => figure instanceof Character).forEach((figure, index) => {
                 const character = (figure as Character);
@@ -188,7 +191,7 @@ export class ScenarioSummaryComponent {
                 }
             })
         }
-        gameManager.scenarioManager.finishScenario(this.success, this.conclusion, false, undefined, this.casual);
+        gameManager.scenarioManager.finishScenario(this.success, this.conclusion, false, undefined, this.casual && !this.forceCampaign);
         gameManager.stateManager.after(1000);
         this.dialogRef.close();
     }

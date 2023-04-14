@@ -4,7 +4,9 @@
   "edition": "fc",
   "parent": "103",
   "parentSections": [
-    "9"
+    [
+      "9"
+    ]
   ],
   "marker": "c",
   "rooms": [

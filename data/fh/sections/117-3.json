@@ -4,7 +4,9 @@
   "edition": "fh",
   "parent": "35",
   "parentSections": [
-    "104.4"
+    [
+      "104.4"
+    ]
   ],
   "monsters": [
     "ruined-machine"

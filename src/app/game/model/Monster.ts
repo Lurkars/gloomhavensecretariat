@@ -26,6 +26,7 @@ export class Monster extends MonsterData implements Figure {
   abilities: number[] = [];
   entities: MonsterEntity[] = [];
   isAlly: boolean = false;
+  isConfederated: boolean = false;
 
   constructor(monsterData: MonsterData, level: number = 1) {
     super(monsterData.name, monsterData.count, monsterData.standeeCount, monsterData.standeeShare, monsterData.standeeShareEdition, monsterData.baseStat, monsterData.stats, monsterData.edition, monsterData.deck, monsterData.boss, monsterData.flying, monsterData.immortal, monsterData.thumbnail, monsterData.thumbnailUrl, monsterData.spoiler, monsterData.catching);
@@ -70,7 +71,7 @@ export class Monster extends MonsterData implements Figure {
   }
 
   toModel(): GameMonsterModel {
-    return new GameMonsterModel(this.name, this.edition, this.level, this.off, this.active, this.drawExtra, this.lastDraw, this.ability, this.abilities, this.entities.map((value) => value.toModel()), this.isAlly)
+    return new GameMonsterModel(this.name, this.edition, this.level, this.off, this.active, this.drawExtra, this.lastDraw, this.ability, this.abilities, this.entities.map((value) => value.toModel()), this.isAlly, this.isConfederated)
   }
 
 
@@ -104,6 +105,7 @@ export class Monster extends MonsterData implements Figure {
       entity.fromModel(value);
     })
     this.isAlly = model.isAlly;
+    this.isConfederated = model.isConfederated;
   }
 }
 
@@ -119,6 +121,7 @@ export class GameMonsterModel {
   abilities: number[];
   entities: GameMonsterEntityModel[];
   isAlly: boolean;
+  isConfederated: boolean;
 
   constructor(name: string,
     edition: string,
@@ -130,7 +133,8 @@ export class GameMonsterModel {
     ability: number,
     abilities: number[],
     entities: GameMonsterEntityModel[],
-    isAlly: boolean) {
+    isAlly: boolean,
+    isConfederated: boolean) {
     this.name = name;
     this.edition = edition;
     this.level = level;
@@ -142,5 +146,6 @@ export class GameMonsterModel {
     this.abilities = JSON.parse(JSON.stringify(abilities));
     this.entities = JSON.parse(JSON.stringify(entities));
     this.isAlly = isAlly;
+    this.isConfederated = isConfederated;
   }
 }

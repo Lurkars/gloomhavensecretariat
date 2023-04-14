@@ -466,6 +466,7 @@
         "hint": "Suffer %game.damage:X% at start of each turn. Remove when healed."
       }
     },
+    "confederated": "Confederated",
     "custom": {
       "advantage": "Advantage",
       "disadvantage": "Attackers gain Disadvantage",
@@ -593,7 +594,8 @@
           "event": {
             "city": "add City Event {0} to the deck",
             "rift": "add Rift Event {0} to the deck",
-            "road": "add Road Event {0} to the deck"
+            "road": "add Road Event {0} to the deck",
+            "winter-outpost": "add event {0} to the winter outpost deck"
           },
           "experience": "gain {0} experience",
           "experienceFh": "gain {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
@@ -921,12 +923,15 @@
     "rewards": {
       ".": "Rewards",
       "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> each",
+      "campaignSticker": "Campaign Sticker",
       "chooseItem": "Choose to gain one of the following",
       "collectiveGold": "{0} collective gold",
       "envelope": "Open envelope {0}",
       "event": {
         "city": "Add City Event {0} to the deck",
-        "road": "Add Road Event {0} to the deck"
+        "rift": "Add Rift Event {0} to the deck",
+        "road": "Add Road Event {0} to the deck",
+        "winter-outpost": "Add event {0} to the winter outpost deck"
       },
       "experience": "{0} experience each",
       "globalAchievements": "Global Achievements",
@@ -1008,10 +1013,11 @@
       "apply": "Finish",
       "battlegoals": "Battle Goals",
       "cancel": "Cancel",
-      "casualWarning": "Casual Mode",
-      "casualFhWarning": {
-        ".": "Frosthaven Casual Mode",
-        "hint": "In Frosthaven casual mode , all campaign effects are ignored. No event is resolved, time does not pass, and the party does not gain any experience, loot, treasures, checkmarks, personal quest progress, rewards, unlockables, etc",
+      "casualWarning": {
+        ".": "Casual Mode",
+        "campaignRewards": "Enable Campaign Rewards",
+        "fh": "Frosthaven Casual Mode",
+        "hintFh": "In Frosthaven casual mode , all campaign effects are ignored. No event is resolved, time does not pass, and the party does not gain any experience, loot, treasures, checkmarks, personal quest progress, rewards, unlockables, etc",
         "ignore": "Gain rewards anyways!",
         "reapply": "Switch back to casual mode"
       },

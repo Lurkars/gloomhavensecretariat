@@ -4,7 +4,9 @@
   "edition": "fh",
   "parent": "16",
   "parentSections": [
-    "27.2"
+    [
+      "27.2"
+    ]
   ],
   "monsters": [
     "ancient-artillery",

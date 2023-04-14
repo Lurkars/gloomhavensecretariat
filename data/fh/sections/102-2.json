@@ -4,7 +4,9 @@
   "edition": "fh",
   "parent": "77",
   "parentSections": [
-    "131.2"
+    [
+      "131.2"
+    ]
   ],
   "monsters": [
     "night-demon"

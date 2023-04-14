@@ -4,7 +4,9 @@
   "edition": "fh",
   "parent": "4A",
   "parentSections": [
-    "75.1A"
+    [
+      "75.1A"
+    ]
   ],
   "conclusion": true,
   "unlocks": [

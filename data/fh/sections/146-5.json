@@ -4,8 +4,12 @@
   "edition": "fh",
   "parent": "113",
   "parentSections": [
-    "112.1",
-    "183.2"
+    [
+      "112.1"
+    ],
+    [
+      "183.2"
+    ]
   ],
   "monsters": [
     "forest-imp",

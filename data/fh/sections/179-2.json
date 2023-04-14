@@ -4,7 +4,9 @@
   "edition": "fh",
   "parent": "122",
   "parentSections": [
-    "152.1"
+    [
+      "152.1"
+    ]
   ],
   "blockedSections": [
     "172.1"

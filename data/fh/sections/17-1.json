@@ -5,7 +5,9 @@
   "edition": "fh",
   "parent": "41",
   "parentSections": [
-    "65.2"
+    [
+      "65.2"
+    ]
   ],
   "monsters": [
     "deep-terror",

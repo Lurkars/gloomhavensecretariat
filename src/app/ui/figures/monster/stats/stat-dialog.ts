@@ -35,6 +35,7 @@ export class MonsterStatDialogComponent implements OnInit {
       gameManager.monsterManager.addMonsterEntity(monster, 1, MonsterType.elite);
     }
     monster.isAlly = this.monster.isAlly;
+    monster.isConfederated = this.monster.isConfederated;
     monster.level = this.monster.level < 4 ? this.monster.level + 4 : this.monster.level - 4;
     monster.errors = this.monster.errors;
     return monster;

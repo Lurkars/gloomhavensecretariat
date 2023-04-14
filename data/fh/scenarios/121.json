@@ -3,6 +3,11 @@
   "index": "121",
   "name": "Black Memories",
   "edition": "fh",
+  "rewards": {
+    "items": [
+      "193"
+    ]
+  },
   "monsters": [
     "vermling-priest",
     "vermling-scout"

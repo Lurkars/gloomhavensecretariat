@@ -5,8 +5,10 @@
   "edition": "fh",
   "parent": "87",
   "parentSections": [
-    "77.2",
-    "184.6"
+    [
+      "77.2",
+      "184.6"
+    ]
   ],
   "marker": "4",
   "monsters": [

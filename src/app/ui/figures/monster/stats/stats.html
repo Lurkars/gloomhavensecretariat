@@ -9,6 +9,7 @@
     <span class="name">
       {{'data.monster.' + monster.name | ghsLabel}}
       <span *ngIf="monster.isAlly">({{'game.ally' | ghsLabel}})</span>
+      <span *ngIf="monster.isConfederated">({{'game.confederated' | ghsLabel}})</span>
     </span>
     <span *ngIf="monster.flying" class="flying"><img
         [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
@@ -16,7 +17,8 @@
     <span class="catching" *ngIf="monster.catching"><img class="ghs-svg" src="./assets/images/fh/catching.svg"></span>
   </div>
 
-  <span class="toggle-ally" [ngClass]="{'ally' : monster.isAlly}" (click)="toggleAlly()"><img
+  <span class="toggle-ally" [ngClass]="{'ally' : monster.isAlly, 'confederated' : monster.isConfederated}"
+    ghs-drag-click (singleClick)="toggleAlly()" (doubleClick)="toggleConfederated()"><img
       src="./assets/images/monster/enemy.png" /></span>
 
   <div class="stats boss" *ngIf="monster.boss"
@@ -90,8 +92,7 @@
       <div class="notes" [i18n]="statsForType(MonsterType.normal).note"></div>
       <div class="additional">
         <ghs-actions [actions]="statsForType(MonsterType.normal).actions" [inline]="true" [statsCalculation]="false"
-          [relative]="true" [right]="true" [hexSize]="0.5" [highlightActions]="highlightActions"
-          [monster]="monster">
+          [relative]="true" [right]="true" [hexSize]="0.5" [highlightActions]="highlightActions" [monster]="monster">
         </ghs-actions>
       </div>
       <div class="specials" *ngFor="let special of (statsForType(MonsterType.normal).special); let index = index;">
@@ -118,8 +119,8 @@
       </div>
       <div class="specials" *ngFor="let special of (statsForType(MonsterType.elite).special); let index = index;">
         <span class="special">{{index+1}}:</span>
-        <ghs-actions [actions]="special" [inline]="true" [statsCalculation]="false" [relative]="true"
-          [hexSize]="0.5" [monster]="monster">
+        <ghs-actions [actions]="special" [inline]="true" [statsCalculation]="false" [relative]="true" [hexSize]="0.5"
+          [monster]="monster">
         </ghs-actions>
       </div>
     </div>

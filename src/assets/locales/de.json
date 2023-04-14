@@ -79,6 +79,10 @@
       "donate": "Spende",
       "donations": "Spenden an den Tempel der Großen Eiche",
       "export": "Exportieren",
+      "fh": {
+        "enable": "Zeige den Frosthaven Charakterbogen an",
+        "disable": "Zeige den Gloomhaven Charakterbogen an"
+      },
       "gold": "Gold",
       "gold-notes": "Gold Notizen",
       "import": "Importieren",
@@ -361,6 +365,7 @@
         "hint": "Erleide %game.damage:X% zu Beginn jedes Zuges. Bei Heilung entfernen."
       }
     },
+    "confederated": "Konföderiert",
     "custom": {
       "advantage": "Vorteil",
       "disadvantage": "Angreifer erhalten Nachteil",
@@ -488,7 +493,8 @@
           "event": {
             "city": "füge Stadt-Ereignis {0} zum Deck hinzu",
             "rift": "füge Rift-Ereignis {0} zum Deck hinzu",
-            "road": "füge Weg-Ereignis {0} zum Deck hinzu"
+            "road": "füge Weg-Ereignis {0} zum Deck hinzu",
+            "winter-outpost": "füge Ereignis {0} zum Winter-Außenpostendeck hinzu"
           },
           "experience": "erhalte {0} Erfahrung",
           "experienceFh": "erhalte {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
@@ -544,7 +550,7 @@
       "enemiesRange": "%game.target% alle Gegner in %game.action.range% {0} an",
       "enemiesRangeExact": "%game.target% alle Gegner genau in %game.action.range% {0} an",
       "enemiesRangeAffect": "%game.target% alle Gegner in %game.action.range% {0}",
-      "enemiesRangeAffectExtact": "%game.target% alle Gegner genau in %game.action.range% {0}",
+      "enemiesRangeAffectExact": "%game.target% alle Gegner genau in %game.action.range% {0}",
       "enemy": "%game.target% einen Gegner an",
       "enemyAdjacent": "%game.target% einen angrenzenden Gegner an",
       "enemyOneAll": "%game.target% einen Gegner für alle Angriffe an",
@@ -818,12 +824,15 @@
     "rewards": {
       ".": "Belohnungen",
       "battleGoals": "jeweils {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+      "campaignSticker": "Kampagnenbogensticker",
       "chooseItem": "Wähle eines der folgenden aus",
       "collectiveGold": "{0} gemeinschaftliches Gold",
       "envelope": "Umschlag {0} öffnen",
       "event": {
-        "city": "füge Start-Ereginis {0} zum Deck hinzu",
-        "road": "füge Weg-Ereignis {0} zum Deck hinzu"
+        "city": "Füge Start-Ereignis {0} zum Deck hinzu",
+        "rift": "Füge Rift-Ereignis {0} zum Deck hinzu",
+        "road": "Füge Weg-Ereignis {0} zum Deck hinzu",
+        "winter-outpost": "Füge Ereignis {0} zum Winter-Außenpostendeck hinzu"
       },
       "experience": "jeweils {0} Erfahrung",
       "globalAchievements": "Globale Erfolge",
@@ -890,7 +899,7 @@
     "set": "Szenario auswählen",
     "setup": {
       ".": "Szenario Setup",
-      "abilites": "Fertigkeitskarten",
+      "abilities": "Fertigkeitskarten",
       "spoiler": "Spoiler",
       "stats": "Monsterwerte"
     },
@@ -905,10 +914,11 @@
       "apply": "Abschließen",
       "battlegoals": "Kampfziele",
       "cancel": "Abbrechen",
-      "casualWarning": "Gelegenheitsmodus",
-      "casualFhWarning": {
-        ".": "Frosthaven Gelegenheitsmodus",
-        "hint": "Im Gelegenheitsmodus von Frosthaven werden alle Kampagneneffekte ignoriert. Es wird kein Ergeisnis gezogen, keine Zeit vergeht und die Gruppe erheilt keine Erfahrung, Beute, Schätze, Verbesserungen, persöhnlichen Quest Fortschrift, Belohnungen, Freischaltungen etc.",
+      "casualWarning": {
+        ".": "Gelegenheitsmodus",
+        "campaignRewards": "Belohnungen für Kampagne aktivieren",
+        "fh": "Frosthaven Gelegenheitsmodus",
+        "hintFh": "Im Gelegenheitsmodus von Frosthaven werden alle Kampagneneffekte ignoriert. Es wird kein Ergeisnis gezogen, keine Zeit vergeht und die Gruppe erheilt keine Erfahrung, Beute, Schätze, Verbesserungen, persöhnlichen Quest Fortschrift, Belohnungen, Freischaltungen etc.",
         "ignore": "Trotzdem die Belohnungen erhalten!",
         "reapply": "Zurück zum Gelegenheitsmodus wechseln"
       },
@@ -974,6 +984,7 @@
     },
     "password": {
       ".": "Spielcode",
+      "hint": "Der Spielcode identifiziert dein Spiel. Für ein neues Spiel, wähle einfach einen neuen Code oder generiere einen Code. Derselbe Code verbindet sich immer mit demselben Spielstand.<br><br>Vorher hieß der Spielcode \"Passwort\", zur Vermeidung von Verwirrung wurde es umbenannt.",
       "uuid": "UUID generieren"
     },
     "port": "Port",
@@ -1269,10 +1280,10 @@
     },
     "standees": "Aufsteller",
     "theme": {
-      ".": "Theme",
+      ".": "Thema",
       "default": "Standard",
       "fh": "Frosthaven",
-      "hint": "",
+      "hint": "Wähle ein Thema für Hintergrund, Leisten und Schriftarten",
       "modern": "Modern (%wip%)"
     },
     "tooltips": {
@@ -1621,7 +1632,8 @@
         },
         "send": "Szneario senden"
       }
-    }
+    },
+    "validateEditionData": "Verifiziere Editionsdaten"
   },
   "update": "Update - Neu Laden",
   "welcome": {

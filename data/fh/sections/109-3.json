@@ -4,8 +4,12 @@
   "edition": "fh",
   "parent": "122",
   "parentSections": [
-    "8.4",
-    "145.1"
+    [
+      "8.4"
+    ],
+    [
+      "145.1"
+    ]
   ],
   "monsters": [
     "ice-wraith",

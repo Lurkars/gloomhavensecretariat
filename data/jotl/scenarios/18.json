@@ -8,6 +8,133 @@
   "monsters": [
     "stone-golem"
   ],
+  "rules": [
+    {
+      "treasures": [
+        2
+      ],
+      "round": "true",
+      "always": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "stone-golem",
+            "type": "elite"
+          },
+          "marker": "A"
+        }
+      ]
+    },
+    {
+      "treasures": [
+        6
+      ],
+      "round": "true",
+      "always": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "stone-golem",
+            "type": "elite"
+          },
+          "marker": "A"
+        }
+      ]
+    },
+    {
+      "treasures": [
+        7
+      ],
+      "round": "true",
+      "always": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "stone-golem",
+            "type": "elite"
+          },
+          "marker": "A"
+        }
+      ]
+    },
+    {
+      "treasures": [
+        13
+      ],
+      "round": "true",
+      "always": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "stone-golem",
+            "type": "elite"
+          },
+          "marker": "A"
+        }
+      ]
+    },
+    {
+      "treasures": "C",
+      "round": "true",
+      "always": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "stone-golem",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "B"
+        },
+        {
+          "monster": {
+            "name": "stone-golem",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "B"
+        }
+      ]
+    },
+    {
+      "treasures": "C",
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "jotl",
+          "scenario": "18",
+          "index": 0,
+          "section": false
+        },
+        {
+          "edition": "jotl",
+          "scenario": "18",
+          "index": 1,
+          "section": false
+        },
+        {
+          "edition": "jotl",
+          "scenario": "18",
+          "index": 2,
+          "section": false
+        },
+        {
+          "edition": "jotl",
+          "scenario": "18",
+          "index": 3,
+          "section": false
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -21,32 +148,32 @@
       ]
     },
     {
-      "treausres": [
-        7
-      ],
       "roomNumber": 2,
-      "ref": "top-left"
+      "ref": "top-left",
+      "treasures": [
+        7
+      ]
     },
     {
-      "treausres": [
-        6
-      ],
       "roomNumber": 3,
-      "ref": "bottom-left"
+      "ref": "bottom-left",
+      "treasures": [
+        6
+      ]
     },
     {
-      "treausres": [
-        2
-      ],
       "roomNumber": 4,
-      "ref": "right"
+      "ref": "right",
+      "treasures": [
+        2
+      ]
     },
     {
-      "treausres": [
-        13
-      ],
       "roomNumber": 5,
-      "ref": "bottom"
+      "ref": "bottom",
+      "treasures": [
+        13
+      ]
     }
   ]
 }

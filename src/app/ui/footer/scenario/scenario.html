@@ -38,7 +38,7 @@
         <span class="marker" *ngIf="roomData.marker" [i18n]="'%game.mapMarker.' + roomData.marker +'%'"></span>
       </span>
     </ng-container>
-    <span *ngFor="let section of gameManager.scenarioManager.availableSections();" class="section available"
+    <span *ngFor="let section of availableSections();" class="section available"
       (click)="addSection(section, $event)">
       <img *ngIf="!section.conclusion" class="ghs-svg" src="./assets/images/scenario/lock.svg">
       <img *ngIf="section.conclusion" class="ghs-svg" src="./assets/images/scenario/conclusion.svg">

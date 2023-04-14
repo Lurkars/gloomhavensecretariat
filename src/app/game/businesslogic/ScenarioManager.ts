@@ -140,7 +140,7 @@ export class ScenarioManager {
           }
 
           if (rewards.campaignSticker) {
-            this.game.party.campaignStickers.push(...rewards.campaignSticker);
+            this.game.party.campaignStickers.push(...rewards.campaignSticker.map((sticker) => sticker.toLowerCase().replaceAll(' ', '-')));
           }
 
           if (rewards.itemDesigns) {
@@ -216,6 +216,7 @@ export class ScenarioManager {
           let monster = gameManager.monsterManager.addMonsterByName(name, scenarioData.edition);
           if (monster) {
             monster.isAlly = scenarioData.allies && scenarioData.allies.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allies && gameManager.game.scenario.allies.indexOf(monsterName) != -1 || false;
+            monster.isConfederated = scenarioData.confederates && scenarioData.confederates.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.confederates && gameManager.game.scenario.confederates.indexOf(monsterName) != -1 || false;
             monster.drawExtra = scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.drawExtra && gameManager.game.scenario.drawExtra.indexOf(monsterName) != -1 || false;
           }
         });
@@ -250,6 +251,7 @@ export class ScenarioManager {
             let monster = gameManager.monsterManager.addMonsterByName(name, scenarioData.edition);
             if (monster) {
               monster.isAlly = scenarioData.allies && scenarioData.allies.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allies && gameManager.game.scenario.allies.indexOf(monsterName) != -1 || false;
+              monster.isConfederated = scenarioData.confederates && scenarioData.confederates.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.confederates && gameManager.game.scenario.confederates.indexOf(monsterName) != -1 || false;
               monster.drawExtra = scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.drawExtra && gameManager.game.scenario.drawExtra.indexOf(monsterName) != -1 || false;
             }
           }
@@ -324,11 +326,12 @@ export class ScenarioManager {
           } else {
             const monsterName = monsterStandeeData.name.split(':')[0];
             const isAlly = scenarioData.allies && scenarioData.allies.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allies && gameManager.game.scenario.allies.indexOf(monsterName) != -1 || false;
+            const isConfederated = scenarioData.confederates && scenarioData.confederates.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.confederates && gameManager.game.scenario.confederates.indexOf(monsterName) != -1 || false;
             const drawExtra = scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.drawExtra && gameManager.game.scenario.drawExtra.indexOf(monsterName) != -1 || false;
 
             const monster = gameManager.monsterManager.addMonsterByName(monsterStandeeData.name, scenarioData.edition);
             if (monster) {
-              const entity = gameManager.monsterManager.spawnMonsterEntity(monster, type, isAlly, drawExtra);
+              const entity = gameManager.monsterManager.spawnMonsterEntity(monster, type, isAlly, isConfederated, drawExtra);
               if (entity) {
                 if (monsterStandeeData.marker) {
                   entity.marker = monsterStandeeData.marker;
@@ -505,7 +508,15 @@ export class ScenarioManager {
       return [];
     }
 
-    return gameManager.sectionData().filter((sectionData) => (this.game.scenario && sectionData.edition == this.game.scenario.edition && sectionData.parent == this.game.scenario.index && sectionData.group == this.game.scenario.group && (!sectionData.parentSections || sectionData.parentSections.length == 0) || this.game.sections.find((active) => active.edition == sectionData.edition && sectionData.parentSections && sectionData.parentSections.indexOf(active.index) != -1)) && !this.game.sections.find((active) => active.edition == sectionData.edition && active.index == sectionData.index) && !this.game.sections.find((active) => active.edition == sectionData.edition && sectionData.blockedSections && sectionData.blockedSections.indexOf(active.index) != -1)).sort(this.sortScenarios);
+    return gameManager.sectionData().filter((sectionData) =>
+      // match parent
+      this.game.scenario && sectionData.edition == this.game.scenario.edition && sectionData.parent == this.game.scenario.index && sectionData.group == this.game.scenario.group
+      // filter already active
+      && !this.game.sections.find((active) => active.edition == sectionData.edition && active.index == sectionData.index && active.parent == sectionData.parent)
+      // match parent sections
+      && (!sectionData.parentSections || sectionData.parentSections.some((parentSections) => parentSections.every((parentSection) => this.game.sections.find((active) => active.index == parentSection))))
+      // filter blocked
+      && !this.game.sections.find((active) => active.edition == sectionData.edition && sectionData.blockedSections && sectionData.blockedSections.indexOf(active.index) != -1)).sort(this.sortScenarios);
   }
 
   getTreasures(scenario: Scenario, sections: Scenario[], unlooted: boolean = false): ('G' | number)[] {

@@ -422,6 +422,7 @@ export class ScenarioRulesComponent {
 
                                 monster.ability = figure.ability;
                                 monster.isAlly = figure.isAlly;
+                                monster.isConfederated = figure.isConfederated;
                                 monster.entities = figure.entities;
 
                                 monster.entities.forEach((entity) => {

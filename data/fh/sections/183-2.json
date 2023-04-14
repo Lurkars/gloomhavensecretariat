@@ -4,8 +4,12 @@
   "edition": "fh",
   "parent": "113",
   "parentSections": [
-    "146.5",
-    "154.1"
+    [
+      "146.5"
+    ],
+    [
+      "154.1"
+    ]
   ],
   "monsters": [
     "chaos-demon",

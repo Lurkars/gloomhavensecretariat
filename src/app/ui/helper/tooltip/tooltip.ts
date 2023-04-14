@@ -49,7 +49,9 @@ export class GhsTooltipDirective implements OnInit, OnDestroy {
     @Input() overlayY: 'top' | 'center' | 'bottom' | undefined;
     @Input() offsetX: number = 0;
     @Input() offsetY: number = 0;
+    @Input() delay: number = 500;
     private overlayRef!: OverlayRef;
+    private timeout: any;
 
     constructor(private overlay: Overlay,
         private overlayPositionBuilder: OverlayPositionBuilder,
@@ -69,33 +71,38 @@ export class GhsTooltipDirective implements OnInit, OnDestroy {
             }]);
 
         this.overlayRef = this.overlay.create({ positionStrategy });
+        this.timeout = null;
     }
 
-    @HostListener('mouseenter')
+    @HostListener('mouseover')
     show() {
-        if ((settingsManager.settings.tooltips || !this.toggable) && this.value) {
-            const tooltipRef: ComponentRef<GhsTooltipComponent>
-                = this.overlayRef.attach(new ComponentPortal(GhsTooltipComponent));
-            tooltipRef.instance.value = this.value;
-            tooltipRef.instance.args = this.args;
-            tooltipRef.instance.argLabel = this.argLabel;
-            tooltipRef.instance.fhForce = this.fhForce;
-            tooltipRef.instance.relative = this.relative;
-            tooltipRef.instance.size = this.size;
-            tooltipRef.instance.hint = this.hint;
-        }
+        if ((settingsManager.settings.tooltips || !this.toggable) && this.value && !this.overlayRef.hasAttached() && !this.timeout) {
+            this.timeout = setTimeout(() => {
+                const tooltipRef: ComponentRef<GhsTooltipComponent>
+                    = this.overlayRef.attach(new ComponentPortal(GhsTooltipComponent));
+                tooltipRef.instance.value = this.value;
+                tooltipRef.instance.args = this.args;
+                tooltipRef.instance.argLabel = this.argLabel;
+                tooltipRef.instance.fhForce = this.fhForce;
+                tooltipRef.instance.relative = this.relative;
+                tooltipRef.instance.size = this.size;
+                tooltipRef.instance.hint = this.hint;
+            }, this.delay)
+        };
     }
 
-    @HostListener('mouseout')
+    @HostListener('mouseleave')
     hide() {
+        if (this.timeout) {
+            clearTimeout(this.timeout);
+            this.timeout = null;
+        }
         if (this.overlayRef.hasAttached()) {
             this.overlayRef.detach();
         }
     }
 
     ngOnDestroy(): void {
-        if (this.overlayRef.hasAttached()) {
-            this.overlayRef.detach();
-        }
+        this.hide();
     }
 }

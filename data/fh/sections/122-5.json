@@ -4,7 +4,9 @@
   "edition": "fh",
   "parent": "63",
   "parentSections": [
-    "148.1"
+    [
+      "148.1"
+    ]
   ],
   "monsters": [
     "savvas-icestorm",

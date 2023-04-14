@@ -4,7 +4,9 @@
   "edition": "fh",
   "parent": "131",
   "parentSections": [
-    "120.2"
+    [
+      "120.2"
+    ]
   ],
   "monsters": [
     "lurker-mindsnipper",

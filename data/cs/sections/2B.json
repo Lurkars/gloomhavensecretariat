@@ -4,7 +4,9 @@
   "edition": "cs",
   "parent": "1",
   "parentSections": [
-    "2A"
+    [
+      "2A"
+    ]
   ],
   "marker": "2",
   "monsters": [

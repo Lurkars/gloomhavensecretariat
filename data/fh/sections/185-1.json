@@ -4,7 +4,9 @@
   "edition": "fh",
   "parent": "131",
   "parentSections": [
-    "181.5"
+    [
+      "181.5"
+    ]
   ],
   "monsters": [
     "lurker-wavethrower-scenario-131"

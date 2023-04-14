@@ -39,6 +39,7 @@ export class StatsListComponent {
       gameManager.monsterManager.addMonsterEntity(monster, level, MonsterType.elite);
     }
     monster.isAlly = this.monster.isAlly;
+    monster.isConfederated = this.monster.isConfederated;
     monster.level = level;
     monster.errors = this.monster.errors;
     return monster;

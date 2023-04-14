@@ -4,7 +4,9 @@
   "edition": "fh",
   "parent": "31",
   "parentSections": [
-    "37.2"
+    [
+      "37.2"
+    ]
   ],
   "monsters": [
     "flaming-bladespinner",

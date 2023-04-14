@@ -5,7 +5,9 @@
   "edition": "fh",
   "parent": "86",
   "parentSections": [
-    "6.3"
+    [
+      "6.3"
+    ]
   ],
   "monsters": [
     "lady-in-white"

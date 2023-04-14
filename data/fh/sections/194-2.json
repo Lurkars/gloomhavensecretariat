@@ -5,7 +5,9 @@
   "edition": "fh",
   "parent": "131",
   "parentSections": [
-    "185.1"
+    [
+      "185.1"
+    ]
   ],
   "monsters": [
     "lurker-conductor"

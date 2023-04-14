@@ -4,7 +4,9 @@
   "edition": "fc",
   "parent": "107",
   "parentSections": [
-    "95"
+    [
+      "95"
+    ]
   ],
   "marker": "g",
   "rules": [

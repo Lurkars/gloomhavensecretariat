@@ -153,6 +153,25 @@ export class ScenarioRulesManager {
       if (rule.rooms && rule.rooms.every((roomNumber) => gameManager.game.scenario && gameManager.game.scenario.revealedRooms.indexOf(roomNumber) != -1)) {
         add = false;
       }
+
+      if (rule.treasures) {
+        let treasures = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => (figure as Character).treasures.map((treasure) => typeof treasure === 'number' ? treasure : 'G')).flat();
+        if ((typeof rule.treasures === 'number' || typeof rule.treasures === 'string') && treasures.length < EntityValueFunction(rule.treasures)) {
+          add = false;
+        } else if (typeof rule.treasures !== 'number' && typeof rule.treasures !== 'string') {
+          let count = 0;
+          rule.treasures.forEach((treasure) => {
+            const index = treasures.indexOf(treasure);
+            if (index != -1) {
+              treasures.splice(index, 1);
+              count++;
+            }
+          })
+          if (count < rule.treasures.length) {
+            add = false;
+          }
+        }
+      }
     }
 
     const disgarded = this.game.disgardedScenarioRules.find((disgarded) => disgarded.edition == identifier.edition && disgarded.scenario == identifier.scenario && disgarded.group == identifier.group && disgarded.index == identifier.index && disgarded.section == identifier.section);

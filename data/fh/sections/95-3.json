@@ -4,7 +4,9 @@
   "edition": "fh",
   "parent": "71",
   "parentSections": [
-    "111.2"
+    [
+      "111.2"
+    ]
   ],
   "objectives": [
     {

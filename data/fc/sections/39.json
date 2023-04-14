@@ -4,8 +4,12 @@
   "edition": "fc",
   "parent": "100",
   "parentSections": [
-    "14",
-    "22"
+    [
+      "14"
+    ],
+    [
+      "22"
+    ]
   ],
   "marker": "b",
   "monsters": [

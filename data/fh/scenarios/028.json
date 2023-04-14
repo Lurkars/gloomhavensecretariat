@@ -17,6 +17,10 @@
     "algox-icespeaker",
     "algox-snowspeaker"
   ],
+  "confederates": [
+    "algox-archer",
+    "algox-icespeaker"
+  ],
   "objectives": [
     {
       "name": "Emissary",

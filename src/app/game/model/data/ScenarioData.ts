@@ -19,6 +19,7 @@ export class ScenarioData implements Editional, Spoilable {
   group: string | undefined;
   monsters: string[] = [];
   allies: string[] = [];
+  confederates: string[] = [];
   drawExtra: string[] = [];
   objectives: ObjectiveData[] = [];
   rooms: RoomData[] = [] = [];
@@ -30,7 +31,7 @@ export class ScenarioData implements Editional, Spoilable {
   allyDeck: boolean = false;
   lootDeckConfig: LootDeckConfig = {};
   parent: string | undefined;
-  parentSections: string[] = [];
+  parentSections: string[][] = [];
   blockedSections: string[] = [];
   resetRound: "visible" | "hidden" | undefined;
   rewards: ScenarioRewards | undefined;
@@ -56,6 +57,7 @@ export class ScenarioData implements Editional, Spoilable {
       this.group = scenarioData.group;
       this.monsters = scenarioData.monsters;
       this.allies = scenarioData.allies;
+      this.confederates = scenarioData.confederates;
       this.drawExtra = scenarioData.drawExtra;
       this.objectives = scenarioData.objectives;
       this.rooms = scenarioData.rooms;

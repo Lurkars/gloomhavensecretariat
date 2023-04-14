@@ -4,7 +4,9 @@
   "edition": "fc",
   "parent": "111",
   "parentSections": [
-    "66"
+    [
+      "66"
+    ]
   ],
   "monsters": [
     "the-husk-section-128"

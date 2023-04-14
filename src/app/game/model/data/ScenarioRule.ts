@@ -17,6 +17,7 @@ export class ScenarioRule {
   objectiveSpawns: ObjectiveSpawnData[] = [];
   elements: ElementModel[] = [];
   disableRules: ScenarioRuleIdentifier[] = [];
+  treasures: number | string | ('G' | number)[] = [];
   finish: "won" | "lost" | undefined = undefined;
 
   constructor(round: string, note: string = "", start: boolean = false) {
@@ -82,7 +83,7 @@ export class ScenarioFigureRule {
 
 export class ScenarioFigureRuleIdentifier extends AdditionalIdentifier {
 
-  health : string | undefined;
+  health: string | undefined;
 
 }
 
@@ -91,6 +92,7 @@ export class ScenarioRewards {
   globalAchievements: string[] = [];
   partyAchievements: string[] = [];
   lostPartyAchievements: string[] = [];
+  campaignSticker: string[] = [];
   envelopes: string[] = [];
   gold: number = 0;
   experience: number = 0;
@@ -103,7 +105,6 @@ export class ScenarioRewards {
   chooseItem: string[] = [];
   itemDesigns: string[] = [];
   events: string[] = [];
-  campaignSticker: string[] = [];
   custom: string = "";
   ignoredBonus: string[] = [];
   hints: ScenarioRewardHints | undefined = undefined;
@@ -115,6 +116,7 @@ export class ScenarioRewardHints {
   globalAchievements: string[] = [];
   partyAchievements: string[] = [];
   lostPartyAchievements: string[] = [];
+  campaignSticker: string[] = [];
   envelopes: string[] = [];
   gold: string = "";
   experience: string = "";

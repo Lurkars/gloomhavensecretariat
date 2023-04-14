@@ -125,6 +125,16 @@ export class ScenarioMenuComponent implements OnInit {
             gameManager.stateManager.after();
           }
           numbers = numbers.filter((value) => value.trim() != number);
+        } else if (editionData.scenarios.find((scenarioData) => scenarioData.index.substring(0, scenarioData.index.length - 1) == number.trim() && scenarioData.index.substring(scenarioData.index.length - 1).match(/[A-B]/) && scenarioData.group == group)) {
+          editionData.scenarios.filter((scenarioData) => scenarioData.index.substring(0, scenarioData.index.length - 1) == number.trim() && scenarioData.index.substring(scenarioData.index.length - 1).match(/[A-B]/) && scenarioData.group == group).forEach((scenarioData) => {
+            if (this.scenarios(group).indexOf(scenarioData) == -1) {
+              gameManager.stateManager.before("addManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
+              gameManager.game.party.manualScenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []));
+              gameManager.stateManager.after();
+            }
+          })
+          numbers = numbers.filter((value) => value.trim() != number);
+
         }
       })
 

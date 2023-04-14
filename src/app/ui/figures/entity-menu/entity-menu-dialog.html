@@ -26,8 +26,9 @@
     </ng-container>
     <ng-container *ngIf="gameManager.isMonster(data.figure) ">
       <img class="standee" [src]="gameManager.monsterManager.monsterThumbnail(gameManager.toMonster(data.figure))" />
-      {{'data.monster.' + data.figure.name | ghsLabel}}&nbsp;<span
-        *ngIf="gameManager.toMonster(data.figure).isAlly">({{'game.ally' | ghsLabel}})&nbsp;</span>
+      {{'data.monster.' + data.figure.name | ghsLabel}}&nbsp;
+      <span *ngIf="gameManager.toMonster(data.figure).isAlly">({{'game.ally' | ghsLabel}})&nbsp;</span>
+      <span *ngIf="gameManager.toMonster(data.figure).isConfederated">({{'game.confederated' | ghsLabel}})&nbsp;</span>
       <a [title]="'monster.toggleType' | ghsLabel:[(gameManager.toMonsterEntity(data.entity).type == MonsterType.normal ? gameManager.toMonsterEntity(data.entity).type  :  MonsterType.elite),(gameManager.toMonsterEntity(data.entity).type == MonsterType.elite ?  MonsterType.normal: gameManager.toMonsterEntity(data.entity).type )]"
         class="standee-number-toggle"
         *ngIf="data.entity && gameManager.isMonsterEntity(data.entity) && (gameManager.toMonsterEntity(data.entity).type == MonsterType.normal  || gameManager.toMonsterEntity(data.entity).type == MonsterType.elite)"
@@ -171,13 +172,13 @@
           </span>
           <span class="badge curse-count">{{countUpcomingAttackModifier(AttackModifierType.curse) + this.curse}}</span>
           <span class="warning-badge"
-            *ngIf="gameManager.attackModifierManager.countUpcomingCurses(gameManager.isMonster(data.figure) && !gameManager.toMonster(data.figure).isAlly) + this.curse > 10">
+            *ngIf="gameManager.attackModifierManager.countUpcomingCurses(gameManager.isMonster(data.figure) && !gameManager.toMonster(data.figure).isAlly && !gameManager.toMonster(data.figure).isConfederated) + this.curse > 10">
             <img src="./assets/images/warning.svg" />
           </span>
         </span>
         <span class="item">
           <ghs-drag-click class="button"
-            [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingCurses(gameManager.isMonster(data.figure) && !gameManager.toMonster(data.figure).isAlly) + this.curse >= 10 || isImmune(ConditionName.curse)}"
+            [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingCurses(gameManager.isMonster(data.figure) && !gameManager.toMonster(data.figure).isAlly && !gameManager.toMonster(data.figure).isConfederated) + this.curse >= 10 || isImmune(ConditionName.curse)}"
             (singleClick)="changeCurse(1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </ghs-drag-click>

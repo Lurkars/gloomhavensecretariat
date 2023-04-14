@@ -4,7 +4,9 @@
   "edition": "fh",
   "parent": "13",
   "parentSections": [
-    "44.1"
+    [
+      "44.1"
+    ]
   ],
   "marker": "3",
   "monsters": [

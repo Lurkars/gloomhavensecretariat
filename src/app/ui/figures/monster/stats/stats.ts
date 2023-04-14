@@ -86,6 +86,12 @@ export class MonsterStatsComponent implements OnInit {
     gameManager.stateManager.after();
   }
 
+  toggleConfederated() {
+    gameManager.stateManager.before(this.monster.isConfederated ? "unsetConfederated" : "setConfederated", "data.monster." + this.monster.name);
+    this.monster.isConfederated = !this.monster.isConfederated;
+    gameManager.stateManager.after();
+  }
+
   openLevelDialog() {
     const levelDialog = this.dialog.open(MonsterLevelDialogComponent, {
       panelClass: 'dialog',

@@ -5,6 +5,16 @@
   "unlocks": [
     "22"
   ],
+  "rewards": {
+    "campaignSticker": [
+      "Coral Shard",
+      "Shard Seeker"
+    ],
+    "events": [
+      "winter-outpost:WO-81"
+    ],
+    "custom": "Unlock %game.characterIcon.coral% class box OR unlock %game.characterIcon.kelp% class box."
+  },
   "monsters": [
     "abael-herder",
     "lightning-eel",

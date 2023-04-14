@@ -4,7 +4,9 @@
   "edition": "fh",
   "parent": "17",
   "parentSections": [
-    "42.3"
+    [
+      "42.3"
+    ]
   ],
   "marker": "2",
   "resetRound": "hidden",

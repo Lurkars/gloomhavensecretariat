@@ -728,6 +728,9 @@ export class SettingsManager {
     if (!this.label.data.globalAchievements) {
       this.label.data.globalAchievements = {};
     }
+    if (!this.label.data.campaignSticker) {
+      this.label.data.campaignSticker = {};
+    }
     if (!this.label.data.scenario.group) {
       this.label.data.scenario.group = {};
     }

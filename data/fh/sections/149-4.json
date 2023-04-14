@@ -4,7 +4,9 @@
   "edition": "fh",
   "parent": "107",
   "parentSections": [
-    "155.1"
+    [
+      "155.1"
+    ]
   ],
   "marker": "3",
   "rooms": [
