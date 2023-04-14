@@ -1,0 +1,18 @@
+{
+  "name": "fish-king-scenario-76",
+  "edition": "fh",
+  "abilities": [
+    {
+      "name": "Nothing",
+      "cardId": 752,
+      "initiative": 1,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "The Fish King does not act"
+        }
+      ]
+    }
+  ]
+}

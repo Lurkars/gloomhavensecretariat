@@ -12,11 +12,12 @@
   "monsters": [
     "algox-archer",
     "algox-guard",
-    "fish-king",
+    "fish-king-scenario-76",
     "lurker-mindsnipper",
     "piranha-pig"
   ],
   "allies": [
+    "fish-king-scenario-76",
     "piranha-pig"
   ],
   "lootDeckConfig": {
@@ -116,7 +117,7 @@
           "player4": "normal"
         },
         {
-          "name": "fish-king",
+          "name": "fish-king-scenario-76",
           "type": "boss"
         },
         {

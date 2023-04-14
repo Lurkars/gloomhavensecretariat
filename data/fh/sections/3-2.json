@@ -6,6 +6,60 @@
   "monsters": [
     "harbinger-of-shadow"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Read Section #21.2",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "harbinger-of-shadow",
+            "marker": "1",
+            "health": "[Hx2/3{$math.floor}]"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "harbinger-of-shadow",
+            "marker": "1"
+          },
+          "type": "setHp",
+          "value": "[Hx2/3{$math.floor}]"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Read Section #100.2",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "harbinger-of-shadow",
+            "marker": "1",
+            "health": "[H/3{$math.floor}]"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "harbinger-of-shadow",
+            "marker": "1"
+          },
+          "type": "setHp",
+          "value": "[H/3{$math.floor}]"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 4,
