@@ -11,6 +11,34 @@
     "hungry-maw",
     "snow-imp"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "151.1"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "hungry-maw",
+            "health": "[H/2{$math.floor}]"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "hungry-maw"
+          },
+          "type": "setHp",
+          "value": "H/2"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
