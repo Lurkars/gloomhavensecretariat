@@ -24,9 +24,7 @@
       "round": "true",
       "always": true,
       "once": true,
-      "sections": [
-        "69.3"
-      ],
+      "note": "Read Section #69.3",
       "figures": [
         {
           "identifier": {
@@ -35,6 +33,15 @@
             "name": "Altar 3"
           },
           "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "harbinger-of-shadow",
+            "marker": "2"
+          },
+          "type": "setHp",
+          "value": "[10x(C-1)/2{$math.floor}]"
         }
       ]
     }

@@ -9,10 +9,35 @@
       "76.2"
     ]
   ],
-  "marker": "b",
   "monsters": [
     "augmented-mindthief",
     "large-vermling-scout"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Read Section #108.3",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "augmented-mindthief",
+            "health": "[H/2{$math.floor}]"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "augmented-mindthief"
+          },
+          "type": "setHp",
+          "value": "H/2"
+        }
+      ]
+    }
   ],
   "rooms": [
     {

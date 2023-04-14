@@ -5,6 +5,10 @@
   "parent": "33",
   "marker": "1",
   "resetRound": "hidden",
+  "monsters": [
+    "earth-demon",
+    "flame-demon"
+  ],
   "rules": [
     {
       "round": "R % 2 == 0",

@@ -11,6 +11,50 @@
   "monsters": [
     "night-demon"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Read Section #184.5",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "night-demon"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "165.2"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "fish-king-scenario-77",
+            "health": "[H/4{$math.ceil}]"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "fish-king-scenario-77"
+          },
+          "type": "setHp",
+          "value": "[H/4{$math.ceil}]"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 2,

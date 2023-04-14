@@ -19,31 +19,23 @@
       "round": "true",
       "always": true,
       "once": true,
-      "spawns": [
+      "note": "Read Section #41.4",
+      "figures": [
         {
-          "monster": {
+          "identifier": {
+            "type": "monster",
             "name": "fish-king",
-            "type": "boss"
+            "health": "[H/2{$math.floor}]"
           },
-          "marker": "b"
+          "type": "present"
         },
         {
-          "monster": {
-            "name": "abael-herder",
-            "player2": "normal",
-            "player3": "elite",
-            "player4": "elite"
+          "identifier": {
+            "type": "monster",
+            "name": "fish-king"
           },
-          "marker": "c"
-        },
-        {
-          "monster": {
-            "name": "piranha-pig",
-            "player2": "normal",
-            "player3": "normal",
-            "player4": "elite"
-          },
-          "marker": "d"
+          "type": "setHp",
+          "value": "[H/2{$math.floor}]"
         }
       ]
     }
@@ -52,7 +44,24 @@
     {
       "roomNumber": 3,
       "initial": true,
-      "monster": []
+      "monster": [
+        {
+          "name": "abael-herder",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "fish-king",
+          "type": "boss"
+        },
+        {
+          "name": "piranha-pig",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
     }
   ]
 }
