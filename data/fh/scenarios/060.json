@@ -7,8 +7,11 @@
     "fracture-of-the-deep",
     "lightning-eel",
     "lurker-clawcrusher",
+    "lurker-clawcrusher-scenario-60",
     "lurker-mindsnipper",
-    "lurker-wavethrower"
+    "lurker-mindsnipper-scenario-60",
+    "lurker-wavethrower",
+    "lurker-wavethrower-scenario-60"
   ],
   "lootDeckConfig": {
     "money": 8,
@@ -73,37 +76,37 @@
           "player4": "elite"
         },
         {
-          "name": "lurker-clawcrusher",
+          "name": "lurker-clawcrusher-scenario-60",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "lurker-clawcrusher",
+          "name": "lurker-clawcrusher-scenario-60",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "lurker-mindsnipper",
+          "name": "lurker-mindsnipper-scenario-60",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "lurker-mindsnipper",
+          "name": "lurker-mindsnipper-scenario-60",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "lurker-wavethrower",
+          "name": "lurker-wavethrower-scenario-60",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "lurker-wavethrower",
+          "name": "lurker-wavethrower-scenario-60",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"

@@ -42,8 +42,18 @@
           "subActions": [
             {
               "type": "summon",
-              "value": "lurker-clawcrusher",
-              "small": true
+              "small": true,
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "lurker-clawcrusher",
+                    "player2": "normal",
+                    "player3": "elite",
+                    "player4": "elite"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -54,8 +64,18 @@
           "subActions": [
             {
               "type": "summon",
-              "value": "lurker-mindsnipper",
-              "small": true
+              "small": true,
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "lurker-mindsnipper",
+                    "player2": "normal",
+                    "player3": "normal",
+                    "player4": "elite"
+                  }
+                }
+              ]
             }
           ]
         }
@@ -107,8 +127,18 @@
           "subActions": [
             {
               "type": "summon",
-              "value": "lurker-wavethrower",
-              "small": true
+              "small": true,
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "lurker-wavethrower",
+                    "player2": "normal",
+                    "player3": "normal",
+                    "player4": "elite"
+                  }
+                }
+              ]
             }
           ]
         }
