@@ -4,7 +4,7 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { Action, ActionType, ActionValueType, ActionSpecialTarget } from 'src/app/game/model/data/Action';
 import { Condition, ConditionType } from 'src/app/game/model/Condition';
 import { Element, ElementState } from 'src/app/game/model/data/Element';
-import { EntityValueFunction } from 'src/app/game/model/Entity';
+import { EntityValueFunction, EntityValueRegex } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
@@ -217,7 +217,7 @@ export class ActionComponent implements OnInit {
     } else if (this.action.valueType == ActionValueType.minus) {
       return "-" + (settingsManager.settings.fhStyle ? '' : ' ') + this.action.value;
     } else {
-      return settingsManager.settings.calculate && !('' + this.action.value).startsWith('%') ? EntityValueFunction(this.action.value, this.level) : this.action.value;
+      return settingsManager.settings.calculate && ('' + this.action.value).match(EntityValueRegex) ? EntityValueFunction(this.action.value, this.level) : this.action.value;
     }
   }
 

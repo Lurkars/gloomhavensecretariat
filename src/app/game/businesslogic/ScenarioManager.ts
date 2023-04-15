@@ -45,7 +45,7 @@ export class ScenarioManager {
     } else if (!scenario) {
       gameManager.roundManager.resetScenario();
     }
-    
+
     gameManager.stateManager.standeeDialogCanceled = false;
   }
 
@@ -207,7 +207,7 @@ export class ScenarioManager {
         gameManager.scenarioRulesManager.filterDisabledScenarioRules();
       }
       this.game.sections.push(new Scenario(section, []));
-    
+
       gameManager.stateManager.standeeDialogCanceled = false;
     }
   }
@@ -463,7 +463,7 @@ export class ScenarioManager {
       this.game.party.scenarios.forEach((identifier) => {
         const scenario = editionData.scenarios.find((value) => value.index == identifier.index && value.edition == identifier.edition && value.group == identifier.group);
         if (scenario) {
-          if (scenario.blocks && scenario.blocks.indexOf(scenarioData.index) != -1) {
+          if (scenario.group == scenarioData.group && scenario.blocks && scenario.blocks.indexOf(scenarioData.index) != -1) {
             blocked = true;
           }
         }
