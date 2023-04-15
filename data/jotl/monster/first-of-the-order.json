@@ -22,7 +22,7 @@
         },
         {
           "type": "spawn",
-          "value": "black-imp:normal:[C/2{math.ceil}]",
+          "value": "blood-imp:normal:[C/2{math.ceil}]",
           "small": true
         }
       ],
