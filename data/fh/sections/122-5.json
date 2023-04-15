@@ -17,13 +17,55 @@
       "round": "true",
       "always": true,
       "once": true,
-      "note": "All monsters add -1 %game.action.attack% to all their attacks"
+      "note": "All monsters add -1 %game.action.attack% to all their attacks.<br>All characters and character summons add +1 %game.action.attack% to all their attacks"
     },
     {
-      "round": "true",
+      "round": "R == 11",
+      "start": true,
       "always": true,
       "once": true,
-      "note": "All characters and character summons add +1 %game.action.attack% to all their attacks"
+      "spawns": [
+        {
+          "monster": {
+            "name": "savvas-lavaflow",
+            "player2": "elite",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "earth-demon",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 12",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "savvas-icestorm",
+            "player2": "elite",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "frost-demon",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
     }
   ]
 }

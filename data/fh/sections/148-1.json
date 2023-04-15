@@ -44,10 +44,54 @@
       ]
     },
     {
-      "round": "true",
+      "round": "R == 9",
+      "start": true,
       "always": true,
       "once": true,
-      "note": "All monsters gain disadvantage on all their attacks"
+      "spawns": [
+        {
+          "monster": {
+            "name": "earth-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "flame-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 10",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "frost-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
     },
     {
       "round": "R == 10",
