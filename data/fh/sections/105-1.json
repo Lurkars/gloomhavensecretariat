@@ -23,6 +23,10 @@
         {
           "type": "attack",
           "value": "L+2"
+        },
+        {
+          "type": "custom",
+          "value": "Attacks are unaffected by %game.action.retaliate%"
         }
       ]
     }
@@ -48,8 +52,16 @@
     {
       "round": "true",
       "always": true,
-      "once": true,
-      "note": "All characters and character summons gain disadvantage on all their attacks"
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "permanentCondition",
+          "value": "muddle"
+        }
+      ]
     }
   ],
   "rooms": [

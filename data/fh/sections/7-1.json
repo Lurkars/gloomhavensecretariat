@@ -23,6 +23,53 @@
       ]
     },
     {
+      "round": "R == 5",
+      "start": true,
+      "always": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "savvas-icestorm",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 6 || R == 8",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "savvas-lavaflow",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "savvas-icestorm",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
       "round": "R == 8",
       "sections": [
         "148.1"

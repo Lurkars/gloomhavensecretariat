@@ -33,14 +33,6 @@
       "figures": [
         {
           "identifier": {
-            "type": "monster",
-            "edition": "fh",
-            "name": "burrowing-blade|living-doom|living-spirit|shrike-fiend"
-          },
-          "type": "remove"
-        },
-        {
-          "identifier": {
             "type": "objective",
             "edition": "objective",
             "name": "Tree|Militia"
