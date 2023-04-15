@@ -12,6 +12,11 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 
 > This is **not** a comparison of **usability**, **performance** or any **visuals**, so personal taste and expectation may differ from just a table listing features!  
 
+- :heavy_check_mark: `full support`
+- :white_check_mark: `support with limitations`
+- :no_entry_sign: `no support` 
+- :grey_question: `missing information`
+
 | Tracking                                                                        | *GHS*                     | *XHA*                     | *FOC*                     | *GHFS*                   | *GHH*                   |
 | :------------------------------------------------------------------------------ | :------------------------ | :------------------------ | :------------------------ | :----------------------- | :---------------------- |
 | Track all figures (Character, Monster + Standees, Summons, Objectives, Escorts) | :heavy_check_mark:        | :heavy_check_mark:        | :heavy_check_mark:        | :heavy_check_mark:       | :heavy_check_mark:      |
@@ -56,6 +61,7 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 | Consume Elements by Monsters                                                    | :heavy_check_mark:        | :no_entry_sign:           | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Expire Conditions                                                               | :heavy_check_mark:        | :heavy_check_mark:        | :no_entry_sign:           | :heavy_check_mark:       | :heavy_check_mark:      |
 | Apply Conditions                                                                | :heavy_check_mark:        | :no_entry_sign:           | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
+| Loot Deck Enhancements                                                          | :heavy_check_mark:        | :heavy_check_mark:        | :no_entry_sign:           | :grey_question:          | :no_entry_sign:         |
 | Assign Loot Cards to Character                                                  | :heavy_check_mark:        | :heavy_check_mark:        | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Special Scenario Rules/Notes                                                    | :heavy_check_mark:        | :heavy_check_mark:        | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Apply Special Scenario Rules                                                    | :heavy_check_mark:        | :white_check_mark:[^16.2] | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
