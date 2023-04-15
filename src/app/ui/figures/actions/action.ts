@@ -31,7 +31,9 @@ export class ActionComponent implements OnInit {
   @Input() highlight: boolean = false;
   @Input() highlightElements: boolean = false;
   @Input() statsCalculation: boolean = false;
-  @Input() hexSize!: number
+  @Input() hexSize!: number;
+  @Input('index') actionIndex: string = "";
+
 
   action!: Action | undefined;
 
@@ -443,8 +445,8 @@ export class ActionComponent implements OnInit {
     if (this.monster && this.highlightAction() && this.action) {
       gameManager.stateManager.before('applyHightlightAction.' + this.action.type, "data.monster." + this.monster.name, '' + this.action.value);
       this.monster.entities.filter((entity) => gameManager.entityManager.isAlive(entity, true)).forEach((entity) => {
-        if (this.action && !entity.tags.find((tag) => tag == 'roundAction-' + this.action)) {
-          entity.tags.push('roundAction-' + this.action.type);
+        if (this.action && !entity.tags.find((tag) => tag == 'roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action)) {
+          entity.tags.push('roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action.type);
           if (this.action.type == ActionType.heal) {
             entity.health += EntityValueFunction(this.action.value, this.level);
             if (entity.health > entity.maxHealth) {
@@ -466,8 +468,8 @@ export class ActionComponent implements OnInit {
     }
   }
 
-  highlightElement(elementType: string, consume: boolean): boolean {
-    return this.highlightElements && (this.monster && this.monster.active && (!consume && (elementType == Element.wild || gameManager.game.elementBoard.some((element) => element.type == elementType && element.state != ElementState.new && element.state != ElementState.strong)) || consume && gameManager.game.elementBoard.some((element) => (element.type == elementType || elementType == Element.wild) && (element.state == ElementState.strong || element.state == ElementState.waning))) && this.elementActionPerformed(elementType, consume) == undefined || false);
+  highlightElement(elementType: string, consume: boolean, index: number): boolean {
+    return this.highlightElements && (this.monster && this.monster.active && (!consume && (elementType == Element.wild || gameManager.game.elementBoard.some((element) => element.type == elementType && element.state != ElementState.new && element.state != ElementState.strong)) || consume && gameManager.game.elementBoard.some((element) => (element.type == elementType || elementType == Element.wild) && (element.state == ElementState.strong || element.state == ElementState.waning))) && this.elementActionPerformed(elementType, consume, index) == undefined || false);
   }
 
   wildToConsume(): Element[] {
@@ -478,8 +480,8 @@ export class ActionComponent implements OnInit {
     return gameManager.game.elementBoard.filter((element) => element.state != ElementState.new && element.state != ElementState.strong).map((element) => element.type);
   }
 
-  elementAction(event: any, action: Action, element: string, wild: boolean = false) {
-    if (this.monster && this.highlightElement(wild ? Element.wild : element, action.valueType == ActionValueType.minus)) {
+  elementAction(event: any, action: Action, element: string, index: number, wild: boolean = false) {
+    if (this.monster && this.highlightElement(wild ? Element.wild : element, action.valueType == ActionValueType.minus, index)) {
       const entity = this.monster && this.monster.entities.find((entity) => gameManager.entityManager.isAlive(entity) && !entity.tags.some((tag) => tag == 'roundAction-element-' + (action.valueType == ActionValueType.minus ? 'consume-' : '') + element));
       if (action.valueType == ActionValueType.minus) {
         gameManager.game.elementBoard.forEach((elementModel) => {
@@ -487,7 +489,7 @@ export class ActionComponent implements OnInit {
             gameManager.stateManager.before("monsterConsumeElement", "data.monster." + this.monster.name, "game.element." + element);
             elementModel.state = ElementState.inert;
             if (entity) {
-              entity.tags.push('roundAction-element-consume-' + (wild ? 'wild' : element));
+              entity.tags.push('roundAction-element-consume-' + (this.actionIndex ? this.actionIndex + '-' : '') + index + '-' + (wild ? 'wild' : element));
             }
             gameManager.stateManager.after();
           }
@@ -498,7 +500,7 @@ export class ActionComponent implements OnInit {
             gameManager.stateManager.before("monsterInfuseElement", "data.monster." + this.monster.name, "game.element." + element);
             elementModel.state = gameManager.game.state == GameState.draw ? ElementState.new : ElementState.strong;
             if (entity) {
-              entity.tags.push('roundAction-element-' + (wild ? 'wild' : element));
+              entity.tags.push('roundAction-element-' + (this.actionIndex ? this.actionIndex + '-' : '') + index + '-' + (wild ? 'wild' : element));
             }
             gameManager.stateManager.after();
           }
@@ -508,7 +510,15 @@ export class ActionComponent implements OnInit {
     }
   }
 
-  elementActionPerformed(elementType: string, consume: boolean): MonsterEntity | undefined {
-    return this.monster && this.monster.entities.find((entity) => gameManager.entityManager.isAlive(entity) && entity.tags.some((tag) => tag == 'roundAction-element-' + (consume ? 'consume-' : '') + elementType));
+  elementActionPerformed(elementType: string, consume: boolean, index: number): MonsterEntity | undefined {
+    return this.monster && this.monster.entities.find((entity) => gameManager.entityManager.isAlive(entity) && entity.tags.some((tag) => tag == 'roundAction-element-' + (consume ? 'consume-' : '') + (this.actionIndex ? this.actionIndex + '-' : '') + index + '-' + elementType));
+  }
+
+  elementActionsPerformed(elementTypes: string[], consume: boolean): boolean {
+    return this.monster && elementTypes.every((elementType, index) => this.monster && this.monster.entities.find((entity) => gameManager.entityManager.isAlive(entity) && entity.tags.some((tag) => tag == 'roundAction-element-' + (consume ? 'consume-' : '') + (this.actionIndex ? this.actionIndex + '-' : '') + index + '-' + elementType))) || false;
+  }
+
+  elementActionsPerformedSome(elementTypes: string[], consume: boolean): boolean {
+    return this.monster && elementTypes.some((elementType, index) => this.monster && this.monster.entities.find((entity) => gameManager.entityManager.isAlive(entity) && entity.tags.some((tag) => tag == 'roundAction-element-' + (consume ? 'consume-' : '') + (this.actionIndex ? this.actionIndex + '-' : '') + index + '-' + elementType))) || true;
   }
 }

@@ -236,9 +236,8 @@ export class EntityManager {
     if (condition) {
       if (condition.name == ConditionName.poison || condition.name == ConditionName.poison_x) {
         entity.health -= condition.value;
-        this.checkHealth(entity);
-
         condition.highlight = false;
+        this.checkHealth(entity);
       }
 
       if (condition.name == ConditionName.ward) {

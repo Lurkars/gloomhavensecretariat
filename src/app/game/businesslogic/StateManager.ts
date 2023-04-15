@@ -156,7 +156,7 @@ export class StateManager {
 
   saveLocalStorage() {
     this.clearLocalStorage();
-    let limit = 250;
+    let limit = 100;
     if (this.undos.length < limit) {
       localStorage.setItem("ghs-undo", JSON.stringify(this.undos));
     } else {
@@ -404,6 +404,8 @@ export class StateManager {
             ev.target?.close();
           }
           gameManager.stateManager.serverError = false;
+          window.document.body.classList.remove('working');
+          window.document.body.classList.remove('server-sync');
           break;
       }
     } catch (e) {

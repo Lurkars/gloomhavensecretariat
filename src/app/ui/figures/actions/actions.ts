@@ -24,6 +24,7 @@ export class ActionsComponent {
   @Input() highlightActions: ActionType[] = [];
   @Input() hexSize!: number;
   @Input() hint!: string | undefined;
+  @Input('index') actionIndex: string = "";
 
   settingsManager: SettingsManager = settingsManager;
 

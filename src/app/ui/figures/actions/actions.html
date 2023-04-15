@@ -3,7 +3,7 @@
     <div class="divider" *ngIf="divider(action,index)"></div>
     <ghs-action [action]="action" [monster]="monster" [objective]="objective" [inline]="inline" [right]="right" [hexSize]="hexSize"
       [relative]="relative" [statsCalculation]="statsCalculation"
-      [highlight]="highlightActions.indexOf(action.type) != -1" [highlightElements]="highlightElements">
+      [highlight]="highlightActions.indexOf(action.type) != -1" [highlightElements]="highlightElements" [index]="(actionIndex ? actionIndex + '-' : '') + index">
     </ghs-action>
   </ng-container>
   <div class="hint" *ngIf="hint" [i18n]="hint"></div>

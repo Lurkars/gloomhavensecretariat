@@ -166,6 +166,11 @@ export class DatamanagementMenuComponent implements OnInit {
       reader.addEventListener('load', (event: any) => {
         gameManager.stateManager.before("loadGameFromFile");
         const gameModel: GameModel = Object.assign(new GameModel(), JSON.parse(event.target.result));
+        if (gameModel.revision < gameManager.game.revision) {
+          gameManager.stateManager.createBackup(gameManager.game.toModel());
+          gameModel.revision = gameManager.game.revision;
+          gameModel.revisionOffset = gameManager.game.revisionOffset;
+        }
         gameManager.game.fromModel(gameModel);
         gameManager.stateManager.after();
       });
@@ -259,6 +264,8 @@ export class DatamanagementMenuComponent implements OnInit {
             localStorage.setItem(key, JSON.stringify(datadump[key]));
           }
         })
+        gameManager.stateManager.loadLocalStorage();
+        gameManager.stateManager.saveLocalStorage();
 
         window.location.reload();
       });

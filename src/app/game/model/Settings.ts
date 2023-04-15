@@ -52,7 +52,7 @@ export class Settings {
   interactiveAbilities: boolean = true;
   locale: string = "en";
   lootDeck: boolean = true;
-  maxUndo: number = 500;
+  maxUndo: number = 100;
   monsters: boolean = true;
   moveElements: boolean = true;
   partySheet: boolean = true;

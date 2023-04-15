@@ -426,7 +426,7 @@
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          
+
           &::before {
             content: ' ';
             position: absolute;
@@ -488,6 +488,7 @@
           &:hover {
             animation: none;
             transform: scale(1) !important;
+            z-index: 5;
 
             .choose-element-container {
               display: block;

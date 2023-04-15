@@ -26,6 +26,7 @@ export class ActionSummonComponent implements OnChanges {
   @Input('spawn') isSpawn: boolean = false;
   @Input() additional: boolean = false;
   @Input() highlight: boolean = true;
+  @Input('index') actionIndex: string = "";
   spawners: Entity[] = [];
   monsters: MonsterSpawnData[] = [];
   type: MonsterType | undefined;
@@ -122,7 +123,7 @@ export class ActionSummonComponent implements OnChanges {
           figure.entities.forEach((entity) => {
             if (entity.tags) {
               entity.tags.forEach((tag) => {
-                if (this.monster && tag.startsWith('roundAction-summon-' + this.monster.name + '-' + this.getSpawnId())) {
+                if (this.monster && tag.startsWith('roundAction-summon-' + this.monster.name + '-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.getSpawnId())) {
                   this.tags.push(tag);
                 }
               })
@@ -167,10 +168,10 @@ export class ActionSummonComponent implements OnChanges {
 
   getTag(index: number, spawner: boolean = false): string {
     if (this.monster) {
-      return (spawner ? 'roundAction-spawner-' : 'roundAction-summon-') + this.monster.name + "-" + this.getSpawnId() + "-" + index;
+      return (spawner ? 'roundAction-spawner-' : 'roundAction-summon-') + this.monster.name + "-" + (this.actionIndex ? this.actionIndex + '-' : '') + this.getSpawnId() + "-" + index;
     }
     if (this.objective) {
-      return (spawner ? 'roundAction-spawner-' : 'roundAction-summon-') + this.objective.id + "-" + index;
+      return (spawner ? 'roundAction-spawner-' : 'roundAction-summon-') + this.objective.id + "-" + (this.actionIndex ? this.actionIndex + '-' : '') + index;
     }
     return "";
   }
