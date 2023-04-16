@@ -18,14 +18,135 @@
     "special": [
       [
         {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "C-4",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "immobilize",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
           "type": "custom",
-          "value": "See scenario Special Rules"
+          "value": "Create 1-hex hazardous terrain in all featureless hexes adjacent to target, enemies in these hexes suffer",
+          "small": true,
+          "subActions": [
+            {
+              "type": "damage",
+              "value": "C-1",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "damage",
+                  "value": 1,
+                  "valueType": "add"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "light"
         }
       ],
       [
         {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": "C-5",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
           "type": "custom",
-          "value": "See scenario Special Rules"
+          "value": "Create 1-hex icy terrain in all featureless hexes adjacent to targets of the attack",
+          "small": true
+        },
+        {
+          "type": "push",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%game.target.all%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "push",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "dark"
         }
       ]
     ]
