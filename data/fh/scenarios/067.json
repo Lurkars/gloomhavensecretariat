@@ -10,7 +10,13 @@
     "68"
   ],
   "monsters": [
-    "chaos-demon"
+    "chaos-demon",
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "night-demon",
+    "sun-demon",
+    "wind-demon"
   ],
   "objectives": [
     {
@@ -56,6 +62,9 @@
           "name": "chaos-demon",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        "1:4"
       ]
     }
   ]
