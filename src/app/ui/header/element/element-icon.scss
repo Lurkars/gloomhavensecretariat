@@ -18,6 +18,7 @@
   }
 
   &.full,
+  &.always,
   &.new {
     #bg {
       clip-path: inset(0% 0px 0px 0px);

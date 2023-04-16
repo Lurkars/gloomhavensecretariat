@@ -20,7 +20,9 @@
     </div>
 
     <div class="markers">
-      <span class="map-marker" *ngIf="entity.marker">{{entity.marker}}</span>
+      <span class="map-marker" *ngIf="entity.marker && !entity.marker.startsWith('element')">{{entity.marker}}</span>
+      <ghs-element-icon class="element" *ngIf="entity.marker && entity.marker.startsWith('element')"
+        [type]="entity.marker.split(':')[1]"></ghs-element-icon>
       <span class="marker" *ngFor="let marker of entity.markers;">
         <img src="./assets/images/character/icons/{{marker}}.svg" />
       </span>

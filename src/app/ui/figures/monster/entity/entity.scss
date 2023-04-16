@@ -186,6 +186,14 @@
         font-size: calc(var(--ghs-unit) * 3.2 * var(--ghs-text-factor));
       }
 
+      ghs-element-icon {
+        width: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+        margin-top: calc(var(--ghs-unit) * 1.4 * var(--ghs-text-factor));
+        margin-left: calc(var(--ghs-unit) * -0.5 * var(--ghs-text-factor));
+        margin-right: calc(var(--ghs-unit) * -0.5 * var(--ghs-text-factor));
+      }
+
       .marker {
         display: flex;
         align-items: center;

@@ -162,6 +162,7 @@
       "concatenation": "[Verknüpfung]",
       "condition": "Zustand",
       "custom": "Benutzerdefiniert",
+      "damage": "Schaden",
       "element": "Element",
       "elementHalf": "Element Hälfte",
       "fly": "Fliegen",
@@ -396,6 +397,8 @@
       "ice": "Eis",
       "light": "Licht",
       "state": {
+        "always": "Dauerhaft",
+        "consumed": "Verbraucht",
         "inert": "Inaktiv",
         "new": "Stark",
         "strong": "Stark",

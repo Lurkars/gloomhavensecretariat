@@ -13,6 +13,8 @@ export enum ElementState {
   waning = "waning",
   inert = "inert",
   new = "new",
+  consumed = "consumed",
+  always = "always"
 }
 
 export class ElementModel {

@@ -54,8 +54,7 @@
           "subActions": [
             {
               "type": "damage",
-              "value": "C-1",
-              "small": true
+              "value": "C-1"
             },
             {
               "type": "element",

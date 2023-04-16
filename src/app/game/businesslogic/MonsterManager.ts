@@ -307,7 +307,7 @@ export class MonsterManager {
         monster.off = false;
       }
 
-      if (this.game.state == GameState.next) {
+      if (this.game.state == GameState.next && monsterEntity.summon != SummonState.new) {
         monsterEntity.active = monster.active || gameManager.game.figures.some((figure, index, self) => figure.active && index > self.indexOf(monster));
       }
     }

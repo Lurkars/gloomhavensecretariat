@@ -34,7 +34,7 @@
       <span class="elements">
         <span class="element" (tap)="elementAction($event, action, element, i)"
           *ngFor="let element of getValues(action); let i = index;"
-          [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement('' + element, action.valueType == ActionValueType.minus, i), 'wild' : element == 'wild'}">
+          [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement(getValues(action), action.valueType == ActionValueType.minus, i), 'wild' : element == 'wild'}">
           <img
             [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/' + element + '.svg'" />
 
@@ -54,16 +54,16 @@
 
     <span *ngIf="action.type == ActionType.elementHalf && getValues(action).length == 2" class="elements">
       <span class="element element-half"
-        [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement(getValues(action)[0], action.valueType == ActionValueType.minus, 0)}"
+        [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement(getValues(action), action.valueType == ActionValueType.minus, 0)}"
         (tap)="elementAction($event, action, getValues(action)[0], 0)">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/' + getValues(action)[0] + '.svg'" />
       </span>
       <span class="element element-half"
-        [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement(getValues(action)[1], action.valueType == ActionValueType.minus, 1)}"
+        [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement(getValues(action), action.valueType == ActionValueType.minus, 1)}"
         (tap)="elementAction($event, action, getValues(action)[1], 1)">
         <img
-          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/' + getValues(action)[1] + '.svg'" />
+          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/' + getValues(action) + '.svg'" />
       </span>
       <span class="minus" *ngIf="action.valueType == ActionValueType.minus">:</span>
     </span>
@@ -73,7 +73,7 @@
         <ghs-action class="element-subaction" [ngClass]="'subaction-' + subAction.type" [action]="subAction"
           [monster]="monster" [relative]="relative || forceRelative" [inline]="inline" [right]="right"
           [hexSize]="hexSize"
-          [highlightElements]="highlightElements && (action.valueType != ActionValueType.minus || elementActionsPerformedSome(getValues(action), true))"
+          [highlightElements]="highlightElements && (action.valueType != ActionValueType.minus || elementActionsPerformed(getValues(action), true))"
           [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + index">
         </ghs-action>
       </ng-container>

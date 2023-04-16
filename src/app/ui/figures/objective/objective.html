@@ -4,9 +4,15 @@
     <span class="objective-marker" [ngClass]="{'active-border' : objective.active}">
       {{objective.id + 1}}
     </span>
-    <span *ngIf="objective.marker" class="map-marker">
+    <span *ngIf="objective.marker  && !objective.marker.startsWith('element')" class="map-marker">
       {{objective.marker}}
     </span>
+    <ng-container *ngIf="objective.marker && objective.marker.startsWith('element')">
+      <span *ngIf="objective.marker.split(':').length === 3" class="map-marker">
+        {{objective.marker.split(':')[2]}}
+      </span>
+      <ghs-element-icon class="element" [type]="objective.marker.split(':')[1]"></ghs-element-icon>
+    </ng-container>
     <ghs-healthbar [entity]="objective"></ghs-healthbar>
   </a>
 

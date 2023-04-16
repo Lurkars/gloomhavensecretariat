@@ -48,7 +48,10 @@ export class EntityManager {
       return false;
     }
 
-    if ((entity instanceof Character || entity instanceof Objective)) {
+    if (entity instanceof Character) {
+      return !entity.exhausted && !entity.absent;
+    }
+    if (entity instanceof Objective) {
       return !entity.exhausted;
     }
 
@@ -315,7 +318,7 @@ export class EntityManager {
       if (entityCondition.types.indexOf(ConditionType.expire) != -1) {
         if (entityCondition.expired) {
           entityCondition.expired = false;
-        } 
+        }
       }
     })
 

@@ -52,6 +52,126 @@
           "value": "curse:2"
         }
       ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "marker": "element:fire"
+          },
+          "type": "dead"
+        }
+      ],
+      "elements": [
+        {
+          "type": "fire",
+          "state": "always"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "marker": "element:ice"
+          },
+          "type": "dead"
+        }
+      ],
+      "elements": [
+        {
+          "type": "ice",
+          "state": "always"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "marker": "element:air"
+          },
+          "type": "dead"
+        }
+      ],
+      "elements": [
+        {
+          "type": "air",
+          "state": "always"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "marker": "element:earth"
+          },
+          "type": "dead"
+        }
+      ],
+      "elements": [
+        {
+          "type": "earth",
+          "state": "always"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "marker": "element:light"
+          },
+          "type": "dead"
+        }
+      ],
+      "elements": [
+        {
+          "type": "light",
+          "state": "always"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "marker": "element:dark"
+          },
+          "type": "dead"
+        }
+      ],
+      "elements": [
+        {
+          "type": "dark",
+          "state": "always"
+        }
+      ]
     }
   ],
   "rooms": [
@@ -79,37 +199,43 @@
           "name": "lurker-clawcrusher-scenario-60",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "element:dark"
         },
         {
           "name": "lurker-clawcrusher-scenario-60",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "element:light"
         },
         {
           "name": "lurker-mindsnipper-scenario-60",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "element:ice"
         },
         {
           "name": "lurker-mindsnipper-scenario-60",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "element:earth"
         },
         {
           "name": "lurker-wavethrower-scenario-60",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "element:air"
         },
         {
           "name": "lurker-wavethrower-scenario-60",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "element:fire"
         }
       ]
     }

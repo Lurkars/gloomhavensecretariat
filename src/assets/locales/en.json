@@ -263,6 +263,7 @@
       "concatenation": "[Concatenation]",
       "condition": "Condition",
       "custom": "Custom",
+      "damage": "Damage",
       "element": "Element",
       "elementHalf": "Element Half",
       "fly": "Fly",
@@ -497,6 +498,8 @@
       "ice": "Ice",
       "light": "Light",
       "state": {
+        "always": "always",
+        "consumed": "consumed",
         "inert": "inert",
         "new": "strong",
         "strong": "strong",

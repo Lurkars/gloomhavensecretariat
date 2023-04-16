@@ -4,7 +4,7 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { Action, ActionType, ActionValueType, ActionSpecialTarget } from 'src/app/game/model/data/Action';
 import { Condition, ConditionType } from 'src/app/game/model/Condition';
 import { Element, ElementState } from 'src/app/game/model/data/Element';
-import { EntityValueFunction, EntityValueRegex } from 'src/app/game/model/Entity';
+import { EntityValueFunction, EntityExpressionRegex, EntityValueRegex } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
@@ -13,7 +13,7 @@ import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { Objective } from 'src/app/game/model/Objective';
 import { valueCalc } from '../../helper/valueCalc';
 
-export const ActionTypesIcons: ActionType[] = [ActionType.attack, ActionType.fly, ActionType.heal, ActionType.jump, ActionType.loot, ActionType.move, ActionType.range, ActionType.retaliate, ActionType.shield, ActionType.target, ActionType.teleport];
+export const ActionTypesIcons: ActionType[] = [ActionType.attack, ActionType.damage, ActionType.fly, ActionType.heal, ActionType.jump, ActionType.loot, ActionType.move, ActionType.range, ActionType.retaliate, ActionType.shield, ActionType.target, ActionType.teleport];
 
 @Component({
   selector: 'ghs-action',
@@ -188,11 +188,11 @@ export class ActionComponent implements OnInit {
           break;
       }
 
-      if (typeof this.action.value === "number" && sign) {
+      if (sign && (typeof this.action.value === 'number' || this.action.value.match(EntityExpressionRegex) || this.action.value.match(EntityValueRegex))) {
         if (this.action.valueType == ActionValueType.plus) {
-          return statValue + this.action.value;
+          return statValue + EntityValueFunction(this.action.value);
         } else if (this.action.valueType == ActionValueType.minus) {
-          return statValue - this.action.value;
+          return statValue - EntityValueFunction(this.action.value);
         }
       }
     }
@@ -219,7 +219,7 @@ export class ActionComponent implements OnInit {
     } else if (this.action.valueType == ActionValueType.minus) {
       return "-" + (settingsManager.settings.fhStyle ? '' : ' ') + this.action.value;
     } else {
-      return settingsManager.settings.calculate && ('' + this.action.value).match(EntityValueRegex) ? EntityValueFunction(this.action.value, this.level) : this.action.value;
+      return settingsManager.settings.calculate && (('' + this.action.value).match(EntityExpressionRegex) || ('' + this.action.value).match(EntityValueRegex)) ? EntityValueFunction(this.action.value, this.level) : this.action.value;
     }
   }
 
@@ -436,7 +436,7 @@ export class ActionComponent implements OnInit {
         return false;
       }
 
-      return this.highlightElements && (this.monster.active && this.monster && this.monster.entities.find((entity) => this.action && gameManager.entityManager.isAlive(entity, true) && !entity.tags.find((tag) => this.action && tag == 'roundAction-' + this.action.type)) != undefined || false);
+      return this.highlightElements && (this.monster.active && this.monster && this.monster.entities.find((entity) => this.action && gameManager.entityManager.isAlive(entity, true) && !entity.tags.find((tag) => this.action && tag == 'roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action.type)) != undefined || false);
     }
     return false;
   }
@@ -445,7 +445,7 @@ export class ActionComponent implements OnInit {
     if (this.monster && this.highlightAction() && this.action) {
       gameManager.stateManager.before('applyHightlightAction.' + this.action.type, "data.monster." + this.monster.name, '' + this.action.value);
       this.monster.entities.filter((entity) => gameManager.entityManager.isAlive(entity, true)).forEach((entity) => {
-        if (this.action && !entity.tags.find((tag) => tag == 'roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action)) {
+        if (this.action && !entity.tags.find((tag) => tag == 'roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action?.type)) {
           entity.tags.push('roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action.type);
           if (this.action.type == ActionType.heal) {
             entity.health += EntityValueFunction(this.action.value, this.level);
@@ -468,8 +468,16 @@ export class ActionComponent implements OnInit {
     }
   }
 
-  highlightElement(elementType: string, consume: boolean, index: number): boolean {
-    return this.highlightElements && (this.monster && this.monster.active && (!consume && (elementType == Element.wild || gameManager.game.elementBoard.some((element) => element.type == elementType && element.state != ElementState.new && element.state != ElementState.strong)) || consume && gameManager.game.elementBoard.some((element) => (element.type == elementType || elementType == Element.wild) && (element.state == ElementState.strong || element.state == ElementState.waning))) && this.elementActionPerformed(elementType, consume, index) == undefined || false);
+  highlightElement(elementTypes: string[], consume: boolean, index: number): boolean {
+    return this.highlightElements && (this.monster && this.monster.active &&
+
+      (!consume && (elementTypes[index] == Element.wild || gameManager.game.elementBoard.some((element) => element.type == elementTypes[index] && element.state != ElementState.new && element.state != ElementState.strong && element.state != ElementState.always)) ||
+
+        consume && gameManager.game.elementBoard.some((element) => (element.type == elementTypes[index] || elementTypes[index] == Element.wild) && (element.state == ElementState.strong || element.state == ElementState.waning || element.state == ElementState.always)))
+
+      && (index == 0 || this.elementActionPerformed(elementTypes[index - 1], consume, index - 1))
+
+      && this.elementActionPerformed(elementTypes[index], consume, index) == undefined || false);
   }
 
   wildToConsume(): Element[] {
@@ -477,17 +485,19 @@ export class ActionComponent implements OnInit {
   }
 
   wildToCreate(): Element[] {
-    return gameManager.game.elementBoard.filter((element) => element.state != ElementState.new && element.state != ElementState.strong).map((element) => element.type);
+    return gameManager.game.elementBoard.filter((element) => element.state != ElementState.new && element.state != ElementState.strong && element.state != ElementState.always).map((element) => element.type);
   }
 
   elementAction(event: any, action: Action, element: string, index: number, wild: boolean = false) {
-    if (this.monster && this.highlightElement(wild ? Element.wild : element, action.valueType == ActionValueType.minus, index)) {
-      const entity = this.monster && this.monster.entities.find((entity) => gameManager.entityManager.isAlive(entity) && !entity.tags.some((tag) => tag == 'roundAction-element-' + (action.valueType == ActionValueType.minus ? 'consume-' : '') + element));
+    if (this.monster && this.highlightElement(this.getValues(action), action.valueType == ActionValueType.minus, index)) {
+      const entity = this.monster && this.monster.entities.find((entity) => gameManager.entityManager.isAlive(entity) && !entity.tags.some((tag) => tag == 'roundAction-element-' + (action.valueType == ActionValueType.minus ? 'consume-' : '') + (this.actionIndex ? this.actionIndex + '-' : '') + index + element));
       if (action.valueType == ActionValueType.minus) {
         gameManager.game.elementBoard.forEach((elementModel) => {
           if (elementModel.type == element && this.monster) {
             gameManager.stateManager.before("monsterConsumeElement", "data.monster." + this.monster.name, "game.element." + element);
-            elementModel.state = ElementState.inert;
+            if (elementModel.state != ElementState.always) {
+              elementModel.state = ElementState.consumed;
+            }
             if (entity) {
               entity.tags.push('roundAction-element-consume-' + (this.actionIndex ? this.actionIndex + '-' : '') + index + '-' + (wild ? 'wild' : element));
             }
@@ -498,7 +508,9 @@ export class ActionComponent implements OnInit {
         gameManager.game.elementBoard.forEach((elementModel) => {
           if (elementModel.type == element && this.monster) {
             gameManager.stateManager.before("monsterInfuseElement", "data.monster." + this.monster.name, "game.element." + element);
-            elementModel.state = gameManager.game.state == GameState.draw ? ElementState.new : ElementState.strong;
+            if (elementModel.state != ElementState.always) {
+              elementModel.state = gameManager.game.state == GameState.draw ? ElementState.new : ElementState.strong;
+            }
             if (entity) {
               entity.tags.push('roundAction-element-' + (this.actionIndex ? this.actionIndex + '-' : '') + index + '-' + (wild ? 'wild' : element));
             }

@@ -201,7 +201,7 @@ export class ScenarioRulesComponent {
     visible(index: number): boolean {
         if (gameManager.game.scenarioRules[index]) {
             const rule = gameManager.game.scenarioRules[index].rule;
-            if (this.spawns(rule).length > 0 || rule.objectiveSpawns && rule.objectiveSpawns.length > 0 || rule.elements && rule.elements.length > 0 || this.sections(index).length > 0 || this.rooms(index).length > 0 || this.figureRules(rule).length > 0 || rule.note || rule.finish) {
+            if (this.spawns(rule).length > 0 || rule.objectiveSpawns && rule.objectiveSpawns.length > 0 || rule.elements && rule.elements.length > 0 && rule.elements.some((elementModel) => gameManager.game.elementBoard.find((element) => element.type == elementModel.type)?.state != elementModel.state) || this.sections(index).length > 0 || this.rooms(index).length > 0 || this.figureRules(rule).length > 0 || rule.note || rule.finish) {
                 return true;
             }
         }

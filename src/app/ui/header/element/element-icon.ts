@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
-import { ElementModel, ElementState } from "src/app/game/model/data/Element";
+import { Element, ElementModel, ElementState } from "src/app/game/model/data/Element";
 
 
 @Component({
@@ -11,6 +11,7 @@ import { ElementModel, ElementState } from "src/app/game/model/data/Element";
 })
 export class ElementIconComponent implements OnInit {
 
+    @Input() type: string | undefined;
     @Input() element!: ElementModel;
     ElementState = ElementState;
     svg: SafeHtml = "";
@@ -18,6 +19,12 @@ export class ElementIconComponent implements OnInit {
     constructor(private sanitizer: DomSanitizer) { }
 
     ngOnInit(): void {
+
+        if (this.type && !this.element) {
+            this.element = new ElementModel(this.type as Element);
+            this.element.state = ElementState.strong;
+        }
+
         fetch('./assets/images/element/' + this.element.type + '.svg')
             .then(response => {
                 return response.text();

@@ -25,6 +25,7 @@ export enum ActionType {
   card = "card",
   condition = "condition",
   custom = "custom",
+  damage = "damage",
   element = "element",
   elementHalf = "elementHalf",
   fly = "fly",
