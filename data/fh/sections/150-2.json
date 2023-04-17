@@ -6,15 +6,27 @@
   "monsters": [
     "ruined-machine",
     "steel-automaton",
-    "vermling-scout"
+    "vermling-scout-scenario-94"
   ],
   "allies": [
-    "vermling-scout"
+    "vermling-scout-scenario-94"
   ],
   "rules": [
     {
       "round": "true",
-      "note": "Spawn one Ruined Machine for each character or Vermling Scout adjacent to a Flaming Bladespinner in any empty starting hex. Normal for 2 or 3 characters, elite for 4 characters."
+      "note": "Spawn one Ruined Machine for each character or Vermling Scout adjacent to a Flaming Bladespinner in any empty starting hex.",
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "count": "0",
+          "manual": true
+        }
+      ]
     },
     {
       "round": "true",
@@ -64,37 +76,37 @@
           "player4": "normal"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout-scenario-94",
           "type": "elite"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout-scenario-94",
           "type": "elite"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout-scenario-94",
           "type": "elite"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout-scenario-94",
           "type": "elite"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout-scenario-94",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout-scenario-94",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout-scenario-94",
           "player4": "elite"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout-scenario-94",
           "player4": "elite"
         }
       ]

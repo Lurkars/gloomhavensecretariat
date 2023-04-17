@@ -37,7 +37,8 @@
         },
         {
           "type": "custom",
-          "value": "When this attack is performed, on the next round at initiative 99 perform: %game.action.heal%2 self"
+          "value": "When this attack is performed, on the next round at initiative 99 instead perform: %game.action.heal%2 self",
+          "small": true
         }
       ]
     }

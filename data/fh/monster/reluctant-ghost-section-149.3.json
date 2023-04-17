@@ -1,0 +1,201 @@
+{
+  "name": "reluctant-ghost-section-149.3",
+  "thumbnail": "fh-living-spirit",
+  "edition": "fh",
+  "deck": "living-spirit",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "standeeShare": "living-spirit",
+  "baseStat": {
+    "type": "boss",
+    "movement": 3,
+    "note": "Focus on moving torward the closest starting hex"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "(2xC)/2",
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "(2xC)/2",
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "(2xC)/2",
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "(3xC)/2",
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "(3xC)/2",
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "(4xC)/2",
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "(6xC)/2",
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "(7xC)/2",
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": "(3xC)/2",
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": "(3xC)/2",
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": "(3xC)/2",
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": "(4xC)/2",
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": "(4xC)/2",
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": "(5xC)/2",
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": "(8xC)/2",
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": "(10xC)/2",
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ]
+    }
+  ]
+}

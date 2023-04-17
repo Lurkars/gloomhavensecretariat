@@ -8,6 +8,9 @@
       "19.1"
     ]
   ],
+  "blockedSections": [
+    "51.2"
+  ],
   "marker": "a",
   "rooms": [
     {

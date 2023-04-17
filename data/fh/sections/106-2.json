@@ -18,7 +18,7 @@
   ],
   "rules": [
     {
-      "round": "R % 2 == 0",
+      "round": "R % 4 == 2",
       "start": true,
       "figures": [
         {
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "round": "R % 2 == 1",
+      "round": "R % 4 == 0",
       "start": true,
       "figures": [
         {

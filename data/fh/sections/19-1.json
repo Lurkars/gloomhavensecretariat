@@ -3,6 +3,9 @@
   "name": "The Lurker Problem",
   "edition": "fh",
   "parent": "78",
+  "blockedSections": [
+    "59.2"
+  ],
   "marker": "1",
   "monsters": [
     "lightning-eel",

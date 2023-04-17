@@ -15,6 +15,14 @@
     "lurker-mindsnipper",
     "shrike-fiend"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "All characters return one card from their hand or discard pile to their set-aside deck."
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 2,

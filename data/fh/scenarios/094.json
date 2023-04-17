@@ -35,7 +35,19 @@
   "rules": [
     {
       "round": "true",
-      "note": "Spawn one Ruined Machine for each character adjacent to a Flaming Bladespinner in any empty starting hex. Normal for 2 or 3 characters, elite for 4 characters."
+      "note": "Spawn one Ruined Machine for each character adjacent to a Flaming Bladespinner in any empty starting hex.",
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "count": "0",
+          "manual": true
+        }
+      ]
     },
     {
       "round": "R % 6 == 3",
@@ -111,10 +123,7 @@
         }
       ],
       "objectives": [
-        1,
-        1,
-        1,
-        1
+        "1:4"
       ]
     }
   ]
