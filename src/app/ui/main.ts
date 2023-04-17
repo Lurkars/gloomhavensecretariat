@@ -14,6 +14,7 @@ import { Figure } from '../game/model/Figure';
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { MonsterNumberPickerDialog } from './figures/monster/dialogs/numberpicker-dialog';
 import { MonsterType } from '../game/model/data/MonsterType';
+import { storageManager } from '../game/businesslogic/StorageManager';
 
 @Component({
   selector: 'ghs-main',
@@ -114,9 +115,14 @@ export class MainComponent implements OnInit {
   async ngOnInit() {
     this.isTouch = window.matchMedia("(pointer: coarse)").matches;
     document.body.classList.add('no-select');
+    try {
+      await storageManager.init();
+    } catch {
+      // continue
+    }
     await settingsManager.init(!environment.production);
     this.initialized = true;
-    gameManager.stateManager.init();
+    await gameManager.stateManager.init();
     document.body.style.setProperty('--ghs-factor', settingsManager.settings.zoom + '');
     document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
     document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
@@ -444,33 +450,35 @@ export class MainComponent implements OnInit {
   translate(scrollTo: HTMLElement | undefined = undefined) {
     setTimeout(() => {
       const container = this.element.nativeElement.getElementsByClassName('figures')[0];
-      const figures = container.getElementsByClassName('figure');
-      for (let index = 0; index < figures.length; index++) {
-        let start = 0;
-        let left = "-50%";
-        if (this.columns > 1) {
-          if (index < this.columnSize) {
-            left = "calc(-100% - var(--ghs-unit) * 0.5)";
-          } else {
-            left = "calc(var(--ghs-unit) * 0.5)";
-            start = this.columnSize;
+      if (container) {
+        const figures = container.getElementsByClassName('figure');
+        for (let index = 0; index < figures.length; index++) {
+          let start = 0;
+          let left = "-50%";
+          if (this.columns > 1) {
+            if (index < this.columnSize) {
+              left = "calc(-100% - var(--ghs-unit) * 0.5)";
+            } else {
+              left = "calc(var(--ghs-unit) * 0.5)";
+              start = this.columnSize;
+            }
           }
-        }
 
-        let height = 0;
-        for (let i = start; i < index; i++) {
-          height += figures[i].clientHeight;
-        }
-        figures[index].style.transform = "scale(1) translate(" + left + "," + height + "px)";
+          let height = 0;
+          for (let i = start; i < index; i++) {
+            height += figures[i].clientHeight;
+          }
+          figures[index].style.transform = "scale(1) translate(" + left + "," + height + "px)";
 
-        if (scrollTo) {
-          setTimeout(() => {
-            scrollTo.scrollIntoView({
-              behavior: settingsManager.settings.disableAnimations ? 'auto' : 'smooth',
-              block: 'end',
-              inline: 'center'
-            });
-          }, settingsManager.settings.disableAnimations ? 0 : 250);
+          if (scrollTo) {
+            setTimeout(() => {
+              scrollTo.scrollIntoView({
+                behavior: settingsManager.settings.disableAnimations ? 'auto' : 'smooth',
+                block: 'end',
+                inline: 'center'
+              });
+            }, settingsManager.settings.disableAnimations ? 0 : 250);
+          }
         }
       }
     }, 1);

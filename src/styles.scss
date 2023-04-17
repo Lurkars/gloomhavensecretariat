@@ -910,8 +910,10 @@ input[type="radio"] {
       transform: translateX(-50%);
     }
 
-    &:hover .text {
-      display: inline-block !important;
+    &:hover {
+      .text {
+        display: inline-block !important;
+      }
     }
 
     .text {

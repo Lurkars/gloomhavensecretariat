@@ -120,7 +120,7 @@ export class RoundManager {
         const other = figures[i];
         if (gameManager.gameplayFigure(other)) {
           if (i < index) {
-            if (i > lastIndex) {
+            if (i > lastIndex && !other.off) {
               this.beforeTurn(other);
               this.turn(other)
             }

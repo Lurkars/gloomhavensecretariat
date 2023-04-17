@@ -9,7 +9,8 @@
       <span class="warning" (click)="gameManager.stateManager.gameOffsetWarning = false"
         *ngIf="undoOffset && gameManager.stateManager.gameOffsetWarning"> <img src="./assets/images/warning.svg">
         <span [i18n]="'state.missing'" [i18n-args]="['' + undoOffset]"></span></span>
-      <a class="state undo" [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning)}"
+      <a class="state undo"
+        [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning)}"
         (click)="gameManager.stateManager.undo()">
         <span class="undo-text">
           {{'state.undo' | ghsLabel}}
@@ -253,7 +254,9 @@
     <div class="columns">
       <div class="column">
         <div class="line">
-          <label>Gloomhaven Secretariat v{{version}}</label>
+          <a target="_blank"
+            [href]="'https://github.com/Lurkars/gloomhavensecretariat/releases/tag/v' + version">Gloomhaven Secretariat
+            v{{version}}</a>
         </div>
       </div>
       <div class="column">

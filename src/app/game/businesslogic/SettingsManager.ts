@@ -4,6 +4,7 @@ import { Settings } from "../model/Settings";
 import { Spoilable } from "../model/data/Spoilable";
 import { gameManager } from "./GameManager";
 import { EntityValueFunction } from "../model/Entity";
+import { storageManager } from "./StorageManager";
 
 export class SettingsManager {
 
@@ -16,16 +17,26 @@ export class SettingsManager {
   locales: string[] = ["en", "de", "fr", "ko"];
   developent: boolean = false;
 
-  reset() {
-    localStorage.removeItem("ghs-settings");
-    this.loadSettings();
+
+  async init(developent: boolean) {
+    await this.loadSettings();
+    this.developent = developent;
+    for (let defaultEditionDataUrl of this.defaultEditionDataUrls) {
+      if (settingsManager.settings.editionDataUrls.indexOf(defaultEditionDataUrl) == -1 && settingsManager.settings.excludeEditionDataUrls.indexOf(defaultEditionDataUrl) == -1) {
+        settingsManager.settings.editionDataUrls.push(defaultEditionDataUrl);
+      }
+    }
+
+    for (let editionDataUrl of settingsManager.settings.editionDataUrls) {
+      await settingsManager.loadEditionData(editionDataUrl);
+    }
   }
 
   async loadSettings() {
-    const settingsString: string | null = localStorage.getItem("ghs-settings");
-    if (settingsString != null) {
-      this.setSettings(Object.assign(new Settings(), JSON.parse(settingsString)));
-    } else {
+    try {
+      const settings = await storageManager.read<Settings>('settings', 'default');
+      this.setSettings(settings);
+    } catch {
       try {
         await fetch('./ghs-settings-default.json')
           .then(response => {
@@ -72,26 +83,17 @@ export class SettingsManager {
     this.sortSpoilers();
   }
 
-  async init(developent: boolean) {
-    await this.loadSettings();
-    this.developent = developent;
-    for (let defaultEditionDataUrl of this.defaultEditionDataUrls) {
-      if (settingsManager.settings.editionDataUrls.indexOf(defaultEditionDataUrl) == -1 && settingsManager.settings.excludeEditionDataUrls.indexOf(defaultEditionDataUrl) == -1) {
-        settingsManager.settings.editionDataUrls.push(defaultEditionDataUrl);
-      }
-    }
-
-    for (let editionDataUrl of settingsManager.settings.editionDataUrls) {
-      await settingsManager.loadEditionData(editionDataUrl);
-    }
-  }
-
   storeSettings(): void {
-    localStorage.setItem("ghs-settings", JSON.stringify(this.settings));
+    storageManager.write('settings','default', this.settings);
     if (this.settings.serverSettings) {
       gameManager.stateManager.saveSettings();
     }
     gameManager.uiChange.emit();
+  }
+
+  reset() {
+    storageManager.remove('settings');
+    this.loadSettings();
   }
 
   setAbilities(abilities: boolean) {

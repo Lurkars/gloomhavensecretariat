@@ -1244,7 +1244,11 @@
     },
     "maxUndo": {
       ".": "Max. Anzahl Rückgängigvorgänge",
-      "hint": ""
+      "hint": "",
+      "warning": {
+        ".": "Der Browser scheint IndexedDB nicht zu unterstützen oder hat fehlende Berechtigungen. Deshalb wird die max. Anzahl an Rückgängigvorgängen auf 50 limitiert.",
+        "firefox": "Im Privaten Modus von Firefox kann IndexedDB in der <a href=\"about:config\" target=\"_blank\">about:config</a> unter dem Schlüssel <i>dom.indexedDB.privateBrowsing.enabled</i> aktiviert werden."
+      }
     },
     "monsters": {
       ".": "Monsters",
@@ -1360,6 +1364,11 @@
         "monster": "{2} anwenden auf '{1}' von {0}",
         "objective": "{1} anwenden auf {0}",
         "summon": "{2} anwenden auf '{1}' von {0}"
+      },
+      "applyHightlightAction": {
+        "condition": "Aktion %game.condition.{1}% anwenden auf {0}",
+        "heal": "Aktion %game.action.heal% {1} anwenden auf {0}",
+        "sufferDamage": "Aktion %game.damage:{1}% erlieden andwenden auf {0}"
       },
       "applyScenarioRule": "Szenario Regel anwenden",
       "buyItem": "Gegenstand {1} (%data.edition.{2}%) für {0} kaufen",

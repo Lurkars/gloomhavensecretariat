@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { storageManager } from "src/app/game/businesslogic/StorageManager";
 import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { Monster } from "src/app/game/model/Monster";
@@ -53,20 +54,10 @@ export class FeedbackDialogComponent {
         return mailto;
     }
 
-    downloadDataDump() {
-        let gameData: any = {};
-        gameData.errorLog = gameManager.stateManager.errorLog;
-        for (let i = 0; i < localStorage.length; i++) {
-            const key = localStorage.key(i);
-            if (key) {
-                const data = localStorage.getItem(key);
-                if (data) {
-                    gameData[key] = JSON.parse(data);
-                }
-            }
-        }
+    async downloadDataDump() {
+        let datadump: any = await storageManager.datadump();
         let downloadButton = document.createElement('a');
-        downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(gameData)));
+        downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(datadump)));
         downloadButton.setAttribute('download', "ghs-data-dump.json");
         document.body.appendChild(downloadButton);
         downloadButton.click();

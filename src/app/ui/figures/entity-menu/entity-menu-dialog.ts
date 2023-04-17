@@ -440,13 +440,9 @@ export class EntityMenuDialogComponent {
 
   toggleDead() {
     if (this.data.entity instanceof MonsterEntity) {
-      gameManager.stateManager.before("entityDead", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number);
       this.dead();
-      gameManager.stateManager.after();
     } else if (this.data.entity instanceof Summon) {
-      gameManager.stateManager.before("summonDead", "data.character." + this.data.figure.name, "data.summon." + this.data.entity.name);
       this.dead();
-      gameManager.stateManager.after();
     } else if (this.data.entity instanceof Objective) {
       this.objectiveDead = !this.objectiveDead;
     }
@@ -454,6 +450,7 @@ export class EntityMenuDialogComponent {
 
   dead() {
     if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
+      gameManager.stateManager.before("entityDead", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number);
       this.data.entity.dead = true;
 
       if (this.data.figure.entities.every((monsterEntity) => monsterEntity.dead)) {
@@ -469,9 +466,11 @@ export class EntityMenuDialogComponent {
             gameManager.stateManager.after();
           }
         }, settingsManager.settings.disableAnimations ? 0 : 1500);
+      } else {
+        gameManager.stateManager.after();
       }
-      ;
     } else if (this.data.figure instanceof Character && this.data.entity instanceof Summon) {
+      gameManager.stateManager.before("summonDead", "data.character." + this.data.figure.name, "data.summon." + this.data.entity.name);
       this.data.entity.dead = true;
 
       if (gameManager.game.state == GameState.draw || this.data.entity.entityConditions.length == 0 || this.data.entity.entityConditions.every((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
@@ -481,6 +480,8 @@ export class EntityMenuDialogComponent {
             gameManager.stateManager.after();
           }
         }, settingsManager.settings.disableAnimations ? 0 : 1500);
+      } else {
+        gameManager.stateManager.after();
       }
     }
     this.dialogRef.close(true);

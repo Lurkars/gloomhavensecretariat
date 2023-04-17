@@ -882,10 +882,20 @@
   <div class="separator"></div>
 
   <div class="line">
-    <label class="label">{{'settings.maxUndo' | ghsLabel}}
-      <input type="number" #maxUndo [value]="settingsManager.settings.maxUndo" min="0" max="99999" (keyup)="0"
-        (change)="settingsManager.setMaxUndo(+maxUndo.value)" [size]="maxUndo.value.length"
-        placeholder="{{'settings.maxUndo' | ghsLabel}}"></label>
+    <div class="hint-container warning">
+      <label class="label">{{'settings.maxUndo' | ghsLabel}}
+        <input type="number" #maxUndo [value]="settingsManager.settings.maxUndo" min="0"
+          [max]="storageManager.db ? '' : 50" (keyup)="0" (change)="settingsManager.setMaxUndo(+maxUndo.value)"
+          [size]="maxUndo.value.length" placeholder="{{'settings.maxUndo' | ghsLabel}}"></label>
+      <img *ngIf="!storageManager.db" src="./assets/images/warning.svg" class="hint-trigger ghs-svg">
+      <div class="hint" *ngIf="!storageManager.db">
+        <div class="text">
+          <div [i18n]="'settings.maxUndo.warning'"></div>
+          <br>
+          <div class="firefox" *ngIf="platform.FIREFOX" [i18n]="'settings.maxUndo.warning.firefox'"></div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="line disabled">

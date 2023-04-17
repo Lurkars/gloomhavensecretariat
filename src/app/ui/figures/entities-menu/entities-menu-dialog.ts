@@ -87,33 +87,31 @@ export class EntitiesMenuDialogComponent {
 
   toggleDead() {
     gameManager.stateManager.before("monsterDead", "data.monster." + this.data.monster.name, this.data.type ? 'monster.' + this.data.type + ' ' : '');
+
     this.entities.forEach((entity) => {
-      this.dead(entity);
+      entity.dead = true;
     });
-    gameManager.stateManager.after();
-  }
 
-  dead(entity: MonsterEntity) {
-    entity.dead = true;
+    setTimeout(() => {
+      this.entities.forEach((entity) => {
+        if (gameManager.game.state == GameState.draw || entity.entityConditions.length == 0 || entity.entityConditions.every((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
+          gameManager.monsterManager.removeMonsterEntity(this.data.monster, entity);
+        }
+      });
 
-    if (gameManager.game.state == GameState.draw || entity.entityConditions.length == 0 || entity.entityConditions.every((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
-      setTimeout(() => {
-        gameManager.monsterManager.removeMonsterEntity(this.data.monster, entity);
-        gameManager.stateManager.after();
-      }, settingsManager.settings.disableAnimations ? 0 : 1500);
-    }
-
-    if (this.entities.every((monsterEntity) => monsterEntity.dead)) {
-      if (this.data.monster.active) {
-        gameManager.roundManager.toggleFigure(this.data.monster);
+      if (this.entities.every((monsterEntity) => !gameManager.entityManager.isAlive(monsterEntity))) {
+        if (this.data.monster.active) {
+          gameManager.roundManager.toggleFigure(this.data.monster);
+        }
       }
-    }
+
+      gameManager.stateManager.after();
+    }, settingsManager.settings.disableAnimations ? 0 : 1500);
+
     this.dialogRef.close(true);
   }
 
   close(): void {
-
-
     this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
       gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.data.monster, entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition"), "game.condition." + entityCondition.name, this.data.type ? 'monster.' + this.data.type + ' ' : '');
       this.entities.forEach((entity) => {
@@ -142,6 +140,7 @@ export class EntitiesMenuDialogComponent {
 
     if (this.minHealth() != 0 || this.maxHealth() != 0) {
       gameManager.stateManager.before("changeMonsterHP", "data.monster." + this.data.monster.name, ghsValueSign(this.minHealth() != 0 ? this.minHealth() : this.maxHealth()), this.data.type ? 'monster.' + this.data.type + ' ' : '');
+      let deadEntities: MonsterEntity[] = [];
       this.entities.forEach((entity, i) => {
         if (this.health[i] && this.health[i] != 0) {
           gameManager.entityManager.changeHealth(entity, this.health[i]);
@@ -149,10 +148,30 @@ export class EntitiesMenuDialogComponent {
         }
 
         if (entity.maxHealth > 0 && entity.health <= 0 || entity.dead) {
-          this.dead(entity);
+          entity.dead = true;
+          deadEntities.push(entity);
         }
       })
-      gameManager.stateManager.after();
+
+      if (deadEntities.length > 0) {
+        setTimeout(() => {
+          deadEntities.forEach((entity) => {
+            if (gameManager.game.state == GameState.draw || entity.entityConditions.length == 0 || entity.entityConditions.every((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
+              gameManager.monsterManager.removeMonsterEntity(this.data.monster, entity);
+            }
+          })
+
+          if (this.entities.every((monsterEntity) => !gameManager.entityManager.isAlive(monsterEntity))) {
+            if (this.data.monster.active) {
+              gameManager.roundManager.toggleFigure(this.data.monster);
+            }
+          }
+
+          gameManager.stateManager.after();
+        }, settingsManager.settings.disableAnimations ? 0 : 1500);
+      } else {
+        gameManager.stateManager.after();
+      }
     }
   }
 

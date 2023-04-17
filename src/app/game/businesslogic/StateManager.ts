@@ -5,6 +5,7 @@ import { Permissions } from "../model/Permissions";
 import { Settings } from "../model/Settings";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
+import { storageManager } from "./StorageManager";
 
 export class StateManager {
 
@@ -42,14 +43,13 @@ export class StateManager {
     this.lastSaveTimestamp = new Date().getTime();
   }
 
-  init() {
-    const local: string | null = localStorage.getItem("ghs-game");
-    if (local != null) {
-      const gameModel: GameModel = Object.assign(new GameModel(), JSON.parse(local));
+  async init() {
+    try {
+      const gameModel = await storageManager.readGameModel();
       gameModel.server = false;
       this.game.fromModel(gameModel);
-    } else {
-      localStorage.setItem("ghs-game", JSON.stringify(this.game.toModel()));
+    } catch {
+      storageManager.writeGameModel(this.game.toModel());
     }
 
     this.updateBlocked = false;
@@ -64,26 +64,7 @@ export class StateManager {
       }
     }
 
-
-    if (settingsManager.settings.browserNavigation) {
-      const currentState = +(localStorage.getItem("ghs-popstate") && typeof localStorage.getItem("ghs-popstate") == 'number' && localStorage.getItem("ghs-popstate") || '0');
-      localStorage.setItem("ghs-popstate", '' + currentState);
-      history.replaceState(currentState, '');
-    }
-
-    window.addEventListener('popstate', (event: PopStateEvent) => {
-      if (settingsManager.settings.browserNavigation) {
-        const oldState = +(localStorage.getItem("ghs-popstate") || '0');
-        localStorage.setItem("ghs-popstate", event.state);
-        if (oldState < event.state) {
-          this.redo();
-        } else if (oldState > event.state) {
-          this.undo();
-        }
-      }
-    })
-
-    this.loadLocalStorage();
+    this.loadStorage();
 
     // migration
     const missingUndoInfos = this.undos.length + this.redos.length - this.undoInfos.length;
@@ -112,111 +93,21 @@ export class StateManager {
     }
   }
 
-  loadLocalStorage() {
-    this.undos = [];
-    const undoString: string | null = localStorage.getItem("ghs-undo");
-    if (undoString != null) {
-      this.undos = JSON.parse(undoString);
-      let count = 1;
-      let additionalUndoString = localStorage.getItem("ghs-undo-" + count);
-      while (additionalUndoString) {
-        const additionalUndo: GameModel[] = JSON.parse(additionalUndoString);
-        this.undos.push(...additionalUndo);
-        count++;
-        additionalUndoString = localStorage.getItem("ghs-undo-" + count);
-      }
-    }
-    this.redos = [];
-    const redoString: string | null = localStorage.getItem("ghs-redo");
-    if (redoString != null) {
-      this.redos = JSON.parse(redoString);
-      let count = 1;
-      let additionalRedoString = localStorage.getItem("ghs-redo-" + count);
-      while (additionalRedoString) {
-        const additionalRedo: GameModel[] = JSON.parse(additionalRedoString);
-        this.redos.push(...additionalRedo);
-        count++;
-        additionalRedoString = localStorage.getItem("ghs-redo-" + count);
-      }
-    }
-    this.undoInfos = [];
-    const undoInfosString: string | null = localStorage.getItem("ghs-undo-infos");
-    if (undoInfosString != null) {
-      this.undoInfos = JSON.parse(undoInfosString);
-      let count = 1;
-      let additionalUndoInfosString = localStorage.getItem("ghs-undo-infos-" + count);
-      while (additionalUndoInfosString) {
-        const additionalUndoInfos: string[][] = JSON.parse(additionalUndoInfosString);
-        this.undoInfos.push(...additionalUndoInfos);
-        count++;
-        additionalUndoInfosString = localStorage.getItem("ghs-undo-infos-" + count);
-      }
+  async loadStorage() {
+    try {
+      this.undos = await storageManager.readAll<GameModel>('undo');
+      this.redos = await storageManager.readAll<GameModel>('redo');
+      this.undoInfos = await storageManager.readAll<string[]>('undo-infos');
+      this.updatePermissions();
+    } catch {
+      this.updatePermissions();
     }
   }
 
-  saveLocalStorage() {
-    this.clearLocalStorage();
-    let limit = 100;
-    if (this.undos.length < limit) {
-      localStorage.setItem("ghs-undo", JSON.stringify(this.undos));
-    } else {
-      let count = 1;
-      localStorage.setItem("ghs-undo", JSON.stringify(this.undos.slice(0, limit)));
-      while (this.undos.length > count * limit) {
-        localStorage.setItem("ghs-undo-" + count, JSON.stringify(this.undos.slice(count * limit, count * limit + limit)));
-        count++;
-      }
-    }
-    if (this.redos.length < limit) {
-      localStorage.setItem("ghs-redo", JSON.stringify(this.redos));
-    } else {
-      let count = 1;
-      localStorage.setItem("ghs-redo", JSON.stringify(this.redos.slice(0, limit)));
-      while (this.redos.length > count * limit) {
-        localStorage.setItem("ghs-redo-" + count, JSON.stringify(this.redos.slice(count * limit, count * limit + limit)));
-        count++;
-      }
-    }
-
-    limit = 1000;
-    if (this.undoInfos.length < limit) {
-      localStorage.setItem("ghs-undo-infos", JSON.stringify(this.undoInfos));
-    } else {
-      let count = 1;
-      localStorage.setItem("ghs-undo-infos", JSON.stringify(this.undoInfos.slice(0, limit)));
-      while (this.undoInfos.length > count * limit) {
-        localStorage.setItem("ghs-undo-infos-" + count, JSON.stringify(this.undoInfos.slice(count * limit, count * limit + limit)));
-        count++;
-      }
-    }
-  }
-
-  clearLocalStorage() {
-    let count = 1;
-    localStorage.removeItem("ghs-undo");
-    while (localStorage.getItem("ghs-undo-" + count)) {
-      localStorage.removeItem("ghs-undo-" + count);
-    }
-    count = 1;
-    localStorage.removeItem("ghs-redo");
-    while (localStorage.getItem("ghs-redo-" + count)) {
-      localStorage.removeItem("ghs-redo-" + count);
-    }
-    count = 1;
-    localStorage.removeItem("ghs-undo-infos");
-    while (localStorage.getItem("ghs-undo-infos-" + count)) {
-      localStorage.removeItem("ghs-undo-infos-" + count);
-    }
-  }
-
-  createBackup(gameModel: GameModel) {
-    let count = 1;
-    let backup = localStorage.getItem("ghs-game-backup-" + count);
-    while (backup) {
-      count++;
-      backup = localStorage.getItem("ghs-game-backup-" + count);
-    }
-    localStorage.setItem("ghs-game-backup-" + count, JSON.stringify(gameModel));
+  saveStorage() {
+    storageManager.writeArray('undo', this.undos);
+    storageManager.writeArray('redo', this.redos);
+    storageManager.writeArray('undo-infos', this.undoInfos);
   }
 
   buildWsUrl(protocol: string, serverUrl: string, port: number | string) {
@@ -262,7 +153,7 @@ export class StateManager {
           let gameModel: GameModel = message.payload as GameModel;
           if (gameManager.game.revision > gameModel.revision) {
             gameManager.stateManager.before();
-            gameManager.stateManager.createBackup(gameManager.game.toModel());
+            storageManager.addBackup(gameManager.game.toModel());
             console.warn("An older revision was loaded from server, created a backup of previous state.");
             gameManager.stateManager.saveLocal();
           }
@@ -298,7 +189,7 @@ export class StateManager {
           gameManager.stateManager.redos.push(gameManager.game.toModel());
           gameManager.game.fromModel(gameUndo);
           gameManager.stateManager.saveLocal();
-          gameManager.stateManager.saveLocalStorage();
+          gameManager.stateManager.saveStorage();
           gameManager.uiChange.emit(true);
           setTimeout(() => {
             window.document.body.classList.remove('working');
@@ -321,7 +212,7 @@ export class StateManager {
           gameManager.stateManager.undos.push(gameManager.game.toModel());
           gameManager.game.fromModel(gameRedo);
           gameManager.stateManager.saveLocal();
-          gameManager.stateManager.saveLocalStorage();
+          gameManager.stateManager.saveStorage();
           gameManager.uiChange.emit(true);
           setTimeout(() => {
             window.document.body.classList.remove('working');
@@ -377,7 +268,7 @@ export class StateManager {
             settings.zoom = settingsManager.settings.zoom;
 
             settingsManager.setSettings(settings);
-            localStorage.setItem("ghs-settings", JSON.stringify(settingsManager.settings));
+            storageManager.write('settings', 'default', settingsManager.settings);
             setTimeout(() => {
               window.document.body.classList.remove('server-sync');
             }, 1);
@@ -481,16 +372,18 @@ export class StateManager {
   }
 
   reset() {
-    this.createBackup(gameManager.game.toModel());
+    storageManager.addBackup(gameManager.game.toModel());
     const revision = this.game.revision;
     this.game = new Game();
     this.game.revision = revision;
-    localStorage.removeItem("ghs-game");
-    this.clearLocalStorage();
+    storageManager.clear('game');
+    storageManager.clear('undo');
+    storageManager.clear('redo');
+    storageManager.clear('undo-infos');
   }
 
   saveLocal() {
-    localStorage.setItem("ghs-game", JSON.stringify(this.game.toModel()));
+    storageManager.writeGameModel(this.game.toModel());
     this.lastSaveTimestamp = new Date().getTime();
   }
 
@@ -567,9 +460,9 @@ export class StateManager {
   addToUndo(info: string[]) {
     if (this.game.toModel() != this.undos[this.undos.length - 1]) {
       this.undos.push(this.game.toModel());
-
-      if (this.undos.length > settingsManager.settings.maxUndo) {
-        this.undos.splice(0, this.undos.length - settingsManager.settings.maxUndo);
+      const maxUndos = storageManager.db ? settingsManager.settings.maxUndo : Math.min(settingsManager.settings.maxUndo, 50);
+      if (this.undos.length > maxUndos) {
+        this.undos.splice(0, this.undos.length - maxUndos);
       }
 
       this.undoInfos.splice(this.undoInfos.length - this.redos.length, this.redos.length);
@@ -581,18 +474,12 @@ export class StateManager {
       }
 
       if (this.redos.length > 5) {
-        this.createBackup(this.redos[0]);
+        storageManager.addBackup(this.redos[0]);
       }
 
       this.redos = [];
 
-      this.saveLocalStorage();
-
-      if (settingsManager.settings.browserNavigation) {
-        const state = (typeof history.state == 'number') ? history.state + 1 : 1;
-        history.pushState(state, '');
-        localStorage.setItem("ghs-popstate", '' + state);
-      }
+      this.saveStorage();
     }
   }
 
@@ -610,7 +497,7 @@ export class StateManager {
       this.game.fromModel(gameModel);
       this.game.revision = revision;
       this.game.revisionOffset = revisionOffset + 2;
-      this.saveLocalStorage();
+      this.saveStorage();
       if (sync) {
         this.after(1, 1, 'game-undo');
       } else {
@@ -634,7 +521,7 @@ export class StateManager {
       this.game.fromModel(gameModel);
       this.game.revision = revision;
       this.game.revisionOffset = revisionOffset;
-      this.saveLocalStorage();
+      this.saveStorage();
       if (sync) {
         this.after(1, 1, 'game-redo');
       } else {

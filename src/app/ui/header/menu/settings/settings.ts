@@ -3,6 +3,8 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameState } from "src/app/game/model/Game";
 import { SubMenu } from "../menu";
+import { StorageManager, storageManager } from "src/app/game/businesslogic/StorageManager";
+import { Platform } from "@angular/cdk/platform";
 
 @Component({
   selector: 'ghs-settings-menu',
@@ -15,11 +17,12 @@ export class SettingsMenuComponent {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
+  storageManager: StorageManager = storageManager;
   GameState = GameState;
   SubMenu = SubMenu;
   wakeLock: boolean;
 
-  constructor() {
+  constructor(public platform: Platform) {
     this.wakeLock = 'wakeLock' in navigator;
   }
 

@@ -348,8 +348,11 @@ export class MonsterManager {
     monster.entities.splice(monster.entities.indexOf(monsterEntity), 1);
     if (monster.entities.length == 0 || monster.entities.every((entity) => entity.dead || entity.health <= 0)) {
       if (!monster.off && gameManager.game.state == GameState.next) {
-        gameManager.roundManager.toggleFigure(monster);
-        monster.active = false;
+        if (monster.active) {
+          gameManager.roundManager.toggleFigure(monster);
+        } else {
+          monster.off = true;
+        }
       } else {
         monster.off = true;
       }
