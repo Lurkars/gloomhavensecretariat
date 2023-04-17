@@ -3,6 +3,9 @@
   "name": "The Lurker Problem",
   "edition": "fh",
   "parent": "78",
+  "blockedSections": [
+    "19.1"
+  ],
   "marker": "2",
   "monsters": [
     "abael-herder",

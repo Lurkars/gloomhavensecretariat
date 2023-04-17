@@ -8,6 +8,9 @@
       "19.1"
     ]
   ],
+  "blockedSections": [
+    "91.1"
+  ],
   "marker": "3",
   "monsters": [
     "abael-scout",
