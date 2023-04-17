@@ -263,6 +263,7 @@
       "concatenation": "[Concatenation]",
       "condition": "Condition",
       "custom": "Custom",
+      "damage": "Damage",
       "element": "Element",
       "elementHalf": "Element Half",
       "fly": "Fly",
@@ -497,6 +498,8 @@
       "ice": "Ice",
       "light": "Light",
       "state": {
+        "always": "always",
+        "consumed": "consumed",
         "inert": "inert",
         "new": "strong",
         "strong": "strong",
@@ -1339,7 +1342,11 @@
     },
     "maxUndo": {
       ".": "Max. number of undos",
-      "hint": ""
+      "hint": "",
+      "warning": {
+        ".": "Your browser doesn't seem to support IndexedDB or you have restricted usage. Therefore the max. number of undos is limited to 50.",
+        "firefox": "On Firfox you can enable IndexedDB for private mode in <a href=\"about:config\" target=\"_blank\">about:config</a> with the key <i>dom.indexedDB.privateBrowsing.enabled</i>."
+      }
     },
     "monsters": {
       ".": "Monsters",
@@ -1455,6 +1462,11 @@
         "monster": "Apply {2} to '{1}' of {0}",
         "objective": "Apply {1} to {0}",
         "summon": "Apply {2} to '{1}' of {0}"
+      },
+      "applyHightlightAction": {
+        "condition": "Apply action %game.condition.{1}% to {0}",
+        "heal": "Apply action %game.action.heal% {1} to {0}",
+        "sufferDamage": "Apply action suffer %game.damage:{1}% to {0}"
       },
       "applyScenarioRule": "Apply scenario rule",
       "buyItem": "Buy Item {1} (%data.edition.{2}%) for {0}",
