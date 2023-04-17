@@ -12,7 +12,30 @@
   "objectives": [
     {
       "name": "Ice Pillar",
-      "count": 6,
+      "marker": "a",
+      "count": 2,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Can only be destoyed when a Ruined Machine dies in an adjacent hex"
+        }
+      ]
+    },
+    {
+      "name": "Ice Pillar",
+      "marker": "b",
+      "count": 2,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Can only be destoyed when a Ruined Machine dies in an adjacent hex"
+        }
+      ]
+    },
+    {
+      "name": "Ice Pillar",
+      "marker": "c",
+      "count": 2,
       "actions": [
         {
           "type": "custom",
@@ -48,17 +71,50 @@
     {
       "round": "R % 3 == 1",
       "start": true,
-      "note": "Ice Pillars %game.mapMarker.a% active"
+      "note": "Ice Pillars %game.mapMarker.a% active",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Ice Pillar",
+            "marker": "a"
+          }
+        }
+      ]
     },
     {
       "round": "R % 3 == 2",
       "start": true,
-      "note": "Ice Pillars %game.mapMarker.b% active"
+      "note": "Ice Pillars %game.mapMarker.b% active",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Ice Pillar",
+            "marker": "b"
+          }
+        }
+      ]
     },
     {
       "round": "R % 3 == 0",
       "start": true,
-      "note": "Ice Pillars %game.mapMarker.c% active"
+      "note": "Ice Pillars %game.mapMarker.c% active",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Ice Pillar",
+            "marker": "c"
+          }
+        }
+      ]
     },
     {
       "round": "R % 2 == 0",
@@ -146,10 +202,10 @@
       "objectives": [
         1,
         1,
-        1,
-        1,
-        1,
-        1
+        2,
+        2,
+        3,
+        3
       ]
     }
   ]

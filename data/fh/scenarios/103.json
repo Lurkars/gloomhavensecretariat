@@ -23,6 +23,7 @@
   "rules": [
     {
       "round": "true",
+      "note": "If any ice pillars suffered damage this round, spawn the following monsters at each character's location based on number of tokens on their mat.<br>0 - 5: One normal Living Spirit<br>6 - 8: One normal Shrike Fiend <br>9 - 11: One normal Living Doom <br>12+: One elite Living Spirit and one normal Lurker Clawcrusher",
       "spawns": [
         {
           "monster": {

@@ -14,6 +14,27 @@
     "rockroot": 2,
     "flamefruit": 1
   },
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "72.3"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Metal Cabinet"
+          },
+          "type": "killed",
+          "value": "4"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
