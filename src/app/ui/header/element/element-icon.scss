@@ -29,6 +29,12 @@
     opacity: 0.7;
   }
 
+  &.consumed {
+    #bg {
+      opacity: 0.3 !important;
+    }
+  }
+
   &.half {
     #bg {
       clip-path: inset(50% 0px 0px 0px);

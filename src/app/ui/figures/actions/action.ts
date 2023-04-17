@@ -5,7 +5,6 @@ import { Action, ActionType, ActionValueType, ActionSpecialTarget } from 'src/ap
 import { Condition, ConditionType } from 'src/app/game/model/Condition';
 import { Element, ElementState } from 'src/app/game/model/data/Element';
 import { EntityValueFunction, EntityExpressionRegex, EntityValueRegex } from 'src/app/game/model/Entity';
-import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
@@ -509,7 +508,7 @@ export class ActionComponent implements OnInit {
           if (elementModel.type == element && this.monster) {
             gameManager.stateManager.before("monsterInfuseElement", "data.monster." + this.monster.name, "game.element." + element);
             if (elementModel.state != ElementState.always) {
-              elementModel.state = gameManager.game.state == GameState.draw ? ElementState.new : ElementState.strong;
+              elementModel.state = ElementState.new;
             }
             if (entity) {
               entity.tags.push('roundAction-element-' + (this.actionIndex ? this.actionIndex + '-' : '') + index + '-' + (wild ? 'wild' : element));

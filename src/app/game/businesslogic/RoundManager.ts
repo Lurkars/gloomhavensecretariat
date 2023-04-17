@@ -255,6 +255,9 @@ export class RoundManager {
     }
 
     this.game.elementBoard.forEach((element) => {
+      if (element.state == ElementState.new) {
+        element.state = ElementState.strong;
+      }
       if (element.state == ElementState.consumed) {
         element.state = ElementState.inert;
       }
