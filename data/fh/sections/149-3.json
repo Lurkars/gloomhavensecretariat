@@ -13,7 +13,7 @@
     "ice-wraith",
     "living-bones",
     "living-doom",
-    "reluctant-ghost"
+    "reluctant-ghost-section-149.3"
   ],
   "rooms": [
     {
@@ -41,7 +41,7 @@
           "player4": "elite"
         },
         {
-          "name": "reluctant-ghost",
+          "name": "reluctant-ghost-section-149.3",
           "type": "boss"
         }
       ]

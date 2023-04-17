@@ -1,0 +1,19 @@
+{
+  "name": "vermling-scout-scenario-94",
+  "edition": "fh",
+  "abilities": [
+    {
+      "name": "Flee",
+      "cardId": 752,
+      "initiative": 99,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    }
+  ]
+}
