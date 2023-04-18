@@ -251,6 +251,7 @@ export class StateManager {
             settings.browserNavigation = settingsManager.settings.browserNavigation;
             settings.debugRightClick = settingsManager.settings.debugRightClick;
             settings.disableAnimations = settingsManager.settings.disableAnimations;
+            settings.disableStatAnimations = settingsManager.settings.disableStatAnimations;
             settings.disableColumns = settingsManager.settings.disableColumns;
             settings.disableWakeLock = settingsManager.settings.disableWakeLock;
             settings.dragValues = settingsManager.settings.dragValues;

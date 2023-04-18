@@ -866,6 +866,24 @@ input[type="radio"] {
   color: var(--ghs-color-yellow) !important;
 }
 
+.ally,
+.allied {
+  font-family: var(--ghs-font-normal);
+  font-size: 1.1em;
+  margin: 0 0.1em;
+  position: relative;
+  bottom: 0.1em;
+
+  &.ally {
+    color: var(--ghs-color-blue);
+  }
+
+  &.allied {
+    color: var(--ghs-color-red);
+  }
+
+}
+
 .hint-container {
   position: relative;
   display: flex;
@@ -914,6 +932,10 @@ input[type="radio"] {
       .text {
         display: inline-block !important;
       }
+    }
+
+    .ghs-svg {
+      filter: var(--ghs-filter-gray);
     }
 
     .text {

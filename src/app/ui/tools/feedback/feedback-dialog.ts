@@ -26,7 +26,7 @@ export class FeedbackDialogComponent {
         scenario.index = index;
         scenario.monsters = gameManager.game.figures.filter((figure) => figure instanceof Monster).map((figure) => (figure as Monster).name);
         scenario.allies = gameManager.game.figures.filter((figure) => figure instanceof Monster && figure.isAlly).map((figure) => (figure as Monster).name);
-        scenario.confederates = gameManager.game.figures.filter((figure) => figure instanceof Monster && figure.isConfederated).map((figure) => (figure as Monster).name);
+        scenario.allied = gameManager.game.figures.filter((figure) => figure instanceof Monster && figure.isAllied).map((figure) => (figure as Monster).name);
         scenario.drawExtra = gameManager.game.figures.filter((figure) => figure instanceof Monster && figure.drawExtra).map((figure) => (figure as Monster).name);
         scenario.objectives = gameManager.game.figures.filter((figure) => figure instanceof Objective).map((figure) => {
             const objective = figure as Objective;

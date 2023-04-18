@@ -158,6 +158,18 @@ export class ScenarioManager {
               }
             })
           }
+
+          if (rewards.calenderSection)
+            rewards.calenderSection.forEach((calenderSection) => {
+              if (calenderSection.split('-').length > 1) {
+                const section = calenderSection.split('-')[0];
+                const week = gameManager.game.party.weeks + (+calenderSection.split('-')[1]) + ((!casual && scenario && gameManager.fhRules() && !linkedScenario) ? 1 : 0);
+                if (!gameManager.game.party.weekSections[week]) {
+                  gameManager.game.party.weekSections[week] = [];
+                }
+                gameManager.game.party.weekSections[week]?.push(section);
+              }
+            })
         }
 
         if (conclusionSection) {
@@ -221,7 +233,7 @@ export class ScenarioManager {
           let monster = gameManager.monsterManager.addMonsterByName(name, scenarioData.edition);
           if (monster) {
             monster.isAlly = scenarioData.allies && scenarioData.allies.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allies && gameManager.game.scenario.allies.indexOf(monsterName) != -1 || false;
-            monster.isConfederated = scenarioData.confederates && scenarioData.confederates.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.confederates && gameManager.game.scenario.confederates.indexOf(monsterName) != -1 || false;
+            monster.isAllied = scenarioData.allied && scenarioData.allied.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allied && gameManager.game.scenario.allied.indexOf(monsterName) != -1 || false;
             monster.drawExtra = scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.drawExtra && gameManager.game.scenario.drawExtra.indexOf(monsterName) != -1 || false;
           }
         });
@@ -256,7 +268,7 @@ export class ScenarioManager {
             let monster = gameManager.monsterManager.addMonsterByName(name, scenarioData.edition);
             if (monster) {
               monster.isAlly = scenarioData.allies && scenarioData.allies.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allies && gameManager.game.scenario.allies.indexOf(monsterName) != -1 || false;
-              monster.isConfederated = scenarioData.confederates && scenarioData.confederates.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.confederates && gameManager.game.scenario.confederates.indexOf(monsterName) != -1 || false;
+              monster.isAllied = scenarioData.allied && scenarioData.allied.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allied && gameManager.game.scenario.allied.indexOf(monsterName) != -1 || false;
               monster.drawExtra = scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.drawExtra && gameManager.game.scenario.drawExtra.indexOf(monsterName) != -1 || false;
             }
           }
@@ -331,12 +343,12 @@ export class ScenarioManager {
           } else {
             const monsterName = monsterStandeeData.name.split(':')[0];
             const isAlly = scenarioData.allies && scenarioData.allies.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allies && gameManager.game.scenario.allies.indexOf(monsterName) != -1 || false;
-            const isConfederated = scenarioData.confederates && scenarioData.confederates.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.confederates && gameManager.game.scenario.confederates.indexOf(monsterName) != -1 || false;
+            const isAllied = scenarioData.allied && scenarioData.allied.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allied && gameManager.game.scenario.allied.indexOf(monsterName) != -1 || false;
             const drawExtra = scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.drawExtra && gameManager.game.scenario.drawExtra.indexOf(monsterName) != -1 || false;
 
             const monster = gameManager.monsterManager.addMonsterByName(monsterStandeeData.name, scenarioData.edition);
             if (monster) {
-              const entity = gameManager.monsterManager.spawnMonsterEntity(monster, type, isAlly, isConfederated, drawExtra);
+              const entity = gameManager.monsterManager.spawnMonsterEntity(monster, type, isAlly, isAllied, drawExtra);
               if (entity) {
                 if (monsterStandeeData.marker) {
                   entity.marker = monsterStandeeData.marker;

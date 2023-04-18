@@ -20,10 +20,13 @@
       "actions": [
         {
           "type": "move",
-          "value": 3
-        },
-        {
-          "type": "jump"
+          "value": 3,
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
         }
       ]
     }

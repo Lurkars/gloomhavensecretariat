@@ -293,6 +293,7 @@
       "trigger": "Trigger"
     },
     "affect": "Affect",
+    "allied": "Allied",
     "ally": {
       ".": "Ally",
       "addEntity": {
@@ -467,7 +468,6 @@
         "hint": "Suffer %game.damage:X% at start of each turn. Remove when healed."
       }
     },
-    "confederated": "Confederated",
     "custom": {
       "advantage": "Advantage",
       "disadvantage": "Attackers gain Disadvantage",
@@ -927,6 +927,10 @@
     "rewards": {
       ".": "Rewards",
       "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> each",
+      "calenderSection": {
+        ".": "Section Links",
+        "add": "Add <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/section.svg\"> {0} in %number.{1}% weeks."
+      },
       "campaignSticker": "Campaign Sticker",
       "chooseItem": "Choose to gain one of the following",
       "collectiveGold": "{0} collective gold",
@@ -1140,11 +1144,11 @@
     },
     "alwaysHazardousTerrain": {
       ".": "Always Hazardous Terrain",
-      "hint": "Always apply Frosthaven rules for Hazardous Terrain calculation"
+      "hint": "Always apply Frosthaven rules for Hazardous Terrain calculation (Automatic enabled when playing Frosthaven)"
     },
     "alwaysFhSolo": {
       ".": "Always Frosthaven Solo Rules",
-      "hint": "Always apply Frosthaven rules for Solo level calculation"
+      "hint": "Always apply Frosthaven rules for Solo level calculation (Automatic enabled when playing Frosthaven)"
     },
     "alwaysLootApplyDialog": {
       ".": "Always show Loot Apply Dialog",
@@ -1152,7 +1156,7 @@
     },
     "alwaysLootDeck": {
       ".": "Always use Loot Deck",
-      "hint": "Show Loot Deck for every scenario"
+      "hint": "Show Loot Deck for every scenario (Automatic enabled when playing Frosthaven)"
     },
     "applyConditions": {
       ".": "Automatic apply conditions",
@@ -1251,6 +1255,10 @@
       ".": "Disable standees",
       "hint": "Do not display standees (when Hide stats is set, add normal and elite monster separate). This also disables unlocking rooms and automatic standees."
     },
+    "disableStatAnimations": {
+      ".": "Disable Stat Animation",
+      "hint": "Disable animation to highlight stats as %game.action.shield% or %game.action.retaliate%."
+    },
     "disabledTurnConfirmation": {
       ".": "Disable Round/Turn confirmation",
       "hint": "Disables the reminder when clicking \"%round.next%\" before all figures finished their turns. If %settings.expireConditions% or %settings.applyConditions% is active it will be automatically applied for all figures."
@@ -1345,7 +1353,7 @@
       "hint": "",
       "warning": {
         ".": "Your browser doesn't seem to support IndexedDB or you have restricted usage. Therefore the max. number of undos is limited to 50.",
-        "firefox": "On Firfox you can enable IndexedDB for private mode in <a href=\"about:config\" target=\"_blank\">about:config</a> with the key <i>dom.indexedDB.privateBrowsing.enabled</i>."
+        "firefox": "On Firefox you can enable IndexedDB for private mode in <a href=\"about:config\" target=\"_blank\">about:config</a> with the key <i>dom.indexedDB.privateBrowsing.enabled</i>."
       }
     },
     "monsters": {

@@ -105,6 +105,7 @@ export class ScenarioRewards {
   chooseItem: string[] = [];
   itemDesigns: string[] = [];
   events: string[] = [];
+  calenderSection: string[] = [];
   custom: string = "";
   ignoredBonus: string[] = [];
   hints: ScenarioRewardHints | undefined = undefined;
@@ -129,6 +130,7 @@ export class ScenarioRewardHints {
   chooseItem: string[] = [];
   itemDesigns: string[] = [];
   events: string[] = [];
+  calenderSection: string[] = [];
 }
 
 export class ScenarioRuleIdentifier {

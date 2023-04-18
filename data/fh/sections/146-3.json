@@ -29,16 +29,32 @@
         },
         {
           "type": "attack",
-          "value": "3+L"
-        },
-        {
-          "type": "condition",
-          "value": "brittle"
-        },
-        {
-          "type": "custom",
-          "value": "When this attack is performed, on the next round at initiative 99 instead perform: %game.action.heal%2 self",
-          "small": true
+          "value": "3+L",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "brittle",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "When this attack is performed, on the next round at initiative 99 instead perform:",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "heal",
+                  "value": 2,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     }

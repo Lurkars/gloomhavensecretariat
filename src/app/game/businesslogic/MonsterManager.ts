@@ -315,9 +315,9 @@ export class MonsterManager {
     return monsterEntity;
   }
 
-  spawnMonsterEntity(monster: Monster, type: MonsterType, isAlly: boolean = false, isConfederated: boolean = false, drawExtra: boolean = false, summon: boolean = false): MonsterEntity | undefined {
+  spawnMonsterEntity(monster: Monster, type: MonsterType, isAlly: boolean = false, isAllied: boolean = false, drawExtra: boolean = false, summon: boolean = false): MonsterEntity | undefined {
     monster.isAlly = isAlly;
-    monster.isConfederated = isConfederated;
+    monster.isAllied = isAllied;
     monster.drawExtra = drawExtra;
     const monsterCount = this.monsterStandeeMax(monster);
     if (settingsManager.settings.automaticStandees && this.monsterStandeeCount(monster) < monsterCount) {

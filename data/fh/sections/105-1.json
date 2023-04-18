@@ -22,11 +22,13 @@
         },
         {
           "type": "attack",
-          "value": "L+2"
-        },
-        {
-          "type": "custom",
-          "value": "Attacks are unaffected by %game.action.retaliate%"
+          "value": "L+2",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Attacks are unaffected by %game.action.retaliate%"
+            }
+          ]
         }
       ]
     }

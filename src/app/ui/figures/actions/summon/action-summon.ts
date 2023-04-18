@@ -199,7 +199,7 @@ export class ActionSummonComponent implements OnChanges {
             const monster = gameManager.monsterManager.addMonsterByName(spawn.monster.name, this.monster && this.monster.edition || gameManager.currentEdition());
             if (monster) {
               for (let i = 0; i < count; i++) {
-                const entity = gameManager.monsterManager.spawnMonsterEntity(monster, spawn.monster.type, monster.isAlly, monster.isConfederated, monster.drawExtra, !this.isSpawn);
+                const entity = gameManager.monsterManager.spawnMonsterEntity(monster, spawn.monster.type, monster.isAlly, monster.isAllied, monster.drawExtra, !this.isSpawn);
                 if (entity) {
                   const tag = this.getTag(index);
                   entity.tags = entity.tags || [];

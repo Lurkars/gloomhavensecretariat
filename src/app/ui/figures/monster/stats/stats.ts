@@ -41,6 +41,18 @@ export class MonsterStatsComponent implements OnInit {
 
   ngOnInit(): void {
     this.setStats();
+    if (settingsManager.settings.disableStatAnimations) {
+      this.highlightActions = [];
+    }
+    gameManager.uiChange.subscribe({
+      next: () => {
+        if (settingsManager.settings.disableStatAnimations) {
+          this.highlightActions = [];
+        } else {
+          this.highlightActions = [ActionType.shield, ActionType.retaliate];
+        }
+      }
+    })
   }
 
   hideStats(type: MonsterType) {
@@ -86,9 +98,9 @@ export class MonsterStatsComponent implements OnInit {
     gameManager.stateManager.after();
   }
 
-  toggleConfederated() {
-    gameManager.stateManager.before(this.monster.isConfederated ? "unsetConfederated" : "setConfederated", "data.monster." + this.monster.name);
-    this.monster.isConfederated = !this.monster.isConfederated;
+  toggleallied() {
+    gameManager.stateManager.before(this.monster.isAllied ? "unsetallied" : "setallied", "data.monster." + this.monster.name);
+    this.monster.isAllied = !this.monster.isAllied;
     gameManager.stateManager.after();
   }
 

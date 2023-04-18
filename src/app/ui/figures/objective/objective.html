@@ -72,7 +72,7 @@
     </div>
 
     <div class="actions" *ngIf="objectiveData && objectiveData.actions" (click)="openEntityMenu($event)">
-      <ghs-action *ngFor="let action of objectiveData.actions" [objective]="objective" [action]="action"></ghs-action>
+      <ghs-actions [actions]="objectiveData.actions" [objective]="objective"></ghs-actions>
     </div>
 
     <span class="spacer" (click)="openEntityMenu($event)"></span>

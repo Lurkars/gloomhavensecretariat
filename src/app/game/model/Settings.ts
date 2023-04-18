@@ -35,6 +35,7 @@ export class Settings {
   disabledTurnConfirmation: boolean = false;
   disableSortFigures: boolean = false;
   disableStandees: boolean = false;
+  disableStatAnimations: boolean = false;
   disableWakeLock: boolean = false;
   dragValues: boolean = true;
   editionDataUrls: string[] = [];

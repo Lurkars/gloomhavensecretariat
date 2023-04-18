@@ -15,11 +15,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "When suffering damage but not destroyed:"
-        },
-        {
-          "type": "summon",
-          "value": "black-imp:normal"
+          "value": "When suffering damage but not destroyed:",
+          "subActions": [
+            {
+              "type": "summon",
+              "value": "black-imp:normal"
+            }
+          ]
         }
       ]
     }

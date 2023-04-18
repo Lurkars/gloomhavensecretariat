@@ -160,16 +160,12 @@
 
   .actions {
     width: calc(var(--ghs-unit) * 30);
+    height: calc(var(--ghs-unit) * 11);
+    margin: calc(var(--ghs-unit) * 1.5) 0;
     margin-left: calc(var(--ghs-unit) * 1);
-    padding-top: calc(var(--ghs-unit) * 2.5);
     display: flex;
-    flex-wrap: wrap;
-    font-family: var(--ghs-font-normal);
     font-size: calc(var(--ghs-unit) * 2.5);
-
-    ghs-action {
-      margin: 0 calc(var(--ghs-unit) * 0.5);
-    }
+    overflow: auto;
   }
 
   .markers {
