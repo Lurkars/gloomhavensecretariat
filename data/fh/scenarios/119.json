@@ -24,34 +24,38 @@
         {
           "type": "custom",
           "value": "At end of turn, spend dust to:",
-          "small": true
-        },
-        {
-          "type": "custom",
-          "value": "Spend 1: %game.action.move%2",
-          "small": true
-        },
-        {
-          "type": "custom",
-          "value": "Spend 2:",
-          "small": true
-        },
-        {
-          "type": "heal",
-          "value": "L+2",
           "small": true,
           "subActions": [
             {
-              "type": "specialTarget",
-              "value": "self",
+              "type": "custom",
+              "value": "Spend 1: %game.action.move%2",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Spend 2:",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "heal",
+                  "value": "L+2",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "Spend 5: Convert monster within %game.action.range%2",
               "small": true
             }
           ]
-        },
-        {
-          "type": "custom",
-          "value": "Spend 5: Covert monster within %game.action.range%2",
-          "small": true
         }
       ]
     }

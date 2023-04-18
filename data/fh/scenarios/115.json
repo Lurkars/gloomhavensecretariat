@@ -14,7 +14,14 @@
     {
       "name": "Ice Pillar",
       "escort": true,
-      "health": "L+3"
+      "health": "L+3",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "When destroyed, replace with rubble and all figures in adjacent hexes suffer trap damage",
+          "small": true
+        }
+      ]
     }
   ],
   "lootDeckConfig": {

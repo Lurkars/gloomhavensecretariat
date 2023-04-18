@@ -3,8 +3,7 @@
   "name": "Work Freeze",
   "edition": "fh",
   "parent": "114",
-  "marker": "b",
-  "resetRound": "hidden",
+  "marker": "1",
   "monsters": [
     "hound",
     "polar-bear",
@@ -29,6 +28,27 @@
       "spawns": [
         {
           "monster": {
+            "name": "hound",
+            "player2": "normal",
+            "player3": "elite"
+          },
+          "marker": "e"
+        },
+        {
+          "monster": {
+            "name": "polar-bear",
+            "player4": "normal"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
             "name": "snow-imp",
             "player2": "normal",
             "player3": "elite",
@@ -42,27 +62,6 @@
             "player4": "elite"
           },
           "marker": "f"
-        }
-      ]
-    },
-    {
-      "round": "R % 2 == 1",
-      "start": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "hound",
-            "player2": "normal",
-            "player3": "elite"
-          },
-          "marker": "e"
-        },
-        {
-          "monster": {
-            "name": "polar-bear",
-            "player4": "normal"
-          },
-          "marker": "e"
         }
       ]
     },

@@ -20,6 +20,25 @@
     "rockroot": 2,
     "axenut": 1
   },
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "hound-scenario-112"
+          },
+          "type": "dead",
+          "value": "1"
+        }
+      ],
+      "finish": "lost"
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
