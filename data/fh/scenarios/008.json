@@ -6,6 +6,9 @@
     "15",
     "16"
   ],
+  "rewards": {
+    "custom": "Place map overlay sticker X on map in location X (C7)"
+  },
   "monsters": [
     "polar-bear",
     "snow-imp"

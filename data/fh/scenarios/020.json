@@ -5,6 +5,9 @@
   "unlocks": [
     "31"
   ],
+  "rewards": {
+    "gold": 15
+  },
   "monsters": [
     "flaming-bladespinner",
     "ruined-machine",

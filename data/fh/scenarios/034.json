@@ -3,6 +3,11 @@
   "index": "34",
   "name": "Top of the Spire",
   "edition": "fh",
+  "rewards": {
+    "campaignSticker": [
+      "Coral Shard"
+    ]
+  },
   "monsters": [
     "chaos-spark",
     "lord-of-chaos"

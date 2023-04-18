@@ -9,6 +9,14 @@
   "blocks": [
     "28"
   ],
+  "rewards": {
+    "campaignSticker": [
+      "Destroyer of the Icespeakers"
+    ],
+    "events": [
+      "winter-outpost:WO-68"
+    ]
+  },
   "monsters": [
     "algox-icespeaker",
     "algox-priest",

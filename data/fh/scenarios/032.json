@@ -2,6 +2,11 @@
   "index": "32",
   "name": "Ravens' Roost",
   "edition": "fh",
+  "rewards": {
+    "campaignSticker": [
+      "Into the Forest"
+    ]
+  },
   "monsters": [
     "frozen-corpse-scenario-32"
   ],

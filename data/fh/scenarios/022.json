@@ -5,6 +5,9 @@
   "unlocks": [
     "33"
   ],
+  "rewards": {
+    "experience": 15
+  },
   "monsters": [
     "lurker-clawcrusher",
     "lurker-wavethrower"

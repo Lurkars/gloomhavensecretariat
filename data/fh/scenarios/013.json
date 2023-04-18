@@ -6,6 +6,11 @@
     "21",
     "32"
   ],
+  "rewards": {
+    "items": [
+      "233"
+    ]
+  },
   "monsters": [
     "shrike-fiend"
   ],

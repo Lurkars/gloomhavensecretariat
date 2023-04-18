@@ -13,7 +13,8 @@
     "4B"
   ],
   "rewards": {
-    "battleGoals": 1
+    "battleGoals": 1,
+    "custom": "Place map overlay sticker W on map in location W (M7)."
   },
   "monsters": [
     "algox-archer",

@@ -5,6 +5,11 @@
   "unlocks": [
     "42"
   ],
+  "rewards": {
+    "items": [
+      "244"
+    ]
+  },
   "monsters": [
     "black-imp",
     "shrike-fiend"

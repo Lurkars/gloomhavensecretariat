@@ -10,6 +10,9 @@
   "blocks": [
     "25"
   ],
+  "rewards": {
+    "experience": 10
+  },
   "monsters": [
     "ancient-artillery",
     "ruined-machine",
