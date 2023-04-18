@@ -10,7 +10,10 @@
     "130"
   ],
   "monsters": [
-    "city-guard"
+    "city-guard-scenario-129"
+  ],
+  "allies": [
+    "city-guard-scenario-129"
   ],
   "lootDeckConfig": {
     "money": 10,
@@ -20,26 +23,35 @@
     "axenut": 1,
     "snowthistle": 1
   },
+  "rules": [
+    {
+      "round": "R == 4",
+      "start": true,
+      "sections": [
+        "148.5"
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
       "initial": true,
       "monster": [
         {
-          "name": "city-guard",
+          "name": "city-guard-scenario-129",
           "type": "elite"
         },
         {
-          "name": "city-guard",
+          "name": "city-guard-scenario-129",
           "type": "elite"
         },
         {
-          "name": "city-guard",
+          "name": "city-guard-scenario-129",
           "player2": "elite",
           "player3": "elite"
         },
         {
-          "name": "city-guard",
+          "name": "city-guard-scenario-129",
           "player2": "elite"
         }
       ]

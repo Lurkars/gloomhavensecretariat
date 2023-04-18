@@ -3,9 +3,26 @@
   "name": "How to Lay an Ambush",
   "edition": "fh",
   "parent": "129",
+  "marker": "1",
   "monsters": [
     "algox-guard",
     "algox-scout"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "All Algox Scouts, then Algox Guards, immediately perform %game.action.move%9 focusing on moving toward %game.mapMarker.a%"
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "154.2"
+      ]
+    }
   ],
   "rooms": [
     {
@@ -28,7 +45,6 @@
         },
         {
           "name": "algox-scout",
-          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         }

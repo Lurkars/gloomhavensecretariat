@@ -16,6 +16,12 @@
         {
           "edition": "fh",
           "scenario": "105",
+          "index": 0,
+          "section": false
+        },
+        {
+          "edition": "fh",
+          "scenario": "105",
           "index": 1,
           "section": false
         },
@@ -35,7 +41,21 @@
     },
     {
       "round": "true",
-      "start": true,
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "air",
+          "state": "strong"
+        },
+        {
+          "type": "fire",
+          "state": "always"
+        }
+      ]
+    },
+    {
+      "round": "true",
       "figures": [
         {
           "identifier": {
@@ -44,12 +64,6 @@
           },
           "type": "damage",
           "value": "1"
-        }
-      ],
-      "elements": [
-        {
-          "type": "fire",
-          "state": "strong"
         }
       ]
     }

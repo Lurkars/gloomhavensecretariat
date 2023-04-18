@@ -3,6 +3,12 @@
   "name": "Tower of Knowledge",
   "edition": "fh",
   "parent": "134",
+  "parentSections": [
+    [
+      "11.6",
+      "30.5"
+    ]
+  ],
   "monsters": [
     "steel-automaton-scenario-134"
   ],

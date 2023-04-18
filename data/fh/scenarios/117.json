@@ -32,6 +32,23 @@
           "scenarioEffect": true
         }
       ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "polar-bear-scenario-117"
+          },
+          "type": "killed",
+          "value": "3"
+        }
+      ],
+      "finish": "lost"
     }
   ],
   "rooms": [

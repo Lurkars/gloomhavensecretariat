@@ -45,6 +45,26 @@
   },
   "rules": [
     {
+      "round": "R % 2 == 1",
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "player2": "normal",
+            "player3": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "polar-bear",
+            "player4": "normal"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
       "round": "R % 2 == 0",
       "spawns": [
         {
@@ -62,26 +82,6 @@
             "player4": "elite"
           },
           "marker": "d"
-        }
-      ]
-    },
-    {
-      "round": "R % 2 == 1",
-      "spawns": [
-        {
-          "monster": {
-            "name": "hound",
-            "player2": "normal",
-            "player3": "elite"
-          },
-          "marker": "c"
-        },
-        {
-          "monster": {
-            "name": "polar-bear",
-            "player4": "normal"
-          },
-          "marker": "c"
         }
       ]
     },

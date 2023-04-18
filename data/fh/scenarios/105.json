@@ -38,39 +38,21 @@
       "elements": [
         {
           "type": "air",
-          "state": "strong"
+          "state": "always"
         }
       ]
     },
     {
       "round": "R % 3 == 1",
-      "note": "All characters and character summons in row %game.element.air%, in right-to-left order, move one hex to the right. Move the %game.element.air% token to %game.mapMarker.b%",
-      "elements": [
-        {
-          "type": "air",
-          "state": "strong"
-        }
-      ]
+      "note": "All characters and character summons in row %game.element.air%, in right-to-left order, move one hex to the right.<br>Move the %game.element.air% token to %game.mapMarker.b%"
     },
     {
       "round": "R % 3 == 2",
-      "note": "All characters and character summons in row %game.element.air%, in right-to-left order, move one hex to the right. Move the %game.element.air% token to %game.mapMarker.c%",
-      "elements": [
-        {
-          "type": "air",
-          "state": "strong"
-        }
-      ]
+      "note": "All characters and character summons in row %game.element.air%, in right-to-left order, move one hex to the right.<br>Move the %game.element.air% token to %game.mapMarker.c%"
     },
     {
       "round": "R % 3 == 0",
-      "note": "All characters and character summons in row %game.element.air%, in right-to-left order, move one hex to the right. Move the %game.element.air% token to %game.mapMarker.a%",
-      "elements": [
-        {
-          "type": "air",
-          "state": "strong"
-        }
-      ]
+      "note": "All characters and character summons in row %game.element.air%, in right-to-left order, move one hex to the right.<br>Move the %game.element.air% token to %game.mapMarker.a%"
     }
   ],
   "rooms": [

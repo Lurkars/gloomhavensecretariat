@@ -3,6 +3,13 @@
   "name": "Bolt",
   "edition": "fh",
   "parent": "133",
+  "parentSections": [
+    [
+      "173.3",
+      "186.1"
+    ]
+  ],
+  "marker": "3",
   "monsters": [
     "polar-bear"
   ],
