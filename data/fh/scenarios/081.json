@@ -11,6 +11,10 @@
     "ruined-machine",
     "steel-automaton"
   ],
+  "allied": [
+    "aesther-ashblade",
+    "aesther-scout"
+  ],
   "objectives": [
     {
       "name": "Door 1",
