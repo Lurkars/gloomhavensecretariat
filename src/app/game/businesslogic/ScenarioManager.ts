@@ -338,16 +338,13 @@ export class ScenarioManager {
         }
 
         if (type) {
-          if (settingsManager.settings.disableStandees) {
-            gameManager.monsterManager.addMonsterByName(monsterStandeeData.name, scenarioData.edition);
-          } else {
-            const monsterName = monsterStandeeData.name.split(':')[0];
-            const isAlly = scenarioData.allies && scenarioData.allies.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allies && gameManager.game.scenario.allies.indexOf(monsterName) != -1 || false;
-            const isAllied = scenarioData.allied && scenarioData.allied.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allied && gameManager.game.scenario.allied.indexOf(monsterName) != -1 || false;
-            const drawExtra = scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.drawExtra && gameManager.game.scenario.drawExtra.indexOf(monsterName) != -1 || false;
-
-            const monster = gameManager.monsterManager.addMonsterByName(monsterStandeeData.name, scenarioData.edition);
-            if (monster) {
+          const monsterName = monsterStandeeData.name.split(':')[0];
+          const isAlly = scenarioData.allies && scenarioData.allies.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allies && gameManager.game.scenario.allies.indexOf(monsterName) != -1 || false;
+          const isAllied = scenarioData.allied && scenarioData.allied.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allied && gameManager.game.scenario.allied.indexOf(monsterName) != -1 || false;
+          const drawExtra = scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.drawExtra && gameManager.game.scenario.drawExtra.indexOf(monsterName) != -1 || false;
+          const monster = gameManager.monsterManager.addMonsterByName(monsterStandeeData.name, scenarioData.edition);
+          if (monster) {
+            if (!settingsManager.settings.disableStandees || !monster.entities.find((entity) => entity.type == type)) {
               const entity = gameManager.monsterManager.spawnMonsterEntity(monster, type, isAlly, isAllied, drawExtra);
               if (entity) {
                 if (monsterStandeeData.marker) {
@@ -516,6 +513,22 @@ export class ScenarioManager {
             return count > 0;
           } else {
             return !this.game.party.achievementsList.find((partyAchievement) => partyAchievement.toLowerCase().trim() == achivement.toLowerCase().trim())
+          }
+        })
+        ||
+        achivements.campaignSticker && achivements.campaignSticker.some((achivement) => {
+          if (achivement.startsWith('!')) {
+            return this.game.party.campaignStickers.find((campaignSticker) => campaignSticker.toLowerCase().trim() == achivement.substring(1, achivement.length).toLowerCase().trim());
+          } else if (achivement.indexOf(':') != 0) {
+            let count = +achivement.split(':')[1];
+            this.game.party.campaignStickers.forEach((campaignSticker) => {
+              if (campaignSticker.toLowerCase().trim() == achivement.split(':')[0].toLowerCase().trim()) {
+                count--;
+              }
+            })
+            return count > 0;
+          } else {
+            return !this.game.party.campaignStickers.find((campaignSticker) => campaignSticker.toLowerCase().trim() == achivement.toLowerCase().trim())
           }
         })) || false;
   }

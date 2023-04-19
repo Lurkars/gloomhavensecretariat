@@ -253,10 +253,10 @@
       }
     }
 
-    .map-marker {
+    .placeholder-marker {
       position: absolute;
-      top: 0;
-      right: 0;
+      top: calc(var(--ghs-unit) * -1);
+      right: calc(var(--ghs-unit) * -1);
       font-size: calc(var(--ghs-unit) * 3.5);
     }
 

@@ -108,6 +108,7 @@ import { PartyBuildingsComponent } from './ui/header/party/buildings/buildings';
 import { ScenarioTreasuresDialogComponent } from './ui/footer/scenario/treasures/treasures-dialog';
 import { TreasureLabelComponent } from './ui/footer/scenario/treasures/label/label';
 import { StatsListComponent } from './ui/footer/scenario/dialog/abilities/stats-list';
+import { KeyboardShortcuts } from './ui/helper/keyboard-shortcuts';
 
 import 'hammerjs'
 
@@ -163,6 +164,7 @@ export class GhsErrorHandler extends ErrorHandler {
     EditorActionComponent, EditorActionDialogComponent,
     DeckEditorComponent, CharacterEditorComponent, MonsterEditorComponent,
     GhsTooltipComponent, GhsTooltipDirective,
+    KeyboardShortcuts,
     FeedbackToolComponent, FeedbackDialogComponent],
   imports: [
     BrowserModule,

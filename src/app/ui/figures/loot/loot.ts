@@ -21,6 +21,7 @@ export class LootComponent implements OnInit, OnChanges {
     @Input() edit: boolean = false;
     @Input() looted: boolean = false;
     @Input() highlight: boolean = true;
+    @Input() apply: boolean = true;
     @Input() character: string = "";
 
     gameManager: GameManager = gameManager;

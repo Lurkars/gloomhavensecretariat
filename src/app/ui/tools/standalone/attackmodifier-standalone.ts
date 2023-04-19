@@ -17,6 +17,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
     async ngOnInit() {
         await settingsManager.init(!environment.production);
         gameManager.stateManager.init();
+        gameManager.game.figures.forEach((figure) => figure.active = false);
         gameManager.uiChange.emit();
         if (gameManager.game.state != GameState.next) {
             gameManager.roundManager.nextGameState(true);
@@ -38,10 +39,13 @@ export class AttackModifierStandaloneComponent implements OnInit {
 
 
     next() {
+        gameManager.stateManager.before("draw");
         if (gameManager.game.state == GameState.next) {
             gameManager.roundManager.nextGameState(true);
         }
         gameManager.roundManager.nextGameState(true);
+        gameManager.game.figures.forEach((figure) => figure.active = false);
+        gameManager.stateManager.after();
     }
 }
 

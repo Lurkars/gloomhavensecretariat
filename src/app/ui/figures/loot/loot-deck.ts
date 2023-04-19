@@ -119,7 +119,7 @@ export class LootDeckComponent implements OnInit {
             }
 
             const loot = this.deck.cards[this.deck.current];
-            if (local && loot && appliableLootTypes.indexOf(loot.type) != null && settingsManager.settings.applyLoot && gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.gameplayFigure(figure)) && (!gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) || settingsManager.settings.alwaysLootApplyDialog)) {
+            if (local && loot && appliableLootTypes.indexOf(loot.type) != null && settingsManager.settings.applyLoot && !this.standalone && gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.gameplayFigure(figure)) && (!gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) || settingsManager.settings.alwaysLootApplyDialog)) {
                 const dialog = this.dialog.open(LootApplyDialogComponent, {
                     panelClass: 'dialog',
                     data: { loot: loot }
@@ -211,7 +211,8 @@ export class LootDeckComponent implements OnInit {
                     deck: this.deck,
                     characters: this.characters,
                     before: this.before,
-                    after: this.after
+                    after: this.after,
+                    apply: !this.standalone
                 }
             });
         }

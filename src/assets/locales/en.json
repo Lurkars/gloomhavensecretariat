@@ -598,7 +598,10 @@
             "city": "add City Event {0} to the deck",
             "rift": "add Rift Event {0} to the deck",
             "road": "add Road Event {0} to the deck",
-            "winter-outpost": "add event {0} to the winter outpost deck"
+            "summer-outpost": "add event {0} to the summer outpost deck",
+            "summer-road": "add event {0} to the summer road deck",
+            "winter-outpost": "add event {0} to the winter outpost deck",
+            "winter-road": "add event {0} to the winter road deck"
           },
           "experience": "gain {0} experience",
           "experienceFh": "gain {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
@@ -933,13 +936,17 @@
       },
       "campaignSticker": "Campaign Sticker",
       "chooseItem": "Choose to gain one of the following",
+      "chooseLocation": "Choose to unlock only one of the following",
       "collectiveGold": "{0} collective gold",
       "envelope": "Open envelope {0}",
       "event": {
         "city": "Add City Event {0} to the deck",
         "rift": "Add Rift Event {0} to the deck",
         "road": "Add Road Event {0} to the deck",
-        "winter-outpost": "Add event {0} to the winter outpost deck"
+        "summer-outpost": "Add event {0} to the summer outpost deck",
+        "summer-road": "Add event {0} to the summer road deck",
+        "winter-outpost": "Add event {0} to the winter outpost deck",
+        "winter-road": "Add event {0} to the winter road deck"
       },
       "experience": "{0} experience each",
       "globalAchievements": "Global Achievements",

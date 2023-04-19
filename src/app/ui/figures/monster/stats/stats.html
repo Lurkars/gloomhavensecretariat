@@ -4,6 +4,11 @@
   <div #levelButton (click)="openLevelDialog()" class="level" title="{{'game.level' | ghsLabel}}">{{monster.level}}
   </div>
 
+  <div *ngIf="settingsManager.settings.disableStandees && hideStats(MonsterType.normal)" class="filter-stats normal">
+  </div>
+  <div *ngIf="settingsManager.settings.disableStandees && hideStats(MonsterType.elite)" class="filter-stats elite">
+  </div>
+
   <div class="name-container" ghs-drag-click (singleClick)="openStatsPopup()" (doubleClick)="openStatPopup()"
     [disabled]="noClick">
     <span class="name">
@@ -17,9 +22,8 @@
     <span class="catching" *ngIf="monster.catching"><img class="ghs-svg" src="./assets/images/fh/catching.svg"></span>
   </div>
 
-  <span class="toggle-ally" [ngClass]="{'ally' : monster.isAlly, 'allied' : monster.isAllied}"
-    ghs-drag-click (singleClick)="toggleAlly()" (doubleClick)="toggleallied()"><img
-      src="./assets/images/monster/enemy.png" /></span>
+  <span class="toggle-ally" [ngClass]="{'ally' : monster.isAlly, 'allied' : monster.isAllied}" ghs-drag-click
+    (singleClick)="toggleAlly()" (doubleClick)="toggleallied()"><img src="./assets/images/monster/enemy.png" /></span>
 
   <div class="stats boss" *ngIf="monster.boss"
     [ngClass]="{'hidden' : hideStats(MonsterType.boss), 'range' : hideStats(MonsterType.boss) || statsForType(MonsterType.boss).range}">

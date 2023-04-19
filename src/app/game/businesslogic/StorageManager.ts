@@ -1,4 +1,5 @@
 import { GameModel } from "../model/Game";
+import { Settings } from "../model/Settings";
 
 export class StorageManager {
 
@@ -238,7 +239,7 @@ export class StorageManager {
     const settingsString: string | null = localStorage.getItem("ghs-settings");
     if (settingsString) {
       let settings = JSON.parse(settingsString);
-      this.write('settings', 'default', settings).then(() => {
+      this.write('settings', 'default', Object.assign(new Settings(), settings)).then(() => {
         localStorage.removeItem('ghs-settings');
       }).catch();
     }

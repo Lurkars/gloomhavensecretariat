@@ -7,7 +7,7 @@ import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ScenarioRewards } from "src/app/game/model/data/ScenarioRule";
 import { Identifier } from "src/app/game/model/data/Identifier";
 import { LootType } from "src/app/game/model/data/Loot";
-import { Scenario } from "src/app/game/model/Scenario";
+import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
 import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/character-sheet";
 
 
@@ -35,6 +35,7 @@ export class ScenarioSummaryComponent {
     rewardItems: ItemData[] = [];
     rewardItemCount: number[] = [];
     items: number[][] = [];
+    chooseLocation: string | undefined;
     rewards: ScenarioRewards | undefined = undefined;
 
     constructor(@Inject(DIALOG_DATA) data: { scenario: Scenario, success: boolean, conclusion: ScenarioData | undefined }, private dialogRef: DialogRef, private dialog: Dialog) {
@@ -61,7 +62,7 @@ export class ScenarioSummaryComponent {
         this.updateState()
     }
 
-    updateState(forceCampaign : boolean = false): void {
+    updateState(forceCampaign: boolean = false): void {
         this.forceCampaign = forceCampaign;
         if ((gameManager.game.party.campaignMode || forceCampaign) && this.success) {
             if (this.conclusion) {
@@ -89,6 +90,9 @@ export class ScenarioSummaryComponent {
                         }
 
                     })
+                }
+                if (this.rewards.chooseLocation && this.rewards.chooseLocation.length > 0) {
+                    this.chooseLocation = this.rewards.chooseLocation[0];
                 }
             }
         }
@@ -190,6 +194,10 @@ export class ScenarioSummaryComponent {
                     })
                 }
             })
+
+            if (this.chooseLocation) {
+                gameManager.game.party.manualScenarios.push(new GameScenarioModel(this.chooseLocation, this.scenario.edition, this.scenario.group));
+            }
         }
         gameManager.scenarioManager.finishScenario(this.success, this.conclusion, false, undefined, this.casual && !this.forceCampaign);
         gameManager.stateManager.after(1000);

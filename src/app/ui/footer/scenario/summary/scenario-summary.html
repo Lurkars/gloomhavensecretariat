@@ -204,15 +204,26 @@
           </div>
         </div>
 
-        <div class="reward locations" *ngIf="scenario.unlocks && scenario.unlocks.length > 0">
-          <label>{{(scenario.unlocks.length > 1 ? 'scenario.rewards.locations' :
+        <div class="reward locations"
+          *ngIf="scenario.unlocks && scenario.unlocks.length > 0 || rewards && rewards.chooseLocation.length > 0">
+          <label>{{(scenario.unlocks && scenario.unlocks.length > 1 || rewards && rewards.chooseLocation.length > 1 ?
+            'scenario.rewards.locations' :
             'scenario.rewards.location') | ghsLabel}}:</label>
-          <div class="list">
+          <div class="list" *ngIf="scenario.unlocks">
             <div class="item location" *ngFor="let location of scenario.unlocks; let i = index;">
               {{'data.scenario.' + gameManager.scenarioManager.getScenario(location,scenario.edition,
               scenario.group)?.name | ghsLabel}} <span [i18n]="'%data.scenarioNumber:' + location+ '%'"></span>
               <span *ngIf="scenario.unlocks.length > 1 && i < scenario.unlocks.length - 1">,</span>
             </div>
+          </div>
+          <div class="list" *ngIf="rewards && rewards.chooseLocation.length > 1">
+            <div class="item">{{'scenario.rewards.chooseLocation' | ghsLabel}}:</div>
+
+            <label class="item location choose" *ngFor="let location of rewards.chooseLocation; let i = index;">
+              <input type="radio" name="chooseLocation" [(ngModel)]="chooseLocation" [value]="location">
+              {{'data.scenario.' + gameManager.scenarioManager.getScenario(location,scenario.edition,
+              scenario.group)?.name | ghsLabel}} <span [i18n]="'%data.scenarioNumber:' + location+ '%'"></span>
+            </label>
           </div>
         </div>
         <div class="reward locations"
@@ -228,7 +239,7 @@
           </div>
         </div>
         <div class="reward achievements"
-          *ngIf="rewards && rewards.globalAchievements && rewards.globalAchievements.length >0">
+          *ngIf="rewards && rewards.globalAchievements && rewards.globalAchievements.length > 0">
           <label>{{'scenario.rewards.globalAchievements' | ghsLabel}}:</label>
           <div class="list">
             <div class="item achievement" *ngFor="let achievement of rewards.globalAchievements; let i = index;">

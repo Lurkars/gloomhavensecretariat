@@ -1,5 +1,5 @@
 <ghs-header #header></ghs-header>
-<main [ngClass]="{'compact' : footer.compact}">
+<main [ngClass]="{'compact' : footer.compact}" ghs-keyboard-shortcuts [footer]="footer">
   <div
     *ngIf="gameManager.stateManager.updateBlocked && settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword"
     class="dialog blocked">

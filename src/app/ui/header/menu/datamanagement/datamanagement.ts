@@ -237,7 +237,7 @@ export class DatamanagementMenuComponent implements OnInit {
           } else if (key === 'game') {
             storageManager.write('game', 'default', datadump[key]);
           } else if (key === 'settings') {
-            storageManager.write('settings', 'default', datadump[key]);
+            storageManager.write('settings', 'default', Object.assign(new Settings(), datadump[key]));
           } else if (key === 'undo') {
             storageManager.writeArray('undo', datadump[key]);
           } else if (key === 'redo') {

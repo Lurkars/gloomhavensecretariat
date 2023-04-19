@@ -48,7 +48,7 @@
 
     <div class="enhancements" *ngIf="enhancements">
       <div class="loot-container" *ngFor="let loot of enhancementDeck">
-        <ghs-loot class="drag-hidden" [loot]="loot" [flipped]="true" [highlight]="false">
+        <ghs-loot class="drag-hidden" [loot]="loot" [flipped]="true" [highlight]="false" [apply]="apply">
         </ghs-loot>
         <a class="button-enhance" (click)="enhanceCard(loot)" [title]="'game.loot.enhancements.add' | ghsLabel">
           <img class="ghs-svg" src="./assets/images/fh/loot/plus1.svg">
@@ -67,7 +67,7 @@
         <div class="empty" *ngIf="upcomingCards().length == 0"></div>
         <div class="loot-container" *ngFor="let loot of upcomingCards(); let index = index" cdkDrag>
           <ghs-loot class="drag-hidden" [loot]="loot" [reveal]="true" [flipped]="reveal == 2"
-            [index]="deck.current + index +1" [character]="getCharacter(deck.current + index +1)">
+            [index]="deck.current + index +1" [character]="getCharacter(deck.current + index +1)" [apply]="apply">
           </ghs-loot>
           <a class="button-remove" *ngIf="edit" (click)="remove(index + deck.current + 1)">
             <img class="ghs-svg" src="./assets/images/minus.svg"></a>
@@ -82,7 +82,7 @@
 
         <div class="loot-container" *ngFor="let loot of disgardedCards(); let index = index" cdkDrag>
           <ghs-loot class="drag-hidden" [loot]="loot" [flipped]="true" [index]="deck.current - index"
-            [character]="getCharacter(deck.current - index)" [edit]="edit" [looted]="true"></ghs-loot>
+            [character]="getCharacter(deck.current - index)" [edit]="edit" [looted]="true" [apply]="apply"></ghs-loot>
           <a class="button-remove" *ngIf="edit" (click)="remove(deck.current - index)">
             <img class="ghs-svg" src="./assets/images/minus.svg"></a>
           <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>

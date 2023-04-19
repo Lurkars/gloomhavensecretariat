@@ -1,5 +1,6 @@
 import { ElementModel } from "./Element";
 import { AdditionalIdentifier } from "./Identifier";
+import { LootType } from "./Loot";
 import { MonsterStandeeData } from "./RoomData";
 
 export class ScenarioRule {
@@ -103,9 +104,21 @@ export class ScenarioRewards {
   battleGoals: number = 0;
   items: string[] = [];
   chooseItem: string[] = [];
+  chooseLocation: string[] = [];
   itemDesigns: string[] = [];
   events: string[] = [];
+  itemBlueprints: string[] = [];
+  randomItemBlueprint: number = 0;
+  morale: number | string = "";
+  inspiration: number | string = "";
+  resources: Partial<Record<LootType, number | string>> = {};
+  loseResources: Partial<Record<LootType, number | string>> = {};
+  collectiveResources: Partial<Record<LootType, number | string>> = {};
+  loseCollectiveResources: Partial<Record<LootType, number | string>> = {};
   calenderSection: string[] = [];
+  townGuardAm: string[] = []; // TODO
+  unlockClass: string = "";
+  chooseUnlockClass: string[] = [];
   custom: string = "";
   ignoredBonus: string[] = [];
   hints: ScenarioRewardHints | undefined = undefined;
@@ -128,9 +141,21 @@ export class ScenarioRewardHints {
   battleGoals: string = "";
   items: string[] = [];
   chooseItem: string[] = [];
+  chooseLocation: string[] = [];
   itemDesigns: string[] = [];
   events: string[] = [];
+  itemBlueprints: string[] = [];
+  randomItemBlueprint: string = "";
+  morale: string = "";
+  inspiration: string = "";
+  resources: Partial<Record<LootType, string>> = {};
+  loseResources: Partial<Record<LootType, string>> = {};
+  collectiveResources: Partial<Record<LootType, string>> = {};
+  loseCollectiveResources: Partial<Record<LootType, string>> = {};
   calenderSection: string[] = [];
+  townGuardAm: string[] = [];
+  unlockClass: string = "";
+  chooseUnlockClass: string[] = [];
 }
 
 export class ScenarioRuleIdentifier {

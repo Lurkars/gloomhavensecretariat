@@ -181,7 +181,7 @@
       max-height: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
       padding-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
 
-      .map-marker {
+      .placeholder-marker {
         margin-top: calc(var(--ghs-unit) * 1.3 * var(--ghs-text-factor));
         font-size: calc(var(--ghs-unit) * 3.2 * var(--ghs-text-factor));
       }

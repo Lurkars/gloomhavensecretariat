@@ -7,8 +7,9 @@
             <span class="number" *ngIf="deck.current < deck.cards.length -1" (click)="open($event)">{{
                 deck.cards.length - deck.current - 1}}</span>
             <span class="number" *ngIf="deck.cards.length == 0" (click)="open($event)">0</span>
-            <img [title]="'game.cards.fullscreen' | ghsLabel" *ngIf="fullscreen && !compact && this.deck.cards.length > 0"
-                (click)="openFullscreen($event)" class="fullscreen" src="./assets/images/fullscreen.svg">
+            <img [title]="'game.cards.fullscreen' | ghsLabel"
+                *ngIf="fullscreen && !compact && this.deck.cards.length > 0" (click)="openFullscreen($event)"
+                class="fullscreen" src="./assets/images/fullscreen.svg">
         </div>
     </div>
 
@@ -17,8 +18,8 @@
             [style.z-index]="index > current ? deck.cards.length - index : deck.cards.length + index + 1"
             [ngClass]="{'disgarded' : index < current - 1, 'current' : index == current, 'last' : index == current - 1, 'bottom' : bottom}">
             <ghs-loot class="loot-card" [loot]="card" [flipped]="index <= current" [looted]="index <= current"
-                [index]="index" [disableFlip]="!drawing || index != current"
-                [character]="getCharacter(index)"></ghs-loot>
+                [index]="index" [disableFlip]="!drawing || index != current" [character]="getCharacter(index)"
+                [apply]="!standalone"></ghs-loot>
         </div>
     </ng-container>
 </div>

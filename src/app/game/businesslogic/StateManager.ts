@@ -268,7 +268,7 @@ export class StateManager {
             settings.theme = settingsManager.settings.theme;
             settings.zoom = settingsManager.settings.zoom;
 
-            settingsManager.setSettings(settings);
+            settingsManager.setSettings(Object.assign(new Settings(), settings));
             storageManager.write('settings', 'default', settingsManager.settings);
             setTimeout(() => {
               window.document.body.classList.remove('server-sync');

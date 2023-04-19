@@ -15,12 +15,12 @@ import { LootDeckChange } from "./loot-deck";
 })
 export class LootDeckDialogComponent implements OnInit {
 
-
   @ViewChild('menu') menuElement!: ElementRef;
   gameManager: GameManager = gameManager;
   GameState = GameState;
   reveal: number = 0;
   edit: boolean = false;
+  apply: boolean = true;
   maxHeight: string = "";
 
   deck: LootDeck;
@@ -39,11 +39,12 @@ export class LootDeckDialogComponent implements OnInit {
 
   enhancementDeck: Loot[] = [];
 
-  constructor(@Inject(DIALOG_DATA) public data: { deck: LootDeck, characters: boolean, before: EventEmitter<LootDeckChange>, after: EventEmitter<LootDeckChange> }, public dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) public data: { deck: LootDeck, characters: boolean, before: EventEmitter<LootDeckChange>, after: EventEmitter<LootDeckChange>, apply: boolean }, public dialogRef: DialogRef) {
     this.deck = data.deck;
     this.characters = data.characters;
     this.before = data.before;
     this.after = data.after;
+    this.apply = data.apply;
   };
 
   ngOnInit(): void {

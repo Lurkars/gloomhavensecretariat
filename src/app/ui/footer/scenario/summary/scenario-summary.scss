@@ -227,6 +227,19 @@
           margin: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
         }
 
+        &.choose {
+          cursor: pointer;
+          color: var(--ghs-color-white);
+          justify-content: flex-start;
+          font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+          font-family: var(--ghs-font-text);
+
+          input[type="radio"] {
+            width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+            height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+          }
+        }
+
         a {
           cursor: pointer;
           font-family: var(--ghs-font-normal);

@@ -1,6 +1,6 @@
-<div class="loot-deck-standalone" [ngClass]="{'vertical'  : vertical()}">
+<div class="loot-deck-standalone" [ngClass]="{'vertical'  : vertical()}" ghs-keyboard-shortcuts>
     <ghs-header [standalone]="true"></ghs-header>
     <ghs-loot-deck [deck]="gameManager.game.lootDeck" [fullscreen]="false" [standalone]="true" [vertical]="vertical()"
-        (before)="beforeLootDeck($event)" (after)="afterLootDeck($event)">
+        (before)="beforeLootDeck($event)" (after)="afterLootDeck($event)" [characters]="false">
     </ghs-loot-deck>
 </div>

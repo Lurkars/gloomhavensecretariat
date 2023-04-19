@@ -37,7 +37,7 @@ export class SettingsManager {
     try {
       let settings = await storageManager.read<Settings>('settings', 'default');
       if (settings) {
-        this.setSettings(settings);
+        this.setSettings(Object.assign(new Settings(), settings));
       } else {
         loadDefault = true;
       }

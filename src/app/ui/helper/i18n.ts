@@ -119,7 +119,12 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         const monsterType = split[2];
         replace = '<span class="placeholder-monster-type ' + monsterType + '">' + settingsManager.getLabel('game.monster.' + monsterType) + '</span>';
       } else if (type == "mapMarker" && split.length == 3) {
-        replace = '<span class="map-marker">' + split[2] + '</span>';
+        if (split[2] == ('element')) {
+          image = '<img src="./assets/images/element/' + value + '.svg">';
+          replace = '<span class="placeholder-element">' + image + '</span>';
+        } else {
+          replace = '<span class="map-marker">' + split[2] + '</span>';
+        }
       } else if (type == "objectiveMarker" && split.length == 3) {
         replace = '<span class="objective-marker">' + split[2] + '</span>';
       } else if (type == "scenarioNumber") {

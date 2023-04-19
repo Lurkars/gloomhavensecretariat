@@ -1,5 +1,5 @@
 import { CdkDragDrop, CdkDragEnter, CdkDragExit, CdkDragRelease, CdkDragStart, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GameState } from 'src/app/game/model/Game';
@@ -9,13 +9,11 @@ import { Character } from '../game/model/Character';
 import { FooterComponent } from './footer/footer';
 import { SubMenu } from './header/menu/menu';
 import { Monster } from '../game/model/Monster';
-import { Objective } from '../game/model/Objective';
 import { Figure } from '../game/model/Figure';
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { MonsterNumberPickerDialog } from './figures/monster/dialogs/numberpicker-dialog';
 import { MonsterType } from '../game/model/data/MonsterType';
 import { storageManager } from '../game/businesslogic/StorageManager';
-import { AttackModifierDeck } from '../game/model/data/AttackModifier';
 
 @Component({
   selector: 'ghs-main',
@@ -39,24 +37,16 @@ export class MainComponent implements OnInit {
   cancelLoading: boolean = false;
   welcome: boolean = false;
   fullviewChar: Character | undefined;
-  scrollTimeout: any = null;
-  zoomInterval: any = null;
-  currentZoom: number = 0;
 
   draggingEnabled: boolean = false;
   draggingeTimeout: any = null;
   isTouch: boolean = false;
-  dialogOpen: boolean = false;
 
   standeeDialog: DialogRef<unknown, MonsterNumberPickerDialog> | undefined;
 
   @ViewChild('footer') footer!: FooterComponent;
 
   constructor(private element: ElementRef, private swUpdate: SwUpdate, private dialog: Dialog) {
-
-    dialog.afterOpened.subscribe({ next: () => this.dialogOpen = true });
-    dialog.afterAllClosed.subscribe({ next: () => this.dialogOpen = false });
-
     gameManager.uiChange.subscribe({
       next: () => {
 
@@ -133,8 +123,6 @@ export class MainComponent implements OnInit {
     document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
     document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
 
-    this.currentZoom = settingsManager.settings.zoom;
-
     const figure = this.figures.find((figure) => figure instanceof Character && figure.fullview);
     if (figure) {
       this.fullviewChar = figure as Character;
@@ -169,70 +157,6 @@ export class MainComponent implements OnInit {
       }
     });
 
-    window.addEventListener('keydown', (event: KeyboardEvent) => {
-      if (!this.dialogOpen && !event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
-        if (event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'z') {
-          gameManager.stateManager.undo();
-          event.preventDefault();
-        } else if (event.ctrlKey && !event.shiftKey && event.key === 'y' || event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'z') {
-          gameManager.stateManager.redo();
-          event.preventDefault();
-        } else if (!event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key === 'ArrowUp') {
-          this.zoom(-1);
-          this.zoomInterval = setInterval(() => {
-            this.zoom(-1);
-          }, 30);
-          event.preventDefault();
-        } else if (!event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key === 'ArrowDown') {
-          this.zoom(1);
-          this.zoomInterval = setInterval(() => {
-            this.zoom(1);
-          }, 30);
-          event.preventDefault();
-        } else if (event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'r') {
-          this.currentZoom = 100;
-          settingsManager.setZoom(this.currentZoom);
-          document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
-          event.preventDefault();
-        } else if (!event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'n') {
-          if (!this.footer.disabled()) {
-            this.footer.next();
-          }
-        } else if (!event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'm') {
-          const activeFigure = gameManager.game.figures.find((figure) => figure.active);
-          let deck: AttackModifierDeck | undefined = undefined;
-          if (!activeFigure || activeFigure instanceof Monster && (!activeFigure.isAlly && !activeFigure.isAllied || !gameManager.fhRules() && !settingsManager.settings.alwaysAllyAttackModifierDeck || !settingsManager.settings.allyAttackModifierDeck)) {
-            deck = gameManager.game.monsterAttackModifierDeck;
-          } else if (activeFigure instanceof Monster) {
-            deck = gameManager.game.allyAttackModifierDeck;
-          } else if (activeFigure instanceof Character) {
-            if (activeFigure.attackModifierDeckVisible) {
-              deck = activeFigure.attackModifierDeck;
-            } else {
-              activeFigure.attackModifierDeckVisible = true;
-            }
-          }
-
-          if (deck) {
-            gameManager.attackModifierManager.drawModifier(deck);
-            gameManager.uiChange.emit();
-          }
-
-        } else if (!event.ctrlKey && gameManager.game.state == GameState.next && event.key === 'Tab') {
-          this.toggleEntity(event.shiftKey);
-          event.preventDefault();
-        }
-      }
-    })
-
-    window.addEventListener('keyup', (event: KeyboardEvent) => {
-      if (this.zoomInterval && (event.key === 'ArrowUp' || event.key === 'ArrowDown')) {
-        clearInterval(this.zoomInterval);
-        this.zoomInterval = null;
-        settingsManager.setZoom(this.currentZoom);
-      }
-    })
-
     if (!settingsManager.settings.disableWakeLock && "wakeLock" in navigator) {
       gameManager.stateManager.wakeLock = await navigator.wakeLock.request("screen");
 
@@ -242,105 +166,6 @@ export class MainComponent implements OnInit {
         }
       });
     }
-  }
-
-  toggleEntity(reverse: boolean) {
-    const figures = this.figures.filter((figure) => gameManager.gameplayFigure(figure));
-    let activeFigure = figures.find((figure) => figure.active);
-
-    if (!activeFigure && reverse) {
-      activeFigure = figures[figures.length - 1];
-    } else if (activeFigure && reverse && figures.indexOf(activeFigure) > 0) {
-      activeFigure = figures[figures.indexOf(activeFigure) - 1];
-    }
-
-    if (activeFigure) {
-      if (activeFigure instanceof Character) {
-        let toggleFigure = true;
-        if (settingsManager.settings.activeSummons) {
-          const summons = activeFigure.summons.filter((summon) => gameManager.entityManager.isAlive(summon));
-          let activeSummon = summons.find((summon) => summon.active);
-          if (!activeSummon && summons.length > 0 && reverse && activeFigure.active) {
-            activeSummon = summons[summons.length - 1];
-            gameManager.stateManager.before("summonActive", "data.character." + activeFigure.name, "data.summon." + activeSummon.name);
-            activeSummon.active = true;
-            toggleFigure = false;
-            gameManager.stateManager.after();
-          } else if (activeSummon && !reverse) {
-            gameManager.stateManager.before("summonInactive", "data.character." + activeFigure.name, "data.summon." + activeSummon.name);
-            activeSummon.active = false;
-            if (summons.indexOf(activeSummon) < summons.length - 1) {
-              summons[summons.indexOf(activeSummon) + 1].active = true;
-            }
-            toggleFigure = false;
-            gameManager.stateManager.after();
-          }
-        }
-        if (toggleFigure) {
-          gameManager.stateManager.before(activeFigure.active ? "unsetActive" : "setActive", "data.character." + activeFigure.name);
-          gameManager.roundManager.toggleFigure(activeFigure);
-          gameManager.stateManager.after();
-        }
-      } else if (activeFigure instanceof Monster) {
-        let toggleFigure = true;
-        const entities = activeFigure.entities.filter((entity) => gameManager.entityManager.isAlive(entity));
-        if (settingsManager.settings.activeStandees) {
-          let activeEntity = entities.find((entity) => entity.active);
-          if (!activeEntity && entities.length > 0 && reverse && activeFigure.active) {
-            activeEntity = entities[entities.length - 1];
-            gameManager.stateManager.before(activeEntity ? "unsetEntityActive" : "setEntityActive", "data.monster." + activeFigure.name, "monster." + activeEntity.type, "" + activeEntity.number);
-            gameManager.monsterManager.toggleActive(activeFigure, activeEntity);
-            activeEntity.active = true;
-            toggleFigure = false;
-            gameManager.stateManager.after();
-          } else if (activeEntity && !reverse) {
-            gameManager.stateManager.before(activeEntity ? "unsetEntityActive" : "setEntityActive", "data.monster." + activeFigure.name, "monster." + activeEntity.type, "" + activeEntity.number);
-            gameManager.monsterManager.toggleActive(activeFigure, activeEntity);
-            if (entities.indexOf(activeEntity) < entities.length - 1) {
-              entities[entities.indexOf(activeEntity) + 1].active = true;
-            }
-            toggleFigure = false;
-            gameManager.stateManager.after();
-          }
-        }
-        if (toggleFigure) {
-          gameManager.stateManager.before(activeFigure.active ? "unsetActive" : "setActive", "data.monster." + activeFigure.name);
-          if (reverse && !activeFigure.active && settingsManager.settings.activeStandees) {
-            activeFigure.entities.forEach((entity) => {
-              if (gameManager.entityManager.isAlive(entity)) {
-                entity.active = true;
-                entity.off = false;
-              }
-            });
-          }
-          gameManager.roundManager.toggleFigure(activeFigure);
-          gameManager.stateManager.after();
-        }
-      } else if (activeFigure instanceof Objective) {
-        gameManager.stateManager.before(activeFigure.active ? "unsetActive" : "setActive", activeFigure.title || activeFigure.name);
-        gameManager.roundManager.toggleFigure(activeFigure);
-        gameManager.stateManager.after();
-      }
-    }
-  }
-
-  @HostListener('pinchmove', ['$event'])
-  pinchmove(event: any) {
-    if (event.scale < 1) {
-      this.zoom(1);
-    } else {
-      this.zoom(-1);
-    }
-  }
-
-  @HostListener('pinchend', ['$event'])
-  pinchend(event: any) {
-    settingsManager.setZoom(this.currentZoom);
-  }
-
-  zoom(value: number) {
-    this.currentZoom += value;
-    document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
   }
 
   startCampaign(edition: string) {

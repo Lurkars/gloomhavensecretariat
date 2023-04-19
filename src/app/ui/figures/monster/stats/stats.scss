@@ -635,6 +635,27 @@
       }
     }
   }
+
+  .filter-stats {
+    display: none; // TODO: improve look
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--ghs-color-darkgray);
+    opacity: 0.4;
+    z-index: 3;
+
+    &.normal {
+      right: 50%;
+    }
+
+    &.elite {
+      left: 50%;
+      right: 0;
+    }
+  }
 }
 
 :host.stats-editor {

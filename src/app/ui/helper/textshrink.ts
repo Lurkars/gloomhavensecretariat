@@ -18,7 +18,7 @@ export class TextShrinkDirective implements AfterViewChecked {
 
     const parent = this.el.nativeElement.parentElement;
 
-    while (!overflow && i < (this.keepCurrent ? window.getComputedStyle(this.el.nativeElement, null).getPropertyValue('font-size') : 100)) {
+    while (!overflow && i < (this.keepCurrent ? +window.getComputedStyle(this.el.nativeElement, null).getPropertyValue('font-size') : 100)) {
       this.el.nativeElement.style.fontSize = i + "px";
       overflow = !this.ignoreWidth && this.el.nativeElement.clientWidth > parent.clientWidth || !this.ignoreHeight && this.el.nativeElement.clientHeight > parent.clientHeight;
 

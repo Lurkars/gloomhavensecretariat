@@ -3,11 +3,13 @@
   "name": "Temple of the Seer",
   "gridLocation": "N:3:53:72",
   "edition": "gh",
-  "unlocks": [
-    "15",
-    "17",
-    "20"
-  ],
+  "rewards": {
+    "chooseLocation": [
+      "15",
+      "17",
+      "20"
+    ]
+  },
   "monsters": [
     "cave-bear",
     "living-spirit",
