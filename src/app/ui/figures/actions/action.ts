@@ -187,7 +187,7 @@ export class ActionComponent implements OnInit {
           break;
       }
 
-      if (sign && this.action.value && (typeof this.action.value === 'number' || this.action.value.match(EntityExpressionRegex) || this.action.value.match(EntityValueRegex))) {
+      if (sign && (this.action.value || this.action.value == 0) && (typeof this.action.value === 'number' || this.action.value.match(EntityExpressionRegex) || this.action.value.match(EntityValueRegex))) {
         if (this.action.valueType == ActionValueType.plus) {
           return statValue + EntityValueFunction(this.action.value);
         } else if (this.action.valueType == ActionValueType.minus) {
