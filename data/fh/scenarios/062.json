@@ -6,6 +6,9 @@
   "unlocks": [
     "63"
   ],
+  "rewards": {
+    "prosperity": 1
+  },
   "monsters": [
     "chaos-demon",
     "harrower-infester"

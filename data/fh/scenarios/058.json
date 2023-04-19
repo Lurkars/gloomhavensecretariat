@@ -6,6 +6,20 @@
   "blocks": [
     "59"
   ],
+  "rewards": {
+    "morale": 1,
+    "campaignSticker": [
+      "Unfettered Deactivated"
+    ],
+    "items": [
+      "246"
+    ],
+    "events": [
+      "winter-outpost:WO-64",
+      "winter-outpost:WO-65"
+    ],
+    "custom": "Unlock %game.characterIcon.prism% class box"
+  },
   "monsters": [
     "flaming-bladespinner",
     "orphan",

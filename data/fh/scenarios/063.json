@@ -9,6 +9,9 @@
   "forcedLinks": [
     "64"
   ],
+  "rewards": {
+    "prosperity": 2
+  },
   "monsters": [
     "earth-demon",
     "flame-demon",

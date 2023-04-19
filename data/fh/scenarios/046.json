@@ -6,6 +6,10 @@
   "unlocks": [
     "52"
   ],
+  "rewards": {
+    "morale": 1,
+    "experience": 10
+  },
   "monsters": [
     "burrowing-blade",
     "shrike-fiend"

@@ -6,6 +6,12 @@
     "49",
     "50"
   ],
+  "rewards": {
+    "campaignSticker": [
+      "Coral Shard"
+    ],
+    "battleGoals": 2
+  },
   "monsters": [
     "deep-terror",
     "ooze"

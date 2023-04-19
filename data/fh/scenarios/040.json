@@ -6,6 +6,10 @@
   "unlocks": [
     "48"
   ],
+  "rewards": {
+    "inspiration": -1,
+    "custom": "Gain 2 additional loot cards each"
+  },
   "monsters": [
     "algox-guard",
     "ruined-machine",

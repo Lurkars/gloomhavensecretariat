@@ -9,6 +9,9 @@
   "links": [
     "56"
   ],
+  "rewards": {
+    "gold": 10
+  },
   "monsters": [
     "algox-icespeaker",
     "shrike-fiend"

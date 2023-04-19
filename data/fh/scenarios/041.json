@@ -3,6 +3,13 @@
   "index": "41",
   "name": "Unfettered Shard",
   "edition": "fh",
+  "rewards": {
+    "campaignSticker": [
+      "Coral Shard"
+    ],
+    "gold": 15,
+    "custom": "Read Section #36.7 now"
+  },
   "monsters": [
     "deep-terror",
     "living-doom",

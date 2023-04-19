@@ -7,6 +7,11 @@
     "45",
     "46"
   ],
+  "rewards": {
+    "inspiration": 1,
+    "experience": 10,
+    "battleGoals": 1
+  },
   "monsters": [
     "hound",
     "polar-bear"

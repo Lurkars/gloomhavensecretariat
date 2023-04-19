@@ -11,6 +11,9 @@
     "58",
     "59"
   ],
+  "rewards": {
+    "experience": 10
+  },
   "monsters": [
     "ancient-artillery",
     "steel-automaton"

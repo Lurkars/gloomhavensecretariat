@@ -3,6 +3,12 @@
   "index": "64",
   "name": "The Frosthaven Seal",
   "edition": "fh",
+  "rewards": {
+    "morale": 3,
+    "prosperity": 3,
+    "battleGoals": 3,
+    "custom": "Open the scenario flowchart window to the right of The Frozen Seal (64) and apply the sticker over the completed scenario"
+  },
   "monsters": [
     "burrowing-blade",
     "guard-captain",

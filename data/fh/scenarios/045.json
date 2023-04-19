@@ -6,6 +6,10 @@
   "unlocks": [
     "52"
   ],
+  "rewards": {
+    "morale": 1,
+    "battleGoals": 1
+  },
   "monsters": [
     "abael-herder",
     "abael-scout",
