@@ -346,9 +346,15 @@ export class EntityManager {
 
   applyConditionsTurn(entity: Entity) {
 
+    const heal1 = false;
+    if (entity instanceof Character && entity.initiative >= 60 && entity.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '178')) {
+      // Tranquil shoes: Perform heal 1 when playing at initiative 60 or higher
+      heal1 = true;
+    }
+      
     const regenerateCondition = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state == EntityConditionState.normal && entityCondition.name == ConditionName.regenerate);
 
-    if (regenerateCondition) {
+    if (regenerateCondition || heal1) {
       const maxHealth = EntityValueFunction(entity.maxHealth);
       const heal = entity.entityConditions.every((entityCondition) => entityCondition.expired || entityCondition.types.indexOf(ConditionType.preventHeal) == -1) && entity.health < maxHealth;
 
@@ -366,18 +372,24 @@ export class EntityManager {
           clearHeal.expired = true;
           clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.permanent && !condition.expired);
         }
-        regenerateCondition.lastState = regenerateCondition.state;
-        regenerateCondition.state = EntityConditionState.expire;
-        entity.health += regenerateCondition.value;
+        if (regenerateCondition) {
+          regenerateCondition.lastState = regenerateCondition.state;
+          regenerateCondition.state = EntityConditionState.expire;
+          entity.health += regenerateCondition.value;
+        }
+        if(heal1){
+          entity.health += 1;
+        }
         if (entity.health > maxHealth) {
           entity.health = maxHealth;
         }
       }
-
-      regenerateCondition.highlight = true;
-      setTimeout(() => {
-        regenerateCondition.highlight = false;
-      }, 1000);
+      if (regenerateCondition) {
+        regenerateCondition.highlight = true;
+        setTimeout(() => {
+          regenerateCondition.highlight = false;
+        }, 1000);
+      }
     }
 
     entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.state == EntityConditionState.normal && entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => {
