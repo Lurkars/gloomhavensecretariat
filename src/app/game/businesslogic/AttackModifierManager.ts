@@ -21,7 +21,7 @@ export class AttackModifierManager {
     if (figure instanceof Character) {
       return figure.attackModifierDeck;
     } else if (figure instanceof Monster) {
-      return (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules()) && (figure.isAlly || figure.isConfederated) ? this.game.allyAttackModifierDeck : this.game.monsterAttackModifierDeck;
+      return (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules()) && (figure.isAlly || figure.isAllied) ? this.game.allyAttackModifierDeck : this.game.monsterAttackModifierDeck;
     }
 
     return new AttackModifierDeck();
@@ -29,7 +29,7 @@ export class AttackModifierManager {
 
   countUpcomingBlesses(): number {
     let count = 0;
-    if (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isConfederated))) {
+    if (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied))) {
       count += gameManager.game.allyAttackModifierDeck.cards.filter((attackModifier, index) => {
         return attackModifier.type == AttackModifierType.bless && index > gameManager.game.allyAttackModifierDeck.current;
       }).length;
@@ -55,7 +55,7 @@ export class AttackModifierManager {
     }
 
     let count = 0;
-    if (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isConfederated))) {
+    if (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied))) {
       count += gameManager.game.allyAttackModifierDeck.cards.filter((attackModifier, index) => {
         return attackModifier.type == AttackModifierType.curse && index > gameManager.game.allyAttackModifierDeck.current;
       }).length;
@@ -71,7 +71,7 @@ export class AttackModifierManager {
 
   countExtraMinus1(): number {
     let count = 0;
-    if (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isConfederated))) {
+    if (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied))) {
       count += gameManager.game.allyAttackModifierDeck.cards.filter((attackModifier) => {
         return attackModifier.type == AttackModifierType.minus1extra;
       }).length;

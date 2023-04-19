@@ -19,7 +19,7 @@ export class ScenarioData implements Editional, Spoilable {
   group: string | undefined;
   monsters: string[] = [];
   allies: string[] = [];
-  confederates: string[] = [];
+  allied: string[] = [];
   drawExtra: string[] = [];
   objectives: ObjectiveData[] = [];
   rooms: RoomData[] = [] = [];
@@ -57,7 +57,7 @@ export class ScenarioData implements Editional, Spoilable {
       this.group = scenarioData.group;
       this.monsters = scenarioData.monsters;
       this.allies = scenarioData.allies;
-      this.confederates = scenarioData.confederates;
+      this.allied = scenarioData.allied;
       this.drawExtra = scenarioData.drawExtra;
       this.objectives = scenarioData.objectives;
       this.rooms = scenarioData.rooms;

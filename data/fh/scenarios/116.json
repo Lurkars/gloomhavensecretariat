@@ -21,11 +21,13 @@
       "actions": [
         {
           "type": "move",
-          "value": "3"
-        },
-        {
-          "type": "custom",
-          "value": "Focus on moving towards %game.mapMarker.b%"
+          "value": "3",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Focus on moving towards %game.mapMarker.b%"
+            }
+          ]
         }
       ]
     }

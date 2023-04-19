@@ -192,6 +192,7 @@
       "trigger": "Auslöser"
     },
     "affect": "Visiere",
+    "allied": "Verbündet",
     "ally": {
       ".": "Verbündeter",
       "addEntity": {
@@ -366,7 +367,6 @@
         "hint": "Erleide %game.damage:X% zu Beginn jedes Zuges. Bei Heilung entfernen."
       }
     },
-    "confederated": "Konföderiert",
     "custom": {
       "advantage": "Vorteil",
       "disadvantage": "Angreifer erhalten Nachteil",
@@ -828,6 +828,10 @@
     "rewards": {
       ".": "Belohnungen",
       "battleGoals": "jeweils {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+      "calenderSection": {
+        ".": "Verlinkte Sektionen",
+        "add": "Füge <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/section.svg\"> {0} in %number.{1}% Wochen hinzu."
+      },
       "campaignSticker": "Kampagnenbogensticker",
       "chooseItem": "Wähle eines der folgenden aus",
       "collectiveGold": "{0} gemeinschaftliches Gold",
@@ -1041,11 +1045,11 @@
     },
     "alwaysHazardousTerrain": {
       ".": "Immer Gefährliches Gelände",
-      "hint": "Immer Frosthaven Regel für Gefährliches Gelände Berechnung anwenden"
+      "hint": "Immer Frosthaven Regel für Gefährliches Gelände Berechnung anwenden (Für Frosthaven automatisch immer aktiviert)"
     },
     "alwaysFhSolo": {
       ".": "Immer Frosthaven Solo Regeln",
-      "hint": "Immer Frosthaven Regel für Solo Levelberechnung anwenden"
+      "hint": "Immer Frosthaven Regel für Solo Levelberechnung anwenden (Für Frosthaven automatisch immer aktiviert)"
     },
     "alwaysLootApplyDialog": {
       ".": "Beute zuweisen Dialog immer anzeigen",
@@ -1053,7 +1057,7 @@
     },
     "alwaysLootDeck": {
       ".": "Immer Beute Deck verwenden",
-      "hint": "Beute Deck für jeden Szenario aktivieren"
+      "hint": "Beute Deck für jeden Szenario aktivieren (Für Frosthaven automatisch immer aktiviert)"
     },
     "applyConditions": {
       ".": "Zustände automatisch anweden",
@@ -1152,6 +1156,10 @@
     "disableStandees": {
       ".": "Aufsteller deaktivieren",
       "hint": "Blende alle Aufsteller aus (falls Werte ausblenden aktiviert ist, müssen normale und elite Monster separat hinzugefügt werden). Dies deaktiviert auch das freischalten von Räumen und das automatische Hinzufügen von Aufstellern."
+    },
+    "disableStatAnimations": {
+      ".": "Animation für Werte",
+      "hint": "Deaktiviert Animation zur Hervorhebung bestimmter Werte wie %game.action.shield% oder %game.action.retaliate%."
     },
     "disabledTurnConfirmation": {
       ".": "Runden/Zug Bestätigung deaktivieren",

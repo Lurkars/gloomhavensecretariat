@@ -293,6 +293,20 @@
           </span>
         </div>
       </div>
+
+      <div class="line">
+        <div class="hint-container">
+          <label>
+            <input type="checkbox" [checked]="settingsManager.settings.disableStatAnimations"
+              (change)="settingsManager.setDisableStatAnimations(!settingsManager.settings.disableStatAnimations)">
+            {{'settings.disableStatAnimations' | ghsLabel}}
+          </label>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <span class="hint">
+            <span class="text" [i18n]="'settings.disableStatAnimations.hint'"></span>
+          </span>
+        </div>
+      </div>
     </div>
   </ng-container>
 
@@ -507,11 +521,11 @@
         </span>
       </div>
     </div>
-    <div class="line" [ngClass]="{'disabled' : !settingsManager.settings.lootDeck}">
+    <div class="line">
       <div class="hint-container">
-        <label>
+        <label [ngClass]="{'disabled' : !settingsManager.settings.lootDeck || gameManager.fhRules()}">
           <input type="checkbox"
-            [checked]="settingsManager.settings.lootDeck && settingsManager.settings.alwaysLootDeck"
+            [checked]="settingsManager.settings.lootDeck && (settingsManager.settings.alwaysLootDeck || gameManager.fhRules())"
             (change)="settingsManager.setAlwaysLootDeck(!settingsManager.settings.alwaysLootDeck)">
           {{'settings.alwaysLootDeck' | ghsLabel}}
         </label>
@@ -541,8 +555,8 @@
 
     <div class="line">
       <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.alwaysHazardousTerrain"
+        <label [ngClass]="{'disabled' : gameManager.fhRules()}">
+          <input type="checkbox" [checked]="settingsManager.settings.alwaysHazardousTerrain || gameManager.fhRules()"
             (change)="settingsManager.setAlwaysHazardousTerrain(!settingsManager.settings.alwaysHazardousTerrain)">
           {{'settings.alwaysHazardousTerrain' | ghsLabel}}
         </label>
@@ -555,8 +569,8 @@
 
     <div class="line">
       <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.alwaysFhSolo"
+        <label [ngClass]="{'disabled' : gameManager.fhRules()}">
+          <input type="checkbox" [checked]="settingsManager.settings.alwaysFhSolo || gameManager.fhRules()"
             (change)="settingsManager.setAlwaysFhSolo(!settingsManager.settings.alwaysFhSolo)">
           {{'settings.alwaysFhSolo' | ghsLabel}}
         </label>

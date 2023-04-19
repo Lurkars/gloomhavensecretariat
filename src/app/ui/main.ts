@@ -15,6 +15,7 @@ import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { MonsterNumberPickerDialog } from './figures/monster/dialogs/numberpicker-dialog';
 import { MonsterType } from '../game/model/data/MonsterType';
 import { storageManager } from '../game/businesslogic/StorageManager';
+import { AttackModifierDeck } from '../game/model/data/AttackModifier';
 
 @Component({
   selector: 'ghs-main',
@@ -45,12 +46,17 @@ export class MainComponent implements OnInit {
   draggingEnabled: boolean = false;
   draggingeTimeout: any = null;
   isTouch: boolean = false;
+  dialogOpen: boolean = false;
 
   standeeDialog: DialogRef<unknown, MonsterNumberPickerDialog> | undefined;
 
   @ViewChild('footer') footer!: FooterComponent;
 
   constructor(private element: ElementRef, private swUpdate: SwUpdate, private dialog: Dialog) {
+
+    dialog.afterOpened.subscribe({ next: () => this.dialogOpen = true });
+    dialog.afterAllClosed.subscribe({ next: () => this.dialogOpen = false });
+
     gameManager.uiChange.subscribe({
       next: () => {
 
@@ -164,7 +170,7 @@ export class MainComponent implements OnInit {
     });
 
     window.addEventListener('keydown', (event: KeyboardEvent) => {
-      if (!event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT')) {
+      if (!this.dialogOpen && !event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
         if (event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'z') {
           gameManager.stateManager.undo();
           event.preventDefault();
@@ -192,6 +198,26 @@ export class MainComponent implements OnInit {
           if (!this.footer.disabled()) {
             this.footer.next();
           }
+        } else if (!event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'm') {
+          const activeFigure = gameManager.game.figures.find((figure) => figure.active);
+          let deck: AttackModifierDeck | undefined = undefined;
+          if (!activeFigure || activeFigure instanceof Monster && (!activeFigure.isAlly && !activeFigure.isAllied || !gameManager.fhRules() && !settingsManager.settings.alwaysAllyAttackModifierDeck || !settingsManager.settings.allyAttackModifierDeck)) {
+            deck = gameManager.game.monsterAttackModifierDeck;
+          } else if (activeFigure instanceof Monster) {
+            deck = gameManager.game.allyAttackModifierDeck;
+          } else if (activeFigure instanceof Character) {
+            if (activeFigure.attackModifierDeckVisible) {
+              deck = activeFigure.attackModifierDeck;
+            } else {
+              activeFigure.attackModifierDeckVisible = true;
+            }
+          }
+
+          if (deck) {
+            gameManager.attackModifierManager.drawModifier(deck);
+            gameManager.uiChange.emit();
+          }
+
         } else if (!event.ctrlKey && gameManager.game.state == GameState.next && event.key === 'Tab') {
           this.toggleEntity(event.shiftKey);
           event.preventDefault();

@@ -2,9 +2,11 @@
   "index": "114",
   "name": "Work Freeze",
   "edition": "fh",
-  "unlocks": [
-    "115"
-  ],
+  "rewards": {
+    "calenderSection": [
+      "86.1-4"
+    ]
+  },
   "monsters": [
     "hound",
     "polar-bear",

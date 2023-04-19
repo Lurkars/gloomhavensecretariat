@@ -242,7 +242,7 @@ export class ScenarioRulesComponent {
                             const monster = gameManager.monsterManager.addMonsterByName(spawn.monster.name, scenario.edition);
                             if (monster) {
                                 for (let i = 0; i < this.spawnCount(rule, spawn); i++) {
-                                    let entity = gameManager.monsterManager.spawnMonsterEntity(monster, type, scenario.allies && scenario.allies.indexOf(spawn.monster.name) != -1, scenario.confederates && scenario.confederates.indexOf(spawn.monster.name) != -1, scenario.drawExtra && scenario.drawExtra.indexOf(spawn.monster.name) != -1, spawn.summon);
+                                    let entity = gameManager.monsterManager.spawnMonsterEntity(monster, type, scenario.allies && scenario.allies.indexOf(spawn.monster.name) != -1, scenario.allied && scenario.allied.indexOf(spawn.monster.name) != -1, scenario.drawExtra && scenario.drawExtra.indexOf(spawn.monster.name) != -1, spawn.summon);
                                     if (entity) {
                                         if (spawn.monster.marker) {
                                             entity.marker = spawn.monster.marker;
@@ -422,7 +422,7 @@ export class ScenarioRulesComponent {
 
                                 monster.ability = figure.ability;
                                 monster.isAlly = figure.isAlly;
-                                monster.isConfederated = figure.isConfederated;
+                                monster.isAllied = figure.isAllied;
                                 monster.entities = figure.entities;
 
                                 monster.entities.forEach((entity) => {

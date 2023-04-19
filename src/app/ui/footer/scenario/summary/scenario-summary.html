@@ -185,7 +185,8 @@
               ? 'ignore' : 'reapply') |
               ghsLabel}}</a>
           </div>
-          <div class="item" *ngIf="(!casual || !gameManager.fhRules()) && !gameManager.game.party.campaignMode && !forceCampaign">
+          <div class="item"
+            *ngIf="(!casual || !gameManager.fhRules()) && !gameManager.game.party.campaignMode && !forceCampaign">
             <a (click)="updateState(true)">{{'scenario.summary.casualWarning.campaignRewards'
               | ghsLabel}}</a>
           </div>
@@ -271,6 +272,19 @@
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.campaignSticker && rewards.hints.campaignSticker[i]"
                 [i18n]="rewards.hints.campaignSticker[i]"></span>
+            </div>
+          </div>
+        </div>
+        <div class="reward achievements"
+          *ngIf="rewards && rewards.calenderSection && rewards.calenderSection.length > 0">
+          <label>{{'scenario.rewards.calenderSection' | ghsLabel}}:</label>
+          <div class="list">
+            <div class="item achievement" *ngFor="let calenderSection of rewards.calenderSection; let i = index;">
+              <span class="placeholder text-white" [i18n]="'scenario.rewards.calenderSection.add'"
+                [i18n-args]="[calenderSection.split('-')[0], calenderSection.split('-')[1]]"></span>
+              <span class="placeholder text-white hint"
+                *ngIf="rewards.hints && rewards.hints.calenderSection && rewards.hints.calenderSection[i]"
+                [i18n]="rewards.hints.calenderSection[i]"></span>
             </div>
           </div>
         </div>

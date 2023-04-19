@@ -1,8 +1,8 @@
 <div class="stats-dialog">
   <a class="close" (click)="dialogRef.close()" [title]="'close' | ghsLabel"><img src="./assets/images/close.svg"></a>
   <span class="name">{{'data.monster.' + monster.name | ghsLabel}}
-    <span *ngIf="monster.isAlly">({{'game.ally' | ghsLabel}})</span>
-    <span *ngIf="monster.isConfederated">({{'game.confederated' | ghsLabel}})</span>
+    <span class="ally" *ngIf="monster.isAlly">{{'game.ally' | ghsLabel}}</span>
+    <span class="allied" *ngIf="monster.isAllied">{{'game.allied' | ghsLabel}}</span>
     <span class="edition" *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span>
   </span>
   <div class="stats-container">

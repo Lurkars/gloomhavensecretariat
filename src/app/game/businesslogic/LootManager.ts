@@ -229,8 +229,8 @@ export class LootManager {
         break;
       case TreasureRewardType.calenderSection:
         if (reward.value && typeof reward.value === 'string' && reward.value.split('-').length > 1) {
-          const section = reward.value[0];
-          const week = gameManager.game.party.weeks + (+reward.value[1]);
+          const section = reward.value.split('-')[0];
+          const week = gameManager.game.party.weeks + (+reward.value.split('-')[1]);
           if (!gameManager.game.party.weekSections[week]) {
             gameManager.game.party.weekSections[week] = [];
           }

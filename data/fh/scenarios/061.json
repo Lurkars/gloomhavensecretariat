@@ -24,12 +24,14 @@
         },
         {
           "type": "attack",
-          "value": "L+1"
-        },
-        {
-          "type": "custom",
-          "small": true,
-          "value": "Attacks are unaffected by %game.action.retaliate%"
+          "value": "L+1",
+          "subActions": [
+            {
+              "type": "custom",
+              "small": true,
+              "value": "Attacks are unaffected by %game.action.retaliate%"
+            }
+          ]
         }
       ]
     }

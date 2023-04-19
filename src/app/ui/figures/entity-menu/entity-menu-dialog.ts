@@ -120,7 +120,7 @@ export class EntityMenuDialogComponent {
   }
 
   beforeAttackModifierDeck(change: AttackModiferDeckChange) {
-    gameManager.stateManager.before("updateAttackModifierDeck." + change.type, this.data.figure instanceof Character ? "data.character." + this.data.figure.name : (this.data.figure instanceof Monster && (this.data.figure.isAlly || this.data.figure.isConfederated) ? 'ally' : 'monster'), ...change.values);
+    gameManager.stateManager.before("updateAttackModifierDeck." + change.type, this.data.figure instanceof Character ? "data.character." + this.data.figure.name : (this.data.figure instanceof Monster && (this.data.figure.isAlly || this.data.figure.isAllied) ? 'ally' : 'monster'), ...change.values);
   }
 
   afterAttackModifierDeck(change: AttackModiferDeckChange) {
@@ -150,7 +150,7 @@ export class EntityMenuDialogComponent {
     if (value > 0) {
       if (type == AttackModifierType.bless && gameManager.attackModifierManager.countUpcomingBlesses() >= 10) {
         return;
-      } else if (type == AttackModifierType.curse && gameManager.attackModifierManager.countUpcomingCurses(this.data.figure instanceof Monster && !this.data.figure.isAlly && !this.data.figure.isConfederated) >= 10) {
+      } else if (type == AttackModifierType.curse && gameManager.attackModifierManager.countUpcomingCurses(this.data.figure instanceof Monster && !this.data.figure.isAlly && !this.data.figure.isAllied) >= 10) {
         return;
       }
       for (let i = 0; i < value; i++) {
@@ -185,7 +185,7 @@ export class EntityMenuDialogComponent {
   changeCurse(value: number) {
     if (this.data.figure instanceof Character || this.data.figure instanceof Monster) {
       this.curse += value;
-      const existing = gameManager.attackModifierManager.countUpcomingCurses(this.data.figure instanceof Monster && !this.data.figure.isAlly && !this.data.figure.isConfederated);
+      const existing = gameManager.attackModifierManager.countUpcomingCurses(this.data.figure instanceof Monster && !this.data.figure.isAlly && !this.data.figure.isAllied);
       if (this.curse + existing >= 10) {
         this.curse = 10 - existing;
       } else if (this.curse + existing < 0) {

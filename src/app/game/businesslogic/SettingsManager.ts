@@ -33,10 +33,19 @@ export class SettingsManager {
   }
 
   async loadSettings() {
+    let loadDefault = false;
     try {
-      const settings = await storageManager.read<Settings>('settings', 'default');
-      this.setSettings(settings);
+      let settings = await storageManager.read<Settings>('settings', 'default');
+      if (settings) {
+        this.setSettings(settings);
+      } else {
+        loadDefault = true;
+      }
     } catch {
+      loadDefault = true;
+    }
+
+    if (loadDefault) {
       try {
         await fetch('./ghs-settings-default.json')
           .then(response => {
@@ -47,7 +56,7 @@ export class SettingsManager {
           }).then((value: Settings) => {
             this.setSettings(Object.assign(new Settings(), value));
           });
-      } catch (error) {
+      } catch {
         this.setSettings(new Settings());
       }
     }
@@ -84,7 +93,7 @@ export class SettingsManager {
   }
 
   storeSettings(): void {
-    storageManager.write('settings','default', this.settings);
+    storageManager.write('settings', 'default', this.settings);
     if (this.settings.serverSettings) {
       gameManager.stateManager.saveSettings();
     }
@@ -271,6 +280,11 @@ export class SettingsManager {
 
   setDisableStandees(disableStandees: boolean) {
     this.settings.disableStandees = disableStandees;
+    this.storeSettings();
+  }
+
+  setDisableStatAnimations(disableStatAnimations: boolean) {
+    this.settings.disableStatAnimations = disableStatAnimations;
     this.storeSettings();
   }
 

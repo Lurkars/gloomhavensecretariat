@@ -198,7 +198,9 @@ export class StorageManager {
       datadump['undo-infos'] = await this.readAll('undo-infos');
       datadump['game-backup'] = await this.readAll('game-backup');
     } else {
-      console.warn("No IndexedDB, fallback to Local Storage");
+      if (!migrate) {
+        console.warn("No IndexedDB, fallback to Local Storage");
+      }
       for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         if (key) {
