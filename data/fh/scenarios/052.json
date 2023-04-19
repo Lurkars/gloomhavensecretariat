@@ -12,6 +12,10 @@
       "46"
     ]
   ],
+  "rewards": {
+    "morale": 1,
+    "inspiration": 1
+  },
   "monsters": [
     "frost-demon",
     "snow-imp"

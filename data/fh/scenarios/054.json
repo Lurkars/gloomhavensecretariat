@@ -6,6 +6,12 @@
   "unlocks": [
     "60"
   ],
+  "rewards": {
+    "campaignSticker": [
+      "Coral Shard"
+    ],
+    "battleGoals": 2
+  },
   "monsters": [
     "lightning-eel",
     "lurker-clawcrusher",

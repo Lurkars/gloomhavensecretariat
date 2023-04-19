@@ -9,6 +9,9 @@
   "links": [
     "57"
   ],
+  "rewards": {
+    "experience": 10
+  },
   "monsters": [
     "abael-scout",
     "wind-demon"

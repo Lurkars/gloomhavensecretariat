@@ -11,6 +11,9 @@
     "29",
     "30"
   ],
+  "rewards": {
+    "morale": -1
+  },
   "monsters": [
     "algox-archer",
     "algox-guard",

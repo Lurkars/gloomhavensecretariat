@@ -3,6 +3,15 @@
   "index": "60",
   "name": "Uniting the Crown",
   "edition": "fh",
+  "rewards": {
+    "morale": 2,
+    "campaignSticker": [
+      "Crown United"
+    ],
+    "experience": 30,
+    "prosperity": 1,
+    "custom": "Unlock whichever class box is still locked: <br>%game.characterIcon.coral% or %game.characterIcon.kelp%"
+  },
   "monsters": [
     "fracture-of-the-deep",
     "lightning-eel",

@@ -9,6 +9,9 @@
   "forcedLinks": [
     "51"
   ],
+  "rewards": {
+    "experience": 10
+  },
   "monsters": [
     "robotic-boltshooter",
     "ruined-machine",

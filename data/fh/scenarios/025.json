@@ -3,12 +3,14 @@
   "index": "25",
   "name": "Rusted Tunnels",
   "edition": "fh",
-  "unlocks": [
-    "35"
-  ],
   "blocks": [
     "26"
   ],
+  "rewards": {
+    "calenderSection": [
+      "128.2-4"
+    ]
+  },
   "monsters": [
     "flaming-bladespinner",
     "robotic-boltshooter"

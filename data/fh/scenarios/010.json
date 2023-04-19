@@ -5,6 +5,10 @@
   "unlocks": [
     "18"
   ],
+  "rewards": {
+    "morale": 1,
+    "inspiration": 1
+  },
   "monsters": [
     "algox-guard",
     "algox-priest"

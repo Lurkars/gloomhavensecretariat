@@ -9,6 +9,9 @@
   "forcedLinks": [
     "54"
   ],
+  "rewards": {
+    "inspiration": -2
+  },
   "monsters": [
     "lightning-eel",
     "lurker-clawcrusher",

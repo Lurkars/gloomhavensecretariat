@@ -5,6 +5,9 @@
   "unlocks": [
     "27"
   ],
+  "rewards": {
+    "battleGoals": 2
+  },
   "monsters": [],
   "objectives": [
     {

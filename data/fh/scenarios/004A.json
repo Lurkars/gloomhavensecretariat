@@ -2,11 +2,15 @@
   "index": "4A",
   "name": "Heart of Ice A",
   "edition": "fh",
+  "rewards": {
+    "morale": 1,
+    "prosperity": 1
+  },
   "monsters": [
     "algox-guard",
     "algox-scout"
   ],
-  "allies": [
+  "allied": [
     "algox-scout"
   ],
   "drawExtra": [

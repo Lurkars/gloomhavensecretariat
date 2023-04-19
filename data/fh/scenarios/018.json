@@ -2,10 +2,12 @@
   "index": "18",
   "name": "Crystal Fields",
   "edition": "fh",
-  "unlocks": [
-    "28",
-    "29"
-  ],
+  "rewards": {
+    "morale": 1,
+    "calenderSection": [
+      "122.3-4"
+    ]
+  },
   "monsters": [
     "frozen-corpse"
   ],

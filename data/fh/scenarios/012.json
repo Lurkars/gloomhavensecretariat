@@ -5,6 +5,9 @@
   "unlocks": [
     "20"
   ],
+  "rewards": {
+    "experience": 15
+  },
   "monsters": [
     "ancient-artillery"
   ],

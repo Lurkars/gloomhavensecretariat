@@ -8,6 +8,10 @@
   "forcedLinks": [
     "53"
   ],
+  "rewards": {
+    "inspiration": 1,
+    "experience": 5
+  },
   "monsters": [
     "deep-terror"
   ],

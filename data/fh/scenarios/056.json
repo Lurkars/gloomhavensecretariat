@@ -3,6 +3,14 @@
   "index": "56",
   "name": "Call of the Harbinger",
   "edition": "fh",
+  "rewards": {
+    "morale": 1,
+    "inspiration": 1,
+    "campaignSticker": [
+      "Friend of the Icespeakers"
+    ],
+    "custom": "Unlock %game.characterIcon.fist% class box"
+  },
   "monsters": [
     "black-imp",
     "harbinger-of-shadow",

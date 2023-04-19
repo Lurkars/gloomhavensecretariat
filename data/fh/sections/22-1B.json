@@ -13,5 +13,8 @@
     "5",
     "7",
     "8"
-  ]
+  ],
+  "rewards": {
+    "custom": "Unlock %game.characterIcon.snowflake% class box"
+  }
 }

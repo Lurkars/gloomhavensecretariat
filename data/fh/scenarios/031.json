@@ -6,6 +6,10 @@
   "unlocks": [
     "41"
   ],
+  "rewards": {
+    "gold": 10,
+    "experience": 5
+  },
   "monsters": [
     "flaming-bladespinner",
     "steel-automaton"

@@ -13,5 +13,8 @@
     "6",
     "7",
     "8"
-  ]
+  ],
+  "rewards": {
+    "custom": "Unlock %game.characterIcon.fist% class box"
+  }
 }

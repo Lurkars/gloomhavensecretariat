@@ -2,6 +2,9 @@
   "index": "21",
   "name": "Realm of Endless Frost",
   "edition": "fh",
+  "rewards": {
+    "prosperity": 2
+  },
   "monsters": [
     "frost-demon",
     "living-spirit",

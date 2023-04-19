@@ -10,6 +10,10 @@
     "abael-scout",
     "piranha-pig"
   ],
+  "allied": [
+    "abael-scout",
+    "piranha-pig"
+  ],
   "lootDeckConfig": {
     "money": 8,
     "lumber": 4,

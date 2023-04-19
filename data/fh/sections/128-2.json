@@ -1,0 +1,12 @@
+{
+  "index": "128.2",
+  "name": "Crain's Recovery",
+  "edition": "fh",
+  "conclusion": true,
+  "unlocks": [
+    "35"
+  ],
+  "rewards": {
+    "custom": "Open the Puzzle Book to the first page"
+  }
+}

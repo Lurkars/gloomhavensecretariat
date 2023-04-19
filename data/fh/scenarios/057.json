@@ -3,6 +3,17 @@
   "index": "57",
   "name": "Sanctuary of Snow",
   "edition": "fh",
+  "rewards": {
+    "morale": 1,
+    "inspiration": 1,
+    "campaignSticker": [
+      "Friend of the Snowspeakers"
+    ],
+    "events": [
+      "winter-outpost:WO-68"
+    ],
+    "custom": "Unlock %game.characterIcon.snowflake% class box"
+  },
   "monsters": [
     "render",
     "wind-demon"

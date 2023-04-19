@@ -2,6 +2,10 @@
   "index": "4B",
   "name": "Heart of Ice B",
   "edition": "fh",
+  "rewards": {
+    "morale": 1,
+    "prosperity": 1
+  },
   "monsters": [
     "algox-archer",
     "algox-guard"

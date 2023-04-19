@@ -6,6 +6,9 @@
   "unlocks": [
     "62"
   ],
+  "rewards": {
+    "custom": "Unlock %game.characterIcon.shackles% class box"
+  },
   "monsters": [
     "deep-terror",
     "harrower-infester"

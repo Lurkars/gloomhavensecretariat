@@ -3,12 +3,21 @@
   "index": "29",
   "name": "War of the Spire A",
   "edition": "fh",
-  "unlocks": [
-    "39"
-  ],
   "blocks": [
     "28"
   ],
+  "rewards": {
+    "morale": 3,
+    "campaignSticker": [
+      "Destroyer of the Icespeakers"
+    ],
+    "calenderSection": [
+      "46.3-5"
+    ],
+    "events": [
+      "winter-outpost:WO-68"
+    ]
+  },
   "monsters": [
     "algox-icespeaker",
     "algox-priest",

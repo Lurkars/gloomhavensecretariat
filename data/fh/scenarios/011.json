@@ -8,6 +8,10 @@
   "forcedLinks": [
     "19"
   ],
+  "rewards": {
+    "morale": 1,
+    "inspiration": 1
+  },
   "monsters": [
     "algox-stormcaller",
     "frost-demon",

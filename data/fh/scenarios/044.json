@@ -11,6 +11,9 @@
     "58",
     "59"
   ],
+  "rewards": {
+    "gold": 5
+  },
   "monsters": [
     "flaming-bladespinner"
   ],

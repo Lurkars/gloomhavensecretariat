@@ -5,6 +5,12 @@
   "unlocks": [
     "60"
   ],
+  "rewards": {
+    "campaignSticker": [
+      "Coral Shard"
+    ],
+    "battleGoals": 2
+  },
   "monsters": [
     "lurker-clawcrusher",
     "lurker-mindsnipper",
