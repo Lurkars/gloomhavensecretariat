@@ -497,7 +497,10 @@
             "city": "füge Stadt-Ereignis {0} zum Deck hinzu",
             "rift": "füge Rift-Ereignis {0} zum Deck hinzu",
             "road": "füge Weg-Ereignis {0} zum Deck hinzu",
-            "winter-outpost": "füge Ereignis {0} zum Winter-Außenpostendeck hinzu"
+            "summer-outpost": "füge Ereignis {0} zum Sommer-Außenpostendeck hinzu",
+            "summer-road": "füge Ereignis {0} zum Sommer-Wegdeck hinzu",
+            "winter-outpost": "füge Ereignis {0} zum Winter-Außenpostendeck hinzu",
+            "winter-road": "füge Ereignis {0} zum Winter-Wegdeck hinzu"
           },
           "experience": "erhalte {0} Erfahrung",
           "experienceFh": "erhalte {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
@@ -834,13 +837,17 @@
       },
       "campaignSticker": "Kampagnenbogensticker",
       "chooseItem": "Wähle eines der folgenden aus",
+      "chooseLocation": "Schalte eine der folgenden Optionen frei",
       "collectiveGold": "{0} gemeinschaftliches Gold",
       "envelope": "Umschlag {0} öffnen",
       "event": {
         "city": "Füge Start-Ereignis {0} zum Deck hinzu",
         "rift": "Füge Rift-Ereignis {0} zum Deck hinzu",
         "road": "Füge Weg-Ereignis {0} zum Deck hinzu",
-        "winter-outpost": "Füge Ereignis {0} zum Winter-Außenpostendeck hinzu"
+        "summer-outpost": "Füge Ereignis {0} zum Sommer-Außenpostendeck hinzu",
+        "summer-road": "Füge Ereignis {0} zum Sommer-Wegdeck hinzu",
+        "winter-outpost": "Füge Ereignis {0} zum Winter-Außenpostendeck hinzu",
+        "winter-road": "Füge Ereignis {0} zum Winter-Wegdeck hinzu"
       },
       "experience": "jeweils {0} Erfahrung",
       "globalAchievements": "Globale Erfolge",
