@@ -2,10 +2,12 @@
   "index": "19",
   "name": "Skyhall",
   "edition": "fh",
-  "unlocks": [
-    "28",
-    "30"
-  ],
+  "rewards": {
+    "morale": 1,
+    "calenderSection": [
+      "54.3-4"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "flame-demon",
