@@ -48,11 +48,11 @@
         },
         {
           "name": "piranha-pig",
-          "player4": "elite"
+          "type": "elite"
         },
         {
           "name": "piranha-pig",
-          "player4": "elite"
+          "type": "elite"
         }
       ],
       "objectives": [
