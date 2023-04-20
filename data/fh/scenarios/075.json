@@ -9,6 +9,9 @@
   "forcedLinks": [
     "77"
   ],
+  "rewards": {
+    "gold": 10
+  },
   "monsters": [
     "abael-herder",
     "lightning-eel",

@@ -3,6 +3,10 @@
   "index": "70",
   "name": "The True Oak",
   "edition": "fh",
+  "rewards": {
+    "prosperity": 1,
+    "custom": "The True Oak quest complete"
+  },
   "monsters": [
     "city-guard",
     "hound"

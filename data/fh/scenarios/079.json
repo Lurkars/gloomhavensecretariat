@@ -3,9 +3,12 @@
   "index": "79",
   "name": "Relic",
   "edition": "fh",
-  "unlocks": [
-    "80"
-  ],
+  "rewards": {
+    "morale": 3,
+    "calenderSection": [
+      "45.2-3"
+    ]
+  },
   "monsters": [
     "ice-wraith",
     "snow-imp"

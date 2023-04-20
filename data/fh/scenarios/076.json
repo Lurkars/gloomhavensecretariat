@@ -3,12 +3,6 @@
   "index": "76",
   "name": "Apotheosis",
   "edition": "fh",
-  "unlocks": [
-    "77"
-  ],
-  "forcedLinks": [
-    "77"
-  ],
   "monsters": [
     "algox-archer",
     "algox-guard",
@@ -91,7 +85,9 @@
     },
     {
       "round": "R == 12",
-      "finish": "won"
+      "sections": [
+        "56.2"
+      ]
     }
   ],
   "rooms": [

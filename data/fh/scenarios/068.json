@@ -3,6 +3,12 @@
   "index": "68",
   "name": "The Face of Torment",
   "edition": "fh",
+  "rewards": {
+    "calenderSection": [
+      "133.1-1"
+    ],
+    "custom": "Aesther Outpost quest complete"
+  },
   "monsters": [
     "chaos-demon",
     "earth-demon",

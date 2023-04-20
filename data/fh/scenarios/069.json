@@ -3,9 +3,11 @@
   "index": "69",
   "name": "Sacred Soil",
   "edition": "fh",
-  "unlocks": [
-    "70"
-  ],
+  "rewards": {
+    "calenderSection": [
+      "15.4-3"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "forest-imp",

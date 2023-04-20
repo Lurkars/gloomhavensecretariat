@@ -3,6 +3,12 @@
   "index": "77",
   "name": "Fish King's Ascension",
   "edition": "fh",
+  "rewards": {
+    "items": [
+      "201"
+    ],
+    "custom": "Threat from the Deep quest complete"
+  },
   "monsters": [
     "fish-king-scenario-77",
     "piranha-pig"

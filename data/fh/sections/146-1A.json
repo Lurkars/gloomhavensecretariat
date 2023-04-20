@@ -1,0 +1,12 @@
+{
+  "index": "146.1A",
+  "name": "Artificer Recovered",
+  "edition": "fh",
+  "conclusion": true,
+  "unlocks": [
+    "74A"
+  ],
+  "blocks": [
+    "74B"
+  ]
+}

@@ -3,6 +3,9 @@
   "index": "80",
   "name": "Relic Renewed",
   "edition": "fh",
+  "rewards": {
+    "morale": 2
+  },
   "monsters": [
     "robotic-boltshooter",
     "steel-automaton",

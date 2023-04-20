@@ -1,0 +1,63 @@
+{
+  "fromFile": true,
+  "index": "74A",
+  "name": "Gaps in the Road A",
+  "edition": "fh",
+  "unlocks": [
+    "76"
+  ],
+  "monsters": [
+    "algox-archer",
+    "piranha-pig"
+  ],
+  "allies": [
+    "piranha-pig"
+  ],
+  "objectives": [
+    {
+      "name": "Small Tree",
+      "health": "[CxL/2{$math.ceil}]"
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 7,
+    "lumber": 5,
+    "metal": 2,
+    "hide": 3,
+    "arrowvine": 2,
+    "flamefruit": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

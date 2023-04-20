@@ -1,0 +1,13 @@
+{
+  "index": "45.2",
+  "name": "Relic Abandonment",
+  "edition": "fh",
+  "parent": "79",
+  "conclusion": true,
+  "unlocks": [
+    "80"
+  ],
+  "rewards": {
+    "morale": -4
+  }
+}

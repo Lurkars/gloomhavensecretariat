@@ -3,9 +3,11 @@
   "index": "65",
   "name": "A Strong Foundation",
   "edition": "fh",
-  "unlocks": [
-    "66"
-  ],
+  "rewards": {
+    "calenderSection": [
+      "95.4-6"
+    ]
+  },
   "monsters": [
     "frozen-corpse-scenario-65",
     "living-bones-scenario-65",

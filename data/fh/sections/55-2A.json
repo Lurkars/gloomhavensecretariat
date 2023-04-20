@@ -1,0 +1,40 @@
+{
+  "index": "55.2A",
+  "name": "Gaps in the Road A",
+  "edition": "fh",
+  "parent": "74A",
+  "marker": "1",
+  "monsters": [
+    "algox-archer",
+    "algox-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

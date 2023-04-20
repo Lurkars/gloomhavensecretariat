@@ -1,18 +1,13 @@
 {
   "fromFile": true,
-  "index": "74",
-  "name": "Gaps in the Road",
+  "index": "74B",
+  "name": "Gaps in the Road B",
   "edition": "fh",
   "unlocks": [
-    "75",
-    "76"
+    "75"
   ],
   "monsters": [
-    "algox-archer",
-    "piranha-pig"
-  ],
-  "allies": [
-    "piranha-pig"
+    "algox-archer"
   ],
   "objectives": [
     {
@@ -28,25 +23,6 @@
     "arrowvine": 2,
     "flamefruit": 1
   },
-  "rules": [
-    {
-      "round": "R == 1",
-      "start": true,
-      "once": true,
-      "note": "If Friend of the Fish King is on the campaign sheet, spawn 2 elite Piranha Pigs at any empty starting hex",
-      "spawns": [
-        {
-          "monster": {
-            "name": "piranha-pig",
-            "type": "elite"
-          },
-          "count": "2",
-          "manual": true,
-          "manualMax": 2
-        }
-      ]
-    }
-  ],
   "rooms": [
     {
       "roomNumber": 1,
