@@ -19,7 +19,9 @@
       "round": "true",
       "always": true,
       "once": true,
-      "note": "Read Section #41.4",
+      "sections": [
+        "41.4"
+      ],
       "figures": [
         {
           "identifier": {

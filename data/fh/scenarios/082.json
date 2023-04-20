@@ -3,6 +3,10 @@
   "index": "82",
   "name": "Expedition North",
   "edition": "fh",
+  "rewards": {
+    "prosperity": 2,
+    "custom": "Add the following Forgotten Circles items to the Frosthaven supply: 153, 159, and 161"
+  },
   "monsters": [
     "frost-demon",
     "wind-demon"

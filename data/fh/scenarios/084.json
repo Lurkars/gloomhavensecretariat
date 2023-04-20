@@ -3,6 +3,14 @@
   "index": "84",
   "name": "Here There Be Oozes",
   "edition": "fh",
+  "rewards": {
+    "campaignSticker": [
+      "Brummix"
+    ],
+    "items": [
+      "234"
+    ]
+  },
   "monsters": [
     "elder-ooze",
     "ooze"

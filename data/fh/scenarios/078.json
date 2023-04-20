@@ -3,6 +3,9 @@
   "index": "78",
   "name": "The Lurker Problem",
   "edition": "fh",
+  "rewards": {
+    "experience": 10
+  },
   "monsters": [
     "lurker-soldier",
     "lurker-wavethrower",

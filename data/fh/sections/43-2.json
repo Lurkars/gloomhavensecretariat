@@ -1,0 +1,18 @@
+{
+  "index": "43.2",
+  "name": "Reject the Fish King's Ascension",
+  "edition": "fh",
+  "parent": "76",
+  "parentSections": [
+    [
+      "56.2"
+    ]
+  ],
+  "conclusion": true,
+  "unlocks": [
+    "77"
+  ],
+  "forcedLinks": [
+    "77"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "index": "96.3",
+  "name": "Accept the Fish King's Ascension",
+  "edition": "fh",
+  "parent": "76",
+  "parentSections": [
+    [
+      "56.2"
+    ]
+  ],
+  "conclusion": true,
+  "rewards": {
+    "items": [
+      "201"
+    ],
+    "custom": "Threat from the Deep quest complete"
+  }
+}

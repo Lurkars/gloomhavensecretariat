@@ -3,6 +3,7 @@
   "name": "Elemental Cores",
   "edition": "fh",
   "parent": "66",
+  "marker": "element:light",
   "monsters": [
     "earth-demon",
     "flame-demon",

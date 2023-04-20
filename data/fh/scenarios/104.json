@@ -4,9 +4,11 @@
   "name": "Ruins of the Solstice",
   "edition": "fh",
   "random": true,
-  "unlocks": [
-    "105"
-  ],
+  "rewards": {
+    "events": [
+      "winter-road:WR-49"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "frost-demon",

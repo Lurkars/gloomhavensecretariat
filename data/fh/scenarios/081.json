@@ -4,6 +4,9 @@
   "name": "Ruinous Research Lab",
   "edition": "fh",
   "allyDeck": true,
+  "rewards": {
+    "prosperity": 1
+  },
   "monsters": [
     "aesther-ashblade",
     "aesther-scout",

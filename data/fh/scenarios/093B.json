@@ -3,6 +3,11 @@
   "index": "93B",
   "name": "Midwinter Brawl B",
   "edition": "fh",
+  "rewards": {
+    "items": [
+      "235"
+    ]
+  },
   "monsters": [
     "hound",
     "polar-bear",

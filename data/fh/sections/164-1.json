@@ -1,14 +1,14 @@
 {
   "index": "164.1",
-  "name": "Gaps in the Road",
+  "name": "Gaps in the Road A",
   "edition": "fh",
-  "parent": "74",
+  "parent": "74A",
   "parentSections": [
     [
-      "52.2"
+      "52.2A"
     ]
   ],
-  "marker": "3a",
+  "marker": "3",
   "monsters": [
     "algox-priest",
     "wind-demon"

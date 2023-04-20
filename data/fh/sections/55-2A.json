@@ -1,31 +1,16 @@
 {
-  "fromFile": true,
-  "index": "101",
-  "name": "Harrower Library",
+  "index": "55.2A",
+  "name": "Gaps in the Road A",
   "edition": "fh",
-  "unlocks": [
-    "102"
-  ],
-  "rewards": {
-    "experience": 10,
-    "battleGoals": 1
-  },
+  "parent": "74A",
+  "marker": "1",
   "monsters": [
     "algox-archer",
     "algox-guard"
   ],
-  "lootDeckConfig": {
-    "money": 8,
-    "lumber": 3,
-    "metal": 3,
-    "hide": 3,
-    "rockroot": 1,
-    "arrowvine": 1,
-    "snowthistle": 1
-  },
   "rooms": [
     {
-      "roomNumber": 1,
+      "roomNumber": 3,
       "initial": true,
       "monster": [
         {
@@ -34,20 +19,21 @@
         },
         {
           "name": "algox-archer",
-          "player3": "elite",
+          "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "algox-guard",
-          "player2": "elite",
-          "player3": "normal",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "algox-guard",
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

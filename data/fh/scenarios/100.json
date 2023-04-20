@@ -6,6 +6,10 @@
   "unlocks": [
     "101"
   ],
+  "rewards": {
+    "gold": 5,
+    "experience": 10
+  },
   "monsters": [
     "lurker-mindsnipper",
     "shrike-fiend"

@@ -6,6 +6,9 @@
   "unlocks": [
     "100"
   ],
+  "rewards": {
+    "gold": 10
+  },
   "monsters": [
     "frozen-corpse",
     "robotic-boltshooter"

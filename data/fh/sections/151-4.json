@@ -1,14 +1,14 @@
 {
   "index": "151.4",
-  "name": "Gaps in the Road",
+  "name": "Gaps in the Road B",
   "edition": "fh",
-  "parent": "74",
+  "parent": "74B",
   "parentSections": [
     [
-      "52.2"
+      "52.2B"
     ]
   ],
-  "marker": "3b",
+  "marker": "3",
   "monsters": [
     "piranha-pig"
   ],

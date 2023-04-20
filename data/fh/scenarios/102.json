@@ -3,9 +3,9 @@
   "index": "102",
   "name": "Into the Black",
   "edition": "fh",
-  "unlocks": [
-    "103"
-  ],
+  "rewards": {
+    "experience": 20
+  },
   "monsters": [
     "chaos-demon",
     "frost-demon",

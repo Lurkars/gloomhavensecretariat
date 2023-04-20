@@ -9,6 +9,9 @@
   "forcedLinks": [
     "73"
   ],
+  "rewards": {
+    "battleGoals": 1
+  },
   "monsters": [
     "ice-wraith"
   ],

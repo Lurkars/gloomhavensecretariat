@@ -3,9 +3,6 @@
   "index": "73",
   "name": "Flotsam",
   "edition": "fh",
-  "unlocks": [
-    "74"
-  ],
   "monsters": [
     "lightning-eel",
     "piranha-pig"

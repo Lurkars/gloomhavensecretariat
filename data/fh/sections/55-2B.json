@@ -1,8 +1,8 @@
 {
-  "index": "55.2",
-  "name": "Gaps in the Road",
+  "index": "55.2B",
+  "name": "Gaps in the Road B",
   "edition": "fh",
-  "parent": "74",
+  "parent": "74B",
   "marker": "1",
   "monsters": [
     "algox-archer",

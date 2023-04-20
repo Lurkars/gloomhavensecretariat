@@ -1,0 +1,63 @@
+{
+  "index": "52.2B",
+  "name": "Gaps in the Road B",
+  "edition": "fh",
+  "parent": "74B",
+  "parentSections": [
+    [
+      "55.2B"
+    ]
+  ],
+  "marker": "2",
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "algox-priest",
+    "forest-imp"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-priest",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

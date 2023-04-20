@@ -1,0 +1,17 @@
+{
+  "index": "71.4",
+  "name": "Disagree with the Fish King",
+  "edition": "fh",
+  "parent": "73",
+  "parentSections": [
+    [
+      "41.4"
+    ]
+  ],
+  "conclusion": true,
+  "rewards": {
+    "calenderSection": [
+      "146.1B-5"
+    ]
+  }
+}
