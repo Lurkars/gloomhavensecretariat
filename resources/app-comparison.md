@@ -50,6 +50,7 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 | Blood and Sand                                                                  | :heavy_check_mark:[^3]    | :no_entry_sign:           | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
 | Trail Of Ashes                                                                  | :white_check_mark:[^16.1] | :heavy_check_mark:        | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
 | supports Envelope X                                                             | :heavy_check_mark:[^3]    | :heavy_check_mark:        | :no_entry_sign:           | :heavy_check_mark:       | :heavy_check_mark:      |
+| supports Frosthaven Crossover Characters                                        | :heavy_check_mark:[^3]    | :no_entry_sign:[^19]      | :no_entry_sign:[^19]      | :no_entry_sign:          | :no_entry_sign:[^19]    |
 |                                                                                 |                           |                           |                           |                          |                         |
 | **Additional Features**                                                         | *GHS*                     | *XHA*                     | *FOC*                     | *GHFS*                   | *GHH*                   |
 | Synchronize multiple clients                                                    | :heavy_check_mark:[^4]    | :heavy_check_mark:        | :heavy_check_mark:        | :heavy_check_mark:       | :heavy_check_mark:      |
@@ -137,3 +138,5 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 [^17.2]: only shown on full screen card view
 
 [^18]: Currently HP only
+
+[^19]: Since no perks or any advanced character management support, there is no need to support those Crossover Characters!

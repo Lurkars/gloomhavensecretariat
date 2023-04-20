@@ -233,7 +233,7 @@ export class EntityManager {
     entity.entityConditions = entity.entityConditions.filter((entityCondition) => entityCondition.name != condition.name);
   }
 
-  applyCondition(entity: Entity, name: ConditionName) {
+  applyCondition(entity: Entity, name: ConditionName, highlight: boolean = false) {
     const condition = entity.entityConditions.find((entityCondition) => entityCondition.name == name && !entityCondition.expired && entityCondition.types.indexOf(ConditionType.apply) != -1);
 
     if (condition) {
@@ -276,9 +276,14 @@ export class EntityManager {
           clearHeal.expired = true;
           clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.permanent && !condition.expired);
         }
-        condition.expired = true;
-        condition.highlight = false;
-        this.checkHealth(entity);
+        if (highlight) {
+          condition.highlight = true;
+        }
+        setTimeout(() => {
+          condition.expired = !condition.permanent;
+          condition.highlight = false;
+          this.checkHealth(entity);
+        }, highlight ? 1000 : 0);
       }
 
       if (condition.permanent) {
@@ -380,6 +385,12 @@ export class EntityManager {
       }, 1000);
     }
 
+    if (entity instanceof Character && entity.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '178') && entity.initiative >= 60 && !entity.longRest) {
+      entity.health = entity.health + 1;
+      entity.entityConditions.push(new EntityCondition(ConditionName.heal, 1));
+      this.applyCondition(entity, ConditionName.heal, true);
+    }
+
     entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.state == EntityConditionState.normal && entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => {
       entityCondition.lastState = entityCondition.state;
       entityCondition.state = EntityConditionState.turn;
@@ -388,6 +399,8 @@ export class EntityManager {
 
         if (entity instanceof Character && entity.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '71')) {
           entity.health = entity.health + entityCondition.value + 1;
+          entity.entityConditions.push(new EntityCondition(ConditionName.heal, 1));
+          this.applyCondition(entity, ConditionName.heal, true);
         }
 
         this.checkHealth(entity);
