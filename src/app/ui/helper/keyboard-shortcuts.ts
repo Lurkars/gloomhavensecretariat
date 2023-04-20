@@ -59,7 +59,7 @@ export class KeyboardShortcuts implements OnInit {
                     if (!this.footer.disabled()) {
                         this.footer.next();
                     }
-                } else if (!event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'm') {
+                } else if (gameManager.game.state == GameState.next && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'm') {
                     const activeFigure = gameManager.game.figures.find((figure) => figure.active);
                     let deck: AttackModifierDeck | undefined = undefined;
                     if (!activeFigure || activeFigure instanceof Monster && (!activeFigure.isAlly && !activeFigure.isAllied || !gameManager.fhRules() && !settingsManager.settings.alwaysAllyAttackModifierDeck || !settingsManager.settings.allyAttackModifierDeck)) {

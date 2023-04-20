@@ -7,6 +7,7 @@ import { Entity } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
+import { Objective } from "src/app/game/model/Objective";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 
 @Component({
@@ -52,6 +53,32 @@ export class ConditionsComponent implements OnInit {
         this.monsterType = types[0];
       }
     }
+
+    window.addEventListener('keydown', (event: KeyboardEvent) => {
+      if (!event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
+        if (!event.ctrlKey && !event.shiftKey && ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'].indexOf(event.key) != -1) {
+          if (!(this.entity instanceof Objective) || this.entity.escort) {
+            let index = +event.key;
+            let condition: Condition | undefined;
+            if (index == 0) {
+              index = 9;
+            } else {
+              index--;
+            }
+            if (index < this.standardNegative.length) {
+              condition = this.standardNegative[index];
+            } else if (index < this.standardNegative.length + this.standardPositive.length) {
+              condition = this.standardPositive[index - this.standardNegative.length];
+
+            }
+            if (condition && !this.isImmune(condition.name)) {
+              this.toggleCondition(condition);
+            }
+          }
+          event.preventDefault();
+        }
+      }
+    })
   }
 
   initializeConditions() {

@@ -205,8 +205,8 @@
         </div>
 
         <div class="reward locations"
-          *ngIf="scenario.unlocks && scenario.unlocks.length > 0 || rewards && rewards.chooseLocation.length > 0">
-          <label>{{(scenario.unlocks && scenario.unlocks.length > 1 || rewards && rewards.chooseLocation.length > 1 ?
+          *ngIf="scenario.unlocks && scenario.unlocks.length > 0 || rewards && rewards.chooseLocation && rewards.chooseLocation.length > 0">
+          <label>{{(scenario.unlocks && scenario.unlocks.length > 1 || rewards && rewards.chooseLocation && rewards.chooseLocation.length > 1 ?
             'scenario.rewards.locations' :
             'scenario.rewards.location') | ghsLabel}}:</label>
           <div class="list" *ngIf="scenario.unlocks">
