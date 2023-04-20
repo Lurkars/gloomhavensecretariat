@@ -111,13 +111,16 @@
       "xp": "XP"
     },
     "remove": "Charakter entfernen",
-    "removeAll": "Alle entfernen"
+    "removeAll": "Alle entfernen",
+    "unlock": "Freischalten",
+    "unlockAll": "Alle freischalten"
   },
   "close": "Schließen",
   "datamanagement": {
     ".": "Daten verwalten",
     "addEditionDataUrl": "Editionasdaten Url hinzufügen",
     "addSpoiler": "Spoiler hinzufügen",
+    "addUnlock": "Freischalten",
     "backup": {
       ".": "Spielsicherungen",
       "all": "Alle Spielsicherungen herunterladen ({0})",
@@ -139,11 +142,14 @@
     "importGame": "Spiel aus Datei importieren",
     "importSettings": "Einstellungen aus Datei importieren",
     "removeAllSpoilers": "Alle löschen",
+    "removeAllUnlocks": "Alle löschen",
     "removeSpoiler": "Spoiler entfernen",
+    "removeUnlock": "Freischaltung aufheben",
     "resetGame": "Spiel zurücksetzen",
     "resetSettings": "Einstellungen zurücksetzen",
     "restoreEditionDataUrls": "Standard wiederherstellen",
-    "spoilers": "Spoiler bearbeiten"
+    "spoilers": "Spoiler bearbeiten",
+    "unlocks": "Freischaltungen bearbeiten"
   },
   "edition": {
     ".": "Edition auswählen",
@@ -839,6 +845,8 @@
       "chooseItem": "Wähle eines der folgenden aus",
       "chooseLocation": "Schalte eine der folgenden Optionen frei",
       "collectiveGold": "{0} gemeinschaftliches Gold",
+      "collectiveResources": "Erhaltet {1} gemeinschaftliches %game.resource.{0}%",
+      "collectiveResourcesLose": "Verliert {1} gemeinschaftliches %game.resource.{0}%",
       "envelope": "Umschlag {0} öffnen",
       "event": {
         "city": "Füge Start-Ereignis {0} zum Deck hinzu",
@@ -852,6 +860,7 @@
       "experience": "jeweils {0} Erfahrung",
       "globalAchievements": "Globale Erfolge",
       "gold": "jeweils {0} Gold",
+      "inspiration": "{0} Inspiration",
       "item": "\"{1}\" (Gegenstand {0})",
       "items": "{2} \"{1}\" (Gegenstand {0})",
       "itemDesign": "\"{1}\" Design (Gegenstand {0})",
@@ -859,10 +868,17 @@
       "location": "Neuer Ort",
       "locations": "Neue Orte",
       "lostPartyAchievements": "Verlorene Gruppenerfolge",
+      "morale": "{0} Moral",
       "partyAchievements": "Gruppenerfolge",
       "perks": "Jeweils {0} Verbesserungen",
       "prosperity": "{0} Wohlstand",
-      "reputation": "{0} Ansehen"
+      "reputation": "{0} Ansehen",
+      "resources": "Erhalte jeweils {1} %game.resource.{0}%",
+      "resourcesLose": "Verliere jeweils {1} %game.resource.{0}%",
+      "unlockCharacter": {
+        ".": "Freischalten von",
+        "box": "%game.characterIcon.{0}% Box"
+      }
     },
     "rules": {
       "addSection": "Sektion #{0} {1} öffnen",

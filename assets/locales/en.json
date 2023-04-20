@@ -111,13 +111,16 @@
       "xp": "XP"
     },
     "remove": "Remove Character",
-    "removeAll": "Remove All"
+    "removeAll": "Remove All",
+    "unlock": "Unlock",
+    "unlockAll": "Unlock all"
   },
   "close": "Close",
   "datamanagement": {
     ".": "Data Management",
     "addEditionDataUrl": "Add Edition Data Url",
     "addSpoiler": "Add Spoiler",
+    "addUnlock": "Unlock",
     "backup": {
       ".": "Game Backups",
       "all": "Download all Game Backups ({0})",
@@ -138,12 +141,15 @@
     "importDataDump": "Import Data Dump",
     "importGame": "Import Game from File",
     "importSettings": "Import Settings from File",
-    "removeAllSpoilers": "Delete all",
+    "removeAllSpoilers": "Remove all",
+    "removeAllUnlocks": "Remove all",
     "removeSpoiler": "Remove Spoiler",
+    "removeUnlock": "Remove Unlock",
     "resetGame": "Reset Game",
     "resetSettings": "Reset Settings",
     "restoreEditionDataUrls": "Restore Defaults",
-    "spoilers": "Manage Spoilers"
+    "spoilers": "Manage Spoilers",
+    "unlocks": "Manage Unlocks"
   },
   "edition": {
     ".": "Set Edition",
@@ -938,6 +944,8 @@
       "chooseItem": "Choose to gain one of the following",
       "chooseLocation": "Choose to unlock only one of the following",
       "collectiveGold": "{0} collective gold",
+      "collectiveResources": "Gain {1} collective %game.resource.{0}%",
+      "collectiveResourcesLose": "Lose {1} collective %game.resource.{0}%",
       "envelope": "Open envelope {0}",
       "event": {
         "city": "Add City Event {0} to the deck",
@@ -951,6 +959,7 @@
       "experience": "{0} experience each",
       "globalAchievements": "Global Achievements",
       "gold": "{0} gold each",
+      "inspiration": "Gain {0} inspiration",
       "item": "\"{1}\" (Item {0})",
       "items": "{2} \"{1}\" (Item {0})",
       "itemDesign": "\"{1}\" design (Item {0})",
@@ -958,10 +967,17 @@
       "location": "New Location",
       "locations": "New Locations",
       "lostPartyAchievements": "Lost Party Achievements",
+      "morale": "Gain {0} morale",
       "partyAchievements": "Party Achievements",
       "perks": "Gain {0} perk each",
       "prosperity": "{0} prosperity",
-      "reputation": "{0} reputation"
+      "reputation": "{0} reputation",
+      "resources": "Gain {1} %game.resource.{0}% each",
+      "resourcesLose": "Lose {1} %game.resource.{0}% each",
+      "unlockCharacter": {
+        ".": "Unlock",
+        "box": "%game.characterIcon.{0}% class box"
+      }
     },
     "rules": {
       "addSection": "Open Section #{0} {1}",
