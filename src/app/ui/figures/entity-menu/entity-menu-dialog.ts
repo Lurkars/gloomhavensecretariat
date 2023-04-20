@@ -1,5 +1,5 @@
 import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
-import { ChangeDetectorRef, Component, ElementRef, Inject, ViewChild } from "@angular/core";
+import { ChangeDetectorRef, Component, ElementRef, Inject, OnInit, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Action";
@@ -22,7 +22,7 @@ import { AttackModiferDeckChange } from "../attackmodifier/attackmodifierdeck";
   templateUrl: 'entity-menu-dialog.html',
   styleUrls: ['./entity-menu-dialog.scss']
 })
-export class EntityMenuDialogComponent {
+export class EntityMenuDialogComponent implements OnInit {
 
 
   gameManager: GameManager = gameManager;
@@ -81,6 +81,33 @@ export class EntityMenuDialogComponent {
       next: (forced) => {
         if (!forced) {
           this.close();
+        }
+      }
+    })
+  }
+
+  ngOnInit(): void {
+    window.addEventListener('keydown', (event: KeyboardEvent) => {
+      if (!this.levelDialog && !event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
+        if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowRight') {
+          this.changeHealth(1);
+          event.preventDefault();
+        } else if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowLeft') {
+          this.changeHealth(-1);
+          event.preventDefault();
+        } else if (!event.ctrlKey && event.key.toLowerCase() === 'b') {
+          this.changeBless(event.shiftKey ? -1 : 1);
+          event.preventDefault();
+        } else if (!event.ctrlKey && event.key.toLowerCase() === 'c') {
+          this.changeCurse(event.shiftKey ? -1 : 1);
+          event.preventDefault();
+        } else if (!event.ctrlKey && !event.shiftKey && (event.key.toLowerCase() === 'k' || event.key.toLowerCase() === 'd')) {
+          if (this.data.entity instanceof Character) {
+            this.toggleExhausted();
+          } else {
+            this.toggleDead();
+          }
+          event.preventDefault();
         }
       }
     })

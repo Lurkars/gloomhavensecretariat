@@ -40,7 +40,7 @@ export class ScenarioComponent {
 
   availableSections() {
     return gameManager.scenarioManager.availableSections().sort((a, b) => {
-      if (a.marker && b.marker) {
+      if (a.marker && b.marker && !a.marker.startsWith('element') && !b.marker.startsWith('element')) {
         return a.marker < b.marker ? -1 : 1;
       }
       return 0;
