@@ -17,6 +17,7 @@ export class DatamanagementMenuComponent implements OnInit {
 
   @ViewChild('inputEditionDataUrl', { static: true }) editionDataUrlElement!: ElementRef;
   @ViewChild('inputSpoiler', { static: true }) spoilerElement!: ElementRef;
+  @ViewChild('inputUnlock', { static: true }) unlockElement!: ElementRef;
 
   settingsManager: SettingsManager = settingsManager;
   gameManager: GameManager = gameManager;
@@ -84,6 +85,32 @@ export class DatamanagementMenuComponent implements OnInit {
     if (spoiler) {
       settingsManager.removeSpoiler(spoiler);
     }
+  }
+
+  addUnlock(): void {
+    const character = this.unlockElement.nativeElement.value;
+    if (character) {
+      if (gameManager.game.unlockedCharacters.indexOf(character) == -1 && gameManager.charactersData(undefined, true).find((characterData) => characterData.spoiler && characterData.name == character)) {
+        gameManager.stateManager.before("unlockChar", "data.character." + character);
+        gameManager.game.unlockedCharacters.push(character)
+        gameManager.stateManager.after();
+      }
+      this.unlockElement.nativeElement.value = "";
+    }
+  }
+
+  removeUnlock(character: string): void {
+    if (character && gameManager.game.unlockedCharacters.indexOf(character) != -1) {
+      gameManager.stateManager.before("unlockChar", "data.character." + character);
+      gameManager.game.unlockedCharacters.splice(gameManager.game.unlockedCharacters.indexOf(character), 1);
+      gameManager.stateManager.after();
+    }
+  }
+
+  removeAllUnlocks() {
+    gameManager.stateManager.before("removeAllUnlocks");
+    gameManager.game.unlockedCharacters = [];
+    gameManager.stateManager.after();
   }
 
   cancelConfirm() {

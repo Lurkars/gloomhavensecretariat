@@ -111,14 +111,12 @@ export class ScenarioRewards {
   randomItemBlueprint: number = 0;
   morale: number | string = "";
   inspiration: number | string = "";
-  resources: Partial<Record<LootType, number | string>> = {};
-  loseResources: Partial<Record<LootType, number | string>> = {};
-  collectiveResources: Partial<Record<LootType, number | string>> = {};
-  loseCollectiveResources: Partial<Record<LootType, number | string>> = {};
+  resources: { type: LootType, value: number | string }[] = [];
+  collectiveResources: { type: LootType, value: number | string }[] = [];
   calenderSection: string[] = [];
   townGuardAm: string[] = []; // TODO
-  unlockClass: string = "";
-  chooseUnlockClass: string[] = [];
+  unlockCharacter: string = "";
+  chooseUnlockCharacter: string[] = [];
   custom: string = "";
   ignoredBonus: string[] = [];
   hints: ScenarioRewardHints | undefined = undefined;
@@ -148,14 +146,12 @@ export class ScenarioRewardHints {
   randomItemBlueprint: string = "";
   morale: string = "";
   inspiration: string = "";
-  resources: Partial<Record<LootType, string>> = {};
-  loseResources: Partial<Record<LootType, string>> = {};
-  collectiveResources: Partial<Record<LootType, string>> = {};
-  loseCollectiveResources: Partial<Record<LootType, string>> = {};
+  resources: string[] = [];
+  collectiveResources: string[] = [];
   calenderSection: string[] = [];
   townGuardAm: string[] = [];
-  unlockClass: string = "";
-  chooseUnlockClass: string[] = [];
+  unlockCharacter: string = "";
+  chooseUnlockCharacter: string[] = [];
 }
 
 export class ScenarioRuleIdentifier {

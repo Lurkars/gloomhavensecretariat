@@ -109,6 +109,16 @@ export class ScenarioManager {
                   figure.progress.battleGoals = 0;
                 }
               }
+
+              if (rewards.resources) {
+                rewards.resources.forEach((item) => {
+                  figure.progress.loot[item.type] = (figure.progress.loot[item.type] || 0) + EntityValueFunction(item.value);
+
+                  if ((figure.progress.loot[item.type] || 0) < 0) {
+                    figure.progress.loot[item.type] = 0;
+                  }
+                })
+              }
             }
           })
 
@@ -120,12 +130,39 @@ export class ScenarioManager {
               this.game.party.reputation = -20;
             }
           }
+
           if (rewards.prosperity) {
             this.game.party.prosperity += rewards.prosperity;
             if (this.game.party.prosperity > (gameManager.fhRules() ? 132 : 64)) {
               this.game.party.prosperity = (gameManager.fhRules() ? 132 : 64);
             } else if (this.game.party.prosperity < 0) {
               this.game.party.prosperity = 0;
+            }
+          }
+
+          if (rewards.morale) {
+            // TODO: replace Town Guards Placeholder
+            this.game.party.morale += EntityValueFunction(rewards.morale);
+            if (this.game.party.morale > 20) {
+              this.game.party.morale = 20;
+            } else if (this.game.party.morale < 0) {
+              this.game.party.morale = 0;
+            }
+          }
+
+          if (rewards.inspiration) {
+            this.game.party.inspiration += EntityValueFunction(rewards.inspiration);
+            if (this.game.party.inspiration < 0) {
+              this.game.party.inspiration = 0;
+            }
+          }
+
+          if (rewards.reputation) {
+            this.game.party.reputation += rewards.reputation;
+            if (this.game.party.reputation > 20) {
+              this.game.party.reputation = 20;
+            } else if (this.game.party.reputation < -20) {
+              this.game.party.reputation = -20;
             }
           }
 
@@ -159,7 +196,31 @@ export class ScenarioManager {
             })
           }
 
-          if (rewards.calenderSection)
+          if (rewards.itemBlueprints) {
+            rewards.itemBlueprints.forEach((item) => {
+              if (item.indexOf('-') != -1) {
+                const from = +item.split('-')[0];
+                const to = +item.split('-')[1];
+                for (let i = from; i <= to; i++) {
+                  this.game.party.unlockedItems.push(new Identifier(i + '', scenario.edition));
+                }
+              } else {
+                this.game.party.unlockedItems.push(new Identifier(item, scenario.edition));
+              }
+            })
+          }
+
+          if (rewards.collectiveResources) {
+            rewards.collectiveResources.forEach((item) => {
+              this.game.party.loot[item.type] = (this.game.party.loot[item.type] || 0) + EntityValueFunction(item.value);
+
+              if ((this.game.party.loot[item.type] || 0) < 0) {
+                this.game.party.loot[item.type] = 0;
+              }
+            })
+          }
+
+          if (rewards.calenderSection) {
             rewards.calenderSection.forEach((calenderSection) => {
               if (calenderSection.split('-').length > 1) {
                 const section = calenderSection.split('-')[0];
@@ -170,6 +231,11 @@ export class ScenarioManager {
                 gameManager.game.party.weekSections[week]?.push(section);
               }
             })
+          }
+
+          if (rewards.unlockCharacter && this.game.unlockedCharacters.indexOf(rewards.unlockCharacter) == -1) {
+            this.game.unlockedCharacters.push(rewards.unlockCharacter);
+          }
         }
 
         if (conclusionSection) {

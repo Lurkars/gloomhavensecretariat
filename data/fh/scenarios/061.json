@@ -7,7 +7,7 @@
     "62"
   ],
   "rewards": {
-    "custom": "Unlock %game.characterIcon.shackles% class box"
+    "unlockCharacter": "shackles"
   },
   "monsters": [
     "deep-terror",

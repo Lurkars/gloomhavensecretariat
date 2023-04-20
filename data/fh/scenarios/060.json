@@ -8,9 +8,12 @@
     "campaignSticker": [
       "Crown United"
     ],
+    "chooseUnlockCharacter": [
+      "coral",
+      "kelp"
+    ],
     "experience": 30,
-    "prosperity": 1,
-    "custom": "Unlock whichever class box is still locked: <br>%game.characterIcon.coral% or %game.characterIcon.kelp%"
+    "prosperity": 1
   },
   "monsters": [
     "fracture-of-the-deep",

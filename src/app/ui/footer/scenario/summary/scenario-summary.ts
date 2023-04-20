@@ -9,6 +9,7 @@ import { Identifier } from "src/app/game/model/data/Identifier";
 import { LootType } from "src/app/game/model/data/Loot";
 import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
 import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/character-sheet";
+import { EntityValueFunction } from "src/app/game/model/Entity";
 
 
 @Component({
@@ -36,7 +37,10 @@ export class ScenarioSummaryComponent {
     rewardItemCount: number[] = [];
     items: number[][] = [];
     chooseLocation: string | undefined;
+    chooseUnlockCharacter: string | undefined;
     rewards: ScenarioRewards | undefined = undefined;
+
+    EntityValueFunction = EntityValueFunction;
 
     constructor(@Inject(DIALOG_DATA) data: { scenario: Scenario, success: boolean, conclusion: ScenarioData | undefined }, private dialogRef: DialogRef, private dialog: Dialog) {
         this.scenario = data.scenario;
@@ -94,13 +98,22 @@ export class ScenarioSummaryComponent {
                 if (this.rewards.chooseLocation && this.rewards.chooseLocation.length > 0) {
                     this.chooseLocation = this.rewards.chooseLocation[0];
                 }
+                if (this.rewards.chooseUnlockCharacter && this.rewards.chooseUnlockCharacter.length > 0) {
+                    let index = 0;
+                    while (index < this.rewards.chooseUnlockCharacter.length && gameManager.game.unlockedCharacters.indexOf(this.rewards.chooseUnlockCharacter[index]) != -1) {
+                        index++;
+                    }
+                    if (index < this.rewards.chooseUnlockCharacter.length) {
+                        this.chooseUnlockCharacter = this.rewards.chooseUnlockCharacter[index];
+                    }
+                }
             }
         }
     }
 
     hasRewards(): ScenarioRewards | undefined {
         const rewards = this.rewards;
-        if (rewards && (rewards.battleGoals || rewards.collectiveGold || rewards.custom || rewards.envelopes || rewards.events || rewards.experience || rewards.gold || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.perks || rewards.prosperity || rewards.reputation)) {
+        if (rewards && (rewards.battleGoals || rewards.collectiveGold || rewards.custom || rewards.envelopes || rewards.events || rewards.experience || rewards.gold || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.perks || rewards.prosperity || rewards.reputation || rewards.resources || rewards.collectiveResources || rewards.morale || rewards.inspiration || rewards.chooseUnlockCharacter || rewards.unlockCharacter)) {
             return rewards;
         }
         return undefined;
@@ -198,6 +211,10 @@ export class ScenarioSummaryComponent {
             if (this.chooseLocation) {
                 gameManager.game.party.manualScenarios.push(new GameScenarioModel(this.chooseLocation, this.scenario.edition, this.scenario.group));
             }
+
+            if (this.chooseUnlockCharacter && gameManager.game.unlockedCharacters.indexOf(this.chooseUnlockCharacter) == -1) {
+                gameManager.game.unlockedCharacters.push(this.chooseUnlockCharacter);
+            }
         }
         gameManager.scenarioManager.finishScenario(this.success, this.conclusion, false, undefined, this.casual && !this.forceCampaign);
         gameManager.stateManager.after(1000);
@@ -223,5 +240,9 @@ export class ScenarioSummaryComponent {
 
     close() {
         this.dialogRef.close();
+    }
+
+    unlocked(character: string) {
+        return gameManager.game.unlockedCharacters.indexOf(character) != -1;
     }
 }

@@ -180,14 +180,14 @@ export class MainComponent implements OnInit {
     gameManager.stateManager.after();
   }
 
-  calcColumns(scrollTo: HTMLElement | undefined = undefined): void {
+  calcColumns(scrollTo: HTMLElement | undefined = undefined, skipAnimation: boolean = false): void {
     if (settingsManager.settings.disableColumns) {
       this.columns = 1;
       this.columnSize = 99;
       setTimeout(() => {
         const containerElement = this.element.nativeElement.getElementsByClassName('figures')[0];
         if (containerElement) {
-          this.translate(scrollTo);
+          this.translate(scrollTo, skipAnimation);
         }
       }, 1)
     } else {
@@ -275,7 +275,7 @@ export class MainComponent implements OnInit {
             this.columnSize = 99;
           }
 
-          this.translate(scrollTo);
+          this.translate(scrollTo, skipAnimation);
         }
       }, 1);
     }
@@ -298,11 +298,15 @@ export class MainComponent implements OnInit {
     return figureElements.slice(start, end).filter((element: any, index: number) => index <= lastActive).map((element) => element.firstChild.clientHeight).reduce((a: any, b: any) => a + b, 0);
   }
 
-  translate(scrollTo: HTMLElement | undefined = undefined) {
+  translate(scrollTo: HTMLElement | undefined = undefined, skipAnimation: boolean = false) {
     setTimeout(() => {
-      const container = this.element.nativeElement.getElementsByClassName('figures')[0];
-      if (container) {
-        const figures = container.getElementsByClassName('figure');
+      const containerElement = this.element.nativeElement.getElementsByClassName('figures')[0];
+      if (containerElement) {
+        if (skipAnimation) {
+          containerElement.classList.add('no-animations');
+        }
+
+        const figures = containerElement.getElementsByClassName('figure');
         for (let index = 0; index < figures.length; index++) {
           let start = 0;
           let left = "-50%";
@@ -328,7 +332,15 @@ export class MainComponent implements OnInit {
                 block: 'end',
                 inline: 'center'
               });
-            }, settingsManager.settings.disableAnimations ? 0 : 250);
+
+              if (skipAnimation) {
+                containerElement.classList.remove('no-animations');
+              }
+            }, settingsManager.settings.disableAnimations || skipAnimation ? 0 : 250);
+          } else if (skipAnimation) {
+            setTimeout(() => {
+              containerElement.classList.remove('no-animations');
+            }, settingsManager.settings.disableAnimations ? 0 : 250)
           }
         }
       }
@@ -389,9 +401,9 @@ export class MainComponent implements OnInit {
       gameManager.stateManager.before("reorder");
       moveItemInArray(gameManager.game.figures, prev, next);
       gameManager.stateManager.after();
-      this.calcColumns(event.item.element.nativeElement);
+      this.calcColumns(event.item.element.nativeElement, true);
     } else {
-      this.translate();
+      this.translate(undefined, true);
     }
     this.draggingEnabled = false;
   }

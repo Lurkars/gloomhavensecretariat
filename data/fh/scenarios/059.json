@@ -11,14 +11,14 @@
     "campaignSticker": [
       "Unfettered Allies"
     ],
+    "unlockCharacter": "prism",
     "prosperity": 2,
     "items": [
       "246"
     ],
     "events": [
       "winter-outpost:WO-63"
-    ],
-    "custom": "Unlock %game.characterIcon.prism% class box"
+    ]
   },
   "monsters": [
     "flaming-bladespinner",

@@ -15,6 +15,6 @@
     "8"
   ],
   "rewards": {
-    "custom": "Unlock %game.characterIcon.snowflake% class box"
+    "unlockCharacter": "snowflake"
   }
 }

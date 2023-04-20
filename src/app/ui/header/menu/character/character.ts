@@ -3,7 +3,7 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { CharacterData } from "src/app/game/model/data/CharacterData";
-import { ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled, ghsTextSearch } from "src/app/ui/helper/Static";
+import { ghsTextSearch } from "src/app/ui/helper/Static";
 
 @Component({
   selector: 'ghs-character-menu',
@@ -15,15 +15,12 @@ export class CharacterMenuComponent {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   characterLevel: number = 1;
-  hasSpoilers = ghsHasSpoilers;
-  isSpoiled = ghsIsSpoiled;
-  notSpoiled = ghsNotSpoiled;
 
   filter: string = "";
   allEditions: boolean = false;
 
   characterData(filter: string, edition: string | undefined = undefined): CharacterData[] {
-    return gameManager.charactersData(edition).filter((characterData) => ((!characterData.locked || this.isSpoiled(characterData)) && (ghsTextSearch(characterData.name, filter) || this.isSpoiled(characterData) && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.name), filter))) || characterData.locked && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.name), filter, true)).sort((a, b) => {
+    return gameManager.charactersData(edition).filter((characterData) => ((!characterData.locked || this.unlocked(characterData)) && (ghsTextSearch(characterData.name, filter) || this.unlocked(characterData) && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.name), filter))) || characterData.locked && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.name), filter, true)).sort((a, b) => {
       const aName = settingsManager.getLabel('data.character.' + a.name).toLowerCase();
       const bName = settingsManager.getLabel('data.character.' + b.name).toLowerCase();
 
@@ -35,10 +32,10 @@ export class CharacterMenuComponent {
       }
 
       if (a.spoiler && b.spoiler) {
-        if (!this.isSpoiled(a) && this.isSpoiled(b)) {
+        if (!this.unlocked(a) && this.unlocked(b)) {
           return 1;
         }
-        if (this.isSpoiled(a) && !this.isSpoiled(b)) {
+        if (this.unlocked(a) && !this.unlocked(b)) {
           return -1;
         }
       }
@@ -51,6 +48,31 @@ export class CharacterMenuComponent {
       }
       return 0;
     });
+  }
+
+  unlocked(characterData: CharacterData): boolean {
+    return !characterData.spoiler || gameManager.game.unlockedCharacters.indexOf(characterData.name) != -1;
+  }
+
+  locked(characterData: CharacterData[]): boolean {
+    return characterData.some((characterData) => characterData.spoiler && !this.unlocked(characterData));
+  }
+
+  unlock(characterData: CharacterData) {
+    if (gameManager.game.unlockedCharacters.indexOf(characterData.name) == -1) {
+      gameManager.stateManager.before("unlockChar", "data.character." + characterData.name);
+      gameManager.game.unlockedCharacters.push(characterData.name);
+      gameManager.stateManager.after();
+    }
+  }
+
+  unlockAll(edition: string) {
+    const chars: string[] = gameManager.charactersData(edition).filter((characterData) => characterData.spoiler && !this.unlocked(characterData)).map((characterData) => characterData.name);
+    if (chars.length > 0) {
+      gameManager.stateManager.before("unlockAllCharacters", "data.edition." + edition);
+      gameManager.game.unlockedCharacters.push(...chars);
+      gameManager.stateManager.after();
+    }
   }
 
   noResults(): boolean {

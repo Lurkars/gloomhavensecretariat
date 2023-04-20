@@ -95,6 +95,12 @@ export class EntityMenuDialogComponent implements OnInit {
         } else if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowLeft') {
           this.changeHealth(-1);
           event.preventDefault();
+        } else if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowUp') {
+          this.changeMaxHealth(1);
+          event.preventDefault();
+        } else if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowDown') {
+          this.changeMaxHealth(-1);
+          event.preventDefault();
         } else if (!event.ctrlKey && event.key.toLowerCase() === 'b') {
           this.changeBless(event.shiftKey ? -1 : 1);
           event.preventDefault();

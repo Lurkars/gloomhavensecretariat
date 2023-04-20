@@ -38,13 +38,13 @@ export class KeyboardShortcuts implements OnInit {
                 } else if (event.ctrlKey && !event.shiftKey && event.key === 'y' || event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'z') {
                     gameManager.stateManager.redo();
                     event.preventDefault();
-                } else if (!event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key === 'ArrowUp') {
+                } else if (!event.ctrlKey && !event.shiftKey && !this.zoomInterval && (event.key === 'ArrowUp' || event.key === '+')) {
                     this.zoom(-1);
                     this.zoomInterval = setInterval(() => {
                         this.zoom(-1);
                     }, 30);
                     event.preventDefault();
-                } else if (!event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key === 'ArrowDown') {
+                } else if (!event.ctrlKey && !event.shiftKey && !this.zoomInterval && (event.key === 'ArrowDown' || event.key === '-')) {
                     this.zoom(1);
                     this.zoomInterval = setInterval(() => {
                         this.zoom(1);
@@ -85,12 +85,20 @@ export class KeyboardShortcuts implements OnInit {
                 } else if (!event.ctrlKey && gameManager.game.state == GameState.next && event.key === 'Tab') {
                     this.toggleEntity(event.shiftKey);
                     event.preventDefault();
+                } else if (!event.ctrlKey && !event.shiftKey && ['1', '2', '3', '4', '5', '6'].indexOf(event.key) != -1) {
+                    const index: number = +event.key - 1;
+                    const element = gameManager.game.elementBoard[index];
+                    const elementState = gameManager.nextElementState(element, false, true);
+                    gameManager.stateManager.before("updateElement", "game.element." + element.type, "game.element.state." + elementState);
+                    element.state = elementState;
+                    gameManager.stateManager.after();
+                    event.preventDefault();
                 }
             }
         })
 
         window.addEventListener('keyup', (event: KeyboardEvent) => {
-            if (this.zoomInterval && (event.key === 'ArrowUp' || event.key === 'ArrowDown')) {
+            if (this.zoomInterval && (event.key === 'ArrowUp' || event.key === '+' || event.key === 'ArrowDown' || event.key === '-')) {
                 clearInterval(this.zoomInterval);
                 this.zoomInterval = null;
                 settingsManager.setZoom(this.currentZoom);

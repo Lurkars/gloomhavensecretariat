@@ -140,6 +140,9 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "loot" && split.length == 4) {
         image = '<img  src="./assets/images/' + split[3] + '-player.svg" class="icon">';
         replace = '<span class="placeholder-player">' + image + '</span>';
+      } else if (type == "resource" && split.length == 3) {
+        image = '<img  src="./assets/images/fh/loot/' + split[2] + '.svg" class="icon ghs-svg">';
+        replace = '<span class="placeholder-resource">' + image + '</span>';
       } else {
         let labelArgs = label.split(':').splice(1).map((arg) =>
           applyPlaceholder(settingsManager.getLabel(arg), placeholder, relative));

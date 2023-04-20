@@ -10,10 +10,13 @@
       "Coral Shard",
       "Shard Seeker"
     ],
+    "chooseUnlockCharacter": [
+      "coral",
+      "kelp"
+    ],
     "events": [
       "winter-outpost:WO-81"
-    ],
-    "custom": "Unlock %game.characterIcon.coral% class box OR unlock %game.characterIcon.kelp% class box."
+    ]
   },
   "monsters": [
     "abael-herder",

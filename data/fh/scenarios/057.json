@@ -9,10 +9,10 @@
     "campaignSticker": [
       "Friend of the Snowspeakers"
     ],
+    "unlockCharacter": "snowflake",
     "events": [
       "winter-outpost:WO-68"
-    ],
-    "custom": "Unlock %game.characterIcon.snowflake% class box"
+    ]
   },
   "monsters": [
     "render",

@@ -31,6 +31,7 @@ import { LootManager } from "./LootManager";
 import { ObjectiveData, ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
 import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
 import { ScenarioRulesManager } from "./ScenarioRulesManager";
+import { ElementModel, ElementState } from "../model/data/Element";
 
 
 export class GameManager {
@@ -139,29 +140,40 @@ export class GameManager {
     return false;
   }
 
-  charactersData(edition: string | undefined = undefined): CharacterData[] {
-    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.characters).flat().filter((characterData, index, characters) => (!edition || characterData.edition == edition) && (characterData.replace || !characterData.replace && !characters.find((characterDataReplacement) => characterDataReplacement.replace && characterDataReplacement.name == characterData.name && characterDataReplacement.edition == characterData.edition)));
+  charactersData(edition: string | undefined = undefined, all: boolean = false): CharacterData[] {
+    const characters = this.editionData.filter((editionData) => (all || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.characters).flat();
+
+    const merges = characters.filter((characterData) => characterData.merge);
+
+    return characters.filter((characterData) => (!edition || characterData.edition == edition) && !characterData.merge && (characterData.replace || !characterData.replace && !characters.find((characterDataReplacement) => characterDataReplacement.replace && characterDataReplacement.name === characterData.name && characterDataReplacement.edition === characterData.edition))).map((characterData) => {
+      const merge = merges.find((characterDataMerge) => characterDataMerge.name === characterData.name && characterDataMerge.edition === characterData.edition);
+      if (merge) {
+        return Object.assign(new CharacterData(characterData), merge);
+      }
+
+      return new CharacterData(characterData);
+    });
   }
 
-  monstersData(edition: string | undefined = undefined): MonsterData[] {
-    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.monsters).flat().filter((monsterData, index, monsters) => (!edition || monsterData.edition == edition) && (monsterData.replace || !monsterData.replace && !monsters.find((monsterDataReplacement) => monsterDataReplacement.replace && monsterDataReplacement.name == monsterData.name && monsterDataReplacement.edition == monsterData.edition)));
+  monstersData(edition: string | undefined = undefined, all: boolean = false): MonsterData[] {
+    return this.editionData.filter((editionData) => (all || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.monsters).flat().filter((monsterData, index, monsters) => (!edition || monsterData.edition == edition) && (monsterData.replace || !monsterData.replace && !monsters.find((monsterDataReplacement) => monsterDataReplacement.replace && monsterDataReplacement.name == monsterData.name && monsterDataReplacement.edition == monsterData.edition)));
   }
 
-  decksData(edition: string | undefined = undefined): DeckData[] {
-    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.decks).flat().filter((deckData) => !edition || deckData.edition == edition);
+  decksData(edition: string | undefined = undefined, all: boolean = false): DeckData[] {
+    return this.editionData.filter((editionData) => (all || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.decks).flat().filter((deckData) => !edition || deckData.edition == edition);
   }
 
-  scenarioData(edition: string | undefined = undefined): ScenarioData[] {
-    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.scenarios).flat().filter((scenarioData) => !edition || scenarioData.edition == edition);
+  scenarioData(edition: string | undefined = undefined, all: boolean = false): ScenarioData[] {
+    return this.editionData.filter((editionData) => (all || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.scenarios).flat().filter((scenarioData) => !edition || scenarioData.edition == edition);
   }
 
-  sectionData(edition: string | undefined = undefined): ScenarioData[] {
-    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.sections).flat().filter((sectionData) => !edition || sectionData.edition == edition);
+  sectionData(edition: string | undefined = undefined, all: boolean = false): ScenarioData[] {
+    return this.editionData.filter((editionData) => (all || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.sections).flat().filter((sectionData) => !edition || sectionData.edition == edition);
   }
 
   itemData(edition: string | undefined = undefined, all: boolean = false): ItemData[] {
     const prosperityLevel = this.prosperityLevel();
-    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1).map((editionData) => editionData.items).flat().filter((itemData) => {
+    return this.editionData.filter((editionData) => settingsManager.settings.editions.indexOf(editionData.edition) != -1 && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.items).flat().filter((itemData) => {
       if (edition && itemData.edition != edition) {
         return false;
       }
@@ -584,6 +596,51 @@ export class GameManager {
         }
       }
     })
+  }
+
+  nextElementState(element: ElementModel, double: boolean = false, draw: boolean = false): ElementState {
+    if (gameManager.game.state == GameState.draw || draw) {
+      if (element.state == ElementState.new) {
+        if (!double) {
+          return ElementState.strong;
+        }
+      }
+      if (element.state == ElementState.new || element.state == ElementState.strong) {
+        if (!double) {
+          return ElementState.waning;
+        }
+      } else if (element.state == ElementState.waning) {
+        return ElementState.inert;
+      } else {
+        if (double) {
+          return ElementState.waning;
+        } else {
+          return ElementState.new;
+        }
+      }
+    } else {
+      if (element.state == ElementState.new) {
+        if (!double) {
+          return ElementState.strong;
+        }
+      } if (element.state == ElementState.strong) {
+        if (double) {
+          return ElementState.waning;
+        }
+      } else if (element.state == ElementState.waning) {
+        if (double) {
+          return ElementState.new;
+        }
+      } else {
+        if (double) {
+          return ElementState.waning;
+        } else {
+          return ElementState.new;
+        }
+      }
+    }
+
+    return ElementState.inert;
   }
 
 }

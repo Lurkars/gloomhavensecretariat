@@ -8,12 +8,15 @@
     "campaignSticker": [
       "Friend of the Frostspeakers"
     ],
+    "chooseUnlockCharacter": [
+      "fist",
+      "snowflake"
+    ],
     "prosperity": 2,
     "events": [
       "winter-outpost:WO-66",
       "winter-outpost:WO-67"
-    ],
-    "custom": "Unlock whichever class box is still locked: <br>%game.characterIcon.fist% or %game.characterIcon.snowflake%"
+    ]
   },
   "monsters": [
     "algox-archer",

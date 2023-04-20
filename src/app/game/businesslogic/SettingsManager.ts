@@ -1,4 +1,3 @@
-import { CharacterData } from "../model/data/CharacterData";
 import { EditionData } from "../model/data/EditionData";
 import { Settings } from "../model/Settings";
 import { Spoilable } from "../model/data/Spoilable";
@@ -550,10 +549,23 @@ export class SettingsManager {
             gameManager.editionData = gameManager.editionData.filter((editionData) => editionData.url != url);
           }
 
+          value.characters = value.characters || [];
+          value.monsters = value.monsters || [];
+          value.decks = value.decks || [];
+          value.scenarios = value.scenarios || [];
+          value.sections = value.sections || [];
+          value.items = value.items || [];
+          value.conditions = value.conditions || [];
+          value.label = value.label || {};
+          value.labelSpoiler = value.labelSpoiler || {};
           value.url = url;
-          if (value.characters) {
-            value.characters = value.characters.map((characterData) => new CharacterData(characterData));
-          }
+          value.logoUrl = value.logoUrl || "";
+          value.additional = value.additional || false;
+          value.extensions = value.extensions || [];
+          value.newAmStyle = value.newAmStyle || false;
+          value.treasures = value.treasures || [];
+          value.treasureOffset = value.treasureOffset || 0;
+
           gameManager.editionData.push(value);
           gameManager.editionData.sort((a, b) => {
             return this.settings.editionDataUrls.indexOf(a.url) - this.settings.editionDataUrls.indexOf(b.url);

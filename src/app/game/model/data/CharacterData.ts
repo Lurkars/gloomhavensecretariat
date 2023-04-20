@@ -64,6 +64,7 @@ export class CharacterData implements Editional, Spoilable {
   errors: FigureError[] | undefined;
 
   replace: boolean = false;
+  merge: boolean = false;
 
   constructor(characterData: CharacterData | undefined = undefined) {
     if (characterData) {
@@ -84,13 +85,12 @@ export class CharacterData implements Editional, Spoilable {
       this.marker = characterData.marker || false;
       this.spoiler = characterData.spoiler || false;
       this.locked = characterData.locked || false;
-      this.deck = characterData.deck;
-      if (characterData.deck) {
-        this.deck = characterData.deck;
-      }
+      this.deck = characterData.deck || "";
       this.perks = characterData.perks || [];
       this.additionalModifier = characterData.additionalModifier || [];
       this.masteries = characterData.masteries || [];
+      this.replace = characterData.replace || false;
+      this.merge = characterData.merge || false;
     }
   }
 

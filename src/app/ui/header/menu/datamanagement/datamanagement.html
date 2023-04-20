@@ -54,6 +54,28 @@
   <div class="columns columns-break">
     <div class="column">
       <div class="line title sticky">
+        <label>{{'datamanagement.unlocks' | ghsLabel}}</label>
+      </div>
+      <div class="line">
+        <span class="input-button">
+          <input type="text" #inputUnlock (keyup.enter)="addUnlock()" (keyup)="0"
+            placeholder="{{'datamanagement.addUnlock' | ghsLabel}}">
+          <span class="add-button" (click)="addUnlock()" [ngClass]="{'disabled' : !(inputUnlock.value)}"></span>
+        </span>
+      </div>
+      <div class="line spoilers">
+        <a class="spoiler-item" *ngFor="let character of gameManager.game.unlockedCharacters">
+          {{'data.character.'+ character | ghsLabel}} ({{character}})
+          <span class="spacer"></span>
+          <span (click)="removeUnlock(character)" [title]="'datamanagement.removeUnlock' | ghsLabel"
+            class="remove"></span>
+        </a>
+      </div>
+      <div class="spacer"></div>
+      <div class="line separator" *ngIf="gameManager.game.unlockedCharacters.length > 0">
+        <a (click)="removeAllUnlocks()">{{'datamanagement.removeAllUnlocks' | ghsLabel}}</a>
+      </div>
+      <div class="line title sticky">
         <label>{{'datamanagement.spoilers' | ghsLabel}}</label>
       </div>
       <div class="line">
