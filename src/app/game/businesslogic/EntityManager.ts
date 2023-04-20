@@ -279,10 +279,10 @@ export class EntityManager {
         if (highlight) {
           condition.highlight = true;
         }
+        this.checkHealth(entity);
         setTimeout(() => {
           condition.expired = !condition.permanent;
           condition.highlight = false;
-          this.checkHealth(entity);
         }, highlight ? 1000 : 0);
       }
 
@@ -374,9 +374,7 @@ export class EntityManager {
         regenerateCondition.lastState = regenerateCondition.state;
         regenerateCondition.state = EntityConditionState.expire;
         entity.health += regenerateCondition.value;
-        if (entity.health > maxHealth) {
-          entity.health = maxHealth;
-        }
+        this.checkHealth(entity);
       }
 
       regenerateCondition.highlight = true;
