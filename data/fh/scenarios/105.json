@@ -3,9 +3,11 @@
   "index": "105",
   "name": "Ruins of the Equinox",
   "edition": "fh",
-  "unlocks": [
-    "106"
-  ],
+  "rewards": {
+    "calenderSection": [
+      "159.4-4"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "flame-demon",

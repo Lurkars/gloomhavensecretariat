@@ -3,6 +3,11 @@
   "index": "103",
   "name": "The Lead Door",
   "edition": "fh",
+  "rewards": {
+    "gold": 10,
+    "experience": 30,
+    "battleGoals": 1
+  },
   "monsters": [
     "living-doom",
     "living-spirit",

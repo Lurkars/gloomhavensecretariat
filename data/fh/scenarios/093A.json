@@ -3,6 +3,11 @@
   "index": "93A",
   "name": "Midwinter Brawl A",
   "edition": "fh",
+  "rewards": {
+    "items": [
+      "235"
+    ]
+  },
   "monsters": [
     "algox-archer",
     "algox-guard",

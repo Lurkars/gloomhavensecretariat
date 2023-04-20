@@ -3,6 +3,11 @@
   "index": "83",
   "name": "Rising Brine",
   "edition": "fh",
+  "rewards": {
+    "items": [
+      "202"
+    ]
+  },
   "monsters": [
     "ancient-artillery",
     "giant-piranha-pig",

@@ -3,6 +3,11 @@
   "index": "106",
   "name": "The Tempus Forge",
   "edition": "fh",
+  "rewards": {
+    "items": [
+      "213"
+    ]
+  },
   "monsters": [],
   "lootDeckConfig": {
     "money": 7,

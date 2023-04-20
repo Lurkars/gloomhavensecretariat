@@ -9,6 +9,10 @@
   "links": [
     "88"
   ],
+  "rewards": {
+    "inspiration": 1,
+    "custom": "Or 2 inspiration if both brothers survived"
+  },
   "monsters": [
     "algox-archer",
     "algox-guard"

@@ -3,9 +3,9 @@
   "index": "94",
   "name": "A Grand View",
   "edition": "fh",
-  "unlocks": [
-    "95"
-  ],
+  "rewards": {
+    "experience": 10
+  },
   "monsters": [
     "ancient-artillery",
     "flaming-bladespinner",

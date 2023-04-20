@@ -3,6 +3,9 @@
   "index": "86",
   "name": "The Lady in White",
   "edition": "fh",
+  "rewards": {
+    "morale": 2
+  },
   "monsters": [
     "black-imp",
     "earth-demon",

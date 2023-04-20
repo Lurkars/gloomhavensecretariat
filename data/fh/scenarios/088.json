@@ -3,6 +3,9 @@
   "index": "88",
   "name": "Collection's Capstone",
   "edition": "fh",
+  "rewards": {
+    "morale": 2
+  },
   "monsters": [
     "earth-demon",
     "flame-demon",

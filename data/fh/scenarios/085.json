@@ -3,6 +3,10 @@
   "index": "85",
   "name": "Deadly Pastimes",
   "edition": "fh",
+  "rewards": {
+    "experience": 15,
+    "battleGoals": 1
+  },
   "monsters": [
     "burrowing-blade",
     "polar-bear"

@@ -3,6 +3,9 @@
   "index": "91",
   "name": "Shoreline Scramble",
   "edition": "fh",
+  "rewards": {
+    "morale": 1
+  },
   "monsters": [
     "lightning-eel",
     "lurker-clawcrusher",

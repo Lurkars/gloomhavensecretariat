@@ -9,6 +9,10 @@
   "forcedLinks": [
     "97"
   ],
+  "rewards": {
+    "morale": 1,
+    "experience": 5
+  },
   "monsters": [
     "ancient-artillery",
     "rending-drake"

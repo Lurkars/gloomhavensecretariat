@@ -6,6 +6,10 @@
   "unlocks": [
     "102"
   ],
+  "rewards": {
+    "experience": 10,
+    "battleGoals": 1
+  },
   "monsters": [
     "algox-archer",
     "algox-guard"
