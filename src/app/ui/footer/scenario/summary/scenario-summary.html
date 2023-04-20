@@ -216,7 +216,7 @@
               <span *ngIf="scenario.unlocks.length > 1 && i < scenario.unlocks.length - 1">,</span>
             </div>
           </div>
-          <div class="list" *ngIf="rewards && rewards.chooseLocation.length > 1">
+          <div class="list" *ngIf="rewards && rewards.chooseLocation">
             <div class="item">{{'scenario.rewards.chooseLocation' | ghsLabel}}:</div>
 
             <label class="item location choose" *ngFor="let location of rewards.chooseLocation; let i = index;">
