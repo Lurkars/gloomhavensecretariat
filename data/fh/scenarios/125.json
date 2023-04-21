@@ -3,6 +3,11 @@
   "index": "125",
   "name": "The Longest Second",
   "edition": "fh",
+  "rewards": {
+    "items": [
+      "194"
+    ]
+  },
   "monsters": [
     "robotic-boltshooter",
     "ruined-machine"

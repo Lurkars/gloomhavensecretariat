@@ -3,6 +3,9 @@
   "index": "126",
   "name": "Joseph the Lion",
   "edition": "fh",
+  "rewards": {
+    "gold": 10
+  },
   "monsters": [
     "ice-wraith",
     "living-spirit",

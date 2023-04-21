@@ -3,6 +3,10 @@
   "index": "123",
   "name": "The Titan",
   "edition": "fh",
+  "rewards": {
+    "morale": 1,
+    "inspiration": 1
+  },
   "monsters": [
     "ancient-artillery"
   ],

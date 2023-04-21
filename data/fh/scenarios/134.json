@@ -3,6 +3,11 @@
   "index": "134",
   "name": "Tower of Knowledge",
   "edition": "fh",
+  "rewards": {
+    "items": [
+      "219"
+    ]
+  },
   "monsters": [
     "flaming-bladespinner",
     "robotic-boltshooter",

@@ -6,6 +6,18 @@
   "unlocks": [
     "121"
   ],
+  "rewards": {
+    "morale": 1,
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 2
+      }
+    ],
+    "calenderSection": [
+      "76.3-10"
+    ]
+  },
   "monsters": [
     "city-guard",
     "hound"

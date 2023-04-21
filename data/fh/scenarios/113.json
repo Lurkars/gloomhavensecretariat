@@ -3,6 +3,9 @@
   "index": "113",
   "name": "Lush Grotto",
   "edition": "fh",
+  "rewards": {
+    "custom": "Gain any 4 collective herb resources"
+  },
   "monsters": [
     "chaos-demon",
     "forest-imp"

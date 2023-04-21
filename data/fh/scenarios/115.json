@@ -5,6 +5,9 @@
   "unlocks": [
     "116"
   ],
+  "rewards": {
+    "experience": 15
+  },
   "monsters": [
     "algox-guard",
     "algox-snowspeaker",

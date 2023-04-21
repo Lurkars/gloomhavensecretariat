@@ -3,6 +3,9 @@
   "index": "116",
   "name": "Caravan Guards",
   "edition": "fh",
+  "rewards": {
+    "custom": "Gain rewards based on the number of wagons that escaped. All rewards are cumulative.<br>1. Gain 1 morale <br>2. Gain 1 collective lumber, 1 collective metal, and 1 collective hide <br>3. Gain any 2 material resources each and 10 XP each <br> 4. Gain one random item blueprint <br> 5. Gain 1 prosperity and 2 morale"
+  },
   "monsters": [
     "algox-archer",
     "algox-guard",

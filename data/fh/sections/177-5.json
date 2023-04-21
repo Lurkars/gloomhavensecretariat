@@ -1,0 +1,18 @@
+{
+  "index": "177.5",
+  "name": "My Private Empire",
+  "edition": "fh",
+  "parent": "107",
+  "parentSections": [
+    [
+      "150.3"
+    ]
+  ],
+  "conclusion": true,
+  "blockedSections": [
+    "116.1"
+  ],
+  "rewards": {
+    "custom": "Gain any X collective material resources, where X is the number of episodes overcome"
+  }
+}

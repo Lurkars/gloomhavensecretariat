@@ -3,6 +3,15 @@
   "index": "117",
   "name": "A Waiting Game",
   "edition": "fh",
+  "rewards": {
+    "collectiveResources": [
+      {
+        "type": "hide",
+        "value": 4
+      }
+    ],
+    "gold": 10
+  },
   "monsters": [
     "hound",
     "polar-bear-scenario-117",

@@ -9,6 +9,10 @@
   "forcedLinks": [
     "130"
   ],
+  "rewards": {
+    "battleGoals": 1,
+    "custom": "Note the amount of remaining sun agates"
+  },
   "monsters": [
     "city-guard-scenario-129"
   ],

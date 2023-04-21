@@ -1,0 +1,15 @@
+{
+  "index": "125.4",
+  "name": "Disable the mind control device",
+  "edition": "fh",
+  "parent": "121",
+  "parentSections": [
+    [
+      "108.3"
+    ]
+  ],
+  "conclusion": true,
+  "rewards": {
+    "morale": 2
+  }
+}
