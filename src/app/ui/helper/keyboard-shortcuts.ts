@@ -8,6 +8,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { Objective } from 'src/app/game/model/Objective';
 import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
 import { FooterComponent } from '../footer/footer';
+import { SummonState } from 'src/app/game/model/Summon';
 
 
 @Directive({
@@ -141,7 +142,7 @@ export class KeyboardShortcuts implements OnInit {
             if (activeFigure instanceof Character) {
                 let toggleFigure = true;
                 if (settingsManager.settings.activeSummons) {
-                    const summons = activeFigure.summons.filter((summon) => gameManager.entityManager.isAlive(summon));
+                    const summons = activeFigure.summons.filter((summon) => gameManager.entityManager.isAlive(summon) && summon.state != SummonState.new);
                     let activeSummon = summons.find((summon) => summon.active);
                     if (!activeSummon && summons.length > 0 && reverse && activeFigure.active) {
                         activeSummon = summons[summons.length - 1];
@@ -166,7 +167,7 @@ export class KeyboardShortcuts implements OnInit {
                 }
             } else if (activeFigure instanceof Monster) {
                 let toggleFigure = true;
-                const entities = activeFigure.entities.filter((entity) => gameManager.entityManager.isAlive(entity));
+                const entities = activeFigure.entities.filter((entity) => gameManager.entityManager.isAlive(entity) && entity.summon != SummonState.new);
                 if (settingsManager.settings.activeStandees) {
                     let activeEntity = entities.find((entity) => entity.active);
                     if (!activeEntity && entities.length > 0 && reverse && activeFigure.active) {

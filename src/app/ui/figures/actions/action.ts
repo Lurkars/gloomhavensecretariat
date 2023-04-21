@@ -443,6 +443,7 @@ export class ActionComponent implements OnInit {
   applyHighlightAction(event: any) {
     if (this.monster && this.highlightAction() && this.action) {
       gameManager.stateManager.before('applyHightlightAction.' + this.action.type, "data.monster." + this.monster.name, '' + this.action.value);
+      let after: boolean = true;
       this.monster.entities.filter((entity) => gameManager.entityManager.isAlive(entity, true)).forEach((entity) => {
         if (this.action && !entity.tags.find((tag) => tag == 'roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action?.type)) {
           entity.tags.push('roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action.type);
@@ -459,10 +460,27 @@ export class ActionComponent implements OnInit {
               entity.health = 0;
               entity.dead = true;
             }
+            if (this.monster && entity.dead) {
+              after = false;
+              setTimeout(() => {
+                if (this.monster && entity.dead) {
+                  gameManager.monsterManager.removeMonsterEntity(this.monster, entity);
+                  if (this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0 || !monsterEntity.active)) {
+                    this.monster.off = true;
+                    if (this.monster.active) {
+                      gameManager.roundManager.toggleFigure(this.monster);
+                    }
+                  }
+                }
+                gameManager.stateManager.after();
+              }, settingsManager.settings.disableAnimations ? 0 : 1500);
+            }
           }
         }
       })
-      gameManager.stateManager.after();
+      if (after) {
+        gameManager.stateManager.after();
+      }
       event.preventDefault();
     }
   }

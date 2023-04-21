@@ -1,5 +1,5 @@
 <div class="initiative"
-  [ngClass]="{'empty' : figure.initiative <= 0 && !settingsManager.settings.initiativeRequired}"
+  [ngClass]="{'empty' : figure.initiative <= 0 && (!settingsManager.settings.initiativeRequired || figure.exhausted)}"
   title="{{'game.figure.setInitiative' | ghsLabel}}">
   <img (click)="open($event)" class="ghs-svg" src="./assets/images/initiative.svg" />
   <input [ngClass]="{'hidden' : figure.initiative > 0 && initiativeHidden()}" #initativeInput

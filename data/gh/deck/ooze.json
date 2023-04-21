@@ -93,7 +93,7 @@
         },
         {
           "type": "summon",
-          "value": "ooze:1:normal:H",
+          "value": "ooze:normal:1:H",
           "small": true,
           "subActions": [
             {
@@ -116,7 +116,7 @@
         },
         {
           "type": "summon",
-          "value": "ooze:1:normal:H",
+          "value": "ooze:normal:1:H",
           "small": true,
           "subActions": [
             {
