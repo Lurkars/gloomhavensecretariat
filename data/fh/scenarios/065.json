@@ -4,6 +4,16 @@
   "name": "A Strong Foundation",
   "edition": "fh",
   "rewards": {
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 2
+      },
+      {
+        "type": "metal",
+        "value": 2
+      }
+    ],
     "calenderSection": [
       "95.4-6"
     ]

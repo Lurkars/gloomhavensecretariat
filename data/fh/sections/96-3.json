@@ -13,6 +13,9 @@
     "items": [
       "201"
     ],
+    "events": [
+      "boat:B-18"
+    ],
     "custom": "Threat from the Deep quest complete"
   }
 }

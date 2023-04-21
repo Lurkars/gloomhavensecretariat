@@ -9,6 +9,14 @@
   "blocks": [
     "6"
   ],
+  "rewards": {
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 2
+      }
+    ]
+  },
   "monsters": [
     "ice-wraith"
   ],

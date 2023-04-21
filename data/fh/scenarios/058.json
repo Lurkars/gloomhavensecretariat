@@ -8,6 +8,20 @@
   ],
   "rewards": {
     "morale": 1,
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 3
+      },
+      {
+        "type": "metal",
+        "value": 3
+      },
+      {
+        "type": "hide",
+        "value": 3
+      }
+    ],
     "campaignSticker": [
       "Unfettered Deactivated"
     ],
@@ -18,7 +32,8 @@
     "events": [
       "winter-outpost:WO-64",
       "winter-outpost:WO-65"
-    ]
+    ],
+    "custom": "Remove all %game.action.custom.fh-unfettered% events from all outpost event decks"
   },
   "monsters": [
     "flaming-bladespinner",

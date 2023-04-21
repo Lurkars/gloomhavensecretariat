@@ -10,6 +10,12 @@
   ],
   "conclusion": true,
   "rewards": {
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 3
+      }
+    ],
     "calenderSection": [
       "146.1B-5"
     ]

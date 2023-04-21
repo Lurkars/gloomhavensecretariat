@@ -7,6 +7,12 @@
     "campaignSticker": [
       "Coral Shard"
     ],
+    "collectiveResources": [
+      {
+        "type": "axenut",
+        "value": 2
+      }
+    ],
     "gold": 15,
     "custom": "Read Section #36.7 now"
   },

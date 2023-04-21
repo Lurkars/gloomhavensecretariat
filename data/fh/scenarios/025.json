@@ -7,6 +7,16 @@
     "26"
   ],
   "rewards": {
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 2
+      },
+      {
+        "type": "metal",
+        "value": 2
+      }
+    ],
     "calenderSection": [
       "128.2-4"
     ]

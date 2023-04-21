@@ -4,7 +4,13 @@
   "name": "Shoreline Scramble",
   "edition": "fh",
   "rewards": {
-    "morale": 1
+    "morale": 1,
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 2
+      }
+    ]
   },
   "monsters": [
     "lightning-eel",

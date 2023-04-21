@@ -10,7 +10,17 @@
     "54"
   ],
   "rewards": {
-    "inspiration": -2
+    "inspiration": -2,
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 4
+      },
+      {
+        "type": "metal",
+        "value": 4
+      }
+    ]
   },
   "monsters": [
     "lightning-eel",

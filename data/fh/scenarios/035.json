@@ -6,6 +6,22 @@
   "unlocks": [
     "43"
   ],
+  "rewards": {
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 2
+      },
+      {
+        "type": "metal",
+        "value": 2
+      },
+      {
+        "type": "hide",
+        "value": 2
+      }
+    ]
+  },
   "monsters": [
     "living-bones",
     "ruined-machine",

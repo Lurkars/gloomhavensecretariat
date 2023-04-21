@@ -8,6 +8,9 @@
   "links": [
     "34"
   ],
+  "rewards": {
+    "randomItemBlueprint": 1
+  },
   "monsters": [
     "living-bones",
     "living-spirit"

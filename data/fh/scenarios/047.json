@@ -10,6 +10,12 @@
     "56"
   ],
   "rewards": {
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 2
+      }
+    ],
     "gold": 10
   },
   "monsters": [

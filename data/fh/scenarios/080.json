@@ -4,7 +4,21 @@
   "name": "Relic Renewed",
   "edition": "fh",
   "rewards": {
-    "morale": 2
+    "morale": 2,
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 2
+      },
+      {
+        "type": "metal",
+        "value": 2
+      },
+      {
+        "type": "hide",
+        "value": 2
+      }
+    ]
   },
   "monsters": [
     "robotic-boltshooter",

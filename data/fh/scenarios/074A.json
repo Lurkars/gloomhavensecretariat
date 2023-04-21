@@ -6,6 +6,9 @@
   "unlocks": [
     "76"
   ],
+  "rewards": {
+    "randomItemBlueprint": 1
+  },
   "monsters": [
     "algox-archer",
     "piranha-pig"

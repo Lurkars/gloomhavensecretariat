@@ -9,6 +9,14 @@
   "blocks": [
     "5"
   ],
+  "rewards": {
+    "collectiveResources": [
+      {
+        "type": "metal",
+        "value": 2
+      }
+    ]
+  },
   "monsters": [
     "frost-demon",
     "snow-imp"

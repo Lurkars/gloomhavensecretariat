@@ -5,6 +5,14 @@
   "unlocks": [
     "17"
   ],
+  "rewards": {
+    "collectiveResources": [
+      {
+        "type": "corpsecap",
+        "value": 2
+      }
+    ]
+  },
   "monsters": [
     "ice-wraith",
     "living-doom",
