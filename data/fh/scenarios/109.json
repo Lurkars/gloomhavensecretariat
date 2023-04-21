@@ -4,6 +4,14 @@
   "name": "Furious Factory",
   "edition": "fh",
   "random": true,
+  "rewards": {
+    "collectiveResources": [
+      {
+        "type": "metal",
+        "value": 5
+      }
+    ]
+  },
   "monsters": [
     "ancient-artillery"
   ],

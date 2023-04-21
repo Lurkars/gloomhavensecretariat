@@ -4,6 +4,12 @@
   "name": "Ruins of the Equinox",
   "edition": "fh",
   "rewards": {
+    "collectiveResources": [
+      {
+        "type": "flamefruit",
+        "value": 2
+      }
+    ],
     "calenderSection": [
       "159.4-4"
     ]

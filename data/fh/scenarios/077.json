@@ -7,6 +7,9 @@
     "items": [
       "201"
     ],
+    "events": [
+      "boat:B-19"
+    ],
     "custom": "Threat from the Deep quest complete"
   },
   "monsters": [

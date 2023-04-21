@@ -4,6 +4,11 @@
   "name": "Ice Cave",
   "edition": "fh",
   "random": true,
+  "rewards": {
+    "items": [
+      "236"
+    ]
+  },
   "monsters": [
     "frost-demon",
     "hound"

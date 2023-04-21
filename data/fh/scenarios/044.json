@@ -3,15 +3,15 @@
   "index": "44",
   "name": "Nerve Center",
   "edition": "fh",
-  "unlocks": [
-    "58",
-    "59"
-  ],
   "forcedLinks": [
     "58",
     "59"
   ],
   "rewards": {
+    "chooseLocation": [
+      "58",
+      "59"
+    ],
     "gold": 5
   },
   "monsters": [

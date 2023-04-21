@@ -16,7 +16,8 @@
     "events": [
       "winter-outpost:WO-66",
       "winter-outpost:WO-67"
-    ]
+    ],
+    "custom": "Remove all %game.action.custom.fh-algox% events from all outpost event decks"
   },
   "monsters": [
     "algox-archer",

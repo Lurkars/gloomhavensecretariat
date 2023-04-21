@@ -3,15 +3,15 @@
   "index": "51",
   "name": "Orphan's Halls",
   "edition": "fh",
-  "unlocks": [
-    "58",
-    "59"
-  ],
   "forcedLinks": [
     "58",
     "59"
   ],
   "rewards": {
+    "chooseLocation": [
+      "58",
+      "59"
+    ],
     "experience": 10
   },
   "monsters": [

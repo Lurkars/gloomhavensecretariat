@@ -7,6 +7,16 @@
     "16"
   ],
   "rewards": {
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 1
+      },
+      {
+        "type": "hide",
+        "value": 2
+      }
+    ],
     "custom": "Place map overlay sticker X on map in location X (C7)"
   },
   "monsters": [

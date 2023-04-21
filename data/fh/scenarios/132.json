@@ -9,6 +9,9 @@
   "forcedLinks": [
     "133"
   ],
+  "rewards": {
+    "inspiration": 1
+  },
   "monsters": [
     "ice-wraith",
     "snow-imp"

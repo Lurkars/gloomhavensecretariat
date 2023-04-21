@@ -3,6 +3,12 @@
   "index": "137",
   "name": "Pirate Queen's Haul",
   "edition": "fh",
+  "rewards": {
+    "morale": 3,
+    "gold": 30,
+    "prosperity": 2,
+    "custom": "Add one +1 sticker to a money loot card (the card gives one extra money token when resolved)"
+  },
   "monsters": [
     "forest-imp",
     "piranha-pig",

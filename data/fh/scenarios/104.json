@@ -5,6 +5,12 @@
   "edition": "fh",
   "random": true,
   "rewards": {
+    "collectiveResources": [
+      {
+        "type": "snowthistle",
+        "value": 2
+      }
+    ],
     "events": [
       "winter-road:WR-49"
     ]

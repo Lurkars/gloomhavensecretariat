@@ -3,6 +3,12 @@
   "index": "136",
   "name": "Abandoned Hideout",
   "edition": "fh",
+  "rewards": {
+    "gold": 20,
+    "items": [
+      "245"
+    ]
+  },
   "monsters": [
     "lightning-eel",
     "lurker-wavethrower"

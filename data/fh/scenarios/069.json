@@ -4,6 +4,20 @@
   "name": "Sacred Soil",
   "edition": "fh",
   "rewards": {
+    "collectiveResources": [
+      {
+        "type": "arrowvine",
+        "value": 1
+      },
+      {
+        "type": "axenut",
+        "value": 1
+      },
+      {
+        "type": "flamefruit",
+        "value": 1
+      }
+    ],
     "calenderSection": [
       "15.4-3"
     ]

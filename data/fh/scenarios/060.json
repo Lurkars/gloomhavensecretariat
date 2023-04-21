@@ -13,7 +13,12 @@
       "kelp"
     ],
     "experience": 30,
-    "prosperity": 1
+    "prosperity": 1,
+    "events": [
+      "summer-outpost:SO-48",
+      "boat:B-17"
+    ],
+    "custom": "Remove all %game.action.custom.fh-lurkers% events from all outpost event decks"
   },
   "monsters": [
     "fracture-of-the-deep",

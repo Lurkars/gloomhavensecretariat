@@ -10,6 +10,12 @@
   ],
   "conclusion": true,
   "rewards": {
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 3
+      }
+    ],
     "campaignSticker": [
       "Friend of the Fish King"
     ],

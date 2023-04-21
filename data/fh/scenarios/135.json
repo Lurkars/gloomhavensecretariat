@@ -3,6 +3,14 @@
   "index": "135",
   "name": "Belara's Keep",
   "edition": "fh",
+  "rewards": {
+    "morale": 2,
+    "inspiration": 1,
+    "prosperity": 2,
+    "items": [
+      "220"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "flame-demon",

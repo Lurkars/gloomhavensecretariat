@@ -4,6 +4,10 @@
   "name": "Lustrous Pit",
   "edition": "fh",
   "random": true,
+  "rewards": {
+    "morale": 2,
+    "inspiration": 2
+  },
   "monsters": [
     "ice-wraith",
     "snow-imp"

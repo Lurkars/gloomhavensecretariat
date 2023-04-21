@@ -10,6 +10,12 @@
     "57"
   ],
   "rewards": {
+    "collectiveResources": [
+      {
+        "type": "metal",
+        "value": 2
+      }
+    ],
     "experience": 10
   },
   "monsters": [

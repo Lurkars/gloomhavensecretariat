@@ -4,6 +4,7 @@
   "edition": "fh",
   "rewards": {
     "morale": 1,
+    "randomItemBlueprint": 1,
     "calenderSection": [
       "54.3-4"
     ]

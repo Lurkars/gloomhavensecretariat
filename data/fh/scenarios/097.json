@@ -9,6 +9,15 @@
   "forcedLinks": [
     "98"
   ],
+  "rewards": {
+    "morale": 1,
+    "collectiveResources": [
+      {
+        "type": "metal",
+        "value": 5
+      }
+    ]
+  },
   "monsters": [
     "flaming-bladespinner",
     "program-director",

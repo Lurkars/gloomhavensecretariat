@@ -3,6 +3,18 @@
   "index": "89",
   "name": "A Contained Fire",
   "edition": "fh",
+  "rewards": {
+    "collectiveResources": [
+      {
+        "type": "rockroot",
+        "value": 2
+      },
+      {
+        "type": "lumber",
+        "value": 2
+      }
+    ]
+  },
   "monsters": [
     "algox-guard"
   ],

@@ -1,0 +1,9 @@
+{
+  "index": "181.2",
+  "name": "HE-RO-IC-S",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "custom": "If building 88 is built, read Section #135.4 now.<br>Otherwise, read Section #33.1 now."
+  }
+}

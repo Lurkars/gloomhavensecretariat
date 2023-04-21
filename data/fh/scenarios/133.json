@@ -3,6 +3,11 @@
   "index": "133",
   "name": "Bolt",
   "edition": "fh",
+  "rewards": {
+    "items": [
+      "238"
+    ]
+  },
   "monsters": [
     "forest-imp",
     "rending-drake",

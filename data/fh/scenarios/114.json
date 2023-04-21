@@ -3,6 +3,12 @@
   "name": "Work Freeze",
   "edition": "fh",
   "rewards": {
+    "collectiveResources": [
+      {
+        "type": "hide",
+        "value": 5
+      }
+    ],
     "calenderSection": [
       "86.1-4"
     ]

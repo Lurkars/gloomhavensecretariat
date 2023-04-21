@@ -9,7 +9,10 @@
     "campaignSticker": [
       "Friend of the Icespeakers"
     ],
-    "unlockCharacter": "fist"
+    "unlockCharacter": "fist",
+    "events": [
+      "summer-outpost:SO-51"
+    ]
   },
   "monsters": [
     "black-imp",

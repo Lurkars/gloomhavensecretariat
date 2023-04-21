@@ -12,6 +12,18 @@
   "forcedLinks": [
     "44"
   ],
+  "rewards": {
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 3
+      },
+      {
+        "type": "hide",
+        "value": 3
+      }
+    ]
+  },
   "monsters": [
     "living-bones",
     "living-spirit"

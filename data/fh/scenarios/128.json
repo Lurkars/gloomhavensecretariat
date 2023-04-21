@@ -3,9 +3,12 @@
   "index": "128",
   "name": "A Tall Drunken Tale",
   "edition": "fh",
-  "unlocks": [
-    "129"
-  ],
+  "rewards": {
+    "calenderSection": [
+      "100.3-3"
+    ],
+    "custom": "Completed seven or less embellishments: <br>Gain 1 morale <br><br>Completed eight to fifteen embellishment: <br>Gain 2 morale <br><br>Completed sixteen or more embellishments: <br>Gain 3 morale and Befuddling Mug Item #215"
+  },
   "monsters": [
     "abael-scout",
     "lurker-wavethrower-scenario-128",

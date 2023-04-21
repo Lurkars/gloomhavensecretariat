@@ -6,6 +6,9 @@
   "unlocks": [
     "125"
   ],
+  "rewards": {
+    "experience": 15
+  },
   "monsters": [
     "living-bones",
     "living-spirit"

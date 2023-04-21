@@ -4,6 +4,9 @@
   "name": "Raised by Wolves",
   "edition": "fh",
   "random": true,
+  "rewards": {
+    "experience": 15
+  },
   "monsters": [
     "burrowing-blade",
     "earth-demon",

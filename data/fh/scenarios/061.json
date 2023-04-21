@@ -3,11 +3,11 @@
   "index": "61",
   "name": "Life and Death",
   "edition": "fh",
-  "unlocks": [
-    "62"
-  ],
   "rewards": {
-    "unlockCharacter": "shackles"
+    "unlockCharacter": "shackles",
+    "calenderSection": [
+      "140.3-1"
+    ]
   },
   "monsters": [
     "deep-terror",

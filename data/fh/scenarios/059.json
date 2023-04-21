@@ -17,8 +17,10 @@
       "246"
     ],
     "events": [
+      "summer-outpost:SO-49",
       "winter-outpost:WO-63"
-    ]
+    ],
+    "custom": "Remove all %game.action.custom.fh-unfettered% events from all outpost event decks"
   },
   "monsters": [
     "flaming-bladespinner",
