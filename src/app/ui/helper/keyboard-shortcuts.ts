@@ -9,9 +9,11 @@ import { Objective } from 'src/app/game/model/Objective';
 import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
 import { FooterComponent } from '../footer/footer';
 import { SummonState } from 'src/app/game/model/Summon';
+import { LootApplyDialogComponent } from '../figures/loot/loot-apply-dialog';
+import { LootType } from 'src/app/game/model/data/Loot';
 
 
-export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "active" | "element";
+export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element";
 
 @Directive({
     selector: '[ghs-keyboard-shortcuts]'
@@ -73,11 +75,16 @@ export class KeyboardShortcuts implements OnInit {
                         gameManager.stateManager.before("updateAttackModifierDeck.draw", "ally");
                         deck = gameManager.game.allyAttackModifierDeck;
                     } else if (activeFigure instanceof Character) {
-                        if (activeFigure.attackModifierDeckVisible) {
-                            gameManager.stateManager.before("updateAttackModifierDeck.draw", "data.character." + activeFigure.name);
-                            deck = activeFigure.attackModifierDeck;
+                        if (settingsManager.settings.characterAttackModifierDeck) {
+                            if (activeFigure.attackModifierDeckVisible) {
+                                gameManager.stateManager.before("updateAttackModifierDeck.draw", "data.character." + activeFigure.name);
+                                deck = activeFigure.attackModifierDeck;
+                            } else {
+                                activeFigure.attackModifierDeckVisible = true;
+                            }
                         } else {
-                            activeFigure.attackModifierDeckVisible = true;
+                            gameManager.stateManager.before("updateAttackModifierDeck.draw", "monster");
+                            deck = gameManager.game.monsterAttackModifierDeck;
                         }
                     }
 
@@ -85,7 +92,37 @@ export class KeyboardShortcuts implements OnInit {
                         gameManager.attackModifierManager.drawModifier(deck);
                         gameManager.stateManager.after();
                     }
+                } else if ((!this.dialogOpen || this.allowed.indexOf('loot') != -1) && gameManager.game.state == GameState.next && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'l') {
+                    gameManager.stateManager.before('lootDeckDraw');
+                    const activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active);
+                    if (!settingsManager.settings.alwaysLootApplyDialog && activeCharacter instanceof Character) {
+                        gameManager.lootManager.drawCard(gameManager.game.lootDeck, activeCharacter);
+                    } else {
+                        gameManager.lootManager.drawCard(gameManager.game.lootDeck, undefined);
+                        if (settingsManager.settings.applyLoot) {
+                            setTimeout(() => {
+                                const loot = gameManager.game.lootDeck.cards[gameManager.game.lootDeck.current];
+                                const dialog = this.dialog.open(LootApplyDialogComponent, {
+                                    panelClass: 'dialog',
+                                    data: { loot: loot }
+                                });
 
+                                dialog.closed.subscribe({
+                                    next: (name) => {
+                                        if (name) {
+                                            const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == name);
+                                            if (character instanceof Character) {
+                                                gameManager.stateManager.before(loot.type == LootType.random_item ? "lootRandomItem" : "addResource", "data.character." + character.name, "game.loot." + loot.type, gameManager.lootManager.getValue(loot) + '');
+                                                gameManager.lootManager.applyLoot(loot, character, gameManager.game.lootDeck.current);
+                                                gameManager.stateManager.after();
+                                            }
+                                        }
+                                    }
+                                })
+                            }, settingsManager.settings.disableAnimations ? 0 : 1850);
+                        }
+                    }
+                    gameManager.stateManager.after();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('active') != -1) && !event.ctrlKey && gameManager.game.state == GameState.next && event.key === 'Tab') {
                     this.toggleEntity(event.shiftKey);
                     event.preventDefault();
