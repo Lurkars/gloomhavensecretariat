@@ -1,6 +1,8 @@
 import { Character } from "../model/Character";
+import { EntityValueFunction } from "../model/Entity";
 import { Game } from "../model/Game";
 import { Monster } from "../model/Monster";
+import { Objective } from "../model/Objective";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
@@ -112,6 +114,10 @@ export class LevelManager {
             figure.level = 0;
           }
           gameManager.monsterManager.setLevel(figure, figure.level)
+        } else if (figure instanceof Objective) {
+          if (figure.health > EntityValueFunction(figure.maxHealth)) {
+            figure.health = EntityValueFunction(figure.maxHealth);
+          }
         }
       })
     }

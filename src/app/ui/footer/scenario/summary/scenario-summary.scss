@@ -225,6 +225,7 @@
         &.location,
         &.character {
           flex-direction: row;
+          align-items: flex-end;
           margin: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
         }
 
@@ -245,10 +246,6 @@
           }
         }
 
-        .placeholder {
-          display: inline-flex;
-          align-items: center;
-        }
 
         a {
           cursor: pointer;

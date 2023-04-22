@@ -596,6 +596,17 @@ export class ScenarioManager {
           } else {
             return !this.game.party.campaignStickers.find((campaignSticker) => campaignSticker.toLowerCase().trim() == achivement.toLowerCase().trim())
           }
+        })
+        ||
+        achivements.buildings && achivements.buildings.some((building) => {
+          if (building.startsWith('!')) {
+            return this.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == building.substring(1, building.length).toLowerCase().trim() && buildingModel.level > 0);
+          } else if (building.indexOf(':') != 0) {
+            let level = +building.split(':')[1];
+            return !this.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == building.substring(1, building.length).toLowerCase().trim() && buildingModel.level >= level)
+          } else {
+            return !this.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == building.substring(1, building.length).toLowerCase().trim() && buildingModel.level > 0)
+          }
         })) || false;
   }
 

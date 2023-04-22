@@ -15,6 +15,7 @@ import { AttackModiferDeckChange } from "../../figures/attackmodifier/attackmodi
 import { ghsInputFullScreenCheck } from "../../helper/Static";
 import { MapComponent } from "./map/map";
 import { PartyWeekDialogComponent } from "./week-dialog";
+import { CharacterMoveResourcesDialog } from "../../figures/character/dialogs/move-resources";
 
 @Component({
   selector: 'ghs-party-sheet-dialog',
@@ -29,11 +30,11 @@ export class PartySheetDialogComponent implements OnInit {
   prosperitySteps = GH_PROSPERITY_STEPS;
   priceModifier: number = 0;
   campaign: boolean = false;
-  buildings: boolean = false;
   doubleClickAddSuccess: any = null;
 
   scenarioEditions: string[] = [];
   scenarios: Record<string, ScenarioData[]> = {};
+  characters: Character[] = [];
 
   fhSheet: boolean = false;
   csSheet: boolean = false;
@@ -463,6 +464,8 @@ export class PartySheetDialogComponent implements OnInit {
         this.party.townGuardDeck = this.townGuardDeck.toModel();
       }
     }
+
+    this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && Object.keys(figure.progress.loot).some((type) => figure.progress.loot[type as LootType])).map((figure) => figure as Character);
   }
 
   characterIcon(name: string): string {
@@ -586,6 +589,13 @@ export class PartySheetDialogComponent implements OnInit {
       this.party.loot[type] = +event.target.value;
       gameManager.stateManager.after();
     }
+  }
+
+  moveResources(character: Character) {
+    this.dialog.open(CharacterMoveResourcesDialog, {
+      panelClass: 'dialog',
+      data: character
+    }).closed.subscribe({ next: () => this.update() });
   }
 
   setInspiration(event: any) {

@@ -3,7 +3,7 @@
   <div class="scroll-container"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
     <div class="container" [ngClass]="{'fh-container' : !campaign && fhSheet, 'campaign-container' : campaign}">
-      <div class="sheet" *ngIf="!campaign && !fhSheet && !buildings" [ngClass]="{'fh-sheet' : fhSheet}">
+      <div class="sheet" *ngIf="!campaign && !fhSheet" [ngClass]="{'fh-sheet' : fhSheet}">
         <div class="columns">
           <div class="column column-left">
             <div class="row title">
@@ -113,7 +113,7 @@
         </div>
       </div>
 
-      <div class="sheet fh-sheet" *ngIf="!campaign && fhSheet && !buildings">
+      <div class="sheet fh-sheet" *ngIf="!campaign && fhSheet">
         <div class="title">
           <label class="summer"><img src="./assets/images/fh/party/summer.svg">{{'party.campaign.sheet.summer' |
             ghsLabel}}</label>
@@ -166,7 +166,15 @@
         </div>
 
         <div class="resources">
-          <label>{{'party.campaign.sheet.supply' | ghsLabel}}:</label>
+          <div class="header">
+            <label>{{'party.campaign.sheet.supply' | ghsLabel}}:</label>
+            <span class="spacer"></span>
+            <div class="move-resources" *ngIf="characters.length > 0">
+              <span class="label">{{'character.progress.resources.move' | ghsLabel}}:</span>
+              <span class="character" (click)="moveResources(character)" *ngFor="let character of characters"><img
+                  [src]="character.iconUrl"></span>
+            </div>
+          </div>
 
           <div class="resource-table">
             <div class="materials">
@@ -333,19 +341,18 @@
             </div>
           </div>
         </div>
-        <label class="buildings-toggle" (click)="buildings = true"><img src="./assets/images/fh/buildings/build.svg">
-          {{'party.campaign.sheet.buildings' | ghsLabel}}</label>
+        <ghs-party-buildings [party]="party"></ghs-party-buildings>
         <ng-container *ngIf="townGuardDeck">
           <ghs-attackmodifier-deck class="town-guard-deck" [bottom]="true" [deck]="townGuardDeck"
             (before)="beforeTownGuardDeck($event)" (after)="afterTownGuardDeck($event)"></ghs-attackmodifier-deck>
         </ng-container>
       </div>
 
-      <span class="toggle-fh-sheet" *ngIf="!campaign && !buildings" (click)="fhSheet = !fhSheet">
+      <span class="toggle-fh-sheet" *ngIf="!campaign" (click)="fhSheet = !fhSheet">
         {{'party.campaign.sheet.' + (fhSheet ? 'disable': 'enable') | ghsLabel}}
       </span>
 
-      <div class="campaign" *ngIf="campaign && !buildings">
+      <div class="campaign" *ngIf="campaign">
         <div class="row title">
           <span class="campaign-toggle" (click)="campaign = false">
             <img src="./assets/images/left.svg">{{'party.sheet' | ghsLabel}}
@@ -397,7 +404,8 @@
               </span>
               <span class="scenario-title"
                 [ngClass]="{'blocked' : gameManager.scenarioManager.isBlocked(scenarioData), 'locked' : !gameManager.scenarioManager.isBlocked(scenarioData) && gameManager.scenarioManager.isLocked(scenarioData)}"
-                [ghsTooltip]="gameManager.scenarioManager.isBlocked(scenarioData) ? 'scenario.blocked' : (gameManager.scenarioManager.isLocked(scenarioData) ? 'scenario.locked'  : '')" [toggable]="false">
+                [ghsTooltip]="gameManager.scenarioManager.isBlocked(scenarioData) ? 'scenario.blocked' : (gameManager.scenarioManager.isLocked(scenarioData) ? 'scenario.locked'  : '')"
+                [toggable]="false">
                 <img
                   *ngIf="gameManager.scenarioManager.isBlocked(scenarioData) || gameManager.scenarioManager.isLocked(scenarioData)"
                   src="./assets/images/close.svg">
@@ -608,13 +616,6 @@
             </div>
           </div>
         </div>
-
-      </div>
-
-      <div class="buildings" *ngIf="!campaign && buildings">
-        <label class="headline" (click)="buildings = false"><img src="./assets/images/left.svg"> {{'party.sheet' |
-          ghsLabel}}</label>
-        <ghs-party-buildings></ghs-party-buildings>
       </div>
     </div>
   </div>

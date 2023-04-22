@@ -96,11 +96,11 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';
       } else if (type == "characterIcon" && split.length == 3) {
         const characterName = split[2];
-        image = '<img src="' + gameManager.characterManager.characterIcon(characterName) + '">';
+        image = '<img class="icon" src="' + gameManager.characterManager.characterIcon(characterName) + '">';
         replace = '<span class="placeholder-character-icon">' + image + '</span>';
       } else if (type == "characterIconColored" && split.length == 3) {
         const characterName = split[2];
-        image = '<img src="' + gameManager.characterManager.characterIcon(characterName) + '">';
+        image = '<img class="icon" src="' + gameManager.characterManager.characterIcon(characterName) + '">';
         replace = '<span class="placeholder-character-icon-colored" style="background-color:' + gameManager.characterManager.characterColor(characterName) + '">' + image + '</span>';
       } else if (type == "characterToken" && split.length >= 3) {
         const characterName = split[2];
@@ -199,6 +199,7 @@ export class I18nDirective implements OnInit, OnChanges {
   @Input('i18n') value!: string;
   @Input('i18n-args') args: string[] = [];
   @Input('i18n-arg-label') argLabel: boolean = true;
+  @Input('i18n-empty') empty: boolean = true;
   @Input('relative') relative: boolean = false;
   @Input('fh-force') fhForce: boolean = false;
   fhStyle: boolean = false;
@@ -242,9 +243,9 @@ export class I18nDirective implements OnInit, OnChanges {
   apply(): void {
     let args = this.args || [];
     if (this.argLabel) {
-      args = args.map((arg) => applyPlaceholder(settingsManager.getLabel(arg), [], this.relative, this.fhStyle));
+      args = args.map((arg) => applyPlaceholder(settingsManager.getLabel(arg, [], false, this.empty), [], this.relative, this.fhStyle));
     }
 
-    this.el.nativeElement.innerHTML = this.value && applyPlaceholder(settingsManager.getLabel(this.value, args, false), args, this.relative, this.fhStyle) || "";
+    this.el.nativeElement.innerHTML = this.value && applyPlaceholder(settingsManager.getLabel(this.value, args, false, this.empty), args, this.relative, this.fhStyle) || "";
   }
 }

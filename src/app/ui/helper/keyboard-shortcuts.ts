@@ -11,12 +11,15 @@ import { FooterComponent } from '../footer/footer';
 import { SummonState } from 'src/app/game/model/Summon';
 
 
+export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "active" | "element";
+
 @Directive({
     selector: '[ghs-keyboard-shortcuts]'
 })
 export class KeyboardShortcuts implements OnInit {
 
     @Input() footer: FooterComponent | undefined;
+    @Input() allowed: KEYBOARD_SHORTCUT_EVENTS[] = ["undo"];
     scrollTimeout: any = null;
     zoomInterval: any = null;
     currentZoom: number = 0;
@@ -32,35 +35,35 @@ export class KeyboardShortcuts implements OnInit {
         this.currentZoom = settingsManager.settings.zoom;
 
         window.addEventListener('keydown', (event: KeyboardEvent) => {
-            if (!this.dialogOpen && !event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
-                if (event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'z') {
+            if (!event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
+                if ((!this.dialogOpen || this.allowed.indexOf('undo') != -1) && event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'z') {
                     gameManager.stateManager.undo();
                     event.preventDefault();
-                } else if (event.ctrlKey && !event.shiftKey && event.key === 'y' || event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'z') {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('undo') != -1) && event.ctrlKey && !event.shiftKey && event.key === 'y' || event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'z') {
                     gameManager.stateManager.redo();
                     event.preventDefault();
-                } else if (!event.ctrlKey && !event.shiftKey && !this.zoomInterval && (event.key === 'ArrowUp' || event.key === '+')) {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('zoom') != -1) && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && (event.key === 'ArrowUp' || event.key === '+')) {
                     this.zoom(-1);
                     this.zoomInterval = setInterval(() => {
                         this.zoom(-1);
                     }, 30);
                     event.preventDefault();
-                } else if (!event.ctrlKey && !event.shiftKey && !this.zoomInterval && (event.key === 'ArrowDown' || event.key === '-')) {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('zoom') != -1) && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && (event.key === 'ArrowDown' || event.key === '-')) {
                     this.zoom(1);
                     this.zoomInterval = setInterval(() => {
                         this.zoom(1);
                     }, 30);
                     event.preventDefault();
-                } else if (event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'r') {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('zoom') != -1) && event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'r') {
                     this.currentZoom = 100;
                     settingsManager.setZoom(this.currentZoom);
                     document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
                     event.preventDefault();
-                } else if (this.footer && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'n') {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('round') != -1) && this.footer && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'n') {
                     if (!this.footer.disabled()) {
                         this.footer.next();
                     }
-                } else if (gameManager.game.state == GameState.next && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'm') {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('am') != -1) && gameManager.game.state == GameState.next && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'm') {
                     const activeFigure = gameManager.game.figures.find((figure) => figure.active);
                     let deck: AttackModifierDeck | undefined = undefined;
                     if (!activeFigure || activeFigure instanceof Monster && (!activeFigure.isAlly && !activeFigure.isAllied || !gameManager.fhRules() && !settingsManager.settings.alwaysAllyAttackModifierDeck || !settingsManager.settings.allyAttackModifierDeck)) {
@@ -83,10 +86,10 @@ export class KeyboardShortcuts implements OnInit {
                         gameManager.stateManager.after();
                     }
 
-                } else if (!event.ctrlKey && gameManager.game.state == GameState.next && event.key === 'Tab') {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('active') != -1) && !event.ctrlKey && gameManager.game.state == GameState.next && event.key === 'Tab') {
                     this.toggleEntity(event.shiftKey);
                     event.preventDefault();
-                } else if (!event.ctrlKey && !event.shiftKey && ['1', '2', '3', '4', '5', '6'].indexOf(event.key) != -1) {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('element') != -1) && !event.ctrlKey && !event.shiftKey && ['1', '2', '3', '4', '5', '6'].indexOf(event.key) != -1) {
                     const index: number = +event.key - 1;
                     const element = gameManager.game.elementBoard[index];
                     const elementState = gameManager.nextElementState(element, false, true);
@@ -135,7 +138,16 @@ export class KeyboardShortcuts implements OnInit {
         if (!activeFigure && reverse) {
             activeFigure = figures[figures.length - 1];
         } else if (activeFigure && reverse && figures.indexOf(activeFigure) > 0) {
-            activeFigure = figures[figures.indexOf(activeFigure) - 1];
+            if (activeFigure instanceof Character) {
+                const summons = activeFigure.summons.filter((summon) => gameManager.entityManager.isAlive(summon) && summon.state != SummonState.new);
+                let activeSummon = summons.find((summon) => summon.active);
+                if (!activeSummon || activeSummon && summons.indexOf(activeSummon) == 0) {
+                    activeFigure.summons.forEach((summon) => summon.active = false);
+                    activeFigure = figures[figures.indexOf(activeFigure) - 1];
+                }
+            } else {
+                activeFigure = figures[figures.indexOf(activeFigure) - 1];
+            }
         }
 
         if (activeFigure) {
@@ -156,6 +168,13 @@ export class KeyboardShortcuts implements OnInit {
                         if (summons.indexOf(activeSummon) < summons.length - 1) {
                             summons[summons.indexOf(activeSummon) + 1].active = true;
                         }
+                        toggleFigure = false;
+                        gameManager.stateManager.after();
+                    } else if (activeSummon && summons.indexOf(activeSummon) != 0) {
+                        const prevSummon = summons[summons.indexOf(activeSummon) - 1];
+                        gameManager.stateManager.before("summonActive", "data.character." + activeFigure.name, "data.summon." + prevSummon.name);
+                        activeSummon.active = false;
+                        prevSummon.active = true;
                         toggleFigure = false;
                         gameManager.stateManager.after();
                     }

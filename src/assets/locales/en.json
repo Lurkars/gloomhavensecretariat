@@ -603,11 +603,7 @@
           "event": {
             "city": "add City Event {0} to the deck",
             "rift": "add Rift Event {0} to the deck",
-            "road": "add Road Event {0} to the deck",
-            "summer-outpost": "add event {0} to the summer outpost deck",
-            "summer-road": "add event {0} to the summer road deck",
-            "winter-outpost": "add event {0} to the winter outpost deck",
-            "winter-road": "add event {0} to the winter road deck"
+            "road": "add Road Event {0} to the deck"
           },
           "experience": "gain {0} experience",
           "experienceFh": "gain {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
@@ -792,7 +788,16 @@
       "sheet": {
         ".": "Campaign Sheet",
         "buildings": {
-          ".": "Buildings"
+          ".": "Buildings",
+          "build": "Build",
+          "rebuild": "Rebuild",
+          "repair" : {
+            ".": "Repair building",
+            "costs": "Any {0}"
+          },
+          "unlock": "Unlock building",
+          "upgrade": "Upgrade Building"
+
         },
         "campaignStickers": "Campaign Stickers",
         "defense": "Defense",
@@ -948,6 +953,7 @@
       "collectiveResourcesLose": "Lose {1} collective %game.resource.{0}%",
       "envelope": "Open envelope {0}",
       "event": {
+        "boat": "Add event {0} to the boat deck",
         "city": "Add City Event {0} to the deck",
         "rift": "Add Rift Event {0} to the deck",
         "road": "Add Road Event {0} to the deck",
@@ -959,7 +965,7 @@
       "experience": "{0} experience each",
       "globalAchievements": "Global Achievements",
       "gold": "{0} gold each",
-      "inspiration": "Gain {0} inspiration",
+      "inspiration": "{0} inspiration",
       "item": "\"{1}\" (Item {0})",
       "items": "{2} \"{1}\" (Item {0})",
       "itemDesign": "\"{1}\" design (Item {0})",
@@ -967,7 +973,7 @@
       "location": "New Location",
       "locations": "New Locations",
       "lostPartyAchievements": "Lost Party Achievements",
-      "morale": "Gain {0} morale",
+      "morale": "{0} morale",
       "partyAchievements": "Party Achievements",
       "perks": "Gain {0} perk each",
       "prosperity": "{0} prosperity",
@@ -1054,7 +1060,7 @@
       },
       "conclusionWarning": {
         ".": "Missing Solution!",
-        "hint": "It seems that this scenario is finished without a conclusion. This may lead to missing rewards and unlocks. Conclusion sections are marked with a <img class=\"icon ghs-svg\" src=\"./assets/images/conclusion.svg\"> icon."
+        "hint": "It seems that this scenario is finished without a conclusion. This may lead to missing rewards and unlocks. Conclusion sections are marked with a <img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\"> icon."
       },
       "gold": "Gold",
       "forcedLinks": "%scenario.summary.links% (forced)",

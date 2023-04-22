@@ -1,5 +1,6 @@
 [
     {
+        "id": "35",
         "name": "alchemist",
         "costs": {
             "prosperity": 0,
@@ -46,6 +47,7 @@
         ]
     },
     {
+        "id": "98",
         "name": "barracks",
         "costs": {
             "prosperity": 0,
@@ -55,6 +57,7 @@
             "gold": 0
         },
         "upgrades": [],
+        "manualUpgrades": 3,
         "repair": [
             2,
             2,
@@ -85,6 +88,7 @@
         ]
     },
     {
+        "id": "85",
         "name": "carpenter",
         "costs": {
             "prosperity": 2,
@@ -119,6 +123,7 @@
         ]
     },
     {
+        "id": "34",
         "name": "craftsman",
         "costs": {
             "prosperity": 0,
@@ -237,6 +242,7 @@
         ]
     },
     {
+        "id": "44",
         "name": "enhancer",
         "costs": {
             "prosperity": 1,
@@ -295,6 +301,7 @@
         ]
     },
     {
+        "id": "24",
         "name": "garden",
         "costs": {
             "prosperity": 1,
@@ -353,6 +360,7 @@
         ]
     },
     {
+        "id": "81",
         "name": "hall-of-revelry",
         "costs": {
             "prosperity": 5,
@@ -362,6 +370,7 @@
             "gold": 10
         },
         "upgrades": [],
+        "manualUpgrades": 1,
         "repair": [
             3,
             4
@@ -380,6 +389,7 @@
         ]
     },
     {
+        "id": "72",
         "name": "hide-depot",
         "costs": {
             "prosperity": 3,
@@ -414,6 +424,7 @@
         ]
     },
     {
+        "id": "12",
         "name": "hunting-lodge",
         "costs": {
             "prosperity": 1,
@@ -472,6 +483,7 @@
         ]
     },
     {
+        "id": "21",
         "name": "inn",
         "costs": {
             "prosperity": 2,
@@ -518,6 +530,7 @@
         ]
     },
     {
+        "id": "39",
         "name": "jeweler",
         "costs": {
             "prosperity": 4,
@@ -564,6 +577,7 @@
         ]
     },
     {
+        "id": "83",
         "name": "library",
         "costs": {
             "prosperity": 2,
@@ -610,6 +624,7 @@
         ]
     },
     {
+        "id": "17",
         "name": "logging-camp",
         "costs": {
             "prosperity": 1,
@@ -668,6 +683,7 @@
         ]
     },
     {
+        "id": "67",
         "name": "lumber-depot",
         "costs": {
             "prosperity": 3,
@@ -702,6 +718,7 @@
         ]
     },
     {
+        "id": "65",
         "name": "metal-depot",
         "costs": {
             "prosperity": 3,
@@ -736,6 +753,7 @@
         ]
     },
     {
+        "id": "05",
         "name": "mining-camp",
         "costs": {
             "prosperity": 1,
@@ -794,6 +812,7 @@
         ]
     },
     {
+        "id": "8",
         "name": "stables",
         "costs": {
             "prosperity": 2,
@@ -852,6 +871,7 @@
         ]
     },
     {
+        "id": "74",
         "name": "tavern",
         "costs": {
             "prosperity": 2,
@@ -898,6 +918,7 @@
         ]
     },
     {
+        "id": "42",
         "name": "temple",
         "costs": {
             "prosperity": 1,
@@ -944,6 +965,7 @@
         ]
     },
     {
+        "id": "90",
         "name": "town-hall",
         "costs": {
             "prosperity": 2,
@@ -990,6 +1012,7 @@
         ]
     },
     {
+        "id": "37",
         "name": "trading-post",
         "costs": {
             "prosperity": 2,
@@ -1053,7 +1076,8 @@
             "prosperity": 1,
             "lumber": 4,
             "gold": 10
-        }
+        },
+        "prosperityUnlock": true
     },
     {
         "name": "wall-k",
@@ -1063,7 +1087,8 @@
             "metal": 2,
             "hide": 2,
             "gold": 10
-        }
+        },
+        "prosperityUnlock": true
     },
     {
         "name": "wall-l",
@@ -1073,7 +1098,8 @@
             "metal": 2,
             "hide": 1,
             "gold": 10
-        }
+        },
+        "prosperityUnlock": true
     },
     {
         "name": "wall-m",
@@ -1083,7 +1109,8 @@
             "metal": 3,
             "hide": 3,
             "gold": 10
-        }
+        },
+        "prosperityUnlock": true
     },
     {
         "name": "wall-n",
@@ -1093,9 +1120,11 @@
             "metal": 3,
             "hide": 2,
             "gold": 10
-        }
+        },
+        "prosperityUnlock": true
     },
     {
+        "id": "84",
         "name": "workshop",
         "costs": {
             "prosperity": 0,
@@ -1115,5 +1144,41 @@
                 "hide": 1
             }
         ]
+    },
+    {
+        "name": "boat",
+        "costs": {
+            "prosperity": 1,
+            "lumber": 4,
+            "metal": 1,
+            "hide": 2,
+            "gold": 0
+        },
+        "requires": "workshop",
+        "prosperityUnlock": true
+    },
+    {
+        "name": "sled",
+        "costs": {
+            "prosperity": 1,
+            "lumber": 3,
+            "metal": 2,
+            "hide": 1,
+            "gold": 0
+        },
+        "requires": "workshop",
+        "prosperityUnlock": true
+    },
+    {
+        "name": "climbing-gear",
+        "costs": {
+            "prosperity": 1,
+            "lumber": 1,
+            "metal": 3,
+            "hide": 2,
+            "gold": 0
+        },
+        "requires": "workshop",
+        "prosperityUnlock": true
     }
 ]

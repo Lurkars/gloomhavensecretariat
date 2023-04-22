@@ -16,6 +16,7 @@ import { CharacterSheetDialog } from './dialogs/character-sheet';
 import { CharacterLootCardsDialog } from './dialogs/loot-cards';
 import { CharacterSummonDialog } from './dialogs/summondialog';
 import { CharacterInitiativeDialogComponent } from './cards/initiative-dialog';
+import { SummonState } from 'src/app/game/model/Summon';
 
 @Component({
   selector: 'ghs-character',
@@ -165,6 +166,14 @@ export class CharacterComponent implements OnInit {
       data: this.character,
       positionStrategy: this.overlay.position().flexibleConnectedTo(event.target).withPositions(ghsDefaultDialogPositions())
     });
+  }
+
+  initiativeDoubleClick(event: any) {
+    if (this.character.active && this.character.summons.filter((summon) => gameManager.entityManager.isAlive(summon) && summon.state != SummonState.new).find((summon, index, self) => summon.active && index < self.length - 1)) {
+      this.character.summons.forEach((summon) => summon.active = false);
+    } else {
+      this.openInitiativeDialog(event);
+    }
   }
 
   dragHpMove(value: number) {

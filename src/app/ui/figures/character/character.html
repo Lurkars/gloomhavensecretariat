@@ -24,7 +24,7 @@
       *ngIf="(!settingsManager.settings.characterAttackModifierDeck || !character.attackModifierDeckVisible) && (!settingsManager.settings.lootDeck ||!character.lootCardsVisible)">
       <ghs-drag-click class="drag-initiative" (dragMove)="dragInitiativeMove($event)"
         (dragEnd)="dragInitiativeEnd($event)" (singleClick)="toggleFigure($event)"
-        (doubleClick)="openInitiativeDialog($event)">
+        (doubleClick)="initiativeDoubleClick($event)">
       </ghs-drag-click>
 
       <ghs-drag-click class="drag-hp"

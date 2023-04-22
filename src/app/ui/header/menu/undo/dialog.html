@@ -15,7 +15,7 @@
                     <span class="revision">{{getRedoRevision(i) + 1 }}.</span>
                     <span class="info text-white" *ngIf="getRedoInfo(i).length > 0"
                         [i18n]="'state.info.' + getRedoInfo(i)[0]"
-                        [i18n-args]="(getRedoInfo(i) | slice:1:getRedoInfo(i).length)"></span>
+                        [i18n-args]="(getRedoInfo(i) | slice:1:getRedoInfo(i).length)" [i18n-empty]="true"></span>
                 </span>
                 <span class="warning" *ngIf="i > 0 && getRedoRevision(i) - getRedoRevision(i-1) != 1">
                     <img src="./assets/images/warning.svg">
@@ -57,7 +57,7 @@
                     <span class="revision">{{getUndoRevision(i) + 1}}.</span>
                     <span class="info text-white" *ngIf="getUndoInfo(i).length > 0"
                         [i18n]="'state.info.' + getUndoInfo(i)[0]"
-                        [i18n-args]="(getUndoInfo(i) | slice:1:getUndoInfo(i).length)"></span>
+                        [i18n-args]="(getUndoInfo(i) | slice:1:getUndoInfo(i).length)" [i18n-empty]="true"></span>
                     <span class="spacer"></span>
                 </span>
             </ng-container>

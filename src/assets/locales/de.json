@@ -502,11 +502,7 @@
           "event": {
             "city": "füge Stadt-Ereignis {0} zum Deck hinzu",
             "rift": "füge Rift-Ereignis {0} zum Deck hinzu",
-            "road": "füge Weg-Ereignis {0} zum Deck hinzu",
-            "summer-outpost": "füge Ereignis {0} zum Sommer-Außenpostendeck hinzu",
-            "summer-road": "füge Ereignis {0} zum Sommer-Wegdeck hinzu",
-            "winter-outpost": "füge Ereignis {0} zum Winter-Außenpostendeck hinzu",
-            "winter-road": "füge Ereignis {0} zum Winter-Wegdeck hinzu"
+            "road": "füge Weg-Ereignis {0} zum Deck hinzu"
           },
           "experience": "erhalte {0} Erfahrung",
           "experienceFh": "erhalte {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
@@ -691,7 +687,15 @@
       "sheet": {
         ".": "Kampagnenbogen",
         "buildings": {
-          ".": "Gebäude"
+          ".": "Gebäude",
+          "build": "Aufbauen",
+          "rebuild": "Wiederaufbauen",
+          "repair" : {
+            ".": "Gebäude reparieren",
+            "costs": "{0} beliebige"
+          },
+          "unlock": "Gebäude freischalten",
+          "upgrade": "Gebäude aufrüsten"
         },
         "campaignStickers": "Kampagnenbogensticker",
         "defense": "Verteidigung",
@@ -849,6 +853,7 @@
       "collectiveResourcesLose": "Verliert {1} gemeinschaftliches %game.resource.{0}%",
       "envelope": "Umschlag {0} öffnen",
       "event": {
+        "boat": "Füge Ereignis {0} zum Bootdeck hinzu",
         "city": "Füge Start-Ereignis {0} zum Deck hinzu",
         "rift": "Füge Rift-Ereignis {0} zum Deck hinzu",
         "road": "Füge Weg-Ereignis {0} zum Deck hinzu",
@@ -955,7 +960,7 @@
       },
       "conclusionWarning": {
         ".": "Keine Lösung!",
-        "hint": "Es scheint das Szenario wurde ohne entsprechende Lösung beendet. Dies kann zu fehlenden Belohungen und Freischaltungen führen. Lösungen sind Sektionen die mit einem <img class=\"icon ghs-svg\" src=\"./assets/images/conclusion.svg\"> Symbole gekennzeichnet sind."
+        "hint": "Es scheint das Szenario wurde ohne entsprechende Lösung beendet. Dies kann zu fehlenden Belohungen und Freischaltungen führen. Lösungen sind Sektionen die mit einem <img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\"> Symbole gekennzeichnet sind."
       },
       "gold": "Gold",
       "forcedLinks": "%scenario.summary.links% (erzwungen)",

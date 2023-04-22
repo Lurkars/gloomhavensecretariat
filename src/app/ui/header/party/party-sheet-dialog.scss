@@ -602,6 +602,32 @@
           display: flex;
           flex-direction: column;
 
+          .header {
+            display: flex;
+            align-items: center;
+
+            .move-resources {
+              display: flex;
+
+              .label {
+                font-family: var(--ghs-font-text);
+                font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+              }
+
+              .character {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+                img {
+                  width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+                  height: auto;
+                }
+              }
+            }
+          }
+
           .resource-table {
             display: flex;
             flex-direction: column;
@@ -1025,21 +1051,12 @@
           }
         }
 
-        .buildings-toggle {
-          display: none; // flex WIP
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
+        ghs-party-buildings {
           position: absolute;
-          left: calc(var(--ghs-unit) * 50 * var(--ghs-dialog-factor));
+          left: calc(var(--ghs-unit) * 49.5 * var(--ghs-dialog-factor));
           top: calc(var(--ghs-unit) * 70.5 * var(--ghs-dialog-factor));
-          width: calc(var(--ghs-unit) * 37 * var(--ghs-text-factor) * var(--ghs-barsize));
-          z-index: 0;
-
-          img {
-            height: 0.8em;
-            width: auto;
-          }
+          width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+          height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
         }
 
         .town-guard-deck {

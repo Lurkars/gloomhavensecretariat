@@ -16,7 +16,7 @@
           {{'state.undo' | ghsLabel}}
         </span>
         <span class="info text-white" *ngIf="undoInfo.length > 0" [i18n]="'state.info.' + undoInfo[0]"
-          [i18n-args]="(undoInfo | slice:1:undoInfo.length)"></span>
+          [i18n-args]="(undoInfo | slice:1:undoInfo.length)" [i18n-empty]="true"></span>
       </a>
 
       <span class="undo-dialog" (click)="openUndoDialog($event)"><img class="ghs-svg"
@@ -26,7 +26,7 @@
         (click)="gameManager.stateManager.redo()">
         {{'state.redo' | ghsLabel}}
         <span class="info text-white" *ngIf="redoInfo.length > 0" [i18n]="'state.info.' + redoInfo[0]"
-          [i18n-args]="(redoInfo | slice:1:redoInfo.length)"></span>
+          [i18n-args]="(redoInfo | slice:1:redoInfo.length)" [i18n-empty]="true"></span>
       </a>
     </div>
 

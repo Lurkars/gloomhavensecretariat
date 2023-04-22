@@ -109,9 +109,9 @@ import { ScenarioTreasuresDialogComponent } from './ui/footer/scenario/treasures
 import { TreasureLabelComponent } from './ui/footer/scenario/treasures/label/label';
 import { StatsListComponent } from './ui/footer/scenario/dialog/abilities/stats-list';
 import { KeyboardShortcuts } from './ui/helper/keyboard-shortcuts';
+import { BuildingRepairDialog } from './ui/header/party/buildings/repair';
 
 import 'hammerjs'
-
 @Injectable()
 export class GhsHammerConfig extends HammerGestureConfig {
 
@@ -135,7 +135,7 @@ export class GhsErrorHandler extends ErrorHandler {
     AppComponent,
     MainComponent,
     HeaderComponent, ElementIconComponent, ElementComponent,
-    PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, MapComponent,
+    PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, BuildingRepairDialog, MapComponent,
     MainMenuComponent, CharacterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent,
     FooterComponent,
     LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,

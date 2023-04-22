@@ -4,6 +4,7 @@ import { Spoilable } from "../model/data/Spoilable";
 import { gameManager } from "./GameManager";
 import { EntityValueFunction } from "../model/Entity";
 import { storageManager } from "./StorageManager";
+import { BuildingData } from "../model/data/BuildingData";
 
 export class SettingsManager {
 
@@ -566,6 +567,10 @@ export class SettingsManager {
           value.treasures = value.treasures || [];
           value.treasureOffset = value.treasureOffset || 0;
 
+          if (value.campaign && value.campaign.buildings) {
+            value.campaign.buildings = value.campaign.buildings.map((buildingData) => Object.assign(new BuildingData, buildingData));
+          }
+
           gameManager.editionData.push(value);
           gameManager.editionData.sort((a, b) => {
             return this.settings.editionDataUrls.indexOf(a.url) - this.settings.editionDataUrls.indexOf(b.url);
@@ -938,7 +943,7 @@ export class SettingsManager {
     gameManager.uiChange.emit();
   }
 
-  getLabel(key: string, args: string[] = [], argLabel: boolean = true, from: any = this.label, path: string = "", empty: boolean = false): string {
+  getLabel(key: string, args: string[] = [], argLabel: boolean = true, empty: boolean = false, path: string = "", from: any = this.label): string {
     key += '';
     if (!from) {
       return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : key || "");
@@ -962,7 +967,7 @@ export class SettingsManager {
       let keys = key.split(".");
       if (from[keys[0]]) {
         key = keys.slice(1, keys.length).join(".");
-        return this.getLabel(key, args, argLabel, from[keys[0]], path + keys[0] + ".", empty)
+        return this.getLabel(key, args, argLabel, empty, path + keys[0] + ".", from[keys[0]])
       }
     }
 
@@ -970,7 +975,7 @@ export class SettingsManager {
   }
 
   emptyLabel(key: string, args: string[], path: string): string {
-    return (path ? path + (path.endsWith(".") ? "" : ".") : "") + key + (args && args.length > 0 ? (" [" + args + "]") : "");
+    return key + (args && args.length > 0 ? (" [" + args + "]") : "");
   }
 
   insertLabelArguments(label: string, args: string[], argLabel: boolean) {

@@ -33,6 +33,7 @@ export class MonsterStatsComponent implements OnInit {
   eliteStats: MonsterStat | undefined = undefined;
   statOverview: boolean = false;
   highlightActions: ActionType[] = [ActionType.shield, ActionType.retaliate];
+  edition: string = "";
 
   @ViewChild('levelButton', { read: ElementRef }) levelButton!: ElementRef;
 
@@ -44,6 +45,7 @@ export class MonsterStatsComponent implements OnInit {
     if (settingsManager.settings.disableStatAnimations) {
       this.highlightActions = [];
     }
+    this.edition = gameManager.getEdition(this.monster);
     gameManager.uiChange.subscribe({
       next: () => {
         if (settingsManager.settings.disableStatAnimations) {
@@ -51,6 +53,7 @@ export class MonsterStatsComponent implements OnInit {
         } else {
           this.highlightActions = [ActionType.shield, ActionType.retaliate];
         }
+        this.edition = gameManager.getEdition(this.monster);
       }
     })
   }
@@ -87,11 +90,6 @@ export class MonsterStatsComponent implements OnInit {
       gameManager.stateManager.after();
     }
   }
-
-  getEdition(): string {
-    return gameManager.getEdition(this.monster);
-  }
-
   toggleAlly() {
     gameManager.stateManager.before(this.monster.isAlly ? "unsetAlly" : "setAlly", "data.monster." + this.monster.name);
     this.monster.isAlly = !this.monster.isAlly;

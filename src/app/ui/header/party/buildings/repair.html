@@ -1,15 +1,14 @@
-<div class="move-resources-dialog">
+<div class="buulding-repair-dialog">
     <label class="title">
-        {{'character.progress.resources.move' | ghsLabel}}
+        {{'party.campaign.sheet.buildings.repair' | ghsLabel}}
         <span class="name">
-            <img class="icon character-icon" [src]="character.iconUrl" />
-            <span class="character-title"
-                [ngClass]="{'absent' : character.absent}">{{gameManager.characterManager.characterName(character,true)}}</span>
+            <span class="building-title">{{'data.buildings.' + building.data.name | ghsLabel}}</span>
+            <span class="costs">{{paid || '-'}}/{{costs || '-'}}</span>
         </span>
     </label>
     <div class="values">
         <ng-container *ngFor="let type of lootTypes">
-            <ng-container class="loot" *ngIf="character.progress.loot[type]">
+            <ng-container class="loot" *ngIf="gameManager.game.party.loot[type]">
                 <label><img class="ghs-svg"
                         [src]="'./assets/images/fh/loot/' + (type == LootType.special1 || type == LootType.special2 ? LootType.money : type) + '.svg'">
                     {{'game.loot.' + type | ghsLabel}}</label>
@@ -18,9 +17,9 @@
                     <img class="ghs-svg" src="./assets/images/minus.svg">
                 </a>
                 <span class="value" title="{{'game.loot.' + type | ghsLabel}}">
-                    {{loot[type] || '-'}} / {{character.progress.loot[type]}}
+                    {{loot[type] || '-'}} / {{gameManager.game.party.loot[type]}}
                 </span>
-                <a class="button" [ngClass]="{'disabled' : loot[type] == character.progress.loot[type]}"
+                <a class="button" [ngClass]="{'disabled' : loot[type] == gameManager.game.party .loot[type] || paid == costs}"
                     (click)="changeLoot(type,  1)">
                     <img class="ghs-svg" src="./assets/images/plus.svg">
                 </a>
@@ -29,6 +28,7 @@
     </div>
     <div class="menu">
         <a class="cancel" (click)="close()">{{'cancel' | ghsLabel}}</a>
-        <a class="apply" (click)="moveLoot()">{{'character.progress.resources.apply' | ghsLabel}}</a>
+        <a class="apply" (click)="repair()"
+            [ngClass]="{'disabled' : paid < costs}">{{'party.campaign.sheet.buildings.repair' | ghsLabel}}</a>
     </div>
 </div>

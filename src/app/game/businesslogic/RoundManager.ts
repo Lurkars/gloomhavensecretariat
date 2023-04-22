@@ -192,9 +192,13 @@ export class RoundManager {
     }
 
     if (settingsManager.settings.activeSummons && figure instanceof Character && gameManager.entityManager.isAlive(figure)) {
-      const summon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true));
-      if (summon && !figure.summons.find((summon) => summon.active)) {
-        summon.active = true;
+      const activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);
+      const nextSummon = figure.summons.find((summon, index, self) => (!activeSummon || index > self.indexOf(activeSummon)) && gameManager.entityManager.isAlive(summon, true));
+      if (nextSummon) {
+        if (activeSummon) {
+          activeSummon.active = false;
+        }
+        nextSummon.active = true;
       } else {
         this.game.elementBoard.forEach((element) => {
           if (element.state == ElementState.new) {

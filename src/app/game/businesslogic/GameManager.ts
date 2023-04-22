@@ -99,7 +99,7 @@ export class GameManager {
       return this.game.edition;
     }
 
-    if (this.game.scenario) {
+    if (this.game.scenario && this.game.scenario.edition) {
       return this.game.scenario.edition;
     }
 
@@ -109,7 +109,7 @@ export class GameManager {
       return charEditions[0];
     }
 
-    return fallback || this.editions()[0];
+    return fallback != undefined ? fallback : this.editions()[0];
   }
 
   editionExtensions(edition: string, all: boolean = false): string[] {
@@ -425,8 +425,9 @@ export class GameManager {
     return entity as Summon;
   }
 
-  getEdition(figure: any): string {
-    if (this.game.figures.some((value) => typeof (figure) == typeof (value) && figure.name == value.name && figure.edition != value.edition || this.game.edition && figure.edition != this.game.edition && this.editionExtensions(this.game.edition).indexOf(figure.edition) == -1 || !this.game.edition && this.game.scenario && figure.edition != this.game.scenario.edition && this.editionExtensions(this.game.scenario.edition).indexOf(figure.edition) == -1)) {
+  getEdition(figure: any, fallback: string = ""): string {
+    const edition = this.currentEdition(fallback);
+    if (figure.edition != edition && this.editionExtensions(edition).indexOf(figure.edition) == -1) {
       return figure.edition;
     }
     return "";

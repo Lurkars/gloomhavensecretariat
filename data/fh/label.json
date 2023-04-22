@@ -170,7 +170,9 @@
     "buildings": {
       "alchemist": "Alchemist",
       "barracks": "Barracks",
+      "boat": "Boat",
       "carpenter": "Carpenter",
+      "climbing-gear": "Climibing Gear",
       "craftsman": "Craftsman",
       "enhancer": "Enhancer",
       "garden": "Garden",
@@ -184,6 +186,7 @@
       "lumber-depot": "Lumber Depot",
       "metal-depot": "Metal Depot",
       "mining-camp": "Mining Camp",
+      "sled": "Sled",
       "stables": "Stables",
       "tavern": "Tavern",
       "temple": "Temple of the Great Oak",

@@ -7,6 +7,7 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { applyPlaceholder } from '../../helper/i18n';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
 
 @Component({
   selector: 'ghs-abilities-dialog',
@@ -132,7 +133,7 @@ export class AbiltiesDialogComponent implements OnInit {
   restoreDefault(): void {
     gameManager.stateManager.before("restoreDefaultAbilities", "data.monster." + this.monster.name);
     const abilities = gameManager.abilities(this.monster);
-    this.monster.abilities = abilities.filter((ability) => !ability.level || isNaN(+ability.level) || ability.level <= this.monster.level).map((ability, index) => index);
+    this.monster.abilities = abilities.filter((ability) => !ability.level || isNaN(+ability.level) || EntityValueFunction(ability.level) <= this.monster.level).map((ability, index) => index);
     this.monster.ability = -1;
     gameManager.stateManager.after();
   }

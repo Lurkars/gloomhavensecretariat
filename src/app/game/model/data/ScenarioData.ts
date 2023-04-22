@@ -13,7 +13,7 @@ export class ScenarioData implements Editional, Spoilable {
   unlocks: string[] = [];
   blocks: string[] = [];
   requires: string[][] = [];
-  requiredAchievements: { campaignSticker: string[] | undefined, party: string[] | undefined, global: string[] | undefined }[] = [];
+  requiredAchievements: { buildings: string[] | undefined, campaignSticker: string[] | undefined, global: string[] | undefined, party: string[] | undefined }[] = [];
   links: string[] = [];
   forcedLinks: string[] = [];
   group: string | undefined;

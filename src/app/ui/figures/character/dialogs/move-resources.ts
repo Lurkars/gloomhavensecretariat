@@ -44,7 +44,7 @@ export class CharacterMoveResourcesDialog implements OnInit {
         Object.keys(this.loot).forEach((key) => {
             const lootType = key as LootType;
             let value = this.loot[lootType] || 0;
-            if (this.character.progress.loot[lootType] || 0 as number < value) {
+            if ((this.character.progress.loot[lootType] || 0) < value) {
                 value = this.character.progress.loot[lootType] || 0;
             }
 

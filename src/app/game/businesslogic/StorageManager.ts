@@ -8,7 +8,7 @@ export class StorageManager {
   init(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       if (window.indexedDB) {
-        const request: IDBOpenDBRequest = indexedDB.open('ghs-db', 1);
+        const request: IDBOpenDBRequest = window.indexedDB.open('ghs-db', 1);
 
         request.onupgradeneeded = (event: any) => {
           console.debug("Upgrade DB", event);
@@ -167,26 +167,61 @@ export class StorageManager {
     })
   }
 
-  clear(store: string | undefined = undefined) {
-    if (this.db) {
-      if (store) {
-        const transaction = this.db.transaction(store, "readwrite");
-        const objectStore = transaction.objectStore(store);
-        const request = objectStore.clear();
-        request.onerror = (event: any) => {
-          console.error("delete " + store + " failed", event);
-        };
+  clear(store: string | undefined = undefined): Promise<void> {
+    return new Promise((resolve, reject) => {
+      if (this.db) {
+        if (store) {
+          const transaction = this.db.transaction(store, "readwrite");
+          const objectStore = transaction.objectStore(store);
+          const request = objectStore.clear();
+          request.onsuccess = (event: any) => {
+            resolve();
+          }
+          request.onerror = (event: any) => {
+            console.error("delete " + store + " failed", event);
+            reject(request.error);
+          };
+        } else {
+          const request = window.indexedDB.deleteDatabase('ghs-db');
+          request.onsuccess = (event: any) => {
+            resolve();
+          }
+          request.onblocked = (event: any) => {
+            if (this.db) {
+              this.db.close();
+            }
+          }
+          request.onerror = (event: any) => {
+            console.error("delete database 'ghs-db' failed", event);
+            reject(request.error);
+          };
+        }
       } else {
-        for (let i = 0; i < this.db.objectStoreNames.length; i++) {
-          const store: string | null = this.db.objectStoreNames.item(i);
-          if (store) {
-            this.clear(store);
+        if (store) {
+          localStorage.removeItem("ghs-" + store);
+          resolve();
+        } else {
+          localStorage.clear();
+          if (window.indexedDB) {
+            const request = window.indexedDB.deleteDatabase('ghs-db');
+            request.onsuccess = (event: any) => {
+              resolve();
+            }
+            request.onblocked = (event: any) => {
+              if (this.db) {
+                this.db.close();
+              }
+            }
+            request.onerror = (event: any) => {
+              console.error("delete database 'ghs-db' failed", event);
+              reject(request.error);
+            };
+          } else {
+            resolve();
           }
         }
       }
-    } else {
-      localStorage.removeItem("ghs-" + store);
-    }
+    })
   }
 
   async datadump(migrate: boolean = false): Promise<any> {
@@ -219,14 +254,17 @@ export class StorageManager {
   async migrate() {
     console.warn("Migration of old local storage");
 
-    let datadump: any = await storageManager.datadump(true);
-    let downloadButton = document.createElement('a');
-    downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(datadump)));
-    downloadButton.setAttribute('download', "ghs-migration-backup.json");
-    document.body.appendChild(downloadButton);
-    downloadButton.click();
-    document.body.removeChild(downloadButton);
-
+    try {
+      let datadump: any = await storageManager.datadump(true);
+      let downloadButton = document.createElement('a');
+      downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(datadump)));
+      downloadButton.setAttribute('download', "ghs-migration-backup.json");
+      document.body.appendChild(downloadButton);
+      downloadButton.click();
+      document.body.removeChild(downloadButton);
+    } catch {
+      console.warn("Could not read datadump");
+    }
 
     const gameString: string | null = localStorage.getItem("ghs-game");
     if (gameString) {

@@ -26,9 +26,13 @@ export class DatamanagementMenuComponent implements OnInit {
   confirm: string = "";
 
   async ngOnInit() {
-    const backups = await storageManager.readAll<GameModel>('game-backup');
-    if (backups && backups.length > 0) {
-      this.backups = backups.length;
+    try {
+      const backups = await storageManager.readAll<GameModel>('game-backup');
+      if (backups && backups.length > 0) {
+        this.backups = backups.length;
+      }
+    } catch {
+      this.backups = 0;
     }
   }
 
@@ -118,41 +122,53 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   async exportGame() {
-    const gameModel = await storageManager.readGameModel();
-    if (gameModel) {
-      const downloadButton = document.createElement('a');
-      downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(gameModel)));
-      downloadButton.setAttribute('download', 'ghs-game' + (gameModel.party.name ? '_' + gameModel.party.name : '') + '.json');
-      document.body.appendChild(downloadButton);
-      downloadButton.click();
-      document.body.removeChild(downloadButton);
+    try {
+      const gameModel = await storageManager.readGameModel();
+      if (gameModel) {
+        const downloadButton = document.createElement('a');
+        downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(gameModel)));
+        downloadButton.setAttribute('download', 'ghs-game' + (gameModel.party.name ? '_' + gameModel.party.name : '') + '.json');
+        document.body.appendChild(downloadButton);
+        downloadButton.click();
+        document.body.removeChild(downloadButton);
+      }
+    } catch {
+      console.warn("No game found");
     }
   }
 
   async exportLatestBackup() {
-    const backups = await storageManager.readAll<GameModel>('game-backup');
-    if (backups && backups.length > 0) {
-      const backup = backups[backups.length - 1];
-      const downloadButton = document.createElement('a');
-      downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(backup)));
-      downloadButton.setAttribute('download', 'ghs-game' + (backup.party.name ? '_' + backup.party.name : '') + '-rev' + backup.revision + '.json');
-      document.body.appendChild(downloadButton);
-      downloadButton.click();
-      document.body.removeChild(downloadButton);
-    }
-  }
-
-  async exportAllBackups() {
-    const backups = await storageManager.readAll<GameModel>('game-backup');
-    if (backups && backups.length > 0) {
-      backups.forEach((backup) => {
+    try {
+      const backups = await storageManager.readAll<GameModel>('game-backup');
+      if (backups && backups.length > 0) {
+        const backup = backups[backups.length - 1];
         const downloadButton = document.createElement('a');
         downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(backup)));
         downloadButton.setAttribute('download', 'ghs-game' + (backup.party.name ? '_' + backup.party.name : '') + '-rev' + backup.revision + '.json');
         document.body.appendChild(downloadButton);
         downloadButton.click();
         document.body.removeChild(downloadButton);
-      })
+      }
+    } catch {
+      console.warn("No backup found");
+    }
+  }
+
+  async exportAllBackups() {
+    try {
+      const backups = await storageManager.readAll<GameModel>('game-backup');
+      if (backups && backups.length > 0) {
+        backups.forEach((backup) => {
+          const downloadButton = document.createElement('a');
+          downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(backup)));
+          downloadButton.setAttribute('download', 'ghs-game' + (backup.party.name ? '_' + backup.party.name : '') + '-rev' + backup.revision + '.json');
+          document.body.appendChild(downloadButton);
+          downloadButton.click();
+          document.body.removeChild(downloadButton);
+        })
+      }
+    } catch {
+      console.warn("No backups found");
     }
   }
 
@@ -202,14 +218,18 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   async exportSettings() {
-    const settings = await storageManager.read<Settings>('settings', 'default');
-    if (settings) {
-      const downloadButton = document.createElement('a');
-      downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(settings)));
-      downloadButton.setAttribute('download', "ghs-settings.json");
-      document.body.appendChild(downloadButton);
-      downloadButton.click();
-      document.body.removeChild(downloadButton);
+    try {
+      const settings = await storageManager.read<Settings>('settings', 'default');
+      if (settings) {
+        const downloadButton = document.createElement('a');
+        downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(settings)));
+        downloadButton.setAttribute('download', "ghs-settings.json");
+        document.body.appendChild(downloadButton);
+        downloadButton.click();
+        document.body.removeChild(downloadButton);
+      }
+    } catch {
+      console.warn("No settings found");
     }
   }
 
@@ -240,13 +260,17 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   async exportDataDump() {
-    let datadump: any = await storageManager.datadump();
-    let downloadButton = document.createElement('a');
-    downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(datadump)));
-    downloadButton.setAttribute('download', "ghs-data-dump.json");
-    document.body.appendChild(downloadButton);
-    downloadButton.click();
-    document.body.removeChild(downloadButton);
+    try {
+      let datadump: any = await storageManager.datadump();
+      let downloadButton = document.createElement('a');
+      downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(datadump)));
+      downloadButton.setAttribute('download', "ghs-data-dump.json");
+      document.body.appendChild(downloadButton);
+      downloadButton.click();
+      document.body.removeChild(downloadButton);
+    } catch {
+      console.warn("Could not read datadump");
+    }
   }
 
   importDataDump(event: any) {
@@ -290,13 +314,18 @@ export class DatamanagementMenuComponent implements OnInit {
     }
   }
 
-  clearAllData(): void {
+  async clearAllData() {
     if (this.confirm != "clearAllData") {
       this.confirm = "clearAllData";
     } else {
-      localStorage.clear();
-      storageManager.clear();
-      window.location.reload();
+      try {
+        console.warn("clear storage");
+        await storageManager.clear();
+        console.info("Reload...");
+        window.location.reload();
+      } catch {
+        console.error("Could clear storage");
+      }
     }
   }
 
