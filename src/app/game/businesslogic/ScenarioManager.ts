@@ -569,7 +569,7 @@ export class ScenarioManager {
         achivements.party && achivements.party.some((achivement) => {
           if (achivement.startsWith('!')) {
             return this.game.party.achievementsList.find((partyAchievement) => partyAchievement.toLowerCase().trim() == achivement.substring(1, achivement.length).toLowerCase().trim());
-          } else if (achivement.indexOf(':') != 0) {
+          } else if (achivement.indexOf(':') != -1) {
             let count = +achivement.split(':')[1];
             this.game.party.achievementsList.forEach((partyAchievement) => {
               if (partyAchievement.toLowerCase().trim() == achivement.split(':')[0].toLowerCase().trim()) {
@@ -584,28 +584,28 @@ export class ScenarioManager {
         ||
         achivements.campaignSticker && achivements.campaignSticker.some((achivement) => {
           if (achivement.startsWith('!')) {
-            return this.game.party.campaignStickers.find((campaignSticker) => campaignSticker.toLowerCase().trim() == achivement.substring(1, achivement.length).toLowerCase().trim());
-          } else if (achivement.indexOf(':') != 0) {
+            return this.game.party.campaignStickers.find((campaignSticker) => campaignSticker.toLowerCase().replaceAll(' ', '-').trim() == achivement.substring(1, achivement.length).toLowerCase().trim());
+          } else if (achivement.indexOf(':') != -1) {
             let count = +achivement.split(':')[1];
             this.game.party.campaignStickers.forEach((campaignSticker) => {
-              if (campaignSticker.toLowerCase().trim() == achivement.split(':')[0].toLowerCase().trim()) {
+              if (campaignSticker.toLowerCase().replaceAll(' ', '-').trim() == achivement.split(':')[0].toLowerCase().trim()) {
                 count--;
               }
             })
             return count > 0;
           } else {
-            return !this.game.party.campaignStickers.find((campaignSticker) => campaignSticker.toLowerCase().trim() == achivement.toLowerCase().trim())
+            return !this.game.party.campaignStickers.find((campaignSticker) => campaignSticker.toLowerCase().replaceAll(' ', '-').trim() == achivement.toLowerCase().trim())
           }
         })
         ||
-        achivements.buildings && achivements.buildings.some((building) => {
-          if (building.startsWith('!')) {
-            return this.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == building.substring(1, building.length).toLowerCase().trim() && buildingModel.level > 0);
-          } else if (building.indexOf(':') != 0) {
-            let level = +building.split(':')[1];
-            return !this.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == building.substring(1, building.length).toLowerCase().trim() && buildingModel.level >= level)
+        achivements.buildings && achivements.buildings.some((achivement) => {
+          if (achivement.startsWith('!')) {
+            return this.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achivement.substring(1, achivement.length).toLowerCase().trim() && buildingModel.level > 0);
+          } else if (achivement.indexOf(':') != -1) {
+            let level = +achivement.split(':')[1];
+            return !this.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achivement.substring(1, achivement.length).toLowerCase().trim() && buildingModel.level >= level)
           } else {
-            return !this.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == building.substring(1, building.length).toLowerCase().trim() && buildingModel.level > 0)
+            return !this.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achivement.toLowerCase().trim() && buildingModel.level > 0)
           }
         })) || false;
   }
