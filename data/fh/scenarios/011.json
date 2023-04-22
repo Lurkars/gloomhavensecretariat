@@ -5,6 +5,13 @@
   "unlocks": [
     "19"
   ],
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "climbing-gear"
+      ]
+    }
+  ],
   "forcedLinks": [
     "19"
   ],

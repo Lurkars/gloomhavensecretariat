@@ -2,12 +2,19 @@
   "index": "22",
   "name": "Ice Floes",
   "edition": "fh",
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "boat"
+      ]
+    }
+  ],
   "rewards": {
     "calenderSection": [
       "62.2-2"
     ],
     "experience": 15,
-    "custom": "Lose 1 collective lumber for each set of five hexes with water tiles on tile 7-G"
+    "custom": "Lose 1 collective %game.resource.lumber% for each set of five hexes with water tiles on tile 7-G"
   },
   "monsters": [
     "lurker-clawcrusher",

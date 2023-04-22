@@ -3,6 +3,13 @@
   "index": "27",
   "name": "Depths of Delirium",
   "edition": "fh",
+  "requiredAchievements": [
+    {
+      "campaignSticker": [
+        "shard-seeker"
+      ]
+    }
+  ],
   "rewards": {
     "campaignSticker": [
       "Coral Shard"
