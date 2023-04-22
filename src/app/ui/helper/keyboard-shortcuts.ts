@@ -92,7 +92,7 @@ export class KeyboardShortcuts implements OnInit {
                         gameManager.attackModifierManager.drawModifier(deck);
                         gameManager.stateManager.after();
                     }
-                } else if ((!this.dialogOpen || this.allowed.indexOf('loot') != -1) && gameManager.game.state == GameState.next && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'l') {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('loot') != -1) && gameManager.game.state == GameState.next && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'l' && settingsManager.settings.lootDeck && gameManager.game.lootDeck.cards.length > 0) {
                     gameManager.stateManager.before('lootDeckDraw');
                     const activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active);
                     if (!settingsManager.settings.alwaysLootApplyDialog && activeCharacter instanceof Character) {
