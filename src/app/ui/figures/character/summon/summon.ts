@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -11,13 +11,14 @@ import { GameState } from 'src/app/game/model/Game';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
 import { ghsDefaultDialogPositions, ghsValueSign } from 'src/app/ui/helper/Static';
 import { EntityMenuDialogComponent } from '../../entity-menu/entity-menu-dialog';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ghs-summon-entity',
   templateUrl: './summon.html',
   styleUrls: ['./summon.scss']
 })
-export class SummonEntityComponent implements OnInit {
+export class SummonEntityComponent implements OnInit, OnDestroy {
 
   @ViewChild('standee', { static: false }) standee!: ElementRef;
 
@@ -35,17 +36,24 @@ export class SummonEntityComponent implements OnInit {
   settingsManager: SettingsManager = settingsManager;
   activeConditions: EntityCondition[] = [];
 
-  constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay) {
-    gameManager.uiChange.subscribe({ next: () => this.update() })
-  }
+  constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay) { }
 
   ngOnInit(): void {
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() })
     if (this.summon.init) {
       setTimeout(() => {
         this.open();
       }, settingsManager.settings.disableAnimations ? 0 : 500)
     }
     this.update();
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   update(): void {
@@ -133,7 +141,7 @@ export class SummonEntityComponent implements OnInit {
           element.state = ElementState.strong;
         }
       })
-      
+
       if (this.character.active && summon && settingsManager.settings.activeSummons) {
         summon.active = true;
       }

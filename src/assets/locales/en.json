@@ -789,15 +789,19 @@
         ".": "Campaign Sheet",
         "buildings": {
           ".": "Buildings",
+          "action": "Action",
           "build": "Build",
+          "costs": "Action Costs",
+          "id": "Number",
+          "level": "Level",
+          "name": "Name",
           "rebuild": "Rebuild",
-          "repair" : {
+          "repair": {
             ".": "Repair building",
             "costs": "Any {0}"
           },
           "unlock": "Unlock building",
           "upgrade": "Upgrade Building"
-
         },
         "campaignStickers": "Campaign Stickers",
         "defense": "Defense",
@@ -806,6 +810,7 @@
         "inspiration": "Inspiration",
         "morale": "Morale",
         "name": "Party Name",
+        "nextWeek": "Next week (new calendar)",
         "soldierLevel": "Lvl",
         "soldiers": "Soldiers",
         "summer": "Summer",
@@ -816,6 +821,7 @@
           ".": "Set Sections for week {0}",
           "addSection": "Add Section to week",
           "calc": "{0} weeks from current week",
+          "openConclusion": "Select continuing section",
           "section": "Section"
         },
         "winter": "Winter"
@@ -1030,7 +1036,10 @@
       "addMarker": "Open Section #{0} %game.mapMarker.{1}%?",
       "cancel": "Cancel",
       "confirm": "Confirm",
-      "conclusion": "Finish scenario with {0}?"
+      "conclusion": {
+        ".": "Finish scenario with {0}?",
+        "continue": "Continue with {0}"
+      }
     },
     "set": "Set Scenario",
     "setup": {
@@ -1418,7 +1427,7 @@
       "hint": "Unlocking of seperate rooms in a scenario. If not set, also disables automatic adding of standees."
     },
     "scenarioRules": {
-      ".": "Show Scenario Rules",
+      ".": "Scenario Rules",
       "hint": "Show popup windows about special scenario rules and optional apply them"
     },
     "showFullAbilityCard": {

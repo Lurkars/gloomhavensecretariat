@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionType, ActionValueType, ActionSpecialTarget } from 'src/app/game/model/data/Action';
@@ -11,6 +11,7 @@ import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { Objective } from 'src/app/game/model/Objective';
 import { valueCalc } from '../../helper/valueCalc';
+import { Subscription } from 'rxjs';
 
 export const ActionTypesIcons: ActionType[] = [ActionType.attack, ActionType.damage, ActionType.fly, ActionType.heal, ActionType.jump, ActionType.loot, ActionType.move, ActionType.range, ActionType.retaliate, ActionType.shield, ActionType.target, ActionType.teleport];
 
@@ -19,7 +20,7 @@ export const ActionTypesIcons: ActionType[] = [ActionType.attack, ActionType.dam
   templateUrl: './action.html',
   styleUrls: ['./action.scss']
 })
-export class ActionComponent implements OnInit {
+export class ActionComponent implements OnInit, OnDestroy {
 
   @Input() monster: Monster | undefined;
   @Input() objective: Objective | undefined;
@@ -54,11 +55,19 @@ export class ActionComponent implements OnInit {
 
   ngOnInit(): void {
     this.update();
-    gameManager.uiChange.subscribe({
+    this.uiChangeSubscription= gameManager.uiChange.subscribe({
       next: () => {
         this.update();
       }
     })
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   update() {

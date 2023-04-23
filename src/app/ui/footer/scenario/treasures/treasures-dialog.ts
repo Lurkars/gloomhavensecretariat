@@ -1,5 +1,6 @@
 import { DialogRef } from "@angular/cdk/dialog";
-import { Component } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
@@ -10,7 +11,7 @@ import { Scenario } from "src/app/game/model/Scenario";
     templateUrl: './treasures-dialog.html',
     styleUrls: ['./treasures-dialog.scss']
 })
-export class ScenarioTreasuresDialogComponent {
+export class ScenarioTreasuresDialogComponent implements OnInit, OnDestroy {
 
     gameManager: GameManager = gameManager;
 
@@ -29,17 +30,28 @@ export class ScenarioTreasuresDialogComponent {
         } else {
             this.scenario = gameManager.game.scenario || gameManager.scenarioManager.createScenario();
         }
-        this.update();
-        gameManager.uiChange.subscribe({
+    }
+
+    ngOnInit(): void {
+        this.uiChangeSubscription = gameManager.uiChange.subscribe({
             next: () => {
                 this.update();
             }
-        })
+        });
+        this.update();
+    }
+
+    uiChangeSubscription: Subscription | undefined;
+
+    ngOnDestroy(): void {
+        if (this.uiChangeSubscription) {
+            this.uiChangeSubscription.unsubscribe();
+        }
     }
 
     update() {
         this.scenario = gameManager.game.scenario || gameManager.scenarioManager.createScenario();
-        this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent &&  gameManager.entityManager.isAlive(figure)).map((figure) => figure as Character);
+        this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent && gameManager.entityManager.isAlive(figure)).map((figure) => figure as Character);
         if (!this.character) {
             this.character = this.characters.find((figure) => figure.active) || this.characters.length > 0 && this.characters[0] || undefined;
         }

@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, EventEmitter, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -17,13 +17,14 @@ import { CharacterLootCardsDialog } from './dialogs/loot-cards';
 import { CharacterSummonDialog } from './dialogs/summondialog';
 import { CharacterInitiativeDialogComponent } from './cards/initiative-dialog';
 import { SummonState } from 'src/app/game/model/Summon';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ghs-character',
   templateUrl: './character.html',
   styleUrls: ['./character.scss']
 })
-export class CharacterComponent implements OnInit {
+export class CharacterComponent implements OnInit, OnDestroy {
 
   @Input() character!: Character;
 
@@ -49,12 +50,19 @@ export class CharacterComponent implements OnInit {
   emptySummons: boolean = true;
   activeConditions: EntityCondition[] = [];
 
-  constructor(private dialog: Dialog, private overlay: Overlay) {
-    gameManager.uiChange.subscribe({ next: () => this.update() })
-  }
+  constructor(private dialog: Dialog, private overlay: Overlay) { }
 
   ngOnInit(): void {
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() })
     this.update();
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   update(): void {

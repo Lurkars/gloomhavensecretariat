@@ -89,11 +89,13 @@ export class KeyboardShortcuts implements OnInit {
                     }
 
                     if (deck) {
+                        deck.active = true;
                         gameManager.attackModifierManager.drawModifier(deck);
                         gameManager.stateManager.after();
                     }
                 } else if ((!this.dialogOpen || this.allowed.indexOf('loot') != -1) && gameManager.game.state == GameState.next && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'l' && settingsManager.settings.lootDeck && gameManager.game.lootDeck.cards.length > 0) {
                     gameManager.stateManager.before('lootDeckDraw');
+                    gameManager.game.lootDeck.active = true;
                     const activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active);
                     if (!settingsManager.settings.alwaysLootApplyDialog && activeCharacter instanceof Character) {
                         gameManager.lootManager.drawCard(gameManager.game.lootDeck, activeCharacter);

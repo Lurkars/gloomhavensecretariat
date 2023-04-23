@@ -30,7 +30,9 @@ export class RoundManager {
     this.game.totalSeconds += this.game.playSeconds;
     this.game.playSeconds = 0;
 
-    gameManager.scenarioRulesManager.addScenarioRules();
+    if (settingsManager.settings.scenarioRules) {
+      gameManager.scenarioRulesManager.addScenarioRules();
+    }
 
     if (this.game.state == GameState.next) {
       this.game.state = GameState.draw;

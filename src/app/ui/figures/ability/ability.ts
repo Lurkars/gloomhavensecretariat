@@ -1,10 +1,11 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Ability } from "src/app/game/model/data/Ability";
 import { Character } from "src/app/game/model/Character";
 import { Monster } from "src/app/game/model/Monster";
 import { applyPlaceholder } from "../../helper/i18n";
+import { Subscription } from "rxjs";
 
 
 @Component({
@@ -12,7 +13,7 @@ import { applyPlaceholder } from "../../helper/i18n";
   templateUrl: './ability.html',
   styleUrls: ['./ability.scss']
 })
-export class AbilityComponent implements OnInit, OnChanges {
+export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
 
   @Input() ability: Ability | undefined;
   @Input() abilities!: Ability[];
@@ -32,11 +33,19 @@ export class AbilityComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.update();
-    gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
         this.update();
       }
     });
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {

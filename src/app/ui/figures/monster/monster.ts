@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
@@ -10,13 +10,14 @@ import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { SummonState } from 'src/app/game/model/Summon';
 import { ghsDefaultDialogPositions } from '../../helper/Static';
 import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ghs-monster',
   templateUrl: './monster.html',
   styleUrls: ['./monster.scss']
 })
-export class MonsterComponent implements OnInit {
+export class MonsterComponent implements OnInit, OnDestroy {
 
   @Input() monster!: Monster;
   MonsterType = MonsterType;
@@ -26,18 +27,25 @@ export class MonsterComponent implements OnInit {
   nonDead: number = 0;
   count: number = 0;
 
-  constructor(private dialog: Dialog, private overlay: Overlay) {
-    gameManager.uiChange.subscribe({
+  constructor(private dialog: Dialog, private overlay: Overlay) { }
+
+  ngOnInit(): void {
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
         this.nonDead = gameManager.monsterManager.monsterEntityCount(this.monster);
         this.count = EntityValueFunction(this.monster.count, this.monster.level);
       }
     })
-  }
-
-  ngOnInit(): void {
     this.nonDead = gameManager.monsterManager.monsterEntityCount(this.monster);
     this.count = EntityValueFunction(this.monster.count, this.monster.level);
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   sortedEntites(): MonsterEntity[] {

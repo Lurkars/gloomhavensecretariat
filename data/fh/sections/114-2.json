@@ -2,12 +2,5 @@
   "index": "114.2",
   "name": "Sunless Trench",
   "edition": "fh",
-  "conclusion": true,
-  "rewards": {
-    "chooseLocation": [
-      "49",
-      "50"
-    ],
-    "custom": "Place map overlay sticker Z on map in location Z (F2).<br>Do not resolve an outpost event this week."
-  }
+  "conclusion": true
 }

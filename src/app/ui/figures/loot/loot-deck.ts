@@ -1,5 +1,5 @@
 import { Dialog } from "@angular/cdk/dialog";
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { LootManager } from "src/app/game/businesslogic/LootManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -9,6 +9,7 @@ import { appliableLootTypes, LootDeck, LootType } from "src/app/game/model/data/
 import { LootApplyDialogComponent } from "./loot-apply-dialog";
 import { LootDeckDialogComponent } from "./loot-deck-dialog";
 import { LootDeckFullscreenComponent } from "./loot-deck-fullscreen";
+import { Subscription } from "rxjs";
 
 export class LootDeckChange {
 
@@ -29,7 +30,7 @@ export class LootDeckChange {
     templateUrl: './loot-deck.html',
     styleUrls: ['./loot-deck.scss']
 })
-export class LootDeckComponent implements OnInit {
+export class LootDeckComponent implements OnInit, OnDestroy {
 
     @Input('deck') deck!: LootDeck;
     @Input() bottom: boolean = false;
@@ -65,7 +66,7 @@ export class LootDeckComponent implements OnInit {
         this.current = this.deck.current;
         this.internalDraw = -99;
         this.compact = !this.drawing && this.deck.cards.length > 0 && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
-        gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = gameManager.uiChange.subscribe({
             next: () => {
                 if (this.internalDraw == -99 && this.current < this.deck.current) {
                     this.current = this.deck.current;
@@ -102,6 +103,14 @@ export class LootDeckComponent implements OnInit {
         window.addEventListener('fullscreenchange', (event) => {
             this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
         });
+    }
+
+    uiChangeSubscription: Subscription | undefined;
+
+    ngOnDestroy(): void {
+        if (this.uiChangeSubscription) {
+            this.uiChangeSubscription.unsubscribe();
+        }
     }
 
     update(local: boolean = true) {

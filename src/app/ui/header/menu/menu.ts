@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from "@angular/core";
+import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
 import packageJson from '../../../../../package.json';
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -13,6 +13,7 @@ import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { FeedbackDialogComponent } from "../../tools/feedback/feedback-dialog";
 import { SwUpdate } from "@angular/service-worker";
 import { UndoDialogComponent } from "./undo/dialog";
+import { Subscription } from "rxjs";
 
 export enum SubMenu {
   main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_add, objective_remove, settings, debug, server, datamanagement, about
@@ -23,7 +24,7 @@ export enum SubMenu {
   templateUrl: 'menu.html',
   styleUrls: ['./menu.scss']
 })
-export class MainMenuComponent implements OnInit {
+export class MainMenuComponent implements OnInit, OnDestroy {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -52,11 +53,19 @@ export class MainMenuComponent implements OnInit {
   ngOnInit(): void {
     this.updateUndoRedo();
 
-    gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
         this.updateUndoRedo();
       }
     })
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   close() {

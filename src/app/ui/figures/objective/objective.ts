@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -12,13 +12,14 @@ import { Objective } from 'src/app/game/model/Objective';
 import { ghsDefaultDialogPositions, ghsValueSign } from '../../helper/Static';
 import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
 import { CharacterInitiativeDialogComponent } from '../character/cards/initiative-dialog';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ghs-objective',
   templateUrl: './objective.html',
   styleUrls: ['./objective.scss']
 })
-export class ObjectiveComponent implements OnInit {
+export class ObjectiveComponent implements OnInit, OnDestroy {
 
   @Input() objective!: Objective;
 
@@ -35,15 +36,22 @@ export class ObjectiveComponent implements OnInit {
   objectiveData: ObjectiveData | undefined;
   activeConditions: EntityCondition[] = [];
 
-  constructor(private dialog: Dialog, private overlay: Overlay) {
-    gameManager.uiChange.subscribe({ next: () => this.update() })
-  }
+  constructor(private dialog: Dialog, private overlay: Overlay) { }
 
   ngOnInit(): void {
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
     if (this.objective && this.objective.objectiveId) {
       this.objectiveData = gameManager.objectiveDataByScenarioObjectiveIdentifier(this.objective.objectiveId);
     }
     this.update();
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   update(): void {

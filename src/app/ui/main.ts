@@ -42,6 +42,9 @@ export class MainComponent implements OnInit {
   draggingeTimeout: any = null;
   isTouch: boolean = false;
 
+  lastScroll: number = -1;
+  lastScrollColumn: number = -1;
+
   standeeDialog: DialogRef<unknown, MonsterNumberPickerDialog> | undefined;
 
   @ViewChild('footer') footer!: FooterComponent;
@@ -275,6 +278,9 @@ export class MainComponent implements OnInit {
             this.columnSize = 99;
           }
 
+          this.lastScroll = this.lastActive();
+          this.lastScrollColumn = this.columns > 1 ? this.columnSize - 1 : -1;
+
           this.translate(scrollTo, skipAnimation);
         }
       }, 1);
@@ -286,16 +292,18 @@ export class MainComponent implements OnInit {
   }
 
   activeFigureSize(start: number, end: number, figureElements: any[]) {
-    const figures = this.figures;
-    let lastActive = 0;
+    let lastActive = this.lastActive(start, end);
+    return figureElements.slice(start, end).filter((element: any, index: number) => index <= lastActive).map((element) => element.firstChild.clientHeight).reduce((a: any, b: any) => a + b, 0);
+  }
 
-    figures.slice(start, end).forEach((figure, index) => {
+  lastActive(start: number | undefined = undefined, end: number | undefined = undefined): number {
+    let lastActive = -1;
+    this.figures.slice(start, end).forEach((figure, index) => {
       if (index > lastActive && gameManager.gameplayFigure(figure)) {
         lastActive = index;
       }
     })
-
-    return figureElements.slice(start, end).filter((element: any, index: number) => index <= lastActive).map((element) => element.firstChild.clientHeight).reduce((a: any, b: any) => a + b, 0);
+    return lastActive;
   }
 
   translate(scrollTo: HTMLElement | undefined = undefined, skipAnimation: boolean = false) {
@@ -327,9 +335,10 @@ export class MainComponent implements OnInit {
 
           if (scrollTo) {
             setTimeout(() => {
+              console.log(this.columns, index, this.columnSize, figures.length);
               scrollTo.scrollIntoView({
                 behavior: settingsManager.settings.disableAnimations ? 'auto' : 'smooth',
-                block: 'end',
+                block: (index == this.lastScroll || index == this.lastScrollColumn) ? 'end' : 'center',
                 inline: 'center'
               });
 

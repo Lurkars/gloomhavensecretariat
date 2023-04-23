@@ -5,6 +5,7 @@ import { ItemData, ItemSlot } from "src/app/game/model/data/ItemData";
 import { Identifier } from "src/app/game/model/data/Identifier";
 import { getLootClass, LootClass, LootType } from "src/app/game/model/data/Loot";
 import { GameState } from "src/app/game/model/Game";
+import { Subscription } from "rxjs";
 
 
 @Component({
@@ -27,7 +28,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.updateItems();
-        gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = gameManager.uiChange.subscribe({
             next: () => {
                 this.updateItems();
             }
@@ -38,9 +39,14 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
         this.editionChange();
     }
 
+    uiChangeSubscription: Subscription | undefined;
+
     ngOnDestroy(): void {
         if (this.itemEdition) {
             this.itemEdition = gameManager.currentEdition(this.character.edition);
+        }
+        if (this.uiChangeSubscription) {
+            this.uiChangeSubscription.unsubscribe();
         }
     }
 

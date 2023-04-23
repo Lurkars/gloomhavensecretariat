@@ -216,14 +216,14 @@ export class ScenarioSummaryComponent {
                 gameManager.game.unlockedCharacters.push(this.chooseUnlockCharacter);
             }
         }
-        gameManager.scenarioManager.finishScenario(this.success, this.conclusion, false, undefined, this.casual && !this.forceCampaign);
+        gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, false, undefined, this.casual && !this.forceCampaign);
         gameManager.stateManager.after(1000);
         this.dialogRef.close();
     }
 
     restart() {
         gameManager.stateManager.before("finishScenario.restart", ...gameManager.scenarioManager.scenarioUndoArgs());
-        gameManager.scenarioManager.finishScenario(this.success, this.conclusion, true);
+        gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, true);
         gameManager.stateManager.after(1000);
         this.dialogRef.close();
     }
@@ -232,7 +232,7 @@ export class ScenarioSummaryComponent {
         const scenario = gameManager.scenarioData(this.scenario.edition).find((scenarioData) => scenarioData.group == this.scenario.group && scenarioData.index == index);
         if (scenario) {
             gameManager.stateManager.before("finishScenario.linked", ...gameManager.scenarioManager.scenarioUndoArgs(), index);
-            gameManager.scenarioManager.finishScenario(this.success, this.conclusion, false, new Scenario(scenario));
+            gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, false, new Scenario(scenario));
             gameManager.stateManager.after(1000);
             this.dialogRef.close();
         }

@@ -1,17 +1,18 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Action";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { Objective } from "src/app/game/model/Objective";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: 'ghs-actions',
   templateUrl: './actions.html',
   styleUrls: ['./actions.scss']
 })
-export class ActionsComponent {
+export class ActionsComponent implements OnInit, OnDestroy {
 
   @Input() monster: Monster | undefined;
   @Input() objective: Objective | undefined;
@@ -35,11 +36,19 @@ export class ActionsComponent {
 
   ngOnInit(): void {
     this.updateAdditionalActions();
-    gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
         this.updateAdditionalActions();
       }
     })
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   updateAdditionalActions(): void {
@@ -81,7 +90,7 @@ export class ActionsComponent {
       return false;
     }
 
-    if (this.actions[index -1].type == ActionType.box) {
+    if (this.actions[index - 1].type == ActionType.box) {
       return false;
     }
 

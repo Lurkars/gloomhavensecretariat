@@ -1,5 +1,5 @@
 import { Dialog } from '@angular/cdk/dialog';
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -7,6 +7,7 @@ import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
 import { AttackModifierDeckDialogComponent } from './attackmodifierdeck-dialog';
 import { AttackModifierDeckFullscreenComponent } from './attackmodifierdeck-fullscreen';
+import { Subscription } from 'rxjs';
 
 export class AttackModiferDeckChange {
 
@@ -28,7 +29,7 @@ export class AttackModiferDeckChange {
   templateUrl: './attackmodifierdeck.html',
   styleUrls: ['./attackmodifierdeck.scss']
 })
-export class AttackModifierDeckComponent implements OnInit {
+export class AttackModifierDeckComponent implements OnInit, OnDestroy {
 
   @Input('deck') deck!: AttackModifierDeck;
   @Input('character') character!: Character;
@@ -91,7 +92,7 @@ export class AttackModifierDeckComponent implements OnInit {
       this.rollingIndex[index] = this.calcRollingIndex(index, this.current);
       this.rollingIndexPrev[index] = this.calcRollingIndex(index, this.current - 1);
     });
-    gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: (fromServer: boolean) => {
         if (this.internalDraw == -99 && this.current < this.deck.current) {
           this.current = this.deck.current;
@@ -149,6 +150,14 @@ export class AttackModifierDeckComponent implements OnInit {
     window.addEventListener('fullscreenchange', (event) => {
       this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
     });
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   drawAnimation() {

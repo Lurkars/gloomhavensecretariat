@@ -1,8 +1,9 @@
-import { Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
+import { Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { EntityExpressionRegex, EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity";
 import { ghsLabelRegex } from "./i18n";
+import { Subscription } from "rxjs";
 
 
 export function valueCalc(value: string | number, level: number | undefined = undefined, empty: boolean = false): string | number {
@@ -59,7 +60,7 @@ export function valueCalc(value: string | number, level: number | undefined = un
 @Directive({
   selector: ' [value-calc]'
 })
-export class ValueCalcDirective implements OnInit, OnChanges {
+export class ValueCalcDirective implements OnInit, OnDestroy, OnChanges {
 
   @Input('value-calc') value!: string | number;
   @Input('level') level: number | undefined;
@@ -73,16 +74,6 @@ export class ValueCalcDirective implements OnInit, OnChanges {
     this.C = Math.max(2, gameManager.characterManager.characterCount());
     this.L = gameManager.game.level;
     this.calc = settingsManager.settings.calculate;
-    gameManager.uiChange.subscribe({
-      next: () => {
-        if (this.calc != settingsManager.settings.calculate || this.C != Math.max(2, gameManager.characterManager.characterCount()) || this.L != gameManager.game.level) {
-          this.C = Math.max(2, gameManager.characterManager.characterCount());
-          this.L = gameManager.game.level;
-          this.calc = settingsManager.settings.calculate;
-          this.el.nativeElement.innerHTML = valueCalc(this.value, this.level, this.empty);
-        }
-      }
-    })
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -91,7 +82,26 @@ export class ValueCalcDirective implements OnInit, OnChanges {
 
 
   ngOnInit(): void {
+    this.uiChangeSubscription =
+      gameManager.uiChange.subscribe({
+        next: () => {
+          if (this.calc != settingsManager.settings.calculate || this.C != Math.max(2, gameManager.characterManager.characterCount()) || this.L != gameManager.game.level) {
+            this.C = Math.max(2, gameManager.characterManager.characterCount());
+            this.L = gameManager.game.level;
+            this.calc = settingsManager.settings.calculate;
+            this.el.nativeElement.innerHTML = valueCalc(this.value, this.level, this.empty);
+          }
+        }
+      });
     this.el.nativeElement.innerHTML = valueCalc(this.value, this.level, this.empty);
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
 

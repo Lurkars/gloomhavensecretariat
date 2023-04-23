@@ -40,7 +40,7 @@
       <span (click)="setScenario(scenario)" class="scenario"
         [ngClass]="{'current' : hasScenario(scenario), 'blocked' : gameManager.scenarioManager.isBlocked(scenario) , 'locked' : gameManager.scenarioManager.isLocked(scenario)}"
         [ghsTooltip]="('data.scenario.' + scenario.name | ghsLabel) + (gameManager.scenarioManager.isBlocked(scenario) ? ' [' + ('scenario.blocked' | ghsLabel) + ']' : (gameManager.scenarioManager.isLocked(scenario) ? ' [' + ('scenario.locked' | ghsLabel) + ']' : '') )"
-        *ngFor="let scenario of scenarios(group) | ghsScenarioSearch:search.value">
+        *ngFor="let scenario of scenarios(group, filterSuccess) | ghsScenarioSearch:search.value">
         <ng-container *ngIf="!scenario.solo">
           <span *ngIf="maxScenario(group) > 2 && scenario.index.length < 3">0</span><span
             *ngIf="maxScenario(group) > 1 && scenario.index.length < 2">0</span>
@@ -65,7 +65,7 @@
       <a (click)="settingsManager.addSpoilers(notSpoiled(group))">{{'spoiler.all' | ghsLabel}}</a>
     </div>
     <ng-container
-      *ngIf="gameManager.game.party.campaignMode && scenarios(group).length < scenarios(group,true,true).length">
+      *ngIf="gameManager.game.party.campaignMode && scenarios(group).length < scenarios(group,false,true,true).length">
       <div class="line title">
         <label>{{'scenario.manual.add' | ghsLabel}}
         </label>

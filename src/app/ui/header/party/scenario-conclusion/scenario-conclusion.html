@@ -1,0 +1,12 @@
+<div class="section-popup">
+
+    <span class="conclusion" *ngFor="let sectionData of data.conclusions"
+        [i18n]="'scenario.section.conclusion' + (data.parent.conclusion ? '.continue' :  '')"
+        [i18n-args]="[sectionData.name ? 'data.section.' + sectionData.name : '%scenario.section% #' + sectionData.index]"
+        (click)="dialogRef.close(sectionData)">
+    </span>
+
+    <div class="buttons">
+        <a class="cancel" (click)="dialogRef.close()">{{'scenario.section.cancel' | ghsLabel}}</a>
+    </div>
+</div>

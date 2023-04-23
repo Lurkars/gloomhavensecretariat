@@ -1,6 +1,6 @@
 import { Dialog } from "@angular/cdk/dialog";
 import { Overlay } from "@angular/cdk/overlay";
-import { Component, ElementRef, Input, OnInit } from "@angular/core";
+import { Component, ElementRef, Input, OnDestroy, OnInit } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameState } from "src/app/game/model/Game";
@@ -8,6 +8,7 @@ import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { ghsDefaultDialogPositions } from "src/app/ui/helper/Static";
 import { MonsterNumberPickerDialog } from "./numberpicker-dialog";
+import { Subscription } from "rxjs";
 
 
 @Component({
@@ -15,7 +16,7 @@ import { MonsterNumberPickerDialog } from "./numberpicker-dialog";
   templateUrl: 'numberpicker.html',
   styleUrls: ['./numberpicker.scss']
 })
-export class MonsterNumberPicker implements OnInit {
+export class MonsterNumberPicker implements OnInit, OnDestroy {
 
   @Input() monster!: Monster;
   @Input() type!: MonsterType;
@@ -28,12 +29,19 @@ export class MonsterNumberPicker implements OnInit {
   maxStandees: number = 0;
   usedStandees: number = 0;
 
-  constructor(private elementRef: ElementRef, private dialog: Dialog, private overlay: Overlay) {
-    gameManager.uiChange.subscribe({ next: () => this.update() })
-  }
+  constructor(private elementRef: ElementRef, private dialog: Dialog, private overlay: Overlay) { }
 
   ngOnInit(): void {
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
     this.update();
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   update() {
@@ -46,10 +54,6 @@ export class MonsterNumberPicker implements OnInit {
   }
 
   open(): void {
-    if (this.nonDead >= this.count) {
-      return;
-    }
-
     if (settingsManager.settings.disableStandees) {
       if (this.hasEntity()) {
         this.monster.entities = this.monster.entities.filter((monsterEntity) => settingsManager.settings.hideStats && monsterEntity.type != this.type);
@@ -61,6 +65,10 @@ export class MonsterNumberPicker implements OnInit {
           this.nextStandee();
         }
       }
+      return;
+    }
+
+    if (this.nonDead >= this.count) {
       return;
     }
 

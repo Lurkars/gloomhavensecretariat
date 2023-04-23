@@ -52,7 +52,7 @@
   </div>
 
   <ghs-drag-click *ngIf="settingsManager.settings.disableStandees && gameManager.gameplayFigure(monster)"
-    class="entity-menu" (singleClick)="openEntityMenu($event)">
+    class="entity-menu" [ngClass]="{'boss' : monster.boss}" (singleClick)="openEntityMenu($event)">
   </ghs-drag-click>
 
   <div class="stats" *ngIf="!monster.boss"

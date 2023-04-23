@@ -81,10 +81,15 @@
   .entity-menu {
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 38%;
+    right: 38%;
     bottom: 0;
     z-index: 3;
+
+    &.boss {
+      left: 25%;
+      right: 55%;
+    }
   }
 
   .toggle-ally {
@@ -555,6 +560,10 @@
 
     .name-container {
       cursor: initial;
+    }
+
+    .entity-menu {
+      display: none;
     }
   }
 

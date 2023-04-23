@@ -50,16 +50,32 @@ export class MonsterManager {
     return stat;
   }
 
+  getSpawnMonsters(monsters: MonsterData[]): MonsterData[] {
+    let result: MonsterData[] = [];
+    monsters.forEach((monster) => {
+      this.getMonsterSpawns(monster).forEach((summon) => {
+        if (result.indexOf(summon) == -1) {
+          result.push(summon);
+        }
+      })
+    })
+
+    return result;
+  }
+
+
   getMonsterSpawns(monster: MonsterData): MonsterData[] {
     let monsters: MonsterData[] = [];
     const deck = gameManager.deckData(new Monster(monster));
     if (deck && deck.abilities) {
       deck.abilities.forEach((ability) => {
         ability.actions.forEach((action) => {
-          const summon = this.getMonsterSpawn(monster, action);
-          if (summon && monsters.indexOf(summon) == -1) {
-            monsters.push(summon);
-          }
+          const summons = this.getActionSpawns(action, monster.edition);
+          summons.forEach((summon) => {
+            if (monsters.indexOf(summon) == -1) {
+              monsters.push(summon);
+            }
+          })
         })
       })
     }
@@ -67,10 +83,12 @@ export class MonsterManager {
     if (monster.baseStat.special) {
       monster.baseStat.special.forEach((special) => {
         special.forEach((action) => {
-          const summon = this.getMonsterSpawn(monster, action);
-          if (summon && monsters.indexOf(summon) == -1) {
-            monsters.push(summon);
-          }
+          const summons = this.getActionSpawns(action, monster.edition);
+          summons.forEach((summon) => {
+            if (monsters.indexOf(summon) == -1) {
+              monsters.push(summon);
+            }
+          })
         })
       })
     }
@@ -79,10 +97,12 @@ export class MonsterManager {
       if (stat.special) {
         stat.special.forEach((special) => {
           special.forEach((action) => {
-            const summon = this.getMonsterSpawn(monster, action);
-            if (summon && monsters.indexOf(summon) == -1) {
-              monsters.push(summon);
-            }
+            const summons = this.getActionSpawns(action, monster.edition);
+            summons.forEach((summon) => {
+              if (monsters.indexOf(summon) == -1) {
+                monsters.push(summon);
+              }
+            })
           })
         })
       }
@@ -90,15 +110,26 @@ export class MonsterManager {
     return monsters;
   }
 
-  getMonsterSpawn(monster: MonsterData, action: Action): MonsterData | undefined {
+  getActionSpawns(action: Action, edition: string): MonsterData[] {
     if (action.type == ActionType.summon || action.type == ActionType.spawn) {
       if (action.value != 'summonData' && action.value != 'monsterStandee') {
-        return gameManager.monstersData(monster.edition).find((monsterData) => monsterData.name == ('' + action.value).split(':')[0]);
-      } else if (action.value == 'monsterStandee' && action.valueObject && (action.valueObject as MonsterSpawnData).monster && (action.valueObject as MonsterSpawnData).monster.name) {
-        return gameManager.monstersData(monster.edition).find((monsterData) => monsterData.name == (action.valueObject as MonsterSpawnData).monster.name);
+        const summon = gameManager.monstersData(edition).find((monsterData) => monsterData.name == ('' + action.value).split(':')[0]);
+        if (summon) {
+          return [summon];
+        }
+      } else if (action.value == 'monsterStandee' && action.valueObject) {
+        let spawns: MonsterData[] = [];
+        (action.valueObject as MonsterSpawnData[]).forEach((spawnData) => {
+          const spawn = gameManager.monstersData(edition).find((monsterData) => monsterData.name == spawnData.monster.name);
+          if (spawn) {
+            spawns.push(spawn);
+          }
+        })
+        return spawns;
       }
     }
-    return undefined;
+
+    return action.subActions ? action.subActions.map((subAction) => this.getActionSpawns(subAction, edition)).flat() : [];
   }
 
   addMonsterByName(name: string, edition: string): Monster | undefined {

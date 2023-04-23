@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
+import { Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ActionType } from "src/app/game/model/data/Action";
@@ -6,6 +6,7 @@ import { Character } from "src/app/game/model/Character";
 import { EntityValueFunction, EntityValueRegex, EntityValueRegexExtended } from "src/app/game/model/Entity";
 import { ActionHex } from "src/app/game/model/ActionHex";
 import { ActionTypesIcons } from "../figures/actions/action";
+import { Subscription } from "rxjs";
 
 export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\,|\+|\(|\)|\||\_|\[|\]|\||\{|\}|\$|\\|\/|\%U+200B)+)\%/;
 
@@ -194,7 +195,7 @@ export const applyValueCalc = function (value: string, relative: boolean): strin
 @Directive({
   selector: ' [i18n]'
 })
-export class I18nDirective implements OnInit, OnChanges {
+export class I18nDirective implements OnInit, OnDestroy, OnChanges {
 
   @Input('i18n') value!: string;
   @Input('i18n-args') args: string[] = [];
@@ -216,23 +217,33 @@ export class I18nDirective implements OnInit, OnChanges {
     this.locale = settingsManager.settings.locale;
     this.fhStyle = settingsManager.settings.fhStyle || this.fhForce;
     this.calc = settingsManager.settings.calculate;
-    gameManager.uiChange.subscribe({
-      next: () => {
-        if (this.locale != settingsManager.settings.locale || this.C != gameManager.game.figures.filter((figure) => figure instanceof Character).length || this.L != gameManager.game.level || (!this.fhForce && this.fhStyle != settingsManager.settings.fhStyle) || this.calc != settingsManager.settings.calculate) {
-          this.C = Math.max(2, gameManager.characterManager.characterCount());
-          this.L = gameManager.game.level;
-          this.locale = settingsManager.settings.locale;
-          this.fhStyle = settingsManager.settings.fhStyle || this.fhForce;
-          this.calc = settingsManager.settings.calculate;
-          this.apply();
-        }
-      }
-    })
   }
 
   ngOnInit(): void {
+    this.uiChangeSubscription =
+      gameManager.uiChange.subscribe({
+        next: () => {
+          if (this.locale != settingsManager.settings.locale || this.C != gameManager.game.figures.filter((figure) => figure instanceof Character).length || this.L != gameManager.game.level || (!this.fhForce && this.fhStyle != settingsManager.settings.fhStyle) || this.calc != settingsManager.settings.calculate) {
+            this.C = Math.max(2, gameManager.characterManager.characterCount());
+            this.L = gameManager.game.level;
+            this.locale = settingsManager.settings.locale;
+            this.fhStyle = settingsManager.settings.fhStyle || this.fhForce;
+            this.calc = settingsManager.settings.calculate;
+            this.apply();
+          }
+        }
+      });
     this.apply();
   }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
+  }
+
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['args'] && JSON.stringify(changes['args'].previousValue) != JSON.stringify(changes['args'].currentValue) || changes['value'] && changes['value'].previousValue != changes['value'].currentValue) {

@@ -13,7 +13,7 @@
     "prosperity": 1,
     "hints": {
       "globalAchievements": [
-        "(If this is the second \"A Peril Averted\" achivement gained, read section 118 on page 37)"
+        "(If this is the second \"A Peril Averted\" achievement gained, read section 118 on page 37)"
       ],
       "gold": "This money must be immediately be spend on any %game.action.move%, %game.action.range%, or %game.action.jump% enhancement"
     }

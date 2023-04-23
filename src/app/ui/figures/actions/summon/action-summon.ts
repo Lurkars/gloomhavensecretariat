@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from "@angular/core";
+import { Component, Input, OnChanges, OnDestroy } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Action } from "src/app/game/model/data/Action";
@@ -11,13 +11,14 @@ import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { Objective } from "src/app/game/model/Objective";
 import { Summon, SummonColor } from "src/app/game/model/Summon";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: 'ghs-action-summon',
   templateUrl: './action-summon.html',
   styleUrls: ['./action-summon.scss']
 })
-export class ActionSummonComponent implements OnChanges {
+export class ActionSummonComponent implements OnChanges, OnDestroy {
 
   @Input() monster: Monster | undefined;
   @Input() objective: Objective | undefined;
@@ -38,11 +39,19 @@ export class ActionSummonComponent implements OnChanges {
   MonsterType = MonsterType;
 
   constructor() {
-    gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
         this.update();
       }
     })
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   ngOnChanges(changes: any) {

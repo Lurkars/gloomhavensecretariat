@@ -126,16 +126,23 @@
 
         <div class="weeks">
           <div class="week" *ngFor="let week of [] | ghsRange:80; let index = index" ghs-drag-click
-            (singleClick)="setWeek(index+1)" (doubleClick)="setWeekSection(index+1)"
-            [ngClass]="{'checked': party.weeks > index, 'section': sectionsForWeekFixed(week).length > 0}">
-            <div class="section" *ngFor="let section of sectionsForWeekFixed(week)">
-              <img src="./assets/images/fh/party/section.svg">{{section}}
+            (singleClick)="setWeek(index+1 + 80*calendarSheet)"
+            (doubleClick)="setWeekSection(index+1+ 80*calendarSheet)"
+            [ngClass]="{'checked': party.weeks > index + 80*calendarSheet, 'section': sectionsForWeekFixed(week+ 80*calendarSheet).length > 0 || sectionsForWeek(week+ 80*calendarSheet).length > 0}">
+            <div class="section" *ngFor="let section of sectionsForWeekFixed(week+ 80*calendarSheet)">
+              <img
+                [src]="'./assets/images/' + (hasConclusions(section) ? 'hint.svg' : (isConclusion(section) ? 'scenario/conclusion.svg'  : 'fh/party/section.svg'))">
+              {{section}}
             </div>
-            <div class="section manual" *ngFor="let section of sectionsForWeek(week)">
-              <img src="./assets/images/fh/party/section.svg">{{section}}
-              <img class="manual-icon" src="./assets/images/hint.svg">
+            <div class="section manual" *ngFor="let section of sectionsForWeek(week+ 80*calendarSheet)">
+              <img
+                [src]="'./assets/images/' + (hasConclusions(section) ? 'hint.svg' : (isConclusion(section) ? 'scenario/conclusion.svg'  : 'fh/party/section.svg'))">
+              {{section}}
             </div>
           </div>
+          <span class="next" *ngIf="party.weeks == (80 + 80*calendarSheet)"
+            (click)="setWeek(party.weeks+1)">{{'party.campaign.sheet.nextWeek' | ghsLabel}} <img
+              src="./assets/images/right.svg"></span>
         </div>
 
         <div class="name">
@@ -340,8 +347,10 @@
               <img class="remove" src="./assets/images/minus.svg" (click)="removeCampaignSticker(sticker)">
             </div>
           </div>
+          
+          <ghs-party-buildings [party]="party"></ghs-party-buildings>
         </div>
-        <ghs-party-buildings [party]="party"></ghs-party-buildings>
+
         <ng-container *ngIf="townGuardDeck">
           <ghs-attackmodifier-deck class="town-guard-deck" [bottom]="true" [deck]="townGuardDeck"
             (before)="beforeTownGuardDeck($event)" (after)="afterTownGuardDeck($event)"></ghs-attackmodifier-deck>

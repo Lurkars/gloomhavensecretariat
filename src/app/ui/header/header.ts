@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager, SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -8,13 +8,14 @@ import { Element } from 'src/app/game/model/data/Element';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MainMenuComponent, SubMenu } from './menu/menu';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ghs-header',
   templateUrl: './header.html',
   styleUrls: ['./header.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
 
   @Input() standalone: boolean = false;
   @ViewChild('mainMenuButton') mainMenuButton!: ElementRef;
@@ -38,7 +39,7 @@ export class HeaderComponent implements OnInit {
       this.init = true;
     }, settingsManager.settings.disableAnimations ? 0 : 1500);
 
-    gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
         if (this.hintStateValue() != this.hintState) {
           this.init = false;
@@ -49,6 +50,14 @@ export class HeaderComponent implements OnInit {
         }
       }
     })
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   syncing(): boolean {

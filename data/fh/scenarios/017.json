@@ -5,6 +5,11 @@
   "unlocks": [
     "27"
   ],
+  "requires": [
+    [
+      "9"
+    ]
+  ],
   "rewards": {
     "battleGoals": 2
   },

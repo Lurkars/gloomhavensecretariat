@@ -688,9 +688,14 @@
         ".": "Kampagnenbogen",
         "buildings": {
           ".": "Gebäude",
+          "action": "Aktion",
           "build": "Aufbauen",
+          "costs": "Kosten für Aktion",
+          "id": "Nummer",
+          "level": "Stufe",
+          "name": "Name",
           "rebuild": "Wiederaufbauen",
-          "repair" : {
+          "repair": {
             ".": "Gebäude reparieren",
             "costs": "{0} beliebige"
           },
@@ -704,6 +709,7 @@
         "inspiration": "Inspiration",
         "morale": "Moral",
         "name": "Gruppen Name",
+        "nextWeek": "Nächste Woche (neuer Kalendar)",
         "soldierLevel": "Lvl",
         "soldiers": "Soldaten",
         "summer": "Sommer",
@@ -714,6 +720,7 @@
           ".": "Sektion für Woche {0} setzen",
           "addSection": "Sektion der Woche hinzufügen",
           "calc": "{0} Wochen von der akutellen Woche",
+          "openConclusion": "Fortführende Sektion auswählen",
           "section": "Sektion"
         },
         "winter": "Winter"
@@ -930,7 +937,10 @@
       "addMarker": "Sektion #{0} %game.mapMarker.{1}% öffnen?",
       "cancel": "Abbrechen",
       "confirm": "Bestätigen",
-      "conclusion": "Szenario beenden mit {0}?"
+      "conclusion": {
+        ".": "Szenario beenden mit {0}?",
+        "continue": "Fortfahren mit {0}"
+      }
     },
     "set": "Szenario auswählen",
     "setup": {
@@ -1319,7 +1329,7 @@
       "hint": "Freischalten einzelner Räume in einem Szenario. Wenn nicht ausgewählt, ist auch das automatische Hinzufügen von Aufstellern deaktiviert."
     },
     "scenarioRules": {
-      ".": "Szenario Regeln einblenden",
+      ".": "Szenario Regeln",
       "hint": "Zeigt Popup-Fenster mit speziellen Szenario Regeln an und wendet diese optional an"
     },
     "showFullAbilityCard": {

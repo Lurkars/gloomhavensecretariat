@@ -102,7 +102,7 @@ import { SectionDialogComponent } from './ui/footer/scenario/section/section-dia
 import { CharacterLootCardsDialog } from './ui/figures/character/dialogs/loot-cards';
 import { PerkLabelComponent } from './ui/figures/attackmodifier/perk/label';
 import { CharacterMoveResourcesDialog } from './ui/figures/character/dialogs/move-resources';
-import { PartyWeekDialogComponent } from './ui/header/party/week-dialog';
+import { PartyWeekDialogComponent } from './ui/header/party/week-dialog/week-dialog';
 import { CharacterItemsComponent } from './ui/figures/character/items/items';
 import { PartyBuildingsComponent } from './ui/header/party/buildings/buildings';
 import { ScenarioTreasuresDialogComponent } from './ui/footer/scenario/treasures/treasures-dialog';
@@ -110,6 +110,7 @@ import { TreasureLabelComponent } from './ui/footer/scenario/treasures/label/lab
 import { StatsListComponent } from './ui/footer/scenario/dialog/abilities/stats-list';
 import { KeyboardShortcuts } from './ui/helper/keyboard-shortcuts';
 import { BuildingRepairDialog } from './ui/header/party/buildings/repair';
+import { ScenarioConclusionComponent } from './ui/header/party/scenario-conclusion/scenario-conclusion';
 
 import 'hammerjs'
 @Injectable()
@@ -135,7 +136,7 @@ export class GhsErrorHandler extends ErrorHandler {
     AppComponent,
     MainComponent,
     HeaderComponent, ElementIconComponent, ElementComponent,
-    PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, BuildingRepairDialog, MapComponent,
+    PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, BuildingRepairDialog, MapComponent, ScenarioConclusionComponent,
     MainMenuComponent, CharacterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent,
     FooterComponent,
     LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,

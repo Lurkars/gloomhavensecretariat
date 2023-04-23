@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -13,13 +13,14 @@ import { SummonState } from 'src/app/game/model/Summon';
 import { ghsDefaultDialogPositions } from 'src/app/ui/helper/Static';
 import { EntityMenuDialogComponent } from '../../entity-menu/entity-menu-dialog';
 import { MonsterNumberPickerDialog } from '../dialogs/numberpicker-dialog';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ghs-monster-entity',
   templateUrl: './entity.html',
   styleUrls: ['./entity.scss']
 })
-export class MonsterEntityComponent implements OnInit {
+export class MonsterEntityComponent implements OnInit, OnDestroy {
 
   @ViewChild('standee') standee!: ElementRef;
 
@@ -38,12 +39,19 @@ export class MonsterEntityComponent implements OnInit {
 
   activeConditions: EntityCondition[] = [];
 
-  constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay) {
-    gameManager.uiChange.subscribe({ next: () => this.update() })
-  }
+  constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay) { }
 
   ngOnInit(): void {
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
     this.update();
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   update(): void {

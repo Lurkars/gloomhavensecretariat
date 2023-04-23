@@ -7,9 +7,7 @@
     {
       "buildings": [
         "boat"
-      ]
-    },
-    {
+      ],
       "campaignSticker": [
         "coral-shard:6"
       ]
@@ -92,7 +90,8 @@
             "name": ".*",
             "marker": "element:fire"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": 1
         }
       ],
       "elements": [
@@ -112,7 +111,8 @@
             "name": ".*",
             "marker": "element:ice"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": 1
         }
       ],
       "elements": [
@@ -132,7 +132,8 @@
             "name": ".*",
             "marker": "element:air"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": 1
         }
       ],
       "elements": [
@@ -152,7 +153,8 @@
             "name": ".*",
             "marker": "element:earth"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": 1
         }
       ],
       "elements": [
@@ -172,7 +174,8 @@
             "name": ".*",
             "marker": "element:light"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": 1
         }
       ],
       "elements": [
@@ -192,7 +195,8 @@
             "name": ".*",
             "marker": "element:dark"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": 1
         }
       ],
       "elements": [

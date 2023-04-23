@@ -2,9 +2,6 @@
   "index": "9",
   "name": "Glowing Catacombs",
   "edition": "fh",
-  "unlocks": [
-    "17"
-  ],
   "rewards": {
     "collectiveResources": [
       {

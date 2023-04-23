@@ -39,6 +39,23 @@
             .button {
                 filter: var(--ghs-filter-red);
             }
+
+            .conclusion {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                color: var(--ghs-color-black);
+
+                img {
+                    height: 1em;
+                    width: auto;
+                    margin-right: 0.3em;
+                }
+
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
         }
     }
 

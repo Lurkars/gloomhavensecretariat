@@ -1,5 +1,6 @@
 import { DialogRef } from "@angular/cdk/dialog";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
@@ -8,7 +9,7 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
     templateUrl: './dialog.html',
     styleUrls: ['./dialog.scss']
 })
-export class UndoDialogComponent implements OnInit {
+export class UndoDialogComponent implements OnInit, OnDestroy {
 
     gameManager: GameManager = gameManager;
     undoOffset: number = 0;
@@ -19,12 +20,20 @@ export class UndoDialogComponent implements OnInit {
         this.undoOffset = gameManager.stateManager.undos.length > 0 ? (gameManager.game.revision
             - (gameManager.game.revisionOffset || 0)) - this.getUndoRevision(gameManager.stateManager.undos.length - 1) - 1 : 0;
 
-        gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = gameManager.uiChange.subscribe({
             next: () => {
                 this.undoOffset = gameManager.stateManager.undos.length > 0 ? (gameManager.game.revision
                     - (gameManager.game.revisionOffset || 0)) - this.getUndoRevision(gameManager.stateManager.undos.length - 1) - 1 : 0;
             }
         })
+    }
+
+    uiChangeSubscription: Subscription | undefined;
+
+    ngOnDestroy(): void {
+        if (this.uiChangeSubscription) {
+            this.uiChangeSubscription.unsubscribe();
+        }
     }
 
     getUndoInfo(index: number): string[] {

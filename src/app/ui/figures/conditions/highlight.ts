@@ -1,4 +1,5 @@
-import { Component, Directive, ElementRef, Input, OnInit } from "@angular/core";
+import { Component, Directive, ElementRef, Input, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ConditionName, ConditionType, EntityCondition } from "src/app/game/model/Condition";
@@ -40,7 +41,7 @@ export class HighlightConditionsComponent {
 @Directive({
   selector: '[conditionHighlight]'
 })
-export class ConditionHighlightAnimationDirective implements OnInit {
+export class ConditionHighlightAnimationDirective implements OnInit, OnDestroy {
 
 
   @Input('conditionHighlight') condition!: EntityCondition;
@@ -48,8 +49,7 @@ export class ConditionHighlightAnimationDirective implements OnInit {
   constructor(private el: ElementRef) { }
 
   ngOnInit(): void {
-
-    gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
         if (this.condition.highlight && !settingsManager.settings.activeApplyConditions) {
           this.playAnimation();
@@ -58,6 +58,14 @@ export class ConditionHighlightAnimationDirective implements OnInit {
     })
 
     this.playAnimation();
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   playAnimation() {
