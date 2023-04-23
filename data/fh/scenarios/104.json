@@ -4,6 +4,13 @@
   "name": "Ruins of the Solstice",
   "edition": "fh",
   "random": true,
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "sled"
+      ]
+    }
+  ],
   "rewards": {
     "collectiveResources": [
       {

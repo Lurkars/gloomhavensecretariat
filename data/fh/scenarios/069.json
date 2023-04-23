@@ -3,6 +3,13 @@
   "index": "69",
   "name": "Sacred Soil",
   "edition": "fh",
+  "requiredAchievements": [
+    {
+      "campaignSticker": [
+        "into-the-forest"
+      ]
+    }
+  ],
   "rewards": {
     "collectiveResources": [
       {

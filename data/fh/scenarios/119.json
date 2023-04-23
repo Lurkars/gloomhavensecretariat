@@ -3,6 +3,13 @@
   "index": "119",
   "name": "Radiant Dust",
   "edition": "fh",
+  "requiredAchievements": [
+    {
+      "campaignSticker": [
+        "into-the-forest"
+      ]
+    }
+  ],
   "rewards": {
     "custom": "Spend any remaining dust to gain the following: <br><br> Spend seven (once only): Scepter of Control Item #203 <br>Spend one: Any 1 material resource <br>Spend two: Any 1 herb resource"
   },

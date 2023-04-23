@@ -5,6 +5,13 @@
   "unlocks": [
     "20"
   ],
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "boat"
+      ]
+    }
+  ],
   "rewards": {
     "experience": 15
   },

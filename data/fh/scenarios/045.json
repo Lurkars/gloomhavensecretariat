@@ -6,6 +6,13 @@
   "unlocks": [
     "52"
   ],
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "climbing-gear"
+      ]
+    }
+  ],
   "rewards": {
     "morale": 1,
     "battleGoals": 1

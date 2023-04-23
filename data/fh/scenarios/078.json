@@ -3,6 +3,13 @@
   "index": "78",
   "name": "The Lurker Problem",
   "edition": "fh",
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "climbing-gear"
+      ]
+    }
+  ],
   "rewards": {
     "experience": 10
   },

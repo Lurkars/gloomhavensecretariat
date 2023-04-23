@@ -3,6 +3,13 @@
   "index": "85",
   "name": "Deadly Pastimes",
   "edition": "fh",
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "climbing-gear"
+      ]
+    }
+  ],
   "rewards": {
     "experience": 15,
     "battleGoals": 1

@@ -5,6 +5,9 @@
   "edition": "fh",
   "allyDeck": true,
   "rewards": {
+    "itemBlueprints": [
+      "70"
+    ],
     "prosperity": 1
   },
   "monsters": [

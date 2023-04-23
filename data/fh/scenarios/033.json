@@ -2,6 +2,13 @@
   "index": "33",
   "name": "Thawed Wood",
   "edition": "fh",
+  "requiredAchievements": [
+    {
+      "campaignSticker": [
+        "into-the-forest"
+      ]
+    }
+  ],
   "rewards": {
     "calenderSection": [
       "135.1-3"

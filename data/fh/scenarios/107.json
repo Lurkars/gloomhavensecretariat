@@ -4,6 +4,13 @@
   "name": "My Private Empire",
   "edition": "fh",
   "random": true,
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "climbing-gear"
+      ]
+    }
+  ],
   "monsters": [],
   "lootDeckConfig": {
     "money": 10,

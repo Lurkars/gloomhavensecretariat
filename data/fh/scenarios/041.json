@@ -3,6 +3,13 @@
   "index": "41",
   "name": "Unfettered Shard",
   "edition": "fh",
+  "requiredAchievements": [
+    {
+      "campaignSticker": [
+        "shard-seeker"
+      ]
+    }
+  ],
   "rewards": {
     "campaignSticker": [
       "Coral Shard"

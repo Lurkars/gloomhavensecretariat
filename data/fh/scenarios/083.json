@@ -3,6 +3,13 @@
   "index": "83",
   "name": "Rising Brine",
   "edition": "fh",
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "boat"
+      ]
+    }
+  ],
   "rewards": {
     "items": [
       "202"

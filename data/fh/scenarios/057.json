@@ -3,6 +3,13 @@
   "index": "57",
   "name": "Sanctuary of Snow",
   "edition": "fh",
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "boat"
+      ]
+    }
+  ],
   "rewards": {
     "morale": 1,
     "inspiration": 1,

@@ -3,6 +3,13 @@
   "index": "79",
   "name": "Relic",
   "edition": "fh",
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "sled"
+      ]
+    }
+  ],
   "rewards": {
     "morale": 3,
     "calenderSection": [

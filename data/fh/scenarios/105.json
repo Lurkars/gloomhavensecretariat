@@ -3,6 +3,13 @@
   "index": "105",
   "name": "Ruins of the Equinox",
   "edition": "fh",
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "climbing-gear"
+      ]
+    }
+  ],
   "rewards": {
     "collectiveResources": [
       {

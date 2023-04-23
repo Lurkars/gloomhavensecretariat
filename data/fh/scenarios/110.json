@@ -4,6 +4,18 @@
   "name": "Guardian's Temple",
   "edition": "fh",
   "random": true,
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "climbing-gear"
+      ]
+    }
+  ],
+  "rewards": {
+    "itemBlueprints": [
+      "75"
+    ]
+  },
   "monsters": [
     "living-spirit",
     "ruined-machine",

@@ -3,6 +3,18 @@
   "index": "60",
   "name": "Uniting the Crown",
   "edition": "fh",
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "boat"
+      ]
+    },
+    {
+      "campaignSticker": [
+        "coral-shard:6"
+      ]
+    }
+  ],
   "rewards": {
     "morale": 2,
     "campaignSticker": [

@@ -3,6 +3,13 @@
   "index": "94",
   "name": "A Grand View",
   "edition": "fh",
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "sled"
+      ]
+    }
+  ],
   "rewards": {
     "experience": 10
   },

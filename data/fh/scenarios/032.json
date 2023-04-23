@@ -3,6 +3,9 @@
   "name": "Ravens' Roost",
   "edition": "fh",
   "rewards": {
+    "itemBlueprints": [
+      "69"
+    ],
     "campaignSticker": [
       "Into the Forest"
     ]
