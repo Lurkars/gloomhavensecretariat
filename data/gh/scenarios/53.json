@@ -50,14 +50,14 @@
       "round": "R == 4",
       "start": true,
       "rooms": [
-        3
+        4
       ]
     },
     {
       "round": "R == 6",
       "start": true,
       "rooms": [
-        4
+        3
       ]
     },
     {
