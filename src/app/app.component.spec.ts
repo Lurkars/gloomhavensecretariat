@@ -94,7 +94,7 @@ import { SectionDialogComponent } from './ui/footer/scenario/section/section-dia
 import { CharacterLootCardsDialog } from './ui/figures/character/dialogs/loot-cards';
 import { PerkLabelComponent } from './ui/figures/attackmodifier/perk/label';
 import { CharacterMoveResourcesDialog } from './ui/figures/character/dialogs/move-resources';
-import { PartyWeekDialogComponent } from './ui/header/party/week-dialog';
+import { PartyWeekDialogComponent } from './ui/header/party/week-dialog/week-dialog';
 import { CharacterItemsComponent } from './ui/figures/character/items/items';
 import { PartyBuildingsComponent } from './ui/header/party/buildings/buildings';
 import { ScenarioTreasuresDialogComponent } from './ui/footer/scenario/treasures/treasures-dialog';
