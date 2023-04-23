@@ -6,6 +6,13 @@
   "unlocks": [
     "76"
   ],
+  "requiredAchievements": [
+    {
+      "campaignSticker": [
+        "friend-of-the-fish-king"
+      ]
+    }
+  ],
   "rewards": {
     "randomItemBlueprint": 1
   },

@@ -3,6 +3,13 @@
   "index": "76",
   "name": "Apotheosis",
   "edition": "fh",
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "boat"
+      ]
+    }
+  ],
   "monsters": [
     "algox-archer",
     "algox-guard",

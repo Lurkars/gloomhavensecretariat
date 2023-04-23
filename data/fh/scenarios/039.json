@@ -6,6 +6,13 @@
   "unlocks": [
     "47"
   ],
+  "requiredAchievements": [
+    {
+      "campaignSticker": [
+        "into-the-forest"
+      ]
+    }
+  ],
   "rewards": {
     "inspiration": -1,
     "custom": "Gain 2 additional loot cards each"

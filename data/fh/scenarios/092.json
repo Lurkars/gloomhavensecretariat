@@ -3,6 +3,13 @@
   "index": "92",
   "name": "Sinking Ship",
   "edition": "fh",
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "boat"
+      ]
+    }
+  ],
   "rewards": {
     "calenderSection": [
       "181.2-1"

@@ -3,7 +3,17 @@
   "index": "118",
   "name": "Lurker Necromancy",
   "edition": "fh",
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "sled"
+      ]
+    }
+  ],
   "rewards": {
+    "itemBlueprints": [
+      "66"
+    ],
     "custom": "Trade all numbered and lettered tokens in for loot cards"
   },
   "monsters": [

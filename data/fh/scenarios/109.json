@@ -4,6 +4,13 @@
   "name": "Furious Factory",
   "edition": "fh",
   "random": true,
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "sled"
+      ]
+    }
+  ],
   "rewards": {
     "collectiveResources": [
       {

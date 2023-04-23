@@ -6,6 +6,13 @@
   "unlocks": [
     "54"
   ],
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "boat"
+      ]
+    }
+  ],
   "forcedLinks": [
     "54"
   ],

@@ -6,6 +6,13 @@
   "unlocks": [
     "52"
   ],
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "sled"
+      ]
+    }
+  ],
   "rewards": {
     "morale": 1,
     "experience": 10
