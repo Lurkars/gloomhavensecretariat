@@ -3,6 +3,9 @@
   "name": "Howling in the Snow",
   "edition": "fh",
   "initial": true,
+  "forcedLinks": [
+    "1"
+  ],
   "monsters": [
     "hound-scenario-0"
   ],

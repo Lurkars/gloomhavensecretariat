@@ -124,6 +124,11 @@
     "backup": {
       ".": "Spielsicherungen",
       "all": "Alle Spielsicherungen herunterladen ({0})",
+      "auto" : {
+        "." : "Automatische Sicherungen",
+        "count": "Alle (x) Aktionen",
+        "countHint": "Anzahl an Aktionen zwischen den automatischen Spielsicherungen"
+      },
       "delete": "Spielsicherungen löschen",
       "latest": "Aktuellste Spielsicherung herunterladen"
     },

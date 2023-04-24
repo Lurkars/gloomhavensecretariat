@@ -81,6 +81,10 @@
     width: 100%;
     padding: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
+    &.hidden {
+      display: none;
+    }
+
     p {
       margin: 0;
       padding: 0 calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
@@ -108,6 +112,19 @@
       box-shadow: none;
       outline: none;
       background-color: transparent;
+    }
+
+    .hint-container {
+      width: 100%;
+    }
+
+    .input-container {
+      flex-wrap: nowrap;
+
+      input, select {
+        flex-basis: 0;
+        flex-grow: 1;
+      }
     }
 
     a,
@@ -147,6 +164,10 @@
 
       &.confirm-delete {
         color: var(--ghs-color-red);
+      }
+
+      &~input, &~select {
+        margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
       }
     }
 

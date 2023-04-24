@@ -423,7 +423,7 @@ export class StateManager {
     this.addToUndo(info || []);
   }
 
-  after(timeout: number = 1, revisionChange: number = 1, type: string = "game") {
+  async after(timeout: number = 1, revisionChange: number = 1, type: string = "game") {
     this.game.revision += revisionChange;
     this.saveLocal();
     if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
@@ -441,6 +441,39 @@ export class StateManager {
         "undoinfo": undoInfo
       }
       this.ws.send(JSON.stringify(message));
+    }
+
+    if (settingsManager.settings.autoBackup > 0 && (this.game.revision + this.game.revisionOffset) % settingsManager.settings.autoBackup == 0) {
+      try {
+        let datadump: any = await storageManager.datadump();
+        const filename = "ghs-autobackup-" + new Date().toISOString() + ".json";
+
+        if (settingsManager.settings.autoBackupUrl && settingsManager.settings.autoBackupUrl.url) {
+          try {
+            let xhr = new XMLHttpRequest();
+            xhr.open(settingsManager.settings.autoBackupUrl.method, settingsManager.settings.autoBackupUrl.url.replaceAll('{FILENAME}', filename), true, settingsManager.settings.autoBackupUrl.username, settingsManager.settings.autoBackupUrl.password);
+
+            let data: string | FormData = JSON.stringify(datadump);
+            if (settingsManager.settings.autoBackupUrl.fileUpload) {
+              data = new FormData();
+              data.append(filename, new File([JSON.stringify(datadump)], filename, { type: "application/json" }));
+            }
+
+            xhr.send(data);
+          } catch (error) {
+            console.warn("Could not post autobackup to '", settingsManager.settings.autoBackupUrl, error);
+          }
+        } else {
+          let downloadButton = document.createElement('a');
+          downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(datadump)));
+          downloadButton.setAttribute('download', filename);
+          document.body.appendChild(downloadButton);
+          downloadButton.click();
+          document.body.removeChild(downloadButton);
+        }
+      } catch {
+        console.warn("Could not create autobackup");
+      }
     }
 
     gameManager.uiChange.emit();

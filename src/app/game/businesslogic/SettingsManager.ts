@@ -175,6 +175,19 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setAutoBackup(autoBackup: number) {
+    this.settings.autoBackup = autoBackup;
+    this.storeSettings();
+  }
+
+  setAutoBackupUrl(autoBackupUrl: { url: string, method: string, fileUpload: boolean, username: string, password: string } | undefined) {
+    this.settings.autoBackupUrl = autoBackupUrl;
+    if (this.settings.autoBackupUrl && !this.settings.autoBackupUrl.method) {
+      this.settings.autoBackupUrl.method = "POST";
+    }
+    this.storeSettings();
+  }
+
   setAutomaticAttackModifierFullscreen(automaticAttackModifierFullscreen: boolean) {
     this.settings.automaticAttackModifierFullscreen = automaticAttackModifierFullscreen;
     this.storeSettings();

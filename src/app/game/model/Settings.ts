@@ -14,6 +14,8 @@ export class Settings {
   alwaysLootDeck: boolean = false;
   applyConditions: boolean = true;
   applyLoot: boolean = true;
+  autoBackup: number = -1;
+  autoBackupUrl: { url: string, method: string, fileUpload: boolean, username: string | undefined, password: string | undefined } | undefined;
   automaticAttackModifierFullscreen: boolean = true;
   automaticStandees: boolean = true;
   automaticStandeesDialog: boolean = false;

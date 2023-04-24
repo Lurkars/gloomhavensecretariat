@@ -484,7 +484,15 @@ export class ScenarioRulesComponent {
                             let value = +(figureRule.value.split(':')[1]);
                             if (figureRule.type == "amAdd") {
                                 for (let i = 0; i < value; i++) {
-                                    gameManager.attackModifierManager.addModifier(deck, new AttackModifier(type));
+                                    if (type == AttackModifierType.bless && gameManager.attackModifierManager.countUpcomingBlesses() >= 10) {
+                                        return;
+                                    } else if (type == AttackModifierType.curse && gameManager.attackModifierManager.countUpcomingCurses((figure instanceof Monster && !figure.isAlly && !figure.isAllied)) >= 10) {
+                                        return;
+                                    } else if (type == AttackModifierType.minus1 && gameManager.attackModifierManager.countExtraMinus1() >= 15) {
+                                        return;
+                                    } else {
+                                        gameManager.attackModifierManager.addModifier(deck, new AttackModifier(type));
+                                    }
                                 }
                             } else {
                                 let card = deck.cards.find((attackModifier, index) => {

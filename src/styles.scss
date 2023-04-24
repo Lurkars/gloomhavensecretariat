@@ -762,6 +762,7 @@ input[type="number"] {
 }
 
 label {
+  input[type="text"],
   input[type="number"] {
     margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
   }
@@ -919,7 +920,7 @@ input[type="radio"] {
     font-family: var(--ghs-font-text);
     font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
     color: var(--ghs-color-gray);
-    z-index: 1;
+    z-index: 999;
 
     &.above {
       top: initial;

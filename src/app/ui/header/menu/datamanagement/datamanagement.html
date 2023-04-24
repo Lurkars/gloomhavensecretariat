@@ -47,6 +47,105 @@
         <a (click)="clearAllData()" [ngClass]="{'confirm-delete' : confirm == 'clearAllData'}"
           (mouseleave)="cancelConfirm()">&lt;{{'datamanagement.clearAll' | ghsLabel}}(!)&gt;</a>
       </div>
+      <div class="line">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.autoBackup != -1"
+            (change)="settingsManager.settings.autoBackup == -1 ? (settingsManager.settings.autoBackup = 25) : (settingsManager.settings.autoBackup = -1)">
+          {{'datamanagement.backup.auto' | ghsLabel}}
+        </label>
+      </div>
+      <ng-container *ngIf="settingsManager.settings.autoBackup != -1">
+        <div class="line">
+          <div class="hint-container">
+            <label class="label">{{'datamanagement.backup.auto.count' | ghsLabel}}
+              <input type="number" #autoBackup [value]="settingsManager.settings.autoBackup" min="1" (keyup)="0"
+                (change)="settingsManager.setAutoBackup(+autoBackup.value)" [size]="autoBackup.value.length"
+                placeholder="{{'datamanagement.backup.auto.count' | ghsLabel}}"></label>
+            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+            <div class="hint">
+              <div class="text">
+                <div [i18n]="'datamanagement.backup.auto.countHint'"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="line">
+          <div class="hint-container input-container">
+            <label class="label">{{'datamanagement.backup.auto.uploadUrl' | ghsLabel}}</label>
+            <input type="text" #autoBackupuploadUrl [value]="settingsManager.settings.autoBackupUrl?.url" (keyup)="0"
+              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value})"
+              placeholder="{{'datamanagement.backup.auto.uploadUrl' | ghsLabel}}">
+            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+            <div class="hint">
+              <div class="text">
+                <div [i18n]="'datamanagement.backup.auto.uploadUrl.hint'"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
+          <div class="hint-container input-container">
+            <label class="label">{{'datamanagement.backup.auto.uploadUrlMethod' | ghsLabel}}</label>
+            <select #autoBackupPostMethod [value]="settingsManager.settings.autoBackupUrl?.method"
+              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value})">
+              <option value="POST">{{'datamanagement.backup.auto.uploadUrlMethod.post' | ghsLabel}}</option>
+              <option value="PUT">{{'datamanagement.backup.auto.uploadUrlMethod.put' | ghsLabel}}</option>
+              <option value="GET">{{'datamanagement.backup.auto.uploadUrlMethod.get' | ghsLabel}}</option>
+            </select>
+            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+            <div class="hint">
+              <div class="text">
+                <div [i18n]="'datamanagement.backup.auto.uploadUrlMethod.hint'"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
+          <div class="hint-container input-container">
+            <label class="label">
+              <input type="checkbox" #autoBackupPostFileUpload
+                [checked]="settingsManager.settings.autoBackupUrl?.fileUpload"
+                (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value, fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value})">
+              {{'datamanagement.backup.auto.uploadUrlFileUpload' | ghsLabel}}</label>
+            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+            <div class="hint">
+              <div class="text">
+                <div [i18n]="'datamanagement.backup.auto.uploadUrlFileUpload.hint'"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
+          <div class="hint-container input-container">
+            <label class="label">{{'datamanagement.backup.auto.uploadUrlUsername' | ghsLabel}}</label>
+            <input type="text" #autoBackupPostUsername [value]="settingsManager.settings.autoBackupUrl?.username"
+              (keyup)="0"
+              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value, fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value})"
+              placeholder="{{'datamanagement.backup.auto.uploadUrlUsername' | ghsLabel}}">
+            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+            <div class="hint">
+              <div class="text">
+                <div [i18n]="'datamanagement.backup.auto.uploadUrlUsername.hint'"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
+          <div class="hint-container input-container">
+            <label class="label">{{'datamanagement.backup.auto.uploadUrlPassword' | ghsLabel}}</label>
+            <input type="text" #autoBackupPostPassword [value]="settingsManager.settings.autoBackupUrl?.password"
+              (keyup)="0"
+              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value})"
+              placeholder="{{'datamanagement.backup.auto.uploadUrlPassword' | ghsLabel}}">
+            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+            <div class="hint">
+              <div class="text">
+                <div [i18n]="'datamanagement.backup.auto.uploadUrlPassword.hint'"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
     </div>
   </div>
 

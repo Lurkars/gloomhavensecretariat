@@ -490,7 +490,7 @@
       </ng-container>
     </span>
     <a class="apply"
-      *ngIf="!success || !gameManager.game.party.campaignMode || !forceCampaign ||  !scenario.forcedLinks || scenario.forcedLinks.length == 0"
+      *ngIf="!success || !gameManager.game.party.campaignMode || forceCampaign || !scenario.forcedLinks || scenario.forcedLinks.length == 0"
       (click)="apply()">{{'scenario.summary.apply' | ghsLabel}}</a>
     <a class="restart" *ngIf="!success" (click)="restart()">{{ (lootColumns.length > 0 ?
       'scenario.summary.restartLooseLoot'
