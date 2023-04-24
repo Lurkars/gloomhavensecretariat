@@ -124,6 +124,34 @@
     "backup": {
       ".": "Game Backups",
       "all": "Download all Game Backups ({0})",
+      "auto": {
+        ".": "Automatic Backups",
+        "count": "Every (x) actions",
+        "countHint": "Number of actions between automatic backups",
+        "uploadUrl": {
+          ".": "Upload Url",
+          "hint": "Instead of donwloading the automatic backup file, set an URL to upload the data to. {FILENAME} can be used as placeholder for filename.  (This requires proper CORS settings to work!)"
+        },
+        "uploadUrlFileUpload": {
+          ".": "Upload as File",
+          "hint": "Create a file object to upload. If unchecked, raw JSON string data will be send."
+        },
+        "uploadUrlMethod": {
+          ".": "Method",
+          "get": "GET",
+          "hint": "HTTP Method for uploading",
+          "post": "POST",
+          "put": "PUT"
+        },
+        "uploadUrlPassword": {
+          ".": "Password",
+          "hint": "Used password for upload request"
+        },
+        "uploadUrlUsername": {
+          ".": "Username",
+          "hint": "Used username for upload request"
+        }
+      },
       "delete": "Delete Game Backups",
       "latest": "Download latest Game Backup"
     },
