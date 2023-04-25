@@ -126,12 +126,16 @@ export class ScenarioRulesManager {
       if (add) {
         if (rule.figures && rule.figures.filter((figureRule) => figureRule.type == "killed").length > 0) {
           rule.figures.filter((figureRule) => figureRule.type == "killed").forEach((figureRule) => {
-            const value = EntityValueFunction(figureRule.value || 0);
             if (!figureRule.identifier) {
               add = false;
             } else {
               const counter = gameManager.entityCounter(figureRule.identifier);
-              add = add && counter && counter.killed >= value || false;
+              if (figureRule.value == "all") {
+                add = add && counter && counter.total > 0 && counter.killed >= counter.total || false;
+              } else {
+                const value = EntityValueFunction(figureRule.value || 0);
+                add = add && counter && counter.killed >= value || false;
+              }
             }
           })
         }

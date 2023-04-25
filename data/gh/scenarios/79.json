@@ -61,7 +61,8 @@
             "edition": "gh",
             "name": "stone-golem"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": "all"
         }
       ]
     }

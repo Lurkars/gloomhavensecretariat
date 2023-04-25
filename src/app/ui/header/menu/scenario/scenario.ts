@@ -21,7 +21,7 @@ export class ScenarioMenuComponent implements OnInit {
   edition: string = "";
   filterSuccess: boolean = false;
 
-  scenarioCache: { group: string | undefined, filterSuccess: boolean, includeSpoiler: boolean, all: boolean, scenarios: ScenarioData[] }[] = [];
+  scenarioCache: { edition: string, group: string | undefined, filterSuccess: boolean, includeSpoiler: boolean, all: boolean, scenarios: ScenarioData[] }[] = [];
 
   ngOnInit(): void {
     this.edition =
@@ -56,13 +56,13 @@ export class ScenarioMenuComponent implements OnInit {
       return [];
     }
 
-    let model = this.scenarioCache.find((model) => model.group == group && model.filterSuccess == filterSuccess && model.includeSpoiler == includeSpoiler && model.all == all);
+    let model = this.scenarioCache.find((model) => model.edition == this.edition && model.group == group && model.filterSuccess == filterSuccess && model.includeSpoiler == includeSpoiler && model.all == all);
 
     if (model) {
       return model.scenarios;
     }
 
-    model = { group: group, filterSuccess: filterSuccess, includeSpoiler: includeSpoiler, all: all, scenarios: [] };
+    model = { edition: this.edition, group: group, filterSuccess: filterSuccess, includeSpoiler: includeSpoiler, all: all, scenarios: [] };
 
     model.scenarios = gameManager.scenarioManager.scenarioData(this.edition, all).filter((scenarioData) => scenarioData.group == group && (includeSpoiler || (!scenarioData.spoiler || settingsManager.settings.spoilers.indexOf(scenarioData.name) != -1 || scenarioData.solo && settingsManager.settings.spoilers.indexOf(scenarioData.solo) != -1)) && (!filterSuccess || !this.scenarioSuccess(scenarioData) && !gameManager.scenarioManager.isBlocked(scenarioData))).sort(gameManager.scenarioManager.sortScenarios);
 

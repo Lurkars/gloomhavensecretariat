@@ -352,11 +352,19 @@ export class ScenarioManager {
       })
 
       if (scenarioData.monsters) {
+        let monsters = gameManager.game.figures.filter((figure) => figure instanceof Monster).map((figure) => figure as Monster);
+        scenarioData.monsters.forEach((name) => {
+          const monsterName = name.split(':')[0];
+          const monsterData = gameManager.monstersData(scenarioData.edition).find((monsterData) => monsterData.name == monsterName);
+          if (monsterData && !monsters.find((existing) => existing.name == monsterData.name)) {
+            monsters.push(new Monster(monsterData));
+          }
+        });
+
         scenarioData.monsters.forEach((name) => {
           const monsterName = name.split(':')[0];
           const isRoom = settingsManager.settings.automaticStandees && scenarioData.rooms && scenarioData.rooms.some((roomData) => roomData.monster && roomData.monster.some((standee) => standee.name.split(':')[0] == monsterName));
 
-          const monsters = gameManager.game.figures.filter((figure) => figure instanceof Monster).map((figure) => figure as Monster);
           const spawns = gameManager.monsterManager.getSpawnMonsters(monsters);
 
           const isSpawn = settingsManager.settings.interactiveAbilities && spawns.find((monsterData) => monsterData.name == monsterName);
