@@ -107,6 +107,10 @@
       },
       "retired": "Ruhestand",
       "retirements": "Ruhestände",
+      "selectGold": {
+        ".": "Gemeinschaftliches Gold",
+        "apply": "Gold auswählen"
+      },
       "title": "{1} {0}",
       "xp": "XP"
     },
@@ -124,8 +128,8 @@
     "backup": {
       ".": "Spielsicherungen",
       "all": "Alle Spielsicherungen herunterladen ({0})",
-      "auto" : {
-        "." : "Automatische Sicherungen",
+      "auto": {
+        ".": "Automatische Sicherungen",
         "count": "Alle (x) Aktionen",
         "countHint": "Anzahl an Aktionen zwischen den automatischen Spielsicherungen"
       },
@@ -831,6 +835,11 @@
     "cancel": "Szenario abbrechen",
     "conclusion": "Lösung",
     "custom": "Benutzerdefiniert",
+    "eventEffects": {
+      ".": "Ereigniseffekte",
+      "hint": "Auf alle anwesendenen Charaktere anwenden",
+      "progress": "Betrifft Charakter Progression"
+    },
     "filter": {
       ".": "Szenario filtern",
       "noResult": "Kein Ergebnis"
