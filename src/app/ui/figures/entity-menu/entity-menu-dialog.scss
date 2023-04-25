@@ -133,17 +133,6 @@
       grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor)));
       align-content: space-between;
     }
-
-    .condition {
-      display: flex;
-      position: relative;
-      width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-      height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-
-      &.disabled {
-        filter: grayscale(70%);
-      }
-    }
   }
 
   .ghs-svg {

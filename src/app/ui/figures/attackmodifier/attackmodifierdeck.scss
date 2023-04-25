@@ -32,22 +32,34 @@
       border-radius: 5%;
 
       .number {
+        display: flex;
+        align-items: center;
         color: var(--ghs-color-gray);
         text-shadow: var(--ghs-outline);
         position: absolute;
         font-size: 2.3em;
-        right: 6%;
+        right: 5%;
         bottom: 0;
         z-index: 500;
         cursor: help;
 
+        &.has-shuffle {
+          top: 0;
+          bottom: initial;
+        }
+
         img {
-          width: 2.5%;
-          height: auto;
+          filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+          height: 0.8em;
+          width: auto;
         }
 
         &:hover {
           color: var(--ghs-color-white);
+
+          img {
+            filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+          }
         }
       }
 
@@ -58,11 +70,6 @@
         right: 5%;
         bottom: 5%;
         filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
-        cursor: help;
-
-        &:hover {
-          filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
-        }
       }
 
       .fullscreen {

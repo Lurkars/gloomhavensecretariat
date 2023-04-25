@@ -6,18 +6,18 @@
     [ngClass]="{'open-dialog' : gameManager.game.state == GameState.draw, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers && (!character || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition])}"
     [style.z-index]="deck.cards.length + 1" [style.fontSize]="drawCard.offsetWidth * 0.08 + 'px'">
     <div class="am" (click)="draw($event)">
-      <span class="number" title="{{'game.cards.openDialog' | ghsLabel}}" (click)="open($event)"
-        *ngIf="deck.current < deck.cards.length -1">{{
-        deck.cards.length - deck.current - 1 }}</span>
-      <img *ngIf="deck.current == deck.cards.length -1" class="shuffle" title="{{'game.cards.openDialog' | ghsLabel}}"
-        (click)="open($event)" src="./assets/images/shuffle.svg">
-      <img [title]="'game.cards.fullscreen' | ghsLabel" *ngIf="fullscreen && !compact" (click)="openFullscreen($event)"
-        class="fullscreen" src="./assets/images/fullscreen.svg">
+      <span class="number" [ngClass]="{'has-shuffle' : deck.current == deck.cards.length -1}" title="{{'game.cards.openDialog' | ghsLabel}}" (click)="open($event)">
+        <img class="ghs-svg" src="./assets/images/settings.svg">
+        {{ deck.current < deck.cards.length -1 ? deck.cards.length - deck.current - 1 : '' }} </span>
+          <img *ngIf="deck.current == deck.cards.length -1" class="shuffle"
+            title="{{'game.cards.openDialog' | ghsLabel}}" src="./assets/images/shuffle.svg">
+          <img [title]="'game.cards.fullscreen' | ghsLabel" *ngIf="fullscreen && !compact"
+            (click)="openFullscreen($event)" class="fullscreen" src="./assets/images/fullscreen.svg">
 
-      <span *ngIf="!characterIcon && !bottom" class="numeration">{{numeration}}</span>
-      <span *ngIf="characterIcon && !bottom" class="character-icon">
-        <img [src]="characterIcon" />
-      </span>
+          <span *ngIf="!characterIcon && !bottom" class="numeration">{{numeration}}</span>
+          <span *ngIf="characterIcon && !bottom" class="character-icon">
+            <img [src]="characterIcon" />
+          </span>
     </div>
   </div>
   <ng-container *ngFor="let attackModifier of deck.cards; let index = index;">

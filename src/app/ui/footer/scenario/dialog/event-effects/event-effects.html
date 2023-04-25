@@ -1,0 +1,127 @@
+<div class="event-effects-dialog">
+  <a class="close" (click)="dialogRef.close()" [title]="'close' | ghsLabel"><img src="./assets/images/close.svg"></a>
+
+  <div class="header">
+    <div class="name">
+      <img class="ghs-svg" src="./assets/images/event.svg"> {{'scenario.eventEffects' | ghsLabel}}
+    </div>
+    <div class="text">
+      {{'scenario.eventEffects.hint' | ghsLabel}}
+    </div>
+  </div>
+
+  <div class="scroll-container container">
+
+    <div class="entity-container" *ngIf="gameManager.game.scenario">
+
+      <span class="item">
+        <ghs-drag-click class="button" (singleClick)="changeHealth(-1)" [repeat]="true">
+          <img class="ghs-svg" src="./assets/images/minus.svg">
+        </ghs-drag-click>
+      </span>
+      <span class="item" title="{{'game.health' | ghsLabel}}">
+        <img src="./assets/images/status/health.svg" />
+        <span class="badge"
+          [ngClass]="{'negative-value' : minHealth() < 0, 'positive-value' : maxHealth() > 0}">{{(minHealth() < 0 ?
+            minHealth() : maxHealth()) | ghsValueSign}}</span>
+        </span>
+        <span class="item">
+          <ghs-drag-click class="button" (singleClick)="changeHealth(1)" [repeat]="true">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </ghs-drag-click>
+        </span>
+
+        <span class="item">
+          <ghs-drag-click class="button" (singleClick)="changeBless(-1)" [repeat]="true">
+            <img class="ghs-svg" src="./assets/images/minus.svg">
+          </ghs-drag-click>
+        </span>
+        <span class="item" title="{{'game.bless' | ghsLabel}}">
+          <img src="./assets/images/status/bless.svg" />
+          <span class="badge" [ngClass]="{'negative-value' : bless < 0, 'positive-value' : bless > 0}">{{bless |
+            ghsValueSign}}</span>
+        </span>
+        <span class="item">
+          <ghs-drag-click class="button" (singleClick)="changeBless(1)" [repeat]="true">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </ghs-drag-click>
+        </span>
+
+        <span class="item">
+          <ghs-drag-click class="button" (singleClick)="changeCurse(-1)" [repeat]="true">
+            <img class="ghs-svg" src="./assets/images/minus.svg">
+          </ghs-drag-click>
+        </span>
+        <span class="item" title="{{'game.curse' | ghsLabel}}">
+          <img src="./assets/images/status/curse.svg" />
+          <span class="badge" [ngClass]="{'negative-value' : curse < 0, 'positive-value' : curse > 0}">{{curse |
+            ghsValueSign}}</span>
+        </span>
+        <span class="item">
+          <ghs-drag-click class="button" (singleClick)="changeCurse(1)" [repeat]="true">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </ghs-drag-click>
+        </span>
+    </div>
+
+    <ghs-conditions [entities]="activeCharacters" [entityConditions]="entityConditions" [type]="'character'"
+      (change)="changeConditions($event)" *ngIf="gameManager.game.scenario"></ghs-conditions>
+
+
+
+    <div class="entity-container">
+      <span class="progress">{{'scenario.eventEffects.progress' | ghsLabel}}</span>
+
+      <span class="item">
+        <ghs-drag-click class="button" (singleClick)="changeExperience(-1)" [repeat]="true">
+          <img class="ghs-svg" src="./assets/images/minus.svg">
+        </ghs-drag-click>
+      </span>
+      <span class="item" title="{{'game.experience' | ghsLabel}}">
+        <img src="./assets/images/status/experience.svg" />
+        <span class="badge"
+          [ngClass]="{'negative-value' : minExperience() < 0, 'positive-value' : maxExperience() > 0}">{{(minExperience()
+          < 0 ? minExperience() : maxExperience()) | ghsValueSign}}</span>
+        </span>
+        <span class="item">
+          <ghs-drag-click class="button" (singleClick)="changeExperience(1)" [repeat]="true">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </ghs-drag-click>
+        </span>
+
+        <span class="item">
+          <ghs-drag-click class="button" (singleClick)="changeGold(-1)" [repeat]="true">
+            <img class="ghs-svg" src="./assets/images/minus.svg">
+          </ghs-drag-click>
+        </span>
+        <span class="item" title="{{'game.character.progress.gold' | ghsLabel}}">
+          <img class="gold" src="./assets/images/loot.svg" />
+          <span class="badge"
+            [ngClass]="{'negative-value' : minGold() < 0, 'positive-value' : maxGold() > 0}">{{(minGold() < 0 ?
+              minGold() : maxGold()) | ghsValueSign}}</span>
+          </span>
+          <span class="item">
+            <ghs-drag-click class="button" (singleClick)="changeGold(1)" [repeat]="true">
+              <img class="ghs-svg" src="./assets/images/plus.svg">
+            </ghs-drag-click>
+          </span>
+
+          <span class="item">
+            <ghs-drag-click class="button" (singleClick)="changeBattleGoals(-1)" [repeat]="true">
+              <img class="ghs-svg" src="./assets/images/minus.svg">
+            </ghs-drag-click>
+          </span>
+          <span class="item" title="{{'game.character.progress.battleGoals' | ghsLabel}}">
+            <input type="checkbox" disabled="true" checked="true">
+            <span class="badge"
+              [ngClass]="{'negative-value' : minBattleGoals() < 0, 'positive-value' : maxBattleGoals() > 0}">{{(minBattleGoals()
+              < 0 ? minBattleGoals() : maxBattleGoals()) | ghsValueSign}}</span>
+            </span>
+            <span class="item">
+              <ghs-drag-click class="button" (singleClick)="changeBattleGoals(1)" [repeat]="true">
+                <img class="ghs-svg" src="./assets/images/plus.svg">
+              </ghs-drag-click>
+            </span>
+    </div>
+  </div>
+</div>

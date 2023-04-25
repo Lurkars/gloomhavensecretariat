@@ -3,6 +3,13 @@
   "name": "Lost Temple",
   "gridLocation": "K:12:47:-43",
   "edition": "gh",
+  "requiredAchievements": [
+    {
+      "party": [
+        "Fish's Aid"
+      ]
+    }
+  ],
   "rewards": {
     "gold": 15
   },

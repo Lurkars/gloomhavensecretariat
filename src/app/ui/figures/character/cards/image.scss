@@ -17,6 +17,11 @@
     box-shadow: 0px 0px calc(var(--ghs-unit) * 0.5) calc(var(--ghs-unit) * 0.1) var(--ghs-color-darkgray);
   }
 
+  &.no-artwork {
+    background-color: var(--ghs-color-darkgray);
+    border-color: var(--ghs-character-color);
+  }
+
   .image {
     width: auto;
     height: 100%;
@@ -32,7 +37,7 @@
 
   &.off {
     .image {
-      filter: grayscale(1);
+      filter: grayscale(0.7);
     }
   }
 }

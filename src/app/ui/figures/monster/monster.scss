@@ -20,10 +20,10 @@
     ghs-monster-ability-card,
     ghs-monster-stats,
     ghs-monster-image {
-      filter: grayscale(100%);
+      filter: grayscale(0.7);
 
       &:not(ghs-monster-image) {
-        filter: grayscale(100%) var(--ghs-filter-outline);
+        filter: grayscale(1) var(--ghs-filter-outline);
       }
     }
   }

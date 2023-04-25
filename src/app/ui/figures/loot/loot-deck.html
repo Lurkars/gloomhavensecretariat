@@ -4,12 +4,12 @@
         [ngClass]="{'disabled' : deck.current > 0 &&  deck.current == deck.cards.length -1 && (standalone || gameManager.game.state == GameState.next)}"
         [style.z-index]="deck.cards.length + 1">
         <div class="loot-card" #card [style.fontSize]="card.offsetWidth * 0.08 + 'px'">
-            <span class="number" *ngIf="deck.current < deck.cards.length -1" (click)="open($event)">{{
-                deck.cards.length - deck.current - 1}}</span>
-            <span class="number" *ngIf="deck.cards.length == 0" (click)="open($event)">0</span>
-            <img [title]="'game.cards.fullscreen' | ghsLabel"
-                *ngIf="fullscreen && !compact && this.deck.cards.length > 0" (click)="openFullscreen($event)"
-                class="fullscreen" src="./assets/images/fullscreen.svg">
+            <span class="number" (click)="open($event)">
+                <img class="ghs-svg" src="./assets/images/settings.svg">
+                {{deck.current < deck.cards.length -1 ? deck.cards.length - deck.current - 1 : 0}} </span>
+                    <img [title]="'game.cards.fullscreen' | ghsLabel"
+                        *ngIf="fullscreen && !compact && this.deck.cards.length > 0" (click)="openFullscreen($event)"
+                        class="fullscreen" src="./assets/images/fullscreen.svg">
         </div>
     </div>
 

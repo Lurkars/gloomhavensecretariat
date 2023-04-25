@@ -53,7 +53,6 @@
       color: var(--ghs-color-gray);
       font-family: var(--ghs-font-normal);
       font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
-
     }
 
     .checkbox {
@@ -280,6 +279,29 @@
 
       a:not(:first-child) {
         margin-left: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+      }
+    }
+  }
+
+  .event-effects {
+    cursor: pointer;
+    font-family: var(--ghs-font-title);
+    color: var(--ghs-color-white);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+    margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-barsize));
+    padding-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-barsize));
+    border-top: calc(var(--ghs-unit) * 0.2 * var(--ghs-barsize)) solid var(--ghs-color-white);
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .ghs-svg {
+        filter: var(--ghs-filter-white);
+        height: 0.8em;
+        width: auto;
+        margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-barsize));
       }
     }
   }

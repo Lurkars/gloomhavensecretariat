@@ -3,6 +3,13 @@
   "name": "Shadows Within",
   "gridLocation": "C:15:-57:2",
   "edition": "gh",
+  "requiredAchievements": [
+    {
+      "party": [
+        "Bad Business"
+      ]
+    }
+  ],
   "rewards": {
     "collectiveGold": 40
   },

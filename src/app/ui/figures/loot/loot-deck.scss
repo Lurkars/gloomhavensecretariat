@@ -32,6 +32,8 @@
             border-radius: 5%;
 
             .number {
+                display: flex;
+                align-items: center;
                 color: var(--ghs-color-gray);
                 text-shadow: var(--ghs-outline);
                 position: absolute;
@@ -42,12 +44,17 @@
                 cursor: help;
 
                 img {
-                    width: 2.5%;
-                    height: auto;
+                  filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+                  height: 0.8em;
+                  width: auto;
                 }
-
+        
                 &:hover {
-                    color: var(--ghs-color-white);
+                  color: var(--ghs-color-white);
+                  
+                  img {
+                    filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+                  }
                 }
             }
 

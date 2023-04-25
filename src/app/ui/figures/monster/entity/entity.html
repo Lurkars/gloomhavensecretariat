@@ -5,7 +5,8 @@
     <div #standee class="standee">
       <div class="background-image-container">
         <div class="background-image"
-          [style.background-image]="'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'"></div>
+          [style.background-image]="monster.noArtwork ? '': 'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'">
+        </div>
       </div>
       <span class="number" [ngClass]="{'highlight' : entity.number < 1 && !settingsManager.settings.disableAnimations}">
         <span class="value">{{entity.number < 0 ? '?' : entity.number}}</span>
@@ -20,7 +21,8 @@
     </div>
 
     <div class="markers">
-      <span *ngIf="entity.marker" class="placeholder placeholder-marker" [i18n]="'%game.mapMarker.' + entity.marker + '%'"></span>
+      <span *ngIf="entity.marker" class="placeholder placeholder-marker"
+        [i18n]="'%game.mapMarker.' + entity.marker + '%'"></span>
       <span class="marker" *ngFor="let marker of entity.markers;">
         <img src="./assets/images/character/icons/{{marker}}.svg" />
       </span>

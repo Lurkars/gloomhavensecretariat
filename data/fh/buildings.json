@@ -480,7 +480,8 @@
                 "metal": 1,
                 "hide": 2
             }
-        ]
+        ],
+        "prosperityUnlock": true
     },
     {
         "id": "21",
@@ -680,7 +681,8 @@
                 "metal": 2,
                 "hide": 1
             }
-        ]
+        ],
+        "prosperityUnlock": true
     },
     {
         "id": "67",
@@ -809,7 +811,8 @@
                 "metal": 2,
                 "hide": 1
             }
-        ]
+        ],
+        "prosperityUnlock": true
     },
     {
         "id": "8",

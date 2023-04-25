@@ -52,6 +52,24 @@
     }
   }
 
+  .event-effects {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .ghs-svg {
+      filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+      height: 0.8em;
+      width: auto;
+      margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-barsize));
+    }
+
+    &:hover .ghs-svg {
+      filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+    }
+  }
+
   .sections {
     display: flex;
     justify-content: center;

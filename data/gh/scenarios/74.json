@@ -3,6 +3,13 @@
   "name": "Merchant Ship",
   "gridLocation": "I:14:-7:44",
   "edition": "gh",
+  "requiredAchievements": [
+    {
+      "party": [
+        "High Sea Escort"
+      ]
+    }
+  ],
   "rewards": {
     "gold": 10,
     "prosperity": 2

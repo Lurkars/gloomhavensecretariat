@@ -107,6 +107,10 @@
       },
       "retired": "Retired",
       "retirements": "Retirements",
+      "selectGold": {
+        ".": "Collective Gold",
+        "apply": "Select Gold"
+      },
       "title": "{1} {0}",
       "xp": "XP"
     },
@@ -953,6 +957,11 @@
     "cancel": "Cancel Scenario",
     "conclusion": "Conclusion",
     "custom": "Custom",
+    "eventEffects": {
+      ".": "Event Effects",
+      "hint": "Apply to all present characters",
+      "progress": "Affects character progress"
+    },
     "filter": {
       ".": "Filter Scenario",
       "noResult": "No Result"

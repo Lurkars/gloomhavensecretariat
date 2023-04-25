@@ -32,6 +32,8 @@
                         {{building.data.costs.metal|| '-'}}</span>
                     <span class="cost"><img src="./assets/images/fh/loot/hide.svg">
                         {{building.data.costs.hide|| '-'}}</span>
+                    <span class="cost"><img src="./assets/images/fh/loot.svg">
+                        {{building.data.costs.gold || '-'}}</span>
                 </ng-container>
                 <ng-container *ngIf="building.model.level > 0">
                     <ng-container
@@ -46,13 +48,16 @@
                             {{building.data.upgrades[building.model.level - 1].hide|| '-'}}</span>
                     </ng-container>
                     <ng-container *ngIf="building.model.state == 'damaged' && building.data.repair">
-                        <span [i18n]="'party.campaign.sheet.buildings.repair.costs'"
-                            [i18n-args]="['' +building.data.repair[building.model.level - 1] ]"></span>
-                        <span class="cost"><img src="./assets/images/fh/loot/lumber.svg"></span>
-                        <span class="cost"><img src="./assets/images/fh/loot/metal.svg"></span>
-                        <span class="cost"><img src="./assets/images/fh/loot/hide.svg"></span>
+                        <span class="repair">
+                            <span [i18n]="'party.campaign.sheet.buildings.repair.costs'"
+                                [i18n-args]="['' +building.data.repair[building.model.level - 1] ]"></span>
+                            <span class="cost"><img src="./assets/images/fh/loot/lumber.svg"></span>
+                            <span class="cost"><img src="./assets/images/fh/loot/metal.svg"></span>
+                            <span class="cost"><img src="./assets/images/fh/loot/hide.svg"></span>
+                        </span>
                     </ng-container>
                     <ng-container *ngIf="building.model.state == 'wrecked'">
+                        <span></span>
                         <span class="cost"><img src="./assets/images/fh/loot/lumber.svg">
                             {{building.data.rebuild[building.model.level - 1].lumber|| '-'}}</span>
                         <span class="cost"><img src="./assets/images/fh/loot/metal.svg">

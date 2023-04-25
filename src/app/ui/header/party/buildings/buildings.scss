@@ -146,18 +146,28 @@
       }
 
       .costs {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
+        display: grid;
+        justify-content: end;
+        grid-template-columns: repeat(5, calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor)));
 
         .cost {
+          display: flex;
+          align-items: center;
+
+          img {
+            height: 0.9em;
+            width: auto;
+            margin: 0 calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
+          }
+        }
+
+        .repair {
+          grid-column: span 5;
           display: flex;
           align-items: center;
           justify-content: center;
 
           img {
-            height: 0.9em;
-            width: auto;
             margin: 0 calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
           }
         }
@@ -209,6 +219,12 @@
 
         * {
           pointer-events: none;
+        }
+
+        .costs {
+          display: flex;
+          justify-content: flex-end;
+          padding-right: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
         }
 
         &::before {

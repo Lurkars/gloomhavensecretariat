@@ -3,6 +3,13 @@
   "name": "Overgrown Graveyard",
   "gridLocation": "G:12:94:17",
   "edition": "gh",
+  "requiredAchievements": [
+    {
+      "party": [
+        "Grave Job"
+      ]
+    }
+  ],
   "rewards": {
     "gold": 60
   },

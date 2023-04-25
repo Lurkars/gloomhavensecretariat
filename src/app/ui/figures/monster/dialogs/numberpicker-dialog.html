@@ -3,7 +3,8 @@
     <div class="standee" *ngIf="automatic">
       <div class="background-image-container">
         <div class="background-image"
-          [style.background-image]="'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'"></div>
+          [style.background-image]="monster.noArtwork ? '' : 'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'">
+        </div>
       </div>
     </div>
     {{'data.monster.' + monster.name | ghsLabel}}

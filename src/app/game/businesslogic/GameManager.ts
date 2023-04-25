@@ -9,8 +9,6 @@ import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureErro
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
-import { MonsterStat } from "../model/data/MonsterStat";
-import { MonsterType } from "../model/data/MonsterType";
 import { Objective } from "../model/Objective";
 import { AttackModifierManager } from "./AttackModifierManager";
 import { CharacterManager } from "./CharacterManager";
@@ -178,7 +176,7 @@ export class GameManager {
         return false;
       }
 
-      if (all || !this.game.party.campaignMode || edition == 'fh') {
+      if (all || !this.game.party.campaignMode) {
         return true;
       }
 
@@ -494,7 +492,7 @@ export class GameManager {
     if (!monsterData) {
       monsterData = this.monstersData().find((value) => value.name == name);
       if (!monsterData) {
-        monsterData = new MonsterData(name, 0, undefined, undefined, undefined, new MonsterStat(MonsterType.normal, 0, 0, 0, 0, 0), [], "");
+        monsterData = new MonsterData();
         monsterData.errors = monsterData.errors || [];
         monsterData.name = name;
         monsterData.edition = edition;

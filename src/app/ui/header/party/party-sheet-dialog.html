@@ -347,9 +347,9 @@
               <img class="remove" src="./assets/images/minus.svg" (click)="removeCampaignSticker(sticker)">
             </div>
           </div>
-          
-          <ghs-party-buildings [party]="party"></ghs-party-buildings>
         </div>
+
+        <ghs-party-buildings [party]="party"></ghs-party-buildings>
 
         <ng-container *ngIf="townGuardDeck">
           <ghs-attackmodifier-deck class="town-guard-deck" [bottom]="true" [deck]="townGuardDeck"

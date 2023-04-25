@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
@@ -23,6 +23,7 @@ export class ConditionsComponent implements OnInit {
   @Input() figure!: Figure;
   @Input() type!: string;
   @Input() columns: number = 3;
+  @Output('change') onChange: EventEmitter<EntityCondition[]> = new EventEmitter<EntityCondition[]>();
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -166,6 +167,8 @@ export class ConditionsComponent implements OnInit {
   inc(condition: Condition) {
     condition.value = this.getValue(condition) + 1;
     this.checkUpdate(condition);
+
+    this.onChange.emit(this.entityConditions);
   }
 
   dec(condition: Condition) {
@@ -174,6 +177,8 @@ export class ConditionsComponent implements OnInit {
       condition.value = 1;
     }
     this.checkUpdate(condition);
+
+    this.onChange.emit(this.entityConditions);
   }
 
   getValue(condition: Condition): number {
@@ -217,6 +222,8 @@ export class ConditionsComponent implements OnInit {
     if (permanent) {
       this.initializePermanentConditions();
     }
+
+    this.onChange.emit(this.entityConditions);
   }
 
 }

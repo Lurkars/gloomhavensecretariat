@@ -6,6 +6,8 @@ import { BuildingCosts, BuildingData, BuildingModel } from "src/app/game/model/d
 import { CampaignData } from "src/app/game/model/data/EditionData";
 import { LootType } from "src/app/game/model/data/Loot";
 import { BuildingRepairDialog } from "./repair";
+import { Character } from "src/app/game/model/Character";
+import { SelectGoldDialog } from "./select-gold/select-gold";
 
 export type Building = { model: BuildingModel, data: BuildingData };
 
@@ -115,9 +117,7 @@ export class PartyBuildingsComponent implements OnInit {
   upgradeable(building: Building): boolean {
 
     let costs: BuildingCosts = building.model.level ? building.data.upgrades[building.model.level - 1] : building.data.costs;
-    if (!building.model.level) {
-      // TODO GOLD
-    } else if (!building.data.repair) {
+    if (building.model.level && !building.data.repair) {
       return false;
     }
 
@@ -139,11 +139,13 @@ export class PartyBuildingsComponent implements OnInit {
     } else if (building.model.level < building.data.upgrades.length + 1) {
       if (costs.prosperity && costs.prosperity > gameManager.prosperityLevel()) {
         return false;
-      } else if (costs.lumber > (this.party.loot[LootType.lumber] || 0)) {
+      } else if ((costs.lumber || 0) > (this.party.loot[LootType.lumber] || 0)) {
         return false;
-      } else if (costs.metal > (this.party.loot[LootType.metal] || 0)) {
+      } else if ((costs.metal || 0) > (this.party.loot[LootType.metal] || 0)) {
         return false;
-      } else if (costs.hide > (this.party.loot[LootType.hide] || 0)) {
+      } else if ((costs.hide || 0) > (this.party.loot[LootType.hide] || 0)) {
+        return false;
+      } else if ((costs.gold || 0) > gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => (figure as Character).progress.gold).reduce((a, b) => a + b)) {
         return false;
       }
       return true;
@@ -155,18 +157,36 @@ export class PartyBuildingsComponent implements OnInit {
   upgrade(building: Building, force: boolean = false) {
     if (building.model.level < building.data.upgrades.length + 1 || building.model.level < building.data.manualUpgrades + 1) {
       if (this.upgradeable(building) || force) {
-        gameManager.stateManager.before(building.model.level ? "upgradeBuilding" : "buildBuilding", "data.buildings." + building.model.name, '' + (building.model.level + 1));
-        if (!force) {
-          const costs = building.model.level ? building.data.upgrades[building.model.level - 1] : building.data.costs;
-          // TODO Gold
-          this.party.loot[LootType.lumber] = (this.party.loot[LootType.lumber] || 0) - costs.lumber;
-          this.party.loot[LootType.metal] = (this.party.loot[LootType.metal] || 0) - costs.metal;
-          this.party.loot[LootType.hide] = (this.party.loot[LootType.hide] || 0) - costs.hide;
+        const costs = building.model.level ? building.data.upgrades[building.model.level - 1] : building.data.costs;
+        if (costs.gold && !force) {
+          this.dialog.open(SelectGoldDialog, {
+            panelClass: ['dialog'],
+            data: { min: costs.gold, max: costs.gold }
+          }).closed.subscribe({
+            next: (value) => {
+              if (value && (+value) >= costs.gold) {
+                this.upgradeIntern(building, force);
+              }
+            }
+          })
+        } else {
+          this.upgradeIntern(building, force);
         }
-        building.model.level++;
-        gameManager.stateManager.after();
       }
     }
+  }
+
+  upgradeIntern(building: Building, force: boolean) {
+    const costs = building.model.level ? building.data.upgrades[building.model.level - 1] : building.data.costs;
+    gameManager.stateManager.before(building.model.level ? "upgradeBuilding" : "buildBuilding", "data.buildings." + building.model.name, '' + (building.model.level + 1));
+    if (!force) {
+      // TODO Gold
+      this.party.loot[LootType.lumber] = (this.party.loot[LootType.lumber] || 0) - costs.lumber;
+      this.party.loot[LootType.metal] = (this.party.loot[LootType.metal] || 0) - costs.metal;
+      this.party.loot[LootType.hide] = (this.party.loot[LootType.hide] || 0) - costs.hide;
+    }
+    building.model.level++;
+    gameManager.stateManager.after();
   }
 
   rebuild(building: Building, force: boolean = false) {
@@ -207,11 +227,17 @@ export class PartyBuildingsComponent implements OnInit {
     if (building.data.repair) {
       if (building.model.level > 0) {
         if (building.model.state == 'normal') {
+          gameManager.stateManager.before("changeBuildingState", building.model.name, 'damaged');
           building.model.state = 'damaged';
+          gameManager.stateManager.after();
         } else if (building.model.state == 'damaged') {
+          gameManager.stateManager.before("changeBuildingState", building.model.name, 'wrecked');
           building.model.state = 'wrecked'
+          gameManager.stateManager.after();
         } else if (force && building.model.state == 'wrecked') {
+          gameManager.stateManager.before("changeBuildingState", building.model.name, 'normal');
           building.model.state = 'normal';
+          gameManager.stateManager.after();
         }
       }
     }

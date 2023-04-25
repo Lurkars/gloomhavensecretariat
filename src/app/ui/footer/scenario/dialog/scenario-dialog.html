@@ -27,7 +27,7 @@
           <div class="outer-border">
             <div class="inner-border">
               <div class="image-container">
-                <img [src]="gameManager.monsterManager.monsterThumbnail(monster)">
+                <img *ngIf="!monster.noArtwork" [src]="gameManager.monsterManager.monsterThumbnail(monster)">
               </div>
             </div>
           </div>
@@ -91,5 +91,9 @@
       <a (click)="cancelScenario()">{{'scenario.cancel' | ghsLabel}}</a>
       <a (click)="resetScenario()">{{'scenario.reset' | ghsLabel}}</a>
     </div>
+  </div>
+
+  <div class="event-effects" *ngIf="setup || gameManager.game.round < 1">
+      <a (click)="openEventEffects($event)"><img class="ghs-svg" src="./assets/images/event.svg"> {{'scenario.eventEffects' | ghsLabel}}</a>
   </div>
 </div>

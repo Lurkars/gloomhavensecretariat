@@ -25,7 +25,7 @@
         'objective') | ghsLabel}})</span>
     </ng-container>
     <ng-container *ngIf="gameManager.isMonster(data.figure) ">
-      <img class="standee" [src]="gameManager.monsterManager.monsterThumbnail(gameManager.toMonster(data.figure))" />
+      <img *ngIf="!gameManager.toMonster(data.figure).noArtwork" class="standee" [src]="gameManager.monsterManager.monsterThumbnail(gameManager.toMonster(data.figure))" />
       {{'data.monster.' + data.figure.name | ghsLabel}}&nbsp;
       <span class="ally" *ngIf="gameManager.toMonster(data.figure).isAlly">{{'game.ally' | ghsLabel}}&nbsp;</span>
       <span class="allied" *ngIf="gameManager.toMonster(data.figure).isAllied">{{'game.allied' | ghsLabel}}&nbsp;</span>

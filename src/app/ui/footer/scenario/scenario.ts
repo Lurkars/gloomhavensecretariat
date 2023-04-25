@@ -8,6 +8,7 @@ import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { ScenarioDialogComponent } from './dialog/scenario-dialog';
 import { SectionDialogComponent } from './section/section-dialog';
 import { ScenarioTreasuresDialogComponent } from './treasures/treasures-dialog';
+import { EventEffectsDialog } from './dialog/event-effects/event-effects';
 
 @Component({
   selector: 'ghs-scenario',
@@ -24,6 +25,8 @@ export class ScenarioComponent {
   open(event: any) {
     if (gameManager.game.scenario) {
       this.dialog.open(ScenarioDialogComponent, { data: gameManager.game.scenario, panelClass: 'dialog' });
+    } else {
+      this.dialog.open(EventEffectsDialog, { panelClass: 'dialog' });
     }
   }
 
@@ -50,27 +53,37 @@ export class ScenarioComponent {
   openRoom(roomData: RoomData, event: any) {
     event.preventDefault();
     event.stopPropagation();
+
     const scenario = gameManager.game.scenario;
     if (scenario) {
-      const editionData: EditionData | undefined = gameManager.editionData.find((value) => gameManager.game.scenario && value.edition == gameManager.game.scenario.edition);
 
-      if (!editionData) {
-        console.error("Could not find edition data!");
-        return;
+      if (gameManager.game.round == 0) {
+        this.open(event);
+      } else {
+        const editionData: EditionData | undefined = gameManager.editionData.find((value) => gameManager.game.scenario && value.edition == gameManager.game.scenario.edition);
+
+        if (!editionData) {
+          console.error("Could not find edition data!");
+          return;
+        }
+        gameManager.stateManager.before(roomData.marker ? "openRoomMarker" : "openRoom", scenario.index, "data.scenario." + scenario.name, '' + roomData.ref, roomData.marker || '');
+        gameManager.scenarioManager.openRoom(roomData, scenario, false);
+        gameManager.stateManager.after();
       }
-      gameManager.stateManager.before(roomData.marker ? "openRoomMarker" : "openRoom", scenario.index, "data.scenario." + scenario.name, '' + roomData.ref, roomData.marker || '');
-      gameManager.scenarioManager.openRoom(roomData, scenario, false);
-      gameManager.stateManager.after();
     }
   }
 
   addSection(sectionData: ScenarioData, event: any) {
     event.preventDefault();
     event.stopPropagation();
-    this.dialog.open(SectionDialogComponent,
-      {
-        panelClass: 'dialog',
-        data: sectionData
-      });
+    if (gameManager.game.round == 0) {
+      this.open(event);
+    } else {
+      this.dialog.open(SectionDialogComponent,
+        {
+          panelClass: 'dialog',
+          data: sectionData
+        });
+    }
   }
 }

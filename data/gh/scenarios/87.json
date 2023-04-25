@@ -8,6 +8,13 @@
       "86"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "party": [
+        "The Poison's Source"
+      ]
+    }
+  ],
   "rewards": {
     "reputation": 1,
     "prosperity": 1

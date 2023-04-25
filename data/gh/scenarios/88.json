@@ -8,6 +8,16 @@
       "43"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "global": [
+        "Water-Breathing"
+      ],
+      "party": [
+        "Water Staff"
+      ]
+    }
+  ],
   "rewards": {
     "items": [
       "120"

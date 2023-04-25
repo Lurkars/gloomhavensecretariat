@@ -9,9 +9,10 @@ import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { Monster } from "src/app/game/model/Monster";
 import { Scenario } from "src/app/game/model/Scenario";
 import { SectionDialogComponent } from "../section/section-dialog";
-import { StatsListComponent } from "./abilities/stats-list";
+import { StatsListComponent } from "./stats-list/stats-list";
 import { ScenarioSummaryComponent } from "../summary/scenario-summary";
 import { ScenarioTreasuresDialogComponent } from "../treasures/treasures-dialog";
+import { EventEffectsDialog } from "./event-effects/event-effects";
 
 @Component({
     selector: 'ghs-scenario-dialog',
@@ -100,6 +101,11 @@ export class ScenarioDialogComponent {
                 panelClass: 'dialog'
             });
 
+    }
+
+    openEventEffects(event: any) {
+        this.dialog.open(EventEffectsDialog, { panelClass: 'dialog' });
+        this.dialogRef.close();
     }
 
     openRoom(roomData: RoomData) {

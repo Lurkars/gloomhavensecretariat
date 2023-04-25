@@ -3,6 +3,13 @@
   "name": "Syndicate Hideout",
   "gridLocation": "C:17:-23:35",
   "edition": "gh",
+  "requiredAchievements": [
+    {
+      "party": [
+        "Sin-Ra"
+      ]
+    }
+  ],
   "rewards": {
     "collectiveGold": 50
   },

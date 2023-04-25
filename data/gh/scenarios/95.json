@@ -8,6 +8,13 @@
       "94"
     ]
   ],
+  "requiredAchievements": [
+    {
+      "party": [
+        "Through the Nest"
+      ]
+    }
+  ],
   "rewards": {
     "items": [
       "119"

@@ -1070,13 +1070,6 @@
               }
             }
           }
-
-          ghs-party-buildings {
-            position: absolute;
-            left: 0;
-            top: calc(var(--ghs-unit) * 29.5 * var(--ghs-dialog-factor));
-            width: 100%;
-          }
         }
 
         .town-guard-deck {
@@ -1084,9 +1077,18 @@
           position: absolute;
           left: calc(var(--ghs-unit) * 49.5 * var(--ghs-dialog-factor));
           top: calc(var(--ghs-unit) * 74 * var(--ghs-dialog-factor));
-          width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
-          height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
+          width: calc(var(--ghs-unit) * 37.5 * var(--ghs-dialog-factor) );
+          height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
           z-index: 0;
+        }
+
+        ghs-party-buildings {
+          position: absolute;
+          left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+          top: calc(var(--ghs-unit) * 101.5 * var(--ghs-dialog-factor));
+          width: calc(var(--ghs-unit) * 118.5 * var(--ghs-dialog-factor));
+          height: calc(var(--ghs-unit) * 28 * var(--ghs-dialog-factor));
+          max-width: 98vw;
         }
       }
     }

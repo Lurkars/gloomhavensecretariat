@@ -11,6 +11,9 @@
         <img class="ghs-svg" src="./assets/images/scenario/treasure.svg">
       </span>
     </div>
+    <div class="event-effects" *ngIf="!gameManager.game.scenario && gameManager.characterManager.characterCount() > 0">
+      <img class="ghs-svg" src="./assets/images/event.svg"> {{'scenario.eventEffects' | ghsLabel}}
+    </div>
   </div>
   <div class="sections rooms" (click)="open($event)"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
@@ -38,8 +41,7 @@
         <span class="marker" *ngIf="roomData.marker" [i18n]="'%game.mapMarker.' + roomData.marker +'%'"></span>
       </span>
     </ng-container>
-    <span *ngFor="let section of availableSections();" class="section available"
-      (click)="addSection(section, $event)">
+    <span *ngFor="let section of availableSections();" class="section available" (click)="addSection(section, $event)">
       <img *ngIf="!section.conclusion" class="ghs-svg" src="./assets/images/scenario/lock.svg">
       <img *ngIf="section.conclusion" class="ghs-svg" src="./assets/images/scenario/conclusion.svg">
       <span *ngIf="!section.conclusion || !section.name">#{{section.index}}</span>

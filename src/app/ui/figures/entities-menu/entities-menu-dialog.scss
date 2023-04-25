@@ -44,18 +44,6 @@
     }
   }
 
-  .condition {
-    display: flex;
-    position: relative;
-    width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-    height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-
-    &.disabled {
-      filter: grayscale(70%);
-    }
-
-  }
-
   .ghs-svg {
     filter: var(--ghs-filter-white);
   }
