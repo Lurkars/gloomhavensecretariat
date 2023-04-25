@@ -28,7 +28,8 @@
             "edition": "fh",
             "name": "algox-guard"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": "1"
         }
       ],
       "finish": "lost"
