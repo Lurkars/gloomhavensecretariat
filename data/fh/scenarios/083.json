@@ -43,7 +43,8 @@
             "edition": "fh",
             "name": "giant-piranha-pig"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": "1"
         },
         {
           "identifier": {
