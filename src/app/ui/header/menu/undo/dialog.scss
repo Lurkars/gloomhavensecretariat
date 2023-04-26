@@ -2,6 +2,7 @@
     position: relative;
     padding: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
     font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    min-width: calc(var(--ghs-unit) * 70);
 
     .menu {
         display: flex;
@@ -16,12 +17,24 @@
                 color: var(--ghs-color-darkgray);
             }
         }
+
+        &.clear-menu {
+            margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+            .state {
+                font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                font-family: var(--ghs-font-text);
+
+                &.confirm {
+                    color: var(--ghs-color-red);
+                }
+            }
+        }
     }
 
     .container {
         padding: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
         max-height: calc(var(--ghs-unit) * 80 * var(--ghs-dialog-factor));
-        ;
         overflow: auto;
     }
 

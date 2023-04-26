@@ -118,11 +118,13 @@ export class SettingsMenuComponent {
     settingsManager.settings.activeStandees = false;
     settingsManager.settings.activeSummons = false;
     settingsManager.settings.applyConditions = false;
+    settingsManager.settings.allyAttackModifierDeck = false;
     settingsManager.settings.automaticStandees = false;
     settingsManager.settings.autoscroll = false;
     settingsManager.settings.calculate = true;
     settingsManager.settings.calculateStats = false;
     settingsManager.settings.characterAttackModifierDeck = false;
+    settingsManager.settings.characterIdentities = false;
     settingsManager.settings.characterHandSize = false;
     settingsManager.settings.characterSheet = false;
     settingsManager.settings.disabledTurnConfirmation = true;
@@ -136,6 +138,7 @@ export class SettingsMenuComponent {
     settingsManager.settings.hints = true;
     settingsManager.settings.initiativeRequired = true;
     settingsManager.settings.initiativeRequired = true;
+    settingsManager.settings.lootDeck = false;
     settingsManager.settings.moveElements = true;
     settingsManager.settings.partySheet = false;
     settingsManager.settings.randomStandees = false;

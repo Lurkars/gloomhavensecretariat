@@ -153,6 +153,10 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
       if (character.progress.battleGoals + this.battleGoals[i] < 0) {
         this.battleGoals[i] = - character.progress.battleGoals;
       }
+
+      if (this.battleGoals[i] < -(character.progress.battleGoals % 3)) {
+        this.battleGoals[i] = -(character.progress.battleGoals % 3);
+      }
     });
   }
 

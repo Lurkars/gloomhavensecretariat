@@ -565,6 +565,18 @@ export class StateManager {
     }
   }
 
+  clearUndos() {
+    this.undoInfos.splice(0, this.undos.length);
+    this.undos = [];
+    this.saveStorage();
+  }
+
+  clearRedos() {
+    this.undoInfos.splice(this.undos.length + 1, this.redos.length);
+    this.redos = [];
+    this.saveStorage();
+  }
+
   revisionOffset(): number {
     return (gameManager.game.revisionOffset || 0) + this.revisionOffsetUndo() + this.revisionOffsetRedo();
   }

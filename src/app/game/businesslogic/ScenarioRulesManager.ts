@@ -129,18 +129,26 @@ export class ScenarioRulesManager {
             if (!figureRule.identifier) {
               add = false;
             } else {
-              const counter = gameManager.entityCounter(figureRule.identifier);
-              if (figureRule.value == "all") {
-                add = add && counter && counter.total > 0 && counter.killed >= counter.total || false;
-              } else {
-                const value = EntityValueFunction(figureRule.value || 0);
-                add = add && counter && counter.killed >= value || false;
+              const counters = gameManager.entityCounters(figureRule.identifier);
+              add = add && counters.length > 0;
+              if (add) {
+                if (figureRule.value == "all") {
+                  counters.forEach((counter) => {
+                    add = add && counter && counter.total > 0 && counter.killed >= counter.total || false;
+                  })
+                } else {
+                  const value = EntityValueFunction(figureRule.value || 0);
+                  let count = 0;
+                  counters.forEach((counter) => {
+                    count += counter.killed;
+                  })
+                  add = add && count > 0 && count >= value || false;
+                }
               }
             }
           })
         }
       }
-
 
       if (rule.requiredRooms && rule.requiredRooms.length > 0) {
         rule.requiredRooms.forEach((room) => {

@@ -13,6 +13,7 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
 
     gameManager: GameManager = gameManager;
     undoOffset: number = 0;
+    confirm: string = "";
 
     constructor(public dialogRef: DialogRef) { }
 
@@ -81,5 +82,27 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
         const redos = gameManager.stateManager.redos;
         const index = redos.length - i - 1;
         return redos[index].revision - (redos[index].revisionOffset || 0);
+    }
+
+    clearUndos() {
+        if (this.confirm != "clearUndos") {
+            this.confirm = "clearUndos";
+        } else {
+            gameManager.stateManager.clearUndos();
+            if (gameManager.stateManager.redos.length == 0) {
+                this.dialogRef.close();
+            }
+        }
+    }
+
+    clearRedos() {
+        if (this.confirm != "clearRedos") {
+            this.confirm = "clearRedos";
+        } else {
+            gameManager.stateManager.clearRedos();
+            if (gameManager.stateManager.undos.length == 0) {
+                this.dialogRef.close();
+            }
+        }
     }
 }

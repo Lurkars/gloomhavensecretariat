@@ -8,6 +8,13 @@
     <div class="text">
       {{'scenario.eventEffects.hint' | ghsLabel}}
     </div>
+
+    <div class="characters">
+      <a class="character" *ngFor="let character of characters" (click)="toggleCharacterAbsent(character)"
+        [ngClass]="{'absent' : character.absent }">
+        <img [src]="character.iconUrl">
+      </a>
+    </div>
   </div>
 
   <div class="scroll-container container">

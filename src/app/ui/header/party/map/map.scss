@@ -44,7 +44,7 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                filter: brightness(1.2);
+                filter: brightness(1.2) drop-shadow(4px 4px 4px var(--ghs-color-darkgray)) drop-shadow(-4px -4px 4px var(--ghs-color-darkgray));;
             }
 
             &:hover {
@@ -53,16 +53,16 @@
 
                 img {
                     filter: brightness(1.1);
-                    opacity: 0.8;
+                    opacity: 0.9;
                 }
             }
 
             &.success {
                 cursor: initial;
-                z-index: 1;
+                z-index: 2;
 
                 img {
-                    filter: brightness(0.8);
+                    filter: brightness(0.8) hue-rotate(30deg);
                 }
 
                 &:hover {
@@ -75,12 +75,30 @@
                 }
             }
 
-            &.blocked {
+            &.locked:not(.blocked) {
                 cursor: initial;
                 z-index: 1;
 
                 img {
                     filter: brightness(1);
+                }
+
+                &:hover {
+                    cursor: initial;
+                    z-index: 99;
+
+                    img {
+                        filter: brightness(0.8) grayscale(0.8);
+                    }
+                }
+            }
+
+            &.blocked {
+                cursor: initial;
+                z-index: 1;
+
+                img {
+                    filter: brightness(0.7)  sepia(2.5) hue-rotate(340deg);
                 }
 
                 &:hover {

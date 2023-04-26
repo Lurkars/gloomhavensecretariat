@@ -63,4 +63,20 @@
             </ng-container>
         </div>
     </div>
+
+    <div class="menu clear-menu">
+        <span *ngIf="gameManager.stateManager.undos.length == 0"></span>
+
+        <a class="state" *ngIf="gameManager.stateManager.undos.length > 0"
+            [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission, 'confirm' : confirm == 'clearUndos'}"
+            (mouseleave)="confirm = ''" (click)="clearUndos()">{{'state.clear.undos' | ghsLabel}}{{confirm ==
+            'clearUndos' ? '!' :
+            '?'}}</a>
+
+        <a class="state" *ngIf="gameManager.stateManager.redos.length > 0"
+            [ngClass]="{'disabled' : !gameManager.stateManager.redoPermission, 'confirm' : confirm == 'clearRedos'}"
+            (mouseleave)="confirm = ''" (click)="clearRedos()">{{'state.clear.redos' | ghsLabel}}{{confirm ==
+            'clearRedos' ? '!' :
+            '?'}}</a>
+    </div>
 </div>

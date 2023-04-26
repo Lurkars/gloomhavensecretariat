@@ -213,12 +213,13 @@ export class ScenarioRulesComponent {
     }
 
     applyRule(element: HTMLElement, index: number) {
-        gameManager.stateManager.before("applyScenarioRule");
         if (gameManager.game.scenarioRules[index]) {
+            const rule = gameManager.game.scenarioRules[index].rule;
+            const identifier = gameManager.game.scenarioRules[index].identifier;
             const scenario = gameManager.scenarioRulesManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).scenario;
             const section = gameManager.scenarioRulesManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).section;
             if (scenario) {
-                const rule = gameManager.game.scenarioRules[index].rule;
+                gameManager.stateManager.before("applyScenarioRule");
 
                 if (rule.figures) {
                     rule.figures.filter((figureRule) => figureRule.type == "remove").forEach((figureRule) => {
@@ -530,17 +531,17 @@ export class ScenarioRulesComponent {
                         data: { scenario: scenario, success: rule.finish == "won" }
                     })
                 }
+
+                element.classList.add('closed');
+                setTimeout(() => {
+                    if (rule.once) {
+                        gameManager.game.disgardedScenarioRules.push(identifier);
+                    }
+                    gameManager.game.scenarioRules.splice(index, 1)[0];
+                    gameManager.stateManager.after();
+                }, settingsManager.settings.disableAnimations ? 0 : 100)
             }
         }
-
-        element.classList.add('closed');
-        setTimeout(() => {
-            const ruleModel = gameManager.game.scenarioRules.splice(index, 1)[0];
-            if (ruleModel.rule.once) {
-                gameManager.game.disgardedScenarioRules.push(ruleModel.identifier);
-            }
-            gameManager.stateManager.after();
-        }, settingsManager.settings.disableAnimations ? 0 : 100)
     }
 
 

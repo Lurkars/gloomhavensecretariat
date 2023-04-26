@@ -24,7 +24,7 @@ export class MapComponent {
     zooming: boolean = false;
 
     constructor(@Inject(DIALOG_DATA) public edition: string = 'gh', public dialogRef: DialogRef) {
-        this.scenarios = gameManager.scenarioManager.scenarioData(this.edition);
+        this.scenarios = gameManager.scenarioManager.scenarioData(this.edition).filter((scenarioData) => scenarioData.gridLocation);
 
         this.scenarios.forEach((scenarioData, index) => {
 

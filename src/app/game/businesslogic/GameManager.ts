@@ -539,7 +539,22 @@ export class GameManager {
   }
 
   entityCounter(identifier: AdditionalIdentifier): EntityCounter | undefined {
-    return this.game.entitiesCounter.find((entityCounter) => identifier.type == entityCounter.identifier.type && identifier.name == entityCounter.identifier.name && identifier.edition == entityCounter.identifier.edition && (!identifier.marker || identifier.marker == entityCounter.identifier.marker) && (!identifier.tags || identifier.tags.length == 0 || identifier.tags.every((tag) => entityCounter.identifier.tags && entityCounter.identifier.tags.indexOf(tag) != -1)));
+    return this.entityCounters(identifier)[0] || undefined;
+  }
+
+  entityCounters(identifier: AdditionalIdentifier): EntityCounter[] {
+    const name = new RegExp('^' + identifier.name + '$');
+    return this.game.entitiesCounter.filter((entityCounter) =>
+      // match type
+      (!identifier.type || identifier.type == entityCounter.identifier.type) &&
+      // match name
+      entityCounter.identifier.name.match(name) &&
+      // match edition
+      (!identifier.edition || identifier.edition == entityCounter.identifier.edition) &&
+      // match marker
+      (!identifier.marker || identifier.marker == entityCounter.identifier.marker) &&
+      // match tags
+      (!identifier.tags || identifier.tags.length == 0 || identifier.tags.every((tag) => entityCounter.identifier.tags && entityCounter.identifier.tags.indexOf(tag) != -1)));
   }
 
   addEntityCount(figure: Figure, entity: Entity | undefined = undefined) {

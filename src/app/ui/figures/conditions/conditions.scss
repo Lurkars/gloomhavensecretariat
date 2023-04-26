@@ -1,4 +1,5 @@
 .condition-container {
+  margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
   display: grid;
   grid-template-columns: repeat(var(--condition-columns), calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor)));
   column-gap: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));

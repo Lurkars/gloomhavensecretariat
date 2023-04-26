@@ -4,7 +4,7 @@
             <div class="scenario-container" *ngFor="let scenario of scenarios; let i = index;"
                 [style.grid-column]="columns[i]" [style.grid-row]="rows[i]">
                 <div class="scenario" [style.margin-left]="offsetX[i] + 'px'" [style.margin-top]="offsetY[i] + 'px'"
-                    [ngClass]="{'success' : success[i] || !gameManager.game.party.campaignMode,  'blocked' : gameManager.scenarioManager.isBlocked(scenario)}"
+                    [ngClass]="{'success' : gameManager.game.party.campaignMode && success[i],  'blocked' : gameManager.scenarioManager.isBlocked(scenario), 'locked' : gameManager.scenarioManager.isLocked(scenario)}"
                     (click)="startScenario(i, $event)">
                     <img [src]="'./assets/images/maps/scenarios/' + scenario.edition + '-' + scenario.index + '.png'">
                 </div>
