@@ -74,9 +74,10 @@
           "identifier": {
             "type": "monster",
             "edition": "jotl",
-            "name": ".+"
+            "name": "rat-monstrosity"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": "all"
         }
       ]
     },
@@ -141,9 +142,10 @@
           "identifier": {
             "type": "monster",
             "edition": "jotl",
-            "name": ".+"
+            "name": "rat-monstrosity"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": "all"
         }
       ]
     },

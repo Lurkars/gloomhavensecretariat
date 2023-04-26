@@ -25,7 +25,8 @@
             "edition": "jotl",
             "name": "rat-monstrosity"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": "all"
         }
       ],
       "spawns": [
@@ -50,14 +51,6 @@
       "round": "true",
       "start": true,
       "once": true,
-      "requiredRules": [
-        {
-          "edition": "jotl",
-          "scenario": "23",
-          "index": 0,
-          "section": false
-        }
-      ],
       "figures": [
         {
           "identifier": {
@@ -65,7 +58,8 @@
             "edition": "jotl",
             "name": "giant-viper"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": "all"
         },
         {
           "identifier": {
@@ -73,7 +67,8 @@
             "edition": "jotl",
             "name": "vermling-raider"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": "all"
         }
       ],
       "spawns": [

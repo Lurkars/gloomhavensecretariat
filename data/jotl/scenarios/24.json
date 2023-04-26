@@ -44,9 +44,19 @@
           "identifier": {
             "type": "monster",
             "edition": "jotl",
-            "name": ".*"
+            "name": "black-imp"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": "all"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "chaos-demon"
+          },
+          "type": "killed",
+          "value": "all"
         }
       ],
       "spawns": [
@@ -100,7 +110,8 @@
             "edition": "jotl",
             "name": "chaos-demon"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": "all"
         }
       ],
       "spawns": [

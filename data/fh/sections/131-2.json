@@ -19,7 +19,8 @@
             "edition": "fh",
             "name": "wind-demon"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": "all"
         }
       ]
     },

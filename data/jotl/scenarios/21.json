@@ -62,7 +62,8 @@
             "name": "chaos-demon",
             "marker": "3"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": "1"
         },
         {
           "identifier": {

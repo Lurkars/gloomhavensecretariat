@@ -45,7 +45,8 @@
             "name": "stone-golem",
             "marker": "c"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": "1"
         }
       ]
     }

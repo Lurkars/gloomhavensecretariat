@@ -61,9 +61,19 @@
           "identifier": {
             "type": "monster",
             "edition": "fh",
-            "name": ".*"
+            "name": "ice-wraith"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": "all"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "snow-imp"
+          },
+          "type": "killed",
+          "value": "all"
         }
       ]
     }

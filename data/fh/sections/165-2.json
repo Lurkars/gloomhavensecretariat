@@ -24,7 +24,8 @@
             "edition": "fh",
             "name": "frost-demon"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": "all"
         }
       ]
     }

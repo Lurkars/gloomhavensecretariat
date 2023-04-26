@@ -31,7 +31,8 @@
             "name": "city-guard",
             "marker": "2"
           },
-          "type": "dead"
+          "type": "killed",
+          "value": "1"
         }
       ],
       "spawns": [

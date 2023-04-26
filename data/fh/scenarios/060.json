@@ -87,11 +87,12 @@
         {
           "identifier": {
             "type": "monster",
-            "name": ".*",
+            "edition": "fh",
+            "name": "lurker-wavethrower-scenario-60",
             "marker": "element:fire"
           },
           "type": "killed",
-          "value": 1
+          "value": "1"
         }
       ],
       "elements": [
@@ -108,11 +109,12 @@
         {
           "identifier": {
             "type": "monster",
-            "name": ".*",
+            "edition": "fh",
+            "name": "lurker-mindsnipper-scenario-60",
             "marker": "element:ice"
           },
           "type": "killed",
-          "value": 1
+          "value": "1"
         }
       ],
       "elements": [
@@ -129,11 +131,12 @@
         {
           "identifier": {
             "type": "monster",
-            "name": ".*",
+            "edition": "fh",
+            "name": "lurker-wavethrower-scenario-60",
             "marker": "element:air"
           },
           "type": "killed",
-          "value": 1
+          "value": "1"
         }
       ],
       "elements": [
@@ -150,11 +153,12 @@
         {
           "identifier": {
             "type": "monster",
-            "name": ".*",
+            "edition": "fh",
+            "name": "lurker-mindsnipper-scenario-60",
             "marker": "element:earth"
           },
           "type": "killed",
-          "value": 1
+          "value": "1"
         }
       ],
       "elements": [
@@ -171,11 +175,12 @@
         {
           "identifier": {
             "type": "monster",
-            "name": ".*",
+            "edition": "fh",
+            "name": "lurker-clawcrusher-scenario-60",
             "marker": "element:light"
           },
           "type": "killed",
-          "value": 1
+          "value": "1"
         }
       ],
       "elements": [
@@ -192,11 +197,12 @@
         {
           "identifier": {
             "type": "monster",
-            "name": ".*",
+            "edition": "fh",
+            "name": "lurker-clawcrusher-scenario-60",
             "marker": "element:dark"
           },
           "type": "killed",
-          "value": 1
+          "value": "1"
         }
       ],
       "elements": [
