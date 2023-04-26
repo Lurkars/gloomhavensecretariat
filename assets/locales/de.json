@@ -1383,6 +1383,11 @@
     "placeholder": "???"
   },
   "state": {
+    "clear": {
+      ".": "Aufräumen",
+      "redos": "Wiederherstellen aufräumen",
+      "undos": "Rückgängig aufräumen"
+    },
     "currentGame": "Aktuell",
     "info": {
       "addBless": "Segen {0}",

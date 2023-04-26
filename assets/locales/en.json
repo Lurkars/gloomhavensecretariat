@@ -1504,6 +1504,11 @@
     "placeholder": "???"
   },
   "state": {
+    "clear": {
+      ".": "Clear",
+      "redos": "Clear Redos",
+      "undos": "Clear Undos"
+    },
     "currentGame": "Current",
     "info": {
       "addBless": "Bless {0}",
