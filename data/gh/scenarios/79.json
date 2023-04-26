@@ -52,7 +52,7 @@
       "always": true,
       "once": true,
       "rooms": [
-        2
+        "2"
       ],
       "figures": [
         {

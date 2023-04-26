@@ -51,6 +51,14 @@
       "round": "true",
       "start": true,
       "once": true,
+      "requiredRules": [
+        {
+          "edition": "jotl",
+          "scenario": "23",
+          "index": 0,
+          "section": false
+        }
+      ],
       "figures": [
         {
           "identifier": {
