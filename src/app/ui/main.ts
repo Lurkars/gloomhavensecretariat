@@ -335,7 +335,6 @@ export class MainComponent implements OnInit {
 
           if (scrollTo) {
             setTimeout(() => {
-              console.log(this.columns, index, this.columnSize, figures.length);
               scrollTo.scrollIntoView({
                 behavior: settingsManager.settings.disableAnimations ? 'auto' : 'smooth',
                 block: (index == this.lastScroll || index == this.lastScrollColumn) ? 'end' : 'center',

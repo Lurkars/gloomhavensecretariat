@@ -1104,6 +1104,11 @@
         "ignore": "Gain rewards anyways!",
         "reapply": "Switch back to casual mode"
       },
+      "challenges": {
+        ".": "Challenges",
+        "complete": "Challenge complete",
+        "completed": "Challenges completed"
+      },
       "conclusionWarning": {
         ".": "Missing Solution!",
         "hint": "It seems that this scenario is finished without a conclusion. This may lead to missing rewards and unlocks. Conclusion sections are marked with a <img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\"> icon."
@@ -1120,12 +1125,13 @@
         "gold": "Reward Gold"
       },
       "restart": "Restart scenario",
-      "restartLooseLoot": "Restart scenario (loose resources)",
+      "restartLoseLoot": "Restart scenario (lose resources)",
       "totalGold": "Total Gold",
       "totalXp": "Total XP",
       "treasures": "Treasures",
       "xp": "XP",
       "xpBonus": "Bonus XP",
+      "xpChallenges": "Challenges XP",
       "xpGained": "Gained XP"
     },
     "title": "Title"
@@ -1198,7 +1204,7 @@
     },
     "activeApplyConditions": {
       ".": "Confirm applicable conditions",
-      "hint": "Certain conditions need confirmation to be applied, for example when decreasing HP with Poison confirm to loose 1 extra HP "
+      "hint": "Certain conditions need confirmation to be applied, for example when decreasing HP with Poison confirm to lose 1 extra HP "
     },
     "activeStandees": {
       ".": "Active standees",
@@ -1235,7 +1241,7 @@
     },
     "applyConditions": {
       ".": "Automatic apply conditions",
-      "hint": "Corresponding conditions are automatically applied before and after turn, for example when entity has Wound it will loose 1 HP on start of it's round"
+      "hint": "Corresponding conditions are automatically applied before and after turn, for example when entity has Wound it will lose 1 HP on start of it's round"
     },
     "applyLoot": {
       ".": "Apply Loot to Character",
@@ -1604,6 +1610,8 @@
       "entityDead": "Kill {1} standee {2} of {0}",
       "equipItem": "Equip Item {1} (%data.edition.{2}%) for {0}",
       "finishScenario": {
+        "close": "Close Scenario Summary",
+        "dialog": "Scenario summary for #{0} {1} ({2}) ",
         "failure": "Scenario #{0} {1} ({2}) failed",
         "linked": "Scenario #{0} {1} successful, continue with #{3} ({2})",
         "remove": "Remove scenario #{0} {1} ({2}) success",
@@ -1632,7 +1640,7 @@
       "openRoom": "Open door for tile '{2}' in #{0} {1}",
       "openRoomMarker": "Open door %game.mapMarker.{3}% for tile '{2}' in #{0} {1}",
       "removeAbility": "Remove ability {1} from {0}",
-      "removeAllChars": "Remove all chars",
+      "removeAllChars": "Remove all characters",
       "removeAllMonster": "Remove all monster",
       "removeAllObjectives": "Remove all objectives",
       "removeBless": "Remove Bless from {0}",

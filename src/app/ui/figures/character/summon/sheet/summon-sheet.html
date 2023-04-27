@@ -2,7 +2,8 @@
     [ngClass]="{'action' : summon.action,  'additional' : summon.additionalAction || additional, 'fh' : settingsManager.settings.fhStyle}">
     <span class="name">
         <span class="summon-label" *ngIf="action">{{'game.action.summon' | ghsLabel}}&nbsp;</span>
-        <span [i18n]="'data.summon.' + summon.name" [ngClass]="{'text-white' : !right}"></span>
+        <span *ngIf="summon.title" [ngClass]="{'text-white' : !right}">{{summon.title}}</span>
+        <span *ngIf="!summon.title" [i18n]="'data.summon.' + summon.name" [ngClass]="{'text-white' : !right}"></span>
         <span *ngIf="summon.flying" class="flying"><img
                 [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
     </span>

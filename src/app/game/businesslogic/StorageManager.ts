@@ -46,8 +46,8 @@ export class StorageManager {
     });
   }
 
-  writeGameModel(gameModel: GameModel) {
-    this.write('game', 'default', gameModel);
+  writeGameModel(gameModel: GameModel): Promise<void> {
+    return this.write('game', 'default', gameModel);
   }
 
   readGameModel(): Promise<GameModel> {
@@ -154,12 +154,14 @@ export class StorageManager {
   }
 
   async writeArray(store: string, objects: any[]): Promise<void> {
-    return new Promise((resolve, reject) => {
+    return await new Promise(async (resolve, reject) => {
       if (this.db) {
-        this.clear(store);
-        objects.forEach(async (object) => {
+        await this.clear(store).catch((e) => console.error(e));
+
+        for (let index = 0; index < objects.length; index++) {
+          const object = objects[index];
           await this.write(store, undefined, object).catch(() => reject());
-        });
+        };
       } else {
         localStorage.setItem("ghs-" + store, JSON.stringify(objects));
       }

@@ -158,6 +158,7 @@ export class ScenarioMenuComponent implements OnInit {
         input.value = numbers.join(',');
       }
 
+      this.scenarioCache = [];
     }
   }
 

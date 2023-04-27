@@ -63,14 +63,14 @@
               <label *ngIf="fhSheet">{{'character.progress.gold' | ghsLabel}} <img
                   src="./assets/images/fh/loot.svg">:</label>
               <input [value]="character.progress.gold" type="number" min="0" (change)="setGold($event)">
-              <span class="donations" *ngIf="!fhSheet">
+              <span class="donations" *ngIf="donations">
                 {{'character.progress.donations' | ghsLabel}}: {{character.progress.donations}}</span>
-              <span class="donate" *ngIf="!fhSheet">
+              <span class="donate" *ngIf="donations">
                 {{'character.progress.donate'
                 | ghsLabel}}:
                 <a (click)="donate()"
-                  [ngClass]="{'disabled' : character.progress.gold < 10 || gameManager.game.round > 0}"><span
-                    class="price"><img src="./assets/images/loot.svg">10</span></a>
+                  [ngClass]="{'disabled' : character.progress.gold < (fhSheet ? 5 : 10) || gameManager.game.round > 0}"><span
+                    class="price"><img src="./assets/images/loot.svg">{{fhSheet ? 5 : 10}}</span></a>
               </span>
             </div>
           </div>

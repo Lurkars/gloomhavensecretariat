@@ -35,6 +35,14 @@
   cursor: initial !important;
 }
 
+.working {
+  width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+  height: auto;
+  filter: var(--ghs-filter-gray);
+  animation: ghs-spinning 1500ms linear infinite;
+  margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+}
+
 .edition {
   cursor: grab !important;
   padding: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) 0;

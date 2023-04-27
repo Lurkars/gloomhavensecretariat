@@ -1,7 +1,7 @@
 <div class="summon-border"
   [ngClass]="{'dead' : summon.dead, 'off' : character.off, 'active' : summon.active, 'fh' : settingsManager.settings.fhStyle}"
   [entityAnimation]="summon.dead">
-  <div class="summon" title="{{'data.summon.' + summon.name | ghsLabel}}">
+  <div class="summon" title="{{summon.title ? summon.title : ('data.summon.' + summon.name | ghsLabel)}}">
     <div #standee class="standee">
       <div class="sheet">
         <ghs-summon-sheet *ngIf="summon.active" [summon]="summon"></ghs-summon-sheet>

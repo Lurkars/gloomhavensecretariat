@@ -249,6 +249,16 @@ body {
   }
 }
 
+@keyframes ghs-spinning {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .scrolling {
   touch-action: none;
 

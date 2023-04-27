@@ -4,6 +4,7 @@ import { Spoilable } from "./Spoilable";
 import { ObjectiveData } from "./ObjectiveData";
 import { RoomData } from "./RoomData";
 import { ScenarioRewards, ScenarioRule } from "./ScenarioRule";
+import { GameScenarioModel } from "../Scenario";
 
 export class ScenarioData implements Editional, Spoilable {
 
@@ -78,4 +79,17 @@ export class ScenarioData implements Editional, Spoilable {
       this.spoiler = scenarioData.spoiler;
     }
   }
+}
+
+export class ScenarioFinish {
+
+  conclusion: GameScenarioModel | undefined;
+  success: boolean = false;
+  battleGoals: number[] = [];
+  collectiveGold: number[] = [];
+  items: number[][] = [];
+  chooseLocation: string | undefined;
+  chooseUnlockCharacter: string | undefined;
+  challenges: number = 0;
+
 }

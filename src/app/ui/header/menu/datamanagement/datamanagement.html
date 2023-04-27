@@ -37,10 +37,11 @@
       <div class="line">
         <a (click)="exportDataDump()">{{'datamanagement.exportDataDump' | ghsLabel}}</a>
       </div>
-      <div class="line">
+      <div class="line" [ngClass]="{'disabled' : working}">
         <label class="input-file" (click)="ghsInputFullScreenCheck()">
-          {{'datamanagement.importDataDump' | ghsLabel}}
-          <input type="file" accept="application/json" (change)="importDataDump($event)" />
+          {{'datamanagement.importDataDump' | ghsLabel}} 
+          <img src="./assets/images/shuffle.svg" class="working" *ngIf="working == 'importDataDump'">
+          <input type="file" accept="application/json" (change)="importDataDump($event)"/>
         </label>
       </div>
       <div class="line">

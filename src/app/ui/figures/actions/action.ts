@@ -12,6 +12,7 @@ import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { Objective } from 'src/app/game/model/Objective';
 import { valueCalc } from '../../helper/valueCalc';
 import { Subscription } from 'rxjs';
+import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 
 export const ActionTypesIcons: ActionType[] = [ActionType.attack, ActionType.damage, ActionType.fly, ActionType.heal, ActionType.jump, ActionType.loot, ActionType.move, ActionType.range, ActionType.retaliate, ActionType.shield, ActionType.target, ActionType.teleport];
 
@@ -55,7 +56,7 @@ export class ActionComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.update();
-    this.uiChangeSubscription= gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
         this.update();
       }
@@ -462,7 +463,12 @@ export class ActionComponent implements OnInit, OnDestroy {
               entity.health == entity.maxHealth;
             }
           } else if (this.action.type == ActionType.condition) {
-            gameManager.entityManager.addCondition(entity, new Condition('' + this.action.value), this.monster?.active || false, this.monster?.off || false);
+            if (this.action.value == 'bless' || this.action.value == 'curse') {
+              const am = settingsManager.settings.allyAttackModifierDeck && (gameManager.fhRules() || settingsManager.settings.alwaysAllyAttackModifierDeck) && (this.monster?.isAlly || this.monster?.isAllied) ? gameManager.game.allyAttackModifierDeck : gameManager.game.monsterAttackModifierDeck;
+              gameManager.attackModifierManager.addModifier(am, new AttackModifier(this.action.value == 'bless' ? AttackModifierType.bless : AttackModifierType.curse));
+            } else {
+              gameManager.entityManager.addCondition(entity, new Condition('' + this.action.value), this.monster?.active || false, this.monster?.off || false);
+            }
           } else if (this.action.type == ActionType.sufferDamage) {
             entity.health -= EntityValueFunction(this.action.value, this.level);
             if (entity.health <= 0) {

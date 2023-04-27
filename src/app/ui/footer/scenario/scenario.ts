@@ -1,5 +1,5 @@
 import { Dialog } from '@angular/cdk/dialog';
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager, SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { EditionData } from 'src/app/game/model/data/EditionData';
@@ -9,18 +9,47 @@ import { ScenarioDialogComponent } from './dialog/scenario-dialog';
 import { SectionDialogComponent } from './section/section-dialog';
 import { ScenarioTreasuresDialogComponent } from './treasures/treasures-dialog';
 import { EventEffectsDialog } from './dialog/event-effects/event-effects';
+import { Subscription } from 'rxjs';
+import { ScenarioSummaryComponent } from './summary/scenario-summary';
 
 @Component({
   selector: 'ghs-scenario',
   templateUrl: './scenario.html',
   styleUrls: ['./scenario.scss']
 })
-export class ScenarioComponent {
+export class ScenarioComponent implements OnInit, OnDestroy {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
   constructor(private dialog: Dialog) { }
+
+  ngOnInit(): void {
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+      next: () => {
+        if (gameManager.game.scenario && gameManager.game.finish && !gameManager.stateManager.scenarioSummary) {
+          const conclusion = gameManager.game.finish.conclusion ? gameManager.sectionData(gameManager.game.finish.conclusion.edition).find((sectionData) => gameManager.game.finish && gameManager.game.finish.conclusion && sectionData.index == gameManager.game.finish.conclusion.index && sectionData.group == gameManager.game.finish.conclusion.group && sectionData.conclusion) : undefined;
+          this.dialog.open(ScenarioSummaryComponent, {
+            panelClass: 'dialog',
+            disableClose: true,
+            data: {
+              scenario: gameManager.game.scenario,
+              conclusion: conclusion,
+              success: gameManager.game.finish.success
+            }
+          })
+        }
+      }
+    })
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
+  }
 
   open(event: any) {
     if (gameManager.game.scenario) {

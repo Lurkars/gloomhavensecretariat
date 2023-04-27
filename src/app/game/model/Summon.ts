@@ -24,6 +24,7 @@ export enum SummonColor {
 export class Summon implements Entity {
 
   name: string;
+  title: string;
   cardId: string;
   number: number;
   color: SummonColor;
@@ -49,6 +50,7 @@ export class Summon implements Entity {
 
   constructor(name: string, cardId: string, level: number, number: number, color: SummonColor, summonData: SummonData | undefined = undefined) {
     this.name = name;
+    this.title = "";
     this.cardId = cardId;
     this.level = level;
     this.number = number;
@@ -70,11 +72,12 @@ export class Summon implements Entity {
   }
 
   toModel(): GameSummonModel {
-    return new GameSummonModel(this.name, this.cardId, this.number, this.color, this.attack && this.attack + '' || '0', this.movement, this.range, this.flying, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined, this.active, this.thumbnail);
+    return new GameSummonModel(this.name, this.title, this.cardId, this.number, this.color, this.attack && this.attack + '' || '0', this.movement, this.range, this.flying, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined, this.active, this.thumbnail);
   }
 
   fromModel(model: GameSummonModel) {
     this.name = model.name || "";
+    this.title = model.title || "";
     this.cardId = model.cardId || "";
     this.number = model.number;
     this.color = model.color;
@@ -114,6 +117,7 @@ export class Summon implements Entity {
 
 export class GameSummonModel {
   name: string;
+  title: string;
   cardId: string;
   number: number;
   color: SummonColor;
@@ -135,6 +139,7 @@ export class GameSummonModel {
   thumbnail: string | undefined;
 
   constructor(name: string,
+    title: string,
     cardId: string,
     number: number,
     color: SummonColor,
@@ -155,6 +160,7 @@ export class GameSummonModel {
     active: boolean,
     thumbnail: string | undefined) {
     this.name = name;
+    this.title = title;
     this.cardId = cardId;
     this.number = number;
     this.color = color;

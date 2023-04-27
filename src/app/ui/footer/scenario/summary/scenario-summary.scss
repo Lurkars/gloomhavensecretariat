@@ -304,6 +304,14 @@
           align-items: flex-end;
         }
       }
+
+      &.challenges {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor)) 0;
+        margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+      }
     }
 
     &.warning {
@@ -316,6 +324,7 @@
       }
     }
   }
+
 }
 
 .buttons {

@@ -24,6 +24,7 @@ export class DatamanagementMenuComponent implements OnInit {
   backups: number = 0;
   ghsInputFullScreenCheck = ghsInputFullScreenCheck;
   confirm: string = "";
+  working: string = ""
 
   async ngOnInit() {
     try {
@@ -237,10 +238,10 @@ export class DatamanagementMenuComponent implements OnInit {
     event.target.parentElement.classList.remove("error");
     try {
       const reader = new FileReader();
-      reader.addEventListener('load', (event: any) => {
+      reader.addEventListener('load', async (event: any) => {
         const settings: Settings = Object.assign(new Settings(), JSON.parse(event.target.result));
         settingsManager.settings = settings;
-        storageManager.write('settings', 'default', settingsManager.settings);
+        await storageManager.write('settings', 'default', settingsManager.settings);
       });
 
       reader.readAsText(event.target.files[0]);
@@ -276,40 +277,45 @@ export class DatamanagementMenuComponent implements OnInit {
   importDataDump(event: any) {
     event.target.parentElement.classList.remove("error");
     try {
+      this.working = "importDataDump";
       const reader = new FileReader();
-      reader.addEventListener('load', (event: any) => {
+      reader.addEventListener('load', async (event: any) => {
         const datadump: any = JSON.parse(event.target.result);
         gameManager.stateManager.errorLog = datadump.errorLog || [];
         let migration = false;
-        Object.keys(datadump).forEach((key) => {
+        const keys = Object.keys(datadump);
+        for (let i = 0; i < keys.length; i++) {
+          const key = keys[i];
           if (key.startsWith('ghs-')) {
-            localStorage.setItem(key, JSON.stringify(datadump[key]));
+            await localStorage.setItem(key, JSON.stringify(datadump[key]));
             migration = true;
           } else if (key === 'game') {
-            storageManager.write('game', 'default', datadump[key]);
+            await storageManager.write('game', 'default', datadump[key]);
           } else if (key === 'settings') {
-            storageManager.write('settings', 'default', Object.assign(new Settings(), datadump[key]));
+            await storageManager.write('settings', 'default', Object.assign(new Settings(), datadump[key]));
           } else if (key === 'undo') {
-            storageManager.writeArray('undo', datadump[key]);
+            await storageManager.writeArray('undo', datadump[key]);
           } else if (key === 'redo') {
-            storageManager.writeArray('redo', datadump[key]);
+            await storageManager.writeArray('redo', datadump[key]);
           } else if (key === 'undo-infos') {
-            storageManager.writeArray('undo-infos', datadump[key]);
+            await storageManager.writeArray('undo-infos', datadump[key]);
           } else if (key === 'game-backup') {
-            storageManager.writeArray('game-backup', datadump[key]);
+            await storageManager.writeArray('game-backup', datadump[key]);
           }
-        })
+        }
 
         if (migration) {
           storageManager.migrate();
         }
 
+        this.working = "";
         window.location.reload();
       });
 
       reader.readAsText(event.target.files[0]);
     } catch (e: any) {
       console.warn(e);
+      this.working = "";
       event.target.parentElement.classList.add("error");
     }
   }

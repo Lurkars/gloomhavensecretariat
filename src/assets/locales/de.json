@@ -982,6 +982,11 @@
         "ignore": "Trotzdem die Belohnungen erhalten!",
         "reapply": "Zurück zum Gelegenheitsmodus wechseln"
       },
+      "challenges": {
+        ".": "Herausforderungen",
+        "complete": "Herausforderung absolviert",
+        "completed": "Herausforderungen absolviert"
+      },
       "conclusionWarning": {
         ".": "Keine Lösung!",
         "hint": "Es scheint das Szenario wurde ohne entsprechende Lösung beendet. Dies kann zu fehlenden Belohungen und Freischaltungen führen. Lösungen sind Sektionen die mit einem <img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\"> Symbole gekennzeichnet sind."
@@ -998,12 +1003,13 @@
         "gold": "Gold Belohnung"
       },
       "restart": "Szenario neustarten",
-      "restartLooseLoot": "Szenario neustarten (Ressourcen verlieren)",
+      "restartLoseLoot": "Szenario neustarten (Ressourcen verlieren)",
       "totalGold": "Gold Gesamt",
       "totalXp": "EP Gesamt",
       "treasures": "Schätze",
       "xp": "EP",
       "xpBonus": "Bonus EP",
+      "xpChallenges": "EP Herausforderungen",
       "xpGained": "EP gesammelt"
     },
     "title": "Titel"
@@ -1483,6 +1489,8 @@
       "entityDead": "Töte {1} Aufsteller {2} von {0}",
       "equipItem": "Gegenstand {1} (%data.edition.{2}%) von {0} anlegen",
       "finishScenario": {
+        "close": "Szenario Zusammenfassung schließen",
+        "dialog": "Szenario Zusammenfassung von #{0} {1} ({2})",
         "failure": "Szenario #{0} {1} ({2}) gescheitert",
         "linked": "Szenario #{0} {1} erfolgreich, weiter mit #{3} ({2})",
         "remove": "Entferne Szenario #{0} {1} ({2}) von Erfolgreichen",

@@ -102,37 +102,6 @@
           "marker": "B"
         }
       ]
-    },
-    {
-      "treasures": "C",
-      "round": "true",
-      "always": true,
-      "disableRules": [
-        {
-          "edition": "jotl",
-          "scenario": "18",
-          "index": 0,
-          "section": false
-        },
-        {
-          "edition": "jotl",
-          "scenario": "18",
-          "index": 1,
-          "section": false
-        },
-        {
-          "edition": "jotl",
-          "scenario": "18",
-          "index": 2,
-          "section": false
-        },
-        {
-          "edition": "jotl",
-          "scenario": "18",
-          "index": 3,
-          "section": false
-        }
-      ]
     }
   ],
   "rooms": [

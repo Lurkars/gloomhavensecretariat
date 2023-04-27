@@ -37,6 +37,7 @@ export class StateManager {
   monsterPermissions: Record<string, boolean> = {};
 
   wakeLock: any = null;
+  scenarioSummary: boolean = false;
 
   constructor(game: Game) {
     this.game = game;

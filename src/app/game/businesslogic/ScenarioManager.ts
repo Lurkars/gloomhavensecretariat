@@ -53,6 +53,7 @@ export class ScenarioManager {
   }
 
   finishScenario(scenario: Scenario | undefined, success: boolean = true, conclusionSection: ScenarioData | undefined, restart: boolean = false, linkedScenario: Scenario | undefined = undefined, casual: boolean = false, internal: boolean = false) {
+    gameManager.game.finish = undefined;
     if (scenario) {
       const rewards: ScenarioRewards | undefined = scenario.rewards || conclusionSection && conclusionSection.rewards || undefined;
       if (!internal && (!gameManager.fhRules() || !casual)) {

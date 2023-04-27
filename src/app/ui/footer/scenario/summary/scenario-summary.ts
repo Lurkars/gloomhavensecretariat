@@ -3,13 +3,14 @@ import { Component, Inject } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { Character } from "src/app/game/model/Character";
 import { ItemData } from "src/app/game/model/data/ItemData";
-import { ScenarioData } from "src/app/game/model/data/ScenarioData";
+import { ScenarioData, ScenarioFinish } from "src/app/game/model/data/ScenarioData";
 import { ScenarioRewards } from "src/app/game/model/data/ScenarioRule";
 import { Identifier } from "src/app/game/model/data/Identifier";
 import { LootType } from "src/app/game/model/data/Loot";
 import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
 import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/character-sheet";
 import { EntityValueFunction } from "src/app/game/model/Entity";
+import { Subscription } from "rxjs";
 
 
 @Component({
@@ -39,10 +40,13 @@ export class ScenarioSummaryComponent {
     chooseLocation: string | undefined;
     chooseUnlockCharacter: string | undefined;
     rewards: ScenarioRewards | undefined = undefined;
+    challenges: number = 0;
+    numberChallenges: number = 0;
 
     EntityValueFunction = EntityValueFunction;
 
     constructor(@Inject(DIALOG_DATA) data: { scenario: Scenario, success: boolean, conclusion: ScenarioData | undefined }, private dialogRef: DialogRef, private dialog: Dialog) {
+
         this.scenario = data.scenario;
         this.success = data.success;
         this.conclusion = data.conclusion;
@@ -61,13 +65,76 @@ export class ScenarioSummaryComponent {
                 this.lootColumns.push(lootType);
             }
         }
+
         this.alreadyWarning = gameManager.game.party.campaignMode && this.success && gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == this.scenario.index && scenarioModel.edition == this.scenario.edition && scenarioModel.group == this.scenario.group) != undefined;
         this.casual = this.alreadyWarning || !gameManager.game.party.campaignMode && gameManager.fhRules();
         this.updateState()
+
+
+        gameManager.stateManager.scenarioSummary = true;
+
+        if (!gameManager.game.finish) {
+            gameManager.stateManager.before("finishScenario.dialog", ...gameManager.scenarioManager.scenarioUndoArgs());
+            this.updateFinish();
+            gameManager.stateManager.after();
+        }
+
+        this.dialogRef.closed.subscribe({
+            next: () => {
+                if (gameManager.stateManager.scenarioSummary) {
+                    gameManager.stateManager.before("finishScenario.close", ...gameManager.scenarioManager.scenarioUndoArgs());
+                    gameManager.stateManager.scenarioSummary = false;
+                    gameManager.game.finish = undefined;
+                    gameManager.stateManager.after();
+                }
+            }
+        })
+
+        this.uiChangeSubscription = gameManager.uiChange.subscribe({
+            next: () => {
+                if (!gameManager.game.finish) {
+                    gameManager.stateManager.scenarioSummary = false;
+                    this.dialogRef.close();
+                } else {
+                    const finish = gameManager.game.finish;
+                    this.conclusion = finish.conclusion ? gameManager.sectionData(finish.conclusion.edition).find((sectionData) => finish.conclusion && sectionData.index == finish.conclusion.index && sectionData.group == finish.conclusion.group && sectionData.conclusion) : undefined;
+                    this.success = finish.success;
+                    this.battleGoals = finish.battleGoals;
+                    this.challenges = finish.challenges;
+                    this.chooseLocation = finish.chooseLocation;
+                    this.chooseUnlockCharacter = finish.chooseUnlockCharacter;
+                    this.collectiveGold = finish.collectiveGold;
+                    this.items = finish.items;
+                }
+            }
+        })
+    }
+
+    uiChangeSubscription: Subscription | undefined;
+
+    ngOnDestroy(): void {
+        if (this.uiChangeSubscription) {
+            this.uiChangeSubscription.unsubscribe();
+        }
+    }
+
+    updateFinish() {
+        const finish = new ScenarioFinish();
+        finish.conclusion = this.conclusion ? new GameScenarioModel(this.conclusion.index, this.conclusion.edition, this.conclusion.group) : undefined;
+        finish.success = this.success;
+        finish.battleGoals = this.battleGoals;
+        finish.challenges = this.challenges;
+        finish.chooseLocation = this.chooseLocation;
+        finish.chooseUnlockCharacter = this.chooseUnlockCharacter;
+        finish.collectiveGold = this.collectiveGold;
+        finish.items = this.items;
+        gameManager.game.finish = finish;
     }
 
     updateState(forceCampaign: boolean = false): void {
         this.forceCampaign = forceCampaign;
+        this.challenges = 0;
+        this.numberChallenges = 0;
         if ((gameManager.game.party.campaignMode || forceCampaign) && this.success) {
             if (this.conclusion) {
                 this.rewards = this.conclusion.rewards;
@@ -105,6 +172,16 @@ export class ScenarioSummaryComponent {
                     }
                     if (index < this.rewards.chooseUnlockCharacter.length) {
                         this.chooseUnlockCharacter = this.rewards.chooseUnlockCharacter[index];
+                    }
+                }
+            }
+            if (gameManager.fhRules()) {
+                const townHall = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'town-hall' && buildingModel.state == 'normal');
+                if (townHall) {
+                    if (townHall.level == 1 || townHall.level == 2) {
+                        this.numberChallenges = 1;
+                    } else if (townHall.level == 3) {
+                        this.numberChallenges = 2;
                     }
                 }
             }
@@ -147,11 +224,25 @@ export class ScenarioSummaryComponent {
     }
 
     toggleBattleGoal(event: any, index: number, value: number) {
+        gameManager.stateManager.before("finishScenario.dialog.battleGoal", '' + index, '' + value);
         if (event.target.checked && this.battleGoals[index] < value) {
             this.battleGoals[index] = value;
         } else if (this.battleGoals[index] >= value) {
             this.battleGoals[index] = value - 1;
         }
+        this.updateFinish();
+        gameManager.stateManager.after();
+    }
+
+    toggleChallenges(second: boolean = false) {
+        gameManager.stateManager.before("finishScenario.dialog.challenge" + (second ? 's' : ''));
+        if (this.challenges > (second ? 1 : 0)) {
+            this.challenges = (second ? 1 : 0);
+        } else {
+            this.challenges = (second ? 2 : 1);
+        };
+        this.updateFinish();
+        gameManager.stateManager.after();
     }
 
     itemDistributed(index: number, itemId: number, itemIndex: number, choose: boolean = true): boolean {
@@ -170,11 +261,35 @@ export class ScenarioSummaryComponent {
     }
 
     toggleItem(event: any, index: number, itemId: number) {
+        gameManager.stateManager.before("finishScenario.dialog.item", '' + index, '' + itemId);
         if (this.items[index].indexOf(itemId) == -1) {
             this.items[index].push(itemId);
         } else {
             this.items[index].splice(this.items[index].indexOf(itemId), 1);
         }
+        this.updateFinish();
+        gameManager.stateManager.after();
+    }
+
+    changeCollectiveGold(event: any, index: number) {
+        gameManager.stateManager.before("finishScenario.dialog.collectiveGold", '' + index, event.target.value);
+        this.collectiveGold[index] = +event.target.value;
+        this.updateFinish();
+        gameManager.stateManager.after();
+    }
+
+    selectLocation(location: string) {
+        gameManager.stateManager.before("finishScenario.dialog.chooseLocation", location);
+        this.chooseLocation = location;
+        this.updateFinish();
+        gameManager.stateManager.after();
+    }
+
+    selectCharacter(character: string) {
+        gameManager.stateManager.before("finishScenario.dialog.chooseUnlockCharacter", character);
+        this.chooseUnlockCharacter = character;
+        this.updateFinish();
+        gameManager.stateManager.after();
     }
 
     openCharacterSheet(character: Character): void {
@@ -193,18 +308,26 @@ export class ScenarioSummaryComponent {
         if (this.success) {
             gameManager.game.figures.filter((figure) => figure instanceof Character).forEach((figure, index) => {
                 const character = (figure as Character);
-                if (this.battleGoals[index] > 0) {
-                    character.progress.battleGoals += this.battleGoals[index];
-                }
+                if (!character.absent) {
+                    if (this.battleGoals[index] > 0) {
+                        character.progress.battleGoals += this.battleGoals[index];
+                    }
 
-                if (this.collectiveGold[index] > 0) {
-                    character.progress.gold += this.collectiveGold[index];
-                }
+                    if (this.collectiveGold[index] > 0) {
+                        character.progress.gold += this.collectiveGold[index];
+                    }
 
-                if (this.items[index] && this.items[index].length > 0) {
-                    this.items[index].forEach((itemId) => {
-                        character.progress.items.push(new Identifier('' + itemId, this.scenario.edition));
-                    })
+                    if (this.items[index] && this.items[index].length > 0) {
+                        this.items[index].forEach((itemId) => {
+                            character.progress.items.push(new Identifier('' + itemId, this.scenario.edition));
+                        })
+                    }
+
+                    if (this.challenges) {
+                        for (let i = 0; i < this.challenges; i++) {
+                            character.progress.experience += 2;
+                        }
+                    }
                 }
             })
 
@@ -214,6 +337,12 @@ export class ScenarioSummaryComponent {
 
             if (this.chooseUnlockCharacter && gameManager.game.unlockedCharacters.indexOf(this.chooseUnlockCharacter) == -1) {
                 gameManager.game.unlockedCharacters.push(this.chooseUnlockCharacter);
+            }
+
+            if (this.challenges) {
+                for (let i = 0; i < this.challenges; i++) {
+                    gameManager.game.party.townGuardPerks += 1;
+                }
             }
         }
         gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, false, undefined, this.casual && !this.forceCampaign);

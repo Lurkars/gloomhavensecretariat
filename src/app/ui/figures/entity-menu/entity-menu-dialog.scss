@@ -373,6 +373,21 @@
     }
   }
 
+  input.title {
+    max-width: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));
+    margin: 0 calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+    color: var(--ghs-color-white);
+    background-color: var(--ghs-color-black);
+    border-width: calc(var(--ghs-unit) * 0.1);
+    border-style: solid;
+    border-color: var(--ghs-color-gray);
+    border-radius: calc(var(--ghs-unit) * 1);
+    user-select: auto;
+    -webkit-user-select: auto;
+    font-family: var(--ghs-font-text);
+    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+  }
+
   .objective-container {
     display: flex;
     align-items: center;
@@ -380,21 +395,6 @@
 
     .max-health {
       right: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-    }
-
-    input {
-      max-width: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));
-      margin: 0 calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-      color: var(--ghs-color-white);
-      background-color: var(--ghs-color-black);
-      border-width: calc(var(--ghs-unit) * 0.1);
-      border-style: solid;
-      border-color: var(--ghs-color-gray);
-      border-radius: calc(var(--ghs-unit) * 1);
-      user-select: auto;
-      -webkit-user-select: auto;
-      font-family: var(--ghs-font-text);
-      font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
     }
   }
 
@@ -448,21 +448,6 @@
 
       .max-health {
         right: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-      }
-
-      input {
-        max-width: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));
-        margin: 0 calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-        color: var(--ghs-color-white);
-        background-color: var(--ghs-color-black);
-        border-width: calc(var(--ghs-unit) * 0.1);
-        border-style: solid;
-        border-color: var(--ghs-color-gray);
-        border-radius: calc(var(--ghs-unit) * 1);
-        user-select: auto;
-        -webkit-user-select: auto;
-        font-family: var(--ghs-font-text);
-        font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
       }
     }
 

@@ -38,6 +38,8 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
   fhSheet: boolean = false;
   csSheet: boolean = false;
 
+  donations: boolean = true;
+
   titles: string[] = [];
 
   constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef, private dialog: Dialog) {
@@ -69,7 +71,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
               this.titles[i] = '';
             }
           }
-          
+
           title = this.titles.join('|');
           if (title.endsWith('|')) {
             title = title.substring(0, title.length - 1);
@@ -112,6 +114,8 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     this.fhSheet = gameManager.fhRules();
     this.csSheet = !this.fhSheet && gameManager.editionRules('cs');
 
+    this.donations = !this.fhSheet;
+
     for (let i = 0; i < 15; i++) {
       if (!this.character.progress.perks[i]) {
         this.character.progress.perks[i] = 0;
@@ -122,6 +126,10 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       for (let value in LootType) {
         const lootType: LootType = value as LootType;
         this.character.progress.loot[lootType] = this.character.progress.loot[lootType] || 0;
+      }
+
+      if (gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'temple' && buildingModel.level > 0 && buildingModel.state == 'normal')) {
+        this.donations = true;
       }
     }
 
@@ -229,7 +237,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       this.character.progress.donations += 1;
       this.character.donations += 1;
       gameManager.game.party.donations += 1;
-      this.character.progress.gold -= 10;
+      this.character.progress.gold -= this.fhSheet ? 5 : 10;
       gameManager.stateManager.after();
     }
   }

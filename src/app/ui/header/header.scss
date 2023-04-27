@@ -86,19 +86,9 @@ header {
       filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
     }
 
-    @keyframes spinning {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
     &.syncing {
       filter: var(--ghs-filter-white);
-      animation: spinning 1500ms linear infinite;
+      animation: ghs-spinning 1500ms linear infinite;
     }
   }
 

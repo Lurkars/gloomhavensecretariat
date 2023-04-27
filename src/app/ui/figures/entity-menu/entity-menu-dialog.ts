@@ -29,6 +29,7 @@ export class EntityMenuDialogComponent {
 
   @ViewChild('charactertitle', { static: false }) characterTitleInput!: ElementRef;
   @ViewChild('objectiveTitle', { static: false }) objectiveTitleInput!: ElementRef;
+  @ViewChild('summonTitle', { static: false }) summonTitleInput!: ElementRef;
 
   conditionType: 'character' | 'monster' | '' = '';
 
@@ -581,6 +582,9 @@ export class EntityMenuDialogComponent {
     if (this.data.entity instanceof Character) {
       this.characterTitleInput.nativeElement.value = this.data.entity.title || settingsManager.getLabel('data.character.' + this.data.entity.name.toLowerCase());
     }
+    if (this.data.entity instanceof Summon) {
+      this.summonTitleInput.nativeElement.value = this.data.entity.title || settingsManager.getLabel('data.summon.' + this.data.entity.name.toLowerCase());
+    }
   }
 
   close(): void {
@@ -764,6 +768,20 @@ export class EntityMenuDialogComponent {
         if (this.range != 0) {
           gameManager.stateManager.before("changeSummonRange", "data.character." + this.data.figure.name, "data.summon." + this.data.entity.name, ghsValueSign(this.range));
           this.data.entity.range += this.range;
+          gameManager.stateManager.after();
+        }
+      }
+
+      if (this.summonTitleInput) {
+        if (this.summonTitleInput.nativeElement.value && this.summonTitleInput.nativeElement.value != this.data.entity.name) {
+          if (this.data.entity.title != this.summonTitleInput.nativeElement.value) {
+            gameManager.stateManager.before("setTitle", this.data.entity.name, this.summonTitleInput.nativeElement.value);
+            this.data.entity.title = this.summonTitleInput.nativeElement.value;
+            gameManager.stateManager.after();
+          }
+        } else if (this.data.entity.title != "") {
+          gameManager.stateManager.before("unsetTitle", 'data.summon.' + this.data.entity.name, this.data.entity.title);
+          this.data.entity.title = "";
           gameManager.stateManager.after();
         }
       }
