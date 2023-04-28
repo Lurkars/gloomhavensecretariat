@@ -241,6 +241,11 @@ export class ScenarioManager {
           }
         }
 
+        if (gameManager.characterManager.characterCount() < 4) {
+          this.game.party.inspiration += 4 - gameManager.characterManager.characterCount();
+        }
+
+
         if (conclusionSection) {
           this.game.party.conclusions.push(new GameScenarioModel(conclusionSection.index, conclusionSection.edition, conclusionSection.group, false, "", []));
         }

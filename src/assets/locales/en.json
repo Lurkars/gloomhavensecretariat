@@ -984,6 +984,7 @@
     "rewards": {
       ".": "Rewards",
       "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> each",
+      "bonus": "Bonus",
       "calenderSection": {
         ".": "Section Links",
         "add": "Add <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/section.svg\"> {0} in %number.{1}% weeks."

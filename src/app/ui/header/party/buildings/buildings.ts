@@ -158,7 +158,7 @@ export class PartyBuildingsComponent implements OnInit {
     if (building.model.level < building.data.upgrades.length + 1 || building.model.level < building.data.manualUpgrades + 1) {
       if (this.upgradeable(building) || force) {
         const costs = building.model.level ? building.data.upgrades[building.model.level - 1] : building.data.costs;
-        if (costs.gold && !force) {
+        if (costs && costs.gold && !force) {
           this.dialog.open(SelectGoldDialog, {
             panelClass: ['dialog'],
             data: { min: costs.gold, max: costs.gold }
@@ -180,7 +180,6 @@ export class PartyBuildingsComponent implements OnInit {
     const costs = building.model.level ? building.data.upgrades[building.model.level - 1] : building.data.costs;
     gameManager.stateManager.before(building.model.level ? "upgradeBuilding" : "buildBuilding", "data.buildings." + building.model.name, '' + (building.model.level + 1));
     if (!force) {
-      // TODO Gold
       this.party.loot[LootType.lumber] = (this.party.loot[LootType.lumber] || 0) - costs.lumber;
       this.party.loot[LootType.metal] = (this.party.loot[LootType.metal] || 0) - costs.metal;
       this.party.loot[LootType.hide] = (this.party.loot[LootType.hide] || 0) - costs.hide;

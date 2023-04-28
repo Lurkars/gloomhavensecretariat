@@ -188,12 +188,16 @@ export class ScenarioSummaryComponent {
         }
     }
 
-    hasRewards(): ScenarioRewards | undefined {
+    hasRewards(): boolean {
         const rewards = this.rewards;
         if (rewards && (rewards.battleGoals || rewards.collectiveGold || rewards.custom || rewards.envelopes || rewards.events || rewards.experience || rewards.gold || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.perks || rewards.prosperity || rewards.reputation || rewards.resources || rewards.collectiveResources || rewards.morale || rewards.inspiration || rewards.chooseUnlockCharacter || rewards.unlockCharacter)) {
-            return rewards;
+            return true;
         }
-        return undefined;
+        return false;
+    }
+
+    hasBonus(): boolean {
+        return this.success && (gameManager.characterManager.characterCount() < 4 || this.numberChallenges > 0);
     }
 
     availableCollectiveGold(): number {
@@ -299,8 +303,9 @@ export class ScenarioSummaryComponent {
         });
     }
 
-    apply() {
-        gameManager.stateManager.before("finishScenario." + (this.success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
+    finish(linkedIndex: string | undefined = undefined) {
+        const linked = gameManager.scenarioData(this.scenario.edition).find((scenarioData) => scenarioData.group == this.scenario.group && scenarioData.index == linkedIndex);
+        gameManager.stateManager.before(this.success && linked ? "finishScenario.linked" : ("finishScenario." + (this.success ? "success" : "failure")), ...gameManager.scenarioManager.scenarioUndoArgs(), linkedIndex ? linkedIndex : '');
         gameManager.game.figures.filter((figure) => figure instanceof Character).forEach((figure, index) => {
             (figure as Character).fromModel(this.characters[index].toModel());
         });
@@ -345,7 +350,7 @@ export class ScenarioSummaryComponent {
                 }
             }
         }
-        gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, false, undefined, this.casual && !this.forceCampaign);
+        gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, false, linked ? new Scenario(linked) : undefined, this.casual && !this.forceCampaign);
         gameManager.stateManager.after(1000);
         this.dialogRef.close();
     }
@@ -355,16 +360,6 @@ export class ScenarioSummaryComponent {
         gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, true);
         gameManager.stateManager.after(1000);
         this.dialogRef.close();
-    }
-
-    linkedScenario(index: string) {
-        const scenario = gameManager.scenarioData(this.scenario.edition).find((scenarioData) => scenarioData.group == this.scenario.group && scenarioData.index == index);
-        if (scenario) {
-            gameManager.stateManager.before("finishScenario.linked", ...gameManager.scenarioManager.scenarioUndoArgs(), index);
-            gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, false, new Scenario(scenario));
-            gameManager.stateManager.after(1000);
-            this.dialogRef.close();
-        }
     }
 
     close() {
