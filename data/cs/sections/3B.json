@@ -1,6 +1,6 @@
 {
   "index": "3B",
-  "name": "Scenario 2",
+  "name": "Underground Channels",
   "edition": "cs",
   "parent": "2",
   "parentSections": [
@@ -20,6 +20,9 @@
       "roomNumber": 3,
       "ref": "e1",
       "initial": true,
+      "treasures": [
+        24
+      ],
       "monster": [
         {
           "name": "deep-terror",

@@ -8,6 +8,11 @@
   "links": [
     "9"
   ],
+  "rewards": {
+    "items": [
+      "20"
+    ]
+  },
   "monsters": [
     "ancient-artillery",
     "living-spirit",
@@ -43,6 +48,10 @@
           "name": "living-spirit",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "normal"
         },
         {
           "name": "stone-golem",

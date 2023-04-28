@@ -3,6 +3,12 @@
   "name": "Rescue Mission",
   "edition": "cs",
   "parent": "9",
+  "parentSections": [
+    [
+      "8C"
+    ]
+  ],
+  "marker": "1",
   "monsters": [
     "ancient-artillery",
     "city-archer",
@@ -49,6 +55,10 @@
           "player4": "normal"
         },
         {
+          "name": "city-archer",
+          "player4": "normal"
+        },
+        {
           "name": "city-guard",
           "type": "normal"
         },
@@ -64,6 +74,10 @@
           "name": "city-guard",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player4": "normal"
         }
       ]
     }

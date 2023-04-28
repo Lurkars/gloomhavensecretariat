@@ -1,6 +1,6 @@
 {
   "index": "2A",
-  "name": "Scenario 1",
+  "name": "The Dark Lake",
   "edition": "cs",
   "parent": "1",
   "marker": "1",
@@ -31,6 +31,10 @@
           "name": "vermling-scout",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
         },
         {
           "name": "vermling-scout",
