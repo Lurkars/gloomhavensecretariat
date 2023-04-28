@@ -2,10 +2,6 @@
   "index": "42",
   "name": "Sunless Trench",
   "edition": "fh",
-  "unlocks": [
-    "49",
-    "50"
-  ],
   "requiredAchievements": [
     {
       "buildings": [

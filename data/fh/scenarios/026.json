@@ -3,10 +3,6 @@
   "index": "26",
   "name": "Quatryl Library",
   "edition": "fh",
-  "unlocks": [
-    "36",
-    "37"
-  ],
   "blocks": [
     "25"
   ],
