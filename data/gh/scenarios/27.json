@@ -28,9 +28,10 @@
     "globalAchievements": [
       "The Rift Neutralized"
     ],
+    "gold": 100,
     "prosperity": 1,
     "hints": {
-      "gold": "+100 Gold this money must immediately be spent on enhancements"
+      "gold": "This money must immediately be spent on enhancements"
     }
   },
   "monsters": [
@@ -218,7 +219,7 @@
     },
     {
       "round": "R == 10",
-      "finish": "lost"
+      "finish": "win"
     }
   ],
   "rooms": [
