@@ -219,7 +219,7 @@
     },
     {
       "round": "R == 10",
-      "finish": "win"
+      "finish": "won"
     }
   ],
   "rooms": [
