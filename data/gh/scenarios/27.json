@@ -61,7 +61,7 @@
             "player3": "normal",
             "player4": "elite"
           },
-          "marker": "a"
+          "marker": "b"
         }
       ]
     },
@@ -80,7 +80,7 @@
       ]
     },
     {
-      "round": "R == 3 || R == 6 || R == 9",
+      "round": "R == 3 || R == 9",
       "spawns": [
         {
           "monster": {
@@ -103,7 +103,7 @@
       ]
     },
     {
-      "round": "R == 4 || R == 7",
+      "round": "R == 4",
       "spawns": [
         {
           "monster": {
@@ -126,7 +126,7 @@
       ]
     },
     {
-      "round": "R == 5 || R == 8",
+      "round": "R == 5",
       "spawns": [
         {
           "monster": {
@@ -149,8 +149,77 @@
       ]
     },
     {
+      "round": "R == 6",
+      "spawns": [
+        {
+          "monster": {
+            "name": "frost-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "sun-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 7",
+      "spawns": [
+        {
+          "monster": {
+            "name": "earth-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "flame-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 8",
+      "spawns": [
+        {
+          "monster": {
+            "name": "night-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
       "round": "R == 10",
-      "finish": "lost"
+      "finish": "won"
     }
   ],
   "rooms": [
