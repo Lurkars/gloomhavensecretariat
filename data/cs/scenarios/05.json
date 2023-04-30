@@ -2,9 +2,6 @@
   "index": "5",
   "name": "Blood of the Oozes",
   "edition": "cs",
-  "unlocks": [
-    "6"
-  ],
   "rewards": {
     "partyAchievements": [
       "Ooze Destroyed"

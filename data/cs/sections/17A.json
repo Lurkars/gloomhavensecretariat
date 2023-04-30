@@ -3,6 +3,7 @@
   "name": "Preto Krisanta",
   "edition": "cs",
   "parent": "16",
+  "marker": "2",
   "monsters": [
     "black-imp",
     "night-demon"

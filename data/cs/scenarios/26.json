@@ -2,11 +2,17 @@
   "index": "26",
   "name": "Thermal Stone Peak",
   "edition": "cs",
-  "requires": [
-    [
-      "23"
-    ]
+  "requiredAchievements": [
+    {
+      "party": [
+        "Frozen Warrior"
+      ]
+    }
   ],
+  "rewards": {
+    "experience": 20,
+    "battleGoals": 1
+  },
   "monsters": [
     "hail-demon",
     "harrower-icecrawlers"
@@ -17,6 +23,23 @@
       "health": "C+3",
       "marker": "a",
       "count": 2
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "chill",
+          "scenarioEffect": true
+        }
+      ]
     }
   ],
   "rooms": [
@@ -43,6 +66,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "harrower-icecrawlers",
+          "player4": "normal"
         }
       ],
       "objectives": [

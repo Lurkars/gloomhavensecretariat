@@ -1,23 +1,94 @@
 {
   "index": "32B",
-  "name": "Scenario 30",
+  "name": "Undead Terrors",
   "edition": "cs",
   "parent": "30",
+  "parentSections": [
+    [
+      "32A"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "twin-corpse"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "twin-corpse",
+            "tags": [
+              "twin-corpse-1"
+            ]
+          },
+          "type": "killed"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-corpse",
+            "type": "normal"
+          },
+          "count": "C+2"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "twin-corpse",
+            "tags": [
+              "twin-corpse-2"
+            ]
+          },
+          "type": "killed"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-corpse",
+            "type": "normal"
+          },
+          "count": "C+2"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        17
+      ],
       "monster": [
         {
           "name": "twin-corpse",
-          "type": "boss"
+          "type": "boss",
+          "tags": [
+            "twin-corpse-1"
+          ]
         },
         {
           "name": "twin-corpse",
-          "type": "boss"
+          "type": "boss",
+          "tags": [
+            "twin-corpse-2"
+          ]
         }
       ]
     }

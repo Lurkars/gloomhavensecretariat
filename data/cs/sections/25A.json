@@ -3,6 +3,7 @@
   "name": "Eerie Grotto",
   "edition": "cs",
   "parent": "24",
+  "marker": "1",
   "monsters": [
     "frozen-cadaver",
     "hail-demon"

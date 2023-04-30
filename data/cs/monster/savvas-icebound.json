@@ -21,14 +21,92 @@
     "special": [
       [
         {
-          "type": "custom",
-          "value": "%game.custom.scenarioBook%"
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "wind-demon",
+                "player2": "normal",
+                "player3": "normal",
+                "player4": "elite"
+              }
+            }
+          ],
+          "small": true
+        },
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "frost-demon",
+                "player2": "normal",
+                "player3": "elite",
+                "player4": "elite"
+              }
+            }
+          ],
+          "small": true
+        },
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "stone-golem",
+                "player2": "normal",
+                "player3": "elite",
+                "player4": "elite"
+              }
+            }
+          ],
+          "small": true
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "small": true,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
         }
       ],
       [
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesRange:3",
+              "small": true
+            }
+          ]
+        },
+        {
           "type": "custom",
-          "value": "%game.custom.scenarioBook%"
+          "value": "If occupying tile A2b, jump to %game.mapMarker.e% <br>If occupying tile A3a, jump to %game.mapMarker.d%",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesRange:3",
+              "small": true
+            }
+          ]
         }
       ]
     ]

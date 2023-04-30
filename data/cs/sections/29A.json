@@ -1,8 +1,9 @@
 {
   "index": "29A",
-  "name": "Scenario 27",
+  "name": "Frostbite Cavern",
   "edition": "cs",
   "parent": "27",
+  "marker": "1",
   "monsters": [
     "savvas-icebound",
     "stone-golem"

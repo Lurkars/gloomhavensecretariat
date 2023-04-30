@@ -3,6 +3,7 @@
   "name": "Fountain of Bones",
   "edition": "cs",
   "parent": "28",
+  "marker": "1",
   "monsters": [
     "cultist",
     "living-bones",
@@ -19,9 +20,7 @@
         },
         {
           "name": "living-bones",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
+          "type": "normal"
         },
         {
           "name": "living-bones",
@@ -31,6 +30,7 @@
         },
         {
           "name": "living-bones",
+          "player3": "elite",
           "player4": "elite"
         },
         {

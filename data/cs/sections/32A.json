@@ -1,8 +1,9 @@
 {
   "index": "32A",
-  "name": "Scenario 30",
+  "name": "Undead Terrors",
   "edition": "cs",
   "parent": "30",
+  "marker": "1",
   "monsters": [
     "black-imp",
     "shadow-demon"
@@ -11,6 +12,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        38
+      ],
       "monster": [
         {
           "name": "black-imp",

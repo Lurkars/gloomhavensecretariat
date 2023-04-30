@@ -2,6 +2,9 @@
   "index": "14",
   "name": "Cultist Cave",
   "edition": "cs",
+  "rewards": {
+    "experience": 15
+  },
   "monsters": [
     "deep-terror",
     "living-corpse"

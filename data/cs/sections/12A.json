@@ -8,6 +8,54 @@
     "black-imp",
     "lurker"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Supply Crate"
+          },
+          "type": "killed",
+          "value": "3"
+        }
+      ],
+      "disableRules": [
+        {
+          "edition": "cs",
+          "scenario": "10",
+          "index": 2,
+          "section": false
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Supply Crate"
+          },
+          "type": "killed",
+          "value": "4"
+        }
+      ],
+      "disableRules": [
+        {
+          "edition": "cs",
+          "scenario": "10",
+          "index": 3,
+          "section": false
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 2,
@@ -28,6 +76,7 @@
         },
         {
           "name": "black-imp",
+          "player3": "elite",
           "player4": "elite"
         },
         {

@@ -2,6 +2,9 @@
   "index": "22",
   "name": "Imp Temple",
   "edition": "cs",
+  "rewards": {
+    "custom": "Each character gains +2 gold and 2 experience for each money token looted"
+  },
   "monsters": [
     "black-imp",
     "forest-imp",
@@ -17,12 +20,20 @@
           "name": "black-imp",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "black-imp",
           "player2": "normal",
           "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
           "player4": "elite"
         },
         {

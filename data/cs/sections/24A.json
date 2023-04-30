@@ -3,6 +3,12 @@
   "name": "Icicle Chambers",
   "edition": "cs",
   "parent": "23",
+  "parentSections": [
+    [
+      "23C"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "hail-demon",
     "harrower-icecrawlers"
@@ -11,6 +17,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        25
+      ],
       "monster": [
         {
           "name": "hail-demon",
@@ -25,7 +34,8 @@
         },
         {
           "name": "hail-demon",
-          "player3": "normal"
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "harrower-icecrawlers",

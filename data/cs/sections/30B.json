@@ -1,8 +1,14 @@
 {
   "index": "30B",
-  "name": "Scenario 28",
+  "name": "Fountain of Bones",
   "edition": "cs",
   "parent": "28",
+  "parentSections": [
+    [
+      "30A"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "cultist",
     "living-bones",
@@ -19,6 +25,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        12
+      ],
       "monster": [
         {
           "name": "cultist",

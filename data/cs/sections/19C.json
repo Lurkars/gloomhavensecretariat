@@ -3,6 +3,12 @@
   "name": "Grab and Go",
   "edition": "cs",
   "parent": "18",
+  "parentSections": [
+    [
+      "19A"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "black-imp",
     "harrower-infester",
@@ -12,6 +18,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        22
+      ],
       "monster": [
         {
           "name": "black-imp",

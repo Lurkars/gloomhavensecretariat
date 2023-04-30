@@ -3,6 +3,12 @@
   "name": "Rescue Mission",
   "edition": "cs",
   "parent": "9",
+  "parentSections": [
+    [
+      "10A"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "ancient-artillery",
     "city-archer",

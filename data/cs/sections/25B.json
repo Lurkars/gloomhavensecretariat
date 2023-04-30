@@ -3,6 +3,12 @@
   "name": "Eerie Grotto",
   "edition": "cs",
   "parent": "24",
+  "parentSections": [
+    [
+      "24C"
+    ]
+  ],
+  "marker": "3",
   "monsters": [
     "hail-demon",
     "harrower-icecrawlers"
@@ -11,6 +17,9 @@
     {
       "roomNumber": 4,
       "initial": true,
+      "treasures": [
+        35
+      ],
       "monster": [
         {
           "name": "hail-demon",

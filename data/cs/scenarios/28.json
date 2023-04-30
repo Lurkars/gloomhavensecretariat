@@ -5,6 +5,9 @@
   "unlocks": [
     "29"
   ],
+  "rewards": {
+    "battleGoals": 1
+  },
   "monsters": [
     "living-bones",
     "ooze"
@@ -22,11 +25,12 @@
         {
           "name": "living-bones",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "living-bones",
+          "player3": "normal",
           "player4": "elite"
         },
         {

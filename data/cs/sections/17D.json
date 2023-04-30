@@ -1,8 +1,14 @@
 {
   "index": "17D",
-  "name": "Scenario 16",
+  "name": "Preto Krisanta",
   "edition": "cs",
   "parent": "16",
+  "parentSections": [
+    [
+      "17A",
+      "17C"
+    ]
+  ],
   "marker": "1",
   "monsters": [
     "apex-demon"
@@ -12,6 +18,9 @@
       "roomNumber": 4,
       "ref": "c1",
       "initial": true,
+      "treasures": [
+        34
+      ],
       "monster": [
         {
           "name": "apex-demon",

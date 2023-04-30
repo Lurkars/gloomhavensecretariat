@@ -3,6 +3,12 @@
   "name": "Cultist Cave",
   "edition": "cs",
   "parent": "14",
+  "parentSections": [
+    [
+      "15A"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "cultist-scenario-14",
     "deep-terror",
@@ -12,6 +18,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        8
+      ],
       "monster": [
         {
           "name": "cultist-scenario-14",

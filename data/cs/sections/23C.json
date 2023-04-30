@@ -3,6 +3,7 @@
   "name": "Icicle Chambers",
   "edition": "cs",
   "parent": "23",
+  "marker": "1",
   "monsters": [
     "frozen-cadaver",
     "hail-demon"
@@ -32,7 +33,6 @@
         },
         {
           "name": "frozen-cadaver",
-          "player3": "elite",
           "player4": "elite"
         },
         {
@@ -44,6 +44,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "hail-demon",
+          "player4": "normal"
         }
       ]
     }

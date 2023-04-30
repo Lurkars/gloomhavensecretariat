@@ -2,10 +2,12 @@
   "index": "6",
   "name": "Poisoned Water",
   "edition": "cs",
-  "requires": [
-    [
-      "5"
-    ]
+  "requiredAchievements": [
+    {
+      "party": [
+        "Ooze Destroyed"
+      ]
+    }
   ],
   "rewards": {
     "reputation": 2,
@@ -18,6 +20,23 @@
     "blood-ooze",
     "toxic-imp",
     "water-spirit"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "poison",
+          "scenarioEffect": true
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -55,6 +74,10 @@
           "name": "water-spirit",
           "player2": "normal",
           "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "water-spirit",
           "player4": "elite"
         }
       ]

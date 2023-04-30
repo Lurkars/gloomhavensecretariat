@@ -8,6 +8,12 @@
   "links": [
     "26"
   ],
+  "rewards": {
+    "partyAchievements": [
+      "Frozen Warrior"
+    ],
+    "experience": 15
+  },
   "monsters": [
     "frozen-cadaver",
     "harrower-icecrawlers"

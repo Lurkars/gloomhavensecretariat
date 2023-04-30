@@ -1,6 +1,6 @@
 {
   "index": "8A",
-  "name": "Scenario 5",
+  "name": "Blood of the Oozes",
   "edition": "cs",
   "parent": "5",
   "resetRound": "hidden",
@@ -53,6 +53,32 @@
           "value": "gelatinous-giant"
         }
       ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "blood-ooze",
+            "tags": [
+              "water-a"
+            ]
+          },
+          "type": "killed",
+          "value": "C"
+        }
+      ],
+      "disableRules": [
+        {
+          "edition": "cs",
+          "scenario": "8A",
+          "index": 0,
+          "section": true
+        }
+      ]
     }
   ],
   "rooms": [
@@ -60,6 +86,9 @@
       "roomNumber": 2,
       "ref": "m1",
       "initial": true,
+      "treasures": [
+        45
+      ],
       "monster": [
         {
           "name": "earth-demon",

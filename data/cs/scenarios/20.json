@@ -5,6 +5,21 @@
   "unlocks": [
     "22"
   ],
+  "requiredAchievements": [
+    {
+      "party": [
+        "!Fallen Lava"
+      ]
+    }
+  ],
+  "links": [
+    "22"
+  ],
+  "rewards": {
+    "reputation": 1,
+    "prosperity": 1,
+    "custom": "Each character gains one random \"Orb\" item (1-10)"
+  },
   "monsters": [
     "deep-terror",
     "living-spirit",
@@ -25,6 +40,23 @@
       "name": "Altar",
       "health": "3x(C+L)",
       "marker": "c"
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle",
+          "scenarioEffect": true
+        }
+      ]
     }
   ],
   "rooms": [

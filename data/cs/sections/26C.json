@@ -3,6 +3,7 @@
   "name": "Brightspark, Behold!",
   "edition": "cs",
   "parent": "25",
+  "marker": "1",
   "monsters": [
     "spitting-drake",
     "sun-demon"

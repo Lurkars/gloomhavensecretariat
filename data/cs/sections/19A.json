@@ -3,6 +3,7 @@
   "name": "Grab and Go",
   "edition": "cs",
   "parent": "18",
+  "marker": "1",
   "monsters": [
     "black-imp",
     "harrower-infester",
