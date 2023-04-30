@@ -152,7 +152,7 @@
         },
         {
           "type": "sufferDamage",
-          "value": 1,
+          "value": 2,
           "small": true
         }
       ]
@@ -177,8 +177,8 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%data.custom.cs.the-cultist.1%",
+          "type": "sufferDamage",
+          "value": 2,
           "small": true
         }
       ]

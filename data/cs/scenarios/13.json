@@ -2,10 +2,31 @@
   "index": "13",
   "name": "Corpse Cavern",
   "edition": "cs",
+  "rewards": {
+    "prosperity": 1,
+    "custom": "Each character gains one of the following:<br><br>\"Major Stamina Potion\" (Item 34) <br>\"Major Power Potion\" (Item 41) <br>\"Major Mana Potion\" (Item 48) <br>If there are none of these available in the shop, gain 20 gold instead"
+  },
   "monsters": [
-    "living-corpse",
+    "living-corpse-scenario-13",
     "lurker",
     "ooze"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "poison",
+          "scenarioEffect": true
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -14,20 +35,20 @@
       "initial": true,
       "monster": [
         {
-          "name": "living-corpse",
+          "name": "living-corpse-scenario-13",
           "type": "elite"
         },
         {
-          "name": "living-corpse",
+          "name": "living-corpse-scenario-13",
           "type": "elite"
         },
         {
-          "name": "living-corpse",
+          "name": "living-corpse-scenario-13",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "living-corpse",
+          "name": "living-corpse-scenario-13",
           "player4": "elite"
         },
         {

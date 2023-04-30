@@ -7,6 +7,11 @@
     "24",
     "25"
   ],
+  "rewards": {
+    "items": [
+      "48"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "flame-demon",
@@ -21,6 +26,9 @@
       "roomNumber": 1,
       "ref": "i1",
       "initial": true,
+      "treasures": [
+        39
+      ],
       "monster": [
         {
           "name": "earth-demon",

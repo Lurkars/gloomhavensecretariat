@@ -5,6 +5,18 @@
   "unlocks": [
     "22"
   ],
+  "requiredAchievements": [
+    {
+      "party": [
+        "!Fallen Lava"
+      ]
+    }
+  ],
+  "rewards": {
+    "reputation": 1,
+    "prosperity": 1,
+    "custom": "Each character gains one random \"Orb\" item (1-10)"
+  },
   "monsters": [
     "deep-terror",
     "living-spirit",

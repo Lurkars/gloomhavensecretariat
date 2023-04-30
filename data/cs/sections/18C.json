@@ -3,6 +3,12 @@
   "name": "Orb Extraction",
   "edition": "cs",
   "parent": "17",
+  "parentSections": [
+    [
+      "18A"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "earth-demon",
     "flame-demon"
@@ -11,6 +17,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        43
+      ],
       "monster": [
         {
           "name": "earth-demon",

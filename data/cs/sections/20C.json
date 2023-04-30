@@ -3,6 +3,12 @@
   "name": "Elemental Experiments",
   "edition": "cs",
   "parent": "19",
+  "parentSections": [
+    [
+      "20A"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "earth-demon",
     "flame-demon",
@@ -16,6 +22,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        16
+      ],
       "monster": [
         {
           "name": "earth-demon",

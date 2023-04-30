@@ -3,6 +3,7 @@
   "name": "Elemental Experiments",
   "edition": "cs",
   "parent": "19",
+  "marker": "1",
   "monsters": [
     "flame-demon",
     "night-demon",

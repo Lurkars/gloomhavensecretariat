@@ -3,6 +3,11 @@
   "name": "Voyage Abound",
   "edition": "cs",
   "parent": "11",
+  "parentSections": [
+    [
+      "13B"
+    ]
+  ],
   "monsters": [
     "flame-demon",
     "night-demon"

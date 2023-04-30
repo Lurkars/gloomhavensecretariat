@@ -3,6 +3,12 @@
   "name": "Grab and Go",
   "edition": "cs",
   "parent": "18",
+  "parentSections": [
+    [
+      "19C"
+    ]
+  ],
+  "marker": "3",
   "monsters": [
     "deep-terror"
   ],

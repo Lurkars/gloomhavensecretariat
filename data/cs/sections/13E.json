@@ -3,6 +3,7 @@
   "name": "Uncovering the Source",
   "edition": "cs",
   "parent": "12",
+  "marker": "1",
   "monsters": [
     "flame-demon",
     "giant-viper",

@@ -3,6 +3,7 @@
   "name": "Cultist Cave",
   "edition": "cs",
   "parent": "14",
+  "marker": "1",
   "monsters": [
     "cultist-scenario-14",
     "deep-terror",

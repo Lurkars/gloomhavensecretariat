@@ -5,6 +5,10 @@
   "unlocks": [
     "16"
   ],
+  "rewards": {
+    "gold": 15,
+    "custom": "Each character gains one random \"Orb\" item (1-10)"
+  },
   "monsters": [
     "cave-bear",
     "giant-viper",

@@ -3,6 +3,7 @@
   "name": "Orb Extraction",
   "edition": "cs",
   "parent": "17",
+  "marker": "1",
   "monsters": [
     "frost-demon",
     "savvas-icestorm",

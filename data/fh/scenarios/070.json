@@ -5,7 +5,7 @@
   "edition": "fh",
   "rewards": {
     "prosperity": 1,
-    "custom": "The True Oak quest complete"
+    "custom": "\"The True Oak\" quest complete"
   },
   "monsters": [
     "city-guard",

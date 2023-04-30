@@ -2,6 +2,10 @@
   "index": "16",
   "name": "Preto Krisanta",
   "edition": "cs",
+  "rewards": {
+    "gold": 10,
+    "custom": "One character gains one +1 enhancement to any Level 1 or X card"
+  },
   "monsters": [
     "flame-demon",
     "sun-demon"
@@ -28,13 +32,17 @@
           "name": "sun-demon",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "sun-demon",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player4": "normal"
         }
       ]
     }
