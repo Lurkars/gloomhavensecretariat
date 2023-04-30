@@ -3,6 +3,7 @@
   "name": "Imp Temple",
   "edition": "cs",
   "parent": "22",
+  "marker": "1",
   "monsters": [
     "forest-imp",
     "harrower-infester"

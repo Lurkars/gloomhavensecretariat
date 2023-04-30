@@ -3,6 +3,7 @@
   "name": "Imp Temple",
   "edition": "cs",
   "parent": "22",
+  "marker": "2",
   "monsters": [
     "black-imp",
     "forest-imp",

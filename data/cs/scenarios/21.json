@@ -5,6 +5,14 @@
   "unlocks": [
     "27"
   ],
+  "rewards": {
+    "partyAchievements": [
+      "Fallen Lava"
+    ],
+    "items": [
+      "99"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "flame-demon"
@@ -26,6 +34,10 @@
           "player4": "elite"
         },
         {
+          "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
           "name": "flame-demon",
           "type": "normal"
         },
@@ -34,6 +46,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player4": "normal"
         }
       ]
     }

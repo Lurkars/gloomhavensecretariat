@@ -3,6 +3,12 @@
   "name": "Imp Temple",
   "edition": "cs",
   "parent": "22",
+  "parentSections": [
+    [
+      "22A"
+    ]
+  ],
+  "marker": "4",
   "monsters": [
     "black-imp",
     "forest-imp"
@@ -11,6 +17,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        32
+      ],
       "monster": [
         {
           "name": "black-imp",

@@ -3,8 +3,9 @@
   "name": "Burial Chamber",
   "edition": "cs",
   "parent": "29",
+  "marker": "1",
   "monsters": [
-    "living-bones",
+    "bone-archer",
     "living-corpse",
     "living-spirit"
   ],
@@ -14,19 +15,19 @@
       "initial": true,
       "monster": [
         {
-          "name": "living-bones",
+          "name": "bone-archer",
           "type": "elite"
         },
         {
-          "name": "living-bones",
+          "name": "bone-archer",
           "type": "elite"
         },
         {
-          "name": "living-bones",
+          "name": "bone-archer",
           "player4": "elite"
         },
         {
-          "name": "living-bones",
+          "name": "bone-archer",
           "player4": "elite"
         },
         {

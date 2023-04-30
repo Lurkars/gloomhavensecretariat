@@ -3,6 +3,7 @@
   "name": "Scenario 21",
   "edition": "cs",
   "parent": "21",
+  "marker": "1",
   "monsters": [
     "earth-demon",
     "flame-demon",
@@ -12,6 +13,10 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        4,
+        36
+      ],
       "monster": [
         {
           "name": "earth-demon",

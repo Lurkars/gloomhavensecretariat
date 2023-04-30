@@ -5,6 +5,10 @@
   "unlocks": [
     "31"
   ],
+  "rewards": {
+    "reputation": 1,
+    "custom": "Add Road Event 57 to the deck"
+  },
   "monsters": [
     "giant-viper",
     "spitting-drake"
@@ -24,6 +28,25 @@
         {
           "type": "attack",
           "value": 1
+        },
+        {
+          "type": "element",
+          "value": "wild",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
         }
       ]
     }
@@ -50,12 +73,20 @@
           "name": "spitting-drake",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "spitting-drake",
           "player2": "normal",
           "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
           "player4": "elite"
         }
       ],

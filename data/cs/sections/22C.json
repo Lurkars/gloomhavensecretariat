@@ -3,6 +3,12 @@
   "name": "Imp Temple",
   "edition": "cs",
   "parent": "22",
+  "parentSections": [
+    [
+      "23A"
+    ]
+  ],
+  "marker": "5",
   "monsters": [
     "black-imp",
     "harrower-infester"

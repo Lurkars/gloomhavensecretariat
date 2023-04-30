@@ -1,8 +1,9 @@
 {
   "index": "27C",
-  "name": "Scenario 26",
+  "name": "Thermal Stone Peak",
   "edition": "cs",
   "parent": "26",
+  "marker": "1",
   "monsters": [
     "frozen-cadaver",
     "harrower-icecrawlers"
@@ -43,6 +44,10 @@
           "name": "harrower-icecrawlers",
           "player2": "normal",
           "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-icecrawlers",
           "player4": "elite"
         }
       ],

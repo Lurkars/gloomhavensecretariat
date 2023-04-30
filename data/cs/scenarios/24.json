@@ -8,6 +8,12 @@
   "links": [
     "26"
   ],
+  "rewards": {
+    "partyAchievements": [
+      "Frozen Warrior"
+    ],
+    "custom": "Each character gains one random \"Orb\" item (1-10)"
+  },
   "monsters": [
     "frozen-cadaver",
     "harrower-icecrawlers"

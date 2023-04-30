@@ -3,6 +3,7 @@
   "name": "Brightspark, Behold!",
   "edition": "cs",
   "parent": "25",
+  "marker": "3",
   "monsters": [
     "giant-viper",
     "lurker"
@@ -21,6 +22,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player4": "normal"
         },
         {
           "name": "giant-viper",

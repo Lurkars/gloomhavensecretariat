@@ -1,8 +1,14 @@
 {
   "index": "28A",
-  "name": "Scenario 26",
+  "name": "Thermal Stone Peak",
   "edition": "cs",
   "parent": "26",
+  "parentSections": [
+    [
+      "27C"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "frozen-cadaver",
     "hail-demon"
@@ -18,6 +24,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        13
+      ],
       "monster": [
         {
           "name": "frozen-cadaver",
@@ -35,6 +44,7 @@
         },
         {
           "name": "frozen-cadaver",
+          "player3": "elite",
           "player4": "elite"
         },
         {

@@ -5,9 +5,29 @@
   "unlocks": [
     "32"
   ],
+  "rewards": {
+    "custom": "Make a decision: <br><br>Give the potion to Selandre (Read Section 34A) <br>Tell Selandre the potion was destroyed (Read Section 32C)"
+  },
   "monsters": [
     "living-corpse",
     "stone-golem"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "immobilize",
+          "scenarioEffect": true
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -27,12 +47,16 @@
           "name": "living-corpse",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "living-corpse",
           "player3": "elite",
           "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "elite"
         },
         {
           "name": "stone-golem",

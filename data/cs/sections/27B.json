@@ -3,6 +3,12 @@
   "name": "Brightspark, Behold!",
   "edition": "cs",
   "parent": "25",
+  "parentSections": [
+    [
+      "27A"
+    ]
+  ],
+  "marker": "4",
   "monsters": [
     "giant-viper",
     "lurker"
