@@ -1075,8 +1075,9 @@
       "cancel": "Cancel",
       "confirm": "Confirm",
       "conclusion": {
-        ".": "Finish scenario with {0}?",
-        "continue": "Continue with {0}"
+        ".": "Finish scenario with '{0}'",
+        "continue": "Continue with '{0}'",
+        "select": "Select conclusion:"
       }
     },
     "set": "Set Scenario",

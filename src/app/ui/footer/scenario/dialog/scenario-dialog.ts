@@ -13,6 +13,7 @@ import { StatsListComponent } from "./stats-list/stats-list";
 import { ScenarioSummaryComponent } from "../summary/scenario-summary";
 import { ScenarioTreasuresDialogComponent } from "../treasures/treasures-dialog";
 import { EventEffectsDialog } from "./event-effects/event-effects";
+import { ScenarioConclusionComponent } from "../scenario-conclusion/scenario-conclusion";
 
 @Component({
     selector: 'ghs-scenario-dialog',
@@ -71,13 +72,35 @@ export class ScenarioDialogComponent {
 
     finishScenario(success: boolean) {
         this.dialogRef.close();
-        this.dialog.open(ScenarioSummaryComponent, {
-            panelClass: 'dialog',
-            data: {
-                scenario: this.scenario,
-                success: success
-            }
-        })
+        const conclusions = gameManager.sectionData(this.scenario.edition).filter((sectionData) =>
+            sectionData.edition == this.scenario.edition && sectionData.parent == this.scenario.index && sectionData.group == this.scenario.group && sectionData.conclusion);
+        if (conclusions.length == 0) {
+            this.dialog.open(ScenarioSummaryComponent, {
+                panelClass: 'dialog',
+                data: {
+                    scenario: this.scenario,
+                    success: success
+                }
+            })
+        } else {
+            this.dialog.open(ScenarioConclusionComponent, {
+                panelClass: ['dialog'],
+                data: { conclusions: conclusions, parent: this.scenario }
+            }).closed.subscribe({
+                next: (conclusion) => {
+                    if (conclusion) {
+                        this.dialog.open(ScenarioSummaryComponent, {
+                            panelClass: 'dialog',
+                            data: {
+                                scenario: this.scenario,
+                                conclusion: conclusion,
+                                success: success
+                            }
+                        })
+                    }
+                }
+            });
+        }
     }
 
     resetScenario() {

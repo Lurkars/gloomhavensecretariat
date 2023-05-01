@@ -59,6 +59,7 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
             next.focus();
           }
           event.preventDefault();
+          event.stopPropagation();
         }
       })
     }

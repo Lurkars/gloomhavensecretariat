@@ -953,8 +953,9 @@
       "cancel": "Abbrechen",
       "confirm": "Bestätigen",
       "conclusion": {
-        ".": "Szenario beenden mit {0}?",
-        "continue": "Fortfahren mit {0}"
+        ".": "Szenario beenden mit '{0}'",
+        "continue": "Fortfahren mit '{0}'",
+        "select": "Abschluss auswählen:"
       }
     },
     "set": "Szenario auswählen",

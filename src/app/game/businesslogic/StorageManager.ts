@@ -170,7 +170,6 @@ export class StorageManager {
             return;
           }
           if (cursor) {
-            console.log('pushing ', cursor.value);
             result.push(cursor.value);
             if (result.length < limit) {
               cursor.continue();

@@ -135,6 +135,7 @@ export class ScenarioSummaryComponent {
         this.forceCampaign = forceCampaign;
         this.challenges = 0;
         this.numberChallenges = 0;
+        this.rewards = undefined;
         if ((gameManager.game.party.campaignMode || forceCampaign) && this.success) {
             if (this.conclusion) {
                 this.rewards = this.conclusion.rewards;
@@ -152,7 +153,7 @@ export class ScenarioSummaryComponent {
                 if (rewardItems) {
                     this.characters.forEach((char, index) => this.items[index] = []);
                     rewardItems.forEach((item) => {
-                        const itemData = gameManager.item(+item.split(':')[0], this.scenario.edition, true);
+                        const itemData = gameManager.item(+item.split(':')[0].split('-')[0], item.split(':')[0].split('-')[1] || this.scenario.edition, true);
                         if (itemData) {
                             this.rewardItems.push(itemData);
                             this.rewardItemCount.push(item.indexOf(':') == -1 ? 1 : +item.split(':')[1]);
@@ -249,27 +250,28 @@ export class ScenarioSummaryComponent {
         gameManager.stateManager.after();
     }
 
-    itemDistributed(index: number, itemId: number, itemIndex: number, choose: boolean = true): boolean {
-        if (choose && this.rewards && this.rewards.chooseItem && this.rewardItems.some((rewardItem, rewardIndex) => rewardIndex != itemIndex && this.characters.some((char, charIndex) => this.itemDistributed(charIndex, rewardItem.id, rewardIndex, false)))) {
+    itemDistributed(index: number, itemIndex: number, choose: boolean = true): boolean {
+        if (choose && this.rewards && this.rewards.chooseItem && this.rewardItems.some((rewardItem, rewardIndex) => rewardIndex != itemIndex && this.characters.some((char, charIndex) => this.itemDistributed(charIndex, rewardIndex, false)))) {
             return true;
         }
 
-        if (this.characters[index].progress.items.find((identifier) => identifier.name == '' + itemId && identifier.edition == this.scenario.edition)) {
+        const item = this.rewardItems[itemIndex];
+        if (this.characters[index].progress.items.find((identifier) => identifier.name == '' + item.id && identifier.edition == item.edition)) {
             return true;
         }
 
         const itemData = this.rewardItems[itemIndex];
         const availableItems = choose ? itemData.count - this.characters.filter((character) => character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition)).length : 1;
 
-        return this.items[index].indexOf(itemId) == -1 && this.items.filter((list) => list.indexOf(itemId) != -1).length >= Math.min(this.rewardItemCount[itemIndex], availableItems);
+        return this.items[index].indexOf(itemIndex) == -1 && this.items.filter((list) => list.indexOf(itemIndex) != -1).length >= Math.min(this.rewardItemCount[itemIndex], availableItems);
     }
 
-    toggleItem(event: any, index: number, itemId: number) {
-        gameManager.stateManager.before("finishScenario.dialog.item", '' + index, '' + itemId);
-        if (this.items[index].indexOf(itemId) == -1) {
-            this.items[index].push(itemId);
+    toggleItem(event: any, index: number, itemIndex: number) {
+        gameManager.stateManager.before("finishScenario.dialog.item", '' + index, '' + this.rewardItems[itemIndex].id);
+        if (this.items[index].indexOf(itemIndex) == -1) {
+            this.items[index].push(itemIndex);
         } else {
-            this.items[index].splice(this.items[index].indexOf(itemId), 1);
+            this.items[index].splice(this.items[index].indexOf(itemIndex), 1);
         }
         this.updateFinish();
         gameManager.stateManager.after();
@@ -323,8 +325,9 @@ export class ScenarioSummaryComponent {
                     }
 
                     if (this.items[index] && this.items[index].length > 0) {
-                        this.items[index].forEach((itemId) => {
-                            character.progress.items.push(new Identifier('' + itemId, this.scenario.edition));
+                        this.items[index].forEach((itemIndex) => {
+                            const item = this.rewardItems[itemIndex]
+                            character.progress.items.push(new Identifier('' + item.id, item.edition));
                         })
                     }
 

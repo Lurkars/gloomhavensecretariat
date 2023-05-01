@@ -5,6 +5,8 @@
       <span class="name">#{{scenario.index}} {{'data.scenario.' + scenario.name | ghsLabel}}</span>
     </span>
     <span *ngIf="success" class="success">{{'scenario.finish.success' | ghsLabel}}</span>
+    <span class="conclusion" *ngIf="conclusion">{{(conclusion.name ? 'data.section.' + conclusion.name :
+      '%scenario.section% #' + conclusion.index) | ghsLabel}}</span>
     <span *ngIf="success && !gameManager.game.party.campaignMode" class="casual">{{'scenario.summary.casualWarning' |
       ghsLabel}}</span>
     <span *ngIf="!success" class="failure">{{'scenario.finish.failure' | ghsLabel}}</span>
@@ -163,8 +165,8 @@
       <ng-container *ngFor="let itemData of rewardItems; let itemIndex = index;">
         <span class="head-col">{{'scenario.summary.item' | ghsLabel:[itemData.name]}}</span>
         <span *ngFor="let character of characters; let index = index;">
-          <input type="checkbox" [disabled]="itemDistributed(index, itemData.id, itemIndex)"
-            [checked]="items[index].indexOf(itemData.id) != -1" (change)="toggleItem($event, index, itemData.id)">
+          <input type="checkbox" [disabled]="itemDistributed(index, itemIndex)"
+            [checked]="items[index].indexOf(itemIndex) != -1" (change)="toggleItem($event, index, itemIndex)">
         </span>
       </ng-container>
     </div>
@@ -215,7 +217,7 @@
         </div>
 
         <div class="reward locations"
-          *ngIf="scenario.unlocks && scenario.unlocks.length > 0 || rewards && rewards.chooseLocation && rewards.chooseLocation.length > 0">
+          *ngIf="success && (scenario.unlocks && scenario.unlocks.length > 0 || rewards && rewards.chooseLocation && rewards.chooseLocation.length > 0)">
           <label>{{(scenario.unlocks && scenario.unlocks.length > 1 || rewards && rewards.chooseLocation &&
             rewards.chooseLocation.length > 1 ?
             'scenario.rewards.locations' :
@@ -239,7 +241,7 @@
           </div>
         </div>
         <div class="reward locations"
-          *ngIf="(!scenario.unlocks || scenario.unlocks.length == 0) && conclusion && conclusion.unlocks && conclusion.unlocks.length > 0">
+          *ngIf="success && (!scenario.unlocks || scenario.unlocks.length == 0) && conclusion && conclusion.unlocks && conclusion.unlocks.length > 0">
           <label>{{(conclusion.unlocks.length > 1 ? 'scenario.rewards.locations' :
             'scenario.rewards.location') | ghsLabel}}:</label>
           <div class="list">
@@ -402,9 +404,9 @@
 
             <div class="item items" *ngFor="let item of (rewards.items || []); let i = index;">
               <span *ngIf="item.indexOf(':') != -1" class="placeholder text-white" [i18n]="'scenario.rewards.items'"
-                [i18n-args]="[item.split(':')[0], gameManager.item(+item.split(':')[0],scenario.edition || '', true)?.name || '', item.split(':')[1]]"></span>
+                [i18n-args]="[item.split(':')[0].split('-')[0], gameManager.item(+item.split(':')[0].split('-')[0],item.split(':')[0].split('-')[1] || scenario.edition || '', true)?.name || '', item.split(':')[1]]"></span>
               <span *ngIf="item.indexOf(':') == -1" class="placeholder text-white" [i18n]="'scenario.rewards.item'"
-                [i18n-args]="[item, gameManager.item(+item,scenario.edition || '', true)?.name || '']"></span>
+                [i18n-args]="[item.split('-')[0] , gameManager.item(+item.split('-')[0], item.split('-')[1] || scenario.edition || '', true)?.name || '']"></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.items && rewards.hints.items[i]"
                 [i18n]="rewards.hints.items[i]"></span>
@@ -488,7 +490,7 @@
               ghsValueSign) ]}} </span>
           </div>
 
-          <div class="item challenges"  *ngIf="numberChallenges > 0">
+          <div class="item challenges" *ngIf="numberChallenges > 0">
             <span>{{('scenario.summary.challenges.' + (numberChallenges > 1 ? 'completed' : 'complete')) |
               ghsLabel}}</span>
             <input type="checkbox" [checked]="challenges > 0" (change)="toggleChallenges()">

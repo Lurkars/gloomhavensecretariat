@@ -15,7 +15,7 @@ import { AttackModiferDeckChange } from "../../figures/attackmodifier/attackmodi
 import { ghsInputFullScreenCheck } from "../../helper/Static";
 import { MapComponent } from "./map/map";
 import { CharacterMoveResourcesDialog } from "../../figures/character/dialogs/move-resources";
-import { ScenarioConclusionComponent } from "./scenario-conclusion/scenario-conclusion";
+import { ScenarioConclusionComponent } from "../../footer/scenario/scenario-conclusion/scenario-conclusion";
 import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
 import { Subscription } from "rxjs";
 
@@ -376,7 +376,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         this.addSuccessIntern(scenarioData);
       } else {
         this.dialog.open(ScenarioConclusionComponent, {
-          panelClass: ['dialog', 'dialog-invert'],
+          panelClass: ['dialog'],
           data: { conclusions: conclusions, parent: scenarioData }
         }).closed.subscribe({
           next: (conclusion) => {
