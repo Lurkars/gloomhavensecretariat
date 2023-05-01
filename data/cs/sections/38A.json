@@ -1,8 +1,14 @@
 {
   "index": "38A",
-  "name": "Scenario 34",
+  "name": "Great Oak Rescue",
   "edition": "cs",
   "parent": "34",
+  "parentSections": [
+    [
+      "37C"
+    ]
+  ],
+  "marker": "3",
   "monsters": [
     "hound",
     "inox-archer"

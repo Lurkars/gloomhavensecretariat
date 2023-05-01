@@ -3,6 +3,12 @@
   "name": "Prison Riot",
   "edition": "cs",
   "parent": "35",
+  "parentSections": [
+    [
+      "39B"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "bandit-archer",
     "night-demon"
@@ -11,6 +17,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        28
+      ],
       "monster": [
         {
           "name": "bandit-archer",
@@ -36,7 +45,8 @@
         },
         {
           "name": "night-demon",
-          "player3": "normal"
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     }

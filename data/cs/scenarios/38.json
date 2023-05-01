@@ -2,6 +2,11 @@
   "index": "38",
   "name": "Altars of Confusion",
   "edition": "cs",
+  "rewards": {
+    "envelopes": [
+      "%data.characterIcon.crescent-sun%"
+    ]
+  },
   "monsters": [
     "black-imp",
     "stone-golem"
@@ -36,7 +41,8 @@
         },
         {
           "name": "stone-golem",
-          "player2": "normal"
+          "player2": "normal",
+          "player4": "normal"
         }
       ]
     }

@@ -1,0 +1,150 @@
+{
+  "name": "ancient-artillery-scenario-32",
+  "thumbnail": "gh-ancient-artillery",
+  "edition": "cs",
+  "deck": "boss",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "standeeShare": "ancient-artillery",
+  "standeeShareEdition": "gh",
+  "baseStat": {
+    "type": "boss",
+    "special": [
+      [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "push",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesRange:2",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesRange:",
+              "small": true
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": "X",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "Target all enemies at %game.action.range%2 or higher",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "where X is the number of hexes between the Artillery and the target",
+              "small": true
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 7,
+      "attack": 3,
+      "range": 5
+    },
+    {
+      "level": 1,
+      "health": 9,
+      "attack": 3,
+      "range": 5
+    },
+    {
+      "level": 2,
+      "health": 11,
+      "attack": 3,
+      "range": 6
+    },
+    {
+      "level": 3,
+      "health": 13,
+      "attack": 4,
+      "range": 6
+    },
+    {
+      "level": 4,
+      "health": 13,
+      "attack": 4,
+      "range": 6,
+      "actions": [
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 15,
+      "attack": 4,
+      "range": 7,
+      "actions": [
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 16,
+      "attack": 5,
+      "range": 7,
+      "actions": [
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 20,
+      "attack": 5,
+      "range": 7,
+      "actions": [
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    }
+  ]
+}

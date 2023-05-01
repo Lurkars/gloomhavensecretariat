@@ -2,8 +2,10 @@
   "index": "31",
   "name": "Eternal Portals",
   "edition": "cs",
+  "rewards": {
+    "battleGoals": 1
+  },
   "monsters": [
-    "earth-demon",
     "rending-drake",
     "spitting-drake"
   ],
@@ -13,10 +15,6 @@
       "ref": "b4",
       "initial": true,
       "monster": [
-        {
-          "name": "earth-demon",
-          "type": "normal"
-        },
         {
           "name": "rending-drake",
           "type": "normal"

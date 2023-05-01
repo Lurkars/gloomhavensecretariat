@@ -1,8 +1,9 @@
 {
   "index": "40A",
-  "name": "Scenario 36",
+  "name": "Hunters Bounty",
   "edition": "cs",
   "parent": "36",
+  "marker": "1",
   "monsters": [
     "terrible-two-archer"
   ],
@@ -10,6 +11,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        2
+      ],
       "monster": [
         {
           "name": "terrible-two-archer",

@@ -1,8 +1,9 @@
 {
   "index": "44C",
-  "name": "Scenario 40",
+  "name": "Smugglers Hideout",
   "edition": "cs",
   "parent": "40",
+  "marker": "1",
   "monsters": [
     "drake-porter",
     "rending-drake",
@@ -12,6 +13,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        21
+      ],
       "monster": [
         {
           "name": "drake-porter",

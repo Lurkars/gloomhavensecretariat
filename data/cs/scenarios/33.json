@@ -8,6 +8,9 @@
   "links": [
     "34"
   ],
+  "rewards": {
+    "reputation": 1
+  },
   "monsters": [
     "inox-archer",
     "inox-guard",
@@ -24,8 +27,15 @@
           "type": "normal"
         },
         {
-          "name": "inox-guard",
-          "type": "normal"
+          "name": "inox-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "inox-guard",
@@ -33,11 +43,20 @@
         },
         {
           "name": "inox-guard",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "inox-shaman",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         }
       ]
     }

@@ -1,0 +1,111 @@
+{
+  "name": "selandre",
+  "thumbnail": "gh-jekserah",
+  "edition": "cs",
+  "deck": "boss",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "standeeShare": "jekserah",
+  "standeeShareEdition": "gh",
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "immobilize",
+      "muddle",
+      "disarm",
+      "curse",
+      "wound",
+      "stun",
+      "poison",
+      "bane",
+      "brittle"
+    ],
+    "special": [
+      [
+        {
+          "type": "move",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "towards the %game.mapMarker.b% hex",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "See Ancient Artillery"
+        }
+      ],
+      [
+        {
+          "type": "heal",
+          "value": "C+1",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "See Ancient Artillery"
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "6xC",
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "level": 1,
+      "health": "7xC",
+      "movement": 2,
+      "attack": 3
+    },
+    {
+      "level": 2,
+      "health": "9xC",
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 3,
+      "health": "12xC",
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "level": 4,
+      "health": "13xC",
+      "movement": 4,
+      "attack": 5
+    },
+    {
+      "level": 5,
+      "health": "15xC",
+      "movement": 5,
+      "attack": 5
+    },
+    {
+      "level": 6,
+      "health": "18xC",
+      "movement": 5,
+      "attack": 5
+    },
+    {
+      "level": 7,
+      "health": "22xC",
+      "movement": 5,
+      "attack": 5
+    }
+  ]
+}

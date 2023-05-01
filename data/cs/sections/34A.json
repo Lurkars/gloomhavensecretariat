@@ -1,0 +1,21 @@
+{
+  "index": "34A",
+  "name": "Give the potion to Selandre",
+  "edition": "cs",
+  "parent": "30",
+  "parentSections": [
+    [
+      "32B"
+    ]
+  ],
+  "conclusion": true,
+  "unlocks": [
+    "32b"
+  ],
+  "rewards": {
+    "partyAchievements": [
+      "Take the Money"
+    ],
+    "gold": 70
+  }
+}

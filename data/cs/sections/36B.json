@@ -1,8 +1,9 @@
 {
   "index": "36B",
-  "name": "Scenario 34",
+  "name": "Great Oak Rescue",
   "edition": "cs",
   "parent": "34",
+  "marker": "1",
   "monsters": [
     "hound",
     "inox-shaman"
@@ -45,6 +46,14 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
         },
         {
           "name": "inox-shaman",

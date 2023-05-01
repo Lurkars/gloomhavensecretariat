@@ -1,8 +1,9 @@
 {
   "index": "42B",
-  "name": "Scenario 38",
+  "name": "Altars of Confusion",
   "edition": "cs",
   "parent": "38",
+  "marker": "1",
   "monsters": [
     "living-spirit",
     "night-demon"
@@ -12,6 +13,46 @@
       "name": "Altar of Mystification",
       "health": "Cx(L+3)",
       "marker": "a"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "living-spirit"
+          },
+          "type": "permanentCondition",
+          "value": "invisible"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Altar of Mystification"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "living-spirit"
+          },
+          "type": "loseCondition",
+          "value": "invisible"
+        }
+      ]
     }
   ],
   "rooms": [

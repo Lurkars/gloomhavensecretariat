@@ -8,6 +8,9 @@
   "links": [
     "38"
   ],
+  "rewards": {
+    "custom": "Gain one random \"Stone\" item (94-100)"
+  },
   "monsters": [
     "flame-demon",
     "sun-demon",
@@ -23,6 +26,46 @@
       "name": "Flaming Stone",
       "health": "L+C+2",
       "marker": "b"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Radiant Stone"
+          },
+          "type": "present"
+        }
+      ],
+      "elements": [
+        {
+          "type": "light",
+          "state": "strong"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Flaming Stone"
+          },
+          "type": "present"
+        }
+      ],
+      "elements": [
+        {
+          "type": "fire",
+          "state": "strong"
+        }
+      ]
     }
   ],
   "rooms": [
@@ -62,7 +105,7 @@
           "name": "vermling-scout",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "vermling-scout",
@@ -73,7 +116,12 @@
         {
           "name": "vermling-scout",
           "player2": "normal",
-          "player3": "elite"
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
         }
       ],
       "objectives": [

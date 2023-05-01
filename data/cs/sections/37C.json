@@ -1,8 +1,14 @@
 {
   "index": "37C",
-  "name": "Scenario 34",
+  "name": "Great Oak Rescue",
   "edition": "cs",
   "parent": "34",
+  "parentSections": [
+    [
+      "36B"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "inox-guard",
     "inox-shaman"
@@ -17,7 +23,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "when attacked in %game.action.range% 3, enemy gains %game.condition.curse%",
+          "value": "When attacked within %game.action.range% 3, enemy gains %game.condition.curse%",
           "small": true
         }
       ]
@@ -27,6 +33,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        42
+      ],
       "monster": [
         {
           "name": "inox-guard",

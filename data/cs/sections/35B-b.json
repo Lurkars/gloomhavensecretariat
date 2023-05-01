@@ -1,0 +1,27 @@
+{
+  "index": "35B-b",
+  "name": "Confronting the Past B",
+  "edition": "cs",
+  "parent": "32b",
+  "marker": "2",
+  "monsters": [
+    "ancient-artillery-scenario-32",
+    "selandre"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery-scenario-32",
+          "type": "boss"
+        },
+        {
+          "name": "selandre",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

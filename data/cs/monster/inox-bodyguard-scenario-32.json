@@ -1,0 +1,148 @@
+{
+  "name": "inox-bodyguard-scenario-32",
+  "thumbnail": "gh-inox-bodyguard",
+  "edition": "cs",
+  "deck": "boss",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "standeeShare": "inox-bodyguard",
+  "standeeShareEdition": "gh",
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "disarm",
+      "poison",
+      "muddle",
+      "stun"
+    ],
+    "special": [
+      [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Then focus on a new target and repeat these abilities until there are no new targets",
+              "small": true
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 2
+            },
+            {
+              "type": "specialTarget",
+              "value": "selfAllies",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "If no other Inox alive:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "summon",
+              "value": "monsterStandee",
+              "small": true,
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "inox-guard",
+                    "player2": "normal",
+                    "player3": "normal",
+                    "player4": "elite"
+                  }
+                },
+                {
+                  "monster": {
+                    "name": "inox-archer",
+                    "player2": "normal",
+                    "player3": "elite",
+                    "player4": "elite"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "6xC",
+      "movement": 2,
+      "attack": "C"
+    },
+    {
+      "level": 1,
+      "health": "7xC",
+      "movement": 2,
+      "attack": "1+C"
+    },
+    {
+      "level": 2,
+      "health": "9xC",
+      "movement": 2,
+      "attack": "1+C"
+    },
+    {
+      "level": 3,
+      "health": "10xC",
+      "movement": 3,
+      "attack": "2+C"
+    },
+    {
+      "level": 4,
+      "health": "11xC",
+      "movement": 3,
+      "attack": "2+C"
+    },
+    {
+      "level": 5,
+      "health": "13xC",
+      "movement": 3,
+      "attack": "3+C"
+    },
+    {
+      "level": 6,
+      "health": "15xC",
+      "movement": 4,
+      "attack": "3+C"
+    },
+    {
+      "level": 7,
+      "health": "17xC",
+      "movement": 4,
+      "attack": "4+C"
+    }
+  ]
+}

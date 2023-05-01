@@ -1,0 +1,13 @@
+{
+  "index": "44B",
+  "name": "Festering Mire",
+  "edition": "cs",
+  "parent": "39",
+  "parentSections": [
+    [
+      "44A"
+    ]
+  ],
+  "monsters": [],
+  "rooms": []
+}

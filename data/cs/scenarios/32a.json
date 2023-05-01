@@ -1,7 +1,17 @@
 {
-  "index": "32",
-  "name": "Confronting the Past",
+  "index": "32a",
+  "name": "Confronting the Past A",
   "edition": "cs",
+  "requiredAchievements": [
+    {
+      "party": [
+        "!Take the Money"
+      ]
+    }
+  ],
+  "rewards": {
+    "custom": "Read Section #75 <br>Password: Water Hydra"
+  },
   "monsters": [
     "living-bones"
   ],

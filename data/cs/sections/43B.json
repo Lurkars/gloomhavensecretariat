@@ -1,8 +1,14 @@
 {
   "index": "43B",
-  "name": "Scenario 38",
+  "name": "Altars of Confusion",
   "edition": "cs",
   "parent": "38",
+  "parentSections": [
+    [
+      "42B"
+    ]
+  ],
+  "marker": "3",
   "monsters": [
     "black-imp",
     "night-demon",
@@ -19,6 +25,9 @@
     {
       "roomNumber": 4,
       "initial": true,
+      "treasures": [
+        29
+      ],
       "monster": [
         {
           "name": "black-imp",

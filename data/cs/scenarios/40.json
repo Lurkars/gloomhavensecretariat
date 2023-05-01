@@ -2,6 +2,9 @@
   "index": "40",
   "name": "Smugglers Hideout",
   "edition": "cs",
+  "rewards": {
+    "collectiveGold": 50
+  },
   "monsters": [
     "rending-drake",
     "spitting-drake"
