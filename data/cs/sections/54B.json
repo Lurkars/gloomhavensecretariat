@@ -3,6 +3,7 @@
   "name": "Viper Marsh",
   "edition": "cs",
   "parent": "47",
+  "marker": "2",
   "monsters": [
     "earth-demon",
     "giant-viper",
@@ -12,6 +13,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        47
+      ],
       "monster": [
         {
           "name": "earth-demon",

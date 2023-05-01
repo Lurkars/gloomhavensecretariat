@@ -1,8 +1,9 @@
 {
   "index": "46A",
-  "name": "Scenario 41",
+  "name": "Curse of the Void",
   "edition": "cs",
   "parent": "41",
+  "marker": "1",
   "monsters": [
     "rogue-hollowpact"
   ],

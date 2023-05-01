@@ -1,6 +1,6 @@
 {
   "index": "46B",
-  "name": "Scenario 42",
+  "name": "Unnatural Beasts",
   "edition": "cs",
   "parent": "42",
   "monsters": [
@@ -11,6 +11,9 @@
     {
       "roomNumber": 4,
       "initial": true,
+      "treasures": [
+        14
+      ],
       "monster": [
         {
           "name": "giant-viper",

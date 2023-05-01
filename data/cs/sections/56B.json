@@ -3,6 +3,7 @@
   "name": "Oak Invasion B",
   "edition": "cs",
   "parent": "50",
+  "marker": "1",
   "monsters": [
     "captain-of-the-guard",
     "cave-bear",
@@ -55,22 +56,22 @@
           "player4": "elite"
         },
         {
-          "name": "inox-archer",
+          "name": "inox-archer:-1",
           "type": "normal"
         },
         {
-          "name": "inox-archer",
+          "name": "inox-archer:-1",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "inox-guard",
+          "name": "inox-guard:-1",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "inox-guard",
+          "name": "inox-guard:-1",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"

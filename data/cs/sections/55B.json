@@ -3,6 +3,7 @@
   "name": "Forest Fire",
   "edition": "cs",
   "parent": "48",
+  "marker": "2",
   "monsters": [
     "inox-archer",
     "inox-shaman",
@@ -25,6 +26,7 @@
         },
         {
           "name": "inox-archer",
+          "player3": "elite",
           "player4": "elite"
         },
         {

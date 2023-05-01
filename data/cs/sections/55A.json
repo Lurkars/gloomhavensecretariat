@@ -3,6 +3,7 @@
   "name": "Oak Invasion A",
   "edition": "cs",
   "parent": "49",
+  "marker": "1",
   "monsters": [
     "city-archer:-1",
     "city-guard:-1",
@@ -21,22 +22,22 @@
       "initial": true,
       "monster": [
         {
-          "name": "city-archer",
+          "name": "city-archer:-1",
           "type": "normal"
         },
         {
-          "name": "city-archer",
+          "name": "city-archer:-1",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "city-guard",
+          "name": "city-guard:-1",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "city-guard",
+          "name": "city-guard:-1",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"

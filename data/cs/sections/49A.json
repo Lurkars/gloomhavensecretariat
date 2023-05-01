@@ -3,6 +3,7 @@
   "name": "Haunted Manor",
   "edition": "cs",
   "parent": "44",
+  "marker": "1",
   "monsters": [
     "living-spirit",
     "night-demon"
@@ -11,6 +12,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        5
+      ],
       "monster": [
         {
           "name": "living-spirit",

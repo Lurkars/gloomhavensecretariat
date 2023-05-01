@@ -2,6 +2,10 @@
   "index": "42",
   "name": "Unnatural Beasts",
   "edition": "cs",
+  "rewards": {
+    "experience": 10,
+    "reputation": 1
+  },
   "monsters": [],
   "rooms": [
     {

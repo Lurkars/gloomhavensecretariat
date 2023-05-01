@@ -2,6 +2,10 @@
   "index": "46",
   "name": "Vermling Gardens",
   "edition": "cs",
+  "rewards": {
+    "experience": 15,
+    "reputation": 2
+  },
   "monsters": [
     "hound",
     "vermling-scout",
@@ -32,11 +36,12 @@
         {
           "name": "vermling-scout",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "vermling-scout",
+          "player3": "normal",
           "player4": "elite"
         },
         {

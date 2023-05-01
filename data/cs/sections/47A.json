@@ -1,16 +1,200 @@
 {
   "index": "47A",
-  "name": "Scenario 42",
+  "name": "Unnatural Beasts",
   "edition": "cs",
   "parent": "42",
+  "marker": "1",
   "monsters": [
     "hound",
     "sly-wolf"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "sly-wolf"
+          },
+          "type": "permanentCondition",
+          "value": "invisible"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "hound"
+          },
+          "type": "killed"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "sly-wolf"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "sly-wolf"
+          },
+          "type": "damage",
+          "value": "C"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "type": "normal"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "hound"
+          },
+          "type": "killed",
+          "value": "2"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "sly-wolf"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "sly-wolf"
+          },
+          "type": "damage",
+          "value": "C"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "type": "normal"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "hound"
+          },
+          "type": "killed",
+          "value": "3"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "sly-wolf"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "sly-wolf"
+          },
+          "type": "damage",
+          "value": "C"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "type": "normal"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "hound"
+          },
+          "type": "killed",
+          "value": "4"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "sly-wolf"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "sly-wolf"
+          },
+          "type": "damage",
+          "value": "C"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "type": "normal"
+          },
+          "marker": "a"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        27
+      ],
       "monster": [
         {
           "name": "hound",

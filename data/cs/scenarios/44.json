@@ -2,9 +2,30 @@
   "index": "44",
   "name": "Haunted Manor",
   "edition": "cs",
+  "rewards": {
+    "gold": 20,
+    "custom": "Each character gains one random \"Orb\" item (1-10)"
+  },
   "monsters": [
     "harrower-infester",
     "living-spirit"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:3",
+          "scenarioEffect": true
+        }
+      ]
+    }
   ],
   "rooms": [
     {
