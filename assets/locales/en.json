@@ -1012,8 +1012,9 @@
       "inspiration": "{0} inspiration",
       "item": "\"{1}\" (Item {0})",
       "items": "{2} \"{1}\" (Item {0})",
+      "itemBlueprint": "Gain \"{1}\" %data.itemFh.{0}% blueprint",
       "itemDesign": "\"{1}\" design (Item {0})",
-      "itemDesignRange": "Add Items {0}",
+      "itemDesignRange": "Add Item designs {0}",
       "location": "New Location",
       "locations": "New Locations",
       "lostPartyAchievements": "Lost Party Achievements",
@@ -1075,8 +1076,9 @@
       "cancel": "Cancel",
       "confirm": "Confirm",
       "conclusion": {
-        ".": "Finish scenario with {0}?",
-        "continue": "Continue with {0}"
+        ".": "Finish scenario with '{0}'",
+        "continue": "Continue with '{0}'",
+        "select": "Select conclusion:"
       }
     },
     "set": "Set Scenario",
