@@ -5,6 +5,14 @@
             gameManager.game.party.weeks)+'']}}</span>
     </div>
     <div class="sections">
+        <span class="section" *ngFor="let section of sectionsFixed()">
+            <img
+                [src]="'./assets/images/' + (isConclusion(section) ? 'scenario/conclusion.svg'  : 'fh/party/section.svg')">
+            {{section}}
+            <a class="conclusion" *ngIf="hasConclusions(section)" (click)="openConclusions(section)"><img
+                    src="./assets/images/hint.svg"> {{'party.campaign.sheet.weekSections.openConclusion'
+                | ghsLabel}}</a>
+        </span>
         <span class="section" *ngFor="let section of sections()">
             <img
                 [src]="'./assets/images/' + (isConclusion(section) ? 'scenario/conclusion.svg'  : 'fh/party/section.svg')">

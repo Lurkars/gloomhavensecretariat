@@ -91,5 +91,6 @@ export class ScenarioFinish {
   chooseLocation: string | undefined;
   chooseUnlockCharacter: string | undefined;
   challenges: number = 0;
+  calenderSectionManual: number[] = [];
 
 }

@@ -36,7 +36,7 @@ export class PartyWeekDialogComponent {
     }
 
     sections(): string[] {
-        return [...this.sectionsFixed(), ...(gameManager.game.party.weekSections[this.week] || [])];
+        return gameManager.game.party.weekSections[this.week] || [];
     }
 
     isConclusion(section: string): boolean {

@@ -42,6 +42,7 @@ export class ScenarioSummaryComponent {
     rewards: ScenarioRewards | undefined = undefined;
     challenges: number = 0;
     numberChallenges: number = 0;
+    calenderSectionManual: number[] = [];
 
     EntityValueFunction = EntityValueFunction;
 
@@ -105,6 +106,7 @@ export class ScenarioSummaryComponent {
                     this.chooseUnlockCharacter = finish.chooseUnlockCharacter;
                     this.collectiveGold = finish.collectiveGold;
                     this.items = finish.items;
+                    this.calenderSectionManual = finish.calenderSectionManual;
                 }
             }
         })
@@ -128,6 +130,7 @@ export class ScenarioSummaryComponent {
         finish.chooseUnlockCharacter = this.chooseUnlockCharacter;
         finish.collectiveGold = this.collectiveGold;
         finish.items = this.items;
+        finish.calenderSectionManual = this.calenderSectionManual;
         gameManager.game.finish = finish;
     }
 
@@ -175,6 +178,9 @@ export class ScenarioSummaryComponent {
                         this.chooseUnlockCharacter = this.rewards.chooseUnlockCharacter[index];
                     }
                 }
+                if (this.rewards.calenderSectionManual) {
+                    this.rewards.calenderSectionManual.forEach((section, index) => this.calenderSectionManual[index] = 0);
+                }
             }
             if (gameManager.fhRules()) {
                 const townHall = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'town-hall' && buildingModel.state == 'normal');
@@ -191,14 +197,14 @@ export class ScenarioSummaryComponent {
 
     hasRewards(): boolean {
         const rewards = this.rewards;
-        if (rewards && (rewards.battleGoals || rewards.collectiveGold || rewards.custom || rewards.envelopes || rewards.events || rewards.experience || rewards.gold || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.perks || rewards.prosperity || rewards.reputation || rewards.resources || rewards.collectiveResources || rewards.morale || rewards.inspiration || rewards.chooseUnlockCharacter || rewards.unlockCharacter)) {
+        if (rewards && (rewards.battleGoals || rewards.collectiveGold || rewards.custom || rewards.envelopes || rewards.events || rewards.experience || rewards.gold || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.itemBlueprints || rewards.perks || rewards.prosperity || rewards.reputation || rewards.resources || rewards.collectiveResources || rewards.morale || rewards.inspiration || rewards.chooseUnlockCharacter || rewards.unlockCharacter || rewards.calenderSection || rewards.calenderSectionManual)) {
             return true;
         }
         return false;
     }
 
     hasBonus(): boolean {
-        return this.success && (gameManager.characterManager.characterCount() < 4 || this.numberChallenges > 0);
+        return ((gameManager.game.party.campaignMode || this.forceCampaign) && this.success) && (gameManager.characterManager.characterCount() < 4 || this.numberChallenges > 0);
     }
 
     availableCollectiveGold(): number {
@@ -284,6 +290,13 @@ export class ScenarioSummaryComponent {
         gameManager.stateManager.after();
     }
 
+    changeCalenderSectionManual(event: any, index: number) {
+        gameManager.stateManager.before("finishScenario.dialog.calenderSectionManual", '' + index, event.target.value);
+        this.calenderSectionManual[index] = +event.target.value;
+        this.updateFinish();
+        gameManager.stateManager.after();
+    }
+
     selectLocation(location: string) {
         gameManager.stateManager.before("finishScenario.dialog.chooseLocation", location);
         this.chooseLocation = location;
@@ -351,6 +364,16 @@ export class ScenarioSummaryComponent {
                 for (let i = 0; i < this.challenges; i++) {
                     gameManager.game.party.townGuardPerks += 1;
                 }
+            }
+
+            if (this.rewards && this.rewards.calenderSectionManual) {
+                this.rewards.calenderSectionManual.forEach((sectionManual, index) => {
+                    const week = gameManager.game.party.weeks + this.calenderSectionManual[index];
+                    if (!gameManager.game.party.weekSections[week]) {
+                        gameManager.game.party.weekSections[week] = [];
+                    }
+                    gameManager.game.party.weekSections[week]?.push(sectionManual.section);
+                })
             }
         }
         gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, false, linked ? new Scenario(linked) : undefined, this.casual && !this.forceCampaign);

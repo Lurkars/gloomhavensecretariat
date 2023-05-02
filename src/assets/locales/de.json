@@ -890,6 +890,7 @@
       "inspiration": "{0} Inspiration",
       "item": "\"{1}\" (Gegenstand {0})",
       "items": "{2} \"{1}\" (Gegenstand {0})",
+      "itemBlueprint": "Erhalte \"{1}\" %data.itemFh.{0}% Gegenstandsplan",
       "itemDesign": "\"{1}\" Design (Gegenstand {0})",
       "itemDesignRange": "Füge Gegenstände {0} hinzu",
       "location": "Neuer Ort",

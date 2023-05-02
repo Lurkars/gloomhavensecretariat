@@ -641,8 +641,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       value = 0;
     }
 
-    if (gameManager.game.edition)
-      gameManager.stateManager.before("setPartyWeeks", "" + value);
+    gameManager.stateManager.before("setPartyWeeks", "" + value);
     for (let week = this.party.weeks; week < value; week++) {
       const sectionsForWeeks = [...this.sectionsForWeekFixed(week + 1), ...this.sectionsForWeek(week + 1)]
       sectionsForWeeks.forEach((section) => {

@@ -9,7 +9,7 @@
             <img [src]="character.iconUrl" />
             <label class="headline" [ngClass]="{'absent' : character.absent}" (click)="toggleCharacterAbsent()"
               [title]="(character.absent ? 'character.absent' : 'character.present') | ghsLabel">
-              <div class="character-title" text-shrink>
+              <div class="character-title">
                 {{'character.progress.title' | ghsLabel:['data.character.' + character.name,
                 character.characterClass ? 'character.class.' + (character.gender ? character.gender + '.' : '') +
                 character.characterClass : '']}}

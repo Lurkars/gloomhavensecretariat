@@ -313,6 +313,17 @@
             </div>
           </div>
         </div>
+        <div class="reward achievements"
+          *ngIf="rewards && rewards.calenderSectionManual && rewards.calenderSectionManual.length > 0">
+          <label>{{'scenario.rewards.calenderSectionManual' | ghsLabel}}:</label>
+          <div class="list">
+            <div class="item achievement" *ngFor="let calenderSection of rewards.calenderSectionManual; let i = index;">
+              <span class="placeholder text-white" [i18n]="calenderSection.hint"></span>
+              <input type="number" min="0" [value]="calenderSectionManual[i]"
+                (change)="changeCalenderSectionManual($event, i)">
+            </div>
+          </div>
+        </div>
         <div class="reward" *ngIf="rewards && hasRewards()">
           <label>{{'scenario.rewards' | ghsLabel}}:</label>
           <div class="list">
