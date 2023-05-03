@@ -3,6 +3,11 @@
   "name": "And Then, a Stream",
   "edition": "fh",
   "parent": "130",
+  "parentSections": [
+    [
+      "173.2"
+    ]
+  ],
   "monsters": [
     "frozen-corpse",
     "lightning-eel",

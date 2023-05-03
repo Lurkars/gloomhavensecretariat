@@ -1,0 +1,12 @@
+{
+  "index": "171.5",
+  "name": "Return the sun agates to Derrick",
+  "edition": "fh",
+  "parent": "130",
+  "conclusion": true,
+  "rewards": {
+    "morale": -3,
+    "prosperity": 1,
+    "custom": "Gain 10 collective gold for each token carried"
+  }
+}

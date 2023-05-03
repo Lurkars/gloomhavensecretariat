@@ -1,0 +1,12 @@
+{
+  "index": "166.5",
+  "name": "Destroy the automaton and pass along the vermling technology",
+  "edition": "fh",
+  "parent": "121",
+  "conclusion": true,
+  "rewards": {
+    "calenderSection": [
+      "184.3-6"
+    ]
+  }
+}
