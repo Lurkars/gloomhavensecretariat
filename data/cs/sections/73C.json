@@ -1,8 +1,9 @@
 {
   "index": "73C",
-  "name": "Scenario 65",
+  "name": "Beyond the Grave",
   "edition": "cs",
   "parent": "65",
+  "marker": "1",
   "monsters": [
     "vermling-shaman"
   ],
@@ -10,6 +11,7 @@
     {
       "name": "Vile Spirit",
       "health": 4,
+      "initiative": 50,
       "marker": "b",
       "count": 2,
       "actions": [

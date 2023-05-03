@@ -1,15 +1,16 @@
 {
-  "index": "69C",
-  "name": "Archaic Preservation",
+  "index": "68B",
+  "name": "Through the Fire and the Flames",
   "edition": "cs",
-  "parent": "61",
+  "parent": "60",
   "parentSections": [
     [
-      "69B"
+      "68A"
     ]
   ],
   "monsters": [
-    "stone-golem"
+    "drakefiend",
+    "spitting-drake-scenario-60"
   ],
   "rules": [
     {
@@ -20,26 +21,23 @@
         {
           "identifier": {
             "type": "monster",
-            "name": "archaic-golem"
+            "edition": "cs",
+            "name": "drakefiend"
           },
-          "type": "damage",
-          "value": "2"
+          "type": "setHp",
+          "value": "H/2"
         }
       ]
     }
   ],
   "rooms": [
     {
-      "roomNumber": 3,
+      "roomNumber": 4,
       "initial": true,
       "monster": [
         {
-          "name": "stone-golem",
-          "type": "normal"
-        },
-        {
-          "name": "stone-golem",
-          "type": "normal"
+          "name": "drakefiend",
+          "type": "boss"
         }
       ]
     }

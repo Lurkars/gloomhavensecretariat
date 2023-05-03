@@ -2,6 +2,11 @@
   "index": "52",
   "name": "Wishing Well",
   "edition": "cs",
+  "rewards": {
+    "items": [
+      "37"
+    ]
+  },
   "monsters": [
     "ooze",
     "spitting-drake"

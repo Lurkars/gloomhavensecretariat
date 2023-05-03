@@ -2,10 +2,35 @@
   "index": "61",
   "name": "Archaic Preservation",
   "edition": "cs",
+  "rewards": {
+    "items": [
+      "42"
+    ]
+  },
   "monsters": [
     "ancient-artillery",
-    "rending-drake",
-    "stone-golem"
+    "archaic-golem",
+    "rending-drake"
+  ],
+  "allies": [
+    "archaic-golem"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:2",
+          "scenarioEffect": true
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -22,16 +47,16 @@
           "type": "normal"
         },
         {
-          "name": "rending-drake",
-          "type": "normal"
-        },
-        {
-          "name": "rending-drake",
-          "type": "normal"
-        },
-        {
-          "name": "stone-golem",
+          "name": "archaic-golem",
           "type": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
         }
       ]
     }

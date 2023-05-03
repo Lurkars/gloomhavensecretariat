@@ -5,6 +5,13 @@
   "unlocks": [
     "22"
   ],
+  "requiredAchievements": [
+    {
+      "buildings": [
+        "boat"
+      ]
+    }
+  ],
   "rewards": {
     "campaignSticker": [
       "Coral Shard",

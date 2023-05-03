@@ -1,10 +1,33 @@
 {
   "index": "60A",
-  "name": "Scenario 53",
+  "name": "Cave of Currents",
   "edition": "cs",
   "parent": "53",
+  "parentSections": [
+    [
+      "59C"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "morphling"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle"
+        }
+      ]
+    }
   ],
   "rooms": [
     {

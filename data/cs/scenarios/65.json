@@ -2,6 +2,11 @@
   "index": "65",
   "name": "Beyond the Grave",
   "edition": "cs",
+  "rewards": {
+    "items": [
+      "41"
+    ]
+  },
   "monsters": [
     "vermling-shaman"
   ],
@@ -9,8 +14,7 @@
     {
       "name": "Angry Spirit",
       "health": "6",
-      "escort": true,
-      "initiative": 25,
+      "initiative": 50,
       "marker": "a",
       "count": 2,
       "actions": [

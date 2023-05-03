@@ -3,6 +3,7 @@
   "name": "Rodent Warehouse",
   "edition": "cs",
   "parent": "51",
+  "marker": "1",
   "monsters": [
     "sun-demon",
     "vermling-scout",

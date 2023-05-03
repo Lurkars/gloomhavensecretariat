@@ -2,10 +2,15 @@
   "index": "60",
   "name": "Through the Fire and the Flames",
   "edition": "cs",
+  "rewards": {
+    "items": [
+      "51"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "flame-demon",
-    "savvas-lavaflow"
+    "savvas-lavaflow-scenario-60"
   ],
   "rooms": [
     {
@@ -14,7 +19,7 @@
       "initial": true,
       "monster": [
         {
-          "name": "savvas-lavaflow",
+          "name": "savvas-lavaflow-scenario-60",
           "type": "elite"
         }
       ]

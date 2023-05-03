@@ -7,6 +7,23 @@
     "black-imp",
     "lurker"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "archaic-golem"
+          },
+          "type": "damage",
+          "value": "2"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 2,

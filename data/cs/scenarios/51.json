@@ -2,6 +2,10 @@
   "index": "51",
   "name": "Rodent Warehouse",
   "edition": "cs",
+  "rewards": {
+    "gold": 30,
+    "reputation": 1
+  },
   "monsters": [
     "flame-demon",
     "vermling-scout"

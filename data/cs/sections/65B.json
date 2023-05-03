@@ -3,6 +3,7 @@
   "name": "Elemental Converter",
   "edition": "cs",
   "parent": "57",
+  "marker": "3",
   "monsters": [
     "black-imp",
     "deep-terror"

@@ -3,6 +3,11 @@
   "name": "Forest Invaders",
   "edition": "cs",
   "parent": "59",
+  "parentSections": [
+    [
+      "67A"
+    ]
+  ],
   "monsters": [
     "cave-bear",
     "vermling-shaman"

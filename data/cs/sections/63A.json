@@ -3,16 +3,23 @@
   "name": "Catacomb Plunder",
   "edition": "cs",
   "parent": "55",
+  "marker": "1",
   "monsters": [
     "bandit-archer",
     "earth-demon",
     "harrower-infester",
     "living-corpse"
   ],
+  "allies": [
+    "living-bones-scenario-55"
+  ],
   "rooms": [
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        31
+      ],
       "monster": [
         {
           "name": "bandit-archer",
@@ -26,6 +33,10 @@
           "name": "earth-demon",
           "player2": "normal",
           "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "earth-demon",
           "player4": "elite"
         },
         {

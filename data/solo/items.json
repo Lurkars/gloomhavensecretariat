@@ -201,6 +201,16 @@
     "spent": true
   },
   {
+    "id": 41,
+    "name": "Spirit Libation",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "skull",
+    "slot": "small",
+    "spent": true
+  },
+  {
     "id": 42,
     "name": "Robe of Soothing",
     "cost": 50,

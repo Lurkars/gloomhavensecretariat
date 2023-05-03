@@ -1,8 +1,9 @@
 {
   "index": "61B",
-  "name": "Scenario 54",
+  "name": "Lair of Horrors",
   "edition": "cs",
   "parent": "54",
+  "marker": "1",
   "monsters": [
     "terror-drone",
     "undead-archer"
@@ -23,6 +24,10 @@
           "player4": "elite"
         },
         {
+          "name": "terror-drone",
+          "player4": "normal"
+        },
+        {
           "name": "undead-archer",
           "type": "normal"
         },
@@ -31,6 +36,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "undead-archer",
+          "player4": "normal"
         }
       ]
     }

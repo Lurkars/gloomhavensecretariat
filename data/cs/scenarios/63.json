@@ -2,12 +2,37 @@
   "index": "63",
   "name": "A Cornered Viper",
   "edition": "cs",
+  "rewards": {
+    "items": [
+      "53"
+    ]
+  },
   "monsters": [
     "cave-bear",
     "giant-viper",
     "living-corpse",
     "living-spirit",
     "stone-golem"
+  ],
+  "objectives": [
+    {
+      "name": "Lost Ranger",
+      "health": "10",
+      "initiative": 30,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "3",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "5",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -51,6 +76,9 @@
           "name": "stone-golem",
           "type": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

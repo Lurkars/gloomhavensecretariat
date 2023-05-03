@@ -2,9 +2,67 @@
   "index": "55",
   "name": "Catacomb Plunder",
   "edition": "cs",
+  "rewards": {
+    "experience": 10,
+    "reputation": 1,
+    "prosperity": 1
+  },
   "monsters": [
     "bandit-archer",
-    "earth-demon"
+    "earth-demon",
+    "living-bones-scenario-55"
+  ],
+  "allies": [
+    "living-bones-scenario-55"
+  ],
+  "objectives": [
+    {
+      "name": "Spring Guns",
+      "health": "C+L",
+      "marker": "a",
+      "count": "3",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "If any character ends their turn within %game.action.range%2, the Spring Gun performs:",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": "2",
+          "small": true,
+          "subActions": [
+            {
+              "type": "range",
+              "value": "2",
+              "small": true
+            },
+            {
+              "type": "pierce",
+              "value": "2",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "tomb-protector"
+          },
+          "type": "damage",
+          "value": "H/4"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -39,6 +97,11 @@
           "player3": "normal",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1
       ]
     }
   ]
