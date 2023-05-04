@@ -1,8 +1,9 @@
 {
   "index": "3-1",
   "group": "QA",
-  "name": "Cooling Chamber",
+  "name": "Solo: Magnum Opus",
   "edition": "cs",
+  "parent": "QA3",
   "monsters": [
     "clockwork-railcaster",
     "clockwork-soldier"

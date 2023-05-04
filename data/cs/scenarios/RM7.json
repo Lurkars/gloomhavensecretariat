@@ -1,12 +1,15 @@
 {
-  "index": "7",
+  "index": "RM7",
   "group": "RM",
   "name": "Insatiable",
   "edition": "cs",
-  "unlocks": [
-    "10",
-    "8"
-  ],
+  "initial": true,
+  "rewards": {
+    "experience": 10,
+    "items": [
+      "115"
+    ]
+  },
   "monsters": [
     "ruinmaw",
     "vermling-scout",
@@ -36,6 +39,7 @@
         },
         {
           "name": "vermling-scout",
+          "player3": "normal",
           "player4": "normal"
         },
         {

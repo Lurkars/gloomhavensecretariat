@@ -1,12 +1,18 @@
 {
-  "index": "4",
+  "index": "RM4",
   "group": "RM",
   "name": "Terrorscale Lair",
   "edition": "cs",
-  "unlocks": [
-    "5",
-    "6"
-  ],
+  "rewards": {
+    "envelopes": [
+      "%data.characterIcon.bleeding-claw%"
+    ],
+    "itemDesigns": [
+      "112",
+      "113"
+    ],
+    "custom": "\"Apex Predator\" quest complete"
+  },
   "monsters": [
     "gnashing-drake",
     "terrorscale-drake"

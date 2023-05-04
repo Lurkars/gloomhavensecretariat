@@ -3,7 +3,8 @@
   "group": "RM",
   "name": "Terrorscale Lair",
   "edition": "cs",
-  "parent": "4",
+  "parent": "RM4",
+  "marker": "1",
   "monsters": [
     "gnashing-drake",
     "rending-drake",
@@ -31,6 +32,10 @@
           "player2": "elite",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "gnashing-drake",
+          "player2": "elite"
         },
         {
           "name": "rending-drake",

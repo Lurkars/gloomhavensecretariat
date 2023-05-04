@@ -1,15 +1,21 @@
 {
-  "index": "6",
+  "index": "RM6",
   "group": "RM",
   "name": "Solo: The Fall of Shadow's Respite",
   "edition": "cs",
-  "requires": [
-    [
-      "5"
-    ]
-  ],
+  "initial": true,
+  "rewards": {
+    "items": [
+      "114"
+    ],
+    "custom": "If at least three Vermlings were alive at the end of the eighth round: 5 gold <br>If at least five Vermlings were alive at the end of the eighth round: +1 Battle Goal"
+  },
   "monsters": [
     "gnashing-drake",
+    "vermling-scout-ally",
+    "vermling-shaman-ally"
+  ],
+  "allies": [
     "vermling-scout-ally",
     "vermling-shaman-ally"
   ],
@@ -19,6 +25,42 @@
       "health": "6+L",
       "escort": true,
       "marker": "a"
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 3",
+      "sections": [
+        "6-1"
+      ]
+    },
+    {
+      "round": "R == 6",
+      "sections": [
+        "6-2"
+      ]
+    },
+    {
+      "round": "R == 8",
+      "note": "Read Section 3 <br>Place the Ruinmaw at hex %game.mapMarker.a%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "The Choosen"
+          },
+          "type": "remove"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "vermling-scout-ally|vermling-shaman-ally"
+          },
+          "type": "remove"
+        }
+      ]
     }
   ],
   "rooms": [

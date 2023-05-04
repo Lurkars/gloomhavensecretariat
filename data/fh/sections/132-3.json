@@ -1,0 +1,18 @@
+{
+  "index": "132.3",
+  "name": "Give Rattusca her share",
+  "edition": "fh",
+  "parent": "90",
+  "conclusion": true,
+  "unlocks": [
+    "91"
+  ],
+  "forcedLinks": [
+    "91"
+  ],
+  "rewards": {
+    "collectiveGold": -10,
+    "battleGoals": 1,
+    "custom": "Each character gains 10 gold for each numbered token they looted"
+  }
+}

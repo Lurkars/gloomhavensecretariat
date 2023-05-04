@@ -3,7 +3,13 @@
   "group": "RM",
   "name": "Ruined Colony",
   "edition": "cs",
-  "parent": "3",
+  "parent": "RM3",
+  "parentSections": [
+    [
+      "3-1"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "gnashing-drake"
   ],
@@ -30,7 +36,7 @@
           "name": "gnashing-drake",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "gnashing-drake",
@@ -42,6 +48,18 @@
           "name": "gnashing-drake",
           "player2": "normal",
           "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "gnashing-drake",
+          "player4": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "player4": "normal"
+        },
+        {
+          "name": "gnashing-drake",
           "player4": "elite"
         }
       ]

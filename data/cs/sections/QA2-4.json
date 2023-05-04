@@ -3,7 +3,7 @@
   "group": "QA",
   "name": "Mother Lode",
   "edition": "cs",
-  "parent": "2",
+  "parent": "QA2",
   "monsters": [
     "living-bones"
   ],

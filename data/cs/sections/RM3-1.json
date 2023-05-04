@@ -3,7 +3,8 @@
   "group": "RM",
   "name": "Ruined Colony",
   "edition": "cs",
-  "parent": "3",
+  "parent": "RM3",
+  "marker": "1",
   "monsters": [
     "cave-bear",
     "hound"
@@ -13,10 +14,6 @@
       "roomNumber": 2,
       "initial": true,
       "monster": [
-        {
-          "name": "cave-bear",
-          "type": "normal"
-        },
         {
           "name": "cave-bear",
           "player3": "normal",
@@ -49,6 +46,10 @@
         {
           "name": "hound",
           "player2": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "elite"
         }
       ]
     }

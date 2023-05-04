@@ -3,12 +3,52 @@
   "group": "AA",
   "name": "Malign Echoes",
   "edition": "cs",
-  "parent": "2",
+  "parent": "AA2",
+  "parentSections": [
+    [
+      "1-AA2"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "black-imp",
     "harrower-aegis",
     "harrower-infester",
     "the-echo"
+  ],
+  "allies": [
+    "harrower-aegis",
+    "harrower-infester"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-imp",
+            "type": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "black-imp",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "black-imp",
+            "player4": "normal"
+          },
+          "marker": "c"
+        }
+      ]
+    }
   ],
   "rooms": [
     {

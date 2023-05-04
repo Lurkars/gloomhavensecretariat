@@ -1,11 +1,35 @@
 {
-  "name": "ruinmaw",
+  "name": "ruinmaw-section-4",
+  "thumbnail": "cs-ruinmaw",
   "edition": "cs",
   "deck": "boss",
   "boss": true,
+  "hidden": true,
   "count": 1,
   "baseStat": {
     "type": "boss",
+    "actions": [
+      {
+        "type": "shield",
+        "value": "X"
+      },
+      {
+        "type": "retaliate",
+        "value": "X",
+        "subActions": [
+          {
+            "type": "range",
+            "value": "X",
+            "small": true
+          }
+        ]
+      },
+      {
+        "type": "custom",
+        "value": "Where X is the number of Vermling Shamans alive",
+        "small": true
+      }
+    ],
     "immunities": [
       "poison",
       "wound",
@@ -17,26 +41,25 @@
     "special": [
       [
         {
-          "type": "custom",
-          "value": "Focus on the nearest enemy that does not have %game.condition.rupture%:",
-          "small": true
-        },
-        {
           "type": "move",
-          "value": "3",
+          "value": "0",
           "valueType": "plus",
           "subActions": [
             {
-              "type": "jump",
-              "small": true
+              "type": "jump"
             }
           ]
         },
         {
           "type": "attack",
-          "value": "1",
-          "valueType": "minus",
+          "value": "0",
+          "valueType": "plus",
           "subActions": [
+            {
+              "type": "target",
+              "value": "C-1",
+              "small": true
+            },
             {
               "type": "condition",
               "value": "wound",
@@ -46,53 +69,30 @@
               "type": "condition",
               "value": "rupture",
               "small": true
-            },
-            {
-              "type": "push",
-              "value": "3",
-              "small": true
             }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "Sated: %game.action.push%2, +1 %game.action.attack%, %game.action.pierce%2",
+          "small": true
         }
       ],
       [
         {
           "type": "move",
-          "value": "0",
+          "value": "2",
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "specialTarget",
-              "value": "enemiesAdjacent",
-              "small": true
-            },
-            {
-              "type": "push",
-              "value": "1",
-              "small": true
-            }
-          ]
+          "value": "2",
+          "valueType": "plus"
         },
         {
-          "type": "push",
-          "value": "1",
-          "subActions": [
-            {
-              "type": "condition",
-              "value": "muddle",
-              "small": true
-            },
-            {
-              "type": "specialTarget",
-              "value": "enemiesRange:2",
-              "small": true
-            }
-          ]
+          "type": "custom",
+          "value": "Sated: +2 %game.action.move%, +2 %game.action.attack%, Advantage, %game.condition.empower%",
+          "small": true
         }
       ]
     ]

@@ -3,7 +3,12 @@
   "group": "RM",
   "name": "Solo: The Fall of Shadow's Respite",
   "edition": "cs",
-  "parent": "6",
+  "parent": "RM6",
+  "parentSections": [
+    [
+      "6-2"
+    ]
+  ],
   "monsters": [
     "brood-mother"
   ],

@@ -1,0 +1,12 @@
+{
+  "index": "9.2",
+  "name": "Destroy the automaton and keep the vermling technology",
+  "edition": "fh",
+  "parent": "121",
+  "conclusion": true,
+  "rewards": {
+    "items": [
+      "193"
+    ]
+  }
+}

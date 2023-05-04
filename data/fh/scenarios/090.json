@@ -9,10 +9,6 @@
   "forcedLinks": [
     "91"
   ],
-  "rewards": {
-    "battleGoals": 1,
-    "custom": "Each character gains 10 gold for each numbered token they looted"
-  },
   "monsters": [
     "frozen-corpse",
     "ice-wraith",

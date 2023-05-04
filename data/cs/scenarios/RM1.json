@@ -1,11 +1,11 @@
 {
-  "index": "1",
+  "index": "RM1",
   "group": "RM",
   "name": "Mind Your Manners",
   "edition": "cs",
   "initial": true,
   "unlocks": [
-    "2"
+    "RM2"
   ],
   "monsters": [
     "bandit-archer-hired-muscle",
@@ -32,6 +32,10 @@
           "name": "bandit-archer-hired-muscle",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "bandit-archer-hired-muscle",
+          "player4": "normal"
         },
         {
           "name": "bandit-guard-hired-muscle",

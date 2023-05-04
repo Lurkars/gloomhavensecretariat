@@ -1,0 +1,10 @@
+{
+  "index": "182.1",
+  "name": "Keep the sun agates",
+  "edition": "fh",
+  "parent": "130",
+  "conclusion": true,
+  "rewards": {
+    "custom": "Gain 5 collective gold for each token carried"
+  }
+}

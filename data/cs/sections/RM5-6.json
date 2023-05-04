@@ -1,0 +1,14 @@
+{
+  "index": "RM5-6",
+  "group": "RM",
+  "name": "Feirgrin's Request (Party) COMPLETE",
+  "edition": "cs",
+  "parent": "RM5",
+  "conclusion": true,
+  "rewards": {
+    "battleGoals": 2,
+    "items": [
+      "63-gh"
+    ]
+  }
+}

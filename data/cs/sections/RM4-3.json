@@ -3,12 +3,48 @@
   "group": "RM",
   "name": "Terrorscale Lair",
   "edition": "cs",
-  "parent": "4",
+  "parent": "RM4",
+  "parentSections": [
+    [
+      "4-2"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "gnashing-drake",
     "rending-drake",
     "spitting-drake",
-    "terrorscale-drake"
+    "terrorscale-drake-section-3"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "terrorscale-drake"
+          },
+          "type": "remove"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "gnashing-drake",
+            "type": "normal"
+          },
+          "count": "C-1"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -44,7 +80,7 @@
           "player4": "normal"
         },
         {
-          "name": "terrorscale-drake",
+          "name": "terrorscale-drake-section-3",
           "type": "boss"
         }
       ]

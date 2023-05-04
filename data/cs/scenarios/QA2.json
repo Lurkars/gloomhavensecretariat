@@ -1,11 +1,15 @@
 {
-  "index": "2",
+  "index": "QA2",
   "group": "QA",
   "name": "Mother Lode",
   "edition": "cs",
-  "unlocks": [
-    "3"
-  ],
+  "initial": true,
+  "rewards": {
+    "envelopes": [
+      "%data.characterIcon.tools%"
+    ],
+    "custom": "\"Scrap Diver\" quest complete <br><br>15xA gold each (Where A is the number of Ancient Scrap recovered) <br> Add City Event QA-03 to the deck"
+  },
   "monsters": [
     "giant-viper",
     "ooze"
@@ -56,6 +60,7 @@
         },
         {
           "name": "giant-viper",
+          "player3": "elite",
           "player4": "elite"
         }
       ]

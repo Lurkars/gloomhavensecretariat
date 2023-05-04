@@ -1,8 +1,10 @@
 {
-  "name": "ruinmaw",
+  "name": "ruinmaw-section-2",
+  "thumbnail": "cs-ruinmaw",
   "edition": "cs",
   "deck": "boss",
   "boss": true,
+  "hidden": true,
   "count": 1,
   "baseStat": {
     "type": "boss",
@@ -17,29 +19,18 @@
     "special": [
       [
         {
-          "type": "custom",
-          "value": "Focus on the nearest enemy that does not have %game.condition.rupture%:",
-          "small": true
-        },
-        {
           "type": "move",
-          "value": "3",
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "jump",
-              "small": true
-            }
-          ]
+          "value": "1",
+          "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
-          "valueType": "minus",
+          "value": "0",
+          "valueType": "plus",
           "subActions": [
             {
-              "type": "condition",
-              "value": "wound",
+              "type": "pierce",
+              "value": "1",
               "small": true
             },
             {
@@ -48,8 +39,8 @@
               "small": true
             },
             {
-              "type": "push",
-              "value": "3",
+              "type": "area",
+              "value": "(0,0,target)|(0,1,active)|(1,1,target)|(1,0,target)",
               "small": true
             }
           ]
@@ -57,39 +48,61 @@
       ],
       [
         {
-          "type": "move",
-          "value": "0",
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": "1",
-          "valueType": "minus",
+          "type": "condition",
+          "value": "invisible",
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent",
-              "small": true
-            },
-            {
-              "type": "push",
-              "value": "1",
+              "value": "self",
               "small": true
             }
           ]
         },
         {
-          "type": "push",
+          "type": "custom",
+          "value": "First enemy that ends turn adjacent to the Ruinmaw, perform:",
+          "small": true
+        },
+        {
+          "type": "attack",
           "value": "1",
+          "valueType": "plus",
           "subActions": [
             {
               "type": "condition",
-              "value": "muddle",
+              "value": "wound",
               "small": true
             },
             {
-              "type": "specialTarget",
-              "value": "enemiesRange:2",
+              "type": "custom",
+              "value": "Remove %game.condition.invisible%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "At end of round, if %game.condition.invisible% perform:",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": "4",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.custom.advantage%",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Remove %game.condition.invisible%",
               "small": true
             }
           ]

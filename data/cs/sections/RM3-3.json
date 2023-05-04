@@ -3,7 +3,13 @@
   "group": "RM",
   "name": "Ruined Colony",
   "edition": "cs",
-  "parent": "3",
+  "parent": "RM3",
+  "parentSections": [
+    [
+      "3-1"
+    ]
+  ],
+  "marker": "3",
   "monsters": [
     "hound"
   ],
@@ -11,6 +17,9 @@
     {
       "roomNumber": 4,
       "initial": true,
+      "treasures": [
+        54
+      ],
       "monster": [
         {
           "name": "hound",

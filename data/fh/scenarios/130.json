@@ -3,9 +3,6 @@
   "index": "130",
   "name": "And Then, a Stream",
   "edition": "fh",
-  "rewards": {
-    "custom": "If you choose to return the sun agates to Derrick, read Section #171.5 now. <br>Otherwise, read Section #182.1 now."
-  },
   "monsters": [
     "frozen-corpse",
     "lightning-eel",

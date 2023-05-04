@@ -3,11 +3,38 @@
   "group": "RM",
   "name": "Insatiable",
   "edition": "cs",
-  "parent": "7",
+  "parent": "RM7",
+  "parentSections": [
+    [
+      "7-1"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "giant-viper",
     "hound",
-    "ruinmaw"
+    "ruinmaw-section-2"
+  ],
+  "allied": [
+    "giant-viper",
+    "hound"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "ruinmaw"
+          },
+          "type": "remove"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -40,7 +67,11 @@
           "player4": "elite"
         },
         {
-          "name": "ruinmaw",
+          "name": "hound",
+          "player4": "normal"
+        },
+        {
+          "name": "ruinmaw-section-2",
           "type": "boss"
         }
       ]
