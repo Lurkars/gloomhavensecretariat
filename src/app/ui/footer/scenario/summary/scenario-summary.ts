@@ -42,6 +42,7 @@ export class ScenarioSummaryComponent {
     rewards: ScenarioRewards | undefined = undefined;
     challenges: number = 0;
     numberChallenges: number = 0;
+    calenderSectionManual: number[] = [];
 
     EntityValueFunction = EntityValueFunction;
 
@@ -105,6 +106,7 @@ export class ScenarioSummaryComponent {
                     this.chooseUnlockCharacter = finish.chooseUnlockCharacter;
                     this.collectiveGold = finish.collectiveGold;
                     this.items = finish.items;
+                    this.calenderSectionManual = finish.calenderSectionManual;
                 }
             }
         })
@@ -128,6 +130,7 @@ export class ScenarioSummaryComponent {
         finish.chooseUnlockCharacter = this.chooseUnlockCharacter;
         finish.collectiveGold = this.collectiveGold;
         finish.items = this.items;
+        finish.calenderSectionManual = this.calenderSectionManual;
         gameManager.game.finish = finish;
     }
 
@@ -135,6 +138,7 @@ export class ScenarioSummaryComponent {
         this.forceCampaign = forceCampaign;
         this.challenges = 0;
         this.numberChallenges = 0;
+        this.rewards = undefined;
         if ((gameManager.game.party.campaignMode || forceCampaign) && this.success) {
             if (this.conclusion) {
                 this.rewards = this.conclusion.rewards;
@@ -152,7 +156,7 @@ export class ScenarioSummaryComponent {
                 if (rewardItems) {
                     this.characters.forEach((char, index) => this.items[index] = []);
                     rewardItems.forEach((item) => {
-                        const itemData = gameManager.item(+item.split(':')[0], this.scenario.edition, true);
+                        const itemData = gameManager.item(+item.split(':')[0].split('-')[0], item.split(':')[0].split('-')[1] || this.scenario.edition, true);
                         if (itemData) {
                             this.rewardItems.push(itemData);
                             this.rewardItemCount.push(item.indexOf(':') == -1 ? 1 : +item.split(':')[1]);
@@ -174,6 +178,9 @@ export class ScenarioSummaryComponent {
                         this.chooseUnlockCharacter = this.rewards.chooseUnlockCharacter[index];
                     }
                 }
+                if (this.rewards.calenderSectionManual) {
+                    this.rewards.calenderSectionManual.forEach((section, index) => this.calenderSectionManual[index] = 0);
+                }
             }
             if (gameManager.fhRules()) {
                 const townHall = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'town-hall' && buildingModel.state == 'normal');
@@ -188,12 +195,16 @@ export class ScenarioSummaryComponent {
         }
     }
 
-    hasRewards(): ScenarioRewards | undefined {
+    hasRewards(): boolean {
         const rewards = this.rewards;
-        if (rewards && (rewards.battleGoals || rewards.collectiveGold || rewards.custom || rewards.envelopes || rewards.events || rewards.experience || rewards.gold || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.perks || rewards.prosperity || rewards.reputation || rewards.resources || rewards.collectiveResources || rewards.morale || rewards.inspiration || rewards.chooseUnlockCharacter || rewards.unlockCharacter)) {
-            return rewards;
+        if (rewards && (rewards.battleGoals || rewards.collectiveGold || rewards.custom || rewards.envelopes || rewards.events || rewards.experience || rewards.gold || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.itemBlueprints || rewards.perks || rewards.prosperity || rewards.reputation || rewards.resources || rewards.collectiveResources || rewards.morale || rewards.inspiration || rewards.chooseUnlockCharacter || rewards.unlockCharacter || rewards.calenderSection || rewards.calenderSectionManual)) {
+            return true;
         }
-        return undefined;
+        return false;
+    }
+
+    hasBonus(): boolean {
+        return ((gameManager.game.party.campaignMode || this.forceCampaign) && this.success) && (gameManager.characterManager.characterCount() < 4 || this.numberChallenges > 0);
     }
 
     availableCollectiveGold(): number {
@@ -245,27 +256,28 @@ export class ScenarioSummaryComponent {
         gameManager.stateManager.after();
     }
 
-    itemDistributed(index: number, itemId: number, itemIndex: number, choose: boolean = true): boolean {
-        if (choose && this.rewards && this.rewards.chooseItem && this.rewardItems.some((rewardItem, rewardIndex) => rewardIndex != itemIndex && this.characters.some((char, charIndex) => this.itemDistributed(charIndex, rewardItem.id, rewardIndex, false)))) {
+    itemDistributed(index: number, itemIndex: number, choose: boolean = true): boolean {
+        if (choose && this.rewards && this.rewards.chooseItem && this.rewardItems.some((rewardItem, rewardIndex) => rewardIndex != itemIndex && this.characters.some((char, charIndex) => this.itemDistributed(charIndex, rewardIndex, false)))) {
             return true;
         }
 
-        if (this.characters[index].progress.items.find((identifier) => identifier.name == '' + itemId && identifier.edition == this.scenario.edition)) {
+        const item = this.rewardItems[itemIndex];
+        if (this.characters[index].progress.items.find((identifier) => identifier.name == '' + item.id && identifier.edition == item.edition)) {
             return true;
         }
 
         const itemData = this.rewardItems[itemIndex];
         const availableItems = choose ? itemData.count - this.characters.filter((character) => character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition)).length : 1;
 
-        return this.items[index].indexOf(itemId) == -1 && this.items.filter((list) => list.indexOf(itemId) != -1).length >= Math.min(this.rewardItemCount[itemIndex], availableItems);
+        return this.items[index].indexOf(itemIndex) == -1 && this.items.filter((list) => list.indexOf(itemIndex) != -1).length >= Math.min(this.rewardItemCount[itemIndex], availableItems);
     }
 
-    toggleItem(event: any, index: number, itemId: number) {
-        gameManager.stateManager.before("finishScenario.dialog.item", '' + index, '' + itemId);
-        if (this.items[index].indexOf(itemId) == -1) {
-            this.items[index].push(itemId);
+    toggleItem(event: any, index: number, itemIndex: number) {
+        gameManager.stateManager.before("finishScenario.dialog.item", '' + index, '' + this.rewardItems[itemIndex].id);
+        if (this.items[index].indexOf(itemIndex) == -1) {
+            this.items[index].push(itemIndex);
         } else {
-            this.items[index].splice(this.items[index].indexOf(itemId), 1);
+            this.items[index].splice(this.items[index].indexOf(itemIndex), 1);
         }
         this.updateFinish();
         gameManager.stateManager.after();
@@ -274,6 +286,13 @@ export class ScenarioSummaryComponent {
     changeCollectiveGold(event: any, index: number) {
         gameManager.stateManager.before("finishScenario.dialog.collectiveGold", '' + index, event.target.value);
         this.collectiveGold[index] = +event.target.value;
+        this.updateFinish();
+        gameManager.stateManager.after();
+    }
+
+    changeCalenderSectionManual(event: any, index: number) {
+        gameManager.stateManager.before("finishScenario.dialog.calenderSectionManual", '' + index, event.target.value);
+        this.calenderSectionManual[index] = +event.target.value;
         this.updateFinish();
         gameManager.stateManager.after();
     }
@@ -299,8 +318,9 @@ export class ScenarioSummaryComponent {
         });
     }
 
-    apply() {
-        gameManager.stateManager.before("finishScenario." + (this.success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
+    finish(linkedIndex: string | undefined = undefined) {
+        const linked = gameManager.scenarioData(this.scenario.edition).find((scenarioData) => scenarioData.group == this.scenario.group && scenarioData.index == linkedIndex);
+        gameManager.stateManager.before(this.success && linked ? "finishScenario.linked" : ("finishScenario." + (this.success ? "success" : "failure")), ...gameManager.scenarioManager.scenarioUndoArgs(), linkedIndex ? linkedIndex : '');
         gameManager.game.figures.filter((figure) => figure instanceof Character).forEach((figure, index) => {
             (figure as Character).fromModel(this.characters[index].toModel());
         });
@@ -318,8 +338,9 @@ export class ScenarioSummaryComponent {
                     }
 
                     if (this.items[index] && this.items[index].length > 0) {
-                        this.items[index].forEach((itemId) => {
-                            character.progress.items.push(new Identifier('' + itemId, this.scenario.edition));
+                        this.items[index].forEach((itemIndex) => {
+                            const item = this.rewardItems[itemIndex]
+                            character.progress.items.push(new Identifier('' + item.id, item.edition));
                         })
                     }
 
@@ -344,8 +365,18 @@ export class ScenarioSummaryComponent {
                     gameManager.game.party.townGuardPerks += 1;
                 }
             }
+
+            if (this.rewards && this.rewards.calenderSectionManual) {
+                this.rewards.calenderSectionManual.forEach((sectionManual, index) => {
+                    const week = gameManager.game.party.weeks + this.calenderSectionManual[index];
+                    if (!gameManager.game.party.weekSections[week]) {
+                        gameManager.game.party.weekSections[week] = [];
+                    }
+                    gameManager.game.party.weekSections[week]?.push(sectionManual.section);
+                })
+            }
         }
-        gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, false, undefined, this.casual && !this.forceCampaign);
+        gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, false, linked ? new Scenario(linked) : undefined, this.casual && !this.forceCampaign);
         gameManager.stateManager.after(1000);
         this.dialogRef.close();
     }
@@ -355,16 +386,6 @@ export class ScenarioSummaryComponent {
         gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, true);
         gameManager.stateManager.after(1000);
         this.dialogRef.close();
-    }
-
-    linkedScenario(index: string) {
-        const scenario = gameManager.scenarioData(this.scenario.edition).find((scenarioData) => scenarioData.group == this.scenario.group && scenarioData.index == index);
-        if (scenario) {
-            gameManager.stateManager.before("finishScenario.linked", ...gameManager.scenarioManager.scenarioUndoArgs(), index);
-            gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, false, new Scenario(scenario));
-            gameManager.stateManager.after(1000);
-            this.dialogRef.close();
-        }
     }
 
     close() {

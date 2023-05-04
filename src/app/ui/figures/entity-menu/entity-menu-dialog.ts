@@ -114,6 +114,7 @@ export class EntityMenuDialogComponent {
           this.toggleDead();
         }
         event.preventDefault();
+        event.stopPropagation();
       }
     }
   }

@@ -114,6 +114,7 @@ export class ScenarioRewards {
   resources: { type: LootType, value: number | string }[] = [];
   collectiveResources: { type: LootType, value: number | string }[] = [];
   calenderSection: string[] = [];
+  calenderSectionManual: { section: string, hint: string }[] = [];
   townGuardAm: string[] = []; // TODO
   unlockCharacter: string = "";
   chooseUnlockCharacter: string[] = [];

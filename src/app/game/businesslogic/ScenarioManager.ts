@@ -241,6 +241,11 @@ export class ScenarioManager {
           }
         }
 
+        if (gameManager.characterManager.characterCount() < 4) {
+          this.game.party.inspiration += 4 - gameManager.characterManager.characterCount();
+        }
+
+
         if (conclusionSection) {
           this.game.party.conclusions.push(new GameScenarioModel(conclusionSection.index, conclusionSection.edition, conclusionSection.group, false, "", []));
         }
@@ -654,7 +659,7 @@ export class ScenarioManager {
         })) || false;
   }
 
-  availableSections(): ScenarioData[] {
+  availableSections(includeConclusions: boolean = false): ScenarioData[] {
     if (!this.game.scenario) {
       return [];
     }
@@ -662,6 +667,8 @@ export class ScenarioManager {
     return gameManager.sectionData().filter((sectionData) =>
       // match parent
       this.game.scenario && sectionData.edition == this.game.scenario.edition && sectionData.parent == this.game.scenario.index && sectionData.group == this.game.scenario.group
+      // filter conclusion
+      && (!sectionData.conclusion || includeConclusions)
       // filter already active
       && !this.game.sections.find((active) => active.edition == sectionData.edition && active.index == sectionData.index && active.parent == sectionData.parent)
       // match parent sections

@@ -3,7 +3,7 @@ import { Component, Inject } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { CampaignData } from "src/app/game/model/data/EditionData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
-import { ScenarioConclusionComponent } from "../scenario-conclusion/scenario-conclusion";
+import { ScenarioConclusionComponent } from "../../../footer/scenario/scenario-conclusion/scenario-conclusion";
 import { Scenario } from "src/app/game/model/Scenario";
 
 @Component({
@@ -36,7 +36,7 @@ export class PartyWeekDialogComponent {
     }
 
     sections(): string[] {
-        return [...this.sectionsFixed(), ...(gameManager.game.party.weekSections[this.week] || [])];
+        return gameManager.game.party.weekSections[this.week] || [];
     }
 
     isConclusion(section: string): boolean {

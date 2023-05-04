@@ -2,7 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionType, ActionValueType, ActionSpecialTarget } from 'src/app/game/model/data/Action';
-import { Condition, ConditionType } from 'src/app/game/model/Condition';
+import { Condition, ConditionName, ConditionType } from 'src/app/game/model/Condition';
 import { Element, ElementState } from 'src/app/game/model/data/Element';
 import { EntityValueFunction, EntityExpressionRegex, EntityValueRegex } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';
@@ -458,10 +458,10 @@ export class ActionComponent implements OnInit, OnDestroy {
         if (this.action && !entity.tags.find((tag) => tag == 'roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action?.type)) {
           entity.tags.push('roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action.type);
           if (this.action.type == ActionType.heal) {
-            entity.health += EntityValueFunction(this.action.value, this.level);
-            if (entity.health > entity.maxHealth) {
-              entity.health == entity.maxHealth;
-            }
+            const heal = EntityValueFunction(this.action.value, this.level);
+            entity.health += heal;
+            gameManager.entityManager.addCondition(entity, new Condition(ConditionName.heal, heal), this.monster && this.monster.active || false, this.monster && this.monster.off || false);
+            gameManager.entityManager.applyCondition(entity, ConditionName.heal, true);
           } else if (this.action.type == ActionType.condition) {
             if (this.action.value == 'bless' || this.action.value == 'curse') {
               const am = settingsManager.settings.allyAttackModifierDeck && (gameManager.fhRules() || settingsManager.settings.alwaysAllyAttackModifierDeck) && (this.monster?.isAlly || this.monster?.isAllied) ? gameManager.game.allyAttackModifierDeck : gameManager.game.monsterAttackModifierDeck;

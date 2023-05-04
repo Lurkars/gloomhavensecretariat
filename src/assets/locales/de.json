@@ -862,6 +862,7 @@
     "rewards": {
       ".": "Belohnungen",
       "battleGoals": "jeweils {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+      "bonus": "Bonus",
       "calenderSection": {
         ".": "Verlinkte Sektionen",
         "add": "Füge <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/section.svg\"> {0} in %number.{1}% Wochen hinzu."
@@ -889,6 +890,7 @@
       "inspiration": "{0} Inspiration",
       "item": "\"{1}\" (Gegenstand {0})",
       "items": "{2} \"{1}\" (Gegenstand {0})",
+      "itemBlueprint": "Erhalte \"{1}\" %data.itemFh.{0}% Gegenstandsplan",
       "itemDesign": "\"{1}\" Design (Gegenstand {0})",
       "itemDesignRange": "Füge Gegenstände {0} hinzu",
       "location": "Neuer Ort",
@@ -952,8 +954,9 @@
       "cancel": "Abbrechen",
       "confirm": "Bestätigen",
       "conclusion": {
-        ".": "Szenario beenden mit {0}?",
-        "continue": "Fortfahren mit {0}"
+        ".": "Szenario beenden mit '{0}'",
+        "continue": "Fortfahren mit '{0}'",
+        "select": "Abschluss auswählen:"
       }
     },
     "set": "Szenario auswählen",

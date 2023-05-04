@@ -153,6 +153,50 @@ export class StorageManager {
     })
   }
 
+  readList<T>(store: string, limit: number, offset: number, reverse: boolean = true): Promise<T[]> {
+    return new Promise((resolve, reject) => {
+      if (this.db) {
+        const transaction = this.db.transaction(store, "readwrite");
+        const objectStore = transaction.objectStore(store);
+        let result: T[] = [];
+
+        const request = objectStore.openCursor(null, 'prev');
+        var hasSkipped = false;
+        request.onsuccess = (event: any) => {
+          var cursor = event.target.result;
+          if (!hasSkipped && offset > 0) {
+            hasSkipped = true;
+            cursor.advance(offset);
+            return;
+          }
+          if (cursor) {
+            result.push(cursor.value);
+            if (result.length < limit) {
+              cursor.continue();
+            } else {
+              resolve(reverse ? result.reverse() : result);
+            }
+          } else {
+            resolve(reverse ? result.reverse() : result);
+          }
+        };
+
+        request.onerror = (event: any) => {
+          console.error("read " + store + " failed", event);
+          reject(event);
+        };
+      } else {
+        const local: string | null = localStorage.getItem("ghs-" + store);
+        if (local) {
+          resolve((JSON.parse(local) as T[]).slice(offset, offset + limit));
+        } else {
+          reject(null);
+        }
+      }
+    });
+
+  }
+
   async writeArray(store: string, objects: any[]): Promise<void> {
     return await new Promise(async (resolve, reject) => {
       if (this.db) {

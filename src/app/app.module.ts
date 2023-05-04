@@ -110,7 +110,7 @@ import { TreasureLabelComponent } from './ui/footer/scenario/treasures/label/lab
 import { StatsListComponent } from './ui/footer/scenario/dialog/stats-list/stats-list';
 import { KeyboardShortcuts } from './ui/helper/keyboard-shortcuts';
 import { BuildingRepairDialog } from './ui/header/party/buildings/repair';
-import { ScenarioConclusionComponent } from './ui/header/party/scenario-conclusion/scenario-conclusion';
+import { ScenarioConclusionComponent } from './ui/footer/scenario/scenario-conclusion/scenario-conclusion';
 import { SelectGoldDialog } from './ui/header/party/buildings/select-gold/select-gold';
 import { EventEffectsDialog } from './ui/footer/scenario/dialog/event-effects/event-effects';
 

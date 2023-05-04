@@ -378,7 +378,7 @@ export class ScenarioRulesComponent {
 
                                         entity.health += heal;
                                         gameManager.entityManager.addCondition(entity, new Condition(ConditionName.heal, heal), figure.active, figure.off);
-                                        gameManager.entityManager.applyCondition(entity, ConditionName.heal);
+                                        gameManager.entityManager.applyCondition(entity, ConditionName.heal, true);
                                         break;
                                     case "setHp":
                                         let hp = 0;
