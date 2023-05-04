@@ -3,6 +3,12 @@
   "name": "Prison Riot",
   "edition": "cs",
   "parent": "35",
+  "parentSections": [
+    [
+      "39B"
+    ]
+  ],
+  "marker": "3",
   "monsters": [
     "bandit-guard",
     "wind-demon"
@@ -11,6 +17,9 @@
     {
       "roomNumber": 4,
       "initial": true,
+      "treasures": [
+        40
+      ],
       "monster": [
         {
           "name": "bandit-guard",

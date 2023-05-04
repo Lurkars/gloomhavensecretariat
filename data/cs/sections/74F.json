@@ -3,6 +3,11 @@
   "name": "Otherworldly Strangers",
   "edition": "cs",
   "parent": "66",
+  "parentSections": [
+    [
+      "74C"
+    ]
+  ],
   "monsters": [
     "harrower-infester"
   ],

@@ -2,6 +2,17 @@
   "index": "50",
   "name": "Oak Invasion B",
   "edition": "cs",
+  "requiredAchievements": [
+    {
+      "party": [
+        "Inox Alliance"
+      ]
+    }
+  ],
+  "rewards": {
+    "experience": 10,
+    "battleGoals": 1
+  },
   "monsters": [
     "cave-bear",
     "city-archer",

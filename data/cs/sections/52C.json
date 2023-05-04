@@ -1,8 +1,14 @@
 {
   "index": "52C",
-  "name": "Scenario 46",
+  "name": "Vermling Gardens",
   "edition": "cs",
   "parent": "46",
+  "parentSections": [
+    [
+      "51A"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "cave-bear",
     "hound",

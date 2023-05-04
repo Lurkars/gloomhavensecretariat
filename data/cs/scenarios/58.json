@@ -2,6 +2,9 @@
   "index": "58",
   "name": "Penitentiary Lockdown",
   "edition": "cs",
+  "rewards": {
+    "custom": "Gain one of the following as an item and the other as an item design: <br>\"Claw Trap\" (Item 34) <br>\"Clamp Trap\" (Item 56)"
+  },
   "monsters": [
     "bandit-archer",
     "bandit-guard"

@@ -3,15 +3,31 @@
   "name": "Catacomb Plunder",
   "edition": "cs",
   "parent": "55",
+  "parentSections": [
+    [
+      "63A"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "harrower-infester",
     "living-corpse",
-    "stone-golem"
+    "tomb-protector",
+    "tomb-protector-extra"
+  ],
+  "allies": [
+    "living-bones-scenario-55"
+  ],
+  "drawExtra": [
+    "tomb-protector-extra"
   ],
   "rooms": [
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        44
+      ],
       "monster": [
         {
           "name": "harrower-infester",
@@ -19,6 +35,7 @@
         },
         {
           "name": "harrower-infester",
+          "player3": "elite",
           "player4": "elite"
         },
         {
@@ -38,8 +55,12 @@
           "player4": "elite"
         },
         {
-          "name": "stone-golem",
-          "type": "elite"
+          "name": "tomb-protector",
+          "type": "boss"
+        },
+        {
+          "name": "tomb-protector-extra",
+          "type": "boss"
         }
       ]
     }

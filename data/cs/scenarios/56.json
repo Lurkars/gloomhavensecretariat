@@ -2,8 +2,13 @@
   "index": "56",
   "name": "Disarm the Machine",
   "edition": "cs",
+  "rewards": {
+    "items": [
+      "45"
+    ]
+  },
   "monsters": [
-    "ancient-artillery"
+    "ancient-artillery-scenario-56"
   ],
   "rooms": [
     {
@@ -12,19 +17,19 @@
       "initial": true,
       "monster": [
         {
-          "name": "ancient-artillery",
+          "name": "ancient-artillery-scenario-56",
           "type": "normal"
         },
         {
-          "name": "ancient-artillery",
+          "name": "ancient-artillery-scenario-56",
           "type": "normal"
         },
         {
-          "name": "ancient-artillery",
+          "name": "ancient-artillery-scenario-56",
           "type": "normal"
         },
         {
-          "name": "ancient-artillery",
+          "name": "ancient-artillery-scenario-56",
           "type": "normal"
         }
       ]

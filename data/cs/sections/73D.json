@@ -1,8 +1,14 @@
 {
   "index": "73D",
-  "name": "Scenario 65",
+  "name": "Beyond the Grave",
   "edition": "cs",
   "parent": "65",
+  "parentSections": [
+    [
+      "73C"
+    ]
+  ],
+  "marker": "2",
   "objectives": [
     {
       "name": "Haunted Ghoul Spirit",

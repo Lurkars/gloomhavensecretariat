@@ -8,10 +8,65 @@
     "night-demon",
     "vermling-scout"
   ],
+  "objectives": [
+    {
+      "name": "Shadow Stone",
+      "health": "L+C+2",
+      "marker": "c"
+    },
+    {
+      "name": "Frost Stone",
+      "health": "L+C+2",
+      "marker": "d"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Shadow Stone"
+          },
+          "type": "present"
+        }
+      ],
+      "elements": [
+        {
+          "type": "dark",
+          "state": "strong"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Frost Stone"
+          },
+          "type": "present"
+        }
+      ],
+      "elements": [
+        {
+          "type": "ice",
+          "state": "strong"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        26
+      ],
       "monster": [
         {
           "name": "frost-demon",
@@ -57,6 +112,10 @@
           "player2": "normal",
           "player3": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        2
       ]
     }
   ]

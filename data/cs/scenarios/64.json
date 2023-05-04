@@ -2,6 +2,11 @@
   "index": "64",
   "name": "Glowing Crystals",
   "edition": "cs",
+  "rewards": {
+    "items": [
+      "50"
+    ]
+  },
   "monsters": [
     "deep-terror",
     "lurker"

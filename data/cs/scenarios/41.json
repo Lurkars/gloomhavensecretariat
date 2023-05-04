@@ -2,6 +2,9 @@
   "index": "41",
   "name": "Curse of the Void",
   "edition": "cs",
+  "rewards": {
+    "collectiveGold": 50
+  },
   "monsters": [
     "bandit-archer",
     "bandit-guard"
@@ -23,6 +26,14 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player4": "normal"
         },
         {
           "name": "bandit-guard",

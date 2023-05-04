@@ -2,14 +2,20 @@
   "index": "49",
   "name": "Oak Invasion A",
   "edition": "cs",
+  "requiredAchievements": [
+    {
+      "party": [
+        "Oaks Alliance"
+      ]
+    }
+  ],
+  "rewards": {
+    "custom": "During the next visit to Gloomhaven, donations to the Sanctuary cost 0 gold."
+  },
   "monsters": [
     "inox-archer",
     "inox-guard",
     "inox-shaman"
-  ],
-  "allies": [
-    "city-archer",
-    "city-guard"
   ],
   "rooms": [
     {

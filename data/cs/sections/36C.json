@@ -3,9 +3,31 @@
   "name": "Siege Tower",
   "edition": "cs",
   "parent": "33",
+  "parentSections": [
+    [
+      "36A"
+    ]
+  ],
   "monsters": [
     "inox-bodyguard",
     "inox-shaman"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "heal",
+          "value": "4"
+        }
+      ]
+    }
   ],
   "rooms": [
     {

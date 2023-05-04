@@ -1,12 +1,21 @@
 {
   "index": "35A",
-  "name": "Confronting the Past",
+  "name": "Confronting the Past A",
   "edition": "cs",
-  "parent": "32",
+  "parent": "32a",
+  "marker": "1",
   "monsters": [
     "inox-archer",
-    "inox-bodyguard",
+    "inox-bodyguard-scenario-32",
     "inox-guard"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "All characters Recover %game.card.recover% one lost card"
+    }
   ],
   "rooms": [
     {
@@ -26,7 +35,7 @@
           "player4": "elite"
         },
         {
-          "name": "inox-bodyguard",
+          "name": "inox-bodyguard-scenario-32",
           "type": "boss"
         },
         {
@@ -40,6 +49,7 @@
         },
         {
           "name": "inox-guard",
+          "player3": "elite",
           "player4": "elite"
         }
       ]

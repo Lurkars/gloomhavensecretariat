@@ -2,53 +2,148 @@
   "index": "39",
   "name": "Festering Mire",
   "edition": "cs",
+  "rewards": {
+    "experience": 10,
+    "custom": "Remove the top 5 cards from the City Event deck and shuffle City Event 57 into them. Place the remaining City Event cards aside until City Event 57 is resolved. <br>Any additional card that would be added to the City Event deck during this time is added after City Event 57 is resolved and the remaining cards are combined with the original deck. <br>\"An Adder Divides\" quest is not yet complete."
+  },
   "monsters": [
-    "giant-viper"
+    "earth-demon",
+    "ghost-viper",
+    "ghost-viper-extra"
+  ],
+  "drawExtra": [
+    "ghost-viper-extra"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "damage",
+          "value": "1",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "R == 3",
+      "sections": [
+        "44A"
+      ]
+    },
+    {
+      "round": "R == 4 || R == 5 || R == 6",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ghost-viper",
+            "player2": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "ghost-viper",
+            "player3": "normal"
+          },
+          "marker": "b",
+          "count": "2"
+        },
+        {
+          "monster": {
+            "name": "ghost-viper",
+            "player2": "elite",
+            "player3": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "ghost-viper",
+            "player4": "elite"
+          },
+          "marker": "b",
+          "count": "3"
+        }
+      ]
+    },
+    {
+      "round": "R == 6",
+      "sections": [
+        "44B"
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "earth-demon",
+            "type": "normal"
+          },
+          "count": "C"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
       "roomNumber": 1,
       "ref": "a4",
       "initial": true,
+      "treasures": [
+        46
+      ],
       "monster": [
         {
-          "name": "giant-viper",
+          "name": "ghost-viper",
           "type": "normal"
         },
         {
-          "name": "giant-viper",
+          "name": "ghost-viper",
           "type": "normal"
         },
         {
-          "name": "giant-viper",
+          "name": "ghost-viper",
           "type": "normal"
         },
         {
-          "name": "giant-viper",
+          "name": "ghost-viper",
           "type": "elite"
         },
         {
-          "name": "giant-viper",
+          "name": "ghost-viper",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "giant-viper",
+          "name": "ghost-viper",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "giant-viper",
+          "name": "ghost-viper",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "giant-viper",
+          "name": "ghost-viper",
           "player4": "elite"
         },
         {
-          "name": "giant-viper",
+          "name": "ghost-viper",
           "player4": "elite"
+        },
+        {
+          "name": "ghost-viper-extra",
+          "type": "normal"
         }
       ]
     }

@@ -2,9 +2,32 @@
   "index": "53",
   "name": "Cave of Currents",
   "edition": "cs",
+  "rewards": {
+    "gold": 5,
+    "items": [
+      "83"
+    ]
+  },
   "monsters": [
     "spitting-drake",
     "water-spirit"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle",
+          "scenarioEffect": true
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -21,6 +44,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "player4": "normal"
         },
         {
           "name": "water-spirit",

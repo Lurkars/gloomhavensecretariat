@@ -1,0 +1,58 @@
+{
+  "index": "32b",
+  "name": "Confronting the Past B",
+  "edition": "cs",
+  "requiredAchievements": [
+    {
+      "party": [
+        "Take the Money"
+      ]
+    }
+  ],
+  "rewards": {
+    "custom": "Read Section #75 <br>Password: Water Hydra"
+  },
+  "monsters": [
+    "inox-archer",
+    "inox-bodyguard-scenario-32",
+    "inox-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-bodyguard-scenario-32",
+          "type": "boss"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

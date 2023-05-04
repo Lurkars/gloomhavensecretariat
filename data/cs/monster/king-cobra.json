@@ -15,6 +15,9 @@
         "type": "condition",
         "value": "poison"
       }
+    ],
+    "immunities": [
+      "poison"
     ]
   },
   "stats": [
@@ -22,49 +25,49 @@
       "level": 0,
       "health": "3x(Cx2)+2",
       "movement": 2,
-      "attack": 2
+      "attack": 3
     },
     {
       "level": 1,
       "health": "5x(Cx2)+2",
       "movement": 2,
-      "attack": 2
+      "attack": 3
     },
     {
       "level": 2,
       "health": "7x(Cx2)+2",
       "movement": 3,
-      "attack": 2
+      "attack": 3
     },
     {
       "level": 3,
       "health": "8x(Cx2)+2",
       "movement": 3,
-      "attack": 3
+      "attack": 4
     },
     {
       "level": 4,
       "health": "11x(Cx2)+2",
       "movement": 3,
-      "attack": 3
+      "attack": 4
     },
     {
       "level": 5,
       "health": "13x(Cx2)+2",
       "movement": 4,
-      "attack": 3
+      "attack": 4
     },
     {
       "level": 6,
       "health": "14x(Cx2)+2",
       "movement": 4,
-      "attack": 4
+      "attack": 5
     },
     {
       "level": 7,
       "health": "17x(Cx2)+2",
       "movement": 4,
-      "attack": 4
+      "attack": 5
     }
   ]
 }

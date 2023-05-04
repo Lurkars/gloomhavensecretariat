@@ -3,6 +3,7 @@
   "name": "Cave of Currents",
   "edition": "cs",
   "parent": "53",
+  "marker": "1",
   "monsters": [
     "lurker",
     "water-spirit"

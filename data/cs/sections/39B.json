@@ -3,6 +3,7 @@
   "name": "Prison Riot",
   "edition": "cs",
   "parent": "35",
+  "marker": "1",
   "monsters": [
     "night-demon",
     "wind-demon"

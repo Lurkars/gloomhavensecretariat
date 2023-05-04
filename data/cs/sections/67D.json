@@ -3,8 +3,9 @@
   "name": "Through the Fire and the Flames",
   "edition": "cs",
   "parent": "60",
+  "marker": "1",
   "monsters": [
-    "rending-drake-cs"
+    "rending-drake-scenario-60"
   ],
   "rooms": [
     {
@@ -12,7 +13,7 @@
       "initial": true,
       "monster": [
         {
-          "name": "rending-drake-cs",
+          "name": "rending-drake-scenario-60",
           "type": "elite"
         }
       ]

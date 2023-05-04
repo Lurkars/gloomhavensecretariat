@@ -3,6 +3,7 @@
   "name": "Penitentiary Lockdown",
   "edition": "cs",
   "parent": "58",
+  "marker": "1",
   "monsters": [
     "bandit-guard"
   ],

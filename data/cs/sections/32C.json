@@ -1,0 +1,21 @@
+{
+  "index": "32C",
+  "name": "Tell Selandre the potion was destroyed",
+  "edition": "cs",
+  "parent": "30",
+  "parentSections": [
+    [
+      "32B"
+    ]
+  ],
+  "conclusion": true,
+  "unlocks": [
+    "32a"
+  ],
+  "rewards": {
+    "partyAchievements": [
+      "A Potion Lost"
+    ],
+    "experience": 10
+  }
+}

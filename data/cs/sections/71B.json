@@ -3,6 +3,11 @@
   "name": "Hallow Redemption",
   "edition": "cs",
   "parent": "62",
+  "parentSections": [
+    [
+      "71A"
+    ]
+  ],
   "monsters": [
     "aesther-ashblade:-1"
   ],
@@ -12,7 +17,7 @@
       "initial": true,
       "monster": [
         {
-          "name": "aesther-ashblade",
+          "name": "aesther-ashblade:-1",
           "type": "elite"
         }
       ]

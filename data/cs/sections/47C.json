@@ -3,6 +3,7 @@
   "name": "Mansion Maze",
   "edition": "cs",
   "parent": "43",
+  "marker": "1",
   "monsters": [
     "ancient-artillery",
     "city-guard",

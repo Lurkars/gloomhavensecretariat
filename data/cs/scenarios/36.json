@@ -2,6 +2,12 @@
   "index": "36",
   "name": "Hunters Bounty",
   "edition": "cs",
+  "rewards": {
+    "envelopes": [
+      "%data.characterIcon.chain-helmet%"
+    ],
+    "gold": 10
+  },
   "monsters": [
     "bandit-archer",
     "bandit-guard"
@@ -36,6 +42,10 @@
         {
           "name": "bandit-guard",
           "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
           "player4": "normal"
         },
         {

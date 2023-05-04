@@ -3,6 +3,15 @@
   "name": "Mansion Maze",
   "edition": "cs",
   "parent": "43",
+  "parentSections": [
+    [
+      "47C"
+    ],
+    [
+      "48A"
+    ]
+  ],
+  "marker": "3",
   "monsters": [
     "ancient-artillery",
     "city-guard"
@@ -11,6 +20,9 @@
     {
       "roomNumber": 4,
       "initial": true,
+      "treasures": [
+        23
+      ],
       "monster": [
         {
           "name": "ancient-artillery",

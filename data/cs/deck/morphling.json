@@ -8,7 +8,59 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.scenarioBook%"
+          "value": "Use Water Spirit traits and last drawn ability card"
+        }
+      ]
+    },
+    {
+      "cardId": 0,
+      "initiative": 0,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Use Spitting Drake traits and last drawn ability card"
+        }
+      ]
+    },
+    {
+      "cardId": 0,
+      "initiative": 0,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Use Water Spirit traits and last drawn ability card"
+        }
+      ]
+    },
+    {
+      "cardId": 0,
+      "initiative": 0,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Use Lurker traits and last drawn ability card"
+        }
+      ]
+    },
+    {
+      "cardId": 574,
+      "initiative": 17,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "special",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "cardId": 575,
+      "initiative": 85,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "special",
+          "value": 1
         }
       ]
     }

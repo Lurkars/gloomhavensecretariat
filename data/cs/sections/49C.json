@@ -3,6 +3,7 @@
   "name": "Haunted Manor",
   "edition": "cs",
   "parent": "44",
+  "marker": "3",
   "monsters": [
     "harrower-infester",
     "living-spirit",
@@ -12,6 +13,9 @@
     {
       "roomNumber": 4,
       "initial": true,
+      "treasures": [
+        37
+      ],
       "monster": [
         {
           "name": "harrower-infester",

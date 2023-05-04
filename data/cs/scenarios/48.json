@@ -2,6 +2,10 @@
   "index": "48",
   "name": "Forest Fire",
   "edition": "cs",
+  "rewards": {
+    "gold": 20,
+    "experience": 10
+  },
   "monsters": [
     "giant-viper",
     "inox-guard",
@@ -27,7 +31,8 @@
         },
         {
           "name": "inox-guard",
-          "player3": "normal"
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "spitting-drake",

@@ -1,10 +1,11 @@
 {
   "index": "33B",
-  "name": "Scenario 31",
+  "name": "Eternal Portals",
   "edition": "cs",
   "parent": "31",
   "monsters": [
-    "eternal-demon"
+    "harrower-infester",
+    "living-spirit"
   ],
   "rooms": [
     {
@@ -12,8 +13,28 @@
       "initial": true,
       "monster": [
         {
-          "name": "eternal-demon",
-          "type": "boss"
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         }
       ]
     }

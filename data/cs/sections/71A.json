@@ -1,8 +1,14 @@
 {
   "index": "71A",
-  "name": "Scenario 62",
+  "name": "Hallow Redemption",
   "edition": "cs",
   "parent": "62",
+  "parentSections": [
+    [
+      "70A"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "your-shadow"
   ],

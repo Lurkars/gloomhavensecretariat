@@ -90,7 +90,7 @@
   },
   {
     "id": 12,
-    "name": "Trophy Helm",
+    "name": "Trophy Helmet",
     "cost": 60,
     "count": 1,
     "edition": "cs",
@@ -319,7 +319,7 @@
   },
   {
     "id": 39,
-    "name": "Hook Shot",
+    "name": "Hook Gun",
     "cost": 45,
     "count": 1,
     "edition": "cs",
@@ -399,7 +399,7 @@
   },
   {
     "id": 59,
-    "name": "Drakes Blood",
+    "name": "Drake's Blood",
     "cost": 15,
     "count": 2,
     "edition": "cs",

@@ -1,8 +1,14 @@
 {
   "index": "62A",
-  "name": "Scenario 54",
+  "name": "Lair of Horrors",
   "edition": "cs",
   "parent": "54",
+  "parentSections": [
+    [
+      "61B"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "black-bear",
     "cave-imp"
@@ -11,10 +17,13 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        50
+      ],
       "monster": [
         {
           "name": "black-bear",
-          "type": "normal"
+          "type": "elite"
         },
         {
           "name": "cave-imp",
@@ -31,6 +40,14 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "cave-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "cave-imp",
+          "player4": "normal"
         }
       ]
     }

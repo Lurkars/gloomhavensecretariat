@@ -47,6 +47,19 @@
         {
           "type": "custom",
           "value": "%game.custom.scenarioBook%"
+        },
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "spitting-drake-scenario-60",
+                "type": "normal"
+              }
+            }
+          ],
+          "small": true
         }
       ]
     ]

@@ -2,6 +2,13 @@
   "index": "47",
   "name": "Viper Marsh",
   "edition": "cs",
+  "rewards": {
+    "gold": 10,
+    "prosperity": 1,
+    "itemDesigns": [
+      "55"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "giant-viper",

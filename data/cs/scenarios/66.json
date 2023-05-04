@@ -2,10 +2,33 @@
   "index": "66",
   "name": "Otherworldly Strangers",
   "edition": "cs",
+  "rewards": {
+    "items": [
+      "40"
+    ]
+  },
   "monsters": [
     "city-archer",
     "city-guard",
     "night-demon"
+  ],
+  "allies": [
+    "city-archer",
+    "city-guard"
+  ],
+  "rules": [
+    {
+      "round": "R == 3",
+      "sections": [
+        "74C"
+      ]
+    },
+    {
+      "round": "R == 5",
+      "sections": [
+        "74F"
+      ]
+    }
   ],
   "rooms": [
     {

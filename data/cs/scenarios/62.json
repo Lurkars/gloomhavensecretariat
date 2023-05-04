@@ -2,6 +2,11 @@
   "index": "62",
   "name": "Hallow Redemption",
   "edition": "cs",
+  "rewards": {
+    "items": [
+      "57"
+    ]
+  },
   "monsters": [
     "cave-bear",
     "forest-imp"

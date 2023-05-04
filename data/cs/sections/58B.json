@@ -3,6 +3,7 @@
   "name": "Wishing Well",
   "edition": "cs",
   "parent": "52",
+  "marker": "2",
   "monsters": [
     "black-imp",
     "living-corpse"
@@ -33,6 +34,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "normal"
         }
       ]
     }

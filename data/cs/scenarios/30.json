@@ -2,12 +2,6 @@
   "index": "30",
   "name": "Undead Terrors",
   "edition": "cs",
-  "unlocks": [
-    "32"
-  ],
-  "rewards": {
-    "custom": "Make a decision: <br><br>Give the potion to Selandre (Read Section 34A) <br>Tell Selandre the potion was destroyed (Read Section 32C)"
-  },
   "monsters": [
     "living-corpse",
     "stone-golem"

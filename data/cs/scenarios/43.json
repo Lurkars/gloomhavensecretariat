@@ -2,6 +2,10 @@
   "index": "43",
   "name": "Mansion Maze",
   "edition": "cs",
+  "rewards": {
+    "prosperity": 1,
+    "custom": "Each character gains one random \"Orb\" item (1-10)"
+  },
   "monsters": [
     "ancient-artillery",
     "city-guard",

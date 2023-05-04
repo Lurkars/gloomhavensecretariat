@@ -1,12 +1,15 @@
 {
-  "index": "35B",
-  "name": "Confronting the Past",
+  "index": "33C",
+  "name": "Eternal Portals",
   "edition": "cs",
-  "parent": "32",
+  "parent": "31",
+  "parentSections": [
+    [
+      "33B"
+    ]
+  ],
   "monsters": [
-    "jekserah",
-    "living-bones",
-    "living-corpse"
+    "eternal-demon"
   ],
   "rooms": [
     {
@@ -14,7 +17,7 @@
       "initial": true,
       "monster": [
         {
-          "name": "jekserah",
+          "name": "eternal-demon",
           "type": "boss"
         }
       ]

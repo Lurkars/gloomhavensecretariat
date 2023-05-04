@@ -3,6 +3,7 @@
   "name": "Glowing Crystals",
   "edition": "cs",
   "parent": "64",
+  "marker": "1",
   "monsters": [
     "deep-terror",
     "lurker"

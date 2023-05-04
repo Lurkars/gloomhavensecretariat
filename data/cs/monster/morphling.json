@@ -10,7 +10,6 @@
   "baseStat": {
     "type": "boss",
     "movement": 3,
-    "note": "%game.custom.scenarioBook%",
     "immunities": [
       "immobilize",
       "muddle",
@@ -23,6 +22,37 @@
       "brittle",
       "push",
       "pull"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "All characters and character summons gain %game.condition.muddle%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "Move all characters to the hexes %game.mapMarker.a% <br>Move the Morphling to hex %game.mapMarker.b%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "Draw 1 card from the Sputting Drake deck, the Morphling gains the traits of an elite Spitting Drake and performs the abilities on that card",
+          "small": true
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "All characters and character summons occupying a water tile suffer 1 damage",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "Draw 1 card from the Lurker deck, the Morphling gains the traits of an elite Lurker and performs the abilities on that card",
+          "small": true
+        }
+      ]
     ]
   },
   "stats": [

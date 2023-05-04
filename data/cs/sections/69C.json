@@ -3,8 +3,30 @@
   "name": "Archaic Preservation",
   "edition": "cs",
   "parent": "61",
+  "parentSections": [
+    [
+      "69B"
+    ]
+  ],
   "monsters": [
     "stone-golem"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "archaic-golem"
+          },
+          "type": "damage",
+          "value": "2"
+        }
+      ]
+    }
   ],
   "rooms": [
     {

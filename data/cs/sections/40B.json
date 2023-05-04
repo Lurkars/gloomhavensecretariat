@@ -1,8 +1,9 @@
 {
   "index": "40B",
-  "name": "Scenario 36",
+  "name": "Hunters Bounty",
   "edition": "cs",
   "parent": "36",
+  "marker": "2",
   "monsters": [
     "hound",
     "terrible-two-guard"
@@ -11,6 +12,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        30
+      ],
       "monster": [
         {
           "name": "hound",

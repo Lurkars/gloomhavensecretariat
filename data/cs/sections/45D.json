@@ -1,16 +1,136 @@
 {
   "index": "45D",
-  "name": "Scenario 42",
+  "name": "Unnatural Beasts",
   "edition": "cs",
   "parent": "42",
+  "marker": "2",
   "monsters": [
     "cave-bear",
     "goring-grizzly"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "cave-bear"
+          },
+          "type": "killed"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "cave-bear",
+            "type": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "cave-bear"
+          },
+          "type": "killed",
+          "value": "2"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "cave-bear",
+            "type": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "cave-bear"
+          },
+          "type": "killed",
+          "value": "3"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "cave-bear",
+            "type": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "cave-bear"
+          },
+          "type": "killed",
+          "value": "4"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "cave-bear",
+            "type": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "cave-bear"
+          },
+          "type": "killed",
+          "value": "5"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "cave-bear",
+            "type": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        33
+      ],
       "monster": [
         {
           "name": "cave-bear",

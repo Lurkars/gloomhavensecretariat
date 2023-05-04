@@ -3,6 +3,7 @@
   "name": "Hallow Redemption",
   "edition": "cs",
   "parent": "62",
+  "marker": "1",
   "monsters": [
     "cave-bear",
     "forest-imp",

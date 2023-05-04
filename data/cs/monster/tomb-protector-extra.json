@@ -1,0 +1,103 @@
+{
+  "name": "tomb-protector-extra",
+  "thumbnail": "gh-stone-golem",
+  "edition": "cs",
+  "deck": "stone-golem",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "standeeShare": "stone-golem",
+  "baseStat": {
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "movement": 2,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "movement": 3,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "movement": 3,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "movement": 3,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ]
+    }
+  ]
+}

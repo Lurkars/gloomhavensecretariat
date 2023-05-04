@@ -1,5 +1,5 @@
 {
-  "name": "rending-drake-cs",
+  "name": "rending-drake-scenario-60",
   "thumbnail": "gh-rending-drake",
   "edition": "cs",
   "deck": "rending-drake",
@@ -104,14 +104,14 @@
     {
       "type": "elite",
       "level": 0,
-      "health": 11,
+      "health": 10,
       "movement": 4,
       "attack": 4
     },
     {
       "type": "elite",
       "level": 1,
-      "health": 11,
+      "health": 10,
       "movement": 4,
       "attack": 5,
       "actions": [
@@ -124,7 +124,7 @@
     {
       "type": "elite",
       "level": 2,
-      "health": 12,
+      "health": 13,
       "movement": 5,
       "attack": 5,
       "actions": [
@@ -150,7 +150,7 @@
     {
       "type": "elite",
       "level": 4,
-      "health": 17,
+      "health": 16,
       "movement": 6,
       "attack": 6,
       "actions": [
@@ -176,7 +176,7 @@
     {
       "type": "elite",
       "level": 6,
-      "health": 23,
+      "health": 22,
       "movement": 6,
       "attack": 7,
       "actions": [
