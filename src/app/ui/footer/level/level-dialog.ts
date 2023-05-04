@@ -38,77 +38,77 @@ export class LevelDialogComponent implements OnInit, OnDestroy {
         }
     }
 
-    setLevelCalculation(levelCalculation: boolean) {
-        gameManager.stateManager.before(levelCalculation ? "enableAutomaticLevel" : "disabledAutomaticLevel");
+    async setLevelCalculation(levelCalculation: boolean) {
+        await gameManager.stateManager.before(levelCalculation ? "enableAutomaticLevel" : "disabledAutomaticLevel");
         gameManager.game.levelCalculation = levelCalculation;
         if (gameManager.game.levelCalculation) {
             gameManager.levelManager.calculateScenarioLevel();
         }
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 
-    setLevelAdjustment(levelAdjustment: number) {
-        gameManager.stateManager.before("updateLevelAdjustment", ghsValueSign(levelAdjustment));
+    async setLevelAdjustment(levelAdjustment: number) {
+        await gameManager.stateManager.before("updateLevelAdjustment", ghsValueSign(levelAdjustment));
         gameManager.game.levelAdjustment = levelAdjustment;
         if (gameManager.game.levelCalculation) {
             gameManager.levelManager.calculateScenarioLevel();
         }
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 
-    setBonusAdjustment(bonusAdjustment: number) {
-        gameManager.stateManager.before("updateBonusAdjustment", ghsValueSign(bonusAdjustment));
+    async setBonusAdjustment(bonusAdjustment: number) {
+        await gameManager.stateManager.before("updateBonusAdjustment", ghsValueSign(bonusAdjustment));
         gameManager.game.bonusAdjustment = bonusAdjustment;
         if (gameManager.game.levelCalculation) {
             gameManager.levelManager.calculateScenarioLevel();
         }
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 
-    setGe5Player(ge5Player: boolean) {
-        gameManager.stateManager.before(ge5Player ? "enabledGe5Player" : "disabledGe5Player");
+    async setGe5Player(ge5Player: boolean) {
+        await gameManager.stateManager.before(ge5Player ? "enabledGe5Player" : "disabledGe5Player");
         gameManager.game.ge5Player = ge5Player;
         if (gameManager.game.levelCalculation) {
             gameManager.levelManager.calculateScenarioLevel();
         }
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 
     ge5Player(): boolean {
         return gameManager.characterManager.characterCount() > 4;
     }
 
-    togglePlayerCount(event: any) {
-        gameManager.stateManager.before(event.target.checked ? "enabledManualPlayerCount" : "disabledManualPlayerCount");
+    async togglePlayerCount(event: any) {
+        await gameManager.stateManager.before(event.target.checked ? "enabledManualPlayerCount" : "disabledManualPlayerCount");
         gameManager.game.playerCount = event.target.checked ? 2 : -1;
         if (event.target.checked) {
             gameManager.game.levelCalculation = false;
         } else if (gameManager.game.levelCalculation) {
             gameManager.levelManager.calculateScenarioLevel();
         }
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 
-    setPlayerCount(playerCount: number) {
-        gameManager.stateManager.before("updateManualPlayerCount", '' + playerCount);
+    async setPlayerCount(playerCount: number) {
+        await gameManager.stateManager.before("updateManualPlayerCount", '' + playerCount);
         gameManager.game.playerCount = playerCount;
         if (gameManager.game.levelCalculation) {
             gameManager.levelManager.calculateScenarioLevel();
         }
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 
-    setLevel(level: number) {
-        gameManager.stateManager.before("setScenarioLevel", "" + level);
+    async setLevel(level: number) {
+        await gameManager.stateManager.before("setScenarioLevel", "" + level);
         gameManager.levelManager.setLevel(level);
         gameManager.game.levelCalculation = false;
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 
-    setSolo(solo: boolean) {
-        gameManager.stateManager.before(solo ? "enableSolo" : "disableSolo");
+    async setSolo(solo: boolean) {
+        await gameManager.stateManager.before(solo ? "enableSolo" : "disableSolo");
         gameManager.game.solo = solo;
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 
     calculateValues() {

@@ -4,6 +4,15 @@
     font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
     min-width: calc(var(--ghs-unit) * 70);
 
+
+    .working {
+        width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        height: auto;
+        filter: var(--ghs-filter-gray);
+        animation: ghs-spinning 1500ms linear infinite;
+        margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+    }
+
     .menu {
         display: flex;
         justify-content: space-between;

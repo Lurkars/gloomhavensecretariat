@@ -135,13 +135,13 @@ export class LootDeckComponent implements OnInit, OnDestroy {
                 });
 
                 dialog.closed.subscribe({
-                    next: (name) => {
+                    next: async (name) => {
                         if (name) {
                             const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == name);
                             if (character instanceof Character) {
-                                gameManager.stateManager.before(loot.type == LootType.random_item ? "lootRandomItem" : "addResource", "data.character." + character.name, "game.loot." + loot.type, this.lootManager.getValue(loot) + '');
+                                await gameManager.stateManager.before(loot.type == LootType.random_item ? "lootRandomItem" : "addResource", "data.character." + character.name, "game.loot." + loot.type, this.lootManager.getValue(loot) + '');
                                 gameManager.lootManager.applyLoot(loot, character, this.deck.current);
-                                gameManager.stateManager.after();
+                                await gameManager.stateManager.after();
                             }
                         }
                     }

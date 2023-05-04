@@ -60,14 +60,14 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     })
   }
 
-  toggleCharacterAbsent(character: Character) {
+  async toggleCharacterAbsent(character: Character) {
     if (character.absent || gameManager.characterManager.characterCount() > 1) {
-      gameManager.stateManager.before(character.absent ? "unsetAbsent" : "setAbsent", "data.character." + character.name);
+      await gameManager.stateManager.before(character.absent ? "unsetAbsent" : "setAbsent", "data.character." + character.name);
       character.absent = !character.absent;
       if (character.absent && character.active) {
         gameManager.roundManager.toggleFigure(character);
       }
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
@@ -198,9 +198,9 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     this.entityConditions = entityConditions;
   }
 
-  close() {
-    this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
-      gameManager.stateManager.before(entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition", "game.condition." + entityCondition.name, 'allCharacters');
+  async close() {
+    this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach(async (entityCondition) => {
+      await gameManager.stateManager.before(entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition", "game.condition." + entityCondition.name, 'allCharacters');
       this.activeCharacters.find((character) => {
         if (entityCondition.state == EntityConditionState.removed) {
           gameManager.entityManager.removeCondition(character, entityCondition);
@@ -208,24 +208,24 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
           gameManager.entityManager.addCondition(character, entityCondition, character.active, character.off);
         }
       })
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     })
 
-    this.entityConditions.forEach((condition) => {
+    this.entityConditions.forEach(async (condition) => {
       if (this.activeCharacters.find((character) => character.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired && entityCondition.value != condition.value))) {
-        gameManager.stateManager.before("setConditionValue", "game.condition." + condition.name, "" + condition.value, 'allCharacters');
+        await gameManager.stateManager.before("setConditionValue", "game.condition." + condition.name, "" + condition.value, 'allCharacters');
         this.activeCharacters.find((character) => {
           const entityCondition = character.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
           if (entityCondition && entityCondition.value != condition.value) {
             entityCondition.value = condition.value;
           }
         })
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
       }
     })
 
     if (this.minHealth() != 0 || this.maxHealth() != 0) {
-      gameManager.stateManager.before("changeCharacterHP", ghsValueSign(this.minHealth() != 0 ? this.minHealth() : this.maxHealth()));
+      await gameManager.stateManager.before("changeCharacterHP", ghsValueSign(this.minHealth() != 0 ? this.minHealth() : this.maxHealth()));
       this.activeCharacters.forEach((character, i) => {
         if (this.health[i] && this.health[i] != 0) {
           gameManager.entityManager.changeHealth(character, this.health[i]);
@@ -236,44 +236,44 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
           character.exhausted = true;
         }
       })
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
 
     if (this.minExperience() != 0 || this.maxExperience() != 0) {
-      gameManager.stateManager.before("changeCharacterXP", ghsValueSign(this.minExperience() != 0 ? this.minExperience() : this.maxExperience()));
+      await gameManager.stateManager.before("changeCharacterXP", ghsValueSign(this.minExperience() != 0 ? this.minExperience() : this.maxExperience()));
       this.activeCharacters.forEach((character, i) => {
         if (this.experience[i] && this.experience[i] != 0) {
           character.progress.experience += this.experience[i];
           this.experience[i] = 0;
         }
       })
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
 
     if (this.minGold() != 0 || this.maxGold() != 0) {
-      gameManager.stateManager.before("changeCharacterGold", ghsValueSign(this.minGold() != 0 ? this.minGold() : this.maxGold()));
+      await gameManager.stateManager.before("changeCharacterGold", ghsValueSign(this.minGold() != 0 ? this.minGold() : this.maxGold()));
       this.activeCharacters.forEach((character, i) => {
         if (this.gold[i] && this.gold[i] != 0) {
           character.progress.gold += this.gold[i];
           this.gold[i] = 0;
         }
       })
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
 
     if (this.minBattleGoals() != 0 || this.maxBattleGoals() != 0) {
-      gameManager.stateManager.before("changeCharacterBattleGoals", ghsValueSign(this.minBattleGoals() != 0 ? this.minBattleGoals() : this.maxBattleGoals()));
+      await gameManager.stateManager.before("changeCharacterBattleGoals", ghsValueSign(this.minBattleGoals() != 0 ? this.minBattleGoals() : this.maxBattleGoals()));
       this.activeCharacters.forEach((character, i) => {
         if (this.battleGoals[i] && this.battleGoals[i] != 0) {
           character.progress.battleGoals += this.battleGoals[i];
           this.battleGoals[i] = 0;
         }
       })
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
 
     if (this.bless != 0) {
-      gameManager.stateManager.before("changeCharacterBless", ghsValueSign(this.bless));
+      await gameManager.stateManager.before("changeCharacterBless", ghsValueSign(this.bless));
       let count = Math.abs(this.bless);
       let index = 0;
 
@@ -294,11 +294,11 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
         }
         index++;
       }
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
 
     if (this.curse != 0) {
-      gameManager.stateManager.before("changeCharacterCurse", ghsValueSign(this.curse));
+      await gameManager.stateManager.before("changeCharacterCurse", ghsValueSign(this.curse));
       let count = Math.abs(this.curse);
       let index = 0;
 
@@ -319,7 +319,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
         }
         index++;
       }
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 }

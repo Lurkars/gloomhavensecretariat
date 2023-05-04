@@ -88,13 +88,13 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     this.dialogRef.close();
   }
 
-  toggleCampaignMode() {
-    gameManager.stateManager.before(this.party.campaignMode ? "disablePartyCampaignMode" : "enablePartyCampaignMode");
+  async toggleCampaignMode() {
+    await gameManager.stateManager.before(this.party.campaignMode ? "disablePartyCampaignMode" : "enablePartyCampaignMode");
     this.party.campaignMode = !this.party.campaignMode;
     if (this.party.campaignMode) {
       gameManager.game.edition = this.party.edition;
     }
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
     this.update();
   }
 
@@ -106,28 +106,28 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     this.close();
   }
 
-  changePlayer(event: any, index: number) {
-    gameManager.stateManager.before("setPlayer", event.target.value, '' + (index + 1));
+  async changePlayer(event: any, index: number) {
+    await gameManager.stateManager.before("setPlayer", event.target.value, '' + (index + 1));
     this.party.players[index] = event.target.value;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  removePlayer(index: number) {
-    gameManager.stateManager.before("removePlayer", this.party.players[index], '' + (index + 1));
+  async removePlayer(index: number) {
+    await gameManager.stateManager.before("removePlayer", this.party.players[index], '' + (index + 1));
     this.party.players.splice(index, 1);
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  unlockScenario(indexElement: HTMLInputElement, groupElement: HTMLInputElement, edition: string) {
+  async unlockScenario(indexElement: HTMLInputElement, groupElement: HTMLInputElement, edition: string) {
     let index: string = indexElement.value;
     let group: string | undefined = groupElement.value || undefined;
     const scenarioData = gameManager.scenarioManager.scenarioData(edition, true).find((scenarioData) => scenarioData.index == index && scenarioData.group == group);
     indexElement.classList.add('error');
     groupElement.classList.add('error');
     if (scenarioData && this.scenarios[edition].indexOf(scenarioData) == -1 && !this.party.manualScenarios.some((gameScenarioModel) => gameScenarioModel.index == scenarioData.index && gameScenarioModel.edition == scenarioData.edition && gameScenarioModel.group == scenarioData.group && !gameScenarioModel.isCustom)) {
-      gameManager.stateManager.before("addManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
+      await gameManager.stateManager.before("addManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
       gameManager.game.party.manualScenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []));
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
       indexElement.classList.remove('error');
       indexElement.value = "";
       groupElement.classList.remove('error');
@@ -137,89 +137,89 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
 
-  setName(event: any) {
+  async setName(event: any) {
     if (this.party.name != event.target.value) {
-      gameManager.stateManager.before("setPartyName", event.target.value);
+      await gameManager.stateManager.before("setPartyName", event.target.value);
       this.party.name = event.target.value;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  setLocation(event: any) {
+  async setLocation(event: any) {
     if (this.party.location != event.target.value) {
-      gameManager.stateManager.before("setPartyLocation", event.target.value);;
+      await gameManager.stateManager.before("setPartyLocation", event.target.value);;
       this.party.location = event.target.value;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  setNotes(event: any) {
+  async setNotes(event: any) {
     if (this.party.notes != event.target.value) {
-      gameManager.stateManager.before("setPartyNotes", event.target.value);
+      await gameManager.stateManager.before("setPartyNotes", event.target.value);
       this.party.notes = event.target.value;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  setAchievements(event: any) {
+  async setAchievements(event: any) {
     if (this.party.achievements != event.target.value) {
-      gameManager.stateManager.before("setPartyAchievements", event.target.value);
+      await gameManager.stateManager.before("setPartyAchievements", event.target.value);
       this.party.achievementsList.push(...event.target.value.split("\n").filter((value: string) => value));
       this.party.achievements = "";
       event.target.value = "";
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  updateAchievement(event: any, index: number) {
+  async updateAchievement(event: any, index: number) {
     if (this.party.achievementsList[index] != event.target.value) {
-      gameManager.stateManager.before("updatePartyAchievement", event.target.value);
+      await gameManager.stateManager.before("updatePartyAchievement", event.target.value);
       this.party.achievementsList[index] = event.target.value
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  removeAchievement(index: number) {
-    gameManager.stateManager.before("removePartyAchievement", this.party.achievementsList[index]);
+  async removeAchievement(index: number) {
+    await gameManager.stateManager.before("removePartyAchievement", this.party.achievementsList[index]);
     this.party.achievementsList.splice(index, 1);
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  setGlobalAchievements(event: any) {
+  async setGlobalAchievements(event: any) {
     if (this.party.globalAchievements != event.target.value) {
-      gameManager.stateManager.before("setGlobalAchievements", event.target.value);
+      await gameManager.stateManager.before("setGlobalAchievements", event.target.value);
       this.party.globalAchievementsList.push(...event.target.value.split("\n").filter((value: string) => value));
       this.party.globalAchievements = "";
       event.target.value = "";
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  updateGlobalAchievement(event: any, index: number) {
+  async updateGlobalAchievement(event: any, index: number) {
     if (this.party.globalAchievementsList[index] != event.target.value) {
-      gameManager.stateManager.before("updateGlobalAchievement", event.target.value);
+      await gameManager.stateManager.before("updateGlobalAchievement", event.target.value);
       this.party.globalAchievementsList[index] = event.target.value
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  removeGlobalAchievement(index: number) {
-    gameManager.stateManager.before("removeGlobalAchievement", this.party.achievementsList[index]);
+  async removeGlobalAchievement(index: number) {
+    await gameManager.stateManager.before("removeGlobalAchievement", this.party.achievementsList[index]);
     this.party.globalAchievementsList.splice(index, 1);
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
 
-  setReputation(value: number) {
+  async setReputation(value: number) {
     if (this.party.reputation != value) {
-      gameManager.stateManager.before("setPartyReputation", "" + value);
+      await gameManager.stateManager.before("setPartyReputation", "" + value);
       if (value > 20) {
         value = 20
       } else if (value < -20) {
         value = -20;
       }
       this.party.reputation = value;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
       this.update();
     }
   }
@@ -232,52 +232,52 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     return 0;
   }
 
-  setPlayerNumber(characterModel: GameCharacterModel, event: any) {
+  async setPlayerNumber(characterModel: GameCharacterModel, event: any) {
     if (!isNaN(+event.target.value) && characterModel.number != +event.target.value && (+event.target.value > 0)) {
-      gameManager.stateManager.before("setPlayerNumber", "data.character." + characterModel.name, event.target.value);
+      await gameManager.stateManager.before("setPlayerNumber", "data.character." + characterModel.name, event.target.value);
       characterModel.number = +event.target.value;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  reactivateCharacter(characterModel: GameCharacterModel) {
-    gameManager.stateManager.before("setRetired", "data.character." + characterModel.name, "" + false);
+  async reactivateCharacter(characterModel: GameCharacterModel) {
+    await gameManager.stateManager.before("setRetired", "data.character." + characterModel.name, "" + false);
     let character = new Character(gameManager.getCharacterData(characterModel.name, characterModel.edition), characterModel.level);
     character.fromModel(characterModel);
     character.progress.retired = false;
     gameManager.game.figures.push(character);
     this.party.retirements.splice(this.party.retirements.indexOf(characterModel), 1);
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  removeParty() {
+  async removeParty() {
     if (gameManager.game.parties.length > 1) {
-      gameManager.stateManager.before("removeParty", this.party.name || '%party% ' + this.party.id);
+      await gameManager.stateManager.before("removeParty", this.party.name || '%party% ' + this.party.id);
       gameManager.game.parties.splice(gameManager.game.parties.indexOf(this.party), 1);
       this.changeParty(gameManager.game.parties[0]);
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  newParty() {
+  async newParty() {
     let party = new Party();
     let id = 0;
     while (gameManager.game.parties.some((party) => party.id == id)) {
       id++;
     }
     party.id = id;
-    gameManager.stateManager.before("addParty", party.name || '%party% ' + party.id);
+    await gameManager.stateManager.before("addParty", party.name || '%party% ' + party.id);
     gameManager.game.parties.push(party);
     this.changeParty(party);
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  selectParty(event: any) {
+  async selectParty(event: any) {
     const party = gameManager.game.parties.find((party) => party.id == event.target.value);
     if (party) {
-      gameManager.stateManager.before("changeParty", party.name || '%party% ' + party.id);
+      await gameManager.stateManager.before("changeParty", party.name || '%party% ' + party.id);
       this.changeParty(party);
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
@@ -298,7 +298,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     this.update();
   }
 
-  setDonations(value: number) {
+  async setDonations(value: number) {
     if (this.party.donations == value) {
       value--;
     }
@@ -306,12 +306,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       value = 0;
     }
 
-    gameManager.stateManager.before("setPartyDonations", "" + value);
+    await gameManager.stateManager.before("setPartyDonations", "" + value);
     this.party.donations = value;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  setProsperity(value: number) {
+  async setProsperity(value: number) {
     if (this.party.prosperity == value) {
       value--;
     }
@@ -321,9 +321,9 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       value = 0;
     }
 
-    gameManager.stateManager.before("setPartyProsperity", "" + value);
+    await gameManager.stateManager.before("setPartyProsperity", "" + value);
     this.party.prosperity = value;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
   exportParty() {
@@ -335,20 +335,20 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     document.body.removeChild(downloadButton);
   }
 
-  importParty(event: any) {
+  async importParty(event: any) {
     const parent = event.target.parentElement;
     parent.classList.remove("error");
     try {
       const reader = new FileReader();
-      reader.addEventListener('load', (event: any) => {
-        gameManager.stateManager.before("importParty");
+      reader.addEventListener('load', async (event: any) => {
+        await gameManager.stateManager.before("importParty");
         gameManager.game.party = Object.assign(new Party(), JSON.parse(event.target.result));
         if (!gameManager.game.party) {
           parent.classList.add("error");
         } else {
           this.party = gameManager.game.party;
         }
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
       });
 
       reader.readAsText(event.target.files[0]);
@@ -395,30 +395,30 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     }
   }
 
-  addSuccessIntern(scenarioData: ScenarioData, conclusionSection: ScenarioData | undefined = undefined) {
-    gameManager.stateManager.before("finishScenario.success", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
+  async addSuccessIntern(scenarioData: ScenarioData, conclusionSection: ScenarioData | undefined = undefined) {
+    await gameManager.stateManager.before("finishScenario.success", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
     gameManager.scenarioManager.finishScenario(new Scenario(scenarioData), true, conclusionSection, false, undefined, false, true);
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
 
     this.update();
   }
 
-  removeSuccess(scenarioData: ScenarioData) {
+  async removeSuccess(scenarioData: ScenarioData) {
     const value = this.party.scenarios.find((value) => value.index == scenarioData.index && value.edition == scenarioData.edition && value.group == scenarioData.group);
     if (value) {
-      gameManager.stateManager.before("finishScenario.remove", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
+      await gameManager.stateManager.before("finishScenario.remove", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
       this.party.scenarios.splice(this.party.scenarios.indexOf(value), 1);
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
     this.update();
   }
 
-  removeManual(scenarioData: ScenarioData) {
+  async removeManual(scenarioData: ScenarioData) {
     const value = this.party.manualScenarios.find((value) => value.index == scenarioData.index && value.edition == scenarioData.edition && value.group == scenarioData.group);
     if (value) {
-      gameManager.stateManager.before("removeManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
+      await gameManager.stateManager.before("removeManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
       this.party.manualScenarios.splice(this.party.manualScenarios.indexOf(value), 1);
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
     this.update();
   }
@@ -427,12 +427,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     return Math.max(...scenarios.map((scenarioData) => scenarioData.index.length));
   }
 
-  changeEdition(event: any) {
+  async changeEdition(event: any) {
     this.party.edition = event.target.value != 'undefined' && event.target.value || undefined;
     if (this.party.campaignMode) {
-      gameManager.stateManager.before("setEdition", "data.edition." + this.party.edition);
+      await gameManager.stateManager.before("setEdition", "data.edition." + this.party.edition);
       gameManager.game.edition = this.party.edition;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
     this.update();
   }
@@ -496,22 +496,22 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     }).map((identifier) => gameManager.item(+identifier.name, identifier.edition, true)).filter((itemData) => itemData != undefined).map((itemData) => itemData as ItemData);
   }
 
-  addItem(item: string, edition: string) {
-    gameManager.stateManager.before("addUnlockedItem", edition, item);
+  async addItem(item: string, edition: string) {
+    await gameManager.stateManager.before("addUnlockedItem", edition, item);
     this.party.unlockedItems = this.party.unlockedItems || [];
     this.party.unlockedItems.push(new Identifier(item, edition));
     this.itemIndex.nativeElement.value = "0";
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
   hasItem(item: string, edition: string): boolean {
     return this.party.unlockedItems.some((identifier) => identifier.name == item && identifier.edition == edition);
   }
 
-  removeItem(item: Identifier) {
-    gameManager.stateManager.before("removeUnlockedItem", item.edition, item.name);
+  async removeItem(item: Identifier) {
+    await gameManager.stateManager.before("removeUnlockedItem", item.edition, item.name);
     this.party.unlockedItems.splice(this.party.unlockedItems.indexOf(item), 1);
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
   treasures(): Identifier[] {
@@ -524,22 +524,22 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     });
   }
 
-  addTreasure(treasure: string, edition: string) {
-    gameManager.stateManager.before("addTreasure", edition, treasure);
+  async addTreasure(treasure: string, edition: string) {
+    await gameManager.stateManager.before("addTreasure", edition, treasure);
     this.party.treasures = this.party.treasures || [];
     this.party.treasures.push(new Identifier(treasure, edition));
     this.treasureIndex.nativeElement.value = "0";
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
   hasTreasure(treasure: string, edition: string): boolean {
     return this.party.treasures.some((identifier) => identifier.name == treasure && identifier.edition == edition);
   }
 
-  removeTreasure(treasure: Identifier) {
-    gameManager.stateManager.before("removeTreasure", treasure.edition, treasure.name);
+  async removeTreasure(treasure: Identifier) {
+    await gameManager.stateManager.before("removeTreasure", treasure.edition, treasure.name);
     this.party.treasures.splice(this.party.treasures.indexOf(treasure), 1);
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
   campaignData(): CampaignData | undefined {
@@ -576,7 +576,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     return conclusions.length > 0 && conclusions.every((conclusion) => !gameManager.game.party.conclusions.find((model) => model.edition == conclusion.edition && model.index == conclusion.index && model.group == conclusion.group));
   }
 
-  openConclusions(section: string, week: number) {
+  async openConclusions(section: string, week: number) {
     let conclusions: ScenarioData[] = gameManager.sectionData(gameManager.game.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.length == 1 && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(section) != -1)).map((conclusion) => {
       conclusion.name = "";
       return conclusion;
@@ -587,14 +587,14 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         panelClass: ['dialog', 'dialog-invert'],
         data: { conclusions: conclusions, parent: gameManager.sectionData(gameManager.game.edition).find((sectionData) => sectionData.index == section && !sectionData.group) }
       }).closed.subscribe({
-        next: (conclusion) => {
+        next: async (conclusion) => {
           if (conclusion) {
             const scenario = new Scenario(conclusion as ScenarioData);
-            gameManager.stateManager.before("finishConclusion", ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
+            await gameManager.stateManager.before("finishConclusion", ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
             gameManager.scenarioManager.finishScenario(scenario, true, undefined, false, undefined, false, true);
             this.party.weekSections[week] = this.party.weekSections[week] || [];
             this.party.weekSections[week]?.push(scenario.index);
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
           }
         }
       });
@@ -611,7 +611,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     return [];
   }
 
-  setWeek(value: number) {
+  async setWeek(value: number) {
     if (this.party.weeks >= value) {
       let conclusion: string | undefined;
       this.sectionsForWeekFixed(value - 1).forEach((section) => {
@@ -641,7 +641,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       value = 0;
     }
 
-    gameManager.stateManager.before("setPartyWeeks", "" + value);
+    await gameManager.stateManager.before("setPartyWeeks", "" + value);
     for (let week = this.party.weeks; week < value; week++) {
       const sectionsForWeeks = [...this.sectionsForWeekFixed(week + 1), ...this.sectionsForWeek(week + 1)]
       sectionsForWeeks.forEach((section) => {
@@ -652,7 +652,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       })
     }
     this.party.weeks = value;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
     this.update();
   }
 
@@ -663,11 +663,11 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     });
   }
 
-  setResource(type: LootType, event: any) {
+  async setResource(type: LootType, event: any) {
     if (!isNaN(+event.target.value)) {
-      gameManager.stateManager.before("setPartyResource", this.party.name, "game.loot." + type, event.target.value);
+      await gameManager.stateManager.before("setPartyResource", this.party.name, "game.loot." + type, event.target.value);
       this.party.loot[type] = +event.target.value;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
@@ -678,23 +678,23 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     }).closed.subscribe({ next: () => this.update() });
   }
 
-  setInspiration(event: any) {
+  async setInspiration(event: any) {
     if (!isNaN(+event.target.value) && this.party.inspiration != +event.target.value) {
-      gameManager.stateManager.before("setPartyInspiration", this.party.name, event.target.value);
+      await gameManager.stateManager.before("setPartyInspiration", this.party.name, event.target.value);
       this.party.inspiration = +event.target.value;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  setTotalDefense(event: any) {
+  async setTotalDefense(event: any) {
     if (!isNaN(+event.target.value) && this.party.defense != +event.target.value) {
-      gameManager.stateManager.before("setPartyTotalDefense", this.party.name, event.target.value);
+      await gameManager.stateManager.before("setPartyTotalDefense", this.party.name, event.target.value);
       this.party.defense = +event.target.value;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  setSoldiers(value: number) {
+  async setSoldiers(value: number) {
     if (this.party.soldiers == value) {
       value--;
     }
@@ -702,12 +702,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       value = 0;
     }
 
-    gameManager.stateManager.before("setPartySoldiers", "" + value);
+    await gameManager.stateManager.before("setPartySoldiers", "" + value);
     this.party.soldiers = value;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  setMorale(value: number) {
+  async setMorale(value: number) {
     if (this.party.morale == value) {
       value--;
     }
@@ -715,12 +715,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       value = 0;
     }
 
-    gameManager.stateManager.before("setPartyMorale", "" + value);
+    await gameManager.stateManager.before("setPartyMorale", "" + value);
     this.party.morale = value;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  setTownGuardPerks(value: number) {
+  async setTownGuardPerks(value: number) {
     if (this.party.townGuardPerks == value) {
       value--;
     }
@@ -728,26 +728,26 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       value = 0;
     }
 
-    gameManager.stateManager.before("setPartyTownGuardPerks", "" + value);
+    await gameManager.stateManager.before("setPartyTownGuardPerks", "" + value);
     this.party.townGuardPerks = value;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  toggleTownGuardPerkSection(section: string, force: boolean = false) {
+  async toggleTownGuardPerkSection(section: string, force: boolean = false) {
     this.party.townGuardPerkSections = this.party.townGuardPerkSections || [];
     const index = this.party.townGuardPerkSections.indexOf(section);
     if (index != -1 || this.party.townGuardPerkSections.length < Math.floor(this.party.townGuardPerks / 3) || force) {
-      gameManager.stateManager.before(index == -1 ? "addPartyTownGuardPerkSection" : "removePartyTownGuardPerkSection", section);
+      await gameManager.stateManager.before(index == -1 ? "addPartyTownGuardPerkSection" : "removePartyTownGuardPerkSection", section);
       if (index == -1) {
         this.party.townGuardPerkSections.push(section);
       } else {
         this.party.townGuardPerkSections.splice(index, 1);
       }
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  addCampaignSticker(campaignStickerElement: HTMLInputElement) {
+  async addCampaignSticker(campaignStickerElement: HTMLInputElement) {
     const sticker = campaignStickerElement.value;
     this.party.campaignStickers = this.party.campaignStickers || [];
 
@@ -763,19 +763,19 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     const count = this.party.campaignStickers.filter((campaignSticker) => campaignSticker.toLowerCase().replaceAll(' ', '-') == sticker.toLowerCase().replaceAll(' ', '-')).length;
 
     if (count < total) {
-      gameManager.stateManager.before("addCampaignSticker", sticker);
+      await gameManager.stateManager.before("addCampaignSticker", sticker);
       this.party.campaignStickers.push(sticker);
       campaignStickerElement.value = "";
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  removeCampaignSticker(campaignSticker: string) {
+  async removeCampaignSticker(campaignSticker: string) {
     const index = this.party.campaignStickers.indexOf(campaignSticker);
     if (index != -1) {
-      gameManager.stateManager.before("removeCampaignSticker", campaignSticker);
+      await gameManager.stateManager.before("removeCampaignSticker", campaignSticker);
       this.party.campaignStickers.splice(index, 1);
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
@@ -808,14 +808,14 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     return undefined;
   }
 
-  beforeTownGuardDeck(change: AttackModiferDeckChange) {
-    gameManager.stateManager.before("updateAttackModifierDeck." + change.type, "townguard", ...change.values);
+  async beforeTownGuardDeck(change: AttackModiferDeckChange) {
+    await gameManager.stateManager.before("updateAttackModifierDeck." + change.type, "townguard", ...change.values);
   }
 
-  afterTownGuardDeck(change: AttackModiferDeckChange) {
+  async afterTownGuardDeck(change: AttackModiferDeckChange) {
     this.townGuardDeck = change.deck;
     this.party.townGuardDeck = this.townGuardDeck.toModel();
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
 }

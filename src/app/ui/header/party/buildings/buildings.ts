@@ -98,18 +98,18 @@ export class PartyBuildingsComponent implements OnInit {
     return undefined;
   }
 
-  unlockBuilding(buildingElement: HTMLInputElement) {
+  async unlockBuilding(buildingElement: HTMLInputElement) {
     const building = buildingElement.value;
     this.party.buildings = this.party.buildings || [];
     const campaign = this.campaignData();
     if (campaign && campaign.buildings && building) {
       const buildingData = campaign.buildings.find((buildingData) => buildingData.name == building.toLowerCase().replaceAll(' ', '-') || buildingData.id == building || !isNaN(+buildingData.id) && !isNaN(+building) && +buildingData.id == +building);
       if (buildingData && !this.party.buildings.find((buildingModel) => buildingModel.name == buildingData.name)) {
-        gameManager.stateManager.before("addBuilding", "data.buildings." + buildingData.name);
+        await gameManager.stateManager.before("addBuilding", "data.buildings." + buildingData.name);
         this.party.buildings.push(new BuildingModel(buildingData.name, 0));
         this.updateBuildings();
         buildingElement.value = "";
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
       }
     }
   }
@@ -176,22 +176,22 @@ export class PartyBuildingsComponent implements OnInit {
     }
   }
 
-  upgradeIntern(building: Building, force: boolean) {
+  async upgradeIntern(building: Building, force: boolean) {
     const costs = building.model.level ? building.data.upgrades[building.model.level - 1] : building.data.costs;
-    gameManager.stateManager.before(building.model.level ? "upgradeBuilding" : "buildBuilding", "data.buildings." + building.model.name, '' + (building.model.level + 1));
+    await gameManager.stateManager.before(building.model.level ? "upgradeBuilding" : "buildBuilding", "data.buildings." + building.model.name, '' + (building.model.level + 1));
     if (!force) {
       this.party.loot[LootType.lumber] = (this.party.loot[LootType.lumber] || 0) - costs.lumber;
       this.party.loot[LootType.metal] = (this.party.loot[LootType.metal] || 0) - costs.metal;
       this.party.loot[LootType.hide] = (this.party.loot[LootType.hide] || 0) - costs.hide;
     }
     building.model.level++;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  rebuild(building: Building, force: boolean = false) {
+  async rebuild(building: Building, force: boolean = false) {
     if (building.model.state == 'wrecked') {
       if (this.upgradeable(building) || force) {
-        gameManager.stateManager.before("rebuildBuilding", "data.buildings." + building.model.name);
+        await gameManager.stateManager.before("rebuildBuilding", "data.buildings." + building.model.name);
         if (!force) {
           const costs = building.data.rebuild[building.model.level - 1];
           this.party.loot[LootType.lumber] = (this.party.loot[LootType.lumber] || 0) - costs.lumber;
@@ -199,12 +199,12 @@ export class PartyBuildingsComponent implements OnInit {
           this.party.loot[LootType.hide] = (this.party.loot[LootType.hide] || 0) - costs.hide;
         }
         building.model.state = 'normal';
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
       }
     }
   }
 
-  repair(building: Building, force: boolean = false) {
+  async repair(building: Building, force: boolean = false) {
     if (building.model.state == 'damaged') {
       if (this.upgradeable(building) || force) {
         if (!force) {
@@ -213,46 +213,46 @@ export class PartyBuildingsComponent implements OnInit {
             data: building
           });
         } else {
-          gameManager.stateManager.before("repairBuilding", "data.buildings." + building.model.name);
+          await gameManager.stateManager.before("repairBuilding", "data.buildings." + building.model.name);
           building.model.state = 'normal';
-          gameManager.stateManager.after();
+          await gameManager.stateManager.after();
         }
       }
     }
   }
 
 
-  toggleState(building: Building, force: boolean = false) {
+  async toggleState(building: Building, force: boolean = false) {
     if (building.data.repair) {
       if (building.model.level > 0) {
         if (building.model.state == 'normal') {
-          gameManager.stateManager.before("changeBuildingState", building.model.name, 'damaged');
+          await gameManager.stateManager.before("changeBuildingState", building.model.name, 'damaged');
           building.model.state = 'damaged';
-          gameManager.stateManager.after();
+          await gameManager.stateManager.after();
         } else if (building.model.state == 'damaged') {
-          gameManager.stateManager.before("changeBuildingState", building.model.name, 'wrecked');
+          await gameManager.stateManager.before("changeBuildingState", building.model.name, 'wrecked');
           building.model.state = 'wrecked'
-          gameManager.stateManager.after();
+          await gameManager.stateManager.after();
         } else if (force && building.model.state == 'wrecked') {
-          gameManager.stateManager.before("changeBuildingState", building.model.name, 'normal');
+          await gameManager.stateManager.before("changeBuildingState", building.model.name, 'normal');
           building.model.state = 'normal';
-          gameManager.stateManager.after();
+          await gameManager.stateManager.after();
         }
       }
     }
   }
 
-  downgrade(building: Building, force: boolean = false) {
+  async downgrade(building: Building, force: boolean = false) {
     const index = this.party.buildings.indexOf(building.model);
     if (index != -1) {
       if (!this.initialBuilding(building.data) && (building.model.level == 0 || force)) {
-        gameManager.stateManager.before("removeBuilding", "data.buildings." + building.model.name);
+        await gameManager.stateManager.before("removeBuilding", "data.buildings." + building.model.name);
         this.party.buildings.splice(index, 1);
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
       } else if (!this.initialBuilding(building.data) || building.model.level > 1) {
-        gameManager.stateManager.before("downgradeBuilding", building.model.name, '' + (building.model.level - 1));
+        await gameManager.stateManager.before("downgradeBuilding", building.model.name, '' + (building.model.level - 1));
         building.model.level--;
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
       }
       this.updateBuildings();
     }

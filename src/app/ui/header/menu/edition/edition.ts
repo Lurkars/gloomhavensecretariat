@@ -14,20 +14,20 @@ export class EditionMenuComponent {
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
 
-  setEdition(edition: string | undefined = undefined) {
-    gameManager.stateManager.before("setEdition", "data.edition." + edition);
+  async setEdition(edition: string | undefined = undefined) {
+    await gameManager.stateManager.before("setEdition", "data.edition." + edition);
     if (edition == 'fh') {
       settingsManager.setFhStyle(true);
     } else {
       settingsManager.setFhStyle(false);
     }
     gameManager.game.edition = edition;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  toggleCampaignMode() {
-    gameManager.stateManager.before(gameManager.game.party.campaignMode ? "disablePartyCampaignMode" : "enablePartyCampaignMode");
+  async toggleCampaignMode() {
+    await gameManager.stateManager.before(gameManager.game.party.campaignMode ? "disablePartyCampaignMode" : "enablePartyCampaignMode");
     gameManager.game.party.campaignMode = !gameManager.game.party.campaignMode;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 }

@@ -77,23 +77,23 @@ export class EntitiesMenuDialogComponent {
     return this.health.reduce((a, b) => Math.max(a, b));
   }
 
-  toggleType() {
-    gameManager.stateManager.before("toggleTypeAll", "data.monster." + this.data.monster.name);
+  async toggleType() {
+    await gameManager.stateManager.before("toggleTypeAll", "data.monster." + this.data.monster.name);
     this.entities.forEach((entity) => {
       entity.type = entity.type == MonsterType.elite ? MonsterType.normal : MonsterType.elite;
     });
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  toggleDead() {
-    gameManager.stateManager.before("monsterDead", "data.monster." + this.data.monster.name, this.data.type ? 'monster.' + this.data.type + ' ' : '');
+  async toggleDead() {
+    await gameManager.stateManager.before("monsterDead", "data.monster." + this.data.monster.name, this.data.type ? 'monster.' + this.data.type + ' ' : '');
 
     this.entities.forEach((entity) => {
       entity.dead = true;
     });
 
-    setTimeout(() => {
-      this.entities.forEach((entity) => {
+    setTimeout(async () => {
+      this.entities.forEach(async (entity) => {
         if (gameManager.game.state == GameState.draw || entity.entityConditions.length == 0 || entity.entityConditions.every((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
           gameManager.monsterManager.removeMonsterEntity(this.data.monster, entity);
         }
@@ -105,15 +105,15 @@ export class EntitiesMenuDialogComponent {
         }
       }
 
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }, settingsManager.settings.disableAnimations ? 0 : 1500);
 
     this.dialogRef.close(true);
   }
 
-  close(): void {
-    this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
-      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.data.monster, entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition"), "game.condition." + entityCondition.name, this.data.type ? 'monster.' + this.data.type + ' ' : '');
+  async close() {
+    this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach(async (entityCondition) => {
+      await gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.data.monster, entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition"), "game.condition." + entityCondition.name, this.data.type ? 'monster.' + this.data.type + ' ' : '');
       this.entities.forEach((entity) => {
         entityCondition.expired = entityCondition.state == EntityConditionState.new;
         if (entityCondition.state == EntityConditionState.removed) {
@@ -122,24 +122,24 @@ export class EntitiesMenuDialogComponent {
           gameManager.entityManager.addCondition(entity, entityCondition, this.data.monster.active, this.data.monster.off);
         }
       })
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     })
 
-    this.entityConditions.forEach((condition) => {
+    this.entityConditions.forEach(async (condition) => {
       if (this.entities.find((entity) => entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired && entityCondition.value != condition.value))) {
-        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.data.monster, "setConditionValue"), "game.condition." + condition.name, "" + condition.value, this.data.type ? 'monster.' + this.data.type + ' ' : '');
+        await gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.data.monster, "setConditionValue"), "game.condition." + condition.name, "" + condition.value, this.data.type ? 'monster.' + this.data.type + ' ' : '');
         this.entities.forEach((entity) => {
           const entityCondition = entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
           if (entityCondition && entityCondition.value != condition.value) {
             entityCondition.value = condition.value;
           }
         })
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
       }
     })
 
     if (this.minHealth() != 0 || this.maxHealth() != 0) {
-      gameManager.stateManager.before("changeMonsterHP", "data.monster." + this.data.monster.name, ghsValueSign(this.minHealth() != 0 ? this.minHealth() : this.maxHealth()), this.data.type ? 'monster.' + this.data.type + ' ' : '');
+      await gameManager.stateManager.before("changeMonsterHP", "data.monster." + this.data.monster.name, ghsValueSign(this.minHealth() != 0 ? this.minHealth() : this.maxHealth()), this.data.type ? 'monster.' + this.data.type + ' ' : '');
       let deadEntities: MonsterEntity[] = [];
       this.entities.forEach((entity, i) => {
         if (this.health[i] && this.health[i] != 0) {
@@ -154,8 +154,8 @@ export class EntitiesMenuDialogComponent {
       })
 
       if (deadEntities.length > 0) {
-        setTimeout(() => {
-          deadEntities.forEach((entity) => {
+        setTimeout(async () => {
+          deadEntities.forEach(async (entity) => {
             if (gameManager.game.state == GameState.draw || entity.entityConditions.length == 0 || entity.entityConditions.every((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
               gameManager.monsterManager.removeMonsterEntity(this.data.monster, entity);
             }
@@ -167,10 +167,10 @@ export class EntitiesMenuDialogComponent {
             }
           }
 
-          gameManager.stateManager.after();
+          await gameManager.stateManager.after();
         }, settingsManager.settings.disableAnimations ? 0 : 1500);
       } else {
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
       }
     }
   }

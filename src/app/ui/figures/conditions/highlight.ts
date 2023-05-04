@@ -20,21 +20,21 @@ export class HighlightConditionsComponent {
   settingsManager: SettingsManager = settingsManager;
   ConditionType = ConditionType;
 
-  applyCondition(name: ConditionName, event: any, double: boolean = false) {
+  async applyCondition(name: ConditionName, event: any, double: boolean = false) {
     event.stopPropagation();
-    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "applyCondition"), "game.condition." + name);
+    await gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "applyCondition"), "game.condition." + name);
     gameManager.entityManager.applyCondition(this.entity, name);
     if (double) {
       gameManager.entityManager.applyCondition(this.entity, name);
     }
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  declineApplyCondition(name: ConditionName, event: any) {
+  async declineApplyCondition(name: ConditionName, event: any) {
     event.stopPropagation();
-    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "declineApplyCondition"), "game.condition." + name);
+    await gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "declineApplyCondition"), "game.condition." + name);
     gameManager.entityManager.declineApplyCondition(this.entity, name)
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 }
 

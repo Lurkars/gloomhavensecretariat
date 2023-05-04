@@ -10,8 +10,8 @@
         *ngIf="undoOffset && gameManager.stateManager.gameOffsetWarning"> <img src="./assets/images/warning.svg">
         <span [i18n]="'state.missing'" [i18n-args]="['' + undoOffset]"></span></span>
       <a class="state undo"
-        [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning) || gameManager.stateManager.undos.length == 0}"
-        (click)="gameManager.stateManager.undo()">
+        [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning) || gameManager.stateManager.undoCount == 0}"
+        (click)="undo()">
         <span class="undo-text">
           {{'state.undo' | ghsLabel}}
         </span>
@@ -19,10 +19,12 @@
           [i18n-args]="(undoInfo | slice:1:undoInfo.length)" [i18n-empty]="true"></span>
       </a>
 
-      <span class="undo-dialog" [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission && !gameManager.stateManager.redoPermission || gameManager.stateManager.undos.length == 0 && gameManager.stateManager.redos.length == 0}"
+      <span class="undo-dialog"
+        [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission && !gameManager.stateManager.redoPermission || gameManager.stateManager.undoCount == 0 && gameManager.stateManager.redoCount == 0}"
         (click)="openUndoDialog($event)"><img class="ghs-svg" src="./assets/images/long-rest.svg"></span>
 
-      <a class="state redo" [ngClass]="{'disabled' :!gameManager.stateManager.redoPermission  || gameManager.stateManager.redos.length == 0}"
+      <a class="state redo"
+        [ngClass]="{'disabled' :!gameManager.stateManager.redoPermission  || gameManager.stateManager.redoCount == 0}"
         (click)="gameManager.stateManager.redo()">
         {{'state.redo' | ghsLabel}}
         <span class="info text-white" *ngIf="redoInfo.length > 0" [i18n]="'state.info.' + redoInfo[0]"

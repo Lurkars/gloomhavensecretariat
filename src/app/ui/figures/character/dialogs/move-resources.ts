@@ -40,8 +40,8 @@ export class CharacterMoveResourcesDialog implements OnInit {
         }
     }
 
-    moveLoot() {
-        Object.keys(this.loot).forEach((key) => {
+    async moveLoot() {
+        Object.keys(this.loot).forEach(async (key) => {
             const lootType = key as LootType;
             let value = this.loot[lootType] || 0;
             if ((this.character.progress.loot[lootType] || 0) < value) {
@@ -49,10 +49,10 @@ export class CharacterMoveResourcesDialog implements OnInit {
             }
 
             if (value > 0) {
-                gameManager.stateManager.before("moveResource", "data.character." + this.character.name, "game.loot." + lootType, value + '');
+                await gameManager.stateManager.before("moveResource", "data.character." + this.character.name, "game.loot." + lootType, value + '');
                 gameManager.game.party.loot[lootType] = (gameManager.game.party.loot[lootType] || 0) + value;
                 this.character.progress.loot[lootType] = (this.character.progress.loot[lootType] || 0) - value;
-                gameManager.stateManager.after();
+                await gameManager.stateManager.after();
             }
 
         })

@@ -194,7 +194,155 @@ export class StorageManager {
         }
       }
     });
+  }
 
+  readFromList<T>(store: string, position: number): Promise<T> {
+    return new Promise((resolve, reject) => {
+      if (this.db) {
+        const transaction = this.db.transaction(store, "readwrite");
+        const objectStore = transaction.objectStore(store);
+
+        const request = objectStore.openCursor();
+        var hasSkipped = false;
+        request.onsuccess = (event: any) => {
+          var cursor = event.target.result;
+          if (cursor) {
+            if (!hasSkipped && position) {
+              hasSkipped = true;
+              cursor.advance(position);
+              return;
+            } else {
+              resolve(cursor.value);
+            }
+          }
+          reject(event.error);
+        };
+
+        request.onerror = (event: any) => {
+          console.error("read " + store + " failed", event);
+          reject(event.error);
+        };
+      } else {
+        const local: string | null = localStorage.getItem("ghs-" + store);
+        if (local) {
+          resolve((JSON.parse(local) as T[])[position]);
+        } else {
+          reject(null);
+        }
+      }
+    });
+  }
+
+  count(store: string): Promise<number> {
+    return new Promise((resolve, reject) => {
+      if (this.db) {
+        const transaction = this.db.transaction(store, "readwrite");
+        const objectStore = transaction.objectStore(store);
+
+        const request = objectStore.count();
+        request.onsuccess = (event: any) => {
+          var result = event.target.result;
+          resolve(result);
+        };
+
+        request.onerror = (event: any) => {
+          console.error("read " + store + " failed", event);
+          reject(event);
+        };
+      } else {
+        const local: string | null = localStorage.getItem("ghs-" + store);
+        if (local) {
+          resolve((JSON.parse(local)).length);
+        } else {
+          reject(null);
+        }
+      }
+    });
+  }
+
+  deleteFromList(store: string, position: number): Promise<void> {
+    return new Promise((resolve, reject) => {
+      if (this.db) {
+        const transaction = this.db.transaction(store, "readwrite");
+        const objectStore = transaction.objectStore(store);
+
+        const request = objectStore.openCursor();
+        var hasSkipped = false;
+        request.onsuccess = (event: any) => {
+          var cursor = event.target.result;
+          if (cursor) {
+            if (!hasSkipped && position) {
+              hasSkipped = true;
+              cursor.advance(position);
+              return;
+            }
+            cursor.delete();
+            resolve();
+          }
+          reject(event.target.error);
+        };
+
+        request.onerror = (event: any) => {
+          console.error("delete from " + store + " failed", event);
+          reject(event.target.error);
+        };
+      } else {
+        const local: string | null = localStorage.getItem("ghs-" + store);
+        if (local) {
+          let result = JSON.parse(local);
+          result.splice(position, 1);
+          localStorage.setItem("ghs-" + store, JSON.stringify(result));
+          resolve();
+        } else {
+          reject();
+        }
+      }
+    });
+  }
+
+
+  insertList(store: string, object: any, position: number): Promise<void> {
+    return new Promise(async (resolve, reject) => {
+      if (this.db) {
+        const transaction = this.db.transaction(store, "readwrite");
+        const objectStore = transaction.objectStore(store);
+
+        const request = objectStore.openCursor();
+        var hasSkipped = false;
+        request.onsuccess = async (event: any) => {
+          var cursor = event.target.result;
+          if (cursor) {
+            if (!hasSkipped && position) {
+              hasSkipped = true;
+              cursor.advance(position);
+              return;
+            }
+            if (cursor.value) {
+              const value = JSON.parse(JSON.stringify(cursor.value));
+              await this.insertList(store, value, position + 1);
+            }
+            cursor.update(object);
+            resolve();
+          }
+          reject();
+        };
+
+        request.onerror = (event: any) => {
+          console.error("delete from " + store + " failed", event);
+          reject(event);
+        };
+      } else {
+        const local: string | null = localStorage.getItem("ghs-" + store);
+        if (local) {
+          let result = JSON.parse(local);
+          result.splice(position, 0, object);
+          localStorage.setItem("ghs-" + store, JSON.stringify(result));
+          resolve();
+        } else {
+          reject();
+        }
+      }
+    });
   }
 
   async writeArray(store: string, objects: any[]): Promise<void> {

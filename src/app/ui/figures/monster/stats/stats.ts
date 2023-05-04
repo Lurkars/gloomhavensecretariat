@@ -82,24 +82,25 @@ export class MonsterStatsComponent implements OnInit {
     return stat;
   }
 
-  setLevel(value: number) {
+  async setLevel(value: number) {
     if (value != this.monster.level) {
-      gameManager.stateManager.before("setLevel", "data.monster." + this.monster.name, '' + value);
+      await gameManager.stateManager.before("setLevel", "data.monster." + this.monster.name, '' + value);
       gameManager.monsterManager.setLevel(this.monster, value);
       this.setStats();
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
-  toggleAlly() {
-    gameManager.stateManager.before(this.monster.isAlly ? "unsetAlly" : "setAlly", "data.monster." + this.monster.name);
+
+  async toggleAlly() {
+    await gameManager.stateManager.before(this.monster.isAlly ? "unsetAlly" : "setAlly", "data.monster." + this.monster.name);
     this.monster.isAlly = !this.monster.isAlly;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  toggleallied() {
-    gameManager.stateManager.before(this.monster.isAllied ? "unsetallied" : "setallied", "data.monster." + this.monster.name);
+  async toggleallied() {
+    await gameManager.stateManager.before(this.monster.isAllied ? "unsetallied" : "setallied", "data.monster." + this.monster.name);
     this.monster.isAllied = !this.monster.isAllied;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
   openLevelDialog() {

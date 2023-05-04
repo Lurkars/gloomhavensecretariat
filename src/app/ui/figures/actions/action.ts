@@ -450,9 +450,9 @@ export class ActionComponent implements OnInit, OnDestroy {
     return false;
   }
 
-  applyHighlightAction(event: any) {
+  async applyHighlightAction(event: any) {
     if (this.monster && this.highlightAction() && this.action) {
-      gameManager.stateManager.before('applyHightlightAction.' + this.action.type, "data.monster." + this.monster.name, '' + this.action.value);
+      await gameManager.stateManager.before('applyHightlightAction.' + this.action.type, "data.monster." + this.monster.name, '' + this.action.value);
       let after: boolean = true;
       this.monster.entities.filter((entity) => gameManager.entityManager.isAlive(entity, true)).forEach((entity) => {
         if (this.action && !entity.tags.find((tag) => tag == 'roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action?.type)) {
@@ -477,7 +477,7 @@ export class ActionComponent implements OnInit, OnDestroy {
             }
             if (this.monster && entity.dead) {
               after = false;
-              setTimeout(() => {
+              setTimeout(async () => {
                 if (this.monster && entity.dead) {
                   gameManager.monsterManager.removeMonsterEntity(this.monster, entity);
                   if (this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0 || !monsterEntity.active)) {
@@ -487,14 +487,14 @@ export class ActionComponent implements OnInit, OnDestroy {
                     }
                   }
                 }
-                gameManager.stateManager.after();
+                await gameManager.stateManager.after();
               }, settingsManager.settings.disableAnimations ? 0 : 1500);
             }
           }
         }
       })
       if (after) {
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
       }
       event.preventDefault();
     }
@@ -520,33 +520,33 @@ export class ActionComponent implements OnInit, OnDestroy {
     return gameManager.game.elementBoard.filter((element) => element.state != ElementState.new && element.state != ElementState.strong && element.state != ElementState.always).map((element) => element.type);
   }
 
-  elementAction(event: any, action: Action, element: string, index: number, wild: boolean = false) {
+  async elementAction(event: any, action: Action, element: string, index: number, wild: boolean = false) {
     if (this.monster && this.highlightElement(this.getValues(action), action.valueType == ActionValueType.minus, index)) {
       const entity = this.monster && this.monster.entities.find((entity) => gameManager.entityManager.isAlive(entity) && !entity.tags.some((tag) => tag == 'roundAction-element-' + (action.valueType == ActionValueType.minus ? 'consume-' : '') + (this.actionIndex ? this.actionIndex + '-' : '') + index + element));
       if (action.valueType == ActionValueType.minus) {
-        gameManager.game.elementBoard.forEach((elementModel) => {
+        gameManager.game.elementBoard.forEach(async (elementModel) => {
           if (elementModel.type == element && this.monster) {
-            gameManager.stateManager.before("monsterConsumeElement", "data.monster." + this.monster.name, "game.element." + element);
+            await gameManager.stateManager.before("monsterConsumeElement", "data.monster." + this.monster.name, "game.element." + element);
             if (elementModel.state != ElementState.always) {
               elementModel.state = ElementState.consumed;
             }
             if (entity) {
               entity.tags.push('roundAction-element-consume-' + (this.actionIndex ? this.actionIndex + '-' : '') + index + '-' + (wild ? 'wild' : element));
             }
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
           }
         })
       } else {
-        gameManager.game.elementBoard.forEach((elementModel) => {
+        gameManager.game.elementBoard.forEach(async (elementModel) => {
           if (elementModel.type == element && this.monster) {
-            gameManager.stateManager.before("monsterInfuseElement", "data.monster." + this.monster.name, "game.element." + element);
+            await gameManager.stateManager.before("monsterInfuseElement", "data.monster." + this.monster.name, "game.element." + element);
             if (elementModel.state != ElementState.always) {
               elementModel.state = ElementState.new;
             }
             if (entity) {
               entity.tags.push('roundAction-element-' + (this.actionIndex ? this.actionIndex + '-' : '') + index + '-' + (wild ? 'wild' : element));
             }
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
           }
         })
       }

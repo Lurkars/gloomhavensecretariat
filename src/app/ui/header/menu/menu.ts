@@ -4,7 +4,7 @@ import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { MonsterData } from "src/app/game/model/data/MonsterData";
-import { GameState } from "src/app/game/model/Game";
+import { GameModel, GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
 import { ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled } from "../../helper/Static";
 import { Objective } from "src/app/game/model/Objective";
@@ -14,6 +14,7 @@ import { FeedbackDialogComponent } from "../../tools/feedback/feedback-dialog";
 import { SwUpdate } from "@angular/service-worker";
 import { UndoDialogComponent } from "./undo/dialog";
 import { Subscription } from "rxjs";
+import { storageManager } from "src/app/game/businesslogic/StorageManager";
 
 export enum SubMenu {
   main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_add, objective_remove, settings, debug, server, datamanagement, about
@@ -48,6 +49,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
   constructor(@Inject(DIALOG_DATA) data: { subMenu: SubMenu, standalone: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private swUpdate: SwUpdate) {
     this.active = data.subMenu;
     this.standalone = data.standalone;
+    this.dialogRef.overlayRef.hostElement.style.zIndex = "2000";
   }
 
   ngOnInit(): void {
@@ -72,14 +74,12 @@ export class MainMenuComponent implements OnInit, OnDestroy {
     this.dialogRef.close();
   }
 
-  updateUndoRedo() {
-    const undos = gameManager.stateManager.undos;
-    const redos = gameManager.stateManager.redos;
-    const undoInfos = gameManager.stateManager.undoInfos;
-    if (undos.length > 0 && undoInfos.length >= undos.length) {
-      this.undoInfo = undoInfos[undos.length - 1];
-      this.undoOffset = (gameManager.game.revision
-        - (gameManager.game.revisionOffset || 0)) - (undos[undos.length - 1].revision - (undos[undos.length - 1].revisionOffset || 0)) - 1;
+  async updateUndoRedo() {
+    if (gameManager.stateManager.undoCount > 0) {
+      this.undoInfo = await storageManager.readFromList('undo-infos', gameManager.stateManager.undoCount - 1);
+      const lastUndo = await storageManager.readFromList<GameModel>('undo', gameManager.stateManager.undoCount - 1);
+      this.undoOffset = (gameManager.game.revision - (gameManager.game.revisionOffset || 0)) - (lastUndo.revision - (lastUndo.revisionOffset || 0)) - 1;
+      this.undoOffset = 0;
       if (this.undoInfo.length > 1 && this.undoInfo[0] == "serverSync") {
         if (this.undoInfo[1] == "setInitiative" && this.undoInfo.length > 3) {
           this.undoInfo = ["serverSync", settingsManager.getLabel('state.info.' + this.undoInfo[1], [this.undoInfo[2], ""])];
@@ -93,8 +93,8 @@ export class MainMenuComponent implements OnInit, OnDestroy {
       this.undoInfo = [];
       this.undoOffset = 0;
     }
-    if (redos.length > 0 && undoInfos.length > undos.length) {
-      this.redoInfo = undoInfos[undos.length];
+    if (gameManager.stateManager.redoCount > 0) {
+      this.redoInfo = await storageManager.readFromList('undo-infos', gameManager.stateManager.undoCount);
       if (this.redoInfo.length > 1 && this.redoInfo[0] == "serverSync") {
         if (this.redoInfo[1] == "setInitiative" && this.redoInfo.length > 3) {
           this.redoInfo = ["serverSync", settingsManager.getLabel('state.info.' + this.redoInfo[1], [this.redoInfo[2], ""])];
@@ -107,6 +107,14 @@ export class MainMenuComponent implements OnInit, OnDestroy {
     } else {
       this.redoInfo = [];
     }
+  }
+
+  async undo() {
+    await gameManager.stateManager.undo();
+  }
+
+  async redo() {
+    await gameManager.stateManager.undo();
   }
 
   openUndoDialog(event: any) {
@@ -229,77 +237,77 @@ export class MainMenuComponent implements OnInit, OnDestroy {
     });
   }
 
-  removeCharacter(character: Character) {
-    gameManager.stateManager.before("removeChar", "data.character." + character.name);
+  async removeCharacter(character: Character) {
+    await gameManager.stateManager.before("removeChar", "data.character." + character.name);
     gameManager.characterManager.removeCharacter(character);
     if (this.characters().length == 0) {
       this.close();
     }
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  removeAllCharacters() {
-    gameManager.stateManager.before("removeAllChars");
+  async removeAllCharacters() {
+    await gameManager.stateManager.before("removeAllChars");
     gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Character))
     this.close();
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  addObjective() {
-    gameManager.stateManager.before("addObjective");
+  async addObjective() {
+    await gameManager.stateManager.before("addObjective");
     gameManager.characterManager.addObjective();
     this.close();
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  addEscort() {
-    gameManager.stateManager.before("addEscort");
+  async addEscort() {
+    await gameManager.stateManager.before("addEscort");
     gameManager.characterManager.addObjective(new ObjectiveData("escort", 3, true));
     this.close();
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  removeObjective(objective: Objective) {
-    gameManager.stateManager.before("removeObjective", objective.title || objective.name);
+  async removeObjective(objective: Objective) {
+    await gameManager.stateManager.before("removeObjective", objective.title || objective.name);
     gameManager.characterManager.removeObjective(objective);
     if (this.objectives().length == 0) {
       this.close();
     }
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  removeAllObjectives() {
-    gameManager.stateManager.before("removeAllObjectives");
+  async removeAllObjectives() {
+    await gameManager.stateManager.before("removeAllObjectives");
     gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Objective))
     this.close();
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  addMonster(monsterData: MonsterData) {
-    gameManager.stateManager.before("addMonster", "data.monster." + monsterData.name);
+  async addMonster(monsterData: MonsterData) {
+    await gameManager.stateManager.before("addMonster", "data.monster." + monsterData.name);
     gameManager.monsterManager.addMonster(monsterData, gameManager.game.level);
     if (this.hasAllMonster()) {
       this.close();
     }
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  removeMonster(monster: Monster) {
-    gameManager.stateManager.before("removeMonster", "data.monster." + monster.name);
+  async removeMonster(monster: Monster) {
+    await gameManager.stateManager.before("removeMonster", "data.monster." + monster.name);
     gameManager.monsterManager.removeMonster(monster);
     if (this.monsters().length == 0) {
       this.close();
     }
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  removeAllMonsters() {
-    gameManager.stateManager.before("removeAllMonster");
+  async removeAllMonsters() {
+    await gameManager.stateManager.before("removeAllMonster");
     gameManager.game.figures = gameManager.game.figures.filter((figure) => {
       return !(figure instanceof Monster);
     })
     this.close();
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
   hasMonster(monsterData: MonsterData) {

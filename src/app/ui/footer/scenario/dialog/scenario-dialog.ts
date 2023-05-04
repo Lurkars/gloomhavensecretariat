@@ -103,19 +103,19 @@ export class ScenarioDialogComponent {
         }
     }
 
-    resetScenario() {
+    async resetScenario() {
         this.dialogRef.close();
-        gameManager.stateManager.before("resetScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
+        await gameManager.stateManager.before("resetScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
         gameManager.roundManager.resetScenario();
         gameManager.scenarioManager.setScenario(this.scenario)
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 
-    cancelScenario() {
+    async cancelScenario() {
         this.dialogRef.close();
-        gameManager.stateManager.before("cancelScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
+        await gameManager.stateManager.before("cancelScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
         gameManager.scenarioManager.setScenario(undefined);
-        gameManager.stateManager.after(1000);
+        await gameManager.stateManager.after(1000);
     }
 
     openTreasures(event: any) {
@@ -131,16 +131,16 @@ export class ScenarioDialogComponent {
         this.dialogRef.close();
     }
 
-    openRoom(roomData: RoomData) {
+    async openRoom(roomData: RoomData) {
         const editionData: EditionData | undefined = gameManager.editionData.find((value) => value.edition == this.scenario.edition);
 
         if (!editionData) {
             console.error("Could not find edition data!");
             return;
         }
-        gameManager.stateManager.before(roomData.marker ? "openRoomMarker" : "openRoom", this.scenario.index, "data.scenario." + this.scenario.name, '' + roomData.ref, roomData.marker || '');
+        await gameManager.stateManager.before(roomData.marker ? "openRoomMarker" : "openRoom", this.scenario.index, "data.scenario." + this.scenario.name, '' + roomData.ref, roomData.marker || '');
         gameManager.scenarioManager.openRoom(roomData, this.scenario, false);
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
         this.updateMonster();
     }
 

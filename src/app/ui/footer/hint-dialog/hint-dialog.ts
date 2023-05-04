@@ -17,12 +17,12 @@ export class HintDialogComponent {
 
     constructor(private dialogRef: DialogRef) { }
 
-    confirm() {
+    async confirm() {
         const active = gameManager.game.figures.find((figure) => figure.active);
         if (active) {
-            gameManager.stateManager.before("endAllTurns");
+            await gameManager.stateManager.before("endAllTurns");
             gameManager.game.figures.forEach((figure) => gameManager.roundManager.afterTurn(figure));
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
         }
         this.next();
     }
@@ -31,16 +31,16 @@ export class HintDialogComponent {
         this.dialogRef.close(true);
     }
 
-    finishScenario(success: boolean) {
-        gameManager.stateManager.before("finishScenario." + (success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
+    async finishScenario(success: boolean) {
+        await gameManager.stateManager.before("finishScenario." + (success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
         gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, success, undefined);
-        gameManager.stateManager.after(1000);
+        await gameManager.stateManager.after(1000);
     }
 
-    resetScenario() {
-        gameManager.stateManager.before("resetScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
+    async resetScenario() {
+        await gameManager.stateManager.before("resetScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
         gameManager.roundManager.resetScenario();
-        gameManager.stateManager.after(1000);
+        await gameManager.stateManager.after(1000);
     }
 
     empty(): boolean {

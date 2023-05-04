@@ -3,6 +3,8 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { storageManager } from "src/app/game/businesslogic/StorageManager";
+import { GameModel } from "src/app/game/model/Game";
 
 @Component({
     selector: 'ghs-undo-dialog',
@@ -14,19 +16,57 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
     gameManager: GameManager = gameManager;
     undoOffset: number = 0;
     confirm: string = "";
+    undoInfos: string[][] = [];
+    undoRevisions: number[] = [];
+    redoRevisions: number[] = [];
+    working: boolean = true;
 
-    constructor(public dialogRef: DialogRef) { }
+    constructor(public dialogRef: DialogRef) {
+        this.dialogRef.overlayRef.hostElement.style.zIndex = "2000";
+    }
 
-    ngOnInit(): void {
-        this.undoOffset = gameManager.stateManager.undos.length > 0 ? (gameManager.game.revision
-            - (gameManager.game.revisionOffset || 0)) - this.getUndoRevision(gameManager.stateManager.undos.length - 1) - 1 : 0;
+    async ngOnInit() {
+        for (let i = 0; i < gameManager.stateManager.undoCount; i++) {
+            let undo = await storageManager.readFromList<GameModel>('undo', i);
+            this.undoRevisions[i] = undo.revision - (undo.revisionOffset || 0);
+        }
+
+        for (let i = 0; i < gameManager.stateManager.redoCount; i++) {
+            let redo = await storageManager.readFromList<GameModel>('redo', i);
+            this.redoRevisions[gameManager.stateManager.redoCount - i - 1] = redo.revision - (redo.revisionOffset || 0);
+        }
+        this.undoOffset = gameManager.stateManager.undoCount > 0 ? (gameManager.game.revision
+            - (gameManager.game.revisionOffset || 0)) - this.undoRevisions[gameManager.stateManager.undoCount - 1] - 1 : 0;
+
+        this.undoInfos = await storageManager.readAll<string[]>('undo-infos');
+
 
         this.uiChangeSubscription = gameManager.uiChange.subscribe({
-            next: () => {
-                this.undoOffset = gameManager.stateManager.undos.length > 0 ? (gameManager.game.revision
-                    - (gameManager.game.revisionOffset || 0)) - this.getUndoRevision(gameManager.stateManager.undos.length - 1) - 1 : 0;
+            next: async () => {
+                this.working = true;
+                for (let i = 0; i < gameManager.stateManager.undoCount; i++) {
+                    let undo = await storageManager.readFromList<GameModel>('undo', i);
+                    this.undoRevisions[i] = undo.revision - (undo.revisionOffset || 0);
+                }
+
+                for (let i = 0; i < gameManager.stateManager.redoCount; i++) {
+                    try {
+                        let redo = await storageManager.readFromList<GameModel>('redo', i);
+                        this.redoRevisions[gameManager.stateManager.redoCount - i - 1] = redo.revision - (redo.revisionOffset || 0);
+                    } catch (e) {
+                        console.error(e);
+                    }
+                }
+
+                this.undoOffset = gameManager.stateManager.undoCount > 0 ? (gameManager.game.revision
+                    - (gameManager.game.revisionOffset || 0)) - this.undoRevisions[gameManager.stateManager.undoCount - 1] - 1 : 0;
+
+                this.undoInfos = await storageManager.readAll<string[]>('undo-infos');
+                this.working = false;
             }
         })
+
+        this.working = false;
     }
 
     uiChangeSubscription: Subscription | undefined;
@@ -37,10 +77,20 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
         }
     }
 
+    undo() {
+        this.working = true;
+        gameManager.stateManager.undo();
+    }
+
+    redo() {
+        this.working = true;
+        gameManager.stateManager.redo();
+    }
+
     getUndoInfo(index: number): string[] {
         let undoInfo: string[] = [];
-        if (gameManager.stateManager.undos.length > 0 && gameManager.stateManager.undoInfos.length >= gameManager.stateManager.undos.length && index >= 0 && index < gameManager.stateManager.undos.length) {
-            undoInfo = gameManager.stateManager.undoInfos[index];
+        if (gameManager.stateManager.undoCount > 0 && this.undoInfos.length >= gameManager.stateManager.undoCount && index >= 0 && index < gameManager.stateManager.undoCount) {
+            undoInfo = this.undoInfos[index];
             if (undoInfo.length > 1 && undoInfo[0] == "serverSync") {
                 if (undoInfo[1] == "setInitiative" && undoInfo.length > 3) {
                     undoInfo = ["serverSync", settingsManager.getLabel('state.info.' + undoInfo[1], [undoInfo[2], ""])];
@@ -52,13 +102,15 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
             }
         }
 
+
+
         return undoInfo;
     }
 
     getRedoInfo(index: number): string[] {
         let redoInfo: string[] = [];
-        if (gameManager.stateManager.redos.length > 0 && gameManager.stateManager.undoInfos.length >= (gameManager.stateManager.undos.length + gameManager.stateManager.redos.length) && index >= 0 && index < gameManager.stateManager.redos.length) {
-            redoInfo = gameManager.stateManager.undoInfos[gameManager.stateManager.undos.length + index];
+        if (gameManager.stateManager.redoCount > 0 && this.undoInfos.length >= (gameManager.stateManager.undoCount + gameManager.stateManager.redoCount) && index >= 0 && index < gameManager.stateManager.redoCount) {
+            redoInfo = this.undoInfos[gameManager.stateManager.undoCount + index];
             if (redoInfo.length > 1 && redoInfo[0] == "serverSync") {
                 if (redoInfo[1] == "setInitiative" && redoInfo.length > 3) {
                     redoInfo = ["serverSync", settingsManager.getLabel('state.info.' + redoInfo[1], [redoInfo[2], ""])];
@@ -73,23 +125,12 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
         return redoInfo;
     }
 
-    getUndoRevision(i: number): number {
-        const undos = gameManager.stateManager.undos;
-        return undos[i].revision - (undos[i].revisionOffset || 0);
-    }
-
-    getRedoRevision(i: number): number {
-        const redos = gameManager.stateManager.redos;
-        const index = redos.length - i - 1;
-        return redos[index].revision - (redos[index].revisionOffset || 0);
-    }
-
     clearUndos() {
         if (this.confirm != "clearUndos") {
             this.confirm = "clearUndos";
         } else {
             gameManager.stateManager.clearUndos();
-            if (gameManager.stateManager.redos.length == 0) {
+            if (gameManager.stateManager.redoCount == 0) {
                 this.dialogRef.close();
             }
         }
@@ -100,7 +141,7 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
             this.confirm = "clearRedos";
         } else {
             gameManager.stateManager.clearRedos();
-            if (gameManager.stateManager.undos.length == 0) {
+            if (gameManager.stateManager.undoCount == 0) {
                 this.dialogRef.close();
             }
         }

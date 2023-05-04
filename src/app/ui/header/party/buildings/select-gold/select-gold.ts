@@ -40,7 +40,7 @@ export class SelectGoldDialog implements OnInit {
         this.gold += value;
     }
 
-    moveGold() {
+    async moveGold() {
         let gold = 0;
         this.characterGold.forEach((value, index) => {
             const character = this.characters[index];
@@ -55,7 +55,7 @@ export class SelectGoldDialog implements OnInit {
         })
 
         if (gold && gold >= this.min && gold <= this.max) {
-            gameManager.stateManager.before("selectGold", gold + '');
+            await gameManager.stateManager.before("selectGold", gold + '');
             this.characterGold.forEach((value, index) => {
                 const character = this.characters[index];
                 if (character.progress.gold < value) {
@@ -65,7 +65,7 @@ export class SelectGoldDialog implements OnInit {
                     character.progress.gold -= value;
                 }
             })
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
             this.dialogRef.close(gold);
         }
     }

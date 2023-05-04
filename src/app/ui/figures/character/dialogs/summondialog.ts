@@ -77,9 +77,9 @@ export class CharacterSummonDialog {
     this.dialogRef.close();
   }
 
-  addSummon(summonData: SummonData) {
+  async addSummon(summonData: SummonData) {
     if (this.summonData().indexOf(summonData) != -1) {
-      gameManager.stateManager.before("addSummon", "data.character." + this.character.name, "data.summon." + summonData.name);
+      await gameManager.stateManager.before("addSummon", "data.character." + this.character.name, "data.summon." + summonData.name);
       let summon: Summon = new Summon(summonData.name, summonData.cardId, this.character.level, summonData.special ? 0 : this.summonNumber, summonData.special ? SummonColor.custom : this.summonColor, summonData);
       if (summonData.special) {
         summon.state = SummonState.true;
@@ -97,7 +97,7 @@ export class CharacterSummonDialog {
           this.summonNumber = 1;
         }
       }
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 

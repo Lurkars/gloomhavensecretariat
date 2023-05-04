@@ -78,34 +78,34 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
     }
   }
 
-  setInitiative(initiative: number) {
+  async setInitiative(initiative: number) {
     if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0 || initiative > 0) && initiative < 100 && initiative != this.figure.initiative) {
       if (this.character) {
-        gameManager.stateManager.before("setInitiative", "data.character." + this.figure.name, "" + initiative);
+        await gameManager.stateManager.before("setInitiative", "data.character." + this.figure.name, "" + initiative);
         this.character.initiativeVisible = true;
         this.character.longRest = false;
         if (initiative == 99) {
           this.character.longRest = true;
         }
       } else if (this.objective) {
-        gameManager.stateManager.before("setInitiative", "data.objective." + this.figure.name, "" + initiative);
+        await gameManager.stateManager.before("setInitiative", "data.objective." + this.figure.name, "" + initiative);
       }
       this.figure.initiative = initiative;
       if (gameManager.game.state == GameState.next) {
         gameManager.sortFigures();
       }
-      gameManager.stateManager.after();
+await gameManager.stateManager.after();
     }
   }
 
-  longRestOff(event: any) {
+  async longRestOff(event: any) {
     if (this.character && this.character.longRest) {
-      gameManager.stateManager.before("characterLongRestOff", "data.character." + this.character.name);
+      await gameManager.stateManager.before("characterLongRestOff", "data.character." + this.character.name);
       this.character.longRest = false;
       if (gameManager.game.state == GameState.next) {
         gameManager.sortFigures();
       }
-      gameManager.stateManager.after();
+await gameManager.stateManager.after();
       event.preventDefault();
     }
   }

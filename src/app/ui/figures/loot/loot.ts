@@ -58,11 +58,11 @@ export class LootComponent implements OnInit, OnChanges {
             });
 
             dialog.closed.subscribe({
-                next: (name) => {
+                next: async (name) => {
                     if (name) {
                         const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == name);
                         if (character instanceof Character) {
-                            gameManager.stateManager.before("addResource", "data.character." + character.name, "game.loot." + this.loot.type, gameManager.lootManager.getValue(this.loot) + '');
+                            await gameManager.stateManager.before("addResource", "data.character." + character.name, "game.loot." + this.loot.type, gameManager.lootManager.getValue(this.loot) + '');
 
                             if (this.character) {
                                 const charBefore = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == this.character);
@@ -77,7 +77,7 @@ export class LootComponent implements OnInit, OnChanges {
                             }
                             character.lootCards.push(this.index);
                             character.lootCards.sort((a, b) => a - b);
-                            gameManager.stateManager.after();
+                            await gameManager.stateManager.after();
                         }
                     }
                 }

@@ -58,20 +58,20 @@ export class CharacterMenuComponent {
     return characterData.some((characterData) => characterData.spoiler && !this.unlocked(characterData));
   }
 
-  unlock(characterData: CharacterData) {
+  async unlock(characterData: CharacterData) {
     if (gameManager.game.unlockedCharacters.indexOf(characterData.name) == -1) {
-      gameManager.stateManager.before("unlockChar", "data.character." + characterData.name);
+      await gameManager.stateManager.before("unlockChar", "data.character." + characterData.name);
       gameManager.game.unlockedCharacters.push(characterData.name);
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  unlockAll(edition: string) {
+  async unlockAll(edition: string) {
     const chars: string[] = gameManager.charactersData(edition).filter((characterData) => characterData.spoiler && !this.unlocked(characterData)).map((characterData) => characterData.name);
     if (chars.length > 0) {
-      gameManager.stateManager.before("unlockAllCharacters", "data.edition." + edition);
+      await gameManager.stateManager.before("unlockAllCharacters", "data.edition." + edition);
       gameManager.game.unlockedCharacters.push(...chars);
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
@@ -80,10 +80,10 @@ export class CharacterMenuComponent {
     return editions.every((edition) => this.characterData(this.filter, edition).length == 0);
   }
 
-  addCharacter(characterData: CharacterData) {
-    gameManager.stateManager.before("addChar", "data.character." + characterData.name);
+  async addCharacter(characterData: CharacterData) {
+    await gameManager.stateManager.before("addChar", "data.character." + characterData.name);
     gameManager.characterManager.addCharacter(characterData, this.characterLevel);
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
   hasCharacter(characterData: CharacterData) {

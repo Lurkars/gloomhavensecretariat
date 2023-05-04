@@ -212,14 +212,14 @@ export class ScenarioRulesComponent {
         return this.spawns(rule).length > 0 || rule.objectiveSpawns && rule.objectiveSpawns.length > 0 || rule.elements && rule.elements.length > 0 || rule.finish || settingsManager.settings.scenarioRooms && rule.rooms && rule.rooms.length > 0 || rule.sections && rule.sections.length > 0 || rule.figures && rule.figures.length > 0 && rule.figures.some((figureRule) => figureRule.type != "present" && figureRule.type != "dead" && figureRule.type != "killed");
     }
 
-    applyRule(element: HTMLElement, index: number) {
+    async applyRule(element: HTMLElement, index: number) {
         if (gameManager.game.scenarioRules[index]) {
             const rule = gameManager.game.scenarioRules[index].rule;
             const identifier = gameManager.game.scenarioRules[index].identifier;
             const scenario = gameManager.scenarioRulesManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).scenario;
             const section = gameManager.scenarioRulesManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).section;
             if (scenario) {
-                gameManager.stateManager.before("applyScenarioRule");
+                await gameManager.stateManager.before("applyScenarioRule");
 
                 if (rule.figures) {
                     rule.figures.filter((figureRule) => figureRule.type == "remove").forEach((figureRule) => {
@@ -533,37 +533,37 @@ export class ScenarioRulesComponent {
                 }
 
                 element.classList.add('closed');
-                setTimeout(() => {
+                setTimeout(async () => {
                     if (rule.once) {
                         gameManager.game.disgardedScenarioRules.push(identifier);
                     }
                     gameManager.game.scenarioRules.splice(index, 1)[0];
-                    gameManager.stateManager.after();
+                    await gameManager.stateManager.after();
                 }, settingsManager.settings.disableAnimations ? 0 : 100)
             }
         }
     }
 
 
-    hideRule(element: HTMLElement, index: number) {
+    async hideRule(element: HTMLElement, index: number) {
         element.classList.add('closed');
-        setTimeout(() => {
-            gameManager.stateManager.before("hideScenarioRule");
+        setTimeout(async () => {
+            await gameManager.stateManager.before("hideScenarioRule");
             const ruleModel = gameManager.game.scenarioRules.splice(index, 1)[0];
             gameManager.game.disgardedScenarioRules.push(ruleModel.identifier);
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
         }, settingsManager.settings.disableAnimations ? 0 : 100)
     }
 
-    close(element: HTMLElement, index: number) {
+    async close(element: HTMLElement, index: number) {
         element.classList.add('closed');
-        setTimeout(() => {
-            gameManager.stateManager.before("removeScenarioRule");
+        setTimeout(async () => {
+            await gameManager.stateManager.before("removeScenarioRule");
             const ruleModel = gameManager.game.scenarioRules.splice(index, 1)[0];
             if (ruleModel.rule.once) {
                 gameManager.game.disgardedScenarioRules.push(ruleModel.identifier);
             }
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
         }, settingsManager.settings.disableAnimations ? 0 : 100)
     }
 }

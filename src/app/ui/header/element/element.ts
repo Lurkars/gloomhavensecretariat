@@ -16,11 +16,11 @@ export class ElementComponent {
   GameState = GameState;
   ElementState = ElementState;
 
-  toggleElement(double: boolean = false): void {
+  async toggleElement(double: boolean = false) {
     const elementState = gameManager.nextElementState(this.element, double);
-    gameManager.stateManager.before("updateElement", "game.element." + this.element.type, "game.element.state." + elementState);
+    await gameManager.stateManager.before("updateElement", "game.element." + this.element.type, "game.element.state." + elementState);
     this.element.state = elementState;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
 }

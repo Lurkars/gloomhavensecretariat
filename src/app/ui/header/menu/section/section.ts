@@ -43,10 +43,10 @@ export class SectionMenuComponent {
     return gameManager.game.sections && gameManager.game.sections.some((value) => value.edition == sectionData.edition && value.index == sectionData.index && value.group == sectionData.group);
   }
 
-  addSection(sectionData: ScenarioData) {
-    gameManager.stateManager.before("addSection", sectionData.index, "data.scenario." + sectionData.name, "data.edition." + sectionData.edition);
+  async addSection(sectionData: ScenarioData) {
+    await gameManager.stateManager.before("addSection", sectionData.index, "data.scenario." + sectionData.name, "data.edition." + sectionData.edition);
     gameManager.scenarioManager.addSection(sectionData);
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
 }

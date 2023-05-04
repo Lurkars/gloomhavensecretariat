@@ -83,67 +83,67 @@ export class ScenarioMenuComponent implements OnInit {
     return gameManager.game.scenario != undefined && gameManager.game.scenario.edition == scenarioData.edition && gameManager.game.scenario.index == scenarioData.index && gameManager.game.scenario.group == scenarioData.group && gameManager.game.scenario.solo == scenarioData.solo;
   }
 
-  setScenario(scenarioData: ScenarioData) {
+  async setScenario(scenarioData: ScenarioData) {
     if (!this.hasScenario(scenarioData)) {
-      gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
+      await gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
       gameManager.scenarioManager.setScenario(scenarioData as Scenario);
       this.close.emit();
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  resetScenario() {
+  async resetScenario() {
     if (gameManager.game.scenario) {
-      gameManager.stateManager.before("resetScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
+      await gameManager.stateManager.before("resetScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
       gameManager.roundManager.resetScenario();
       gameManager.scenarioManager.setScenario(gameManager.game.scenario);
       this.close.emit();
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  customScenario() {
+  async customScenario() {
     if (!gameManager.game.scenario || !gameManager.game.scenario.custom) {
-      gameManager.stateManager.before("setCustomScenario");
+      await gameManager.stateManager.before("setCustomScenario");
       gameManager.scenarioManager.setScenario(gameManager.scenarioManager.createScenario());
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     } else {
-      gameManager.stateManager.before("unsetCustomScenario");
+      await gameManager.stateManager.before("unsetCustomScenario");
       gameManager.scenarioManager.setScenario(undefined);
       this.edition = gameManager.game.edition || gameManager.editions()[0];
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  customScenarioName(event: any) {
+  async customScenarioName(event: any) {
     if (gameManager.game.scenario && gameManager.game.scenario.custom) {
-      gameManager.stateManager.before("changeCustomScenario", event.target.value);
+      await gameManager.stateManager.before("changeCustomScenario", event.target.value);
       gameManager.game.scenario.name = event.target.value;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  manualScenario(input: HTMLInputElement, group: string | undefined) {
+  async manualScenario(input: HTMLInputElement, group: string | undefined) {
     const editionData = gameManager.editionData.find((editionData) => editionData.edition == this.edition);
     input.classList.add('error');
     if (editionData) {
       let numbers: string[] = input.value.split(',');
       numbers.forEach((number) => number.trim());
-      input.value.split(',').forEach((number) => {
+      input.value.split(',').forEach(async (number) => {
         const scenarioData = editionData.scenarios.find((scenarioData) => scenarioData.index == number.trim() && scenarioData.group == group);
         if (scenarioData) {
           if (this.scenarios(group).indexOf(scenarioData) == -1) {
-            gameManager.stateManager.before("addManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
+            await gameManager.stateManager.before("addManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
             gameManager.game.party.manualScenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []));
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
           }
           numbers = numbers.filter((value) => value.trim() != number);
         } else if (editionData.scenarios.find((scenarioData) => scenarioData.index.substring(0, scenarioData.index.length - 1) == number.trim() && scenarioData.index.substring(scenarioData.index.length - 1).match(/[A-B]/) && scenarioData.group == group)) {
-          editionData.scenarios.filter((scenarioData) => scenarioData.index.substring(0, scenarioData.index.length - 1) == number.trim() && scenarioData.index.substring(scenarioData.index.length - 1).match(/[A-B]/) && scenarioData.group == group).forEach((scenarioData) => {
+          editionData.scenarios.filter((scenarioData) => scenarioData.index.substring(0, scenarioData.index.length - 1) == number.trim() && scenarioData.index.substring(scenarioData.index.length - 1).match(/[A-B]/) && scenarioData.group == group).forEach(async (scenarioData) => {
             if (this.scenarios(group).indexOf(scenarioData) == -1) {
-              gameManager.stateManager.before("addManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
+              await gameManager.stateManager.before("addManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
               gameManager.game.party.manualScenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []));
-              gameManager.stateManager.after();
+              await gameManager.stateManager.after();
             }
           })
           numbers = numbers.filter((value) => value.trim() != number);

@@ -195,14 +195,14 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
     return this.highlight && this.objective != undefined || false;
   }
 
-  spawnSummons(event: any, spawn: MonsterSpawnData, index: number) {
+  async spawnSummons(event: any, spawn: MonsterSpawnData, index: number) {
     if (this.spawnHightlight(spawn, index) || this.objective) {
       const spawnerTag = this.getTag(index, true);
       const spawners = this.spawners.filter((entity) => entity instanceof Objective || entity.tags.indexOf(spawnerTag) == -1).filter((entity, index) => settingsManager.settings.combineSummonAction || index == 0);
 
       if (spawn.monster && spawn.monster.type) {
         const count = EntityValueFunction(spawn.count || 1);
-        gameManager.stateManager.before("summonAction", "data.monster." + spawn.monster.name, "game.monsterType." + spawn.monster.type, '' + count * spawners.length);
+        await gameManager.stateManager.before("summonAction", "data.monster." + spawn.monster.name, "game.monsterType." + spawn.monster.type, '' + count * spawners.length);
         spawners.forEach((spawner) => {
           if (spawn.monster && spawn.monster.type) {
             const monster = gameManager.monsterManager.addMonsterByName(spawn.monster.name, this.monster && this.monster.edition || gameManager.currentEdition());
@@ -239,7 +239,7 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
           }
         })
         this.update();
-        gameManager.stateManager.after();
+await gameManager.stateManager.after();
       }
       event.preventDefault();
     }

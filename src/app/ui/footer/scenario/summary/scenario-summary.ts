@@ -1,5 +1,5 @@
 import { DialogRef, DIALOG_DATA, Dialog } from "@angular/cdk/dialog";
-import { Component, Inject } from "@angular/core";
+import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { Character } from "src/app/game/model/Character";
 import { ItemData } from "src/app/game/model/data/ItemData";
@@ -18,7 +18,7 @@ import { Subscription } from "rxjs";
     templateUrl: './scenario-summary.html',
     styleUrls: ['./scenario-summary.scss']
 })
-export class ScenarioSummaryComponent {
+export class ScenarioSummaryComponent implements OnInit, OnDestroy {
 
     gameManager: GameManager = gameManager;
 
@@ -47,10 +47,10 @@ export class ScenarioSummaryComponent {
     EntityValueFunction = EntityValueFunction;
 
     constructor(@Inject(DIALOG_DATA) data: { scenario: Scenario, success: boolean, conclusion: ScenarioData | undefined }, private dialogRef: DialogRef, private dialog: Dialog) {
-
         this.scenario = data.scenario;
         this.success = data.success;
         this.conclusion = data.conclusion;
+
         this.conclusionWarning = !this.conclusion && gameManager.sectionData(this.scenario.edition).find((sectionData) => sectionData.parent == this.scenario.index && sectionData.group == this.scenario.group && sectionData.edition == this.scenario.edition && sectionData.conclusion) != undefined;
 
         this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure, index) => {
@@ -59,7 +59,9 @@ export class ScenarioSummaryComponent {
             this.battleGoals[index] = 0;
             return char;
         })
+    }
 
+    async ngOnInit() {
         for (let value in LootType) {
             const lootType: LootType = value as LootType;
             if (lootType != LootType.money && lootType != LootType.special1 && lootType != LootType.special2 && this.lootColumns.indexOf(lootType) == -1 && this.characters.some((character) => character.lootCards && character.lootCards.some((index) => gameManager.game.lootDeck.cards[index].type == lootType))) {
@@ -70,23 +72,19 @@ export class ScenarioSummaryComponent {
         this.alreadyWarning = gameManager.game.party.campaignMode && this.success && gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == this.scenario.index && scenarioModel.edition == this.scenario.edition && scenarioModel.group == this.scenario.group) != undefined;
         this.casual = this.alreadyWarning || !gameManager.game.party.campaignMode && gameManager.fhRules();
         this.updateState()
-
-
-        gameManager.stateManager.scenarioSummary = true;
-
         if (!gameManager.game.finish) {
-            gameManager.stateManager.before("finishScenario.dialog", ...gameManager.scenarioManager.scenarioUndoArgs());
+            await gameManager.stateManager.before("finishScenario.dialog", ...gameManager.scenarioManager.scenarioUndoArgs());
             this.updateFinish();
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
         }
 
         this.dialogRef.closed.subscribe({
-            next: () => {
+            next: async () => {
                 if (gameManager.stateManager.scenarioSummary) {
-                    gameManager.stateManager.before("finishScenario.close", ...gameManager.scenarioManager.scenarioUndoArgs());
+                    await gameManager.stateManager.before("finishScenario.close", ...gameManager.scenarioManager.scenarioUndoArgs());
                     gameManager.stateManager.scenarioSummary = false;
                     gameManager.game.finish = undefined;
-                    gameManager.stateManager.after();
+                    await gameManager.stateManager.after();
                 }
             }
         })
@@ -110,6 +108,8 @@ export class ScenarioSummaryComponent {
                 }
             }
         })
+
+        gameManager.stateManager.scenarioSummary = true;
     }
 
     uiChangeSubscription: Subscription | undefined;
@@ -234,26 +234,26 @@ export class ScenarioSummaryComponent {
         }
     }
 
-    toggleBattleGoal(event: any, index: number, value: number) {
-        gameManager.stateManager.before("finishScenario.dialog.battleGoal", '' + index, '' + value);
+    async toggleBattleGoal(event: any, index: number, value: number) {
+        await gameManager.stateManager.before("finishScenario.dialog.battleGoal", '' + index, '' + value);
         if (event.target.checked && this.battleGoals[index] < value) {
             this.battleGoals[index] = value;
         } else if (this.battleGoals[index] >= value) {
             this.battleGoals[index] = value - 1;
         }
         this.updateFinish();
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 
-    toggleChallenges(second: boolean = false) {
-        gameManager.stateManager.before("finishScenario.dialog.challenge" + (second ? 's' : ''));
+    async toggleChallenges(second: boolean = false) {
+        await gameManager.stateManager.before("finishScenario.dialog.challenge" + (second ? 's' : ''));
         if (this.challenges > (second ? 1 : 0)) {
             this.challenges = (second ? 1 : 0);
         } else {
             this.challenges = (second ? 2 : 1);
         };
         this.updateFinish();
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 
     itemDistributed(index: number, itemIndex: number, choose: boolean = true): boolean {
@@ -272,43 +272,43 @@ export class ScenarioSummaryComponent {
         return this.items[index].indexOf(itemIndex) == -1 && this.items.filter((list) => list.indexOf(itemIndex) != -1).length >= Math.min(this.rewardItemCount[itemIndex], availableItems);
     }
 
-    toggleItem(event: any, index: number, itemIndex: number) {
-        gameManager.stateManager.before("finishScenario.dialog.item", '' + index, '' + this.rewardItems[itemIndex].id);
+    async toggleItem(event: any, index: number, itemIndex: number) {
+        await gameManager.stateManager.before("finishScenario.dialog.item", '' + index, '' + this.rewardItems[itemIndex].id);
         if (this.items[index].indexOf(itemIndex) == -1) {
             this.items[index].push(itemIndex);
         } else {
             this.items[index].splice(this.items[index].indexOf(itemIndex), 1);
         }
         this.updateFinish();
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 
-    changeCollectiveGold(event: any, index: number) {
-        gameManager.stateManager.before("finishScenario.dialog.collectiveGold", '' + index, event.target.value);
+    async changeCollectiveGold(event: any, index: number) {
+        await gameManager.stateManager.before("finishScenario.dialog.collectiveGold", '' + index, event.target.value);
         this.collectiveGold[index] = +event.target.value;
         this.updateFinish();
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 
-    changeCalenderSectionManual(event: any, index: number) {
-        gameManager.stateManager.before("finishScenario.dialog.calenderSectionManual", '' + index, event.target.value);
+    async changeCalenderSectionManual(event: any, index: number) {
+        await gameManager.stateManager.before("finishScenario.dialog.calenderSectionManual", '' + index, event.target.value);
         this.calenderSectionManual[index] = +event.target.value;
         this.updateFinish();
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 
-    selectLocation(location: string) {
-        gameManager.stateManager.before("finishScenario.dialog.chooseLocation", location);
+    async selectLocation(location: string) {
+        await gameManager.stateManager.before("finishScenario.dialog.chooseLocation", location);
         this.chooseLocation = location;
         this.updateFinish();
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 
-    selectCharacter(character: string) {
-        gameManager.stateManager.before("finishScenario.dialog.chooseUnlockCharacter", character);
+    async selectCharacter(character: string) {
+        await gameManager.stateManager.before("finishScenario.dialog.chooseUnlockCharacter", character);
         this.chooseUnlockCharacter = character;
         this.updateFinish();
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 
     openCharacterSheet(character: Character): void {
@@ -318,9 +318,9 @@ export class ScenarioSummaryComponent {
         });
     }
 
-    finish(linkedIndex: string | undefined = undefined) {
+    async finish(linkedIndex: string | undefined = undefined) {
         const linked = gameManager.scenarioData(this.scenario.edition).find((scenarioData) => scenarioData.group == this.scenario.group && scenarioData.index == linkedIndex);
-        gameManager.stateManager.before(this.success && linked ? "finishScenario.linked" : ("finishScenario." + (this.success ? "success" : "failure")), ...gameManager.scenarioManager.scenarioUndoArgs(), linkedIndex ? linkedIndex : '');
+        await gameManager.stateManager.before(this.success && linked ? "finishScenario.linked" : ("finishScenario." + (this.success ? "success" : "failure")), ...gameManager.scenarioManager.scenarioUndoArgs(), linkedIndex ? linkedIndex : '');
         gameManager.game.figures.filter((figure) => figure instanceof Character).forEach((figure, index) => {
             (figure as Character).fromModel(this.characters[index].toModel());
         });
@@ -377,14 +377,14 @@ export class ScenarioSummaryComponent {
             }
         }
         gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, false, linked ? new Scenario(linked) : undefined, this.casual && !this.forceCampaign);
-        gameManager.stateManager.after(1000);
+        await gameManager.stateManager.after(1000);
         this.dialogRef.close();
     }
 
-    restart() {
-        gameManager.stateManager.before("finishScenario.restart", ...gameManager.scenarioManager.scenarioUndoArgs());
+    async restart() {
+        await gameManager.stateManager.before("finishScenario.restart", ...gameManager.scenarioManager.scenarioUndoArgs());
         gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, true);
-        gameManager.stateManager.after(1000);
+        await gameManager.stateManager.after(1000);
         this.dialogRef.close();
     }
 

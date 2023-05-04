@@ -58,8 +58,8 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
     this.activeConditions = gameManager.entityManager.activeConditions(this.objective);
   }
 
-  exhausted() {
-    gameManager.stateManager.before(this.objective.exhausted ? "unsetObjectiveExhausted" : "setObjectiveExhausted", this.objective.title || this.objective.name);
+  async exhausted() {
+    await gameManager.stateManager.before(this.objective.exhausted ? "unsetObjectiveExhausted" : "setObjectiveExhausted", this.objective.title || this.objective.name);
     this.objective.exhausted = !this.objective.exhausted;
     if (this.objective.exhausted) {
       this.objective.off = true;
@@ -68,20 +68,20 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
       this.objective.off = false;
     }
     gameManager.sortFigures();
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
   maxHealth(): number {
     return EntityValueFunction(this.objective.maxHealth);
   }
 
-  toggleFigure(event: any): void {
+  async toggleFigure(event: any) {
     if ((gameManager.game.state == GameState.draw || settingsManager.settings.initiativeRequired && this.objective.initiative <= 0) && !this.objective.exhausted && this.objective.health > 0) {
       this.openInitiativeDialog(event);
     } else {
-      gameManager.stateManager.before(this.objective.active ? "unsetActive" : "setActive", this.objective.title || this.objective.name);
+      await gameManager.stateManager.before(this.objective.active ? "unsetActive" : "setActive", this.objective.title || this.objective.name);
       gameManager.roundManager.toggleFigure(this.objective);
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
@@ -107,7 +107,7 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
     this.objective.initiative = value;
   }
 
-  dragInitiativeEnd(value: number) {
+  async dragInitiativeEnd(value: number) {
     if (value > 99) {
       value = 99;
     } else if (value < 0) {
@@ -119,10 +119,10 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
     }
 
     if (this.objective.initiative != value) {
-      gameManager.stateManager.before("setObjectiveInitiative", this.objective.title || this.objective.name, "" + value);
+      await gameManager.stateManager.before("setObjectiveInitiative", this.objective.title || this.objective.name, "" + value);
       this.objective.initiative = value;
       gameManager.sortFigures();
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
@@ -135,15 +135,15 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
     }
   }
 
-  dragHpEnd(value: number) {
+  async dragHpEnd(value: number) {
     if (this.health != 0) {
-      gameManager.stateManager.before("changeObjectiveHP", this.objective.title || this.objective.name, ghsValueSign(this.health));
+      await gameManager.stateManager.before("changeObjectiveHP", this.objective.title || this.objective.name, ghsValueSign(this.health));
       gameManager.entityManager.changeHealth(this.objective, this.health);
       if (this.objective.health <= 0 || this.objective.exhausted && this.health >= 0 && this.objective.health > 0) {
         this.exhausted();
       }
       this.health = 0;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 

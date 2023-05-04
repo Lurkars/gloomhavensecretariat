@@ -102,7 +102,7 @@ export class FooterComponent implements OnInit {
   }
 
   async nextState() {
-    gameManager.stateManager.before(gameManager.game.state == GameState.next ? "nextRound" : "draw");
+    await gameManager.stateManager.before(gameManager.game.state == GameState.next ? "nextRound" : "draw");
     if (gameManager.game.state == GameState.next) {
       if (settingsManager.settings.disabledTurnConfirmation) {
         gameManager.game.figures.forEach((figure) => gameManager.roundManager.afterTurn(figure));
@@ -114,34 +114,34 @@ export class FooterComponent implements OnInit {
       }
     }
     gameManager.roundManager.nextGameState();
-    gameManager.stateManager.after(1000);
+    await gameManager.stateManager.after(1000);
   }
 
-  beforeMonsterAttackModifierDeck(change: AttackModiferDeckChange) {
-    gameManager.stateManager.before("updateAttackModifierDeck." + change.type, "monster", ...change.values);
+  async beforeMonsterAttackModifierDeck(change: AttackModiferDeckChange) {
+    await gameManager.stateManager.before("updateAttackModifierDeck." + change.type, "monster", ...change.values);
   }
 
-  afterMonsterAttackModifierDeck(change: AttackModiferDeckChange) {
+  async afterMonsterAttackModifierDeck(change: AttackModiferDeckChange) {
     gameManager.game.monsterAttackModifierDeck = change.deck;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  beforeAllyAttackModifierDeck(change: AttackModiferDeckChange) {
-    gameManager.stateManager.before("updateAttackModifierDeck." + change.type, "ally", ...change.values);
+  async beforeAllyAttackModifierDeck(change: AttackModiferDeckChange) {
+    await gameManager.stateManager.before("updateAttackModifierDeck." + change.type, "ally", ...change.values);
   }
 
-  afterAllyAttackModifierDeck(change: AttackModiferDeckChange) {
+  async afterAllyAttackModifierDeck(change: AttackModiferDeckChange) {
     gameManager.game.allyAttackModifierDeck = change.deck;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  beforeLootDeck(change: LootDeckChange) {
-    gameManager.stateManager.before(change.type, ...change.values)
+  async beforeLootDeck(change: LootDeckChange) {
+    await gameManager.stateManager.before(change.type, ...change.values)
   }
 
-  afterLootDeck(change: LootDeckChange) {
+  async afterLootDeck(change: LootDeckChange) {
     gameManager.game.lootDeck = change.deck;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
   confirmTurns() {
@@ -149,16 +149,16 @@ export class FooterComponent implements OnInit {
     this.next(true);
   }
 
-  finishScenario(success: boolean) {
-    gameManager.stateManager.before("finishScenario." + (success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
+  async finishScenario(success: boolean) {
+    await gameManager.stateManager.before("finishScenario." + (success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
     gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, success, undefined);
-    gameManager.stateManager.after(1000);
+    await gameManager.stateManager.after(1000);
   }
 
-  resetScenario() {
-    gameManager.stateManager.before("resetScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
+  async resetScenario() {
+    await gameManager.stateManager.before("resetScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
     gameManager.roundManager.resetScenario();
-    gameManager.stateManager.after(1000);
+    await gameManager.stateManager.after(1000);
   }
 
   empty(): boolean {

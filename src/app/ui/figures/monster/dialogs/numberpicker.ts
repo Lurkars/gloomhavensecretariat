@@ -109,7 +109,7 @@ export class MonsterNumberPicker implements OnInit, OnDestroy {
     this.pickNumber(number, true, true);
   }
 
-  pickNumber(number: number, automatic: boolean = false, next: boolean = false) {
+  async pickNumber(number: number, automatic: boolean = false, next: boolean = false) {
     if (!gameManager.monsterManager.monsterStandeeUsed(this.monster, number) && this.type) {
       let undoType = "addStandee";
       if (automatic && !next) {
@@ -117,7 +117,7 @@ export class MonsterNumberPicker implements OnInit, OnDestroy {
       } else if (automatic) {
         undoType = "addNextStandee";
       }
-      gameManager.stateManager.before(undoType, "data.monster." + this.monster.name, "monster." + this.type, "" + number);
+      await gameManager.stateManager.before(undoType, "data.monster." + this.monster.name, "monster." + this.type, "" + number);
       const dead = this.monster.entities.find((monsterEntity) => monsterEntity.number == number);
       if (dead) {
         gameManager.monsterManager.removeMonsterEntity(this.monster, dead);
@@ -131,7 +131,7 @@ export class MonsterNumberPicker implements OnInit, OnDestroy {
           entity.active = true;
         }
       }
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 }

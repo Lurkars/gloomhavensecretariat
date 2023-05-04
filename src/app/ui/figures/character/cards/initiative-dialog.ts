@@ -56,9 +56,9 @@ export class CharacterInitiativeDialogComponent {
         }
     }
 
-    updateInitiative(initiative: number) {
+    async updateInitiative(initiative: number) {
         if (this.figure.initiative != initiative) {
-            gameManager.stateManager.before("setInitiative", (this.character ? "data.character." : "data.objective.") + this.figure.name, "" + (initiative > 0 && initiative < 100 ? initiative : 0));
+            await gameManager.stateManager.before("setInitiative", (this.character ? "data.character." : "data.objective.") + this.figure.name, "" + (initiative > 0 && initiative < 100 ? initiative : 0));
             if (initiative > 0 && initiative < 100) {
                 this.setInitiative(initiative);
             } else if (gameManager.game.state == GameState.draw) {
@@ -67,7 +67,7 @@ export class CharacterInitiativeDialogComponent {
             if (gameManager.game.state == GameState.next) {
                 gameManager.sortFigures();
             }
-            gameManager.stateManager.after();
+await gameManager.stateManager.after();
         }
     }
 
@@ -87,14 +87,14 @@ export class CharacterInitiativeDialogComponent {
         }
     }
 
-    longRest() {
+    async longRest() {
         if (this.character) {
             if (this.character.longRest && this.character.initiative == 99) {
-                gameManager.stateManager.before("setInitiative", "data.character." + this.figure.name, "" + 99);
+                await gameManager.stateManager.before("setInitiative", "data.character." + this.figure.name, "" + 99);
                 this.character.longRest = false;
-                gameManager.stateManager.after();
+await gameManager.stateManager.after();
             } else {
-                gameManager.stateManager.before("characterLongRest", "data.character." + this.character.name);
+                await gameManager.stateManager.before("characterLongRest", "data.character." + this.character.name);
                 if (this.character.initiative == 99) {
                     this.character.longRest = true;
                 } else {
@@ -103,7 +103,7 @@ export class CharacterInitiativeDialogComponent {
                         gameManager.sortFigures();
                     }
                 }
-                gameManager.stateManager.after();
+await gameManager.stateManager.after();
             }
             this.dialogRef.close();
         }

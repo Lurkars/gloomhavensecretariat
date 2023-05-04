@@ -48,7 +48,7 @@ export class PartyWeekDialogComponent {
         return conclusions.length > 0 && conclusions.every((conclusion) => !gameManager.game.party.conclusions.find((model) => model.edition == conclusion.edition && model.index == conclusion.index && model.group == conclusion.group));
     }
 
-    openConclusions(section: string) {
+    async openConclusions(section: string) {
         let conclusions: ScenarioData[] = gameManager.sectionData(gameManager.game.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.length == 1 && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(section) != -1)).map((conclusion) => {
             conclusion.name = "";
             return conclusion;
@@ -59,37 +59,37 @@ export class PartyWeekDialogComponent {
                 panelClass: ['dialog', 'dialog-invert'],
                 data: { conclusions: conclusions, parent: gameManager.sectionData(gameManager.game.edition).find((sectionData) => sectionData.index == section && !sectionData.group) }
             }).closed.subscribe({
-                next: (conclusion) => {
+                next: async (conclusion) => {
                     if (conclusion) {
                         const scenario = new Scenario(conclusion as ScenarioData);
-                        gameManager.stateManager.before("finishConclusion", ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
+                        await gameManager.stateManager.before("finishConclusion", ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
                         gameManager.scenarioManager.finishScenario(scenario, true, undefined, false, undefined, false, true);
                         gameManager.game.party.weekSections[this.week] = gameManager.game.party.weekSections[this.week] || [];
                         gameManager.game.party.weekSections[this.week]?.push(scenario.index);
-                        gameManager.stateManager.after();
+                        await gameManager.stateManager.after();
                     }
                 }
             });
         }
     }
 
-    addSection(sectionElement: HTMLInputElement) {
+    async addSection(sectionElement: HTMLInputElement) {
         if (!gameManager.game.party.weekSections[this.week]) {
             gameManager.game.party.weekSections[this.week] = [];
         }
         sectionElement.classList.add('error');
         if (gameManager.game.party.weekSections[this.week]?.indexOf(sectionElement.value) == -1) {
-            gameManager.stateManager.before("addPartyWeekSection", gameManager.game.party.name, this.week + '', sectionElement.value + '');
+            await gameManager.stateManager.before("addPartyWeekSection", gameManager.game.party.name, this.week + '', sectionElement.value + '');
             gameManager.game.party.weekSections[this.week]?.push(sectionElement.value);
             sectionElement.classList.remove('error');
             sectionElement.value = "";
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
         }
     }
 
-    removeSection(section: string) {
+    async removeSection(section: string) {
         if (gameManager.game.party.weekSections[this.week]?.indexOf(section) != -1) {
-            gameManager.stateManager.before("removePartyWeekSection", gameManager.game.party.name, this.week + '', section + '');
+            await gameManager.stateManager.before("removePartyWeekSection", gameManager.game.party.name, this.week + '', section + '');
             gameManager.game.party.weekSections[this.week]?.splice(gameManager.game.party.weekSections[this.week]?.indexOf(section) || -1, 1);
             if (gameManager.game.party.weekSections[this.week]?.length == 0) {
                 delete gameManager.game.party.weekSections[this.week];
@@ -97,7 +97,7 @@ export class PartyWeekDialogComponent {
             if (this.isConclusion(section)) {
                 gameManager.game.party.conclusions = gameManager.game.party.conclusions.filter((conclusion) => conclusion.edition != gameManager.game.edition || conclusion.index != section);
             }
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
         }
     }
 

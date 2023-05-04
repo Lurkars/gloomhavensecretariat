@@ -28,24 +28,24 @@ export class AttackModifierStandaloneComponent implements OnInit {
         return window.innerWidth < 800;
     }
 
-    beforeMonsterAttackModifierDeck(change: AttackModiferDeckChange) {
-        gameManager.stateManager.before("updateAttackModifierDeck." + change.type, "monster", ...change.values);
+    async beforeMonsterAttackModifierDeck(change: AttackModiferDeckChange) {
+        await gameManager.stateManager.before("updateAttackModifierDeck." + change.type, "monster", ...change.values);
     }
 
-    afterMonsterAttackModifierDeck(change: AttackModiferDeckChange) {
+    async afterMonsterAttackModifierDeck(change: AttackModiferDeckChange) {
         gameManager.game.monsterAttackModifierDeck = change.deck;
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 
 
-    next() {
-        gameManager.stateManager.before("draw");
+    async next() {
+        await gameManager.stateManager.before("draw");
         if (gameManager.game.state == GameState.next) {
             gameManager.roundManager.nextGameState(true);
         }
         gameManager.roundManager.nextGameState(true);
         gameManager.game.figures.forEach((figure) => figure.active = false);
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 }
 

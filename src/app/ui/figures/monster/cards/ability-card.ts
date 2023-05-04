@@ -88,36 +88,36 @@ export class MonsterAbilityCardComponent {
     return gameManager.abilities(this.monster).indexOf(ability);
   }
 
-  shuffle() {
-    gameManager.stateManager.before("shuffleAbilityDeck", "data.monster." + this.monster.name);
+  async shuffle() {
+    await gameManager.stateManager.before("shuffleAbilityDeck", "data.monster." + this.monster.name);
     gameManager.monsterManager.shuffleAbilities(this.monster);
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  draw() {
-    gameManager.stateManager.before("drawAbility", "data.monster." + this.monster.name);
+  async draw() {
+    await gameManager.stateManager.before("drawAbility", "data.monster." + this.monster.name);
     gameManager.monsterManager.drawAbility(this.monster);
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  toggleDrawExtra() {
+  async toggleDrawExtra() {
     if (this.monster.drawExtra) {
-      gameManager.stateManager.before("unsetDrawExtraAbility", "data.monster." + this.monster.name);
+      await gameManager.stateManager.before("unsetDrawExtraAbility", "data.monster." + this.monster.name);
       this.monster.drawExtra = false;
       gameManager.monsterManager.applySameDeck(this.monster);
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     } else if (gameManager.monsterManager.applySameDeck(this.monster)) {
-      gameManager.stateManager.before("setDrawExtraAbility", "data.monster." + this.monster.name);
+      await gameManager.stateManager.before("setDrawExtraAbility", "data.monster." + this.monster.name);
       this.monster.drawExtra = true;
       if (gameManager.game.state == GameState.next) {
         gameManager.monsterManager.drawExtra(this.monster);
       }
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  dropUpcoming(event: CdkDragDrop<Ability[]>) {
-    gameManager.stateManager.before("reorderAbilities", "data.monster." + this.monster.name);
+  async dropUpcoming(event: CdkDragDrop<Ability[]>) {
+    await gameManager.stateManager.before("reorderAbilities", "data.monster." + this.monster.name);
     if (event.container == event.previousContainer) {
       const offset = this.monster.ability + 1;
       moveItemInArray(this.monster.abilities, event.previousIndex + offset, event.currentIndex + offset);
@@ -126,11 +126,11 @@ export class MonsterAbilityCardComponent {
       moveItemInArray(this.monster.abilities, offset - event.previousIndex, event.currentIndex + offset);
       this.monster.ability = this.monster.ability - 1;
     }
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  dropDisgarded(event: CdkDragDrop<Ability[]>) {
-    gameManager.stateManager.before("reorderAbilities", "data.monster." + this.monster.name);
+  async dropDisgarded(event: CdkDragDrop<Ability[]>) {
+    await gameManager.stateManager.before("reorderAbilities", "data.monster." + this.monster.name);
     if (event.container == event.previousContainer) {
       moveItemInArray(this.monster.abilities, this.monster.ability - event.previousIndex, this.monster.ability - event.currentIndex);
     } else {
@@ -138,22 +138,22 @@ export class MonsterAbilityCardComponent {
       const offset = this.monster.ability;
       moveItemInArray(this.monster.abilities, event.previousIndex + offset, offset - event.currentIndex);
     }
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  restoreDefault(): void {
-    gameManager.stateManager.before("restoreDefaultAbilities", "data.monster." + this.monster.name);
+  async restoreDefault() {
+    await gameManager.stateManager.before("restoreDefaultAbilities", "data.monster." + this.monster.name);
     const abilities = gameManager.abilities(this.monster);
     this.monster.abilities = abilities.filter((ability) => !ability.level || isNaN(+ability.level) || typeof ability.level === 'number' && ability.level <= this.monster.level).map((ability, index) => index);
     this.monster.ability = -1;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  remove(index: number) {
+  async remove(index: number) {
     const ability: Ability = gameManager.abilities(this.monster)[this.monster.abilities[index + this.monster.ability + 1]];
-    gameManager.stateManager.before("removeAbility", "data.monster." + this.monster.name, this.abilityLabel(ability));
+    await gameManager.stateManager.before("removeAbility", "data.monster." + this.monster.name, this.abilityLabel(ability));
     this.monster.abilities.splice(index + this.monster.ability + 1, 1);
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
   abilityLabel(ability: Ability): string {

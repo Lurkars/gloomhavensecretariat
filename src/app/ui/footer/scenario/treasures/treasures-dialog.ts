@@ -82,31 +82,31 @@ export class ScenarioTreasuresDialogComponent implements OnInit, OnDestroy {
         }
     }
 
-    removeTreasure(character: Character, treasure: string | number) {
+    async removeTreasure(character: Character, treasure: string | number) {
         if (typeof treasure === 'number') {
-            gameManager.stateManager.before('removeCharTresure', '' + treasure, this.scenario.edition, "data.character." + character.name);
+            await gameManager.stateManager.before('removeCharTresure', '' + treasure, this.scenario.edition, "data.character." + character.name);
             this.looted.splice(this.treasures.indexOf(treasure), 1);
         } else {
-            gameManager.stateManager.before('removeCharTresure', 'G', this.scenario.edition);
+            await gameManager.stateManager.before('removeCharTresure', 'G', this.scenario.edition);
             this.looted.splice(+treasure.replace('G-', ''), 1);
         }
         character.treasures.splice(character.treasures.indexOf(treasure), 1);
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 
-    lootTreasure() {
+    async lootTreasure() {
         if (this.treasureIndex != -1) {
             this.rewardResults = [];
             const treasure = this.treasures[this.treasureIndex];
             if (this.character && treasure && this.character.treasures.indexOf(treasure == 'G' ? 'G-' + this.treasureIndex : treasure) == -1) {
-                gameManager.stateManager.before('lootCharTreasure', '' + treasure, this.scenario.edition, "data.character." + this.character.name);
+                await gameManager.stateManager.before('lootCharTreasure', '' + treasure, this.scenario.edition, "data.character." + this.character.name);
                 this.looted.push(this.treasureIndex);
                 if (treasure != 'G' && settingsManager.settings.treasuresLoot) {
                     this.rewardResults = gameManager.lootManager.lootTreasure(this.character, treasure - 1, this.scenario.edition);
                 }
                 this.character.treasures = this.character.treasures || [];
                 this.character.treasures.push(treasure == 'G' ? 'G-' + this.treasureIndex : this.rewardResults.some((rewardResult) => rewardResult.length > 0) ? treasure + ':' + this.rewardResults.map((reward) => reward.join('+')).join('|') : treasure);
-                gameManager.stateManager.after();
+                await gameManager.stateManager.after();
             }
         }
     }

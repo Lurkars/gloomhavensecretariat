@@ -162,25 +162,25 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
     }
 
 
-    addItem(item: ItemData | undefined) {
+    async addItem(item: ItemData | undefined) {
         if (item && this.canAdd(item)) {
-            gameManager.stateManager.before("addItem", "data.character." + this.character.name, this.itemIndex + "", this.itemEdition);
+            await gameManager.stateManager.before("addItem", "data.character." + this.character.name, this.itemIndex + "", this.itemEdition);
             this.character.progress.items.push(new Identifier(this.itemIndex + "", this.itemEdition));
             this.items.push(item);
             this.items.sort((a, b) => a.id - b.id);
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
             this.itemChange();
         }
     }
 
-    buyItem(item: ItemData | undefined) {
+    async buyItem(item: ItemData | undefined) {
         if (item && this.canBuy(item)) {
-            gameManager.stateManager.before("buyItem", "data.character." + this.character.name, this.itemIndex + "", this.itemEdition);
+            await gameManager.stateManager.before("buyItem", "data.character." + this.character.name, this.itemIndex + "", this.itemEdition);
             this.character.progress.gold -= (item.cost + this.priceModifier);
             this.character.progress.items.push(new Identifier(this.itemIndex + "", this.itemEdition));
             this.items.push(item);
             this.items.sort((a, b) => a.id - b.id);
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
             this.itemChange();
         }
     }
@@ -228,42 +228,42 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
         }
     }
 
-    craftItem(item: ItemData | undefined) {
+    async craftItem(item: ItemData | undefined) {
         if (item && this.canCraft(item)) {
-            gameManager.stateManager.before("craftItem", "data.character." + this.character.name, this.itemIndex + "", this.itemEdition);
+            await gameManager.stateManager.before("craftItem", "data.character." + this.character.name, this.itemIndex + "", this.itemEdition);
             this.craftItemResources(item);
             this.character.progress.items.push(new Identifier(this.itemIndex + "", this.itemEdition));
             this.items.push(item);
             this.items.sort((a, b) => a.id - b.id);
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
             this.itemChange();
         }
     }
 
 
-    removeItem(itemData: ItemData) {
+    async removeItem(itemData: ItemData) {
         const item = this.character.progress.items.find((item) => item.name == "" + itemData.id && item.edition == itemData.edition);
         if (item) {
             const index = this.character.progress.items.indexOf(item)
-            gameManager.stateManager.before("removeItem", "data.character." + this.character.name, this.character.progress.items[index].name, this.character.progress.items[index].edition);
+            await gameManager.stateManager.before("removeItem", "data.character." + this.character.name, this.character.progress.items[index].name, this.character.progress.items[index].edition);
             this.character.progress.items.splice(index, 1);
             this.character.progress.equippedItems = this.character.progress.equippedItems.filter((identifier) => identifier.name != itemData.name || identifier.edition != itemData.edition);
             this.items.splice(index, 1);
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
             this.itemChange();
         }
     }
 
-    sellItem(itemData: ItemData) {
+    async sellItem(itemData: ItemData) {
         const item = this.character.progress.items.find((item) => item.name == "" + itemData.id && item.edition == itemData.edition);
         if (item && gameManager.lootManager.itemSellValue(itemData)) {
             const index = this.character.progress.items.indexOf(item)
-            gameManager.stateManager.before("sellItem", "data.character." + this.character.name, this.character.progress.items[index].name, this.character.progress.items[index].edition);
+            await gameManager.stateManager.before("sellItem", "data.character." + this.character.name, this.character.progress.items[index].name, this.character.progress.items[index].edition);
             this.character.progress.gold += gameManager.lootManager.itemSellValue(itemData);
             this.character.progress.items.splice(index, 1);
             this.character.progress.equippedItems = this.character.progress.equippedItems.filter((identifier) => identifier.name != itemData.name || identifier.edition != itemData.edition);
             this.items.splice(index, 1);
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
             this.itemChange();
         }
     }
@@ -272,7 +272,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
         return this.character.progress.equippedItems.find((identifier) => identifier.name == '' + item.id && identifier.edition == item.edition);
     }
 
-    toggleEquippedItem(item: ItemData, force: boolean = false) {
+    async toggleEquippedItem(item: ItemData, force: boolean = false) {
         const disabled = gameManager.game.state != GameState.draw || gameManager.game.round > 0;
         if (!disabled || force) {
             let equippedItems: ItemData[] = this.character.progress.equippedItems.map((identifier) => this.items.find((itemData) => identifier.name == '' + itemData.id && itemData.edition == identifier.edition)).filter((itemData) => itemData).map((itemData) => itemData as ItemData);
@@ -322,10 +322,10 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
                 equippedItems.push(item);
             }
 
-            gameManager.stateManager.before(equipIndex != -1 ? 'unequipItem' : 'equipItem', "data.character." + this.character.name, item.name, item.edition)
+            await gameManager.stateManager.before(equipIndex != -1 ? 'unequipItem' : 'equipItem', "data.character." + this.character.name, item.name, item.edition)
             this.character.progress.equippedItems = equippedItems.map((itemData) => new Identifier(itemData.id + '', itemData.edition));
             this.character.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character);
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
         }
     }
 }

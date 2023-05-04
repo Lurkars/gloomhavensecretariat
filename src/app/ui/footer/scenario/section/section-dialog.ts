@@ -15,7 +15,7 @@ export class SectionDialogComponent {
 
     constructor(@Inject(DIALOG_DATA) public sectionData: ScenarioData, private dialog: Dialog, private dialogRef: DialogRef) { }
 
-    addSection() {
+    async addSection() {
         if (this.sectionData.conclusion) {
             this.dialog.open(ScenarioSummaryComponent, {
                 panelClass: 'dialog',
@@ -27,9 +27,9 @@ export class SectionDialogComponent {
             })
             this.dialogRef.close(true);
         } else {
-            gameManager.stateManager.before("addSection", this.sectionData.index, "data.section." + this.sectionData.name, "data.edition." + this.sectionData.edition);
+            await gameManager.stateManager.before("addSection", this.sectionData.index, "data.section." + this.sectionData.name, "data.edition." + this.sectionData.edition);
             gameManager.scenarioManager.addSection(this.sectionData);
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
             this.dialogRef.close(true);
         }
     }

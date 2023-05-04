@@ -92,30 +92,30 @@ export class DatamanagementMenuComponent implements OnInit {
     }
   }
 
-  addUnlock(): void {
+  async addUnlock() {
     const character = this.unlockElement.nativeElement.value;
     if (character) {
       if (gameManager.game.unlockedCharacters.indexOf(character) == -1 && gameManager.charactersData(undefined, true).find((characterData) => characterData.spoiler && characterData.name == character)) {
-        gameManager.stateManager.before("unlockChar", "data.character." + character);
+        await gameManager.stateManager.before("unlockChar", "data.character." + character);
         gameManager.game.unlockedCharacters.push(character)
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
       }
       this.unlockElement.nativeElement.value = "";
     }
   }
 
-  removeUnlock(character: string): void {
+  async removeUnlock(character: string) {
     if (character && gameManager.game.unlockedCharacters.indexOf(character) != -1) {
-      gameManager.stateManager.before("unlockChar", "data.character." + character);
+      await gameManager.stateManager.before("unlockChar", "data.character." + character);
       gameManager.game.unlockedCharacters.splice(gameManager.game.unlockedCharacters.indexOf(character), 1);
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  removeAllUnlocks() {
-    gameManager.stateManager.before("removeAllUnlocks");
+  async removeAllUnlocks() {
+    await gameManager.stateManager.before("removeAllUnlocks");
     gameManager.game.unlockedCharacters = [];
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
   cancelConfirm() {
@@ -182,12 +182,12 @@ export class DatamanagementMenuComponent implements OnInit {
     }
   }
 
-  importGame(event: any) {
+  async importGame(event: any) {
     event.target.parentElement.classList.remove("error");
     try {
       const reader = new FileReader();
-      reader.addEventListener('load', (event: any) => {
-        gameManager.stateManager.before("loadGameFromFile");
+      reader.addEventListener('load', async (event: any) => {
+        await gameManager.stateManager.before("loadGameFromFile");
         const gameModel: GameModel = Object.assign(new GameModel(), JSON.parse(event.target.result));
         if (gameModel.revision < gameManager.game.revision) {
           storageManager.addBackup(gameManager.game.toModel());
@@ -195,7 +195,7 @@ export class DatamanagementMenuComponent implements OnInit {
           gameModel.revisionOffset = gameManager.game.revisionOffset;
         }
         gameManager.game.fromModel(gameModel);
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
       });
 
       if (event.target.files.length > 0) {
@@ -208,12 +208,12 @@ export class DatamanagementMenuComponent implements OnInit {
     }
   }
 
-  resetGame(): void {
+  async resetGame() {
     if (this.confirm != "resetGame") {
       this.confirm = "resetGame";
     } else {
       gameManager.stateManager.reset();
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
       window.location.reload();
     }
   }

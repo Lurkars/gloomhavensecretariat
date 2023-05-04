@@ -58,7 +58,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       }
     }
     this.dialogRef.closed.subscribe({
-      next: () => {
+      next: async () => {
         let title = "";
 
         if (this.titleInput) {
@@ -80,25 +80,25 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
         if (title != settingsManager.getLabel('data.character.' + this.character.name.toLowerCase())) {
           if (this.character.title != title) {
-            gameManager.stateManager.before("setTitle", "data.character." + this.character.name, title);
+            await gameManager.stateManager.before("setTitle", "data.character." + this.character.name, title);
             this.character.title = title;
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
           }
         } else if (this.character.title != "") {
-          gameManager.stateManager.before("unsetTitle", "data.character." + this.character.name, this.character.title);
+          await gameManager.stateManager.before("unsetTitle", "data.character." + this.character.name, this.character.title);
           this.character.title = "";
-          gameManager.stateManager.after();
+          await gameManager.stateManager.after();
         }
 
 
         if (this.retired != this.character.progress.retired) {
-          gameManager.stateManager.before("setRetired", "data.character." + this.character.name, "" + !this.character.progress.retired);
+          await gameManager.stateManager.before("setRetired", "data.character." + this.character.name, "" + !this.character.progress.retired);
           this.character.progress.retired = this.retired;
           if (this.retired && gameManager.game.party.campaignMode) {
             gameManager.game.party.retirements.push(this.character.toModel());
             gameManager.characterManager.removeCharacter(this.character);
           }
-          gameManager.stateManager.after();
+          await gameManager.stateManager.after();
         }
       }
     });
@@ -164,14 +164,14 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     this.dialogRef.close();
   }
 
-  toggleCharacterAbsent() {
+  async toggleCharacterAbsent() {
     if (this.character.absent || gameManager.characterManager.characterCount() > 1) {
-      gameManager.stateManager.before(this.character.absent ? "unsetAbsent" : "setAbsent", "data.character." + this.character.name);
+      await gameManager.stateManager.before(this.character.absent ? "unsetAbsent" : "setAbsent", "data.character." + this.character.name);
       this.character.absent = !this.character.absent;
       if (this.character.absent && this.character.active) {
         gameManager.roundManager.toggleFigure(this.character);
       }
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
@@ -179,7 +179,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     this.titles[index] = event.target.value;
   }
 
-  setLevel(level: number) {
+  async setLevel(level: number) {
     if (this.character.level == level) {
       level--;
     }
@@ -188,97 +188,97 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     } else if (level > 9) {
       level = 9;
     }
-    gameManager.stateManager.before("setLevel", "data.character." + this.character.name, "" + level);
+    await gameManager.stateManager.before("setLevel", "data.character." + this.character.name, "" + level);
     gameManager.characterManager.setLevel(this.character, level);
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  setXP(event: any) {
+  async setXP(event: any) {
     if (!isNaN(+event.target.value) && this.character.progress.experience != +event.target.value) {
       if (this.xpTimeout) {
         clearTimeout(this.xpTimeout);
         this.xpTimeout = null;
       }
-      this.xpTimeout = setTimeout(() => {
-        gameManager.stateManager.before("setXP", "data.character." + this.character.name, ghsValueSign(+event.target.value - this.character.progress.experience));
+      this.xpTimeout = setTimeout(async () => {
+        await gameManager.stateManager.before("setXP", "data.character." + this.character.name, ghsValueSign(+event.target.value - this.character.progress.experience));
         gameManager.characterManager.addXP(this.character, event.target.value - this.character.progress.experience, !gameManager.game.scenario && gameManager.game.round == 0);
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
         this.xpTimeout = null;
       }, 500);
     }
   }
 
-  setGold(event: any) {
+  async setGold(event: any) {
     if (!isNaN(+event.target.value) && this.character.progress.gold != +event.target.value) {
       if (this.goldTimeout) {
         clearTimeout(this.goldTimeout);
         this.goldTimeout = null;
       }
-      this.goldTimeout = setTimeout(() => {
-        gameManager.stateManager.before("setGold", "data.character." + this.character.name, event.target.value);
+      this.goldTimeout = setTimeout(async () => {
+        await gameManager.stateManager.before("setGold", "data.character." + this.character.name, event.target.value);
         this.character.progress.gold = +event.target.value;
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
         this.goldTimeout = null;
       }, 500);
     }
   }
 
-  setResource(type: LootType, event: any) {
+  async setResource(type: LootType, event: any) {
     if (!isNaN(+event.target.value)) {
-      gameManager.stateManager.before("setResource", "data.character." + this.character.name, "game.loot." + type, event.target.value);
+      await gameManager.stateManager.before("setResource", "data.character." + this.character.name, "game.loot." + type, event.target.value);
       this.character.progress.loot[type] = +event.target.value;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  donate() {
+  async donate() {
     if (gameManager.game.round < 1 && this.character.progress.gold > 9) {
-      gameManager.stateManager.before("donate", "data.character." + this.character.name);
+      await gameManager.stateManager.before("donate", "data.character." + this.character.name);
       this.character.progress.donations += 1;
       this.character.donations += 1;
       gameManager.game.party.donations += 1;
       this.character.progress.gold -= this.fhSheet ? 5 : 10;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  setPersonalQuest(event: any) {
+  async setPersonalQuest(event: any) {
     if (!isNaN(+event.target.value) && this.character.progress.personalQuest != +event.target.value) {
-      gameManager.stateManager.before("setPQ", "data.character." + this.character.name, event.target.value);
+      await gameManager.stateManager.before("setPQ", "data.character." + this.character.name, event.target.value);
       this.character.progress.personalQuest = +event.target.value;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  setExtraPerks(event: any) {
+  async setExtraPerks(event: any) {
     if (!isNaN(+event.target.value) && this.character.progress.extraPerks != +event.target.value) {
-      gameManager.stateManager.before("setExtraPerks", "data.character." + this.character.name, event.target.value);
+      await gameManager.stateManager.before("setExtraPerks", "data.character." + this.character.name, event.target.value);
       this.character.progress.extraPerks = +event.target.value;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  setRetirements(event: any) {
+  async setRetirements(event: any) {
     if (!isNaN(+event.target.value) && this.character.progress.retirements != +event.target.value) {
-      gameManager.stateManager.before("setRetirements", "data.character." + this.character.name, event.target.value);
+      await gameManager.stateManager.before("setRetirements", "data.character." + this.character.name, event.target.value);
       this.character.progress.retirements = +event.target.value;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  setPlayerNumber(event: any) {
+  async setPlayerNumber(event: any) {
     if (!isNaN(+event.target.value) && this.character.number != +event.target.value && (+event.target.value > 0)) {
-      gameManager.stateManager.before("setPlayerNumber", "data.character." + this.character.name, event.target.value);
+      await gameManager.stateManager.before("setPlayerNumber", "data.character." + this.character.name, event.target.value);
       const existing = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == +event.target.value);
       if (existing) {
         (existing as Character).number = this.character.number;
       }
       this.character.number = +event.target.value;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  setBattleGoals(battleGoals: number) {
+  async setBattleGoals(battleGoals: number) {
     if (this.character.progress.battleGoals == battleGoals) {
       battleGoals--;
     }
@@ -288,40 +288,40 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       battleGoals = 18;
     }
     if (this.character.progress.battleGoals != battleGoals) {
-      gameManager.stateManager.before("setBG", "data.character." + this.character.name, "" + battleGoals);
+      await gameManager.stateManager.before("setBG", "data.character." + this.character.name, "" + battleGoals);
       this.character.progress.battleGoals = battleGoals;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  setNotes(event: any) {
+  async setNotes(event: any) {
     if (this.character.progress.notes != event.target.value) {
-      gameManager.stateManager.before("setNotes", "data.character." + this.character.name, event.target.value);
+      await gameManager.stateManager.before("setNotes", "data.character." + this.character.name, event.target.value);
       this.character.progress.notes = event.target.value;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  toggleMastery(index: number) {
+  async toggleMastery(index: number) {
     if (!this.character.progress.masteries) {
       this.character.progress.masteries = [];
     }
 
     if (this.character.progress.masteries.indexOf(index) == -1) {
-      gameManager.stateManager.before("addMastery", "data.character." + this.character.name, "" + index);
+      await gameManager.stateManager.before("addMastery", "data.character." + this.character.name, "" + index);
       this.character.progress.masteries.push(index);
     } else {
-      gameManager.stateManager.before("removeMastery", "data.character." + this.character.name, "" + index);
+      await gameManager.stateManager.before("removeMastery", "data.character." + this.character.name, "" + index);
       this.character.progress.masteries.splice(this.character.progress.masteries.indexOf(index), 1);
     }
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  addPerk(index: number, value: number, force: boolean = false) {
+  async addPerk(index: number, value: number, force: boolean = false) {
     const disabled: boolean = gameManager.game.state != GameState.draw || gameManager.game.round > 0 || this.character.progress.perks[index] < value && this.availablePerks < value - this.character.progress.perks[index];
 
     if (!disabled || force) {
-      gameManager.stateManager.before("setPerk", "data.character." + this.character.name, "" + index, "" + value);
+      await gameManager.stateManager.before("setPerk", "data.character." + this.character.name, "" + index, "" + value);
       if (this.character.progress.perks[index] && this.character.progress.perks[index] == value) {
         this.character.progress.perks[index]--;
       } else {
@@ -329,7 +329,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       }
       this.character.mergeAttackModifierDeck(gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character));
       gameManager.attackModifierManager.shuffleModifiers(this.character.attackModifierDeck);
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
@@ -349,19 +349,19 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     document.body.removeChild(downloadButton);
   }
 
-  importCharacter(event: any) {
+  async importCharacter(event: any) {
     const parent = event.target.parentElement;
     parent.classList.remove("error");
     try {
       const reader = new FileReader();
-      reader.addEventListener('load', (event: any) => {
+      reader.addEventListener('load', async (event: any) => {
         const characterModel: GameCharacterModel = Object.assign(new Character(this.character, this.character.level).toModel(), JSON.parse(event.target.result));
         if (characterModel.name != this.character.name || characterModel.edition != this.character.edition) {
           parent.classList.add("error");
         } else {
-          gameManager.stateManager.before("importCharacter", "data.character." + this.character.name);
+          await gameManager.stateManager.before("importCharacter", "data.character." + this.character.name);
           this.character.fromModel(characterModel);
-          gameManager.stateManager.after();
+          await gameManager.stateManager.after();
         }
       });
 

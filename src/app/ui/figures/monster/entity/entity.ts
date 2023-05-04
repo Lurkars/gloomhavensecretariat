@@ -58,7 +58,7 @@ export class MonsterEntityComponent implements OnInit, OnDestroy {
     this.activeConditions = gameManager.entityManager.activeConditions(this.entity, true);
   }
 
-  dead() {
+  async dead() {
     this.entity.dead = true;
 
     if (this.monster.entities.every((monsterEntity) => monsterEntity.dead)) {
@@ -68,9 +68,9 @@ export class MonsterEntityComponent implements OnInit, OnDestroy {
     }
 
     if (gameManager.game.state == GameState.draw || this.entity.entityConditions.length == 0 || this.entity.entityConditions.every((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
-      setTimeout(() => {
+      setTimeout(async () => {
         gameManager.monsterManager.removeMonsterEntity(this.monster, this.entity);
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
       }, settingsManager.settings.disableAnimations ? 0 : 1500);
     }
   }
@@ -86,27 +86,27 @@ export class MonsterEntityComponent implements OnInit, OnDestroy {
     }
   }
 
-  dragHpEnd(value: number) {
+  async dragHpEnd(value: number) {
     if (this.health != 0 && this.entity.maxHealth > 0 && !this.monster.immortal) {
-      gameManager.stateManager.before("changeEntityHp", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + this.health);
+      await gameManager.stateManager.before("changeEntityHp", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + this.health);
       gameManager.entityManager.changeHealth(this.entity, this.health);
       if (this.entity.health <= 0 || this.entity.dead && this.health >= 0 && this.entity.health > 0) {
         this.dead();
       }
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
     this.health = 0;
   }
 
-  doubleClick(event: any): void {
+  async doubleClick(event: any) {
     if (settingsManager.settings.activeStandees) {
-      gameManager.stateManager.before(this.entity.active ? "unsetEntityActive" : "setEntityActive", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number);
+      await gameManager.stateManager.before(this.entity.active ? "unsetEntityActive" : "setEntityActive", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number);
       gameManager.monsterManager.toggleActive(this.monster, this.entity);
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  openEntityMenu(event: any): void {
+  async openEntityMenu(event: any) {
     if (this.entity.number < 0) {
       const max = gameManager.monsterManager.monsterStandeeMax(this.monster);
       if (settingsManager.settings.randomStandees) {
@@ -114,9 +114,9 @@ export class MonsterEntityComponent implements OnInit, OnDestroy {
         while (gameManager.monsterManager.monsterStandeeUsed(this.monster, number)) {
           number = Math.floor(Math.random() * max) + 1;
         }
-        gameManager.stateManager.before("addRandomStandee", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + number);
+        await gameManager.stateManager.before("addRandomStandee", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + number);
         this.entity.number = number;
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
       } else {
         this.dialog.open(MonsterNumberPickerDialog, {
           panelClass: 'dialog',

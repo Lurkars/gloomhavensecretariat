@@ -171,8 +171,8 @@ export class MainComponent implements OnInit {
     }
   }
 
-  startCampaign(edition: string) {
-    gameManager.stateManager.before("startCampaign", 'data.edition.' + edition);
+  async startCampaign(edition: string) {
+    await gameManager.stateManager.before("startCampaign", 'data.edition.' + edition);
     gameManager.game.edition = edition;
     if (edition == 'fh') {
       settingsManager.setFhStyle(true);
@@ -180,7 +180,7 @@ export class MainComponent implements OnInit {
       settingsManager.setFhStyle(false);
     }
     gameManager.game.party.campaignMode = true;
-    gameManager.stateManager.after();
+await gameManager.stateManager.after();
   }
 
   calcColumns(scrollTo: HTMLElement | undefined = undefined, skipAnimation: boolean = false): void {
@@ -397,7 +397,7 @@ export class MainComponent implements OnInit {
     }
   }
 
-  drop(event: CdkDragDrop<number>) {
+  async drop(event: CdkDragDrop<number>) {
     if (event.previousContainer != event.container && (event.currentIndex == 0 && event.container.data != event.previousContainer.data + 1 || event.currentIndex != 0 && event.container.data != event.previousContainer.data - event.currentIndex)) {
       let prev = event.previousContainer.data;
       let next = event.container.data;
@@ -406,9 +406,9 @@ export class MainComponent implements OnInit {
       } else if (event.currentIndex == 0 && event.previousContainer.data < event.container.data) {
         next--;
       }
-      gameManager.stateManager.before("reorder");
+      await gameManager.stateManager.before("reorder");
       moveItemInArray(gameManager.game.figures, prev, next);
-      gameManager.stateManager.after();
+await gameManager.stateManager.after();
       this.calcColumns(event.item.element.nativeElement, true);
     } else {
       this.translate(undefined, true);

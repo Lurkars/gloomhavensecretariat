@@ -55,13 +55,13 @@ export class MapComponent {
         })
     }
 
-    startScenario(index: number, event: any) {
+    async startScenario(index: number, event: any) {
         if (!this.success[index] && gameManager.game.party.campaignMode && !gameManager.scenarioManager.isBlocked(this.scenarios[index])) {
             const scenario = new Scenario(this.scenarios[index]);
-            gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
+            await gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
             gameManager.scenarioManager.setScenario(scenario);
             this.dialogRef.close();
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
         }
         event.preventDefault();
         event.stopPropagation();

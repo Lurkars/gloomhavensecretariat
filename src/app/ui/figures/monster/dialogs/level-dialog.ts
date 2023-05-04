@@ -23,16 +23,16 @@ export class MonsterLevelDialogComponent {
     return gameManager.getEdition(this.monster);
   }
 
-  toggleAlly() {
-    gameManager.stateManager.before(this.monster.isAlly ? "unsetAlly" : "setAlly", "data.monster." + this.monster.name);
+  async toggleAlly() {
+    await gameManager.stateManager.before(this.monster.isAlly ? "unsetAlly" : "setAlly", "data.monster." + this.monster.name);
     this.monster.isAlly = !this.monster.isAlly;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
-  toggleallied() {
-    gameManager.stateManager.before(this.monster.isAllied ? "unsetallied" : "setallied", "data.monster." + this.monster.name);
+  async toggleallied() {
+    await gameManager.stateManager.before(this.monster.isAllied ? "unsetallied" : "setallied", "data.monster." + this.monster.name);
     this.monster.isAllied = !this.monster.isAllied;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
 }

@@ -70,13 +70,13 @@ export class CharacterComponent implements OnInit, OnDestroy {
     this.activeConditions = gameManager.entityManager.activeConditions(this.character);
   }
 
-  beforeAttackModifierDeck(change: AttackModiferDeckChange) {
-    gameManager.stateManager.before("updateAttackModifierDeck." + change.type, "data.character." + this.character.name, ...change.values);
+  async beforeAttackModifierDeck(change: AttackModiferDeckChange) {
+    await gameManager.stateManager.before("updateAttackModifierDeck." + change.type, "data.character." + this.character.name, ...change.values);
   }
 
-  afterAttackModifierDeck(change: AttackModiferDeckChange) {
+  async afterAttackModifierDeck(change: AttackModiferDeckChange) {
     this.character.attackModifierDeck = change.deck;
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
   exhausted() {
@@ -114,7 +114,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
     }
   }
 
-  dragInitiativeEnd(value: number) {
+  async dragInitiativeEnd(value: number) {
     if (value > 99) {
       value = 99;
     } else if (value < 0) {
@@ -127,7 +127,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
     if (this.character.initiative != this.initiative) {
       this.character.initiative = this.initiative;
-      gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + value);
+      await gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + value);
       this.character.initiative = value;
       this.character.longRest = false;
       if (value == 99) {
@@ -140,30 +140,30 @@ export class CharacterComponent implements OnInit, OnDestroy {
       if (gameManager.game.state == GameState.next) {
         gameManager.sortFigures();
       }
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
-  toggleFigure(event: any): void {
+  async toggleFigure(event: any) {
     if (!this.character.absent) {
       if (gameManager.game.state == GameState.next && !this.character.exhausted && (!settingsManager.settings.initiativeRequired || this.character.initiative > 0)) {
-        gameManager.stateManager.before(this.character.active ? "unsetActive" : "setActive", "data.character." + this.character.name);
+        await gameManager.stateManager.before(this.character.active ? "unsetActive" : "setActive", "data.character." + this.character.name);
         gameManager.roundManager.toggleFigure(this.character);
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
       } else if (settingsManager.settings.initiativeRequired && this.character.initiative <= 0 || gameManager.game.state == GameState.draw) {
         this.openInitiativeDialog(event);
       }
     }
   }
 
-  nextIdentity(event: any): void {
+  async nextIdentity(event: any) {
     if (this.character.identities.length > 1) {
-      gameManager.stateManager.before("nextIdentity", "data.character." + this.character.name);
+      await gameManager.stateManager.before("nextIdentity", "data.character." + this.character.name);
       this.character.identity++;
       if (this.character.identity >= this.character.identities.length) {
         this.character.identity = 0;
       }
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
       event.preventDefault();
     }
   }
@@ -193,15 +193,15 @@ export class CharacterComponent implements OnInit, OnDestroy {
     }
   }
 
-  dragHpEnd(value: number) {
+  async dragHpEnd(value: number) {
     if (this.health != 0) {
-      gameManager.stateManager.before("changeHP", "data.character." + this.character.name, ghsValueSign(this.health));
+      await gameManager.stateManager.before("changeHP", "data.character." + this.character.name, ghsValueSign(this.health));
       gameManager.entityManager.changeHealth(this.character, this.health);
       if (this.character.health <= 0 || this.character.exhausted && this.health >= 0 && this.character.health > 0) {
         this.exhausted();
       }
       this.health = 0;
-      gameManager.stateManager.after();
+      await gameManager.stateManager.after();
     }
   }
 
@@ -212,13 +212,13 @@ export class CharacterComponent implements OnInit, OnDestroy {
     }
   }
 
-  dragXpEnd(value: number) {
+  async dragXpEnd(value: number) {
     if (this.experience != 0) {
-      gameManager.stateManager.before("changeXP", "data.character." + this.character.name, ghsValueSign(this.experience));
+      await gameManager.stateManager.before("changeXP", "data.character." + this.character.name, ghsValueSign(this.experience));
       this.character.experience += this.experience;
       this.experience = 0;
     }
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
   dragLootMove(value: number) {
@@ -228,22 +228,22 @@ export class CharacterComponent implements OnInit, OnDestroy {
     }
   }
 
-  dragLootEnd(value: number) {
+  async dragLootEnd(value: number) {
     if (this.loot != 0) {
-      gameManager.stateManager.before("changeLoot", "data.character." + this.character.name, ghsValueSign(this.loot));
+      await gameManager.stateManager.before("changeLoot", "data.character." + this.character.name, ghsValueSign(this.loot));
       this.character.loot += this.loot;
       this.loot = 0;
     }
-    gameManager.stateManager.after();
+    await gameManager.stateManager.after();
   }
 
   openEntityMenu(event: any): void {
     /*
     const summon = this.character.summons.find((summon) => summon.active);
     if (summon) {
-      gameManager.stateManager.before("summonInactive", "data.character." + this.character.name, "data.summon." + summon.name);
+     await gameManager.stateManager.before("summonInactive", "data.character." + this.character.name, "data.summon." + summon.name);
       summon.active = false;
-      gameManager.stateManager.after();
+await gameManager.stateManager.after();
     } else {
     */
     this.dialog.open(EntityMenuDialogComponent, {

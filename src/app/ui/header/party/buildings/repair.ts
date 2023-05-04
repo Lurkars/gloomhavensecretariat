@@ -50,16 +50,16 @@ export class BuildingRepairDialog {
 
     }
 
-    repair() {
+    async repair() {
         if (this.costs == this.paid) {
-            gameManager.stateManager.before("repairBuilding", "data.buildings." + this.building.data.name);
+            await gameManager.stateManager.before("repairBuilding", "data.buildings." + this.building.data.name);
             Object.keys(this.loot).forEach((key) => {
                 const lootType = key as LootType;
                 let value = this.loot[lootType] || 0;
                 gameManager.game.party.loot[lootType] = (gameManager.game.party.loot[lootType] || 0) - value;
             })
             this.building.model.state = 'normal';
-            gameManager.stateManager.after();
+            await gameManager.stateManager.after();
             this.close();
         }
     }

@@ -34,13 +34,13 @@ export class LootDeckStandaloneComponent implements OnInit {
     }
 
 
-    beforeLootDeck(change: LootDeckChange) {
-        gameManager.stateManager.before(change.type, ...change.values)
+    async beforeLootDeck(change: LootDeckChange) {
+        await gameManager.stateManager.before(change.type, ...change.values)
     }
 
-    afterLootDeck(change: LootDeckChange) {
+    async afterLootDeck(change: LootDeckChange) {
         gameManager.game.lootDeck = change.deck;
-        gameManager.stateManager.after();
+        await gameManager.stateManager.after();
     }
 }
 
