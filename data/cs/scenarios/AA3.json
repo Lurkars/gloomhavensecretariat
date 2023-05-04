@@ -1,12 +1,14 @@
 {
-  "index": "3",
+  "index": "AA3",
   "group": "AA",
   "name": "Solo: Hive Guardian",
   "edition": "cs",
-  "unlocks": [
-    "4",
-    "7"
-  ],
+  "initial": true,
+  "rewards": {
+    "items": [
+      "103"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "flame-demon",

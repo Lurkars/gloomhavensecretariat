@@ -3,7 +3,8 @@
   "group": "QA",
   "name": "Capstone Test",
   "edition": "cs",
-  "parent": "1",
+  "parent": "QA1",
+  "marker": "c",
   "monsters": [
     "clockwork-guardian"
   ],

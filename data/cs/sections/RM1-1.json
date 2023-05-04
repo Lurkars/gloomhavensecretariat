@@ -3,7 +3,8 @@
   "group": "RM",
   "name": "Mind Your Manners",
   "edition": "cs",
-  "parent": "1",
+  "parent": "RM1",
+  "marker": "1",
   "monsters": [
     "inox-archer",
     "inox-guard"
@@ -12,6 +13,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        53
+      ],
       "monster": [
         {
           "name": "inox-archer",
@@ -24,7 +28,10 @@
         },
         {
           "name": "inox-archer",
-          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-archer",
           "player4": "elite"
         },
         {
@@ -44,6 +51,10 @@
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "elite"
         }
       ]
     }

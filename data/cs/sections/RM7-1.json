@@ -3,7 +3,8 @@
   "group": "RM",
   "name": "Insatiable",
   "edition": "cs",
-  "parent": "7",
+  "parent": "RM7",
+  "marker": "1",
   "monsters": [
     "vermling-scout",
     "vermling-shaman"

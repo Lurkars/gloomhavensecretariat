@@ -1,12 +1,18 @@
 {
-  "index": "1",
+  "index": "AA1",
   "group": "AA",
   "name": "The Riches of the Steelsilk",
   "edition": "cs",
   "initial": true,
-  "unlocks": [
-    "2"
-  ],
+  "rewards": {
+    "envelopes": [
+      "%data.characterIcon.beetle%"
+    ],
+    "items": [
+      "101"
+    ],
+    "custom": "\"At All Costs\" quest complete"
+  },
   "monsters": [
     "bandit-archer",
     "bandit-guard",
@@ -14,6 +20,9 @@
     "harrower-aegis",
     "hound",
     "wind-demon"
+  ],
+  "allies": [
+    "harrower-aegis"
   ],
   "rules": [
     {
@@ -80,6 +89,12 @@
           }
         }
       ]
+    },
+    {
+      "round": "R == 9",
+      "sections": [
+        "1-AA1"
+      ]
     }
   ],
   "rooms": [
@@ -87,6 +102,9 @@
       "roomNumber": 1,
       "ref": "k1",
       "initial": true,
+      "treasures": [
+        51
+      ],
       "monster": [
         {
           "name": "harrower-aegis",

@@ -1,0 +1,15 @@
+{
+  "index": "RM5-5",
+  "group": "RM",
+  "name": "Guttermaw's Bounty (Party) COMPLETE",
+  "edition": "cs",
+  "parent": "RM5",
+  "conclusion": true,
+  "rewards": {
+    "collectiveGold": 40,
+    "chooseItem": [
+      "30-gh",
+      "36-gh"
+    ]
+  }
+}

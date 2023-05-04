@@ -1,11 +1,14 @@
 {
-  "index": "3",
+  "index": "RM3",
   "group": "RM",
   "name": "Ruined Colony",
   "edition": "cs",
+  "initial": true,
   "unlocks": [
-    "4",
-    "7"
+    "RM4"
+  ],
+  "links": [
+    "RM4"
   ],
   "monsters": [
     "giant-viper",
@@ -33,7 +36,7 @@
         {
           "name": "giant-viper",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "giant-viper",
@@ -42,7 +45,8 @@
         },
         {
           "name": "giant-viper",
-          "player3": "elite"
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "ooze",

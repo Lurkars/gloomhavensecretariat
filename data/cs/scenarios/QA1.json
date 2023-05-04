@@ -1,12 +1,19 @@
 {
-  "index": "1",
+  "index": "QA1",
   "group": "QA",
   "name": "Capstone Test",
   "edition": "cs",
   "initial": true,
-  "unlocks": [
-    "2"
-  ],
+  "rewards": {
+    "envelopes": [
+      "%data.characterIcon.tools%"
+    ],
+    "items": [
+      "105",
+      "106"
+    ],
+    "custom": "\"Ingenious Inventor\" quest complete"
+  },
   "monsters": [
     "clockwork-railcaster",
     "clockwork-soldier"
@@ -44,6 +51,7 @@
         },
         {
           "name": "clockwork-soldier",
+          "player3": "elite",
           "player4": "elite"
         }
       ]

@@ -3,7 +3,7 @@
   "group": "QA",
   "name": "Mother Lode",
   "edition": "cs",
-  "parent": "2",
+  "parent": "QA2",
   "monsters": [
     "ooze"
   ],
@@ -30,6 +30,10 @@
           "name": "ooze",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player4": "normal"
         },
         {
           "name": "ooze",

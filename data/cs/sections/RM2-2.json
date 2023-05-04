@@ -3,7 +3,13 @@
   "group": "RM",
   "name": "Sinking Kingpin",
   "edition": "cs",
-  "parent": "2",
+  "parent": "RM2",
+  "parentSections": [
+    [
+      "2-1"
+    ]
+  ],
+  "marker": "b",
   "monsters": [
     "bandit-archer",
     "bandit-guard",

@@ -1,29 +1,25 @@
 {
-  "name": "ruinmaw",
+  "name": "terrorscale-drake-section-3",
+  "thumbnail": "cs-terrorscale-drake",
   "edition": "cs",
   "deck": "boss",
   "boss": true,
+  "hidden": true,
   "count": 1,
   "baseStat": {
     "type": "boss",
     "immunities": [
-      "poison",
-      "wound",
-      "stun",
-      "disarm",
       "immobilize",
-      "curse"
+      "curse",
+      "poison",
+      "stun",
+      "disarm"
     ],
     "special": [
       [
         {
-          "type": "custom",
-          "value": "Focus on the nearest enemy that does not have %game.condition.rupture%:",
-          "small": true
-        },
-        {
           "type": "move",
-          "value": "3",
+          "value": 1,
           "valueType": "plus",
           "subActions": [
             {
@@ -34,22 +30,28 @@
         },
         {
           "type": "attack",
-          "value": "1",
-          "valueType": "minus",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
-              "type": "condition",
-              "value": "wound",
+              "type": "specialTarget",
+              "value": "enemyRange:4 or 5",
               "small": true
             },
             {
               "type": "condition",
-              "value": "rupture",
+              "value": "poison",
               "small": true
-            },
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "subActions": [
             {
-              "type": "push",
-              "value": "3",
+              "type": "specialTarget",
+              "value": "selfAlliesAffect",
               "small": true
             }
           ]
@@ -58,38 +60,33 @@
       [
         {
           "type": "move",
-          "value": "0",
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": "1",
+          "value": 2,
           "valueType": "minus",
           "subActions": [
             {
-              "type": "specialTarget",
-              "value": "enemiesAdjacent",
-              "small": true
-            },
-            {
-              "type": "push",
-              "value": "1",
+              "type": "jump",
               "small": true
             }
           ]
         },
         {
-          "type": "push",
-          "value": "1",
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
-              "type": "condition",
-              "value": "muddle",
+              "type": "specialTarget",
+              "value": "enemiesRange:3",
               "small": true
             },
             {
-              "type": "specialTarget",
-              "value": "enemiesRange:2",
+              "type": "push",
+              "value": "2",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
               "small": true
             }
           ]
@@ -101,50 +98,50 @@
     {
       "level": 0,
       "health": "9xC",
-      "movement": 3,
-      "attack": 2
+      "movement": 4,
+      "attack": 3
     },
     {
       "level": 1,
       "health": "10xC",
-      "movement": 3,
-      "attack": 3
+      "movement": 4,
+      "attack": 4
     },
     {
       "level": 2,
-      "health": "12xC",
-      "movement": 3,
-      "attack": 3
+      "health": "13xC",
+      "movement": 5,
+      "attack": 4
     },
     {
       "level": 3,
-      "health": "13xC",
-      "movement": 3,
+      "health": "14xC",
+      "movement": 5,
       "attack": 4
     },
     {
       "level": 4,
-      "health": "15xC",
-      "movement": 4,
-      "attack": 4
+      "health": "18xC",
+      "movement": 5,
+      "attack": 5
     },
     {
       "level": 5,
-      "health": "17xC",
-      "movement": 4,
-      "attack": 4
+      "health": "20xC",
+      "movement": 6,
+      "attack": 5
     },
     {
       "level": 6,
-      "health": "20xC",
-      "movement": 4,
+      "health": "25xC",
+      "movement": 6,
       "attack": 5
     },
     {
       "level": 7,
-      "health": "24xC",
-      "movement": 5,
-      "attack": 5
+      "health": "27xC",
+      "movement": 6,
+      "attack": 6
     }
   ]
 }

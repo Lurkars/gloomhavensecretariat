@@ -1,8 +1,10 @@
 {
   "index": "2-1",
   "group": "RM",
-  "name": "Courtyard",
+  "name": "Sinking Kingpin",
   "edition": "cs",
+  "parent": "RM2",
+  "marker": "a",
   "monsters": [
     "bandit-archer",
     "inox-archer"

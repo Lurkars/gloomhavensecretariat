@@ -1,8 +1,10 @@
 {
   "index": "1-1",
   "group": "QA",
-  "name": "Power Conduit Relay",
+  "name": "Capstone Test",
   "edition": "cs",
+  "parent": "QA1",
+  "marker": "a",
   "monsters": [
     "clockwork-railcaster",
     "clockwork-ravager"

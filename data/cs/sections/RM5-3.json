@@ -3,9 +3,88 @@
   "group": "RM",
   "name": "Unseen Plight",
   "edition": "cs",
-  "parent": "5",
+  "parent": "RM5",
+  "parentSections": [
+    [
+      "5-1"
+    ]
+  ],
+  "blockedSections": [
+    "5-2"
+  ],
+  "marker": "3",
   "monsters": [
     "ravenous-gharial"
+  ],
+  "objectives": [
+    {
+      "name": "Vermling Scouts",
+      "health": "C+L",
+      "initiative": 35,
+      "escort": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Towards hex %game.mapMarker.a%"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ravenous-gharial",
+            "player2": "normal",
+            "tags": [
+              "special"
+            ]
+          },
+          "count": "2",
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "ravenous-gharial",
+            "player3": "normal",
+            "tags": [
+              "special"
+            ]
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "ravenous-gharial",
+            "player3": "elite",
+            "tags": [
+              "special"
+            ]
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "ravenous-gharial",
+            "player4": "elite",
+            "tags": [
+              "special"
+            ]
+          },
+          "count": "2",
+          "marker": "a"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -24,7 +103,16 @@
           "name": "ravenous-gharial",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1
       ]
     }
   ]

@@ -1,20 +1,47 @@
 {
-  "index": "2",
+  "index": "AA2",
   "group": "AA",
   "name": "Malign Echoes",
   "edition": "cs",
-  "unlocks": [
-    "3"
-  ],
+  "initial": true,
+  "rewards": {
+    "envelopes": [
+      "%data.characterIcon.beetle%"
+    ],
+    "items": [
+      "102"
+    ],
+    "custom": "\"The Weight of Failure\" quest complete"
+  },
   "monsters": [
     "giant-viper",
     "ravenous-gharial"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "poison",
+          "scenarioEffect": true
+        }
+      ]
+    }
   ],
   "rooms": [
     {
       "roomNumber": 1,
       "ref": "m1",
       "initial": true,
+      "treasures": [
+        52
+      ],
       "monster": [
         {
           "name": "giant-viper",
@@ -31,6 +58,7 @@
         },
         {
           "name": "giant-viper",
+          "player3": "elite",
           "player4": "elite"
         },
         {
@@ -46,6 +74,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player4": "normal"
         }
       ]
     }

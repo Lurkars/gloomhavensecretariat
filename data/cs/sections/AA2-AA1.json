@@ -1,9 +1,10 @@
 {
-  "index": "2-AA1",
+  "index": "1-AA2",
   "group": "AA",
   "name": "Malign Echoes",
   "edition": "cs",
-  "parent": "2",
+  "parent": "AA2",
+  "marker": "1",
   "monsters": [
     "giant-viper",
     "ravenous-gharial"

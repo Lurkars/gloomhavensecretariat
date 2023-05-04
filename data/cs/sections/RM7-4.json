@@ -3,10 +3,33 @@
   "group": "RM",
   "name": "Insatiable",
   "edition": "cs",
-  "parent": "7",
+  "parent": "RM7",
+  "parentSections": [
+    [
+      "7-3"
+    ]
+  ],
+  "marker": "4",
   "monsters": [
-    "ruinmaw",
+    "ruinmaw-section-4",
     "vermling-shaman"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "cs",
+            "name": "ruinmaw-section-2"
+          },
+          "type": "remove"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -14,7 +37,7 @@
       "initial": true,
       "monster": [
         {
-          "name": "ruinmaw",
+          "name": "ruinmaw-section-4",
           "type": "boss"
         },
         {

@@ -1,10 +1,12 @@
 {
   "index": "3-2",
   "group": "QA",
-  "name": "Inspection Chamber",
+  "name": "Solo: Magnum Opus",
   "edition": "cs",
+  "parent": "QA3",
   "monsters": [
-    "clockwork-devastator"
+    "clockwork-devastator",
+    "stone-golem"
   ],
   "rooms": [
     {

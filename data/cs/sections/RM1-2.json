@@ -3,7 +3,13 @@
   "group": "RM",
   "name": "Mind Your Manners",
   "edition": "cs",
-  "parent": "1",
+  "parent": "RM1",
+  "parentSections": [
+    [
+      "1-1"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "bandit-archer-hired-muscle",
     "bandit-guard-hired-muscle",
