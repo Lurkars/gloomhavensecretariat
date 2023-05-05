@@ -12,6 +12,7 @@ export class ItemData implements Editional {
   edition: string = "";
   slot: ItemSlot = ItemSlot.small;
   random: boolean = false;
+  blueprint: boolean = false;
   spent: boolean = false;
   consumed: boolean = false;
   slots: number = 0;

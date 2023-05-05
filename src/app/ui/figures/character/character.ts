@@ -46,6 +46,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   experience: number = 0;
   loot: number = 0;
   maxHp: number = 0;
+  token: number = 0;
 
   emptySummons: boolean = true;
   activeConditions: EntityCondition[] = [];
@@ -157,7 +158,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   }
 
   async nextIdentity(event: any) {
-    if (this.character.identities.length > 1) {
+    if (settingsManager.settings.characterIdentities && this.character.identities && this.character.identities.length > 1) {
       await gameManager.stateManager.before("nextIdentity", "data.character." + this.character.name);
       this.character.identity++;
       if (this.character.identity >= this.character.identities.length) {
@@ -165,6 +166,8 @@ export class CharacterComponent implements OnInit, OnDestroy {
       }
       await gameManager.stateManager.after();
       event.preventDefault();
+    } else {
+      this.openEntityMenu(event);
     }
   }
 
@@ -219,6 +222,22 @@ export class CharacterComponent implements OnInit, OnDestroy {
       this.experience = 0;
     }
     await gameManager.stateManager.after();
+  }
+
+  dragTokenMove(value: number) {
+    this.token = value;
+    if (this.character.token + this.token < 0) {
+      this.token = - this.character.token;
+    }
+  }
+
+  dragTokenEnd(value: number) {
+    if (this.token != 0) {
+      gameManager.stateManager.before("setCharacterToken", "data.character." + this.character.name, '' + (this.character.token + this.token));
+      this.character.token += this.token;
+      this.token = 0;
+    }
+    gameManager.stateManager.after();
   }
 
   dragLootMove(value: number) {

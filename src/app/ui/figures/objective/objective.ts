@@ -140,7 +140,11 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
       await gameManager.stateManager.before("changeObjectiveHP", this.objective.title || this.objective.name, ghsValueSign(this.health));
       gameManager.entityManager.changeHealth(this.objective, this.health);
       if (this.objective.health <= 0 || this.objective.exhausted && this.health >= 0 && this.objective.health > 0) {
-        this.exhausted();
+        if (this.objective.escort) {
+          this.exhausted();
+        } else {
+          gameManager.characterManager.removeObjective(this.objective);
+        }
       }
       this.health = 0;
       await gameManager.stateManager.after();

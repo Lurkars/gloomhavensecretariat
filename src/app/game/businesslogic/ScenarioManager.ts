@@ -241,7 +241,7 @@ export class ScenarioManager {
           }
         }
 
-        if (gameManager.characterManager.characterCount() < 4) {
+        if (gameManager.characterManager.characterCount() < 4 && !internal) {
           this.game.party.inspiration += 4 - gameManager.characterManager.characterCount();
         }
 

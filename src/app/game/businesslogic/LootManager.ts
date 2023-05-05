@@ -183,20 +183,22 @@ export class LootManager {
         break;
       case TreasureRewardType.item:
       case TreasureRewardType.itemDesign:
+      case TreasureRewardType.itemBlueprint:
+      case TreasureRewardType.itemFh:
         if (reward.value) {
           ('' + reward.value).split('+').forEach((itemValue) => {
             let itemEdition = edition;
             let itemId = -1
             if (isNaN(+itemValue)) {
-              itemEdition = itemValue.split('-')[0];
-              itemId = +itemValue.split('-')[1]
+              itemId = +itemValue.split('-')[0]
+              itemEdition = itemValue.split('-')[1];
             } else {
               itemId = +itemValue;
             }
             const item = gameManager.item(itemId, itemEdition, true);
             if (item) {
               const identifier = new Identifier('' + item.id, item.edition);
-              if (reward.type == TreasureRewardType.item) {
+              if (reward.type == TreasureRewardType.item || reward.type == TreasureRewardType.itemFh) {
                 if (character.progress.items.find((existing) => existing.name == identifier.name && existing.edition == identifier.edition)) {
                   character.progress.gold += this.itemSellValue(item);
                 } else {
@@ -207,24 +209,6 @@ export class LootManager {
               }
             }
           })
-        }
-        break;
-      case TreasureRewardType.itemBlueprint:
-      case TreasureRewardType.itemFh:
-        if (reward.value) {
-          const item = gameManager.item(+reward.value, edition, true);
-          if (item) {
-            const identifier = new Identifier('' + item.id, item.edition);
-            if (reward.type == TreasureRewardType.itemFh) {
-              if (character.progress.items.find((existing) => existing.name == identifier.name && existing.edition == identifier.edition)) {
-                character.progress.gold += this.itemSellValue(item);
-              } else {
-                character.progress.items.push(identifier);
-              }
-            } else {
-              gameManager.game.party.unlockedItems.push(identifier);
-            }
-          }
         }
         break;
       case TreasureRewardType.calenderSection:
@@ -290,7 +274,7 @@ export class LootManager {
         break;
       case TreasureRewardType.randomItemDesign:
       case TreasureRewardType.randomItemBlueprint:
-        let availableItems = gameManager.itemData(edition).filter((itemData) => itemData.random && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition));
+        let availableItems = gameManager.itemData(edition, true).filter((itemData) => (reward.type == TreasureRewardType.randomItemDesign && itemData.random || reward.type == TreasureRewardType.randomItemBlueprint && itemData.blueprint) && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition));
         if (typeof reward.value === 'string' && reward.value.indexOf('-') != -1) {
           const from = + reward.value.split('-')[0];
           const to = + reward.value.split('-')[1];

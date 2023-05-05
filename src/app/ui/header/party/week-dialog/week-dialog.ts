@@ -56,7 +56,7 @@ export class PartyWeekDialogComponent {
 
         if (conclusions.length > 0) {
             this.dialog.open(ScenarioConclusionComponent, {
-                panelClass: ['dialog', 'dialog-invert'],
+                panelClass: ['dialog'],
                 data: { conclusions: conclusions, parent: gameManager.sectionData(gameManager.game.edition).find((sectionData) => sectionData.index == section && !sectionData.group) }
             }).closed.subscribe({
                 next: async (conclusion) => {

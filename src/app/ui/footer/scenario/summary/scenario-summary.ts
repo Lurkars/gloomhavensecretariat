@@ -11,6 +11,7 @@ import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
 import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/character-sheet";
 import { EntityValueFunction } from "src/app/game/model/Entity";
 import { Subscription } from "rxjs";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 
 @Component({
@@ -21,6 +22,7 @@ import { Subscription } from "rxjs";
 export class ScenarioSummaryComponent implements OnInit, OnDestroy {
 
     gameManager: GameManager = gameManager;
+    settingsManager: SettingsManager = settingsManager;
 
     scenario: Scenario;
     conclusion: ScenarioData | undefined;
@@ -43,6 +45,7 @@ export class ScenarioSummaryComponent implements OnInit, OnDestroy {
     challenges: number = 0;
     numberChallenges: number = 0;
     calenderSectionManual: number[] = [];
+    randomItemBlueprints: number[] = [];
 
     EntityValueFunction = EntityValueFunction;
 
@@ -105,6 +108,7 @@ export class ScenarioSummaryComponent implements OnInit, OnDestroy {
                     this.collectiveGold = finish.collectiveGold;
                     this.items = finish.items;
                     this.calenderSectionManual = finish.calenderSectionManual;
+                    this.randomItemBlueprints = finish.randomItemBlueprints;
                 }
             }
         })
@@ -131,6 +135,7 @@ export class ScenarioSummaryComponent implements OnInit, OnDestroy {
         finish.collectiveGold = this.collectiveGold;
         finish.items = this.items;
         finish.calenderSectionManual = this.calenderSectionManual;
+        finish.randomItemBlueprints = this.randomItemBlueprints;
         gameManager.game.finish = finish;
     }
 
@@ -181,7 +186,28 @@ export class ScenarioSummaryComponent implements OnInit, OnDestroy {
                 if (this.rewards.calenderSectionManual) {
                     this.rewards.calenderSectionManual.forEach((section, index) => this.calenderSectionManual[index] = 0);
                 }
+
+                if (this.rewards.randomItemBlueprint && this.randomItemBlueprints.length < this.rewards.randomItemBlueprint) {
+
+                    let availableItems = gameManager.itemData(this.scenario.edition, true).filter((itemData) => itemData.blueprint && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition));
+
+                    for (let i = this.randomItemBlueprints.length; i < this.rewards.randomItemBlueprint; i++) {
+                        let itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
+                        let item: Identifier | undefined = itemData ? new Identifier('' + itemData.id, itemData.edition) : undefined;
+                        while (availableItems.length > 0 && gameManager.game.party.unlockedItems.find((unlocked) => item && unlocked.name == item.name && unlocked.edition == item.edition)) {
+                            availableItems = availableItems.filter((available) => item && (available.id + '' != item.name || available.edition != item.edition));
+                            if (availableItems.length > 0) {
+                                itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
+                                item = new Identifier('' + itemData.id, itemData.edition);
+                            } else {
+                                item = undefined;
+                            }
+                        }
+                        this.randomItemBlueprints.push(item ? (+item.name) : -1);
+                    }
+                }
             }
+
             if (gameManager.fhRules()) {
                 const townHall = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'town-hall' && buildingModel.state == 'normal');
                 if (townHall) {
@@ -204,7 +230,7 @@ export class ScenarioSummaryComponent implements OnInit, OnDestroy {
     }
 
     hasBonus(): boolean {
-        return ((gameManager.game.party.campaignMode || this.forceCampaign) && this.success) && (gameManager.characterManager.characterCount() < 4 || this.numberChallenges > 0);
+        return ((gameManager.game.party.campaignMode || this.forceCampaign) && this.success) && (gameManager.fhRules() && gameManager.characterManager.characterCount() < 4 || this.numberChallenges > 0);
     }
 
     availableCollectiveGold(): number {
@@ -364,6 +390,16 @@ export class ScenarioSummaryComponent implements OnInit, OnDestroy {
                 for (let i = 0; i < this.challenges; i++) {
                     gameManager.game.party.townGuardPerks += 1;
                 }
+            }
+
+            if (this.randomItemBlueprints.length > 0) {
+                this.randomItemBlueprints.forEach((itemId) => {
+                    if (itemId == -1) {
+                        gameManager.game.party.inspiration += 1;
+                    } else {
+                        gameManager.game.party.unlockedItems.push(new Identifier('' + itemId, this.scenario.edition));
+                    }
+                })
             }
 
             if (this.rewards && this.rewards.calenderSectionManual) {

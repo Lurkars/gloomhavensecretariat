@@ -772,6 +772,7 @@ input[type="number"] {
 }
 
 label {
+
   input[type="text"],
   input[type="number"] {
     margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
@@ -1084,13 +1085,14 @@ input[type="radio"] {
       background-color: var(--ghs-character-color);
       opacity: 0.4;
       border-radius: 100%;
-      filter: brightness(0.5) saturate(8);
+      filter: brightness(0.9) saturate(3);
     }
 
     img {
-      height: 100%;
+      height: 80%;
       width: auto;
       z-index: 1;
+      filter: brightness(0.2);
     }
   }
 
@@ -1188,6 +1190,14 @@ input[type="radio"] {
     background-position: top center;
     background-repeat: no-repeat;
     background-size: contain;
+  }
+
+  .placeholder-section {
+    display: inline-block;
+
+    .icon {
+      vertical-align: middle;
+    }
   }
 
   .map-marker {

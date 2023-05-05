@@ -48,6 +48,7 @@ export class EntityMenuDialogComponent {
   enfeeble: number = 0;
   marker: number = 0;
   id: number = 0;
+  characterToken: number = 0;
   objectiveDead: boolean = false;
   entityConditions: EntityCondition[] = [];
 
@@ -63,6 +64,7 @@ export class EntityMenuDialogComponent {
   constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef) {
     if (data.entity instanceof Character) {
       this.conditionType = 'character';
+      this.characterToken = data.entity.token;
     } else if (data.entity instanceof Objective) {
       this.conditionType = 'character';
     } else if (data.entity instanceof MonsterEntity) {
@@ -135,6 +137,15 @@ export class EntityMenuDialogComponent {
       this.experience += value;
       if (this.data.entity.experience + this.experience <= 0) {
         this.experience = -this.data.entity.experience;
+      }
+    }
+  }
+
+  changeCharacterToken(value: number) {
+    if (this.data.entity instanceof Character) {
+      this.characterToken += value;
+      if (this.data.entity.token + this.characterToken <= 0) {
+        this.characterToken = -this.data.entity.token;
       }
     }
   }
@@ -633,6 +644,16 @@ export class EntityMenuDialogComponent {
         await gameManager.stateManager.after();
       }
 
+      if (this.characterToken != this.data.entity.token) {
+        gameManager.stateManager.before("setCharacterToken", "data.character." + this.data.entity.name,'' + this.characterToken);
+        this.data.entity.token = this.characterToken;
+        if (this.data.entity.token < 0) {
+          this.data.entity.token = 0;
+        }
+        this.characterToken = 0;
+        gameManager.stateManager.after();
+      }
+
       if (this.loot != 0) {
         await gameManager.stateManager.before("changeLoot", "data.character." + this.data.entity.name, ghsValueSign(this.loot));
         this.data.entity.loot += this.loot;
@@ -815,7 +836,11 @@ export class EntityMenuDialogComponent {
         await gameManager.stateManager.before("changeHP", this.data.entity.title || this.data.entity.name || this.data.entity.escort ? 'escort' : 'objective', ghsValueSign(this.health));
         gameManager.entityManager.changeHealth(this.data.entity, this.health);
         if (this.data.entity.health <= 0 || this.data.entity.exhausted && this.health >= 0 && this.data.entity.health > 0) {
-          this.exhausted();
+          if (this.data.entity.escort) {
+            this.exhausted();
+          } else {
+            gameManager.characterManager.removeObjective(this.data.entity);
+          }
         }
         await gameManager.stateManager.after();
         this.health = 0;

@@ -6,7 +6,7 @@
     "calenderSectionManual": [
       {
         "section": "66.2",
-        "hint": "Add <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/section.svg\"> 66.2 to the calendar in X+1 weeks, where X is the number of pylons destroyed."
+        "hint": "Add %data.section:66.2% to the calendar in X+1 weeks, where X is the number of pylons destroyed."
       }
     ],
     "experience": 15

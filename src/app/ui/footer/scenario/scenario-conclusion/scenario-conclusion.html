@@ -7,9 +7,9 @@
     </div>
 
     <div class="conclusions">
-        <span class="conclusion" *ngFor="let sectionData of data.conclusions"
+        <span class="placeholder text-white conclusion" *ngFor="let sectionData of data.conclusions"
             [i18n]="'scenario.section.conclusion' + (data.parent.conclusion ? '.continue' :  '')"
-            [i18n-args]="[sectionData.name ? 'data.section.' + sectionData.name : '%scenario.section% #' + sectionData.index]"
+            [i18n-args]="[sectionData.name ? '\'data.section.' + sectionData.name + '\'' : '%data.section:' + sectionData.index + '%']"
             (click)="dialogRef.close(sectionData)">
         </span>
     </div>

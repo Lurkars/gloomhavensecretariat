@@ -584,7 +584,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
     if (conclusions.length > 0) {
       this.dialog.open(ScenarioConclusionComponent, {
-        panelClass: ['dialog', 'dialog-invert'],
+        panelClass: ['dialog'],
         data: { conclusions: conclusions, parent: gameManager.sectionData(gameManager.game.edition).find((sectionData) => sectionData.index == section && !sectionData.group) }
       }).closed.subscribe({
         next: async (conclusion) => {
@@ -612,28 +612,6 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   async setWeek(value: number) {
-    if (this.party.weeks >= value) {
-      let conclusion: string | undefined;
-      this.sectionsForWeekFixed(value - 1).forEach((section) => {
-        if (!conclusion && this.hasConclusions(section)) {
-          conclusion = section;
-          return;
-        }
-      })
-      this.sectionsForWeek(value - 1).forEach((section) => {
-        if (!conclusion && this.hasConclusions(section)) {
-          conclusion = section;
-          return;
-        }
-      })
-
-      if (conclusion) {
-        this.openConclusions(conclusion, value);
-        return;
-      }
-    }
-
-
     if (this.party.weeks == value) {
       value--;
     }
@@ -641,12 +619,30 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       value = 0;
     }
 
+    let conclusions: string[] = [];
+    for (let week = this.party.weeks; week < value; week++) {
+      this.sectionsForWeekFixed(week).forEach((section) => {
+        if (this.hasConclusions(section)) {
+          conclusions.push(section);
+        }
+      })
+      this.sectionsForWeek(week).forEach((section) => {
+        if (this.hasConclusions(section)) {
+          conclusions.push(section);
+        }
+      })
+
+      conclusions.forEach((conclusion) => {
+        this.openConclusions(conclusion, value);
+      })
+    }
+
     await gameManager.stateManager.before("setPartyWeeks", "" + value);
     for (let week = this.party.weeks; week < value; week++) {
-      const sectionsForWeeks = [...this.sectionsForWeekFixed(week + 1), ...this.sectionsForWeek(week + 1)]
+      const sectionsForWeeks = [...this.sectionsForWeekFixed(week), ...this.sectionsForWeek(week)]
       sectionsForWeeks.forEach((section) => {
         const sectionData = gameManager.sectionData(gameManager.game.edition).find((sectionData) => sectionData.index == section && sectionData.conclusion);
-        if (sectionData) {
+        if (sectionData && !gameManager.game.party.conclusions.find((model) => model.edition == sectionData.edition && model.index == sectionData.index && model.group == sectionData.group)) {
           gameManager.scenarioManager.finishScenario(new Scenario(sectionData), true, undefined, false, undefined, false, true);
         }
       })
@@ -667,7 +663,6 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     if (!isNaN(+event.target.value)) {
       await gameManager.stateManager.before("setPartyResource", this.party.name, "game.loot." + type, event.target.value);
       this.party.loot[type] = +event.target.value;
-      await gameManager.stateManager.after();
     }
   }
 

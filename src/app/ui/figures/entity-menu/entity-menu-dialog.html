@@ -132,6 +132,23 @@
               <img class="ghs-svg" src="./assets/images/plus.svg">
             </ghs-drag-click>
           </span>
+
+          <span class="item">
+            <ghs-drag-click class="button"
+              [ngClass]="{'disabled' : characterToken == 0}"
+              (singleClick)="changeCharacterToken(-1)" [repeat]="true">
+              <img class="ghs-svg" src="./assets/images/minus.svg">
+            </ghs-drag-click>
+          </span>
+          <span class="item character-token" title="{{'game.character.token' | ghsLabel}}">
+            <span [i18n]="'%data.characterToken.' + gameManager.toCharacter(data.entity).name + '%'"></span>
+            <span class="badge">{{characterToken}}</span>
+          </span>
+          <span class="item">
+            <ghs-drag-click class="button" (singleClick)="changeCharacterToken(1)" [repeat]="true">
+              <img class="ghs-svg" src="./assets/images/plus.svg">
+            </ghs-drag-click>
+          </span>
         </ng-container>
       </ng-container>
 

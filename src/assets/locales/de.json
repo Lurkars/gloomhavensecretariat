@@ -504,7 +504,7 @@
         ".": "Schätze",
         "rewards": {
           "battleGoal": "erhalte {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
-          "calenderSection": "füge <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/section.svg\"> {0} in %number.{1}% Wochen hinzu",
+          "calenderSection": "füge %data.section:{0}% in %number.{1}% Wochen hinzu",
           "campaignSticker": "erhalte \"{0}\" Kampagnenbogensticker",
           "condition": "erhalte {0}",
           "damage": "erleide {0}",
@@ -865,7 +865,7 @@
       "bonus": "Bonus",
       "calenderSection": {
         ".": "Verlinkte Sektionen",
-        "add": "Füge <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/section.svg\"> {0} in %number.{1}% Wochen hinzu."
+        "add": "Füge %data.section:{0}% in %number.{1}% Wochen hinzu."
       },
       "campaignSticker": "Kampagnenbogensticker",
       "chooseItem": "Wähle eines der folgenden aus",
@@ -900,6 +900,7 @@
       "partyAchievements": "Gruppenerfolge",
       "perks": "Jeweils {0} Verbesserungen",
       "prosperity": "{0} Wohlstand",
+      "randomItemBlueprint": "Erhalte einen zufälligen Gegenstandsplan:",
       "reputation": "{0} Ansehen",
       "resources": "Erhalte jeweils {1} %game.resource.{0}%",
       "resourcesLose": "Verliere jeweils {1} %game.resource.{0}%",
@@ -954,8 +955,8 @@
       "cancel": "Abbrechen",
       "confirm": "Bestätigen",
       "conclusion": {
-        ".": "Szenario beenden mit '{0}'",
-        "continue": "Fortfahren mit '{0}'",
+        ".": "Szenario beenden mit {0}",
+        "continue": "Fortfahren mit {0}",
         "select": "Abschluss auswählen:"
       }
     },

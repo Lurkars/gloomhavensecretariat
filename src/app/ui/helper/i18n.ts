@@ -15,14 +15,14 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
   while (value.match(ghsLabelRegex)) {
     value = value.replace(ghsLabelRegex, (match, ...args) => {
       let label: string = args[0];
+      let value = "";
+      if (label.indexOf(':') != -1) {
+        value = label.split(':')[1];
+        label = label.split(':')[0];
+      }
       let split: string[] = label.split('.');
-      let value = split[split.length - 1];
-      if (value.indexOf(':') != 0) {
-        split[split.length - 1] = value.split(':')[0];
-        value = value.split(':')[1];
-        label = split.join('.');
-      } else {
-        value = "";
+      if (!value) {
+        value = split[split.length - 1];
       }
 
       if (!value) {
@@ -144,6 +144,9 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "resource" && split.length == 3) {
         image = '<img  src="./assets/images/fh/loot/' + split[2] + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-resource">' + image + '</span>';
+      } else if (type == "section" && value) {
+        image = '<img src="./assets/images/fh/party/section.svg" class="icon ghs-svg">';
+        replace = '<span class="placeholder-section">' + image + value + '</span>';
       } else {
         let labelArgs = label.split(':').splice(1).map((arg) =>
           applyPlaceholder(settingsManager.getLabel(arg), placeholder, relative));
