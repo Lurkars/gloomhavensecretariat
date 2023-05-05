@@ -80,6 +80,9 @@ export class ActionComponent implements OnInit, OnDestroy {
     if (this.action && !this.action.subActions) {
       this.action.subActions = [];
     }
+    if (this.action && this.action.value === undefined) {
+      this.action.value = "";
+    }
     this.updateSubActions();
     this.forceRelative = this.monster != undefined && !this.hasEntities();
     if (this.monster && !this.relative && !this.forceRelative && settingsManager.settings.calculate && this.action && (this.action.type == ActionType.shield || this.action.type == ActionType.retaliate) && this.action.valueType != ActionValueType.minus && this.action.subActions && this.action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && !(subAction.value + '').startsWith('self'))) {
@@ -256,7 +259,7 @@ export class ActionComponent implements OnInit, OnDestroy {
       let eliteStat = this.monster.boss ? undefined : gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
       if (this.action.type == ActionType.attack && this.action.valueType != ActionValueType.add && this.action.valueType != ActionValueType.subtract) {
         let normalActions: Action | undefined = this.additionalSubActions.find((typeAction) => typeAction.type == ActionType.monsterType && typeAction.value == MonsterType.normal);
-        let eliteActions: Action | undefined = this.additionalSubActions.find((typeAction) => typeAction.type == ActionType.monsterType && typeAction.value == MonsterType.elite);;
+        let eliteActions: Action | undefined = this.additionalSubActions.find((typeAction) => typeAction.type == ActionType.monsterType && typeAction.value == MonsterType.elite);
 
         if ((stat.range || eliteStat && eliteStat.range) && (!this.action.subActions.some((subAction) => subAction.type == ActionType.range || subAction.type == ActionType.area && ("" + subAction.value).indexOf('active') != -1 || subAction.type == ActionType.specialTarget))) {
           const newStatAction = new Action(ActionType.range, 0, ActionValueType.plus);
@@ -400,6 +403,25 @@ export class ActionComponent implements OnInit, OnDestroy {
           this.additionalSubActions.splice(this.additionalSubActions.indexOf(targetSubAction), 1);
         } else {
 
+        }
+      }
+
+      if (this.action.type == ActionType.move && !this.action.subActions.find((subAction) => subAction.type == ActionType.jump)) {
+        let jumpAction = new Action(ActionType.jump, "");
+        jumpAction.small = true;
+        if (stat.actions.find((subAction) => subAction.type == ActionType.jump)) {
+
+          if (!eliteStat || eliteStat.actions.find((subAction) => subAction.type == ActionType.jump) || !this.hasEntities(MonsterType.elite)) {
+            this.additionalSubActions.push(jumpAction);
+          } else {
+            this.additionalSubActions.push(new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [jumpAction]));
+          }
+        } else if (eliteStat && eliteStat.actions.find((subAction) => subAction.type == ActionType.jump)) {
+          if (this.hasEntities(MonsterType.normal)) {
+            this.additionalSubActions.push(new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, [jumpAction]));
+          } else {
+            this.additionalSubActions.push(jumpAction);
+          }
         }
       }
 

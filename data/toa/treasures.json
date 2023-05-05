@@ -11,7 +11,7 @@
     "gold:25|custom:%data.treasures.toa.55%",
     "condition:bless+bless|item:101",
     "item:118",
-    "item:gh-49",
+    "item:49-gh",
     "condition:muddle|item:102",
     "experience:10|event:city-61|custom:%data.treasures.toa.65%",
     "item:106",

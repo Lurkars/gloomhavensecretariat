@@ -75,7 +75,7 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
 
     if (label) {
       label = 'data.ability.' + label;
-    } else if (this.monster && this.monster.deck != this.monster.name) {
+    } else if (this.monster && this.monster.deck && this.monster.deck != this.monster.name) {
       label = 'data.deck.' + this.monster.deck;
       if (label.split('.')[label.split('.').length - 1] === applyPlaceholder(settingsManager.getLabel(label)) && this.monster.deck) {
         label = 'data.monster.' + this.monster.deck;

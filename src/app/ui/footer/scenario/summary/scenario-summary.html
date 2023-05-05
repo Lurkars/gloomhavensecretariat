@@ -14,7 +14,7 @@
 
   <div class="main">
     <div class="table" [style.--ghs-summary-columns]="1 + characters.length"
-      *ngIf="!casual || forceCampaign || !gameManager.fhRules()">
+      *ngIf="(!casual || forceCampaign || !gameManager.fhRules()) && settingsManager.settings.characterSheet">
 
       <span class="head-col first">{{'scenario.summary.name' | ghsLabel}}</span>
       <span class="first" *ngFor="let character of characters; let index = index;">
@@ -427,9 +427,9 @@
               <span>{{'scenario.rewards.chooseItem' | ghsLabel}}</span>
               <ng-container *ngFor="let item of (rewards.chooseItem || []); let i = index;">
                 <span *ngIf="item.indexOf(':') != -1" class="placeholder text-white" [i18n]="'scenario.rewards.items'"
-                  [i18n-args]="[item.split(':')[0], gameManager.item(+item.split(':')[0],scenario.edition || '', true)?.name || '', item.split(':')[1]]"></span>
+                  [i18n-args]="[item.split(':')[0].split('-')[0], gameManager.item(+item.split(':')[0].split('-')[0],item.split(':')[0].split('-')[1] || scenario.edition || '', true)?.name || '', item.split(':')[1]]"></span>
                 <span *ngIf="item.indexOf(':') == -1" class="placeholder text-white" [i18n]="'scenario.rewards.item'"
-                  [i18n-args]="[item, gameManager.item(+item,scenario.edition || '', true)?.name || '']"></span>
+                  [i18n-args]="[item.split('-')[0] , gameManager.item(+item.split('-')[0], item.split('-')[1] || scenario.edition || '', true)?.name || '']"></span>
                 <span class="placeholder text-white hint"
                   *ngIf="rewards.hints && rewards.hints.chooseItem && rewards.hints.chooseItem[i]"
                   [i18n]="rewards.hints.chooseItem[i]"></span>
@@ -456,6 +456,15 @@
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.itemBlueprints && rewards.hints.itemBlueprints[i]"
                 [i18n]="rewards.hints.itemBlueprints[i]"></span>
+            </div>
+
+            <div class="item item-blueprints" *ngFor="let itemId of randomItemBlueprints; let i = index;">
+              <span class="placeholder text-white" [i18n]="'scenario.rewards.randomItemBlueprint'"></span>
+              <span *ngIf="itemId > 0" class="placeholder text-white" [i18n]="'scenario.rewards.itemBlueprint'"
+                [i18n-args]="['' + itemId, gameManager.item(itemId,scenario.edition || '', true)?.name || '']"></span>
+              <span *ngIf="itemId == -1"> {{'scenario.rewards.inspiration' | ghsLabel:['+1']}} </span>
+              <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.randomItemBlueprint"
+                [i18n]="rewards.hints.randomItemBlueprint"></span>
             </div>
 
             <div class="item events" *ngFor="let event of (rewards.events || []); let i = index;">
@@ -496,7 +505,7 @@
       <div class="reward" *ngIf="hasBonus()">
         <label>{{'scenario.rewards.bonus' | ghsLabel}}:</label>
         <div class="list">
-          <div class="item inspiration" *ngIf="EntityValueFunction('4-C')">
+          <div class="item inspiration" *ngIf="gameManager.fhRules() && EntityValueFunction('4-C')">
             <span>{{'scenario.rewards.inspiration' | ghsLabel:['' + (EntityValueFunction('4-C') |
               ghsValueSign) ]}} </span>
           </div>

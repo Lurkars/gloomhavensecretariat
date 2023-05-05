@@ -46,6 +46,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   experience: number = 0;
   loot: number = 0;
   maxHp: number = 0;
+  token: number = 0;
 
   emptySummons: boolean = true;
   activeConditions: EntityCondition[] = [];
@@ -217,6 +218,22 @@ export class CharacterComponent implements OnInit, OnDestroy {
       gameManager.stateManager.before("changeXP", "data.character." + this.character.name, ghsValueSign(this.experience));
       this.character.experience += this.experience;
       this.experience = 0;
+    }
+    gameManager.stateManager.after();
+  }
+
+  dragTokenMove(value: number) {
+    this.token = value;
+    if (this.character.token + this.token < 0) {
+      this.token = - this.character.token;
+    }
+  }
+
+  dragTokenEnd(value: number) {
+    if (this.token != 0) {
+      gameManager.stateManager.before("setCharacterToken", "data.character." + this.character.name, '' + (this.character.token + this.token));
+      this.character.token += this.token;
+      this.token = 0;
     }
     gameManager.stateManager.after();
   }
