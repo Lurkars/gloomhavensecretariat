@@ -241,7 +241,7 @@ export class DatamanagementMenuComponent implements OnInit {
       reader.addEventListener('load', async (event: any) => {
         const settings: Settings = Object.assign(new Settings(), JSON.parse(event.target.result));
         settingsManager.settings = settings;
-        await storageManager.write('settings', 'default', settingsManager.settings);
+        await storageManager.write('settings', settingsManager.settings, 'default');
       });
 
       reader.readAsText(event.target.files[0]);
@@ -290,9 +290,9 @@ export class DatamanagementMenuComponent implements OnInit {
             await localStorage.setItem(key, JSON.stringify(datadump[key]));
             migration = true;
           } else if (key === 'game') {
-            await storageManager.write('game', 'default', datadump[key]);
+            await storageManager.write('game', datadump[key], 'default');
           } else if (key === 'settings') {
-            await storageManager.write('settings', 'default', Object.assign(new Settings(), datadump[key]));
+            await storageManager.write('settings', Object.assign(new Settings(), datadump[key]), 'default');
           } else if (key === 'undo') {
             await storageManager.writeArray('undo', datadump[key]);
           } else if (key === 'redo') {

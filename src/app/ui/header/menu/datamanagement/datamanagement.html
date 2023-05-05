@@ -3,100 +3,100 @@
   <div class="columns columns-break">
     <div class="column">
       <div class="line">
-        <a (click)="exportGame()">{{'datamanagement.exportGame' | ghsLabel}}</a>
+        <a (click)="exportGame()"><span [ghs-label]="'datamanagement.exportGame'"></span></a>
       </div>
       <div class="line">
         <label class="input-file" (click)="ghsInputFullScreenCheck()">
           <input type="file" accept="application/json" (change)="importGame($event)" />
-          {{'datamanagement.importGame' | ghsLabel}}
+          <span [ghs-label]="'datamanagement.importGame'"></span>
         </label>
       </div>
       <div class="line">
         <a (click)="resetGame()" [ngClass]="{'confirm-delete' : confirm == 'resetGame'}"
-          (mouseleave)="cancelConfirm()">&lt;{{'datamanagement.resetGame' | ghsLabel}}(!)&gt;</a>
+          (mouseleave)="cancelConfirm()">&lt;<span [ghs-label]="'datamanagement.resetGame'"></span>(!)&gt;</a>
       </div>
     </div>
 
     <div class="column">
       <div class="line">
-        <a (click)="exportSettings()">{{'datamanagement.exportSettings' | ghsLabel}}</a>
+        <a (click)="exportSettings()"><span [ghs-label]="'datamanagement.exportSettings'"></span></a>
       </div>
       <div class="line">
         <label class="input-file" (click)="ghsInputFullScreenCheck()">
-          {{'datamanagement.importSettings' | ghsLabel}}
+          <span [ghs-label]="'datamanagement.importSettings'"></span>
           <input type="file" accept="application/json" (change)="importSettings($event)" />
         </label>
       </div>
       <div class="line">
         <a (click)="resetSettings()" [ngClass]="{'confirm-delete' : confirm == 'resetSettings'}"
-          (mouseleave)="cancelConfirm()">&lt;{{'datamanagement.resetSettings' | ghsLabel}}(!)&gt;</a>
+          (mouseleave)="cancelConfirm()">&lt;<span [ghs-label]="'datamanagement.resetSettings'"></span>(!)&gt;</a>
       </div>
     </div>
 
     <div class="column">
       <div class="line">
-        <a (click)="exportDataDump()">{{'datamanagement.exportDataDump' | ghsLabel}}</a>
+        <a (click)="exportDataDump()"><span [ghs-label]="'datamanagement.exportDataDump'"></span></a>
       </div>
       <div class="line" [ngClass]="{'disabled' : working}">
         <label class="input-file" (click)="ghsInputFullScreenCheck()">
-          {{'datamanagement.importDataDump' | ghsLabel}} 
+          <span [ghs-label]="'datamanagement.importDataDump'"></span>
           <img src="./assets/images/shuffle.svg" class="working" *ngIf="working == 'importDataDump'">
-          <input type="file" accept="application/json" (change)="importDataDump($event)"/>
+          <input type="file" accept="application/json" (change)="importDataDump($event)" />
         </label>
       </div>
       <div class="line">
         <a (click)="clearAllData()" [ngClass]="{'confirm-delete' : confirm == 'clearAllData'}"
-          (mouseleave)="cancelConfirm()">&lt;{{'datamanagement.clearAll' | ghsLabel}}(!)&gt;</a>
+          (mouseleave)="cancelConfirm()">&lt;<span [ghs-label]="'datamanagement.clearAll'"></span>(!)&gt;</a>
       </div>
       <div class="line">
         <label>
           <input type="checkbox" [checked]="settingsManager.settings.autoBackup != -1"
             (change)="settingsManager.settings.autoBackup == -1 ? (settingsManager.settings.autoBackup = 25) : (settingsManager.settings.autoBackup = -1)">
-          {{'datamanagement.backup.auto' | ghsLabel}}
+          <span [ghs-label]="'datamanagement.backup.auto'"></span>
         </label>
       </div>
       <ng-container *ngIf="settingsManager.settings.autoBackup != -1">
         <div class="line">
           <div class="hint-container">
-            <label class="label">{{'datamanagement.backup.auto.count' | ghsLabel}}
+            <label class="label"><span [ghs-label]="'datamanagement.backup.auto.count'"></span>
               <input type="number" #autoBackup [value]="settingsManager.settings.autoBackup" min="1" (keyup)="0"
                 (change)="settingsManager.setAutoBackup(+autoBackup.value)" [size]="autoBackup.value.length"
-                placeholder="{{'datamanagement.backup.auto.count' | ghsLabel}}"></label>
+                [ghs-label]="'datamanagement.backup.auto.count'" [ghs-label-attribute]="'placeholder'"></label>
             <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
             <div class="hint">
               <div class="text">
-                <div [i18n]="'datamanagement.backup.auto.countHint'"></div>
+                <div [ghs-label]="'datamanagement.backup.auto.countHint'"></div>
               </div>
             </div>
           </div>
         </div>
         <div class="line">
           <div class="hint-container input-container">
-            <label class="label">{{'datamanagement.backup.auto.uploadUrl' | ghsLabel}}</label>
+            <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrl'"></span></label>
             <input type="text" #autoBackupuploadUrl [value]="settingsManager.settings.autoBackupUrl?.url" (keyup)="0"
               (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value})"
-              placeholder="{{'datamanagement.backup.auto.uploadUrl' | ghsLabel}}">
+              [ghs-label]="'datamanagement.backup.auto.uploadUrl'" [ghs-label-attribute]="'placeholder'">
             <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
             <div class="hint">
               <div class="text">
-                <div [i18n]="'datamanagement.backup.auto.uploadUrl.hint'"></div>
+                <div [ghs-label]="'datamanagement.backup.auto.uploadUrl.hint'"></div>
               </div>
             </div>
           </div>
         </div>
         <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
           <div class="hint-container input-container">
-            <label class="label">{{'datamanagement.backup.auto.uploadUrlMethod' | ghsLabel}}</label>
+            <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod'"></span></label>
             <select #autoBackupPostMethod [value]="settingsManager.settings.autoBackupUrl?.method"
               (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value})">
-              <option value="POST">{{'datamanagement.backup.auto.uploadUrlMethod.post' | ghsLabel}}</option>
-              <option value="PUT">{{'datamanagement.backup.auto.uploadUrlMethod.put' | ghsLabel}}</option>
-              <option value="GET">{{'datamanagement.backup.auto.uploadUrlMethod.get' | ghsLabel}}</option>
+              <option value="POST"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod.post'"></span></option>
+              <option value="PUT"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod.put'"></span></option>
+              <option value="GET"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod.get'"></span></option>
             </select>
             <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
             <div class="hint">
               <div class="text">
-                <div [i18n]="'datamanagement.backup.auto.uploadUrlMethod.hint'"></div>
+                <div [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod.hint'"></div>
               </div>
             </div>
           </div>
@@ -107,41 +107,41 @@
               <input type="checkbox" #autoBackupPostFileUpload
                 [checked]="settingsManager.settings.autoBackupUrl?.fileUpload"
                 (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value, fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value})">
-              {{'datamanagement.backup.auto.uploadUrlFileUpload' | ghsLabel}}</label>
+              <span [ghs-label]="'datamanagement.backup.auto.uploadUrlFileUpload'"></span></label>
             <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
             <div class="hint">
               <div class="text">
-                <div [i18n]="'datamanagement.backup.auto.uploadUrlFileUpload.hint'"></div>
+                <div [ghs-label]="'datamanagement.backup.auto.uploadUrlFileUpload.hint'"></div>
               </div>
             </div>
           </div>
         </div>
         <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
           <div class="hint-container input-container">
-            <label class="label">{{'datamanagement.backup.auto.uploadUrlUsername' | ghsLabel}}</label>
+            <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlUsername'"></span></label>
             <input type="text" #autoBackupPostUsername [value]="settingsManager.settings.autoBackupUrl?.username"
               (keyup)="0"
               (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value, fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value})"
-              placeholder="{{'datamanagement.backup.auto.uploadUrlUsername' | ghsLabel}}">
+              [ghs-label]="'datamanagement.backup.auto.uploadUrlUsername'" [ghs-label-attribute]="'placeholder'">
             <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
             <div class="hint">
               <div class="text">
-                <div [i18n]="'datamanagement.backup.auto.uploadUrlUsername.hint'"></div>
+                <div [ghs-label]="'datamanagement.backup.auto.uploadUrlUsername.hint'"></div>
               </div>
             </div>
           </div>
         </div>
         <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
           <div class="hint-container input-container">
-            <label class="label">{{'datamanagement.backup.auto.uploadUrlPassword' | ghsLabel}}</label>
+            <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlPassword'"></span></label>
             <input type="text" #autoBackupPostPassword [value]="settingsManager.settings.autoBackupUrl?.password"
               (keyup)="0"
               (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value})"
-              placeholder="{{'datamanagement.backup.auto.uploadUrlPassword' | ghsLabel}}">
+              [ghs-label]="'datamanagement.backup.auto.uploadUrlPassword'" [ghs-label-attribute]="'placeholder'">
             <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
             <div class="hint">
               <div class="text">
-                <div [i18n]="'datamanagement.backup.auto.uploadUrlPassword.hint'"></div>
+                <div [ghs-label]="'datamanagement.backup.auto.uploadUrlPassword.hint'"></div>
               </div>
             </div>
           </div>
@@ -154,34 +154,34 @@
   <div class="columns columns-break">
     <div class="column">
       <div class="line title sticky">
-        <label>{{'datamanagement.unlocks' | ghsLabel}}</label>
+        <label><span [ghs-label]="'datamanagement.unlocks'"></span></label>
       </div>
       <div class="line">
         <span class="input-button">
           <input type="text" #inputUnlock (keyup.enter)="addUnlock()" (keyup)="0"
-            placeholder="{{'datamanagement.addUnlock' | ghsLabel}}">
+            [ghs-label]="'datamanagement.addUnlock'" [ghs-label-attribute]="'placeholder'">
           <span class="add-button" (click)="addUnlock()" [ngClass]="{'disabled' : !(inputUnlock.value)}"></span>
         </span>
       </div>
       <div class="line spoilers">
         <a class="spoiler-item" *ngFor="let character of gameManager.game.unlockedCharacters">
-          {{'data.character.'+ character | ghsLabel}} ({{character}})
+          <span [ghs-label]="'data.character.'+ character"></span> ({{character}})
           <span class="spacer"></span>
-          <span (click)="removeUnlock(character)" [title]="'datamanagement.removeUnlock' | ghsLabel"
+          <span (click)="removeUnlock(character)" [ghs-label]="'datamanagement.removeUnlock'" [ghs-label-attribute]="'title'"
             class="remove"></span>
         </a>
       </div>
       <div class="spacer"></div>
       <div class="line separator" *ngIf="gameManager.game.unlockedCharacters.length > 0">
-        <a (click)="removeAllUnlocks()">{{'datamanagement.removeAllUnlocks' | ghsLabel}}</a>
+        <a (click)="removeAllUnlocks()"><span [ghs-label]="'datamanagement.removeAllUnlocks'"></span></a>
       </div>
       <div class="line title sticky">
-        <label>{{'datamanagement.spoilers' | ghsLabel}}</label>
+        <label><span [ghs-label]="'datamanagement.spoilers'"></span></label>
       </div>
       <div class="line">
         <span class="input-button">
           <input type="text" #inputSpoiler (keyup.enter)="addSpoiler()" (keyup)="0"
-            placeholder="{{'datamanagement.addSpoiler' | ghsLabel}}">
+            [ghs-label]="'datamanagement.addSpoiler'" [ghs-label-attribute]="'placeholder'">
           <span class="add-button" (click)="addSpoiler()" [ngClass]="{'disabled' : !(inputSpoiler.value)}"></span>
         </span>
       </div>
@@ -189,25 +189,25 @@
         <a class="spoiler-item" *ngFor="let spoiler of settingsManager.settings.spoilers">
           {{spoiler}}
           <span class="spacer"></span>
-          <span (click)="removeSpoiler(spoiler)" [title]="'datamanagement.removeSpoiler' | ghsLabel"
+          <span (click)="removeSpoiler(spoiler)" [ghs-label]="'datamanagement.removeSpoiler'" [ghs-label-attribute]="'title'"
             class="remove"></span>
         </a>
       </div>
       <div class="spacer"></div>
       <div class="line separator" *ngIf="settingsManager.settings.spoilers.length > 0">
-        <a (click)="settingsManager.removeAllSpoilers()">{{'datamanagement.removeAllSpoilers' | ghsLabel}}</a>
+        <a (click)="settingsManager.removeAllSpoilers()"><span [ghs-label]="'datamanagement.removeAllSpoilers'"></span></a>
       </div>
     </div>
 
     <div class="column">
       <div class="line title sticky">
-        <label>{{'datamanagement.editionDataUrls' | ghsLabel}}</label>
+        <label><span [ghs-label]="'datamanagement.editionDataUrls'"></span></label>
       </div>
       <div class="line">
         <span class="input-button">
           <input type="text" #inputEditionDataUrl (keyup.enter)="addEditionDataUrl()"
             (keyup)="inputEditionDataUrl.classList.remove('error')"
-            placeholder="{{'datamanagement.addEditionDataUrl' | ghsLabel}}">
+            [ghs-label]="'datamanagement.addEditionDataUrl'" [ghs-label-attribute]="'placeholder'">
           <span class="add-button" (click)="addEditionDataUrl()"
             [ngClass]="{'disabled' : !inputEditionDataUrl.value}"></span>
         </span>
@@ -215,42 +215,45 @@
       <div class="line editions" cdkDropList (cdkDropListDropped)="drop($event)">
         <a class="edition" *ngFor="let editionData of gameManager.editionData" cdkDrag>
           <label
-            [title]="(settingsManager.settings.editions.indexOf(editionData.edition) != -1 ? 'datamanagement.editionDataUrls.disable' : 'datamanagement.editionDataUrls.enable') | ghsLabel">
+            [ghs-label]="(settingsManager.settings.editions.indexOf(editionData.edition) != -1 ? 'datamanagement.editionDataUrls.disable' : 'datamanagement.editionDataUrls.enable')" [ghs-label-attribute]="'title'">
             <input type="checkbox" [checked]="settingsManager.settings.editions.indexOf(editionData.edition) != -1"
               (change)="toggleEdition(editionData)">
-            {{'data.edition.' + editionData.edition | ghsLabel}}
+            <span [ghs-label]="'data.edition.' + editionData.edition"></span>
           </label>
-          <span class="custom" [title]="'datamanagement.editionDataUrls.custom' | ghsLabel"
+          <span class="custom" [ghs-label]="'datamanagement.editionDataUrls.custom'" [ghs-label-attribute]="'title'"
             *ngIf="settingsManager.defaultEditionDataUrls.indexOf(editionData.url) == -1">
             <img src="./assets/images/hint.svg">
             <span class="url">{{editionData.url}}</span>
           </span>
           <span class="spacer"></span>
           <span (click)="removeEditionDataUrl(editionData.url)"
-            [title]="'datamanagement.editionDataUrls.remove' | ghsLabel" class="remove"></span>
+            [ghs-label]="'datamanagement.editionDataUrls.remove'" [ghs-label-attribute]="'title'" class="remove"></span>
         </a>
       </div>
       <div class="spacer"></div>
       <div class="line separator" *ngIf="!hasDefaultEditionData()">
-        <a (click)="settingsManager.restoreDefaultEditionDataUrls()">{{'datamanagement.restoreEditionDataUrls' |
-          ghsLabel}}</a>
+        <a (click)="settingsManager.restoreDefaultEditionDataUrls()">
+          <span [ghs-label]="'datamanagement.restoreEditionDataUrls'"></span>
+        </a>
       </div>
     </div>
 
 
     <div class="column" *ngIf="backups > 0">
       <div class="line title">
-        <label>{{'datamanagement.backup' | ghsLabel}}</label>
+        <label><span [ghs-label]="'datamanagement.backup'"></span></label>
       </div>
       <div class="line">
-        <a (click)="exportLatestBackup()">{{'datamanagement.backup.latest' | ghsLabel}}</a>
+        <a (click)="exportLatestBackup()"><span [ghs-label]="'datamanagement.backup.latest'"></span></a>
       </div>
       <div class="line" *ngIf="backups > 1">
-        <a (click)="exportAllBackups()">{{'datamanagement.backup.all' | ghsLabel:['' + backups]}}</a>
+        <a (click)="exportAllBackups()">
+          <span [ghs-label]="'datamanagement.backup.all'" [ghs-label-args]="['' + backups]"></span>
+        </a>
       </div>
       <div class="line">
         <a (click)="deleteBackups()" [ngClass]="{'confirm-delete' : confirm == 'deleteBackups'}"
-          (mouseleave)="cancelConfirm()">&lt;{{'datamanagement.backup.delete' | ghsLabel}}(!)&gt;</a>
+          (mouseleave)="cancelConfirm()">&lt;<span [ghs-label]="'datamanagement.backup.delete'"></span>(!)&gt;</a>
       </div>
     </div>
 

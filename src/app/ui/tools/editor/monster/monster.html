@@ -2,43 +2,44 @@
   <ghs-header [standalone]="true"></ghs-header>
 
   <div class="monster-editor">
-    <h1>{{'editor.monster' | ghsLabel}} ({{'wip' | ghsLabel}})</h1>
+    <h1><span [ghs-label]="'editor.monster'"></span> (<span [ghs-label]="'wip'"></span>)</h1>
     <div class="columns">
       <div class="input">
         <div class="monster-stats">
-          <h2>{{'editor.monster.stats' | ghsLabel}}</h2>
+          <h2><span [ghs-label]="'editor.monster.stats'"></span></h2>
 
           <div class="base-data dialog">
-            <label>{{'edition' | ghsLabel}}</label>
-            <input [(ngModel)]="monsterData.edition" placeholder="{{'edition' | ghsLabel}}"
+            <label><span [ghs-label]="'edition'"></span></label>
+            <input [(ngModel)]="monsterData.edition" [ghs-label]="'edition'" [ghs-label-attribute]="'placeholder'"
               (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
 
-            <label>{{'editor.monster.stats.deck' | ghsLabel}}</label>
-            <input [(ngModel)]="monsterData.deck" placeholder="{{'editor.monster.stats.deck' | ghsLabel}}"
+            <label><span [ghs-label]="'editor.monster.stats.deck'"></span></label>
+            <input [(ngModel)]="monsterData.deck" [ghs-label]="'editor.monster.stats.deck'" [ghs-label-attribute]="'placeholder'"
               (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
 
-            <label>{{'editor.monster.stats.boss' | ghsLabel}}</label>
+            <label><span [ghs-label]="'editor.monster.stats.boss'"></span></label>
             <input type="checkbox" [(ngModel)]="monsterData.boss" (change)="toggleBoss()">
 
-            <label>{{'editor.monster.stats.flying' | ghsLabel}}</label>
+            <label><span [ghs-label]="'editor.monster.stats.flying'"></span></label>
             <input type="checkbox" [(ngModel)]="monsterData.flying" (change)="updateType()">
 
-            <label>{{'editor.monster.stats.hidden' | ghsLabel}}</label>
+            <label><span [ghs-label]="'editor.monster.stats.hidden'"></span></label>
             <input type="checkbox" [(ngModel)]="monsterData.hidden" (change)="updateType()">
 
-            <label>{{'editor.monster.stats.count' | ghsLabel}}</label>
+            <label><span [ghs-label]="'editor.monster.stats.count'"></span></label>
             <input type="number" [(ngModel)]="monsterData.count" min="1" max="10"
-              placeholder="{{'editor.monster.count' | ghsLabel}}" (change)="monsterDataToJson()"
+              [ghs-label]="'editor.monster.count'" [ghs-label-attribute]="'placeholder'" (change)="monsterDataToJson()"
               (keyup)="monsterDataToJson()">
           </div>
 
           <div class="level-select">
-            <span class="select">{{'editor.monster.stats.levelSelect' | ghsLabel}}:</span>
+            <span class="select"><span [ghs-label]="'editor.monster.stats.levelSelect'"></span>:</span>
             <div class="level" *ngFor="let l of [] | ghsRange:8" [ngClass]="{'current' : level == l}"
               (click)="level = l; updateQueryParams()">
               {{l}}</div>
             <div class="level" [ngClass]="{'current' : level == -1}" (click)="level = -1; updateQueryParams()">
-              {{'editor.monster.stats.allLevel' | ghsLabel}}</div>
+              <span [ghs-label]="'editor.monster.stats.allLevel'"></span>
+            </div>
           </div>
 
           <div class="stats-container" *ngFor="let level of (level == -1 ? ([] | ghsRange:8) : [level])">
@@ -93,7 +94,7 @@
 
               <ng-container *ngIf="!monsterData.boss">
                 <div class="extra normal">
-                  <div class="notes" [i18n]="statsForType(MonsterType.normal,level).note"></div>
+                  <div class="notes" [ghs-label]="statsForType(MonsterType.normal,level).note"></div>
                   <div class="additional" cdkDropList
                     (cdkDropListDropped)="dropMonsterAction(MonsterType.normal,level,$event)">
                     <div class="monster-action" *ngFor="let action of statsForType(MonsterType.normal,level).actions"
@@ -105,11 +106,11 @@
                       </ghs-action>
                     </div>
                     <a (click)="addMonsterAction(MonsterType.normal,level)"><img class="ghs-icon"
-                        src="./assets/images/plus.svg"> {{'editor.action.add' | ghsLabel}}</a>
+                        src="./assets/images/plus.svg"> <span [ghs-label]="'editor.action.add'"></span></a>
                   </div>
                 </div>
                 <div class="extra elite">
-                  <div class="notes" [i18n]="statsForType(MonsterType.elite,level).note"></div>
+                  <div class="notes" [ghs-label]="statsForType(MonsterType.elite,level).note"></div>
                   <div class="additional" cdkDropList
                     (cdkDropListDropped)="dropMonsterAction(MonsterType.elite,level,$event)">
                     <div class="monster-action" *ngFor="let action of statsForType(MonsterType.elite,level).actions"
@@ -121,14 +122,14 @@
                     </div>
                     <a (click)="addMonsterAction(MonsterType.elite,level)"><img class="ghs-icon"
                         src="./assets/images/plus.svg">
-                      {{'editor.action.add' | ghsLabel}}</a>
+                      <span [ghs-label]="'editor.action.add'"></span></a>
                   </div>
                 </div>
               </ng-container>
 
               <ng-container *ngIf="monsterData.boss">
                 <div class="extra boss">
-                  <div class="notes" [i18n]="statsForType(MonsterType.boss,level).note"></div>
+                  <div class="notes" [ghs-label]="statsForType(MonsterType.boss,level).note"></div>
                   <div class="additional" cdkDropList
                     (cdkDropListDropped)="dropMonsterAction(MonsterType.boss,level,$event)">
                     <div class="monster-action" *ngFor="let action of statsForType(MonsterType.boss,level).actions"
@@ -140,7 +141,7 @@
                     </div>
                     <a (click)="addMonsterAction(MonsterType.boss,level)"><img class="ghs-icon"
                         src="./assets/images/plus.svg">
-                      {{'editor.action.add' | ghsLabel}}</a>
+                      <span [ghs-label]="'editor.action.add'"></span></a>
                   </div>
                   <div class="specials">
                     <div class="special"
@@ -154,13 +155,14 @@
                           </ghs-action>
                         </ng-container>
                         <a (click)="addSpecialAction(MonsterType.boss, index,level)"><img class="ghs-icon"
-                            src="./assets/images/plus.svg"> {{'editor.action.add' | ghsLabel}}</a>
+                            src="./assets/images/plus.svg"> <span [ghs-label]="'editor.action.add'"></span></a>
                       </div>
                     </div>
                     <a
                       (click)="addSpecialAction(MonsterType.boss, statsForType(MonsterType.boss,level).special.length,level)"><img
-                        class="ghs-icon" src="./assets/images/plus.svg"> {{'editor.monster.stats.addSpecial' |
-                      ghsLabel}}</a>
+                        class="ghs-icon" src="./assets/images/plus.svg">
+                      <span [ghs-label]="'editor.monster.stats.addSpecial'"></span>
+                    </a>
                   </div>
                 </div>
               </ng-container>
@@ -171,26 +173,29 @@
             </ghs-monster-stats>
           </div>
 
-          <a class="button" *ngIf="level != -1" (click)="applyToAllLevel(level)">{{'editor.monster.stats.applyAll' |
-            ghsLabel}}</a>
+          <a class="button" *ngIf="level != -1" (click)="applyToAllLevel(level)">
+            <span [ghs-label]="'editor.monster.stats.applyAll'"></span>
+          </a>
         </div>
       </div>
 
       <div class="output">
-        <h2>{{'editor.monster.stats.json' | ghsLabel}}
+        <h2><span [ghs-label]="'editor.monster.stats.json'"></span>
 
           <select (change)="loadMonsterData($event)">
-            <option [value]="-1">&lt;{{'editor.monster.new' | ghsLabel}}&gt;</option>
+            <option [value]="-1">&lt;<span [ghs-label]="'editor.monster.new'"></span>&gt;</option>
             <option [value]="index" *ngFor="let md of gameManager.monstersData(edition); let index = index;"
               [selected]="md.edition == monsterData.edition && md.name == monsterData.name">
-              {{'data.monster.' + md.name | ghsLabel}} ({{'data.edition.' + md.edition | ghsLabel}})
-              [{{md.name}}]</option>
+              <span [ghs-label]="'data.monster.' + md.name"></span> (<span [ghs-label]="'data.edition.' + md.edition"></span>)
+              [{{md.name}}]
+            </option>
           </select>
 
           <select [(ngModel)]="edition" (change)="updateQueryParams()">
             <option></option>
-            <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">{{'data.edition.' + edition
-              | ghsLabel}}</option>
+            <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">
+              <span [ghs-label]="'data.edition.' + edition"></span>
+            </option>
           </select>
 
         </h2>
@@ -200,7 +205,7 @@
 
         <a class="button" [href]="'data:application/json;charset=utf-8,' + encodeURIComponent(inputMonsterData.value)"
           [download]="monsterData.name + '.json'"><img class="ghs-icon" src="./assets/images/export.svg">
-          {{'editor.monster.stats.json.download' | ghsLabel}}</a>
+          <span [ghs-label]="'editor.monster.stats.json.download'"></span></a>
       </div>
     </div>
 

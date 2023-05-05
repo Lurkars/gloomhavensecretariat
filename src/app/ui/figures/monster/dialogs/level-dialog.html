@@ -1,19 +1,18 @@
 <div class="level-dialog">
   <span class="title">
-    <span class="name">{{'data.monster.' + monster.name | ghsLabel}}
-      <span class="ally" *ngIf="monster.isAlly">{{'game.ally' | ghsLabel}}</span>
-      <span class="allied" *ngIf="monster.isAllied">{{'game.allied' | ghsLabel}}</span>
-      <span class="edition" *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span>
+    <span class="name"><span [ghs-label]="'data.monster.' + monster.name"></span>
+      <span class="ally" *ngIf="monster.isAlly"><span [ghs-label]="'game.ally'"></span></span>
+      <span class="allied" *ngIf="monster.isAllied"><span [ghs-label]="'game.allied'"></span></span>
+      <span class="edition" *ngIf="getEdition()">[<span [ghs-label]="'data.edition.' + getEdition()"></span>]</span>
     </span>
-    {{'game.level' | ghsLabel}}
+    <span [ghs-label]="'game.level'"></span>
   </span>
   <div class="level-container">
     <span class="item"><img src="./assets/images/status/level.svg" /></span>
     <span *ngFor="let level of levels;"><a class="level"
         [ngClass]="{'current' : level == gameManager.game.level,  'active' : level == monster.level}"
         (click)="setLevel(level)">{{level}}</a></span>
-    <span class="toggle-ally" [ngClass]="{'ally' : monster.isAlly, 'allied' : monster.isAllied}"
-      ghs-drag-click (singleClick)="toggleAlly()" (doubleClick)="toggleallied()"><img
-        src="./assets/images/monster/enemy.png" /></span>
+    <span class="toggle-ally" [ngClass]="{'ally' : monster.isAlly, 'allied' : monster.isAllied}" ghs-drag-click
+      (singleClick)="toggleAlly()" (doubleClick)="toggleallied()"><img src="./assets/images/monster/enemy.png" /></span>
   </div>
 </div>

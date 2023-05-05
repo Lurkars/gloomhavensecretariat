@@ -24,8 +24,8 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 export class GhsTooltipComponent {
 
     @Input() value = '';
-    @Input('i18n-args') args: string[] = [];
-    @Input('i18n-arg-label') argLabel: boolean = true;
+    @Input('ghs-label-args') args: string[] = [];
+    @Input('ghs-label-args-replace') argLabel: boolean = true;
     @Input('fh-force') fhForce: boolean = false;
     @Input() relative: boolean = false;
     @Input() size: 'small' | 'large' | undefined;
@@ -36,8 +36,8 @@ export class GhsTooltipComponent {
 export class GhsTooltipDirective implements OnInit, OnDestroy {
 
     @Input('ghsTooltip') value = '';
-    @Input('i18n-args') args: string[] = [];
-    @Input('i18n-arg-label') argLabel: boolean = true;
+    @Input('ghs-label-args') args: string[] = [];
+    @Input('ghs-label-args-replace') argLabel: boolean = true;
     @Input('fh-force') fhForce: boolean = false;
     @Input() relative: boolean = false;
     @Input() size: 'small' | 'large' | undefined;
@@ -71,6 +71,7 @@ export class GhsTooltipDirective implements OnInit, OnDestroy {
             }]);
 
         this.overlayRef = this.overlay.create({ positionStrategy });
+        this.overlayRef.hostElement.style.zIndex = "3000";
         this.timeout = null;
     }
 

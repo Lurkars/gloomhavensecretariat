@@ -47,7 +47,7 @@ export class StorageManager {
   }
 
   writeGameModel(gameModel: GameModel): Promise<void> {
-    return this.write('game', 'default', gameModel);
+    return this.write('game', gameModel, 'default');
   }
 
   readGameModel(): Promise<GameModel> {
@@ -56,7 +56,7 @@ export class StorageManager {
 
   addBackup(gameModel: GameModel) {
     if (this.db) {
-      this.write('game-backup', undefined, gameModel);
+      this.write('game-backup', gameModel);
     } else {
       let count = 1;
       let backup = localStorage.getItem("ghs-game-backup-" + count);
@@ -94,7 +94,7 @@ export class StorageManager {
     })
   }
 
-  write(store: string, key: string | undefined, object: any): Promise<void> {
+  write(store: string, object: any, key: string | undefined = undefined): Promise<void> {
     return new Promise((resolve, reject) => {
       if (this.db) {
         const transaction = this.db.transaction(store, "readwrite");

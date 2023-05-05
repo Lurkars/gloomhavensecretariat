@@ -3,10 +3,11 @@
 
   <div class="menu">
     <label>
-      {{'settings.edition' | ghsLabel}}
+      <span [ghs-label]="'settings.edition'"></span>
       <select [(ngModel)]="edition" (change)="update(); updateQueryParams()">
-        <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">{{'data.edition.' + edition |
-          ghsLabel}}</option>
+        <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">
+          <span [ghs-label]="'data.edition.' + edition"></span>
+        </option>
       </select>
     </label>
   </div>

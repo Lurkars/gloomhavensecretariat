@@ -1,5 +1,5 @@
 <div class="back" *ngIf="active != SubMenu.main" (click)="setActive(SubMenu.main)"
-  title="{{'menu.backToMain' | ghsLabel}}">
+  [ghs-label]="'menu.backToMain'" [ghs-label-attribute]="'title'">
   <img class="ghs-svg" src="./assets/images/left.svg">
 </div>
 
@@ -8,15 +8,15 @@
     <div class="line state-container span">
       <span class="warning" (click)="gameManager.stateManager.gameOffsetWarning = false"
         *ngIf="undoOffset && gameManager.stateManager.gameOffsetWarning"> <img src="./assets/images/warning.svg">
-        <span [i18n]="'state.missing'" [i18n-args]="['' + undoOffset]"></span></span>
+        <span [ghs-label]="'state.missing'" [ghs-label-args]="['' + undoOffset]"></span></span>
       <a class="state undo"
         [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning) || gameManager.stateManager.undoCount == 0}"
         (click)="undo()">
         <span class="undo-text">
-          {{'state.undo' | ghsLabel}}
+          <span [ghs-label]="'state.undo'"></span>
         </span>
-        <span class="info text-white" *ngIf="undoInfo.length > 0" [i18n]="'state.info.' + undoInfo[0]"
-          [i18n-args]="(undoInfo | slice:1:undoInfo.length)" [i18n-empty]="true"></span>
+        <span class="info text-white" *ngIf="undoInfo.length > 0" [ghs-label]="'state.info.' + undoInfo[0]"
+          [ghs-label-args]="(undoInfo | slice:1:undoInfo.length)" [ghs-label-empty]="true"></span>
       </a>
 
       <span class="undo-dialog"
@@ -26,9 +26,9 @@
       <a class="state redo"
         [ngClass]="{'disabled' :!gameManager.stateManager.redoPermission  || gameManager.stateManager.redoCount == 0}"
         (click)="gameManager.stateManager.redo()">
-        {{'state.redo' | ghsLabel}}
-        <span class="info text-white" *ngIf="redoInfo.length > 0" [i18n]="'state.info.' + redoInfo[0]"
-          [i18n-args]="(redoInfo | slice:1:redoInfo.length)" [i18n-empty]="true"></span>
+        <span [ghs-label]="'state.redo'"></span>
+        <span class="info text-white" *ngIf="redoInfo.length > 0" [ghs-label]="'state.info.' + redoInfo[0]"
+          [ghs-label-args]="(redoInfo | slice:1:redoInfo.length)" [ghs-label-empty]="true"></span>
       </a>
     </div>
 
@@ -37,51 +37,51 @@
     <ng-container *ngIf="!standalone">
       <div class="line"
         [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
-        <a (click)="setActive(SubMenu.scenario)">{{'scenario.set' | ghsLabel}}</a>
+        <a (click)="setActive(SubMenu.scenario)"><span [ghs-label]="'scenario.set'"></span></a>
       </div>
       <div class="line"
         [ngClass]="{'disabled' : !hasSections(), 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
-        <a (click)="setActive(SubMenu.section)">{{'section' | ghsLabel}}</a>
+        <a (click)="setActive(SubMenu.section)"><span [ghs-label]="'section'"></span></a>
       </div>
       <div class="line"
         [ngClass]="{'disabled' : hasAllMonster(), 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.monsters}">
-        <a (click)="setActive(SubMenu.monster_add)">{{'monster.add' | ghsLabel}}</a>
+        <a (click)="setActive(SubMenu.monster_add)"><span [ghs-label]="'monster.add'"></span></a>
       </div>
       <div class="line"
         [ngClass]="{'disabled' : monsters().length == 0, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.monsters}">
-        <a (click)="setActive(SubMenu.monster_remove)">{{'monster.remove' | ghsLabel}}</a>
+        <a (click)="setActive(SubMenu.monster_remove)"><span [ghs-label]="'monster.remove'"></span></a>
       </div>
 
       <div class="separator"></div>
 
       <div class="line"
         [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
-        <a (click)="setActive(SubMenu.character_add)">{{'character.add' | ghsLabel}}</a>
+        <a (click)="setActive(SubMenu.character_add)"><span [ghs-label]="'character.add'"></span></a>
       </div>
       <div class="line"
         [ngClass]="{'disabled' : characters().length == 0,'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
-        <a (click)="setActive(SubMenu.character_remove)">{{'character.remove' | ghsLabel}}</a>
+        <a (click)="setActive(SubMenu.character_remove)"><span [ghs-label]="'character.remove'"></span></a>
       </div>
       <div class="line"
         [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
-        <a (click)="setActive(SubMenu.objective_add)">{{'objective.add' | ghsLabel}}</a>
+        <a (click)="setActive(SubMenu.objective_add)"><span [ghs-label]="'objective.add'"></span></a>
       </div>
       <div class="line"
         [ngClass]="{'disabled' : objectives().length == 0, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
-        <a (click)="setActive(SubMenu.objective_remove)">{{'objective.remove' | ghsLabel}}</a>
+        <a (click)="setActive(SubMenu.objective_remove)"><span [ghs-label]="'objective.remove'"></span></a>
       </div>
 
       <div class="separator"></div>
     </ng-container>
 
     <div class="line">
-      <a (click)="setActive(SubMenu.settings)">{{'settings' | ghsLabel}}</a>
+      <a (click)="setActive(SubMenu.settings)"><span [ghs-label]="'settings'"></span></a>
     </div>
     <div class="line">
       <a (click)="setActive(SubMenu.server)" [ngSwitch]="gameManager.stateManager.wsState()">
-        <span *ngSwitchCase="WebSocket.OPEN">{{'server.menu.connected' | ghsLabel}}</span>
-        <span *ngSwitchCase="WebSocket.CONNECTING">{{'server.connecting' | ghsLabel}}</span>
-        <span *ngSwitchDefault>{{'server.menu.connect' | ghsLabel}}</span>
+        <span *ngSwitchCase="WebSocket.OPEN"><span [ghs-label]="'server.menu.connected'"></span></span>
+        <span *ngSwitchCase="WebSocket.CONNECTING"><span [ghs-label]="'server.connecting'"></span></span>
+        <span *ngSwitchDefault><span [ghs-label]="'server.menu.connect'"></span></span>
       </a>
     </div>
 
@@ -90,42 +90,43 @@
 
       <div class="line"
         [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
-        <a (click)="setActive(SubMenu.edition)">{{'edition' | ghsLabel}}</a>
+        <a (click)="setActive(SubMenu.edition)"><span [ghs-label]="'edition'"></span></a>
       </div>
       <div class="line">
-        <a (click)="setActive(SubMenu.datamanagement)">{{'datamanagement' | ghsLabel}}</a>
+        <a (click)="setActive(SubMenu.datamanagement)"><span [ghs-label]="'datamanagement'"></span></a>
       </div>
     </ng-container>
 
     <div class="separator"></div>
     <div class="line">
-      <a (click)="setActive(SubMenu.about)">{{'about' | ghsLabel}}</a>
+      <a (click)="setActive(SubMenu.about)"><span [ghs-label]="'about'"></span></a>
     </div>
     <div class="line">
-      <a href="https://help.gloomhaven-secretariat.de" target="_blank">{{'help' | ghsLabel}}</a>
+      <a href="https://help.gloomhaven-secretariat.de" target="_blank"><span [ghs-label]="'help'"></span></a>
     </div>
 
     <div class="separator"></div>
 
     <div class="line" *ngIf="standalone">
 
-      <a [routerLink]="'/'" (click)="close()"><img class="ghs-svg"
-          src="./assets/images/left.svg">&nbsp;{{'tools.backToGhs' |
-        ghsLabel}}</a>
+      <a [routerLink]="'/'" (click)="close()"><img class="ghs-svg" src="./assets/images/left.svg">&nbsp;
+        <span [ghs-label]="'tools.backToGhs'"></span>
+      </a>
     </div>
 
     <div class="line" *ngIf="gameManager.stateManager.installPrompt">
       <a class="install" (click)="gameManager.stateManager.install()"> <img class="ghs-svg"
-          src="./assets/images/install.svg"> {{'app.install' | ghsLabel}}</a>
+          src="./assets/images/install.svg"> <span [ghs-label]="'app.install'"></span></a>
     </div>
 
     <div class="line">
-      <a (click)="feedbackDialog()"><img class="ghs-svg" src="./assets/images/hint.svg">&nbsp;{{'tools.feedback' |
-        ghsLabel}}</a>
+      <a (click)="feedbackDialog()"><img class="ghs-svg" src="./assets/images/hint.svg">&nbsp;
+        <span [ghs-label]="'tools.feedback'"></span>
+      </a>
     </div>
 
     <div class="line separator" *ngIf="isUpdateAvailable()">
-      <a (click)="update()">&lt;{{'update' | ghsLabel}}(!)&gt;</a>
+      <a (click)="update()">&lt;<span [ghs-label]="'update'"></span>(!)&gt;</a>
     </div>
   </div>
 
@@ -141,16 +142,16 @@
   <div *ngSwitchCase="SubMenu.character_remove" class="menu-container character-remove">
     <div class="line">
       <a (click)="removeAllCharacters()">
-        &lt;{{'character.removeAll' | ghsLabel}}&gt;
+        &lt;<span [ghs-label]="'character.removeAll'"></span>&gt;
       </a>
     </div>
     <div class="line" *ngFor="let character of characters()">
       <a (click)="removeCharacter(character);">
         <img class="icon" [src]="character.iconUrl" />
         <span>{{gameManager.characterManager.characterName(character, true)}}</span>
-        <span class="edition" *ngIf="gameManager.getEdition(character)">&nbsp;[{{'data.edition.' +
-          gameManager.getEdition(character) |
-          ghsLabel}}]</span>
+        <span class="edition" *ngIf="gameManager.getEdition(character)">&nbsp;[
+          <span [ghs-label]="'data.edition.' + gameManager.getEdition(character)"></span>
+          ]</span>
       </a>
     </div>
   </div>
@@ -159,13 +160,13 @@
     <div class="line">
       <a (click)="addObjective();">
         <img class="icon" src="./assets/images/objective/objective.svg" />
-        {{'objective.add' | ghsLabel}}
+        <span [ghs-label]="'objective.add'"></span>
       </a>
     </div>
     <div class="line">
       <a (click)="addEscort();">
         <img class="icon" src="./assets/images/objective/escort.svg" />
-        {{'escort.add' | ghsLabel}}
+        <span [ghs-label]="'escort.add'"></span>
       </a>
     </div>
   </div>
@@ -173,17 +174,17 @@
   <div *ngSwitchCase="SubMenu.objective_remove" class="menu-container objective-remove">
     <div class="line">
       <a (click)="removeAllObjectives()">
-        &lt;{{'objective.removeAll' | ghsLabel}}&gt;
+        &lt;<span [ghs-label]="'objective.removeAll'"></span>&gt;
       </a>
     </div>
     <div class="line" *ngFor="let objective of objectives()">
       <a (click)="removeObjective(objective);">
         <img class="icon" src="./assets/images/objective/objective.svg" *ngIf="!objective.escort" />
         <img class="icon" src="./assets/images/objective/escort.svg" *ngIf="objective.escort" />
-        <span *ngIf="objective.title || objective.name">{{objective.title ? objective.title : ('data.objective.' +
-          objective.name | ghsLabel)}}
-          (</span>
-        {{(objective.escort ? 'escort' : 'objective') | ghsLabel}}
+        <span *ngIf="objective.title">{{objective.title}}</span>
+        <span *ngIf="!objective.title && objective.name" [ghs-label]="'data.objective.' + objective.name"></span>
+        <span *ngIf="objective.title || objective.name">(</span>
+        <span [ghs-label]="(objective.escort ? 'escort' : 'objective')"></span>
         <span *ngIf="objective.name">)</span>
         <span class="spacer"></span>
         <span class="objective-marker">{{objective.id + 1}}</span>
@@ -195,46 +196,45 @@
     <div class="line hidden-monster-menu" *ngIf="hasHiddenMonster()">
       <label>
         <input type="checkbox" [checked]="showHiddenMonster" (change)="showHiddenMonster=!showHiddenMonster">
-        {{'monster.showHidden' | ghsLabel}}
+        <span [ghs-label]="'monster.showHidden'"></span>
       </label>
     </div>
     <div class="columns">
       <ng-container *ngFor="let edition of gameManager.currentEditions()">
         <div class="column spoilers bosses" *ngIf="monsterData(edition).length > 0">
           <div class="line title sticky" *ngIf="gameManager.currentEditions().length > 1">
-            <label>{{'data.edition.' + edition | ghsLabel}}</label>
+            <label><span [ghs-label]="'data.edition.' + edition"></span></label>
           </div>
           <div class="line" *ngFor="let monsterData of monsterData(edition)"
             [ngClass]="{'disabled' : hasMonster(monsterData), 'spoiler' : monsterData.spoiler, 'boss' : monsterData.boss, 'hidden-monster' : monsterData.hidden}">
             <a (click)="addMonster(monsterData);" *ngIf="isSpoiled(monsterData)">
-              {{'data.monster.' + monsterData.name | ghsLabel}}
+              <span [ghs-label]="'data.monster.' + monsterData.name"></span>
             </a>
             <a (click)="settingsManager.addSpoiler(monsterData.name);" *ngIf="!isSpoiled(monsterData)">
-              <span class="name">{{'spoiler.placeholder' | ghsLabel}}</span>
-              <span class="add">{{'spoiler.add' | ghsLabel}}</span>
+              <span class="name"><span [ghs-label]="'spoiler.placeholder'"></span></span>
+              <span class="add"><span [ghs-label]="'spoiler.add'"></span></span>
             </a>
           </div>
         </div>
       </ng-container>
     </div>
     <div class="line" *ngIf="hasSpoilers(monsterData())">
-      <a (click)="settingsManager.addSpoilers(notSpoiled(monsterData()))">{{'spoiler.all' | ghsLabel}}</a>
+      <a (click)="settingsManager.addSpoilers(notSpoiled(monsterData()))"><span [ghs-label]="'spoiler.all'"></span></a>
     </div>
   </div>
 
   <div *ngSwitchCase="SubMenu.monster_remove" class="menu-container monster-remove">
     <div class="line">
       <a (click)="removeAllMonsters()">
-        &lt;{{'monster.removeAll' | ghsLabel}}&gt;
+        &lt;<span [ghs-label]="'monster.removeAll'"></span>&gt;
       </a>
     </div>
     <div class="line" *ngFor="let monster of monsters()">
       <a (click)="removeMonster(monster);">
-        {{'data.monster.' + monster.name | ghsLabel}} <span class="count"
+        <span [ghs-label]="'data.monster.' + monster.name"></span> <span class="count"
           *ngIf="gameManager.entityManager.entities(monster).length > 0">&nbsp;({{gameManager.entityManager.entities(monster).length}})</span><span
-          class="edition" *ngIf="gameManager.getEdition(monster)">&nbsp;[{{'data.edition.' +
-          gameManager.getEdition(monster) |
-          ghsLabel}}]</span>
+          class="edition" *ngIf="gameManager.getEdition(monster)">&nbsp;[<span [ghs-label]="'data.edition.' +
+          gameManager.getEdition(monster)"></span>]</span>
       </a>
     </div>
   </div>
@@ -249,8 +249,8 @@
 
   <div *ngSwitchCase="SubMenu.about" class="menu-container about">
     <div class="line">
-      <p [i18n]="'about.ip'"
-        [i18n-args]="['<a href=\'https:\/\/cephalofair.com\' target=\'_blank\'>Cephalofair Games</a>']">
+      <p [ghs-label]="'about.ip'"
+        [ghs-label-args]="['<a href=\'https:\/\/cephalofair.com\' target=\'_blank\'>Cephalofair Games</a>']">
       </p>
     </div>
     <div class="columns">
@@ -264,7 +264,7 @@
       <div class="column">
         <div class="line">
           <p>
-            <a (click)="update(true)">{{'about.forceUpdate' | ghsLabel}}</a>
+            <a (click)="update(true)"><span [ghs-label]="'about.forceUpdate'"></span></a>
           </p>
         </div>
       </div>
@@ -274,16 +274,16 @@
       <div class="columns">
         <div class="column">
           <p>
-            <a href="https://ko-fi.com/lurkars" target="_blank">{{'about.support' | ghsLabel}}</a>
+            <a href="https://ko-fi.com/lurkars" target="_blank"><span [ghs-label]="'about.support'"></span></a>
           </p>
         </div>
         <div class="column">
-          <p><a href="https://github.com/Lurkars/gloomhavensecretariat" target="_blank">{{'about.sourceCode' |
-              ghsLabel}}</a></p>
+          <p><a href="https://github.com/Lurkars/gloomhavensecretariat" target="_blank"><span
+                [ghs-label]="'about.sourceCode'"></span></a></p>
         </div>
         <div class="column">
-          <p [i18n]="'about.license'"
-            [i18n-args]="['<a href=\'https:\/\/\github.com\/Lurkars\/gloomhavensecretariat\/blob\/main\/LICENSE\'  target=\'_blank\'> AGPL3</a>']">
+          <p [ghs-label]="'about.license'"
+            [ghs-label-args]="['<a href=\'https:\/\/\github.com\/Lurkars\/gloomhavensecretariat\/blob\/main\/LICENSE\'  target=\'_blank\'> AGPL3</a>']">
           </p>
         </div>
       </div>

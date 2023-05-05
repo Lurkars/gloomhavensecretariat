@@ -2,17 +2,17 @@
     <label class="title">
         <span class="name"><img class="ghs-svg"
                 [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') +  'loot.svg'">
-            {{'character.progress.selectGold' | ghsLabel}} </span>
+            <span [ghs-label]="'character.progress.selectGold'"></span> </span>
         <span *ngIf="min > 0">{{gold}} / {{min}}</span>
     </label>
     <div class="values">
         <ng-container *ngFor="let character of characters; let i = index;">
             <label><img [src]="character.iconUrl">
-                {{'game.loot.' | ghsLabel}}</label>
+                <span [ghs-label]="'game.loot.'"></span></label>
             <a class="button" [ngClass]="{'disabled' : characterGold[i] == 0 }" (click)="changeGold(i, -1)">
                 <img class="ghs-svg" src="./assets/images/minus.svg">
             </a>
-            <span class="value" title="{{'game.loot.'  | ghsLabel}}">
+            <span class="value" [ghs-label]="'game.loot.' " [ghs-label-attribute]="'title'">
                 {{characterGold[i] || '-'}} / {{character.progress.gold}}
             </span>
             <a class="button"
@@ -23,8 +23,8 @@
         </ng-container>
     </div>
     <div class="menu">
-        <a class="cancel" (click)="close()">{{'cancel' | ghsLabel}}</a>
+        <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
         <a class="apply" [ngClass]="{'disabled' : min > 0 && gold < min }"
-            (click)="moveGold()">{{'character.progress.selectGold.apply' | ghsLabel}}</a>
+            (click)="moveGold()"><span [ghs-label]="'character.progress.selectGold.apply'"></span></a>
     </div>
 </div>

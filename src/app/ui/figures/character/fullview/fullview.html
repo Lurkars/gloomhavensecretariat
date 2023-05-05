@@ -51,5 +51,6 @@
 
 </div>
 
-<a class="wip" (click)="cancel()"><img class="ghs-svg" src="./assets/images/warning.svg">{{'wip' |
-  ghsLabel}}!&nbsp;{{'cancel' | ghsLabel}}!</a>
+<a class="wip" (click)="cancel()"><img class="ghs-svg" src="./assets/images/warning.svg">
+  <span [ghs-label]="'wip'"></span>!&nbsp;<span [ghs-label]="'cancel'"></span>!
+</a>

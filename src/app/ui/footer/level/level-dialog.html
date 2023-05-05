@@ -4,23 +4,23 @@
     <label *ngIf="gameManager.game.playerCount < 1">
       <input type="checkbox" [checked]="gameManager.game.levelCalculation"
         (change)="setLevelCalculation(!gameManager.game.levelCalculation)">
-      {{'settings.levelCalculation' | ghsLabel}}
+      <span [ghs-label]="'settings.levelCalculation'"></span>
     </label>
 
-    <label *ngIf="gameManager.game.levelCalculation">{{'settings.levelAdjustment' | ghsLabel}}
+    <label *ngIf="gameManager.game.levelCalculation"><span [ghs-label]="'settings.levelAdjustment'"></span>
       <input type="number" #levelAdjustment [value]="gameManager.game.levelAdjustment" min="-6" max="6" (keyup)="0"
         (change)="setLevelAdjustment(+levelAdjustment.value)" [size]="levelAdjustment.value.length"
-        placeholder="{{'settings.levelAdjustment' | ghsLabel}}"></label>
+        [ghs-label]="'settings.levelAdjustment'" [ghs-label-attribute]="'placeholder'"></label>
 
-    <label>{{'settings.bonusAdjustment' | ghsLabel}}
+    <label><span [ghs-label]="'settings.bonusAdjustment'"></span>
       <input type="number" #bonusAdjustment [value]="gameManager.game.bonusAdjustment" min="-6" max="6" (keyup)="0"
         (change)="setBonusAdjustment(+bonusAdjustment.value)" [size]="bonusAdjustment.value.length"
-        placeholder="{{'settings.bonusAdjustment' | ghsLabel}}"></label>
+        [ghs-label]="'settings.bonusAdjustment'" [ghs-label-attribute]="'placeholder'"></label>
 
     <label *ngIf="ge5Player()">
       <input type="checkbox" [checked]="gameManager.game.ge5Player"
         (change)="setGe5Player(!gameManager.game.ge5Player)">
-      {{'settings.ge5Player' | ghsLabel}}
+      <span [ghs-label]="'settings.ge5Player'"></span>
     </label>
   </div>
 
@@ -31,10 +31,8 @@
         (click)="setLevel(level)">{{level}}</a></span>
     <div class="solo">
       <label>
-        <input type="checkbox" [checked]="gameManager.game.solo"
-          (change)="setSolo(!gameManager.game.solo)">{{'game.solo'
-        |
-        ghsLabel}}
+        <input type="checkbox" [checked]="gameManager.game.solo" (change)="setSolo(!gameManager.game.solo)">
+        <span [ghs-label]="'game.solo'"></span>
       </label>
     </div>
   </div>
@@ -44,22 +42,22 @@
       <span class="icon"><img class="ghs-svg"
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/loot.svg'">:</span>
       <span class="value">x{{loot}}</span>
-      <span class="hint">{{'game.level.loot' | ghsLabel}}</span>
+      <span class="hint"><span [ghs-label]="'game.level.loot'"></span></span>
     </div>
     <div class="trap">
       <span class="icon"><img class="ghs-svg" src="./assets/images/trap.svg">:</span>
       <span class="value">{{trap}}</span>
-      <span class="hint">{{'game.level.trap' | ghsLabel}}</span>
+      <span class="hint"><span [ghs-label]="'game.level.trap'"></span></span>
     </div>
     <div class="experience">
       <span class="icon"><img class="ghs-svg" src="./assets/images/experience.svg">:</span>
       <span class="value">+{{experience}}</span>
-      <span class="hint">{{'game.level.experience' | ghsLabel}}</span>
+      <span class="hint"><span [ghs-label]="'game.level.experience'"></span></span>
     </div>
     <div class="terrain">
       <span class="icon"><img class="ghs-svg" src="./assets/images/terrain.svg">:</span>
       <span class="value">{{hazardousTerrain}}</span>
-      <span class="hint">{{'game.level.hazardousTerrain' | ghsLabel}}</span>
+      <span class="hint"><span [ghs-label]="'game.level.hazardousTerrain'"></span></span>
     </div>
   </div>
 
@@ -67,9 +65,9 @@
 
   <label class="player-count">
     <input type="checkbox" [checked]="gameManager.game.playerCount > 0" (change)="togglePlayerCount($event)">
-    {{'settings.playerCount' | ghsLabel}}
+    <span [ghs-label]="'settings.playerCount'"></span>
     <input *ngIf="gameManager.game.playerCount > 0" type="number" #playerCount [value]="gameManager.game.playerCount"
       min="1" (keyup)="0" (change)="setPlayerCount(+playerCount.value)" [size]="playerCount.value.length"
-      placeholder="{{'settings.playerCount' | ghsLabel}}">
+      [ghs-label]="'settings.playerCount'" [ghs-label-attribute]="'placeholder'">
   </label>
 </div>

@@ -6,7 +6,7 @@ import { Ability } from 'src/app/game/model/data/Ability';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
-import { applyPlaceholder } from '../../helper/i18n';
+import { applyPlaceholder } from '../../helper/label';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 
 @Component({

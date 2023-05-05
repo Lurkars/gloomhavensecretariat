@@ -93,7 +93,7 @@ export class SettingsManager {
   }
 
   storeSettings(): void {
-    storageManager.write('settings', 'default', this.settings);
+    storageManager.write('settings', this.settings, 'default');
     if (this.settings.serverSettings) {
       gameManager.stateManager.saveSettings();
     }

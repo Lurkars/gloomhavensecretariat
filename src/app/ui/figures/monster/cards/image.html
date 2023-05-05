@@ -1,6 +1,7 @@
 <div class="image" (click)="toggleFigure()"
   [ngClass]="{'disabled' : gameManager.game.state == GameState.draw || monster.entities.length == 0, 'full-ability': settingsManager.settings.showFullAbilityCard}"
-  title="{{gameManager.game.state == GameState.next ? ((monster.active ? 'game.figure.endTurn' : 'game.figure.startTurn') | ghsLabel) : ''}}">
+  [ghs-label]="gameManager.game.state == GameState.next ? (monster.active ? 'game.figure.endTurn' : 'game.figure.startTurn') : ''"
+  [ghs-label-attribute]="'title'">
   <img *ngIf="!monster.noArtwork" [ngClass]="{'active-border' : monster.active}"
     [src]="gameManager.monsterManager.monsterThumbnail(monster)" />
   <span *ngIf="monster.noArtwork" class="no-artwork"
@@ -9,6 +10,6 @@
       <span
         *ngFor="let namePart of (settingsManager.getLabel('data.monster.' + monster.name).split(' '))">{{namePart[0]}}</span>
     </span>
-    <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
+    <span class="name"><span [ghs-label]="'data.monster.' + monster.name"></span></span>
   </span>
 </div>

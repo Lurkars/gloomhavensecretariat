@@ -1,55 +1,58 @@
 <div class="scroll-container">
   <div class="header">
     <span class="title">
-      <span>{{'scenario.summary' | ghsLabel}}</span>
-      <span class="name">#{{scenario.index}} {{'data.scenario.' + scenario.name | ghsLabel}}</span>
+      <span><span [ghs-label]="'scenario.summary'"></span></span>
+      <span class="name">#{{scenario.index}} <span [ghs-label]="'data.scenario.' + scenario.name"></span></span>
     </span>
-    <span *ngIf="success" class="success">{{'scenario.finish.success' | ghsLabel}}</span>
-    <span class="conclusion" *ngIf="conclusion">{{(conclusion.name ? 'data.section.' + conclusion.name :
-      '%scenario.section% #' + conclusion.index) | ghsLabel}}</span>
-    <span *ngIf="success && !gameManager.game.party.campaignMode" class="casual">{{'scenario.summary.casualWarning' |
-      ghsLabel}}</span>
-    <span *ngIf="!success" class="failure">{{'scenario.finish.failure' | ghsLabel}}</span>
+    <span *ngIf="success" class="success"><span [ghs-label]="'scenario.finish.success'"></span></span>
+    <span class="conclusion" *ngIf="conclusion">
+      <span [ghs-label]="(conclusion.name ? 'data.section.' + conclusion.name :
+      '%scenario.section% #' + conclusion.index)"></span>
+    </span>
+    <span *ngIf="success && !gameManager.game.party.campaignMode" class="casual">
+      <span [ghs-label]="'scenario.summary.casualWarning'"></span></span>
+    <span *ngIf="!success" class="failure"><span [ghs-label]="'scenario.finish.failure'"></span></span>
   </div>
 
   <div class="main">
     <div class="table" [style.--ghs-summary-columns]="1 + characters.length"
       *ngIf="(!casual || forceCampaign || !gameManager.fhRules()) && settingsManager.settings.characterSheet">
 
-      <span class="head-col first">{{'scenario.summary.name' | ghsLabel}}</span>
+      <span class="head-col first"><span [ghs-label]="'scenario.summary.name'"></span></span>
       <span class="first" *ngFor="let character of characters; let index = index;">
         <img class="icon character-icon" (click)="openCharacterSheet(character)" [src]="character.iconUrl" />
         <span class="name" [ngClass]="{'absent' : character.absent}">
-          {{character.title || ('data.character.' + character.name | ghsLabel)}}
-          <span *ngIf="character.title">&nbsp;({{('data.character.' + character.name | ghsLabel)}})</span>
+          <span *ngIf="!character.title" [ghs-label]="'data.character.' + character.name"></span>
+          <span *ngIf="character.title">{{character.title}}&nbsp;(<span
+              [ghs-label]="'data.character.' + character.name"></span>)</span>
         </span>
         <img class="ghs-svg absent-icon"
           [src]="'./assets/images/status/' + (character.absent ? 'absent': 'present') + '.svg'"
-          [title]="(character.absent ? 'character.present' : 'character.absent') | ghsLabel"
+          [ghs-label]="(character.absent ? 'character.present' : 'character.absent')" [ghs-label-attribute]="'title'"
           (click)="character.absent = !character.absent">
       </span>
 
-      <span class="head-col calc-col">{{'scenario.summary.loot' | ghsLabel}}</span>
+      <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.loot'"></span></span>
       <span class="calc-col" *ngFor="let character of characters; let index = index;">
         {{character.loot | ghsValueSign}}
       </span>
 
       <ng-container *ngIf="success && rewards && rewards.gold">
-        <span class="head-col calc-col">{{'scenario.summary.rewards.gold' | ghsLabel}}</span>
+        <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.rewards.gold'"></span></span>
         <span class="calc-col" *ngFor="let character of characters; let index = index;">
           {{rewards.gold | ghsValueSign}}
         </span>
       </ng-container>
 
       <ng-container *ngIf="success && rewards && rewards.collectiveGold">
-        <span class="head-col calc-col">{{'scenario.summary.rewards.collectiveGold' | ghsLabel}}</span>
+        <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.rewards.collectiveGold'"></span></span>
         <span class="calc-col" *ngFor="let character of characters; let index = index;">
           <input type="number" min="0" [max]="collectiveGold[index] + availableCollectiveGold()"
             [value]="collectiveGold[index]" (change)="changeCollectiveGold($event, index)">
         </span>
       </ng-container>
 
-      <span class="head-col">{{'scenario.summary.gold' | ghsLabel}}</span>
+      <span class="head-col"><span [ghs-label]="'scenario.summary.gold'"></span></span>
       <ng-container *ngFor="let character of characters; let index = index;">
         <span *ngIf="!character.absent">
           <span class="gold">{{(success && rewards && rewards.gold ? rewards.gold : 0) + (collectiveGold[index] ?
@@ -81,14 +84,14 @@
         </ng-container>
       </ng-container>
 
-      <span class="head-col calc-col">{{'scenario.summary.xpGained' | ghsLabel}}</span>
+      <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.xpGained'"></span></span>
       <span class="calc-col" *ngFor="let character of characters; let index = index;">
         {{character.experience | ghsValueSign}}
       </span>
 
       <ng-container *ngIf="success &&
       (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') == -1)">
-        <span class="head-col calc-col">{{'scenario.summary.xpBonus' | ghsLabel}}</span>
+        <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.xpBonus'"></span></span>
         <span class="calc-col" *ngFor="let character of characters; let index = index;">
           <span *ngIf="!character.absent">{{gameManager.levelManager.experience()
             | ghsValueSign}}</span>
@@ -96,7 +99,7 @@
         </span>
 
         <ng-container *ngIf="success && rewards && rewards.experience">
-          <span class="head-col calc-col">{{'scenario.summary.rewards.experience' | ghsLabel}}</span>
+          <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.rewards.experience'"></span></span>
           <span class="calc-col" *ngFor="let character of characters; let index = index;">
             {{rewards.experience | ghsValueSign}}
           </span>
@@ -104,14 +107,14 @@
       </ng-container>
 
       <ng-container *ngIf="success && challenges > 0">
-        <span class="head-col calc-col">{{'scenario.summary.xpChallenges' | ghsLabel}}</span>
+        <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.xpChallenges'"></span></span>
         <span class="calc-col" *ngFor="let character of characters; let index = index;">
           <span *ngIf="!character.absent">{{(2*challenges) | ghsValueSign}}</span>
           <span *ngIf="character.absent">/</span>
         </span>
       </ng-container>
 
-      <span class="head-col">{{'scenario.summary.xp' | ghsLabel}}</span>
+      <span class="head-col"><span [ghs-label]="'scenario.summary.xp'"></span></span>
       <ng-container *ngFor="let character of characters; let index = index;">
         <span *ngIf="!character.absent">
           <span class="xp" *ngIf="success">{{((rewards && rewards.experience ? rewards.experience : 0) + challenges * 2
@@ -132,7 +135,7 @@
 
 
       <ng-container *ngIf="success">
-        <span class="head-col">{{'scenario.summary.battlegoals' | ghsLabel}}</span>
+        <span class="head-col"><span [ghs-label]="'scenario.summary.battlegoals'"></span></span>
         <span *ngFor="let character of characters; let index = index;">
           <ng-container *ngIf="rewards && rewards.battleGoals">
             <input type="checkbox" [disabled]="true" [checked]="true"
@@ -146,7 +149,7 @@
       </ng-container>
 
       <ng-container *ngIf="gameManager.scenarioManager.getTreasures(scenario,gameManager.game.sections).length > 0">
-        <span class="head-col">{{'scenario.summary.treasures' | ghsLabel}}</span>
+        <span class="head-col"><span [ghs-label]="'scenario.summary.treasures'"></span></span>
         <span class="treasures" *ngFor="let character of characters; let index = index;">
           <div class="hint-container" *ngFor="let treasure of character.treasures || []">
             <span class="treasure hint-trigger">
@@ -163,7 +166,7 @@
       </ng-container>
 
       <ng-container *ngFor="let itemData of rewardItems; let itemIndex = index;">
-        <span class="head-col">{{'scenario.summary.item' | ghsLabel:[itemData.name]}}</span>
+        <span class="head-col"><span [ghs-label]="'scenario.summary.item'" [ghs-label-args]="[itemData.name]"></span></span>
         <span *ngFor="let character of characters; let index = index;">
           <input type="checkbox" [disabled]="itemDistributed(index, itemIndex)"
             [checked]="items[index].indexOf(itemIndex) != -1" (change)="toggleItem($event, index, itemIndex)">
@@ -174,33 +177,31 @@
     <div class="rewards">
 
       <div class="reward warning" *ngIf="alreadyWarning && gameManager.game.party.campaignMode">
-        <label>{{'scenario.summary.alreadyWarning' | ghsLabel}}</label>
+        <label><span [ghs-label]="'scenario.summary.alreadyWarning'"></span></label>
         <div class="list">
           <div class="item" *ngIf="casual">
-            <span>{{'scenario.summary.alreadyWarning.hint' | ghsLabel}}</span>
+            <span><span [ghs-label]="'scenario.summary.alreadyWarning.hint'"></span></span>
           </div>
           <div class="item" *ngIf="!gameManager.fhRules()">
-            <a (click)="casual = !casual">{{'scenario.summary.alreadyWarning.' + (casual ? 'ignore' : 'reapply') |
-              ghsLabel}}</a>
+            <a (click)="casual = !casual"><span
+                [ghs-label]="'scenario.summary.alreadyWarning.' + (casual ? 'ignore' : 'reapply')"></span></a>
           </div>
         </div>
       </div>
 
       <div class="reward warning" *ngIf="(alreadyWarning || !gameManager.game.party.campaignMode)">
-        <label>{{('scenario.summary.casualWarning' + (gameManager.fhRules() ? '.fh' : '')) | ghsLabel}}</label>
+        <label><span [ghs-label]="('scenario.summary.casualWarning' + (gameManager.fhRules() ? '.fh' : ''))"></span></label>
         <div class="list">
           <div class="item" *ngIf="casual && gameManager.fhRules()">
-            <span>{{'scenario.summary.casualWarning.hintFh' | ghsLabel}}</span>
+            <span><span [ghs-label]="'scenario.summary.casualWarning.hintFh'"></span></span>
           </div>
           <div class="item" *ngIf="forceCampaign || gameManager.fhRules()">
-            <a (click)="casual = !casual; updateState()">{{'scenario.summary.casualWarning.' + (casual && !forceCampaign
-              ? 'ignore' : 'reapply') |
-              ghsLabel}}</a>
+            <a (click)="casual = !casual; updateState()"><span [ghs-label]="'scenario.summary.casualWarning.' + (casual && !forceCampaign
+              ? 'ignore' : 'reapply')"></span></a>
           </div>
           <div class="item"
             *ngIf="(!casual || !gameManager.fhRules()) && !gameManager.game.party.campaignMode && !forceCampaign">
-            <a (click)="updateState(true)">{{'scenario.summary.casualWarning.campaignRewards'
-              | ghsLabel}}</a>
+            <a (click)="updateState(true)"><span [ghs-label]="'scenario.summary.casualWarning.campaignRewards'"></span></a>
           </div>
         </div>
       </div>
@@ -208,311 +209,314 @@
       <ng-container *ngIf="!casual && gameManager.game.party.campaignMode || forceCampaign">
 
         <div class="reward warning" *ngIf="conclusionWarning">
-          <label>{{'scenario.summary.conclusionWarning' | ghsLabel}}</label>
+          <label><span [ghs-label]="'scenario.summary.conclusionWarning'"></span></label>
           <div class="list">
             <div class="item">
-              <span class="placeholder text-white" [i18n]="'scenario.summary.conclusionWarning.hint'"></span>
+              <span class="placeholder text-white" [ghs-label]="'scenario.summary.conclusionWarning.hint'"></span>
             </div>
           </div>
         </div>
 
         <div class="reward locations"
           *ngIf="success && (scenario.unlocks && scenario.unlocks.length > 0 || rewards && rewards.chooseLocation && rewards.chooseLocation.length > 0)">
-          <label>{{(scenario.unlocks && scenario.unlocks.length > 1 || rewards && rewards.chooseLocation &&
+          <label><span [ghs-label]="(scenario.unlocks && scenario.unlocks.length > 1 || rewards && rewards.chooseLocation &&
             rewards.chooseLocation.length > 1 ?
             'scenario.rewards.locations' :
-            'scenario.rewards.location') | ghsLabel}}:</label>
+            'scenario.rewards.location')"></span></label>
           <div class="list" *ngIf="scenario.unlocks">
             <div class="item location" *ngFor="let location of scenario.unlocks; let i = index;">
-              {{'data.scenario.' + gameManager.scenarioManager.getScenario(location,scenario.edition,
-              scenario.group)?.name | ghsLabel}} <span [i18n]="'%data.scenarioNumber:' + location+ '%'"></span>
+              <span [ghs-label]="'data.scenario.' + gameManager.scenarioManager.getScenario(location,scenario.edition,
+              scenario.group)?.name"></span> <span [ghs-label]="'%data.scenarioNumber:' + location+ '%'"></span>
               <span *ngIf="scenario.unlocks.length > 1 && i < scenario.unlocks.length - 1">,</span>
             </div>
           </div>
           <div class="list" *ngIf="rewards && rewards.chooseLocation">
-            <div class="item">{{'scenario.rewards.chooseLocation' | ghsLabel}}:</div>
+            <div class="item"><span [ghs-label]="'scenario.rewards.chooseLocation'"></span>:</div>
 
             <label class="item location choose" *ngFor="let location of rewards.chooseLocation; let i = index;">
               <input type="radio" name="chooseLocation" (change)="selectLocation(location)" [value]="location"
                 [checked]="chooseLocation == location">
-              {{'data.scenario.' + gameManager.scenarioManager.getScenario(location,scenario.edition,
-              scenario.group)?.name | ghsLabel}} <span [i18n]="'%data.scenarioNumber:' + location+ '%'"></span>
+              <span [ghs-label]="'data.scenario.' + gameManager.scenarioManager.getScenario(location,scenario.edition,
+              scenario.group)?.name"></span> <span [ghs-label]="'%data.scenarioNumber:' + location+ '%'"></span>
             </label>
           </div>
         </div>
         <div class="reward locations"
           *ngIf="success && (!scenario.unlocks || scenario.unlocks.length == 0) && conclusion && conclusion.unlocks && conclusion.unlocks.length > 0">
-          <label>{{(conclusion.unlocks.length > 1 ? 'scenario.rewards.locations' :
-            'scenario.rewards.location') | ghsLabel}}:</label>
+          <label><span [ghs-label]="(conclusion.unlocks.length > 1 ? 'scenario.rewards.locations' :
+            'scenario.rewards.location')"></span></label>
           <div class="list">
             <div class="item location" *ngFor="let location of conclusion.unlocks; let i = index;">
-              {{'data.scenario.' + gameManager.scenarioManager.getScenario(location,conclusion.edition,
-              conclusion.group)?.name | ghsLabel}} <span [i18n]="'%data.scenarioNumber:' + location + '%'"></span>
+              <span [ghs-label]="'data.scenario.' + gameManager.scenarioManager.getScenario(location,conclusion.edition,
+              conclusion.group)?.name"></span> <span [ghs-label]="'%data.scenarioNumber:' + location + '%'"></span>
               <span *ngIf="conclusion.unlocks.length > 1 && i < conclusion.unlocks.length - 1">,</span>
             </div>
           </div>
         </div>
         <div class="reward achievements"
           *ngIf="rewards && rewards.globalAchievements && rewards.globalAchievements.length > 0">
-          <label>{{'scenario.rewards.globalAchievements' | ghsLabel}}:</label>
+          <label><span [ghs-label]="'scenario.rewards.globalAchievements'"></span>:</label>
           <div class="list">
             <div class="item achievement" *ngFor="let achievement of rewards.globalAchievements; let i = index;">
-              <span>{{'data.globalAchievements.' + achievement | ghsLabel}}</span>
+              <span><span [ghs-label]="'data.globalAchievements.' + achievement"></span></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.globalAchievements && rewards.hints.globalAchievements[i]"
-                [i18n]="rewards.hints.globalAchievements[i]"></span>
+                [ghs-label]="rewards.hints.globalAchievements[i]"></span>
             </div>
           </div>
         </div>
         <div class="reward achievements"
           *ngIf="rewards && rewards.lostPartyAchievements && rewards.lostPartyAchievements.length > 0">
-          <label>{{'scenario.rewards.lostPartyAchievements' | ghsLabel}}:</label>
+          <label><span [ghs-label]="'scenario.rewards.lostPartyAchievements'"></span>:</label>
           <div class="list">
             <div class="item achievement" *ngFor="let achievement of rewards.lostPartyAchievements; let i = index;">
-              <span>{{'data.partyAchievements.' + achievement | ghsLabel}}</span>
+              <span><span [ghs-label]="'data.partyAchievements.' + achievement"></span></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.lostPartyAchievements && rewards.hints.lostPartyAchievements[i]"
-                [i18n]="rewards.hints.lostPartyAchievements[i]"></span>
+                [ghs-label]="rewards.hints.lostPartyAchievements[i]"></span>
             </div>
           </div>
         </div>
         <div class="reward achievements"
           *ngIf="rewards && rewards.partyAchievements && rewards.partyAchievements.length > 0">
-          <label>{{'scenario.rewards.partyAchievements' | ghsLabel}}:</label>
+          <label><span [ghs-label]="'scenario.rewards.partyAchievements'"></span>:</label>
           <div class="list">
             <div class="item achievement" *ngFor="let achievement of rewards.partyAchievements; let i = index;">
-              <span>{{'data.partyAchievements.' + achievement | ghsLabel}}</span>
+              <span><span [ghs-label]="'data.partyAchievements.' + achievement"></span></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.partyAchievements && rewards.hints.partyAchievements[i]"
-                [i18n]="rewards.hints.partyAchievements[i]"></span>
+                [ghs-label]="rewards.hints.partyAchievements[i]"></span>
             </div>
           </div>
         </div>
         <div class="reward achievements"
           *ngIf="rewards && rewards.campaignSticker && rewards.campaignSticker.length > 0">
-          <label>{{'scenario.rewards.campaignSticker' | ghsLabel}}:</label>
+          <label><span [ghs-label]="'scenario.rewards.campaignSticker'"></span>:</label>
           <div class="list">
             <div class="item achievement" *ngFor="let sticker of rewards.campaignSticker; let i = index;">
-              <span>{{'data.campaignSticker.' + sticker | ghsLabel}}</span>
+              <span><span [ghs-label]="'data.campaignSticker.' + sticker"></span></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.campaignSticker && rewards.hints.campaignSticker[i]"
-                [i18n]="rewards.hints.campaignSticker[i]"></span>
+                [ghs-label]="rewards.hints.campaignSticker[i]"></span>
             </div>
           </div>
         </div>
         <div class="reward achievements"
           *ngIf="rewards && rewards.calenderSection && rewards.calenderSection.length > 0">
-          <label>{{'scenario.rewards.calenderSection' | ghsLabel}}:</label>
+          <label><span [ghs-label]="'scenario.rewards.calenderSection'"></span>:</label>
           <div class="list">
             <div class="item achievement" *ngFor="let calenderSection of rewards.calenderSection; let i = index;">
-              <span class="placeholder text-white" [i18n]="'scenario.rewards.calenderSection.add'"
-                [i18n-args]="[calenderSection.split('-')[0], calenderSection.split('-')[1]]"></span>
+              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.calenderSection.add'"
+                [ghs-label-args]="[calenderSection.split('-')[0], calenderSection.split('-')[1]]"></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.calenderSection && rewards.hints.calenderSection[i]"
-                [i18n]="rewards.hints.calenderSection[i]"></span>
+                [ghs-label]="rewards.hints.calenderSection[i]"></span>
             </div>
           </div>
         </div>
         <div class="reward achievements"
           *ngIf="rewards && rewards.calenderSectionManual && rewards.calenderSectionManual.length > 0">
-          <label>{{'scenario.rewards.calenderSectionManual' | ghsLabel}}:</label>
+          <label><span [ghs-label]="'scenario.rewards.calenderSectionManual'"></span>:</label>
           <div class="list">
             <div class="item achievement" *ngFor="let calenderSection of rewards.calenderSectionManual; let i = index;">
-              <span class="placeholder text-white" [i18n]="calenderSection.hint"></span>
+              <span class="placeholder text-white" [ghs-label]="calenderSection.hint"></span>
               <input type="number" min="0" [value]="calenderSectionManual[i]"
                 (change)="changeCalenderSectionManual($event, i)">
             </div>
           </div>
         </div>
         <div class="reward" *ngIf="rewards && hasRewards()">
-          <label>{{'scenario.rewards' | ghsLabel}}:</label>
+          <label><span [ghs-label]="'scenario.rewards'"></span>:</label>
           <div class="list">
             <div class="item envelope" *ngFor="let envelope of (rewards.envelopes || []); let i = index;">
-              <span class="placeholder text-white" [i18n]="'scenario.rewards.envelope'" [i18n-args]="[envelope]"></span>
+              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.envelope'" [ghs-label-args]="[envelope]"></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.envelopes && rewards.hints.envelopes[i]"
-                [i18n]="rewards.hints.envelopes[i]"></span>
+                [ghs-label]="rewards.hints.envelopes[i]"></span>
             </div>
 
             <div class="item gold" *ngIf="rewards.gold">
-              <span>{{'scenario.rewards.gold' |ghsLabel:[''+rewards.gold]}}</span>
+              <span><span [ghs-label]="'scenario.rewards.gold'" [ghs-label-args]="[''+rewards.gold]"></span></span>
               <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.gold"
-                [i18n]="rewards.hints.gold"></span>
+                [ghs-label]="rewards.hints.gold"></span>
             </div>
 
             <div class="item experience" *ngIf="rewards.experience">
-              <span>{{'scenario.rewards.experience' | ghsLabel:[''+rewards.experience]}}</span>
+              <span><span [ghs-label]="'scenario.rewards.experience'" [ghs-label-args]="[''+rewards.experience]"></span></span>
               <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.experience"
-                [i18n]="rewards.hints.experience"></span>
+                [ghs-label]="rewards.hints.experience"></span>
             </div>
 
             <div class="item collectiveGold" *ngIf="rewards.collectiveGold">
-              <span>{{'scenario.rewards.collectiveGold' | ghsLabel:[''+rewards.collectiveGold]}}</span>
+              <span><span [ghs-label]="'scenario.rewards.collectiveGold'"
+                  [ghs-label-args]="[''+rewards.collectiveGold]"></span></span>
               <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.collectiveGold"
-                [i18n]="rewards.hints.collectiveGold"></span>
+                [ghs-label]="rewards.hints.collectiveGold"></span>
             </div>
 
             <div class="item resources" *ngIf="rewards.resources">
               <ng-container *ngFor="let item of rewards.resources; let i = index;">
                 <span class="placeholder text-white" *ngIf="item.value"
-                  [i18n]="'scenario.rewards.resources' + (EntityValueFunction(item.value) < 0? 'Lose' : '')"
-                  [i18n-args]="['' + item.type, ''+  EntityValueFunction(item.value)]"></span>
+                  [ghs-label]="'scenario.rewards.resources' + (EntityValueFunction(item.value) < 0? 'Lose' : '')"
+                  [ghs-label-args]="['' + item.type, ''+  EntityValueFunction(item.value)]"></span>
                 <span class="placeholder text-white hint"
                   *ngIf="rewards.hints && rewards.hints.resources && rewards.hints.resources[i]"
-                  [i18n]="rewards.hints.resources[i]"></span>
+                  [ghs-label]="rewards.hints.resources[i]"></span>
               </ng-container>
             </div>
 
             <div class="item collective-resources" *ngIf="rewards.collectiveResources">
               <ng-container *ngFor="let item of rewards.collectiveResources; let i = index;">
                 <span class="placeholder text-white" *ngIf="item.value"
-                  [i18n]="'scenario.rewards.collectiveResources' + (EntityValueFunction(item.value) < 0? 'Lose' : '')"
-                  [i18n-args]="['' + item.type, ''+  EntityValueFunction(item.value)]"></span>
+                  [ghs-label]="'scenario.rewards.collectiveResources' + (EntityValueFunction(item.value) < 0? 'Lose' : '')"
+                  [ghs-label-args]="['' + item.type, ''+  EntityValueFunction(item.value)]"></span>
                 <span class="placeholder text-white hint"
                   *ngIf="rewards.hints && rewards.hints.resources && rewards.hints.resources[i]"
-                  [i18n]="rewards.hints.resources[i]"></span>
+                  [ghs-label]="rewards.hints.resources[i]"></span>
               </ng-container>
             </div>
 
             <div class="item reputation" *ngIf="rewards.reputation">
-              <span>{{'scenario.rewards.reputation' | ghsLabel:[''+(rewards.reputation | ghsValueSign)]}}</span>
+              <span><span [ghs-label]="'scenario.rewards.reputation'"
+                  [ghs-label-args]="[''+(rewards.reputation | ghsValueSign)]"></span></span>
               <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.reputation"
-                [i18n]="rewards.hints.reputation"></span>
+                [ghs-label]="rewards.hints.reputation"></span>
             </div>
 
             <div class="item prosperity" *ngIf="rewards.prosperity">
-              <span>{{'scenario.rewards.prosperity' | ghsLabel:[''+(rewards.prosperity | ghsValueSign)]}}</span>
+              <span><span [ghs-label]="'scenario.rewards.prosperity'"
+                  [ghs-label-args]="[''+(rewards.prosperity | ghsValueSign)]"></span></span>
               <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.prosperity"
-                [i18n]="rewards.hints.prosperity"></span>
+                [ghs-label]="rewards.hints.prosperity"></span>
             </div>
 
             <div class="item inspiration" *ngIf="rewards.inspiration">
-              <span>{{'scenario.rewards.inspiration' | ghsLabel:['' + (EntityValueFunction(rewards.inspiration) |
-                ghsValueSign) ]}} </span>
+              <span><span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="['' + (EntityValueFunction(rewards.inspiration) |
+                ghsValueSign) ]"></span></span>
               <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.inspiration"
-                [i18n]="rewards.hints.inspiration"></span>
+                [ghs-label]="rewards.hints.inspiration"></span>
             </div>
 
             <div class="item morale" *ngIf="rewards.morale">
-              <span>{{'scenario.rewards.morale' | ghsLabel:['' + (EntityValueFunction(rewards.morale) |
-                ghsValueSign) ]}} </span>
+              <span><span [ghs-label]="'scenario.rewards.morale'" [ghs-label-args]="['' + (EntityValueFunction(rewards.morale) |
+                ghsValueSign) ]"></span> </span>
               <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.morale"
-                [i18n]="rewards.hints.morale"></span>
+                [ghs-label]="rewards.hints.morale"></span>
             </div>
 
             <div class="item perks" *ngIf="rewards.perks">
-              <span>{{'scenario.rewards.perks' |ghsLabel:[''+rewards.perks]}}</span>
+              <span><span [ghs-label]="'scenario.rewards.perks'" [ghs-label-args]="[''+rewards.perks]"></span></span>
               <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.perks"
-                [i18n]="rewards.hints.perks"></span>
+                [ghs-label]="rewards.hints.perks"></span>
             </div>
 
             <div class="item battleGoals" *ngIf="rewards.battleGoals">
-              <span class="placeholder text-white" [i18n]="'scenario.rewards.battleGoals'"
-                [i18n-args]="[''+rewards.battleGoals]"></span>
+              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.battleGoals'"
+                [ghs-label-args]="[''+rewards.battleGoals]"></span>
               <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.battleGoals"
-                [i18n]="rewards.hints.battleGoals"></span>
+                [ghs-label]="rewards.hints.battleGoals"></span>
             </div>
 
             <div class="item items" *ngFor="let item of (rewards.items || []); let i = index;">
-              <span *ngIf="item.indexOf(':') != -1" class="placeholder text-white" [i18n]="'scenario.rewards.items'"
-                [i18n-args]="[item.split(':')[0].split('-')[0], gameManager.item(+item.split(':')[0].split('-')[0],item.split(':')[0].split('-')[1] || scenario.edition || '', true)?.name || '', item.split(':')[1]]"></span>
-              <span *ngIf="item.indexOf(':') == -1" class="placeholder text-white" [i18n]="'scenario.rewards.item'"
-                [i18n-args]="[item.split('-')[0] , gameManager.item(+item.split('-')[0], item.split('-')[1] || scenario.edition || '', true)?.name || '']"></span>
+              <span *ngIf="item.indexOf(':') != -1" class="placeholder text-white" [ghs-label]="'scenario.rewards.items'"
+                [ghs-label-args]="[item.split(':')[0].split('-')[0], gameManager.item(+item.split(':')[0].split('-')[0],item.split(':')[0].split('-')[1] || scenario.edition || '', true)?.name || '', item.split(':')[1]]"></span>
+              <span *ngIf="item.indexOf(':') == -1" class="placeholder text-white" [ghs-label]="'scenario.rewards.item'"
+                [ghs-label-args]="[item.split('-')[0] , gameManager.item(+item.split('-')[0], item.split('-')[1] || scenario.edition || '', true)?.name || '']"></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.items && rewards.hints.items[i]"
-                [i18n]="rewards.hints.items[i]"></span>
+                [ghs-label]="rewards.hints.items[i]"></span>
             </div>
 
             <div class="item chooseItem" *ngIf="rewards.chooseItem && rewards.chooseItem.length > 0">
-              <span>{{'scenario.rewards.chooseItem' | ghsLabel}}</span>
+              <span><span [ghs-label]="'scenario.rewards.chooseItem'"></span></span>
               <ng-container *ngFor="let item of (rewards.chooseItem || []); let i = index;">
-                <span *ngIf="item.indexOf(':') != -1" class="placeholder text-white" [i18n]="'scenario.rewards.items'"
-                  [i18n-args]="[item.split(':')[0].split('-')[0], gameManager.item(+item.split(':')[0].split('-')[0],item.split(':')[0].split('-')[1] || scenario.edition || '', true)?.name || '', item.split(':')[1]]"></span>
-                <span *ngIf="item.indexOf(':') == -1" class="placeholder text-white" [i18n]="'scenario.rewards.item'"
-                  [i18n-args]="[item.split('-')[0] , gameManager.item(+item.split('-')[0], item.split('-')[1] || scenario.edition || '', true)?.name || '']"></span>
+                <span *ngIf="item.indexOf(':') != -1" class="placeholder text-white" [ghs-label]="'scenario.rewards.items'"
+                  [ghs-label-args]="[item.split(':')[0].split('-')[0], gameManager.item(+item.split(':')[0].split('-')[0],item.split(':')[0].split('-')[1] || scenario.edition || '', true)?.name || '', item.split(':')[1]]"></span>
+                <span *ngIf="item.indexOf(':') == -1" class="placeholder text-white" [ghs-label]="'scenario.rewards.item'"
+                  [ghs-label-args]="[item.split('-')[0] , gameManager.item(+item.split('-')[0], item.split('-')[1] || scenario.edition || '', true)?.name || '']"></span>
                 <span class="placeholder text-white hint"
                   *ngIf="rewards.hints && rewards.hints.chooseItem && rewards.hints.chooseItem[i]"
-                  [i18n]="rewards.hints.chooseItem[i]"></span>
+                  [ghs-label]="rewards.hints.chooseItem[i]"></span>
               </ng-container>
             </div>
 
             <div class="item item-designs" *ngFor="let item of (rewards.itemDesigns || []); let i = index;">
               <span *ngIf="item.indexOf('-') != -1" class="placeholder text-white"
-                [i18n]="'scenario.rewards.itemDesignRange'" [i18n-args]="[item]"></span>
+                [ghs-label]="'scenario.rewards.itemDesignRange'" [ghs-label-args]="[item]"></span>
               <span *ngIf="item.indexOf('-') == -1" class="placeholder text-white"
-                [i18n]="'scenario.rewards.itemDesign'"
-                [i18n-args]="[item, gameManager.item(+item,scenario.edition || '', true)?.name || '']"></span>
+                [ghs-label]="'scenario.rewards.itemDesign'"
+                [ghs-label-args]="[item, gameManager.item(+item,scenario.edition || '', true)?.name || '']"></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.itemDesigns && rewards.hints.itemDesigns[i]"
-                [i18n]="rewards.hints.itemDesigns[i]"></span>
+                [ghs-label]="rewards.hints.itemDesigns[i]"></span>
             </div>
 
             <div class="item item-blueprints" *ngFor="let item of (rewards.itemBlueprints || []); let i = index;">
               <span *ngIf="item.indexOf('-') != -1" class="placeholder text-white"
-                [i18n]="'scenario.rewards.itemBlueprintRange'" [i18n-args]="[item]"></span>
+                [ghs-label]="'scenario.rewards.itemBlueprintRange'" [ghs-label-args]="[item]"></span>
               <span *ngIf="item.indexOf('-') == -1" class="placeholder text-white"
-                [i18n]="'scenario.rewards.itemBlueprint'"
-                [i18n-args]="[item, gameManager.item(+item,scenario.edition || '', true)?.name || '']"></span>
+                [ghs-label]="'scenario.rewards.itemBlueprint'"
+                [ghs-label-args]="[item, gameManager.item(+item,scenario.edition || '', true)?.name || '']"></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.itemBlueprints && rewards.hints.itemBlueprints[i]"
-                [i18n]="rewards.hints.itemBlueprints[i]"></span>
+                [ghs-label]="rewards.hints.itemBlueprints[i]"></span>
             </div>
 
             <div class="item item-blueprints" *ngFor="let itemId of randomItemBlueprints; let i = index;">
-              <span class="placeholder text-white" [i18n]="'scenario.rewards.randomItemBlueprint'"></span>
-              <span *ngIf="itemId > 0" class="placeholder text-white" [i18n]="'scenario.rewards.itemBlueprint'"
-                [i18n-args]="['' + itemId, gameManager.item(itemId,scenario.edition || '', true)?.name || '']"></span>
-              <span *ngIf="itemId == -1"> {{'scenario.rewards.inspiration' | ghsLabel:['+1']}} </span>
+              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.randomItemBlueprint'"></span>
+              <span *ngIf="itemId > 0" class="placeholder text-white" [ghs-label]="'scenario.rewards.itemBlueprint'"
+                [ghs-label-args]="['' + itemId, gameManager.item(itemId,scenario.edition || '', true)?.name || '']"></span>
+              <span *ngIf="itemId == -1"> <span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="['+1']"></span>
+              </span>
               <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.randomItemBlueprint"
-                [i18n]="rewards.hints.randomItemBlueprint"></span>
+                [ghs-label]="rewards.hints.randomItemBlueprint"></span>
             </div>
 
             <div class="item events" *ngFor="let event of (rewards.events || []); let i = index;">
-              <span class="placeholder text-white" [i18n]="'scenario.rewards.event.' + event.split(':')[0]"
-                [i18n-args]="[event.split(':')[1]]"></span>
+              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.event.' + event.split(':')[0]"
+                [ghs-label-args]="[event.split(':')[1]]"></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.events && rewards.hints.events[i]"
-                [i18n]="rewards.hints.events[i]"></span>
+                [ghs-label]="rewards.hints.events[i]"></span>
             </div>
 
             <div class="list list-inline unlock-character"
               *ngIf="rewards && rewards.chooseUnlockCharacter && rewards.chooseUnlockCharacter.length > 0">
-              <span>{{'scenario.rewards.unlockCharacter' | ghsLabel}}</span>
+              <span><span [ghs-label]="'scenario.rewards.unlockCharacter'"></span></span>
               <label class="item character choose"
                 *ngFor="let character of rewards.chooseUnlockCharacter; let i = index;"
                 [ngClass]="{'disabled': unlocked(character)}">
                 <input type="radio" name="chooseUnlockCharacter" (change)="selectCharacter(character)"
                   [value]="character" [checked]="chooseUnlockCharacter == character">
-                <span class="placeholder text-white" [i18n]="'scenario.rewards.unlockCharacter.box'"
-                  [i18n-args]="[character]"></span>
-                <span *ngIf="i < rewards.chooseUnlockCharacter.length - 1">{{'or' | ghsLabel}}</span>
+                <span class="placeholder text-white" [ghs-label]="'scenario.rewards.unlockCharacter.box'"
+                  [ghs-label-args]="[character]"></span>
+                <span *ngIf="i < rewards.chooseUnlockCharacter.length - 1"><span [ghs-label]="'or'"></span></span>
               </label>
             </div>
 
             <div class="item character" *ngIf="rewards && rewards.unlockCharacter">
-              <span>{{'scenario.rewards.unlockCharacter' | ghsLabel}}</span>
-              <span class="placeholder text-white" [i18n]="'scenario.rewards.unlockCharacter.box'"
-                [i18n-args]="[rewards.unlockCharacter]"></span>
+              <span><span [ghs-label]="'scenario.rewards.unlockCharacter'"></span></span>
+              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.unlockCharacter.box'"
+                [ghs-label-args]="[rewards.unlockCharacter]"></span>
             </div>
 
             <div class="item custom" *ngIf="rewards.custom">
-              <span class="placeholder text-white" [i18n]="rewards.custom"></span>
+              <span class="placeholder text-white" [ghs-label]="rewards.custom"></span>
             </div>
           </div>
         </div>
       </ng-container>
 
       <div class="reward" *ngIf="hasBonus()">
-        <label>{{'scenario.rewards.bonus' | ghsLabel}}:</label>
+        <label><span [ghs-label]="'scenario.rewards.bonus'"></span>:</label>
         <div class="list">
           <div class="item inspiration" *ngIf="gameManager.fhRules() && EntityValueFunction('4-C')">
-            <span>{{'scenario.rewards.inspiration' | ghsLabel:['' + (EntityValueFunction('4-C') |
-              ghsValueSign) ]}} </span>
+            <span><span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="['' + (EntityValueFunction('4-C') |
+              ghsValueSign) ]"></span> </span>
           </div>
 
           <div class="item challenges" *ngIf="numberChallenges > 0">
-            <span>{{('scenario.summary.challenges.' + (numberChallenges > 1 ? 'completed' : 'complete')) |
-              ghsLabel}}</span>
+            <span [ghs-label]="('scenario.summary.challenges.' + (numberChallenges > 1 ? 'completed' : 'complete'))"></span>
             <input type="checkbox" [checked]="challenges > 0" (change)="toggleChallenges()">
             <input *ngIf="numberChallenges > 1" type="checkbox" [checked]="challenges > 1"
               (change)="toggleChallenges(true)">
@@ -523,27 +527,27 @@
   </div>
 
   <div class="buttons">
-    <a class="cancel" (click)="close()">{{'scenario.summary.cancel' | ghsLabel}}</a>
+    <a class="cancel" (click)="close()"><span [ghs-label]="'scenario.summary.cancel'"></span></a>
     <span class="links"
       *ngIf="success && (gameManager.game.party.campaignMode || forceCampaign) && (scenario.links && scenario.links.length > 0 || scenario.forcedLinks && scenario.forcedLinks.length > 0)">
       <ng-container *ngIf="scenario.forcedLinks && scenario.forcedLinks.length > 0">
-        <span class="text">{{'scenario.summary.forcedLinks' | ghsLabel}}</span>
+        <span class="text"><span [ghs-label]="'scenario.summary.forcedLinks'"></span></span>
         <a class="apply forced-link" (click)="finish(index)" *ngFor="let index of scenario.forcedLinks">
-          <span [i18n]="'scenario.summary.link'" [i18n-args]="[index]"></span>
+          <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
         </a>
       </ng-container>
       <ng-container *ngIf="(!scenario.forcedLinks || scenario.forcedLinks.length == 0)">
-        <span class="text">{{'scenario.summary.links' | ghsLabel}}</span>
+        <span class="text"><span [ghs-label]="'scenario.summary.links'"></span></span>
         <a class="link" (click)="finish(index)" *ngFor="let index of scenario.links">
-          <span [i18n]="'scenario.summary.link'" [i18n-args]="[index]"></span>
+          <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
         </a>
       </ng-container>
     </span>
     <a class="apply"
       *ngIf="!success || !gameManager.game.party.campaignMode || forceCampaign || !scenario.forcedLinks || scenario.forcedLinks.length == 0"
-      (click)="finish()">{{'scenario.summary.apply' | ghsLabel}}</a>
-    <a class="restart" *ngIf="!success" (click)="restart()">{{ (lootColumns.length > 0 ?
+      (click)="finish()"><span [ghs-label]="'scenario.summary.apply'"></span></a>
+    <a class="restart" *ngIf="!success" (click)="restart()"><span [ghs-label]="(lootColumns.length > 0 ?
       'scenario.summary.restartLoseLoot'
-      : 'scenario.summary.restart') | ghsLabel}}</a>
+      : 'scenario.summary.restart')"></span></a>
   </div>
 </div>

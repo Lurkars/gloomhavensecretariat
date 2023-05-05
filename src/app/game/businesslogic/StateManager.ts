@@ -166,13 +166,17 @@ export class StateManager {
           let gameUndo: GameModel = message.payload as GameModel;
 
           const undoGame = await storageManager.readFromList<GameModel>('undo', gameManager.stateManager.undoCount - 1);
+          console.log(undoGame && undoGame.revision - undoGame.revisionOffset, gameManager.game.revision - gameManager.game.revisionOffset - 1);
+          console.log(gameManager.stateManager.undoCount, gameManager.stateManager.redoCount);
           if (undoGame && undoGame.revision - undoGame.revisionOffset == gameManager.game.revision - gameManager.game.revisionOffset - 1) {
-            storageManager.deleteFromList('undos', gameManager.stateManager.undoCount - 1);
+            storageManager.deleteFromList('undo', gameManager.stateManager.undoCount - 1);
+          } else if (gameManager.stateManager.redoCount) {
+            storageManager.insertList('undo-infos', message.undoinfo && ['serverSync', ...message.undoinfo] || ['serverSync'], gameManager.stateManager.undoCount - gameManager.stateManager.redoCount - 1);
           } else {
-            storageManager.insertList('undo-infos', message.undoinfo && ['serverSync', ...message.undoinfo] || ['serverSync'], gameManager.stateManager.undoCount - gameManager.stateManager.redoCount);
+            storageManager.write('undo-infos', message.undoinfo && ['serverSync', ...message.undoinfo] || ['serverSync']);
           }
 
-          storageManager.write('redos', undefined, gameManager.game.toModel());
+          storageManager.write('redo', gameManager.game.toModel());
           gameManager.stateManager.redoCount++;
           gameManager.game.fromModel(gameUndo);
           gameManager.stateManager.saveLocal();
@@ -195,7 +199,7 @@ export class StateManager {
             storageManager.insertList('undo-infos', message.undoinfo && ['serverSync', ...message.undoinfo] || ['serverSync'], gameManager.stateManager.undoCount - gameManager.stateManager.redoCount);
           }
 
-          storageManager.write('undo', undefined, gameManager.game.toModel());
+          storageManager.write('undo', gameManager.game.toModel());
           gameManager.stateManager.undoCount++;
           gameManager.game.fromModel(gameRedo);
           gameManager.stateManager.saveLocal();
@@ -255,7 +259,7 @@ export class StateManager {
             settings.zoom = settingsManager.settings.zoom;
 
             settingsManager.setSettings(Object.assign(new Settings(), settings));
-            storageManager.write('settings', 'default', settingsManager.settings);
+            storageManager.write('settings', settingsManager.settings, 'default');
             setTimeout(() => {
               window.document.body.classList.remove('server-sync');
             }, 1);
@@ -481,7 +485,7 @@ export class StateManager {
   async addToUndo(info: string[]) {
     const last = this.undoCount > 0 ? await storageManager.readFromList<GameModel>('undo', this.undoCount - 1) : undefined;
     if (!last || this.game.toModel().revision != last.revision) {
-      await storageManager.write('undo', undefined, this.game.toModel());
+      await storageManager.write('undo', this.game.toModel());
       this.undoCount++;
       const maxUndos = storageManager.db ? settingsManager.settings.maxUndo : Math.min(settingsManager.settings.maxUndo, 50);
       while (this.undoCount > maxUndos) {
@@ -504,7 +508,7 @@ export class StateManager {
       await storageManager.clear('redo');
       this.redoCount = 0;
 
-      await storageManager.write('undo-infos', undefined, info);
+      await storageManager.write('undo-infos', info);
     }
   }
 
@@ -516,7 +520,7 @@ export class StateManager {
     if (this.undoCount > 0) {
       window.document.body.classList.add('working');
 
-      await storageManager.write('redo', undefined, this.game.toModel());
+      await storageManager.write('redo', this.game.toModel());
       this.redoCount++;
       const revision = gameManager.game.revision;
       const revisionOffset = gameManager.game.revisionOffset;
@@ -542,7 +546,7 @@ export class StateManager {
   async redo(sync: boolean = true) {
     if (this.redoCount > 0) {
       window.document.body.classList.add('working');
-      await storageManager.write('undo', undefined, this.game.toModel());
+      await storageManager.write('undo', this.game.toModel());
       this.undoCount++;
       const revision = gameManager.game.revision;
       const revisionOffset = gameManager.game.revisionOffset;

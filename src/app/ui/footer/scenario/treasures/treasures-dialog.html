@@ -1,6 +1,6 @@
 <div class="treasures-popup">
 
-    <div class="title">{{'game.loot.treasures' | ghsLabel}}</div>
+    <div class="title"><span [ghs-label]="'game.loot.treasures'"></span></div>
 
     <div class="treasures">
         <div class="treasure" *ngFor="let treasure of treasures; let i = index;"
@@ -15,7 +15,10 @@
         <div class="character" *ngFor="let char of characters" (click)="toggleCharacter(char)"
             [ngClass]="{'selected' : character == char && treasureIndex != -1, 'disabled' : treasureIndex == -1}">
             <img class="icon" [src]="char.iconUrl" />
-            <span class="name">{{char.title || ('data.character.' + char.name | ghsLabel)}}</span>
+            <span class="name">
+                <span *ngIf="char.title">{{char.title}}</span>
+                <span *ngIf="!char.title" [ghs-label]="'data.character.' + char.name"></span>
+            </span>
 
             <div class="treasures">
                 <div class="hint-container" *ngFor="let treasure of char.treasures;">
@@ -36,16 +39,17 @@
     <div class="loot">
         <ng-container
             *ngIf="character && treasureIndex != -1 && !gameManager.lootManager.hasTreasure(character, treasures[treasureIndex], treasureIndex)">
-            <p>{{'game.loot.lootTreasure' | ghsLabel:[character.title || '%data.character.' + character.name + '%', '' +
-                treasures[treasureIndex]]}}</p>
-            <div class="button" (click)="lootTreasure()">{{'game.loot.lootTreasure.confirm' | ghsLabel}}</div>
+            <p><span [ghs-label]="'game.loot.lootTreasure'" [ghs-label-args]="[character.title || '%data.character.' + character.name + '%', '' +
+                treasures[treasureIndex]]"></span></p>
+            <div class="button" (click)="lootTreasure()"><span [ghs-label]="'game.loot.lootTreasure.confirm'"></span></div>
         </ng-container>
         <ng-container
             *ngIf="character && treasureIndex != -1 && gameManager.lootManager.hasTreasure(character, treasures[treasureIndex], treasureIndex)">
-            <p>{{'game.loot.lootTreasure.looted' | ghsLabel:[character.title || '%data.character.' + character.name +
-                '%']}}</p>
+            <p><span [ghs-label]="'game.loot.lootTreasure.looted'"
+                    [ghs-label-args]="[character.title || '%data.character.' + character.name + '%']"></span></p>
 
-            <span *ngIf="treasures[treasureIndex] == 'G'">{{'game.loot.treasures.rewards.goal' | ghsLabel}}</span>
+            <span *ngIf="treasures[treasureIndex] == 'G'"><span
+                    [ghs-label]="'game.loot.treasures.rewards.goal'"></span></span>
 
             <ghs-treasure-label class="placeholder text-white" *ngIf="treasures[treasureIndex] != 'G'"
                 [edition]="scenario.edition" [index]="+treasures[treasureIndex] -1"

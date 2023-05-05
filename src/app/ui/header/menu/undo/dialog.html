@@ -1,14 +1,14 @@
 <div class="undo-dialog">
     <img src="./assets/images/shuffle.svg" class="working" *ngIf="working">
     <ng-container *ngIf="!working">
-        <a class="close" (click)="dialogRef.close()" [title]="'close' | ghsLabel"><img
+        <a class="close" (click)="dialogRef.close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'"><img
                 src="./assets/images/close.svg"></a>
         <div class="menu">
             <a class="state undo"
                 [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning)}"
-                (click)="undo()">{{'state.undo' | ghsLabel}}</a>
+                (click)="undo()"><span [ghs-label]="'state.undo'"></span></a>
             <a class="state redo" [ngClass]="{'disabled' : !gameManager.stateManager.redoPermission }"
-                (click)="redo()">{{'state.redo' | ghsLabel}}</a>
+                (click)="redo()"><span [ghs-label]="'state.redo'"></span></a>
         </div>
 
         <div class="container">
@@ -17,12 +17,12 @@
                     <span class="entry">
                         <span class="revision">{{redoRevisions[i] + 1 }}.</span>
                         <span class="info text-white" *ngIf="getRedoInfo(i).length > 0"
-                            [i18n]="'state.info.' + getRedoInfo(i)[0]"
-                            [i18n-args]="(getRedoInfo(i) | slice:1:getRedoInfo(i).length)" [i18n-empty]="true"></span>
+                            [ghs-label]="'state.info.' + getRedoInfo(i)[0]"
+                            [ghs-label-args]="(getRedoInfo(i) | slice:1:getRedoInfo(i).length)" [ghs-label-empty]="true"></span>
                     </span>
                     <span class="warning" *ngIf="i > 0 && redoRevisions[i] - redoRevisions[i-1] != 1">
                         <img src="./assets/images/warning.svg">
-                        <span [i18n]="'state.missing'" [i18n-args]="['' + (redoRevisions[i] -
+                        <span [ghs-label]="'state.missing'" [ghs-label-args]="['' + (redoRevisions[i] -
                     redoRevisions[i-1] - 1)]"></span>
                     </span>
                 </ng-container>
@@ -33,12 +33,12 @@
                 <span class="entry">
                     <span class="revision">{{gameManager.game.revision - (gameManager.game.revisionOffset || 0) +
                         1}}.</span>
-                    <span class="info" [i18n]="'state.currentGame'"></span>
+                    <span class="info" [ghs-label]="'state.currentGame'"></span>
                 </span>
                 <span class="warning undo-offset" *ngIf="undoOffset && gameManager.stateManager.gameOffsetWarning"
                     (click)="gameManager.stateManager.gameOffsetWarning = false">
                     <img src="./assets/images/warning.svg">
-                    <span [i18n]="'state.missing'" [i18n-args]="['' + undoOffset]"></span>
+                    <span [ghs-label]="'state.missing'" [ghs-label-args]="['' + undoOffset]"></span>
                 </span>
             </div>
 
@@ -47,20 +47,20 @@
                     <span class="warning" *ngIf="!undoOffset && i == gameManager.stateManager.undoCount - 1 && ((gameManager.game.revision
                     - gameManager.game.revisionOffset) - undoRevisions[i] - 1)">
                         <img src="./assets/images/warning.svg">
-                        <span [i18n]="'state.missing'" [i18n-args]="['' + ((gameManager.game.revision
+                        <span [ghs-label]="'state.missing'" [ghs-label-args]="['' + ((gameManager.game.revision
                         - gameManager.game.revisionOffset) -  undoRevisions[i] - 1)]"></span>
                     </span>
                     <span class="warning"
                         *ngIf="i < gameManager.stateManager.undoCount - 1 &&  undoRevisions[i+1] -  undoRevisions[i] != 1">
                         <img src="./assets/images/warning.svg">
-                        <span [i18n]="'state.missing'" [i18n-args]="['' + ( undoRevisions[i+1]
+                        <span [ghs-label]="'state.missing'" [ghs-label-args]="['' + ( undoRevisions[i+1]
                     -  undoRevisions[i] - 1)]"></span>
                     </span>
                     <span class="entry">
                         <span class="revision">{{ undoRevisions[i] + 1}}.</span>
                         <span class="info text-white" *ngIf="getUndoInfo(i).length > 0"
-                            [i18n]="'state.info.' + getUndoInfo(i)[0]"
-                            [i18n-args]="(getUndoInfo(i) | slice:1:getUndoInfo(i).length)" [i18n-empty]="true"></span>
+                            [ghs-label]="'state.info.' + getUndoInfo(i)[0]"
+                            [ghs-label-args]="(getUndoInfo(i) | slice:1:getUndoInfo(i).length)" [ghs-label-empty]="true"></span>
                         <span class="spacer"></span>
                     </span>
                 </ng-container>
@@ -72,13 +72,13 @@
 
             <a class="state" *ngIf="gameManager.stateManager.undoCount > 0"
                 [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission, 'confirm' : confirm == 'clearUndos'}"
-                (mouseleave)="confirm = ''" (click)="clearUndos()">{{'state.clear.undos' | ghsLabel}}{{confirm ==
+                (mouseleave)="confirm = ''" (click)="clearUndos()"><span [ghs-label]="'state.clear.undos'"></span>{{confirm ==
                 'clearUndos' ? '!' :
                 '?'}}</a>
 
             <a class="state" *ngIf="gameManager.stateManager.redoCount > 0"
                 [ngClass]="{'disabled' : !gameManager.stateManager.redoPermission, 'confirm' : confirm == 'clearRedos'}"
-                (mouseleave)="confirm = ''" (click)="clearRedos()">{{'state.clear.redos' | ghsLabel}}{{confirm ==
+                (mouseleave)="confirm = ''" (click)="clearRedos()"><span [ghs-label]="'state.clear.redos'"></span>{{confirm ==
                 'clearRedos' ? '!' :
                 '?'}}</a>
         </div>

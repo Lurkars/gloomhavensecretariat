@@ -14,7 +14,7 @@
   left: 0;
   width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
   height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-  z-index: 1000;
+  z-index: 2;
 
   .ghs-svg {
     filter: var(--ghs-filter-gray) var(--ghs-filter-shadow) !important;
@@ -35,6 +35,10 @@
   }
 }
 
+.scroll-container {
+  z-index: 1;
+}
+
 .menu-container {
 
   position: relative;
@@ -42,6 +46,7 @@
   flex-direction: column;
   margin-left: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
   padding-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+  z-index: 1;
 
   .separator {
     border-top: calc(var(--ghs-unit) * 0.1) solid var(--ghs-color-gray);
