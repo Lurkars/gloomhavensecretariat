@@ -35,7 +35,7 @@
       <ghs-drag-click class="drag-token"
         [style.margin-left]="initiativeElement.elementRef.nativeElement.clientWidth + 'px'"
         (dragMove)="dragTokenMove($event)" (dragEnd)="dragTokenEnd($event)" [relative]="true" [screenWidth]="true"
-        (singleClick)="openEntityMenu($event)"></ghs-drag-click>
+        (singleClick)="nextIdentity($event)"></ghs-drag-click>
 
       <ghs-drag-click class="drag-xp" (dragMove)="dragXpMove($event)" (dragEnd)="dragXpEnd($event)" [relative]="true"
         [screenWidth]="true" (singleClick)="openEntityMenu($event)"></ghs-drag-click>
@@ -43,11 +43,6 @@
       <ghs-drag-click class="drag-loot" (dragMove)="dragLootMove($event)" (dragEnd)="dragLootEnd($event)"
         [relative]="true" [screenWidth]="true" (singleClick)="openEntityMenu($event)">
       </ghs-drag-click>
-
-      <ghs-drag-click
-        *ngIf="settingsManager.settings.characterIdentities && character.identities && character.identities.length > 1"
-        [style.margin-left]="initiativeElement.elementRef.nativeElement.clientWidth + 'px'" class="next-identity"
-        (singleClick)="nextIdentity($event)"></ghs-drag-click>
     </ng-container>
 
     <ghs-character-initiative #initiativeElement [figure]="character"></ghs-character-initiative>

@@ -1085,13 +1085,14 @@ input[type="radio"] {
       background-color: var(--ghs-character-color);
       opacity: 0.4;
       border-radius: 100%;
-      filter: brightness(0.5) saturate(8);
+      filter: brightness(0.9) saturate(3);
     }
 
     img {
       height: 80%;
       width: auto;
       z-index: 1;
+      filter: brightness(0.2);
     }
   }
 

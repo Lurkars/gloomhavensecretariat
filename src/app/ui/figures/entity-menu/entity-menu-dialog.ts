@@ -644,7 +644,7 @@ export class EntityMenuDialogComponent {
         gameManager.stateManager.after();
       }
 
-      if (this.characterToken != 0) {
+      if (this.characterToken != this.data.entity.token) {
         gameManager.stateManager.before("setCharacterToken", "data.character." + this.data.entity.name,'' + this.characterToken);
         this.data.entity.token = this.characterToken;
         if (this.data.entity.token < 0) {

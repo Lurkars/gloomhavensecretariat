@@ -175,6 +175,10 @@
     }
   }
 
+  .character-token {
+    font-size: calc(var(--ghs-unit) * 3.25 * var(--ghs-dialog-factor));
+  }
+
   img {
     height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
     width: auto;

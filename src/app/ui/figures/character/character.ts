@@ -158,7 +158,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   }
 
   nextIdentity(event: any): void {
-    if (this.character.identities.length > 1) {
+    if (settingsManager.settings.characterIdentities && this.character.identities && this.character.identities.length > 1) {
       gameManager.stateManager.before("nextIdentity", "data.character." + this.character.name);
       this.character.identity++;
       if (this.character.identity >= this.character.identities.length) {
@@ -166,6 +166,8 @@ export class CharacterComponent implements OnInit, OnDestroy {
       }
       gameManager.stateManager.after();
       event.preventDefault();
+    } else {
+      this.openEntityMenu(event);
     }
   }
 
