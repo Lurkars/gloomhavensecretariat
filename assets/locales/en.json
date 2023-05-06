@@ -1023,7 +1023,7 @@
       "perks": "Gain {0} perk each",
       "prosperity": "{0} prosperity",
       "reputation": "{0} reputation",
-      "randomItemBlueprint":  "Gain one random item blueprint:",
+      "randomItemBlueprint": "Gain one random item blueprint:",
       "resources": "Gain {1} %game.resource.{0}% each",
       "resourcesLose": "Lose {1} %game.resource.{0}% each",
       "unlockCharacter": {
@@ -1138,7 +1138,12 @@
       "xpChallenges": "Challenges XP",
       "xpGained": "Gained XP"
     },
-    "title": "Title"
+    "title": "Title",
+    "tooltip": {
+      ".": "{0}",
+      "blocked": "{0} (%scenario.blocked%)",
+      "locked": "{0} (%scenario.blocked%)"
+    }
   },
   "section": "Add Section",
   "server": {
