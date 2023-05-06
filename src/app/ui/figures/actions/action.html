@@ -352,10 +352,10 @@
           <span *ngIf="!settingsManager.settings.fhStyle">&nbsp;</span>
         </span>
 
-        <span class="type" *ngIf="action.type == ActionType.target && action.value > 1">
+        <span class="type" *ngIf="action.type == ActionType.target && EntityValueFunction(action.value) > 1">
           <span [ghs-label]="'game.action.targets'"></span></span>
 
-        <span *ngIf="action.type != ActionType.target || action.value < 2" class="type">
+        <span *ngIf="action.type != ActionType.target || EntityValueFunction(action.value) < 2" class="type">
           <span [ghs-label]="'game.action.' + action.type"></span>
         </span>
 

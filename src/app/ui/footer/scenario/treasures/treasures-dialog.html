@@ -6,7 +6,7 @@
         <div class="treasure" *ngFor="let treasure of treasures; let i = index;"
             [ngClass]="{'looted': looted.indexOf(i) != -1, 'disabled' : !character, 'highlight' : i == treasureIndex}"
             (click)="toggleTreasure(i)">
-            <span *ngIf="treasure < 10">0</span>{{treasure}}
+            <span *ngIf="!('' + treasure).startsWith('G') && +treasure < 10">0</span>{{treasure}}
             <img class="overlay check" src="./assets/images/check.svg">
         </div>
     </div>
@@ -23,7 +23,7 @@
             <div class="treasures">
                 <div class="hint-container" *ngFor="let treasure of char.treasures;">
                     <div class="treasure hint-trigger">
-                        <span *ngIf="treasure < 10">0</span>{{('' + treasure).startsWith('G-') ? 'G' : (''
+                        <span *ngIf="!('' + treasure).startsWith('G') && +treasure < 10">0</span>{{('' + treasure).startsWith('G-') ? 'G' : (''
                         +treasure).split(':')[0]}}
                     </div>
                     <span class="hint center">

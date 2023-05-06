@@ -5,13 +5,13 @@ import { CharacterComponent } from "../character";
 @Component({
   selector: 'ghs-character-fullview',
   templateUrl: './fullview.html',
-  styleUrls: [ '../character.scss', './fullview.scss' ]
+  styleUrls: ['../character.scss', './fullview.scss']
 })
 export class CharacterFullViewComponent extends CharacterComponent {
 
-  cancel() {
+  async cancel() {
     this.character.fullview = false;
-    gameManager.stateManager.saveLocal();
+    await gameManager.stateManager.saveLocal();
     gameManager.uiChange.emit();
   }
 

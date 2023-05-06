@@ -291,19 +291,19 @@ await gameManager.stateManager.after();
     });
   }
 
-  characterFullView() {
+  async characterFullView() {
     gameManager.game.figures.forEach((figure) => {
       if (figure instanceof Character) {
         figure.fullview = false;
       }
     });
     this.character.fullview = true;
-    gameManager.stateManager.saveLocal();
+    await gameManager.stateManager.saveLocal();
     gameManager.uiChange.emit();
   }
 
 
-  toggleAttackModifierDeckVisible() {
+  async toggleAttackModifierDeckVisible() {
     if (this.character.attackModifierDeckVisible) {
       this.character.attackModifierDeckVisible = false;
     } else if (settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
@@ -338,10 +338,10 @@ await gameManager.stateManager.after();
       this.character.attackModifierDeckVisible = true;
       this.character.lootCardsVisible = false;
     }
-    gameManager.stateManager.saveLocal();
+    await gameManager.stateManager.saveLocal();
   }
 
-  toggleLootCardsVisible() {
+  async toggleLootCardsVisible() {
     if (this.character.lootCardsVisible) {
       this.character.lootCardsVisible = false;
     } else if (settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
@@ -351,7 +351,7 @@ await gameManager.stateManager.after();
       this.character.lootCardsVisible = true;
       this.character.attackModifierDeckVisible = false;
     }
-    gameManager.stateManager.saveLocal();
+    await gameManager.stateManager.saveLocal();
   }
 
   openLootDeckDialog() {

@@ -141,7 +141,7 @@ export class StateManager {
             await gameManager.stateManager.before();
             storageManager.addBackup(gameManager.game.toModel());
             console.warn("An older revision was loaded from server, created a backup of previous state.");
-            gameManager.stateManager.saveLocal();
+            await gameManager.stateManager.saveLocal();
           }
           const undoinfo = message.undoinfo;
           if (undoinfo) {
@@ -152,7 +152,7 @@ export class StateManager {
             }
           }
           gameManager.game.fromModel(gameModel, true);
-          gameManager.stateManager.saveLocal();
+          await gameManager.stateManager.saveLocal();
           gameManager.uiChange.emit(true);
           setTimeout(() => {
             window.document.body.classList.remove('working');
@@ -170,16 +170,14 @@ export class StateManager {
           console.log(gameManager.stateManager.undoCount, gameManager.stateManager.redoCount);
           if (undoGame && undoGame.revision - undoGame.revisionOffset == gameManager.game.revision - gameManager.game.revisionOffset - 1) {
             storageManager.deleteFromList('undo', gameManager.stateManager.undoCount - 1);
-          } else if (gameManager.stateManager.redoCount) {
-            storageManager.insertList('undo-infos', message.undoinfo && ['serverSync', ...message.undoinfo] || ['serverSync'], gameManager.stateManager.undoCount - gameManager.stateManager.redoCount - 1);
           } else {
-            storageManager.write('undo-infos', message.undoinfo && ['serverSync', ...message.undoinfo] || ['serverSync']);
+            storageManager.insertList('undo-infos', message.undoinfo && ['serverSync', ...message.undoinfo] || ['serverSync'], gameManager.stateManager.undoCount - gameManager.stateManager.redoCount - 1);
           }
 
           storageManager.write('redo', gameManager.game.toModel());
           gameManager.stateManager.redoCount++;
           gameManager.game.fromModel(gameUndo);
-          gameManager.stateManager.saveLocal();
+          await gameManager.stateManager.saveLocal();
           gameManager.uiChange.emit(true);
           setTimeout(() => {
             window.document.body.classList.remove('working');
@@ -202,7 +200,7 @@ export class StateManager {
           storageManager.write('undo', gameManager.game.toModel());
           gameManager.stateManager.undoCount++;
           gameManager.game.fromModel(gameRedo);
-          gameManager.stateManager.saveLocal();
+          await gameManager.stateManager.saveLocal();
           gameManager.uiChange.emit(true);
           setTimeout(() => {
             window.document.body.classList.remove('working');
@@ -217,7 +215,7 @@ export class StateManager {
           if (gameManager.game.revision == gameUpdate.revision) {
             gameManager.game.playSeconds = gameUpdate.playSeconds;
             gameManager.game.server = gameUpdate.server;
-            gameManager.stateManager.saveLocal();
+            await gameManager.stateManager.saveLocal();
             gameManager.uiChange.emit(true);
             setTimeout(() => {
               window.document.body.classList.remove('working');
@@ -373,8 +371,8 @@ export class StateManager {
     storageManager.clear('undo-infos');
   }
 
-  saveLocal() {
-    storageManager.writeGameModel(this.game.toModel());
+  async saveLocal() {
+    await storageManager.writeGameModel(this.game.toModel());
     this.lastSaveTimestamp = new Date().getTime();
   }
 
@@ -415,14 +413,22 @@ export class StateManager {
 
   async after(timeout: number = 1, revisionChange: number = 1, type: string = "game") {
     this.game.revision += revisionChange;
-    this.saveLocal();
+    await this.saveLocal();
     if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
       window.document.body.classList.add('server-sync');
-      let undoInfo = await storageManager.readFromList('undo-infos', this.undoCount - 1);
-
+      let undoInfo = undefined;
+      try {
+        undoInfo = await storageManager.readFromList('undo-infos', this.undoCount - 1);
+      } catch {
+        undoInfo = undefined;
+      }
 
       if (type == 'game-undo') {
-        undoInfo = await storageManager.readFromList('undo-infos', this.undoCount);
+        try {
+          undoInfo = await storageManager.readFromList('undo-infos', this.undoCount);
+        } catch {
+          undoInfo = undefined;
+        }
       }
 
       let message = {

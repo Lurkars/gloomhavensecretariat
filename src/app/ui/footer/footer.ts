@@ -47,7 +47,7 @@ export class FooterComponent implements OnInit {
       }
     })
 
-    setInterval(() => {
+    setInterval(async () => {
       gameManager.game.playSeconds++;
       let seconds = gameManager.game.playSeconds;
       this.currentTime = "";
@@ -64,7 +64,7 @@ export class FooterComponent implements OnInit {
 
       // store every 30 seconds
       if ((new Date().getTime() / 1000 - gameManager.stateManager.lastSaveTimestamp / 1000) > 30) {
-        gameManager.stateManager.saveLocal();
+        await gameManager.stateManager.saveLocal();
       }
 
     }, 1000)

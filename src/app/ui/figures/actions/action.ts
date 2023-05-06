@@ -39,6 +39,7 @@ export class ActionComponent implements OnInit, OnDestroy {
   action!: Action | undefined;
 
   settingsManager: SettingsManager = settingsManager;
+  EntityValueFunction = EntityValueFunction;
 
   additionalSubActions: Action[] = [];
   elementActions: Action[] = [];

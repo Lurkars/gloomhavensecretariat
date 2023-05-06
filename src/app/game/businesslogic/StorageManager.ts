@@ -211,8 +211,10 @@ export class StorageManager {
               hasSkipped = true;
               cursor.advance(position);
               return;
-            } else {
+            } else if (cursor.value) {
               resolve(cursor.value);
+            } else {
+              reject();
             }
           }
           reject(event.error);
@@ -260,48 +262,72 @@ export class StorageManager {
     });
   }
 
-  deleteFromList(store: string, position: number): Promise<void> {
-    return new Promise((resolve, reject) => {
-      if (this.db) {
-        const transaction = this.db.transaction(store, "readwrite");
-        const objectStore = transaction.objectStore(store);
-
-        const request = objectStore.openCursor();
-        var hasSkipped = false;
-        request.onsuccess = (event: any) => {
-          var cursor = event.target.result;
-          if (cursor) {
-            if (!hasSkipped && position) {
-              hasSkipped = true;
-              cursor.advance(position);
-              return;
-            }
-            cursor.delete();
-            resolve();
-          }
-          reject(event.target.error);
-        };
-
-        request.onerror = (event: any) => {
-          console.error("delete from " + store + " failed", event);
-          reject(event.target.error);
-        };
-      } else {
-        const local: string | null = localStorage.getItem("ghs-" + store);
-        if (local) {
-          let result = JSON.parse(local);
-          result.splice(position, 1);
-          localStorage.setItem("ghs-" + store, JSON.stringify(result));
-          resolve();
-        } else {
-          reject();
-        }
+  async deleteFromList(store: string, position: number): Promise<void> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let data: any[] = await this.readAll<any>(store);
+        data.splice(position, 1);
+        await this.writeArray(store, data);
+        resolve();
+      } catch {
+        reject();
       }
-    });
+    })
+
+    /*
+        return new Promise((resolve, reject) => {
+          if (this.db) {
+            const transaction = this.db.transaction(store, "readwrite");
+            const objectStore = transaction.objectStore(store);
+    
+            const request = objectStore.openCursor();
+            var hasSkipped = false;
+            request.onsuccess = (event: any) => {
+              var cursor = event.target.result;
+              if (cursor) {
+                if (!hasSkipped && position) {
+                  hasSkipped = true;
+                  cursor.advance(position);
+                  return;
+                }
+                cursor.delete();
+                resolve();
+              }
+              reject(event.target.error);
+            };
+    
+            request.onerror = (event: any) => {
+              console.error("delete from " + store + " failed", event);
+              reject(event.target.error);
+            };
+          } else {
+            const local: string | null = localStorage.getItem("ghs-" + store);
+            if (local) {
+              let result = JSON.parse(local);
+              result.splice(position, 1);
+              localStorage.setItem("ghs-" + store, JSON.stringify(result));
+              resolve();
+            } else {
+              reject();
+            }
+          }
+        });
+        */
   }
 
 
-  insertList(store: string, object: any, position: number): Promise<void> {
+  async insertList(store: string, object: any, position: number): Promise<void> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let data: any[] = await this.readAll<any>(store);
+        data.splice(position, 0, object);
+        await this.writeArray(store, data);
+        resolve();
+      } catch {
+        reject();
+      }
+    })
+    /*
     return new Promise(async (resolve, reject) => {
       if (this.db) {
         const transaction = this.db.transaction(store, "readwrite");
@@ -317,12 +343,16 @@ export class StorageManager {
               cursor.advance(position);
               return;
             }
+            let value = undefined;
             if (cursor.value) {
-              const value = JSON.parse(JSON.stringify(cursor.value));
-              await this.insertList(store, value, position + 1);
+              value = JSON.parse(JSON.stringify(cursor.value));
             }
             cursor.update(object);
-            resolve();
+            if (value) {
+              return this.insertList(store, value, position + 1);
+            } else {
+              resolve();
+            }
           }
           reject();
         };
@@ -343,6 +373,7 @@ export class StorageManager {
         }
       }
     });
+    */
   }
 
   async writeArray(store: string, objects: any[]): Promise<void> {

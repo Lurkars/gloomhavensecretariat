@@ -68,13 +68,13 @@ export class ConditionHighlightAnimationDirective implements OnInit, OnDestroy {
     }
   }
 
-  playAnimation() {
+  async playAnimation() {
     this.el.nativeElement.classList.add("animation");
-    setTimeout(() => {
+    setTimeout(async () => {
       this.el.nativeElement.classList.remove("animation");
       if (this.condition.types.indexOf(ConditionType.turn) != -1 || !settingsManager.settings.activeApplyConditions) {
         this.condition.highlight = false;
-        gameManager.stateManager.saveLocal();
+        await gameManager.stateManager.saveLocal();
       }
     }, settingsManager.settings.disableAnimations ? 0 : 1100);
   }
