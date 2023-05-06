@@ -3,39 +3,39 @@
     <label>
       <input type="checkbox" [checked]="settingsManager.settings.debugRightClick"
         (change)="settingsManager.setDebugRightClick(!settingsManager.settings.debugRightClick)">
-      {{'settings.debug.rightClick' | ghsLabel}}
+      <span [ghs-label]="'settings.debug.rightClick'"></span>
     </label>
   </div>
   <div class="line title span">
-    <label>{{'editor' | ghsLabel}}</label>
+    <label><span [ghs-label]="'editor'"></span></label>
   </div>
   <div class="line">
-    <a [routerLink]="'/editor/monster'">{{'editor.monster' | ghsLabel}}</a>
+    <a [routerLink]="'/editor/monster'"><span [ghs-label]="'editor.monster'"></span></a>
   </div>
   <div class="line">
-    <a [routerLink]="'/editor/character'">{{'editor.character' | ghsLabel}}</a>
+    <a [routerLink]="'/editor/character'"><span [ghs-label]="'editor.character'"></span></a>
   </div>
   <div class="line">
-    <a [routerLink]="'/editor/deck'">{{'editor.deck' | ghsLabel}}</a>
+    <a [routerLink]="'/editor/deck'"><span [ghs-label]="'editor.deck'"></span></a>
   </div>
   <div class="line">
-    <a [routerLink]="'/editor/edition'">{{'editor.edition' | ghsLabel}}</a>
+    <a [routerLink]="'/editor/edition'"><span [ghs-label]="'editor.edition'"></span></a>
   </div>
   <div class="line title span">
-    <label>{{'tools' | ghsLabel}}</label>
+    <label><span [ghs-label]="'tools'"></span></label>
   </div>
   <div class="line">
-    <a [routerLink]="'/tools/decks'">{{'tools.decks' | ghsLabel}}</a>
+    <a [routerLink]="'/tools/decks'"><span [ghs-label]="'tools.decks'"></span></a>
   </div>
   <div class="line">
-    <a [routerLink]="'/tools/attackmodifier'">{{'tools.attackModifier' | ghsLabel}}</a>
-  </div>
-  <div class="separator"></div>
-  <div class="line">
-    <a (click)="settingsManager.validateEditionData()">{{'tools.validateEditionData' | ghsLabel}}</a>
+    <a [routerLink]="'/tools/attackmodifier'"><span [ghs-label]="'tools.attackModifier'"></span></a>
   </div>
   <div class="separator"></div>
   <div class="line">
-    <a [routerLink]="'/'">{{'tools.backToGhs' | ghsLabel}}</a>
+    <a (click)="settingsManager.validateEditionData()"><span [ghs-label]="'tools.validateEditionData'"></span></a>
+  </div>
+  <div class="separator"></div>
+  <div class="line">
+    <a [routerLink]="'/'"><span [ghs-label]="'tools.backToGhs'"></span></a>
   </div>
 </div>

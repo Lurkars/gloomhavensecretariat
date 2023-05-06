@@ -94,7 +94,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   toModel(): GameCharacterModel {
-    return new GameCharacterModel(this.name, this.edition, this.marker, this.title, this.initiative, this.experience, this.loot, this.lootCards || [], this.treasures && this.treasures.map((treasure) => '' + treasure) || [], this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.identity, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.lootCardsVisible, this.fullview, this.number, this.attackModifierDeck.toModel(), this.donations, this.token, this.absent, this.longRest);
+    return new GameCharacterModel(this.name, this.edition, this.marker, this.title, this.initiative, this.experience, this.loot, this.lootCards || [], this.treasures && this.treasures.map((treasure) => '' + treasure) || [], this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.identity, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.lootCardsVisible, this.number, this.attackModifierDeck.toModel(), this.donations, this.token, this.absent, this.longRest);
   }
 
   fromModel(model: GameCharacterModel) {
@@ -189,7 +189,6 @@ export class Character extends CharacterData implements Entity, Figure {
       this.lootCardsVisible = true;
     }
 
-    this.fullview = model.fullview;
     this.donations = model.donations || 0;
     this.token = model.token || 0;
     this.absent = model.absent;
@@ -253,7 +252,6 @@ export class GameCharacterModel {
   initiativeVisible: boolean;
   attackModifierDeckVisible: boolean;
   lootCardsVisible: boolean;
-  fullview: boolean;
   number: number;
   attackModifierDeck: GameAttackModifierDeckModel;
   donations: number;
@@ -285,7 +283,6 @@ export class GameCharacterModel {
     initiativeVisible: boolean,
     attackModifierDeckVisible: boolean,
     lootCardsVisible: boolean,
-    fullview: boolean,
     number: number,
     attackModifierDeck: GameAttackModifierDeckModel,
     donations: number,
@@ -316,7 +313,6 @@ export class GameCharacterModel {
     this.initiativeVisible = initiativeVisible;
     this.attackModifierDeckVisible = attackModifierDeckVisible;
     this.lootCardsVisible = lootCardsVisible;
-    this.fullview = fullview;
     this.number = number;
     this.attackModifierDeck = attackModifierDeck;
     this.donations = donations;

@@ -3,10 +3,10 @@
   <div class="name">
     <img *ngIf="!data.monster.noArtwork" class="standee"
       [src]="gameManager.monsterManager.monsterThumbnail(data.monster)" />
-    {{'data.monster.' + data.monster.name | ghsLabel}}&nbsp;
-    <span class="ally" *ngIf="data.monster.isAlly">{{'game.ally' | ghsLabel}}&nbsp;</span>
-    <span class="allied" *ngIf="data.monster.isAllied">{{'game.allied' | ghsLabel}}&nbsp;</span>
-    <span class="monster-type" *ngIf="data.type" [i18n]="'(%game.monsterType.' +  data.type + '%)'"></span>
+    <span [ghs-label]="'data.monster.' + data.monster.name"></span>&nbsp;
+    <span class="ally" *ngIf="data.monster.isAlly"><span [ghs-label]="'game.ally'"></span>&nbsp;</span>
+    <span class="allied" *ngIf="data.monster.isAllied"><span [ghs-label]="'game.allied'"></span>&nbsp;</span>
+    <span class="monster-type" *ngIf="data.type" [ghs-label]="'(%game.monsterType.' +  data.type + '%)'"></span>
   </div>
 
   <div class="entity-container">
@@ -15,7 +15,7 @@
         <img class="ghs-svg" src="./assets/images/minus.svg">
       </ghs-drag-click>
     </span>
-    <span class="item" title="{{'game.health' | ghsLabel}}">
+    <span class="item" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'">
       <img src="./assets/images/status/health.svg" />
       <span class="badge health-count"
         [ngClass]="{'negative-value' : minHealth() < 0, 'positive-value' : maxHealth() > 0}">{{(minHealth() < 0 ?
@@ -30,7 +30,7 @@
       <ghs-conditions [entityConditions]="entityConditions" [entities]="entities" [figure]="data.monster"
         [type]="'monster'"></ghs-conditions>
 
-      <span class="item" title="{{'game.dead' | ghsLabel}}">
+      <span class="item" [ghs-label]="'game.dead'" [ghs-label-attribute]="'title'">
         <a class="button" (click)="toggleDead()">
           <img src="./assets/images/status/dead.svg" />
         </a>
@@ -38,8 +38,8 @@
   </div>
 
   <span class="toggle-type" *ngIf="toogleTypeAvailable" (click)="toggleType()">
-    <span [i18n]="'%game.monsterType.normal%'"></span>
+    <span [ghs-label]="'%game.monsterType.normal%'"></span>
     &nbsp;&lt;-&gt;&nbsp;
-    <span [i18n]="'%game.monsterType.elite%'"></span>
+    <span [ghs-label]="'%game.monsterType.elite%'"></span>
   </span>
 </div>

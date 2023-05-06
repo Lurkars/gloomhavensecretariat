@@ -2,7 +2,7 @@
     <div class="card" [ngClass]="{'flipped' : flipped || revealed, 'no-animations' : !animate}" #card
         [style.fontSize]="card.offsetWidth * 0.08 + 'px'" card-reveal [disabled]="!reveal" (change)="onChange($event)">
         <div class="card-back back">
-            <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
+            <span class="revealed"><span [ghs-label]="'game.cards.confirmReveal'"></span></span>
         </div>
         <div class="card-front front"
             [style.background-image]="'url(./assets/images/fh/loot/loot-' + loot.type +  (loot.type == LootType.money ? gameManager.lootManager.getValue(loot) : '') + '.png)'">
@@ -13,33 +13,32 @@
                 <ng-container *ngIf="loot.value4P == loot.value3P && loot.value3P != loot.value2P">
                     <span
                         [ngClass]="{'value': highlight,  'value-highlight' : highlight && gameManager.characterManager.characterCount() > 2}"
-                        [i18n]="'%game.loot.player.3-4% +' + loot.value4P"></span>/
+                        [ghs-label]="'%game.loot.player.3-4% +' + loot.value4P"></span>/
                     <span
                         [ngClass]="{'value': highlight,  'value-highlight' : highlight && gameManager.characterManager.characterCount() <= 2}"
-                        [i18n]="'%game.loot.player.2% +' + loot.value2P"></span>
+                        [ghs-label]="'%game.loot.player.2% +' + loot.value2P"></span>
                 </ng-container>
                 <ng-container *ngIf="loot.value4P != loot.value3P && loot.value3P == loot.value2P">
                     <span
                         [ngClass]="{'value': highlight,  'value-highlight' : highlight &&  gameManager.characterManager.characterCount() >= 4}"
-                        [i18n]="'%game.loot.player.4% +' + loot.value4P"></span>/
+                        [ghs-label]="'%game.loot.player.4% +' + loot.value4P"></span>/
                     <span
                         [ngClass]="{'value': highlight,  'value-highlight' : highlight && gameManager.characterManager.characterCount() <= 3}"
-                        [i18n]="'%game.loot.player.2-3% +' + loot.value2P"></span>
+                        [ghs-label]="'%game.loot.player.2-3% +' + loot.value2P"></span>
                 </ng-container>
                 <ng-container *ngIf="loot.value4P != loot.value3P && loot.value3P != loot.value2P">
                     <span
                         [ngClass]="{'value': highlight,  'value-highlight' : highlight && gameManager.characterManager.characterCount() > 3}"
-                        [i18n]="'%game.loot.player.4% +' + loot.value4P"></span>/
+                        [ghs-label]="'%game.loot.player.4% +' + loot.value4P"></span>/
                     <span
                         [ngClass]="{'value': highlight,  'value-highlight' : highlight && gameManager.characterManager.characterCount() == 3}"
-                        [i18n]="'%game.loot.player.3% +' + loot.value3P"></span>/
+                        [ghs-label]="'%game.loot.player.3% +' + loot.value3P"></span>/
                     <span
                         [ngClass]="{'value': highlight,  'value-highlight' : highlight &&  gameManager.characterManager.characterCount() < 3}"
-                        [i18n]="'%game.loot.player.2% +' + loot.value2P"></span>
+                        [ghs-label]="'%game.loot.player.2% +' + loot.value2P"></span>
                 </ng-container>
 
-                &nbsp;{{'game.loot.' + loot.type |
-                ghsLabel}}
+                &nbsp;<span [ghs-label]="'game.loot.' + loot.type"></span>
             </span>
             <span class="character" (click)="changeCharacter($event)" *ngIf="looted || character"
                 [ngClass]="{'with-header' : loot.type != LootType.money && loot.type != LootType.special1 && loot.type != LootType.special2, 'edit': edit && settingsManager.settings.applyLoot}">

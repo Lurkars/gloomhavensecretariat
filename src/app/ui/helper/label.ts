@@ -196,14 +196,15 @@ export const applyValueCalc = function (value: string, relative: boolean): strin
 }
 
 @Directive({
-  selector: ' [i18n]'
+  selector: ' [ghs-label]'
 })
-export class I18nDirective implements OnInit, OnDestroy, OnChanges {
+export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
 
-  @Input('i18n') value!: string;
-  @Input('i18n-args') args: string[] = [];
-  @Input('i18n-arg-label') argLabel: boolean = true;
-  @Input('i18n-empty') empty: boolean = true;
+  @Input('ghs-label') value!: string;
+  @Input('ghs-label-args') args: string[] = [];
+  @Input('ghs-label-args-replace') argLabel: boolean = true;
+  @Input('ghs-label-empty') empty: boolean = true;
+  @Input('ghs-label-attribute') attribute: string = "";
   @Input('relative') relative: boolean = false;
   @Input('fh-force') fhForce: boolean = false;
   fhStyle: boolean = false;
@@ -260,6 +261,11 @@ export class I18nDirective implements OnInit, OnDestroy, OnChanges {
       args = args.map((arg) => applyPlaceholder(settingsManager.getLabel(arg, [], false, this.empty), [], this.relative, this.fhStyle));
     }
 
-    this.el.nativeElement.innerHTML = this.value && applyPlaceholder(settingsManager.getLabel(this.value, args, false, this.empty), args, this.relative, this.fhStyle) || "";
+    const value = this.value && applyPlaceholder(settingsManager.getLabel(this.value, args, false, this.empty), args, this.relative, this.fhStyle) || "";
+    if (this.attribute) {
+      this.el.nativeElement.setAttribute(this.attribute, value);
+    } else {
+      this.el.nativeElement.innerHTML = value;
+    }
   }
 }

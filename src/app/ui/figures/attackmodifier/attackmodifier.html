@@ -2,7 +2,7 @@
   <div class="card" [ngClass]="{'flipped' : flipped || attackModifier.revealed, 'no-animations' : !animate}" card-reveal
     (change)="onChange($event)" [disabled]="!reveal" #card [style.fontSize]="card.offsetWidth * 0.08 + 'px'">
     <div class="card-back back">
-      <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
+      <span class="revealed"><span [ghs-label]="'game.cards.confirmReveal'"></span></span>
     </div>
     <div class="card-front front">
       <div *ngIf="!mixedElement && !multipe || wildElement" class="type {{effectClasses}}"

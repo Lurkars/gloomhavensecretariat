@@ -3,46 +3,47 @@
 
 
   <div class="character-editor">
-    <h1>{{'editor.character' | ghsLabel}} ({{'wip' | ghsLabel}})</h1>
+    <h1><span [ghs-label]="'editor.character'"></span> (<span [ghs-label]="'wip'"></span>)</h1>
     <div class="columns">
       <div class="input">
         <div class="character-data">
-          <h2>{{'editor.character.data' | ghsLabel}}</h2>
+          <h2><span [ghs-label]="'editor.character.data'"></span></h2>
 
           <div class="base-data dialog">
-            <label>{{'editor.character.data.name' | ghsLabel}}</label>
-            <input [(ngModel)]="characterData.name" placeholder="{{'editor.character.data.name' | ghsLabel}}"
+            <label><span [ghs-label]="'editor.character.data.name'"></span></label>
+            <input [(ngModel)]="characterData.name" [ghs-label]="'editor.character.data.name'" [ghs-label-attribute]="'placeholder'"
               (change)="characterDataToJson()" (keyup)="characterDataToJson()">
 
-            <label>{{'edition' | ghsLabel}}</label>
-            <input [(ngModel)]="characterData.edition" placeholder="{{'edition' | ghsLabel}}"
+            <label><span [ghs-label]="'edition'"></span></label>
+            <input [(ngModel)]="characterData.edition" [ghs-label]="'edition'" [ghs-label-attribute]="'placeholder'"
               (change)="characterDataToJson()" (keyup)="characterDataToJson()">
 
-            <label>{{'editor.character.data.color' | ghsLabel}}</label>
+            <label><span [ghs-label]="'editor.character.data.color'"></span></label>
             <input [(ngModel)]="characterData.color" type="color"
-              placeholder="{{'editor.character.data.color' | ghsLabel}}" (change)="characterDataToJson()"
+              [ghs-label]="'editor.character.data.color'" [ghs-label-attribute]="'placeholder'" (change)="characterDataToJson()"
               (keyup)="characterDataToJson()">
 
-            <label>{{'editor.character.data.spoiler' | ghsLabel}}</label>
+            <label><span [ghs-label]="'editor.character.data.spoiler'"></span></label>
             <input type="checkbox" [(ngModel)]="characterData.spoiler" (change)="characterDataToJson()">
 
-            <label>{{'editor.character.data.deck' | ghsLabel}}</label>
-            <input [(ngModel)]="characterData.deck" placeholder="{{'editor.character.data.deck' | ghsLabel}}"
+            <label><span [ghs-label]="'editor.character.data.deck'"></span></label>
+            <input [(ngModel)]="characterData.deck" [ghs-label]="'editor.character.data.deck'" [ghs-label-attribute]="'placeholder'"
               (change)="characterDataToJson()" (keyup)="characterDataToJson()">
 
 
-            <label>{{'editor.character.data.class' | ghsLabel}}</label>
+            <label><span [ghs-label]="'editor.character.data.class'"></span></label>
             <select [(ngModel)]="characterData.characterClass" (change)="characterDataToJson()">
               <option *ngFor="let class of CharacterClasses" [value]="class"
-                [selected]="characterData.characterClass == class">{{'character.class.' + class | ghsLabel }}</option>
+                [selected]="characterData.characterClass == class"><span [ghs-label]="'character.class.' + class"></span>
+              </option>
             </select>
 
-            <label>{{'editor.character.data.hp' | ghsLabel}}</label>
+            <label><span [ghs-label]="'editor.character.data.hp'"></span></label>
             <div class="hp-container">
               <select [(ngModel)]="hpIndex" (change)="changeHpIndex()">
-                <option *ngFor="let index of []| ghsRange:4" [value]="index-1">{{'editor.character.data.hp.' + (index-1)
-                  |
-                  ghsLabel }}</option>
+                <option *ngFor="let index of []| ghsRange:4" [value]="index-1">
+                  <span [ghs-label]="'editor.character.data.hp.' + (index-1)"></span>
+                </option>
               </select>
               <div class="hp-grid">
                 <ng-container *ngFor="let stat of characterData.stats">
@@ -57,23 +58,23 @@
       </div>
 
       <div class="output">
-        <h2>{{'editor.character.data.json' | ghsLabel}}
+        <h2><span [ghs-label]="'editor.character.data.json'"></span>
 
           <select (change)="loadCharacterData($event)">
-            <option [value]="-1">&lt;{{'editor.character.new' | ghsLabel}}&gt;</option>
+            <option [value]="-1">&lt;<span [ghs-label]="'editor.character.new'"></span>&gt;</option>
             <option [value]="index" *ngFor="let cD of gameManager.charactersData(edition); let index = index;"
               [selected]="cD.edition == characterData.edition && cD.name == characterData.name">
-              {{isSpoiled(cD) ? ('data.character.' + cD.name | ghsLabel) : cD.name}}
-              ({{'data.edition.' + cD.edition |
-              ghsLabel}})
+              <span *ngIf="isSpoiled(cD)" [ghs-label]="'data.character.' + cD.name"></span> {{cD.name}}
+              (<span [ghs-label]="'data.edition.' + cD.edition"></span>)
               [{{cD.name}}]
             </option>
           </select>
 
           <select [(ngModel)]="edition">
             <option></option>
-            <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">{{'data.edition.' + edition
-              | ghsLabel}}</option>
+            <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">
+              <span [ghs-label]="'data.edition.' + edition"></span>
+            </option>
           </select>
         </h2>
 
@@ -82,7 +83,7 @@
 
         <a class="button" [href]="'data:application/json;charset=utf-8,' + encodeURIComponent(inputCharacterData.value)"
           [download]="characterData.name + '.json'"><img class="ghs-icon" src="./assets/images/export.svg">
-          {{'editor.character.data.json.download' | ghsLabel}}</a>
+          <span [ghs-label]="'editor.character.data.json.download'"></span></a>
       </div>
     </div>
 

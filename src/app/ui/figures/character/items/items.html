@@ -1,5 +1,5 @@
 <div class="items">
-    <label>{{'character.progress.items' | ghsLabel}}:</label>
+    <label><span [ghs-label]="'character.progress.items'"></span>:</label>
     <div class="item-list">
         <div class="item-entry" *ngFor="let item of items; let index = index;">
             <span class="icon">
@@ -10,9 +10,8 @@
                 [ngClass]="{'disabled' : gameManager.game.state != GameState.draw || gameManager.game.round > 0}"
                 ghs-drag-click (singleClick)="toggleEquippedItem(item)"
                 (doubleClick)="toggleEquippedItem(item,true)">{{item.name}}
-                <ng-container *ngIf="item.edition != itemEdition">&nbsp;({{'data.edition.' +
-                    item.edition |
-                    ghsLabel}})</ng-container>
+                <ng-container *ngIf="item.edition != itemEdition">&nbsp;(<span [ghs-label]="'data.edition.' +
+                    item.edition"></span>)</ng-container>
             </span>
             <span class="spacer"></span>
             <span class="equipped" *ngIf="isEquipped(item)">
@@ -21,7 +20,7 @@
             <div class="effect hint-container" *ngIf="gameManager.characterManager.itemEffect(item)">
                 <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
                 <span class="hint">
-                    <span class="text">{{'character.progress.items.effect' | ghsLabel}}</span>
+                    <span class="text"><span [ghs-label]="'character.progress.items.effect'"></span></span>
                 </span>
             </div>
             <span class="minus-one" *ngIf="isEquipped(item) && item.minusOne"
@@ -42,8 +41,9 @@
         <input type="number" (change)="itemChange()" [(ngModel)]="itemIndex" min="1" value="1"
             [ngClass]="{ 'error': !item}">
         <select [(ngModel)]="itemEdition" (change)="editionChange()" [ngClass]="{'error': !item}">
-            <option *ngFor="let edition of gameManager.editions()" [value]="edition">{{'data.edition.' + edition |
-                ghsLabel}}</option>
+            <option *ngFor="let edition of gameManager.editions()" [value]="edition">
+                <span [ghs-label]="'data.edition.' + edition"></span>
+            </option>
         </select>
         <a class="button add" (click)="addItem(item)" [ngClass]="{'disabled': !canAdd(item)}"><img
                 src="./assets/images/plus.svg" [ngClass]="{'warn' : !canAdd}"></a>
@@ -62,7 +62,7 @@
                 (click)="craftItem(item)"
                 [ngClass]="{'disabled' : !canAdd(item) || !canCraft(item), 'warn' : !canAdd(item)}">
                 <ng-container *ngIf="item.requiredItems">
-                    <span class="item placeholder" [i18n]="'%data.itemFh.' + requiredItem + '%'"
+                    <span class="item placeholder" [ghs-label]="'%data.itemFh.' + requiredItem + '%'"
                         *ngFor="let requiredItem of item.requiredItems"> </span>
                 </ng-container>
                 <ng-container *ngIf="item.resources">

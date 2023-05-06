@@ -4,7 +4,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { Ability } from "src/app/game/model/data/Ability";
 import { Character } from "src/app/game/model/Character";
 import { Monster } from "src/app/game/model/Monster";
-import { applyPlaceholder } from "../../helper/i18n";
+import { applyPlaceholder } from "../../helper/label";
 import { Subscription } from "rxjs";
 
 

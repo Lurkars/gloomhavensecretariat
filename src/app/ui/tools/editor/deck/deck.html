@@ -4,17 +4,17 @@
     <div class="columns">
         <div class="input">
             <div class="deck">
-                <h2>{{'editor.deck' | ghsLabel}}</h2>
+                <h2><span [ghs-label]="'editor.deck'"></span></h2>
                 <div class="base-data dialog">
-                    <label>{{'editor.deck.name' | ghsLabel}}</label>
-                    <input [(ngModel)]="deckData.name" placeholder="{{'editor.deck.name' | ghsLabel}}"
+                    <label><span [ghs-label]="'editor.deck.name'"></span></label>
+                    <input [(ngModel)]="deckData.name" [ghs-label]="'editor.deck.name'" [ghs-label-attribute]="'placeholder'"
                         (change)="deckDataToJson()" (keyup)="deckDataToJson()">
 
-                    <label>{{'editor.deck.edition' | ghsLabel}}</label>
-                    <input [(ngModel)]="deckData.edition" placeholder="{{'editor.deck.edition' | ghsLabel}}"
-                        (change)="deckDataToJson()" (keyup)="deckDataToJson()">
+                    <label><span [ghs-label]="'editor.deck.edition'"></span></label>
+                    <input [(ngModel)]="deckData.edition" [ghs-label]="'editor.deck.edition'"
+                        [ghs-label-attribute]="'placeholder'" (change)="deckDataToJson()" (keyup)="deckDataToJson()">
                     <ng-container *ngIf="!character && !monster">
-                        <label>{{'editor.deck.character' | ghsLabel}}</label>
+                        <label><span [ghs-label]="'editor.deck.character'"></span></label>
                         <input type="checkbox" [(ngModel)]="deckData.character" (change)="deckDataToJson()">
                     </ng-container>
                 </div>
@@ -25,7 +25,7 @@
                             [style.--ghs-ability-color]="getCharacter() && getCharacter()?.color"
                             [ngClass]="{'bottom-actions' : deckData.character || ability.bottomActions && ability.bottomActions.length > 0, 'character-actions' : deckData.character}">
                             <input class="name" [(ngModel)]="ability.name" (change)="deckDataToJson()"
-                                [placeholder]="ability.name || ('editor.deck.abilityName' | ghsLabel)"
+                                [ghs-label]="ability.name || 'editor.deck.abilityName'" [ghs-label-attribute]="'placeholder'"
                                 (keyup)="deckDataToJson()">
 
                             <span class="level">
@@ -45,7 +45,8 @@
 
                             <ng-container
                                 *ngIf="!deckData.character && ability.bottomActions && ability.bottomActions.length > 0">
-                                <a class="bottom shuffle" (click)="ability.bottomShuffle=!ability.bottomShuffle;deckDataToJson();"
+                                <a class="bottom shuffle"
+                                    (click)="ability.bottomShuffle=!ability.bottomShuffle;deckDataToJson();"
                                     [ngClass]="{'enabled' : ability.bottomShuffle }">
                                     <img src="./assets/images/shuffle.svg">
                                 </a>
@@ -111,11 +112,11 @@
                             [ngClass]="{'bottom-actions' : deckData.character || ability.bottomActions && ability.bottomActions.length > 0}">
                             <a class="button add" (click)="addAbilityAction(ability)"><img class="ghs-icon"
                                     src="./assets/images/plus.svg">
-                                {{'editor.action.add' | ghsLabel}}</a>
+                                <span [ghs-label]="'editor.action.add'"></span></a>
 
                             <a class="button add bottom" (click)="addAbilityActionBottom(ability)"><img class="ghs-icon"
                                     src="./assets/images/plus.svg">
-                                {{'editor.action.addBottom' | ghsLabel}}</a>
+                                <span [ghs-label]="'editor.action.addBottom'"></span></a>
                         </div>
                     </div>
 
@@ -128,33 +129,33 @@
                 </div>
 
                 <a class="button" (click)="addAbility()"><img class="ghs-icon" src="./assets/images/plus.svg">
-                    {{'editor.deck.addAbility' | ghsLabel}}</a>
+                    <span [ghs-label]="'editor.deck.addAbility'"></span></a>
 
             </div>
         </div>
 
         <div class="output">
-            <h2>{{'editor.deck.json' | ghsLabel}}
+            <h2><span [ghs-label]="'editor.deck.json'"></span>
 
                 <select (change)="loadDeckData($event)">
-                    <option [value]="-1">&lt;{{'editor.deck.new' | ghsLabel}}&gt;</option>
+                    <option [value]="-1">&lt;<span [ghs-label]="'editor.deck.new'"></span>&gt;</option>
                     <option [value]="index" *ngFor="let dd of decksData(); let index = index;"
                         [selected]="dd.edition == deckData.edition && dd.name == deckData.name">
-                        {{dd.name}} ({{'data.edition.' + dd.edition | ghsLabel}})
+                        {{dd.name}} (<span [ghs-label]="'data.edition.' + dd.edition"></span>)
                     </option>
                 </select>
                 <select [(ngModel)]="edition" (change)="updateQueryParams()">
                     <option></option>
-                    <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">{{'data.edition.' +
-                        edition
-                        | ghsLabel}}</option>
+                    <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">
+                        <span [ghs-label]="'data.edition.' + edition"></span>
+                    </option>
                 </select>
             </h2>
             <div> {{deckError}} </div>
             <textarea #inputDeckData></textarea>
             <a class="button" [href]="'data:application/json;charset=utf-8,' + encodeURIComponent(inputDeckData.value)"
                 [download]="deckData.name + '.json'"><img class="ghs-icon" src="./assets/images/export.svg">
-                {{'editor.deck.json.download' | ghsLabel}}</a>
+                <span [ghs-label]="'editor.deck.json.download'"></span></a>
         </div>
     </div>
 </div>

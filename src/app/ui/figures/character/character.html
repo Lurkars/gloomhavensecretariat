@@ -86,7 +86,7 @@
           <span class="token-container">
             <ng-container *ngFor="let i of []|ghsRange:6">
               <span class="token" *ngIf="(character.token + token) > i"
-                [i18n]="'%data.characterToken.' + character.name + '%'"></span>
+                [ghs-label]="'%data.characterToken.' + character.name + '%'"></span>
             </ng-container>
             <span class="token" *ngIf="(character.token + token) > 6">{{(character.token + token - 6) |
               ghsValueSign}}</span>
@@ -98,7 +98,7 @@
           </div>
         </div>
         <div class="status-bar">
-          <div class="health" title="{{'game.health' | ghsLabel}}">
+          <div class="health" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'">
             <img src="./assets/images/status/health.svg" />
             {{character.health + health}}/{{character.maxHealth}}
             <span *ngIf="health" class="value-overlay"
@@ -127,7 +127,8 @@
 
     <ng-container *ngIf="character.absent">
       <div class="title" #characterName><img class="icon" [src]="character.iconUrl" />
-        {{character.title || ('data.character.' + character.name | ghsLabel)}}
+        <span *ngIf="character.title"> {{character.title}}</span>
+        <span *ngIf="!character.title" [ghs-label]="'data.character.' + character.name"></span>
         <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" />
       </div>
       <span class="spacer"></span>
@@ -144,26 +145,26 @@
 
       <span *ngIf="settingsManager.settings.characterAttackModifierDeck" class="attack-modifier-button"
         [ngClass]="{'disabled': character.attackModifierDeckVisible}" (click)="toggleAttackModifierDeckVisible()"
-        title="{{'game.attackModifiers' | ghsLabel}}">
+        [ghs-label]="'game.attackModifiers'" [ghs-label-attribute]="'title'">
         <img src="./assets/images/attackmodifier/icon.png" />
       </span>
 
       <div class="summon-dialog">
         <a #summonButton class="summon-dialog-button" (click)="openSummonDialog($event)"
-          title="{{'summon' | ghsLabel}}">
+          [ghs-label]="'summon'" [ghs-label-attribute]="'title'">
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </a>
       </div>
 
       <div class="column col-2" (click)="openEntityMenu($event)">
-        <span class="experience" title="{{'game.experience' | ghsLabel}}">{{character.experience + experience}}
+        <span class="experience" [ghs-label]="'game.experience'" [ghs-label-attribute]="'title'">{{character.experience + experience}}
           <img src="./assets/images/status/experience.svg" />
           <span *ngIf="experience" class="value-overlay"
             [ngClass]="{'negative-value' : experience < 0, 'positive-value' : experience > 0}">
             <span class="value">{{experience | ghsValueSign}}</span>
           </span>
         </span>
-        <span class="loot" title="{{'game.loot' | ghsLabel}}">{{character.loot + loot}}
+        <span class="loot" [ghs-label]="'game.loot'" [ghs-label-attribute]="'title'">{{character.loot + loot}}
           <img src="./assets/images/status/loot.svg" />
           <span *ngIf="loot" class="value-overlay"
             [ngClass]="{'negative-value' : loot < 0, 'positive-value' : loot > 0}">
@@ -173,7 +174,7 @@
       </div>
     </ng-container>
 
-    <a class="character-sheet-button" title="{{'character.progress' | ghsLabel}}"
+    <a class="character-sheet-button" [ghs-label]="'character.progress'" [ghs-label-attribute]="'title'"
       [ngClass]="{'hand-size-margin' : settingsManager.settings.characterHandSize}">
       <img [src]="character.iconUrl" />
       <ghs-drag-click

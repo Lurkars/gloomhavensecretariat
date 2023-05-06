@@ -1,34 +1,35 @@
 <div class="loot-deck-dialog">
-  <a class="close" (click)="dialogRef.close()" [title]="'close' | ghsLabel"><img src="./assets/images/close.svg"></a>
+  <a class="close" (click)="dialogRef.close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'"><img src="./assets/images/close.svg"></a>
   <div class="scroll-container">
     <div class="menu" #menu>
       <ng-container *ngIf="deck.cards.length > 0">
-        <a (click)="reveal = (reveal + 1) % 3">{{(reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ?
-          'game.cards.revealAll' : 'game.cards.revealAllConfirm')) | ghsLabel}}</a>
-        <a (click)="shuffle()">{{'game.cards.shuffle' | ghsLabel}}</a>
-        <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit">{{'game.cards.edit' | ghsLabel}}</label>
+        <a (click)="reveal = (reveal + 1) % 3"><span [ghs-label]="reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ?
+          'game.cards.revealAll' : 'game.cards.revealAllConfirm')"></span></a>
+        <a (click)="shuffle()"><span [ghs-label]="'game.cards.shuffle'"></span></a>
+        <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit"><span
+            [ghs-label]="'game.cards.edit'"></span></label>
         <a class="toggle-config" *ngIf="edit" (click)="configuration = !configuration; enhancements = false"><img
             class="ghs-svg" src="./assets/images/settings.svg">
-          {{('game.loot.config.' + (configuration ? 'hide' :
-          'show')) | ghsLabel}}</a>
+          <span [ghs-label]="'game.loot.config.' + (configuration ? 'hide' :
+          'show')"></span></a>
       </ng-container>
       <a class="toggle-enhancements" (click)="enhancements = !enhancements; configuration = false"><img class="ghs-svg"
           [src]="'./assets/images/fh/loot/' + (enhancements ?  'money' : 'plus1') + '.svg'">
-        {{('game.loot.' + (enhancements ? 'deck' : 'enhancements')) | ghsLabel}}</a>
+        <span [ghs-label]="('game.loot.' + (enhancements ? 'deck' : 'enhancements'))"></span></a>
     </div>
     <div class="config" *ngIf="configuration">
-      <label class="title">{{'game.loot.config' | ghsLabel}}</label>
+      <label class="title"><span [ghs-label]="'game.loot.config'"></span></label>
       <div class="values">
         <ng-container *ngFor="let type of types">
           <label><img class="ghs-svg"
               [src]="'./assets/images/fh/loot/' + (type == LootType.special1 || type == LootType.special2 ? LootType.money : type) + '.svg'">
-            {{'game.loot.' + type | ghsLabel}}</label>
+            <span [ghs-label]="'game.loot.' + type"></span></label>
           <a class="button"
             [ngClass]="{'disabled' : !lootDeckConfig[type] || type == LootType.random_item && gameManager.lootManager.randomItemLooted()}"
             (click)="changeType(type, -1)">
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </a>
-          <span class="value" title="{{'game.loot.' + type | ghsLabel}}">
+          <span class="value" [ghs-label]="'game.loot.' + type" [ghs-label-attribute]="'title'">
             {{lootDeckConfig[type] && 'x' + lootDeckConfig[type] || '-'}}
           </span>
           <a class="button"
@@ -39,10 +40,10 @@
         </ng-container>
       </div>
       <div class="config-menu">
-        <a (click)="currentConfig()" *ngIf="deck.cards.length > 0">{{'game.loot.config.discard' |
-          ghsLabel}}</a>
-        <a (click)="applyConfig()">{{('game.loot.config.' + (deck.cards.length == 0 ? 'create':
-          'apply')) | ghsLabel}}</a>
+        <a (click)="currentConfig()" *ngIf="deck.cards.length > 0"><span [ghs-label]="'game.loot.config.discard'"></span></a>
+        <a (click)="applyConfig()">
+          <span [ghs-label]="('game.loot.config.' + (deck.cards.length == 0 ? 'create': 'apply'))"></span>
+        </a>
       </div>
     </div>
 
@@ -50,12 +51,12 @@
       <div class="loot-container" *ngFor="let loot of enhancementDeck">
         <ghs-loot class="drag-hidden" [loot]="loot" [flipped]="true" [highlight]="false" [apply]="apply">
         </ghs-loot>
-        <a class="button-enhance" (click)="enhanceCard(loot)" [title]="'game.loot.enhancements.add' | ghsLabel">
+        <a class="button-enhance" (click)="enhanceCard(loot)" [ghs-label]="'game.loot.enhancements.add'" [ghs-label-attribute]="'title'">
           <img class="ghs-svg" src="./assets/images/fh/loot/plus1.svg">
         </a>
         <div class="remove-enhancements" *ngIf="loot.enhancements > 0">
           <img *ngFor="let i of [] | ghsRange:loot.enhancements" class="ghs-svg" (click)="unenhanceCard(loot)"
-            src="./assets/images/fh/loot/plus1.svg" [title]="'game.loot.enhancements.remove' | ghsLabel">
+            src="./assets/images/fh/loot/plus1.svg" [ghs-label]="'game.loot.enhancements.remove'" [ghs-label-attribute]="'title'">
         </div>
       </div>
     </div>

@@ -1,12 +1,12 @@
 <div class="event-effects-dialog">
-  <a class="close" (click)="dialogRef.close()" [title]="'close' | ghsLabel"><img src="./assets/images/close.svg"></a>
+  <a class="close" (click)="dialogRef.close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'"><img src="./assets/images/close.svg"></a>
 
   <div class="header">
     <div class="name">
-      <img class="ghs-svg" src="./assets/images/event.svg"> {{'scenario.eventEffects' | ghsLabel}}
+      <img class="ghs-svg" src="./assets/images/event.svg"> <span [ghs-label]="'scenario.eventEffects'"></span>
     </div>
     <div class="text">
-      {{'scenario.eventEffects.hint' | ghsLabel}}
+      <span [ghs-label]="'scenario.eventEffects.hint'"></span>
     </div>
 
     <div class="characters">
@@ -26,7 +26,7 @@
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </ghs-drag-click>
       </span>
-      <span class="item" title="{{'game.health' | ghsLabel}}">
+      <span class="item" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'">
         <img src="./assets/images/status/health.svg" />
         <span class="badge"
           [ngClass]="{'negative-value' : minHealth() < 0, 'positive-value' : maxHealth() > 0}">{{(minHealth() < 0 ?
@@ -43,7 +43,7 @@
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </ghs-drag-click>
         </span>
-        <span class="item" title="{{'game.bless' | ghsLabel}}">
+        <span class="item" [ghs-label]="'game.bless'" [ghs-label-attribute]="'title'">
           <img src="./assets/images/status/bless.svg" />
           <span class="badge" [ngClass]="{'negative-value' : bless < 0, 'positive-value' : bless > 0}">{{bless |
             ghsValueSign}}</span>
@@ -59,7 +59,7 @@
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </ghs-drag-click>
         </span>
-        <span class="item" title="{{'game.curse' | ghsLabel}}">
+        <span class="item" [ghs-label]="'game.curse'" [ghs-label-attribute]="'title'">
           <img src="./assets/images/status/curse.svg" />
           <span class="badge" [ngClass]="{'negative-value' : curse < 0, 'positive-value' : curse > 0}">{{curse |
             ghsValueSign}}</span>
@@ -77,14 +77,14 @@
 
 
     <div class="entity-container">
-      <span class="progress">{{'scenario.eventEffects.progress' | ghsLabel}}</span>
+      <span class="progress"><span [ghs-label]="'scenario.eventEffects.progress'"></span></span>
 
       <span class="item">
         <ghs-drag-click class="button" (singleClick)="changeExperience(-1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </ghs-drag-click>
       </span>
-      <span class="item" title="{{'game.experience' | ghsLabel}}">
+      <span class="item" [ghs-label]="'game.experience'" [ghs-label-attribute]="'title'">
         <img src="./assets/images/status/experience.svg" />
         <span class="badge"
           [ngClass]="{'negative-value' : minExperience() < 0, 'positive-value' : maxExperience() > 0}">{{(minExperience()
@@ -101,7 +101,7 @@
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </ghs-drag-click>
         </span>
-        <span class="item" title="{{'game.character.progress.gold' | ghsLabel}}">
+        <span class="item" [ghs-label]="'game.character.progress.gold'" [ghs-label-attribute]="'title'">
           <img class="gold" src="./assets/images/loot.svg" />
           <span class="badge"
             [ngClass]="{'negative-value' : minGold() < 0, 'positive-value' : maxGold() > 0}">{{(minGold() < 0 ?
@@ -118,7 +118,7 @@
               <img class="ghs-svg" src="./assets/images/minus.svg">
             </ghs-drag-click>
           </span>
-          <span class="item" title="{{'game.character.progress.battleGoals' | ghsLabel}}">
+          <span class="item" [ghs-label]="'game.character.progress.battleGoals'" [ghs-label-attribute]="'title'">
             <input type="checkbox" disabled="true" checked="true">
             <span class="badge"
               [ngClass]="{'negative-value' : minBattleGoals() < 0, 'positive-value' : maxBattleGoals() > 0}">{{(minBattleGoals()

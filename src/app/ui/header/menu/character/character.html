@@ -5,10 +5,10 @@
         [ngClass]="{'active' : level + 1 == characterLevel}" (click)="characterLevel = level+1">{{level
         +1}}</a></span>
     <div class="line search">
-      <input [(ngModel)]="filter" type="text" [placeholder]="'character.filter' | ghsLabel">
+      <input [(ngModel)]="filter" type="text" [ghs-label]="'character.filter'" [ghs-label-attribute]="'placeholder'">
       <label *ngIf="gameManager.game.edition">
         <input type="checkbox" [checked]="allEditions" (change)="allEditions = !allEditions">
-        {{'character.filter.allEditions' | ghsLabel}}
+        <span [ghs-label]="'character.filter.allEditions'"></span>
       </label>
     </div>
   </div>
@@ -16,30 +16,31 @@
     <ng-container *ngFor="let edition of (allEditions ? gameManager.editions() : gameManager.currentEditions(true))">
       <div class="column spoilers" *ngIf="characterData(filter, edition).length > 0">
         <div class="line title sticky">
-          <label>{{'data.edition.' + edition | ghsLabel}}</label>
+          <label><span [ghs-label]="'data.edition.' + edition"></span></label>
         </div>
         <div class="line separator reveal-all" *ngIf="locked(characterData(filter, edition))">
-          <a (click)="unlockAll(edition)">{{'character.unlockAll' |
-            ghsLabel}}</a>
+          <a (click)="unlockAll(edition)">
+            <span [ghs-label]="'character.unlockAll'"></span>
+          </a>
         </div>
         <div class="line" *ngFor="let characterData of characterData(filter, edition)"
           [ngClass]="{'disabled' : hasCharacter(characterData), 'spoiler' : characterData.spoiler}">
           <a (click)="addCharacter(characterData);" *ngIf="unlocked(characterData)">
-            <img class="icon" [src]="characterData.iconUrl" />{{'data.character.'
-            + characterData.name | ghsLabel}}
+            <img class="icon" [src]="characterData.iconUrl" />
+            <span [ghs-label]="'data.character.' + characterData.name"></span>
           </a>
           <a (click)="unlock(characterData)" *ngIf="!unlocked(characterData)">
             <img class="icon spoiler" [src]="characterData.iconUrl" />
             <span class="name">
-              {{'spoiler.placeholder' | ghsLabel}}</span>
-            <span class="add">{{'character.unlock' | ghsLabel}}</span>
+              <span [ghs-label]="'spoiler.placeholder'"></span></span>
+            <span class="add"><span [ghs-label]="'character.unlock'"></span></span>
           </a>
         </div>
       </div>
     </ng-container>
     <div class="column" *ngIf="filter && noResults()">
       <div class="line">
-        <label>{{'character.filter.noResult' | ghsLabel}}</label>
+        <label><span [ghs-label]="'character.filter.noResult'"></span></label>
       </div>
     </div>
   </div>

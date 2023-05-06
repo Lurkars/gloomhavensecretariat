@@ -11,7 +11,7 @@
       <span class="number" [ngClass]="{'highlight' : entity.number < 1 && !settingsManager.settings.disableAnimations}">
         <span class="value">{{entity.number < 0 ? '?' : entity.number}}</span>
         </span>
-        <span class="health" title="{{'game.health' | ghsLabel}}">{{entity.maxHealth > 0 ? (entity.health + health) :
+        <span class="health" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'">{{entity.maxHealth > 0 ? (entity.health + health) :
           '-'}}
           <span class="value-overlay" [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}"
             *ngIf="health"><span class="value">{{health |
@@ -22,7 +22,7 @@
 
     <div class="markers">
       <span *ngIf="entity.marker" class="placeholder placeholder-marker"
-        [i18n]="'%game.mapMarker.' + entity.marker + '%'"></span>
+        [ghs-label]="'%game.mapMarker.' + entity.marker + '%'"></span>
       <span class="marker" *ngFor="let marker of entity.markers;">
         <img src="./assets/images/character/icons/{{marker}}.svg" />
       </span>

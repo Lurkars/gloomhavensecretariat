@@ -1,20 +1,19 @@
 <div class="section-popup">
 
     <div class="header">
-        <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg"> <span>{{'scenario.section.conclusion.select'
-            |
-            ghsLabel}}</span>
+        <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg">
+        <span [ghs-label]="'scenario.section.conclusion.select'"></span>
     </div>
 
     <div class="conclusions">
         <span class="placeholder text-white conclusion" *ngFor="let sectionData of data.conclusions"
-            [i18n]="'scenario.section.conclusion' + (data.parent.conclusion ? '.continue' :  '')"
-            [i18n-args]="[sectionData.name ? '\'data.section.' + sectionData.name + '\'' : '%data.section:' + sectionData.index + '%']"
+            [ghs-label]="'scenario.section.conclusion' + (data.parent.conclusion ? '.continue' :  '')"
+            [ghs-label-args]="[sectionData.name ? '\'data.section.' + sectionData.name + '\'' : '%data.section:' + sectionData.index + '%']"
             (click)="dialogRef.close(sectionData)">
         </span>
     </div>
 
     <div class="buttons">
-        <a class="cancel" (click)="dialogRef.close()">{{'scenario.section.cancel' | ghsLabel}}</a>
+        <a class="cancel" (click)="dialogRef.close()"><span [ghs-label]="'scenario.section.cancel'"></span></a>
     </div>
 </div>

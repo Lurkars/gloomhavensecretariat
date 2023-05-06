@@ -1,7 +1,7 @@
 <div class="stats-container"
   [ngClass]="{'boss' : monster.boss, 'fh' : settingsManager.settings.fhStyle, 'full-ability': fullAbility, 'no-click': noClick, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}"
   #card [style.fontSize]="card.offsetWidth * 0.03 + 'px'">
-  <div #levelButton (click)="openLevelDialog()" class="level" title="{{'game.level' | ghsLabel}}">{{monster.level}}
+  <div #levelButton (click)="openLevelDialog()" class="level" [ghs-label]="'game.level'" [ghs-label-attribute]="'title'">{{monster.level}}
   </div>
 
   <div *ngIf="settingsManager.settings.disableStandees && hideStats(MonsterType.normal)" class="filter-stats normal">
@@ -12,13 +12,13 @@
   <div class="name-container" ghs-drag-click (singleClick)="openStatsPopup()" (doubleClick)="openStatPopup()"
     [disabled]="noClick">
     <span class="name">
-      {{'data.monster.' + monster.name | ghsLabel}}
-      <span class="ally" *ngIf="monster.isAlly">{{'game.ally' | ghsLabel}}</span>
-      <span class="allied" *ngIf="monster.isAllied">{{'game.allied' | ghsLabel}}</span>
+      <span [ghs-label]="'data.monster.' + monster.name"></span>
+      <span class="ally" *ngIf="monster.isAlly"><span [ghs-label]="'game.ally'"></span></span>
+      <span class="allied" *ngIf="monster.isAllied"><span [ghs-label]="'game.allied'"></span></span>
     </span>
     <span *ngIf="monster.flying" class="flying"><img
         [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
-    <span class="edition" *ngIf="edition">[{{'data.edition.' + edition | ghsLabel}}]</span>
+    <span class="edition" *ngIf="edition">[<span [ghs-label]="'data.edition.' + edition"></span>]</span>
     <span class="catching" *ngIf="monster.catching"><img class="ghs-svg" src="./assets/images/fh/catching.svg"></span>
   </div>
 
@@ -93,7 +93,7 @@
 
   <ng-container *ngIf="!monster.boss">
     <div class="extra normal" [ngClass]="{'hidden' : hideStats(MonsterType.normal)}">
-      <div class="notes" [i18n]="statsForType(MonsterType.normal).note"></div>
+      <div class="notes" [ghs-label]="statsForType(MonsterType.normal).note"></div>
       <div class="additional">
         <ghs-actions [actions]="statsForType(MonsterType.normal).actions" [inline]="true" [statsCalculation]="false"
           [relative]="true" [right]="true" [hexSize]="0.5" [highlightActions]="highlightActions" [monster]="monster">
@@ -115,7 +115,7 @@
     </div>
 
     <div class="extra elite" [ngClass]="{'hidden' : hideStats(MonsterType.elite)}">
-      <div class="notes text-white" [i18n]="statsForType(MonsterType.elite).note"></div>
+      <div class="notes text-white" [ghs-label]="statsForType(MonsterType.elite).note"></div>
       <div class="additional">
         <ghs-actions [actions]="statsForType(MonsterType.elite).actions" [inline]="true" [statsCalculation]="false"
           [relative]="true" [hexSize]="0.5" [highlightActions]="highlightActions" [monster]="monster">
@@ -138,7 +138,7 @@
   </ng-container>
 
   <div class="extra boss" *ngIf="monster.boss" [ngClass]="{'hidden' : hideStats(MonsterType.boss)}">
-    <div class="notes text-white" [i18n]="statsForType(MonsterType.boss).note"></div>
+    <div class="notes text-white" [ghs-label]="statsForType(MonsterType.boss).note"></div>
     <div class="additional">
       <ghs-actions [actions]="statsForType(MonsterType.boss).actions" [inline]="true" [statsCalculation]="false"
         [relative]="true" [hexSize]="0.5" [highlightActions]="highlightActions" [monster]="monster">

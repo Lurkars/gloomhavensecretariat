@@ -5,41 +5,42 @@
         <label>
           <input type="checkbox" [checked]="gameManager.game.scenario && gameManager.game.scenario.custom"
             (change)="customScenario()">
-          &lt;{{'scenario.custom' | ghsLabel}}&gt;
+          &lt;<span [ghs-label]="'scenario.custom'"></span>&gt;
         </label>
       </div>
       <div class="line" *ngIf="gameManager.game.scenario && gameManager.game.scenario.custom">
         <input type="text" [value]="gameManager.game.scenario.name" (change)="customScenarioName($event)"
-          [placeholder]="'scenario.title' | ghsLabel">
+          [ghs-label]="'scenario.title'" [ghs-label-attribute]="'placeholder'">
       </div>
     </div>
     <div class="column" *ngIf="gameManager.game.scenario && !gameManager.game.scenario.custom">
       <div class="line">
-        <a (click)="resetScenario()">&lt;{{'scenario.reset' | ghsLabel}}!&gt;</a>
+        <a (click)="resetScenario()">&lt;<span [ghs-label]="'scenario.reset'"></span>!&gt;</a>
       </div>
     </div>
   </div>
   <div class="line editions">
     <label *ngFor="let e of (gameManager.game.edition ? [gameManager.game.edition] : editions());">
       <input type="radio" name="radio" [value]="e" (change)="edition = e" [checked]="edition == e">
-      {{'data.edition.' + e | ghsLabel}}
+      <span [ghs-label]="'data.edition.' + e"></span>
     </label>
   </div>
   <div class="line search">
-    <input type="text" #search [placeholder]="'scenario.filter' | ghsLabel">
+    <input type="text" #search [ghs-label]="'scenario.filter'" [ghs-label-attribute]="'placeholder'">
   </div>
   <div class="line" *ngIf="gameManager.game.party.campaignMode">
     <label>
       <input type="checkbox" [(ngModel)]="filterSuccess">
-      {{'scenario.filterSuccess' | ghsLabel}}
+      <span [ghs-label]="'scenario.filterSuccess'"></span>
     </label>
   </div>
   <ng-container *ngFor="let group of groups()">
-    <div *ngIf="group" class="line title"><label>{{'data.scenario.group.' + group | ghsLabel}}</label></div>
+    <div *ngIf="group" class="line title"><label><span [ghs-label]="'data.scenario.group.' + group"></span></label></div>
     <div class="line scenarios">
       <span (click)="setScenario(scenario)" class="scenario"
         [ngClass]="{'current' : hasScenario(scenario), 'blocked' : gameManager.scenarioManager.isBlocked(scenario) , 'locked' : gameManager.scenarioManager.isLocked(scenario)}"
-        [ghsTooltip]="('data.scenario.' + scenario.name | ghsLabel) + (gameManager.scenarioManager.isBlocked(scenario) ? ' [' + ('scenario.blocked' | ghsLabel) + ']' : (gameManager.scenarioManager.isLocked(scenario) ? ' [' + ('scenario.locked' | ghsLabel) + ']' : '') )"
+        [ghsTooltip]="'scenario.tooltip' + (gameManager.scenarioManager.isBlocked(scenario) ? '.blocked' : (gameManager.scenarioManager.isLocked(scenario) ? '.locked' : ''))"
+        [ghs-label-args]="['data.scenario.' + scenario.name]"
         *ngFor="let scenario of scenarios(group, filterSuccess) | ghsScenarioSearch:search.value">
         <ng-container *ngIf="!scenario.solo">
           <span *ngIf="maxScenario(group) > 2 && scenario.index.length < 3">0</span><span
@@ -62,21 +63,21 @@
       </span>
     </div>
     <div class="line" *ngIf="hasSpoilers(group)">
-      <a (click)="settingsManager.addSpoilers(notSpoiled(group))">{{'spoiler.all' | ghsLabel}}</a>
+      <a (click)="settingsManager.addSpoilers(notSpoiled(group))"><span [ghs-label]="'spoiler.all'"></span></a>
     </div>
     <ng-container
       *ngIf="gameManager.game.party.campaignMode && scenarios(group).length < scenarios(group,false,true,true).length">
       <div class="line title">
-        <label>{{'scenario.manual.add' | ghsLabel}}
+        <label><span [ghs-label]="'scenario.manual.add'"></span>
         </label>
       </div>
       <div class="line">
         <span class="input-button">
-          <input #manualScenarioIndex type="text" placeholder="{{'scenario.manual.index' | ghsLabel}}"
+          <input #manualScenarioIndex type="text" [ghs-label]="'scenario.manual.index'" [ghs-label-attribute]="'placeholder'"
             (keyup)="manualScenarioIndex.classList.remove('error')"
             (keyup.enter)="manualScenario(manualScenarioIndex, group)">
-          <span class="add-button" (click)="manualScenario(manualScenarioIndex, group)"
-            title="{{'scenario.manual.add' | ghsLabel}}"
+          <span class="add-button" (click)="manualScenario(manualScenarioIndex, group)" [ghs-label]="'scenario.manual.add'"
+            [ghs-label-attribute]="'title'"
             [ngClass]="{'disabled' : !manualScenarioIndex.value || manualScenarioIndex.classList.contains('error')}">
           </span>
         </span>

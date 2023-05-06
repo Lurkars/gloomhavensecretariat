@@ -5,5 +5,5 @@
         (after)="afterMonsterAttackModifierDeck($event)">
     </ghs-attackmodifier-deck>
 
-    <a class="next" (click)="next()">{{'game.round.next' | ghsLabel}}</a>
+    <a class="next" (click)="next()"><span [ghs-label]="'game.round.next'"></span></a>
 </div>

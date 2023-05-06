@@ -38,7 +38,9 @@ export class DragClickDirective {
       if (this.clickBehind) {
         this.emitClickBehind(event.center.x, event.center.y);
       } else if (event.pointerType == "touch" && settingsManager.settings.pressDoubleClick) {
-        this.singleClick.emit(event);
+        setTimeout(() => {
+          this.singleClick.emit(event);
+        }, 1)
       } else if (!this.repeat || this.doubleClick.observed) {
         if (this.timeout) {
           clearTimeout(this.timeout);
