@@ -64,7 +64,7 @@ export class ScenarioMenuComponent implements OnInit {
 
     model = { edition: this.edition, group: group, filterSuccess: filterSuccess, includeSpoiler: includeSpoiler, all: all, scenarios: [] };
 
-    model.scenarios = gameManager.scenarioManager.scenarioData(this.edition, all).filter((scenarioData) => scenarioData.group == group && (includeSpoiler || (!scenarioData.spoiler || settingsManager.settings.spoilers.indexOf(scenarioData.name) != -1 || scenarioData.solo && settingsManager.settings.spoilers.indexOf(scenarioData.solo) != -1)) && (!filterSuccess || !this.scenarioSuccess(scenarioData) && !gameManager.scenarioManager.isBlocked(scenarioData))).sort(gameManager.scenarioManager.sortScenarios);
+    model.scenarios = gameManager.scenarioManager.scenarioData(this.edition, all).filter((scenarioData) => scenarioData.group == group && (includeSpoiler || (!scenarioData.spoiler || gameManager.game.unlockedCharacters.indexOf(scenarioData.name) != -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) != -1)) && (!filterSuccess || !this.scenarioSuccess(scenarioData) && !gameManager.scenarioManager.isBlocked(scenarioData))).sort(gameManager.scenarioManager.sortScenarios);
 
     this.scenarioCache.push(model);
 
@@ -163,11 +163,11 @@ export class ScenarioMenuComponent implements OnInit {
   }
 
   hasSpoilers(group: string | undefined): boolean {
-    return this.scenarios(group, true).some((scenarioData) => scenarioData.spoiler && (!scenarioData.solo && settingsManager.settings.spoilers.indexOf(scenarioData.name) == -1 || scenarioData.solo && settingsManager.settings.spoilers.indexOf(scenarioData.solo) == -1))
+    return this.scenarios(group, true).some((scenarioData) => scenarioData.spoiler && (!scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.name) == -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) == -1))
   }
 
   notSpoiled(group: string | undefined): Spoilable[] {
-    return this.scenarios(group, true).filter((scenarioData) => scenarioData.spoiler && (settingsManager.settings.spoilers.indexOf(scenarioData.name) == -1 || scenarioData.solo && settingsManager.settings.spoilers.indexOf(scenarioData.solo) == -1)).map((scenarioData) => scenarioData.solo && new SpoilableMock(scenarioData.solo) || new SpoilableMock(scenarioData.name));
+    return this.scenarios(group, true).filter((scenarioData) => scenarioData.spoiler && (gameManager.game.unlockedCharacters.indexOf(scenarioData.name) == -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) == -1)).map((scenarioData) => scenarioData.solo && new SpoilableMock(scenarioData.solo) || new SpoilableMock(scenarioData.name));
   }
 
 }

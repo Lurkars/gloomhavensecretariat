@@ -227,7 +227,7 @@ export class ScenarioManager {
             rewards.calenderSection.forEach((calenderSection) => {
               if (calenderSection.split('-').length > 1) {
                 const section = calenderSection.split('-')[0];
-                const week = gameManager.game.party.weeks + (+calenderSection.split('-')[1]) + ((!casual && scenario && gameManager.fhRules() && !linkedScenario) ? 1 : 0);
+                const week = gameManager.game.party.weeks + (+calenderSection.split('-')[1]);
                 if (!gameManager.game.party.weekSections[week]) {
                   gameManager.game.party.weekSections[week] = [];
                 }

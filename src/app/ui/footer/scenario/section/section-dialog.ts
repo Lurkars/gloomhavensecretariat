@@ -1,5 +1,5 @@
 import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
-import { Component, Inject } from "@angular/core";
+import { Component, HostListener, Inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ScenarioSummaryComponent } from "../summary/scenario-summary"
@@ -36,5 +36,14 @@ export class SectionDialogComponent {
 
     cancel() {
         this.dialogRef.close(false);
+    }
+
+    @HostListener('document:keydown', ['$event'])
+    confirm(event: KeyboardEvent) {
+        if (event.key === 'Enter') {
+            this.addSection();
+            event.preventDefault();
+            event.stopPropagation();
+        }
     }
 }

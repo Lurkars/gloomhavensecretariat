@@ -13,7 +13,7 @@ import { LootApplyDialogComponent } from '../figures/loot/loot-apply-dialog';
 import { LootType } from 'src/app/game/model/data/Loot';
 
 
-export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element";
+export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent";
 
 @Directive({
     selector: '[ghs-keyboard-shortcuts]'
@@ -135,6 +135,9 @@ export class KeyboardShortcuts implements OnInit {
                     gameManager.stateManager.before("updateElement", "game.element." + element.type, "game.element.state." + elementState);
                     element.state = elementState;
                     gameManager.stateManager.after();
+                    event.preventDefault();
+                } else if ((!this.dialogOpen || this.allowed.indexOf('absent') != -1) && !event.ctrlKey && !event.shiftKey && gameManager.game.state == GameState.next && event.key === 'h') {
+                    settingsManager.setHideAbsent(!settingsManager.settings.hideAbsent);
                     event.preventDefault();
                 }
             }

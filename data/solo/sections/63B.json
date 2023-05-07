@@ -1,0 +1,26 @@
+{
+  "index": "63B",
+  "group": "solo",
+  "name": "Disarm the Machine",
+  "edition": "cs",
+  "parent": "56",
+  "monsters": [
+    "stone-golem"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "stone-golem",
+          "type": "normal"
+        },
+        {
+          "name": "stone-golem",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}
