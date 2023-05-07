@@ -84,12 +84,9 @@
             <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" />
           </div>
           <span class="token-container">
-            <ng-container *ngFor="let i of []|ghsRange:6">
-              <span class="token" *ngIf="(character.token + token) > i"
+              <span class="token" *ngIf="(character.token + token) > 0"
                 [ghs-label]="'%data.characterToken.' + character.name + '%'"></span>
-            </ng-container>
-            <span class="token" *ngIf="(character.token + token) > 6">{{(character.token + token - 6) |
-              ghsValueSign}}</span>
+            <span class="token value" *ngIf="(character.token + token) > 1">x{{character.token + token}}</span>
           </span>
           <div class="markers">
             <span class="marker" *ngFor="let marker of character.markers;">

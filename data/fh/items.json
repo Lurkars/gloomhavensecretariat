@@ -871,7 +871,9 @@
     "requiredItems": [
       11,
       113
-    ]
+    ],
+    "requiredBuilding": "alchemist",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 60,
@@ -885,7 +887,9 @@
     },
     "requiredItems": [
       132
-    ]
+    ],
+    "requiredBuilding": "alchemist",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 61,
@@ -901,7 +905,9 @@
     "requiredItems": [
       32,
       105
-    ]
+    ],
+    "requiredBuilding": "alchemist",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 62,
@@ -914,7 +920,9 @@
     "requiredItems": [
       28,
       99
-    ]
+    ],
+    "requiredBuilding": "alchemist",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 63,
@@ -927,7 +935,9 @@
     "requiredItems": [
       13,
       158
-    ]
+    ],
+    "requiredBuilding": "alchemist",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 64,
@@ -943,7 +953,9 @@
     "requiredItems": [
       96,
       112
-    ]
+    ],
+    "requiredBuilding": "alchemist",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 65,
@@ -958,7 +970,9 @@
     },
     "requiredItems": [
       157
-    ]
+    ],
+    "requiredBuilding": "alchemist",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 66,
@@ -1197,7 +1211,7 @@
       "arrowvine": 1,
       "rockroot": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1211,7 +1225,7 @@
       "arrowvine": 1,
       "snowthistle": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1225,7 +1239,7 @@
       "arrowvine": 1,
       "axenut": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1239,7 +1253,7 @@
       "arrowvine": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1253,7 +1267,7 @@
       "arrowvine": 1,
       "corpsecap": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1267,7 +1281,7 @@
       "rockroot": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1281,7 +1295,7 @@
       "rockroot": 1,
       "corpsecap": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1295,7 +1309,7 @@
       "rockroot": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1309,7 +1323,7 @@
       "corpsecap": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1323,7 +1337,7 @@
       "rockroot": 1,
       "snowthistle": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1337,7 +1351,7 @@
       "rockroot": 1,
       "axenut": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1351,7 +1365,7 @@
       "corpsecap": 1,
       "axenut": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1365,7 +1379,7 @@
       "snowthistle": 1,
       "corpsecap": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1379,7 +1393,7 @@
       "snowthistle": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1393,7 +1407,7 @@
       "snowthistle": 1,
       "axenut": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1403,7 +1417,7 @@
     "edition": "fh",
     "slot": "small",
     "spent": true,
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1418,7 +1432,7 @@
       "rockroot": 1,
       "snowthistle": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1433,7 +1447,7 @@
       "snowthistle": 1,
       "axenut": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1448,7 +1462,7 @@
       "axenut": 1,
       "corpsecap": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1463,7 +1477,7 @@
       "axenut": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1478,7 +1492,7 @@
       "corpsecap": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1493,7 +1507,7 @@
       "axenut": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1508,7 +1522,7 @@
       "rockroot": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1523,7 +1537,7 @@
       "rockroot": 1,
       "axenut": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1538,7 +1552,7 @@
       "rockroot": 1,
       "corpsecap": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1553,7 +1567,7 @@
       "snowthistle": 1,
       "corpsecap": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1568,7 +1582,7 @@
       "snowthistle": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1583,7 +1597,7 @@
       "snowthistle": 1,
       "corpsecap": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1598,7 +1612,7 @@
       "axenut": 1,
       "corpsecap": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1613,7 +1627,7 @@
       "snowthistle": 1,
       "axenut": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1628,7 +1642,7 @@
       "corpsecap": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1643,7 +1657,7 @@
       "corpsecap": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1658,7 +1672,7 @@
       "corpsecap": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1673,7 +1687,7 @@
       "axenut": 1,
       "corpsecap": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1688,7 +1702,7 @@
       "axenut": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1703,7 +1717,7 @@
       "snowthistle": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1719,7 +1733,7 @@
         1
       ]
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {

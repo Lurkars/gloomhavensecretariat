@@ -189,7 +189,7 @@ export class ScenarioSummaryComponent {
 
                 if (this.rewards.randomItemBlueprint && this.randomItemBlueprints.length < this.rewards.randomItemBlueprint) {
 
-                    let availableItems = gameManager.itemData(this.scenario.edition, true).filter((itemData) => itemData.blueprint && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition));
+                    let availableItems = gameManager.itemData(this.scenario.edition, true).filter((itemData) => itemData.blueprint && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition) && (!itemData.requiredBuilding || gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel)));
 
                     for (let i = this.randomItemBlueprints.length; i < this.rewards.randomItemBlueprint; i++) {
                         let itemData = availableItems[Math.floor(Math.random() * availableItems.length)];

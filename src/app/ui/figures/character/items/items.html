@@ -3,7 +3,8 @@
     <div class="item-list">
         <div class="item-entry" *ngFor="let item of items; let index = index;">
             <span class="icon">
-                <img [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
+                <img *ngIf="item.slot" [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
+                <span *ngIf="!item.slot" class="item placeholder" [ghs-label]="'%data.itemFh.' + item.id + '%'"></span>
             </span>
             <span class="id">{{item.id}}.</span>
             <span class="name"
@@ -18,10 +19,8 @@
                 <img src="./assets/images/check.svg">
             </span>
             <div class="effect hint-container" *ngIf="gameManager.characterManager.itemEffect(item)">
-                <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-                <span class="hint">
-                    <span class="text"><span [ghs-label]="'character.progress.items.effect'"></span></span>
-                </span>
+                <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg"
+                    [ghsTooltip]="'character.progress.items.effect'" [hint]="true">
             </div>
             <span class="minus-one" *ngIf="isEquipped(item) && item.minusOne"
                 [ngClass]="{'ignore' : gameManager.characterManager.ignoreNegativeItemEffects(character)}">
@@ -51,7 +50,10 @@
             <img src="./assets/images/right.svg">
         </span>
         <ng-container *ngIf="item">
-            <span class="icon"><img [src]="'./assets/images/items/slots/' + item.slot +'.svg'"></span>
+            <span class="icon">
+                <img *ngIf="item.slot" [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
+                <span *ngIf="!item.slot" class="item placeholder" [ghs-label]="'%data.itemFh.' + item.id + '%'"></span>
+            </span>
             <span class="name" [ngClass]="{'disabled' : !canAdd(item)}">{{item.name}}</span>
             <a *ngIf="item.cost" class="button loot" (click)="buyItem(item)"
                 [ngClass]="{'disabled' : !canAdd(item) || !canBuy(item)}"><img

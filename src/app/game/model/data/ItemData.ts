@@ -10,7 +10,7 @@ export class ItemData implements Editional {
   cost: number = 0;
   count: number = 0;
   edition: string = "";
-  slot: ItemSlot = ItemSlot.small;
+  slot: ItemSlot | undefined = undefined;
   random: boolean = false;
   blueprint: boolean = false;
   spent: boolean = false;

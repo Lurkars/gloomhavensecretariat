@@ -49,7 +49,7 @@ export class GhsTooltipDirective implements OnInit, OnDestroy {
     @Input() overlayY: 'top' | 'center' | 'bottom' | undefined;
     @Input() offsetX: number = 0;
     @Input() offsetY: number = 0;
-    @Input() delay: number = 500;
+    @Input() delay: number = 0;
     private overlayRef!: OverlayRef;
     private timeout: any;
 
@@ -64,7 +64,7 @@ export class GhsTooltipDirective implements OnInit, OnDestroy {
             .withPositions([{
                 originX: this.originX || 'start',
                 originY: this.originY || 'bottom',
-                overlayX: this.overlayX || 'start',
+                overlayX: this.overlayX || (this.hint ? 'center' : 'start'),
                 overlayY: this.overlayY || 'top',
                 offsetX: this.offsetX,
                 offsetY: this.offsetY
@@ -88,7 +88,7 @@ export class GhsTooltipDirective implements OnInit, OnDestroy {
                 tooltipRef.instance.relative = this.relative;
                 tooltipRef.instance.size = this.size;
                 tooltipRef.instance.hint = this.hint;
-            }, this.delay)
+            }, this.delay || !this.hint && 500 || 1)
         };
     }
 
