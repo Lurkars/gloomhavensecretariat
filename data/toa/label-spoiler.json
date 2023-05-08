@@ -12,7 +12,7 @@
         "55": "Either discard one card of suffer %game.damage:3% and gain %game.condition.wound%",
         "59": "spawn one elite Forest Imp in the nearest empty hex. This elite Imp is an ally to you and an enemy to all other monster types. This Forest Imp gains %game.condition.wound% and cannot be healed",
         "65": "place it to the top of the city event deck",
-        "69": "Read %data.section:78.1%"
+        "69": "Read %data.section:30.B%"
       }
     }
   }

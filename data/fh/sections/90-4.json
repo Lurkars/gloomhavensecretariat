@@ -24,7 +24,7 @@
       "round": "true",
       "always": true,
       "once": true,
-      "note": "Read Section #69.3",
+      "note": "Read %data.section:69.3%",
       "figures": [
         {
           "identifier": {

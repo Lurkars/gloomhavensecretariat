@@ -10,7 +10,7 @@
     }
   ],
   "rewards": {
-    "custom": "Read Section #75 <br>Password: Water Hydra"
+    "custom": "Read %data.section:75% <br>Password: Water Hydra"
   },
   "monsters": [
     "inox-archer",

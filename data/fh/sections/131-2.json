@@ -11,7 +11,7 @@
       "round": "true",
       "always": true,
       "once": true,
-      "note": "Read Section #184.5",
+      "note": "Read %data.section:184.5%",
       "figures": [
         {
           "identifier": {
