@@ -238,12 +238,18 @@ export class Game {
     // migration
     if (this.party.achievements) {
       this.party.achievementsList.push(...this.party.achievements.split("\n"));
+      this.party.achievementsList = this.party.achievementsList.filter((item) => item);
       this.party.achievements = "";
     }
 
     if (this.party.globalAchievements) {
       this.party.globalAchievementsList.push(...this.party.globalAchievements.split("\n"));
+      this.party.globalAchievementsList = this.party.globalAchievementsList.filter((item) => item);
       this.party.globalAchievements = "";
+    }
+
+    if (this.party.campaignStickers) {
+      this.party.campaignStickers = this.party.campaignStickers.filter((item) => item);
     }
 
     this.parties = [this.party];

@@ -745,24 +745,26 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   addCampaignSticker(campaignStickerElement: HTMLInputElement) {
     const sticker = campaignStickerElement.value;
-    this.party.campaignStickers = this.party.campaignStickers || [];
+    if (sticker) {
+      this.party.campaignStickers = this.party.campaignStickers || [];
 
-    let total = 1;
-    const campaign = this.campaignData();
-    if (campaign && campaign.campaignStickers) {
-      const campaignSticker = campaign.campaignStickers.find((campaignSticker) => campaignSticker.startsWith(sticker.toLowerCase().replaceAll(' ', '-') + ':'));
-      if (campaignSticker) {
-        total = +(campaignSticker.split(':')[1]);
+      let total = 1;
+      const campaign = this.campaignData();
+      if (campaign && campaign.campaignStickers) {
+        const campaignSticker = campaign.campaignStickers.find((campaignSticker) => campaignSticker.startsWith(sticker.toLowerCase().replaceAll(' ', '-') + ':'));
+        if (campaignSticker) {
+          total = +(campaignSticker.split(':')[1]);
+        }
       }
-    }
 
-    const count = this.party.campaignStickers.filter((campaignSticker) => campaignSticker.toLowerCase().replaceAll(' ', '-') == sticker.toLowerCase().replaceAll(' ', '-')).length;
+      const count = this.party.campaignStickers.filter((campaignSticker) => campaignSticker.toLowerCase().replaceAll(' ', '-') == sticker.toLowerCase().replaceAll(' ', '-')).length;
 
-    if (count < total) {
-      gameManager.stateManager.before("addCampaignSticker", sticker);
-      this.party.campaignStickers.push(sticker);
-      campaignStickerElement.value = "";
-      gameManager.stateManager.after();
+      if (count < total) {
+        gameManager.stateManager.before("addCampaignSticker", sticker);
+        this.party.campaignStickers.push(sticker);
+        campaignStickerElement.value = "";
+        gameManager.stateManager.after();
+      }
     }
   }
 

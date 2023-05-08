@@ -707,7 +707,7 @@ ghs-drag-click {
     position: absolute;
     top: calc(var(--ghs-unit) * -2 * var(--ghs-dialog-factor));
     right: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
-    z-index: 1;
+    z-index: 999;
     filter: var(--ghs-filter-red) brightness(0.6) var(--ghs-filter-shadow);
     cursor: pointer;
 
