@@ -3,17 +3,18 @@
 
   <div class="menu">
     <label>
-      {{'settings.edition' | ghsLabel}}
+      <span [ghs-label]="'settings.edition'"></span>
       <select [(ngModel)]="edition" (change)="update(); updateQueryParams()">
-        <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">{{'data.edition.' + edition |
-          ghsLabel}}</option>
+        <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">
+          <span [ghs-label]="'data.edition.' + edition"></span>
+        </option>
       </select>
     </label>
     <label>
-      {{'settings.character' | ghsLabel}}
+      <span [ghs-label]="'settings.character'"></span>
       <select [(ngModel)]="characterName" (change)="update(); updateQueryParams()" multiple>
-        <option *ngFor="let character of characters" [value]="character.name">{{'data.character.' + character.name|
-          ghsLabel}}
+        <option *ngFor="let character of characters" [value]="character.name">
+          <span [ghs-label]="'data.character.' + character.name"></span>
         </option>
       </select>
     </label>
@@ -22,7 +23,8 @@
   <div class="characters">
     <ng-container *ngFor="let character of filteredCharacters">
       <div class="character" *ngIf="character && character.attackModifierDeck.cards.length > 0">
-        <h1>{{'data.character.' + character.name | ghsLabel}} [{{character.attackModifierDeck.cards.length}}]</h1>
+        <h1><span [ghs-label]="'data.character.' + character.name"></span> [{{character.attackModifierDeck.cards.length}}]
+        </h1>
         <ghs-attackmodifier [attackModifier]="attackModifier" [flipped]="true"
           [characterIcon]="'./assets/images/character/icons/' + character.edition + '-' + character.name + '.svg'"
           *ngFor="let attackModifier of character.attackModifierDeck.cards"

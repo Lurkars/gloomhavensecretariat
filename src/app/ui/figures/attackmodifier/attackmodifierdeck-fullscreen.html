@@ -3,15 +3,16 @@
     <div class="title">
       <ng-container *ngIf="character">
         <img class="icon" [src]="character.iconUrl" />
-        {{character.title || ('data.character.' + character.name | ghsLabel)}}
+        <span *ngIf="character.title">{{character.title}}</span>
+        <span *ngIf="!character.title" [ghs-label]="'data.character.' + character.name"></span>
       </ng-container>
 
       <ng-container *ngIf="!character">
         <img *ngIf="numeration == 'm'" class="icon" src="./assets/images/monster/enemy.png" />
-        <span *ngIf="numeration == 'm'">{{'monster' | ghsLabel}}&nbsp;</span>
-        <span *ngIf="numeration == 'A'">{{'game.ally' | ghsLabel}}&nbsp;</span>
+        <span *ngIf="numeration == 'm'"><span [ghs-label]="'monster'"></span>&nbsp;</span>
+        <span *ngIf="numeration == 'A'"><span [ghs-label]="'game.ally'"></span>&nbsp;</span>
       </ng-container>
-      {{'game.attackModifiers' | ghsLabel}}
+      <span [ghs-label]="'game.attackModifiers'"></span>
       <span *ngIf="!character && numeration != 'm' && numeration != 'A'">&nbsp;{{numeration}}</span>
     </div>
   </div>

@@ -237,8 +237,8 @@
 
         .perk {
           font-family: var(--ghs-font-normal);
-          font-size: calc(var(--ghs-unit) * 1.9 * var(--ghs-dialog-factor));
-          line-height: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
+          font-size: calc(var(--ghs-unit) * 1.9 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+          line-height: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
           margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
           margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
           display: flex;
@@ -249,7 +249,8 @@
             .checkbox {
               margin-top: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
               margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-              min-width: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
+              width: calc(var(--ghs-unit) * 1.9 * var(--ghs-dialog-factor) * var(--ghs-text-factor)* var(--ghs-text-factor));
+              height: calc(var(--ghs-unit) * 1.9 * var(--ghs-dialog-factor) * var(--ghs-text-factor)* var(--ghs-text-factor));
 
               &.disabled {
                 pointer-events: initial;
@@ -419,8 +420,8 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        width: calc(var(--ghs-unit) * 1.9 * var(--ghs-dialog-factor));
-        height: calc(var(--ghs-unit) * 1.9 * var(--ghs-dialog-factor));
+        width: 115%;
+        height: 115%;
         transform: scale(0);
         transform-origin: top left;
         transition: 120ms transform ease-in-out;

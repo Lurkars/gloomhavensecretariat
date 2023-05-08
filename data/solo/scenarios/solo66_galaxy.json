@@ -1,0 +1,78 @@
+{
+  "index": "66",
+  "group": "solo",
+  "name": "Otherworldly Strangers",
+  "edition": "cs",
+  "spoiler": true,
+  "initial": true,
+  "solo": "galaxy",
+  "rewards": {
+    "items": [
+      "40"
+    ]
+  },
+  "monsters": [
+    "city-archer",
+    "city-guard",
+    "night-demon"
+  ],
+  "allies": [
+    "city-archer",
+    "city-guard"
+  ],
+  "rules": [
+    {
+      "round": "R == 3",
+      "sections": [
+        "74C"
+      ]
+    },
+    {
+      "round": "R == 5",
+      "sections": [
+        "74F"
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "n1",
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

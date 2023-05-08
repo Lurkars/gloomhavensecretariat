@@ -1,8 +1,8 @@
 <div class="figure-errors-dialog">
   <div class="figure-errors">
     <div class="figure-error" *ngFor="let error of (figure.errors || [])">
-      <span class="error">{{'game.figure.error.' + error.type | ghsLabel}}</span>
-      <span class="hint" [i18n]="'game.figure.error.' + error.type + '.hint'" [i18n-args]="error.args" [i18n-arg-label]="false"></span>
+      <span class="error"><span [ghs-label]="'game.figure.error.' + error.type"></span></span>
+      <span class="hint" [ghs-label]="'game.figure.error.' + error.type + '.hint'" [ghs-label-args]="error.args" [ghs-label-args-replace]="false"></span>
     </div>
   </div>
 </div>

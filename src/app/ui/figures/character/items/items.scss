@@ -83,15 +83,16 @@
 
             .icon {
                 display: flex;
+                justify-content: center;
                 align-items: center;
                 position: relative;
-                width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                width: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
             }
 
             .id {
                 text-align: right;
-                width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
                 margin-right: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
+                width: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
             }
 
             .id,
@@ -101,6 +102,10 @@
                 align-items: center;
                 font-family: var(--ghs-font-title);
                 font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+
+                &.id {
+                    justify-content: flex-end;
+                }
             }
 
             .name {

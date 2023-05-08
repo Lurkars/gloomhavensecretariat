@@ -628,7 +628,7 @@
         ".": "Treasures",
         "rewards": {
           "battleGoal": "gain {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
-          "calenderSection": "add <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/section.svg\"> {0} in %number.{1}% weeks",
+          "calenderSection": "add %data.section:{0}% in %number.{1}% weeks",
           "campaignSticker": "gain \"{0}\" campaign sticker",
           "condition": "gain {0}",
           "damage": "suffer {0}",
@@ -987,7 +987,7 @@
       "bonus": "Bonus",
       "calenderSection": {
         ".": "Section Links",
-        "add": "Add <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/section.svg\"> {0} in %number.{1}% weeks."
+        "add": "Add %data.section:{0}% in %number.{1}% weeks."
       },
       "campaignSticker": "Campaign Sticker",
       "chooseItem": "Choose to gain one of the following",
@@ -1023,6 +1023,7 @@
       "perks": "Gain {0} perk each",
       "prosperity": "{0} prosperity",
       "reputation": "{0} reputation",
+      "randomItemBlueprint": "Gain one random item blueprint:",
       "resources": "Gain {1} %game.resource.{0}% each",
       "resourcesLose": "Lose {1} %game.resource.{0}% each",
       "unlockCharacter": {
@@ -1076,8 +1077,8 @@
       "cancel": "Cancel",
       "confirm": "Confirm",
       "conclusion": {
-        ".": "Finish scenario with '{0}'",
-        "continue": "Continue with '{0}'",
+        ".": "Finish scenario with {0}",
+        "continue": "Continue with {0}",
         "select": "Select conclusion:"
       }
     },
@@ -1137,7 +1138,12 @@
       "xpChallenges": "Challenges XP",
       "xpGained": "Gained XP"
     },
-    "title": "Title"
+    "title": "Title",
+    "tooltip": {
+      ".": "{0}",
+      "blocked": "{0} (%scenario.blocked%)",
+      "locked": "{0} (%scenario.blocked%)"
+    }
   },
   "section": "Add Section",
   "server": {

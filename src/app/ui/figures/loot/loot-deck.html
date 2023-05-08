@@ -7,7 +7,7 @@
             <span class="number" (click)="open($event)">
                 <img class="ghs-svg" src="./assets/images/settings.svg">
                 {{deck.current < deck.cards.length -1 ? deck.cards.length - deck.current - 1 : 0}} </span>
-                    <img [title]="'game.cards.fullscreen' | ghsLabel"
+                    <img [ghs-label]="'game.cards.fullscreen'" [ghs-label-attribute]="'title'"
                         *ngIf="fullscreen && !compact && this.deck.cards.length > 0" (click)="openFullscreen($event)"
                         class="fullscreen" src="./assets/images/fullscreen.svg">
         </div>

@@ -2,9 +2,10 @@
   <div class="button" (click)="open($event)">
     <div class="scenario" *ngIf="gameManager.game.scenario">
       <span *ngIf="gameManager.game.scenario.index" class="index">#{{gameManager.game.scenario.index}}</span>
-      <span *ngIf="gameManager.game.scenario" class="name">{{(gameManager.game.scenario.name ? 'data.scenario.' +
-        gameManager.game.scenario.name : (gameManager.game.scenario.custom ? 'scenario.custom' : 'scenario.set')) |
-        ghsLabel}}</span>
+      <span *ngIf="gameManager.game.scenario" class="name">
+        <span
+          [ghs-label]="(gameManager.game.scenario.name ? 'data.scenario.' + gameManager.game.scenario.name : (gameManager.game.scenario.custom ? 'scenario.custom' : 'scenario.set'))"></span>
+      </span>
       <span class="treasures" (click)="openTreasures($event)"
         *ngIf="settingsManager.settings.scenarioRooms &&  settingsManager.settings.treasures && gameManager.scenarioManager.getTreasures(gameManager.game.scenario, gameManager.game.sections).length > 0"
         [ngClass]="{'unlooted' : gameManager.scenarioManager.getTreasures(gameManager.game.scenario, gameManager.game.sections, true).length > 0}">
@@ -12,7 +13,7 @@
       </span>
     </div>
     <div class="event-effects" *ngIf="!gameManager.game.scenario && gameManager.characterManager.characterCount() > 0">
-      <img class="ghs-svg" src="./assets/images/event.svg"> {{'scenario.eventEffects' | ghsLabel}}
+      <img class="ghs-svg" src="./assets/images/event.svg"> <span [ghs-label]="'scenario.eventEffects'"></span>
     </div>
   </div>
   <div class="sections rooms" (click)="open($event)"
@@ -21,33 +22,33 @@
       <span *ngFor="let roomData of gameManager.scenarioManager.openRooms();" class="section room">
         <img class="ghs-svg" src="./assets/images/scenario/door-open.svg">
         {{roomData.ref}}
-        <span class="marker" *ngIf="roomData.marker" [i18n]="'%game.mapMarker.' + roomData.marker +'%'"></span>
+        <span class="marker" *ngIf="roomData.marker" [ghs-label]="'%game.mapMarker.' + roomData.marker +'%'"></span>
       </span>
     </ng-container>
     <span *ngFor="let section of gameManager.game.sections;" class="section">
       <img class="ghs-svg" src="./assets/images/scenario/lock-open.svg">
       #{{section.index}}
       <span *ngIf="!gameManager.game.scenario || section.name != gameManager.game.scenario.name" class="name">
-        &nbsp;{{'data.section.' + section.name | ghsLabel}}
+        &nbsp;<span [ghs-label]="'data.section.' + section.name"></span>
       </span>
-      <span class="marker" *ngIf="section.marker" [i18n]="'%game.mapMarker.' + section.marker +'%'"></span>
+      <span class="marker" *ngIf="section.marker" [ghs-label]="'%game.mapMarker.' + section.marker +'%'"></span>
     </span>
     <ng-container *ngIf="settingsManager.settings.scenarioRooms">
       <span *ngFor="let roomData of gameManager.scenarioManager.closedRooms();" class="section room available"
-        (click)="openRoom(roomData, $event)"
-        [title]="(roomData.marker ? 'scenario.openRoomMarker' : 'scenario.openRoom') | ghsLabel:[roomData.ref, roomData.marker || '']">
+        (click)="openRoom(roomData, $event)" [ghs-label]="roomData.marker ? 'scenario.openRoomMarker' : 'scenario.openRoom'"
+        [ghs-label-args]="[roomData.ref, roomData.marker || '']" [ghs-label-attribute]="'title'">
         <img class="ghs-svg" src="./assets/images/scenario/door.svg">
         <span class="ref">{{roomData.ref}}</span>
-        <span class="marker" *ngIf="roomData.marker" [i18n]="'%game.mapMarker.' + roomData.marker +'%'"></span>
+        <span class="marker" *ngIf="roomData.marker" [ghs-label]="'%game.mapMarker.' + roomData.marker +'%'"></span>
       </span>
     </ng-container>
     <span *ngFor="let section of availableSections();" class="section available" (click)="addSection(section, $event)">
       <img *ngIf="!section.conclusion" class="ghs-svg" src="./assets/images/scenario/lock.svg">
       <img *ngIf="section.conclusion" class="ghs-svg" src="./assets/images/scenario/conclusion.svg">
       <span *ngIf="!section.conclusion || !section.name">#{{section.index}}</span>
-      <span class="marker" *ngIf="section.marker" [i18n]="'%game.mapMarker.' + section.marker +'%'"></span>
+      <span class="marker" *ngIf="section.marker" [ghs-label]="'%game.mapMarker.' + section.marker +'%'"></span>
       <span *ngIf="section.conclusion && section.name" class="name">
-        &nbsp;{{'data.section.' + section.name | ghsLabel}}
+        &nbsp;<span [ghs-label]="'data.section.' + section.name"></span>
       </span>
     </span>
   </div>

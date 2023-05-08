@@ -4,17 +4,17 @@
     <span class="character" *ngIf="character">
       <img class="icon" [src]="character.iconUrl" />
       {{ gameManager.characterManager.characterName(character)}}
-      <span *ngIf="character.title">&nbsp;({{'data.character.' + character.name | ghsLabel}})</span>
+      <span *ngIf="character.title">&nbsp;(<span [ghs-label]="'data.character.' + character.name"></span>)</span>
     </span>
     <span class="character" *ngIf="objective">
       <img class="icon" [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
-      {{objective.title ? objective.title : ((objective.name ? ('data.objective.' + objective.name) :
-      (objective.escort ? 'escort' : 'objective')) |
-      ghsLabel)}}
-      <span *ngIf="objective.title">&nbsp;({{(objective.escort ? 'escort' :
-        'objective') | ghsLabel}})</span>
+      <span *ngIf="objective.title">
+        {{objective.title}}</span>
+      <span *ngIf="!objective.title"
+        [ghs-label]="(objective.name ? ('data.objective.' + objective.name) : (objective.escort ? 'escort' : 'objective'))"></span>
+      <span *ngIf="objective.title">&nbsp;<span [ghs-label]="objective.escort ? 'escort' : 'objective'"></span></span>
     </span>
-    {{'game.figure.setInitiative' | ghsLabel}}
+    <span [ghs-label]="'game.figure.setInitiative'"></span>
   </div>
 
   <div class="number-container">
@@ -25,7 +25,7 @@
       <span class="number">{{number}}</span>
     </span>
     <span *ngIf="character" class="long-rest-button" [ngClass]="{'active' : character.longRest}"
-      title="{{'game.figure.longRest' | ghsLabel}}" (click)="longRest()">
+      [ghs-label]="'game.figure.longRest'" [ghs-label-attribute]="'title'" (click)="longRest()">
       <img class="ghs-svg" src="./assets/images/long-rest.svg">
     </span>
     <span *ngIf="objective"></span>

@@ -110,8 +110,8 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        width: calc(var(--ghs-unit) * 1.9 * var(--ghs-dialog-factor));
-        height: calc(var(--ghs-unit) * 1.9 * var(--ghs-dialog-factor));
+        width: 110%;
+        height: 110%;
         transform: scale(0);
         transform-origin: top left;
         transition: 120ms transform ease-in-out;

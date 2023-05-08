@@ -1,8 +1,8 @@
 <footer class="{{settingsManager.settings.theme}}" [ngClass]="{'compact' : compact}" #footer>
   <div [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
     <div #nextButton (click)="next()" class="round-container" [ngClass]="{'disabled' : disabled()}">
-      <a>{{ (gameManager.game.state == GameState.next ?
-        'round.next' : 'round.draw') | ghsLabel}} </a>
+      <a><span [ghs-label]="(gameManager.game.state == GameState.next ?
+        'round.next' : 'round.draw')"></span></a>
       <span class="round">
         <span *ngIf="round() > 0">{{round()}}</span>
         <span class="total-rounds" *ngIf="totalRounds() > 0">&nbsp;({{totalRounds()}})</span>

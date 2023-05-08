@@ -92,5 +92,6 @@ export class ScenarioFinish {
   chooseUnlockCharacter: string | undefined;
   challenges: number = 0;
   calenderSectionManual: number[] = [];
+  randomItemBlueprints: number[] = [];
 
 }

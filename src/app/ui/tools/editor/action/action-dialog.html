@@ -5,5 +5,5 @@
     <ghs-editor-action [(action)]="data.action"></ghs-editor-action>
 
     <a (click)="deleteAction()"><img class="ghs-icon" src="./assets/images/minus.svg">
-        {{'editor.action.remove' | ghsLabel}}</a>
+        <span [ghs-label]="'editor.action.remove'"></span></a>
 </div>

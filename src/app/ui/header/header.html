@@ -1,33 +1,36 @@
 <header [ngClass]="settingsManager.settings.theme">
   <div class="main-menu">
-    <a #mainMenuButton class="menu-button active-outline" title="{{'menu.main' | ghsLabel}}" (click)="openMenu($event)">
+    <a #mainMenuButton class="menu-button active-outline" [ghs-label]="'menu.main'" [ghs-label-attribute]="'title'"
+      (click)="openMenu($event)">
       <img class="ghs-svg" src="./assets/images/menu.svg">
     </a>
   </div>
   <ng-container *ngIf="!standalone">
-    <img *ngIf="gameManager.stateManager.serverError" src="./assets/images/warning.svg" class="ghs-svg server-connection closed"
-          [title]="'server.error' | ghsLabel">
+    <img *ngIf="gameManager.stateManager.serverError" src="./assets/images/warning.svg"
+      class="ghs-svg server-connection closed" [ghs-label]="'server.error'" [ghs-label-attribute]="'title'">
     <ng-container [ngSwitch]="gameManager.stateManager.wsState()">
-      <a (click)="openMenu($event, SubMenu.server)" [title]="'server.connected' | ghsLabel"
+      <a (click)="openMenu($event, SubMenu.server)" [ghs-label]="'server.connected'" [ghs-label-attribute]="'title'"
         *ngSwitchCase="WebSocket.OPEN" class="server-connection-status">
         <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection connected"
-          [title]="'server.connected' | ghsLabel">
+          [ghs-label]="'server.connected'" [ghs-label-attribute]="'title'">
       </a>
       <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection connecting"
-        *ngSwitchCase="WebSocket.CONNECTING" [title]="'server.connecting' | ghsLabel">
+        *ngSwitchCase="WebSocket.CONNECTING" [ghs-label]="'server.connecting'" [ghs-label-attribute]="'title'">
       <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection closing"
-        *ngSwitchCase="WebSocket.CLOSING" [title]="'server.closing' | ghsLabel">
+        *ngSwitchCase="WebSocket.CLOSING" [ghs-label]="'server.closing'" [ghs-label-attribute]="'title'">
       <a (click)="settingsManager.settings.serverAutoconnect ? gameManager.stateManager.connect() : openMenu($event, SubMenu.server)"
-        [title]="'server.reconnected' | ghsLabel" *ngSwitchCase="WebSocket.CLOSED" class="server-connection-status">
-        <img src="./assets/images/warning.svg" class="ghs-svg server-connection closed"
-          [title]="'server.closed' | ghsLabel">
+        [ghs-label]="'server.reconnected'" [ghs-label-attribute]="'title'" *ngSwitchCase="WebSocket.CLOSED"
+        class="server-connection-status">
+        <img src="./assets/images/warning.svg" class="ghs-svg server-connection closed" [ghs-label]="'server.closed'"
+          [ghs-label-attribute]="'title'">
         <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection closed"
-          [title]="'server.closed' | ghsLabel">
+          [ghs-label]="'server.closed'" [ghs-label-attribute]="'title'">
       </a>
       <a (click)="settingsManager.settings.serverAutoconnect ? gameManager.stateManager.connect() : openMenu($event, SubMenu.server)"
-        [title]="'server.reconnected' | ghsLabel" *ngSwitchCase="-1" class="server-connection-status">
+        [ghs-label]="'server.reconnected'" [ghs-label-attribute]="'title'" *ngSwitchCase="-1"
+        class="server-connection-status">
         <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection disconnected"
-          [title]="'server.disconnected' | ghsLabel">
+          [ghs-label]="'server.disconnected'" [ghs-label-attribute]="'title'">
       </a>
     </ng-container>
 
@@ -40,29 +43,31 @@
         <ng-container *ngSwitchCase="'characters'">
           <a class="menu-hint" (click)="openMenu($event, SubMenu.character_add)">
             <span
-              [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">{{'hints.addCharacters'
-              | ghsLabel}}</span>
+              [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}"
+              [ghs-label]="'hints.addCharacters'">
+            </span>
           </a>
         </ng-container>
         <ng-container *ngSwitchCase="'scenario'">
           <a class="menu-hint"
             [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
-            <span (click)="openMenu($event, SubMenu.scenario)">{{'hints.setScenario' | ghsLabel}}</span>
+            <span (click)="openMenu($event, SubMenu.scenario)" [ghs-label]="'hints.setScenario'"></span>
           </a>
-          <span>{{'or' | ghsLabel}}</span>
+          <span [ghs-label]="'or'"></span>
           <a class="menu-hint"
             [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.monsters}">
-            <span (click)="openMenu($event, SubMenu.monster_add)">{{'hints.addMonsters' | ghsLabel}}</span>
+            <span (click)="openMenu($event, SubMenu.monster_add)" [ghs-label]="'hints.addMonsters'"></span>
           </a>
         </ng-container>
         <ng-container *ngSwitchCase="'monsters'">
           <a class="menu-hint" (click)="openMenu($event, SubMenu.monster_add)">
             <span
-              [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.monsters}">{{'hints.addMonsters'
-              | ghsLabel}}</span>
+              [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.monsters}"
+              [ghs-label]="'hints.addMonsters'">
+            </span>
           </a>
         </ng-container>
-        <ng-container *ngSwitchDefault>{{'hints.' + hintState | ghsLabel}}</ng-container>
+        <ng-container *ngSwitchDefault><span [ghs-label]="'hints.' + hintState"></span></ng-container>
       </ng-container>
     </div>
     <span class="spacer"></span>

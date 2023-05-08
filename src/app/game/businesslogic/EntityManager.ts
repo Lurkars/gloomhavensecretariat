@@ -279,6 +279,11 @@ export class EntityManager {
         if (highlight) {
           condition.highlight = true;
         }
+
+        if (!preventHeal && entity.health - condition.value >= EntityValueFunction(entity.maxHealth)) {
+          condition.highlight = false;
+        }
+
         this.checkHealth(entity);
         setTimeout(() => {
           condition.expired = !condition.permanent;

@@ -2,19 +2,19 @@
   <div class="line span" [ngClass]="{'disabled' : !gameManager.game.edition}">
     <label>
       <input type="checkbox" [checked]="!gameManager.game.edition" (change)="setEdition()">
-      &lt;{{'edition.all' | ghsLabel}}&gt;
+      &lt;<span [ghs-label]="'edition.all'"></span>&gt;
     </label>
   </div>
   <div class="line" *ngFor="let edition of gameManager.editions()">
     <label [ngClass]="{'disabled' : gameManager.game.edition == edition}">
       <input type="checkbox" [checked]="gameManager.game.edition == edition" (change)="setEdition(edition)">
-      {{'data.edition.' + edition | ghsLabel}}
+      <span [ghs-label]="'data.edition.' + edition"></span>
     </label>
   </div>
   <div class="line separator ">
     <label>
       <input type="checkbox" [checked]="gameManager.game.party.campaignMode" (change)="toggleCampaignMode()">
-      {{'party.campaignMode' | ghsLabel}}
+      <span [ghs-label]="'party.campaignMode'"></span>
     </label>
   </div>
 </div>

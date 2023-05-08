@@ -1,5 +1,6 @@
 :host {
-    display: block
+    display: block;
+    z-index: 3000;
 }
 
 div {
@@ -8,6 +9,7 @@ div {
     font-weight: 200;
     margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor)) calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
     padding: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor)) calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+    max-width: calc(var(--ghs-unit) * 50 * var(--ghs-text-factor));
 
     &::before {
         content: ' ';
@@ -28,6 +30,7 @@ div {
 
     &.hint {
         margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
         padding: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
         border: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor)) solid var(--ghs-color-gray);
         border-radius: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));

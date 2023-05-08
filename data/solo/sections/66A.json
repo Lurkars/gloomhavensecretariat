@@ -1,0 +1,23 @@
+{
+  "index": "66A",
+  "group": "solo",
+  "name": "Penitentiary Lockdown",
+  "edition": "cs",
+  "parent": "58",
+  "marker": "4",
+  "monsters": [
+    "bandit-archer"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

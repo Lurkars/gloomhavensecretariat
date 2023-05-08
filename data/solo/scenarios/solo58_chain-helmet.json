@@ -1,0 +1,33 @@
+{
+  "index": "58",
+  "group": "solo",
+  "name": "Penitentiary Lockdown",
+  "edition": "cs",
+  "spoiler": true,
+  "initial": true,
+  "solo": "chain-helmet",
+  "rewards": {
+    "custom": "Gain one of the following as an item and the other as an item design: <br>\"Claw Trap\" (Item 34) <br>\"Clamp Trap\" (Item 56)"
+  },
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "f1",
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

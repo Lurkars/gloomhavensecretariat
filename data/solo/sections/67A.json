@@ -1,0 +1,27 @@
+{
+  "index": "67A",
+  "group": "solo",
+  "name": "Forest Invaders",
+  "edition": "cs",
+  "parent": "59",
+  "monsters": [
+    "hound",
+    "vermling-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

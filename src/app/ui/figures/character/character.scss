@@ -66,6 +66,7 @@
   ghs-drag-click.drag-hp,
   ghs-drag-click.drag-xp,
   ghs-drag-click.drag-loot,
+  ghs-drag-click.drag-token,
   ghs-drag-click.next-identity {
     position: absolute;
     bottom: calc(var(--ghs-unit) * 1.5);
@@ -73,6 +74,14 @@
     width: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor));
     height: calc(var(--ghs-unit) * 5);
     z-index: 4;
+
+    &.drag-token {
+      left: calc(var(--ghs-unit) * 16.5);
+      top: calc(var(--ghs-unit) * 1.5);
+      width: calc(var(--ghs-unit) * 5.5);
+      height: calc(var(--ghs-unit) * 5.5);
+      bottom: initial;
+    }
 
     &.drag-xp {
       top: calc(var(--ghs-unit) * 1.5);
@@ -222,6 +231,23 @@
         height: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
         width: auto;
         filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+      }
+    }
+
+    .token-container {
+      display: flex;
+      align-items: center;
+      color: var(--ghs-color-white);
+      font-family: var(--ghs-font-text);
+      margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+
+      .token {
+        font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-text-factor));
+        margin: 0 calc(var(--ghs-unit) * 0.1 * var(--ghs-text-factor));
+
+        &.placeholder {
+          margin-top: calc(var(--ghs-unit) * -0.5 * var(--ghs-text-factor));
+        }
       }
     }
 

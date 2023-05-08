@@ -40,14 +40,12 @@ export class DragClickDirective {
       } else if (event.pointerType == "touch" && settingsManager.settings.pressDoubleClick) {
         setTimeout(() => {
           this.singleClick.emit(event);
-        }, doubleClickTreshhold);
+        }, 1)
       } else if (!this.repeat || this.doubleClick.observed) {
         if (this.timeout) {
           clearTimeout(this.timeout);
           this.timeout = null;
-          setTimeout(() => {
-            this.doubleClick.emit(event);
-          }, doubleClickTreshhold)
+          this.doubleClick.emit(event);
         } else {
           this.timeout = setTimeout(() => {
             if (this.timeout) {

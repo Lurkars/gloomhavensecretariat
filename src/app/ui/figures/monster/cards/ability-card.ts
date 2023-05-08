@@ -8,7 +8,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Dialog } from '@angular/cdk/dialog';
 import { AbiltiesDialogComponent } from '../../ability/abilities-dialog';
 import { AbilityDialogComponent } from '../../ability/ability-dialog';
-import { applyPlaceholder } from 'src/app/ui/helper/i18n';
+import { applyPlaceholder } from 'src/app/ui/helper/label';
 
 @Component({
   selector: 'ghs-monster-ability-card',

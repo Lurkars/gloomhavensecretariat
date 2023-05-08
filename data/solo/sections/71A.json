@@ -1,0 +1,28 @@
+{
+  "index": "71A",
+  "group": "solo",
+  "name": "Hallow Redemption",
+  "edition": "cs",
+  "parent": "62",
+  "parentSections": [
+    [
+      "70A"
+    ]
+  ],
+  "marker": "2",
+  "monsters": [
+    "your-shadow"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "your-shadow",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

@@ -753,6 +753,7 @@
     "count": 2,
     "edition": "fh",
     "slot": "head",
+    "blueprint": true,
     "spent": true,
     "resources": {
       "flamefruit": 1
@@ -767,6 +768,7 @@
     "count": 2,
     "edition": "fh",
     "slot": "head",
+    "blueprint": true,
     "spent": true,
     "requiredItems": [
       97,
@@ -779,6 +781,7 @@
     "count": 2,
     "edition": "fh",
     "slot": "legs",
+    "blueprint": true,
     "resources": {
       "metal": 1
     },
@@ -793,6 +796,7 @@
     "count": 2,
     "edition": "fh",
     "slot": "head",
+    "blueprint": true,
     "spent": true,
     "resources": {
       "snowthistle": 1
@@ -808,6 +812,7 @@
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
+    "blueprint": true,
     "spent": true,
     "resources": {
       "metal": 1,
@@ -823,6 +828,7 @@
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
+    "blueprint": true,
     "spent": true,
     "resources": {
       "lumber": 1,
@@ -835,6 +841,7 @@
     "count": 2,
     "edition": "fh",
     "slot": "head",
+    "blueprint": true,
     "resources": {
       "lumber": 1,
       "metal": 1
@@ -846,6 +853,7 @@
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
+    "blueprint": true,
     "spent": true,
     "requiredItems": [
       14,
@@ -859,10 +867,13 @@
     "count": 2,
     "edition": "fh",
     "slot": "head",
+    "blueprint": true,
     "requiredItems": [
       11,
       113
-    ]
+    ],
+    "requiredBuilding": "alchemist",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 60,
@@ -870,12 +881,15 @@
     "count": 2,
     "edition": "fh",
     "slot": "body",
+    "blueprint": true,
     "resources": {
       "hide": 3
     },
     "requiredItems": [
       132
-    ]
+    ],
+    "requiredBuilding": "alchemist",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 61,
@@ -883,6 +897,7 @@
     "count": 2,
     "edition": "fh",
     "slot": "body",
+    "blueprint": true,
     "spent": true,
     "resources": {
       "metal": 1
@@ -890,7 +905,9 @@
     "requiredItems": [
       32,
       105
-    ]
+    ],
+    "requiredBuilding": "alchemist",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 62,
@@ -898,11 +915,14 @@
     "count": 2,
     "edition": "fh",
     "slot": "legs",
+    "blueprint": true,
     "spent": true,
     "requiredItems": [
       28,
       99
-    ]
+    ],
+    "requiredBuilding": "alchemist",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 63,
@@ -910,11 +930,14 @@
     "count": 2,
     "edition": "fh",
     "slot": "legs",
+    "blueprint": true,
     "spent": true,
     "requiredItems": [
       13,
       158
-    ]
+    ],
+    "requiredBuilding": "alchemist",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 64,
@@ -922,6 +945,7 @@
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
+    "blueprint": true,
     "spent": true,
     "resources": {
       "metal": 1
@@ -929,7 +953,9 @@
     "requiredItems": [
       96,
       112
-    ]
+    ],
+    "requiredBuilding": "alchemist",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 65,
@@ -937,13 +963,16 @@
     "count": 2,
     "edition": "fh",
     "slot": "small",
+    "blueprint": true,
     "spent": true,
     "resources": {
       "corpsecap": 1
     },
     "requiredItems": [
       157
-    ]
+    ],
+    "requiredBuilding": "alchemist",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 66,
@@ -1182,7 +1211,7 @@
       "arrowvine": 1,
       "rockroot": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1196,7 +1225,7 @@
       "arrowvine": 1,
       "snowthistle": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1210,7 +1239,7 @@
       "arrowvine": 1,
       "axenut": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1224,7 +1253,7 @@
       "arrowvine": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1238,7 +1267,7 @@
       "arrowvine": 1,
       "corpsecap": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1252,7 +1281,7 @@
       "rockroot": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1266,7 +1295,7 @@
       "rockroot": 1,
       "corpsecap": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1280,7 +1309,7 @@
       "rockroot": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1294,7 +1323,7 @@
       "corpsecap": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1308,7 +1337,7 @@
       "rockroot": 1,
       "snowthistle": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1322,7 +1351,7 @@
       "rockroot": 1,
       "axenut": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1336,7 +1365,7 @@
       "corpsecap": 1,
       "axenut": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1350,7 +1379,7 @@
       "snowthistle": 1,
       "corpsecap": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1364,7 +1393,7 @@
       "snowthistle": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1378,7 +1407,7 @@
       "snowthistle": 1,
       "axenut": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1
   },
   {
@@ -1388,7 +1417,7 @@
     "edition": "fh",
     "slot": "small",
     "spent": true,
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1403,7 +1432,7 @@
       "rockroot": 1,
       "snowthistle": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1418,7 +1447,7 @@
       "snowthistle": 1,
       "axenut": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1433,7 +1462,7 @@
       "axenut": 1,
       "corpsecap": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1448,7 +1477,7 @@
       "axenut": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1463,7 +1492,7 @@
       "corpsecap": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1478,7 +1507,7 @@
       "axenut": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1493,7 +1522,7 @@
       "rockroot": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1508,7 +1537,7 @@
       "rockroot": 1,
       "axenut": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1523,7 +1552,7 @@
       "rockroot": 1,
       "corpsecap": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1538,7 +1567,7 @@
       "snowthistle": 1,
       "corpsecap": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1553,7 +1582,7 @@
       "snowthistle": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1568,7 +1597,7 @@
       "snowthistle": 1,
       "corpsecap": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1583,7 +1612,7 @@
       "axenut": 1,
       "corpsecap": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1598,7 +1627,7 @@
       "snowthistle": 1,
       "axenut": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1613,7 +1642,7 @@
       "corpsecap": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1628,7 +1657,7 @@
       "corpsecap": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1643,7 +1672,7 @@
       "corpsecap": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1658,7 +1687,7 @@
       "axenut": 1,
       "corpsecap": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1673,7 +1702,7 @@
       "axenut": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1688,7 +1717,7 @@
       "snowthistle": 1,
       "flamefruit": 1
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1704,7 +1733,7 @@
         1
       ]
     },
-    "requiredBuilding": "alchemy",
+    "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },
   {
@@ -1714,7 +1743,8 @@
     "count": 2,
     "edition": "fh",
     "slot": "head",
-    "spent": true
+    "spent": true,
+    "unlockProsperity": 1
   },
   {
     "id": 121,
@@ -1723,7 +1753,8 @@
     "count": 2,
     "edition": "fh",
     "slot": "head",
-    "spent": true
+    "spent": true,
+    "unlockProsperity": 1
   },
   {
     "id": 122,
@@ -1732,7 +1763,8 @@
     "count": 2,
     "edition": "fh",
     "slot": "body",
-    "spent": true
+    "spent": true,
+    "unlockProsperity": 1
   },
   {
     "id": 123,
@@ -1741,7 +1773,8 @@
     "count": 2,
     "edition": "fh",
     "slot": "body",
-    "spent": true
+    "spent": true,
+    "unlockProsperity": 1
   },
   {
     "id": 124,
@@ -1750,7 +1783,8 @@
     "count": 2,
     "edition": "fh",
     "slot": "legs",
-    "spent": true
+    "spent": true,
+    "unlockProsperity": 1
   },
   {
     "id": 125,
@@ -1759,7 +1793,8 @@
     "count": 2,
     "edition": "fh",
     "slot": "legs",
-    "spent": true
+    "spent": true,
+    "unlockProsperity": 1
   },
   {
     "id": 126,
@@ -1768,7 +1803,8 @@
     "count": 2,
     "edition": "fh",
     "slot": "twohand",
-    "spent": true
+    "spent": true,
+    "unlockProsperity": 1
   },
   {
     "id": 127,
@@ -1777,7 +1813,8 @@
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
-    "spent": true
+    "spent": true,
+    "unlockProsperity": 1
   },
   {
     "id": 128,
@@ -1786,7 +1823,8 @@
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
-    "spent": true
+    "spent": true,
+    "unlockProsperity": 1
   },
   {
     "id": 129,

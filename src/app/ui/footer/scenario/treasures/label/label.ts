@@ -72,14 +72,16 @@ export class TreasureLabelComponent implements OnInit {
                 return [this.labelPrefix + reward.type, conditionValue];
             case TreasureRewardType.item:
             case TreasureRewardType.itemDesign:
+            case TreasureRewardType.itemFh:
+            case TreasureRewardType.itemBlueprint:
                 const itemIdValues: string[] = [];
                 const itemNameValues: string[] = [];
                 value.split('+').forEach((itemString) => {
                     let itemEdition = this.edition;
                     let itemId = -1
                     if (isNaN(+itemString)) {
-                        itemEdition = itemString.split('-')[0];
-                        itemId = +itemString.split('-')[1]
+                        itemId = +itemString.split('-')[0];
+                        itemEdition = itemString.split('-')[1];
                     } else {
                         itemId = +itemString;
                     }
@@ -108,24 +110,6 @@ export class TreasureLabelComponent implements OnInit {
                 }
 
                 return [this.labelPrefix + reward.type, itemIdValue, itemNameValue];
-            case TreasureRewardType.itemBlueprint:
-                const blueprintItem = gameManager.item(+value, this.edition, true);
-                if (blueprintItem) {
-                    return [this.labelPrefix + reward.type, value, blueprintItem.name];
-                } else {
-                    console.warn("Invalid Item '" + value + "' (Edition " + this.edition + ") on treasure" + this.index + "' for Edition " + this.edition);
-                    return [this.labelPrefix + reward.type, value, '<img class="icon ghs-svg" src="./assets/images/warning.svg"> %item%'];
-                }
-                break;
-            case TreasureRewardType.itemFh:
-                const itemFh = gameManager.item(+value, this.edition, true);
-                if (itemFh) {
-                    return [this.labelPrefix + reward.type, value, itemFh.name];
-                } else {
-                    console.warn("Invalid Item '" + value + "' (Edition " + this.edition + ") on treasure" + this.index + "' for Edition " + this.edition);
-                    return [this.labelPrefix + reward.type, value, '<img class="icon ghs-svg" src="./assets/images/warning.svg"> %item%'];
-                }
-                break;
             case TreasureRewardType.scenario:
                 const scenarioData = gameManager.scenarioManager.getScenario(value, this.edition, undefined);
                 if (scenarioData) {
@@ -134,7 +118,6 @@ export class TreasureLabelComponent implements OnInit {
                     console.warn("Invalid Scenario '" + value + "' on treasure " + this.index + "' for Edition " + this.edition);
                     return [this.labelPrefix + reward.type, value, '<img class="icon ghs-svg" src="./assets/images/warning.svg"> %scenario%'];
                 }
-                break
             case TreasureRewardType.event:
                 const eventType = value.split('-')[0];
                 const eventValue = value.split('-')[1]

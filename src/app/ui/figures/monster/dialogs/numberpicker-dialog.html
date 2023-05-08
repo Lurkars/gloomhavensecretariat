@@ -7,10 +7,10 @@
         </div>
       </div>
     </div>
-    {{'data.monster.' + monster.name | ghsLabel}}
+    <span [ghs-label]="'data.monster.' + monster.name"></span>
   </span>
   <span [ngClass]="{'elite' : type == MonsterType.elite, 'boss' : type == MonsterType.boss }">
-    {{(monster.isAlly ? 'game.ally.addEntity.': 'monster.addEntity.') + type | ghsLabel}}
+    <span [ghs-label]="(monster.isAlly ? 'game.ally.addEntity.': 'monster.addEntity.') + type"></span>
     <span *ngIf="entities && entities.length > 0">({{entitiesLeft()}})</span>
   </span>
 </div>
@@ -27,5 +27,5 @@
 </div>
 
 <div class="cancel" *ngIf="automatic">
-  <a (click)="close()">{{'monster.cancelNumberpicker' | ghsLabel}}</a>
+  <a (click)="close()"><span [ghs-label]="'monster.cancelNumberpicker'"></span></a>
 </div>

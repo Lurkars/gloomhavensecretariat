@@ -24,8 +24,8 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 export class GhsTooltipComponent {
 
     @Input() value = '';
-    @Input('i18n-args') args: string[] = [];
-    @Input('i18n-arg-label') argLabel: boolean = true;
+    @Input('ghs-label-args') args: string[] = [];
+    @Input('ghs-label-args-replace') argLabel: boolean = true;
     @Input('fh-force') fhForce: boolean = false;
     @Input() relative: boolean = false;
     @Input() size: 'small' | 'large' | undefined;
@@ -36,8 +36,8 @@ export class GhsTooltipComponent {
 export class GhsTooltipDirective implements OnInit, OnDestroy {
 
     @Input('ghsTooltip') value = '';
-    @Input('i18n-args') args: string[] = [];
-    @Input('i18n-arg-label') argLabel: boolean = true;
+    @Input('ghs-label-args') args: string[] = [];
+    @Input('ghs-label-args-replace') argLabel: boolean = true;
     @Input('fh-force') fhForce: boolean = false;
     @Input() relative: boolean = false;
     @Input() size: 'small' | 'large' | undefined;
@@ -49,7 +49,7 @@ export class GhsTooltipDirective implements OnInit, OnDestroy {
     @Input() overlayY: 'top' | 'center' | 'bottom' | undefined;
     @Input() offsetX: number = 0;
     @Input() offsetY: number = 0;
-    @Input() delay: number = 500;
+    @Input() delay: number = 0;
     private overlayRef!: OverlayRef;
     private timeout: any;
 
@@ -64,13 +64,14 @@ export class GhsTooltipDirective implements OnInit, OnDestroy {
             .withPositions([{
                 originX: this.originX || 'start',
                 originY: this.originY || 'bottom',
-                overlayX: this.overlayX || 'start',
+                overlayX: this.overlayX || (this.hint ? 'center' : 'start'),
                 overlayY: this.overlayY || 'top',
                 offsetX: this.offsetX,
                 offsetY: this.offsetY
             }]);
 
         this.overlayRef = this.overlay.create({ positionStrategy });
+        this.overlayRef.hostElement.style.zIndex = "3000";
         this.timeout = null;
     }
 
@@ -87,7 +88,7 @@ export class GhsTooltipDirective implements OnInit, OnDestroy {
                 tooltipRef.instance.relative = this.relative;
                 tooltipRef.instance.size = this.size;
                 tooltipRef.instance.hint = this.hint;
-            }, this.delay)
+            }, this.delay || !this.hint && 500 || 1)
         };
     }
 

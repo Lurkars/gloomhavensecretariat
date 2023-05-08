@@ -196,6 +196,10 @@ export class GameManager {
         return true;
       }
 
+      if (this.game.edition == 'fh' && itemData.edition == 'gh') {
+        return [10, 25, 72, 105, 109, 116].indexOf(itemData.id) != -1;
+      }
+
       return false;
 
     });

@@ -1,8 +1,9 @@
 <div class="week-dialog">
     <div class="title">
-        {{'party.campaign.sheet.weekSections' | ghsLabel:[week+'']}}
-        <span class="sub-title">{{'party.campaign.sheet.weekSections.calc' | ghsLabel:[(week -
-            gameManager.game.party.weeks)+'']}}</span>
+        <span [ghs-label]="'party.campaign.sheet.weekSections'" [ghs-label-args]="[week+'']"></span>
+        <span class="sub-title"><span [ghs-label]="'party.campaign.sheet.weekSections.calc'" [ghs-label-args]="[(week -
+            gameManager.game.party.weeks)+'']"></span>
+        </span>
     </div>
     <div class="sections">
         <span class="section" *ngFor="let section of sectionsFixed()">
@@ -10,25 +11,27 @@
                 [src]="'./assets/images/' + (isConclusion(section) ? 'scenario/conclusion.svg'  : 'fh/party/section.svg')">
             {{section}}
             <a class="conclusion" *ngIf="hasConclusions(section)" (click)="openConclusions(section)"><img
-                    src="./assets/images/hint.svg"> {{'party.campaign.sheet.weekSections.openConclusion'
-                | ghsLabel}}</a>
+                    src="./assets/images/hint.svg">
+                <span [ghs-label]="'party.campaign.sheet.weekSections.openConclusion'"></span>
+            </a>
         </span>
         <span class="section" *ngFor="let section of sections()">
             <img
                 [src]="'./assets/images/' + (isConclusion(section) ? 'scenario/conclusion.svg'  : 'fh/party/section.svg')">
             {{section}}
             <a class="conclusion" *ngIf="hasConclusions(section)" (click)="openConclusions(section)"><img
-                    src="./assets/images/hint.svg"> {{'party.campaign.sheet.weekSections.openConclusion'
-                | ghsLabel}}</a>
+                    src="./assets/images/hint.svg">
+                <span [ghs-label]="'party.campaign.sheet.weekSections.openConclusion'"></span>
+            </a>
             <span class="spacer"></span>
             <img class="button" (click)="removeSection(section)" src="./assets/images/close.svg">
         </span>
     </div>
     <div class="add-section">
-        <input #scenario [placeholder]="'party.campaign.sheet.weekSections.section' | ghsLabel"
+        <input #scenario [ghs-label]="'party.campaign.sheet.weekSections.section'" [ghs-label-attribute]="'placeholder'"
             (keyup)="scenario.classList.remove('error'); scenario.classList.remove('error');"
             (keyup.enter)="addSection(scenario)">
         <img class="button" src="./assets/images/plus.svg"
-            [title]="'party.campaign.sheet.weekSections.addSection' | ghsLabel" (click)="addSection(scenario)">
+            [ghs-label]="'party.campaign.sheet.weekSections.addSection'" [ghs-label-attribute]="'title'" (click)="addSection(scenario)">
     </div>
 </div>

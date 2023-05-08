@@ -1,0 +1,57 @@
+{
+  "index": "68A",
+  "group": "solo",
+  "name": "Through the Fire and the Flames",
+  "edition": "cs",
+  "parent": "60",
+  "parentSections": [
+    [
+      "67D"
+    ]
+  ],
+  "marker": "2",
+  "monsters": [
+    "drakefiend",
+    "flame-demon",
+    "spitting-drake-scenario-60"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "68B"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "drakefiend"
+          },
+          "type": "killed"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "treasures": [
+        48,
+        49
+      ],
+      "monster": [
+        {
+          "name": "drakefiend",
+          "type": "boss"
+        },
+        {
+          "name": "flame-demon",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

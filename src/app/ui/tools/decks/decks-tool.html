@@ -2,51 +2,53 @@
   <ghs-header [standalone]="true"></ghs-header>
   <div class="menu">
     <label>
-      {{'settings.edition' | ghsLabel}}
+      <span [ghs-label]="'settings.edition'"></span>
       <select [(ngModel)]="edition" (change)="update(); updateQueryParams()">
-        <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">{{'data.edition.' + edition |
-          ghsLabel}}</option>
+        <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">
+          <span [ghs-label]="'data.edition.' + edition"></span>
+        </option>
       </select>
     </label>
     <label>
       <input type="checkbox" [(ngModel)]="character" (change)="update()">
-      {{'tools.decks.character' | ghsLabel}}
+      <span [ghs-label]="'tools.decks.character'"></span>
     </label>
     <label>
       <input type="checkbox" [checked]="settingsManager.settings.calculate"
         (change)="settingsManager.setCalculate(!settingsManager.settings.calculate);update();">
-      {{'settings.calc' | ghsLabel}}
+      <span [ghs-label]="'settings.calc'"></span>
     </label>
     <label *ngIf="settingsManager.settings.calculate">
       <input type="checkbox" [checked]="settingsManager.settings.calculateStats"
         (change)="settingsManager.setCalculateStats(!settingsManager.settings.calculateStats);update();">
-      {{'settings.calcStats' | ghsLabel}}
+      <span [ghs-label]="'settings.calcStats'"></span>
     </label>
     <label *ngIf="settingsManager.settings.calculate && !character">
       <input type="checkbox" [(ngModel)]="entity" (change)="update();updateQueryParams();">
-      {{'tools.decks.entity' | ghsLabel}}
+      <span [ghs-label]="'tools.decks.entity'"></span>
     </label>
     <label *ngIf="settingsManager.settings.calculate && !character">
       <input type="checkbox" [(ngModel)]="elite" (change)="update()">
-      {{'tools.decks.elite' | ghsLabel}}
+      <span [ghs-label]="'tools.decks.elite'"></span>
     </label>
     <label *ngIf="settingsManager.settings.calculate">
       <input type="number" min="0" max="7" [(ngModel)]="level" (change)="update()">
-      {{'tools.decks.level' | ghsLabel}}
+      <span [ghs-label]="'tools.decks.level'"></span>
     </label>
     <label>
       <input type="checkbox" [checked]="settingsManager.settings.fhStyle"
         (change)="settingsManager.setFhStyle(!settingsManager.settings.fhStyle); gameManager.uiChange.emit()">
-      {{'settings.fhStyle' | ghsLabel}}
+      <span [ghs-label]="'settings.fhStyle'"></span>
     </label>
   </div>
 
   <div class="decks">
     <ng-container *ngIf="characters.length > 0">
       <div class="deck" *ngFor="let character of characters; let i = index;">
-        <h2>{{'data.character.' + character.name | ghsLabel}} <small
-            *ngIf="character.name != deck(character).name">{{'data.deck.' +
-            deck(character).name | ghsLabel}}</small></h2>
+        <h2><span [ghs-label]="'data.character.' + character.name"></span> <small
+            *ngIf="character.name != deck(character).name">
+            <span [ghs-label]="'data.deck.' + deck(character).name"></span>
+          </small></h2>
         <ghs-ability class="bottom-actions" *ngFor="let ability of deck(character).abilities" [ability]="ability"
           [abilities]="deck(character).abilities" [character]="characters[i]" [flipped]="true">
         </ghs-ability>
@@ -54,9 +56,9 @@
     </ng-container>
     <ng-container *ngIf="monsters.length > 0">
       <div class="deck" *ngFor="let monster of monsters; let i = index;">
-        <h2>{{'data.monster.' + monster.name | ghsLabel}} <small
-            *ngIf="monster.name != deck(monster).name">{{'data.deck.' +
-            deck(monster).name | ghsLabel}}</small></h2>
+        <h2><span [ghs-label]="'data.monster.' + monster.name"></span> <small *ngIf="monster.name != deck(monster).name">
+            <span [ghs-label]="'data.deck.' + deck(monster).name"></span>
+          </small></h2>
         <ghs-ability *ngFor="let ability of deck(monster).abilities" [ability]="ability"
           [abilities]="deck(monster).abilities" [monster]="monsters[i]" [flipped]="true"
           [ngClass]="{'bottom-actions' : ability.bottomActions && ability.bottomActions.length > 0}"></ghs-ability>

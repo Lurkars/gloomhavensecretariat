@@ -1,6 +1,6 @@
 <a class="image-container"
   [ngClass]="{'active-border' : character.active, 'disabled' : character.absent, 'off' : character.off || character.exhausted || character.health <= 0, 'no-artwork' : character.noArtwork}" [style.--ghs-character-color]="character.color"
-  title="{{(gameManager.game.state == GameState.next ? (character.active ? 'game.figure.endTurn' : 'game.figure.startTurn') : 'game.figure.setInitiative') | ghsLabel}}">
+  [ghs-label]="(gameManager.game.state == GameState.next ? (character.active ? 'game.figure.endTurn' : 'game.figure.startTurn') : 'game.figure.setInitiative')" [ghs-label-attribute]="'title'">
   <img class="image" [src]="character.noArtwork ? character.iconUrl : characterManager.characterThumbnail(character)" />
   <ghs-healthbar [entity]="character"></ghs-healthbar>
 </a>

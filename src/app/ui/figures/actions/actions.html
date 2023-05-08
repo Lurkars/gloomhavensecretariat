@@ -6,5 +6,5 @@
       [highlight]="highlightActions.indexOf(action.type) != -1" [highlightElements]="highlightElements" [index]="(actionIndex ? actionIndex + '-' : '') + index">
     </ghs-action>
   </ng-container>
-  <div class="hint" *ngIf="hint" [i18n]="hint"></div>
+  <div class="hint" *ngIf="hint" [ghs-label]="hint"></div>
 </div>

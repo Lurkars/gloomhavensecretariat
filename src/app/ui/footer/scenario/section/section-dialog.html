@@ -1,19 +1,19 @@
 <div class="section-popup">
 
     <p *ngIf="!sectionData.conclusion"
-        [i18n]="sectionData.marker ? 'scenario.section.addMarker' : 'scenario.section.add'"
-        [i18n-args]="[sectionData.index,  sectionData.marker || '']">
+        [ghs-label]="sectionData.marker ? 'scenario.section.addMarker' : 'scenario.section.add'"
+        [ghs-label-args]="[sectionData.index,  sectionData.marker || '']">
     </p>
 
     <p *ngIf="sectionData.conclusion"
-        [i18n]="'scenario.section.conclusion'"
-        [i18n-args]="[sectionData.name ? 'data.section.' + sectionData.name : '%scenario.section% #' + sectionData.index]"
+        [ghs-label]="'scenario.section.conclusion'"
+        [ghs-label-args]="[sectionData.name ? 'data.section.' + sectionData.name : '%scenario.section% #' + sectionData.index]"
        >
     </p>
 
     <div class="buttons">
-        <a class="cancel" (click)="cancel()">{{'scenario.section.cancel' | ghsLabel}}</a>
+        <a class="cancel" (click)="cancel()"><span [ghs-label]="'scenario.section.cancel'"></span></a>
         <span class="spacer"></span>
-        <a class="add" (click)="addSection()">{{'scenario.section.confirm' | ghsLabel}}</a>
+        <a class="add" (click)="addSection()"><span [ghs-label]="'scenario.section.confirm'"></span></a>
     </div>
 </div>

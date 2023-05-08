@@ -3,18 +3,20 @@
   <div
     *ngIf="gameManager.stateManager.updateBlocked && settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword"
     class="dialog blocked">
-    {{'server.blocked' | ghsLabel}}
+    <span [ghs-label]="'server.blocked'"></span>
     <div class="buttons">
       <a class="force" (click)="gameManager.stateManager.forceUpdateState()">
-        {{'server.force' | ghsLabel}}
-        <span class="force-hint">{{'server.forceHint' | ghsLabel}}</span>
+        <span [ghs-label]="'server.force'"></span>
+        <span class="force-hint"><span [ghs-label]="'server.forceHint'"></span></span>
       </a>
       <a class="connect" (click)="gameManager.stateManager.connect()">
-        {{'server.connect' | ghsLabel}}
-        <span class="tries" *ngIf="gameManager.stateManager.connectionTries > 0">{{'server.connectionTries' |
-          ghsLabel:['' + gameManager.stateManager.connectionTries]}}</span>
-        <span class="tries-hint" *ngIf="gameManager.stateManager.connectionTries > 4">{{'server.connectionTries.hint' |
-          ghsLabel}}</span>
+        <span [ghs-label]="'server.connect'"></span>
+        <span class="tries" *ngIf="gameManager.stateManager.connectionTries > 0">
+          <span [ghs-label]="'server.connectionTries'" [ghs-label-args]="['' + gameManager.stateManager.connectionTries]"></span>
+        </span>
+        <span class="tries-hint" *ngIf="gameManager.stateManager.connectionTries > 4">
+          <span [ghs-label]="'server.connectionTries.hint'"></span>
+        </span>
       </a>
     </div>
   </div>
@@ -23,40 +25,42 @@
     <img class="ghs-logo" src="./assets/images/logo-transparent.svg">
 
     <a *ngIf="gameManager.stateManager.installPrompt" class="install" (click)="gameManager.stateManager.install()">
-      <img class="ghs-svg" src="./assets/images/install.svg"> {{'app.install' | ghsLabel}}</a>
+      <img class="ghs-svg" src="./assets/images/install.svg"> <span [ghs-label]="'app.install'"></span></a>
 
-    <h2>{{'welcome' | ghsLabel}}</h2>
+    <h2><span [ghs-label]="'welcome'"></span></h2>
     <div class="choose-edition" *ngIf="!gameManager.game.edition">
-      <p>{{'welcome.chooseEdition' | ghsLabel}}</p>
+      <p><span [ghs-label]="'welcome.chooseEdition'"></span></p>
       <div class="editions">
         <div class="edition" *ngFor="let editionData of gameManager.editionsData()"
           (click)="startCampaign(editionData.edition)">
           <img *ngIf="editionData.logoUrl" [src]="editionData.logoUrl"
-            [title]="'data.edition.' + editionData.edition | ghsLabel">
-          <span class="text" *ngIf="!editionData.logoUrl">{{'data.edition.' + editionData.edition | ghsLabel}}</span>
+            [ghs-label]="'data.edition.' + editionData.edition" [ghs-label-attribute]="'title'">
+          <span class="text" *ngIf="!editionData.logoUrl"><span
+              [ghs-label]="'data.edition.' + editionData.edition"></span></span>
         </div>
       </div>
     </div>
-    <p *ngIf="!gameManager.game.edition">{{'welcome.orChooseCharacters' | ghsLabel}}</p>
-    <p *ngIf="gameManager.game.edition">{{'welcome.chooseCharacters' | ghsLabel}}</p>
+    <p *ngIf="!gameManager.game.edition"><span [ghs-label]="'welcome.orChooseCharacters'"></span></p>
+    <p *ngIf="gameManager.game.edition"><span [ghs-label]="'welcome.chooseCharacters'"></span></p>
     <div class="add-characters" (click)="header.openMenu($event, SubMenu.character_add)">
-      {{'hints.addCharacters' | ghsLabel}}
+      <span [ghs-label]="'hints.addCharacters'"></span>
     </div>
 
     <ng-container *ngIf="loading">
-      <span>{{'app.loading' | ghsLabel}}</span>
+      <span><span [ghs-label]="'app.loading'"></span></span>
 
       <div class="loading-bar-container">
         <div class="loading-bar"></div>
       </div>
 
-      <a class="loading-cancel" *ngIf="cancelLoading" (click)="loading = false">{{'app.loading.cancel' | ghsLabel}}</a>
+      <a class="loading-cancel" *ngIf="cancelLoading" (click)="loading = false"><span
+          [ghs-label]="'app.loading.cancel'"></span></a>
     </ng-container>
   </div>
   <div *ngIf="!fullviewChar && !welcome" class="figures" cdkDropListGroup cdkScrollable
     [ngClass]="{'loot-deck' : footer.lootDeck || settingsManager.settings.alwaysLootDeck && gameManager.game.lootDeck.active , 'ally-deck' :  footer.hasAllyAttackModifierDeck, 'drag-disabled': settingsManager.settings.disableDragFigures}">
     <div class="figure" *ngFor="let figure of figures; let i = index;" [figure-autoscroll]="figure"
-      [block]="i == this.lastScroll || i == this.lastScrollColumn ? 'end' : 'center'"  [cdkDropListData]="i" cdkDropList
+      [block]="i == this.lastScroll || i == this.lastScrollColumn ? 'end' : 'center'" [cdkDropListData]="i" cdkDropList
       (cdkDropListDropped)="drop($event)" cdkDropListAutoScrollStep="20" (cdkDropListEntered)="entered($event)"
       (cdkDropListExited)="exited($event)"
       [cdkDropListDisabled]="settingsManager.settings.disableDragFigures || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters && !gameManager.stateManager.permissions.monsters"

@@ -10,28 +10,34 @@
       <span class="spacer"></span>
       <img class="absent"
         [src]="'./assets/images/status/' + (gameManager.toCharacter(data.figure).absent ? 'absent': 'present') + '.svg'"
-        [title]="(gameManager.toCharacter(data.figure).absent ? 'character.present' : 'character.absent') | ghsLabel"
-        (click)="toggleCharacterAbsent()">
+        [ghs-label]="(gameManager.toCharacter(data.figure).absent ? 'character.present' : 'character.absent')"
+        [ghs-label-attribute]="'title'" (click)="toggleCharacterAbsent()">
     </ng-container>
     <ng-container *ngIf="data.entity && gameManager.isObjective(data.entity)">
       <img class="icon"
         [src]="'./assets/images/objective/' + (gameManager.toObjective(data.entity).escort ? 'escort' : 'objective') + '.svg'" />
-      {{gameManager.toObjective(data.entity).title ? gameManager.toObjective(data.entity).title :
-      ((gameManager.toObjective(data.entity).name ? ('data.objective.' + gameManager.toObjective(data.entity).name) :
-      (gameManager.toObjective(data.entity).escort ? 'escort' : 'objective')) |
-      ghsLabel)}}
-      <span *ngIf="gameManager.toObjective(data.entity).title">&nbsp;({{(gameManager.toObjective(data.entity).escort ?
-        'escort' :
-        'objective') | ghsLabel}})</span>
+      <span *ngIf="gameManager.toObjective(data.entity).title">{{ gameManager.toObjective(data.entity).title}}</span>
+      <span *ngIf="!gameManager.toObjective(data.entity).title && gameManager.toObjective(data.entity).name"
+        [ghs-label]="'data.objective.' + gameManager.toObjective(data.entity).name"></span>
+      <span *ngIf="!gameManager.toObjective(data.entity).title && !gameManager.toObjective(data.entity).name"
+        [ghs-label]="gameManager.toObjective(data.entity).escort ? 'escort' : 'objective'"></span>
+      <span *ngIf="gameManager.toObjective(data.entity).title">
+        &nbsp;(
+        <span [ghs-label]="gameManager.toObjective(data.entity).escort ? 'escort' : 'objective'"></span>
+        )
+      </span>
     </ng-container>
     <ng-container *ngIf="gameManager.isMonster(data.figure) ">
       <img *ngIf="!gameManager.toMonster(data.figure).noArtwork" class="standee"
         [src]="gameManager.monsterManager.monsterThumbnail(gameManager.toMonster(data.figure))" />
-      {{'data.monster.' + data.figure.name | ghsLabel}}&nbsp;
-      <span class="ally" *ngIf="gameManager.toMonster(data.figure).isAlly">{{'game.ally' | ghsLabel}}&nbsp;</span>
-      <span class="allied" *ngIf="gameManager.toMonster(data.figure).isAllied">{{'game.allied' | ghsLabel}}&nbsp;</span>
-      <a [title]="'monster.toggleType' | ghsLabel:[(gameManager.toMonsterEntity(data.entity).type == MonsterType.normal ? gameManager.toMonsterEntity(data.entity).type  :  MonsterType.elite),(gameManager.toMonsterEntity(data.entity).type == MonsterType.elite ?  MonsterType.normal: gameManager.toMonsterEntity(data.entity).type )]"
-        class="standee-number-toggle"
+      <span [ghs-label]="'data.monster.' + data.figure.name"></span>&nbsp;
+      <span class="ally" *ngIf="gameManager.toMonster(data.figure).isAlly"><span
+          [ghs-label]="'game.ally'"></span>&nbsp;</span>
+      <span class="allied" *ngIf="gameManager.toMonster(data.figure).isAllied"><span
+          [ghs-label]="'game.allied'"></span>&nbsp;</span>
+      <a [ghs-label]="'monster.toggleType'"
+        [ghs-label-args]="[(gameManager.toMonsterEntity(data.entity).type == MonsterType.normal ? gameManager.toMonsterEntity(data.entity).type  :  MonsterType.elite),(gameManager.toMonsterEntity(data.entity).type == MonsterType.elite ?  MonsterType.normal: gameManager.toMonsterEntity(data.entity).type )]"
+        [ghs-label-attribute]="'title'" class="standee-number-toggle"
         *ngIf="data.entity && gameManager.isMonsterEntity(data.entity) && (gameManager.toMonsterEntity(data.entity).type == MonsterType.normal  || gameManager.toMonsterEntity(data.entity).type == MonsterType.elite)"
         (click)="toggleMonsterType()"
         [ngClass]="gameManager.toMonsterEntity(data.entity).type">#{{gameManager.toMonsterEntity(data.entity).number}}</a>
@@ -43,20 +49,18 @@
     <ng-container *ngIf="data.entity && gameManager.isCharacter(data.figure) && gameManager.isSummon(data.entity)">
       <small>
         <img class="icon" [src]="gameManager.toCharacter(data.figure).iconUrl" />
-        {{gameManager.toCharacter(data.figure).title || ('data.character.' + data.figure.name |
-        ghsLabel)}}
-        <span *ngIf="gameManager.toCharacter(data.figure).title">&nbsp;({{('data.character.' + data.figure.name |
-          ghsLabel)}})</span>
+        <span *ngIf="gameManager.toCharacter(data.figure).title">{{gameManager.toCharacter(data.figure).title}}</span>
+        <span *ngIf="gameManager.toCharacter(data.figure).title">&nbsp;(<span
+            [ghs-label]="'data.character.' + data.figure.name"></span>)</span>
+        <span *ngIf="!gameManager.toCharacter(data.figure).title" [ghs-label]="'data.character.' + data.figure.name"></span>
       </small>
 
       <span *ngIf="gameManager.toSummon(data.entity).title">{{gameManager.toSummon(data.entity).title}}&nbsp;</span>
       <span *ngIf="gameManager.toSummon(data.entity).name"><span
-          *ngIf="gameManager.toSummon(data.entity).title">(</span>{{'data.summon.' +
-        gameManager.toSummon(data.entity).name | ghsLabel}}<span
-          *ngIf="gameManager.toSummon(data.entity).title">)</span></span>
-
-      <span *ngIf="!gameManager.toSummon(data.entity).name">{{'game.summon' | ghsLabel}}</span>
-
+          *ngIf="gameManager.toSummon(data.entity).title">(</span>
+        <span [ghs-label]="'data.summon.' + gameManager.toSummon(data.entity).name"></span>
+        <span *ngIf="gameManager.toSummon(data.entity).title">)</span></span>
+      <span *ngIf="!gameManager.toSummon(data.entity).name"><span [ghs-label]="'game.summon'"></span></span>
       <span class="summon-icon">
         <img src="./assets/images/summons/{{gameManager.toSummon(data.entity).color}}.png">
         <span class="summon-number">{{gameManager.toSummon(data.entity).number}}</span>
@@ -85,7 +89,7 @@
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </ghs-drag-click>
         </span>
-        <span class="item" title="{{'game.health' | ghsLabel}}">
+        <span class="item" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'">
           <img src="./assets/images/status/health.svg" />
           <span class="badge health-count"
             [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
@@ -106,7 +110,7 @@
               <img class="ghs-svg" src="./assets/images/minus.svg">
             </ghs-drag-click>
           </span>
-          <span class="item" title="{{'game.experience' | ghsLabel}}">
+          <span class="item" [ghs-label]="'game.experience'" [ghs-label-attribute]="'title'">
             <img src="./assets/images/status/experience.svg" />
             <span class="badge">{{experience | ghsValueSign}}</span>
           </span>
@@ -123,12 +127,28 @@
               <img class="ghs-svg" src="./assets/images/minus.svg">
             </ghs-drag-click>
           </span>
-          <span class="item" title="{{'game.loot' | ghsLabel}}">
+          <span class="item" [ghs-label]="'game.loot'" [ghs-label-attribute]="'title'">
             <img src="./assets/images/status/loot.svg" />
             <span class="badge">{{loot | ghsValueSign}}</span>
           </span>
           <span class="item">
             <ghs-drag-click class="button" (singleClick)="changeLoot(1)" [repeat]="true">
+              <img class="ghs-svg" src="./assets/images/plus.svg">
+            </ghs-drag-click>
+          </span>
+
+          <span class="item">
+            <ghs-drag-click class="button" [ngClass]="{'disabled' : characterToken == 0}"
+              (singleClick)="changeCharacterToken(-1)" [repeat]="true">
+              <img class="ghs-svg" src="./assets/images/minus.svg">
+            </ghs-drag-click>
+          </span>
+          <span class="item character-token" [ghs-label]="'game.character.token'" [ghs-label-attribute]="'title'">
+            <span [ghs-label]="'%data.characterToken.' + gameManager.toCharacter(data.entity).name + '%'"></span>
+            <span class="badge">{{characterToken}}</span>
+          </span>
+          <span class="item">
+            <ghs-drag-click class="button" (singleClick)="changeCharacterToken(1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/plus.svg">
             </ghs-drag-click>
           </span>
@@ -198,7 +218,7 @@
               <img class="ghs-svg" src="./assets/images/minus.svg">
             </ghs-drag-click>
           </span>
-          <span class="item" title="{{'game.condition.empower' | ghsLabel}}">
+          <span class="item" [ghs-label]="'game.condition.empower'" [ghs-label-attribute]="'title'">
             <span class="condition">
               <img src="./assets/images/status/empower.svg" />
             </span>
@@ -226,7 +246,7 @@
               <img class="ghs-svg" src="./assets/images/minus.svg">
             </ghs-drag-click>
           </span>
-          <span class="item" title="{{'game.condition.enfeeble' | ghsLabel}}">
+          <span class="item" [ghs-label]="'game.condition.enfeeble'" [ghs-label-attribute]="'title'">
             <span class="condition">
               <img src="./assets/images/status/enfeeble.svg" />
             </span>
@@ -291,7 +311,7 @@
           <span class="stat" (click)="openLevelDialog()">
             <img class="ghs-svg" src="./assets/images/action/attack.svg" />
             <span *ngIf="gameManager.toSummon(data.entity).attack != 0"
-              [i18n]="'' + gameManager.toSummon(data.entity).attack"></span>
+              [ghs-label]="'' + gameManager.toSummon(data.entity).attack"></span>
             <span *ngIf="gameManager.toSummon(data.entity).attack == 0">-</span>
           </span>
 
@@ -327,7 +347,7 @@
       </div>
 
       <ng-container *ngIf="data.entity && gameManager.isCharacter(data.entity)">
-        <span class="item" title="{{'game.exhausted' | ghsLabel}}"
+        <span class="item" [ghs-label]="'game.exhausted'" [ghs-label-attribute]="'title'"
           [ngClass]="{'active' : gameManager.toCharacter(data.entity).exhausted}">
           <a class="exhausted" (click)="toggleExhausted()">
             <img class="ghs-svg" src="./assets/images/status/exhausted.svg" />
@@ -337,12 +357,12 @@
 
 
       <ng-container *ngIf="data.entity && gameManager.isObjective(data.entity)">
-        <span class="item" title="{{'objective.remove' | ghsLabel}}" [ngClass]="{'active' :objectiveDead}">
+        <span class="item" [ghs-label]="'objective.remove'" [ghs-label-attribute]="'title'" [ngClass]="{'active' :objectiveDead}">
           <a class="remove" (click)="toggleDead()">
             <img src="./assets/images/close.svg" />
           </a>
         </span>
-        <span class="item" title="{{'game.exhausted' | ghsLabel}}"
+        <span class="item" [ghs-label]="'game.exhausted'" [ghs-label-attribute]="'title'"
           [ngClass]="{'active' : gameManager.toObjective(data.entity).exhausted || false}">
           <a class="exhausted" (click)="toggleExhausted()">
             <img class="ghs-svg" src="./assets/images/status/exhausted.svg" />
@@ -351,7 +371,7 @@
       </ng-container>
 
       <ng-container *ngIf="data.entity && gameManager.isCharacter(data.entity)">
-        <span class="item" title="{{'game.level' | ghsLabel}}">
+        <span class="item" [ghs-label]="'game.level'" [ghs-label-attribute]="'title'">
           <a class="button level-button" (click)="openLevelDialog()">
             {{data.figure.level}} <img src="./assets/images/status/level.svg" />
           </a>
@@ -359,13 +379,13 @@
       </ng-container>
 
       <ng-container *ngIf="data.entity && gameManager.isSummon(data.entity)">
-        <span class="item" title="{{'game.dead' | ghsLabel}}">
+        <span class="item" [ghs-label]="'game.dead'" [ghs-label-attribute]="'title'">
           <a class="button" (click)="toggleDead()">
             <img src="./assets/images/status/dead.svg" />
           </a>
         </span>
 
-        <span class="item" title="{{'game.level' | ghsLabel}}">
+        <span class="item" [ghs-label]="'game.level'" [ghs-label-attribute]="'title'">
           <a class="button level-button" (click)="openLevelDialog()">
             {{data.figure.level}} <img src="./assets/images/status/level.svg" />
           </a>
@@ -381,7 +401,7 @@
       </ng-container>
 
       <ng-container *ngIf="data.entity && gameManager.isMonsterEntity(data.entity)">
-        <span class="item" title="{{'game.dead' | ghsLabel}}">
+        <span class="item" [ghs-label]="'game.dead'" [ghs-label-attribute]="'title'">
           <a class="button" (click)="toggleDead()">
             <img src="./assets/images/status/dead.svg" />
           </a>
@@ -390,7 +410,7 @@
           <ghs-drag-click class="button" (singleClick)="changeMaxHealth(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </ghs-drag-click>
-          <img src="./assets/images/status/health.svg" title="{{'game.maxHealth' | ghsLabel}}" />
+          <img src="./assets/images/status/health.svg" [ghs-label]="'game.maxHealth'" [ghs-label-attribute]="'title'" />
           <span class="badge max-health">{{(EntityValueFunction(data.entity.maxHealth) + maxHp <
               EntityValueFunction(data.entity.maxHealth) || data.entity.health==(+data.entity.maxHealth) ?
               EntityValueFunction(data.entity.maxHealth) + maxHp :
@@ -444,7 +464,7 @@
         <a class="button" (click)="changeMaxHealth(-1)">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>
-        <span class="item" title="{{'game.maxHealth' | ghsLabel}}">
+        <span class="item" [ghs-label]="'game.maxHealth'" [ghs-label-attribute]="'title'">
           <img src="./assets/images/status/health.svg" />
           <span class="badge max-health">{{(EntityValueFunction(data.entity.maxHealth) + maxHp <
               EntityValueFunction(data.entity.maxHealth) ||

@@ -32,17 +32,17 @@
         (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true" [screenWidth]="true"
         (singleClick)="openEntityMenu($event)"></ghs-drag-click>
 
+      <ghs-drag-click class="drag-token"
+        [style.margin-left]="initiativeElement.elementRef.nativeElement.clientWidth + 'px'"
+        (dragMove)="dragTokenMove($event)" (dragEnd)="dragTokenEnd($event)" [relative]="true" [screenWidth]="true"
+        (singleClick)="nextIdentity($event)"></ghs-drag-click>
+
       <ghs-drag-click class="drag-xp" (dragMove)="dragXpMove($event)" (dragEnd)="dragXpEnd($event)" [relative]="true"
         [screenWidth]="true" (singleClick)="openEntityMenu($event)"></ghs-drag-click>
 
       <ghs-drag-click class="drag-loot" (dragMove)="dragLootMove($event)" (dragEnd)="dragLootEnd($event)"
         [relative]="true" [screenWidth]="true" (singleClick)="openEntityMenu($event)">
       </ghs-drag-click>
-
-      <ghs-drag-click
-        *ngIf="settingsManager.settings.characterIdentities && character.identities && character.identities.length > 1"
-        [style.margin-left]="initiativeElement.elementRef.nativeElement.clientWidth + 'px'" class="next-identity"
-        (singleClick)="nextIdentity($event)"></ghs-drag-click>
     </ng-container>
 
     <ghs-character-initiative #initiativeElement [figure]="character"></ghs-character-initiative>
@@ -83,6 +83,11 @@
             {{gameManager.characterManager.characterName(character)}}
             <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" />
           </div>
+          <span class="token-container">
+              <span class="token" *ngIf="(character.token + token) > 0"
+                [ghs-label]="'%data.characterToken.' + character.name + '%'"></span>
+            <span class="token value" *ngIf="(character.token + token) > 1">x{{character.token + token}}</span>
+          </span>
           <div class="markers">
             <span class="marker" *ngFor="let marker of character.markers;">
               <img src="./assets/images/character/icons/{{marker}}.svg" />
@@ -90,7 +95,7 @@
           </div>
         </div>
         <div class="status-bar">
-          <div class="health" title="{{'game.health' | ghsLabel}}">
+          <div class="health" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'">
             <img src="./assets/images/status/health.svg" />
             {{character.health + health}}/{{character.maxHealth}}
             <span *ngIf="health" class="value-overlay"
@@ -119,7 +124,8 @@
 
     <ng-container *ngIf="character.absent">
       <div class="title" #characterName><img class="icon" [src]="character.iconUrl" />
-        {{character.title || ('data.character.' + character.name | ghsLabel)}}
+        <span *ngIf="character.title"> {{character.title}}</span>
+        <span *ngIf="!character.title" [ghs-label]="'data.character.' + character.name"></span>
         <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" />
       </div>
       <span class="spacer"></span>
@@ -136,26 +142,26 @@
 
       <span *ngIf="settingsManager.settings.characterAttackModifierDeck" class="attack-modifier-button"
         [ngClass]="{'disabled': character.attackModifierDeckVisible}" (click)="toggleAttackModifierDeckVisible()"
-        title="{{'game.attackModifiers' | ghsLabel}}">
+        [ghs-label]="'game.attackModifiers'" [ghs-label-attribute]="'title'">
         <img src="./assets/images/attackmodifier/icon.png" />
       </span>
 
       <div class="summon-dialog">
         <a #summonButton class="summon-dialog-button" (click)="openSummonDialog($event)"
-          title="{{'summon' | ghsLabel}}">
+          [ghs-label]="'summon'" [ghs-label-attribute]="'title'">
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </a>
       </div>
 
       <div class="column col-2" (click)="openEntityMenu($event)">
-        <span class="experience" title="{{'game.experience' | ghsLabel}}">{{character.experience + experience}}
+        <span class="experience" [ghs-label]="'game.experience'" [ghs-label-attribute]="'title'">{{character.experience + experience}}
           <img src="./assets/images/status/experience.svg" />
           <span *ngIf="experience" class="value-overlay"
             [ngClass]="{'negative-value' : experience < 0, 'positive-value' : experience > 0}">
             <span class="value">{{experience | ghsValueSign}}</span>
           </span>
         </span>
-        <span class="loot" title="{{'game.loot' | ghsLabel}}">{{character.loot + loot}}
+        <span class="loot" [ghs-label]="'game.loot'" [ghs-label-attribute]="'title'">{{character.loot + loot}}
           <img src="./assets/images/status/loot.svg" />
           <span *ngIf="loot" class="value-overlay"
             [ngClass]="{'negative-value' : loot < 0, 'positive-value' : loot > 0}">
@@ -165,7 +171,7 @@
       </div>
     </ng-container>
 
-    <a class="character-sheet-button" title="{{'character.progress' | ghsLabel}}"
+    <a class="character-sheet-button" [ghs-label]="'character.progress'" [ghs-label-attribute]="'title'"
       [ngClass]="{'hand-size-margin' : settingsManager.settings.characterHandSize}">
       <img [src]="character.iconUrl" />
       <ghs-drag-click
