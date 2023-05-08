@@ -1,0 +1,51 @@
+{
+  "index": "82",
+  "group": "solo",
+  "name": "Storm Mountain",
+  "edition": "toa",
+  "spoiler": true,
+  "initial": true,
+  "solo": "lightning-ball",
+  "rewards": {
+    "items": [
+      "123"
+    ]
+  },
+  "monsters": [
+    "stone-golem",
+    "volt-demon",
+    "wind-demon"
+  ],
+  "rules": [
+    {
+      "round": "R == 3",
+      "sections": [
+        "46A"
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "volt-demon",
+          "type": "normal"
+        },
+        {
+          "name": "volt-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}
