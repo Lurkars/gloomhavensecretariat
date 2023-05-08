@@ -3,19 +3,24 @@
   "name": "Rat Traps",
   "edition": "toa",
   "parent": "77",
+  "marker": "1",
   "rooms": [
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        64
+      ],
       "monster": [
         {
           "name": "living-corpse",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "living-corpse",
+          "player3": "normal",
           "player4": "elite"
         },
         {

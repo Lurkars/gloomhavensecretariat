@@ -4,6 +4,7 @@
   "deck": "boss",
   "boss": true,
   "flying": true,
+  "immortal": true,
   "count": 1,
   "baseStat": {
     "type": "boss",
@@ -13,56 +14,148 @@
       "curse",
       "immobilize"
     ],
-    "special": []
+    "special": [
+      [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "Target discards one card or doubles the damage suffered from the attack",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "If the attack was performed, %game.action.move% back toward its starting location"
+        }
+      ]
+    ]
   },
   "stats": [
     {
       "level": 0,
       "health": 12,
       "movement": 3,
-      "attack": 2
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1
+        }
+      ]
     },
     {
       "level": 1,
       "health": 14,
       "movement": 3,
-      "attack": 2
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1
+        }
+      ]
     },
     {
       "level": 2,
       "health": 18,
       "movement": 3,
-      "attack": 3
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ]
     },
     {
       "level": 3,
       "health": 20,
       "movement": 4,
-      "attack": 3
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ]
     },
     {
       "level": 4,
       "health": 22,
       "movement": 4,
-      "attack": 4
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ]
     },
     {
       "level": 5,
       "health": 26,
       "movement": 4,
-      "attack": 4
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4
+        }
+      ]
     },
     {
       "level": 6,
       "health": 28,
       "movement": 4,
-      "attack": 5
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 5
+        }
+      ]
     },
     {
       "level": 7,
       "health": 30,
       "movement": 4,
-      "attack": 6
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 5
+        }
+      ]
     }
   ]
 }

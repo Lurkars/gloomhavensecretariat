@@ -1,0 +1,101 @@
+{
+  "name": "tendril-of-corruption",
+  "thumbnail": "gh-the-sightless-eye",
+  "edition": "toa",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "standeeShare": "the-sightless-eye",
+  "standeeShareEdition": "gh",
+  "baseStat": {
+    "type": "boss",
+    "note": "If its hit points would drop below 10, it becomes 10 instead.",
+    "immunities": [
+      "stun",
+      "disarm",
+      "curse",
+      "muddle",
+      "pull",
+      "push",
+      "brittle",
+      "poison",
+      "wound"
+    ],
+    "special": [
+      [
+        {
+          "type": "attack",
+          "value": 3,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.action.target% one enemy within two hexes of either the Tendril of Corruption or a Dark Pit overlay. If this attack deals damage, shuffle a %game.attackmodifier.minus1% into the target's modifier deck. If this attack deals no damage, the Tendril of Corruption suffers 2 damage. This cannot reduce the Tendril of Corruption's hit points below 1.",
+              "small": true
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "If an enemy is in the same room as the Tendril of Corruption, suffer 2 damage and",
+          "small": true,
+          "subActions": [
+            {
+              "type": "summon",
+              "value": "deep-terror-scenario-81"
+            },
+            {
+              "type": "custom",
+              "value": "adjacent to the Tendril of Corruption or any Dark Pit overlay tile closest to the nearest enemy. This cannot reduce the Tendril of Corruption's hit points below 1. The Tendril of Corruption and the summoned Deep Terror gain %game.action.shield% 1 for the round.",
+              "small": true
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "28",
+      "attack": 5
+    },
+    {
+      "level": 1,
+      "health": "32",
+      "attack": 6
+    },
+    {
+      "level": 2,
+      "health": "40",
+      "attack": 6
+    },
+    {
+      "level": 3,
+      "health": "44",
+      "attack": 7
+    },
+    {
+      "level": 4,
+      "health": "56",
+      "attack": 7
+    },
+    {
+      "level": 5,
+      "health": "60",
+      "attack": 8
+    },
+    {
+      "level": 6,
+      "health": "72",
+      "attack": 8
+    },
+    {
+      "level": 7,
+      "health": "80",
+      "attack": 9
+    }
+  ]
+}

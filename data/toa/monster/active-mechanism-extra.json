@@ -1,0 +1,52 @@
+{
+  "name": "active-mechanism-extra",
+  "thumbnail": "gh-deep-terror",
+  "edition": "toa",
+  "deck": "deep-terror",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "standeeShare": "deep-terror",
+  "standeeShareEdition": "gh",
+  "baseStat": {
+    "type": "boss",
+    "movement": 0,
+    "actions": [],
+    "immunities": [],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "attack": 3
+    },
+    {
+      "level": 1,
+      "attack": 3
+    },
+    {
+      "level": 2,
+      "attack": 4
+    },
+    {
+      "level": 3,
+      "attack": 4
+    },
+    {
+      "level": 4,
+      "attack": 5
+    },
+    {
+      "level": 5,
+      "attack": 5
+    },
+    {
+      "level": 6,
+      "attack": 6
+    },
+    {
+      "level": 7,
+      "attack": 6
+    }
+  ]
+}

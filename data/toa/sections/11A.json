@@ -3,6 +3,7 @@
   "name": "The Dark Valley",
   "edition": "toa",
   "parent": "67",
+  "marker": "1",
   "rooms": [
     {
       "roomNumber": 2,
@@ -29,6 +30,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "smoke-spirit",
+          "player4": "normal"
         },
         {
           "name": "vermling-scavenger",

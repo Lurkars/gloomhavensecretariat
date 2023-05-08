@@ -3,10 +3,19 @@
   "name": "The Dark Valley",
   "edition": "toa",
   "parent": "67",
+  "parentSections": [
+    [
+      "11A"
+    ]
+  ],
+  "marker": "2",
   "rooms": [
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        67
+      ],
       "monster": [
         {
           "name": "smoke-spirit",
@@ -16,6 +25,10 @@
           "name": "smoke-spirit",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "smoke-spirit",
+          "player4": "normal"
         },
         {
           "name": "spitting-drake",

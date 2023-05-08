@@ -1,0 +1,48 @@
+{
+  "index": "42A",
+  "group": "solo",
+  "name": "Conflux of Power",
+  "edition": "toa",
+  "parent": "80",
+  "parentSections": [
+    [
+      "40A"
+    ]
+  ],
+  "blockedSections": [
+    "40C"
+  ],
+  "marker": "2",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "toa",
+          "scenario": "80",
+          "index": 0,
+          "section": true
+        },
+        {
+          "edition": "toa",
+          "scenario": "80",
+          "index": 1,
+          "section": true
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "glacier-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

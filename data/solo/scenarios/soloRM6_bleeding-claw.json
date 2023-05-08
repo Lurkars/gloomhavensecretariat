@@ -44,7 +44,7 @@
     },
     {
       "round": "R == 8",
-      "note": "Read Section 3 <br>Place the Ruinmaw at hex %game.mapMarker.a%",
+      "note": "Read %data.section:3% <br>Place the Ruinmaw at hex %game.mapMarker.a%",
       "figures": [
         {
           "identifier": {

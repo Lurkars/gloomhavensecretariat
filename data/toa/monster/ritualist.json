@@ -12,16 +12,20 @@
     "type": "boss",
     "actions": [
       {
+        "type": "custom",
+        "value": "If killed, all enemies at the end of their turn perform:"
+      },
+      {
         "type": "heal",
-        "value": "^Allenemiesperform2"
-      },
-      {
-        "type": "custom",
-        "value": " self"
-      },
-      {
-        "type": "custom",
-        "value": "^when dead."
+        "value": "2",
+        "small": true,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "self",
+            "small": true
+          }
+        ]
       }
     ],
     "immunities": [

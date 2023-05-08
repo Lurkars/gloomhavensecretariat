@@ -2,7 +2,7 @@
   "name": "enraged-vanquisher",
   "thumbnail": "toa-valrath-vanquisher",
   "edition": "toa",
-  "deck": "boss",
+  "deck": "enraged-vanquisher",
   "boss": true,
   "hidden": true,
   "count": 2,
@@ -11,28 +11,14 @@
     "actions": [
       {
         "type": "custom",
-        "value": "^^Unaffected by hazardous terrain"
-      },
-      {
-        "type": "condition",
-        "value": "immobilize"
-      },
-      {
-        "type": "condition",
-        "value": "wound"
-      },
-      {
-        "type": "condition",
-        "value": "poison"
-      },
-      {
-        "type": "condition",
-        "value": "muddle"
+        "value": "Unaffected by hazardous terrain"
       }
     ],
     "immunities": [
+      "disarm",
       "stun",
-      "disarm"
+      "immobilize",
+      "wound"
     ],
     "special": []
   },

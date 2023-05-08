@@ -25,6 +25,10 @@
           "player4": "normal"
         },
         {
+          "name": "living-bones",
+          "player4": "normal"
+        },
+        {
           "name": "living-corpse",
           "player2": "normal",
           "player3": "elite",

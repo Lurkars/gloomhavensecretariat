@@ -21,7 +21,7 @@
     {
       "round": "true",
       "once": true,
-      "note": "Remove Guttermaw from the map and read Section #4",
+      "note": "Remove Guttermaw from the map and read %data.section:4%",
       "figures": [
         {
           "identifier": {

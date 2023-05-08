@@ -1,0 +1,105 @@
+{
+  "index": "19B",
+  "name": "Embers of Corruption",
+  "edition": "toa",
+  "parent": "71",
+  "parentSections": [
+    [
+      "19A"
+    ]
+  ],
+  "monsters": [
+    "enraged-vanquisher-scenario-71"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "toa",
+            "name": "enraged-vanquisher"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "toa",
+            "name": "enraged-vanquisher"
+          },
+          "type": "transfer",
+          "value": "enraged-vanquisher-scenario-71"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "toa",
+            "name": "enraged-vanquisher-2"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "toa",
+            "name": "enraged-vanquisher-2"
+          },
+          "type": "transfer",
+          "value": "enraged-vanquisher-scenario-71"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "toa",
+            "name": "enraged-vanquisher-scenario-71"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "toa",
+            "name": "enraged-vanquisher-scenario-71"
+          },
+          "type": "heal",
+          "value": "L+C"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "toa",
+            "name": "enraged-vanquisher"
+          },
+          "type": "remove"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "toa",
+            "name": "enraged-vanquisher-2"
+          },
+          "type": "remove"
+        }
+      ]
+    }
+  ],
+  "rooms": []
+}

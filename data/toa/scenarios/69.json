@@ -2,6 +2,15 @@
   "index": "69",
   "name": "Shaman Chaperone",
   "edition": "toa",
+  "unlocks": [
+    "70"
+  ],
+  "rewards": {
+    "prosperity": 1,
+    "items": [
+      "109"
+    ]
+  },
   "monsters": [
     "cave-bear",
     "earth-demon",
@@ -10,10 +19,33 @@
     "talo",
     "vermling-scout"
   ],
+  "allies": [
+    "talo"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:1",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        51
+      ],
       "monster": [
         {
           "name": "earth-demon",

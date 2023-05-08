@@ -2,10 +2,32 @@
   "index": "74",
   "name": "Song of the Harrower",
   "edition": "toa",
+  "rewards": {
+    "items": [
+      "104"
+    ]
+  },
   "monsters": [
     "black-imp",
-    "harrower-bugflute",
+    "harrower-bugflute-immortal",
     "harrower-infester"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:1",
+          "scenarioEffect": true
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -25,7 +47,7 @@
           "player4": "elite"
         },
         {
-          "name": "harrower-bugflute",
+          "name": "harrower-bugflute-immortal",
           "type": "boss"
         },
         {

@@ -2,11 +2,32 @@
   "index": "67",
   "name": "The Dark Valley",
   "edition": "toa",
+  "initial": true,
+  "unlocks": [
+    "68"
+  ],
   "monsters": [
     "deep-terror",
     "smoke-spirit",
     "spitting-drake",
     "vermling-scavenger"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle",
+          "scenarioEffect": true
+        }
+      ]
+    }
   ],
   "rooms": [
     {

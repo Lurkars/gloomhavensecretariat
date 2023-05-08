@@ -1,8 +1,29 @@
 {
   "index": "30C",
-  "name": "(Scenario 76)",
+  "name": "Untold Woe",
   "edition": "toa",
   "parent": "76",
+  "marker": "1",
+  "allied": [
+    "flame-demon",
+    "hound",
+    "sun-demon"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "gnashing-drake",
+            "type": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 2,
@@ -21,6 +42,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player4": "normal"
         },
         {
           "name": "hound",

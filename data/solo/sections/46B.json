@@ -1,0 +1,27 @@
+{
+  "index": "46B",
+  "group": "solo",
+  "name": "Storm Mountain",
+  "edition": "toa",
+  "parent": "82",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "volt-demon",
+          "type": "normal"
+        },
+        {
+          "name": "volt-demon",
+          "type": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -2,14 +2,24 @@
   "index": "71",
   "name": "Embers of Corruption",
   "edition": "toa",
+  "rewards": {
+    "envelopes": [
+      "%data.characterIcon.gemstone%"
+    ]
+  },
   "monsters": [
     "smoke-spirit",
-    "valrath-vanquisher"
+    "valrath-vanquisher",
+    "valrath-vanquisher-2"
   ],
   "rooms": [
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        58,
+        66
+      ],
       "monster": [
         {
           "name": "smoke-spirit",
@@ -22,11 +32,13 @@
         },
         {
           "name": "valrath-vanquisher",
-          "type": "boss"
+          "type": "boss",
+          "marker": "1"
         },
         {
-          "name": "valrath-vanquisher",
-          "type": "boss"
+          "name": "valrath-vanquisher-2",
+          "type": "boss",
+          "marker": "2"
         }
       ]
     }

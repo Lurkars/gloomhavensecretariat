@@ -116,7 +116,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Target one enemy within two hexes",
+              "value": "%game.action.target% one enemy within two hexes",
               "small": true
             },
             {

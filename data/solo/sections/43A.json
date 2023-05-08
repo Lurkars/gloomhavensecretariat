@@ -1,0 +1,33 @@
+{
+  "index": "43A",
+  "group": "solo",
+  "name": "Corrupted Presence",
+  "edition": "toa",
+  "parent": "81",
+  "parentSections": [
+    [
+      "42B"
+    ]
+  ],
+  "marker": "1",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror-scenario-81",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror-scenario-81",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror-scenario-81",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

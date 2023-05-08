@@ -3,10 +3,20 @@
   "name": "Rat Traps",
   "edition": "toa",
   "parent": "77",
+  "parentSections": [
+    [
+      "32D"
+    ]
+  ],
+  "marker": "4",
   "rooms": [
     {
       "roomNumber": 5,
       "initial": true,
+      "treasures": [
+        52,
+        68
+      ],
       "monster": [
         {
           "name": "bandit-archer",
@@ -38,6 +48,10 @@
           "name": "living-corpse",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "normal"
         }
       ]
     }

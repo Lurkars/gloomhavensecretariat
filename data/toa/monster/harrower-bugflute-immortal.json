@@ -1,0 +1,141 @@
+{
+  "name": "harrower-bugflute-immortal",
+  "thumbnail": "toa-harrower-bugflute",
+  "edition": "toa",
+  "deck": "boss",
+  "boss": true,
+  "flying": true,
+  "immortal": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "disarm",
+      "stun",
+      "curse",
+      "immobilize"
+    ],
+    "special": [
+      [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "custom",
+          "value": "All other Harrowers perform %game.action.move%-1, %game.action.attack%-1"
+        }
+      ],
+      [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target all enemies adjacent to at least one Harrower",
+              "small": true
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "movement": 4,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 5
+        }
+      ]
+    }
+  ]
+}

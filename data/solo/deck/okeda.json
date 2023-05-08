@@ -1,0 +1,49 @@
+{
+  "name": "okeda",
+  "edition": "toa",
+  "abilities": [
+    {
+      "cardId": 999,
+      "initiative": 99,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Acts immediately after the Incarnate, performing the same bottom and top actions as the Incarnate",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "If the Incarnate did not move during the bottom action:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": "2",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "If the Incarnate did not attack during the top action:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "4",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "enfeeble",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

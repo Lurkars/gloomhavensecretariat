@@ -48,5 +48,9 @@
     "gold:15",
     "gold:15",
     "item:99-gh",
-    "item:18"
+    "item:18",
+    "custom:%data.treasures.cs.51%",
+    "item:62-gh",
+    "item:111",
+    "item:110"
 ]

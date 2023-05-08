@@ -1,0 +1,11 @@
+{
+  "index": "33C",
+  "name": "Looted two or more treasure tiles",
+  "edition": "toa",
+  "parent": "77",
+  "conclusion": true,
+  "rewards": {
+    "collectiveGold": -1,
+    "custom": "Each character loses 1 %game.items.slots.legs% item"
+  }
+}

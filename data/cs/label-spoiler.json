@@ -21,7 +21,8 @@
         "4": "Recover one lost card",
         "6": "disarm all adjacent traps",
         "19": "generate a Wild Element",
-        "43": "Refresh all spent items"
+        "43": "Refresh all spent items",
+        "51": "50 collective gold"
       }
     }
   }

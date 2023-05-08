@@ -10,11 +10,15 @@
   "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss",
-    "actions": [],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
+      }
+    ],
     "immunities": [
       "stun"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {
@@ -29,15 +33,7 @@
         },
         {
           "type": "custom",
-          "value": "*........."
-        },
-        {
-          "type": "custom",
-          "value": "^All enemies gain advantage"
-        },
-        {
-          "type": "custom",
-          "value": "^on all attacks when dead."
+          "value": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
         }
       ]
     },
@@ -53,15 +49,7 @@
         },
         {
           "type": "custom",
-          "value": "*........."
-        },
-        {
-          "type": "custom",
-          "value": "^All enemies gain advantage"
-        },
-        {
-          "type": "custom",
-          "value": "^on all attacks when dead."
+          "value": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
         }
       ]
     },
@@ -77,15 +65,7 @@
         },
         {
           "type": "custom",
-          "value": "*........."
-        },
-        {
-          "type": "custom",
-          "value": "^All enemies gain advantage"
-        },
-        {
-          "type": "custom",
-          "value": "^on all attacks when dead."
+          "value": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
         }
       ]
     },
@@ -101,15 +81,7 @@
         },
         {
           "type": "custom",
-          "value": "*........."
-        },
-        {
-          "type": "custom",
-          "value": "^All enemies gain advantage"
-        },
-        {
-          "type": "custom",
-          "value": "^on all attacks when dead."
+          "value": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
         }
       ]
     },
@@ -125,15 +97,7 @@
         },
         {
           "type": "custom",
-          "value": "*........."
-        },
-        {
-          "type": "custom",
-          "value": "^All enemies gain advantage"
-        },
-        {
-          "type": "custom",
-          "value": "^on all attacks when dead."
+          "value": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
         }
       ]
     },
@@ -149,15 +113,7 @@
         },
         {
           "type": "custom",
-          "value": "*........."
-        },
-        {
-          "type": "custom",
-          "value": "^All enemies gain advantage"
-        },
-        {
-          "type": "custom",
-          "value": "^on all attacks when dead."
+          "value": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
         }
       ]
     },
@@ -173,15 +129,7 @@
         },
         {
           "type": "custom",
-          "value": "*........."
-        },
-        {
-          "type": "custom",
-          "value": "^All enemies gain advantage"
-        },
-        {
-          "type": "custom",
-          "value": "^on all attacks when dead."
+          "value": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
         }
       ]
     },
@@ -197,15 +145,7 @@
         },
         {
           "type": "custom",
-          "value": "*........."
-        },
-        {
-          "type": "custom",
-          "value": "^All enemies gain advantage"
-        },
-        {
-          "type": "custom",
-          "value": "^on all attacks when dead."
+          "value": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
         }
       ]
     }

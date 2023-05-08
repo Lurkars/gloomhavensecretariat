@@ -1,9 +1,9 @@
 {
   "name": "valrath-vanquisher",
   "edition": "toa",
-  "deck": "boss",
+  "deck": "valrath-vanquisher",
   "boss": true,
-  "count": 1,
+  "count": 2,
   "baseStat": {
     "type": "boss",
     "actions": [
@@ -14,7 +14,9 @@
     ],
     "immunities": [
       "disarm",
-      "stun"
+      "stun",
+      "immobilize",
+      "wound"
     ],
     "special": []
   },

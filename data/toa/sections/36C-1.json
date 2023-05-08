@@ -1,0 +1,14 @@
+{
+  "index": "36C-1",
+  "name": "One named Inox killed",
+  "edition": "toa",
+  "parent": "78",
+  "conclusion": true,
+  "rewards": {
+    "envelopes": [
+      "%data.characterIcon.three-eyes%"
+    ],
+    "battleGoals": 1,
+    "custom": "\"Grave Robber\" quest complete"
+  }
+}

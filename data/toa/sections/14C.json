@@ -3,6 +3,7 @@
   "name": "Shaman Chaperone",
   "edition": "toa",
   "parent": "69",
+  "marker": "1",
   "rooms": [
     {
       "roomNumber": 2,

@@ -1,11 +1,73 @@
 {
   "index": "19A",
-  "name": "(Scenario 71)",
+  "name": "Embers of Corruption",
   "edition": "toa",
   "parent": "71",
   "monsters": [
     "enraged-vanquisher",
-    "shardrender-monster"
+    "enraged-vanquisher-2",
+    "shardrender"
+  ],
+  "allies": [
+    "shardrender"
+  ],
+  "drawExtra": [
+    "enraged-vanquisher-2"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "toa",
+            "name": "valrath-vanquisher|valrath-vanquisher-2"
+          },
+          "type": "remove"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "19B"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "toa",
+            "name": "enraged-vanquisher"
+          },
+          "type": "killed",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "19B"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "toa",
+            "name": "enraged-vanquisher-2"
+          },
+          "type": "killed",
+          "value": 1
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -14,14 +76,16 @@
       "monster": [
         {
           "name": "enraged-vanquisher",
-          "type": "normal"
+          "type": "normal",
+          "marker": "1"
         },
         {
-          "name": "enraged-vanquisher",
-          "type": "normal"
+          "name": "enraged-vanquisher-2",
+          "type": "normal",
+          "marker": "2"
         },
         {
-          "name": "shardrender-monster",
+          "name": "shardrender",
           "type": "normal"
         },
         {

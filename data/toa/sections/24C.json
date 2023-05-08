@@ -3,11 +3,44 @@
   "name": "Song of the Harrower",
   "edition": "toa",
   "parent": "74",
+  "parentSections": [
+    [
+      "24B"
+    ]
+  ],
+  "monsters": [
+    "harrower-bugflute"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "The Harrower Bugflute %game.action.teleport% to %game.mapMarker.b%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "toa",
+            "name": "harrower-bugflute-immortal-2"
+          },
+          "type": "remove"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        61
+      ],
       "monster": [
+        {
+          "name": "harrower-bugflute",
+          "type": "boss"
+        },
         {
           "name": "harrower-infester",
           "type": "normal"

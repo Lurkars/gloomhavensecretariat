@@ -1,0 +1,156 @@
+{
+  "name": "harrower-bugflute-immortal-2",
+  "thumbnail": "toa-harrower-bugflute",
+  "edition": "toa",
+  "deck": "boss",
+  "boss": true,
+  "flying": true,
+  "immortal": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "disarm",
+      "stun",
+      "curse",
+      "immobilize"
+    ],
+    "special": [
+      [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target the closest enemy at any range",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "Remove one negative condition from all other Harrowers"
+        },
+        {
+          "type": "element",
+          "value": "dark"
+        }
+      ],
+      [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "3",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "All Harrower Infesters gain %game.action.range%3 on all their %game.action.retaliate% abilities this round"
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "movement": 4,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 5
+        }
+      ]
+    }
+  ]
+}
