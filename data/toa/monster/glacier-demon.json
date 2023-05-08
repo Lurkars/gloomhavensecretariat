@@ -32,8 +32,8 @@
           "value": 2
         },
         {
-          "type": "condition",
-          "value": "wound"
+          "type": "custom",
+          "value": "Lose %game.action.retaliate% if %game.condition.wound%"
         }
       ]
     },
@@ -48,8 +48,8 @@
           "value": 2
         },
         {
-          "type": "condition",
-          "value": "wound"
+          "type": "custom",
+          "value": "Lose %game.action.retaliate% if %game.condition.wound%"
         }
       ]
     },
@@ -64,8 +64,8 @@
           "value": 3
         },
         {
-          "type": "condition",
-          "value": "wound"
+          "type": "custom",
+          "value": "Lose %game.action.retaliate% if %game.condition.wound%"
         }
       ]
     },
@@ -80,8 +80,8 @@
           "value": 3
         },
         {
-          "type": "condition",
-          "value": "wound"
+          "type": "custom",
+          "value": "Lose %game.action.retaliate% if %game.condition.wound%"
         }
       ]
     },
@@ -96,8 +96,8 @@
           "value": 3
         },
         {
-          "type": "condition",
-          "value": "wound"
+          "type": "custom",
+          "value": "Lose %game.action.retaliate% if %game.condition.wound%"
         }
       ]
     },
@@ -112,8 +112,8 @@
           "value": 4
         },
         {
-          "type": "condition",
-          "value": "wound"
+          "type": "custom",
+          "value": "Lose %game.action.retaliate% if %game.condition.wound%"
         }
       ]
     },
@@ -128,8 +128,8 @@
           "value": 4
         },
         {
-          "type": "condition",
-          "value": "wound"
+          "type": "custom",
+          "value": "Lose %game.action.retaliate% if %game.condition.wound%"
         }
       ]
     }

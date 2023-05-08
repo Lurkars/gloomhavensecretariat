@@ -3,6 +3,7 @@
   "name": "Collapsed Cavern",
   "edition": "toa",
   "parent": "83",
+  "marker": "1",
   "rooms": [
     {
       "roomNumber": 2,
@@ -20,10 +21,6 @@
           "name": "cave-bear",
           "player3": "normal",
           "player4": "normal"
-        },
-        {
-          "name": "deep-terror",
-          "type": "normal"
         },
         {
           "name": "deep-terror",

@@ -3,10 +3,20 @@
   "name": "Rat Traps",
   "edition": "toa",
   "parent": "77",
+  "parentSections": [
+    [
+      "32B",
+      "32C"
+    ]
+  ],
+  "marker": "3",
   "rooms": [
     {
       "roomNumber": 4,
       "initial": true,
+      "treasures": [
+        55
+      ],
       "monster": [
         {
           "name": "living-bones",

@@ -2,12 +2,68 @@
   "index": "80",
   "name": "Conflux of Power",
   "edition": "toa",
+  "rewards": {
+    "items": [
+      "120"
+    ]
+  },
   "monsters": [
     "flame-demon",
     "frost-demon",
     "glacier-demon",
     "inferno-demon",
     "savvas-acolyte"
+  ],
+  "allies": [
+    "savvas-acolyte"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "toa",
+            "name": "glacier-demon"
+          },
+          "type": "killed"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "toa",
+            "name": "inferno-demon|glacier-demon"
+          },
+          "type": "remove"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "toa",
+            "name": "inferno-demon"
+          },
+          "type": "killed"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "toa",
+            "name": "glacier-demon|inferno-demon"
+          },
+          "type": "remove"
+        }
+      ]
+    }
   ],
   "rooms": [
     {

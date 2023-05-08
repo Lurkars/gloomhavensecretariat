@@ -2,6 +2,11 @@
   "index": "83",
   "name": "Collapsed Cavern",
   "edition": "toa",
+  "rewards": {
+    "items": [
+      "120"
+    ]
+  },
   "monsters": [
     "black-imp",
     "cave-bear",
@@ -9,6 +14,30 @@
     "earth-demon",
     "forest-imp",
     "living-bones"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "elements": [
+        {
+          "type": "earth",
+          "state": "waning"
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "sections": [
+        "48B"
+      ]
+    },
+    {
+      "round": "R == 9",
+      "sections": [
+        "48C"
+      ]
+    }
   ],
   "rooms": [
     {

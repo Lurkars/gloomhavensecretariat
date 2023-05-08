@@ -3,10 +3,19 @@
   "name": "Ternion Tomb",
   "edition": "toa",
   "parent": "78",
+  "parentSections": [
+    [
+      "35B"
+    ]
+  ],
+  "marker": "2",
   "rooms": [
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        62
+      ],
       "monster": [
         {
           "name": "ancient-artillery",

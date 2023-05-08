@@ -2,12 +2,25 @@
   "index": "81",
   "name": "Corrupted Presence",
   "edition": "toa",
+  "rewards": {
+    "items": [
+      "121"
+    ]
+  },
   "monsters": [
     "deep-terror-scenario-81",
     "frost-demon",
     "living-spirit",
     "night-demon",
     "tendril-of-corruption"
+  ],
+  "rules": [
+    {
+      "round": "R == 2",
+      "sections": [
+        "42B"
+      ]
+    }
   ],
   "rooms": [
     {

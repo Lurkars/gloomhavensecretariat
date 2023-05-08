@@ -8,7 +8,7 @@
   "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal",
-    "note": "Each time a Deep Terror is killed, the Tendril of Corruption suffers D/2 (rounded up) damage, where D is a normal Deep Terror’s maximum hit point value."
+    "note": "Each time a Deep Terror is killed, the Tendril of Corruption suffers D/2 damage"
   },
   "stats": [
     {

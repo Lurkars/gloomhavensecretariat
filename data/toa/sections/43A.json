@@ -3,6 +3,12 @@
   "name": "Corrupted Presence",
   "edition": "toa",
   "parent": "81",
+  "parentSections": [
+    [
+      "42B"
+    ]
+  ],
+  "marker": "1",
   "rooms": [
     {
       "roomNumber": 3,

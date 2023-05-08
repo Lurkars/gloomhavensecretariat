@@ -1,9 +1,30 @@
 {
   "index": "38A",
-  "name": "(Scenario 79)",
+  "name": "Unsouled",
   "edition": "toa",
   "parent": "79",
+  "parentSections": [
+    [
+      "36B"
+    ]
+  ],
   "monsters": [
     "okeda"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "okeda",
+          "type": "boss"
+        }
+      ]
+    }
   ]
 }

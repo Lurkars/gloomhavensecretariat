@@ -10,7 +10,13 @@
   "baseStat": {
     "type": "boss",
     "actions": [],
-    "immunities": [],
+    "immunities": [
+      "muddle",
+      "immobilize",
+      "stun",
+      "disarm",
+      "wound"
+    ],
     "special": []
   },
   "stats": [

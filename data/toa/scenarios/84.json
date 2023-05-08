@@ -1,10 +1,32 @@
 {
   "index": "84",
-  "name": "Return to Crystal Gardens (Vanquisher)",
+  "name": "Return to Crystal Gardens",
   "edition": "toa",
+  "rewards": {
+    "items": [
+      "131"
+    ]
+  },
   "monsters": [
     "shardrender-scenario-84",
     "smoke-spirit"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "wound",
+          "scenarioEffect": true
+        }
+      ]
+    }
   ],
   "rooms": [
     {

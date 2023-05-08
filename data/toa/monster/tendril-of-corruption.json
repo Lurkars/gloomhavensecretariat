@@ -9,7 +9,6 @@
   "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss",
-    "range": 3,
     "note": "If its hit points would drop below 10, it becomes 10 instead.",
     "immunities": [
       "stun",
@@ -31,7 +30,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.action.target% one enemy within two hexes of either the Tendril of Corruption or a Dark Pit overlay (whichever is closest). If this attack deals damage, shuffle %game.attackmodifier.minus1% a into the target’s modifier deck. If this attack deals no damage, the Tendril of Corruption suffers 2 damage. This cannot reduce the Tendril of Corruption’s hit points below 1.",
+              "value": "%game.action.target% one enemy within two hexes of either the Tendril of Corruption or a Dark Pit overlay. If this attack deals damage, shuffle a %game.attackmodifier.minus1% into the target's modifier deck. If this attack deals no damage, the Tendril of Corruption suffers 2 damage. This cannot reduce the Tendril of Corruption's hit points below 1.",
               "small": true
             }
           ]
@@ -40,7 +39,7 @@
       [
         {
           "type": "custom",
-          "value": "If an enemy is in the same room as  the Tendril of Corruption, the Tendril of Corruption suffers 2 damage and",
+          "value": "If an enemy is in the same room as the Tendril of Corruption, suffer 2 damage and",
           "small": true,
           "subActions": [
             {
@@ -49,7 +48,7 @@
             },
             {
               "type": "custom",
-              "value": "adjacent to either the Tendril of Corruption or any Dark Pit overlay tile closest to the nearest enemy. This cannot reduce the Tendril of orruption’s hit points below 1. The Tendril of Corruption and the summoned Deep Terror gain %game.action.shield% 1 for the round.",
+              "value": "adjacent to the Tendril of Corruption or any Dark Pit overlay tile closest to the nearest enemy. This cannot reduce the Tendril of Corruption's hit points below 1. The Tendril of Corruption and the summoned Deep Terror gain %game.action.shield% 1 for the round.",
               "small": true
             }
           ]

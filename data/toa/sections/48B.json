@@ -3,6 +3,7 @@
   "name": "Collapsed Cavern",
   "edition": "toa",
   "parent": "83",
+  "marker": "2",
   "rooms": [
     {
       "roomNumber": 3,

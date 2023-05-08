@@ -37,35 +37,22 @@
           "valueType": "minus"
         },
         {
-          "type": "custom",
-          "value": "[r]"
-        },
-        {
           "type": "element",
           "value": "light",
-          "valueType": "minus"
-        },
-        {
-          "type": "custom",
-          "value": "[c]",
+          "valueType": "minus",
           "subActions": [
             {
               "type": "condition",
-              "value": "invisible"
-            },
-            {
-              "type": "custom",
-              "value": "Self"
+              "value": "invisible",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ],
+              "small": true
             }
           ]
-        },
-        {
-          "type": "custom",
-          "value": "[/c]"
-        },
-        {
-          "type": "custom",
-          "value": "[/r]"
         }
       ]
     },
@@ -100,32 +87,27 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "target",
-              "value": 3
-            }
-          ]
-        },
-        {
-          "type": "custom",
-          "value": "[r]"
-        },
-        {
-          "type": "element",
-          "value": "light",
-          "valueType": "minus",
-          "subActions": [
+              "value": 3,
+              "small": true
+            },
             {
-              "type": "condition",
-              "value": "muddle"
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "muddle",
+                  "small": true
+                }
+              ]
             }
           ]
-        },
-        {
-          "type": "custom",
-          "value": "[/r]"
         }
       ]
     },
@@ -142,27 +124,22 @@
         {
           "type": "attack",
           "value": 1,
-          "valueType": "plus"
-        },
-        {
-          "type": "custom",
-          "value": "[r]"
-        },
-        {
-          "type": "element",
-          "value": "light",
-          "valueType": "minus",
+          "valueType": "plus",
           "subActions": [
             {
-              "type": "attack",
-              "value": 2,
-              "valueType": "plus"
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
             }
           ]
-        },
-        {
-          "type": "custom",
-          "value": "[/r]"
         }
       ]
     },
@@ -208,35 +185,22 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "[r]"
-        },
-        {
           "type": "element",
           "value": "earth",
-          "valueType": "minus"
-        },
-        {
-          "type": "custom",
-          "value": "[c]",
+          "valueType": "minus",
           "subActions": [
             {
               "type": "condition",
-              "value": "curse"
-            },
-            {
-              "type": "custom",
-              "value": "Self"
+              "value": "curse",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ],
+              "small": true
             }
           ]
-        },
-        {
-          "type": "custom",
-          "value": "[/c]"
-        },
-        {
-          "type": "custom",
-          "value": "[/r]"
         }
       ]
     },
@@ -252,54 +216,25 @@
         {
           "type": "attack",
           "value": 1,
-          "valueType": "minus"
-        },
-        {
-          "type": "custom",
-          "value": "[r]"
-        },
-        {
-          "type": "custom",
-          "value": 0
-        },
-        {
-          "type": "custom",
-          "value": "[c]",
+          "valueType": "minus",
           "subActions": [
             {
               "type": "custom",
-              "value": "All adjacent enemies and allies"
-            },
-            {
-              "type": "custom",
-              "value": "suffer 1 damage."
+              "value": "%data.custom.gh.night-demon.1%",
+              "small": true
             }
           ]
         },
         {
-          "type": "custom",
-          "value": "[/c]"
-        },
-        {
-          "type": "custom",
-          "value": "[/r]"
-        },
-        {
-          "type": "custom",
-          "value": "[r]"
-        },
-        {
           "type": "element",
-          "value": "any",
-          "valueType": "minus"
-        },
-        {
-          "type": "element",
-          "value": "light"
-        },
-        {
-          "type": "custom",
-          "value": "[/r]"
+          "value": "wild",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ]
         }
       ]
     }

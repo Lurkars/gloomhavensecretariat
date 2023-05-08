@@ -9,36 +9,37 @@
       "actions": [
         {
           "type": "custom",
-          "value": "*              Take turn directly after the Incarnate"
+          "value": "Acts immediately after the Incarnate, performing the same bottom and top actions as the Incarnate",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "*              mimicking the Incarnate's actions."
-        },
-        {
-          "type": "move",
-          "value": 2,
+          "value": "If the Incarnate did not move during the bottom action:",
+          "small": true,
           "subActions": [
             {
-              "type": "custom",
-              "value": "if the Incarnate does not move."
+              "type": "move",
+              "value": "2",
+              "small": true
             }
           ]
         },
         {
-          "type": "attack",
-          "value": 4,
-          "subActions": [
-            {}
-          ]
-        },
-        {
           "type": "custom",
-          "value": "[newLine]",
+          "value": "If the Incarnate did not attack during the top action:",
+          "small": true,
           "subActions": [
             {
-              "type": "custom",
-              "value": "if the Incarnate does not attack."
+              "type": "attack",
+              "value": "4",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "enfeeble",
+                  "small": true
+                }
+              ]
             }
           ]
         }

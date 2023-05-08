@@ -2,10 +2,23 @@
   "index": "82",
   "name": "Storm Mountain",
   "edition": "toa",
+  "rewards": {
+    "items": [
+      "123"
+    ]
+  },
   "monsters": [
     "stone-golem",
     "volt-demon",
     "wind-demon"
+  ],
+  "rules": [
+    {
+      "round": "R == 3",
+      "sections": [
+        "46A"
+      ]
+    }
   ],
   "rooms": [
     {

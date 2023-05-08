@@ -3,6 +3,7 @@
   "name": "Ternion Tomb",
   "edition": "toa",
   "parent": "78",
+  "marker": "1",
   "rooms": [
     {
       "roomNumber": 2,
@@ -15,8 +16,17 @@
           "player4": "elite"
         },
         {
+          "name": "ancient-artillery",
+          "player4": "normal"
+        },
+        {
           "name": "cultist",
           "type": "normal"
+        },
+        {
+          "name": "cultist",
+          "player2": "elite",
+          "player4": "normal"
         },
         {
           "name": "cultist",

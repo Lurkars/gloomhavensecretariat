@@ -2,9 +2,20 @@
   "index": "79",
   "name": "Unsouled",
   "edition": "toa",
+  "rewards": {
+    "items": [
+      "119"
+    ],
+    "events": [
+      "city:64"
+    ]
+  },
   "monsters": [
     "inox-archer",
     "inox-guard",
+    "inox-guard-ally"
+  ],
+  "allies": [
     "inox-guard-ally"
   ],
   "rooms": [
@@ -35,14 +46,6 @@
         {
           "name": "inox-guard",
           "type": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "type": "elite"
-        },
-        {
-          "name": "inox-guard",
-          "type": "elite"
         },
         {
           "name": "inox-guard-ally",

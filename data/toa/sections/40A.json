@@ -3,6 +3,7 @@
   "name": "Conflux of Power",
   "edition": "toa",
   "parent": "80",
+  "marker": "1",
   "rooms": [
     {
       "roomNumber": 2,

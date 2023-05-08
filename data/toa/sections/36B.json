@@ -3,6 +3,7 @@
   "name": "Unsouled",
   "edition": "toa",
   "parent": "79",
+  "marker": "1",
   "rooms": [
     {
       "roomNumber": 2,

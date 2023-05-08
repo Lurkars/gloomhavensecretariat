@@ -1,0 +1,10 @@
+{
+  "index": "33B",
+  "name": "Looted less than two treasure tiles",
+  "edition": "toa",
+  "parent": "77",
+  "conclusion": true,
+  "rewards": {
+    "collectiveGold": 39
+  }
+}
