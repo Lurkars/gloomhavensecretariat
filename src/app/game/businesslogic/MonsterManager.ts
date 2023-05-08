@@ -336,6 +336,8 @@ export class MonsterManager {
 
       if (!summon && monster.off) {
         monster.off = false;
+      } else if (summon && monster.entities.every((entity) => !gameManager.entityManager.isAlive(entity) || entity.summon == SummonState.new)) {
+        monster.off = true;
       }
 
       if (this.game.state == GameState.next && monsterEntity.summon != SummonState.new) {
@@ -431,7 +433,7 @@ export class MonsterManager {
         }
       } else if (entity.active) {
         entity.active = false;
-        if (monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0 || !monsterEntity.active)) {
+        if (monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0 || !monsterEntity.active || monsterEntity.summon == SummonState.new)) {
           monster.off = true;
         }
       } else {

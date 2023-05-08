@@ -89,7 +89,11 @@ export class TreasureLabelComponent implements OnInit {
                     const item = gameManager.item(itemId, itemEdition, true);
 
                     if (item) {
-                        itemIdValues.push('%game.item% ' + (itemEdition == this.edition ? item.id : item.id + ' [%data.edition.' + item.edition + '%]'));
+                        if (reward.type == TreasureRewardType.itemFh || reward.type == TreasureRewardType.itemBlueprint) {
+                            itemIdValues.push(item.id + '');
+                        } else {
+                            itemIdValues.push('%game.item% ' + (itemEdition == this.edition ? item.id : item.id + ' [%data.edition.' + item.edition + '%]'));
+                        }
                         itemNameValues.push('"' + item.name + '"');
                     } else {
                         console.warn("Invalid Item '" + itemId + "' (Edition " + itemEdition + ") on treasure" + this.index + "' for Edition " + this.edition);

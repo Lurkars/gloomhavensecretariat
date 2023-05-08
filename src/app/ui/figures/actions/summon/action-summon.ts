@@ -21,6 +21,7 @@ import { Subscription } from "rxjs";
 export class ActionSummonComponent implements OnChanges, OnDestroy {
 
   @Input() monster: Monster | undefined;
+  @Input() monsterType: MonsterType | undefined;
   @Input() objective: Objective | undefined;
   @Input() action!: Action;
   @Input() right: boolean = false;
@@ -62,7 +63,7 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
     this.summonData = undefined;
     this.spawners = [];
     if (this.monster) {
-      this.spawners = gameManager.entityManager.entities(this.monster, true).map((entity) => entity as MonsterEntity);
+      this.spawners = gameManager.entityManager.entities(this.monster, true).map((entity) => entity as MonsterEntity).filter((entity) => (!this.monsterType || entity.type == this.monsterType));
     } else if (this.objective) {
       this.spawners = [this.objective];
     }

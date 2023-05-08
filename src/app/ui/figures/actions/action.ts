@@ -24,6 +24,7 @@ export const ActionTypesIcons: ActionType[] = [ActionType.attack, ActionType.dam
 export class ActionComponent implements OnInit, OnDestroy {
 
   @Input() monster: Monster | undefined;
+  @Input() monsterType: MonsterType | undefined;
   @Input() objective: Objective | undefined;
   @Input('action') origAction!: Action | undefined;
   @Input() relative: boolean = false;
@@ -84,6 +85,11 @@ export class ActionComponent implements OnInit, OnDestroy {
     if (this.action && this.action.value === undefined) {
       this.action.value = "";
     }
+
+    if (this.action && this.action.type == ActionType.monsterType) {
+      this.monsterType = this.action.value as MonsterType;
+    }
+
     this.updateSubActions();
     this.forceRelative = this.monster != undefined && !this.hasEntities();
     if (this.monster && !this.relative && !this.forceRelative && settingsManager.settings.calculate && this.action && (this.action.type == ActionType.shield || this.action.type == ActionType.retaliate) && this.action.valueType != ActionValueType.minus && this.action.subActions && this.action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && !(subAction.value + '').startsWith('self'))) {

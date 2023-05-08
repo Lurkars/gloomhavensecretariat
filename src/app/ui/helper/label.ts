@@ -21,7 +21,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         label = label.split(':')[0];
       }
       let split: string[] = label.split('.');
-      if (!value) {
+      if (!value && args[0].indexOf(':') != -1) {
         value = split[split.length - 1];
       }
 
