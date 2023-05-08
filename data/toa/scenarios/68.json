@@ -2,6 +2,9 @@
   "index": "68",
   "name": "Rival Explorers",
   "edition": "toa",
+  "unlocks": [
+    "69"
+  ],
   "monsters": [
     "ancient-artillery",
     "smoke-spirit",
@@ -12,6 +15,9 @@
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        54
+      ],
       "monster": [
         {
           "name": "ancient-artillery",
@@ -43,6 +49,7 @@
         },
         {
           "name": "ancient-artillery",
+          "player3": "elite",
           "player4": "elite"
         },
         {
@@ -69,11 +76,12 @@
         {
           "name": "vermling-scout-scenario-68",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "vermling-scout-scenario-68",
-          "player3": "elite"
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "vermling-shaman-scenario-68",

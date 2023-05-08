@@ -2,6 +2,10 @@
   "index": "76",
   "name": "Untold Woe",
   "edition": "toa",
+  "rewards": {
+    "gold": 10,
+    "reputation": 2
+  },
   "monsters": [
     "flame-demon",
     "gnashing-drake",
@@ -13,6 +17,9 @@
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        69
+      ],
       "monster": [
         {
           "name": "gnashing-drake",
@@ -34,6 +41,7 @@
         },
         {
           "name": "gnashing-drake",
+          "player3": "elite",
           "player4": "elite"
         },
         {

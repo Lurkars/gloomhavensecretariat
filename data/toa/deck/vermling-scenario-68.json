@@ -9,22 +9,18 @@
       "actions": [
         {
           "type": "move",
-          "value": 2
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Move towards exit %game.mapMarker.a%"
+            }
+          ]
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus"
-        },
-        {
-          "type": "custom",
-          "value": "Å*",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "Move towards exit a"
-            }
-          ]
         }
       ]
     }

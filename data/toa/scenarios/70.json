@@ -2,12 +2,37 @@
   "index": "70",
   "name": "Spirits Rising",
   "edition": "toa",
+  "unlocks": [
+    "71"
+  ],
+  "rewards": {
+    "events": [
+      "road:61"
+    ]
+  },
   "monsters": [
     "bandit-archer",
     "forest-imp",
     "smoke-spirit",
     "vermling-scavenger",
     "water-spirit"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "poison",
+          "scenarioEffect": true
+        }
+      ]
+    }
   ],
   "rooms": [
     {

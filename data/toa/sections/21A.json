@@ -1,8 +1,9 @@
 {
   "index": "21A",
-  "name": "(Scenario 72)",
+  "name": "Inox Salvation",
   "edition": "toa",
   "parent": "72",
+  "marker": "1",
   "objectives": [
     {
       "name": "Small Tree 1",
@@ -21,7 +22,7 @@
       "health": "L+C"
     },
     {
-      "name": "Large Tree d",
+      "name": "Large Tree 3",
       "health": "L+C"
     }
   ],
@@ -29,6 +30,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        53
+      ],
       "monster": [
         {
           "name": "earth-demon",
@@ -57,6 +61,13 @@
           "name": "smoke-spirit",
           "type": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        "5:C>2"
       ]
     }
   ]

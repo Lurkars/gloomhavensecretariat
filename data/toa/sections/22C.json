@@ -1,8 +1,13 @@
 {
   "index": "22C",
-  "name": "(Scenario 73)",
+  "name": "Lootpalooza",
   "edition": "toa",
   "parent": "73",
+  "parentSections": [
+    [
+      "22B"
+    ]
+  ],
   "monsters": [
     "lootbot"
   ],

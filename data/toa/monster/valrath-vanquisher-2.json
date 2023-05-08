@@ -1,9 +1,12 @@
 {
-  "name": "valrath-vanquisher",
+  "name": "valrath-vanquisher-2",
+  "thumbnail": "toa-valrath-vanquisher",
   "edition": "toa",
   "deck": "valrath-vanquisher",
   "boss": true,
   "count": 2,
+  "standeeShare": "valrath-vanquisher",
+  "standeeShareEdition": "toa",
   "baseStat": {
     "type": "boss",
     "actions": [
@@ -15,8 +18,8 @@
     "immunities": [
       "disarm",
       "stun",
-      "immobilize",
-      "wound"
+      "poison",
+      "muddle"
     ],
     "special": []
   },

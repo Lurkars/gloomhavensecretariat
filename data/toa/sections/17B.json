@@ -3,10 +3,14 @@
   "name": "Spirits Rising",
   "edition": "toa",
   "parent": "70",
+  "marker": "2",
   "rooms": [
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        59
+      ],
       "monster": [
         {
           "name": "bandit-archer",
@@ -45,6 +49,10 @@
           "player2": "elite",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "water-spirit",
+          "player4": "normal"
         }
       ]
     }

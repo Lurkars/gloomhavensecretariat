@@ -3,10 +3,22 @@
   "name": "Shaman Chaperone",
   "edition": "toa",
   "parent": "69",
+  "parentSections": [
+    [
+      "14C"
+    ]
+  ],
+  "marker": "2",
+  "allies": [
+    "inox-shaman"
+  ],
   "rooms": [
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        57
+      ],
       "monster": [
         {
           "name": "cave-bear",
@@ -34,6 +46,7 @@
         },
         {
           "name": "hound",
+          "player3": "elite",
           "player4": "elite"
         },
         {

@@ -31,7 +31,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "target one enemy within two hexes of either the Tendril of Corruption or a Dark Pit overlay (whichever is closest). If this attack deals damage, shuffle %game.attackmodifier.minus1% a into the target’s modifier deck. If this attack deals no damage, the Tendril of Corruption suffers 2 damage. This cannot reduce the Tendril of Corruption’s hit points below 1.",
+              "value": "%game.action.target% one enemy within two hexes of either the Tendril of Corruption or a Dark Pit overlay (whichever is closest). If this attack deals damage, shuffle %game.attackmodifier.minus1% a into the target’s modifier deck. If this attack deals no damage, the Tendril of Corruption suffers 2 damage. This cannot reduce the Tendril of Corruption’s hit points below 1.",
               "small": true
             }
           ]

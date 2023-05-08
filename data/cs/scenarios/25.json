@@ -7,7 +7,9 @@
   ],
   "rewards": {
     "reputation": 1,
-    "custom": "Add Road Event 57 to the deck"
+    "events": [
+      "road:57"
+    ]
   },
   "monsters": [
     "giant-viper",

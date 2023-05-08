@@ -1,5 +1,6 @@
 {
-  "name": "harrower-bugflute",
+  "name": "harrower-bugflute-immortal-2",
+  "thumbnail": "toa-harrower-bugflute",
   "edition": "toa",
   "deck": "boss",
   "boss": true,
@@ -17,6 +18,28 @@
     "special": [
       [
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target the closest enemy at any range",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "Remove one negative condition from all other Harrowers"
+        },
+        {
+          "type": "element",
+          "value": "dark"
+        }
+      ],
+      [
+        {
           "type": "move",
           "value": 1,
           "valueType": "minus"
@@ -27,35 +50,15 @@
           "valueType": "plus",
           "subActions": [
             {
-              "type": "element",
-              "value": "dark",
-              "valueType": "minus",
-              "small": true,
-              "subActions": [
-                {
-                  "type": "custom",
-                  "value": "Target discards one card or doubles the damage suffered from the attack",
-                  "small": true
-                }
-              ]
+              "type": "range",
+              "value": "3",
+              "small": true
             }
           ]
-        }
-      ],
-      [
-        {
-          "type": "move",
-          "value": 0,
-          "valueType": "minus"
-        },
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
         },
         {
           "type": "custom",
-          "value": "If the attack was performed, %game.action.move% back toward its starting location"
+          "value": "All Harrower Infesters gain %game.action.range%3 on all their %game.action.retaliate% abilities this round"
         }
       ]
     ]
@@ -63,7 +66,6 @@
   "stats": [
     {
       "level": 0,
-      "health": 12,
       "movement": 3,
       "attack": 2,
       "actions": [
@@ -75,7 +77,6 @@
     },
     {
       "level": 1,
-      "health": 14,
       "movement": 3,
       "attack": 2,
       "actions": [
@@ -87,7 +88,6 @@
     },
     {
       "level": 2,
-      "health": 18,
       "movement": 3,
       "attack": 3,
       "actions": [
@@ -99,7 +99,6 @@
     },
     {
       "level": 3,
-      "health": 20,
       "movement": 4,
       "attack": 3,
       "actions": [
@@ -111,7 +110,6 @@
     },
     {
       "level": 4,
-      "health": 22,
       "movement": 4,
       "attack": 4,
       "actions": [
@@ -123,7 +121,6 @@
     },
     {
       "level": 5,
-      "health": 26,
       "movement": 4,
       "attack": 4,
       "actions": [
@@ -135,7 +132,6 @@
     },
     {
       "level": 6,
-      "health": 28,
       "movement": 4,
       "attack": 5,
       "actions": [
@@ -147,7 +143,6 @@
     },
     {
       "level": 7,
-      "health": 30,
       "movement": 4,
       "attack": 6,
       "actions": [

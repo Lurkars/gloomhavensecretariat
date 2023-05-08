@@ -3,6 +3,11 @@
   "name": "Inox Salvation",
   "edition": "toa",
   "parent": "72",
+  "parentSections": [
+    [
+      "21A"
+    ]
+  ],
   "rooms": [
     {
       "roomNumber": 3,

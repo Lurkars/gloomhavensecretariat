@@ -1,9 +1,13 @@
 {
-  "name": "valrath-vanquisher",
+  "name": "enraged-vanquisher-2",
+  "thumbnail": "toa-valrath-vanquisher",
   "edition": "toa",
-  "deck": "valrath-vanquisher",
+  "deck": "enraged-vanquisher",
   "boss": true,
+  "hidden": true,
   "count": 2,
+  "standeeShare": "enraged-vanquisher",
+  "standeeShareEdition": "toa",
   "baseStat": {
     "type": "boss",
     "actions": [
@@ -15,57 +19,57 @@
     "immunities": [
       "disarm",
       "stun",
-      "immobilize",
-      "wound"
+      "poison",
+      "muddle"
     ],
     "special": []
   },
   "stats": [
     {
       "level": 0,
-      "health": "5xC",
+      "health": "5x(C+1)",
       "movement": 3,
       "attack": 2
     },
     {
       "level": 1,
-      "health": "7xC",
+      "health": "7x(C+1)",
       "movement": 3,
       "attack": 2
     },
     {
       "level": 2,
-      "health": "9xC",
+      "health": "9x(C+1)",
       "movement": 3,
       "attack": 4
     },
     {
       "level": 3,
-      "health": "10xC",
+      "health": "10x(C+1)",
       "movement": 3,
       "attack": 5
     },
     {
       "level": 4,
-      "health": "12xC",
+      "health": "12x(C+1)",
       "movement": 3,
       "attack": 5
     },
     {
       "level": 5,
-      "health": "13xC",
+      "health": "13x(C+1)",
       "movement": 4,
       "attack": 5
     },
     {
       "level": 6,
-      "health": "14xC",
+      "health": "14x(C+1)",
       "movement": 4,
       "attack": 6
     },
     {
       "level": 7,
-      "health": "16xC",
+      "health": "16x(C+1)",
       "movement": 4,
       "attack": 6
     }
