@@ -3,6 +3,7 @@
   "thumbnail": "cs-terrorscale-drake",
   "edition": "cs",
   "boss": true,
+  "hidden": true,
   "count": 1,
   "standeeShare": "terrorscale-drake",
   "baseStat": {
