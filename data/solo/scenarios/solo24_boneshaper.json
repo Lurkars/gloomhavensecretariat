@@ -5,6 +5,11 @@
   "edition": "fh",
   "initial": true,
   "solo": "boneshaper",
+  "rewards": {
+    "items": [
+      "252"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "hollow-scholar",

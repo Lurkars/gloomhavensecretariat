@@ -5,6 +5,11 @@
   "edition": "fh",
   "initial": true,
   "solo": "drifter",
+  "rewards": {
+    "items": [
+      "248"
+    ]
+  },
   "monsters": [
     "flame-demon",
     "forest-imp",

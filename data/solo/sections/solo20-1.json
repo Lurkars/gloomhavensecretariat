@@ -4,6 +4,7 @@
   "name": "Wonder of Nature",
   "edition": "fh",
   "parent": "20",
+  "marker": "1",
   "monsters": [
     "flame-demon",
     "hound"

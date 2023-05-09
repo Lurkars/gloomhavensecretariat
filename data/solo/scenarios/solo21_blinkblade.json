@@ -5,6 +5,11 @@
   "edition": "fh",
   "initial": true,
   "solo": "blinkblade",
+  "rewards": {
+    "items": [
+      "249"
+    ]
+  },
   "monsters": [
     "ancient-artillery",
     "robotic-boltshooter",

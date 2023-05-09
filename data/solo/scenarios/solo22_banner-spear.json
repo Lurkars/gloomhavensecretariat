@@ -5,41 +5,166 @@
   "edition": "fh",
   "initial": true,
   "solo": "banner-spear",
+  "rewards": {
+    "items": [
+      "250"
+    ]
+  },
   "monsters": [
-    "city-guard-banner-spear-special",
+    "city-guard-banner-spear-solo",
     "polar-bear",
     "vermling-scout"
+  ],
+  "allies": [
+    "city-guard-banner-spear-solo"
   ],
   "lootDeckConfig": {
     "coin": 15
   },
+  "rules": [
+    {
+      "round": "R == 3",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "normal"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "polar-bear",
+            "type": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "elite"
+          },
+          "marker": "f"
+        }
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "elite"
+          },
+          "marker": "f"
+        },
+        {
+          "monster": {
+            "name": "polar-bear",
+            "type": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
       "initial": true,
       "monster": [
         {
-          "name": "city-guard-banner-spear-special",
+          "name": "city-guard-banner-spear-solo",
           "type": "normal"
         },
         {
-          "name": "city-guard-banner-spear-special",
+          "name": "city-guard-banner-spear-solo",
           "type": "normal"
         },
         {
-          "name": "city-guard-banner-spear-special",
+          "name": "city-guard-banner-spear-solo",
           "type": "normal"
         },
         {
-          "name": "city-guard-banner-spear-special",
+          "name": "city-guard-banner-spear-solo",
           "type": "normal"
         },
         {
-          "name": "city-guard-banner-spear-special",
+          "name": "city-guard-banner-spear-solo",
           "type": "normal"
         },
         {
-          "name": "city-guard-banner-spear-special",
+          "name": "city-guard-banner-spear-solo",
           "type": "normal"
         },
         {

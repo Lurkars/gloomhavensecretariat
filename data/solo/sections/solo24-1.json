@@ -4,6 +4,7 @@
   "name": "Bones in the Dirt",
   "edition": "fh",
   "parent": "24",
+  "marker": "1",
   "monsters": [
     "earth-demon",
     "snow-imp"
