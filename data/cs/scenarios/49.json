@@ -2,7 +2,7 @@
   "index": "49",
   "name": "Oak Invasion A",
   "edition": "cs",
-  "requiredAchievements": [
+  "requirements": [
     {
       "party": [
         "Oaks Alliance"

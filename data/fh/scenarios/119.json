@@ -3,7 +3,7 @@
   "index": "119",
   "name": "Radiant Dust",
   "edition": "fh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "campaignSticker": [
         "into-the-forest"

@@ -36,9 +36,9 @@ export const sortScenario = function (scenario) {
         scenario.rules = scenario.rules.map((rule) => sortScenarioRule(rule));
     }
 
-    if (scenario.requiredAchievements) {
-        scenario.requiredAchievements = scenario.requiredAchievements.map((requiredAchievements) => sortObjectKeys(requiredAchievements, 'global', 'party'));
+    if (scenario.requirements) {
+        scenario.requirements = scenario.requirements.map((requirements) => sortObjectKeys(requirements, 'global', 'party', 'buildings', 'campaignSticker', 'puzzle', 'solo'));
     }
 
-    return sortObjectKeys(scenario, 'index', 'group', 'name', 'gridLocation', 'edition', 'parent', 'parentSections', 'conclusion', 'blockedSections', 'marker', 'spoiler', 'initial', 'random', 'solo', 'allyDeck', 'resetRound', 'unlocks', 'requires', 'requiredAchievements', 'blocks', 'links', "forcedLinks", "rewards", 'monsters', 'allies', 'allied', 'drawExtra', 'objectives', 'lootDeckConfig', 'rules', 'rooms');
+    return sortObjectKeys(scenario, 'index', 'group', 'name', 'gridLocation', 'edition', 'parent', 'parentSections', 'conclusion', 'blockedSections', 'marker', 'spoiler', 'initial', 'random', 'solo', 'allyDeck', 'resetRound', 'unlocks', 'requires', 'requirements', 'blocks', 'links', "forcedLinks", "rewards", 'monsters', 'allies', 'allied', 'drawExtra', 'objectives', 'lootDeckConfig', 'rules', 'rooms');
 }

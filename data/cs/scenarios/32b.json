@@ -2,7 +2,7 @@
   "index": "32b",
   "name": "Confronting the Past B",
   "edition": "cs",
-  "requiredAchievements": [
+  "requirements": [
     {
       "party": [
         "Take the Money"

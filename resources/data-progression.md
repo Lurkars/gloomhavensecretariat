@@ -4,16 +4,15 @@ To avoid error reporting on incomplete data, here is the current state for all e
 - :white_check_mark: `some (raw) data available, but needs checking/rework`
 - :no_entry_sign: `no data yet` 
 
-|                              |        *GH*        |       *JotL*       |        *FC*        |        *CS*        |                     *FH*                     |       *ToA*        |
-| ---------------------------: | :----------------: | :----------------: | :----------------: | :----------------: | :------------------------------------------: | :----------------: |
-|               **Characters** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |              :heavy_check_mark:              | :heavy_check_mark: |
-|                 **Monsters** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |              :heavy_check_mark:              | :white_check_mark: |
-|      **Char. Perks/AM Deck** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |              :heavy_check_mark:              |  :no_entry_sign:   |
-|       **Scenarios/Sections** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |              :heavy_check_mark:              |  :no_entry_sign:   |
-| **Rooms/Automatic Standees** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |              :heavy_check_mark:              |  :no_entry_sign:   |
-|            **Special Rules** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :white_check_mark: |              :heavy_check_mark:              |  :no_entry_sign:   |
-|         **Scenario Rewards** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  :no_entry_sign:   |              :white_check_mark:              |  :no_entry_sign:   |
-|           **Solo Scenarios** | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |              :white_check_mark:              | :white_check_mark: |
-|                **Treasures** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :white_check_mark:<br>some room data missing | :heavy_check_mark: |
-|                **Buildings** |         -          |         -          |         -          |         -          |              :heavy_check_mark:              |         -          |
-
+|                              |        *GH*        |        *FH*        |       *JotL*       |        *FC*        |        *CS*        |       *ToA*        |
+| ---------------------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: |
+|               **Characters** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+|                 **Monsters** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :white_check_mark: |
+|      **Char. Perks/AM Deck** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  :no_entry_sign:   |
+|       **Scenarios/Sections** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| **Rooms/Automatic Standees** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+|            **Special Rules** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :white_check_mark: | :heavy_check_mark: |
+|         **Scenario Rewards** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+|           **Solo Scenarios** | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+|                **Treasures** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+|                **Buildings** |         -          | :heavy_check_mark: |         -          |         -          |         -          |         -          |

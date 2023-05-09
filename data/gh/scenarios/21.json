@@ -3,7 +3,7 @@
   "name": "Infernal Throne",
   "gridLocation": "C:7:40:56",
   "edition": "gh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "global": [
         "!The Rift Neutralized"

@@ -3,7 +3,7 @@
   "index": "27",
   "name": "Depths of Delirium",
   "edition": "fh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "campaignSticker": [
         "shard-seeker"

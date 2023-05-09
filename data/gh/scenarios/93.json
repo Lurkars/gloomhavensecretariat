@@ -3,7 +3,7 @@
   "name": "Sunken Vessel",
   "gridLocation": "N:17:-88:11",
   "edition": "gh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "party": [
         "A Map to Treasure"

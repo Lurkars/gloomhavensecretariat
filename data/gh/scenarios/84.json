@@ -3,7 +3,7 @@
   "name": "Crystalline Cave",
   "gridLocation": "D:12:50:50",
   "edition": "gh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "party": [
         "Tremors"

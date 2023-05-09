@@ -3,7 +3,7 @@
   "name": "Overgrown Graveyard",
   "gridLocation": "G:12:94:17",
   "edition": "gh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "party": [
         "Grave Job"

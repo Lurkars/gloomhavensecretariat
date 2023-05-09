@@ -173,47 +173,12 @@
     "spent": true
   },
   {
-    "id": 119,
-    "name": "Thrice-Souled Warsword",
-    "cost": 50,
-    "count": 1,
-    "edition": "toa",
-    "slot": "onehand",
-    "spent": true
-  },
-  {
-    "id": 120,
-    "name": "Rekindled Core",
-    "cost": 50,
-    "count": 1,
-    "edition": "toa",
-    "slot": "onehand"
-  },
-  {
-    "id": 121,
-    "name": "Crystal Catalyst",
-    "cost": 50,
-    "count": 1,
-    "edition": "toa",
-    "slot": "small",
-    "spent": true
-  },
-  {
     "id": 122,
     "name": "Crystal Spike",
     "cost": 50,
     "count": 1,
     "edition": "toa",
     "slot": "small",
-    "spent": true
-  },
-  {
-    "id": 123,
-    "name": "Arclight Cladding",
-    "cost": 50,
-    "count": 1,
-    "edition": "toa",
-    "slot": "body",
     "spent": true
   },
   {
@@ -250,15 +215,6 @@
     "count": 1,
     "edition": "toa",
     "slot": "head",
-    "spent": true
-  },
-  {
-    "id": 128,
-    "name": "Barbed Whip",
-    "cost": 50,
-    "count": 1,
-    "edition": "toa",
-    "slot": "onehand",
     "spent": true
   },
   {

@@ -3,7 +3,7 @@
   "index": "79",
   "name": "Relic",
   "edition": "fh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "buildings": [
         "sled"

@@ -5,6 +5,7 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { Character } from "src/app/game/model/Character";
 import { SummonData } from "src/app/game/model/data/SummonData";
 import { Summon, SummonColor, SummonState } from "src/app/game/model/Summon";
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'ghs-character-summondialog',
@@ -71,7 +72,7 @@ export class CharacterSummonDialog {
   }
 
   addCustomSummon() {
-    let summon: Summon = new Summon(this.summonName, "", this.character.level, this.summonNumber, this.summonColor);
+    let summon: Summon = new Summon(uuidv4(), this.summonName, "", this.character.level, this.summonNumber, this.summonColor);
     summon.state = SummonState.new;
     gameManager.characterManager.addSummon(this.character, summon);
     this.dialogRef.close();
@@ -80,7 +81,7 @@ export class CharacterSummonDialog {
   addSummon(summonData: SummonData) {
     if (this.summonData().indexOf(summonData) != -1) {
       gameManager.stateManager.before("addSummon", "data.character." + this.character.name, "data.summon." + summonData.name);
-      let summon: Summon = new Summon(summonData.name, summonData.cardId, this.character.level, summonData.special ? 0 : this.summonNumber, summonData.special ? SummonColor.custom : this.summonColor, summonData);
+      let summon: Summon = new Summon(uuidv4(), summonData.name, summonData.cardId, this.character.level, summonData.special ? 0 : this.summonNumber, summonData.special ? SummonColor.custom : this.summonColor, summonData);
       if (summonData.special) {
         summon.state = SummonState.true;
       } else {

@@ -2,7 +2,7 @@
   "index": "32a",
   "name": "Confronting the Past A",
   "edition": "cs",
-  "requiredAchievements": [
+  "requirements": [
     {
       "party": [
         "!Take the Money"

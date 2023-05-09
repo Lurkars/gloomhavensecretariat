@@ -3,7 +3,7 @@
   "name": "Back Alley Brawl",
   "gridLocation": "C:14:17:-34",
   "edition": "gh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "party": [
         "Dept Collection"

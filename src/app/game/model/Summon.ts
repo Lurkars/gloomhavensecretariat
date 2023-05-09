@@ -2,6 +2,7 @@ import { Action } from "./data/Action";
 import { EntityCondition, GameEntityConditionModel } from "./Condition";
 import { SummonData } from "./data/SummonData";
 import { Entity, EntityValueFunction } from "./Entity";
+import { v4 as uuidv4 } from 'uuid';
 
 export enum SummonState {
   new = "new",
@@ -23,6 +24,7 @@ export enum SummonColor {
 
 export class Summon implements Entity {
 
+  uuid: string;
   name: string;
   title: string;
   cardId: string;
@@ -48,7 +50,8 @@ export class Summon implements Entity {
   markers: string[] = [];
   tags: string[] = [];
 
-  constructor(name: string, cardId: string, level: number, number: number, color: SummonColor, summonData: SummonData | undefined = undefined) {
+  constructor(uuid: string, name: string, cardId: string, level: number, number: number, color: SummonColor, summonData: SummonData | undefined = undefined) {
+    this.uuid = uuid;
     this.name = name;
     this.title = "";
     this.cardId = cardId;
@@ -72,10 +75,13 @@ export class Summon implements Entity {
   }
 
   toModel(): GameSummonModel {
-    return new GameSummonModel(this.name, this.title, this.cardId, this.number, this.color, this.attack && this.attack + '' || '0', this.movement, this.range, this.flying, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined, this.active, this.thumbnail);
+    return new GameSummonModel(this.uuid || uuidv4(), this.name, this.title, this.cardId, this.number, this.color, this.attack && this.attack + '' || '0', this.movement, this.range, this.flying, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined, this.active, this.thumbnail);
   }
 
   fromModel(model: GameSummonModel) {
+    if (model.uuid) {
+      this.uuid = model.uuid;
+    }
     this.name = model.name || "";
     this.title = model.title || "";
     this.cardId = model.cardId || "";
@@ -116,6 +122,7 @@ export class Summon implements Entity {
 }
 
 export class GameSummonModel {
+  uuid: string;
   name: string;
   title: string;
   cardId: string;
@@ -138,7 +145,9 @@ export class GameSummonModel {
   active: boolean = false;
   thumbnail: string | undefined;
 
-  constructor(name: string,
+  constructor(
+    uuid: string,
+    name: string,
     title: string,
     cardId: string,
     number: number,
@@ -159,6 +168,7 @@ export class GameSummonModel {
     additionalAction: string | undefined,
     active: boolean,
     thumbnail: string | undefined) {
+    this.uuid = uuid;
     this.name = name;
     this.title = title;
     this.cardId = cardId;

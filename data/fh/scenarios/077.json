@@ -3,7 +3,7 @@
   "index": "77",
   "name": "Fish King's Ascension",
   "edition": "fh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "buildings": [
         "boat"

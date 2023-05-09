@@ -4,7 +4,7 @@
   "name": "Guardian's Temple",
   "edition": "fh",
   "random": true,
-  "requiredAchievements": [
+  "requirements": [
     {
       "buildings": [
         "climbing-gear"

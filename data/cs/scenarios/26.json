@@ -2,7 +2,7 @@
   "index": "26",
   "name": "Thermal Stone Peak",
   "edition": "cs",
-  "requiredAchievements": [
+  "requirements": [
     {
       "party": [
         "Frozen Warrior"

@@ -127,7 +127,6 @@ export class KeyboardShortcuts implements OnInit {
                     gameManager.stateManager.after();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('active') != -1) && !event.ctrlKey && gameManager.game.state == GameState.next && event.key === 'Tab') {
                     this.toggleEntity(event.shiftKey);
-                    event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('element') != -1) && !event.ctrlKey && !event.shiftKey && ['1', '2', '3', '4', '5', '6'].indexOf(event.key) != -1) {
                     const index: number = +event.key - 1;
                     const element = gameManager.game.elementBoard[index];
@@ -138,8 +137,10 @@ export class KeyboardShortcuts implements OnInit {
                     event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('absent') != -1) && !event.ctrlKey && !event.shiftKey && gameManager.game.state == GameState.next && event.key === 'h') {
                     settingsManager.setHideAbsent(!settingsManager.settings.hideAbsent);
-                    event.preventDefault();
                 }
+
+                event.preventDefault();
+                event.stopPropagation();
             }
         })
 
@@ -170,8 +171,6 @@ export class KeyboardShortcuts implements OnInit {
         this.currentZoom += value;
         document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
     }
-
-
 
     toggleEntity(reverse: boolean) {
         const figures = gameManager.game.figures.filter((figure) => gameManager.gameplayFigure(figure));

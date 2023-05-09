@@ -3,7 +3,7 @@
   "index": "118",
   "name": "Lurker Necromancy",
   "edition": "fh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "buildings": [
         "sled"

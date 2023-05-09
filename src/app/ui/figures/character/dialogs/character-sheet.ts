@@ -96,6 +96,13 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
           this.character.progress.retired = this.retired;
           if (this.retired && gameManager.game.party.campaignMode) {
             gameManager.game.party.retirements.push(this.character.toModel());
+            // add items to available pool (except solo)
+            this.character.progress.items.forEach((item) => {
+              const itemData = gameManager.item(+item.name, item.edition, true);
+              if (itemData && !itemData.solo && !gameManager.itemData(item.edition).find((available) => available.id == itemData.id && available.edition == itemData.edition)) {
+                gameManager.game.party.unlockedItems.push(item);
+              }
+            })
             gameManager.characterManager.removeCharacter(this.character);
           }
           gameManager.stateManager.after();

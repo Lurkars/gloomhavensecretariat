@@ -8,7 +8,7 @@
     "18",
     "28"
   ],
-  "requiredAchievements": [
+  "requirements": [
     {
       "global": [
         "!End of the Invasion"

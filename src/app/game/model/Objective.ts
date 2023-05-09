@@ -2,9 +2,11 @@ import { Figure } from "./Figure";
 import { Entity } from "./Entity";
 import { EntityCondition, GameEntityConditionModel } from "./Condition";
 import { ScenarioObjectiveIdentifier } from "./data/ObjectiveData";
+import { v4 as uuidv4 } from 'uuid';
 
 export class Objective implements Entity, Figure {
 
+  uuid: string;
   id: number;
   marker: string = "";
   title: string = "";
@@ -29,7 +31,8 @@ export class Objective implements Entity, Figure {
 
   objectiveId: ScenarioObjectiveIdentifier | undefined;
 
-  constructor(id: number, objectiveId: ScenarioObjectiveIdentifier | undefined = undefined) {
+  constructor(uuid: string, id: number, objectiveId: ScenarioObjectiveIdentifier | undefined = undefined) {
+    this.uuid = uuid;
     this.id = id;
     this.objectiveId = objectiveId;
   }
@@ -39,10 +42,13 @@ export class Objective implements Entity, Figure {
   }
 
   toModel(): GameObjectiveModel {
-    return new GameObjectiveModel(this.id, this.marker, this.title, this.name, this.escort, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.initiative, this.objectiveId);
+    return new GameObjectiveModel(this.uuid || uuidv4(), this.id, this.marker, this.title, this.name, this.escort, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.initiative, this.objectiveId);
   }
 
   fromModel(model: GameObjectiveModel) {
+    if (model.uuid) {
+      this.uuid = model.uuid;
+    }
     this.id = model.id;
     this.marker = model.marker;
     this.title = model.title;
@@ -72,6 +78,7 @@ export class Objective implements Entity, Figure {
 
 export class GameObjectiveModel {
 
+  uuid: string;
   id: number;
   marker: string;
   title: string;
@@ -90,6 +97,7 @@ export class GameObjectiveModel {
   objectiveId: ScenarioObjectiveIdentifier | undefined;
 
   constructor(
+    uuid: string,
     id: number,
     marker: string,
     title: string,
@@ -106,6 +114,7 @@ export class GameObjectiveModel {
     tags: string[],
     initiative: number,
     objectiveId: ScenarioObjectiveIdentifier | undefined) {
+    this.uuid = uuid;
     this.id = id;
     this.marker = marker;
     this.title = title;

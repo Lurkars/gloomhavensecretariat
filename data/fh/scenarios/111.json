@@ -4,7 +4,7 @@
   "name": "Ice Cave",
   "edition": "fh",
   "random": true,
-  "requiredAchievements": [
+  "requirements": [
     {
       "buildings": [
         "sled"

@@ -2,7 +2,7 @@
   "index": "42",
   "name": "Sunless Trench",
   "edition": "fh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "buildings": [
         "boat"

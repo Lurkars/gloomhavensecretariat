@@ -5,7 +5,7 @@
   "unlocks": [
     "18"
   ],
-  "requiredAchievements": [
+  "requirements": [
     {
       "buildings": [
         "sled"

@@ -3,7 +3,7 @@
   "name": "Shadows Within",
   "gridLocation": "C:15:-57:2",
   "edition": "gh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "party": [
         "Bad Business"
