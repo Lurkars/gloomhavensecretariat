@@ -3,9 +3,6 @@
   "index": "127",
   "name": "Derelict Freighter",
   "edition": "fh",
-  "rewards": {
-    "custom": "Gain rewards based on the number of crates looted. Rewards are cumulative. <br><br>1: Gain 10 collective gold <br>2: Gain 2 collective %game.resource.lumber% <br> 3: Gain Tri-Corner Hat Item #195 <br>4: Gain 1 prosperity"
-  },
   "monsters": [
     "ancient-artillery",
     "ice-wraith"

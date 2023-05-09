@@ -1,0 +1,19 @@
+{
+  "index": "190-2-3",
+  "name": "3 crates looted",
+  "edition": "fh",
+  "parent": "127",
+  "conclusion": true,
+  "rewards": {
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 2
+      }
+    ],
+    "collectiveGold": 10,
+    "items": [
+      "195"
+    ]
+  }
+}
