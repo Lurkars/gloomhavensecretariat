@@ -1,0 +1,16 @@
+{
+  "index": "196-3-3",
+  "name": "16 or more embellishments",
+  "edition": "fh",
+  "parent": "128",
+  "conclusion": true,
+  "rewards": {
+    "calenderSection": [
+      "100.3-3"
+    ],
+    "morale": 3,
+    "items": [
+      "215"
+    ]
+  }
+}

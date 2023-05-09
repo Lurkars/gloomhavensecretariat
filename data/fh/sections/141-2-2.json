@@ -1,0 +1,24 @@
+{
+  "index": "141.2-2",
+  "name": "2 wagons escaped",
+  "edition": "fh",
+  "parent": "116",
+  "conclusion": true,
+  "rewards": {
+    "morale": 1,
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 1
+      },
+      {
+        "type": "metal",
+        "value": 1
+      },
+      {
+        "type": "hide",
+        "value": 1
+      }
+    ]
+  }
+}

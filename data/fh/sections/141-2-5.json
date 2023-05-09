@@ -1,0 +1,28 @@
+{
+  "index": "141.2-5",
+  "name": "5 wagons escaped",
+  "edition": "fh",
+  "parent": "116",
+  "conclusion": true,
+  "rewards": {
+    "morale": 3,
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 1
+      },
+      {
+        "type": "metal",
+        "value": 1
+      },
+      {
+        "type": "hide",
+        "value": 1
+      }
+    ],
+    "randomItemBlueprint": 1,
+    "experience": 10,
+    "prosperity": 1,
+    "custom": "Gain any 2 material resources each"
+  }
+}

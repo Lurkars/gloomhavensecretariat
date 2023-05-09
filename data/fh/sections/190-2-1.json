@@ -1,0 +1,10 @@
+{
+  "index": "190-2-1",
+  "name": "1 crate looted",
+  "edition": "fh",
+  "parent": "127",
+  "conclusion": true,
+  "rewards": {
+    "collectiveGold": 10
+  }
+}

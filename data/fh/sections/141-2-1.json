@@ -1,0 +1,10 @@
+{
+  "index": "141.2-1",
+  "name": "1 wagon escaped",
+  "edition": "fh",
+  "parent": "116",
+  "conclusion": true,
+  "rewards": {
+    "morale": 1
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "index": "141.2-3",
+  "name": "3 wagons escaped",
+  "edition": "fh",
+  "parent": "116",
+  "conclusion": true,
+  "rewards": {
+    "morale": 1,
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 1
+      },
+      {
+        "type": "metal",
+        "value": 1
+      },
+      {
+        "type": "hide",
+        "value": 1
+      }
+    ],
+    "experience": 10,
+    "custom": "Gain any 2 material resources each"
+  }
+}

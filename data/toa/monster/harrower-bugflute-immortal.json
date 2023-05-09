@@ -6,6 +6,7 @@
   "boss": true,
   "flying": true,
   "immortal": true,
+  "hidden": true,
   "count": 1,
   "baseStat": {
     "type": "boss",

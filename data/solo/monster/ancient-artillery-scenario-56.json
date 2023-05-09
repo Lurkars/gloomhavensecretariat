@@ -3,6 +3,7 @@
   "thumbnail": "gh-ancient-artillery",
   "edition": "cs",
   "deck": "ancient-artillery",
+  "hidden": true,
   "count": 6,
   "standeeShare": "ancient-artillery",
   "baseStat": {

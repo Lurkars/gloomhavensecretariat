@@ -24,14 +24,8 @@
           "value": "All enemies that are adjacent to two pillars suffer L damage."
         },
         {
-          "type": "teleport",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "to the next pillar in order %game.mapMarker.c%, %game.mapMarker.d%, %game.mapMarker.e%, %game.mapMarker.f%",
-              "small": true
-            }
-          ]
+          "type": "custom",
+          "value": "%game.action.teleport% to the next pillar in order %game.mapMarker.c%, %game.mapMarker.d%, %game.mapMarker.e%, %game.mapMarker.f%"
         }
       ],
       [
@@ -58,14 +52,8 @@
           ]
         },
         {
-          "type": "teleport",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "to the opposite pillar",
-              "small": true
-            }
-          ]
+          "type": "custom",
+          "value": "%game.action.teleport% to the opposite pillar"
         }
       ]
     ]
