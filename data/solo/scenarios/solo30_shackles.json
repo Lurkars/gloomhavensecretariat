@@ -6,6 +6,11 @@
   "spoiler": true,
   "initial": true,
   "solo": "shackles",
+  "rewards": {
+    "items": [
+      "258"
+    ]
+  },
   "monsters": [
     "chaos-demon",
     "earth-demon",
@@ -15,6 +20,64 @@
   "lootDeckConfig": {
     "coin": 15
   },
+  "rules": [
+    {
+      "round": "R > 1 && R % 4 == 1",
+      "start": true,
+      "note": "Perform %game.action.heal% DxL/2 (rounded down), self",
+      "spawns": [
+        {
+          "monster": {
+            "name": "flame-demon",
+            "type": "normal"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R % 4 == 2",
+      "start": true,
+      "note": "Perform %game.action.heal% DxL/2 (rounded down), self",
+      "spawns": [
+        {
+          "monster": {
+            "name": "sun-demon",
+            "type": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R % 4 == 3",
+      "start": true,
+      "note": "Perform %game.action.heal% DxL/2 (rounded down), self",
+      "spawns": [
+        {
+          "monster": {
+            "name": "earth-demon",
+            "type": "normal"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R % 4 == 0",
+      "start": true,
+      "note": "Perform %game.action.heal% DxL/2 (rounded down), self",
+      "spawns": [
+        {
+          "monster": {
+            "name": "chaos-demon",
+            "type": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -22,6 +85,10 @@
       "monster": [
         {
           "name": "chaos-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
           "type": "normal"
         }
       ]

@@ -6,30 +6,161 @@
   "spoiler": true,
   "initial": true,
   "solo": "astral",
+  "rewards": {
+    "items": [
+      "254"
+    ]
+  },
   "monsters": [
     "incarnation-of-ancestors"
   ],
   "objectives": [
     {
-      "name": "Orb of Energy a",
-      "health": "L+1"
+      "name": "Orb of Energy",
+      "health": "L+1",
+      "marker": "a",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.action.fly%"
+        },
+        {
+          "type": "move",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Focus on moving toward the Incarnation",
+              "small": true
+            }
+          ]
+        }
+      ]
     },
     {
-      "name": "Orb of Energy b",
-      "health": "L+1"
+      "name": "Orb of Energy",
+      "health": "L+1",
+      "marker": "b",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.action.fly%"
+        },
+        {
+          "type": "move",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Focus on moving toward the Incarnation",
+              "small": true
+            }
+          ]
+        }
+      ]
     },
     {
-      "name": "Orb of Energy c",
-      "health": "L+1"
+      "name": "Orb of Energy",
+      "health": "L+1",
+      "marker": "c",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.action.fly%"
+        },
+        {
+          "type": "move",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Focus on moving toward the Incarnation",
+              "small": true
+            }
+          ]
+        }
+      ]
     },
     {
-      "name": "Orb of Energy d",
-      "health": "L+1"
+      "name": "Orb of Energy",
+      "health": "L+1",
+      "marker": "d",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.action.fly%"
+        },
+        {
+          "type": "move",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Focus on moving toward the Incarnation",
+              "small": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "lootDeckConfig": {
     "coin": 15
   },
+  "rules": [
+    {
+      "round": "R % 4 == 2",
+      "start": true,
+      "objectiveSpawns": [
+        {
+          "objective": {
+            "index": 1,
+            "name": "Orb of Energy"
+          },
+          "marker": "1"
+        }
+      ]
+    },
+    {
+      "round": "R % 4 == 3",
+      "start": true,
+      "objectiveSpawns": [
+        {
+          "objective": {
+            "index": 2,
+            "name": "Orb of Energy"
+          },
+          "marker": "2"
+        }
+      ]
+    },
+    {
+      "round": "R % 4 == 0",
+      "start": true,
+      "objectiveSpawns": [
+        {
+          "objective": {
+            "index": 3,
+            "name": "Orb of Energy"
+          },
+          "marker": "3"
+        }
+      ]
+    },
+    {
+      "round": "R > 1 && R % 4 == 1",
+      "start": true,
+      "objectiveSpawns": [
+        {
+          "objective": {
+            "index": 4,
+            "name": "Orb of Energy"
+          },
+          "marker": "4"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

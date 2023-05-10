@@ -4,8 +4,13 @@
   "name": "Crumbling Descent",
   "edition": "fh",
   "parent": "27",
+  "parentSections": [
+    [
+      "27-1"
+    ]
+  ],
   "monsters": [
-    "mountain's-heart"
+    "mountains-heart"
   ],
   "rooms": [
     {
@@ -13,8 +18,8 @@
       "initial": true,
       "monster": [
         {
-          "name": "mountain's-heart",
-          "type": "normal"
+          "name": "mountains-heart",
+          "type": "boss"
         }
       ]
     }

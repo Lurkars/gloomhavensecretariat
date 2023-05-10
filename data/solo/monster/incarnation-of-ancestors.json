@@ -1,0 +1,161 @@
+{
+  "name": "incarnation-of-ancestors",
+  "thumbnail": "fh-sun-demon",
+  "edition": "fh",
+  "deck": "boss",
+  "boss": true,
+  "flying": true,
+  "hidden": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "poison",
+      "stun"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "%game.custom.scenarioBook%"
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "%game.custom.scenarioBook%"
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 22,
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": 28,
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 30,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 36,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 40,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 40,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 54,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 58,
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        }
+      ]
+    }
+  ]
+}

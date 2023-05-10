@@ -6,6 +6,11 @@
   "spoiler": true,
   "initial": true,
   "solo": "snowflake",
+  "rewards": {
+    "items": [
+      "259"
+    ]
+  },
   "monsters": [
     "algox-snowspeaker",
     "frost-demon",
@@ -13,21 +18,83 @@
   ],
   "objectives": [
     {
-      "name": "Rune Worker 1",
+      "name": "Rune Worker",
       "escort": true,
       "health": "L+1",
-      "initiative": 99
+      "initiative": 99,
+      "marker": "b",
+      "actions": [
+        {
+          "type": "shield",
+          "value": "2"
+        }
+      ]
     },
     {
-      "name": "Rune Worker 2",
+      "name": "Rune Worker",
       "escort": true,
       "health": "L+1",
-      "initiative": 99
+      "initiative": 99,
+      "marker": "c",
+      "actions": [
+        {
+          "type": "shield",
+          "value": "2"
+        }
+      ]
     }
   ],
   "lootDeckConfig": {
     "coin": 15
   },
+  "rules": [
+    {
+      "round": "R == 4",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "frost-demon",
+            "type": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "wind-demon",
+            "type": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "wind-demon",
+            "type": "normal"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 10",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-snowspeaker",
+            "type": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -53,6 +120,10 @@
           "name": "wind-demon",
           "type": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        2
       ]
     }
   ]

@@ -4,6 +4,7 @@
   "name": "Wet Work",
   "edition": "fh",
   "parent": "35",
+  "marker": "1",
   "monsters": [
     "burrowing-blade"
   ],

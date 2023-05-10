@@ -6,6 +6,11 @@
   "spoiler": true,
   "initial": true,
   "solo": "drill",
+  "rewards": {
+    "items": [
+      "262"
+    ]
+  },
   "monsters": [
     "ancient-artillery",
     "flaming-bladespinner",
@@ -15,6 +20,28 @@
   "lootDeckConfig": {
     "coin": 15
   },
+  "rules": [
+    {
+      "round": "R % 4 == 2",
+      "start": true,
+      "note": "Move token to Low pressure section"
+    },
+    {
+      "round": "R % 4 == 3",
+      "start": true,
+      "note": "Move token to High pressure section"
+    },
+    {
+      "round": "R % 4 == 0",
+      "start": true,
+      "note": "Move token to Over pressure section"
+    },
+    {
+      "round": "R > 1 && R % 4 == 1",
+      "start": true,
+      "note": "Move token to Regular pressure section"
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
