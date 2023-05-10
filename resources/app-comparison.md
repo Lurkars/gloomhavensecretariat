@@ -2,11 +2,11 @@
 
 This is a comparison of popular companion apps. Since it was created by the author of *Gloomhaven Secretariat*, it's biased. If you would like to see features listed here that are missing, feel free to contact me! 
 
-- Gloomhaven Secretariat](https://gloomhaven-secretariat.de) (*GHS*)
-- X-Haven Assistant](https://github.com/Tarmslitaren/FrosthavenAssistant) (*XHA*)
-- Frosthaven Official Companion](https://cephalofair.com/blogs/blog/frosthaven-official-companion-app-now-available) (*FOC*)
+- [Gloomhaven Secretariat](https://gloomhaven-secretariat.de) (*GHS*)
+- [X-Haven Assistant](https://github.com/Tarmslitaren/FrosthavenAssistant) (*XHA*)
+- [Frosthaven Official Companion](https://cephalofair.com/blogs/blog/frosthaven-official-companion-app-now-available) (*FOC*)
 - [Gloomhaven Full Stack](https://gloomhaven.smigiel.us) (*GHFS*)
-- Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (*GHH*) \[discontinued\]
+- [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (*GHH*) \[discontinued\]
 
 Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, while *GHFS*, as the name suggests, is not just a companion app, but a full stack app. So *GHFS* allows full online play and has many more features than the other apps (and listed here) like full scenario map support and many more (see [gloomhaven.smigiel.us/#features](https://gloomhaven.smigiel.us/#features)). But since *GHFS* can also be used to replace companion apps like *GHH*, I listed it here.
 
