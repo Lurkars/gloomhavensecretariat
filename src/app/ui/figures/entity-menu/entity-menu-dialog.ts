@@ -126,8 +126,6 @@ export class EntityMenuDialogComponent {
     if (this.data.entity) {
       if (this.data.entity.health + this.health > EntityValueFunction(this.data.entity.maxHealth)) {
         this.health = EntityValueFunction(this.data.entity.maxHealth) - this.data.entity.health;
-      } else if (this.data.entity.health + this.health < 0) {
-        this.health = - this.data.entity.health;
       }
     }
   }
@@ -503,30 +501,21 @@ export class EntityMenuDialogComponent {
         }
       }
 
-      if (gameManager.game.state == GameState.draw || this.data.entity.entityConditions.length == 0 || this.data.entity.entityConditions.every((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
-        setTimeout(() => {
-          if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
-            gameManager.monsterManager.removeMonsterEntity(this.data.figure, this.data.entity);
-            gameManager.stateManager.after();
-          }
-        }, settingsManager.settings.disableAnimations ? 0 : 1500);
-      } else {
-        gameManager.stateManager.after();
-      }
+      setTimeout(() => {
+        if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
+          gameManager.monsterManager.removeMonsterEntity(this.data.figure, this.data.entity);
+          gameManager.stateManager.after();
+        }
+      }, settingsManager.settings.disableAnimations ? 0 : 1500);
     } else if (this.data.figure instanceof Character && this.data.entity instanceof Summon) {
       gameManager.stateManager.before("summonDead", "data.character." + this.data.figure.name, "data.summon." + this.data.entity.name);
       this.data.entity.dead = true;
-
-      if (gameManager.game.state == GameState.draw || this.data.entity.entityConditions.length == 0 || this.data.entity.entityConditions.every((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
-        setTimeout(() => {
-          if (this.data.figure instanceof Character && this.data.entity instanceof Summon) {
-            gameManager.characterManager.removeSummon(this.data.figure, this.data.entity);
-            gameManager.stateManager.after();
-          }
-        }, settingsManager.settings.disableAnimations ? 0 : 1500);
-      } else {
-        gameManager.stateManager.after();
-      }
+      setTimeout(() => {
+        if (this.data.figure instanceof Character && this.data.entity instanceof Summon) {
+          gameManager.characterManager.removeSummon(this.data.figure, this.data.entity);
+          gameManager.stateManager.after();
+        }
+      }, settingsManager.settings.disableAnimations ? 0 : 1500);
     } else if (this.data.entity instanceof Objective) {
       gameManager.stateManager.before("removeObjective", this.data.entity.title || this.data.entity.name);
       gameManager.characterManager.removeObjective(this.data.entity);
@@ -604,6 +593,7 @@ export class EntityMenuDialogComponent {
   }
 
   close(): void {
+    this.closeConditions();
     if (this.data.entity instanceof Character) {
       this.closeCharacter();
     } else if (this.data.figure instanceof Monster) {
@@ -613,7 +603,6 @@ export class EntityMenuDialogComponent {
     } else if (this.data.entity instanceof Objective) {
       this.closeObjective();
     }
-    this.closeConditions();
   }
 
   closeCharacter(): void {
@@ -631,9 +620,6 @@ export class EntityMenuDialogComponent {
       if (this.health != 0) {
         gameManager.stateManager.before("changeHP", "data.character." + this.data.entity.name, ghsValueSign(this.health));
         gameManager.entityManager.changeHealth(this.data.entity, this.health);
-        if (this.data.entity.health <= 0 || this.data.entity.exhausted && this.health >= 0 && this.data.entity.health > 0) {
-          this.exhausted();
-        }
         this.health = 0;
         gameManager.stateManager.after();
       }
@@ -737,7 +723,7 @@ export class EntityMenuDialogComponent {
           this.health = 0;
         }
 
-        if (this.data.entity.maxHealth > 0 && this.data.entity.health <= 0 || this.data.entity.dead) {
+        if ((this.data.entity.maxHealth > 0 && this.data.entity.health <= 0 || this.data.entity.dead) && this.data.entity.entityConditions.length == 0 || this.data.entity.entityConditions.every((entityCondition) => !entityCondition.highlight && entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
           this.dead();
         }
       }
@@ -812,7 +798,7 @@ export class EntityMenuDialogComponent {
         }
       }
 
-      if (this.data.entity.health <= 0 || this.data.entity.dead) {
+      if ((this.data.entity.health <= 0 || this.data.entity.dead) && this.data.entity.entityConditions.length == 0 || this.data.entity.entityConditions.every((entityCondition) => !entityCondition.highlight && entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
         this.dead();
       }
     }

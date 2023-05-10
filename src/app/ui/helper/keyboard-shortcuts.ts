@@ -93,6 +93,7 @@ export class KeyboardShortcuts implements OnInit {
                         gameManager.attackModifierManager.drawModifier(deck);
                         gameManager.stateManager.after();
                     }
+                    event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('loot') != -1) && gameManager.game.state == GameState.next && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'l' && settingsManager.settings.lootDeck && gameManager.game.lootDeck.cards.length > 0) {
                     gameManager.stateManager.before('lootDeckDraw');
                     gameManager.game.lootDeck.active = true;
@@ -125,8 +126,10 @@ export class KeyboardShortcuts implements OnInit {
                         }
                     }
                     gameManager.stateManager.after();
+                    event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('active') != -1) && !event.ctrlKey && gameManager.game.state == GameState.next && event.key === 'Tab') {
                     this.toggleEntity(event.shiftKey);
+                    event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('element') != -1) && !event.ctrlKey && !event.shiftKey && ['1', '2', '3', '4', '5', '6'].indexOf(event.key) != -1) {
                     const index: number = +event.key - 1;
                     const element = gameManager.game.elementBoard[index];
@@ -137,10 +140,8 @@ export class KeyboardShortcuts implements OnInit {
                     event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('absent') != -1) && !event.ctrlKey && !event.shiftKey && gameManager.game.state == GameState.next && event.key === 'h') {
                     settingsManager.setHideAbsent(!settingsManager.settings.hideAbsent);
+                    event.preventDefault();
                 }
-
-                event.preventDefault();
-                event.stopPropagation();
             }
         })
 
@@ -149,6 +150,7 @@ export class KeyboardShortcuts implements OnInit {
                 clearInterval(this.zoomInterval);
                 this.zoomInterval = null;
                 settingsManager.setZoom(this.currentZoom);
+                event.preventDefault();
             }
         })
     }

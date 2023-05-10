@@ -31,6 +31,7 @@ export class ScenarioSummaryComponent {
     alreadyWarning: boolean = false;
     casual: boolean = false;
     forceCampaign: boolean = false;
+    conclusionOnly: boolean;
 
     characters: Character[];
     battleGoals: number[] = [];
@@ -49,11 +50,16 @@ export class ScenarioSummaryComponent {
 
     EntityValueFunction = EntityValueFunction;
 
-    constructor(@Inject(DIALOG_DATA) data: { scenario: Scenario, success: boolean, conclusion: ScenarioData | undefined }, private dialogRef: DialogRef, private dialog: Dialog) {
+    constructor(@Inject(DIALOG_DATA) data: { scenario: Scenario, success: boolean, conclusion: ScenarioData | undefined, conclusionOnly: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
 
         this.scenario = data.scenario;
         this.success = data.success;
         this.conclusion = data.conclusion;
+        this.conclusionOnly = data.conclusionOnly;
+        if (this.conclusionOnly) {
+            this.conclusion = this.scenario;
+            this.success = true;
+        }
         this.conclusionWarning = !this.conclusion && gameManager.sectionData(this.scenario.edition).find((sectionData) => sectionData.parent == this.scenario.index && sectionData.group == this.scenario.group && sectionData.edition == this.scenario.edition && sectionData.conclusion) != undefined;
 
         this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure, index) => {
@@ -70,14 +76,14 @@ export class ScenarioSummaryComponent {
             }
         }
 
-        this.alreadyWarning = gameManager.game.party.campaignMode && this.success && gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == this.scenario.index && scenarioModel.edition == this.scenario.edition && scenarioModel.group == this.scenario.group) != undefined;
-        this.casual = this.alreadyWarning || !gameManager.game.party.campaignMode && gameManager.fhRules();
+        this.alreadyWarning = gameManager.game.party.campaignMode && this.success && (gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == this.scenario.index && scenarioModel.edition == this.scenario.edition && scenarioModel.group == this.scenario.group) != undefined || this.conclusion && gameManager.game.party.conclusions.find((scenarioModel) => this.conclusion && scenarioModel.index == this.conclusion.index && scenarioModel.edition == this.conclusion.edition && scenarioModel.group == this.conclusion.group) != undefined) || false;
+        this.casual = this.alreadyWarning && !this.conclusionOnly || !gameManager.game.party.campaignMode && gameManager.fhRules();
         this.updateState()
 
 
         gameManager.stateManager.scenarioSummary = true;
 
-        if (!gameManager.game.finish) {
+        if (!gameManager.game.finish && !this.conclusionOnly) {
             gameManager.stateManager.before("finishScenario.dialog", ...gameManager.scenarioManager.scenarioUndoArgs());
             this.updateFinish();
             gameManager.stateManager.after();
@@ -85,7 +91,7 @@ export class ScenarioSummaryComponent {
 
         this.dialogRef.closed.subscribe({
             next: () => {
-                if (gameManager.stateManager.scenarioSummary) {
+                if (gameManager.stateManager.scenarioSummary && !this.conclusionOnly) {
                     gameManager.stateManager.before("finishScenario.close", ...gameManager.scenarioManager.scenarioUndoArgs());
                     gameManager.stateManager.scenarioSummary = false;
                     gameManager.game.finish = undefined;
@@ -96,21 +102,23 @@ export class ScenarioSummaryComponent {
 
         this.uiChangeSubscription = gameManager.uiChange.subscribe({
             next: () => {
-                if (!gameManager.game.finish) {
-                    gameManager.stateManager.scenarioSummary = false;
-                    this.dialogRef.close();
-                } else {
-                    const finish = gameManager.game.finish;
-                    this.conclusion = finish.conclusion ? gameManager.sectionData(finish.conclusion.edition).find((sectionData) => finish.conclusion && sectionData.index == finish.conclusion.index && sectionData.group == finish.conclusion.group && sectionData.conclusion) : undefined;
-                    this.success = finish.success;
-                    this.battleGoals = finish.battleGoals;
-                    this.challenges = finish.challenges;
-                    this.chooseLocation = finish.chooseLocation;
-                    this.chooseUnlockCharacter = finish.chooseUnlockCharacter;
-                    this.collectiveGold = finish.collectiveGold;
-                    this.items = finish.items;
-                    this.calenderSectionManual = finish.calenderSectionManual;
-                    this.randomItemBlueprints = finish.randomItemBlueprints;
+                if (!this.conclusionOnly) {
+                    if (!gameManager.game.finish) {
+                        gameManager.stateManager.scenarioSummary = false;
+                        this.dialogRef.close();
+                    } else {
+                        const finish = gameManager.game.finish;
+                        this.conclusion = finish.conclusion ? gameManager.sectionData(finish.conclusion.edition).find((sectionData) => finish.conclusion && sectionData.index == finish.conclusion.index && sectionData.group == finish.conclusion.group && sectionData.conclusion) : undefined;
+                        this.success = finish.success;
+                        this.battleGoals = finish.battleGoals;
+                        this.challenges = finish.challenges;
+                        this.chooseLocation = finish.chooseLocation;
+                        this.chooseUnlockCharacter = finish.chooseUnlockCharacter;
+                        this.collectiveGold = finish.collectiveGold;
+                        this.items = finish.items;
+                        this.calenderSectionManual = finish.calenderSectionManual;
+                        this.randomItemBlueprints = finish.randomItemBlueprints;
+                    }
                 }
             }
         })
@@ -230,7 +238,7 @@ export class ScenarioSummaryComponent {
     }
 
     hasBonus(): boolean {
-        return ((gameManager.game.party.campaignMode || this.forceCampaign) && this.success) && (gameManager.fhRules() && gameManager.characterManager.characterCount() < 4 || this.numberChallenges > 0);
+        return ((gameManager.game.party.campaignMode || this.forceCampaign) && this.success && !this.conclusionOnly && !this.scenario.solo) && (gameManager.fhRules() && gameManager.characterManager.characterCount() < 4 || this.numberChallenges > 0);
     }
 
     availableCollectiveGold(): number {
@@ -346,7 +354,11 @@ export class ScenarioSummaryComponent {
 
     finish(linkedIndex: string | undefined = undefined) {
         const linked = gameManager.scenarioData(this.scenario.edition).find((scenarioData) => scenarioData.group == this.scenario.group && scenarioData.index == linkedIndex);
-        gameManager.stateManager.before(this.success && linked ? "finishScenario.linked" : ("finishScenario." + (this.success ? "success" : "failure")), ...gameManager.scenarioManager.scenarioUndoArgs(), linkedIndex ? linkedIndex : '');
+        if (this.conclusionOnly) {
+            gameManager.stateManager.before("finishConclusion", ...gameManager.scenarioManager.scenarioUndoArgs(this.scenario));
+        } else {
+            gameManager.stateManager.before(this.success && linked ? "finishScenario.linked" : ("finishScenario." + (this.success ? "success" : "failure")), ...gameManager.scenarioManager.scenarioUndoArgs(), linkedIndex ? linkedIndex : '');
+        }
         gameManager.game.figures.filter((figure) => figure instanceof Character).forEach((figure, index) => {
             (figure as Character).fromModel(this.characters[index].toModel());
         });
@@ -412,7 +424,11 @@ export class ScenarioSummaryComponent {
                 })
             }
         }
-        gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, false, linked ? new Scenario(linked) : undefined, this.casual && !this.forceCampaign);
+        if (this.conclusionOnly) {
+            gameManager.scenarioManager.finishScenario(this.scenario, true, this.conclusion, false, undefined, false, true);
+        } else {
+            gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, false, linked ? new Scenario(linked) : undefined, this.casual && !this.forceCampaign);
+        }
         gameManager.stateManager.after(1000);
         this.dialogRef.close();
     }

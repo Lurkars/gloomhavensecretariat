@@ -1,16 +1,16 @@
-## A comparison table of the most popular Gloomhaven Companions Apps
+## A comparison chart of the most popular Gloomhaven Companions Apps
 
-This is a comparison of popular companion apps. Since this is created by the author of *Gloomhaven Secretariat*, it's biased. If you want to have features listed here that are missing, feel free to contact me! 
+This is a comparison of popular companion apps. Since it was created by the author of *Gloomhaven Secretariat*, it's biased. If you would like to see features listed here that are missing, feel free to contact me! 
 
-- [Gloomhaven Secretariat](https://gloomhaven-secretariat.de) (*GHS*)
-- [X-Haven Assistant](https://github.com/Tarmslitaren/FrosthavenAssistant) (*XHA*)
-- [Frosthaven Official Companion](https://cephalofair.com/blogs/blog/frosthaven-official-companion-app-now-available) (*FOC*)
+- Gloomhaven Secretariat](https://gloomhaven-secretariat.de) (*GHS*)
+- X-Haven Assistant](https://github.com/Tarmslitaren/FrosthavenAssistant) (*XHA*)
+- Frosthaven Official Companion](https://cephalofair.com/blogs/blog/frosthaven-official-companion-app-now-available) (*FOC*)
 - [Gloomhaven Full Stack](https://gloomhaven.smigiel.us) (*GHFS*)
-- [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (*GHH*) \[discontinued\]
+- Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (*GHH*) \[discontinued\]
 
-Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH* while *GHFS* is as the name suggested not only a companion app, but a full-stack app. So *GHFS* allow playing completely online and having way more features than the other apps (and listed here) like full scenario map support and many more (see [gloomhaven.smigiel.us/#features](https://gloomhaven.smigiel.us/#features)). But since *GHFS* can be also used to replace Companion Apps like *GHH*, I listed it here.
+Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, while *GHFS*, as the name suggests, is not just a companion app, but a full stack app. So *GHFS* allows full online play and has many more features than the other apps (and listed here) like full scenario map support and many more (see [gloomhaven.smigiel.us/#features](https://gloomhaven.smigiel.us/#features)). But since *GHFS* can also be used to replace companion apps like *GHH*, I listed it here.
 
-> This is **not** a comparison of **usability**, **performance** or any **visuals**, so personal taste and expectation may differ from just a table listing features!  
+> This is **not** a comparison of **usability**, **performance** or any **visual**, so personal taste and expectations may differ from a simple table of features!
 
 - :heavy_check_mark: `full support`
 - :white_check_mark: `support with limitations`

@@ -64,8 +64,6 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
     this.health = value;
     if (this.summon.health + this.health > this.summon.maxHealth) {
       this.health = EntityValueFunction(this.summon.maxHealth) - this.summon.health;
-    } else if (this.summon.health + this.health < 0) {
-      this.health = - this.summon.health;
     }
   }
 

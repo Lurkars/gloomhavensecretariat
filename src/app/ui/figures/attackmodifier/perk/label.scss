@@ -6,6 +6,10 @@
         text-transform: uppercase;
     }
 
+    .and {
+        margin: 0 calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
+    }
+
     .attack-modifier-container {
         white-space: nowrap;
 
@@ -87,6 +91,10 @@
                 height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
                 top: calc(var(--ghs-unit) * -2.5 * var(--ghs-dialog-factor));
             }
+        }
+
+        .placeholder-action {
+            vertical-align: middle;
         }
     }
 

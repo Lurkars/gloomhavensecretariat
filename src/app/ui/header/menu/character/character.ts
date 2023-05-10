@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
@@ -10,7 +10,7 @@ import { ghsTextSearch } from "src/app/ui/helper/Static";
   templateUrl: 'character.html',
   styleUrls: ['../menu.scss', 'character.scss']
 })
-export class CharacterMenuComponent {
+export class CharacterMenuComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -18,8 +18,22 @@ export class CharacterMenuComponent {
 
   filter: string = "";
   allEditions: boolean = false;
+  newUnlocks: string[] = [];
 
-  characterData(filter: string, edition: string | undefined = undefined): CharacterData[] {
+  characterData: Record<string, CharacterData[]> = {};
+
+  ngOnInit(): void {
+    this.update();
+  }
+
+  update() {
+    this.characterData = {};
+    (this.allEditions ? gameManager.editions() : gameManager.currentEditions(true)).forEach((edition) => {
+      this.characterData[edition] = this.getCharacterData(this.filter, edition);
+    })
+  }
+
+  getCharacterData(filter: string, edition: string): CharacterData[] {
     return gameManager.charactersData(edition).filter((characterData) => ((!characterData.locked || this.unlocked(characterData)) && (ghsTextSearch(characterData.name, filter) || this.unlocked(characterData) && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.name), filter))) || characterData.locked && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.name), filter, true)).sort((a, b) => {
       const aName = settingsManager.getLabel('data.character.' + a.name).toLowerCase();
       const bName = settingsManager.getLabel('data.character.' + b.name).toLowerCase();
@@ -32,10 +46,16 @@ export class CharacterMenuComponent {
       }
 
       if (a.spoiler && b.spoiler) {
-        if (!this.unlocked(a) && this.unlocked(b)) {
+        if (!this.unlocked(a) && this.unlocked(b) && this.newUnlocks.indexOf(b.name) == -1) {
           return 1;
         }
-        if (this.unlocked(a) && !this.unlocked(b)) {
+        if (this.unlocked(a) && this.newUnlocks.indexOf(a.name) == -1 && !this.unlocked(b)) {
+          return -1;
+        }
+        if (this.unlocked(a) && this.newUnlocks.indexOf(a.name) != -1 && this.unlocked(b) && this.newUnlocks.indexOf(b.name) == -1) {
+          return 1;
+        }
+        if (this.unlocked(a) && this.newUnlocks.indexOf(a.name) == -1 && this.unlocked(b) && this.newUnlocks.indexOf(a.name) != -1) {
           return -1;
         }
       }
@@ -54,14 +74,15 @@ export class CharacterMenuComponent {
     return !characterData.spoiler || gameManager.game.unlockedCharacters.indexOf(characterData.name) != -1;
   }
 
-  locked(characterData: CharacterData[]): boolean {
-    return characterData.some((characterData) => characterData.spoiler && !this.unlocked(characterData));
+  locked(edition : string): boolean {
+    return this.characterData[edition] && this.characterData[edition].some((characterData) => characterData.spoiler && !this.unlocked(characterData));
   }
 
   unlock(characterData: CharacterData) {
     if (gameManager.game.unlockedCharacters.indexOf(characterData.name) == -1) {
       gameManager.stateManager.before("unlockChar", "data.character." + characterData.name);
       gameManager.game.unlockedCharacters.push(characterData.name);
+      this.newUnlocks.push(characterData.name);
       gameManager.stateManager.after();
     }
   }
@@ -77,7 +98,7 @@ export class CharacterMenuComponent {
 
   noResults(): boolean {
     const editions = this.allEditions ? gameManager.editions() : gameManager.currentEditions(true);
-    return editions.every((edition) => this.characterData(this.filter, edition).length == 0);
+    return editions.every((edition) => !this.characterData[edition] || this.characterData[edition].length == 0);
   }
 
   addCharacter(characterData: CharacterData) {

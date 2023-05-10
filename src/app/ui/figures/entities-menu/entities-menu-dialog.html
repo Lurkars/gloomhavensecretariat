@@ -18,8 +18,7 @@
     <span class="item" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'">
       <img src="./assets/images/status/health.svg" />
       <span class="badge health-count"
-        [ngClass]="{'negative-value' : minHealth() < 0, 'positive-value' : maxHealth() > 0}">{{(minHealth() < 0 ?
-          minHealth() : maxHealth()) | ghsValueSign}}</span>
+        [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
       </span>
       <span class="item">
         <ghs-drag-click class="button" (singleClick)="changeHealth(1)" [repeat]="true">

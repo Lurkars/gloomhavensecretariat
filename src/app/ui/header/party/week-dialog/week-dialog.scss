@@ -36,8 +36,17 @@
             display: flex;
             align-items: center;
 
+            .index {
+                display: flex;
+                align-items: center;
+            }
+
             .button {
                 filter: var(--ghs-filter-red);
+            }
+
+            .finish {
+                cursor: pointer;
             }
 
             .conclusion {

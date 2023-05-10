@@ -54,7 +54,6 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
   AttackModifierType = AttackModifierType;
   type: AttackModifierType = AttackModifierType.minus1;
   current: number = -1;
-  internalDraw: number = -99;
   drawing: boolean = false;
   drawTimeout: any = null;
   queue: number = 0;
@@ -64,11 +63,12 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
   rollingIndex: number[] = [];
   rollingIndexPrev: number[] = [];
   compact: boolean = false;
+  init: boolean = false;
+  initServer: boolean = false;
 
   @ViewChild('drawCard') drawCard!: ElementRef;
 
   constructor(public element: ElementRef, private dialog: Dialog) {
-    this.deck = new AttackModifierDeck();
     this.element.nativeElement.addEventListener('click', (event: any) => {
       let elements = document.elementsFromPoint(event.clientX, event.clientY);
       if (elements[0].classList.contains('attack-modifiers') && elements.length > 2) {
@@ -85,30 +85,42 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
       this.characterIcon = this.character.iconUrl;
     }
     this.current = this.deck.current;
-    this.internalDraw = -99;
     this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
 
     this.deck.cards.forEach((card, index) => {
       this.rollingIndex[index] = this.calcRollingIndex(index, this.current);
       this.rollingIndexPrev[index] = this.calcRollingIndex(index, this.current - 1);
     });
+
+    this.drawTimeout = setTimeout(() => {
+      this.current = this.deck.current;
+      this.drawTimeout = null;
+      this.init = true;
+    }, settingsManager.settings.disableAnimations ? 0 : 1500)
+
     this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: (fromServer: boolean) => {
-        if (this.internalDraw == -99 && this.current < this.deck.current) {
-          this.current = this.deck.current;
-          this.internalDraw = this.deck.current;
-          if (!this.queueTimeout && fromServer) {
-            this.drawAnimation();
+        if (this.initServer && gameManager.stateManager.wsState() != WebSocket.OPEN) {
+          this.initServer = false;
+        }
+
+        if (!this.deck.active) {
+          if (this.queueTimeout) {
+            clearTimeout(this.queueTimeout);
+            this.queueTimeout = null;
           }
-        } else if (this.internalDraw != -99) {
-          if (this.internalDraw < this.deck.current) {
+          this.queue = 0;
+          this.drawing = false;
+          this.current = this.deck.current;
+          this.initServer = gameManager.stateManager.wsState() == WebSocket.OPEN;
+        } else if (this.init && (!fromServer || this.initServer)) {
+          if (this.current < this.deck.current) {
+            this.queue = Math.max(0, this.deck.current - this.current);
             if (!this.queueTimeout) {
+              this.queue--;
               this.current++;
-              this.drawAnimation();
-            } else {
-              this.queue = this.queue + Math.max(0, this.deck.current - this.internalDraw);
+              this.drawQueue();
             }
-            this.internalDraw = this.deck.current;
           } else if (!this.queueTimeout || this.deck.current < this.current + this.queue) {
             if (this.queueTimeout) {
               clearTimeout(this.queueTimeout);
@@ -117,7 +129,11 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
             this.queue = 0;
             this.drawing = false;
             this.current = this.deck.current;
-            this.internalDraw = this.deck.current;
+          }
+        } else {
+          this.current = this.deck.current;
+          if (fromServer && !this.initServer) {
+            this.initServer = true;
           }
         }
 
@@ -160,7 +176,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
     }
   }
 
-  drawAnimation() {
+  drawQueue() {
     this.drawing = true;
     this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.add('drawing');
     this.queueTimeout = setTimeout(() => {
@@ -169,9 +185,12 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
       if (this.queue > 0) {
         this.queue--;
         this.current++;
-        this.drawAnimation();
+        this.drawQueue();
       } else {
         this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.remove('drawing');
+        if (this.queue < 0) {
+          this.queue = 0;
+        }
       }
     }, settingsManager.settings.disableAnimations ? 0 : 1850);
   }
@@ -184,14 +203,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
         this.drawTimeout = setTimeout(() => {
           this.before.emit(new AttackModiferDeckChange(this.deck, "draw"));
           gameManager.attackModifierManager.drawModifier(this.deck);
-          this.internalDraw = this.deck.current;
           this.after.emit(new AttackModiferDeckChange(this.deck, "draw"));
-          if (this.drawing && this.deck.current + this.queue < this.deck.cards.length) {
-            this.queue++;
-          }
-          if (!this.queueTimeout) {
-            this.drawAnimation();
-          }
           this.drawTimeout = null;
         }, settingsManager.settings.disableAnimations ? 0 : 150)
       }

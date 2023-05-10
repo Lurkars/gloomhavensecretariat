@@ -5,6 +5,7 @@ import { CampaignData } from "src/app/game/model/data/EditionData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ScenarioConclusionComponent } from "../../../footer/scenario/scenario-conclusion/scenario-conclusion";
 import { Scenario } from "src/app/game/model/Scenario";
+import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/scenario-summary";
 
 @Component({
     selector: 'ghs-party-week-dialog',
@@ -40,12 +41,30 @@ export class PartyWeekDialogComponent {
     }
 
     isConclusion(section: string): boolean {
+        return gameManager.sectionData(gameManager.currentEdition(), true).find((sectionData) => sectionData.index == section && !sectionData.group && sectionData.conclusion) != undefined;
+    }
+
+    isSolved(section: string): boolean {
         return gameManager.game.party.conclusions.find((model) => model.edition == gameManager.game.edition && model.index == section) != undefined;
     }
 
     hasConclusions(section: string): boolean {
         const conclusions = gameManager.sectionData(gameManager.game.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.length == 1 && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(section) != -1));
         return conclusions.length > 0 && conclusions.every((conclusion) => !gameManager.game.party.conclusions.find((model) => model.edition == conclusion.edition && model.index == conclusion.index && model.group == conclusion.group));
+    }
+
+    finishConclusion(index: string) {
+        const conclusion = gameManager.sectionData(gameManager.currentEdition(), true).find((sectionData) => sectionData.index == index && sectionData.conclusion);
+        if (conclusion) {
+            const scenario = new Scenario(conclusion as ScenarioData);
+            this.dialog.open(ScenarioSummaryComponent, {
+                panelClass: 'dialog',
+                data: {
+                    scenario: scenario,
+                    conclusionOnly: true
+                }
+            })
+        }
     }
 
     openConclusions(section: string) {
@@ -67,6 +86,14 @@ export class PartyWeekDialogComponent {
                         gameManager.game.party.weekSections[this.week] = gameManager.game.party.weekSections[this.week] || [];
                         gameManager.game.party.weekSections[this.week]?.push(scenario.index);
                         gameManager.stateManager.after();
+
+                        this.dialog.open(ScenarioSummaryComponent, {
+                            panelClass: 'dialog',
+                            data: {
+                                scenario: scenario,
+                                conclusionOnly: true
+                            }
+                        })
                     }
                 }
             });
@@ -94,7 +121,7 @@ export class PartyWeekDialogComponent {
             if (gameManager.game.party.weekSections[this.week]?.length == 0) {
                 delete gameManager.game.party.weekSections[this.week];
             }
-            if (this.isConclusion(section)) {
+            if (this.isSolved(section)) {
                 gameManager.game.party.conclusions = gameManager.game.party.conclusions.filter((conclusion) => conclusion.edition != gameManager.game.edition || conclusion.index != section);
             }
             gameManager.stateManager.after();

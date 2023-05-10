@@ -191,8 +191,6 @@ export class CharacterComponent implements OnInit, OnDestroy {
     this.health = value;
     if (this.character.health + this.health > this.character.maxHealth) {
       this.health = this.character.maxHealth - this.character.health;
-    } else if (this.character.health + this.health < 0) {
-      this.health = - this.character.health;
     }
   }
 
@@ -200,9 +198,6 @@ export class CharacterComponent implements OnInit, OnDestroy {
     if (this.health != 0) {
       gameManager.stateManager.before("changeHP", "data.character." + this.character.name, ghsValueSign(this.health));
       gameManager.entityManager.changeHealth(this.character, this.health);
-      if (this.character.health <= 0 || this.character.exhausted && this.health >= 0 && this.character.health > 0) {
-        this.exhausted();
-      }
       this.health = 0;
       gameManager.stateManager.after();
     }
@@ -305,6 +300,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   toggleAttackModifierDeckVisible() {
     if (this.character.attackModifierDeckVisible) {
+      this.character.attackModifierDeck.active = false;
       this.character.attackModifierDeckVisible = false;
     } else if (settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
       this.character.lootCardsVisible = false;
@@ -335,6 +331,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
       })
 
     } else {
+      this.character.attackModifierDeck.active = true;
       this.character.attackModifierDeckVisible = true;
       this.character.lootCardsVisible = false;
     }
@@ -349,6 +346,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
       this.openLootDeckDialog();
     } else {
       this.character.lootCardsVisible = true;
+      this.character.attackModifierDeck.active = false;
       this.character.attackModifierDeckVisible = false;
     }
     gameManager.stateManager.saveLocal();

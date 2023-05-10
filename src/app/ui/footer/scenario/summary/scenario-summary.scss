@@ -12,6 +12,8 @@
   .title {
     position: relative;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 
     .name {
@@ -128,12 +130,12 @@
     z-index: 1;
 
     &.calc-col {
-      color: var(--ghs-color-darkgray);
+      opacity: 0.6;
     }
   }
 
   .calc-col {
-    border-bottom-color: var(--ghs-color-darkgray);
+      opacity: 0.6;
   }
 
   .first {

@@ -2,9 +2,6 @@
   "index": "20",
   "name": "Temple of Liberation",
   "edition": "fh",
-  "unlocks": [
-    "31"
-  ],
   "rewards": {
     "gold": 15
   },

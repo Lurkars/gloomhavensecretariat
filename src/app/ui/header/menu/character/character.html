@@ -5,25 +5,25 @@
         [ngClass]="{'active' : level + 1 == characterLevel}" (click)="characterLevel = level+1">{{level
         +1}}</a></span>
     <div class="line search">
-      <input [(ngModel)]="filter" type="text" [ghs-label]="'character.filter'" [ghs-label-attribute]="'placeholder'">
+      <input [(ngModel)]="filter" (change)="update()" (keyup)="update()" type="text" [ghs-label]="'character.filter'" [ghs-label-attribute]="'placeholder'">
       <label *ngIf="gameManager.game.edition">
-        <input type="checkbox" [checked]="allEditions" (change)="allEditions = !allEditions">
+        <input type="checkbox" [checked]="allEditions" (change)="allEditions = !allEditions; update()">
         <span [ghs-label]="'character.filter.allEditions'"></span>
       </label>
     </div>
   </div>
   <div class="columns">
     <ng-container *ngFor="let edition of (allEditions ? gameManager.editions() : gameManager.currentEditions(true))">
-      <div class="column spoilers" *ngIf="characterData(filter, edition).length > 0">
+      <div class="column spoilers" *ngIf="characterData[edition] && characterData[edition].length > 0">
         <div class="line title sticky">
           <label><span [ghs-label]="'data.edition.' + edition"></span></label>
         </div>
-        <div class="line separator reveal-all" *ngIf="locked(characterData(filter, edition))">
+        <div class="line separator reveal-all" *ngIf="locked(edition)">
           <a (click)="unlockAll(edition)">
             <span [ghs-label]="'character.unlockAll'"></span>
           </a>
         </div>
-        <div class="line" *ngFor="let characterData of characterData(filter, edition)"
+        <div class="line" *ngFor="let characterData of (characterData[edition] || [])"
           [ngClass]="{'disabled' : hasCharacter(characterData), 'spoiler' : characterData.spoiler}">
           <a (click)="addCharacter(characterData);" *ngIf="unlocked(characterData)">
             <img class="icon" [src]="characterData.iconUrl" />

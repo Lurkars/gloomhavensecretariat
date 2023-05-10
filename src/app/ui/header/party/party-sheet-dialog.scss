@@ -1077,7 +1077,7 @@
           position: absolute;
           left: calc(var(--ghs-unit) * 49.5 * var(--ghs-dialog-factor));
           top: calc(var(--ghs-unit) * 74 * var(--ghs-dialog-factor));
-          width: calc(var(--ghs-unit) * 37.5 * var(--ghs-dialog-factor) );
+          width: calc(var(--ghs-unit) * 37.5 * var(--ghs-dialog-factor));
           height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
           z-index: 0;
         }
@@ -1336,7 +1336,14 @@
 
             &.unlock {
               display: flex;
+              align-items: center;
               padding: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+              .ghs-svg {
+                height: calc(var(--ghs-unit) * 1.4 * var(--ghs-dialog-factor));
+                width: auto;
+                margin: 0 calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
+              }
 
               input {
                 border: calc(var(--ghs-unit) * 0.05 * var(--ghs-dialog-factor)) solid var(--ghs-color-gray);

@@ -1,11 +1,12 @@
 <div class="scroll-container">
   <div class="header">
     <span class="title">
-      <span><span [ghs-label]="'scenario.summary'"></span></span>
+      <span [ghs-label]="conclusionOnly ? 'scenario.conclusion' : 'scenario.summary'"></span>
       <span class="name">#{{scenario.index}} <span [ghs-label]="'data.scenario.' + scenario.name"></span></span>
     </span>
-    <span *ngIf="success" class="success"><span [ghs-label]="'scenario.finish.success'"></span></span>
-    <span class="conclusion" *ngIf="conclusion">
+    <span *ngIf="success && !conclusionOnly" class="success"><span
+        [ghs-label]="'scenario.finish.success'"></span></span>
+    <span class="conclusion" *ngIf="conclusion && conclusion != scenario">
       <span [ghs-label]="(conclusion.name ? 'data.section.' + conclusion.name :
       '%scenario.section% #' + conclusion.index)"></span>
     </span>
@@ -16,7 +17,7 @@
 
   <div class="main">
     <div class="table" [style.--ghs-summary-columns]="1 + characters.length"
-      *ngIf="(!casual || forceCampaign || !gameManager.fhRules()) && settingsManager.settings.characterSheet">
+      *ngIf="(!casual || forceCampaign || !gameManager.fhRules()) && settingsManager.settings.characterSheet && !conclusionOnly">
 
       <span class="head-col first"><span [ghs-label]="'scenario.summary.name'"></span></span>
       <span class="first" *ngFor="let character of characters; let index = index;">
@@ -153,7 +154,8 @@
         <span class="treasures" *ngFor="let character of characters; let index = index;">
           <div class="hint-container" *ngFor="let treasure of character.treasures || []">
             <span class="treasure hint-trigger">
-              <span *ngIf="!('' + treasure).startsWith('G') && +treasure < 10">0</span>{{('' + treasure).startsWith('G-') ? 'G' : (''
+              <span *ngIf="!('' + treasure).startsWith('G') && +treasure < 10">0</span>{{('' +
+              treasure).startsWith('G-') ? 'G' : (''
               +treasure).split(':')[0]}}
             </span>
             <span class="hint above center">
@@ -177,7 +179,7 @@
 
     <div class="rewards">
 
-      <div class="reward warning" *ngIf="alreadyWarning && gameManager.game.party.campaignMode">
+      <div class="reward warning" *ngIf="!conclusionOnly && alreadyWarning && gameManager.game.party.campaignMode">
         <label><span [ghs-label]="'scenario.summary.alreadyWarning'"></span></label>
         <div class="list">
           <div class="item" *ngIf="casual">
@@ -190,7 +192,7 @@
         </div>
       </div>
 
-      <div class="reward warning" *ngIf="(alreadyWarning || !gameManager.game.party.campaignMode)">
+      <div class="reward warning" *ngIf="(!conclusionOnly && alreadyWarning || !gameManager.game.party.campaignMode)">
         <label><span
             [ghs-label]="('scenario.summary.casualWarning' + (gameManager.fhRules() ? '.fh' : ''))"></span></label>
         <div class="list">
@@ -536,7 +538,7 @@
     </div>
   </div>
 
-  <div class="buttons">
+  <div class="buttons" *ngIf="!conclusionOnly || !alreadyWarning">
     <a class="cancel" (click)="close()"><span [ghs-label]="'scenario.summary.cancel'"></span></a>
     <span class="links"
       *ngIf="success && (gameManager.game.party.campaignMode || forceCampaign) && (scenario.links && scenario.links.length > 0 || scenario.forcedLinks && scenario.forcedLinks.length > 0)">
@@ -555,7 +557,8 @@
     </span>
     <a class="apply"
       *ngIf="!success || !gameManager.game.party.campaignMode || forceCampaign || !scenario.forcedLinks || scenario.forcedLinks.length == 0"
-      (click)="finish()"><span [ghs-label]="'scenario.summary.apply'"></span></a>
+      (click)="finish()"><span
+        [ghs-label]="conclusionOnly ? 'scenario.summary.solve' : 'scenario.summary.apply'"></span></a>
     <a class="restart" *ngIf="!success" (click)="restart()"><span [ghs-label]="(lootColumns.length > 0 ?
       'scenario.summary.restartLoseLoot'
       : 'scenario.summary.restart')"></span></a>

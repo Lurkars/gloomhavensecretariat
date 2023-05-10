@@ -84,7 +84,7 @@
       <ng-container
         *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal)">
         <span class="item">
-          <ghs-drag-click class="button" [ngClass]="{'disabled' : data.entity.health + health == 0}"
+          <ghs-drag-click class="button"
             (singleClick)="changeHealth(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </ghs-drag-click>

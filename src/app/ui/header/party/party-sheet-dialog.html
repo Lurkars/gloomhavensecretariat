@@ -459,6 +459,15 @@
                 (click)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)">
                 <span [ghs-label]="'party.campaign.scenarios.unlock'"></span>&nbsp;<img src="./assets/images/plus.svg"></a>
             </div>
+            <div class="scenario unlock" *ngIf="fhSheet">
+              <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg"> / <img class="ghs-svg" src="./assets/images/fh/puzzle.svg"> 
+              <input #unlockConclusionIndex [ghs-label]="'party.campaign.scenarios.index'" [ghs-label-attribute]="'placeholder'"
+                (keyup)="unlockConclusionIndex.classList.remove('error');"
+                (keyup.enter)="finishConclusion(unlockConclusionIndex)">
+              <a class="addScenario" [ghs-label]="'party.campaign.scenarios.addConclusion'" [ghs-label-attribute]="'title'"
+                (click)="finishConclusion(unlockConclusionIndex)">
+                <span [ghs-label]="'party.campaign.scenarios.addConclusion'"></span>&nbsp;<img src="./assets/images/plus.svg"></a>
+            </div>
           </ng-container>
         </div>
 

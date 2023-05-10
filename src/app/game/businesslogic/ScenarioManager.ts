@@ -280,7 +280,8 @@ export class ScenarioManager {
           weekSections.forEach((section) => {
             const sectionData = gameManager.sectionData(scenario.edition).find((sectionData) => sectionData.index == section && sectionData.group == scenario.group && sectionData.conclusion);
             if (sectionData) {
-              this.finishScenario(new Scenario(sectionData), true, undefined, false, undefined, false, true);
+              const conclusion = new Scenario(sectionData);
+              this.finishScenario(conclusion, true, conclusion, false, undefined, false, true);
             }
           })
         }

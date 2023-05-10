@@ -140,6 +140,8 @@ export class PerkLabelComponent {
             case AttackModifierEffectType.specialTarget:
                 if (effect.value.split(':').length > 1) {
                     html += '<span class="placeholder attack-modifier-effect special-target">' + settingsManager.getLabel('game.specialTarget.' + effect.value.split(':')[0], effect.value.split(':').slice(1)) + '</span>';
+                } else if (settingsManager.settings.fhStyle && effect.value == 'allyShort') {
+                    html += '<span class="placeholder attack-modifier-effect special-target">' + settingsManager.getLabel('game.specialTarget.ally') + '</span>';
                 } else {
                     html += '<span class="placeholder attack-modifier-effect special-target">' + settingsManager.getLabel('game.specialTarget.' + effect.value) + '</span>';
                 }

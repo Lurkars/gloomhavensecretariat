@@ -1,4 +1,4 @@
-To avoid error reporting on incomplete data, here is the current state for all editions
+In order to avoid error reports due to incomplete data, here is the current status for all editions
 
 - :heavy_check_mark: `complete`
 - :white_check_mark: `some (raw) data available, but needs checking/rework`

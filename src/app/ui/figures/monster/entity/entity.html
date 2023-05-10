@@ -11,7 +11,8 @@
       <span class="number" [ngClass]="{'highlight' : entity.number < 1 && !settingsManager.settings.disableAnimations}">
         <span class="value">{{entity.number < 0 ? '?' : entity.number}}</span>
         </span>
-        <span class="health" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'">{{entity.maxHealth > 0 ? (entity.health + health) :
+        <span class="health" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'">{{entity.maxHealth > 0 ?
+          ((entity.health + health) >= 0 ? entity.health + health : 0) :
           '-'}}
           <span class="value-overlay" [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}"
             *ngIf="health"><span class="value">{{health |

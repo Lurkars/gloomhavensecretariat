@@ -3,7 +3,6 @@ import { Component, Inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/Condition";
-import { EntityValueFunction } from "src/app/game/model/Entity";
 import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
@@ -20,7 +19,7 @@ export class EntitiesMenuDialogComponent {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
-  health: number[] = [];
+  health: number = 0;
 
   ConditionName = ConditionName;
   ConditionType = ConditionType;
@@ -51,30 +50,7 @@ export class EntitiesMenuDialogComponent {
   }
 
   changeHealth(value: number) {
-    this.entities.forEach((entity, i) => {
-      this.health[i] = this.health[i] || 0;
-      this.health[i] += value;
-
-      if (entity.health + this.health[i] > entity.maxHealth) {
-        this.health[i] = EntityValueFunction(entity.maxHealth) - entity.health;
-      } else if (entity.health + this.health[i] < 0) {
-        this.health[i] = - entity.health;
-      }
-    });
-  }
-
-  minHealth(): number {
-    if (this.health.length == 0) {
-      this.health[0] = 0;
-    }
-    return this.health.reduce((a, b) => Math.min(a, b));
-  }
-
-  maxHealth(): number {
-    if (this.health.length == 0) {
-      this.health[0] = 0;
-    }
-    return this.health.reduce((a, b) => Math.max(a, b));
+    this.health += value;
   }
 
   toggleType() {
@@ -138,25 +114,26 @@ export class EntitiesMenuDialogComponent {
       }
     })
 
-    if (this.minHealth() != 0 || this.maxHealth() != 0) {
-      gameManager.stateManager.before("changeMonsterHP", "data.monster." + this.data.monster.name, ghsValueSign(this.minHealth() != 0 ? this.minHealth() : this.maxHealth()), this.data.type ? 'monster.' + this.data.type + ' ' : '');
+    if (this.health != 0) {
+      gameManager.stateManager.before("changeMonsterHP", "data.monster." + this.data.monster.name, ghsValueSign(this.health), this.data.type ? 'monster.' + this.data.type + ' ' : '');
       let deadEntities: MonsterEntity[] = [];
-      this.entities.forEach((entity, i) => {
-        if (this.health[i] && this.health[i] != 0) {
-          gameManager.entityManager.changeHealth(entity, this.health[i]);
-          this.health[i] = 0;
+      this.entities.forEach((entity) => {
+        if (this.health != 0) {
+          gameManager.entityManager.changeHealth(entity, this.health);
         }
 
         if (entity.maxHealth > 0 && entity.health <= 0 || entity.dead) {
-          entity.dead = true;
+          entity.dead = entity.entityConditions.length == 0 || entity.entityConditions.every((entityCondition) => !entityCondition.highlight || entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1);
           deadEntities.push(entity);
         }
       })
 
+      this.health = 0;
+
       if (deadEntities.length > 0) {
         setTimeout(() => {
           deadEntities.forEach((entity) => {
-            if (gameManager.game.state == GameState.draw || entity.entityConditions.length == 0 || entity.entityConditions.every((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
+            if (entity.dead) {
               gameManager.monsterManager.removeMonsterEntity(this.data.monster, entity);
             }
           })

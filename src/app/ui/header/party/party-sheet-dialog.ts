@@ -18,6 +18,7 @@ import { CharacterMoveResourcesDialog } from "../../figures/character/dialogs/mo
 import { ScenarioConclusionComponent } from "../../footer/scenario/scenario-conclusion/scenario-conclusion";
 import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
 import { Subscription } from "rxjs";
+import { ScenarioSummaryComponent } from "../../footer/scenario/summary/scenario-summary";
 
 @Component({
   selector: 'ghs-party-sheet-dialog',
@@ -591,13 +592,39 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
           if (conclusion) {
             const scenario = new Scenario(conclusion as ScenarioData);
             gameManager.stateManager.before("finishConclusion", ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
-            gameManager.scenarioManager.finishScenario(scenario, true, undefined, false, undefined, false, true);
+            gameManager.scenarioManager.finishScenario(scenario, true, scenario, false, undefined, false, true);
             this.party.weekSections[week] = this.party.weekSections[week] || [];
             this.party.weekSections[week]?.push(scenario.index);
             gameManager.stateManager.after();
+
+            this.dialog.open(ScenarioSummaryComponent, {
+              panelClass: 'dialog',
+              data: {
+                  scenario: scenario,
+                  conclusionOnly: true
+              }
+          })
           }
         }
       });
+    }
+  }
+
+  finishConclusion(indexElement: HTMLInputElement) {
+    let index: string = indexElement.value;
+    indexElement.classList.add('error');
+    const conclusion = gameManager.sectionData(this.party.edition || gameManager.currentEdition(), true).find((sectionData) => sectionData.index == index);
+    if (conclusion) {
+      const scenario = new Scenario(conclusion as ScenarioData);
+      indexElement.classList.remove('error');
+      indexElement.value = "";
+      this.dialog.open(ScenarioSummaryComponent, {
+        panelClass: 'dialog',
+        data: {
+          scenario: scenario,
+          conclusionOnly: true
+        }
+      }).closed.subscribe({next : () => this.update()})
     }
   }
 

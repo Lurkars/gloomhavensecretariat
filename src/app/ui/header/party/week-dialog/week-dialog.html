@@ -7,8 +7,7 @@
     </div>
     <div class="sections">
         <span class="section" *ngFor="let section of sectionsFixed()">
-            <img
-                [src]="'./assets/images/' + (isConclusion(section) ? 'scenario/conclusion.svg'  : 'fh/party/section.svg')">
+            <img [src]="'./assets/images/' + (isSolved(section) ? 'scenario/conclusion.svg'  : 'fh/party/section.svg')">
             {{section}}
             <a class="conclusion" *ngIf="hasConclusions(section)" (click)="openConclusions(section)"><img
                     src="./assets/images/hint.svg">
@@ -16,9 +15,11 @@
             </a>
         </span>
         <span class="section" *ngFor="let section of sections()">
-            <img
-                [src]="'./assets/images/' + (isConclusion(section) ? 'scenario/conclusion.svg'  : 'fh/party/section.svg')">
-            {{section}}
+            <span class="index" [ngClass]="{'finish' : isConclusion(section)}" (click)="finishConclusion(section)">
+                <img
+                    [src]="'./assets/images/' + (isSolved(section) ? 'scenario/conclusion.svg'  : 'fh/party/section.svg')">
+                {{section}}
+            </span>
             <a class="conclusion" *ngIf="hasConclusions(section)" (click)="openConclusions(section)"><img
                     src="./assets/images/hint.svg">
                 <span [ghs-label]="'party.campaign.sheet.weekSections.openConclusion'"></span>
@@ -31,7 +32,7 @@
         <input #scenario [ghs-label]="'party.campaign.sheet.weekSections.section'" [ghs-label-attribute]="'placeholder'"
             (keyup)="scenario.classList.remove('error'); scenario.classList.remove('error');"
             (keyup.enter)="addSection(scenario)">
-        <img class="button" src="./assets/images/plus.svg"
-            [ghs-label]="'party.campaign.sheet.weekSections.addSection'" [ghs-label-attribute]="'title'" (click)="addSection(scenario)">
+        <img class="button" src="./assets/images/plus.svg" [ghs-label]="'party.campaign.sheet.weekSections.addSection'"
+            [ghs-label-attribute]="'title'" (click)="addSection(scenario)">
     </div>
 </div>

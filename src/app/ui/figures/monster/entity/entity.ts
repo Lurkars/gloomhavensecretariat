@@ -6,7 +6,6 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Condition, ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
-import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { SummonState } from 'src/app/game/model/Summon';
@@ -58,30 +57,11 @@ export class MonsterEntityComponent implements OnInit, OnDestroy {
     this.activeConditions = gameManager.entityManager.activeConditions(this.entity, true);
   }
 
-  dead() {
-    this.entity.dead = true;
-
-    if (this.monster.entities.every((monsterEntity) => monsterEntity.dead)) {
-      if (this.monster.active) {
-        gameManager.roundManager.toggleFigure(this.monster);
-      }
-    }
-
-    if (gameManager.game.state == GameState.draw || this.entity.entityConditions.length == 0 || this.entity.entityConditions.every((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
-      setTimeout(() => {
-        gameManager.monsterManager.removeMonsterEntity(this.monster, this.entity);
-        gameManager.stateManager.after();
-      }, settingsManager.settings.disableAnimations ? 0 : 1500);
-    }
-  }
-
   dragHpMove(value: number) {
     if (this.entity.maxHealth > 0 && !this.monster.immortal) {
       this.health = value;
       if (this.entity.health + this.health > this.entity.maxHealth) {
         this.health = EntityValueFunction(this.entity.maxHealth) - this.entity.health;
-      } else if (this.entity.health + this.health < 0) {
-        this.health = - this.entity.health;
       }
     }
   }
@@ -90,9 +70,6 @@ export class MonsterEntityComponent implements OnInit, OnDestroy {
     if (this.health != 0 && this.entity.maxHealth > 0 && !this.monster.immortal) {
       gameManager.stateManager.before("changeEntityHp", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + this.health);
       gameManager.entityManager.changeHealth(this.entity, this.health);
-      if (this.entity.health <= 0 || this.entity.dead && this.health >= 0 && this.entity.health > 0) {
-        this.dead();
-      }
       gameManager.stateManager.after();
     }
     this.health = 0;

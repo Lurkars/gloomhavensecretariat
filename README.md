@@ -2,170 +2,169 @@
 
 ## [Latest Online Version](https://gloomhaven-secretariat.de)
 
-[![Publish Latest Online Version](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/latest.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/latest.yml)  [![Build and publish release](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/release.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/release.yml) [![Publish Docker Image](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml)
+[![Publish Latest Online Version](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/latest.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/latest.yml) [![Build and Publish Release](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/release.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/release.yml) [![Publish Docker Image](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml)
 
-*Gloomhaven Secretariat* is a **Gloomhaven/Frosthaven companion app** and does bookkeeping of all entities values to gain more focus on gameplay. It is an open source web app made with [Angular](https://angular.io/).
+*Gloomhaven Secretariat is a **Gloomhaven/Frosthaven companion app** that keeps track of all entity values to allow more focus on gameplay. It is an open source web application built with [Angular] (https://angular.io/).
 
-As GHS is a web application no installation is required and it runs in every modern browser even on mobile, still it can also be [installed](#install) for offline usage.
+Since GHS is a web application, no installation is required and it runs in any modern browser, even on mobile devices, but it can also be [installed](#install) for offline use.
 
-For usage with multiple clients sharing the same game, the server component [Gloomhaven Secretariat Server](https://github.com/Lurkars/ghs-server) is required. A public instance is available under `gloomhaven-secretariat.de` port `8443` with `secure` option. (I also manage a public server list, so please contact me, if you're running a public instance yourself.)
+For use with multiple clients sharing the same game, the server component [Gloomhaven Secretariat Server](https://github.com/Lurkars/ghs-server) is required. A public instance is available at `gloomhaven-secretariat.de` port `8443` with `secure` option. (I also maintain a public server list, so please contact me if you're running a public instance yourself).
 
-GHS is based on the look&feel of the original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)). Since GHH is discontinued and not available anymore, GHS should become a well maintained successor, implementing all functionality of GHH, many improvements and many more features. For a comparison of some popular apps, see [Comparison of Companion Apps](./resources/app-comparison.md).
+GHS is based on the look and feel of the original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)). Since GHH has been discontinued and is no longer available, GHS should become a well maintained successor, implementing all the functionality of GHH, many improvements and many more features. For a comparison of some popular apps, see [Comparison of Companion Apps](./resources/app-comparison.md).
 
-As open source software this is meant for the community to actively [contribute](#contributing) with ideas, suggestions and of course feedback. As I am not capable of good design/UX also feel free to contribute better assets. 
+As open source software this is meant for the community to actively [contribute](#contributing) with ideas, suggestions and of course feedback. As I am not capable of good design/UX, feel free to contribute better assets. 
 
-If you need help using the app take a look at the [help page](https://help.gloomhaven-secretariat.de). It is not complete but should help with all general steps to use GHS properly.
+If you need help using the app, have a look at the [help page](https://help.gloomhaven-secretariat.de). It is not complete, but should help with all the general steps to use GHS properly.
 
 > SPOILER WARNING:
-> The `label-spoiler.json` files inside the `data`-folders and therefore the final edition data files in releases inside `./assets/data`-folder contain spoilers by including the corresponding label. 
+> The `label-spoiler.json` files in the `data` folders, and therefore the final edition data files in the releases in the `./assets/data` folder, contain spoilers by including the appropriate label. 
 > 
-> [More infos about spoiler in this repository](https://github.com/Lurkars/gloomhavensecretariat/discussions/103)
+> [More information about spoilers in this repository](https://github.com/Lurkars/gloomhavensecretariat/discussions/103)
 
 ## Support me
 
-☕ [Buy me a coffee?](https://ko-fi.com/lurkars) (or [Direct Donation via PayPal](https://paypal.me/Lurkars))
+☕ [Buy me a coffee?](https://ko-fi.com/lurkars) (or [Donate directly via PayPal](https://paypal.me/Lurkars))
 
 ## Current Features
 
-- Base Feature complete for GH, FH, JOTL, FC and CS (all needs testing, so please [contribute](#contributing)!), for details see [Data Progression](./resources/data-progression.md)
+- Base feature complete for GH, FH, JOTL, FC and CS (all need testing, so please [contribute](#contributing)!), for details see [Data Progression](./resources/data-progression.md)
 - Tracking:
-  - **initiative** sorting
-  - **health** automatic exhausting/dead, max values for every level
-  - **conditions** automatic expire + automatic apply (wound, wound_x, regenerate, bane, poison, poison_x, ward, brittle)
-  - **level**, **loot**, **experience** of Characters
-  - **Character Progress** level, loot, experience, items, battlegoals, perks, masteries
-  - **Character Attack Modifier Deck** including perks & CS oak cards
-  - **Elements** automatic update state
+  - **Initiative** sorting
+  - **Health** automatic exhaust/dead, max values for each level
+  - **Conditions** auto expire + auto apply (wound, wound_x, regen, bane, poison, poison_x, ward, brittle)
+  - **Level**, *Investment**, *Experience** of characters
+  - **Character Progression** Level, loot, experience, items, battlegoals, perks, masteries
+  - **Character Attack Modifier Deck** including Perks & CS Oak Cards
+  - **Elements** automatic update status
   - **Monster Stats**
-  - **Monster Standees** automatic add standees for scenario rooms/sections and special rules (rooms/sections data WIP)
-  - **Monster Modifier Deck** addition of **Blesses** and **Curses**, auto-shuffling
-  - **Monster Ability Cards** auto-shuffling, calculated values (separated for normal and elite)
+  - **Monster Standees** automatically adds stats for scenario rooms/sections and special rules (room/section data WIP)
+  - **Monster Modifier Deck** Adding **Blessings** and **Curses**, auto shuffling
+  - **Monster Ability Cards** auto-shuffling, calculated values (separate for normal and elite)
   - **Character Summons**
-  - **Scenarios** and **Sections** with automatic level calculation, remind and apply special rules and scenario finish for applying character progress
+  - **Scenarios** and **Sections** with automatic level calculation, display and apply special rules and end scenario to apply character progression
   - **Party Sheet**
-  - **Campaign Management** (some special Rules for CS missing)
+  - **Campaign Management** (some special rules for CS are missing)
   - **Markers**
   - **Treasures** (WIP)
-- Eliminating the following physical components:
+- Elimination of the following physical components
   - monster ability cards
-  - monster stats sheets
-  - monster attack modifier deck
+  - monster stat cards
+  - Monster Attack Modifier Deck
   - damage tokens
-  - condition tokens
-  - element board, element discs, round tracker, initiative tracker
-  - character HP/XP dials
-  - character boards
-  - character sheets
-  - character attack modifier deck
-  - loot deck
-  - party/campaign sheet
+  - Condition tokens
+  - Elemental Board, Elemental Disc, Round Tracker, Initiative Tracker
+  - Character HP/XP dials
+  - Character boards
+  - Character sheets
+  - Character attack modifier deck
+  - Loot Deck
+  - Party/Campaign Sheet
 - Other features:
-  - i18n support (currently en, de, fr and ko, more translations required. Big thanks to contributers of french and korean)
+  - i18n support (currently en, de, fr and ko, more translations needed. Many thanks to the contributors of french and korean)
   - PWA for installation on all devices!
-  - Synchronize state (+ settings) with [GHS Server](https://github.com/Lurkars/ghs-server)
-  - Permission management for different clients with [GHS Server](https://github.com/Lurkars/ghs-server)
-  - load custom JSON edition data for custom content!
-  - edit Monster Attack Modifier and Monster Ability decks (support for Diviner class mechanics): reveal cards, remove cards, re-order cards
-  - FH Loot Deck support incl. Enhancements
-  - [Monster data editor](https://gloomhaven-secretariat.de/editor/monster)
-  - includes Solo Scenarios for GH, FC and CS
-  - includes [Blood and Sand](https://boardgamegeek.com/thread/2613617/blood-and-sand-gloomhaven-campaign-set-red-desert) campaign: can be enabled under *Data Management* (Big thanks to [/u/Calm_Construction131](https://www.reddit.com/user/Calm_Construction131) for contribution)
-  - includes [Seeker of Xor](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under *Data Management*
-  - manage multiple parties (on party sheet while no active scenario set)
-  - <details>
-      <summary>SPOILER WARNING: Envelope X (and V)</summary>
+  - Synchronise state (+ settings) with [GHS Server](https://github.com/Lurkars/ghs-server)
+  - Manage permissions for different clients with [GHS Server](https://github.com/Lurkars/ghs-server)
+  - Load custom JSON edition data for custom content!
+  - Edit Monster Attack Modifier and Monster Ability decks (support for Diviner class mechanics): reveal cards, remove cards, rearrange cards
+  - Support for FH Loot Deck, including enhancements
+  - Monster Data Editor (https://gloomhaven-secretariat.de/editor/monster)
+  - Includes Solo Scenarios
+  - Includes [Blood and Sand](https://boardgamegeek.com/thread/2613617/blood-and-sand-gloomhaven-campaign-set-red-desert) campaign: can be enabled in *Data Management* (Thanks to [/u/Calm_Construction131](https://www.reddit.com/user/Calm_Construction131) for contribution)
+  - Includes the [Seeker of Xor](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under *Data Management*.
+  - Manage multiple parties (on the party sheet while no active scenario is set)
+  - <details
+      <summary>SPOILER WARNING: Envelope X (and V)</summary
 
-      > To add Envelope X (or V for ToA), enable it under *Data Management*, then type the complete name into the *Character Filter* (not case-sensitive).
-    </details>
+      > To add Envelope X (or V for ToA), enable it under *Data Management*, then enter the full name in the *Character Filter* (not case sensitive).
+    </details
 
 ### Short term plans
 
-- validation of all existing data
-- room/section/standee data for all scenarios!
-- add Trail Of Ashes edition data
+- Validate all existing data
+- Address all issues
 
 ### Long term plans
 
-- support for managing character ability cards
+- Support for managing character ability cards
 
 ## Install
 
 ### Install as App
 
-You can always install any hosted version as App (PWA) if your OS/Browser supports installation of PWA. For example here is the [Latest Online Version](https://gloomhaven-secretariat.de).
+You can always install any hosted version as an App (PWA) if your OS/Browser supports PWA installation. For example, here is the [Latest Online Version](https://gloomhaven-secretariat.de).
 
-Instructions for various devices/browser:
+Instructions for different devices/browsers:
 - [Chrome: Computer/Android](https://support.google.com/chrome/answer/9658361)
 - [Safari: iOS](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Installing#safari_for_ios_iphoneos_ipados)
 - [Firefox: Android](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Installing#firefox_for_android)
-- others: search for "install PWA" 
+- other: search for "install PWA"
 
 ### Standalone
 
-An Electron app is provided for Linux, Mac and Windows.
-Download the corresponding files from the [latest release](https://github.com/Lurkars/gloomhavensecretariat/releases/latest) assets.
+An Electron application is available for Linux, Mac and Windows.
+Download the appropriate files from the [latest release](https://github.com/Lurkars/gloomhavensecretariat/releases/latest) assets.
 
-> only tested Linux AppImage for now
+> Linux AppImage only tested for now
 
-### Selfhost
+### Selfhosting
 
-To selfhost *Gloomhaven Secretariat* on your webserver, simple download the zip file from the [latest release](https://github.com/Lurkars/gloomhavensecretariat/releases/latest) and unzip to your webserver.
+To self host *Gloomhaven Secretariat* on your web server, simply download the zip file from the [latest release](https://github.com/Lurkars/gloomhavensecretariat/releases/latest) and unzip it on your web server.
 
-> The base url for this build is set to root. To use a different base url please [build your own package](#build-from-source).
+> The base url for this build is set to root. To use a different base URL, please [build your own package](#build-from-source).
 
-#### Build and run using Docker
+#### Build and run with Docker
 
 [![Publish Docker Image](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml)
 
-If you want to use docker for running on port 80 execute following:
+If you want to use docker to run on port 80, run the following
 
 ```shell
 docker pull gloomhavensecretariat/ghs
 docker run --rm -p 80:80 --name ghs gloomhavensecretariat/ghs
 ```
 
-For usage with docker compose, simple run `docker compose up -d`.
+For use with docker compose, just run `docker compose up -d`.
 
-## Build from source
+## Building from source
 
-If you want to create you own custom build (for example to [selfhost](#selfhost)), prepare a [development setup](#development). Afterwards run `npm run build` ([available options](https://angular.io/cli/build#options)) and access build under `./dist/gloomhavensecretariat`.
+If you want to create your own custom build (e.g. on [Selfhosting](#Selfhosting)), prepare a [development setup](#development). Then run `npm run build' ([available options](https://angular.io/cli/build#options)) and access the build at `./dist/gloomhavensecretariat'.
 
 ## Development
 
 Prerequisite:
 
-- up-to-date [Node.js](https://nodejs.org) and npm version
+- Current [Node.js](https://nodejs.org) and npm version
 
-Checkout the source code with `git clone https://github.com/Lurkars/gloomhavensecretariat.git`.
+Check out the source with `git clone https://github.com/Lurkars/gloomhavensecretariat.git`.
 
-Install dependencies with `npm install`.
+Install the dependencies with `npm install`.
 
-Afterwards run `npm run start` to create a development server at [http://localhost:4200](http://localhost:4200).
+Then run `npm run start` to create a development server at [http://localhost:4200](http://localhost:4200).
 
-For development with docker, install docker compose and run `docker compose -f docker-compose.dev.yaml up -d`.
+To develop with docker, install docker compose and run `docker compose -f docker-compose.dev.yaml up -d`.
 
 ## Contributing
 
 Feel free to file a [new issue](https://github.com/Lurkars/gloomhavensecretariat/issues/new/choose) for bugs, features and improvements or start a new [new discussion](https://github.com/Lurkars/gloomhavensecretariat/discussions/new/choose) for help or feedback.
 
-All game data is inside the [data](./data/) folder with subfolders for every edition. A review of all data by a third person would be awesome. As all files are JSON data it should be easily human readable. Every character, monster and monster deck has it's own file, so it should be easy to check.
-Every edition folder get concatenated to a single edition data file on build.
+All game data is located in the [data](./data/) folder with subfolders for each release. A third party review of all data would be great. As all files are JSON data, they should be easily human readable. Each character, monster and monster deck has it's own file, so it should be easy to check.
+Each edition folder will be concatenated into a single edition data file on build.
 
-Also pull requests are welcome!
+Pull requests are also welcome!
 
-> Please notice: all files inside data-subfolder will be automatically formatted and added to any commit. If you made local changes to those files and do NOT want to commit those changes, please use the `--no-verify` parameter for your `git commit` and `git push` commands.
+> Please note: all files in the data subfolder will be automatically formatted and added to each commit. If you have made local changes to these files and do NOT want to commit those changes, please use the `--no-verify' parameter for your `git commit' and `git push' commands.
 
-Many thanks to all already [contributed](https://github.com/Lurkars/gloomhavensecretariat/graphs/contributors), you're awesome!
+Thanks to everyone who has already [contributed](https://github.com/Lurkars/gloomhavensecretariat/graphs/contributors), you're awesome!
 
 ## Archive
 
-All older versions are also available on `gloomhaven-secretariat.de`, for example the first version `v0.0.1` is available under [v0-0-1.gloomhaven-secretariat.de](https://v0-0-1.gloomhaven-secretariat.de). All available tags are listed under [Releases](https://github.com/Lurkars/gloomhavensecretariat/releases), just replace all `.` with `-` for a proper url. This is meant as showcase for the evolution of GHS, but also as fallback, if a release does break anything important, than you can always fallback to a previous version. 
+All older versions are also available on `gloomhaven-secretariat.de`, for example the first version `v0.0.1` is available at [v0-0-1.gloomhaven-secretariat.de](https://v0-0-1.gloomhaven-secretariat.de). All available tags are listed under [Releases](https://github.com/Lurkars/gloomhavensecretariat/releases), just replace all `.` with `-` for a proper url. This is meant as a showcase for the evolution of GHS, but also as a fallback, if a release breaks something important, you can always fall back to a previous version. 
 
-> Please keep in mind that there is no history of the server component. So connecting with older clients to the current server may not work properly!
+> Please note that there is no history of the server component. So connecting to the current server with older clients may not work properly!
 
 ## Privacy
 
-This app does NOT collect ANY personal data. Everything runs and stays in your browser/local storage. For usage of the server component please go to [Gloomhaven Secretariat Server#Privacy](https://github.com/Lurkars/ghs-server#privacy).
+This application does NOT collect any personal data. Everything runs and stays in your browser/local memory. For using the server component please go to [Gloomhaven Secretariat Server#Privacy](https://github.com/Lurkars/ghs-server#privacy).
 
 ## Copyright / License
 
@@ -179,10 +178,11 @@ Assets/Data used:
 - [X-haven Assistant](https://github.com/Tarmslitaren/FrosthavenAssistant)
 - [Gloomhaven Item DB](https://github.com/heisch/gloomhaven-item-db)
 - [Virtual Gloomhaven Board](https://github.com/PurpleKingdomGames/virtual-gloomhaven-board)
-- some other assets used are public domain licensed
+- some other used assets are licensed under public domain
 
-Source code is licenced under [AGPL](/LICENSE)
+
+Source code is licensed under [AGPL](/LICENSE)
 
 ## Personal disclaimer
 
-This is a hobby project I do in my free-time. The software provides a practical need due to the end of the original Helper app and so I completely follow the **Quick'n'Dirty** approach to get things fast done. This leads of course to a lack of quality and testing and the code base does definitely not comply with my profession.
+This is a hobby project I do in my spare time. The software fills a practical need due to the demise of the original Helper application, so I am following the **Quick'n'Dirty** approach to get things done quickly. This of course leads to a lack of quality and testing and the code base is definitely not in line with my profession.

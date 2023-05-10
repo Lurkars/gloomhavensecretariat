@@ -347,6 +347,7 @@ export class StateManager {
     gameManager.stateManager.updateBlocked = true;
     gameManager.stateManager.permissions = new Permissions();
     gameManager.stateManager.updatePermissions();
+    gameManager.uiChange.emit();
   }
 
   onError(ev: Event) {
@@ -354,12 +355,14 @@ export class StateManager {
     gameManager.stateManager.updateBlocked = true;
     gameManager.stateManager.permissions = new Permissions();
     gameManager.stateManager.updatePermissions();
+    gameManager.uiChange.emit();
   }
 
   forceUpdateState() {
     gameManager.stateManager.updateBlocked = false;
     gameManager.stateManager.permissions = gameManager.stateManager.permissionBackup;
     gameManager.stateManager.updatePermissions();
+    gameManager.uiChange.emit();
   }
 
   requestSettings() {
