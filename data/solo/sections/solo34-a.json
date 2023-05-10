@@ -1,9 +1,10 @@
 {
-  "index": "34-door",
+  "index": "34-a",
   "group": "solo",
   "name": "Boiler Room",
   "edition": "fh",
   "parent": "34",
+  "marker": "a",
   "monsters": [
     "ancient-artillery",
     "ruined-machine"

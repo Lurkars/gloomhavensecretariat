@@ -4,6 +4,12 @@
   "name": "Bones in the Dirt",
   "edition": "fh",
   "parent": "24",
+  "parentSections": [
+    [
+      "24-1"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "hollow-scholar",
     "snow-imp"

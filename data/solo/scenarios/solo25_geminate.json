@@ -5,6 +5,11 @@
   "edition": "fh",
   "initial": true,
   "solo": "geminate",
+  "rewards": {
+    "items": [
+      "253"
+    ]
+  },
   "monsters": [
     "flaming-bladespinner",
     "ice-wraith",

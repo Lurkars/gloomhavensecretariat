@@ -6,35 +6,41 @@
   "spoiler": true,
   "initial": true,
   "solo": "fist",
+  "rewards": {
+    "items": [
+      "260"
+    ]
+  },
   "monsters": [
     "ancient-artillery",
     "flaming-bladespinner",
     "ruined-machine",
     "steel-automaton"
   ],
-  "objectives": [
-    {
-      "name": "Altar 1",
-      "escort": true,
-      "health": "Lx2+6",
-      "initiative": 99
-    },
-    {
-      "name": "Altar 2",
-      "escort": true,
-      "health": "Lx2+6",
-      "initiative": 99
-    },
-    {
-      "name": "Altar 3",
-      "escort": true,
-      "health": "Lx2+6",
-      "initiative": 99
-    }
-  ],
   "lootDeckConfig": {
     "coin": 15
   },
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "32-1"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "steel-automaton"
+          },
+          "type": "killed",
+          "value": "1"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

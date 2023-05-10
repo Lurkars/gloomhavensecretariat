@@ -4,8 +4,27 @@
   "name": "Tuning the Resonance",
   "edition": "fh",
   "parent": "28",
+  "marker": "1",
+  "resetRound": "visible",
   "monsters": [
     "chief-of-spikes"
+  ],
+  "rules": [
+    {
+      "round": "R % 2 == 0",
+      "note": "Chief of Spikes creates one ice pillar in any empty hex within %game.action.range:2% of it",
+      "objectiveSpawns": [
+        {
+          "objective": {
+            "index": 2,
+            "name": "Ice Pillar",
+            "tags": [
+              "ice-pillar"
+            ]
+          }
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -16,6 +35,12 @@
           "name": "chief-of-spikes",
           "type": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1
       ]
     }
   ]

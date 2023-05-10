@@ -107,7 +107,7 @@
                 "effects": [
                   {
                     "type": "specialTarget",
-                    "value": "allyShort"
+                    "value": "ally"
                   }
                 ]
               }
@@ -204,7 +204,7 @@
                 "effects": [
                   {
                     "type": "specialTarget",
-                    "value": "allyShort"
+                    "value": "ally"
                   }
                 ]
               }
@@ -233,7 +233,7 @@
                   },
                   {
                     "type": "specialTarget",
-                    "value": "allyShort"
+                    "value": "ally"
                   }
                 ]
               }

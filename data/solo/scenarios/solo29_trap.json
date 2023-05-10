@@ -6,14 +6,80 @@
   "spoiler": true,
   "initial": true,
   "solo": "trap",
+  "rewards": {
+    "items": [
+      "257"
+    ]
+  },
   "monsters": [
     "algox-guard",
-    "algox-icespeaker-trap-solo",
+    "algox-snowspeaker-trap-solo",
     "wind-demon"
   ],
   "lootDeckConfig": {
     "coin": 15
   },
+  "rules": [
+    {
+      "round": "R == 3 || R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-guard",
+            "type": "normal"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 4 || R == 6 || R == 8",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "wind-demon",
+            "type": "normal"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-guard",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "algox-snowspeaker-trap-solo",
+            "type": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-snowspeaker-trap-solo",
+            "type": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

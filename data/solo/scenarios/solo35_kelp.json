@@ -6,6 +6,11 @@
   "spoiler": true,
   "initial": true,
   "solo": "kelp",
+  "rewards": {
+    "items": [
+      "263"
+    ]
+  },
   "monsters": [
     "abael-scout",
     "abael-warlord",
@@ -15,6 +20,22 @@
   "lootDeckConfig": {
     "coin": 15
   },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "invisible"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

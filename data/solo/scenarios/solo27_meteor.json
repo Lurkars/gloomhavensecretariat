@@ -6,9 +6,14 @@
   "spoiler": true,
   "initial": true,
   "solo": "meteor",
+  "rewards": {
+    "items": [
+      "255"
+    ]
+  },
   "monsters": [
     "burrowing-blade",
-    "mountain's-heart",
+    "mountains-heart",
     "rending-drake"
   ],
   "lootDeckConfig": {

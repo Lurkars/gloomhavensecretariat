@@ -1,7 +1,8 @@
 {
   "name": "night-demon-deathwalker-solo",
-  "thumbnail": "night-demon",
+  "thumbnail": "fh-night-demon",
   "edition": "fh",
+  "deck": "night-demon",
   "hidden": true,
   "count": 6,
   "baseStat": {

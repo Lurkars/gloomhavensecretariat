@@ -4,6 +4,12 @@
   "name": "Wet Work",
   "edition": "fh",
   "parent": "35",
+  "parentSections": [
+    [
+      "35-1"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "abael-warlord",
     "piranha-pig"

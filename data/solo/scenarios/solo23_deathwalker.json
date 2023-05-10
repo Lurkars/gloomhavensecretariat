@@ -5,6 +5,11 @@
   "edition": "fh",
   "initial": true,
   "solo": "deathwalker",
+  "rewards": {
+    "items": [
+      "251"
+    ]
+  },
   "monsters": [
     "black-imp-deathwalker-solo",
     "night-demon-deathwalker-solo"
@@ -19,6 +24,102 @@
   "lootDeckConfig": {
     "coin": 15
   },
+  "rules": [
+    {
+      "round": "R == 3",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "night-demon-deathwalker-solo",
+            "type": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "night-demon-deathwalker-solo",
+            "type": "normal"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-imp-deathwalker-solo",
+            "type": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "black-imp-deathwalker-solo",
+            "type": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "black-imp-deathwalker-solo",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "black-imp-deathwalker-solo",
+            "type": "normal"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-imp-deathwalker-solo",
+            "type": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "black-imp-deathwalker-solo",
+            "type": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 10",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "night-demon-deathwalker-solo",
+            "type": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "night-demon-deathwalker-solo",
+            "type": "elite"
+          },
+          "marker": "d"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -32,6 +133,9 @@
           "name": "black-imp-deathwalker-solo",
           "type": "normal"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

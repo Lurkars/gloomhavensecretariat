@@ -172,7 +172,7 @@
                   },
                   {
                     "type": "specialTarget",
-                    "value": "allyShort"
+                    "value": "ally"
                   }
                 ]
               }

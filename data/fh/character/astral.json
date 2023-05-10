@@ -257,7 +257,7 @@
       "type": "custom",
       "count": 2,
       "combined": true,
-      "custom": "%game.custom.perks.ignoreNegativeItemFh%.<br>Whenever you become exhausted, kepp all your active bonuses in play, with your summons acting on initiative 99 each round"
+      "custom": "%game.custom.perks.ignoreNegativeItemFh%.<br>Whenever you become exhausted, keep all your active bonuses in play, with your summons acting on initiative 99 each round"
     },
     {
       "type": "custom",

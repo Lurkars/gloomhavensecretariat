@@ -4,6 +4,7 @@
   "name": "Boiler Room",
   "edition": "fh",
   "parent": "34",
+  "marker": "1",
   "monsters": [
     "flaming-bladespinner",
     "steel-automaton"

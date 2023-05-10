@@ -1,0 +1,33 @@
+{
+  "index": "36-2",
+  "group": "solo",
+  "name": "Crash Against the Waves",
+  "edition": "fh",
+  "parent": "36",
+  "parentSections": [
+    [
+      "36-1"
+    ]
+  ],
+  "resetRound": "visible",
+  "monsters": [
+    "plea-for-help-without-answer"
+  ],
+  "rules": [
+    {
+      "round": "R == 4",
+      "start": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "plea-for-help-without-answer",
+            "type": "boss"
+          },
+          "marker": "a"
+        }
+      ]
+    }
+  ],
+  "rooms": []
+}
