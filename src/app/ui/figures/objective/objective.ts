@@ -35,6 +35,7 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
   health: number = 0;
   objectiveData: ObjectiveData | undefined;
   activeConditions: EntityCondition[] = [];
+  initiative: number = -1;
 
   constructor(private dialog: Dialog, private overlay: Overlay) { }
 
@@ -104,6 +105,10 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
       value = 1;
     }
 
+    if (this.initiative == -1) {
+      this.initiative = this.objective.initiative;
+    }
+
     this.objective.initiative = value;
   }
 
@@ -118,10 +123,14 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
       value = 1;
     }
 
-    if (this.objective.initiative != value) {
+    if (this.objective.initiative != this.initiative) {
+      this.objective.initiative = this.initiative;
       gameManager.stateManager.before("setObjectiveInitiative", this.objective.title || this.objective.name, "" + value);
       this.objective.initiative = value;
-      gameManager.sortFigures();
+      this.initiative = -1;
+      if (gameManager.game.state == GameState.next) {
+        gameManager.sortFigures();
+      }
       gameManager.stateManager.after();
     }
   }

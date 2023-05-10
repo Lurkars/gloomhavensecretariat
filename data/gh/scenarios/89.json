@@ -3,7 +3,7 @@
   "name": "Syndicate Hideout",
   "gridLocation": "C:17:-23:35",
   "edition": "gh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "party": [
         "Sin-Ra"

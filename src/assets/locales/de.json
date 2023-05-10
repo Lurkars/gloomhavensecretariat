@@ -1020,7 +1020,7 @@
     "tooltip": {
       ".": "{0}",
       "blocked": "{0} (%scenario.blocked%)",
-      "locked": "{0} (%scenario.blocked%)"
+      "locked": "{0} (%scenario.locked%)"
     }
   },
   "section": "Sektion hinzufügen",

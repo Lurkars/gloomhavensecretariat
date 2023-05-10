@@ -357,9 +357,9 @@
 
 
       <ng-container *ngIf="data.entity && gameManager.isObjective(data.entity)">
-        <span class="item" [ghs-label]="'objective.remove'" [ghs-label-attribute]="'title'" [ngClass]="{'active' :objectiveDead}">
-          <a class="remove" (click)="toggleDead()">
-            <img src="./assets/images/close.svg" />
+        <span class="item"  [ghs-label]="'game.dead'" [ghs-label-attribute]="'title'">
+          <a class="button" (click)="toggleDead()">
+            <img src="./assets/images/status/dead.svg" />
           </a>
         </span>
         <span class="item" [ghs-label]="'game.exhausted'" [ghs-label-attribute]="'title'"

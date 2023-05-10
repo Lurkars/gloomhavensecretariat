@@ -2,7 +2,7 @@
   "index": "33",
   "name": "Thawed Wood",
   "edition": "fh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "campaignSticker": [
         "into-the-forest"

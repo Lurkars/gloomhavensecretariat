@@ -56,7 +56,7 @@ export class Game {
   }
 
   toModel(): GameModel {
-    return new GameModel(this.revision, this.revisionOffset, this.edition, this.figures.map((figure) => figure.name), this.entitiesCounter, this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.revealedRooms, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((section) => gameManager.scenarioManager.toModel(section, section.revealedRooms)), this.scenarioRules.map((value) => value.identifier), this.disgardedScenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.playerCount, this.round, this.roundResets, this.roundResetsHidden, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck, this.lootDeckEnhancements, this.lootDeckFixed, this.lootDeckSections, this.unlockedCharacters, this.server, this.finish);
+    return new GameModel(this.revision, this.revisionOffset, this.edition, this.figures.map((figure) => figure instanceof Objective && figure.uuid ? figure.uuid : figure.edition + '-' + figure.name), this.entitiesCounter, this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.revealedRooms, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((section) => gameManager.scenarioManager.toModel(section, section.revealedRooms)), this.scenarioRules.map((value) => value.identifier), this.disgardedScenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.playerCount, this.round, this.roundResets, this.roundResetsHidden, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck, this.lootDeckEnhancements, this.lootDeckFixed, this.lootDeckSections, this.unlockedCharacters, this.server, this.finish);
   }
 
   fromModel(model: GameModel, server: boolean = false) {
@@ -144,7 +144,14 @@ export class Game {
     });
 
     model.objectives.forEach((value) => {
-      let objective = this.figures.find((figure) => figure instanceof Objective && figure.id == value.id && figure.name == value.name && figure.marker == value.marker && (!figure.tags || figure.tags.every((tag, index, self) => index == self.indexOf(tag))) && (!figure.objectiveId && !value.objectiveId || figure.objectiveId && value.objectiveId && figure.objectiveId.edition == value.objectiveId.edition && figure.objectiveId.scenario == value.objectiveId.scenario && figure.objectiveId.group == value.objectiveId.group && figure.objectiveId.index == value.objectiveId.index && figure.objectiveId.section == value.objectiveId.section)) as Objective;
+      let objective: Objective | undefined = this.figures.find((figure, index, self) => figure instanceof Objective && (
+        // match uuid
+        value.uuid && figure.uuid == value.uuid ||
+        // migration
+        (!value.uuid || value.uuid && !figure.uuid && !self.find((existing) => existing instanceof Objective && existing.uuid == value.uuid)) && figure.name == value.name && figure.id == value.id && figure.escort == value.escort && figure.marker == value.marker &&
+        (!figure.tags && !value.tags || figure.tags && value.tags && figure.tags.length == value.tags.length && figure.tags.every((tag) => value.tags.indexOf(tag) != -1)) &&
+        (!figure.objectiveId && !value.objectiveId || figure.objectiveId && value.objectiveId && figure.objectiveId.index == value.objectiveId.index && figure.objectiveId.edition == value.objectiveId.edition && figure.objectiveId.group == value.objectiveId.group && figure.objectiveId.scenario == value.objectiveId.scenario && figure.objectiveId.section == value.objectiveId.section))
+      ) as Objective;
       if (!objective) {
         if (!value.id) {
           value.id = 0;
@@ -153,15 +160,25 @@ export class Game {
           }
         }
 
-        objective = new Objective(value.id, value.objectiveId);
+        objective = new Objective(value.uuid, value.id, value.objectiveId);
         this.figures.push(objective);
       }
       objective.fromModel(value);
     });
 
-    this.figures = this.figures.filter((figure) => !(figure instanceof Objective) || model.objectives.some((obj) => obj.id == figure.id));
+    this.figures = this.figures.filter((figure) => !(figure instanceof Objective) || model.objectives.some((value) =>
+      // match uuid
+      value.uuid && value.uuid == figure.uuid ||
+      // migration
+      !value.uuid && figure.name == value.name && figure.id == value.id && figure.escort == value.escort && figure.marker == value.marker &&
+      (!figure.tags && !value.tags || figure.tags && value.tags && figure.tags.length == value.tags.length && figure.tags.every((tag) => value.tags.indexOf(tag) != -1)) &&
+      (!figure.objectiveId && !value.objectiveId || figure.objectiveId && value.objectiveId && figure.objectiveId.index == value.objectiveId.index && figure.objectiveId.edition == value.objectiveId.edition && figure.objectiveId.group == value.objectiveId.group && figure.objectiveId.scenario == value.objectiveId.scenario && figure.objectiveId.section == value.objectiveId.section)));
 
-    this.figures.sort((a, b) => model.figures.indexOf(a.name) - model.figures.indexOf(b.name));
+    this.figures.sort((a, b) => {
+      const aId = a instanceof Objective && a.uuid ? a.uuid : a.edition + '-' + a.name;
+      const bId = b instanceof Objective && b.uuid ? b.uuid : b.edition + '-' + b.name;
+      return model.figures.indexOf(aId) - model.figures.indexOf(bId);
+    });
 
     this.state = model.state;
 

@@ -3,7 +3,7 @@
   "index": "92",
   "name": "Sinking Ship",
   "edition": "fh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "buildings": [
         "boat"

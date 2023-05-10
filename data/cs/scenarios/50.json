@@ -2,7 +2,7 @@
   "index": "50",
   "name": "Oak Invasion B",
   "edition": "cs",
-  "requiredAchievements": [
+  "requirements": [
     {
       "party": [
         "Inox Alliance"

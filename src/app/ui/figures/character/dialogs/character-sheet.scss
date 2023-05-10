@@ -249,8 +249,8 @@
             .checkbox {
               margin-top: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
               margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-              width: calc(var(--ghs-unit) * 1.9 * var(--ghs-dialog-factor) * var(--ghs-text-factor)* var(--ghs-text-factor));
-              height: calc(var(--ghs-unit) * 1.9 * var(--ghs-dialog-factor) * var(--ghs-text-factor)* var(--ghs-text-factor));
+              width: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor) * var(--ghs-text-factor)* var(--ghs-text-factor));
+              height: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor) * var(--ghs-text-factor)* var(--ghs-text-factor));
 
               &.disabled {
                 pointer-events: initial;

@@ -7,7 +7,7 @@
     "21",
     "22"
   ],
-  "requiredAchievements": [
+  "requirements": [
     {
       "global": [
         "!The Rift Neutralized"

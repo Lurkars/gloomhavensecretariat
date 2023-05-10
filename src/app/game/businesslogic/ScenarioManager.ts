@@ -241,7 +241,7 @@ export class ScenarioManager {
           }
         }
 
-        if (gameManager.characterManager.characterCount() < 4 && !internal) {
+        if (gameManager.characterManager.characterCount() < 4 && !internal && !scenario.solo) {
           this.game.party.inspiration += 4 - gameManager.characterManager.characterCount();
         }
 
@@ -264,7 +264,9 @@ export class ScenarioManager {
         gameManager.scenarioManager.setScenario(scenario);
       } else {
         if (!casual && scenario && !scenario.conclusion && gameManager.fhRules() && !linkedScenario) {
-          this.game.party.weeks++;
+          if (!scenario.solo) {
+            this.game.party.weeks++;
+          }
 
           const editionData = gameManager.editionData.find((editionData) => editionData.edition == scenario.edition);
 
@@ -282,6 +284,7 @@ export class ScenarioManager {
             }
           })
         }
+
         if (!internal) {
           this.game.scenario = undefined;
           this.game.sections = [];
@@ -597,9 +600,9 @@ export class ScenarioManager {
   }
 
   isLocked(scenarioData: ScenarioData): boolean {
-    return this.game.party.campaignMode && scenarioData.requiredAchievements &&
-      scenarioData.requiredAchievements && scenarioData.requiredAchievements.every((achievements) =>
-        achievements.global && achievements.global.some((achievement) => {
+    return this.game.party.campaignMode && scenarioData.requirements &&
+      scenarioData.requirements && scenarioData.requirements.every((requirement) =>
+        requirement.global && requirement.global.some((achievement) => {
           if (achievement.startsWith('!')) {
             return this.game.party.globalAchievementsList.find((globalAchievement) => globalAchievement.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim());
           } else if (achievement.indexOf(':') != -1) {
@@ -615,7 +618,7 @@ export class ScenarioManager {
           }
         })
         ||
-        achievements.party && achievements.party.some((achievement) => {
+        requirement.party && requirement.party.some((achievement) => {
           if (achievement.startsWith('!')) {
             return this.game.party.achievementsList.find((partyAchievement) => partyAchievement.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim());
           } else if (achievement.indexOf(':') != -1) {
@@ -631,7 +634,7 @@ export class ScenarioManager {
           }
         })
         ||
-        achievements.campaignSticker && achievements.campaignSticker.some((achievement) => {
+        requirement.campaignSticker && requirement.campaignSticker.some((achievement) => {
           if (achievement.startsWith('!')) {
             return this.game.party.campaignStickers.find((campaignSticker) => campaignSticker.toLowerCase().replaceAll(' ', '-').trim() == achievement.substring(1, achievement.length).toLowerCase().trim());
           } else if (achievement.indexOf(':') != -1) {
@@ -647,7 +650,7 @@ export class ScenarioManager {
           }
         })
         ||
-        achievements.buildings && achievements.buildings.some((achievement) => {
+        requirement.buildings && requirement.buildings.some((achievement) => {
           if (achievement.startsWith('!')) {
             return this.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim() && buildingModel.level > 0);
           } else if (achievement.indexOf(':') != -1) {
@@ -656,7 +659,8 @@ export class ScenarioManager {
           } else {
             return !this.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.toLowerCase().trim() && buildingModel.level > 0)
           }
-        })) || false;
+        })) ||
+      scenarioData.solo && !this.game.figures.find((figure) => figure instanceof Character && figure.name == scenarioData.solo && figure.level >= 5) || false;
   }
 
   availableSections(includeConclusions: boolean = false): ScenarioData[] {

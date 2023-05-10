@@ -490,5 +490,54 @@
     "slot": "head",
     "solo": "coral",
     "spent": true
+  },
+  {
+    "id": 119,
+    "name": "Thrice-Souled Warsword",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "slot": "onehand",
+    "solo": "three-eyes",
+    "spent": true
+  },
+  {
+    "id": 120,
+    "name": "Rekindled Core",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "slot": "onehand",
+    "solo": "ice-meteor"
+  },
+  {
+    "id": 121,
+    "name": "Crystal Catalyst",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "slot": "small",
+    "solo": "gemstone",
+    "spent": true
+  },
+  {
+    "id": 123,
+    "name": "Arclight Cladding",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "slot": "body",
+    "solo": "lightning-ball",
+    "spent": true
+  },
+  {
+    "id": 128,
+    "name": "Barbed Whip",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "slot": "onehand",
+    "solo": "spiked-ring",
+    "spent": true
   }
 ]

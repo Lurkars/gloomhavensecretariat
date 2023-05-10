@@ -3,7 +3,7 @@
   "index": "76",
   "name": "Apotheosis",
   "edition": "fh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "buildings": [
         "boat"

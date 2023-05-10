@@ -488,7 +488,7 @@ export class EntityMenuDialogComponent {
     } else if (this.data.entity instanceof Summon) {
       this.dead();
     } else if (this.data.entity instanceof Objective) {
-      this.objectiveDead = !this.objectiveDead;
+      this.dead();
     }
   }
 
@@ -527,6 +527,10 @@ export class EntityMenuDialogComponent {
       } else {
         gameManager.stateManager.after();
       }
+    } else if (this.data.entity instanceof Objective) {
+      gameManager.stateManager.before("removeObjective", this.data.entity.title || this.data.entity.name);
+      gameManager.characterManager.removeObjective(this.data.entity);
+      gameManager.stateManager.after();
     }
     this.dialogRef.close(true);
   }
@@ -645,7 +649,7 @@ export class EntityMenuDialogComponent {
       }
 
       if (this.characterToken != this.data.entity.token) {
-        gameManager.stateManager.before("setCharacterToken", "data.character." + this.data.entity.name,'' + this.characterToken);
+        gameManager.stateManager.before("setCharacterToken", "data.character." + this.data.entity.name, '' + this.characterToken);
         this.data.entity.token = this.characterToken;
         if (this.data.entity.token < 0) {
           this.data.entity.token = 0;
@@ -868,7 +872,7 @@ export class EntityMenuDialogComponent {
       this.marker = 0;
 
       if (this.objectiveTitleInput) {
-        if (this.objectiveTitleInput.nativeElement.value && this.objectiveTitleInput.nativeElement.value != new Objective(0).name) {
+        if (this.objectiveTitleInput.nativeElement.value && this.objectiveTitleInput.nativeElement.value != this.data.entity.name) {
           if (this.data.entity.title != this.objectiveTitleInput.nativeElement.value) {
             gameManager.stateManager.before("setTitle", this.data.entity.name, this.objectiveTitleInput.nativeElement.value);
             this.data.entity.title = this.objectiveTitleInput.nativeElement.value;
@@ -879,12 +883,6 @@ export class EntityMenuDialogComponent {
           this.data.entity.title = "";
           gameManager.stateManager.after();
         }
-      }
-
-      if (this.objectiveDead) {
-        gameManager.stateManager.before("removeObjective", this.data.entity.title || this.data.entity.name);
-        gameManager.characterManager.removeObjective(this.data.entity);
-        gameManager.stateManager.after();
       }
     }
   }

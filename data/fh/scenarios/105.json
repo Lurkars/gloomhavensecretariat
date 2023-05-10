@@ -3,7 +3,7 @@
   "index": "105",
   "name": "Ruins of the Equinox",
   "edition": "fh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "buildings": [
         "climbing-gear"

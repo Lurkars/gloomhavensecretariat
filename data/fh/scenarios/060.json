@@ -3,7 +3,7 @@
   "index": "60",
   "name": "Uniting the Crown",
   "edition": "fh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "buildings": [
         "boat"

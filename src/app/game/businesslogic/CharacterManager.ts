@@ -14,6 +14,7 @@ import { Objective } from "../model/Objective";
 import { Summon, SummonColor, SummonState } from "../model/Summon";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
+import { v4 as uuidv4 } from 'uuid';
 
 export class CharacterManager {
 
@@ -112,6 +113,14 @@ export class CharacterManager {
         character.number++;
       }
 
+      if (character.progress.gold == 0) {
+        if (gameManager.fhRules()) {
+          character.progress.gold = 10 * gameManager.prosperityLevel() + 20;
+        } else if (!gameManager.editionRules('jotl')) {
+          character.progress.gold = 15 * (character.level + 1);
+        }
+      }
+
       this.game.figures.push(character);
       gameManager.addEntityCount(character);
 
@@ -172,7 +181,7 @@ export class CharacterManager {
       }
     }
 
-    let objective = new Objective(id, objectiveId);
+    let objective = new Objective(uuidv4(), id, objectiveId);
 
     if (objectiveData) {
       if (objectiveData.id && objectiveData.id != -1) {
@@ -251,7 +260,7 @@ export class CharacterManager {
   createSpecialSummon(character: Character, summonData: SummonData) {
     character.summons = character.summons.filter((summon) => summon.name != summonData.name || summon.number != 0 || summon.color != SummonColor.custom);
     if (!summonData.level || summonData.level <= character.level) {
-      let summon: Summon = new Summon(summonData.name, summonData.cardId, character.level, 0, SummonColor.custom, summonData);
+      let summon: Summon = new Summon(uuidv4(), summonData.name, summonData.cardId, character.level, 0, SummonColor.custom, summonData);
       summon.state = SummonState.true;
       summon.init = false;
       this.addSummon(character, summon);

@@ -16,7 +16,7 @@
       "6"
     ]
   ],
-  "requiredAchievements": [
+  "requirements": [
     {
       "global": [
         "!The Dead Invade"

@@ -83,11 +83,6 @@ export class Character extends CharacterData implements Entity, Figure {
 
     this.health = this.maxHealth;
     this.progress = new CharacterProgress();
-
-    if (this.edition != "jotl" && this.progress.gold == 0) {
-      this.progress.gold = 15 * (this.level + 1);
-    }
-
     this.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this);
 
     this.availableSummons.forEach((summonData) => summonData.edition = this.edition);
@@ -148,21 +143,22 @@ export class Character extends CharacterData implements Entity, Figure {
     this.tags = model.tags || this.tags;
     this.identity = model.identity || 0;
 
-    this.summons = this.summons.filter((summon) => {
-      let found: boolean = false;
-      model.summons.forEach((gsm) => {
-        if (gsm.number == summon.number && gsm.color == summon.color) {
-          found = true;
-          return;
-        }
-      })
-      return found;
-    });
+    this.summons = this.summons.filter((summon, index, self) => model.summons.some((value) =>
+      // match uuid
+      value.uuid == summon.uuid ||
+      // migration
+      (!value.uuid || value.uuid && !summon.uuid && !self.find((existing) => existing.uuid == value.uuid)) && value.name == summon.name && value.color == summon.color && value.number == summon.number
+    ));
 
     model.summons.forEach((value, index) => {
-      let summon = this.summons.find((summonEntity) => summonEntity.name == value.name && summonEntity.number == value.number && summonEntity.color == value.color) as Summon;
+      let summon = this.summons.find((summonEntity) =>
+        // match uuid
+        value.uuid == summonEntity.uuid ||
+        // migration
+        !value.uuid && value.name == summonEntity.name && value.color == summonEntity.color && value.number == summonEntity.number
+      ) as Summon;
       if (!summon) {
-        summon = new Summon(value.name, value.cardId, value.level, value.number, value.color);
+        summon = new Summon(value.uuid, value.name, value.cardId, value.level, value.number, value.color);
         this.summons.splice(index, 0, summon);
       } else if (index != this.summons.indexOf(summon)) {
         this.summons.splice(this.summons.indexOf(summon), 1);
@@ -170,6 +166,8 @@ export class Character extends CharacterData implements Entity, Figure {
       }
       summon.fromModel(value);
     })
+
+    this.summons.sort((a, b) => model.summons.map((model) => model.uuid).indexOf(a.uuid) - model.summons.map((model) => model.uuid).indexOf(b.uuid));
 
     this.progress = new CharacterProgress();
 

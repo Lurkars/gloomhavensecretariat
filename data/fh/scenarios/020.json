@@ -18,7 +18,15 @@
       "name": "Cabinet",
       "health": "Cx(L+2)",
       "initiative": 1,
-      "count": 4
+      "count": 2,
+      "marker": "a"
+    },
+    {
+      "name": "Cabinet",
+      "health": "Cx(L+2)",
+      "initiative": 1,
+      "count": 2,
+      "marker": "b"
     }
   ],
   "lootDeckConfig": {
@@ -135,7 +143,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Cabinet"
+            "name": "Cabinet",
+            "marker": "a"
           }
         }
       ],
@@ -147,8 +156,26 @@
             "player3": "normal",
             "player4": "elite"
           },
-          "marker": "a"
-        },
+          "marker": "a",
+          "count": "F"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Cabinet",
+            "marker": "b"
+          }
+        }
+      ],
+      "spawns": [
         {
           "monster": {
             "name": "ruined-machine",
@@ -156,7 +183,8 @@
             "player3": "elite",
             "player4": "elite"
           },
-          "marker": "b"
+          "marker": "b",
+          "count": "F"
         }
       ]
     }
@@ -183,8 +211,8 @@
       "objectives": [
         1,
         1,
-        1,
-        1
+        2,
+        2
       ]
     }
   ]

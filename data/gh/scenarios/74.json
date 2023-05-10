@@ -3,7 +3,7 @@
   "name": "Merchant Ship",
   "gridLocation": "I:14:-7:44",
   "edition": "gh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "party": [
         "High Sea Escort"

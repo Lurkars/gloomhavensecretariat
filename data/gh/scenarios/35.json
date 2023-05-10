@@ -11,7 +11,7 @@
       "10"
     ]
   ],
-  "requiredAchievements": [
+  "requirements": [
     {
       "global": [
         "!The Rift Neutralized"

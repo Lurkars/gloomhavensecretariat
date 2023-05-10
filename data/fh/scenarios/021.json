@@ -2,7 +2,7 @@
   "index": "21",
   "name": "Realm of Endless Frost",
   "edition": "fh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "buildings": [
         "sled"

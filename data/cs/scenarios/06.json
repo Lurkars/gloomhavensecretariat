@@ -2,7 +2,7 @@
   "index": "6",
   "name": "Poisoned Water",
   "edition": "cs",
-  "requiredAchievements": [
+  "requirements": [
     {
       "party": [
         "Ooze Destroyed"

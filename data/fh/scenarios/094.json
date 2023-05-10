@@ -3,7 +3,7 @@
   "index": "94",
   "name": "A Grand View",
   "edition": "fh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "buildings": [
         "sled"

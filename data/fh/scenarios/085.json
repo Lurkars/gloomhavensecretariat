@@ -3,7 +3,7 @@
   "index": "85",
   "name": "Deadly Pastimes",
   "edition": "fh",
-  "requiredAchievements": [
+  "requirements": [
     {
       "buildings": [
         "climbing-gear"
