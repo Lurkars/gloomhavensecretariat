@@ -451,7 +451,7 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "At the end of each of your shorts rests, you may %game.action.custom.fh-mode%"
+      "custom": "At the end of each of your short rests, you may %game.action.custom.fh-mode%"
     },
     {
       "type": "custom",
