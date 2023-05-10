@@ -4,6 +4,11 @@
   "name": "Crash Against the Waves",
   "edition": "fh",
   "parent": "36",
+  "parentSections": [
+    [
+      "36-1"
+    ]
+  ],
   "resetRound": "visible",
   "monsters": [
     "plea-for-help-without-answer"
