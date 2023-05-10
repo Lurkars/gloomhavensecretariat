@@ -723,7 +723,7 @@ export class EntityMenuDialogComponent {
           this.health = 0;
         }
 
-        if ((this.data.entity.maxHealth > 0 && this.data.entity.health <= 0 || this.data.entity.dead) && this.data.entity.entityConditions.length == 0 || this.data.entity.entityConditions.every((entityCondition) => !entityCondition.highlight && entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
+        if ((this.data.entity.maxHealth > 0 && this.data.entity.health <= 0 || this.data.entity.dead) && (this.data.entity.entityConditions.length == 0 || this.data.entity.entityConditions.every((entityCondition) => !entityCondition.highlight && entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1))) {
           this.dead();
         }
       }
