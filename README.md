@@ -4,7 +4,7 @@
 
 [![Publish Latest Online Version](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/latest.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/latest.yml) [![Build and Publish Release](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/release.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/release.yml) [![Publish Docker Image](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml)
 
-*Gloomhaven Secretariat is a **Gloomhaven/Frosthaven companion app** that keeps track of all entity values to allow more focus on gameplay. It is an open source web application built with [Angular] (https://angular.io/).
+*Gloomhaven Secretariat* is a **Gloomhaven/Frosthaven companion app** that keeps track of all entity values to allow more focus on gameplay. It is an open source web application built with [Angular] (https://angular.io/).
 
 Since GHS is a web application, no installation is required and it runs in any modern browser, even on mobile devices, but it can also be [installed](#install) for offline use.
 
