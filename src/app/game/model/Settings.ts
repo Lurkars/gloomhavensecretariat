@@ -34,6 +34,7 @@ export class Settings {
   disableAnimations: boolean = false;
   disableColumns: boolean = false;
   disableDragFigures: boolean = false;
+  disablePinchZoom: boolean = false;
   disabledTurnConfirmation: boolean = false;
   disableSortFigures: boolean = false;
   disableStandees: boolean = false;

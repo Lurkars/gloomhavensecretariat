@@ -784,6 +784,20 @@
     <div class="line">
       <div class="hint-container">
         <label>
+          <input type="checkbox" [checked]="settingsManager.settings.disablePinchZoom"
+            (change)="settingsManager.setDisablePinchZoom(!settingsManager.settings.disablePinchZoom)">
+          <span [ghs-label]="'settings.disablePinchZoom'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.disablePinchZoom.hint'"></span>
+        </span>
+      </div>
+    </div>
+
+    <div class="line">
+      <div class="hint-container">
+        <label>
           <input type="checkbox" [checked]="settingsManager.settings.fullscreen" (change)="fullscreen()">
           <span [ghs-label]="'settings.fullscreen'"></span>
         </label>

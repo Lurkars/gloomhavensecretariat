@@ -45,6 +45,9 @@ export class MainComponent implements OnInit {
   lastScroll: number = -1;
   lastScrollColumn: number = -1;
 
+  currentZoom: number = 0;
+  zoomDiff: number = -1;
+
   standeeDialog: DialogRef<unknown, MonsterNumberPickerDialog> | undefined;
 
   @ViewChild('footer') footer!: FooterComponent;
@@ -122,6 +125,7 @@ export class MainComponent implements OnInit {
     await settingsManager.init(!environment.production);
     this.initialized = true;
     await gameManager.stateManager.init();
+    this.currentZoom = settingsManager.settings.zoom;
     document.body.style.setProperty('--ghs-factor', settingsManager.settings.zoom + '');
     document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
     document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
@@ -160,6 +164,10 @@ export class MainComponent implements OnInit {
       }
     });
 
+    window.addEventListener('touchmove', (event: TouchEvent) => this.touchmove(event), { passive: true });
+    window.addEventListener('touchend', (event: TouchEvent) => this.touchend(event), { passive: true });
+    window.addEventListener('touchcancel', (event: TouchEvent) => this.touchend(event), { passive: true });
+
     if (!settingsManager.settings.disableWakeLock && "wakeLock" in navigator) {
       gameManager.stateManager.wakeLock = await navigator.wakeLock.request("screen");
 
@@ -170,6 +178,38 @@ export class MainComponent implements OnInit {
       });
     }
   }
+
+  zoom(value: number) {
+    this.currentZoom += value;
+    document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
+  }
+
+  touchmove(event: TouchEvent) {
+    if (!settingsManager.settings.disablePinchZoom) {
+      if (event.touches.length === 2) {
+        const curDiff = Math.abs(event.touches[0].clientX - event.touches[1].clientX);
+        if (this.zoomDiff > 0) {
+          if (curDiff > this.zoomDiff) {
+            this.zoom(-1);
+          }
+          if (curDiff < this.zoomDiff) {
+            this.zoom(1);
+          }
+        }
+        this.zoomDiff = curDiff;
+      }
+    }
+  }
+
+  touchend(event: TouchEvent) {
+    if (!settingsManager.settings.disablePinchZoom) {
+      if (event.touches.length < 2 && this.zoomDiff > -1) {
+        this.zoomDiff = -1;
+        settingsManager.setZoom(this.currentZoom);
+      }
+    }
+  }
+
 
   startCampaign(edition: string) {
     gameManager.stateManager.before("startCampaign", 'data.edition.' + edition);
@@ -240,7 +280,7 @@ export class MainComponent implements OnInit {
               let diffMinus = activeLeftHeightMinus > activeRightHeightMinus ? activeLeftHeightMinus - activeRightHeightMinus : activeRightHeightMinus - activeLeftHeightMinus;
               let diffPlus = activeLeftHeightPlus > activeRightHeightPlus ? activeLeftHeightPlus - activeRightHeightPlus : activeRightHeightPlus - activeLeftHeightPlus;
 
-              while (diff >= diffMinus) {
+              while (diff > diffMinus) {
                 columnSize--;
                 activeLeftHeight = this.activeFigureSize(0, columnSize, figureElements);
                 activeRightHeight = this.activeFigureSize(columnSize, figures.length, figureElements);
@@ -254,7 +294,7 @@ export class MainComponent implements OnInit {
                 diffPlus = activeLeftHeightPlus > activeRightHeightPlus ? activeLeftHeightPlus - activeRightHeightPlus : activeRightHeightPlus - activeLeftHeightPlus;
               }
 
-              while (diff >= diffPlus) {
+              while (diff > diffPlus) {
                 columnSize++;
                 activeLeftHeight = this.activeFigureSize(0, columnSize, figureElements);
                 activeRightHeight = this.activeFigureSize(columnSize, figures.length, figureElements);

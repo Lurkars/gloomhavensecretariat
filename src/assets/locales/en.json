@@ -1339,6 +1339,10 @@
       ".": "Disable drag'n'drop for figures",
       "hint": "Disable drag'n'drop for the figure list. Warning, if no initiative is required, there is no way to re-order the figures manually."
     },
+    "disablePinchZoom": {
+      ".": "Disable gesture zooming",
+      "hint": "Disable zooming via touch gestures."
+    },
     "disableSortFigures": {
       ".": "Disable sorting figures",
       "hint": "Disables the automatic sorting of figures. The order must be set manually via Drag'n'Drop."

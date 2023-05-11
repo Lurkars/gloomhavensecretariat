@@ -1,5 +1,5 @@
 import { Dialog } from '@angular/cdk/dialog';
-import { Directive, HostListener, Input, OnInit } from '@angular/core';
+import { Directive, Input, OnDestroy, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -18,7 +18,7 @@ export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot"
 @Directive({
     selector: '[ghs-keyboard-shortcuts]'
 })
-export class KeyboardShortcuts implements OnInit {
+export class KeyboardShortcuts implements OnInit, OnDestroy {
 
     @Input() footer: FooterComponent | undefined;
     @Input() allowed: KEYBOARD_SHORTCUT_EVENTS[] = ["undo"];
@@ -26,7 +26,8 @@ export class KeyboardShortcuts implements OnInit {
     zoomInterval: any = null;
     currentZoom: number = 0;
     dialogOpen: boolean = false;
-
+    keydown: any;
+    keyup: any;
 
     constructor(private dialog: Dialog) {
         this.dialog.afterOpened.subscribe({ next: () => this.dialogOpen = true });
@@ -36,7 +37,7 @@ export class KeyboardShortcuts implements OnInit {
     ngOnInit(): void {
         this.currentZoom = settingsManager.settings.zoom;
 
-        window.addEventListener('keydown', (event: KeyboardEvent) => {
+        this.keydown = window.addEventListener('keydown', (event: KeyboardEvent) => {
             if (!event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
                 if ((!this.dialogOpen || this.allowed.indexOf('undo') != -1) && event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'z') {
                     gameManager.stateManager.undo();
@@ -145,7 +146,7 @@ export class KeyboardShortcuts implements OnInit {
             }
         })
 
-        window.addEventListener('keyup', (event: KeyboardEvent) => {
+        this.keyup = window.addEventListener('keyup', (event: KeyboardEvent) => {
             if (this.zoomInterval && (event.key === 'ArrowUp' || event.key === '+' || event.key === 'ArrowDown' || event.key === '-')) {
                 clearInterval(this.zoomInterval);
                 this.zoomInterval = null;
@@ -155,18 +156,9 @@ export class KeyboardShortcuts implements OnInit {
         })
     }
 
-    @HostListener('pinchmove', ['$event'])
-    pinchmove(event: any) {
-        if (event.scale < 1) {
-            this.zoom(1);
-        } else {
-            this.zoom(-1);
-        }
-    }
-
-    @HostListener('pinchend', ['$event'])
-    pinchend(event: any) {
-        settingsManager.setZoom(this.currentZoom);
+    ngOnDestroy(): void {
+        window.removeEventListener('keydown', this.keydown);
+        window.removeEventListener('keyup', this.keyup);
     }
 
     zoom(value: number) {

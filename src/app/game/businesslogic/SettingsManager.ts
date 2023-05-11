@@ -278,6 +278,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setDisablePinchZoom(disablePinchZoom: boolean) {
+    this.settings.disablePinchZoom = disablePinchZoom;
+    this.storeSettings();
+  }
+
   setDisabledTurnConfirmation(disabledTurnConfirmation: boolean) {
     this.settings.disabledTurnConfirmation = disabledTurnConfirmation;
     this.storeSettings();

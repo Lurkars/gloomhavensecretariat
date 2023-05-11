@@ -165,7 +165,7 @@
       </div>
       <div class="line spoilers">
         <a class="spoiler-item" *ngFor="let character of gameManager.game.unlockedCharacters">
-          <span [ghs-label]="'data.character.'+ character"></span> ({{character}})
+          {{character}}
           <span class="spacer"></span>
           <span (click)="removeUnlock(character)" [ghs-label]="'datamanagement.removeUnlock'" [ghs-label-attribute]="'title'"
             class="remove"></span>

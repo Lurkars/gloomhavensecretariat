@@ -1218,6 +1218,10 @@
       ".": "Drag'n'Drop für Figurenliste deaktivieren",
       "hint": "Deaktiviert Drag'n'Drop für die Figurenliste. Achtung, falls keine Initiative gesetzt werden muss ist ein manuelles Verschieben der Figuren nicht mehr möglich."
     },
+    "disablePinchZoom": {
+      ".": "Gesten-Zooming deaktiveren",
+      "hint": "Deaktiviert das Zoomen mit Touch-Gesten."
+    },
     "disableSortFigures": {
       ".": "Figuren sortieren deaktivieren",
       "hint": "Deaktiviert das automatische Sortieren der Figuren. Die Reihenfolge muss manuell über Drag'n'Drop festgelegt werden."
