@@ -50,6 +50,10 @@
           "scenarioEffect": true
         }
       ]
+    },
+    {
+      "round": "true",
+      "note": "Each Earth Demon or Forest Imp in winter and each Frost Demon or Savvas Icestorm in spring suffers%game.damage:1%"
     }
   ],
   "rooms": [

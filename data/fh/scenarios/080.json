@@ -22,6 +22,7 @@
   },
   "monsters": [
     "robotic-boltshooter",
+    "ruined-machines",
     "steel-automaton",
     "the-relic"
   ],
@@ -33,8 +34,15 @@
       "actions": [
         {
           "type": "custom",
-          "value": "The Relic adds %game.condition.immobilize% to all attacks targeting the primary focus",
-          "small": true
+          "value": "The Relic gains:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Add %game.condition.immobilize% to all attacks targeting the primary focus",
+              "small": true
+            }
+          ]
         }
       ]
     },
@@ -45,8 +53,15 @@
       "actions": [
         {
           "type": "custom",
-          "value": "The Relic gains %game.action.shield% 1+(L/2) (rounded up)",
-          "small": true
+          "value": "The Relic gains:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": "[1+(L/2){$math.ceil}]",
+              "small": true
+            }
+          ]
         }
       ]
     },
@@ -57,18 +72,27 @@
       "actions": [
         {
           "type": "custom",
-          "value": "The Relic's Special 1 focuses on the farthest attackable enemy and performs:",
-          "small": true
-        },
-        {
-          "type": "custom",
-          "value": "%game.action.move%+2, %game.action.jump%",
-          "small": true
-        },
-        {
-          "type": "custom",
-          "value": "%game.action.attack%+0, %game.action.target% focus (if adjacent) and all enem,ies in or adjacent to hexes entered during the movement",
-          "small": true
+          "value": "Change The Relic's Special 1 to:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Focus on the farthest attackable enemy and perform:",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%game.action.move%+2, %game.action.jump%",
+                  "small": true
+                },
+                {
+                  "type": "custom",
+                  "value": "%game.action.attack%+0, %game.action.target% focus (if adjacent) and all enemies in or adjacent to hexes entered during the movement",
+                  "small": true
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -79,8 +103,36 @@
       "actions": [
         {
           "type": "custom",
-          "value": "The Relic's Special 2 summons two Ruined Machines. These are normal for two characters, one is elite for three characters or both are elite for four characters",
-          "small": true
+          "value": "Change The Relic's Special 2 to:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "summon",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "ruined-machine",
+                    "player2": "normal",
+                    "player4": "elite"
+                  },
+                  "count": "2"
+                },
+                {
+                  "monster": {
+                    "name": "ruined-machine",
+                    "player3": "normal"
+                  }
+                },
+                {
+                  "monster": {
+                    "name": "ruined-machine",
+                    "player3": "elite"
+                  }
+                }
+              ]
+            }
+          ]
         }
       ]
     }

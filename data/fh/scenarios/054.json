@@ -30,12 +30,32 @@
     {
       "name": "Ice Pillar",
       "health": "[(L+1)xC/2{$math.floor}]",
-      "count": 4
+      "count": 4,
+      "tags": [
+        "objective"
+      ],
+      "actions": [
+        {
+          "type": "custom",
+          "value": "When destroyed, reveal one numbered token and spawn the indicated monster",
+          "small": true
+        }
+      ]
     },
     {
       "name": "Large Cave Rock",
       "health": "[(L+1)xC/2{$math.floor}]",
-      "count": 3
+      "count": 3,
+      "tags": [
+        "objective"
+      ],
+      "actions": [
+        {
+          "type": "custom",
+          "value": "When destroyed, reveal one numbered token and spawn the indicated monster",
+          "small": true
+        }
+      ]
     }
   ],
   "lootDeckConfig": {
@@ -74,6 +94,50 @@
           },
           "type": "amAdd",
           "value": "curse:2"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "167.1"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": ".*",
+            "tags": [
+              "objective"
+            ]
+          },
+          "type": "killed",
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "13.3"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": ".*",
+            "tags": [
+              "objective"
+            ]
+          },
+          "type": "killed",
+          "value": "10"
         }
       ]
     }

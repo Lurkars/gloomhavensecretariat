@@ -5,18 +5,6 @@
   "parent": "54",
   "marker": "1",
   "monsters": [],
-  "objectives": [
-    {
-      "name": "Ice Pillar",
-      "health": "[(L+1)xC/2{$math.floor}]",
-      "count": 6
-    },
-    {
-      "name": "Large Cave Rock",
-      "health": "[(L+1)xC/2{$math.floor}]",
-      "count": 3
-    }
-  ],
   "rooms": [
     {
       "roomNumber": 4,
