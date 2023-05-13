@@ -109,9 +109,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
 
     canAdd(item: ItemData | undefined): boolean {
         if (item) {
-            const soldItems = gameManager.game.figures.filter((figure) => figure instanceof Character && figure.progress && figure.progress.items).map((figure) => figure as Character).map((figure) => figure.progress && figure.progress.items).reduce((pre, cur): Identifier[] => {
-                return pre && cur && pre.concat(cur);
-            }).filter((itemData) => item && itemData.name == item.id + "" && itemData.edition == item.edition).length;
+            const soldItems = this.assigned(item);
             if (item.count && soldItems < item.count && !this.character.progress.items.find((identifier) => item && identifier.name == '' + item.id && identifier.edition == item.edition)) {
                 return true;
             }
@@ -120,9 +118,15 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
         return false;
     }
 
+    assigned(item: ItemData): number {
+        return gameManager.game.figures.filter((figure) => figure instanceof Character && figure.progress && figure.progress.items).map((figure) => figure as Character).map((figure) => figure.progress && figure.progress.items).reduce((pre, cur): Identifier[] => {
+            return pre && cur && pre.concat(cur);
+        }).filter((itemData) => item && itemData.name == item.id + "" && itemData.edition == item.edition).length;
+    }
+
     canBuy(item: ItemData | undefined, cost: number = 0): boolean {
         if (item) {
-            return item.cost && (item.cost + this.priceModifier + cost) <= this.character.progress.gold || false;
+            return item.cost && (item.cost + this.priceModifier + cost) <= this.character.progress.gold && this.canAdd(item) || false;
         }
         return false;
     }
@@ -162,8 +166,8 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
     }
 
 
-    addItem(item: ItemData | undefined) {
-        if (item && this.canAdd(item)) {
+    addItem(item: ItemData | undefined, force: boolean = false) {
+        if (item && (this.canAdd(item) || force)) {
             gameManager.stateManager.before("addItem", "data.character." + this.character.name, this.itemIndex + "", this.itemEdition);
             this.character.progress.items.push(new Identifier(this.itemIndex + "", this.itemEdition));
             this.items.push(item);

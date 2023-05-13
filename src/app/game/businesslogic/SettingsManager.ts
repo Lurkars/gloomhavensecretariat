@@ -10,7 +10,7 @@ export class SettingsManager {
 
   defaultLocale: string = 'en';
   defaultEditions: string[] = ["gh", "jotl", "fc", "cs", "fh", "solo"];
-  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/toa.json", "./assets/data/solo.json", "./assets/data/fh-crossover.json", "./assets/data/gh-envx.json", "./assets/data/toa-envv.json", "./assets/data/sox.json", "./assets/data/bas.json"];
+  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/toa.json", "./assets/data/solo.json", "./assets/data/fh-crossover.json", "./assets/data/gh-envx.json", "./assets/data/toa-envv.json", "./assets/data/sox.json", "./assets/data/bas.json", "./assets/data/cc.json"];
 
   settings: Settings = new Settings();
   label: any = {};

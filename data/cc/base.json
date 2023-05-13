@@ -1,0 +1,11 @@
+{
+  "edition": "cc",
+  "additional": true,
+  "extensions": [
+    "gh",
+    "fh",
+    "gh-envx",
+    "fc",
+    "cs"
+  ]
+}

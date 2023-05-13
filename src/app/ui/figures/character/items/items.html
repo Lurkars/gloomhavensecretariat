@@ -44,8 +44,9 @@
                 <span [ghs-label]="'data.edition.' + edition"></span>
             </option>
         </select>
-        <a class="button add" (click)="addItem(item)" [ngClass]="{'disabled': !canAdd(item)}"><img
-                src="./assets/images/plus.svg" [ngClass]="{'warn' : !canAdd}"></a>
+        <a class="button add" ghs-pointer-input (singleClick)="addItem(item)" (doubleClick)="addItem(item, true)"
+            [ngClass]="{'disabled': !canAdd(item)}"><img src="./assets/images/plus.svg"
+                [ngClass]="{'warn' : !canAdd}"></a>
         <span class="next" (click)="itemChange(+1)">
             <img src="./assets/images/right.svg">
         </span>
@@ -54,26 +55,27 @@
                 <img *ngIf="item.slot" [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
                 <span *ngIf="!item.slot" class="item placeholder" [ghs-label]="'%data.itemFh.' + item.id + '%'"></span>
             </span>
-            <span class="name" [ngClass]="{'disabled' : !canAdd(item)}">{{item.name}}</span>
-            <a *ngIf="item.cost" class="button loot" (click)="buyItem(item)"
-                [ngClass]="{'disabled' : !canAdd(item) || !canBuy(item)}"><img
-                    src="./assets/images/loot.svg">{{item.cost &&
-                (item.cost + priceModifier) || '?'}}</a>
+            <span class="name" [ngClass]="{'disabled' : !canAdd(item)}">{{item.name}} {{assigned(item) < item.count ?
+                    assigned(item) + 1 : '-' }}/{{item.count}}</span>
+                    <a *ngIf="item.cost" class="button loot" (click)="buyItem(item)"
+                        [ngClass]="{'disabled' : !canAdd(item) || !canBuy(item)}"><img
+                            src="./assets/images/loot.svg">{{item.cost &&
+                        (item.cost + priceModifier) || '?'}}</a>
 
-            <a *ngIf="item.resources || item.requiredItems && item.requiredItems.length > 0" class="button craft"
-                (click)="craftItem(item)"
-                [ngClass]="{'disabled' : !canAdd(item) || !canCraft(item), 'warn' : !canAdd(item)}">
-                <ng-container *ngIf="item.requiredItems">
-                    <span class="item placeholder" [ghs-label]="'%data.itemFh.' + requiredItem + '%'"
-                        *ngFor="let requiredItem of item.requiredItems"> </span>
-                </ng-container>
-                <ng-container *ngIf="item.resources">
-                    <span class="resource" *ngFor="let resource of item.resources | keyvalue">
-                        <span *ngIf="resource.value && resource.value > 1">{{resource.value}}x</span>
-                        <img [src]="'./assets/images/fh/loot/' + resource.key + '.svg'">
-                    </span>
-                </ng-container>
-            </a>
+                    <a *ngIf="item.resources || item.requiredItems && item.requiredItems.length > 0"
+                        class="button craft" (click)="craftItem(item)"
+                        [ngClass]="{'disabled' : !canAdd(item) || !canCraft(item), 'warn' : !canAdd(item)}">
+                        <ng-container *ngIf="item.requiredItems">
+                            <span class="item placeholder" [ghs-label]="'%data.itemFh.' + requiredItem + '%'"
+                                *ngFor="let requiredItem of item.requiredItems"> </span>
+                        </ng-container>
+                        <ng-container *ngIf="item.resources">
+                            <span class="resource" *ngFor="let resource of item.resources | keyvalue">
+                                <span *ngIf="resource.value && resource.value > 1">{{resource.value}}x</span>
+                                <img [src]="'./assets/images/fh/loot/' + resource.key + '.svg'">
+                            </span>
+                        </ng-container>
+                    </a>
         </ng-container>
     </div>
 </div>

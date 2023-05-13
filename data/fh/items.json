@@ -188,7 +188,7 @@
   {
     "id": 15,
     "name": "Reinforced Shield",
-    "count": 1,
+    "count": 2,
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
@@ -252,7 +252,7 @@
   {
     "id": 19,
     "name": "Ringing Hammer",
-    "count": 1,
+    "count": 2,
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
@@ -268,7 +268,7 @@
   {
     "id": 20,
     "name": "Well Strung Bow",
-    "count": 1,
+    "count": 2,
     "edition": "fh",
     "slot": "twohand",
     "spent": true,
@@ -315,7 +315,7 @@
   {
     "id": 23,
     "name": "Sturdy Greaves",
-    "count": 1,
+    "count": 2,
     "edition": "fh",
     "slot": "legs",
     "spent": true,
@@ -344,7 +344,7 @@
   {
     "id": 25,
     "name": "Soothing Scepter",
-    "count": 1,
+    "count": 2,
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
@@ -448,7 +448,7 @@
   {
     "id": 32,
     "name": "Shell Armor",
-    "count": 1,
+    "count": 2,
     "edition": "fh",
     "slot": "body",
     "spent": true,
@@ -543,7 +543,7 @@
   {
     "id": 38,
     "name": "Duelists Shoes",
-    "count": 1,
+    "count": 2,
     "edition": "fh",
     "slot": "legs",
     "spent": true,
@@ -572,7 +572,7 @@
   {
     "id": 40,
     "name": "Heartstrike Bow",
-    "count": 1,
+    "count": 2,
     "edition": "fh",
     "slot": "twohand",
     "spent": true,
@@ -1917,7 +1917,7 @@
     "id": 137,
     "name": "Tower Shield",
     "cost": 35,
-    "count": 1,
+    "count": 2,
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
@@ -1940,7 +1940,7 @@
     "id": 139,
     "name": "Horned Helm",
     "cost": 50,
-    "count": 1,
+    "count": 2,
     "edition": "fh",
     "slot": "head",
     "requiredBuilding": "trading-post",
@@ -2014,7 +2014,7 @@
     "id": 146,
     "name": "Hooked Chain",
     "cost": 35,
-    "count": 1,
+    "count": 2,
     "edition": "fh",
     "slot": "twohand",
     "spent": true,
