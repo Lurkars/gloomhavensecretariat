@@ -5,7 +5,8 @@
   </span>
 
   <span class="action-condition" *ngSwitchCase="ActionType.condition" [ngClass]="{'small' : action.small}">
-    <span class="condition" [ngClass]="{'highlight-text' : highlightAction()}" (tap)="applyHighlightAction($event)">
+    <span class="condition" [ngClass]="{'highlight-text' : highlightAction()}" ghs-pointer-input
+      (singleClick)="applyHighlightAction($event)" [clickBehind]="!highlightAction()">
       <span class="condition-value">
         <span [ghs-label]="('game.condition.' + getConditionName(getValues(action)[0]))"
           [ghs-label-args]="(getValues(action).length > 1 ? [getValues(action)[1]] : [])"></span>
@@ -35,7 +36,8 @@
     *ngSwitchCase="[ActionType.element, ActionType.elementHalf].includes(action.type) ? action.type : ''">
     <ng-container *ngIf="action.type == ActionType.element">
       <span class="elements">
-        <span class="element" (tap)="elementAction($event, action, element, i)"
+        <span class="element" ghs-pointer-input (singleClick)="elementAction($event, action, element, i)"
+          [clickBehind]="!highlightElement(getValues(action), action.valueType == ActionValueType.minus, i)"
           *ngFor="let element of getValues(action); let i = index;"
           [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement(getValues(action), action.valueType == ActionValueType.minus, i), 'wild' : element == 'wild'}">
           <img
@@ -44,7 +46,8 @@
           <span class="choose-element-container" *ngIf="element == 'wild'">
             <span class="choose-element"
               *ngFor="let chooseElement of (action.valueType == ActionValueType.minus ? wildToConsume() : wildToCreate())"
-              (tap)="elementAction($event, action, chooseElement, i, true)">
+              ghs-pointer-input (singleClick)="elementAction($event, action, chooseElement, i, true)"
+              [clickBehind]="!highlightElement(getValues(action), action.valueType == ActionValueType.minus, i)">
               <img
                 [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/' + chooseElement + '.svg'" />
             </span>
@@ -58,13 +61,15 @@
     <span *ngIf="action.type == ActionType.elementHalf && getValues(action).length == 2" class="elements">
       <span class="element element-half"
         [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement(getValues(action), action.valueType == ActionValueType.minus, 0)}"
-        (tap)="elementAction($event, action, getValues(action)[0], 0)">
+        ghs-pointer-input (singleClick)="elementAction($event, action, getValues(action)[0], 0)"
+        [clickBehind]="!highlightElement(getValues(action), action.valueType == ActionValueType.minus, 0)">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/' + getValues(action)[0] + '.svg'" />
       </span>
       <span class="element element-half"
         [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement(getValues(action), action.valueType == ActionValueType.minus, 1)}"
-        (tap)="elementAction($event, action, getValues(action)[1], 1)">
+        ghs-pointer-input (singleClick)="elementAction($event, action, getValues(action)[1], 1)"
+        [clickBehind]="!highlightElement(getValues(action), action.valueType == ActionValueType.minus, 1)">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/' + getValues(action) + '.svg'" />
       </span>
@@ -142,8 +147,9 @@
 
   <span class="action-custom" *ngSwitchCase="ActionType.sufferDamage"
     [ngClass]="{'highlight-text' : highlightAction()}">
-    <span (tap)="applyHighlightAction($event)" class="custom-value" [ghs-label]="'game.sufferDamage'"
-      [relative]="relative || forceRelative" [ngClass]="{'small' : action.small,'text-white' : !right}"
+    <span ghs-pointer-input (singleClick)="applyHighlightAction($event)" [clickBehind]="!highlightAction()"
+      class="custom-value" [ghs-label]="'game.sufferDamage'" [relative]="relative || forceRelative"
+      [ngClass]="{'small' : action.small,'text-white' : !right}"
       [ghs-label-args]="[ monster ?'%data.monster.' + monster.name + '%' : '', action.value + '' ]"></span>
     <div class="custom-subactions" *ngIf="action.subActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type"
@@ -297,7 +303,7 @@
 
   <span class="action-default" [ngClass]="'action-' + action.type" *ngSwitchDefault>
     <span class="main-action" [ngClass]="{'small' : action.small, 'highlight-text' : highlightAction()}"
-      (tap)="applyHighlightAction($event)">
+      ghs-pointer-input (singleClick)="applyHighlightAction($event)" [clickBehind]="!highlightAction()">
       <ng-container *ngIf=" action.valueType != ActionValueType.add && action.valueType != ActionValueType.subtract">
         <span class="type"><span [ghs-label]="'game.action.' + action.type"></span></span>
 

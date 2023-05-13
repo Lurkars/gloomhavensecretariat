@@ -14,6 +14,7 @@ import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { MonsterNumberPickerDialog } from './figures/monster/dialogs/numberpicker-dialog';
 import { MonsterType } from '../game/model/data/MonsterType';
 import { storageManager } from '../game/businesslogic/StorageManager';
+import { PointerInputService } from './helper/pointer-input';
 
 @Component({
   selector: 'ghs-main',
@@ -52,7 +53,7 @@ export class MainComponent implements OnInit {
 
   @ViewChild('footer') footer!: FooterComponent;
 
-  constructor(private element: ElementRef, private swUpdate: SwUpdate, private dialog: Dialog) {
+  constructor(private element: ElementRef, private swUpdate: SwUpdate, private dialog: Dialog, private pointerInputService: PointerInputService) {
     gameManager.uiChange.subscribe({
       next: () => {
 
@@ -114,6 +115,10 @@ export class MainComponent implements OnInit {
     });
   }
 
+  onFigureScroll(event: any) {
+    this.pointerInputService.cancel();
+  }
+
   async ngOnInit() {
     this.isTouch = window.matchMedia("(pointer: coarse)").matches;
     document.body.classList.add('no-select');
@@ -163,10 +168,6 @@ export class MainComponent implements OnInit {
         gameManager.stateManager.connect();
       }
     });
-
-    window.addEventListener('touchmove', (event: TouchEvent) => this.touchmove(event), { passive: true });
-    window.addEventListener('touchend', (event: TouchEvent) => this.touchend(event), { passive: true });
-    window.addEventListener('touchcancel', (event: TouchEvent) => this.touchend(event), { passive: true });
 
     if (!settingsManager.settings.disableWakeLock && "wakeLock" in navigator) {
       gameManager.stateManager.wakeLock = await navigator.wakeLock.request("screen");
@@ -393,28 +394,6 @@ export class MainComponent implements OnInit {
         }
       }
     }, 1);
-  }
-
-  enabledDragging(event: any, element: HTMLElement) {
-    this.draggingEnabled = true;
-    element.classList.add('dragging');
-    window.document.body.classList.add('dragging');
-    this.draggingeTimeout = setTimeout(() => {
-      this.draggingEnabled = false;
-      window.document.body.classList.remove('dragging');
-      element.classList.remove('dragging');
-      this.draggingeTimeout = null;
-    }, 1500);
-  }
-
-  disableDragging(event: any, element: HTMLElement) {
-    this.draggingEnabled = false;
-    window.document.body.classList.remove('dragging');
-    element.classList.remove('dragging');
-    this.draggingeTimeout = null;
-    if (this.draggingeTimeout) {
-      clearTimeout(this.draggingeTimeout);
-    }
   }
 
   startedDrag(event: CdkDragStart, element: HTMLElement) {

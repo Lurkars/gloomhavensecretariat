@@ -9,7 +9,7 @@
             <span class="id">{{item.id}}.</span>
             <span class="name"
                 [ngClass]="{'disabled' : gameManager.game.state != GameState.draw || gameManager.game.round > 0}"
-                ghs-drag-click (singleClick)="toggleEquippedItem(item)"
+                ghs-pointer-input (singleClick)="toggleEquippedItem(item)"
                 (doubleClick)="toggleEquippedItem(item,true)">{{item.name}}
                 <ng-container *ngIf="item.edition != itemEdition">&nbsp;(<span [ghs-label]="'data.edition.' +
                     item.edition"></span>)</ng-container>

@@ -161,6 +161,15 @@ export class ScenarioSummaryComponent {
                 this.rewards = this.scenario.rewards;
             }
 
+            this.rewards = this.scenario.rewards;
+            if (this.conclusion && this.conclusion.rewards) {
+                if (!this.rewards) {
+                    this.rewards = this.conclusion.rewards;
+                } else {
+                    Object.assign(this.rewards, this.conclusion.rewards)
+                }
+            }
+            
             if (this.rewards) {
                 if (this.rewards.collectiveGold) {
                     this.characters.forEach((char, index) => this.collectiveGold[index] = 0);

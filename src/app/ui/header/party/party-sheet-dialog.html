@@ -102,7 +102,8 @@
             </div>
 
             <div class="import-export">
-              <label class="export" (click)="exportParty()" [ghs-label]="'party.export'" [ghs-label-attribute]="'title'">
+              <label class="export" (click)="exportParty()" [ghs-label]="'party.export'"
+                [ghs-label-attribute]="'title'">
                 <img src="./assets/images/export.svg">
                 <span><span [ghs-label]="'party.export'"></span></span>
               </label>
@@ -130,7 +131,7 @@
         </div>
 
         <div class="weeks">
-          <div class="week" *ngFor="let week of [] | ghsRange:80; let index = index" ghs-drag-click
+          <div class="week" *ngFor="let week of [] | ghsRange:80; let index = index" ghs-pointer-input
             (singleClick)="setWeek(index+1 + 80*calendarSheet)"
             (doubleClick)="setWeekSection(index+1+ 80*calendarSheet)"
             [ngClass]="{'checked': party.weeks > index + 80*calendarSheet, 'section': sectionsForWeekFixed(week+ 80*calendarSheet).length > 0 || sectionsForWeek(week+ 80*calendarSheet).length > 0}">
@@ -327,7 +328,7 @@
               <div class="sections">
                 <div class="section" *ngFor="let section of townGuardPerk.sections"
                   [ngClass]="{'checked': party.townGuardPerkSections.indexOf(section) != -1, 'disabled' : party.townGuardPerkSections.indexOf(section) == -1 && party.townGuardPerkSections.length >= (party.townGuardPerks / 3 | ghsFloor)}"
-                  ghs-drag-click (singleClick)="toggleTownGuardPerkSection(section)"
+                  ghs-pointer-input (singleClick)="toggleTownGuardPerkSection(section)"
                   (doubleClick)="toggleTownGuardPerkSection(section, true)">
                   <img src="./assets/images/fh/party/section.svg"> {{section}}
                 </div>
@@ -389,7 +390,8 @@
           <label class="headline"><span [ghs-label]="'party.campaign.scenarios'"></span></label>
 
           <select (change)="changeEdition($event)">
-            <option [value]="undefined" [selected]="!party.edition"><span [ghs-label]="'game.edition.all'"></span></option>
+            <option [value]="undefined" [selected]="!party.edition"><span [ghs-label]="'edition.all'"></span>
+            </option>
             <option *ngFor="let ed of gameManager.editions()" [selected]="ed == party.edition" [value]="ed">
               <span [ghs-label]="'data.edition.' + ed"></span>
             </option>
@@ -433,13 +435,14 @@
               <span>
                 <span class="spacer"></span>
                 <span *ngFor="let success of [] | ghsRange:countFinished(scenarioData)">
-                  <a class="toggle-success" [ghs-label]="'party.campaign.scenarios.removeSuccess'" [ghs-label-attribute]="'title'"
-                    (click)="removeSuccess(scenarioData)"><img class="success" src="./assets/images/check.svg"><img
-                      class="remove" src="./assets/images/close.svg"></a>
+                  <a class="toggle-success" [ghs-label]="'party.campaign.scenarios.removeSuccess'"
+                    [ghs-label-attribute]="'title'" (click)="removeSuccess(scenarioData)"><img class="success"
+                      src="./assets/images/check.svg"><img class="remove" src="./assets/images/close.svg"></a>
                 </span>
-                <a class="toggle-manual" [ghs-label]="'party.campaign.scenarios.removeManual'" [ghs-label-attribute]="'title'"
-                  (click)="removeManual(scenarioData)" *ngIf="isManual(scenarioData)"><img class="manual"
-                    src="./assets/images/hint.svg"><img class="remove" src="./assets/images/close.svg"></a>
+                <a class="toggle-manual" [ghs-label]="'party.campaign.scenarios.removeManual'"
+                  [ghs-label-attribute]="'title'" (click)="removeManual(scenarioData)"
+                  *ngIf="isManual(scenarioData)"><img class="manual" src="./assets/images/hint.svg"><img class="remove"
+                    src="./assets/images/close.svg"></a>
                 <span class="spacer"></span>
                 <a class="add-success"
                   [ghs-label]="(gameManager.scenarioManager.isBlocked(scenarioData) ? 'scenario.blocked' : 'party.campaign.scenarios.addSuccess')"
@@ -449,24 +452,54 @@
               </span>
             </div>
             <div class="scenario unlock">
-              <input #unlockScenarioIndex [ghs-label]="'party.campaign.scenarios.index'" [ghs-label-attribute]="'placeholder'"
+              <input #unlockScenarioIndex [ghs-label]="'party.campaign.scenarios.index'"
+                [ghs-label-attribute]="'placeholder'"
                 (keyup)="unlockScenarioIndex.classList.remove('error'); unlockScenarioGroup.classList.remove('error');"
                 (keyup.enter)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)">
-              <input #unlockScenarioGroup [ghs-label]="'party.campaign.scenarios.group'" [ghs-label-attribute]="'placeholder'"
+              <input #unlockScenarioGroup [ghs-label]="'party.campaign.scenarios.group'"
+                [ghs-label-attribute]="'placeholder'"
                 (keyup)="unlockScenarioIndex.classList.remove('error'); unlockScenarioGroup.classList.remove('error');"
                 (keyup.enter)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)">
               <a class="addScenario" [ghs-label]="'party.campaign.scenarios.unlock'" [ghs-label-attribute]="'title'"
                 (click)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)">
-                <span [ghs-label]="'party.campaign.scenarios.unlock'"></span>&nbsp;<img src="./assets/images/plus.svg"></a>
+                <span [ghs-label]="'party.campaign.scenarios.unlock'"></span>&nbsp;<img
+                  src="./assets/images/plus.svg"></a>
             </div>
+            <ng-container *ngIf="conclusions[edition] && conclusions[edition].length > 0">
+              <div class="scenario seperator" *ngIf="index > 0"></div>
+              <div class="scenario header">
+                <span class="span"><span [ghs-label]="'party.campaign.scenarios.conclusions'"></span></span>
+              </div>
+              <div class="scenario" *ngFor="let scenarioData of conclusions[edition]">
+                <span>
+                  #<span *ngIf="maxScenario(conclusions[edition]) > 2 && scenarioData.index.length < 3">0</span><span
+                    *ngIf="maxScenario(conclusions[edition]) > 1 && scenarioData.index.length < 2">0</span>{{scenarioData.index}}
+                </span>
+                <span>
+                  <span *ngIf="scenarioData.group" [ghs-label]="'data.scenario.group.' + scenarioData.group"></span>
+                </span>
+                <span class="scenario-title">
+                  <span [ghs-label]="'data.scenario.' + scenarioData.name"></span>
+                </span>
+                <span>
+                  <span class="spacer"></span>
+                  <a class="toggle-success" [ghs-label]="'party.campaign.scenarios.removeSuccess'"
+                    [ghs-label-attribute]="'title'" (click)="removeConclusion(scenarioData.index, edition)"><img
+                      class="success" src="./assets/images/check.svg"><img class="remove"
+                      src="./assets/images/close.svg"></a>
+                </span>
+              </div>
+            </ng-container>
             <div class="scenario unlock" *ngIf="fhSheet">
-              <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg"> / <img class="ghs-svg" src="./assets/images/fh/puzzle.svg"> 
-              <input #unlockConclusionIndex [ghs-label]="'party.campaign.scenarios.index'" [ghs-label-attribute]="'placeholder'"
-                (keyup)="unlockConclusionIndex.classList.remove('error');"
+              <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg"> / <img class="ghs-svg"
+                src="./assets/images/fh/puzzle.svg">
+              <input #unlockConclusionIndex [ghs-label]="'party.campaign.scenarios.index'"
+                [ghs-label-attribute]="'placeholder'" (keyup)="unlockConclusionIndex.classList.remove('error');"
                 (keyup.enter)="finishConclusion(unlockConclusionIndex)">
-              <a class="addScenario" [ghs-label]="'party.campaign.scenarios.addConclusion'" [ghs-label-attribute]="'title'"
-                (click)="finishConclusion(unlockConclusionIndex)">
-                <span [ghs-label]="'party.campaign.scenarios.addConclusion'"></span>&nbsp;<img src="./assets/images/plus.svg"></a>
+              <a class="addScenario" [ghs-label]="'party.campaign.scenarios.addConclusion'"
+                [ghs-label-attribute]="'title'" (click)="finishConclusion(unlockConclusionIndex)">
+                <span [ghs-label]="'party.campaign.scenarios.addConclusion'"></span>&nbsp;<img
+                  src="./assets/images/plus.svg"></a>
             </div>
           </ng-container>
         </div>
@@ -552,7 +585,8 @@
                 <span class="text">
                   {{item.name}}
                 </span>
-                <span class="text" *ngIf="!party.edition">[<span [ghs-label]="'data.edition.' + item.edition"></span>]</span>
+                <span class="text" *ngIf="!party.edition">[<span
+                    [ghs-label]="'data.edition.' + item.edition"></span>]</span>
               </label>
             </div>
           </div>

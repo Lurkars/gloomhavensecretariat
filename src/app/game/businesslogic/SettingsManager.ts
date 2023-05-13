@@ -170,6 +170,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setApplyLongRest(applyLongRest: boolean) {
+    this.settings.applyLongRest = applyLongRest;
+    this.storeSettings();
+  }
+
   setApplyLoot(applyLoot: boolean) {
     this.settings.applyLoot = applyLoot;
     this.storeSettings();

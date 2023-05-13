@@ -10,6 +10,7 @@ import { Objective } from "../model/Objective";
 import { SummonState } from "../model/Summon";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
+import { Condition, ConditionName } from "../model/Condition";
 
 export class RoundManager {
 
@@ -226,6 +227,12 @@ export class RoundManager {
         gameManager.entityManager.applyConditionsTurn(entity);
       }
     })
+
+    if (settingsManager.settings.applyLongRest && figure instanceof Character && figure.longRest) {
+      figure.health += 2;
+      gameManager.entityManager.addCondition(figure, new Condition(ConditionName.heal, 2), figure.active || false, figure.off || false);
+      gameManager.entityManager.applyCondition(figure, ConditionName.heal, true);
+    }
   }
 
   afterTurn(figure: Figure) {

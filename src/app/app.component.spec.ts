@@ -47,7 +47,6 @@ import { ScenarioComponent } from './ui/footer/scenario/scenario';
 import { PartySheetComponent } from './ui/header/party/party-sheet';
 import { PartySheetDialogComponent } from './ui/header/party/party-sheet-dialog';
 import { MapComponent } from './ui/header/party/map/map';
-import { DragClickDirective } from './ui/helper/drag';
 import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/autoscroll';
 import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
@@ -105,6 +104,7 @@ import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DialogModule } from '@angular/cdk/dialog';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { PointerInputDirective } from './ui/helper/pointer-input';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -135,7 +135,7 @@ describe('AppComponent', () => {
         AbilityComponent, AbiltiesDialogComponent, AbilityDialogComponent,
         ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,
         FigureErrorsComponent, FigureErrorsDialogComponent,
-        CardRevealDirective, EntityAnimationDirective, GhsLabelDirective, ValueCalcDirective, DragClickDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
+        CardRevealDirective, EntityAnimationDirective, GhsLabelDirective, ValueCalcDirective, PointerInputDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
         GhsValueSignPipe, GhsRangePipe, GhsScenarioSearch, GhsFloorPipe, GhsCeilPipe,
         AttackModifierToolComponent, TreasuresToolComponent, DecksToolComponent,
         EditionEditorComponent,

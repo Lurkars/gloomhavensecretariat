@@ -12,7 +12,7 @@
     <span *ngFor="let level of levels;"><a class="level"
         [ngClass]="{'current' : level == gameManager.game.level,  'active' : level == monster.level}"
         (click)="setLevel(level)">{{level}}</a></span>
-    <span class="toggle-ally" [ngClass]="{'ally' : monster.isAlly, 'allied' : monster.isAllied}" ghs-drag-click
+    <span class="toggle-ally" [ngClass]="{'ally' : monster.isAlly, 'allied' : monster.isAllied}" ghs-pointer-input
       (singleClick)="toggleAlly()" (doubleClick)="toggleallied()"><img src="./assets/images/monster/enemy.png" /></span>
   </div>
 </div>

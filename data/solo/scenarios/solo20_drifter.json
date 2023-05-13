@@ -21,6 +21,9 @@
     {
       "roomNumber": 1,
       "initial": true,
+      "rooms": [
+        2
+      ],
       "monster": [
         {
           "name": "forest-imp",
@@ -31,32 +34,38 @@
           "type": "normal"
         },
         {
-          "name": "forest-imp",
-          "type": "normal"
-        },
-        {
-          "name": "forest-imp",
-          "type": "normal"
-        },
-        {
-          "name": "hound",
-          "type": "normal"
-        },
-        {
-          "name": "hound",
-          "type": "normal"
-        },
-        {
-          "name": "hound",
-          "type": "normal"
-        },
-        {
-          "name": "hound",
-          "type": "normal"
-        },
-        {
           "name": "hound",
           "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "05-B",
+      "monster": [
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
         }
       ]
     }

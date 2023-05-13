@@ -55,7 +55,14 @@ export class ScenarioManager {
   finishScenario(scenario: Scenario | undefined, success: boolean = true, conclusionSection: ScenarioData | undefined, restart: boolean = false, linkedScenario: Scenario | undefined = undefined, casual: boolean = false, internal: boolean = false) {
     gameManager.game.finish = undefined;
     if (scenario) {
-      const rewards: ScenarioRewards | undefined = scenario.rewards || conclusionSection && conclusionSection.rewards || undefined;
+      let rewards: ScenarioRewards | undefined = scenario.rewards || undefined;
+      if (conclusionSection && conclusionSection.rewards) {
+        if (!rewards) {
+          rewards = conclusionSection.rewards;
+        } else {
+          Object.assign(rewards, conclusionSection.rewards);
+        }
+      }
       if (!internal && (!gameManager.fhRules() || !casual)) {
         this.game.figures.forEach((figure) => {
           if (figure instanceof Character && !figure.absent) {
@@ -87,7 +94,7 @@ export class ScenarioManager {
         if (rewards) {
           if (!internal) {
             this.game.figures.forEach((figure) => {
-              if (figure instanceof Character && !figure.absent) {
+              if (rewards && figure instanceof Character && !figure.absent) {
                 if (rewards.experience) {
                   gameManager.characterManager.addXP(figure, rewards.experience, !restart && !linkedScenario);
                 }
@@ -407,7 +414,7 @@ export class ScenarioManager {
       if (!gameManager.game.figures.some((figure) => figure instanceof Character && figure.name == scenarioData.solo && figure.edition == scenarioData.edition)) {
         const characterData = gameManager.charactersData().find((characterData) => characterData.name == scenarioData.solo && characterData.edition == scenarioData.edition);
         if (characterData) {
-          gameManager.characterManager.addCharacter(characterData, 1);
+          gameManager.characterManager.addCharacter(characterData, 5);
         } else {
           console.error("Solo Scenario Character not found: '" + scenarioData.solo + "' (" + scenarioData.name + ")");
         }

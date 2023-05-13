@@ -48,7 +48,7 @@
     width: calc(var(--ghs-unit) * 9.5);
   }
 
-  ghs-drag-click.drag-initiative {
+  ghs-pointer-input.drag-initiative {
     position: absolute;
     top: 0;
     left: calc(var(--ghs-unit) * 6);
@@ -62,7 +62,7 @@
     }
   }
 
-  ghs-drag-click.drag-hp {
+  ghs-pointer-input.drag-hp {
     position: absolute;
     bottom: calc(var(--ghs-unit) * 2 / var(--ghs-text-factor));
     left: calc(var(--ghs-unit) * 22);

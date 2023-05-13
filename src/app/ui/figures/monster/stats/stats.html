@@ -9,7 +9,7 @@
   <div *ngIf="settingsManager.settings.disableStandees && hideStats(MonsterType.elite)" class="filter-stats elite">
   </div>
 
-  <div class="name-container" ghs-drag-click (singleClick)="openStatsPopup()" (doubleClick)="openStatPopup()"
+  <div class="name-container" ghs-pointer-input (singleClick)="openStatsPopup()" (doubleClick)="openStatPopup()"
     [disabled]="noClick">
     <span class="name">
       <span [ghs-label]="'data.monster.' + monster.name"></span>
@@ -22,7 +22,7 @@
     <span class="catching" *ngIf="monster.catching"><img class="ghs-svg" src="./assets/images/fh/catching.svg"></span>
   </div>
 
-  <span class="toggle-ally" [ngClass]="{'ally' : monster.isAlly, 'allied' : monster.isAllied}" ghs-drag-click
+  <span class="toggle-ally" [ngClass]="{'ally' : monster.isAlly, 'allied' : monster.isAllied}" ghs-pointer-input
     (singleClick)="toggleAlly()" (doubleClick)="toggleallied()"><img src="./assets/images/monster/enemy.png" /></span>
 
   <div class="stats boss" *ngIf="monster.boss"
@@ -51,9 +51,9 @@
     </ng-container>
   </div>
 
-  <ghs-drag-click *ngIf="settingsManager.settings.disableStandees && gameManager.gameplayFigure(monster)"
+  <ghs-pointer-input *ngIf="settingsManager.settings.disableStandees && gameManager.gameplayFigure(monster)"
     class="entity-menu" [ngClass]="{'boss' : monster.boss}" (singleClick)="openEntityMenu($event)">
-  </ghs-drag-click>
+  </ghs-pointer-input>
 
   <div class="stats" *ngIf="!monster.boss"
     [ngClass]="{'range' : hideStats(MonsterType.normal) && hideStats(MonsterType.elite) || statsForType(MonsterType.normal).range || statsForType(MonsterType.elite).range}">

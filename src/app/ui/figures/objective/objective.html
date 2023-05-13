@@ -9,14 +9,14 @@
     <ghs-healthbar [entity]="objective"></ghs-healthbar>
   </a>
 
-  <ghs-drag-click class="drag-initiative" (dragMove)="dragInitiativeMove($event)" (dragEnd)="dragInitiativeEnd($event)"
+  <ghs-pointer-input class="drag-initiative" (dragMove)="dragInitiativeMove($event)" (dragEnd)="dragInitiativeEnd($event)"
     (singleClick)="toggleFigure($event)" (doubleClick)="openInitiativeDialog($event)"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }">
-  </ghs-drag-click>
+  </ghs-pointer-input>
 
-  <ghs-drag-click *ngIf="maxHealth() >= 0" class="drag-hp" (singleClick)="openEntityMenu($event)"
+  <ghs-pointer-input *ngIf="maxHealth() >= 0" class="drag-hp" (singleClick)="openEntityMenu($event)"
     (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true"
-    [screenWidth]="true"></ghs-drag-click>
+    [screenWidth]="true"></ghs-pointer-input>
 
   <ghs-character-initiative [figure]="objective"></ghs-character-initiative>
 

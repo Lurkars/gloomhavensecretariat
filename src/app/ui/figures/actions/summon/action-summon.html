@@ -2,7 +2,7 @@
   <span class="summon-label"><span [ghs-label]="(isSpawn ? 'game.action.spawn' : 'game.action.summon')"></span>&nbsp;</span>
   <ng-container *ngFor="let spawn of monsters; let i = index;">
     <span [ngClass]="{'spawn-highlight' : spawnHightlight(spawn,i) && !settingsManager.settings.disableAnimations, 'spawn-objective-highlight' : this.objective}"
-      *ngIf="spawn.monster.type" (tap)="spawnSummons($event,spawn, i)">
+      *ngIf="spawn.monster.type" (click)="spawnSummons($event,spawn, i)">
       <span *ngIf="spawn.monster.type != MonsterType.boss"
         [ghs-label]="spawn.marker ? 'game.summon.spawnTypeMarker' : 'game.summon.spawnType'"
         [ghs-label-args]="[spawn.monster.name, spawn.monster.type, spawn.count ? '' + spawn.count : '', spawn.marker]"></span>

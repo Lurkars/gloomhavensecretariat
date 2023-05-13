@@ -809,6 +809,7 @@
         ".": "Scenarios",
         "addSuccess": "Mark successful",
         "addConclusion": "Add Conclusion",
+        "conclusions": "Conclusions",
         "edition": "Edition",
         "finished": "Finished",
         "group": "Group",
@@ -1253,6 +1254,10 @@
     "applyConditions": {
       ".": "Automatic apply conditions",
       "hint": "Corresponding conditions are automatically applied before and after turn, for example when entity has Wound it will lose 1 HP on start of it's round"
+    },
+    "applyLongRest": {
+      ".": "Apply Long Rest",
+      "hint": "Automatically perform %game.action.heal% 2 on turn of character while long resting"
     },
     "applyLoot": {
       ".": "Apply Loot to Character",

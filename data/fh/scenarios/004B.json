@@ -4,6 +4,9 @@
   "edition": "fh",
   "rewards": {
     "morale": 1,
+    "calenderSection": [
+      "156.1-4"
+    ],
     "prosperity": 1
   },
   "monsters": [

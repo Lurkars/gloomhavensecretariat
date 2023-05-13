@@ -84,10 +84,10 @@
       <ng-container
         *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal)">
         <span class="item">
-          <ghs-drag-click class="button"
+          <ghs-pointer-input class="button"
             (singleClick)="changeHealth(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/minus.svg">
-          </ghs-drag-click>
+          </ghs-pointer-input>
         </span>
         <span class="item" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'">
           <img src="./assets/images/status/health.svg" />
@@ -95,62 +95,62 @@
             [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
         </span>
         <span class="item">
-          <ghs-drag-click class="button"
+          <ghs-pointer-input class="button"
             [ngClass]="{'disabled' : data.entity.health + health == EntityValueFunction(data.entity.maxHealth)}"
             (singleClick)="changeHealth(1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/plus.svg">
-          </ghs-drag-click>
+          </ghs-pointer-input>
         </span>
 
         <ng-container *ngIf="gameManager.isCharacter(data.entity)">
           <span class="item">
-            <ghs-drag-click class="button"
+            <ghs-pointer-input class="button"
               [ngClass]="{'disabled' : gameManager.toCharacter(data.entity).experience + experience == 0}"
               (singleClick)="changeExperience(-1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/minus.svg">
-            </ghs-drag-click>
+            </ghs-pointer-input>
           </span>
           <span class="item" [ghs-label]="'game.experience'" [ghs-label-attribute]="'title'">
             <img src="./assets/images/status/experience.svg" />
             <span class="badge">{{experience | ghsValueSign}}</span>
           </span>
           <span class="item">
-            <ghs-drag-click class="button" (singleClick)="changeExperience(1)" [repeat]="true">
+            <ghs-pointer-input class="button" (singleClick)="changeExperience(1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/plus.svg">
-            </ghs-drag-click>
+            </ghs-pointer-input>
           </span>
 
           <span class="item">
-            <ghs-drag-click class="button"
+            <ghs-pointer-input class="button"
               [ngClass]="{'disabled' : gameManager.toCharacter(data.entity).loot + loot == 0}"
               (singleClick)="changeLoot(-1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/minus.svg">
-            </ghs-drag-click>
+            </ghs-pointer-input>
           </span>
           <span class="item" [ghs-label]="'game.loot'" [ghs-label-attribute]="'title'">
             <img src="./assets/images/status/loot.svg" />
             <span class="badge">{{loot | ghsValueSign}}</span>
           </span>
           <span class="item">
-            <ghs-drag-click class="button" (singleClick)="changeLoot(1)" [repeat]="true">
+            <ghs-pointer-input class="button" (singleClick)="changeLoot(1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/plus.svg">
-            </ghs-drag-click>
+            </ghs-pointer-input>
           </span>
 
           <span class="item">
-            <ghs-drag-click class="button" [ngClass]="{'disabled' : characterToken == 0}"
+            <ghs-pointer-input class="button" [ngClass]="{'disabled' : characterToken == 0}"
               (singleClick)="changeCharacterToken(-1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/minus.svg">
-            </ghs-drag-click>
+            </ghs-pointer-input>
           </span>
           <span class="item character-token" [ghs-label]="'game.character.token'" [ghs-label-attribute]="'title'">
             <span [ghs-label]="'%data.characterToken.' + gameManager.toCharacter(data.entity).name + '%'"></span>
             <span class="badge">{{characterToken}}</span>
           </span>
           <span class="item">
-            <ghs-drag-click class="button" (singleClick)="changeCharacterToken(1)" [repeat]="true">
+            <ghs-pointer-input class="button" (singleClick)="changeCharacterToken(1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/plus.svg">
-            </ghs-drag-click>
+            </ghs-pointer-input>
           </span>
         </ng-container>
       </ng-container>
@@ -159,11 +159,11 @@
         *ngIf="(gameManager.isCharacter(data.figure) || gameManager.isMonster(data.figure)) && (!data.entity || EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal))">
 
         <span class="item">
-          <ghs-drag-click class="button"
+          <ghs-pointer-input class="button"
             [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) + this.bless == 0 || isImmune(ConditionName.bless)}"
             (singleClick)="changeBless(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/minus.svg">
-          </ghs-drag-click>
+          </ghs-pointer-input>
         </span>
         <span class="item">
           <span class="condition" [ghsTooltip]="'game.condition.bless.hint'"
@@ -177,19 +177,19 @@
           </span>
         </span>
         <span class="item">
-          <ghs-drag-click class="button"
+          <ghs-pointer-input class="button"
             [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingBlesses() + this.bless >= 10 || isImmune(ConditionName.bless)}"
             (singleClick)="changeBless(1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/plus.svg">
-          </ghs-drag-click>
+          </ghs-pointer-input>
         </span>
 
         <span class="item">
-          <ghs-drag-click class="button"
+          <ghs-pointer-input class="button"
             [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.curse) + this.curse == 0 || isImmune(ConditionName.curse)}"
             (singleClick)="changeCurse(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/minus.svg">
-          </ghs-drag-click>
+          </ghs-pointer-input>
         </span>
         <span class="item">
           <span class="condition" [ghsTooltip]="'game.condition.curse.hint'"
@@ -203,20 +203,20 @@
           </span>
         </span>
         <span class="item">
-          <ghs-drag-click class="button"
+          <ghs-pointer-input class="button"
             [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingCurses(gameManager.isMonster(data.figure) && !gameManager.toMonster(data.figure).isAlly && !gameManager.toMonster(data.figure).isAllied) + this.curse >= 10 || isImmune(ConditionName.curse)}"
             (singleClick)="changeCurse(1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/plus.svg">
-          </ghs-drag-click>
+          </ghs-pointer-input>
         </span>
 
         <ng-container *ngIf="gameManager.isCharacter(data.figure) && this.countAdditional(AttackModifierType.empower)">
           <span class="item">
-            <ghs-drag-click class="button"
+            <ghs-pointer-input class="button"
               [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.empower) + this.empower == 0}"
               (singleClick)="changeEmpower(-1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/minus.svg">
-            </ghs-drag-click>
+            </ghs-pointer-input>
           </span>
           <span class="item" [ghs-label]="'game.condition.empower'" [ghs-label-attribute]="'title'">
             <span class="condition">
@@ -230,21 +230,21 @@
             </span>
           </span>
           <span class="item">
-            <ghs-drag-click class="button"
+            <ghs-pointer-input class="button"
               [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.empower) + this.empower >= this.countAdditional(AttackModifierType.empower)}"
               (singleClick)="changeEmpower(1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/plus.svg">
-            </ghs-drag-click>
+            </ghs-pointer-input>
           </span>
         </ng-container>
 
         <ng-container *ngIf="gameManager.isCharacter(data.figure) && this.countAdditional(AttackModifierType.enfeeble)">
           <span class="item">
-            <ghs-drag-click class="button"
+            <ghs-pointer-input class="button"
               [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.enfeeble) + this.enfeeble == 0}"
               (singleClick)="changeEnfeeble(-1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/minus.svg">
-            </ghs-drag-click>
+            </ghs-pointer-input>
           </span>
           <span class="item" [ghs-label]="'game.condition.enfeeble'" [ghs-label-attribute]="'title'">
             <span class="condition">
@@ -258,11 +258,11 @@
             </span>
           </span>
           <span class="item">
-            <ghs-drag-click class="button"
+            <ghs-pointer-input class="button"
               [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.enfeeble) + this.enfeeble >= this.countAdditional(AttackModifierType.enfeeble)}"
               (singleClick)="changeEnfeeble(1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/plus.svg">
-            </ghs-drag-click>
+            </ghs-pointer-input>
           </span>
         </ng-container>
 
@@ -270,23 +270,23 @@
 
       <ng-container *ngIf="data.entity && gameManager.isObjective(data.entity)">
         <span class="item">
-          <ghs-drag-click class="button" (singleClick)="changeId(-1)" [repeat]="true">
+          <ghs-pointer-input class="button" (singleClick)="changeId(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/left.svg">
-          </ghs-drag-click>
+          </ghs-pointer-input>
         </span>
         <span class="item">
           <span class="objective-marker">{{((gameManager.toObjective(data.entity).id + this.id) % 12) + 1}}</span>
         </span>
         <span class="item">
-          <ghs-drag-click class="button" (singleClick)="changeId(1)" [repeat]="true">
+          <ghs-pointer-input class="button" (singleClick)="changeId(1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/right.svg">
-          </ghs-drag-click>
+          </ghs-pointer-input>
         </span>
 
         <span class="item">
-          <ghs-drag-click class="button" (singleClick)="changeMarker(-1)" [repeat]="true">
+          <ghs-pointer-input class="button" (singleClick)="changeMarker(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/left.svg">
-          </ghs-drag-click>
+          </ghs-pointer-input>
         </span>
         <span class="item">
           <span class="map-marker"
@@ -295,9 +295,9 @@
             OBJECTIV_MARKERS.indexOf(gameManager.toObjective(data.entity).marker)) % OBJECTIV_MARKERS.length]}}</span>
         </span>
         <span class="item">
-          <ghs-drag-click class="button" (singleClick)="changeMarker(1)" [repeat]="true">
+          <ghs-pointer-input class="button" (singleClick)="changeMarker(1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/right.svg">
-          </ghs-drag-click>
+          </ghs-pointer-input>
         </span>
       </ng-container>
 
@@ -407,17 +407,17 @@
           </a>
         </span>
         <span class="item max-health-container" *ngIf="EntityValueFunction(data.entity.maxHealth) > 0">
-          <ghs-drag-click class="button" (singleClick)="changeMaxHealth(-1)" [repeat]="true">
+          <ghs-pointer-input class="button" (singleClick)="changeMaxHealth(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/minus.svg">
-          </ghs-drag-click>
+          </ghs-pointer-input>
           <img src="./assets/images/status/health.svg" [ghs-label]="'game.maxHealth'" [ghs-label-attribute]="'title'" />
           <span class="badge max-health">{{(EntityValueFunction(data.entity.maxHealth) + maxHp <
               EntityValueFunction(data.entity.maxHealth) || data.entity.health==(+data.entity.maxHealth) ?
               EntityValueFunction(data.entity.maxHealth) + maxHp :
               data.entity.health)}}/{{EntityValueFunction(data.entity.maxHealth) + maxHp}}</span>
-              <ghs-drag-click class="button" (singleClick)="changeMaxHealth(1)" [repeat]="true">
+              <ghs-pointer-input class="button" (singleClick)="changeMaxHealth(1)" [repeat]="true">
                 <img class="ghs-svg" src="./assets/images/plus.svg">
-              </ghs-drag-click>
+              </ghs-pointer-input>
           </span>
       </ng-container>
     </div>

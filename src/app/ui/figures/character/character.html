@@ -22,27 +22,27 @@
 
     <ng-container
       *ngIf="(!settingsManager.settings.characterAttackModifierDeck || !character.attackModifierDeckVisible) && (!settingsManager.settings.lootDeck ||!character.lootCardsVisible)">
-      <ghs-drag-click class="drag-initiative" (dragMove)="dragInitiativeMove($event)"
+      <ghs-pointer-input class="drag-initiative" (dragMove)="dragInitiativeMove($event)"
         (dragEnd)="dragInitiativeEnd($event)" (singleClick)="toggleFigure($event)"
         (doubleClick)="initiativeDoubleClick($event)">
-      </ghs-drag-click>
+      </ghs-pointer-input>
 
-      <ghs-drag-click class="drag-hp"
+      <ghs-pointer-input class="drag-hp"
         [style.margin-left]="initiativeElement.elementRef.nativeElement.clientWidth + 'px'"
         (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true" [screenWidth]="true"
-        (singleClick)="openEntityMenu($event)"></ghs-drag-click>
+        (singleClick)="openEntityMenu($event)"></ghs-pointer-input>
 
-      <ghs-drag-click class="drag-token"
+      <ghs-pointer-input class="drag-token"
         [style.margin-left]="initiativeElement.elementRef.nativeElement.clientWidth + 'px'"
         (dragMove)="dragTokenMove($event)" (dragEnd)="dragTokenEnd($event)" [relative]="true" [screenWidth]="true"
-        (singleClick)="nextIdentity($event)"></ghs-drag-click>
+        (singleClick)="nextIdentity($event)"></ghs-pointer-input>
 
-      <ghs-drag-click class="drag-xp" (dragMove)="dragXpMove($event)" (dragEnd)="dragXpEnd($event)" [relative]="true"
-        [screenWidth]="true" (singleClick)="openEntityMenu($event)"></ghs-drag-click>
+      <ghs-pointer-input class="drag-xp" (dragMove)="dragXpMove($event)" (dragEnd)="dragXpEnd($event)" [relative]="true"
+        [screenWidth]="true" (singleClick)="openEntityMenu($event)"></ghs-pointer-input>
 
-      <ghs-drag-click class="drag-loot" (dragMove)="dragLootMove($event)" (dragEnd)="dragLootEnd($event)"
+      <ghs-pointer-input class="drag-loot" (dragMove)="dragLootMove($event)" (dragEnd)="dragLootEnd($event)"
         [relative]="true" [screenWidth]="true" (singleClick)="openEntityMenu($event)">
-      </ghs-drag-click>
+      </ghs-pointer-input>
     </ng-container>
 
     <ghs-character-initiative #initiativeElement [figure]="character"></ghs-character-initiative>
@@ -175,10 +175,10 @@
     <a class="character-sheet-button" [ghs-label]="'character.progress'" [ghs-label-attribute]="'title'"
       [ngClass]="{'hand-size-margin' : settingsManager.settings.characterHandSize}">
       <img [src]="character.iconUrl" />
-      <ghs-drag-click
+      <ghs-pointer-input
         (singleClick)="settingsManager.settings.characterSheet ? openCharacterSheet() : openEntityMenu($event)"
         (doubleClick)="characterFullView()">
-      </ghs-drag-click>
+      </ghs-pointer-input>
     </a>
 
     <div *ngIf="settingsManager.settings.characterHandSize && !character.absent" class="hand-size">

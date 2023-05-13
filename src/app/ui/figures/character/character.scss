@@ -49,7 +49,7 @@
   }
 
 
-  ghs-drag-click.drag-initiative {
+  ghs-pointer-input.drag-initiative {
     position: absolute;
     top: calc(var(--ghs-unit) * 2.1);
     left: calc(var(--ghs-unit) * 6);
@@ -63,11 +63,11 @@
     }
   }
 
-  ghs-drag-click.drag-hp,
-  ghs-drag-click.drag-xp,
-  ghs-drag-click.drag-loot,
-  ghs-drag-click.drag-token,
-  ghs-drag-click.next-identity {
+  ghs-pointer-input.drag-hp,
+  ghs-pointer-input.drag-xp,
+  ghs-pointer-input.drag-loot,
+  ghs-pointer-input.drag-token,
+  ghs-pointer-input.next-identity {
     position: absolute;
     bottom: calc(var(--ghs-unit) * 1.5);
     left: calc(var(--ghs-unit) * 17);
@@ -459,7 +459,7 @@
       filter: var(--ghs-filter-shadow);
     }
 
-    ghs-drag-click {
+    ghs-pointer-input {
       position: absolute;
       top: 0;
       left: 0;

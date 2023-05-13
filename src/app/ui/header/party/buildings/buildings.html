@@ -15,13 +15,13 @@
         </div>
         <div class="building" *ngFor="let building of buildings; let index = index"
             [ngClass]="{'buildable' : !building.model.level}">
-            <span class="name" [ngClass]="{'disabled': !building.model.level || !building.data.repair}" ghs-drag-click
+            <span class="name" [ngClass]="{'disabled': !building.model.level || !building.data.repair}" ghs-pointer-input
                 (singleClick)="toggleState(building)" (doubleClick)="toggleState(building, true )">
                 <span class="state {{building.model.state}}"></span>
                 <span [ghs-label]="'data.buildings.' + building.model.name"></span>
             </span>
             <span class="id"><span *ngIf="building.data.id">({{building.data.id}})</span></span>
-            <span class="level" ghs-drag-click (doubleClick)="downgrade(building)">{{building.model.level ||
+            <span class="level" ghs-pointer-input (doubleClick)="downgrade(building)">{{building.model.level ||
                 '-'}}</span>
             <span class="costs" [ngClass]="{'disabled' : !upgradeable(building)}">
                 <ng-container *ngIf="!building.model.level">
@@ -71,7 +71,7 @@
             <span class="action">
                 <span
                     *ngIf="(building.model.level < building.data.upgrades.length +1 || building.model.level < building.data.manualUpgrades + 1) && building.model.state == 'normal'"
-                    [ngClass]="{'disabled' : !upgradeable(building)}" class="button upgrade" ghs-drag-click
+                    [ngClass]="{'disabled' : !upgradeable(building)}" class="button upgrade" ghs-pointer-input
                     (singleClick)="upgrade(building)" (doubleClick)="upgrade(building, true)"
                     [ghs-label]="('party.campaign.sheet.buildings.' + (building.model.level > 0 ? 'upgrade' : 'build'))"
                     [ghs-label-attribute]="'title'">
@@ -81,14 +81,14 @@
                         [src]="'./assets/images/fh/buildings/' + (building.model.level > 0 ? 'upgrade' : 'build')  + '.svg'">
                 </span>
                 <span *ngIf="building.model.state == 'damaged'" [ngClass]="{'disabled' : !upgradeable(building)}"
-                    class="button upgrade" ghs-drag-click (singleClick)="repair(building)"
+                    class="button upgrade" ghs-pointer-input (singleClick)="repair(building)"
                     (doubleClick)="repair(building, true)" [ghs-label]="('party.campaign.sheet.buildings.repair')"
                     [ghs-label-attribute]="'title'">
                     <span [ghs-label]="'party.campaign.sheet.buildings.repair'"></span>
                     <img src="./assets/images/fh/buildings/damaged.svg">
                 </span>
                 <span *ngIf="building.model.state == 'wrecked'" [ngClass]="{'disabled' : !upgradeable(building)}"
-                    class="button upgrade" ghs-drag-click (singleClick)="rebuild(building)"
+                    class="button upgrade" ghs-pointer-input (singleClick)="rebuild(building)"
                     (doubleClick)="rebuild(building, true)" [ghs-label]="('party.campaign.sheet.buildings.rebuild')"
                     [ghs-label-attribute]="'title'">
                     <span [ghs-label]="'party.campaign.sheet.buildings.rebuild'"></span>

@@ -11,9 +11,9 @@
 
   <div class="entity-container">
     <span class="item">
-      <ghs-drag-click class="button" (singleClick)="changeHealth(-1)" [repeat]="true">
+      <ghs-pointer-input class="button" (singleClick)="changeHealth(-1)" [repeat]="true">
         <img class="ghs-svg" src="./assets/images/minus.svg">
-      </ghs-drag-click>
+      </ghs-pointer-input>
     </span>
     <span class="item" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'">
       <img src="./assets/images/status/health.svg" />
@@ -21,9 +21,9 @@
         [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
       </span>
       <span class="item">
-        <ghs-drag-click class="button" (singleClick)="changeHealth(1)" [repeat]="true">
+        <ghs-pointer-input class="button" (singleClick)="changeHealth(1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/plus.svg">
-        </ghs-drag-click>
+        </ghs-pointer-input>
       </span>
 
       <ghs-conditions [entityConditions]="entityConditions" [entities]="entities" [figure]="data.monster"

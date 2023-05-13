@@ -1,5 +1,5 @@
 import { Injectable, NgModule, ErrorHandler } from '@angular/core';
-import { BrowserModule, HammerGestureConfig, HammerModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DEFAULT_DIALOG_CONFIG, DialogModule } from '@angular/cdk/dialog';
@@ -55,7 +55,6 @@ import { ScenarioComponent } from './ui/footer/scenario/scenario';
 import { PartySheetComponent } from './ui/header/party/party-sheet';
 import { PartySheetDialogComponent } from './ui/header/party/party-sheet-dialog';
 import { MapComponent } from './ui/header/party/map/map';
-import { DragClickDirective } from './ui/helper/drag';
 import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/autoscroll';
 import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
@@ -113,16 +112,7 @@ import { BuildingRepairDialog } from './ui/header/party/buildings/repair';
 import { ScenarioConclusionComponent } from './ui/footer/scenario/scenario-conclusion/scenario-conclusion';
 import { SelectGoldDialog } from './ui/header/party/buildings/select-gold/select-gold';
 import { EventEffectsDialog } from './ui/footer/scenario/dialog/event-effects/event-effects';
-
-import 'hammerjs'
-@Injectable()
-export class GhsHammerConfig extends HammerGestureConfig {
-
-  override overrides = <any>{
-    'swipe': { enable: false },
-    'rotate': { enable: false }
-  };
-}
+import { PointerInputDirective } from './ui/helper/pointer-input';
 
 @Injectable()
 export class GhsErrorHandler extends ErrorHandler {
@@ -160,7 +150,7 @@ export class GhsErrorHandler extends ErrorHandler {
     AbilityComponent, AbiltiesDialogComponent, AbilityDialogComponent,
     ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,
     FigureErrorsComponent, FigureErrorsDialogComponent,
-    CardRevealDirective, EntityAnimationDirective, GhsLabelDirective, ValueCalcDirective, DragClickDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
+    CardRevealDirective, EntityAnimationDirective, GhsLabelDirective, ValueCalcDirective, PointerInputDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
     GhsValueSignPipe, GhsRangePipe, GhsScenarioSearch, GhsFloorPipe, GhsCeilPipe,
     AttackModifierToolComponent, TreasuresToolComponent, DecksToolComponent,
     EditionEditorComponent,
@@ -176,7 +166,6 @@ export class GhsErrorHandler extends ErrorHandler {
     FormsModule,
     DragDropModule,
     DialogModule,
-    HammerModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: true, registrationStrategy: 'registerImmediately' })
   ],
   providers: [
@@ -190,10 +179,6 @@ export class GhsErrorHandler extends ErrorHandler {
     {
       provide: ErrorHandler,
       useClass: GhsErrorHandler
-    },
-    {
-      provide: HAMMER_GESTURE_CONFIG,
-      useClass: GhsHammerConfig
     }],
   bootstrap: [AppComponent]
 })

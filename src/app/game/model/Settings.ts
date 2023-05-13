@@ -13,6 +13,7 @@ export class Settings {
   alwaysLootApplyDialog = false;
   alwaysLootDeck: boolean = false;
   applyConditions: boolean = true;
+  applyLongRest: boolean = true;
   applyLoot: boolean = true;
   autoBackup: number = -1;
   autoBackupUrl: { url: string, method: string, fileUpload: boolean, username: string | undefined, password: string | undefined } | undefined;

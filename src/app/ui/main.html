@@ -12,7 +12,8 @@
       <a class="connect" (click)="gameManager.stateManager.connect()">
         <span [ghs-label]="'server.connect'"></span>
         <span class="tries" *ngIf="gameManager.stateManager.connectionTries > 0">
-          <span [ghs-label]="'server.connectionTries'" [ghs-label-args]="['' + gameManager.stateManager.connectionTries]"></span>
+          <span [ghs-label]="'server.connectionTries'"
+            [ghs-label-args]="['' + gameManager.stateManager.connectionTries]"></span>
         </span>
         <span class="tries-hint" *ngIf="gameManager.stateManager.connectionTries > 4">
           <span [ghs-label]="'server.connectionTries.hint'"></span>
@@ -58,7 +59,8 @@
     </ng-container>
   </div>
   <div *ngIf="!fullviewChar && !welcome" class="figures" cdkDropListGroup cdkScrollable
-    [ngClass]="{'loot-deck' : footer.lootDeck || settingsManager.settings.alwaysLootDeck && gameManager.game.lootDeck.active , 'ally-deck' :  footer.hasAllyAttackModifierDeck, 'drag-disabled': settingsManager.settings.disableDragFigures}">
+    [ngClass]="{'loot-deck' : footer.lootDeck || settingsManager.settings.alwaysLootDeck && gameManager.game.lootDeck.active , 'ally-deck' :  footer.hasAllyAttackModifierDeck, 'drag-disabled': settingsManager.settings.disableDragFigures}"
+    (scroll)="onFigureScroll($event)">
     <div class="figure" *ngFor="let figure of figures; let i = index;" [figure-autoscroll]="figure"
       [block]="i == this.lastScroll || i == this.lastScrollColumn ? 'end' : 'center'" [cdkDropListData]="i" cdkDropList
       (cdkDropListDropped)="drop($event)" cdkDropListAutoScrollStep="20" (cdkDropListEntered)="entered($event)"
@@ -69,8 +71,7 @@
       <div cdkDrag #figureDrag [cdkDragStartDelay]="isTouch ? 500 : 0" [ngClass]="{'enabled' : draggingEnabled}"
         (cdkDragStarted)="startedDrag($event, figureDrag)" (cdkDragReleased)="releasedDrag($event, figureDrag)">
 
-        <div cdkDragHandle class="handle" (click)="handleClick($event)" (press)="enabledDragging($event, figureDrag)"
-          (pressup)="disableDragging($event, figureDrag)"
+        <div cdkDragHandle class="handle" (click)="handleClick($event)"
           [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard}"
           *ngIf="!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters || gameManager.stateManager.permissions.monsters">
         </div>
@@ -83,7 +84,6 @@
         </ghs-monster>
 
         <div cdkDragHandle class="handle right" (click)="handleClick($event)"
-          (press)="enabledDragging($event, figureDrag)" (pressup)="disableDragging($event, figureDrag)"
           [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard}"
           *ngIf=" !gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters ||
           gameManager.stateManager.permissions.monsters">

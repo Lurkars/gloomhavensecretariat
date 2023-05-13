@@ -37,6 +37,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   scenarioEditions: string[] = [];
   scenarios: Record<string, ScenarioData[]> = {};
+  conclusions: Record<string, ScenarioData[]> = {};
   characters: Character[] = [];
 
   fhSheet: boolean = false;
@@ -461,6 +462,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         });
         this.scenarioEditions.push(edition);
       }
+
+      this.conclusions[edition] = this.party.conclusions.filter((value) => value.edition == edition).map((value) => gameManager.sectionData(edition, true).find((sectionData) => sectionData.index == value.index && sectionData.edition == value.edition && sectionData.group == value.group) as ScenarioData);
     });
 
     if (this.party.reputation >= 0) {
@@ -600,10 +603,10 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
             this.dialog.open(ScenarioSummaryComponent, {
               panelClass: 'dialog',
               data: {
-                  scenario: scenario,
-                  conclusionOnly: true
+                scenario: scenario,
+                conclusionOnly: true
               }
-          })
+            })
           }
         }
       });
@@ -624,8 +627,16 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
           scenario: scenario,
           conclusionOnly: true
         }
-      }).closed.subscribe({next : () => this.update()})
+      }).closed.subscribe({ next: () => this.update() })
     }
+  }
+
+  removeConclusion(section: string, edition: string) {
+    gameManager.stateManager.before("removeConclusion", gameManager.game.party.name, section + '');
+    gameManager.game.party.conclusions = gameManager.game.party.conclusions.filter((conclusion) => conclusion.edition != edition || conclusion.index != section);
+    // TODO: remove week
+    gameManager.stateManager.after();
+    this.update();
   }
 
   townGuardPerks(): TownGuardPerk[] {

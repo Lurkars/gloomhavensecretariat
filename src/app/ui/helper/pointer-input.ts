@@ -1,4 +1,4 @@
-import { Directive, ElementRef, EventEmitter, Input, Output } from "@angular/core";
+import { Directive, ElementRef, EventEmitter, Injectable, Input, OnDestroy, OnInit, Output } from "@angular/core";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 export const doubleClickTreshhold: number = 250;
@@ -7,17 +7,167 @@ export const moveTreshhold: number = 7;
 export const repeatInterval: number = 100;
 export const dragWidthThreshhold: number = 1200;
 export const dragWidthFactor: number = 0.4;
+export const maxElementDepth: number = 50;
+
+@Injectable({
+  providedIn: 'root',
+})
+export class PointerInputService {
+
+  directives: PointerInputDirective[] = [];
+  active: PointerInputDirective | undefined;
+
+  currentZoom: number = 0;
+  zoomDiff: number = -1;
+
+  constructor() {
+    this.currentZoom = settingsManager.settings.zoom;
+
+    window.addEventListener('mousedown', (event: MouseEvent) => {
+      this.active = this.find(event.target as HTMLElement);
+      if (this.active) {
+        if (this.active.clickBehind) {
+          this.active = this.find(this.active.elementRef.nativeElement.parentElement);
+        }
+        if (this.active) {
+          this.active.pointerdown(event);
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      }
+    });
+
+    window.addEventListener('touchstart', (event: TouchEvent) => {
+      if (event.touches.length == 1) {
+        this.active = this.find(event.target as HTMLElement);
+        if (this.active) {
+          this.active.pointerdown(event);
+          if (this.active.clickBehind) {
+            this.active = this.find(this.active.elementRef.nativeElement)
+          } else {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+        }
+      }
+    });
+
+    window.addEventListener('mousemove', (event: MouseEvent) => {
+      if (this.active) {
+        this.active.pointermove(event);
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (event: TouchEvent) => {
+      if (event.touches.length == 1 && this.active) {
+        this.active.pointermove(event);
+      } else {
+        this.cancel();
+        this.touchmove(event);
+      }
+    }, { passive: true });
+
+    window.addEventListener('mouseup', (event: MouseEvent) => {
+      if (this.active) {
+        this.active.pointerup(event);
+        this.active = undefined;
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    });
+
+    window.addEventListener('touchend', (event: TouchEvent) => {
+      if (this.active) {
+        this.active.pointerup(event);
+        this.active = undefined;
+        event.preventDefault();
+        event.stopPropagation();
+      } else {
+        this.touchend(event);
+      }
+    });
+
+    window.addEventListener('touchcancel', (event: TouchEvent) => {
+      if (this.active) {
+        this.active.pointerup(event);
+        if (!this.active.clickBehind) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        this.active = undefined;
+      } else {
+        this.touchend(event);
+      }
+    });
+  }
+
+  zoom(value: number) {
+    this.currentZoom += value;
+    document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
+  }
+
+  touchmove(event: TouchEvent) {
+    if (!settingsManager.settings.disablePinchZoom) {
+      if (event.touches.length === 2) {
+        const curDiff = Math.abs(event.touches[0].clientX - event.touches[1].clientX);
+        if (this.zoomDiff > 0) {
+          this.zoom(Math.ceil((this.zoomDiff - curDiff) * 0.25));
+        }
+        this.zoomDiff = curDiff;
+      }
+    }
+  }
+
+  touchend(event: TouchEvent) {
+    if (!settingsManager.settings.disablePinchZoom) {
+      if (event.touches.length < 2 && this.zoomDiff > -1) {
+        this.zoomDiff = -1;
+        settingsManager.setZoom(this.currentZoom);
+      }
+    }
+  }
+
+  cancel() {
+    if (this.active) {
+      this.active.cancel();
+      this.active = undefined;
+    }
+  }
+
+  register(directive: PointerInputDirective) {
+    this.directives.push(directive);
+  }
+
+  unregister(directive: PointerInputDirective) {
+    this.directives.splice(this.directives.indexOf(directive), 1);
+  }
+
+  find(element: HTMLElement): PointerInputDirective | undefined {
+    let target: HTMLElement = element;
+    let active = this.directives.find((directive) => target && directive.elementRef.nativeElement == target);
+    let depth = 0;
+    while (!active && depth < maxElementDepth && target !== document.body && target.parentElement) {
+      target = target.parentElement;
+      active = this.directives.find((directive) => target && directive.elementRef.nativeElement == target);
+      depth++;
+    }
+
+    return active;
+  }
+}
+
 
 @Directive({
   selector: 'ghs-pointer-input, [ghs-pointer-input]'
 })
-export class PointerInputDirective {
+export class PointerInputDirective implements OnInit, OnDestroy {
 
   @Input() clickBehind: boolean = false;
   @Input() relative: boolean = false;
   @Input() screenWidth: boolean = false;
   @Input() repeat: boolean = false;
   @Input() disabled: boolean = false;
+  @Input() forcePress: boolean = false;
   @Output('dragMove') dragMove = new EventEmitter<number>();
   @Output('dragEnd') dragEnd = new EventEmitter<number>();
 
@@ -33,37 +183,31 @@ export class PointerInputDirective {
   startX: number = 0;
   move: boolean = false;
 
-  mousemove: any;
-  mouseup: any;
-  touchmove: any;
-  touchend: any;
-  touchcancel: any;
-
-  constructor(private elementRef: ElementRef) {
+  constructor(public elementRef: ElementRef, private service: PointerInputService) {
     this.value = -1;
     this.elementRef.nativeElement.style['touch-action'] = 'pan-y';
+  }
 
-    this.elementRef.nativeElement.addEventListener('mousedown', (event: MouseEvent) => { this.pointerdown(event); }, { passive: true });
-    this.elementRef.nativeElement.addEventListener('touchstart', (event: TouchEvent) => { event.preventDefault(); this.pointerdown(event); }, { passive: true });
+  ngOnInit(): void {
+    this.service.register(this);
+  }
+
+  ngOnDestroy(): void {
+    this.service.unregister(this);
   }
 
   pointerdown(event: TouchEvent | MouseEvent) {
     this.down = true;
     this.startX = event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
     if (!this.move && this.repeat && !this.doubleClick.observed) {
+      this.repeats = -1;
       this.repeatTimeout(event);
-    } else if (settingsManager.settings.pressDoubleClick && !this.move && !(event instanceof MouseEvent)) {
+    } else if (this.forcePress || settingsManager.settings.pressDoubleClick && this.doubleClick.observed && !this.move && !(event instanceof MouseEvent)) {
       this.timeout = setTimeout(() => {
         this.doubleClick.emit(event);
         this.timeout = null;
       }, longPressTreshhold);
     }
-
-    this.mousemove = window.addEventListener('mousemove', (event: MouseEvent) => { this.pointermove(event); }), { passive: true };
-    this.mouseup = window.addEventListener('mouseup', (event: MouseEvent) => { this.pointerup(event); }, { passive: true });
-    this.touchmove = window.addEventListener('touchmove', (event: TouchEvent) => { event.preventDefault(); this.pointermove(event); }, { passive: true });
-    this.touchend = window.addEventListener('touchend', (event: TouchEvent) => { event.preventDefault(); this.pointerup(event); }, { passive: true });
-    this.touchcancel = window.addEventListener('touchcancel', (event: TouchEvent) => { event.preventDefault(); this.pointerup(event); }, { passive: true });
   }
 
   pointermove(event: TouchEvent | MouseEvent) {
@@ -82,7 +226,7 @@ export class PointerInputDirective {
       this.down = false;
       this.startX = 0;
       if (!this.move) {
-        if ((event instanceof MouseEvent || !settingsManager.settings.pressDoubleClick)) {
+        if (!this.forcePress && (event instanceof MouseEvent || !settingsManager.settings.pressDoubleClick)) {
           this.clicks++;
           if (this.timeout) {
             clearTimeout(this.timeout);
@@ -93,15 +237,15 @@ export class PointerInputDirective {
             this.clicks = 0;
           } else {
             this.timeout = setTimeout(() => {
-              if (this.clicks > 0) {
+              if (this.clicks > 0 && (!this.repeat || this.doubleClick.observed)) {
                 this.singleClick.emit(event);
               }
               this.clicks = 0;
               this.timeout = null;
-            }, doubleClickTreshhold)
+            }, this.doubleClick.observed ? doubleClickTreshhold : 0)
           }
         } else {
-          if (this.timeout) {
+          if (this.timeout && (!this.repeat || this.doubleClick.observed)) {
             clearTimeout(this.timeout);
             this.timeout = null;
             this.singleClick.emit(event);
@@ -112,12 +256,6 @@ export class PointerInputDirective {
       }
 
       this.panend(event);
-
-      window.removeEventListener('mousemove', this.mousemove);
-      window.removeEventListener('mouseup', this.mouseup);
-      window.removeEventListener('touchmove', this.touchmove);
-      window.removeEventListener('touchcancel', this.touchcancel);
-      window.removeEventListener('touchend', this.touchend);
     }
   }
 
@@ -162,6 +300,8 @@ export class PointerInputDirective {
       if (this.value >= 0 || this.relative) {
         this.dragEnd.emit(this.value);
       }
+      this.repeats = -1;
+      this.startX = -1;
       this.move = false;
       this.value = -1;
       this.relativeValue = -1;
@@ -169,19 +309,36 @@ export class PointerInputDirective {
     }
   }
 
-  repeatTimeout(event: TouchEvent | MouseEvent) {
-    this.singleClick.emit(event);
-    if (this.repeats == -1) {
-      this.repeats = 500;
-    } else {
-      this.repeats -= 25;
-      if (this.repeats < 25) {
-        this.repeats = 25;
-      }
+  cancel() {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+      this.timeout = null;
     }
-    this.timeout = setTimeout(() => {
-      this.repeatTimeout(event);
-    }, this.repeats);
+
+    this.repeats = -1;
+    this.clicks = 0;
+    this.startX = -1;
+    this.move = false;
+    this.value = -1;
+    this.relativeValue = -1;
+    this.elementRef.nativeElement.classList.remove('dragging');
+  }
+
+  repeatTimeout(event: TouchEvent | MouseEvent) {
+    if (this.down && !this.move) {
+      this.singleClick.emit(event);
+      if (this.repeats == -1) {
+        this.repeats = 500;
+      } else {
+        this.repeats -= 25;
+        if (this.repeats < 25) {
+          this.repeats = 25;
+        }
+      }
+      this.timeout = setTimeout(() => {
+        this.repeatTimeout(event);
+      }, this.repeats);
+    }
   }
 
 }
