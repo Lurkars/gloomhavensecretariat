@@ -685,6 +685,7 @@
         ".": "Szenarien",
         "addSuccess": "Als erfolgreich markieren",
         "addConclusion": "Lösung hinzufügen",
+        "conclusions": "Lösungen",
         "edition": "Edition",
         "finished": "Erfolgreich",
         "group": "Gruppe",
@@ -1131,6 +1132,10 @@
     "applyConditions": {
       ".": "Zustände automatisch anweden",
       "hint": "Entsprechende Zustände werden automatisch vor und nach einem Zug angewendet, bei Wunde z.B. wird zu Beginn des Zuges automatisch 1 TP abgezogen"
+    },
+    "applyLongRest": {
+      ".": "Lange Rast anwenden",
+      "hint": "Automatisch %game.action.heal% 2 während der langen Rast ausführen."
     },
     "applyLoot": {
       ".": "Beute Charakter zuweisen",
