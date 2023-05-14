@@ -10,6 +10,7 @@
     "health": "Cx12",
     "movement": 3,
     "attack": 3,
+    "note": "%game.custom.scenarioBook%",
     "actions": [
       {
         "type": "retaliate",

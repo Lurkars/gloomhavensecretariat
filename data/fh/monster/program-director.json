@@ -19,19 +19,13 @@
         {
           "type": "specialTarget",
           "value": "focusEnemyFarthest",
-          "small": true,
           "subActions": [
             {
-              "type": "grid",
-              "value": "",
+              "type": "teleport",
               "subActions": [
                 {
-                  "type": "teleport",
-                  "value": ""
-                },
-                {
                   "type": "custom",
-                  "value": "adjacent to focus",
+                  "value": "to an empty hex closest to focus",
                   "small": true
                 }
               ]
@@ -54,21 +48,21 @@
       [
         {
           "type": "custom",
-          "value": "Ally to all monsters.",
-          "small": true
+          "value": "Ally to all monsters this round"
         },
         {
-          "type": "grid",
-          "value": "",
+          "type": "custom",
+          "value": "Focus on closest enemy",
           "subActions": [
             {
               "type": "teleport",
-              "value": ""
-            },
-            {
-              "type": "custom",
-              "value": "adjacent to focus",
-              "small": true
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "to any empty hex closest to focus",
+                  "small": true
+                }
+              ]
             }
           ]
         },
