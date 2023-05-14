@@ -142,7 +142,8 @@
       z-index: 3;
     }
 
-    &.active {
+    &.active,
+    &.loot-cards-container {
       visibility: visible;
       width: 100%;
       height: 100%;

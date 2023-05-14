@@ -17,7 +17,7 @@
 
   <div class="main">
     <div class="table" [style.--ghs-summary-columns]="1 + characters.length"
-      *ngIf="(!casual || forceCampaign || !gameManager.fhRules()) && settingsManager.settings.characterSheet && !conclusionOnly">
+      *ngIf="(!casual || forceCampaign) && settingsManager.settings.characterSheet && !conclusionOnly">
 
       <span class="head-col first"><span [ghs-label]="'scenario.summary.name'"></span></span>
       <span class="first" *ngFor="let character of characters; let index = index;">
@@ -182,17 +182,17 @@
       <div class="reward warning" *ngIf="!conclusionOnly && alreadyWarning && gameManager.game.party.campaignMode">
         <label><span [ghs-label]="'scenario.summary.alreadyWarning'"></span></label>
         <div class="list">
-          <div class="item" *ngIf="casual">
+          <div class="item" *ngIf="!forceCampaign">
             <span><span [ghs-label]="'scenario.summary.alreadyWarning.hint'"></span></span>
           </div>
-          <div class="item" *ngIf="!gameManager.fhRules()">
-            <a (click)="casual = !casual"><span
-                [ghs-label]="'scenario.summary.alreadyWarning.' + (casual ? 'ignore' : 'reapply')"></span></a>
+          <div class="item">
+            <a (click)="updateState(!forceCampaign)"><span
+                [ghs-label]="'scenario.summary.alreadyWarning.' + (forceCampaign ? 'reapply' : 'ignore')"></span></a>
           </div>
         </div>
       </div>
 
-      <div class="reward warning" *ngIf="(!conclusionOnly && alreadyWarning || !gameManager.game.party.campaignMode)">
+      <div class="reward warning" *ngIf="(!conclusionOnly && !gameManager.game.party.campaignMode)">
         <label><span
             [ghs-label]="('scenario.summary.casualWarning' + (gameManager.fhRules() ? '.fh' : ''))"></span></label>
         <div class="list">
@@ -200,18 +200,18 @@
             <span><span [ghs-label]="'scenario.summary.casualWarning.hintFh'"></span></span>
           </div>
           <div class="item" *ngIf="forceCampaign || gameManager.fhRules()">
-            <a (click)="casual = !casual; updateState()"><span [ghs-label]="'scenario.summary.casualWarning.' + (casual && !forceCampaign
+            <a (click)="casual = gameManager.fhRules() && !casual; updateState()"><span [ghs-label]="'scenario.summary.casualWarning.' + (casual && !forceCampaign
               ? 'ignore' : 'reapply')"></span></a>
           </div>
           <div class="item"
-            *ngIf="(!casual || !gameManager.fhRules()) && !gameManager.game.party.campaignMode && !forceCampaign">
+            *ngIf="!forceCampaign">
             <a (click)="updateState(true)"><span
                 [ghs-label]="'scenario.summary.casualWarning.campaignRewards'"></span></a>
           </div>
         </div>
       </div>
 
-      <ng-container *ngIf="!casual && gameManager.game.party.campaignMode || forceCampaign">
+      <ng-container *ngIf="!casual && !alreadyWarning && gameManager.game.party.campaignMode || forceCampaign">
 
         <div class="reward warning" *ngIf="conclusionWarning">
           <label><span [ghs-label]="'scenario.summary.conclusionWarning'"></span></label>
@@ -556,7 +556,7 @@
       </ng-container>
     </span>
     <a class="apply"
-      *ngIf="!success || !gameManager.game.party.campaignMode || forceCampaign || !scenario.forcedLinks || scenario.forcedLinks.length == 0"
+      *ngIf="!success || !gameManager.game.party.campaignMode || alreadyWarning || forceCampaign || !scenario.forcedLinks || scenario.forcedLinks.length == 0"
       (click)="finish()"><span
         [ghs-label]="conclusionOnly ? 'scenario.summary.solve' : 'scenario.summary.apply'"></span></a>
     <a class="restart" *ngIf="!success" (click)="restart()"><span [ghs-label]="(lootColumns.length > 0 ?

@@ -150,6 +150,9 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else {
         let labelArgs = label.split(':').splice(1).map((arg) =>
           applyPlaceholder(settingsManager.getLabel(arg), placeholder, relative));
+        if (value) {
+          labelArgs = [value, ...labelArgs];
+        }
         labelArgs.push(...placeholder);
         replace = settingsManager.getLabel(label.split(':')[0], labelArgs) + image;
       }

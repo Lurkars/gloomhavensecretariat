@@ -3,9 +3,10 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 export const doubleClickTreshhold: number = 250;
 export const longPressTreshhold: number = 500;
+export const holdTreshhold: number = 500;
 export const moveTreshhold: number = 7;
 export const repeatInterval: number = 100;
-export const dragWidthThreshhold: number = 1200;
+export const dragWidthThreshold: number = 1200;
 export const dragWidthFactor: number = 0.4;
 export const maxElementDepth: number = 50;
 
@@ -44,10 +45,10 @@ export class PointerInputService {
           this.active.pointerdown(event);
           if (this.active.clickBehind) {
             this.active = this.find(this.active.elementRef.nativeElement)
-          } else {
-            event.preventDefault();
-            event.stopPropagation();
           }
+
+          event.preventDefault();
+          event.stopPropagation();
         }
       }
     });
@@ -245,9 +246,11 @@ export class PointerInputDirective implements OnInit, OnDestroy {
             }, this.doubleClick.observed ? doubleClickTreshhold : 0)
           }
         } else {
-          if (this.timeout && (!this.repeat || this.doubleClick.observed)) {
+          if (this.timeout) {
             clearTimeout(this.timeout);
             this.timeout = null;
+          }
+          if (!this.repeat || this.doubleClick.observed) {
             this.singleClick.emit(event);
           }
         }
@@ -276,8 +279,8 @@ export class PointerInputDirective implements OnInit, OnDestroy {
       const rect = this.elementRef.nativeElement.getBoundingClientRect();
       const x = event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
       if (this.screenWidth) {
-        if (document.body.clientWidth > dragWidthThreshhold) {
-          this.value = Math.min(99, Math.max(0, x * (dragWidthThreshhold / document.body.clientWidth) / document.body.clientWidth * 100));
+        if (document.body.clientWidth > dragWidthThreshold) {
+          this.value = Math.min(99, Math.max(0, x * (dragWidthThreshold / document.body.clientWidth) / document.body.clientWidth * 100));
         } else {
           this.value = Math.min(99, Math.max(0, x / document.body.clientWidth * 100));
           if (this.relative) {
@@ -327,8 +330,9 @@ export class PointerInputDirective implements OnInit, OnDestroy {
   repeatTimeout(event: TouchEvent | MouseEvent) {
     if (this.down && !this.move) {
       this.singleClick.emit(event);
+
       if (this.repeats == -1) {
-        this.repeats = 500;
+        this.repeats = holdTreshhold;
       } else {
         this.repeats -= 25;
         if (this.repeats < 25) {

@@ -77,7 +77,7 @@ export class Condition {
 
     this.types.push(ConditionType.action);
 
-    if ([ConditionName.stun, ConditionName.immobilize, ConditionName.disarm, ConditionName.wound, ConditionName.muddle, ConditionName.poison, ConditionName.invisible, ConditionName.strengthen, ConditionName.regenerate, ConditionName.infect, ConditionName.bane, ConditionName.brittle, ConditionName.ward, ConditionName.rupture, ConditionName.poison_x, ConditionName.wound_x].indexOf(this.name) != -1) {
+    if ([ConditionName.stun, ConditionName.immobilize, ConditionName.disarm, ConditionName.wound, ConditionName.muddle, ConditionName.poison, ConditionName.invisible, ConditionName.strengthen, ConditionName.regenerate, ConditionName.infect, ConditionName.bane, ConditionName.brittle, ConditionName.chill, ConditionName.ward, ConditionName.rupture, ConditionName.poison_x, ConditionName.wound_x].indexOf(this.name) != -1) {
       this.types.push(ConditionType.entity);
     }
 
@@ -86,7 +86,7 @@ export class Condition {
       this.types.push(ConditionType.standard);
     }
 
-    if (this.types.indexOf(ConditionType.entity) != -1 || [ConditionName.chill, ConditionName.impair, ConditionName.ward, ConditionName.dodge].indexOf(this.name) != -1) {
+    if (this.types.indexOf(ConditionType.entity) != -1 || [ConditionName.impair, ConditionName.dodge].indexOf(this.name) != -1) {
       this.types.push(ConditionType.character);
     }
 

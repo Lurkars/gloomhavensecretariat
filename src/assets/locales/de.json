@@ -972,10 +972,10 @@
     "summary": {
       ".": "Szenario Zusammenfassung",
       "alreadyWarning": {
-        ".": "Gelegenheitsmodus",
-        "hint": "Da das Szenario bereits erfolgreich im Kampagnenmodus absolviert wurde, wurde automatisch in den Gelegenheitsmodus gewechselt. Die Belohnungen werden im Gelegenheitsmodus ignoriert.",
+        ".": "Bereits absolviert",
+        "hint": "Da das Szenario bereits erfolgreich im Kampagnenmodus absolviert wurde. Die Belohnungen werden ignoriert.",
         "ignore": "Trotzdem die Belohnungen erhalten!",
-        "reapply": "Zurück zum Gelegenheitsmodus wechseln"
+        "reapply": "Belohnungen wieder zurücknehmen"
       },
       "apply": "Abschließen",
       "battlegoals": "Kampfziele",

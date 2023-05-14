@@ -1094,10 +1094,10 @@
     "summary": {
       ".": "Scenario Summary",
       "alreadyWarning": {
-        ".": "Casual Mode",
-        "hint": "Automatically switched to casual mode since the scenario was already finished successfully in campaign mode. In casual mode no rewards are granted.",
+        ".": "Already finished",
+        "hint": "The scenario was already finished successfully in campaign mode, no rewards are granted.",
         "ignore": "Gain rewards anyways!",
-        "reapply": "Switch back to casual mode"
+        "reapply": "Remove rewards"
       },
       "apply": "Finish",
       "battlegoals": "Battle Goals",

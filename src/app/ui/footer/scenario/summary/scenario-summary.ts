@@ -77,7 +77,7 @@ export class ScenarioSummaryComponent {
         }
 
         this.alreadyWarning = gameManager.game.party.campaignMode && this.success && (gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == this.scenario.index && scenarioModel.edition == this.scenario.edition && scenarioModel.group == this.scenario.group) != undefined || this.conclusion && gameManager.game.party.conclusions.find((scenarioModel) => this.conclusion && scenarioModel.index == this.conclusion.index && scenarioModel.edition == this.conclusion.edition && scenarioModel.group == this.conclusion.group) != undefined) || false;
-        this.casual = this.alreadyWarning && !this.conclusionOnly || !gameManager.game.party.campaignMode && gameManager.fhRules();
+        this.casual = !this.conclusionOnly && !gameManager.game.party.campaignMode && gameManager.fhRules();
         this.updateState()
 
 
@@ -169,7 +169,7 @@ export class ScenarioSummaryComponent {
                     Object.assign(this.rewards, this.conclusion.rewards)
                 }
             }
-            
+
             if (this.rewards) {
                 if (this.rewards.collectiveGold) {
                     this.characters.forEach((char, index) => this.collectiveGold[index] = 0);
@@ -434,9 +434,9 @@ export class ScenarioSummaryComponent {
             }
         }
         if (this.conclusionOnly) {
-            gameManager.scenarioManager.finishScenario(this.scenario, true, this.conclusion, false, undefined, false, true);
+            gameManager.scenarioManager.finishScenario(this.scenario, true, this.conclusion, false, undefined, false, false, true);
         } else {
-            gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, false, linked ? new Scenario(linked) : undefined, this.casual && !this.forceCampaign);
+            gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, false, linked ? new Scenario(linked) : undefined, this.casual && !this.forceCampaign, this.alreadyWarning && !this.forceCampaign);
         }
         gameManager.stateManager.after(1000);
         this.dialogRef.close();

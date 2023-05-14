@@ -52,7 +52,7 @@ export class ScenarioManager {
     gameManager.stateManager.standeeDialogCanceled = false;
   }
 
-  finishScenario(scenario: Scenario | undefined, success: boolean = true, conclusionSection: ScenarioData | undefined, restart: boolean = false, linkedScenario: Scenario | undefined = undefined, casual: boolean = false, internal: boolean = false) {
+  finishScenario(scenario: Scenario | undefined, success: boolean = true, conclusionSection: ScenarioData | undefined, restart: boolean = false, linkedScenario: Scenario | undefined = undefined, casual: boolean = false, noRewards: boolean = false, internal: boolean = false) {
     gameManager.game.finish = undefined;
     if (scenario) {
       let rewards: ScenarioRewards | undefined = scenario.rewards || undefined;
@@ -63,7 +63,7 @@ export class ScenarioManager {
           Object.assign(rewards, conclusionSection.rewards);
         }
       }
-      if (!internal && (!gameManager.fhRules() || !casual)) {
+      if (!internal && !casual) {
         this.game.figures.forEach((figure) => {
           if (figure instanceof Character && !figure.absent) {
             const scnearioXP: number = success && (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') == -1) ? gameManager.levelManager.experience() : 0;
@@ -90,7 +90,7 @@ export class ScenarioManager {
         })
       }
 
-      if (success && !casual) {
+      if (success && !casual && !noRewards) {
         if (rewards) {
           if (!internal) {
             this.game.figures.forEach((figure) => {
@@ -288,7 +288,7 @@ export class ScenarioManager {
             const sectionData = gameManager.sectionData(scenario.edition).find((sectionData) => sectionData.index == section && sectionData.group == scenario.group && sectionData.conclusion);
             if (sectionData) {
               const conclusion = new Scenario(sectionData);
-              this.finishScenario(conclusion, true, conclusion, false, undefined, false, true);
+              this.finishScenario(conclusion, true, conclusion, false, undefined, false, noRewards, true);
             }
           })
         }
