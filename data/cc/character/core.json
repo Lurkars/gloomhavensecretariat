@@ -80,6 +80,10 @@
             "effects": [
               {
                 "type": "condition",
+                "value": "wound"
+              },
+              {
+                "type": "condition",
                 "value": "wound",
                 "effects": [
                   {
@@ -87,10 +91,6 @@
                     "value": "self"
                   }
                 ]
-              },
-              {
-                "type": "condition",
-                "value": "wound"
               }
             ]
           }
@@ -241,7 +241,6 @@
           "count": 1,
           "attackModifier": {
             "type": "minus2",
-            "rolling": true,
             "effects": [
               {
                 "type": "condition",
@@ -254,7 +253,6 @@
           "count": 1,
           "attackModifier": {
             "type": "plus3",
-            "rolling": true,
             "effects": [
               {
                 "type": "condition",
@@ -287,7 +285,7 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "At the start of each scenario you may perform %game.condition.strengthen%, %game.condition.wound%, Self or %game.condition.ward%, %game.condition.immobilize%, Self"
+      "custom": "At the start of each scenario you may perform \"%game.condition.strengthen%, %game.condition.wound%, Self\" or \"%game.condition.ward%, %game.condition.immobilize%, Self\""
     },
     {
       "type": "custom",
@@ -301,7 +299,7 @@
     }
   ],
   "masteries": [
-    "Kill test the last enemy to die in the scenario and finish with nine ability cards in your lost pile",
+    "Kill the last enemy to die in the scenario and finish with nine ability cards in your lost pile",
     "Trigger an ongoing effect on Chaotic Recursion six or more times in one round"
   ]
 }
