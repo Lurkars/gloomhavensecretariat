@@ -207,6 +207,7 @@ export class PointerInputDirective implements OnInit, OnDestroy {
       this.timeout = setTimeout(() => {
         this.doubleClick.emit(event);
         this.timeout = null;
+        this.clicks = 2;
       }, longPressTreshhold);
     }
   }
@@ -246,13 +247,14 @@ export class PointerInputDirective implements OnInit, OnDestroy {
             }, this.doubleClick.observed ? doubleClickTreshhold : 0)
           }
         } else {
+          if (this.clicks < 2 && (!this.repeat || this.doubleClick.observed)) {
+            this.singleClick.emit(event);
+          }
           if (this.timeout) {
             clearTimeout(this.timeout);
             this.timeout = null;
           }
-          if (!this.repeat || this.doubleClick.observed) {
-            this.singleClick.emit(event);
-          }
+          this.clicks = 0;
         }
       } else {
         this.clicks = 0;
