@@ -37,6 +37,8 @@ export class ScenarioSummaryComponent {
     battleGoals: number[] = [];
     collectiveGold: number[] = [];
     lootColumns: LootType[] = [];
+    lootColumnsTotal: number[] = [];
+    totalGold: number = 0;
     rewardItems: ItemData[] = [];
     rewardItemCount: number[] = [];
     items: number[][] = [];
@@ -73,7 +75,14 @@ export class ScenarioSummaryComponent {
             const lootType: LootType = value as LootType;
             if (lootType != LootType.money && lootType != LootType.special1 && lootType != LootType.special2 && this.lootColumns.indexOf(lootType) == -1 && this.characters.some((character) => character.lootCards && character.lootCards.some((index) => gameManager.game.lootDeck.cards[index].type == lootType))) {
                 this.lootColumns.push(lootType);
+                this.lootColumnsTotal.push(gameManager.lootManager.getTotal(gameManager.game.lootDeck, lootType));
             }
+        }
+
+        if (gameManager.game.lootDeck && gameManager.game.lootDeck.cards.length > 0) {
+            this.totalGold = gameManager.lootManager.getTotal(gameManager.game.lootDeck, LootType.money);
+            this.totalGold += gameManager.lootManager.getTotal(gameManager.game.lootDeck, LootType.special1);
+            this.totalGold += gameManager.lootManager.getTotal(gameManager.game.lootDeck, LootType.special2);
         }
 
         this.alreadyWarning = gameManager.game.party.campaignMode && this.success && (gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == this.scenario.index && scenarioModel.edition == this.scenario.edition && scenarioModel.group == this.scenario.group) != undefined || this.conclusion && gameManager.game.party.conclusions.find((scenarioModel) => this.conclusion && scenarioModel.index == this.conclusion.index && scenarioModel.edition == this.conclusion.edition && scenarioModel.group == this.conclusion.group) != undefined) || false;

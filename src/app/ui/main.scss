@@ -371,7 +371,7 @@ main {
 
   &.ally-deck {
     .figure.last {
-      padding-bottom: calc(var(--ghs-unit) * 11.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      padding-bottom: calc(var(--ghs-unit) * 13.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
   }
 
@@ -393,12 +393,12 @@ main {
   .figures {
 
     .figure.last {
-      padding-bottom: calc(var(--ghs-unit) * 11.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      padding-bottom: calc(var(--ghs-unit) * 12.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
 
     &.ally-deck {
       .figure.last {
-        padding-bottom: calc(var(--ghs-unit) * 22.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+        padding-bottom: calc(var(--ghs-unit) * 24.5 * var(--ghs-text-factor) * var(--ghs-barsize));
       }
     }
 

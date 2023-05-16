@@ -92,7 +92,7 @@ footer {
     right: 0;
     width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
-    bottom: calc(var(--ghs-unit) * 11.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    bottom: calc(var(--ghs-unit) * 13 * var(--ghs-text-factor) * var(--ghs-barsize));
     z-index: 1;
   }
 
@@ -101,7 +101,7 @@ footer {
     right: 0;
     width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
-    bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    bottom: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor) * var(--ghs-barsize));
     z-index: 2;
   }
 
@@ -261,11 +261,11 @@ footer.compact {
   }
 
   .monster-deck {
-    bottom: calc(var(--ghs-unit) * 11.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    bottom: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor) * var(--ghs-barsize));
   }
 
   .ally-deck {
-    bottom: calc(var(--ghs-unit) * 22.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    bottom: calc(var(--ghs-unit) * 24.5 * var(--ghs-text-factor) * var(--ghs-barsize));
   }
 
   ghs-scenario-rules {

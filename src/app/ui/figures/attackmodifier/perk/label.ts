@@ -59,7 +59,7 @@ export class PerkLabelComponent {
             html += '<span class="attack-modifier-effect rolling">&zwj;<img class="action-icon sw" src="./assets/images/attackmodifier/rolling.svg"></span>';
         }
 
-        if (!attackModifier.rolling || settingsManager.settings.fhStyle || attackModifier.type != AttackModifierType.plus0) {
+        if (!attackModifier.rolling || attackModifier.type != AttackModifierType.plus0) {
             if (attackModifier.valueType == AttackModifierValueType.minus) {
                 html += '<span class="attack-modifier-icon' + (attackModifier.value > 9 ? ' small' : '') + '">-' + attackModifier.value + '</span>';
             } else if (attackModifier.valueType == AttackModifierValueType.multiply) {

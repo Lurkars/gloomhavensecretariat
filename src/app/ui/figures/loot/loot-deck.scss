@@ -38,39 +38,57 @@
                 text-shadow: var(--ghs-outline);
                 position: absolute;
                 font-size: 2.3em;
-                line-height: 0;
-                right: 5%;
+                line-height: 1em;
+                left: 5%;
                 bottom: 3%;
                 z-index: 500;
-                cursor: help;
-
-                img {
-                  filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
-                  height: 0.8em;
-                  width: auto;
-                }
-        
-                &:hover {
-                  color: var(--ghs-color-white);
-                  
-                  img {
-                    filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
-                  }
-                }
             }
 
+            .settings,
             .fullscreen {
-                width: calc(15% * var(--ghs-text-factor));
-                height: auto;
-                position: absolute;
-                left: 2.5%;
-                top: 2.5%;
-                filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+              cursor: pointer;
+              position: absolute;
+              right: -14%;
+              font-family: "ghs-title";
+              display: flex;
+              justify-content: center;
+              position: absolute;
+              color: var(--ghs-color-white);
+              width: 22%;
+              height: 15%;
+              background-position: center;
+              background-size: 100% auto;
+              background-repeat: no-repeat;
+              background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
+            
+              &.fullscreen {
                 cursor: zoom-in;
-
-                &:hover {
-                    filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+                bottom: 32.5%;
+              }
+      
+              &.settings {
+                cursor: help;
+                bottom: -4%;
+      
+                &.without-fullscreen {
+                  top: 50%;
+                  bottom: initial;
+                  transform: translateY(-50%);
                 }
+              }
+      
+              img {
+                height: 60%;
+                width: auto;
+                align-self: center;
+                filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+              }
+      
+              &:hover {
+                img {
+                  filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+                }
+              }
             }
 
             &.open-dialog {

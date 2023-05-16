@@ -147,7 +147,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
         });
 
 
-        this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+        this.compact = settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
       }
     })
 
@@ -160,11 +160,11 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
     }
 
     window.addEventListener('resize', (event) => {
-      this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+      this.compact = settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
     });
 
     window.addEventListener('fullscreenchange', (event) => {
-      this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+      this.compact = settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
     });
   }
 
@@ -192,11 +192,11 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
           this.queue = 0;
         }
       }
-    }, settingsManager.settings.disableAnimations ? 0 : 1850);
+    }, settingsManager.settings.disableAnimations ? 0 : (this.vertical ? 1050 : 1850));
   }
 
   draw(event: any) {
-    if (this.compact) {
+    if (this.compact && this.fullscreen) {
       this.openFullscreen(event);
     } else if (this.standalone || gameManager.game.state == GameState.next) {
       if (!this.drawTimeout && this.deck.current < (this.deck.cards.length - (this.queue == 0 ? 0 : 1))) {

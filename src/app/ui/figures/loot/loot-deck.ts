@@ -65,7 +65,7 @@ export class LootDeckComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.current = this.deck.current;
         this.internalDraw = -99;
-        this.compact = !this.drawing && this.deck.cards.length > 0 && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+        this.compact = this.deck.cards.length > 0 && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
         this.uiChangeSubscription = gameManager.uiChange.subscribe({
             next: () => {
                 if (this.internalDraw == -99 && this.current < this.deck.current) {
@@ -92,16 +92,16 @@ export class LootDeckComponent implements OnInit, OnDestroy {
                     }
                 }
 
-                this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+                this.compact = settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
             }
         })
 
         window.addEventListener('resize', (event) => {
-            this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+            this.compact = this.deck.cards.length > 0 && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
         });
 
         window.addEventListener('fullscreenchange', (event) => {
-            this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+            this.compact = this.deck.cards.length > 0 && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
         });
     }
 
@@ -151,7 +151,7 @@ export class LootDeckComponent implements OnInit, OnDestroy {
     }
 
     draw(event: any) {
-        if (this.compact && this.deck.cards.length > 0) {
+        if (this.compact && this.fullscreen) {
             this.openFullscreen(event);
         } else if ((this.standalone || gameManager.game.state == GameState.next) && this.deck.cards.length > 0) {
             if (!this.drawTimeout && this.deck.current < this.deck.cards.length - 1) {

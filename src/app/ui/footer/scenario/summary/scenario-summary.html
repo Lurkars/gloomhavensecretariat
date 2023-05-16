@@ -39,7 +39,9 @@
       </span>
 
       <ng-container *ngIf="success && rewards && rewards.gold">
-        <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.rewards.gold'"></span></span>
+        <span class="head-col calc-col">
+          <span [ghs-label]="'scenario.summary.rewards.gold'"></span>
+        </span>
         <span class="calc-col" *ngFor="let character of characters; let index = index;">
           {{rewards.gold | ghsValueSign}}
         </span>
@@ -53,7 +55,13 @@
         </span>
       </ng-container>
 
-      <span class="head-col"><span [ghs-label]="'scenario.summary.gold'"></span></span>
+      <span class="head-col">
+        <span *ngIf="!totalGold" [ghs-label]="'scenario.summary.gold'"></span>
+        <ng-container *ngIf="totalGold">
+          <img class="ghs-svg" [src]="'./assets/images/fh/loot/money.svg'">
+          ({{totalGold}})
+        </ng-container>
+      </span>
       <ng-container *ngFor="let character of characters; let index = index;">
         <span *ngIf="!character.absent">
           <span class="gold">{{(success && rewards && rewards.gold ? rewards.gold : 0) + (collectiveGold[index] ?
@@ -70,8 +78,11 @@
         </span>
       </ng-container>
 
-      <ng-container *ngFor="let lootType of lootColumns">
-        <span class="head-col"><img class="ghs-svg" [src]="'./assets/images/fh/loot/' + lootType + '.svg'"></span>
+      <ng-container *ngFor="let lootType of lootColumns; let i = index">
+        <span class="head-col">
+          <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + lootType + '.svg'">
+          ({{lootColumnsTotal[i]}})
+        </span>
         <ng-container *ngFor="let character of characters; let index = index;">
           <span *ngIf="!character.absent">
             <span class="loot">{{lootValue(character, lootType) | ghsValueSign}}</span>
@@ -203,8 +214,7 @@
             <a (click)="casual = gameManager.fhRules() && !casual; updateState()"><span [ghs-label]="'scenario.summary.casualWarning.' + (casual && !forceCampaign
               ? 'ignore' : 'reapply')"></span></a>
           </div>
-          <div class="item"
-            *ngIf="!forceCampaign">
+          <div class="item" *ngIf="!forceCampaign">
             <a (click)="updateState(true)"><span
                 [ghs-label]="'scenario.summary.casualWarning.campaignRewards'"></span></a>
           </div>

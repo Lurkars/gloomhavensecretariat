@@ -82,6 +82,14 @@ export class LootManager {
     ghsShuffleArray(deck.cards);
   }
 
+  getTotal(deck: LootDeck, type: LootType): number {
+    const cards = deck.cards.filter((loot) => loot.type == type);
+    if (cards.length == 0) {
+      return 0;
+    }
+    return cards.map((loot) => this.getValue(loot)).reduce((a, b) => a + b);
+  }
+
   addCharacterLoot(character: Character, loot: Loot) {
     const value = this.getValue(loot);
     if (loot.type == LootType.money || loot.type == LootType.special1 || loot.type == LootType.special2) {

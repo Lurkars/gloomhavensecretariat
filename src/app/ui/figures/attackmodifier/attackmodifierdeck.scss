@@ -34,33 +34,19 @@
       .number {
         display: flex;
         align-items: center;
+        font-family: var(--ghs-font-text);
         color: var(--ghs-color-gray);
         text-shadow: var(--ghs-outline);
         position: absolute;
         font-size: 2.3em;
-        line-height: 0;
+        line-height: 1em;
         right: 6%;
         bottom: 3%;
         z-index: 500;
-        cursor: help;
 
         &.has-shuffle {
           top: 0;
           bottom: initial;
-        }
-
-        img {
-          filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
-          height: 0.8em;
-          width: auto;
-        }
-
-        &:hover {
-          color: var(--ghs-color-white);
-
-          img {
-            filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
-          }
         }
       }
 
@@ -73,17 +59,55 @@
         filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
       }
 
+      .settings,
       .fullscreen {
-        width: calc(15% * var(--ghs-text-factor));
-        height: auto;
+        cursor: pointer;
         position: absolute;
-        left: 2.5%;
-        top: 2.5%;
-        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
-        cursor: zoom-in;
+        left: -14%;
+        font-family: "ghs-title";
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        color: var(--ghs-color-white);
+        width: 20%;
+        height: 30%;
+        background-position: center;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
+
+        &.vertical {
+          left: initial;
+          right: -14%;
+        }
+
+        &.fullscreen {
+          cursor: zoom-in;
+          top: -9%;
+        }
+
+        &.settings {
+          cursor: help;
+          bottom: -9%;
+
+          &.without-fullscreen {
+            top: 50%;
+            bottom: initial;
+            transform: translateY(-50%);
+          }
+        }
+
+        img {
+          height: 60%;
+          width: auto;
+          align-self: center;
+          filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+        }
 
         &:hover {
-          filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+          img {
+            filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+          }
         }
       }
 
