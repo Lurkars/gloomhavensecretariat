@@ -295,7 +295,7 @@
           <div class="grid defense-grid">
             <span class="section" [ngClass]="{'highlight' : party.morale > 19}">
               <img src="./assets/images/fh/party/section.svg">
-              {{campaignData()?.highMorale || ''}}
+              {{gameManager.campaignData().highMorale || ''}}
               <img *ngIf="party.morale > 19" src="./assets/images/checkmark.svg">
             </span>
             <span class="value" [ngClass]="{'highlight' : party.morale > 13}">+15</span>
@@ -306,7 +306,7 @@
             <span class="value" [ngClass]="{'highlight' : party.morale < 3}">-10</span>
             <span class="section" [ngClass]="{'highlight' : party.morale < 1}"><img
                 src="./assets/images/fh/party/section.svg">
-              {{campaignData()?.lowMorale || ''}}
+              {{gameManager.campaignData().lowMorale || ''}}
               <img *ngIf="party.morale < 1" src="./assets/images/checkmark.svg">
             </span>
           </div>
@@ -324,7 +324,7 @@
             </ng-container>
           </div>
           <div class="perk-list">
-            <div class="perk" *ngFor="let townGuardPerk of townGuardPerks()">
+            <div class="perk" *ngFor="let townGuardPerk of gameManager.campaignData().townGuardPerks">
               <div class="sections">
                 <div class="section" *ngFor="let section of townGuardPerk.sections"
                   [ngClass]="{'checked': party.townGuardPerkSections.indexOf(section) != -1, 'disabled' : party.townGuardPerkSections.indexOf(section) == -1 && party.townGuardPerkSections.length >= (party.townGuardPerks / 3 | ghsFloor)}"
@@ -364,10 +364,17 @@
 
         <ghs-party-buildings [party]="party"></ghs-party-buildings>
 
-        <ng-container *ngIf="townGuardDeck">
-          <ghs-attackmodifier-deck class="town-guard-deck" [bottom]="true" [deck]="townGuardDeck"
-            (before)="beforeTownGuardDeck($event)" (after)="afterTownGuardDeck($event)"></ghs-attackmodifier-deck>
-        </ng-container>
+        <div class="town-guard-deck-container" *ngIf="townGuardDeck">
+          <div class="town-guard-deck"
+            [ngClass]="{'collapsed' : !townGuardDeck.active,  'full' : townGuardDeck.active}">
+            <ghs-attackmodifier-deck [deck]="townGuardDeck" [townGuard]="true" (before)="beforeTownGuardDeck($event)"
+              (after)="afterTownGuardDeck($event)"></ghs-attackmodifier-deck>
+
+            <div class="active-toggle" (click)="townGuardDeck.active = !townGuardDeck.active">
+              <span class="numeration"></span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <span class="toggle-fh-sheet" *ngIf="!campaign" (click)="fhSheet = !fhSheet">

@@ -17,11 +17,13 @@ export enum AttackModifierType {
   empower = "empower",
   enfeeble = "enfeeble",
   invalid = "invalid",
+  townguard = "townguard",
   wreck = "wreck",
   success = "success"
 }
 
 export enum AttackModifierValueType {
+  default = "default",
   plus = "plus",
   minus = "minus",
   multiply = "multiply"
@@ -32,7 +34,7 @@ export class AttackModifier {
   id: string;
   type: AttackModifierType;
   value: number = 0;
-  valueType: AttackModifierValueType = AttackModifierValueType.plus;
+  valueType: AttackModifierValueType;
   shuffle: boolean = false;
   effects: AttackModifierEffect[];
   rolling: boolean;
@@ -40,11 +42,14 @@ export class AttackModifier {
   revealed: boolean = false;
   character: boolean = false;
 
-  constructor(type: AttackModifierType, value: number = 0, id: string | undefined = undefined, effects: AttackModifierEffect[] = [], rolling: boolean = false, active: boolean = false) {
+  constructor(type: AttackModifierType, value: number = 0, valueType: AttackModifierValueType = AttackModifierValueType.plus, id: string | undefined = undefined, effects: AttackModifierEffect[] = [], rolling: boolean = false, active: boolean = false) {
     this.type = type;
     this.value = value;
+    this.valueType = valueType;
     if (id) {
       this.id = id;
+    } else if (type == AttackModifierType.townguard) {
+      this.id =  'tg-' + valueType + value;
     } else {
       this.id = (type != AttackModifierType.plus && type != AttackModifierType.minus) ? type : (type + value);
     }
@@ -111,7 +116,7 @@ export class AttackModifier {
   }
 
   clone(): AttackModifier {
-    return new AttackModifier(this.type, this.value, this.id, this.effects ? JSON.parse(JSON.stringify(this.effects)) : [], this.rolling, this.active);
+    return new AttackModifier(this.type, this.value, this.valueType, this.id, this.effects ? JSON.parse(JSON.stringify(this.effects)) : [], this.rolling, this.active);
   }
 }
 
@@ -189,28 +194,28 @@ export const defaultAttackModifierCards: string[] = [
 
 export const defaultTownGuardAttackModifier: AttackModifier[] = [
   // 6x +0
-  new AttackModifier(AttackModifierType.plus0),
-  new AttackModifier(AttackModifierType.plus0),
-  new AttackModifier(AttackModifierType.plus0),
-  new AttackModifier(AttackModifierType.plus0),
-  new AttackModifier(AttackModifierType.plus0),
-  new AttackModifier(AttackModifierType.plus0),
+  new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default),
+  new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default),
+  new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default),
+  new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default),
+  new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default),
+  new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default),
   // 5x +10
-  new AttackModifier(AttackModifierType.plus, 10),
-  new AttackModifier(AttackModifierType.plus, 10),
-  new AttackModifier(AttackModifierType.plus, 10),
-  new AttackModifier(AttackModifierType.plus, 10),
-  new AttackModifier(AttackModifierType.plus, 10),
+  new AttackModifier(AttackModifierType.townguard, 10),
+  new AttackModifier(AttackModifierType.townguard, 10),
+  new AttackModifier(AttackModifierType.townguard, 10),
+  new AttackModifier(AttackModifierType.townguard, 10),
+  new AttackModifier(AttackModifierType.townguard, 10),
   // 1x +20
-  new AttackModifier(AttackModifierType.plus, 20),
+  new AttackModifier(AttackModifierType.townguard, 20),
   // 5x -10
-  new AttackModifier(AttackModifierType.minus, 10),
-  new AttackModifier(AttackModifierType.minus, 10),
-  new AttackModifier(AttackModifierType.minus, 10),
-  new AttackModifier(AttackModifierType.minus, 10),
-  new AttackModifier(AttackModifierType.minus, 10),
+  new AttackModifier(AttackModifierType.townguard, 10, AttackModifierValueType.minus),
+  new AttackModifier(AttackModifierType.townguard, 10, AttackModifierValueType.minus),
+  new AttackModifier(AttackModifierType.townguard, 10, AttackModifierValueType.minus),
+  new AttackModifier(AttackModifierType.townguard, 10, AttackModifierValueType.minus),
+  new AttackModifier(AttackModifierType.townguard, 10, AttackModifierValueType.minus),
   // 1x -20
-  new AttackModifier(AttackModifierType.minus, 20),
+  new AttackModifier(AttackModifierType.townguard, 20, AttackModifierValueType.minus),
   // 1x wreck
   new AttackModifier(AttackModifierType.wreck),
   // 1x success
@@ -219,23 +224,23 @@ export const defaultTownGuardAttackModifier: AttackModifier[] = [
 
 export const CsOakDeckAttackModifier: AttackModifier[] = [
   // 8x 2x
-  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-527', [new AttackModifierEffect(AttackModifierEffectType.condition, 'bless', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'allyShort')])]),
-  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-528', [new AttackModifierEffect(AttackModifierEffectType.condition, 'bless', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'allyShort')])]),
-  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-529', [new AttackModifierEffect(AttackModifierEffectType.heal, '2', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])]),
-  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-530', [new AttackModifierEffect(AttackModifierEffectType.heal, '2', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])]),
-  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-531', [new AttackModifierEffect(AttackModifierEffectType.element, 'wild')]),
-  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-532', [new AttackModifierEffect(AttackModifierEffectType.element, 'wild')]),
-  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-533', [new AttackModifierEffect(AttackModifierEffectType.custom, 'All enemies adjacent to the target suffer %game.damage:1%')]),
-  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-534', [new AttackModifierEffect(AttackModifierEffectType.custom, 'All enemies adjacent to the target suffer %game.damage:1%')]),
+  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-527', [new AttackModifierEffect(AttackModifierEffectType.condition, 'bless', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'allyShort')])]),
+  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-528', [new AttackModifierEffect(AttackModifierEffectType.condition, 'bless', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'allyShort')])]),
+  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-529', [new AttackModifierEffect(AttackModifierEffectType.heal, '2', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])]),
+  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-530', [new AttackModifierEffect(AttackModifierEffectType.heal, '2', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])]),
+  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-531', [new AttackModifierEffect(AttackModifierEffectType.element, 'wild')]),
+  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-532', [new AttackModifierEffect(AttackModifierEffectType.element, 'wild')]),
+  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-533', [new AttackModifierEffect(AttackModifierEffectType.custom, 'All enemies adjacent to the target suffer %game.damage:1%')]),
+  new AttackModifier(AttackModifierType.double, 2, AttackModifierValueType.multiply, 'cs-oak-534', [new AttackModifierEffect(AttackModifierEffectType.custom, 'All enemies adjacent to the target suffer %game.damage:1%')]),
   // 8x rolling
-  new AttackModifier(AttackModifierType.plus1, 1, 'cs-oak-535', [new AttackModifierEffect(AttackModifierEffectType.push, '2')], true),
-  new AttackModifier(AttackModifierType.plus1, 1, 'cs-oak-536', [new AttackModifierEffect(AttackModifierEffectType.push, '2')], true),
-  new AttackModifier(AttackModifierType.plus1, 1, 'cs-oak-537', [new AttackModifierEffect(AttackModifierEffectType.heal, '1', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])], true),
-  new AttackModifier(AttackModifierType.plus1, 1, 'cs-oak-538', [new AttackModifierEffect(AttackModifierEffectType.heal, '1', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])], true),
-  new AttackModifier(AttackModifierType.plus0, 0, 'cs-oak-539', [new AttackModifierEffect(AttackModifierEffectType.condition, 'wound'), new AttackModifierEffect(AttackModifierEffectType.condition, 'muddle')], true),
-  new AttackModifier(AttackModifierType.plus0, 0, 'cs-oak-540', [new AttackModifierEffect(AttackModifierEffectType.condition, 'wound'), new AttackModifierEffect(AttackModifierEffectType.condition, 'muddle')], true),
-  new AttackModifier(AttackModifierType.plus1, 1, 'cs-oak-541', [new AttackModifierEffect(AttackModifierEffectType.pierce, '3')], true),
-  new AttackModifier(AttackModifierType.plus1, 1, 'cs-oak-542', [new AttackModifierEffect(AttackModifierEffectType.pierce, '3')], true)
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'cs-oak-535', [new AttackModifierEffect(AttackModifierEffectType.push, '2')], true),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'cs-oak-536', [new AttackModifierEffect(AttackModifierEffectType.push, '2')], true),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'cs-oak-537', [new AttackModifierEffect(AttackModifierEffectType.heal, '1', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])], true),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'cs-oak-538', [new AttackModifierEffect(AttackModifierEffectType.heal, '1', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])], true),
+  new AttackModifier(AttackModifierType.plus0, 0, AttackModifierValueType.plus, 'cs-oak-539', [new AttackModifierEffect(AttackModifierEffectType.condition, 'wound'), new AttackModifierEffect(AttackModifierEffectType.condition, 'muddle')], true),
+  new AttackModifier(AttackModifierType.plus0, 0, AttackModifierValueType.plus, 'cs-oak-540', [new AttackModifierEffect(AttackModifierEffectType.condition, 'wound'), new AttackModifierEffect(AttackModifierEffectType.condition, 'muddle')], true),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'cs-oak-541', [new AttackModifierEffect(AttackModifierEffectType.pierce, '3')], true),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'cs-oak-542', [new AttackModifierEffect(AttackModifierEffectType.pierce, '3')], true)
 ];
 
 export class AttackModifierDeck {
@@ -259,6 +264,10 @@ export class AttackModifierDeck {
       if (!attackModifier) {
         attackModifier = CsOakDeckAttackModifier.find((attackModifier) => attackModifier.id == id);
       }
+      if (!attackModifier) {
+        attackModifier = defaultTownGuardAttackModifier.find((attackModifier) => attackModifier.id == id);
+      }
+      console.log(id, defaultTownGuardAttackModifier.map((am) => am.id));
       if (!attackModifier) {
         return undefined;
       }

@@ -350,4 +350,14 @@
       filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
     }
   }
+
+  &.town-guard {
+    .back {
+      background-image: url('~/src/assets/images/attackmodifier/town-guard/back.png');
+    }
+
+    .front .am-value.effects {
+      top: 43%;
+    }
+  }
 }

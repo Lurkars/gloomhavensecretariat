@@ -726,7 +726,7 @@
         "summer": "Sommer",
         "supply": "Versorgung von Frosthaven",
         "totalDefense": "Gesamte Verteidigung",
-        "townGuardPerks": "Verbesserungen Stadtgarde",
+        "townGuardPerks": "Verbesserungen Stadtwache",
         "weekSections": {
           ".": "Sektion für Woche {0} setzen",
           "addSection": "Sektion der Woche hinzufügen",
@@ -736,6 +736,7 @@
         },
         "winter": "Winter"
       },
+      "townGuardDeck": "Stadtwachendeck",
       "treasures": "Schätze"
     },
     "campaignMode": "Kampagnenmodus",
@@ -1441,7 +1442,7 @@
       "addNextStandee": "Aufsteller {1} {0} hinzufügen",
       "addObjective": "Ziel {0} hinzufügen",
       "addParty": "Neue Gruppe '{0}' erstellen",
-      "addPartyTownGuardPerkSection": "Verbesserung der Stadtgarde Sektion {1}",
+      "addPartyTownGuardPerkSection": "Verbesserung der Stadtwache Sektion {1}",
       "addPartyWeekSection": "Sektion {2} zur Woche {1} hinzufügen",
       "addRandomStandee": "Zufälliger Aufsteller {1} {0} {2} hinzufügen",
       "addResource": "+{2} {1} für {0}",
@@ -1568,7 +1569,7 @@
       "removeObjective": "Ziel {0} entfernen",
       "removeParty": "Gruppe '{0}' löschen",
       "removePartyAchievements": "Entferne Gruppenerfolg {0}",
-      "removePartyTownGuardPerkSection": "Sektion {1} von den Verbesserungen der Stadtgarde entfernen",
+      "removePartyTownGuardPerkSection": "Sektion {1} von den Verbesserungen der Stadtwache entfernen",
       "removePartyWeekSection": "Sektion {2} von Woche {1} entfernen",
       "removePlayer": "Entferne Spieler {1} ({0})",
       "removeScenarioRule": "Szenario Regel ausblenden",
@@ -1615,7 +1616,7 @@
       "setPartyResource": "Frosthaven Versorung {1} auf {2} setzen",
       "setPartySoldiers": "Soldaten auf {0}",
       "setPartyTotalDefense": "Komplette Verteidigung auf {1}",
-      "setPartyTownGuardPerks": "Verbesserungen der Stadtgarde auf {0}",
+      "setPartyTownGuardPerks": "Verbesserungen der Stadtwache auf {0}",
       "setPartyWeeks": "Weeks to {0}",
       "setPerk": "Verbesserung {1} auf {2} für {0}",
       "setPlayer": "Spieler {1} auf {0}",

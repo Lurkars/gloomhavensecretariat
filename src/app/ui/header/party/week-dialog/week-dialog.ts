@@ -1,7 +1,6 @@
 import { DIALOG_DATA, Dialog } from "@angular/cdk/dialog";
 import { Component, Inject } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
-import { CampaignData } from "src/app/game/model/data/EditionData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ScenarioConclusionComponent } from "../../../footer/scenario/scenario-conclusion/scenario-conclusion";
 import { Scenario } from "src/app/game/model/Scenario";
@@ -18,19 +17,9 @@ export class PartyWeekDialogComponent {
 
     constructor(@Inject(DIALOG_DATA) public week: number, private dialog: Dialog) { }
 
-    campaignData(): CampaignData | undefined {
-        const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.currentEdition());
-
-        if (editionData && editionData.campaign) {
-            return editionData.campaign;
-        }
-
-        return undefined;
-    }
-
     sectionsFixed(): string[] {
-        const campaign = this.campaignData();
-        if (campaign && campaign.weeks && campaign.weeks[this.week]) {
+        const campaign = gameManager.campaignData();
+        if (campaign.weeks && campaign.weeks[this.week]) {
             return campaign.weeks[this.week] || [];
         }
         return [];

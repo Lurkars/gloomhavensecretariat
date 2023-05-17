@@ -17,17 +17,19 @@ export class AttackModifierDeckFullscreenComponent {
   ally: boolean;
   numeration: string = "";
   newStyle: boolean = false;
+  townGuard: boolean = false;
   before: EventEmitter<AttackModiferDeckChange>;
   after: EventEmitter<AttackModiferDeckChange>;
 
   gameManager: GameManager = gameManager;
 
-  constructor(@Inject(DIALOG_DATA) data: { deck: AttackModifierDeck, character: Character, ally: boolean, numeration: string, newStyle: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }, public dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) data: { deck: AttackModifierDeck, character: Character, ally: boolean, numeration: string, newStyle: boolean, townGuard: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }, public dialogRef: DialogRef) {
     this.deck = data.deck;
     this.character = data.character;
     this.ally = data.ally;
     this.numeration = data.numeration;
     this.newStyle = data.newStyle;
+    this.townGuard = data.townGuard;
     this.before = data.before;
     this.after = data.after;
   };

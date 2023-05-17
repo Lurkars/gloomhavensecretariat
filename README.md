@@ -4,17 +4,23 @@
 
 [![Publish Latest Online Version](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/latest.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/latest.yml) [![Build and Publish Release](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/release.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/release.yml) [![Publish Docker Image](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml)
 
-*Gloomhaven Secretariat* is a **Gloomhaven/Frosthaven companion app** that keeps track of all entity values to allow more focus on gameplay. It is an open source web application built with [Angular] (https://angular.io/).
+<img width="776" alt="image" src="./resources/Screenshot.png">
 
-Since GHS is a web application, no installation is required and it runs in any modern browser, even on mobile devices, but it can also be [installed](#install) for offline use.
+> Scenario 1 of Gloomhaven with starting classes of different editions
 
-For use with multiple clients sharing the same game, the server component [Gloomhaven Secretariat Server](https://github.com/Lurkars/ghs-server) is required. A public instance is available at `gloomhaven-secretariat.de` port `8443` with `secure` option. (I also maintain a public server list, so please contact me if you're running a public instance yourself).
+## Introduction
 
-GHS is based on the look and feel of the original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)). Since GHH has been discontinued and is no longer available, GHS should become a well maintained successor, implementing all the functionality of GHH, many improvements and many more features. For a comparison of some popular apps, see [Comparison of Companion Apps](./resources/app-comparison.md).
+*Gloomhaven Secretariat* is a  **companion app** for Gloomhaven based board games. The app supports all official editions namely **Gloomhaven**, **Frosthaven**, **Jaws of the Lion** and **Forgotten Circles**, the community editions **The Crimson Scales** and **Trail of Ashes** as well as **Solo** scenarios and custom content.
 
-As open source software this is meant for the community to actively [contribute](#contributing) with ideas, suggestions and of course feedback. As I am not capable of good design/UX, feel free to contribute better assets. 
+*GHS* is a complete replacement for the abandoned original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) app (by [Esoteric Software®](http://esotericsoftware.com)), enhanced with more tracking and automation features. As a single-screen web application, *GHS* helps manage scenario play by tracking character and monster turns, automatically setting up monsters separately for each room or section, assisting with scenario-specific rules, attack modifiers, loot deck, and much more. *GHS* also tracks your progress on the Character, Party and Campaign sheets, allowing you to buy and equip items, loot treasures, apply all scenario rewards, register scenario unlocks and manages your outpost. For a more detailed feature list, including a comparison of some popular applications, see [Comparison of Companion Apps](./resources/app-comparison.md).
 
-If you need help using the app, have a look at the [help page](https://help.gloomhaven-secretariat.de). It is not complete, but should help with all the general steps to use GHS properly.
+Multiple clients are supported by a server component [Gloomhaven Secretariat Server](https://github.com/Lurkars/ghs-server) with a public instance available at `gloomhaven-secretariat.de`.
+
+As *GHS* is a web application, no installation is required and it runs in any modern browser, even on mobile devices, but it can also be [installed](#install) for offline use.
+
+*Gloomhaven Secretariat is open source software built with [Angular](https://angular.io/) and is intended for the community to actively [contribute](#contributing) with ideas, suggestions and of course feedback.
+
+A basic user guide is available [online](https://help.gloomhaven-secretariat.de).
 
 > SPOILER WARNING:
 > The `label-spoiler.json` files in the `data` folders, and therefore the final edition data files in the releases in the `./assets/data` folder, contain spoilers by including the appropriate label. 
@@ -32,7 +38,7 @@ If you need help using the app, have a look at the [help page](https://help.gloo
   - **Initiative** sorting
   - **Health** automatic exhaust/dead, max values for each level
   - **Conditions** auto expire + auto apply (wound, wound_x, regen, bane, poison, poison_x, ward, brittle)
-  - **Level**, *Investment**, *Experience** of characters
+  - **Level**, **Loot**, **Experience** of characters
   - **Character Progression** Level, loot, experience, items, battlegoals, perks, masteries
   - **Character Attack Modifier Deck** including Perks & CS Oak Cards
   - **Elements** automatic update status
@@ -45,7 +51,7 @@ If you need help using the app, have a look at the [help page](https://help.gloo
   - **Party Sheet**
   - **Campaign Management** (some special rules for CS are missing)
   - **Markers**
-  - **Treasures** (WIP)
+  - **Treasures**
 - Elimination of the following physical components
   - monster ability cards
   - monster stat cards

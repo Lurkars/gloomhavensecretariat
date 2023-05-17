@@ -41,8 +41,10 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
   @ViewChild('menu') menuElement!: ElementRef;
   @Input('fullscreen') fullscreen: boolean = true;
   @Input('vertical') vertical: boolean = false;
+  @Input() townGuard: boolean = false;
   @Input() standalone: boolean = false;
   @Input() edition!: string;
+  @Input() init: boolean = false;
 
   gameManager: GameManager = gameManager;
   GameState = GameState;
@@ -63,7 +65,6 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
   rollingIndex: number[] = [];
   rollingIndexPrev: number[] = [];
   compact: boolean = false;
-  init: boolean = false;
   initServer: boolean = false;
 
   @ViewChild('drawCard') drawCard!: ElementRef;
@@ -92,11 +93,13 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
       this.rollingIndexPrev[index] = this.calcRollingIndex(index, this.current - 1);
     });
 
-    this.drawTimeout = setTimeout(() => {
-      this.current = this.deck.current;
-      this.drawTimeout = null;
-      this.init = true;
-    }, settingsManager.settings.disableAnimations ? 0 : 1500)
+    if (!this.init) {
+      this.drawTimeout = setTimeout(() => {
+        this.current = this.deck.current;
+        this.drawTimeout = null;
+        this.init = true;
+      }, settingsManager.settings.disableAnimations ? 0 : 1500)
+    }
 
     this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: (fromServer: boolean) => {
@@ -145,7 +148,6 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
           this.rollingIndex[index] = this.calcRollingIndex(index, this.current);
           this.rollingIndexPrev[index] = this.calcRollingIndex(index, this.current - 1);
         });
-
 
         this.compact = settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
       }
@@ -196,9 +198,10 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
   }
 
   draw(event: any) {
+    console.log(this.drawTimeout, this.deck.current, this.deck.cards.length, this.queue);
     if (this.compact && this.fullscreen) {
       this.openFullscreen(event);
-    } else if (this.standalone || gameManager.game.state == GameState.next) {
+    } else if (this.standalone || !this.townGuard && gameManager.game.state == GameState.next || this.townGuard && !gameManager.game.scenario) {
       if (!this.drawTimeout && this.deck.current < (this.deck.cards.length - (this.queue == 0 ? 0 : 1))) {
         this.drawTimeout = setTimeout(() => {
           this.before.emit(new AttackModiferDeckChange(this.deck, "draw"));
@@ -221,6 +224,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
         ally: this.ally,
         numeration: this.numeration,
         newStyle: this.newStyle,
+        townGuard: this.townGuard,
         before: this.before,
         after: this.after
       }
@@ -277,6 +281,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
           ally: this.ally,
           numeration: this.numeration,
           newStyle: this.newStyle,
+          townGuard: this.townGuard,
           before: this.before,
           after: this.after
         }

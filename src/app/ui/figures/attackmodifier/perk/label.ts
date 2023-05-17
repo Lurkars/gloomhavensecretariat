@@ -51,7 +51,7 @@ export class PerkLabelComponent {
 
     attackModifierHtml(attackModifier: AttackModifier): string {
         let html = "";
-        attackModifier = new AttackModifier(attackModifier.type, attackModifier.value, attackModifier.id, attackModifier.effects, attackModifier.rolling);
+        attackModifier = new AttackModifier(attackModifier.type, attackModifier.value, attackModifier.valueType, attackModifier.id, attackModifier.effects, attackModifier.rolling);
 
         html += '<span class="attack-modifier-container">'
 

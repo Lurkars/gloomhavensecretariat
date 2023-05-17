@@ -344,7 +344,7 @@
         height: auto;
         filter: var(--ghs-filter-white);
       }
-      
+
       .value {
         color: var(--ghs-color-black);
       }
@@ -608,6 +608,43 @@
             .value {
               top: 15%;
             }
+          }
+        }
+      }
+    }
+
+    &.town-guard {
+      top: 70%;
+      left: 49.5%;
+      width: 34%;
+      height: 22%;
+      transform: translate(-50%, -50%);
+
+      &.custom .custom-value-container {
+
+        .custom-value {
+          font-family: ghs-title;
+          font-size: 0.8em;
+        }
+      }
+
+      &.center {
+        top: 50%;
+        left: 49.5%;
+        width: 34%;
+        height: 52%;
+        transform: translate(-50%, -50%);
+
+        &.custom .custom-value-container {
+          min-width: 130%;
+          width: auto;
+          height: auto;
+          top: initial;
+
+          .custom-value {
+            font-family: ghs-title;
+            font-size: 2.6em;
+            text-shadow: var(--ghs-outline-thin);
           }
         }
       }

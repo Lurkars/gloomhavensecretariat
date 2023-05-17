@@ -4,7 +4,7 @@ import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
-import { CampaignData, FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS, TownGuardPerk } from "src/app/game/model/data/EditionData";
+import { FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "src/app/game/model/data/EditionData";
 import { ItemData } from "src/app/game/model/data/ItemData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { Identifier } from "src/app/game/model/data/Identifier";
@@ -69,13 +69,14 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         }
       }
     })
-    this.update();
     this.fhSheet = gameManager.fhRules();
     this.csSheet = !this.fhSheet && gameManager.editionRules('cs');
 
     if (this.fhSheet) {
       this.prosperitySteps = FH_PROSPERITY_STEPS;
     }
+
+    this.update();
   }
 
   uiChangeSubscription: Subscription | undefined;
@@ -472,15 +473,14 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       this.priceModifier = Math.floor((this.party.reputation + 2) / 4) * -1;
     }
 
-    const campaign = this.campaignData();
-    if (campaign) {
-      this.townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.party, campaign);
-      if (this.party.townGuardDeck) {
-        this.townGuardDeck.fromModel(this.party.townGuardDeck);
-      } else {
-        this.party.townGuardDeck = this.townGuardDeck.toModel();
-      }
+    const campaign = gameManager.campaignData();
+    this.townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.party, campaign);
+    if (this.party.townGuardDeck) {
+      this.townGuardDeck.fromModel(this.party.townGuardDeck);
+    } else {
+      this.party.townGuardDeck = this.townGuardDeck.toModel();
     }
+    this.townGuardDeck.active = false;
 
     this.calendarSheet = Math.floor(this.party.weeks / 81);
     this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && Object.keys(figure.progress.loot).some((type) => figure.progress.loot[type as LootType])).map((figure) => figure as Character);
@@ -546,19 +546,9 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     gameManager.stateManager.after();
   }
 
-  campaignData(): CampaignData | undefined {
-    const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.currentEdition());
-
-    if (editionData && editionData.campaign) {
-      return editionData.campaign;
-    }
-
-    return undefined;
-  }
-
   sectionsForWeekFixed(week: number): string[] {
-    const campaign = this.campaignData();
-    if (campaign && campaign.weeks && campaign.weeks[week + 1]) {
+    const campaign = gameManager.campaignData();
+    if (campaign.weeks && campaign.weeks[week + 1]) {
       return campaign.weeks[week + 1] || [];
     }
     return [];
@@ -637,16 +627,6 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     // TODO: remove week
     gameManager.stateManager.after();
     this.update();
-  }
-
-  townGuardPerks(): TownGuardPerk[] {
-    const campaign = this.campaignData();
-
-    if (campaign && campaign.townGuardPerks) {
-      return campaign.townGuardPerks;
-    }
-
-    return [];
   }
 
   setWeek(value: number) {
@@ -777,6 +757,10 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       } else {
         this.party.townGuardPerkSections.splice(index, 1);
       }
+
+      this.townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.party, gameManager.campaignData());
+      this.party.townGuardDeck = this.townGuardDeck.toModel();
+
       gameManager.stateManager.after();
     }
   }
@@ -787,8 +771,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       this.party.campaignStickers = this.party.campaignStickers || [];
 
       let total = 1;
-      const campaign = this.campaignData();
-      if (campaign && campaign.campaignStickers) {
+      const campaign = gameManager.campaignData();
+      if (campaign.campaignStickers) {
         const campaignSticker = campaign.campaignStickers.find((campaignSticker) => campaignSticker.startsWith(sticker.toLowerCase().replaceAll(' ', '-') + ':'));
         if (campaignSticker) {
           total = +(campaignSticker.split(':')[1]);
@@ -816,11 +800,11 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   campaignStickerImage(stringValue: string, stickerIndex: number): string | undefined {
-    const campaign = this.campaignData();
+    const campaign = gameManager.campaignData();
     const sticker = stringValue.toLowerCase().replaceAll(' ', '-');
 
     let total = 0;
-    if (campaign && campaign.campaignStickers) {
+    if (campaign.campaignStickers) {
       const campaignSticker = campaign.campaignStickers.find((campaignSticker) => campaignSticker == sticker || campaignSticker.startsWith(sticker));
       if (campaignSticker) {
         if (campaignSticker.indexOf(':') != -1) {

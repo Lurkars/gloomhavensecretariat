@@ -13,6 +13,7 @@ export class AttackModifierEffectsComponent {
   @Input() attackModifier!: AttackModifier;
   @Input() effects!: AttackModifierEffect[];
   @Input() newStyle: boolean = false;
+  @Input() townGuard: boolean = false;
 
   settingsManager: SettingsManager = settingsManager;
 

@@ -31,6 +31,10 @@
       background-image: url('~/src/assets/images/attackmodifier/am-back.png');
       border-radius: 5%;
 
+      &.town-guard {
+        background-image: url('~/src/assets/images/attackmodifier/town-guard/back.png');
+      }
+
       .number {
         display: flex;
         align-items: center;
@@ -75,6 +79,12 @@
         background-size: 100% auto;
         background-repeat: no-repeat;
         background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
+        transition: transform 500ms ease-in-out;
+        transform: scale(1);
+
+        &.minimize {
+          transform: scale(0);
+        }
 
         &.vertical {
           left: initial;

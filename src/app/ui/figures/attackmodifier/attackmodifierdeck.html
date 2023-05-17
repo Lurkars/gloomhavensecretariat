@@ -6,24 +6,25 @@
     [ghs-label-attribute]="'title'"
     [ngClass]="{'open-dialog' : gameManager.game.state == GameState.draw, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers && (!character || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition])}"
     [style.z-index]="deck.cards.length + 1" [style.fontSize]="drawCard.offsetWidth * 0.08 + 'px'">
-    <div class="am" (click)="draw($event)">
+    <div class="am" (click)="draw($event)" [ngClass]="{'town-guard' : townGuard }">
       <span class="number" [ngClass]="{'has-shuffle' : deck.current == deck.cards.length -1}"> {{ deck.current <
           deck.cards.length -1 ? deck.cards.length - deck.current - 1 : '' }} </span>
           <img *ngIf="deck.current == deck.cards.length -1" class="shuffle" [ghs-label]="'game.cards.openDialog'"
             [ghs-label-attribute]="'title'" src="./assets/images/shuffle.svg">
 
           <span class="fullscreen" [ghs-label]="'game.cards.fullscreen'" [ghs-label-attribute]="'title'"
-            *ngIf="fullscreen && !compact" [ngClass]="{'vertical' : vertical}" (click)="openFullscreen($event)">
+            *ngIf="fullscreen && !compact" [ngClass]="{'vertical' : vertical, 'minimize' : !deck.active}"
+            (click)="openFullscreen($event)">
             <img src="./assets/images/fullscreen.svg">
           </span>
 
           <span class="settings" [ghs-label]="'game.cards.openDialog'" [ghs-label-attribute]="'title'"
             (click)="open($event)" *ngIf="!compact || vertical"
-            [ngClass]="{'vertical' : vertical, 'without-fullscreen' : !fullscreen}">
+            [ngClass]="{'vertical' : vertical, 'without-fullscreen' : !fullscreen, 'minimize' : !deck.active}">
             <img class="ghs-svg" src="./assets/images/settings.svg">
           </span>
 
-          <span *ngIf="!characterIcon && !bottom" class="numeration">{{numeration}}</span>
+          <span *ngIf="!characterIcon && !townGuard && !bottom" class="numeration">{{numeration}}</span>
           <span *ngIf="characterIcon && !bottom" class="character-icon">
             <img [src]="characterIcon" />
           </span>
@@ -39,7 +40,7 @@
       [ghs-label]="'game.cards.openDialog'" [ghs-label-attribute]="'title'" (click)="clickCard(index, $event)">
       <ghs-attackmodifier class="am" [attackModifier]="attackModifier" [numeration]="numeration"
         [characterIcon]="characterIcon" [ally]="ally" [flipped]="index <= current"
-        [disableFlip]="!drawing || index != current" [newStyle]="newStyle">
+        [disableFlip]="!drawing || index != current" [newStyle]="newStyle" [townGuard]="townGuard">
       </ghs-attackmodifier>
     </div>
   </ng-container>

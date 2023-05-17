@@ -3,7 +3,6 @@ import { Component, Input, OnInit } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { Party } from "src/app/game/model/Party";
 import { BuildingCosts, BuildingData, BuildingModel } from "src/app/game/model/data/BuildingData";
-import { CampaignData } from "src/app/game/model/data/EditionData";
 import { LootType } from "src/app/game/model/data/Loot";
 import { BuildingRepairDialog } from "./repair";
 import { Character } from "src/app/game/model/Character";
@@ -37,29 +36,27 @@ export class PartyBuildingsComponent implements OnInit {
 
   updateBuildings() {
     this.buildings = [];
-    const campaign = this.campaignData();
-    if (campaign) {
+    const campaign = gameManager.campaignData();
 
-      campaign.buildings.filter((buildingData) => this.initialBuilding(buildingData)).forEach((buildingData) => {
-        if (!this.party.buildings.find((model) => buildingData.name == model.name)) {
-          this.party.buildings.push(new BuildingModel(buildingData.name, 1));
-        }
-      })
+    campaign.buildings.filter((buildingData) => this.initialBuilding(buildingData)).forEach((buildingData) => {
+      if (!this.party.buildings.find((model) => buildingData.name == model.name)) {
+        this.party.buildings.push(new BuildingModel(buildingData.name, 1));
+      }
+    })
 
-      campaign.buildings.filter((buildingData) => buildingData.prosperityUnlock && buildingData.costs.prosperity <= gameManager.prosperityLevel()).forEach((buildingData) => {
-        if (!this.party.buildings.find((model) => buildingData.name == model.name)) {
-          if (!buildingData.requires || this.party.buildings.find((model) => model.name == buildingData.requires))
-            this.party.buildings.push(new BuildingModel(buildingData.name, 0));
-        }
-      })
+    campaign.buildings.filter((buildingData) => buildingData.prosperityUnlock && buildingData.costs.prosperity <= gameManager.prosperityLevel()).forEach((buildingData) => {
+      if (!this.party.buildings.find((model) => buildingData.name == model.name)) {
+        if (!buildingData.requires || this.party.buildings.find((model) => model.name == buildingData.requires))
+          this.party.buildings.push(new BuildingModel(buildingData.name, 0));
+      }
+    })
 
-      this.party.buildings.forEach((model) => {
-        const data = campaign.buildings.find((buildingData) => buildingData.name == model.name);
-        if (data) {
-          this.buildings.push({ model: model, data: data });
-        }
-      })
-    }
+    this.party.buildings.forEach((model) => {
+      const data = campaign.buildings.find((buildingData) => buildingData.name == model.name);
+      if (data) {
+        this.buildings.push({ model: model, data: data });
+      }
+    })
 
     this.buildings.sort((a, b) => {
       if (a.model.level && !b.model.level) {
@@ -88,21 +85,11 @@ export class PartyBuildingsComponent implements OnInit {
     return buildingData.costs.prosperity == 0 && buildingData.costs.lumber == 0 && buildingData.costs.metal == 0 && buildingData.costs.hide == 0 && buildingData.costs.gold == 0;
   }
 
-  campaignData(): CampaignData | undefined {
-    const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.currentEdition());
-
-    if (editionData && editionData.campaign) {
-      return editionData.campaign;
-    }
-
-    return undefined;
-  }
-
   unlockBuilding(buildingElement: HTMLInputElement) {
     const building = buildingElement.value;
     this.party.buildings = this.party.buildings || [];
-    const campaign = this.campaignData();
-    if (campaign && campaign.buildings && building) {
+    const campaign = gameManager.campaignData();
+    if (campaign.buildings && building) {
       const buildingData = campaign.buildings.find((buildingData) => buildingData.name == building.toLowerCase().replaceAll(' ', '-') || buildingData.id == building || !isNaN(+buildingData.id) && !isNaN(+building) && +buildingData.id == +building);
       if (buildingData && !this.party.buildings.find((buildingModel) => buildingModel.name == buildingData.name)) {
         gameManager.stateManager.before("addBuilding", "data.buildings." + buildingData.name);

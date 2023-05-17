@@ -57,26 +57,30 @@
                     {
                         "count": 1,
                         "attackModifier": {
-                            "type": "minus",
+                            "type": "townguard",
+                            "valueType": "minus",
                             "value": 10
                         }
                     },
                     {
                         "count": 1,
                         "attackModifier": {
-                            "type": "plus",
+                            "type": "townguard",
+                            "valueType": "plus",
                             "value": 30
                         }
                     },
                     {
                         "count": 1,
                         "attackModifier": {
-                            "type": "minus",
+                            "type": "townguard",
+                            "valueType": "minus",
                             "value": 20,
                             "effects": [
                                 {
                                     "type": "custom",
-                                    "value": "Gain any one material resource"
+                                    "value": "+1 material resource",
+                                    "hint":"Gain any one material resource"
                                 }
                             ]
                         }
@@ -95,26 +99,30 @@
                     {
                         "count": 2,
                         "attackModifier": {
-                            "type": "plus",
+                            "type": "townguard",
+                            "valueType": "plus",
                             "value": 10
                         }
                     },
                     {
                         "count": 2,
                         "attackModifier": {
-                            "type": "plus",
+                            "type": "townguard",
+                            "valueType": "plus",
                             "value": 30
                         }
                     },
                     {
                         "count": 1,
                         "attackModifier": {
-                            "type": "minus",
+                            "type": "townguard",
+                            "valueType": "minus",
                             "value": 20,
                             "effects": [
                                 {
                                     "type": "custom",
-                                    "value": "Gain any two material resources"
+                                    "value": "+2 material resource",
+                                    "hint": "Gain any two material resources"
                                 }
                             ]
                         }
@@ -133,14 +141,16 @@
                     {
                         "count": 1,
                         "attackModifier": {
-                            "type": "minus",
+                            "type": "townguard",
+                            "valueType": "minus",
                             "value": 10
                         }
                     },
                     {
                         "count": 1,
                         "attackModifier": {
-                            "type": "plus",
+                            "type": "townguard",
+                            "valueType": "plus",
                             "value": 10
                         }
                     }
@@ -158,13 +168,16 @@
                     {
                         "count": 2,
                         "attackModifier": {
-                            "type": "plus0"
+                            "type": "townguard",
+                            "valueType": "default",
+                            "value": 0
                         }
                     },
                     {
                         "count": 1,
                         "attackModifier": {
-                            "type": "plus",
+                            "type": "townguard",
+                            "valueType": "plus",
                             "value": 10
                         }
                     }
@@ -182,20 +195,23 @@
                     {
                         "count": 2,
                         "attackModifier": {
-                            "type": "plus",
+                            "type": "townguard",
+                            "valueType": "plus",
                             "value": 10
                         }
                     },
                     {
                         "count": 2,
                         "attackModifier": {
-                            "type": "plus",
+                            "type": "townguard",
+                            "valueType": "plus",
                             "value": 10,
                             "rolling": true,
                             "effects": [
                                 {
                                     "type": "custom",
-                                    "value": "Gain Advantage on this target"
+                                    "value": "advantage",
+                                    "hint": "Gain Advantage on this target"
                                 }
                             ]
                         }
@@ -214,7 +230,8 @@
                     {
                         "count": 1,
                         "attackModifier": {
-                            "type": "plus",
+                            "type": "townguard",
+                            "valueType": "plus",
                             "value": 30
                         }
                     }
@@ -231,13 +248,15 @@
                     {
                         "count": 2,
                         "attackModifier": {
-                            "type": "plus",
+                            "type": "townguard",
+                            "valueType": "default",
                             "value": 0,
                             "rolling": true,
                             "effects": [
                                 {
                                     "type": "custom",
-                                    "value": "Gain one Hide"
+                                    "value": "+1%game.resource.hide%",
+                                    "hint": "Gain one Hide"
                                 }
                             ]
                         }
@@ -255,13 +274,15 @@
                     {
                         "count": 2,
                         "attackModifier": {
-                            "type": "plus",
+                            "type": "townguard",
+                            "valueType": "default",
                             "value": 0,
                             "rolling": true,
                             "effects": [
                                 {
                                     "type": "custom",
-                                    "value": "Gain one Lumber"
+                                    "value": "+1%game.resource.lumber%",
+                                    "hint": "Gain one Lumber"
                                 }
                             ]
                         }
@@ -279,13 +300,15 @@
                     {
                         "count": 2,
                         "attackModifier": {
-                            "type": "plus",
+                            "type": "townguard",
+                            "valueType": "default",
                             "value": 0,
                             "rolling": true,
                             "effects": [
                                 {
                                     "type": "custom",
-                                    "value": "Gain one Metal"
+                                    "value": "+1%game.resource.metal%",
+                                    "hint": "Gain one Metal"
                                 }
                             ]
                         }

@@ -19,6 +19,7 @@ export class AttackModifierComponent implements OnInit, OnChanges {
   @Input() disableFlip: boolean = false;
   @Input() flipped: boolean = false;
   @Input() newStyle: boolean = false;
+  @Input() townGuard: boolean = false;
   effectClasses: string = "";
   AttackModifierType = AttackModifierType;
   AttackModifierValueType = AttackModifierValueType;

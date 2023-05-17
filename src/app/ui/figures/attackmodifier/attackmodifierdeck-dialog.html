@@ -1,5 +1,6 @@
 <div class="attack-modifiers-dialog">
-  <a class="close" (click)="dialogRef.close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'"><img src="./assets/images/close.svg"></a>
+  <a class="close" (click)="dialogRef.close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'"><img
+      src="./assets/images/close.svg"></a>
   <div class="scroll-container">
     <div class="menu" #menu
       [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers && (!character || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition])}">
@@ -14,7 +15,7 @@
       <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit"><span
           [ghs-label]="'game.cards.edit'"></span></label>
 
-      <div class="curse-bless" *ngIf="!edit">
+      <div class="curse-bless" *ngIf="!edit && !townGuard">
         <span class="item">
           <a class="button" [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) == 0}"
             (click)="changeBless(-1)">
@@ -80,7 +81,7 @@
 
 
       <a *ngIf="edit" (click)="restoreDefault()"><span [ghs-label]="'game.cards.restore'"></span></a>
-      <div *ngIf="edit" class="insert-menu">
+      <div *ngIf="edit && !townGuard" class="insert-menu">
         <a class="icon-button" (click)="newFirst(type)"><img class="ghs-svg" src="./assets/images/plus.svg"></a>
         <a class="icon-button" (click)="changeType(true)"><img class="ghs-svg" src="./assets/images/left.svg"></a>
         <span class="attack-modifier"><img src="./assets/images/attackmodifier/{{type}}.png" /></span>
@@ -98,7 +99,7 @@
           cdkDrag>
           <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
             [reveal]="true" [flipped]="reveal == 2 || attackModifier.revealed" [newStyle]="newStyle"
-            [characterIcon]="characterIcon" [ally]="ally">
+            [characterIcon]="characterIcon" [ally]="ally" [townGuard]="townGuard">
           </ghs-attackmodifier>
           <a class="button-remove" *ngIf="edit" (click)="remove(index + deck.current + 1)">
             <img class="ghs-svg" src="./assets/images/minus.svg"></a>
@@ -114,7 +115,8 @@
         <div class="attack-modifier-container" *ngFor="let attackModifier of disgardedCards(); let index = index"
           cdkDrag>
           <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
-            [flipped]="true" [newStyle]="newStyle" [characterIcon]="characterIcon" [ally]="ally"></ghs-attackmodifier>
+            [flipped]="true" [newStyle]="newStyle" [characterIcon]="characterIcon" [ally]="ally"
+            [townGuard]="townGuard"></ghs-attackmodifier>
           <a class="button-remove" *ngIf="edit" (click)="remove(deck.current - index)">
             <img class="ghs-svg" src="./assets/images/minus.svg"></a>
           <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>

@@ -2,7 +2,7 @@ import { Ability } from "../model/data/Ability";
 import { Character } from "../model/Character";
 import { CharacterData } from "../model/data/CharacterData";
 import { DeckData } from "../model/data/DeckData";
-import { EditionData, FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "../model/data/EditionData";
+import { CampaignData, EditionData, FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "../model/data/EditionData";
 import { MonsterData } from "../model/data/MonsterData";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
@@ -659,6 +659,16 @@ export class GameManager {
     }
 
     return ElementState.inert;
+  }
+
+  campaignData(): CampaignData {
+    const editionData = this.editionData.find((editionData) => editionData.edition == this.currentEdition());
+
+    if (editionData && editionData.campaign) {
+      return editionData.campaign;
+    }
+
+    return new CampaignData();
   }
 
 }

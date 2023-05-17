@@ -30,6 +30,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   characterIcon: string = "";
   ally: boolean = false;
   newStyle: boolean = false;
+  townGuard: boolean = false;
 
   AttackModifierType = AttackModifierType;
   type: AttackModifierType = AttackModifierType.minus1;
@@ -37,12 +38,13 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   drawing: boolean = false;
 
 
-  constructor(@Inject(DIALOG_DATA) data: { deck: AttackModifierDeck, character: Character, ally: boolean, numeration: string, newStyle: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }, public dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) data: { deck: AttackModifierDeck, character: Character, ally: boolean, numeration: string, newStyle: boolean, townGuard: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }, public dialogRef: DialogRef) {
     this.deck = data.deck;
     this.character = data.character;
     this.ally = data.ally;
     this.numeration = data.numeration;
     this.newStyle = data.newStyle;
+    this.townGuard = data.townGuard;
     this.before = data.before;
     this.after = data.after;
     this.dialogRef.closed.subscribe(() => {
@@ -93,8 +95,11 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     if (this.character) {
       this.character.mergeAttackModifierDeck(gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character));
       this.deck.fromModel(this.character.attackModifierDeck.toModel());
+    } else if (this.townGuard) {
+      this.deck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(gameManager.game.party, gameManager.campaignData());
     } else {
       this.deck = new AttackModifierDeck();
+      gameManager.game.party.townGuardDeck = this.deck.toModel();
     }
     this.after.emit(new AttackModiferDeckChange(this.deck, "restoreDefault"));
   }
