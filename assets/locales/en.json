@@ -750,7 +750,8 @@
     },
     "boss": "Boss",
     "cancelNumberpicker": "Cancel",
-    "changeType": "Change type from %monster.{0}% to %monster.{1}%",
+    "changeStandee": "Change %game.monsterType.{0}% standee #{1}",
+    "changeType": "Change type from %game.monsterType.{0}% to %game.monsterType.{1}%",
     "elite": "Elite",
     "normal": "Normal",
     "remove": "Remove Monster",
@@ -824,18 +825,28 @@
         "buildings": {
           ".": "Buildings",
           "action": "Action",
-          "build": "Build",
+          "build": {
+            ".": "Build",
+            "hint": "Build (force with doubleclick)"
+          },
           "costs": "Action Costs",
           "id": "Number",
           "level": "Level",
           "name": "Name",
-          "rebuild": "Rebuild",
+          "rebuild": {
+            ".": "Rebuild",
+            "hint": "Rebuild (force with doubleclick)"
+          },
           "repair": {
             ".": "Repair building",
-            "costs": "Any {0}"
+            "costs": "Any {0}",
+            "hint": "Repair building (force with doubleclick)"
           },
           "unlock": "Unlock building",
-          "upgrade": "Upgrade Building"
+          "upgrade": {
+            ".": "Upgrade Building",
+            "hint": "Upgrade Building (force with doubleclick)"
+          }
         },
         "campaignStickers": "Campaign Stickers",
         "defense": "Defense",
@@ -855,6 +866,7 @@
           ".": "Set Sections for week {0}",
           "addSection": "Add Section to week",
           "calc": "{0} weeks from current week",
+          "hint": "Doubleclick to set/edit sections for week",
           "openConclusion": "Select continuing section",
           "section": "Section"
         },
@@ -1307,6 +1319,10 @@
     "characterAttackModifierDeck": {
       ".": "Character Attack Modifier Deck",
       "hint": "Enable Attack Modifier Deck for Characters. To use perks the Character Sheet must be enabled."
+    },
+    "characterAttackModifierDeckPermanent": {
+      ".": "Permanent Character AM Deck",
+      "hint": "Display Attack Modifier Deck permanent under Character."
     },
     "characterHandSize": {
       ".": "Display hand size",

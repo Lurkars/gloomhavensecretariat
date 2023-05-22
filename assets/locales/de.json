@@ -626,7 +626,8 @@
     },
     "boss": "Boss",
     "cancelNumberpicker": "Abbrechen",
-    "changeType": "Ändere Typ von %monster.{0}% zu %monster.{1}%",
+    "changeStandee": "%game.monsterType.{0}% Aufsteller #{1} ändern",
+    "changeType": "Ändere Type von %game.monsterType.{0}% ui %game.monsterType.{1}%",
     "elite": "Elite",
     "normal": "Normal",
     "remove": "Monster entfernen",
@@ -700,18 +701,28 @@
         "buildings": {
           ".": "Gebäude",
           "action": "Aktion",
-          "build": "Aufbauen",
+          "build": {
+            ".": "Aufbauen",
+            "hint": "Aufbauen (Erzwingen mit Doppelclick)"
+          },
           "costs": "Kosten für Aktion",
           "id": "Nummer",
           "level": "Stufe",
           "name": "Name",
-          "rebuild": "Wiederaufbauen",
+          "rebuild": {
+            ".": "Wiederaufbauen",
+            "hint": "Wiederaufbauen (Erzwingen mit Doppelclick)"
+          },
           "repair": {
             ".": "Gebäude reparieren",
-            "costs": "{0} beliebige"
+            "costs": "{0} beliebige",
+            "hint": "Gebäude reparieren (Erzwingen mit Doppelclick)"
           },
           "unlock": "Gebäude freischalten",
-          "upgrade": "Gebäude aufrüsten"
+          "upgrade": {
+            ".": "Gebäude aufrüsten",
+            "hint": "Gebäude aufrüsten (Erzwingen mit Doppelclick)"
+          }
         },
         "campaignStickers": "Kampagnenbogensticker",
         "defense": "Verteidigung",
@@ -1185,6 +1196,10 @@
     "characterAttackModifierDeck": {
       ".": "Angriffsmodifikatordeck für Charaktere",
       "hint": "Angriffsmodifikatordeck für Charaktere aktivieren. Um Verbesserungen zu nutzen muss der Charakterbogen ebenfalls aktiviert sein."
+    },
+    "characterAttackModifierDeckPermanent": {
+      ".": "Charakter AM-Deck dauerhaft",
+      "hint": "Angriffsmodifikatordeck dauerthaft unterhalb des Charakters anzeigen."
     },
     "characterHandSize": {
       ".": "Handkartenanzahl anzeigen",
