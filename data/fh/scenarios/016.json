@@ -44,7 +44,7 @@
     {
       "round": "R == 6",
       "start": true,
-      "note": "Remove Tile 1-B.<br>Any characters on it suffer trap damage and move to the cloest empty hex on tile 15-D.<br>All other figures are removed."
+      "note": "Remove Tile 1-B.<br>Any characters on it suffer trap damage and is placed in the cloest empty hex on tile 15-D.<br>All other figures are removed."
     },
     {
       "round": "R == 7",
@@ -56,7 +56,7 @@
     {
       "round": "R == 9",
       "start": true,
-      "note": "Remove Tile 1-D.<br>Any characters on it suffer trap damage and move to the cloest empty hex on tile 15-D.<br>All other figures are removed."
+      "note": "Remove Tile 1-D.<br>Any characters on it suffer trap damage and is placed in the cloest empty hex on tile 15-D.<br>All other figures are removed."
     },
     {
       "round": "R == 9",
@@ -68,7 +68,7 @@
     {
       "round": "R == 12",
       "start": true,
-      "note": "Remove Tile 1-B.<br>Any characters on it suffer trap damage and move to the cloest empty hex on tile 15-D.<br>All other figures are removed."
+      "note": "Remove Tile 1-B.<br>Any characters on it suffer trap damage and is placed in the cloest empty hex on tile 15-D.<br>All other figures are removed."
     },
     {
       "round": "R == 12",

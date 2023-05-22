@@ -257,6 +257,7 @@ export class StateManager {
             settings.autoscroll = settingsManager.settings.autoscroll;
             settings.barsize = settingsManager.settings.barsize;
             settings.browserNavigation = settingsManager.settings.browserNavigation;
+            settings.characterAttackModifierDeckPermanent = settingsManager.settings.characterAttackModifierDeckPermanent;
             settings.debugRightClick = settingsManager.settings.debugRightClick;
             settings.disableAnimations = settingsManager.settings.disableAnimations;
             settings.disableStatAnimations = settingsManager.settings.disableStatAnimations;

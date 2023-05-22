@@ -96,7 +96,7 @@
         },
         {
           "type": "custom",
-          "value": "If the move ability was perfomed,",
+          "value": "If the move ability was performed,",
           "small": true,
           "subActions": [
             {
@@ -132,7 +132,7 @@
         },
         {
           "type": "custom",
-          "value": "If the attack ability was perfomed,",
+          "value": "If the attack ability was performed,",
           "small": true,
           "subActions": [
             {
@@ -196,7 +196,7 @@
         },
         {
           "type": "custom",
-          "value": "If the attack ability was perfomed,<br>all adjacent enemies suffer trap damage<br>and the Ruined Machine dies.",
+          "value": "If the attack ability was performed,<br>all adjacent enemies suffer trap damage<br>and the Ruined Machine dies.",
           "small": true
         }
       ]

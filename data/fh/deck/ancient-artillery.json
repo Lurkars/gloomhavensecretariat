@@ -9,7 +9,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Focus in the enemy<br>farthest away within %game.action.range:7%",
+          "value": "Focus on the enemy<br>farthest away within %game.action.range:7%",
           "small": true
         },
         {
