@@ -332,7 +332,7 @@ export class LootManager {
 
   itemSellValue(itemData: ItemData): number {
     if (itemData.cost) {
-      return Math.ceil(itemData.cost / 2);
+      return Math.floor(itemData.cost / 2);
     } else {
       let costs = 0;
       if (itemData.resources) {

@@ -155,7 +155,7 @@ export class Character extends CharacterData implements Entity, Figure {
         // match uuid
         value.uuid == summonEntity.uuid ||
         // migration
-        !value.uuid && value.name == summonEntity.name && value.color == summonEntity.color && value.number == summonEntity.number
+        !value.uuid && !summonEntity.uuid && value.name == summonEntity.name && value.color == summonEntity.color && value.number == summonEntity.number
       ) as Summon;
       if (!summon) {
         summon = new Summon(value.uuid, value.name, value.cardId, value.level, value.number, value.color);

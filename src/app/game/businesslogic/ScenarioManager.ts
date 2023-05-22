@@ -63,7 +63,7 @@ export class ScenarioManager {
           Object.assign(rewards, conclusionSection.rewards);
         }
       }
-      if (!internal && !casual) {
+      if (!internal && !casual && settingsManager.settings.characterSheet) {
         this.game.figures.forEach((figure) => {
           if (figure instanceof Character && !figure.absent) {
             const scnearioXP: number = success && (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') == -1) ? gameManager.levelManager.experience() : 0;
@@ -92,7 +92,7 @@ export class ScenarioManager {
 
       if (success && !casual && !noRewards) {
         if (rewards) {
-          if (!internal) {
+          if (!internal && settingsManager.settings.characterSheet) {
             this.game.figures.forEach((figure) => {
               if (rewards && figure instanceof Character && !figure.absent) {
                 if (rewards.experience) {
@@ -132,115 +132,118 @@ export class ScenarioManager {
             })
           }
 
-          if (rewards.reputation) {
-            this.game.party.reputation += rewards.reputation;
-            if (this.game.party.reputation > 20) {
-              this.game.party.reputation = 20;
-            } else if (this.game.party.reputation < -20) {
-              this.game.party.reputation = -20;
+          if (settingsManager.settings.partySheet) {
+
+            if (rewards.reputation) {
+              this.game.party.reputation += rewards.reputation;
+              if (this.game.party.reputation > 20) {
+                this.game.party.reputation = 20;
+              } else if (this.game.party.reputation < -20) {
+                this.game.party.reputation = -20;
+              }
             }
-          }
 
-          if (rewards.prosperity) {
-            this.game.party.prosperity += rewards.prosperity;
-            if (this.game.party.prosperity > (gameManager.fhRules() ? 132 : 64)) {
-              this.game.party.prosperity = (gameManager.fhRules() ? 132 : 64);
-            } else if (this.game.party.prosperity < 0) {
-              this.game.party.prosperity = 0;
+            if (rewards.prosperity) {
+              this.game.party.prosperity += rewards.prosperity;
+              if (this.game.party.prosperity > (gameManager.fhRules() ? 132 : 64)) {
+                this.game.party.prosperity = (gameManager.fhRules() ? 132 : 64);
+              } else if (this.game.party.prosperity < 0) {
+                this.game.party.prosperity = 0;
+              }
             }
-          }
 
-          if (rewards.morale) {
-            // TODO: replace Town Guards Placeholder
-            this.game.party.morale += EntityValueFunction(rewards.morale);
-            if (this.game.party.morale > 20) {
-              this.game.party.morale = 20;
-            } else if (this.game.party.morale < 0) {
-              this.game.party.morale = 0;
+            if (rewards.morale) {
+              // TODO: replace Town Guards Placeholder
+              this.game.party.morale += EntityValueFunction(rewards.morale);
+              if (this.game.party.morale > 20) {
+                this.game.party.morale = 20;
+              } else if (this.game.party.morale < 0) {
+                this.game.party.morale = 0;
+              }
             }
-          }
 
-          if (rewards.inspiration) {
-            this.game.party.inspiration += EntityValueFunction(rewards.inspiration);
-            if (this.game.party.inspiration < 0) {
-              this.game.party.inspiration = 0;
+            if (rewards.inspiration) {
+              this.game.party.inspiration += EntityValueFunction(rewards.inspiration);
+              if (this.game.party.inspiration < 0) {
+                this.game.party.inspiration = 0;
+              }
             }
-          }
 
-          if (rewards.reputation) {
-            this.game.party.reputation += rewards.reputation;
-            if (this.game.party.reputation > 20) {
-              this.game.party.reputation = 20;
-            } else if (this.game.party.reputation < -20) {
-              this.game.party.reputation = -20;
+            if (rewards.reputation) {
+              this.game.party.reputation += rewards.reputation;
+              if (this.game.party.reputation > 20) {
+                this.game.party.reputation = 20;
+              } else if (this.game.party.reputation < -20) {
+                this.game.party.reputation = -20;
+              }
             }
-          }
 
-          if (rewards.globalAchievements) {
-            this.game.party.globalAchievementsList.push(...rewards.globalAchievements);
-          }
+            if (rewards.globalAchievements) {
+              this.game.party.globalAchievementsList.push(...rewards.globalAchievements);
+            }
 
-          if (rewards.partyAchievements) {
-            this.game.party.achievementsList.push(...rewards.partyAchievements);
-          }
+            if (rewards.partyAchievements) {
+              this.game.party.achievementsList.push(...rewards.partyAchievements);
+            }
 
-          if (rewards.lostPartyAchievements) {
-            this.game.party.achievementsList = this.game.party.achievementsList.filter((achievement) => rewards && rewards.lostPartyAchievements.indexOf(achievement) == -1);
-          }
+            if (rewards.lostPartyAchievements) {
+              this.game.party.achievementsList = this.game.party.achievementsList.filter((achievement) => rewards && rewards.lostPartyAchievements.indexOf(achievement) == -1);
+            }
 
-          if (rewards.campaignSticker) {
-            this.game.party.campaignStickers.push(...rewards.campaignSticker.map((sticker) => sticker.toLowerCase().replaceAll(' ', '-')));
-          }
+            if (rewards.campaignSticker) {
+              this.game.party.campaignStickers.push(...rewards.campaignSticker.map((sticker) => sticker.toLowerCase().replaceAll(' ', '-')));
+            }
 
-          if (rewards.itemDesigns) {
-            rewards.itemDesigns.forEach((item) => {
-              if (item.indexOf('-') != -1) {
-                const from = +item.split('-')[0];
-                const to = +item.split('-')[1];
-                for (let i = from; i <= to; i++) {
-                  this.game.party.unlockedItems.push(new Identifier(i + '', scenario.edition));
+            if (rewards.itemDesigns) {
+              rewards.itemDesigns.forEach((item) => {
+                if (item.indexOf('-') != -1) {
+                  const from = +item.split('-')[0];
+                  const to = +item.split('-')[1];
+                  for (let i = from; i <= to; i++) {
+                    this.game.party.unlockedItems.push(new Identifier(i + '', scenario.edition));
+                  }
+                } else {
+                  this.game.party.unlockedItems.push(new Identifier(item, scenario.edition));
                 }
-              } else {
-                this.game.party.unlockedItems.push(new Identifier(item, scenario.edition));
-              }
-            })
-          }
+              })
+            }
 
-          if (rewards.itemBlueprints) {
-            rewards.itemBlueprints.forEach((item) => {
-              if (item.indexOf('-') != -1) {
-                const from = +item.split('-')[0];
-                const to = +item.split('-')[1];
-                for (let i = from; i <= to; i++) {
-                  this.game.party.unlockedItems.push(new Identifier(i + '', scenario.edition));
+            if (rewards.itemBlueprints) {
+              rewards.itemBlueprints.forEach((item) => {
+                if (item.indexOf('-') != -1) {
+                  const from = +item.split('-')[0];
+                  const to = +item.split('-')[1];
+                  for (let i = from; i <= to; i++) {
+                    this.game.party.unlockedItems.push(new Identifier(i + '', scenario.edition));
+                  }
+                } else {
+                  this.game.party.unlockedItems.push(new Identifier(item, scenario.edition));
                 }
-              } else {
-                this.game.party.unlockedItems.push(new Identifier(item, scenario.edition));
-              }
-            })
-          }
+              })
+            }
 
-          if (rewards.collectiveResources) {
-            rewards.collectiveResources.forEach((item) => {
-              this.game.party.loot[item.type] = (this.game.party.loot[item.type] || 0) + EntityValueFunction(item.value);
+            if (rewards.collectiveResources) {
+              rewards.collectiveResources.forEach((item) => {
+                this.game.party.loot[item.type] = (this.game.party.loot[item.type] || 0) + EntityValueFunction(item.value);
 
-              if ((this.game.party.loot[item.type] || 0) < 0) {
-                this.game.party.loot[item.type] = 0;
-              }
-            })
-          }
-
-          if (rewards.calenderSection) {
-            rewards.calenderSection.forEach((calenderSection) => {
-              if (calenderSection.split('-').length > 1) {
-                const section = calenderSection.split('-')[0];
-                const week = gameManager.game.party.weeks + (+calenderSection.split('-')[1]);
-                if (!gameManager.game.party.weekSections[week]) {
-                  gameManager.game.party.weekSections[week] = [];
+                if ((this.game.party.loot[item.type] || 0) < 0) {
+                  this.game.party.loot[item.type] = 0;
                 }
-                gameManager.game.party.weekSections[week]?.push(section);
-              }
-            })
+              })
+            }
+
+            if (rewards.calenderSection) {
+              rewards.calenderSection.forEach((calenderSection) => {
+                if (calenderSection.split('-').length > 1) {
+                  const section = calenderSection.split('-')[0];
+                  const week = gameManager.game.party.weeks + (+calenderSection.split('-')[1]);
+                  if (!gameManager.game.party.weekSections[week]) {
+                    gameManager.game.party.weekSections[week] = [];
+                  }
+                  gameManager.game.party.weekSections[week]?.push(section);
+                }
+              })
+            }
           }
 
           if (rewards.unlockCharacter && this.game.unlockedCharacters.indexOf(rewards.unlockCharacter) == -1) {
@@ -270,13 +273,13 @@ export class ScenarioManager {
       if (restart) {
         gameManager.scenarioManager.setScenario(scenario);
       } else {
-        if (!casual && scenario && !scenario.conclusion && gameManager.fhRules() && !linkedScenario) {
+        if (!casual && scenario && !scenario.conclusion && gameManager.fhRules() && !linkedScenario && settingsManager.settings.partySheet) {
+
           if (!scenario.solo) {
             this.game.party.weeks++;
           }
 
           const editionData = gameManager.editionData.find((editionData) => editionData.edition == scenario.edition);
-
           let weekSections: string[] = [];
           if (editionData && editionData.campaign) {
             weekSections.push(...editionData.campaign.weeks && editionData.campaign.weeks[this.game.party.weeks] || []);

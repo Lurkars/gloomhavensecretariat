@@ -1,4 +1,3 @@
-import { NumberSymbol } from "@angular/common";
 import { EntityCondition, GameEntityConditionModel } from "./Condition";
 import { Entity, EntityValueFunction } from "./Entity";
 import { FigureError, FigureErrorType } from "./data/FigureError";
@@ -100,7 +99,7 @@ export class GameMonsterEntityModel {
     summon: SummonState,
     active: boolean,
     off: boolean,
-    health: NumberSymbol,
+    health: number,
     maxHealth: number,
     entityConditions: GameEntityConditionModel[],
     markers: string[],

@@ -443,6 +443,10 @@ main {
     top: initial;
     bottom: 0;
     height: calc(var(--ghs-unit) * 14);
+
+    &.character.permanent-am {
+      height: calc(var(--ghs-unit) * 26);
+    }
   }
 
   &.monster {

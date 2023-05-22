@@ -5,6 +5,7 @@
         <img class="icon" [src]="character.iconUrl" />
         <span *ngIf="character.title">{{character.title}}</span>
         <span *ngIf="!character.title" [ghs-label]="'data.character.' + character.name"></span>
+        &nbsp;
       </ng-container>
 
       <ng-container *ngIf="!character && !townGuard">

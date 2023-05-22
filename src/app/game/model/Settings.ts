@@ -26,6 +26,7 @@ export class Settings {
   calculate: boolean = true;
   calculateStats: boolean = true;
   characterAttackModifierDeck: boolean = true;
+  characterAttackModifierDeckPermanent: boolean = false;
   characterHandSize: boolean = false;
   characterIdentities: boolean = true;
   characterIdentityHint: boolean = true;

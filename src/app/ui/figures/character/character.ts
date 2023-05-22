@@ -336,6 +336,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
       this.character.lootCardsVisible = false;
     }
     gameManager.stateManager.saveLocal();
+    gameManager.uiChange.emit();
   }
 
   toggleLootCardsVisible() {

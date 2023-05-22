@@ -96,10 +96,13 @@
       border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
       border-radius: 100%;
     }
+    
+    &.existing {
+      color: var(--ghs-color-darkgray);
+    }
 
     &.disabled {
       pointer-events: none;
-      color: var(--ghs-color-darkgray);
     }
   }
 
@@ -123,6 +126,22 @@
     &.active {
       border: calc(var(--ghs-unit) / 5) var(--ghs-color-white) solid;
       border-radius: 100%;
+    }
+  }
+}
+
+.change-type {
+  display: flex;
+  justify-content: center;
+  font-family: var(--ghs-font-normal);
+  font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+  margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+  a {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.6;
     }
   }
 }

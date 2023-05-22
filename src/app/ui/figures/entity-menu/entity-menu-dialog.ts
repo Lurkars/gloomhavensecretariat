@@ -1,4 +1,4 @@
-import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { DialogRef, DIALOG_DATA, Dialog } from "@angular/cdk/dialog";
 import { ChangeDetectorRef, Component, ElementRef, HostListener, Inject, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -16,6 +16,7 @@ import { Objective, OBJECTIV_MARKERS } from "src/app/game/model/Objective";
 import { Summon, SummonState } from "src/app/game/model/Summon";
 import { ghsModulo, ghsValueSign } from "../../helper/Static";
 import { AttackModiferDeckChange } from "../attackmodifier/attackmodifierdeck";
+import { MonsterNumberPickerDialog } from "../monster/dialogs/numberpicker-dialog";
 
 @Component({
   selector: 'ghs-entity-menu-dialog',
@@ -61,7 +62,7 @@ export class EntityMenuDialogComponent {
   EntityValueFunction = EntityValueFunction;
   ghsModulo = ghsModulo;
 
-  constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef, private dialog: Dialog) {
     if (data.entity instanceof Character) {
       this.conditionType = 'character';
       this.characterToken = data.entity.token;
@@ -467,15 +468,18 @@ export class EntityMenuDialogComponent {
     }
   }
 
-  toggleMonsterType() {
-    if (this.data.entity instanceof MonsterEntity && this.data.entity.type == MonsterType.normal) {
-      gameManager.stateManager.before("changeMonsterType", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, MonsterType.elite);
-      this.data.entity.type = MonsterType.elite;
-      gameManager.stateManager.after();
-    } else if (this.data.entity instanceof MonsterEntity && this.data.entity.type == MonsterType.elite) {
-      gameManager.stateManager.before("changeMonsterType", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, MonsterType.normal);
-      this.data.entity.type = MonsterType.normal;
-      gameManager.stateManager.after();
+  changeMonsterEntity() {
+    if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
+      this.close();
+      this.dialog.open(MonsterNumberPickerDialog, {
+        panelClass: 'dialog',
+        data: {
+          monster: this.data.figure,
+          entity: this.data.entity,
+          change: true
+        }
+      })
+      this.dialogRef.close();
     }
   }
 

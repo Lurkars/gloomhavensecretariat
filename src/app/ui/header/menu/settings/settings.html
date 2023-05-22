@@ -116,8 +116,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox"
-            [checked]="settingsManager.settings.applyLongRest"
+          <input type="checkbox" [checked]="settingsManager.settings.applyLongRest"
             (change)="settingsManager.setApplyLongRest(!settingsManager.settings.applyLongRest)">
           <span [ghs-label]="'settings.applyLongRest'"></span>
         </label>
@@ -735,14 +734,14 @@
   <div class="column">
     <div class="line">
       <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.autoscroll"
-            (change)="settingsManager.setAutoscroll(!settingsManager.settings.autoscroll)">
-          <span [ghs-label]="'settings.autoscroll'"></span>
+        <label [ngClass]="{'disabled' : !settingsManager.settings.characterAttackModifierDeck}">
+          <input type="checkbox" [checked]="settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierDeckPermanent"
+            (change)="settingsManager.setCharacterAttackModifierDeckPermanent(!settingsManager.settings.characterAttackModifierDeckPermanent)">
+          <span [ghs-label]="'settings.characterAttackModifierDeckPermanent'"></span>
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
-          <span class="text" [ghs-label]="'settings.autoscroll.hint'"></span>
+          <span class="text" [ghs-label]="'settings.characterAttackModifierDeckPermanent.hint'"></span>
         </span>
       </div>
     </div>
@@ -824,6 +823,19 @@
   </div>
 
   <div class="column">
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.autoscroll"
+            (change)="settingsManager.setAutoscroll(!settingsManager.settings.autoscroll)">
+          <span [ghs-label]="'settings.autoscroll'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.autoscroll.hint'"></span>
+        </span>
+      </div>
+    </div>
     <div class="line">
       <div class="hint-container">
         <label>

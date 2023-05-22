@@ -25,18 +25,20 @@ export class MonsterNumberPickerDialog implements OnInit {
     entity: MonsterEntity | undefined;
     entities: MonsterEntity[] | undefined;
     automatic: boolean = false;
+    change: boolean = false;
     settingsManager: SettingsManager = settingsManager;
 
     gameManager: GameManager = gameManager;
 
-    constructor(@Inject(DIALOG_DATA) data: { monster: Monster, type: MonsterType, range: number[], entity: MonsterEntity | undefined, entities: MonsterEntity[] | undefined, automatic: boolean }, private dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) data: { monster: Monster, type: MonsterType, range: number[], entity: MonsterEntity | undefined, entities: MonsterEntity[] | undefined, automatic: boolean, change: boolean }, private dialogRef: DialogRef) {
         this.monster = data.monster;
         this.type = data.type;
         this.max = gameManager.monsterManager.monsterStandeeMax(this.monster);
         this.range = data.range;
         this.entity = data.entity;
         this.entities = data.entities;
-        this.automatic = data.automatic;
+        this.automatic = data.automatic || false;
+        this.change = data.change || false;
         if (!this.entity) {
             this.entity = this.entities && this.entities.find((entity) => entity.number < 0) || undefined;
         }
@@ -79,7 +81,7 @@ export class MonsterNumberPickerDialog implements OnInit {
     }
 
     pickNumber(number: number, automatic: boolean = false, next: boolean = false) {
-        if (!this.hasNumber(number) && this.type) {
+        if (!this.hasNumber(number) && this.type && !this.change) {
             let undoType = "addStandee";
             if (automatic && !next) {
                 undoType = "addRandomStandee";
@@ -113,6 +115,38 @@ export class MonsterNumberPickerDialog implements OnInit {
                 this.dialogRef.close();
             } else if (this.entity && this.entities && this.monster.entities.filter((entity) => entity.number > 0).length == EntityValueFunction(this.monster.count, this.monster.level) - 1) {
                 this.nextStandee();
+            }
+        } else if (this.change && this.entity && this.entity.number != number) {
+            gameManager.stateManager.before("updateStandee", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + number);
+            const existing = this.monster.entities.find((entity) => entity.number == number);
+            if (existing) {
+                existing.number = this.entity.number;
+            }
+            this.entity.number = number;
+            gameManager.stateManager.after();
+        }
+    }
+
+    toggleMonsterType() {
+        if (this.entity && (this.entity.type == MonsterType.normal || this.entity.type == MonsterType.elite)) {
+            const normalStat = this.monster.stats.find((stat) => {
+                return stat.level == this.monster.level && stat.type == MonsterType.normal;
+            });
+            const eliteStat = this.monster.stats.find((stat) => {
+                return stat.level == this.monster.level && stat.type == MonsterType.elite;
+            });
+            if (normalStat && eliteStat) {
+                gameManager.stateManager.before("changeMonsterType", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, this.entity.type == MonsterType.normal ? MonsterType.elite : MonsterType.normal);
+                this.entity.type = this.entity.type == MonsterType.normal ? MonsterType.elite : MonsterType.normal;
+                this.entity.maxHealth = EntityValueFunction(this.entity.type == MonsterType.normal ? normalStat.health : eliteStat.health, this.monster.level)
+                if (this.entity.health > this.entity.maxHealth) {
+                    this.entity.health = this.entity.maxHealth;
+                } else if (this.entity.health < this.entity.maxHealth && this.entity.health == EntityValueFunction(this.entity.type == MonsterType.normal ? eliteStat.health : normalStat.health, this.monster.level)) {
+                    this.entity.health = this.entity.maxHealth;
+                }
+                gameManager.stateManager.after();
+            } else {
+                console.warn("Missing stats!", this.monster);
             }
         }
     }

@@ -12,7 +12,7 @@
 
 <div class="character" [style.--ghs-character-color]="character.color"
   *ngIf="!character.absent || !settingsManager.settings.hideAbsent"
-  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'absent' : character.absent, 'dimmed' : character.attackModifierDeckVisible || character.lootCardsVisible}">
+  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'absent' : character.absent, 'dimmed' : character.attackModifierDeckVisible && !settingsManager.settings.characterAttackModifierDeckPermanent || character.lootCardsVisible}">
 
   <ghs-character-image [character]="character"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
@@ -21,7 +21,7 @@
   <ng-container *ngIf="!character.absent">
 
     <ng-container
-      *ngIf="(!settingsManager.settings.characterAttackModifierDeck || !character.attackModifierDeckVisible) && (!settingsManager.settings.lootDeck ||!character.lootCardsVisible)">
+      *ngIf="(!settingsManager.settings.characterAttackModifierDeck || !character.attackModifierDeckVisible || settingsManager.settings.characterAttackModifierDeckPermanent) && (!settingsManager.settings.lootDeck ||!character.lootCardsVisible)">
       <ghs-pointer-input class="drag-initiative" (dragMove)="dragInitiativeMove($event)"
         (dragEnd)="dragInitiativeEnd($event)" (singleClick)="toggleFigure($event)"
         (doubleClick)="initiativeDoubleClick($event)">
@@ -49,8 +49,9 @@
 
     <ghs-highlight-conditions [entity]="character" [figure]="character"></ghs-highlight-conditions>
 
-    <div *ngIf="settingsManager.settings.characterAttackModifierDeck" class="attack-modifierdeck-container"
-      [ngClass]="{'active' : character.attackModifierDeckVisible}">
+    <div
+      *ngIf="settingsManager.settings.characterAttackModifierDeck && !settingsManager.settings.characterAttackModifierDeckPermanent"
+      class="attack-modifierdeck-container" [ngClass]="{'active' : character.attackModifierDeckVisible}">
       <div class="scroll-container">
         <ghs-attackmodifier-deck [character]="character" (before)="beforeAttackModifierDeck($event)"
           (after)="afterAttackModifierDeck($event)">
@@ -141,8 +142,8 @@
       </div>
 
       <span *ngIf="settingsManager.settings.characterAttackModifierDeck" class="attack-modifier-button"
-        [ngClass]="{'disabled': character.attackModifierDeckVisible}" (click)="toggleAttackModifierDeckVisible()"
-        [ghs-label]="'game.attackModifiers'" [ghs-label-attribute]="'title'">
+        (click)="toggleAttackModifierDeckVisible()" [ghs-label]="'game.attackModifiers'"
+        [ghs-label-attribute]="'title'">
         <img src="./assets/images/attackmodifier/icon.png" />
       </span>
 
@@ -187,4 +188,14 @@
   </div>
 
   <ghs-figure-errors [figure]="character"></ghs-figure-errors>
+</div>
+
+<div
+  *ngIf="settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierDeckPermanent"
+  class="attack-modifierdeck-container permanent" [ngClass]="{'active' : character.attackModifierDeckVisible}">
+  <div class="scroll-container">
+    <ghs-attackmodifier-deck [character]="character" (before)="beforeAttackModifierDeck($event)"
+      (after)="afterAttackModifierDeck($event)">
+    </ghs-attackmodifier-deck>
+  </div>
 </div>

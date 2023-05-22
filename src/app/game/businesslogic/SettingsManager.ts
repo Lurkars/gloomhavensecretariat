@@ -238,6 +238,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setCharacterAttackModifierDeckPermanent(characterAttackModifierDeckPermanent: boolean) {
+    this.settings.characterAttackModifierDeckPermanent = characterAttackModifierDeckPermanent;
+    this.storeSettings();
+  }
+
   setCharacterHandSize(characterHandSize: boolean) {
     this.settings.characterHandSize = characterHandSize;
     this.storeSettings();

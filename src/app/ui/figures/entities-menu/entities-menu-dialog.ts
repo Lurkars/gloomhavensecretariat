@@ -8,6 +8,7 @@ import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { ghsValueSign } from "../../helper/Static";
+import { EntityValueFunction } from "src/app/game/model/Entity";
 
 @Component({
   selector: 'ghs-entities-menu-dialog',
@@ -54,11 +55,27 @@ export class EntitiesMenuDialogComponent {
   }
 
   toggleType() {
-    gameManager.stateManager.before("toggleTypeAll", "data.monster." + this.data.monster.name);
-    this.entities.forEach((entity) => {
-      entity.type = entity.type == MonsterType.elite ? MonsterType.normal : MonsterType.elite;
+    const normalStat = this.data.monster.stats.find((stat) => {
+      return stat.level == this.data.monster.level && stat.type == MonsterType.normal;
     });
-    gameManager.stateManager.after();
+    const eliteStat = this.data.monster.stats.find((stat) => {
+      return stat.level == this.data.monster.level && stat.type == MonsterType.elite;
+    });
+    if (normalStat && eliteStat) {
+      gameManager.stateManager.before("toggleTypeAll", "data.monster." + this.data.monster.name);
+      this.entities.forEach((entity) => {
+        entity.type = entity.type == MonsterType.elite ? MonsterType.normal : MonsterType.elite;
+        entity.maxHealth = EntityValueFunction(entity.type == MonsterType.normal ? normalStat.health : eliteStat.health, this.data.monster.level)
+        if (entity.health > entity.maxHealth) {
+          entity.health = entity.maxHealth;
+        } else if (entity.health < entity.maxHealth && entity.health == EntityValueFunction(entity.type == MonsterType.normal ? eliteStat.health : normalStat.health, this.data.monster.level)) {
+          entity.health = entity.maxHealth;
+        }
+      });
+      gameManager.stateManager.after();
+    } else {
+      console.warn("Missing stats!", this.data.monster);
+    }
   }
 
   toggleDead() {

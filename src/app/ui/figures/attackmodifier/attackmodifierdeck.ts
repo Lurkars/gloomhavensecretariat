@@ -103,6 +103,10 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
 
     this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: (fromServer: boolean) => {
+        if (this.character && this.deck != this.character.attackModifierDeck) {
+          this.deck = this.character.attackModifierDeck;
+        }
+
         if (this.initServer && gameManager.stateManager.wsState() != WebSocket.OPEN) {
           this.initServer = false;
         }
@@ -198,7 +202,6 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy {
   }
 
   draw(event: any) {
-    console.log(this.drawTimeout, this.deck.current, this.deck.cards.length, this.queue);
     if (this.compact && this.fullscreen) {
       this.openFullscreen(event);
     } else if (this.standalone || !this.townGuard && gameManager.game.state == GameState.next || this.townGuard && !gameManager.game.scenario) {

@@ -112,80 +112,6 @@
     z-index: 5;
   }
 
-  .attack-modifierdeck-container,
-  .loot-cards-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    width: 0;
-    height: 0;
-    visibility: hidden;
-
-    .scroll-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      overflow-x: auto;
-      overflow-y: hidden;
-    }
-
-    ghs-attackmodifier-deck {
-      position: absolute;
-      display: flex;
-      top: calc(var(--ghs-unit) * 1.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
-      left: calc(var(--ghs-unit) * 21.5);
-      width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor));
-      height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
-      z-index: 3;
-    }
-
-    &.active,
-    &.loot-cards-container {
-      visibility: visible;
-      width: 100%;
-      height: 100%;
-    }
-
-
-    .loot-cards {
-      position: absolute;
-      display: flex;
-      top: calc(var(--ghs-unit) * 0.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
-      left: calc(var(--ghs-unit) * 21.5);
-      z-index: 3;
-
-      .loot-card {
-        position: relative;
-        width: calc(var(--ghs-unit) * (13 * 2 / 3) * var(--ghs-text-factor));
-        height: calc(var(--ghs-unit) * 13 * var(--ghs-text-factor));
-        margin-right: calc(var(--ghs-unit) * 0.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
-
-        ghs-loot {
-          position: absolute;
-          top: 0;
-          left: 0;
-          bottom: 0;
-          right: 0;
-          display: block;
-        }
-      }
-    }
-
-    .attack-modifierdeck-close,
-    .loot-cards-close {
-      display: inline-block;
-      position: relative;
-      cursor: zoom-out;
-      top: 0;
-      left: 0;
-      z-index: 2;
-      width: 100%;
-      height: 100%;
-    }
-  }
 
   .stats {
     height: 100%;
@@ -534,6 +460,102 @@
     .attack-modifierdeck-close {
       pointer-events: initial;
     }
+  }
+}
+
+
+.attack-modifierdeck-container,
+.loot-cards-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+
+  .scroll-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  ghs-attackmodifier-deck {
+    position: absolute;
+    display: flex;
+    top: calc(var(--ghs-unit) * 1.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
+    left: calc(var(--ghs-unit) * 21.5);
+    width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor));
+    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
+    z-index: 3;
+  }
+
+  &.active,
+  &.loot-cards-container {
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+  }
+
+  &.permanent.active {
+    position: relative;
+    width: calc(var(--ghs-unit) * 98);
+    height: calc(var(--ghs-unit) * 12);
+
+    .scroll-container {
+      height: calc(var(--ghs-unit) * 17 * var(--ghs-text-factor));
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    ghs-attackmodifier-deck {
+      left: calc(var(--ghs-unit) * 17);
+    }
+  }
+
+
+  .loot-cards {
+    position: absolute;
+    display: flex;
+    top: calc(var(--ghs-unit) * 0.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
+    left: calc(var(--ghs-unit) * 21.5);
+    z-index: 3;
+
+    .loot-card {
+      position: relative;
+      width: calc(var(--ghs-unit) * (13 * 2 / 3) * var(--ghs-text-factor));
+      height: calc(var(--ghs-unit) * 13 * var(--ghs-text-factor));
+      margin-right: calc(var(--ghs-unit) * 0.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
+
+      ghs-loot {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        display: block;
+      }
+    }
+  }
+
+  .attack-modifierdeck-close,
+  .loot-cards-close {
+    display: inline-block;
+    position: relative;
+    cursor: zoom-out;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
   }
 }
 

@@ -72,7 +72,7 @@
         (cdkDragStarted)="startedDrag($event, figureDrag)" (cdkDragReleased)="releasedDrag($event, figureDrag)">
 
         <div cdkDragHandle class="handle" (click)="handleClick($event)"
-          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard}"
+          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard, 'permanent-am' : gameManager.isCharacter(figure) && gameManager.toCharacter(figure).attackModifierDeck.active && settingsManager.settings.characterAttackModifierDeckPermanent}"
           *ngIf="!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters || gameManager.stateManager.permissions.monsters">
         </div>
 
@@ -84,7 +84,7 @@
         </ghs-monster>
 
         <div cdkDragHandle class="handle right" (click)="handleClick($event)"
-          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard}"
+          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard, 'permanent-am' : gameManager.isCharacter(figure) && gameManager.toCharacter(figure).attackModifierDeck.active && settingsManager.settings.characterAttackModifierDeckPermanent}"
           *ngIf=" !gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters ||
           gameManager.stateManager.permissions.monsters">
         </div>

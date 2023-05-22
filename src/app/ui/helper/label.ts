@@ -210,12 +210,12 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
   @Input('ghs-label-attribute') attribute: string = "";
   @Input('relative') relative: boolean = false;
   @Input('fh-force') fhForce: boolean = false;
-  fhStyle: boolean = false;
-  calc: boolean = false;
 
   private C: number;
   private L: number;
   private locale: string;
+  private fhStyle: boolean = false;
+  private calc: boolean = false;
 
   constructor(private el: ElementRef) {
     el.nativeElement.classList.add('placeholder');

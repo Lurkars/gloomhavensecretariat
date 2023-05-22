@@ -132,7 +132,7 @@
 
         <div class="weeks">
           <div class="week" *ngFor="let week of [] | ghsRange:80; let index = index" ghs-pointer-input
-            (singleClick)="setWeek(index+1 + 80*calendarSheet)"
+            [ghsTooltip]="'party.campaign.sheet.weekSections.hint'" (singleClick)="setWeek(index+1 + 80*calendarSheet)"
             (doubleClick)="setWeekSection(index+1+ 80*calendarSheet)"
             [ngClass]="{'checked': party.weeks > index + 80*calendarSheet, 'section': sectionsForWeekFixed(week+ 80*calendarSheet).length > 0 || sectionsForWeek(week+ 80*calendarSheet).length > 0}">
             <div class="section" *ngFor="let section of sectionsForWeekFixed(week+ 80*calendarSheet)">
@@ -364,7 +364,7 @@
 
         <ghs-party-buildings [party]="party"></ghs-party-buildings>
 
-        <div class="town-guard-deck-container" *ngIf="townGuardDeck">
+        <div class="town-guard-deck-container" *ngIf="townGuardDeck && townGuardDeck.cards.length > 0">
           <div class="town-guard-deck"
             [ngClass]="{'collapsed' : !townGuardDeck.active,  'full' : townGuardDeck.active}">
             <ghs-attackmodifier-deck [deck]="townGuardDeck" [townGuard]="true" (before)="beforeTownGuardDeck($event)"

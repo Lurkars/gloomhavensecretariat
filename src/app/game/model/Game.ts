@@ -170,7 +170,7 @@ export class Game {
       // match uuid
       value.uuid && value.uuid == figure.uuid ||
       // migration
-      !value.uuid && figure.name == value.name && figure.id == value.id && figure.escort == value.escort && figure.marker == value.marker &&
+      !value.uuid && !figure.uuid && figure.name == value.name && figure.id == value.id && figure.escort == value.escort && figure.marker == value.marker &&
       (!figure.tags && !value.tags || figure.tags && value.tags && figure.tags.length == value.tags.length && figure.tags.every((tag) => value.tags.indexOf(tag) != -1)) &&
       (!figure.objectiveId && !value.objectiveId || figure.objectiveId && value.objectiveId && figure.objectiveId.index == value.objectiveId.index && figure.objectiveId.edition == value.objectiveId.edition && figure.objectiveId.group == value.objectiveId.group && figure.objectiveId.scenario == value.objectiveId.scenario && figure.objectiveId.section == value.objectiveId.section)));
 

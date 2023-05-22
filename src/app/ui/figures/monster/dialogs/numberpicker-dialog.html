@@ -10,20 +10,28 @@
     <span [ghs-label]="'data.monster.' + monster.name"></span>
   </span>
   <span [ngClass]="{'elite' : type == MonsterType.elite, 'boss' : type == MonsterType.boss }">
-    <span [ghs-label]="(monster.isAlly ? 'game.ally.addEntity.': 'monster.addEntity.') + type"></span>
+    <span *ngIf="!change || !entity"
+      [ghs-label]="(monster.isAlly ? 'game.ally.addEntity.': 'monster.addEntity.') + type"></span>
+    <span *ngIf="change && entity" [ghs-label]="'monster.changeStandee'"
+      [ghs-label-args]="[entity.type, '' + entity.number]"></span>
     <span *ngIf="entities && entities.length > 0">({{entitiesLeft()}})</span>
   </span>
 </div>
 
 <div class="number-container" [ngClass]="{'extended' : max == 4}">
   <div *ngFor="let number of range" class="number-button"
-    [ngClass]="{'disabled' : hasNumber(number), 'elite' : type == MonsterType.elite, 'boss' : type == MonsterType.boss }"
+    [ngClass]="{'disabled' : hasNumber(number) && (!change || !entity), 'existing' : hasNumber(number) , 'elite' : type == MonsterType.elite, 'boss' : type == MonsterType.boss }"
     (click)="pickNumber(number)">
     <span class="number">{{number}}</span>
   </div>
   <div class="summon-button" (click)="summon = !summon" [ngClass]="{'active' : summon }">
     <img class="summon" src="./assets/images/summons/{{monster.summonColor}}.png">
   </div>
+</div>
+
+<div class="change-type" *ngIf="entity && entity.type != MonsterType.boss">
+  <a (click)="toggleMonsterType()"><span [ghs-label]="'monster.changeType'"
+      [ghs-label-args]="[(entity.type == MonsterType.normal ? entity.type  :  MonsterType.elite),(entity.type == MonsterType.normal ?  MonsterType.elite: MonsterType.normal)]"></span></a>
 </div>
 
 <div class="cancel" *ngIf="automatic">
