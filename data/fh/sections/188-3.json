@@ -1,13 +1,8 @@
 {
   "index": "188.3",
-  "name": "My Private Empire",
+  "name": "5 episodes overcome",
   "edition": "fh",
   "parent": "107",
-  "parentSections": [
-    [
-      "116.1"
-    ]
-  ],
   "conclusion": true,
   "rewards": {
     "items": [
