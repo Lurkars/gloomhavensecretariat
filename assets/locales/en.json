@@ -762,6 +762,7 @@
       "elite": "Select all Elite standees",
       "normal": "Select all Normal standees"
     },
+    "setStandees": "Setup {1} %game.monsterType.{0}% standees",
     "showHidden": "Show Hidden Monster"
   },
   "number": {
@@ -1597,6 +1598,7 @@
       "applyHightlightAction": {
         "condition": "Apply action %game.condition.{1}% to {0}",
         "heal": "Apply action %game.action.heal% {1} to {0}",
+        "switchType": "Apply switching of %game.monsterType.normal% and %game.monsterType.elite% standees to {0}",
         "sufferDamage": "Apply action suffer %game.damage:{1}% to {0}"
       },
       "applyScenarioRule": "Apply scenario rule",
