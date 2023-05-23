@@ -112,7 +112,8 @@ export class MonsterEntityComponent implements OnInit, OnDestroy {
         panelClass: 'dialog',
         data: {
           entity: this.entity,
-          figure: this.monster
+          figure: this.monster,
+          positionElement: this.standee
         },
         positionStrategy: this.overlay.position().flexibleConnectedTo(this.standee).withPositions(ghsDefaultDialogPositions())
       });

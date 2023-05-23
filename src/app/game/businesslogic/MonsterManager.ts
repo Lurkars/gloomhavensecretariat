@@ -258,8 +258,8 @@ export class MonsterManager {
     return list;
   }
 
-  monsterStandeeUsed(monster: Monster, number: number): boolean {
-    return this.monsterStandeeShared(monster, []).map((monster) => monster.entities).flat().some((entity) => gameManager.entityManager.isAlive(entity) && entity.number == number);
+  monsterStandeeUsed(monster: Monster, number: number): MonsterEntity | undefined {
+    return this.monsterStandeeShared(monster, []).map((monster) => monster.entities).flat().find((entity) => gameManager.entityManager.isAlive(entity) && entity.number == number);
   }
 
   monsterStandeeCount(monster: Monster, all: boolean = true): number {
@@ -354,7 +354,10 @@ export class MonsterManager {
     monster.drawExtra = drawExtra;
     const monsterCount = this.monsterStandeeMax(monster);
     if (settingsManager.settings.automaticStandees && this.monsterStandeeCount(monster) < monsterCount) {
-      let number = (monster.entities.length + 1) * -1;
+      let number = -1;
+      while (this.monsterStandeeUsed(monster, number)) {
+        number -= 1;
+      }
 
       if (settingsManager.settings.randomStandees) {
         number = Math.floor(Math.random() * monsterCount) + 1;

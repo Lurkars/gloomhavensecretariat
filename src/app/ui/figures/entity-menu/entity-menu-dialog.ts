@@ -14,9 +14,10 @@ import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { Objective, OBJECTIV_MARKERS } from "src/app/game/model/Objective";
 import { Summon, SummonState } from "src/app/game/model/Summon";
-import { ghsModulo, ghsValueSign } from "../../helper/Static";
+import { ghsDefaultDialogPositions, ghsModulo, ghsValueSign } from "../../helper/Static";
 import { AttackModiferDeckChange } from "../attackmodifier/attackmodifierdeck";
 import { MonsterNumberPickerDialog } from "../monster/dialogs/numberpicker-dialog";
+import { Overlay } from "@angular/cdk/overlay";
 
 @Component({
   selector: 'ghs-entity-menu-dialog',
@@ -62,7 +63,7 @@ export class EntityMenuDialogComponent {
   EntityValueFunction = EntityValueFunction;
   ghsModulo = ghsModulo;
 
-  constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef, private dialog: Dialog) {
+  constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure, positionElement: ElementRef }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef, private dialog: Dialog, private overlay: Overlay) {
     if (data.entity instanceof Character) {
       this.conditionType = 'character';
       this.characterToken = data.entity.token;
@@ -470,16 +471,19 @@ export class EntityMenuDialogComponent {
 
   changeMonsterEntity() {
     if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
-      this.close();
-      this.dialog.open(MonsterNumberPickerDialog, {
-        panelClass: 'dialog',
-        data: {
-          monster: this.data.figure,
-          entity: this.data.entity,
-          change: true
-        }
-      })
-      this.dialogRef.close();
+      if (gameManager.monsterManager.monsterStandeeMax(this.data.figure) > 1 || this.data.entity.type != MonsterType.boss) {
+        this.close();
+        this.dialog.open(MonsterNumberPickerDialog, {
+          panelClass: 'dialog',
+          data: {
+            monster: this.data.figure,
+            entity: this.data.entity,
+            change: true
+          },
+          positionStrategy: this.overlay.position().flexibleConnectedTo(this.data.positionElement).withPositions(ghsDefaultDialogPositions())
+        })
+        this.dialogRef.close();
+      }
     }
   }
 

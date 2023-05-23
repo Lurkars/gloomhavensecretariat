@@ -27,7 +27,8 @@
         )
       </span>
     </ng-container>
-    <ng-container *ngIf="gameManager.isMonster(data.figure) ">
+    <div class="name" *ngIf="gameManager.isMonster(data.figure)" (click)="changeMonsterEntity()"
+      [ngClass]="{'change-entity': gameManager.monsterManager.monsterStandeeMax(gameManager.toMonster(data.figure)) > 1 || data.entity && gameManager.isMonsterEntity(data.entity) && gameManager.toMonsterEntity(data.entity).type != MonsterType.boss}">
       <img *ngIf="!gameManager.toMonster(data.figure).noArtwork" class="standee"
         [src]="gameManager.monsterManager.monsterThumbnail(gameManager.toMonster(data.figure))" />
       <span [ghs-label]="'data.monster.' + data.figure.name"></span>&nbsp;
@@ -35,14 +36,9 @@
           [ghs-label]="'game.ally'"></span>&nbsp;</span>
       <span class="allied" *ngIf="gameManager.toMonster(data.figure).isAllied"><span
           [ghs-label]="'game.allied'"></span>&nbsp;</span>
-      <a class="standee-number-toggle"
-        *ngIf="data.entity && gameManager.isMonsterEntity(data.entity) && (gameManager.toMonsterEntity(data.entity).type == MonsterType.normal  || gameManager.toMonsterEntity(data.entity).type == MonsterType.elite)"
-        (click)="changeMonsterEntity()"
-        [ngClass]="gameManager.toMonsterEntity(data.entity).type">#{{gameManager.toMonsterEntity(data.entity).number}}</a>
-      <span class="standee-number"
-        *ngIf="data.entity && gameManager.isMonsterEntity(data.entity) && gameManager.toMonsterEntity(data.entity).type == MonsterType.boss"
+      <span class="standee-number" *ngIf="data.entity && gameManager.isMonsterEntity(data.entity)"
         [ngClass]="gameManager.toMonsterEntity(data.entity).type">#{{gameManager.toMonsterEntity(data.entity).number}}</span>
-    </ng-container>
+    </div>
 
     <ng-container *ngIf="data.entity && gameManager.isCharacter(data.figure) && gameManager.isSummon(data.entity)">
       <small>
@@ -154,7 +150,7 @@
       </ng-container>
 
       <ng-container
-        *ngIf="(gameManager.isCharacter(data.figure) || gameManager.isMonster(data.figure)) && (!data.entity || EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal))">
+        *ngIf="(gameManager.isCharacter(data.figure) && settingsManager.settings.characterAttackModifierDeck || gameManager.isMonster(data.figure)) && (!data.entity || EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal))">
 
         <span class="item">
           <ghs-pointer-input class="button"
@@ -164,7 +160,8 @@
           </ghs-pointer-input>
         </span>
         <span class="item">
-          <span class="condition" [ghsTooltip]="'game.condition.bless.hint'"
+          <span class="condition" [ghsTooltip]="'game.condition.bless.hint'" [originX]="'center'" [overlayX]="'center'"
+          [originY]="'top'" [overlayY]="'bottom'"
             [ngClass]="{'immunity disabled' : isImmune(ConditionName.bless)}">
             <img src="./assets/images/status/bless.svg" />
           </span>
@@ -190,7 +187,8 @@
           </ghs-pointer-input>
         </span>
         <span class="item">
-          <span class="condition" [ghsTooltip]="'game.condition.curse.hint'"
+          <span class="condition" [ghsTooltip]="'game.condition.curse.hint'" [originX]="'center'" [overlayX]="'center'"
+          [originY]="'top'" [overlayY]="'bottom'"
             [ngClass]="{'immunity disabled' : isImmune(ConditionName.curse)}">
             <img src="./assets/images/status/curse.svg" />
           </span>

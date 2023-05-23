@@ -9,7 +9,7 @@
       "shuffle": true,
       "actions": [
         {
-          "type": "custom",
+          "type": "switchType",
           "value": "All elite Ice Wraiths<br> become normal, and all<br> normal Ice Wraiths become elite.",
           "small": true
         },
@@ -113,11 +113,25 @@
               "subActions": [
                 {
                   "type": "condition",
-                  "value": "bless"
+                  "value": "strengthen",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "hidden": true
+                    }
+                  ]
                 },
                 {
                   "type": "condition",
-                  "value": "strengthen"
+                  "value": "bless",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "hidden": true
+                    }
+                  ]
                 },
                 {
                   "type": "specialTarget",

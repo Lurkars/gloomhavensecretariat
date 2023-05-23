@@ -19,26 +19,26 @@
       <img src="./assets/images/status/health.svg" />
       <span class="badge health-count"
         [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
-      </span>
-      <span class="item">
-        <ghs-pointer-input class="button" (singleClick)="changeHealth(1)" [repeat]="true">
-          <img class="ghs-svg" src="./assets/images/plus.svg">
-        </ghs-pointer-input>
-      </span>
+    </span>
+    <span class="item">
+      <ghs-pointer-input class="button" (singleClick)="changeHealth(1)" [repeat]="true">
+        <img class="ghs-svg" src="./assets/images/plus.svg">
+      </ghs-pointer-input>
+    </span>
 
-      <ghs-conditions [entityConditions]="entityConditions" [entities]="entities" [figure]="data.monster"
-        [type]="'monster'"></ghs-conditions>
+    <ghs-conditions [entityConditions]="entityConditions" [entities]="entities" [figure]="data.monster"
+      [type]="'monster'"></ghs-conditions>
 
-      <span class="item" [ghs-label]="'game.dead'" [ghs-label-attribute]="'title'">
-        <a class="button" (click)="toggleDead()">
-          <img src="./assets/images/status/dead.svg" />
-        </a>
-      </span>
+    <span class="item" [ghs-label]="'game.dead'" [ghs-label-attribute]="'title'">
+      <a class="button" (click)="toggleDead()">
+        <img src="./assets/images/status/dead.svg" />
+      </a>
+    </span>
   </div>
 
   <span class="toggle-type" *ngIf="toogleTypeAvailable" (click)="toggleType()">
     <span [ghs-label]="'%game.monsterType.normal%'"></span>
-    &nbsp;&lt;-&gt;&nbsp;
+    <img class="ghs-svg" src="./assets/images/switch.svg" />
     <span [ghs-label]="'%game.monsterType.elite%'"></span>
   </span>
 </div>

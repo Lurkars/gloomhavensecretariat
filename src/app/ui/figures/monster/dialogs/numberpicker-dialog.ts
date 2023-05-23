@@ -56,7 +56,7 @@ export class MonsterNumberPickerDialog implements OnInit {
     }
 
     hasNumber(number: number): boolean {
-        return gameManager.monsterManager.monsterStandeeUsed(this.monster, number);
+        return gameManager.monsterManager.monsterStandeeUsed(this.monster, number) != undefined;
     }
 
     entitiesLeft(): number {
@@ -118,9 +118,13 @@ export class MonsterNumberPickerDialog implements OnInit {
             }
         } else if (this.change && this.entity && this.entity.number != number) {
             gameManager.stateManager.before("updateStandee", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + number);
-            const existing = this.monster.entities.find((entity) => entity.number == number);
+            let existing = gameManager.monsterManager.monsterStandeeUsed(this.monster, number);
             if (existing) {
-                existing.number = this.entity.number;
+                let otherNumber = -1;
+                while(gameManager.monsterManager.monsterStandeeUsed(this.monster, otherNumber)) {
+                    otherNumber -= 1;
+                }
+                existing.number = otherNumber;
             }
             this.entity.number = number;
             gameManager.stateManager.after();

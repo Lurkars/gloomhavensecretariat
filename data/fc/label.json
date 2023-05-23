@@ -269,7 +269,7 @@
           "15": "Erstelle eine %game.condition.disarm% und eine %game.condition.poison% Falle in jeweils einem angrenzenden freien Feld.",
           "16": "%game.action.teleport% zum Feld des weitesten Gegners in %game.action.range%+1 und %game.action.teleport% diesen gleichzeitig auf dein Feld.",
           "17": "Beschwöre jeweils eine Normal %data.monster.valrath-savage% angrenzend an jeden Gegner in %game.action.range%5.",
-          "18": "Alle dich anvisierenden Angreifer erlieden %game.condition.curse%.",
+          "18": "Alle dich anvisierenden Angreifer erleiden %game.condition.curse%.",
           "19": "Alle dich anvisierenden Angreifer erhalten Nachteil.",
           "20": "%game.action.attack%-1 für einen Gegner in %game.action.range%4 zum ersten Ziel, anschließend %game.action.attack%-2 an einen dritten Gegner in %game.action.range%3 des zweiten Ziels.",
           "21": "Beschwöre einen %game.monster.aesther-scout%: Normal für zwei oder drei, Elite für vier Charaktere.",

@@ -11,7 +11,6 @@ import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { Objective } from "src/app/game/model/Objective";
 import { Condition } from "src/app/game/model/Condition";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
-import { GameState } from "src/app/game/model/Game";
 import { AttackModifier, AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { Figure } from "src/app/game/model/Figure";
 import { ScenarioObjectiveIdentifier } from "src/app/game/model/data/ObjectiveData";
@@ -260,15 +259,6 @@ export class ScenarioRulesComponent {
                             }
                         }
                     })
-
-
-                    if (gameManager.game.state == GameState.next) {
-                        gameManager.game.figures.forEach((figure) => {
-                            if (figure instanceof Monster && checkActive.indexOf(figure.name) && figure.edition == scenario.edition) {
-                                figure.active = !gameManager.game.figures.some((figure) => figure.active);
-                            }
-                        })
-                    }
                 }
 
                 if (rule.objectiveSpawns) {

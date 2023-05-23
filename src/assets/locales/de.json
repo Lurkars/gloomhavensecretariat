@@ -638,6 +638,7 @@
       "elite": "Alle Normalen Aufsteller auswählen",
       "normal": "Alle Elite Aufsteller auswählen"
     },
+    "setStandees": "{1} %game.monsterType.{0}% Aufsteller festlegen",
     "showHidden": "Ausgeblendete Monster anzeigen"
   },
   "number": {
@@ -1475,7 +1476,8 @@
       "applyHightlightAction": {
         "condition": "Aktion %game.condition.{1}% anwenden auf {0}",
         "heal": "Aktion %game.action.heal% {1} anwenden auf {0}",
-        "sufferDamage": "Aktion %game.damage:{1}% erlieden andwenden auf {0}"
+        "switchType": "Tauschen von %game.monsterType.normal% und %game.monsterType.elite% Aufstellern anwenden auf {0}",
+        "sufferDamage": "Aktion %game.damage:{1}% erleiden andwenden auf {0}"
       },
       "applyScenarioRule": "Szenario Regel anwenden",
       "buyItem": "Gegenstand {1} (%data.edition.{2}%) für {0} kaufen",

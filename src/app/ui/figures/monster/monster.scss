@@ -155,6 +155,7 @@
     }
 
     ghs-monster-entity {
+      margin-top: calc(var(--ghs-unit) * 0.5);
       transition: all 1000ms ease-out;
     }
   }

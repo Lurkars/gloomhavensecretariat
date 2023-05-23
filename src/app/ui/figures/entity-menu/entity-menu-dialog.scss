@@ -50,15 +50,13 @@
       filter: var(--ghs-filter-white);
     }
 
-    .standee-number,
-    .standee-number-toggle {
+    .change-entity {
+      cursor: w-resize;
+    }
+
+    .standee-number {
       font-family: var(--ghs-font-normal);
       font-size: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-      margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-
-      &.standee-number-toggle {
-        cursor: w-resize;
-      }
 
       &.normal {
         color: var(--ghs-color-white);
@@ -131,7 +129,10 @@
     .entity-container {
       display: grid;
       grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor)));
-      align-content: space-between;
+      row-gap: calc(var(--ghs-unit) * 0.8 * var(--ghs-dialog-factor));
+      align-items: center;
+      justify-items: center;
+      margin-bottom: auto;
     }
   }
 
@@ -189,7 +190,8 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: calc(var(--ghs-unit) * 12 * var(--ghs-dialog-factor));
+    grid-column: 2 span;
+    width: calc(var(--ghs-unit) * 14 * var(--ghs-dialog-factor));
 
     img {
       height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
@@ -271,6 +273,12 @@
   .retaliate-action {
     grid-column: span 3;
     font-size: 1.5em;
+  }
+
+  .exhausted, .condition.marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .summon {

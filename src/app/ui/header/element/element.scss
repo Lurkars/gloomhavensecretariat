@@ -71,5 +71,27 @@ ghs-element {
         display: none;
       }
     }
+
+    &:hover .element-svg {
+      opacity: 1 !important;
+
+      #bg {
+        opacity: 1 !important;
+      }
+    }
+
+    &.consume {
+
+      &::before {
+        opacity: 0.3;
+      }
+
+      &.fh::before {
+        left: 55%;
+        top: 55%;
+        width: 50%;
+        height: 50%;
+      }
+    }
   }
 }

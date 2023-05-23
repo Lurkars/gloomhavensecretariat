@@ -38,6 +38,7 @@ export class ActionComponent implements OnInit, OnDestroy {
 
 
   action!: Action | undefined;
+  subActions: Action[] = [];
 
   settingsManager: SettingsManager = settingsManager;
   EntityValueFunction = EntityValueFunction;
@@ -250,6 +251,8 @@ export class ActionComponent implements OnInit, OnDestroy {
     if (!this.action) {
       return;
     }
+
+    this.subActions = this.action.subActions.filter((action) => !action.hidden);
 
     if (settingsManager.settings.fhStyle && [ActionType.element, ActionType.concatenation, ActionType.box].indexOf(this.action.type) == -1) {
       this.elementActions = this.action.subActions.filter((action) => action.type == ActionType.element);
@@ -469,7 +472,7 @@ export class ActionComponent implements OnInit, OnDestroy {
   }
 
   highlightAction(): boolean {
-    if (this.monster && this.action && ((this.action.type == ActionType.heal || this.action.type == ActionType.condition) && (this.action.subActions && this.action.subActions.length == 1 && this.action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && ('' + subAction.value).startsWith('self'))) || this.action.type == ActionType.sufferDamage)) {
+    if (this.monster && this.action && ((this.action.type == ActionType.heal || this.action.type == ActionType.condition) && (this.action.subActions && this.action.subActions.length == 1 && this.action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && ('' + subAction.value).startsWith('self'))) || this.action.type == ActionType.sufferDamage || this.action.type == ActionType.switchType)) {
       if (this.action.type == ActionType.heal && this.monster.entities.every((entity) => entity.dead || entity.health < 1 || entity.health == entity.maxHealth)) {
         return false;
       }
@@ -522,6 +525,25 @@ export class ActionComponent implements OnInit, OnDestroy {
           }
         }
       })
+
+      if (this.action.type == ActionType.switchType && this.monster) {
+        const normalStat = this.monster.stats.find((stat) => this.monster && stat.level == this.monster.level && stat.type == MonsterType.normal);
+        const eliteStat = this.monster.stats.find((stat) => this.monster && stat.level == this.monster.level && stat.type == MonsterType.elite);
+        if (normalStat && eliteStat) {
+          this.monster.entities.forEach((entity) => {
+            if (this.monster && gameManager.entityManager.isAlive(entity)) {
+              entity.type = entity.type == MonsterType.elite ? MonsterType.normal : MonsterType.elite;
+              entity.maxHealth = EntityValueFunction(entity.type == MonsterType.normal ? normalStat.health : eliteStat.health, this.monster.level)
+              if (entity.health > entity.maxHealth) {
+                entity.health = entity.maxHealth;
+              } else if (entity.health < entity.maxHealth && entity.health == EntityValueFunction(entity.type == MonsterType.normal ? eliteStat.health : normalStat.health, this.monster.level)) {
+                entity.health = entity.maxHealth;
+              }
+            }
+          });
+        }
+      }
+
       if (after) {
         gameManager.stateManager.after();
       }

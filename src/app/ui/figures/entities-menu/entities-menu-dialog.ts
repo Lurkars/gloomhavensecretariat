@@ -64,12 +64,14 @@ export class EntitiesMenuDialogComponent {
     if (normalStat && eliteStat) {
       gameManager.stateManager.before("toggleTypeAll", "data.monster." + this.data.monster.name);
       this.entities.forEach((entity) => {
-        entity.type = entity.type == MonsterType.elite ? MonsterType.normal : MonsterType.elite;
-        entity.maxHealth = EntityValueFunction(entity.type == MonsterType.normal ? normalStat.health : eliteStat.health, this.data.monster.level)
-        if (entity.health > entity.maxHealth) {
-          entity.health = entity.maxHealth;
-        } else if (entity.health < entity.maxHealth && entity.health == EntityValueFunction(entity.type == MonsterType.normal ? eliteStat.health : normalStat.health, this.data.monster.level)) {
-          entity.health = entity.maxHealth;
+        if (gameManager.entityManager.isAlive(entity)) {
+          entity.type = entity.type == MonsterType.elite ? MonsterType.normal : MonsterType.elite;
+          entity.maxHealth = EntityValueFunction(entity.type == MonsterType.normal ? normalStat.health : eliteStat.health, this.data.monster.level)
+          if (entity.health > entity.maxHealth) {
+            entity.health = entity.maxHealth;
+          } else if (entity.health < entity.maxHealth && entity.health == EntityValueFunction(entity.type == MonsterType.normal ? eliteStat.health : normalStat.health, this.data.monster.level)) {
+            entity.health = entity.maxHealth;
+          }
         }
       });
       gameManager.stateManager.after();

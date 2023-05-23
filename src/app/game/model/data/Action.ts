@@ -5,17 +5,20 @@ export class Action {
   valueType: ActionValueType;
   subActions: Action[];
   small: boolean;
+  hidden: boolean;
 
   constructor(type: ActionType,
     value: number | string = "",
     valueType: ActionValueType = ActionValueType.fixed,
     subActions: Action[] = [],
-    small: boolean = false) {
+    small: boolean = false,
+    hidden: boolean = false) {
     this.type = type;
     this.value = value;
     this.valueType = valueType;
     this.subActions = subActions || [];
     this.small = small;
+    this.hidden = hidden;
   }
 }
 
@@ -47,6 +50,7 @@ export enum ActionType {
   sufferDamage = "sufferDamage",
   summon = "summon",
   swing = "swing",
+  switchType = "switchType",
   target = "target",
   teleport = "teleport",
   trigger = "trigger",

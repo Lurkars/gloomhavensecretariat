@@ -15,6 +15,7 @@ import { MonsterNumberPickerDialog } from './figures/monster/dialogs/numberpicke
 import { MonsterType } from '../game/model/data/MonsterType';
 import { storageManager } from '../game/businesslogic/StorageManager';
 import { PointerInputService } from './helper/pointer-input';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ghs-main',
@@ -50,6 +51,7 @@ export class MainComponent implements OnInit {
   zoomDiff: number = -1;
 
   standeeDialog: DialogRef<unknown, MonsterNumberPickerDialog> | undefined;
+  standeeDialogSubscription: Subscription | undefined;
 
   @ViewChild('footer') footer!: FooterComponent;
 
@@ -71,7 +73,20 @@ export class MainComponent implements OnInit {
             this.welcome = false;
             this.calcColumns();
             if (settingsManager.settings.automaticStandeesDialog && settingsManager.settings.automaticStandees && !settingsManager.settings.disableStandees && !settingsManager.settings.randomStandees && settingsManager.settings.scenarioRooms) {
-              this.automaticStandeeDialogs();
+              if (this.standeeDialog && gameManager.stateManager.lastAction == 'undo') {
+                this.standeeDialog.close();
+              }
+
+              if (this.dialog.openDialogs.length == 0) {
+                this.automaticStandeeDialogs();
+              }
+              else if (!this.standeeDialogSubscription) {
+                this.standeeDialogSubscription = this.dialog.afterAllClosed.subscribe({
+                  next: () => {
+                    this.automaticStandeeDialogs();
+                  }
+                })
+              }
             }
           }
         }
@@ -452,7 +467,7 @@ export class MainComponent implements OnInit {
   }
 
   automaticStandeeDialogs() {
-    if (!gameManager.stateManager.standeeDialogCanceled && !this.standeeDialog && gameManager.game.scenarioRules.length == 0) {
+    if (!gameManager.stateManager.standeeDialogCanceled && this.dialog.openDialogs.length == 0 && gameManager.game.scenarioRules.length == 0) {
       const figure = gameManager.game.figures.find((figure) => figure instanceof Monster && figure.entities.find((entity) => entity.number < 1 && gameManager.entityManager.isAlive(entity)));
       if (figure) {
         const monster = figure as Monster;
@@ -479,6 +494,10 @@ export class MainComponent implements OnInit {
               gameManager.stateManager.standeeDialogCanceled = true;
             }
             this.standeeDialog = undefined;
+            if (this.standeeDialogSubscription) {
+              this.standeeDialogSubscription.unsubscribe();
+              this.standeeDialogSubscription = undefined;
+            }
             gameManager.uiChange.emit();
           }
         })

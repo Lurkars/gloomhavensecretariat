@@ -20,6 +20,7 @@
       position: relative;
       display: flex;
       margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      margin-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
       width: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
       height: calc(var(--ghs-unit) * 7.8 * var(--ghs-text-factor));
 
@@ -62,14 +63,20 @@
   }
 }
 
-
 .number-container {
-
   display: grid;
-  grid-template-columns: repeat(4, calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor)));
+  grid-template-columns: repeat(4, auto);
+  justify-items: center;
+  align-items: center;
+  gap: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+  margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
   &.extended {
-    grid-template-columns: repeat(5, calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor)));
+    grid-template-columns: repeat(5, auto);
+  }
+
+  &.small {
+    grid-template-columns: repeat(3, auto);
   }
 
   .number-button {
@@ -96,7 +103,7 @@
       border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
       border-radius: 100%;
     }
-    
+
     &.existing {
       color: var(--ghs-color-darkgray);
     }
@@ -107,6 +114,7 @@
   }
 
   .summon-button {
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
