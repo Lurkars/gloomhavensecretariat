@@ -1,0 +1,10 @@
+.character-sheet-dialog {
+  position: relative;
+  background-color: var(--ghs-color-white);
+
+  ghs-character-sheet {
+    display: block;
+    width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 95 * var(--ghs-dialog-factor));
+  }
+}

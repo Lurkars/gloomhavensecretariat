@@ -12,7 +12,7 @@ import { ghsDefaultDialogPositions, ghsValueSign } from '../../helper/Static';
 import { AttackModiferDeckChange } from '../attackmodifier/attackmodifierdeck';
 import { AttackModifierDeckFullscreenComponent } from '../attackmodifier/attackmodifierdeck-fullscreen';
 import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
-import { CharacterSheetDialog } from './dialogs/character-sheet';
+import { CharacterSheetDialog } from './dialogs/character-sheet-dialog';
 import { CharacterLootCardsDialog } from './dialogs/loot-cards';
 import { CharacterSummonDialog } from './dialogs/summondialog';
 import { CharacterInitiativeDialogComponent } from './cards/initiative-dialog';
@@ -215,24 +215,33 @@ export class CharacterComponent implements OnInit, OnDestroy {
       gameManager.stateManager.before("changeXP", "data.character." + this.character.name, ghsValueSign(this.experience));
       this.character.experience += this.experience;
       this.experience = 0;
+      gameManager.stateManager.after();
     }
-    gameManager.stateManager.after();
   }
 
   dragTokenMove(value: number) {
     this.token = value;
-    if (this.character.token + this.token < 0) {
+    if (this.character.primaryToken < 0 && this.character.token + this.token < 0) {
       this.token = - this.character.token;
+    } else if (this.character.primaryToken >= 0 && this.character.tokenValues[this.character.primaryToken] + this.token < 0) {
+      this.token = - this.character.tokenValues[this.character.primaryToken];
     }
   }
 
   dragTokenEnd(value: number) {
     if (this.token != 0) {
-      gameManager.stateManager.before("setCharacterToken", "data.character." + this.character.name, '' + (this.character.token + this.token));
-      this.character.token += this.token;
-      this.token = 0;
+      if (this.character.primaryToken < 0) {
+        gameManager.stateManager.before("setCharacterToken", "data.character." + this.character.name, '' + (this.character.token + this.token));
+        this.character.token += this.token;
+        this.token = 0;
+        gameManager.stateManager.after();
+      } else {
+        gameManager.stateManager.before("setCharacterTokenValue", "data.character." + this.character.name, this.character.tokens[this.character.primaryToken], '' + (this.character.token + this.token));
+        this.character.tokenValues[this.character.primaryToken] += this.token;
+        this.token = 0;
+        gameManager.stateManager.after();
+      }
     }
-    gameManager.stateManager.after();
   }
 
   dragLootMove(value: number) {
@@ -247,8 +256,8 @@ export class CharacterComponent implements OnInit, OnDestroy {
       gameManager.stateManager.before("changeLoot", "data.character." + this.character.name, ghsValueSign(this.loot));
       this.character.loot += this.loot;
       this.loot = 0;
+      gameManager.stateManager.after();
     }
-    gameManager.stateManager.after();
   }
 
   openEntityMenu(event: any): void {

@@ -8,7 +8,7 @@ import { ScenarioRewards } from "src/app/game/model/data/ScenarioRule";
 import { Identifier } from "src/app/game/model/data/Identifier";
 import { LootType } from "src/app/game/model/data/Loot";
 import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
-import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/character-sheet";
+import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/character-sheet-dialog";
 import { EntityValueFunction } from "src/app/game/model/Entity";
 import { Subscription } from "rxjs";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";

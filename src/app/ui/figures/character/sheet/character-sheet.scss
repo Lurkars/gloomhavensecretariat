@@ -1,10 +1,10 @@
-.character-sheet-dialog {
+.character-sheet {
   position: relative;
   background-color: var(--ghs-color-white);
 
   .container {
     width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
-    height: calc(var(--ghs-unit) * 95 * var(--ghs-dialog-factor));
+    height: 100%;
     background-image: url('~/src/assets/images/character/character-sheet.svg');
     background-position: top center;
     background-repeat: no-repeat;
@@ -523,6 +523,10 @@
     }
   }
 
+  .additional {
+    margin-top: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
+  }
+
   &.fh-sheet {
     .container {
       background-image: url('~/src/assets/images/fh/character/character-sheet.svg');
@@ -672,7 +676,8 @@
       }
     }
 
-    .notes {
+    .notes,
+    .additional {
       margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
       .columns .column.column-right {
@@ -681,6 +686,7 @@
       }
 
     }
+
   }
 
   .scroll-container.denied {

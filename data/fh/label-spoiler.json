@@ -2,16 +2,22 @@
   "en": {
     "character": {
       "astral": "Infuser",
-      "coral" : "Crashing Tide",
-      "drill" : "Metal Mosaic",
-      "fist" : "Frozen Fist",
-      "kelp" : "Deepwraith",
+      "coral": "Crashing Tide",
+      "drill": {
+        ".": "Metal Mosaic",
+        "high": "High",
+        "low": "Low",
+        "regular": "Regular",
+        "over": "Over"
+      },
+      "fist": "Frozen Fist",
+      "kelp": "Deepwraith",
       "meteor": "Pyroclast",
-      "prism" : "HIVE",
-      "shackles" : "Pain Conduit",
-      "shards" : "Shattersong",
-      "snowflake" : "Snowdancer",
-      "trap" : "Trapper"
+      "prism": "HIVE",
+      "shackles": "Pain Conduit",
+      "shards": "Shattersong",
+      "snowflake": "Snowdancer",
+      "trap": "Trapper"
     },
     "treasures": {
       "fh": {

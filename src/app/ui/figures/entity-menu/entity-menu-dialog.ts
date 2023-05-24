@@ -51,6 +51,7 @@ export class EntityMenuDialogComponent {
   marker: number = 0;
   id: number = 0;
   characterToken: number = 0;
+  characterTokenValues: number[] = [];
   objectiveDead: boolean = false;
   entityConditions: EntityCondition[] = [];
 
@@ -67,6 +68,9 @@ export class EntityMenuDialogComponent {
     if (data.entity instanceof Character) {
       this.conditionType = 'character';
       this.characterToken = data.entity.token;
+      for (let index = 0; index < data.entity.tokens.length; index++) {
+        this.characterTokenValues[index] = data.entity.tokenValues[index] || 0;
+      }
     } else if (data.entity instanceof Objective) {
       this.conditionType = 'character';
     } else if (data.entity instanceof MonsterEntity) {
@@ -141,11 +145,18 @@ export class EntityMenuDialogComponent {
     }
   }
 
-  changeCharacterToken(value: number) {
+  changeCharacterToken(value: number, index: number = -1) {
     if (this.data.entity instanceof Character) {
-      this.characterToken += value;
-      if (this.data.entity.token + this.characterToken <= 0) {
-        this.characterToken = -this.data.entity.token;
+      if (index < 0) {
+        this.characterToken += value;
+        if (this.data.entity.token + this.characterToken <= 0) {
+          this.characterToken = -this.data.entity.token;
+        }
+      } else {
+        this.characterTokenValues[index] += value;
+        if (this.data.entity.tokenValues[index] + this.characterTokenValues[index] <= 0) {
+          this.characterTokenValues[index] = -this.data.entity.tokenValues[index];
+        }
       }
     }
   }
@@ -650,6 +661,18 @@ export class EntityMenuDialogComponent {
         }
         this.characterToken = 0;
         gameManager.stateManager.after();
+      }
+
+      for (let index = 0; index < this.data.entity.tokens.length; index++) {
+        if (this.characterTokenValues[index] != this.data.entity.tokenValues[index]) {
+          gameManager.stateManager.before("setCharacterTokenValue", "data.character." + this.data.entity.name, this.data.entity.tokens[index], '' + this.characterTokenValues[index]);
+          this.data.entity.tokenValues[index] = this.characterTokenValues[index];
+          if (this.data.entity.tokenValues[index] < 0) {
+            this.data.entity.tokenValues[index] = 0;
+          }
+          this.characterTokenValues[index] = 0;
+          gameManager.stateManager.after();
+        }
       }
 
       if (this.loot != 0) {

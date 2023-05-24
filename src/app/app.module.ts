@@ -5,6 +5,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DEFAULT_DIALOG_CONFIG, DialogModule } from '@angular/cdk/dialog';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { FormsModule } from '@angular/forms';
+import { InViewportModule } from 'ng-in-viewport';
 
 import { AppComponent } from './app.component';
 import { CharacterComponent } from './ui/figures/character/character';
@@ -50,7 +51,7 @@ import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
 import { EntityAnimationDirective } from './ui/helper/EntityAnimation';
 import { GhsLabelDirective } from './ui/helper/label';
 import { ValueCalcDirective } from './ui/helper/valueCalc';
-import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-sheet';
+import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-sheet-dialog';
 import { ScenarioComponent } from './ui/footer/scenario/scenario';
 import { PartySheetComponent } from './ui/header/party/party-sheet';
 import { PartySheetDialogComponent } from './ui/header/party/party-sheet-dialog';
@@ -99,8 +100,9 @@ import { ScenarioDialogComponent } from './ui/footer/scenario/dialog/scenario-di
 import { ScenarioSummaryComponent } from './ui/footer/scenario/summary/scenario-summary';
 import { SectionDialogComponent } from './ui/footer/scenario/section/section-dialog';
 import { CharacterLootCardsDialog } from './ui/figures/character/dialogs/loot-cards';
+import { CharacterMoveResourcesDialog } from './ui/figures/character/sheet/move-resources';
+import { CharacterSheetComponent } from './ui/figures/character/sheet/character-sheet';
 import { PerkLabelComponent } from './ui/figures/attackmodifier/perk/label';
-import { CharacterMoveResourcesDialog } from './ui/figures/character/dialogs/move-resources';
 import { PartyWeekDialogComponent } from './ui/header/party/week-dialog/week-dialog';
 import { CharacterItemsComponent } from './ui/figures/character/items/items';
 import { PartyBuildingsComponent } from './ui/header/party/buildings/buildings';
@@ -138,7 +140,7 @@ export class GhsErrorHandler extends ErrorHandler {
     ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, StatsListComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent, EventEffectsDialog,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
     EntityMenuDialogComponent, EntitiesMenuDialogComponent,
-    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterItemsComponent,
+    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterItemsComponent,
     ObjectiveComponent,
     SummonEntityComponent, SummonSheetComponent,
     MonsterComponent,
@@ -166,6 +168,7 @@ export class GhsErrorHandler extends ErrorHandler {
     FormsModule,
     DragDropModule,
     DialogModule,
+    InViewportModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: true, registrationStrategy: 'registerImmediately' })
   ],
   providers: [

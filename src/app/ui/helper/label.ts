@@ -106,11 +106,13 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "characterToken" && split.length >= 3) {
         const characterName = split[2];
         let icon = gameManager.characterManager.characterIcon(characterName);
+        let additionalToken = false;
         if (split.length > 3) {
-          icon = './assets/images/character/custom/' + split[3] + '.svg';
+          icon = './assets/images/character/token/' + characterName + '-' + split[3] + '.svg';
+          additionalToken = true;
         }
         image = '<img src="' + icon + '">';
-        replace = '<span class="placeholder-character-token" style="--ghs-character-color:' + gameManager.characterManager.characterColor(characterName) + '">' + image + '</span>';
+        replace = '<span class="placeholder-character-token' + (additionalToken ? ' additional' : '') + '" style="--ghs-character-color:' + gameManager.characterManager.characterColor(characterName) + '">' + image + '</span>';
       } else if (type == "coloredToken" && split.length > 3) {
         const color = split[2];
         const icon = './assets/images/character/custom/' + split[3] + '.svg';

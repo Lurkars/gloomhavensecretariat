@@ -1074,21 +1074,51 @@
         }
 
         .town-guard-deck-container {
-          position: sticky;
+          position: absolute;
           z-index: 3;
-          left: calc(var(--ghs-unit) * 75 * var(--ghs-dialog-factor));
+          left: calc(var(--ghs-unit) * 115 * var(--ghs-dialog-factor));
           top: calc(var(--ghs-unit) * 19 * var(--ghs-dialog-factor));
-          width: calc(var(--ghs-unit) * 50 * var(--ghs-dialog-factor));
-          height: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));
-          overflow: hidden;
+          width: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
+          height: 0;
+          transition: top 500ms ease-in-out, width 500ms ease-in-out, left 500ms ease-in-out;
+          overflow: visible;
+
+          &::before {
+            content: ' ';
+            position: sticky;
+            display: block;
+            top: 0;
+            left: 0;
+            width: calc(var(--ghs-unit) * 119.5 * var(--ghs-dialog-factor));
+            height: 0;
+            background-color: var(--ghs-color-darkgray);
+            opacity: 0;
+            transition: opacity 500ms ease-in-out, height 500ms ease-in-out;
+            z-index: 1;
+          }
+
+          &.active {
+            z-index: 3;
+            top: calc(var(--ghs-unit) * 6.3 * var(--ghs-dialog-factor));
+            left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            width: calc(var(--ghs-unit) * 119.5 * var(--ghs-dialog-factor));
+            height: calc(var(--ghs-unit) * 19 * var(--ghs-dialog-factor));
+            overflow: auto;
+
+            &::before {
+              height: calc(var(--ghs-unit) * 19 * var(--ghs-dialog-factor));
+              opacity: 0.5;
+            }
+          }
 
           .town-guard-deck {
             position: absolute;
-            left: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
-            top: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+            right: calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor));
+            top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
             width: calc(var(--ghs-unit) * 37.5 * var(--ghs-dialog-factor));
             height: calc(var(--ghs-unit) * 10 * var(--ghs-dialog-factor));
             transition: transform 500ms ease-in-out;
+            z-index: 2;
 
             &:before {
               content: ' ';
@@ -1112,7 +1142,7 @@
             }
 
             &.collapsed {
-              transform: translateX(118%);
+              transform: translateX(123%);
             }
 
             .active-toggle {
@@ -1166,6 +1196,7 @@
 
     &.fh-container {
       width: calc(var(--ghs-unit) * 120.5 * var(--ghs-dialog-factor));
+      overflow-x: hidden;
     }
 
     .toggle-fh-sheet {

@@ -1,5 +1,5 @@
-import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
-import { AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
+import { Dialog } from "@angular/cdk/dialog";
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
@@ -18,7 +18,10 @@ import { CharacterMoveResourcesDialog } from "./move-resources";
   styleUrls: ['./character-sheet.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class CharacterSheetDialog implements OnInit, AfterViewInit {
+export class CharacterSheetComponent implements OnInit, AfterViewInit {
+
+  @Input() character!: Character;
+  @Input() standalone: boolean = false;
 
   @ViewChild('charactertitle', { static: false }) titleInput!: ElementRef;
 
@@ -42,12 +45,14 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
   titles: string[] = [];
 
-  constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef, private dialog: Dialog) {
-    this.retired = character.progress.retired;
-    if (character.identities && character.identities.length > 1) {
-      this.titles = character.title.split('|');
-      if (this.titles.length < character.identities.length) {
-        for (let i = this.titles.length; i < character.identities.length; i++) {
+  constructor(private dialog: Dialog) { }
+
+  ngOnInit(): void {
+    this.retired = this.character.progress.retired;
+    if (this.character.identities && this.character.identities.length > 1) {
+      this.titles = this.character.title.split('|');
+      if (this.titles.length < this.character.identities.length) {
+        for (let i = this.titles.length; i < this.character.identities.length; i++) {
           this.titles.push('');
         }
       }
@@ -57,61 +62,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
         }
       }
     }
-    this.dialogRef.closed.subscribe({
-      next: () => {
-        let title = "";
 
-        if (this.titleInput) {
-          title = this.titleInput.nativeElement.value;
-        }
-
-        if (this.titles.length > 0) {
-          for (let i = 0; i < this.titles.length; i++) {
-            if (this.titles[i] == settingsManager.getLabel('data.character.' + this.character.name.toLowerCase())) {
-              this.titles[i] = '';
-            }
-          }
-
-          title = this.titles.join('|');
-          if (title.endsWith('|')) {
-            title = title.substring(0, title.length - 1);
-          }
-        }
-
-        if (title != settingsManager.getLabel('data.character.' + this.character.name.toLowerCase())) {
-          if (this.character.title != title) {
-            gameManager.stateManager.before("setTitle", "data.character." + this.character.name, title);
-            this.character.title = title;
-            gameManager.stateManager.after();
-          }
-        } else if (this.character.title != "") {
-          gameManager.stateManager.before("unsetTitle", "data.character." + this.character.name, this.character.title);
-          this.character.title = "";
-          gameManager.stateManager.after();
-        }
-
-
-        if (this.retired != this.character.progress.retired) {
-          gameManager.stateManager.before("setRetired", "data.character." + this.character.name, "" + !this.character.progress.retired);
-          this.character.progress.retired = this.retired;
-          if (this.retired && gameManager.game.party.campaignMode) {
-            gameManager.game.party.retirements.push(this.character.toModel());
-            // add items to available pool (except solo)
-            this.character.progress.items.forEach((item) => {
-              const itemData = gameManager.item(+item.name, item.edition, true);
-              if (itemData && !itemData.solo && !gameManager.itemData(item.edition).find((available) => available.id == itemData.id && available.edition == itemData.edition)) {
-                gameManager.game.party.unlockedItems.push(item);
-              }
-            })
-            gameManager.characterManager.removeCharacter(this.character);
-          }
-          gameManager.stateManager.after();
-        }
-      }
-    });
-  }
-
-  ngOnInit(): void {
     if (!this.character.progress) {
       this.character.progress = new CharacterProgress();
     }
@@ -161,14 +112,74 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     })
   }
 
+  applyValues() {
+    let title = "";
+
+    if (this.titleInput) {
+      title = this.titleInput.nativeElement.value;
+    }
+
+    if (this.titles.length > 0) {
+      for (let i = 0; i < this.titles.length; i++) {
+        if (this.titles[i] == settingsManager.getLabel('data.character.' + this.character.name.toLowerCase())) {
+          this.titles[i] = '';
+        }
+      }
+
+      title = this.titles.join('|');
+      if (title.endsWith('|')) {
+        title = title.substring(0, title.length - 1);
+      }
+    }
+
+    if (title != settingsManager.getLabel('data.character.' + this.character.name.toLowerCase())) {
+      if (this.character.title != title) {
+        gameManager.stateManager.before("setTitle", "data.character." + this.character.name, title);
+        this.character.title = title;
+        gameManager.stateManager.after();
+      }
+    } else if (this.character.title != "") {
+      gameManager.stateManager.before("unsetTitle", "data.character." + this.character.name, this.character.title);
+      this.character.title = "";
+      gameManager.stateManager.after();
+    }
+
+
+    if (this.retired != this.character.progress.retired) {
+      gameManager.stateManager.before("setRetired", "data.character." + this.character.name, "" + !this.character.progress.retired);
+      this.character.progress.retired = this.retired;
+      if (this.retired && gameManager.game.party.campaignMode) {
+        gameManager.game.party.retirements.push(this.character.toModel());
+        // add items to available pool (except solo)
+        this.character.progress.items.forEach((item) => {
+          const itemData = gameManager.item(+item.name, item.edition, true);
+          if (itemData && !itemData.solo && !gameManager.itemData(item.edition).find((available) => available.id == itemData.id && available.edition == itemData.edition)) {
+            gameManager.game.party.unlockedItems.push(item);
+          }
+        })
+        gameManager.characterManager.removeCharacter(this.character);
+      }
+      gameManager.stateManager.after();
+    }
+  }
+
+  titleChange() {
+    if (this.standalone) {
+      this.applyValues();
+    }
+  }
+
+  toggleRetired() {
+    this.retired = !this.retired;
+    if (this.standalone) {
+      this.applyValues();
+    }
+  }
+
   ngAfterViewInit(): void {
     if (this.titleInput) {
       this.titleInput.nativeElement.value = this.character.title || settingsManager.getLabel('data.character.' + this.character.name.toLowerCase());
     }
-  }
-
-  close() {
-    this.dialogRef.close();
   }
 
   toggleCharacterAbsent() {
@@ -184,6 +195,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
   setTitle(event: any, index: number) {
     this.titles[index] = event.target.value;
+    this.titleChange();
   }
 
   setLevel(level: number) {

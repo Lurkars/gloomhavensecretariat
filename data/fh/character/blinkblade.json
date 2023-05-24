@@ -6,6 +6,10 @@
     "fast",
     "slow"
   ],
+  "tokens": [
+    "time"
+  ],
+  "primaryToken": 0,
   "handSize": 10,
   "color": "#01b0db",
   "stats": [
@@ -181,7 +185,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Gain 1 %data.characterToken.blinkblade.fh-hourglass%",
+                "value": "Gain 1 %data.characterToken.blinkblade.time%",
                 "hint": "Gain 1 %data.action.custom.fh-hourglass%"
               }
             ]

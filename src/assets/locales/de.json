@@ -748,6 +748,7 @@
         },
         "winter": "Winter"
       },
+      "townGuard": "Stadtwache",
       "townGuardDeck": "Stadtwachendeck",
       "treasures": "Schätze"
     },
@@ -1458,7 +1459,7 @@
       "addNextStandee": "Aufsteller {1} {0} hinzufügen",
       "addObjective": "Ziel {0} hinzufügen",
       "addParty": "Neue Gruppe '{0}' erstellen",
-      "addPartyTownGuardPerkSection": "Verbesserung der Stadtwache Sektion {1}",
+      "addPartyTownGuardPerkSection": "Verbesserung der Stadtwache Sektion {0}",
       "addPartyWeekSection": "Sektion {2} zur Woche {1} hinzufügen",
       "addRandomStandee": "Zufälliger Aufsteller {1} {0} {2} hinzufügen",
       "addResource": "+{2} {1} für {0}",
@@ -1586,7 +1587,7 @@
       "removeObjective": "Ziel {0} entfernen",
       "removeParty": "Gruppe '{0}' löschen",
       "removePartyAchievements": "Entferne Gruppenerfolg {0}",
-      "removePartyTownGuardPerkSection": "Sektion {1} von den Verbesserungen der Stadtwache entfernen",
+      "removePartyTownGuardPerkSection": "Sektion {0} von den Verbesserungen der Stadtwache entfernen",
       "removePartyWeekSection": "Sektion {2} von Woche {1} entfernen",
       "removePlayer": "Entferne Spieler {1} ({0})",
       "removeScenarioRule": "Szenario Regel ausblenden",
@@ -1686,6 +1687,7 @@
       "updateManualPlayerCount": "Manuelle Charakter Anzahl auf {0}",
       "updatePartyAchievements": "Gruppenerfolg auf {0}"
     },
+    "loadMore": "Mehr anzeigen",
     "missing": "Fehlende Zustände: {0}",
     "redo": "Wiederherstellen",
     "reset": "Zurücksetzen",

@@ -2,6 +2,10 @@
   "name": "shards",
   "characterClass": "savvas",
   "edition": "fh",
+  "tokens": [
+    "resonance"
+  ],
+  "primaryToken": 0,
   "handSize": 10,
   "color": "#c0d7e9",
   "spoiler": true,
@@ -192,7 +196,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Gain 1 %game.characterToken.shards.fh-resonance%",
+                "value": "Gain 1 %game.characterToken.shards.resonance%",
                 "note": "Gain 1 %game.action.custom.fh-resonance%"
               }
             ]

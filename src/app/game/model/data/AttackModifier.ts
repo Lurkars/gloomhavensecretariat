@@ -267,7 +267,6 @@ export class AttackModifierDeck {
       if (!attackModifier) {
         attackModifier = defaultTownGuardAttackModifier.find((attackModifier) => attackModifier.id == id);
       }
-      console.log(id, defaultTownGuardAttackModifier.map((am) => am.id));
       if (!attackModifier) {
         return undefined;
       }

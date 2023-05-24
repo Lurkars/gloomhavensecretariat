@@ -14,17 +14,22 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
     gameManager: GameManager = gameManager;
     undoOffset: number = 0;
     confirm: string = "";
+    undoArray: number[] = [];
+    redoArray: number[] = [];
 
     constructor(public dialogRef: DialogRef) { }
 
     ngOnInit(): void {
         this.undoOffset = gameManager.stateManager.undos.length > 0 ? (gameManager.game.revision
             - (gameManager.game.revisionOffset || 0)) - this.getUndoRevision(gameManager.stateManager.undos.length - 1) - 1 : 0;
-
+        this.undoArray = Array.from({ length: Math.min(10, gameManager.stateManager.undos.length) }).map((value, i) => gameManager.stateManager.undos.length - i - 1);
+        this.redoArray = Array.from({ length: Math.min(10, gameManager.stateManager.redos.length) }).map((value, i) => Math.min(10, gameManager.stateManager.redos.length) - i - 1);
         this.uiChangeSubscription = gameManager.uiChange.subscribe({
             next: () => {
                 this.undoOffset = gameManager.stateManager.undos.length > 0 ? (gameManager.game.revision
                     - (gameManager.game.revisionOffset || 0)) - this.getUndoRevision(gameManager.stateManager.undos.length - 1) - 1 : 0;
+                this.undoArray = Array.from({ length: Math.min(10, gameManager.stateManager.undos.length) }).map((value, i) => gameManager.stateManager.undos.length - i - 1);
+                this.redoArray = Array.from({ length: Math.min(10, gameManager.stateManager.redos.length) }).map((value, i) => Math.min(10, gameManager.stateManager.redos.length) - i - 1);
             }
         })
     }
@@ -34,6 +39,19 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
         if (this.uiChangeSubscription) {
             this.uiChangeSubscription.unsubscribe();
+        }
+    }
+
+    moreUndos() {
+        if (this.undoArray.length < gameManager.stateManager.undos.length) {
+            this.undoArray = Array.from({ length: Math.min(gameManager.stateManager.undos.length, this.undoArray.length + 10) }).map((value, i) => gameManager.stateManager.undos.length - i - 1);
+        }
+    }
+
+    moreRedos() {
+        if (this.redoArray.length < gameManager.stateManager.redos.length) {
+            const length = Math.min(gameManager.stateManager.redos.length, this.redoArray.length + 10);
+            this.redoArray = Array.from({ length: length }).map((value, i) => length - i - 1);
         }
     }
 
@@ -88,6 +106,7 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
         if (this.confirm != "clearUndos") {
             this.confirm = "clearUndos";
         } else {
+            this.undoArray = [];
             gameManager.stateManager.clearUndos();
             if (gameManager.stateManager.redos.length == 0) {
                 this.dialogRef.close();
@@ -99,6 +118,7 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
         if (this.confirm != "clearRedos") {
             this.confirm = "clearRedos";
         } else {
+            this.redoArray = [];
             gameManager.stateManager.clearRedos();
             if (gameManager.stateManager.undos.length == 0) {
                 this.dialogRef.close();

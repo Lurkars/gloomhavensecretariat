@@ -873,6 +873,7 @@
         },
         "winter": "Winter"
       },
+      "townGuard": "Town Guard",
       "townGuardDeck": "Town Guard Deck",
       "treasures": "Treasures"
     },
@@ -1580,7 +1581,7 @@
       "addNextStandee": "Add {1} {0} standee",
       "addObjective": "Add objective {0}",
       "addParty": "Create new party '{0}'",
-      "addPartyTownGuardPerkSection": "Add Town Guard Perk Section {1}",
+      "addPartyTownGuardPerkSection": "Add Town Guard Perk Section {0}",
       "addPartyWeekSection": "Add section {2} to week {1}",
       "addRandomStandee": "Add random {1} {0} standee {2}",
       "addResource": "Add +{2} {1} for {0}",
@@ -1708,7 +1709,7 @@
       "removeObjective": "Remove objective {0}",
       "removeParty": "Remove party '{0}'",
       "removePartyAchievements": "Remove party achievement {0}",
-      "removePartyTownGuardPerkSection": "Remove Town Guard Perk Section {1}",
+      "removePartyTownGuardPerkSection": "Remove Town Guard Perk Section {0}",
       "removePartyWeekSection": "Remove section {2} from week {1}",
       "removePlayer": "Remove Player {1} ({0})",
       "removeScenarioRule": "Remove scenario rule",
@@ -1808,6 +1809,7 @@
       "updateManualPlayerCount": "Set manual player count to {0}",
       "updatePartyAchievements": "Party achievement to {0}"
     },
+    "loadMore": "Show more",
     "missing": "Missing states: {0}",
     "redo": "Redo",
     "reset": "Reset",

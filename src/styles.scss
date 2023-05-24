@@ -1408,6 +1408,12 @@ input[type="radio"] {
     img {
       height: 80%;
     }
+
+    &.additional {
+      img {
+        opacity: 0.7;
+      }
+    }
   }
 
   .immunity::before {

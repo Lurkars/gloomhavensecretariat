@@ -2,6 +2,12 @@
   "name": "drill",
   "characterClass": "unfettered",
   "edition": "fh",
+  "identities": [
+    "regular",
+    "high",
+    "over",
+    "low"
+  ],
   "handSize": 9,
   "color": "#ad8f68",
   "spoiler": true,

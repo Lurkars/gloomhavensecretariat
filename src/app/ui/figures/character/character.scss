@@ -173,14 +173,14 @@
       align-items: center;
       color: var(--ghs-color-white);
       font-family: var(--ghs-font-text);
-      margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      margin-left: calc(var(--ghs-unit) * 0.5);
 
       .token {
-        font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-text-factor));
-        margin: 0 calc(var(--ghs-unit) * 0.1 * var(--ghs-text-factor));
+        font-size: calc(var(--ghs-unit) * 2.7);
+        margin: 0 calc(var(--ghs-unit) * 0.1);
 
         &.placeholder {
-          margin-top: calc(var(--ghs-unit) * -0.5 * var(--ghs-text-factor));
+          margin-top: calc(var(--ghs-unit) * -0.5);
         }
       }
     }
@@ -210,24 +210,24 @@
       display: flex;
       justify-content: center;
       max-height: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
-      padding-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      padding: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
 
       .marker {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
+        width: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
         background-color: var(--ghs-color-darkgray);
         border-radius: 100%;
-        height: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
         margin-right: calc(var(--ghs-unit) * -1 * var(--ghs-text-factor));
         border-width: calc(var(--ghs-unit) * 0.4);
         border-style: solid;
         border-color: var(--ghs-color-gray);
 
         img {
-          width: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
-          height: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+          width: calc(var(--ghs-unit) * 2.7 * var(--ghs-text-factor));
+          height: calc(var(--ghs-unit) * 2.7 * var(--ghs-text-factor));
         }
       }
     }
@@ -510,7 +510,7 @@
       height: calc(var(--ghs-unit) * 17 * var(--ghs-text-factor));
       -ms-overflow-style: none;
       scrollbar-width: none;
-    
+
       &::-webkit-scrollbar {
         display: none;
       }

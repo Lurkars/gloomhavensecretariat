@@ -14,7 +14,7 @@ import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
 import { AttackModiferDeckChange } from "../../figures/attackmodifier/attackmodifierdeck";
 import { ghsInputFullScreenCheck } from "../../helper/Static";
 import { MapComponent } from "./map/map";
-import { CharacterMoveResourcesDialog } from "../../figures/character/dialogs/move-resources";
+import { CharacterMoveResourcesDialog } from "../../figures/character/sheet/move-resources";
 import { ScenarioConclusionComponent } from "../../footer/scenario/scenario-conclusion/scenario-conclusion";
 import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
 import { Subscription } from "rxjs";
@@ -66,6 +66,10 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         if (this.party != gameManager.game.party) {
           this.party = gameManager.game.party;
           this.update();
+        }
+
+        if (this.townGuardDeck && this.party.townGuardDeck) {
+          this.townGuardDeck.fromModel(this.party.townGuardDeck);
         }
       }
     })
@@ -478,9 +482,10 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     if (this.party.townGuardDeck) {
       this.townGuardDeck.fromModel(this.party.townGuardDeck);
     } else {
+      gameManager.attackModifierManager.shuffleModifiers(this.townGuardDeck);
+      this.townGuardDeck.active = false;
       this.party.townGuardDeck = this.townGuardDeck.toModel();
     }
-    this.townGuardDeck.active = false;
 
     this.calendarSheet = Math.floor(this.party.weeks / 81);
     this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && Object.keys(figure.progress.loot).some((type) => figure.progress.loot[type as LootType])).map((figure) => figure as Character);
@@ -757,8 +762,10 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       } else {
         this.party.townGuardPerkSections.splice(index, 1);
       }
-
+      const active = this.townGuardDeck && this.townGuardDeck.active || false;
       this.townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.party, gameManager.campaignData());
+      this.townGuardDeck.active = active;
+      gameManager.attackModifierManager.shuffleModifiers(this.townGuardDeck);
       this.party.townGuardDeck = this.townGuardDeck.toModel();
 
       gameManager.stateManager.after();
@@ -829,13 +836,21 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   beforeTownGuardDeck(change: AttackModiferDeckChange) {
-    gameManager.stateManager.before("updateAttackModifierDeck." + change.type, "townguard", ...change.values);
+    gameManager.stateManager.before("updateAttackModifierDeck." + change.type, 'party.campaign.townGuard', ...change.values);
   }
 
   afterTownGuardDeck(change: AttackModiferDeckChange) {
     this.townGuardDeck = change.deck;
     this.party.townGuardDeck = this.townGuardDeck.toModel();
     gameManager.stateManager.after();
+  }
+
+  toggleTownGuardDeck() {
+    if (this.townGuardDeck) {
+      this.beforeTownGuardDeck(new AttackModiferDeckChange(this.townGuardDeck, this.townGuardDeck.active && !gameManager.game.lootDeck.active ? 'amDeckHide' : 'amDeckShow'));
+      this.townGuardDeck.active = !this.townGuardDeck.active;
+      this.afterTownGuardDeck(new AttackModiferDeckChange(this.townGuardDeck, !this.townGuardDeck.active ? 'amDeckHide' : 'amDeckShow'));
+    }
   }
 
 }

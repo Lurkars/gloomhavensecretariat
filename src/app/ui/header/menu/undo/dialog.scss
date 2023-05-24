@@ -104,5 +104,13 @@
                 margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
             }
         }
+
+        .more {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: var(--ghs-color-gray);
+        }
     }
 }

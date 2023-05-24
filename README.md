@@ -64,6 +64,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Character sheets
   - Character attack modifier deck
   - Loot Deck
+  - Town Guard Deck
   - Party/Campaign Sheet
 - Other features:
   - i18n support (currently en, de, fr and ko, more translations needed. Many thanks to the contributors of french and korean)
@@ -72,11 +73,11 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Manage permissions for different clients with [GHS Server](https://github.com/Lurkars/ghs-server)
   - Load custom JSON edition data for custom content!
   - Edit Monster Attack Modifier and Monster Ability decks (support for Diviner class mechanics): reveal cards, remove cards, rearrange cards
-  - Support for FH Loot Deck, including enhancements
+  - Support for FH Loot Deck (including enhancements) and Town Guard Deck
   - Monster Data Editor (https://gloomhaven-secretariat.de/editor/monster)
   - Includes Solo Scenarios
   - Includes [Blood and Sand](https://boardgamegeek.com/thread/2613617/blood-and-sand-gloomhaven-campaign-set-red-desert) campaign: can be enabled in *Data Management* (Thanks to [/u/Calm_Construction131](https://www.reddit.com/user/Calm_Construction131) for contribution)
-  - Includes the [Seeker of Xor](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under *Data Management*.
+  - Includes the [Seeker of Xorn](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under *Data Management*.
   - Manage multiple parties (on the party sheet while no active scenario is set)
   - <details
       <summary>SPOILER WARNING: Envelope X (and V)</summary

@@ -31,6 +31,7 @@ export class Character extends CharacterData implements Entity, Figure {
   attackModifierDeck: AttackModifierDeck;
 
   token: number = 0;
+  tokenValues: number[] = [];
   absent: boolean = false;
   longRest: boolean = false;
 
@@ -84,12 +85,14 @@ export class Character extends CharacterData implements Entity, Figure {
     this.health = this.maxHealth;
     this.progress = new CharacterProgress();
     this.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this);
-
+    this.tokens.forEach((token, index) => {
+      this.tokenValues[index] = this.tokenValues[index] || 0;
+    })
     this.availableSummons.forEach((summonData) => summonData.edition = this.edition);
   }
 
   toModel(): GameCharacterModel {
-    return new GameCharacterModel(this.name, this.edition, this.marker, this.title, this.initiative, this.experience, this.loot, this.lootCards || [], this.treasures && this.treasures.map((treasure) => '' + treasure) || [], this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.identity, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.lootCardsVisible, this.number, this.attackModifierDeck.toModel(), this.donations, this.token, this.absent, this.longRest);
+    return new GameCharacterModel(this.name, this.edition, this.marker, this.title, this.initiative, this.experience, this.loot, this.lootCards || [], this.treasures && this.treasures.map((treasure) => '' + treasure) || [], this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.identity, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.lootCardsVisible, this.number, this.attackModifierDeck.toModel(), this.donations, this.token, this.tokenValues, this.absent, this.longRest);
   }
 
   fromModel(model: GameCharacterModel) {
@@ -189,6 +192,10 @@ export class Character extends CharacterData implements Entity, Figure {
 
     this.donations = model.donations || 0;
     this.token = model.token || 0;
+    this.tokenValues = model.tokenValues || [];
+    this.tokens.forEach((token, index) => {
+      this.tokenValues[index] = this.tokenValues[index] || 0;
+    })
     this.absent = model.absent;
     this.longRest = model.longRest;
   }
@@ -254,6 +261,7 @@ export class GameCharacterModel {
   attackModifierDeck: GameAttackModifierDeckModel;
   donations: number;
   token: number;
+  tokenValues: number[];
   absent: boolean;
   longRest: boolean;
 
@@ -285,6 +293,7 @@ export class GameCharacterModel {
     attackModifierDeck: GameAttackModifierDeckModel,
     donations: number,
     token: number,
+    tokenValues: number[],
     absent: boolean,
     longRest: boolean) {
     this.name = name;
@@ -315,6 +324,7 @@ export class GameCharacterModel {
     this.attackModifierDeck = attackModifierDeck;
     this.donations = donations;
     this.token = token;
+    this.tokenValues = JSON.parse(JSON.stringify(tokenValues));
     this.absent = absent;
     this.longRest = longRest;
   }

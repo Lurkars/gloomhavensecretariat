@@ -2,6 +2,9 @@
   "name": "prism",
   "characterClass": "unfettered",
   "edition": "fh",
+  "tokens": [
+    "mode"
+  ],
   "handSize": 11,
   "color": "#d7ad47",
   "spoiler": true,

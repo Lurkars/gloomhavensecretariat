@@ -2,6 +2,9 @@
   "name": "kelp",
   "characterClass": "lurker",
   "edition": "fh",
+  "tokens": [
+    "trophy"
+  ],
   "handSize": 10,
   "color": "#987bab",
   "spoiler": true,
@@ -212,7 +215,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Gain 1 %game.characterToken.kelp.fh-trophy%",
+                "value": "Gain 1 %game.characterToken.kelp.trophy%",
                 "hint": "Gain 1 %game.action.custom.fh-trophy%"
               }
             ]

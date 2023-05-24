@@ -340,6 +340,14 @@ export class RoundManager {
         figure.entityConditions = [];
       }
     })
+
+    if (this.game.party.townGuardDeck) {
+      const townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.game.party, gameManager.campaignData());
+      gameManager.attackModifierManager.shuffleModifiers(townGuardDeck);
+      townGuardDeck.active = false;
+      this.game.party.townGuardDeck = townGuardDeck.toModel();
+    }
+
     gameManager.stateManager.standeeDialogCanceled = false;
 
     gameManager.uiChange.emit();

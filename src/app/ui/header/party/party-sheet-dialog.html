@@ -364,13 +364,14 @@
 
         <ghs-party-buildings [party]="party"></ghs-party-buildings>
 
-        <div class="town-guard-deck-container" *ngIf="townGuardDeck && townGuardDeck.cards.length > 0">
+        <div class="town-guard-deck-container" *ngIf="townGuardDeck && townGuardDeck.cards.length > 0"
+          [ngClass]="{ 'active' : townGuardDeck.active}">
           <div class="town-guard-deck"
             [ngClass]="{'collapsed' : !townGuardDeck.active,  'full' : townGuardDeck.active}">
             <ghs-attackmodifier-deck [deck]="townGuardDeck" [townGuard]="true" (before)="beforeTownGuardDeck($event)"
               (after)="afterTownGuardDeck($event)"></ghs-attackmodifier-deck>
 
-            <div class="active-toggle" (click)="townGuardDeck.active = !townGuardDeck.active">
+            <div class="active-toggle" (click)="toggleTownGuardDeck()">
               <span class="numeration"></span>
             </div>
           </div>

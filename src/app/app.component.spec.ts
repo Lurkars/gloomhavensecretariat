@@ -42,7 +42,7 @@ import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
 import { EntityAnimationDirective } from './ui/helper/EntityAnimation';
 import { GhsLabelDirective } from './ui/helper/label';
 import { ValueCalcDirective } from './ui/helper/valueCalc';
-import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-sheet';
+import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-sheet-dialog';
 import { ScenarioComponent } from './ui/footer/scenario/scenario';
 import { PartySheetComponent } from './ui/header/party/party-sheet';
 import { PartySheetDialogComponent } from './ui/header/party/party-sheet-dialog';
@@ -92,7 +92,7 @@ import { ScenarioSummaryComponent } from './ui/footer/scenario/summary/scenario-
 import { SectionDialogComponent } from './ui/footer/scenario/section/section-dialog';
 import { CharacterLootCardsDialog } from './ui/figures/character/dialogs/loot-cards';
 import { PerkLabelComponent } from './ui/figures/attackmodifier/perk/label';
-import { CharacterMoveResourcesDialog } from './ui/figures/character/dialogs/move-resources';
+import { CharacterMoveResourcesDialog } from './ui/figures/character/sheet/move-resources';
 import { PartyWeekDialogComponent } from './ui/header/party/week-dialog/week-dialog';
 import { CharacterItemsComponent } from './ui/figures/character/items/items';
 import { PartyBuildingsComponent } from './ui/header/party/buildings/buildings';
@@ -105,6 +105,13 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DialogModule } from '@angular/cdk/dialog';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { PointerInputDirective } from './ui/helper/pointer-input';
+import { BuildingRepairDialog } from './ui/header/party/buildings/repair';
+import { ScenarioConclusionComponent } from './ui/footer/scenario/scenario-conclusion/scenario-conclusion';
+import { SelectGoldDialog } from './ui/header/party/buildings/select-gold/select-gold';
+import { EventEffectsDialog } from './ui/footer/scenario/dialog/event-effects/event-effects';
+import { CharacterSheetComponent } from './ui/figures/character/sheet/character-sheet';
+import { KeyboardShortcuts } from './ui/helper/keyboard-shortcuts';
+import { InViewportModule } from 'ng-in-viewport';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -113,17 +120,17 @@ describe('AppComponent', () => {
         AppComponent,
         MainComponent,
         HeaderComponent, ElementIconComponent, ElementComponent,
-        PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, MapComponent,
+        PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, BuildingRepairDialog, MapComponent, ScenarioConclusionComponent, SelectGoldDialog,
         MainMenuComponent, CharacterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent,
         FooterComponent,
         LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
         HintDialogComponent, ScenarioRulesComponent,
         AttackModifierComponent, AttackModifierEffectsComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent, AttackModifierStandaloneComponent,
         LevelComponent, LevelDialogComponent,
-        ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, StatsListComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent,
+        ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, StatsListComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent, EventEffectsDialog,
         ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
         EntityMenuDialogComponent, EntitiesMenuDialogComponent,
-        CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterItemsComponent,
+        CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterItemsComponent,
         ObjectiveComponent,
         SummonEntityComponent, SummonSheetComponent,
         MonsterComponent,
@@ -142,6 +149,7 @@ describe('AppComponent', () => {
         EditorActionComponent, EditorActionDialogComponent,
         DeckEditorComponent, CharacterEditorComponent, MonsterEditorComponent,
         GhsTooltipComponent, GhsTooltipDirective,
+        KeyboardShortcuts,
         FeedbackToolComponent, FeedbackDialogComponent],
       imports: [
         BrowserModule,
@@ -149,6 +157,7 @@ describe('AppComponent', () => {
         FormsModule,
         DragDropModule,
         DialogModule,
+        InViewportModule,
         ServiceWorkerModule.register('ngsw-worker.js', { enabled: false })
       ],
     }).compileComponents();

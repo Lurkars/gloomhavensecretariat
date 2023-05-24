@@ -1,56 +1,61 @@
-<div class="summons-container"
-  [ngClass]="{'empty' : emptySummons, 'off' : character.off || character.exhausted || character.health <= 0  }">
-  <span class="spacer"></span>
-  <span class="icon" [ngClass]="{'empty' : emptySummons}" [entityAnimation]="emptySummons">
-    <img [src]="character.iconUrl" />
-  </span>
-  <div class="summons">
-    <ghs-summon-entity *ngFor="let summon of character.summons" [character]="character" [summon]="summon">
-    </ghs-summon-entity>
-  </div>
-</div>
-
-<div class="fullview">
-  <div class="row">
-
-    <ghs-character-image [character]="character"
-      [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
-    </ghs-character-image>
-
-    <ghs-pointer-input class="drag-initiative" (dragMove)="dragInitiativeMove($event)"
-      (dragEnd)="dragInitiativeEnd($event)">
-    </ghs-pointer-input>
-
-    <ghs-character-initiative [figure]="character"></ghs-character-initiative>
-
-    <ghs-highlight-conditions [entity]="character" [figure]="character"></ghs-highlight-conditions>
-
-  </div>
-
-  <div class="row">
-    <div class="conditions">
-      <span class="condition" *ngFor="let entityCondition of activeConditions">
-        <img
-          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
-          [style.z-index]="entityCondition.value" />
-        <ng-container *ngIf="entityCondition.types.indexOf(ConditionType.stack) != -1">
-          <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)"
-            [style.z-index]="entityCondition.value - i - 1"
-            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
-        </ng-container>
-        <span class="value"
-          *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
-      </span>
+<div class="container">
+  <div class="summons-container"
+    [ngClass]="{'empty' : emptySummons, 'off' : character.off || character.exhausted || character.health <= 0  }">
+    <span class="spacer"></span>
+    <span class="icon" [ngClass]="{'empty' : emptySummons}" [entityAnimation]="emptySummons">
+      <img [src]="character.iconUrl" />
+    </span>
+    <div class="summons">
+      <ghs-summon-entity *ngFor="let summon of character.summons" [character]="character" [summon]="summon">
+      </ghs-summon-entity>
     </div>
   </div>
 
-  <div class="row">
-    <ghs-conditions class="dialog" [entity]="character" [figure]="character" [entityConditions]="character.entityConditions" type="character" [columns]="6">
-    </ghs-conditions>
+  <div class="fullview">
+    <div class="row">
+      <ghs-character-image [character]="character"
+        [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
+      </ghs-character-image>
+
+      <ghs-pointer-input class="drag-initiative" (dragMove)="dragInitiativeMove($event)"
+        (dragEnd)="dragInitiativeEnd($event)">
+      </ghs-pointer-input>
+
+      <ghs-character-initiative [figure]="character"></ghs-character-initiative>
+
+      <ghs-highlight-conditions [entity]="character" [figure]="character"></ghs-highlight-conditions>
+    </div>
+
+    <div class="row">
+      <div class="conditions">
+        <span class="condition" *ngFor="let entityCondition of activeConditions">
+          <img
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
+            [style.z-index]="entityCondition.value" />
+          <ng-container *ngIf="entityCondition.types.indexOf(ConditionType.stack) != -1">
+            <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)"
+              [style.z-index]="entityCondition.value - i - 1"
+              [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
+          </ng-container>
+          <span class="value"
+            *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="row">
+      <ghs-conditions class="dialog" [entity]="character" [figure]="character"
+        [entityConditions]="character.entityConditions" type="character" [columns]="6">
+      </ghs-conditions>
+    </div>
+
+    <div class="row sheet">
+      <ghs-character-sheet [character]="character" [standalone]="true"></ghs-character-sheet>
+    </div>
+
   </div>
 
+  <a class="wip" (click)="cancel()"><img class="ghs-svg" src="./assets/images/warning.svg">
+    <span [ghs-label]="'wip'"></span>!&nbsp;<span [ghs-label]="'cancel'"></span>!
+  </a>
 </div>
-
-<a class="wip" (click)="cancel()"><img class="ghs-svg" src="./assets/images/warning.svg">
-  <span [ghs-label]="'wip'"></span>!&nbsp;<span [ghs-label]="'cancel'"></span>!
-</a>

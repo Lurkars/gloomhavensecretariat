@@ -91,8 +91,6 @@
       </div>
     </div>
   </div>
-  <div *ngIf="fullviewChar">
-    <ghs-character-fullview [character]="fullviewChar"></ghs-character-fullview>
-  </div>
+  <ghs-character-fullview *ngIf="fullviewChar" [character]="fullviewChar"></ghs-character-fullview>
 </main>
 <ghs-footer #footer></ghs-footer>

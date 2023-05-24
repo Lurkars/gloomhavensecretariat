@@ -1,6 +1,6 @@
 {
   "name": "gloomhavensecretariat",
-  "version": "0.65.7",
+  "version": "0.66.0",
   "license": "AGPL3",
   "description": "Gloomhaven Secretariat is a Gloomhaven Companion app.",
   "homepage": "https://gloomhaven-secretariat.de",
@@ -84,6 +84,7 @@
     "@angular/platform-browser-dynamic": "^16.0.2",
     "@angular/router": "^16.0.2",
     "@angular/service-worker": "^16.0.2",
+    "ng-in-viewport": "^15.0.2",
     "rxjs": "~7.8.1",
     "tslib": "^2.5.2",
     "uuid": "^9.0.0",

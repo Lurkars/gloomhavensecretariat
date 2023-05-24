@@ -146,6 +146,24 @@
               <img class="ghs-svg" src="./assets/images/plus.svg">
             </ghs-pointer-input>
           </span>
+
+          <ng-container *ngFor="let token of gameManager.toCharacter(data.entity).tokens; let i = index;">
+            <span class="item">
+              <ghs-pointer-input class="button" [ngClass]="{'disabled' : characterTokenValues[i] == 0}"
+                (singleClick)="changeCharacterToken(-1, i)" [repeat]="true">
+                <img class="ghs-svg" src="./assets/images/minus.svg">
+              </ghs-pointer-input>
+            </span>
+            <span class="item character-token" [ghs-label]="'data.character.token.' + token" [ghs-label-attribute]="'title'">
+              <span [ghs-label]="'%data.characterToken.' + gameManager.toCharacter(data.entity).name + '.' + token + '%'"></span>
+              <span class="badge">{{characterTokenValues[i]}}</span>
+            </span>
+            <span class="item">
+              <ghs-pointer-input class="button" (singleClick)="changeCharacterToken(1, i)" [repeat]="true">
+                <img class="ghs-svg" src="./assets/images/plus.svg">
+              </ghs-pointer-input>
+            </span>
+          </ng-container>
         </ng-container>
       </ng-container>
 
@@ -161,8 +179,7 @@
         </span>
         <span class="item">
           <span class="condition" [ghsTooltip]="'game.condition.bless.hint'" [originX]="'center'" [overlayX]="'center'"
-          [originY]="'top'" [overlayY]="'bottom'"
-            [ngClass]="{'immunity disabled' : isImmune(ConditionName.bless)}">
+            [originY]="'top'" [overlayY]="'bottom'" [ngClass]="{'immunity disabled' : isImmune(ConditionName.bless)}">
             <img src="./assets/images/status/bless.svg" />
           </span>
           <span class="badge bless-count">{{countUpcomingAttackModifier(AttackModifierType.bless) + this.bless}}</span>
@@ -188,8 +205,7 @@
         </span>
         <span class="item">
           <span class="condition" [ghsTooltip]="'game.condition.curse.hint'" [originX]="'center'" [overlayX]="'center'"
-          [originY]="'top'" [overlayY]="'bottom'"
-            [ngClass]="{'immunity disabled' : isImmune(ConditionName.curse)}">
+            [originY]="'top'" [overlayY]="'bottom'" [ngClass]="{'immunity disabled' : isImmune(ConditionName.curse)}">
             <img src="./assets/images/status/curse.svg" />
           </span>
           <span class="badge curse-count">{{countUpcomingAttackModifier(AttackModifierType.curse) + this.curse}}</span>
