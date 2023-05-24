@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 14.999999 15"
+   version="1.1"
+   id="svg20"
+   sodipodi:docname="deathwalker-shadow.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   width="15"
+   height="15"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview22"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="20.746197"
+     inkscape:cx="1.3255442"
+     inkscape:cy="18.581719"
+     inkscape:window-width="1846"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg20"
+     fit-margin-top="2"
+     lock-margins="true"
+     fit-margin-left="2"
+     fit-margin-right="2"
+     fit-margin-bottom="2" />
+  <defs
+     id="defs4">
+    <style
+       id="style2">.cls-1{fill:#231f20;}</style>
+  </defs>
+  <g
+     id="Layer_2"
+     data-name="Layer 2"
+     style="fill:#000000"
+     transform="translate(2.2287592,2.1688802)">
+    <g
+       id="Layer_1-2"
+       data-name="Layer 1"
+       style="fill:#000000">
+      <path
+         class="cls-1"
+         d="M 1.63,1.76 8.76,8.9 a 0.23,0.23 0 0 0 0.32,0 l 0.1,-0.1 a 0.67,0.67 0 0 0 0,-0.93 L 2.66,1.37 a 0.68,0.68 0 0 0 -0.93,0 l -0.1,0.1 a 0.21,0.21 0 0 0 0,0.31"
+         id="path6"
+         style="fill:#000000" />
+      <path
+         class="cls-1"
+         d="M 9.66,2.9 A 0.1430035,0.1430035 0 0 0 9.89,2.73 5.12,5.12 0 0 0 9,1.53 5.38,5.38 0 0 0 7.8,0.63 0.15,0.15 0 0 0 7.62,0.87 Z"
+         id="path8"
+         style="fill:#000000" />
+      <path
+         class="cls-1"
+         d="m 2.9,0.55 v 0 A 0.25,0.25 0 0 0 2.84,0.94 L 9.58,7.69 A 0.24,0.24 0 0 0 10,7.63 v 0 a 0.87,0.87 0 0 0 -0.16,-1 L 3.9,0.71 a 0.87,0.87 0 0 0 -1,-0.16"
+         id="path10"
+         style="fill:#000000" />
+      <path
+         class="cls-1"
+         d="M 1.65,2.38 A 0.56,0.56 0 0 0 0.79,2.48 5.27,5.27 0 0 0 8.05,9.73 0.54,0.54 0 0 0 8.15,8.88 Z"
+         id="path12"
+         style="fill:#000000" />
+      <path
+         class="cls-1"
+         d="M 5.67,0 V 0 A 0.11,0.11 0 0 0 5.58,0.19 l 4.76,4.75 a 0.1,0.1 0 0 0 0.18,-0.08 v 0 A 1.37,1.37 0 0 0 10.11,4 L 6.57,0.41 A 1.45,1.45 0 0 0 5.67,0"
+         id="path14"
+         style="fill:#000000" />
+      <path
+         class="cls-1"
+         d="m 4.22,0.09 v 0 A 0.15,0.15 0 0 0 4.15,0.35 l 6,6 A 0.15,0.15 0 0 0 10.4,6.27 v 0 a 1.05,1.05 0 0 0 -0.29,-1 l -5,-5 a 1.06,1.06 0 0 0 -1,-0.29"
+         id="path16"
+         style="fill:#000000" />
+    </g>
+  </g>
+</svg>
