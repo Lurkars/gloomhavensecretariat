@@ -38,7 +38,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Event-Decks                                                                     | :no_entry_sign:                        | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
 | Multiple Parties/Campaigns                                                      | :heavy_check_mark:                     | :no_entry_sign:                        | :heavy_check_mark:                   | :heavy_check_mark:                    | :no_entry_sign:                      |
 | Loot Deck                                                                       | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Frosthaven Outpost (Calender, Resources, Buildings, Town Guard etc.)            | :heavy_check_mark::exclamation:[^1.1]  | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
+| Frosthaven Outpost (Calender, Resources, Buildings, Town Guard etc.)            | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
 | Town Guard Deck                                                                 | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :no_entry_sign:                       | :heavy_check_mark:                   |
 |                                                                                 |                                        |                                        |                                      |                                       |                                      |
 | **Editions**                                                                    | *GHS*                                  | *XHA*                                  | *FOC*                                | *GHFS*                                | *GHH*                                |
@@ -101,8 +101,6 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | OpenSource License                                                              | :heavy_check_mark:[^14]                | :heavy_check_mark:[^15]                | :no_entry_sign:                      | :no_entry_sign:                       | :no_entry_sign:                      |
 | Custom Content                                                                  | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :no_entry_sign:                       | :no_entry_sign:                      |
 | Monster Editor (Stats + Abilities)                                              | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :no_entry_sign:                       | :no_entry_sign:                      |
-
-[^1.1]: Town Guard Deck not available yet
 
 [^1.3]: Not all scenarios available yet, but WIP, some Attackmodifier Rules missing
 
