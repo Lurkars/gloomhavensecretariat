@@ -19,17 +19,23 @@
         right: 0;
         cursor: pointer;
         display: block;
+        transition: filter 1000ms ease-in-out;
+    
+        &.disabled {
+          filter: grayscale(0.8);
+        }
     }
 
     .draw {
-        cursor: pointer;
 
         .loot-card {
+            cursor: pointer;
             background-position: center;
             background-size: 100% auto;
             background-repeat: no-repeat;
             background-image: url('~/src/assets/images/fh/loot/loot-back.png');
             border-radius: 5%;
+            transition: filter 1000ms ease-in-out;
 
             .number {
                 display: flex;
@@ -44,66 +50,57 @@
                 z-index: 500;
             }
 
-            .settings,
-            .fullscreen {
-              cursor: pointer;
-              position: absolute;
-              right: -14%;
-              font-family: "ghs-title";
-              display: flex;
-              justify-content: center;
-              position: absolute;
-              color: var(--ghs-color-white);
-              width: 22%;
-              height: 15%;
-              background-position: center;
-              background-size: 100% auto;
-              background-repeat: no-repeat;
-              background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
-            
-              &.fullscreen {
-                cursor: zoom-in;
-                bottom: 32.5%;
-              }
-      
-              &.settings {
-                cursor: help;
-                bottom: -4%;
-      
-                &.without-fullscreen {
-                  top: 50%;
-                  bottom: initial;
-                  transform: translateY(-50%);
-                }
-              }
-      
-              img {
-                height: 60%;
-                width: auto;
-                align-self: center;
-                filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
-              }
-      
-              &:hover {
-                img {
-                  filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
-                }
-              }
-            }
-
-            &.open-dialog {
-                cursor: help;
+            &.disabled {
+                pointer-events: none;
+                filter: grayscale(0.7);
             }
         }
 
-        &.disabled {
-            cursor: not-allowed;
-
-            filter: grayscale(0.7);
-
-            .loot-card {
-                cursor: not-allowed;
+        .settings,
+        .fullscreen {
+          cursor: pointer;
+          position: absolute;
+          right: -14%;
+          font-family: "ghs-title";
+          display: flex;
+          justify-content: center;
+          position: absolute;
+          color: var(--ghs-color-white);
+          width: 22%;
+          height: 15%;
+          background-position: center;
+          background-size: 100% auto;
+          background-repeat: no-repeat;
+          background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
+        
+          &.fullscreen {
+            cursor: zoom-in;
+            bottom: 32.5%;
+          }
+  
+          &.settings {
+            cursor: help;
+            bottom: -4%;
+  
+            &.without-fullscreen {
+              top: 50%;
+              bottom: initial;
+              transform: translateY(-50%);
             }
+          }
+  
+          img {
+            height: 60%;
+            width: auto;
+            align-self: center;
+            filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+          }
+  
+          &:hover {
+            img {
+              filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+            }
+          }
         }
     }
 
@@ -172,6 +169,16 @@
         &.last:hover {
             z-index: 100 !important;
         }
+    }
+
+    .disabled {
+  
+      filter: grayscale(0.8);
+  
+      &:hover {
+        transition: filter 250ms linear, transform 0.8s cubic-bezier(0.75, 0, 0.85, 1), top 0.5s linear, left 0.5s linear;
+        filter: grayscale(15%);
+      }
     }
 
 

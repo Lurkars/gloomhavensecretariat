@@ -9,6 +9,11 @@
     padding-top: 26.66%;
     top: 0;
     left: 0;
+    transition: filter 1000ms ease-in-out;
+
+    &.disabled {
+      filter: grayscale(0.8);
+    }
 
     .am {
       position: absolute;
@@ -22,17 +27,23 @@
   }
 
   .draw {
-    cursor: pointer;
 
     .am {
+      cursor: pointer;
       background-position: center;
       background-size: 100% auto;
       background-repeat: no-repeat;
       background-image: url('~/src/assets/images/attackmodifier/am-back.png');
       border-radius: 5%;
+      transition: filter 2s ease-in-out;
 
       &.town-guard {
         background-image: url('~/src/assets/images/attackmodifier/town-guard/back.png');
+      }
+
+      &.disabled {
+        filter: grayscale(0.8);
+        pointer-events: none;
       }
 
       .number {
@@ -61,64 +72,6 @@
         right: 5%;
         bottom: 5%;
         filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
-      }
-
-      .settings,
-      .fullscreen {
-        cursor: pointer;
-        position: absolute;
-        left: -14%;
-        font-family: "ghs-title";
-        display: flex;
-        justify-content: center;
-        position: absolute;
-        color: var(--ghs-color-white);
-        width: 20%;
-        height: 30%;
-        background-position: center;
-        background-size: 100% auto;
-        background-repeat: no-repeat;
-        background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
-        transition: transform 500ms ease-in-out;
-        transform: scale(1);
-
-        &.minimize {
-          transform: scale(0);
-        }
-
-        &.vertical {
-          left: initial;
-          right: -14%;
-        }
-
-        &.fullscreen {
-          cursor: zoom-in;
-          top: -9%;
-        }
-
-        &.settings {
-          cursor: help;
-          bottom: -9%;
-
-          &.without-fullscreen {
-            top: 50%;
-            bottom: initial;
-            transform: translateY(-50%);
-          }
-        }
-
-        img {
-          height: 60%;
-          width: auto;
-          align-self: center;
-          filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
-        }
-
-        &:hover {
-          img {
-            filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
-          }
-        }
       }
 
       .numeration,
@@ -154,6 +107,64 @@
 
       &.open-dialog {
         cursor: help;
+      }
+    }
+
+    .settings,
+    .fullscreen {
+      cursor: pointer;
+      position: absolute;
+      left: -14%;
+      font-family: "ghs-title";
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      color: var(--ghs-color-white);
+      width: 20%;
+      height: 30%;
+      background-position: center;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
+      transition: transform 500ms ease-in-out;
+      transform: scale(1);
+
+      &.minimize {
+        transform: scale(0);
+      }
+
+      &.vertical {
+        left: initial;
+        right: -14%;
+      }
+
+      &.fullscreen {
+        cursor: zoom-in;
+        top: -9%;
+      }
+
+      &.settings {
+        cursor: help;
+        bottom: -9%;
+
+        &.without-fullscreen {
+          top: 50%;
+          bottom: initial;
+          transform: translateY(-50%);
+        }
+      }
+
+      img {
+        height: 60%;
+        width: auto;
+        align-self: center;
+        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+      }
+
+      &:hover {
+        img {
+          filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+        }
       }
     }
 
@@ -297,15 +308,14 @@
 
   .disabled {
 
-    ghs-attackmodifier {
-      filter: grayscale(100%);
+    filter: grayscale(0.8);
 
-      &:hover {
-        transition: filter 250ms linear, transform 0.8s cubic-bezier(0.75, 0, 0.85, 1), top 0.5s linear, left 0.5s linear;
-        filter: grayscale(15%);
-      }
+    &:hover {
+      transition: filter 250ms linear, transform 0.8s cubic-bezier(0.75, 0, 0.85, 1), top 0.5s linear, left 0.5s linear;
+      filter: grayscale(15%);
     }
   }
+
 
   &.drawing {
 

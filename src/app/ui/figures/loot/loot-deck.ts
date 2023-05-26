@@ -174,8 +174,6 @@ export class LootDeckComponent implements OnInit, OnDestroy {
                     this.drawTimeout = null;
                 }, settingsManager.settings.disableAnimations ? 0 : 150)
             }
-        } else if (!this.drawing) {
-            this.open(event);
         }
     }
 

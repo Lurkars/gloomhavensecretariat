@@ -483,7 +483,7 @@
         &.highlight {
 
           cursor: pointer !important;
-          animation: element-pulse 1000ms ease-in-out infinite;
+          animation: element-pulse 1200ms ease-in-out infinite;
 
           &:hover {
             animation: none;
@@ -511,7 +511,7 @@
           margin-right: -0.01em;
 
           &.highlight {
-            animation: element-half-pulse 1000ms ease-in-out infinite;
+            animation: element-half-pulse 1200ms ease-in-out infinite;
             transform-origin: center right;
 
             &:hover {
@@ -534,7 +534,7 @@
           }
 
           &.highlight {
-            animation: element-half-pulse-right 1000ms ease-in-out infinite;
+            animation: element-half-pulse-right 1200ms ease-in-out infinite;
             transform-origin: center left;
 
             &:hover {
@@ -567,7 +567,7 @@
 
   .highlight-text {
     cursor: pointer;
-    animation: highlight-text-pulse 2000ms ease-in-out infinite;
+    animation: highlight-text-pulse 1200ms ease-in-out infinite;
 
     &:hover {
       transform: scale(1);

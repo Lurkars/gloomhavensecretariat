@@ -1,25 +1,21 @@
 <div class="deck"
-    [ngClass]="{'disabled' : gameManager.game.state == GameState.draw, 'vertical' : vertical, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.lootDeck}">
-    <div class="loot-container draw" (click)="draw($event)"
-        [ngClass]="{'disabled' : deck.current > 0 &&  deck.current == deck.cards.length -1 && (standalone || gameManager.game.state == GameState.next)}"
-        [style.z-index]="deck.cards.length + 1">
-        <div class="loot-card" #card [style.fontSize]="card.offsetWidth * 0.08 + 'px'">
+    [ngClass]="{'disabled' : !standalone && gameManager.game.state == GameState.draw, 'vertical' : vertical, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.lootDeck}">
+    <div class="loot-container draw" [style.z-index]="deck.cards.length + 1">
+        <div class="loot-card" #card [style.fontSize]="card.offsetWidth * 0.08 + 'px'" (click)="draw($event)"
+            [ngClass]="{'disabled' : !standalone && gameManager.game.state == GameState.draw}">
             <span class="number">{{deck.current < deck.cards.length -1 ? deck.cards.length - deck.current - 1 :
                     0}}</span>
-
-                    <span class="fullscreen" [ghs-label]="'game.cards.fullscreen'" [ghs-label-attribute]="'title'"
-                        *ngIf="fullscreen && !compact"
-                        (click)="openFullscreen($event)">
-                        <img src="./assets/images/fullscreen.svg">
-                    </span>
-
-                    <span class="settings" [ghs-label]="'game.cards.openDialog'" [ghs-label-attribute]="'title'"
-                        (click)="open($event)" *ngIf="!compact || vertical"
-                        [ngClass]="{'without-fullscreen' : !fullscreen}">
-                        <img class="ghs-svg" src="./assets/images/settings.svg">
-                    </span>
-
         </div>
+
+        <span class="fullscreen" [ghs-label]="'game.cards.fullscreen'" [ghs-label-attribute]="'title'"
+            *ngIf="fullscreen && !compact" (click)="openFullscreen($event)">
+            <img src="./assets/images/fullscreen.svg">
+        </span>
+
+        <span class="settings" [ghs-label]="'game.cards.openDialog'" [ghs-label-attribute]="'title'"
+            (click)="open($event)" *ngIf="!compact || vertical" [ngClass]="{'without-fullscreen' : !fullscreen}">
+            <img class="ghs-svg" src="./assets/images/settings.svg">
+        </span>
     </div>
 
     <ng-container *ngFor="let card of deck.cards; let index = index;">
@@ -28,7 +24,8 @@
             [ngClass]="{'disgarded' : index < current - 1, 'current' : index == current, 'last' : index == current - 1, 'bottom' : bottom}">
             <ghs-loot class="loot-card" [loot]="card" [flipped]="index <= current" [looted]="index <= current"
                 [index]="index" [disableFlip]="!drawing || index != current" [character]="getCharacter(index)"
-                [apply]="!standalone"></ghs-loot>
+                [apply]="!standalone"
+                [ngClass]="{'disabled' : !standalone && gameManager.game.state == GameState.draw}"></ghs-loot>
         </div>
     </ng-container>
 </div>

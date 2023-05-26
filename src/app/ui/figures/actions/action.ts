@@ -251,9 +251,6 @@ export class ActionComponent implements OnInit, OnDestroy {
     if (!this.action) {
       return;
     }
-
-    this.subActions = this.action.subActions.filter((action) => !action.hidden);
-
     if (settingsManager.settings.fhStyle && [ActionType.element, ActionType.concatenation, ActionType.box].indexOf(this.action.type) == -1) {
       this.elementActions = this.action.subActions.filter((action) => action.type == ActionType.element);
       this.action.subActions = this.action.subActions.filter((action) => action.type != ActionType.element);
@@ -457,6 +454,8 @@ export class ActionComponent implements OnInit, OnDestroy {
       }
     }
 
+    this.subActions = this.action.subActions.filter((action) => !action.hidden);
+    this.additionalSubActions = this.additionalSubActions.filter((action) => !action.hidden);
   }
 
   subActionExists(additionalSubActions: Action[], subAction: Action, stackableCondition: boolean = true): boolean {

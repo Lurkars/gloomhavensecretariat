@@ -110,6 +110,7 @@
             {
               "type": "concatenation",
               "value": "and:2",
+              "small": true,
               "subActions": [
                 {
                   "type": "condition",
@@ -180,14 +181,29 @@
             {
               "type": "concatenation",
               "value": "and:2",
+              "small": true,
               "subActions": [
                 {
                   "type": "condition",
-                  "value": "bless"
+                  "value": "bless",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "hidden": true
+                    }
+                  ]
                 },
                 {
                   "type": "condition",
-                  "value": "strengthen"
+                  "value": "strengthen",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "hidden": true
+                    }
+                  ]
                 },
                 {
                   "type": "specialTarget",
