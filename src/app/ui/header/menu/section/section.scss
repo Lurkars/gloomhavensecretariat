@@ -35,13 +35,13 @@
     }
 
     &.available {
-      border: calc(var(--ghs-unit) / 5) var(--ghs-color-darkgray) solid;
+      border: calc(var(--ghs-unit) / 5) var(--ghs-color-disabled) solid;
     }
 
     &.disabled {
       pointer-events: none;
       border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
-      color: var(--ghs-color-darkgray);
+      color: var(--ghs-color-disabled);
     }
   }
 }

@@ -89,7 +89,8 @@
             <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod'"></span></label>
             <select #autoBackupPostMethod [value]="settingsManager.settings.autoBackupUrl?.method"
               (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value})">
-              <option value="POST"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod.post'"></span></option>
+              <option value="POST"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod.post'"></span>
+              </option>
               <option value="PUT"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod.put'"></span></option>
               <option value="GET"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod.get'"></span></option>
             </select>
@@ -153,7 +154,7 @@
   <div class="separator"></div>
   <div class="columns columns-break">
     <div class="column">
-      <div class="line title sticky">
+      <div class="line title sticky" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh'}">
         <label><span [ghs-label]="'datamanagement.unlocks'"></span></label>
       </div>
       <div class="line">
@@ -167,15 +168,15 @@
         <a class="spoiler-item" *ngFor="let character of gameManager.game.unlockedCharacters">
           {{character}}
           <span class="spacer"></span>
-          <span (click)="removeUnlock(character)" [ghs-label]="'datamanagement.removeUnlock'" [ghs-label-attribute]="'title'"
-            class="remove"></span>
+          <span (click)="removeUnlock(character)" [ghs-label]="'datamanagement.removeUnlock'"
+            [ghs-label-attribute]="'title'" class="remove"></span>
         </a>
       </div>
       <div class="spacer"></div>
       <div class="line separator" *ngIf="gameManager.game.unlockedCharacters.length > 0">
         <a (click)="removeAllUnlocks()"><span [ghs-label]="'datamanagement.removeAllUnlocks'"></span></a>
       </div>
-      <div class="line title sticky">
+      <div class="line title sticky" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh'}">
         <label><span [ghs-label]="'datamanagement.spoilers'"></span></label>
       </div>
       <div class="line">
@@ -189,25 +190,26 @@
         <a class="spoiler-item" *ngFor="let spoiler of settingsManager.settings.spoilers">
           {{spoiler}}
           <span class="spacer"></span>
-          <span (click)="removeSpoiler(spoiler)" [ghs-label]="'datamanagement.removeSpoiler'" [ghs-label-attribute]="'title'"
-            class="remove"></span>
+          <span (click)="removeSpoiler(spoiler)" [ghs-label]="'datamanagement.removeSpoiler'"
+            [ghs-label-attribute]="'title'" class="remove"></span>
         </a>
       </div>
       <div class="spacer"></div>
       <div class="line separator" *ngIf="settingsManager.settings.spoilers.length > 0">
-        <a (click)="settingsManager.removeAllSpoilers()"><span [ghs-label]="'datamanagement.removeAllSpoilers'"></span></a>
+        <a (click)="settingsManager.removeAllSpoilers()"><span
+            [ghs-label]="'datamanagement.removeAllSpoilers'"></span></a>
       </div>
     </div>
 
     <div class="column">
-      <div class="line title sticky">
+      <div class="line title sticky" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh'}">
         <label><span [ghs-label]="'datamanagement.editionDataUrls'"></span></label>
       </div>
       <div class="line">
         <span class="input-button">
           <input type="text" #inputEditionDataUrl (keyup.enter)="addEditionDataUrl()"
-            (keyup)="inputEditionDataUrl.classList.remove('error')"
-            [ghs-label]="'datamanagement.addEditionDataUrl'" [ghs-label-attribute]="'placeholder'">
+            (keyup)="inputEditionDataUrl.classList.remove('error')" [ghs-label]="'datamanagement.addEditionDataUrl'"
+            [ghs-label-attribute]="'placeholder'">
           <span class="add-button" (click)="addEditionDataUrl()"
             [ngClass]="{'disabled' : !inputEditionDataUrl.value}"></span>
         </span>
@@ -215,7 +217,8 @@
       <div class="line editions" cdkDropList (cdkDropListDropped)="drop($event)">
         <a class="edition" *ngFor="let editionData of gameManager.editionData" cdkDrag>
           <label
-            [ghs-label]="(settingsManager.settings.editions.indexOf(editionData.edition) != -1 ? 'datamanagement.editionDataUrls.disable' : 'datamanagement.editionDataUrls.enable')" [ghs-label-attribute]="'title'">
+            [ghs-label]="(settingsManager.settings.editions.indexOf(editionData.edition) != -1 ? 'datamanagement.editionDataUrls.disable' : 'datamanagement.editionDataUrls.enable')"
+            [ghs-label-attribute]="'title'">
             <input type="checkbox" [checked]="settingsManager.settings.editions.indexOf(editionData.edition) != -1"
               (change)="toggleEdition(editionData)">
             <span [ghs-label]="'data.edition.' + editionData.edition"></span>
@@ -226,8 +229,8 @@
             <span class="url">{{editionData.url}}</span>
           </span>
           <span class="spacer"></span>
-          <span (click)="removeEditionDataUrl(editionData.url)"
-            [ghs-label]="'datamanagement.editionDataUrls.remove'" [ghs-label-attribute]="'title'" class="remove"></span>
+          <span (click)="removeEditionDataUrl(editionData.url)" [ghs-label]="'datamanagement.editionDataUrls.remove'"
+            [ghs-label-attribute]="'title'" class="remove"></span>
         </a>
       </div>
       <div class="spacer"></div>

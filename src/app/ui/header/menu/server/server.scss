@@ -9,7 +9,7 @@
     font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
 
     label {
-      color: var(--ghs-color-darkgray);
+      color: var(--ghs-color-disabled);
       align-self: center;
       padding: 0;
       margin: 0;
@@ -39,7 +39,7 @@
   .line {
 
     label.label {
-      color: var(--ghs-color-darkgray) !important;
+      color: var(--ghs-color-disabled) !important;
       pointer-events: none;
     }
 

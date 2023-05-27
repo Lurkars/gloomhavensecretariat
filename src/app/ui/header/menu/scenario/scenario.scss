@@ -39,12 +39,12 @@
     &.current {
       cursor: initial;
       border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
-      color: var(--ghs-color-darkgray);
+      color: var(--ghs-color-disabled);
     }
 
     &.blocked {
       cursor: initial;
-      color: var(--ghs-color-darkgray);
+      color: var(--ghs-color-disabled);
 
       &:hover {
         border-color: var(--ghs-color-darkred);
@@ -53,7 +53,7 @@
 
     &.locked {
       cursor: initial;
-      color: var(--ghs-color-darkgray);
+      color: var(--ghs-color-disabled);
 
       &:hover {
         border-color: var(--ghs-color-yellow);

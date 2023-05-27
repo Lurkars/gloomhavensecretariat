@@ -45,7 +45,7 @@
         <ng-container *ngIf="!scenario.solo">
           <span *ngIf="maxScenario(group) > 2 && scenario.index.length < 3">0</span><span
             *ngIf="maxScenario(group) > 1 && scenario.index.length < 2">0</span>
-          <span>{{scenario.index}}</span>
+          <span class="index">{{scenario.index}}</span>
         </ng-container>
         <ng-container *ngIf="scenario.solo">
           <img class="ghs-svg solo" [src]="gameManager.characterManager.characterIcon(scenario.solo)" />

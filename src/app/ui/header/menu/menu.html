@@ -197,7 +197,8 @@
     <div class="columns">
       <ng-container *ngFor="let edition of gameManager.currentEditions()">
         <div class="column spoilers bosses" *ngIf="monsterData(edition).length > 0">
-          <div class="line title sticky" *ngIf="gameManager.currentEditions().length > 1">
+          <div class="line title sticky" *ngIf="gameManager.currentEditions().length > 1"
+            [ngClass]="{'fh' : settingsManager.settings.theme == 'fh'}">
             <label><span [ghs-label]="'data.edition.' + edition"></span></label>
           </div>
           <div class="line" *ngFor="let monsterData of monsterData(edition)"
@@ -286,7 +287,7 @@
   </div>
 </div>
 
-<div class="back" *ngIf="active != SubMenu.main" (click)="setActive(SubMenu.main)"
-  [ghs-label]="'menu.backToMain'" [ghs-label-attribute]="'title'">
+<div class="back" *ngIf="active != SubMenu.main" (click)="setActive(SubMenu.main)" [ghs-label]="'menu.backToMain'"
+  [ghs-label-attribute]="'title'">
   <img class="ghs-svg" src="./assets/images/left.svg">
 </div>

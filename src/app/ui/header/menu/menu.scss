@@ -1,6 +1,7 @@
 :host {
   position: relative;
   z-index: 9999;
+  --ghs-color-disabled: #52565f;
 }
 
 .hint-container .hint .text {
@@ -162,7 +163,7 @@
 
       &.disabled {
         pointer-events: none;
-        color: var(--ghs-color-darkgray);
+        color: var(--ghs-color-disabled);
       }
 
       &.confirm {
@@ -212,7 +213,7 @@
 
         &.disabled {
           .info {
-            color: var(--ghs-color-darkgray);
+            color: var(--ghs-color-disabled);
           }
         }
       }
@@ -275,14 +276,19 @@
 
       a,
       label {
-        color: var(--ghs-color-darkgray);
+        color: var(--ghs-color-disabled);
       }
     }
 
     &.sticky {
       position: sticky;
       top: 0;
-      background-color: var(--ghs-color-black);
+      background-image: url('~src/assets/images/dialog_background.png');
+
+      &.fh {
+        background-image: url('~src/assets/images/fh/dialog_background_fh.png');
+      }
+
       z-index: 1;
     }
 
@@ -295,20 +301,20 @@
 
   .disabled {
     pointer-events: none;
-    color: var(--ghs-color-darkgray);
+    color: var(--ghs-color-disabled);
 
     a,
     label {
-      color: var(--ghs-color-darkgray);
+      color: var(--ghs-color-disabled);
     }
 
     input[type="checkbox"],
     input[type="radio"] {
 
-      color: var(--ghs-color-darkgray);
+      color: var(--ghs-color-disabled);
 
       &::before {
-        background-color: var(--ghs-color-darkgray) !important;
+        background-color: var(--ghs-color-disabled) !important;
       }
     }
   }
@@ -317,7 +323,7 @@
 
     a,
     label {
-      color: var(--ghs-color-darkgray);
+      color: var(--ghs-color-disabled);
     }
   }
 
@@ -389,7 +395,7 @@
         cursor: not-allowed;
 
         &::after {
-          background-color: var(--ghs-color-darkgray);
+          background-color: var(--ghs-color-disabled);
         }
       }
     }
@@ -405,9 +411,13 @@
 
   .hidden-monster-menu {
     position: fixed;
-    background-color: var(--ghs-color-black);
+    background-image: url('~src/assets/images/dialog_background.png');
     z-index: 2;
     width: inherit;
+
+    &.fh {
+      background-image: url('~src/assets/images/fh/dialog_background_fh.png');
+    }
 
     &+.columns .column .line.sticky,
     &+.columns .column .line:not(sticky):first-child {
@@ -419,7 +429,7 @@
     min-width: calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor));
     margin: 0;
     color: var(--ghs-color-white);
-    background-color: var(--ghs-color-black);
+    background-color: var(--form-background);
     border-width: calc(var(--ghs-unit) * 0.1);
     border-style: solid;
     border-color: var(--ghs-color-gray);

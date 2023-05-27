@@ -72,6 +72,7 @@ body {
   --ghs-barsize: 1;
   --ghs-fontsize: 1;
   --ghs-unit: calc(var(--ghs-width) / var(--ghs-factor));
+  --form-background: transparent;
   --ghs-color-black: #000;
   --ghs-color-white: #fff;
   --ghs-color-gray: #98b0b5;
@@ -99,6 +100,8 @@ body {
   --ghs-outline-thin: calc(var(--ghs-unit) * -0.1) 0px var(--ghs-color-black), 0px calc(var(--ghs-unit) * 0.1) var(--ghs-color-black), calc(var(--ghs-unit) * 0.1) 0px var(--ghs-color-black), 0px calc(var(--ghs-unit) * -0.1) var(--ghs-color-black);
   --ghs-outline-white: calc(var(--ghs-unit) * -0.2) 0px var(--ghs-color-white), 0px calc(var(--ghs-unit) * 0.2) var(--ghs-color-white), calc(var(--ghs-unit) * 0.2) 0px var(--ghs-color-white), 0px calc(var(--ghs-unit) * -0.2) var(--ghs-color-white);
   --ghs-outline-white-thin: calc(var(--ghs-unit) * -0.1) 0px var(--ghs-color-white), 0px calc(var(--ghs-unit) * 0.1) var(--ghs-color-white), calc(var(--ghs-unit) * 0.1) 0px var(--ghs-color-white), 0px calc(var(--ghs-unit) * -0.1) var(--ghs-color-white);
+  --ghs-outline-gray: calc(var(--ghs-unit) * -0.2) 0px var(--ghs-color-gray), 0px calc(var(--ghs-unit) * 0.2) var(--ghs-color-gray), calc(var(--ghs-unit) * 0.2) 0px var(--ghs-color-gray), 0px calc(var(--ghs-unit) * -0.2) var(--ghs-color-gray);
+  --ghs-outline-gray-thin: calc(var(--ghs-unit) * -0.1) 0px var(--ghs-color-gray), 0px calc(var(--ghs-unit) * 0.1) var(--ghs-color-gray), calc(var(--ghs-unit) * 0.1) 0px var(--ghs-color-gray), 0px calc(var(--ghs-unit) * -0.1) var(--ghs-color-gray);
 
 
   &.no-select {
@@ -697,16 +700,17 @@ ghs-pointer-input {
   border: calc(var(--ghs-unit) * 1) solid transparent;
   border-radius: calc(var(--ghs-unit) * 0.5);
   padding: calc(var(--ghs-unit) * 1);
+  background-image: url('~src/assets/images/dialog_background.png');
+  background-size: cover;
   border-image-source: url('~src/assets/images/dialog_border.png');
-  border-image-slice: 64;
-  border-image-outset: calc(var(--ghs-unit) * -1);
+  border-image-slice: calc(var(--ghs-factor) / var(--ghs-text-factor) / var(--ghs-text-factor));
+  border-image-outset: calc(var(--ghs-unit) * 1);
   border-image-width: calc(var(--ghs-unit) * 6);
-  background-color: var(--ghs-color-black);
 
   .close {
     position: absolute;
-    top: calc(var(--ghs-unit) * -2 * var(--ghs-dialog-factor));
-    right: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
+    top: calc(var(--ghs-unit) * -2.5 * var(--ghs-dialog-factor));
+    right: calc(var(--ghs-unit) * -2 * var(--ghs-dialog-factor));
     z-index: 999;
     filter: var(--ghs-filter-red) brightness(0.6) var(--ghs-filter-shadow);
     cursor: pointer;
@@ -761,7 +765,7 @@ input[type="number"] {
   min-width: calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor));
   margin: 0;
   color: var(--ghs-color-white);
-  background-color: var(--ghs-color-black);
+  background-color: var(--form-background);
   border-width: calc(var(--ghs-unit) * 0.1);
   border-style: solid;
   border-color: var(--ghs-color-gray);
@@ -1424,5 +1428,10 @@ input[type="radio"] {
     height: 45%;
     background-image: url('~src/assets/images/fh/condition/immune.svg');
     transform: translateY(-50%);
+  }
+
+  .dialog {
+    background-image: url('~src/assets/images/fh/dialog_background_fh.png');
+    border-image-source: url('~src/assets/images/fh/dialog_border_fh.png');
   }
 }

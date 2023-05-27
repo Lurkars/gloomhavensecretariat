@@ -1,11 +1,12 @@
 <div class="menu-container character-add">
-  <div class="level-container">
+  <div class="level-container" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh'}">
     <span class="item"><img src="./assets/images/status/level.svg" /></span>
     <span class="item" *ngFor="let level of [] | ghsRange:9"><a class="level"
         [ngClass]="{'active' : level + 1 == characterLevel}" (click)="characterLevel = level+1">{{level
         +1}}</a></span>
     <div class="line search">
-      <input [(ngModel)]="filter" (change)="update()" (keyup)="update()" type="text" [ghs-label]="'character.filter'" [ghs-label-attribute]="'placeholder'">
+      <input [(ngModel)]="filter" (change)="update()" (keyup)="update()" type="text" [ghs-label]="'character.filter'"
+        [ghs-label-attribute]="'placeholder'">
       <label *ngIf="gameManager.game.edition">
         <input type="checkbox" [checked]="allEditions" (change)="allEditions = !allEditions; update()">
         <span [ghs-label]="'character.filter.allEditions'"></span>
@@ -15,7 +16,7 @@
   <div class="columns">
     <ng-container *ngFor="let edition of (allEditions ? gameManager.editions() : gameManager.currentEditions(true))">
       <div class="column spoilers" *ngIf="characterData[edition] && characterData[edition].length > 0">
-        <div class="line title sticky">
+        <div class="line title sticky" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh'}">
           <label><span [ghs-label]="'data.edition.' + edition"></span></label>
         </div>
         <div class="line separator reveal-all" *ngIf="locked(edition)">

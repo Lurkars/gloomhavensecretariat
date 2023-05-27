@@ -1,5 +1,5 @@
 <div class="attack-modifiers"
-  [ngClass]="{'disabled' : !standalone && (!townGuard && gameManager.game.state == GameState.draw || townGuard && gameManager.game.scenario)}">
+  [ngClass]="{'disabled' : !standalone && (!townGuard && gameManager.game.state == GameState.draw || townGuard && gameManager.game.scenario), 'vertical' : vertical}">
 
   <div #drawCard class="am-container draw"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers && (!character || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition])}"

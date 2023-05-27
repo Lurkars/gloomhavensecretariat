@@ -51,7 +51,7 @@
             }
 
             &.disabled {
-                pointer-events: none;
+                cursor: initial;
                 filter: grayscale(0.7);
             }
         }
