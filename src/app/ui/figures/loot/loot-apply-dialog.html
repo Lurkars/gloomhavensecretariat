@@ -1,3 +1,9 @@
+
+
+<a class="close" (click)="dialogRef.close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'">
+    <img src="./assets/images/close_dialog.svg">
+  </a>
+
 <p><span [ghs-label]="'game.loot.chooseCharacter'"
         [ghs-label-args]="['' +gameManager.lootManager.getValue(loot), 'game.loot.' + loot.type]"></span></p>
 <div class="characters">
@@ -9,5 +15,12 @@
 </div>
 
 <div class="menu">
-    <a (click)="close()" [ngClass]="{'disabled' : !selected}"><span [ghs-label]="'game.loot.apply'"></span></a>
+    <a (click)="close()" *ngIf="selected || data.selected"
+        [ngClass]="{'disabled' : !selected && (!edit || !data.selected), 'remove': edit && !selected && data.selected}"><span
+            [ghs-label]="edit && !selected && data.selected ? 'game.loot.remove' : (!edit || !data.selected || selected != data.selected ? 'game.loot.apply' : 'game.loot.keep')"
+            [ghs-label-args]="[selected || data.selected || '']"></span>
+    </a>
+    <a (click)="close()" *ngIf="!selected && !data.selected" class="cancel">
+        <span [ghs-label]="'cancel'"></span>
+    </a>
 </div>

@@ -1,5 +1,7 @@
 <div class="loot-deck-dialog">
-  <a class="close" (click)="dialogRef.close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'"><img src="./assets/images/close.svg"></a>
+  <a class="close" (click)="dialogRef.close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'">
+    <img src="./assets/images/close_dialog.svg">
+  </a>
   <div class="scroll-container">
     <div class="menu" #menu>
       <ng-container *ngIf="deck.cards.length > 0">
@@ -40,7 +42,8 @@
         </ng-container>
       </div>
       <div class="config-menu">
-        <a (click)="currentConfig()" *ngIf="deck.cards.length > 0"><span [ghs-label]="'game.loot.config.discard'"></span></a>
+        <a (click)="currentConfig()" *ngIf="deck.cards.length > 0"><span
+            [ghs-label]="'game.loot.config.discard'"></span></a>
         <a (click)="applyConfig()">
           <span [ghs-label]="('game.loot.config.' + (deck.cards.length == 0 ? 'create': 'apply'))"></span>
         </a>
@@ -51,12 +54,14 @@
       <div class="loot-container" *ngFor="let loot of enhancementDeck">
         <ghs-loot class="drag-hidden" [loot]="loot" [flipped]="true" [highlight]="false" [apply]="apply">
         </ghs-loot>
-        <a class="button-enhance" (click)="enhanceCard(loot)" [ghs-label]="'game.loot.enhancements.add'" [ghs-label-attribute]="'title'">
+        <a class="button-enhance" (click)="enhanceCard(loot)" [ghs-label]="'game.loot.enhancements.add'"
+          [ghs-label-attribute]="'title'">
           <img class="ghs-svg" src="./assets/images/fh/loot/plus1.svg">
         </a>
         <div class="remove-enhancements" *ngIf="loot.enhancements > 0">
           <img *ngFor="let i of [] | ghsRange:loot.enhancements" class="ghs-svg" (click)="unenhanceCard(loot)"
-            src="./assets/images/fh/loot/plus1.svg" [ghs-label]="'game.loot.enhancements.remove'" [ghs-label-attribute]="'title'">
+            src="./assets/images/fh/loot/plus1.svg" [ghs-label]="'game.loot.enhancements.remove'"
+            [ghs-label-attribute]="'title'">
         </div>
       </div>
     </div>

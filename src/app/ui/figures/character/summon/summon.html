@@ -36,8 +36,8 @@
     <ghs-highlight-conditions [entity]="summon" [figure]="character"></ghs-highlight-conditions>
 
     <div class="conditions">
-      <span class="condition" *ngFor="let entityCondition of activeConditions"
-        [ngClass]="{'expired' : entityCondition.expired}">
+      <span class="condition" *ngFor="let entityCondition of activeConditions; let index = index"
+        [ngClass]="{'expired' : entityCondition.expired, 'center' : ((activeConditions).length % 2) == 1 && (activeConditions).length == index + 1}">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
         <span class="value"

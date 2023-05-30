@@ -459,6 +459,11 @@ export class EntityManager {
         this.checkHealth(entity);
       }
     }
+
+    if (entity instanceof Character && entity.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '178') && entity.initiative >= 60 && !entity.longRest && entity.entityConditions.find((condition) => condition.name == ConditionName.heal && condition.value == 1 && condition.expired)) {
+      entity.entityConditions = entity.entityConditions.filter((condition) => condition.name != ConditionName.heal || condition.value != 1 || !condition.expired)
+      entity.health = entity.health - 1;
+    }
   }
 
   applyConditionsAfter(entity: Entity) {

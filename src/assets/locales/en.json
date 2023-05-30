@@ -590,7 +590,7 @@
     },
     "loot": {
       ".": "Loot",
-      "apply": "Add to selected character",
+      "apply": "Add to %data.character.{0}%",
       "arrowvine": "Arrowvine",
       "axenut": "Axenut",
       "chooseCharacter": "Select Character for +{0} {1}",
@@ -611,6 +611,7 @@
       },
       "flamefruit": "Flamefruit",
       "hide": "Hide",
+      "keep": "Keep on %data.character.{0}%",
       "lootTreasure": {
         ".": "{0} loots treasue {1}?",
         "confirm": "Confirm",
@@ -620,6 +621,7 @@
       "metal": "Metal",
       "money": "Money",
       "random_item": "Random Item",
+      "remove": "Remove from %data.character.{0}%",
       "rockroot": "Rockroot",
       "snowthistle": "Snowthistle",
       "special1": "Special Card 1 (#1418)",
@@ -1712,6 +1714,7 @@
       "removePartyTownGuardPerkSection": "Remove Town Guard Perk Section {0}",
       "removePartyWeekSection": "Remove section {2} from week {1}",
       "removePlayer": "Remove Player {1} ({0})",
+      "removeResource": "-{2} {1} of {0}",
       "removeScenarioRule": "Remove scenario rule",
       "removeTreasure": "Remove treasure {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
       "removeCharTreasure": "Remove treasure {1} for {2}",

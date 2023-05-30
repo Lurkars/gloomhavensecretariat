@@ -1,5 +1,7 @@
 <div class="stats-dialog">
-  <a class="close" (click)="dialogRef.close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'"><img src="./assets/images/close.svg"></a>
+  <a class="close" (click)="dialogRef.close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'">
+    <img src="./assets/images/close_dialog.svg">
+  </a>
   <span class="name"><span [ghs-label]="'data.monster.' + monster.name"></span>
     <span class="ally" *ngIf="monster.isAlly"><span [ghs-label]="'game.ally'"></span></span>
     <span class="allied" *ngIf="monster.isAllied"><span [ghs-label]="'game.allied'"></span></span>

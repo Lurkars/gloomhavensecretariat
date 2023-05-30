@@ -60,6 +60,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 2;
 
             &.with-header {
                 top: 10%;
@@ -93,6 +94,7 @@
             height: 50%;
             width: 100%;
             transform: translate(-50%, -50%);
+            z-index: 1;
 
             .icon {
                 width: 20%;

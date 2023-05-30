@@ -15,11 +15,13 @@ export class LootApplyDialogComponent {
     characters: Character[] = [];
     selected: string;
     loot: Loot;
+    edit: boolean = false;
 
-    constructor(@Inject(DIALOG_DATA) public data: { loot: Loot, selected: string | undefined }, private dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) public data: { loot: Loot, selected: string | undefined, edit: boolean }, public dialogRef: DialogRef) {
         this.loot = data.loot;
         this.selected = data.selected || "";
-        this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent &&  gameManager.entityManager.isAlive(figure)).map((figure) => figure as Character);
+        this.edit = data.edit || false;
+        this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent && gameManager.entityManager.isAlive(figure)).map((figure) => figure as Character);
     }
 
     toggleSelect(name: string) {

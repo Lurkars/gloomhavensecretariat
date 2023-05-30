@@ -1,6 +1,7 @@
 p {
-    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+    font-size: calc(var(--ghs-unit) * 2.8 * var(--ghs-dialog-factor));
     color: var(--ghs-color-gray);
+    text-align: center;
 }
 
 .characters {
@@ -57,6 +58,14 @@ p {
     a {
         cursor: pointer;
         color: var(--ghs-color-green);
+
+        &.remove {
+            color: var(--ghs-color-red);
+        }
+
+        &.cancel {
+            color: var(--ghs-color-darkgray);
+        }
 
         &:hover {
             opacity: 0.6;

@@ -1,6 +1,7 @@
 <div class="light party-sheet-dialog">
-  <a class="close" (click)="close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'"><img
-      src="./assets/images/close.svg"></a>
+  <a class="close" (click)="close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'">
+    <img src="./assets/images/close_dialog.svg">
+  </a>
   <div class="scroll-container"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
     <div class="container" [ngClass]="{'fh-container' : !campaign && fhSheet, 'campaign-container' : campaign}">
@@ -378,7 +379,7 @@
         </div>
       </div>
 
-      <span class="toggle-fh-sheet" *ngIf="!campaign" (click)="fhSheet = !fhSheet">
+      <span class="toggle-fh-sheet" *ngIf="!campaign" (click)="fhSheet = !fhSheet; update()">
         <span [ghs-label]="'party.campaign.sheet.' + (fhSheet ? 'disable': 'enable')"></span>
       </span>
 
@@ -512,21 +513,23 @@
           </ng-container>
         </div>
 
-        <div class="prosperity">
-          <div class="legend">
-            <div class="level"><span [ghs-label]="'party.prosperity'"></span>:</div>
-            <div class="check" (click)="setProsperity(0)">
+        <div class="prosperity" [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
+          <div class="legend" (click)="setProsperity(0)">
+            <div class="level"><span [ghs-label]="'party.prosperity'"></span> <img
+                *ngIf="settingsManager.settings.fhStyle" src="./assets/images/fh/prosperity.svg">:</div>
+            <div class="check" *ngIf="!settingsManager.settings.fhStyle">
               <span class="checkbox checked disabled"></span><span>:</span>
             </div>
           </div>
           <div class="checklist">
             <div class="tick"
               *ngFor="let check of []|ghsRange:(prosperitySteps[prosperitySteps.length-1]+1); let index = index;"
-              [autoscroll]="party.prosperity == index +1 || party.prosperity == 0 && index == 0">
+              [autoscroll]="party.prosperity == index +1 || party.prosperity == 0 && index == 0"
+              [ngClass]="{'large' : prosperitySteps.indexOf(index) != -1}">
               <div class="level" *ngIf="prosperitySteps.indexOf(index) != -1">{{prosperitySteps.indexOf(index) + 2}}
               </div>
               <div class="checkbox" (click)="setProsperity(index+1)"
-                [ngClass]="{'checked': party.prosperity > index, 'highlight' : prosperitySteps.indexOf(index) != -1}">
+                [ngClass]="{'checked': party.prosperity > index, 'highlight' : prosperityHighlightSteps.indexOf(index) != -1}">
               </div>
             </div>
           </div>

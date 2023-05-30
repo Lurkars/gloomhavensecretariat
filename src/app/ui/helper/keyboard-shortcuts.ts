@@ -187,38 +187,9 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
 
         if (activeFigure) {
             if (activeFigure instanceof Character) {
-                let toggleFigure = true;
-                if (settingsManager.settings.activeSummons) {
-                    const summons = activeFigure.summons.filter((summon) => gameManager.entityManager.isAlive(summon) && summon.state != SummonState.new);
-                    let activeSummon = summons.find((summon) => summon.active);
-                    if (!activeSummon && summons.length > 0 && reverse && activeFigure.active) {
-                        activeSummon = summons[summons.length - 1];
-                        gameManager.stateManager.before("summonActive", "data.character." + activeFigure.name, "data.summon." + activeSummon.name);
-                        activeSummon.active = true;
-                        toggleFigure = false;
-                        gameManager.stateManager.after();
-                    } else if (activeSummon && !reverse) {
-                        gameManager.stateManager.before("summonInactive", "data.character." + activeFigure.name, "data.summon." + activeSummon.name);
-                        activeSummon.active = false;
-                        if (summons.indexOf(activeSummon) < summons.length - 1) {
-                            summons[summons.indexOf(activeSummon) + 1].active = true;
-                        }
-                        toggleFigure = false;
-                        gameManager.stateManager.after();
-                    } else if (activeSummon && summons.indexOf(activeSummon) != 0) {
-                        const prevSummon = summons[summons.indexOf(activeSummon) - 1];
-                        gameManager.stateManager.before("summonActive", "data.character." + activeFigure.name, "data.summon." + prevSummon.name);
-                        activeSummon.active = false;
-                        prevSummon.active = true;
-                        toggleFigure = false;
-                        gameManager.stateManager.after();
-                    }
-                }
-                if (toggleFigure) {
                     gameManager.stateManager.before(activeFigure.active ? "unsetActive" : "setActive", "data.character." + activeFigure.name);
                     gameManager.roundManager.toggleFigure(activeFigure);
                     gameManager.stateManager.after();
-                }
             } else if (activeFigure instanceof Monster) {
                 let toggleFigure = true;
                 const entities = activeFigure.entities.filter((entity) => gameManager.entityManager.isAlive(entity) && entity.summon != SummonState.new);

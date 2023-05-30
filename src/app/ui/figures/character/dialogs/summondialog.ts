@@ -15,14 +15,25 @@ import { v4 as uuidv4 } from 'uuid';
 export class CharacterSummonDialog {
 
   gameManager: GameManager = gameManager;
-  summonColors: SummonColor[] = Object.values(SummonColor).filter((summonColor) => summonColor != SummonColor.custom);
+  summonColors: SummonColor[] = Object.values(SummonColor).filter((summonColor) => summonColor != SummonColor.custom && summonColor != SummonColor.fh);
   summonColor: SummonColor = SummonColor.blue;
   summonNumber: number = 1;
   summonName: string = "";
   summonFilter: string;
+  fhSummon: boolean = false;
 
   constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef) {
     this.summonFilter = "";
+    for (let i = 2; i < 9; i++) {
+      if (this.summonData().filter((summonData) => this.available(summonData, i)) > this.summonData().filter((summonData) => this.available(summonData, i - 1))) {
+        this.summonNumber = i;
+      }
+    }
+    this.fhSummon = this.character.edition === 'fh' || gameManager.editionExtensions(this.character.edition).indexOf('fh') != -1;
+    this.fhSummon = false; // TODO: improve FH summons marker
+    if (this.fhSummon) {
+      this.summonColor = SummonColor.fh;
+    }
   }
 
   pickNumber(number: number) {
@@ -33,8 +44,8 @@ export class CharacterSummonDialog {
     this.summonColor = color;
   }
 
-  available(summonData: SummonData) {
-    return this.summonColor != SummonColor.custom && this.summonNumber != 0 && this.character.summons.every((summon) => summon.dead || summon.name != summonData.name || (summonData.special ? summon.number != 0 : summon.number != this.summonNumber) || (summonData.special ? summon.color != SummonColor.custom : summon.color != this.summonColor)) && (summonData.count || 1) > this.character.summons.filter((summon) => summon.name == summonData.name && summon.cardId == summonData.cardId && gameManager.entityManager.isAlive(summon)).length
+  available(summonData: SummonData, number: number = this.summonNumber): boolean {
+    return this.summonColor != SummonColor.custom && number != 0 && this.character.summons.every((summon) => summon.dead || summon.name != summonData.name || (summonData.special ? summon.number != 0 : summon.number != number) || (summonData.special ? summon.color != SummonColor.custom : summon.color != this.summonColor)) && (summonData.count || 1) > this.character.summons.filter((summon) => summon.name == summonData.name && summon.cardId == summonData.cardId && gameManager.entityManager.isAlive(summon)).length
   }
 
   customDisabled() {

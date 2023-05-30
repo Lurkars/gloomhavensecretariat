@@ -1,6 +1,6 @@
 <div class="attack-modifiers-dialog">
   <a class="close" (click)="dialogRef.close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'"><img
-      src="./assets/images/close.svg"></a>
+      src="./assets/images/close_dialog.svg"></a>
   <div class="scroll-container">
     <div class="menu" #menu
       [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers && (!character || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition])}">

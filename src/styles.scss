@@ -699,7 +699,7 @@ ghs-pointer-input {
 .dialog-invert {
   border: calc(var(--ghs-unit) * 1) solid transparent;
   border-radius: calc(var(--ghs-unit) * 0.5);
-  padding: calc(var(--ghs-unit) * 1);
+  padding: calc(var(--ghs-unit) * 2);
   background-image: url('~src/assets/images/dialog_background.png');
   background-size: cover;
   border-image-source: url('~src/assets/images/dialog_border.png');
@@ -708,9 +708,9 @@ ghs-pointer-input {
   border-image-width: calc(var(--ghs-unit) * 6);
 
   .close {
-    position: absolute;
-    top: calc(var(--ghs-unit) * -2.5 * var(--ghs-dialog-factor));
-    right: calc(var(--ghs-unit) * -2 * var(--ghs-dialog-factor));
+    position: fixed;
+    top: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+    right: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
     z-index: 999;
     filter: var(--ghs-filter-red) brightness(0.6) var(--ghs-filter-shadow);
     cursor: pointer;
@@ -728,8 +728,6 @@ ghs-pointer-input {
   &.dialog-invert {
     background-color: var(--ghs-color-white);
     background-image: none;
-    border: none;
-    border-radius: 5px;
   }
 
 }
@@ -1430,8 +1428,13 @@ input[type="radio"] {
     transform: translateY(-50%);
   }
 
-  .dialog {
-    background-image: url('~src/assets/images/fh/dialog_background_fh.png');
+  .dialog,
+  .dialog-invert {
+
+    &.dialog {
+      background-image: url('~src/assets/images/fh/dialog_background_fh.png');
+    }
+
     border-image-source: url('~src/assets/images/fh/dialog_border_fh.png');
   }
 }

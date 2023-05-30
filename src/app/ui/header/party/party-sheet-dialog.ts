@@ -1,7 +1,7 @@
 import { Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
 import { FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "src/app/game/model/data/EditionData";
@@ -28,9 +28,11 @@ import { ScenarioSummaryComponent } from "../../footer/scenario/summary/scenario
 export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
   ghsInputFullScreenCheck = ghsInputFullScreenCheck;
   party: Party;
   prosperitySteps = GH_PROSPERITY_STEPS;
+  prosperityHighlightSteps = GH_PROSPERITY_STEPS;
   priceModifier: number = 0;
   campaign: boolean = false;
   doubleClickAddSuccess: any = null;
@@ -75,10 +77,6 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     })
     this.fhSheet = gameManager.fhRules();
     this.csSheet = !this.fhSheet && gameManager.editionRules('cs');
-
-    if (this.fhSheet) {
-      this.prosperitySteps = FH_PROSPERITY_STEPS;
-    }
 
     this.update();
   }
@@ -489,6 +487,26 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
     this.calendarSheet = Math.floor(this.party.weeks / 81);
     this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && Object.keys(figure.progress.loot).some((type) => figure.progress.loot[type as LootType])).map((figure) => figure as Character);
+
+    if (this.fhSheet) {
+      this.prosperitySteps = FH_PROSPERITY_STEPS;
+    } else {
+      this.prosperitySteps = GH_PROSPERITY_STEPS;
+    }
+
+    if (settingsManager.settings.fhStyle) {
+      this.prosperityHighlightSteps = [];
+      this.prosperitySteps.forEach((step, index) => {
+        const start = index > 0 ? this.prosperitySteps[index - 1] + 1 : 0;
+        for (let i = start; i < step; i++) {
+          if ((i - start) % 5 == 4) {
+            this.prosperityHighlightSteps.push(i);
+          }
+        }
+      })
+    } else {
+      this.prosperityHighlightSteps = this.prosperitySteps;
+    }
   }
 
   characterIcon(name: string): string {

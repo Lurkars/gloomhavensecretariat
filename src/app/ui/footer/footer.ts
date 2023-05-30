@@ -105,7 +105,11 @@ export class FooterComponent implements OnInit {
     gameManager.stateManager.before(gameManager.game.state == GameState.next ? "nextRound" : "draw");
     if (gameManager.game.state == GameState.next) {
       if (settingsManager.settings.disabledTurnConfirmation) {
-        gameManager.game.figures.forEach((figure) => gameManager.roundManager.afterTurn(figure));
+        let lastActive = gameManager.game.figures.find((figure) => !figure.off);
+        while (lastActive) {
+          gameManager.roundManager.toggleFigure(lastActive);
+          lastActive = gameManager.game.figures.find((figure) => !figure.off);
+        }
       } else {
         const activeFigure = gameManager.game.figures.find((figure) => figure.active && !figure.off);
         if (!this.activeHint() && activeFigure) {

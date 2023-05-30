@@ -139,7 +139,7 @@ export class StorageManager {
         };
 
         request.onerror = (event: any) => {
-          console.error("read " + store + " failed", event);
+          console.error("read " + store + " failed", event, event.error);
           reject(event);
         };
       } else {

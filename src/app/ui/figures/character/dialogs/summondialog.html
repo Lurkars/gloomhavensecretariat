@@ -2,7 +2,8 @@
   <div class="title">
     <small>
       <img class="icon" [src]="character.iconUrl" />
-      <span *ngIf="character.title"> {{character.title}}&nbsp;(<span [ghs-label]="'data.character.' + character.name"></span>)</span>
+      <span *ngIf="character.title"> {{character.title}}&nbsp;(<span
+          [ghs-label]="'data.character.' + character.name"></span>)</span>
       <span *ngIf="!character.title" [ghs-label]="'data.character.' + character.name"></span>
     </small>
     <span [ghs-label]="'summon'"></span>
@@ -10,12 +11,14 @@
 
   <div class="container">
     <div class="color-container">
-      <span *ngFor="let color of summonColors" class="summon-button" (click)="selectColor(color)"
-        [ngClass]="{'active' : color == summonColor}">
-        <span class="image">
-          <img src="./assets/images/summons/{{color}}.png">
+      <ng-container *ngIf="!fhSummon">
+        <span *ngFor="let color of summonColors" class="summon-button" (click)="selectColor(color)"
+          [ngClass]="{'active' : color == summonColor}">
+          <span class="image">
+            <img src="./assets/images/summons/{{color}}.png">
+          </span>
         </span>
-      </span>
+      </ng-container>
       <span *ngFor="let number of [] | ghsRange:8" class="number-button" (click)="pickNumber(number+1)"
         [ngClass]="{'disabled' : summonNumber == number+1}">
         <span class="number">{{number+1}}</span>

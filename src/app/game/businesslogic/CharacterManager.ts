@@ -322,7 +322,7 @@ export class CharacterManager {
     } else if (itemData.edition == 'toa') {
       return [101, 107].indexOf(itemData.id) != -1;
     } else if (itemData.edition == 'fh') {
-      return [3, 11, 41, 60, 132, 138].indexOf(itemData.id) != -1;
+      return [3, 11, 41, 60, 132, 138, 178].indexOf(itemData.id) != -1;
     }
     return false;
   }

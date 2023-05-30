@@ -123,6 +123,9 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
     dialogRef.closed.subscribe({
       next: () => {
         if (this.summon.dead) {
+          if (this.summon.active && settingsManager.settings.activeSummons) {
+            this.toggleActive();
+          }
           this.element.nativeElement.classList.add('dead');
         }
       }

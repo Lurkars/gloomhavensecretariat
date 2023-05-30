@@ -7,10 +7,11 @@ import { Game, GameState } from "../model/Game";
 import { LootDeck } from "../model/data/Loot";
 import { Monster } from "../model/Monster";
 import { Objective } from "../model/Objective";
-import { SummonState } from "../model/Summon";
+import { Summon, SummonState } from "../model/Summon";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 import { Condition, ConditionName } from "../model/Condition";
+import { MonsterEntity } from "../model/MonsterEntity";
 
 export class RoundManager {
 
@@ -101,8 +102,22 @@ export class RoundManager {
     const figures: Figure[] = this.game.figures;
     let index = figures.indexOf(toggleFigure);
 
-    const lastActive = figures.find((other) => other.active);
-    const lastIndex = lastActive ? figures.indexOf(lastActive) : -1;
+    let lastActive = figures.find((other) => other.active);
+    let lastIndex = lastActive ? figures.indexOf(lastActive) : -1;
+
+    if (!lastActive && figures.every((figure) => figure.off)) {
+      lastIndex = figures.length - 1;
+      lastActive = figures[lastIndex];
+      while (lastActive && !gameManager.gameplayFigure(lastActive)) {
+        lastIndex--;
+        if (lastIndex == -1) {
+          lastActive = undefined;
+        } else {
+          lastActive = figures[lastIndex];
+        }
+      }
+    }
+
     const skipObjectives = toggleFigure.active || !gameManager.characterManager.skipObjective(toggleFigure) || initial;
 
     if (index == -1) {
@@ -112,7 +127,7 @@ export class RoundManager {
 
     let figure: Figure | undefined = toggleFigure;
 
-    const next = toggleFigure.active && (!(toggleFigure instanceof Character) || !toggleFigure.summons.find((summon) => summon.active));
+    const next = toggleFigure.active && (!(toggleFigure instanceof Character) || !settingsManager.settings.activeSummons || !toggleFigure.summons.find((summon) => summon.active));
     if (next) {
       this.afterTurn(toggleFigure);
       figure = figures.find((other, otherIndex) => gameManager.gameplayFigure(other) && !other.off && otherIndex != index);
@@ -132,18 +147,18 @@ export class RoundManager {
       for (let i = 0; i < figures.length; i++) {
         const other = figures[i];
         if (gameManager.gameplayFigure(other)) {
-          if (i < index) {
-            if (i > lastIndex && !other.off) {
+          if (i < index && i >= lastIndex && !other.off) {
+            if (i > lastIndex) {
               this.beforeTurn(other);
-              this.turn(other);
+              this.turn(other, true);
             }
             this.afterTurn(other);
           } else if (i == index) {
-            if (!next) {
+            if (!other.active) {
               this.beforeTurn(other);
             }
             this.turn(other);
-          } else if (i > index && (!other.off || index == figures.indexOf(toggleFigure))) {
+          } else if (!next && i > index && i <= lastIndex) {
             this.beforeTurn(other);
           }
         }
@@ -164,8 +179,16 @@ export class RoundManager {
 
       gameManager.entityManager.entitiesAll(figure, false).forEach((entity) => {
         if (settingsManager.settings.applyConditions) {
+          const killReset = (entity instanceof MonsterEntity || entity instanceof Summon) && entity.dead;
           gameManager.entityManager.unapplyConditionsTurn(entity);
           gameManager.entityManager.unapplyConditionsAfter(entity);
+          if (killReset && !entity.dead) {
+            const identifier = gameManager.additionalIdentifier(figure, entity);
+            let counter = gameManager.entityCounter(identifier);
+            if (counter) {
+              counter.killed--;
+            }
+          }
         }
       })
 
@@ -179,12 +202,22 @@ export class RoundManager {
         monsterEntity.active = figure.active;
         monsterEntity.off = false;
       });
-    } else if (!figure.active && settingsManager.settings.activeSummons && figure instanceof Character) {
+    }
+
+    if (figure instanceof Character && settingsManager.settings.activeSummons) {
       figure.summons.forEach((summon) => {
         if (summon.active) {
           summon.active = false;
         }
       });
+    }
+
+    if (figure instanceof Character && figure.longRest && settingsManager.settings.applyLongRest) {
+      const healCondition = figure.entityConditions.find((condition) => condition.name == ConditionName.heal && condition.value && condition.expired);
+      if (healCondition) {
+        figure.health = figure.health - healCondition?.value;
+        figure.entityConditions = figure.entityConditions.filter((condition) => condition != healCondition);
+      };
     }
 
     if (figure.off && gameManager.entityManager.entities(figure).length > 0) {
@@ -193,7 +226,8 @@ export class RoundManager {
     figure.active = false;
   }
 
-  turn(figure: Figure) {
+  turn(figure: Figure, skipSummons: boolean = false) {
+
     figure.active = true;
 
     if (figure instanceof Monster && !figure.entities.find((entity) => entity.active)) {
@@ -204,14 +238,24 @@ export class RoundManager {
       });
     }
 
-    if (figure instanceof Character && settingsManager.settings.activeSummons && gameManager.entityManager.isAlive(figure)) {
+    if (!skipSummons && figure instanceof Character && settingsManager.settings.activeSummons && gameManager.entityManager.isAlive(figure)) {
       const activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);
       const nextSummon = figure.summons.find((summon, index, self) => (!activeSummon || index > self.indexOf(activeSummon)) && gameManager.entityManager.isAlive(summon, true));
       if (nextSummon) {
         if (activeSummon) {
           activeSummon.active = false;
+          if (settingsManager.settings.expireConditions) {
+            gameManager.entityManager.expireConditions(activeSummon);
+          }
+          if (settingsManager.settings.applyConditions) {
+            gameManager.entityManager.applyConditionsAfter(activeSummon);
+          }
         }
         nextSummon.active = true;
+        gameManager.entityManager.applyConditionsTurn(nextSummon);
+        if (nextSummon.dead) {
+          this.turn(figure);
+        }
       } else {
         this.game.elementBoard.forEach((element) => {
           if (element.state == ElementState.new) {
@@ -232,24 +276,28 @@ export class RoundManager {
       }
     })
 
-    gameManager.entityManager.entitiesAll(figure).forEach((entity) => {
-      if (settingsManager.settings.applyConditions) {
-        gameManager.entityManager.applyConditionsTurn(entity);
+    if (settingsManager.settings.applyConditions) {
+      if (!(figure instanceof Character) || skipSummons) {
+        gameManager.entityManager.entitiesAll(figure).forEach((entity) => {
+          gameManager.entityManager.applyConditionsTurn(entity);
+        })
+      } else if (!skipSummons && !figure.summons.some((summon) => summon.active)) {
+        gameManager.entityManager.applyConditionsTurn(figure);
       }
-    })
+    }
 
-    if (figure instanceof Character && settingsManager.settings.applyLongRest && figure.longRest) {
-      figure.health += 2;
-      gameManager.entityManager.addCondition(figure, new Condition(ConditionName.heal, 2), figure.active || false, figure.off || false);
-      gameManager.entityManager.applyCondition(figure, ConditionName.heal, true);
+    if (figure instanceof Character && settingsManager.settings.applyLongRest && figure.longRest && (skipSummons || !figure.summons.some((summon) => summon.active))) {
+      const change = figure.health < figure.maxHealth ? (figure.health < figure.maxHealth - 2 ? 2 : 1) : 0;
+      if (change > 0) {
+        figure.health += change;
+        gameManager.entityManager.addCondition(figure, new Condition(ConditionName.heal, change), figure.active || false, figure.off || false);
+        gameManager.entityManager.applyCondition(figure, ConditionName.heal, true);
+      }
     }
   }
 
   afterTurn(figure: Figure) {
     if (!figure.off) {
-      figure.off = true;
-      figure.active = false;
-
       if (figure instanceof Monster) {
         figure.entities.forEach((monsterEntity) => {
           monsterEntity.active = false;
@@ -258,12 +306,13 @@ export class RoundManager {
       }
 
       if (settingsManager.settings.activeSummons && figure instanceof Character) {
-        figure.summons.forEach((summon) => {
-          if (summon.active) {
-            summon.active = false;
-          }
-        });
+        let activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);
+        while (activeSummon) {
+          this.turn(figure);
+          activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);
+        }
       }
+
 
       gameManager.entityManager.entitiesAll(figure).forEach((entity) => {
         if (settingsManager.settings.expireConditions) {
@@ -271,7 +320,6 @@ export class RoundManager {
         }
 
         if (settingsManager.settings.applyConditions) {
-          gameManager.entityManager.applyConditionsTurn(entity);
           gameManager.entityManager.applyConditionsAfter(entity);
         }
       })

@@ -131,15 +131,14 @@
   <div class="column">
     <div class="line">
       <div class="hint-container">
-        <label [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
-          <input type="checkbox"
-            [checked]="settingsManager.settings.activeStandees && !settingsManager.settings.disableStandees"
-            (change)="settingsManager.setActiveStandees(!settingsManager.settings.activeStandees)">
-          <span [ghs-label]="'settings.activeStandees'"></span>
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.activeSummons"
+            (change)="settingsManager.setActiveSummons(!settingsManager.settings.activeSummons)">
+          <span [ghs-label]="'settings.activeSummons'"></span>
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
-          <span class="text" [ghs-label]="'settings.activeStandees.hint'"></span>
+          <span class="text" [ghs-label]="'settings.activeSummons.hint'"></span>
         </span>
       </div>
     </div>
@@ -359,14 +358,15 @@
     </ng-container>
     <div class="line">
       <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.activeSummons"
-            (change)="settingsManager.setActiveSummons(!settingsManager.settings.activeSummons)">
-          <span [ghs-label]="'settings.activeSummons'"></span>
+        <label [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.activeStandees && !settingsManager.settings.disableStandees"
+            (change)="settingsManager.setActiveStandees(!settingsManager.settings.activeStandees)">
+          <span [ghs-label]="'settings.activeStandees'"></span>
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
-          <span class="text" [ghs-label]="'settings.activeSummons.hint'"></span>
+          <span class="text" [ghs-label]="'settings.activeStandees.hint'"></span>
         </span>
       </div>
     </div>

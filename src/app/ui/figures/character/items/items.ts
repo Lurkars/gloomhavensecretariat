@@ -294,6 +294,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
                     }
                 }
             } else {
+                const drifterAdditionalHand = this.character.name == 'drifter' && this.character.edition == 'fh' && this.character.progress.perks[11];
                 if (item.slot == ItemSlot.small) {
                     let allowed = Math.ceil(this.character.level / 2);
                     if (equippedItems.find((itemData) => itemData.id == 16 && itemData.edition == 'gh' || itemData.id == 60 && itemData.edition == 'fh')) {
@@ -310,15 +311,28 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
                         }
                     }
                 } else if (item.slot == ItemSlot.onehand) {
-                    equippedItems = equippedItems.filter((equipped) => equipped.slot != ItemSlot.twohand);
-                    if (equippedItems.filter((equipped) => equipped.slot == item.slot).length > 1) {
+                    const twoHand = equippedItems.find((equipped) => equipped.slot == ItemSlot.twohand)
+                    if (twoHand && !drifterAdditionalHand) {
+                        equippedItems = equippedItems.filter((equipped) => equipped.slot != ItemSlot.twohand);
+                    }
+                    if (equippedItems.filter((equipped) => equipped.slot == item.slot).length > (drifterAdditionalHand ? (twoHand ? 0 : 2) : 1)) {
                         const equipped = equippedItems.find((equipped) => equipped.slot == item.slot);
                         if (equipped) {
                             equippedItems.splice(equippedItems.indexOf(equipped), 1);
                         }
                     }
                 } else if (item.slot == ItemSlot.twohand) {
-                    equippedItems = equippedItems.filter((equipped) => equipped.slot != ItemSlot.onehand && equipped.slot != ItemSlot.twohand);
+                    equippedItems = equippedItems.filter((equipped) => equipped.slot != item.slot);
+                    if (drifterAdditionalHand) {
+                        while (equippedItems.filter((equipped) => equipped.slot == ItemSlot.onehand).length > 1) {
+                            const equipped = equippedItems.find((equipped) => equipped.slot == ItemSlot.onehand);
+                            if (equipped) {
+                                equippedItems.splice(equippedItems.indexOf(equipped), 1);
+                            }
+                        }
+                    } else {
+                        equippedItems = equippedItems.filter((equipped) => equipped.slot != ItemSlot.onehand);
+                    }
                 } else {
                     equippedItems = equippedItems.filter((equipped) => equipped.slot != item.slot);
                 }

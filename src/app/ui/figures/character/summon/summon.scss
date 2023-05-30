@@ -226,6 +226,7 @@
       display: grid;
       grid-template-rows: repeat(2, auto);
       grid-auto-flow: column;
+      height: calc(var(--ghs-unit) * 6.5 * var(--ghs-text-factor));
 
       .condition {
         position: relative;

@@ -1795,6 +1795,8 @@
           height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
 
           .level {
+            display: flex;
+            justify-content: center;
             font-family: var(--ghs-font-title);
             font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
           }
@@ -1829,14 +1831,68 @@
             &::-webkit-scrollbar {
               display: none;
             }
+
+            .tick {
+              display: flex;
+              flex-direction: column;
+              width: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
+              margin-left: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
+              margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+            }
           }
 
-          .tick {
-            display: flex;
-            flex-direction: column;
-            width: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
-            margin-left: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
-            margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+
+
+          &.fh {
+            height: calc(var(--ghs-unit) * 4.5 * var(--ghs-dialog-factor));
+
+            .legend {
+              flex-direction: row;
+              align-items: center;
+              justify-content: start;
+
+              img {
+                height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                width: auto;
+              }
+            }
+
+            .checklist {
+              .tick {
+                position: relative;
+
+                &:not(:first-child) {
+                  margin-left: calc(var(--ghs-unit) * -0.1 * var(--ghs-dialog-factor));
+                }
+
+                .checkbox {
+                  border: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
+                  box-shadow: none;
+                  z-index: 1;
+                }
+
+                .level {
+                  font-size: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
+                  line-height: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
+                  font-family: var(--ghs-font-normal);
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  z-index: 2;
+                }
+
+                &.large {
+                  width: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
+
+                  .checkbox {
+                    margin-bottom: calc(var(--ghs-unit) * -0.3 * var(--ghs-dialog-factor));
+                    width: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
+                    height: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
+                  }
+                }
+              }
+            }
           }
         }
 

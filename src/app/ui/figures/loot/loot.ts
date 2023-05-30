@@ -54,30 +54,34 @@ export class LootComponent implements OnInit, OnChanges {
             event.stopPropagation();
             const dialog = this.dialog.open(LootApplyDialogComponent, {
                 panelClass: 'dialog',
-                data: { loot: this.loot, selected: this.character }
+                data: { loot: this.loot, selected: this.character, edit: this.edit }
             });
 
             dialog.closed.subscribe({
                 next: (name) => {
-                    if (name) {
-                        const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == name);
-                        if (character instanceof Character) {
-                            gameManager.stateManager.before("addResource", "data.character." + character.name, "game.loot." + this.loot.type, gameManager.lootManager.getValue(this.loot) + '');
-
-                            if (this.character) {
-                                const charBefore = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == this.character);
-                                if (charBefore instanceof Character) {
-                                    charBefore.lootCards = charBefore.lootCards.filter((index) => index != this.index);
-                                }
-                            }
-
-                            character.lootCards = character.lootCards || [];
+                    if (typeof name === 'string') {
+                        const charBefore = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == this.character);
+                        if (charBefore instanceof Character && charBefore.name != name) {
+                            gameManager.stateManager.before("removeResource", "data.character." + charBefore.name, "game.loot." + this.loot.type, gameManager.lootManager.getValue(this.loot) + '');
+                            charBefore.lootCards = charBefore.lootCards.filter((index) => index != this.index);
                             if (this.loot.type == LootType.money || this.loot.type == LootType.special1 || this.loot.type == LootType.special2) {
-                                character.loot += gameManager.lootManager.getValue(this.loot);
+                                charBefore.loot -= gameManager.lootManager.getValue(this.loot);
                             }
-                            character.lootCards.push(this.index);
-                            character.lootCards.sort((a, b) => a - b);
                             gameManager.stateManager.after();
+                        }
+
+                        if (name && (!charBefore || charBefore.name != name)) {
+                            const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == name);
+                            if (character instanceof Character) {
+                                gameManager.stateManager.before("addResource", "data.character." + character.name, "game.loot." + this.loot.type, gameManager.lootManager.getValue(this.loot) + '');
+                                character.lootCards = character.lootCards || [];
+                                if (this.loot.type == LootType.money || this.loot.type == LootType.special1 || this.loot.type == LootType.special2) {
+                                    character.loot += gameManager.lootManager.getValue(this.loot);
+                                }
+                                character.lootCards.push(this.index);
+                                character.lootCards.sort((a, b) => a - b);
+                                gameManager.stateManager.after();
+                            }
                         }
                     }
                 }

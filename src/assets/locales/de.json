@@ -466,7 +466,7 @@
     },
     "loot": {
       ".": "Beute",
-      "apply": "Zum ausgewählten Charakter hinzufügen",
+      "apply": "Zu %data.character.{0}% hinzufügen",
       "arrowvine": "Pfeilrebe",
       "axenut": "Axtnuss",
       "chooseCharacter": "Charakter für +{0} {1} auswählen",
@@ -487,6 +487,7 @@
       },
       "flamefruit": "Flammenfrucht",
       "hide": "Fell",
+      "keep": "Bei %data.character.{0}% belassen",
       "lootTreasure": {
         ".": "{0} erbeutet Schatz {1}?",
         "confirm": "Bestätigen",
@@ -496,6 +497,7 @@
       "metal": "Metall",
       "money": "Geld",
       "random_item": "Zufälliger Gegenstand",
+      "remove": "Von %data.character.{0}% entfernen",
       "rockroot": "Steinwurzel",
       "snowthistle": "Schneedistel",
       "special1": "Spezial Karte 1 (#1418)",
@@ -1590,6 +1592,7 @@
       "removePartyTownGuardPerkSection": "Sektion {0} von den Verbesserungen der Stadtwache entfernen",
       "removePartyWeekSection": "Sektion {2} von Woche {1} entfernen",
       "removePlayer": "Entferne Spieler {1} ({0})",
+      "removeResource": "-{2} {1} von {0}",
       "removeScenarioRule": "Szenario Regel ausblenden",
       "removeTreasure": "Schatz {1} (%data.edition.{0}%) entfernen",
       "removeCharTreasure": "Entferne Schatz {1} von {2}",

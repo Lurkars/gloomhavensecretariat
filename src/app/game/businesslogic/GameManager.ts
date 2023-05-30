@@ -436,7 +436,7 @@ export class GameManager {
   }
 
   gameplayFigure(figure: Figure) {
-    return figure instanceof Monster && this.entityManager.entities(figure).length > 0 || figure instanceof Character && gameManager.entityManager.isAlive(figure) || figure instanceof Objective && gameManager.entityManager.isAlive(figure);
+    return figure instanceof Monster && this.entityManager.entitiesAll(figure, false).length > 0 || figure instanceof Character && gameManager.entityManager.isAlive(figure) || figure instanceof Objective && gameManager.entityManager.isAlive(figure);
   }
 
   figuresByIdentifier(identifier: AdditionalIdentifier | undefined, scenarioEffect: boolean = false): Figure[] {

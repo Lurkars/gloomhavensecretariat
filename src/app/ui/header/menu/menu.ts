@@ -48,6 +48,10 @@ export class MainMenuComponent implements OnInit, OnDestroy {
   constructor(@Inject(DIALOG_DATA) data: { subMenu: SubMenu, standalone: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private swUpdate: SwUpdate) {
     this.active = data.subMenu;
     this.standalone = data.standalone;
+    this.dialogRef.overlayRef.hostElement.style.zIndex = '3000';
+    if (this.dialogRef.overlayRef.backdropElement) {
+      this.dialogRef.overlayRef.backdropElement.style.zIndex = '3000';
+    }
   }
 
   ngOnInit(): void {
