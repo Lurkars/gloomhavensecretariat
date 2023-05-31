@@ -242,19 +242,22 @@ export class RoundManager {
       const activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);
       const nextSummon = figure.summons.find((summon, index, self) => (!activeSummon || index > self.indexOf(activeSummon)) && gameManager.entityManager.isAlive(summon, true));
 
-      figure.summons.slice(activeSummon ? figure.summons.indexOf(activeSummon) : 0, nextSummon ? figure.summons.indexOf(nextSummon) : figure.summons.length).forEach((prevSummon) => {
+      figure.summons.slice(activeSummon ? figure.summons.indexOf(activeSummon) : 0, nextSummon ? figure.summons.indexOf(nextSummon) : figure.summons.length).forEach((prevSummon, index, self) => {
         prevSummon.active = false;
         if (settingsManager.settings.expireConditions) {
           gameManager.entityManager.expireConditions(prevSummon);
         }
-        if (settingsManager.settings.applyConditions) {
+        if (settingsManager.settings.applyConditions && (!activeSummon || index > 0)) {
+          gameManager.entityManager.applyConditionsTurn(prevSummon);
           gameManager.entityManager.applyConditionsAfter(prevSummon);
         }
       })
 
       if (nextSummon) {
         nextSummon.active = true;
-        gameManager.entityManager.applyConditionsTurn(nextSummon);
+        if (settingsManager.settings.applyConditions) {
+          gameManager.entityManager.applyConditionsTurn(nextSummon);
+        }
         if (nextSummon.dead) {
           this.turn(figure);
         }
