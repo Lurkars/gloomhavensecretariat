@@ -258,6 +258,15 @@ export class RoundManager {
           this.turn(figure);
         }
       } else {
+        if (activeSummon) {
+          if (settingsManager.settings.expireConditions) {
+            gameManager.entityManager.expireConditions(activeSummon);
+          }
+          if (settingsManager.settings.applyConditions) {
+            gameManager.entityManager.applyConditionsAfter(activeSummon);
+          }
+        }
+
         this.game.elementBoard.forEach((element) => {
           if (element.state == ElementState.new) {
             element.state = ElementState.strong;
