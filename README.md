@@ -79,11 +79,11 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Includes [Blood and Sand](https://boardgamegeek.com/thread/2613617/blood-and-sand-gloomhaven-campaign-set-red-desert) campaign: can be enabled in *Data Management* (Thanks to [/u/Calm_Construction131](https://www.reddit.com/user/Calm_Construction131) for contribution)
   - Includes the [Seeker of Xorn](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under *Data Management*.
   - Manage multiple parties (on the party sheet while no active scenario is set)
-  - <details
-      <summary>SPOILER WARNING: Envelope X (and V)</summary
+  - <details>
+      <summary>SPOILER WARNING: Envelope X (and V)</summary>
 
       > To add Envelope X (or V for ToA), enable it under *Data Management*, then enter the full name in the *Character Filter* (not case sensitive).
-    </details
+    </details>
 
 ### Short term plans
 
