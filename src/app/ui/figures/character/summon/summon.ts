@@ -5,7 +5,6 @@ import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { ConditionType, EntityCondition } from 'src/app/game/model/Condition';
-import { ElementState } from 'src/app/game/model/data/Element';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
@@ -135,23 +134,23 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
   toggleActive() {
     if (this.summon.active) {
       gameManager.stateManager.before("summonInactive", "data.character." + this.character.name, "data.summon." + this.summon.name);
-      const summon = this.character.summons.find((summon, index, self) => index > self.indexOf(this.summon) && gameManager.entityManager.isAlive(summon, true) && !summon.active);
-
-      gameManager.game.elementBoard.forEach((element) => {
-        if (element.state == ElementState.new) {
-          element.state = ElementState.strong;
-        }
-      })
-
-      if (this.character.active && summon && settingsManager.settings.activeSummons) {
-        summon.active = true;
+      if (settingsManager.settings.activeSummons && this.character.active) {
+        gameManager.roundManager.toggleFigure(this.character);
+      } else {
+        this.summon.active = false;
       }
-      this.summon.active = false;
       gameManager.stateManager.after();
     } else {
       gameManager.stateManager.before("summonActive", "data.character." + this.character.name, "data.summon." + this.summon.name);
-      this.character.summons.forEach((summon) => summon.active = false);
-      this.summon.active = true;
+      const activeSummon = this.character.summons.find((summon) => summon.active);
+      if (settingsManager.settings.activeSummons && this.character.active && gameManager.entityManager.isAlive(this.summon, true) && (!activeSummon || this.character.summons.indexOf(activeSummon) < this.character.summons.indexOf(this.summon))) {
+        while (!this.summon.active) {
+          gameManager.roundManager.toggleFigure(this.character);
+        }
+      } else {
+        this.character.summons.forEach((summon) => summon.active = false);
+        this.summon.active = true;
+      }
       gameManager.stateManager.after();
     }
   }

@@ -249,7 +249,7 @@ export class ScenarioSummaryComponent {
 
     hasRewards(): boolean {
         const rewards = this.rewards;
-        if (rewards && (rewards.battleGoals || rewards.collectiveGold || rewards.custom || rewards.envelopes || rewards.events || rewards.experience || rewards.gold || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.itemBlueprints || rewards.perks || rewards.prosperity || rewards.reputation || rewards.resources || rewards.collectiveResources || rewards.morale || rewards.inspiration || rewards.chooseUnlockCharacter || rewards.unlockCharacter || rewards.calenderSection || rewards.calenderSectionManual)) {
+        if (rewards && (rewards.envelopes || rewards.gold || rewards.experience || rewards.collectiveGold || rewards.resources || rewards.collectiveResources || rewards.reputation || rewards.prosperity || rewards.inspiration || rewards.morale || rewards.perks || rewards.battleGoals || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.itemBlueprints || rewards.randomItemBlueprint || rewards.events || rewards.chooseUnlockCharacter || rewards.unlockCharacter || rewards.custom)) {
             return true;
         }
         return false;

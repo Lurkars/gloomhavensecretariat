@@ -241,16 +241,17 @@ export class RoundManager {
     if (!skipSummons && figure instanceof Character && settingsManager.settings.activeSummons && gameManager.entityManager.isAlive(figure)) {
       const activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);
       const nextSummon = figure.summons.find((summon, index, self) => (!activeSummon || index > self.indexOf(activeSummon)) && gameManager.entityManager.isAlive(summon, true));
+
       if (nextSummon) {
-        if (activeSummon) {
-          activeSummon.active = false;
+        figure.summons.slice(activeSummon ? figure.summons.indexOf(activeSummon) : 0, figure.summons.indexOf(nextSummon)).forEach((prevSummon) => {
+          prevSummon.active = false;
           if (settingsManager.settings.expireConditions) {
-            gameManager.entityManager.expireConditions(activeSummon);
+            gameManager.entityManager.expireConditions(prevSummon);
           }
           if (settingsManager.settings.applyConditions) {
-            gameManager.entityManager.applyConditionsAfter(activeSummon);
+            gameManager.entityManager.applyConditionsAfter(prevSummon);
           }
-        }
+        })
         nextSummon.active = true;
         gameManager.entityManager.applyConditionsTurn(nextSummon);
         if (nextSummon.dead) {
