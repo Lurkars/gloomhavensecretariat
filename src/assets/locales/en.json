@@ -88,6 +88,11 @@
       "import": "Import",
       "items": {
         ".": "Items",
+        "brewing" : {
+          "." : "Brewing",
+          "threeHerbs" : "3 Herbs %game.resource.{0}%",
+          "twoHerbs": "2 Herbs"
+        },
         "effect": "If the item is equipped, it's effect is automatically applied. To equip an item, just click it's name. Equipping items is only allowed before and between scenarios. Doubleclick to force equipping.",
         "wip": "%wip%! Items for %data.edition.{0}% not complete yet."
       },
@@ -1377,10 +1382,6 @@
       ".": "Disable standees",
       "hint": "Do not display standees (when Hide stats is set, add normal and elite monster separate). This also disables unlocking rooms and automatic standees."
     },
-    "disableStatAnimations": {
-      ".": "Disable Stat Animation",
-      "hint": "Disable animation to highlight stats as %game.action.shield% or %game.action.retaliate%."
-    },
     "disabledTurnConfirmation": {
       ".": "Disable Round/Turn confirmation",
       "hint": "Disables the reminder when clicking \"%round.next%\" before all figures finished their turns. If %settings.expireConditions% or %settings.applyConditions% is active it will be automatically applied for all figures."
@@ -1519,6 +1520,10 @@
       "hint": "Show full ability cards including card title."
     },
     "standees": "Standees",
+    "statAnimations": {
+      ".": "Stat Animation",
+      "hint": "Enable animation to highlight stats as %game.action.shield% or %game.action.retaliate%."
+    },
     "theme": {
       ".": "Theme",
       "default": "Default",

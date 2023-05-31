@@ -42,13 +42,13 @@ export class MonsterStatsComponent implements OnInit {
 
   ngOnInit(): void {
     this.setStats();
-    if (settingsManager.settings.disableStatAnimations) {
+    if (!settingsManager.settings.statAnimations) {
       this.highlightActions = [];
     }
     this.edition = gameManager.getEdition(this.monster);
     gameManager.uiChange.subscribe({
       next: () => {
-        if (settingsManager.settings.disableStatAnimations) {
+        if (!settingsManager.settings.statAnimations) {
           this.highlightActions = [];
         } else {
           this.highlightActions = [ActionType.shield, ActionType.retaliate];

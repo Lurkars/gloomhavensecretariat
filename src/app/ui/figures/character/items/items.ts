@@ -22,6 +22,8 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
     item: ItemData | undefined;
     itemIndex: number = 1;
     itemEdition: string = "";
+    brewing: number = 0;
+    herbs: LootType[] = [LootType.rockroot, LootType.snowthistle, LootType.axenut, LootType.flamefruit, LootType.corpsecap, LootType.arrowvine];
 
     gameManager: GameManager = gameManager;
     GameState = GameState;
@@ -71,6 +73,22 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
                 this.priceModifier = Math.floor((gameManager.game.party.reputation + 2) / 4) * -1;
             }
         }
+
+        this.brewing = 0;
+
+        if (gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings) {
+            const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist');
+            if (alchemist && alchemist.level) {
+                this.brewing = alchemist.level < 3 ? 2 : 3;
+            }
+        }
+
+        // disable unfinished brewing for now
+        this.brewing = 0;
+    }
+
+    brewDialog(baseHerb: LootType | undefined = undefined) {
+
     }
 
     itemChange(itemIndexChange: number = 0) {

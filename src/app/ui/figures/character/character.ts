@@ -148,7 +148,12 @@ export class CharacterComponent implements OnInit, OnDestroy {
   toggleFigure(event: any): void {
     if (!this.character.absent) {
       if (gameManager.game.state == GameState.next && !this.character.exhausted && (!settingsManager.settings.initiativeRequired || this.character.initiative > 0)) {
-        gameManager.stateManager.before(this.character.active ? "unsetActive" : "setActive", "data.character." + this.character.name);
+        const activeSummon = this.character.summons.find((summon) => summon.active);
+        if (settingsManager.settings.activeSummons && this.character.active && activeSummon) {
+          gameManager.stateManager.before("summonInactive", "data.character." + this.character.name, "data.summon." + activeSummon.name);
+        } else {
+          gameManager.stateManager.before(this.character.active ? "unsetActive" : "setActive", "data.character." + this.character.name);
+        }
         gameManager.roundManager.toggleFigure(this.character);
         gameManager.stateManager.after();
       } else if (settingsManager.settings.initiativeRequired && this.character.initiative <= 0 || gameManager.game.state == GameState.draw) {

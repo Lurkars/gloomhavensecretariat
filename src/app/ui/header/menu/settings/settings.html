@@ -321,13 +321,13 @@
       <div class="line">
         <div class="hint-container">
           <label>
-            <input type="checkbox" [checked]="settingsManager.settings.disableStatAnimations"
-              (change)="settingsManager.setDisableStatAnimations(!settingsManager.settings.disableStatAnimations)">
-            <span [ghs-label]="'settings.disableStatAnimations'"></span>
+            <input type="checkbox" [checked]="settingsManager.settings.statAnimations"
+              (change)="settingsManager.setStatAnimations(!settingsManager.settings.statAnimations)">
+            <span [ghs-label]="'settings.statAnimations'"></span>
           </label>
           <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
           <span class="hint">
-            <span class="text" [ghs-label]="'settings.disableStatAnimations.hint'"></span>
+            <span class="text" [ghs-label]="'settings.statAnimations.hint'"></span>
           </span>
         </div>
       </div>

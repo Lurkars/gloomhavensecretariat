@@ -523,22 +523,37 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     }).map((identifier) => gameManager.item(+identifier.name, identifier.edition, true)).filter((itemData) => itemData != undefined).map((itemData) => itemData as ItemData);
   }
 
-  addItem(item: string, edition: string) {
-    gameManager.stateManager.before("addUnlockedItem", edition, item);
-    this.party.unlockedItems = this.party.unlockedItems || [];
-    this.party.unlockedItems.push(new Identifier(item, edition));
-    this.itemIndex.nativeElement.value = "0";
-    gameManager.stateManager.after();
+  addItem(indexElement: HTMLInputElement, edition: string) {
+    const itemId: string = indexElement.value;
+    if (itemId) {
+      if (this.hasItem(itemId, edition)) {
+        indexElement.classList.add('warning');
+      } else {
+        indexElement.classList.add('error');
+        const itemData = gameManager.itemData(edition, true).find((itemData) => itemId == '' + itemData.id);
+        if (itemData) {
+          gameManager.stateManager.before("addUnlockedItem", edition, itemId, itemData.name);
+          this.party.unlockedItems = this.party.unlockedItems || [];
+          this.party.unlockedItems.push(new Identifier(itemId, edition));
+          this.itemIndex.nativeElement.value = "";
+          indexElement.classList.remove('error');
+          gameManager.stateManager.after();
+        }
+      }
+    }
   }
 
   hasItem(item: string, edition: string): boolean {
-    return this.party.unlockedItems.some((identifier) => identifier.name == item && identifier.edition == edition);
+    return this.party.unlockedItems && this.party.unlockedItems.some((identifier) => identifier.name == item && identifier.edition == edition);
   }
 
-  removeItem(item: Identifier) {
-    gameManager.stateManager.before("removeUnlockedItem", item.edition, item.name);
-    this.party.unlockedItems.splice(this.party.unlockedItems.indexOf(item), 1);
-    gameManager.stateManager.after();
+  removeItem(item: ItemData) {
+    const identifier = this.party.unlockedItems.find((identifier) => identifier.name == '' + item.id && identifier.edition == item.edition);
+    if (identifier) {
+      gameManager.stateManager.before("removeUnlockedItem", item.edition, '' + item.id, item.name);
+      this.party.unlockedItems.splice(this.party.unlockedItems.indexOf(identifier), 1);
+      gameManager.stateManager.after();
+    }
   }
 
   treasures(): Identifier[] {
@@ -551,16 +566,31 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     });
   }
 
-  addTreasure(treasure: string, edition: string) {
-    gameManager.stateManager.before("addTreasure", edition, treasure);
-    this.party.treasures = this.party.treasures || [];
-    this.party.treasures.push(new Identifier(treasure, edition));
-    this.treasureIndex.nativeElement.value = "0";
-    gameManager.stateManager.after();
+  addTreasure(indexElement: HTMLInputElement, edition: string) {
+    const treasure: string = indexElement.value;
+    if (treasure && !isNaN(+treasure)) {
+      if (this.hasTreasure(treasure, edition)) {
+        indexElement.classList.add('warning');
+      } else {
+        indexElement.classList.add('error');
+        const editionData = gameManager.editionData.find((editionData) => editionData.edition == edition);
+        if (editionData && editionData.treasures) {
+          const treasureIndex = +treasure - (editionData.treasureOffset || 0);
+          if (treasureIndex >= 0 && treasureIndex < editionData.treasures.length) {
+            gameManager.stateManager.before("addTreasure", edition, treasure);
+            this.party.treasures = this.party.treasures || [];
+            this.party.treasures.push(new Identifier(treasure, edition));
+            this.treasureIndex.nativeElement.value = "";
+            indexElement.classList.remove('error');
+            gameManager.stateManager.after();
+          }
+        }
+      }
+    }
   }
 
   hasTreasure(treasure: string, edition: string): boolean {
-    return this.party.treasures.some((identifier) => identifier.name == treasure && identifier.edition == edition);
+    return this.party.treasures && this.party.treasures.some((identifier) => identifier.name == treasure && identifier.edition == edition);
   }
 
   removeTreasure(treasure: Identifier) {

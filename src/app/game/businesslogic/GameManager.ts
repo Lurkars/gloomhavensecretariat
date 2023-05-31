@@ -192,7 +192,7 @@ export class GameManager {
         return true;
       }
 
-      if (itemData.requiredBuilding && this.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel)) {
+      if (!itemData.blueprint && !itemData.random && itemData.requiredBuilding && itemData.requiredBuilding != "alchemist" && this.game.party.buildings && this.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel)) {
         return true;
       }
 

@@ -260,7 +260,6 @@ export class StateManager {
             settings.characterAttackModifierDeckPermanent = settingsManager.settings.characterAttackModifierDeckPermanent;
             settings.debugRightClick = settingsManager.settings.debugRightClick;
             settings.disableAnimations = settingsManager.settings.disableAnimations;
-            settings.disableStatAnimations = settingsManager.settings.disableStatAnimations;
             settings.disableColumns = settingsManager.settings.disableColumns;
             settings.disableWakeLock = settingsManager.settings.disableWakeLock;
             settings.dragValues = settingsManager.settings.dragValues;
@@ -274,6 +273,7 @@ export class StateManager {
             settings.serverSettings = settingsManager.settings.serverSettings;
             settings.serverUrl = settingsManager.settings.serverUrl;
             settings.serverWss = settingsManager.settings.serverWss;
+            settings.statAnimations = settingsManager.settings.statAnimations;
             settings.theme = settingsManager.settings.theme;
             settings.zoom = settingsManager.settings.zoom;
 

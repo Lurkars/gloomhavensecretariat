@@ -238,4 +238,17 @@
             }
         }
     }
+
+    .brew {
+        display: flex;
+        flex-direction: column;
+        max-width: calc(var(--ghs-unit) * 33 * var(--ghs-dialog-factor));
+
+        a {
+            cursor: pointer;
+            color: var(--ghs-color-black);
+            display: flex;
+            margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        }
+    }
 }

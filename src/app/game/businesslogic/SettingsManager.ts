@@ -311,8 +311,8 @@ export class SettingsManager {
     this.storeSettings();
   }
 
-  setDisableStatAnimations(disableStatAnimations: boolean) {
-    this.settings.disableStatAnimations = disableStatAnimations;
+  setStatAnimations(statAnimations: boolean) {
+    this.settings.statAnimations = statAnimations;
     this.storeSettings();
   }
 

@@ -1727,12 +1727,6 @@
     "edition": "fh",
     "slot": "small",
     "spent": true,
-    "resources": {
-      "wild": [
-        2,
-        1
-      ]
-    },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3
   },

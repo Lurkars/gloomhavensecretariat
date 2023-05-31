@@ -69,12 +69,12 @@
 
       <div class="shield-action" *ngIf="gameManager.isMonster(data.figure) && +shieldAction().value > 0">
         <ghs-action [action]="shieldAction()"
-          [highlight]="!settingsManager.settings.disableStatAnimations"></ghs-action>
+          [highlight]="settingsManager.settings.statAnimations"></ghs-action>
       </div>
 
       <div class="retaliate-action" *ngIf="gameManager.isMonster(data.figure) && +retaliateAction().value > 0">
         <ghs-action [action]="retaliateAction()"
-          [highlight]="!settingsManager.settings.disableStatAnimations"></ghs-action>
+          [highlight]="settingsManager.settings.statAnimations"></ghs-action>
       </div>
       <ng-container
         *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal)">

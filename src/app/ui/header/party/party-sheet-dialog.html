@@ -572,9 +572,11 @@
             <label><span [ghs-label]="'party.campaign.items'"></span>:</label>
 
             <div class="item-add">
-              <input min="1" #itemIndex type="number" value="0">
+              <input min="1" #itemIndex type="number" value="" (focus)="itemIndex.select()"
+                (keyup)="itemIndex.classList.remove('error');itemIndex.classList.remove('warning');"
+                (keyup.enter)="addItem(itemIndex, itemEdition.value)">
               <a [ngClass]="{'disabled' : !itemIndex.value || +itemIndex.value < 1 || hasItem(itemIndex.value,itemEdition.value)}"
-                (click)="addItem(itemIndex.value, itemEdition.value)"><img src="./assets/images/plus.svg"></a>
+                (click)="addItem(itemIndex, itemEdition.value)"><img src="./assets/images/plus.svg"></a>
               <select #itemEdition [disabled]="party.edition">
                 <option *ngFor="let edition of gameManager.editions()" [value]="edition"
                   [selected]="edition == party.edition">
@@ -609,10 +611,11 @@
             <label><span [ghs-label]="'party.campaign.treasures'"></span>:</label>
 
             <div class="treasure-add">
-              <input min="1" #treasureIndex type="number" value="0">
+              <input min="1" #treasureIndex type="number" value="" (focus)="treasureIndex.select()"
+                (keyup)="treasureIndex.classList.remove('error');treasureIndex.classList.remove('warning');"
+                (keyup.enter)="addTreasure(treasureIndex, treasureEdition.value)">
               <a [ngClass]="{'disabled' : !treasureIndex.value || +treasureIndex.value < 1 || hasTreasure(treasureIndex.value,treasureEdition.value)}"
-                (click)="addTreasure(treasureIndex.value, treasureEdition.value)"><img
-                  src="./assets/images/plus.svg"></a>
+                (click)="addTreasure(treasureIndex, treasureEdition.value)"><img src="./assets/images/plus.svg"></a>
               <select #treasureEdition [disabled]="party.edition">
                 <option *ngFor="let edition of gameManager.editions()" [value]="edition"
                   [selected]="edition == party.edition">

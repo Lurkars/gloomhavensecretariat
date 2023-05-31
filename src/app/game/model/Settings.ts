@@ -40,7 +40,6 @@ export class Settings {
   disabledTurnConfirmation: boolean = false;
   disableSortFigures: boolean = false;
   disableStandees: boolean = false;
-  disableStatAnimations: boolean = false;
   disableWakeLock: boolean = false;
   dragValues: boolean = true;
   editionDataUrls: string[] = [];
@@ -75,6 +74,7 @@ export class Settings {
   serverWss: boolean = false;
   showFullAbilityCard: boolean = false;
   spoilers: string[] = [];
+  statAnimations: boolean = false;
   theme: string = "";
   tooltips: boolean = true;
   treasuresLoot: boolean = true;
