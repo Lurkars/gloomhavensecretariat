@@ -30,6 +30,20 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
   constructor(@Inject(DIALOG_DATA) public menu: boolean = false, public dialogRef: DialogRef) { }
 
   ngOnInit(): void {
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+    this.update();
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    this.close();
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
+  }
+
+  update() {
     this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);
     this.activeCharacters = this.characters.filter((character) => !character.absent);
 
@@ -40,15 +54,6 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
         }
       })
     })
-  }
-
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    this.close();
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
   }
 
   toggleCharacter(character: Character) {
