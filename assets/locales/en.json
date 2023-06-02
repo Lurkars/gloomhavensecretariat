@@ -760,6 +760,10 @@
     "changeStandee": "Change %game.monsterType.{0}% standee #{1}",
     "changeType": "Change type from %game.monsterType.{0}% to %game.monsterType.{1}%",
     "elite": "Elite",
+    "filter": {
+      ".": "Filter Monster",
+      "noResult": "No Result"
+    },
     "normal": "Normal",
     "remove": "Remove Monster",
     "removeAll": "Remove All",
@@ -770,6 +774,7 @@
       "normal": "Select all Normal standees"
     },
     "setStandees": "Setup {1} %game.monsterType.{0}% standees",
+    "showBoss": "Show Boss Monster",
     "showHidden": "Show Hidden Monster"
   },
   "number": {
@@ -983,7 +988,7 @@
     "custom": "Custom",
     "eventEffects": {
       ".": "Event Effects",
-      "hint": "Apply to all present characters",
+      "hint": "Apply to all selected characters",
       "progress": "Affects character progress"
     },
     "filter": {
