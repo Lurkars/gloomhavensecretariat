@@ -6,6 +6,10 @@
     align-items: center;
     justify-content: center;
     margin-bottom: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+
+    label input[type="number"] {
+      width: 2em;
+    }
   }
 
   label {
@@ -42,7 +46,7 @@
   .level-container {
     display: grid;
     grid-template-columns: repeat(5, calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor)));
-    margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+    margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) auto;
 
 
     .item img {
@@ -81,7 +85,7 @@
     &.disabled {
 
       .item img {
-        filter: var(--ghs-filter-darkgray);
+        filter: var(--ghs-filter-gray);
       }
 
       .level {

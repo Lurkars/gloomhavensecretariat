@@ -11,7 +11,6 @@
 </div>
 
 <div class="character" [style.--ghs-character-color]="character.color"
-  *ngIf="!character.absent || !settingsManager.settings.hideAbsent"
   [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'absent' : character.absent, 'dimmed' : character.attackModifierDeckVisible && !settingsManager.settings.characterAttackModifierDeckPermanent || character.lootCardsVisible}">
 
   <ghs-character-image [character]="character"

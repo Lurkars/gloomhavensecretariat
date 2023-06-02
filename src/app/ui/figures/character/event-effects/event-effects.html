@@ -5,16 +5,18 @@
 
   <div class="header">
     <div class="name">
-      <img class="ghs-svg" src="./assets/images/event.svg"> <span [ghs-label]="'scenario.eventEffects'"></span>
+      <img class="ghs-svg" [src]="'./assets/images/event' + (menu ? '-effects' : '') + '.svg'"> <span [ghs-label]="'scenario.eventEffects' + (menu ? '.hint' : 
+    '')"></span>
     </div>
-    <div class="text">
+    <div class="text" *ngIf="!menu">
       <span [ghs-label]="'scenario.eventEffects.hint'"></span>
     </div>
 
     <div class="characters">
-      <a class="character" *ngFor="let character of characters" (click)="toggleCharacterAbsent(character)"
-        [ngClass]="{'absent' : character.absent }">
-        <img [src]="character.iconUrl">
+      <a class="character" *ngFor="let character of characters" (click)="toggleCharacter(character)"
+        [ngClass]="{'inactive' : activeCharacters.indexOf(character) == -1}">
+        <img class="icon" [src]="character.iconUrl">
+        <img class="absent" src="./assets/images/status/absent.svg" *ngIf="character.absent">
       </a>
     </div>
   </div>

@@ -184,26 +184,6 @@
       text-decoration: none;
     }
 
-
-    @keyframes devil-animation {
-      0% {
-        text-shadow: 0px -1px 2px #fff, 0px -1px 5px #FF3, 0px -5px 10px #F90, 0px -10px 20px #C33;
-      }
-
-      100% {
-        text-shadow: 0px -1px 1px #fff, 0px -1px 2px #FF3, 0px -2px 3px #F90, 0px -5px 4px #C33;
-      }
-
-    }
-
-    // #v0.66.6 special
-    a .devil {
-      margin-left: 10px;
-      color: #f5f5f5;
-      font-size: 50px;
-      animation: devil-animation 750ms ease-in-out infinite alternate;
-    }
-
     &.state-container {
       display: flex;
       flex-wrap: wrap;
@@ -312,11 +292,6 @@
       z-index: 1;
     }
 
-    &.hidden-monster a {
-      font-style: italic;
-      font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-dialog-factor));
-    }
-
   }
 
   .disabled {
@@ -344,18 +319,6 @@
     a,
     label {
       color: var(--ghs-color-disabled);
-    }
-  }
-
-  .bosses {
-    &>.boss {
-      margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-      border-top: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor)) solid var(--ghs-color-gray);
-    }
-
-    &>.boss~.boss {
-      margin-top: 0;
-      border-top: none;
     }
   }
 
@@ -418,30 +381,6 @@
           background-color: var(--ghs-color-disabled);
         }
       }
-    }
-  }
-
-  &.character-add {
-    min-width: calc(var(--ghs-unit) * 45 * var(--ghs-dialog-factor));
-  }
-
-  &.monster-add {
-    min-width: calc(var(--ghs-unit) * 30 * var(--ghs-dialog-factor));
-  }
-
-  .hidden-monster-menu {
-    position: fixed;
-    background-image: url('~src/assets/images/dialog_background.png');
-    z-index: 2;
-    width: inherit;
-
-    &.fh {
-      background-image: url('~src/assets/images/fh/dialog_background_fh.png');
-    }
-
-    &+.columns .column .line.sticky,
-    &+.columns .column .line:not(sticky):first-child {
-      padding-top: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
     }
   }
 

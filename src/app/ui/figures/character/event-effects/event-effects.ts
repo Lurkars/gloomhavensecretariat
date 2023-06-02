@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
-import { DialogRef } from '@angular/cdk/dialog';
+import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Character } from 'src/app/game/model/Character';
 import { Subscription } from 'rxjs';
 import { EntityCondition, EntityConditionState } from 'src/app/game/model/Condition';
@@ -27,27 +27,9 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
   bless: number = 0;
   curse: number = 0;
 
-  constructor(public dialogRef: DialogRef) { }
+  constructor(@Inject(DIALOG_DATA) public menu: boolean = false, public dialogRef: DialogRef) { }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
-      next: () => {
-        this.update();
-      }
-    });
-    this.update();
-  }
-
-  uiChangeSubscription: Subscription | undefined;
-
-  ngOnDestroy(): void {
-    this.close();
-    if (this.uiChangeSubscription) {
-      this.uiChangeSubscription.unsubscribe();
-    }
-  }
-
-  update() {
     this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);
     this.activeCharacters = this.characters.filter((character) => !character.absent);
 
@@ -60,14 +42,20 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     })
   }
 
-  toggleCharacterAbsent(character: Character) {
-    if (character.absent || gameManager.characterManager.characterCount() > 1) {
-      gameManager.stateManager.before(character.absent ? "unsetAbsent" : "setAbsent", "data.character." + character.name);
-      character.absent = !character.absent;
-      if (character.absent && character.active) {
-        gameManager.roundManager.toggleFigure(character);
-      }
-      gameManager.stateManager.after();
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    this.close();
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
+  }
+
+  toggleCharacter(character: Character) {
+    if (this.activeCharacters.indexOf(character) == -1) {
+      this.activeCharacters.push(character);
+    } else {
+      this.activeCharacters.splice(this.activeCharacters.indexOf(character), 1);
     }
   }
 

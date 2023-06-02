@@ -27,7 +27,7 @@
   <div class="level-container" [ngClass]="{'disabled' : gameManager.game.levelCalculation}">
     <span class="item"><img src="./assets/images/level.svg" /></span>
     <span class="item" *ngFor="let level of levels;"><a class="level"
-        [ngClass]="{'active' : level == gameManager.game.level, 'scenariolevel' : level == gameManager.levelManager.scenarioLevel()}"
+        [ngClass]="{'active' : level == gameManager.game.level, 'scenariolevel' : gameManager.game.playerCount < 1 && level == gameManager.levelManager.scenarioLevel()}"
         (click)="setLevel(level)">{{level}}</a></span>
     <div class="solo">
       <label>

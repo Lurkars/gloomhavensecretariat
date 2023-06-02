@@ -17,7 +17,7 @@ export class SectionMenuComponent {
   edition: string = gameManager.currentEdition();
 
   editions(): string[] {
-    return gameManager.editionData.filter((editionData) => editionData.sections && editionData.sections.length > 0).map((editionData) => editionData.edition);
+    return gameManager.editionData.filter((editionData) => editionData.sections && editionData.sections.filter((sectionData) => sectionData.edition == editionData.edition && settingsManager.settings.editions.indexOf(sectionData.edition) != -1).length > 0).map((editionData) => editionData.edition);
   }
 
   groups(): (string | undefined)[] {

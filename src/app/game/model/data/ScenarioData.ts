@@ -37,6 +37,7 @@ export class ScenarioData implements Editional, Spoilable {
   resetRound: "visible" | "hidden" | undefined;
   rewards: ScenarioRewards | undefined;
   conclusion: boolean = false;
+  named: boolean = false;
 
   // from Editional
   edition: string = "";

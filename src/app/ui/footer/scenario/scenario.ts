@@ -8,7 +8,7 @@ import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { ScenarioDialogComponent } from './dialog/scenario-dialog';
 import { SectionDialogComponent } from './section/section-dialog';
 import { ScenarioTreasuresDialogComponent } from './treasures/treasures-dialog';
-import { EventEffectsDialog } from './dialog/event-effects/event-effects';
+import { EventEffectsDialog } from '../../figures/character/event-effects/event-effects';
 import { Subscription } from 'rxjs';
 import { ScenarioSummaryComponent } from './summary/scenario-summary';
 

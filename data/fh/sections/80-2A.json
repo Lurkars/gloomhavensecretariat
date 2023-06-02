@@ -1,11 +1,16 @@
 {
-  "fromFile": true,
-  "index": "80.2A - Frozen Fist is unlocked",
-  "name": "Change of Heart",
+  "index": "80.2A",
+  "name": "Frozen Fist unlocked",
   "edition": "fh",
   "parent": "55",
+  "parentSections": [
+    [
+      "80.2"
+    ]
+  ],
+  "named": true,
   "blockedSections": [
-    "80.2B - Snowdancer is unlocked"
+    "80.2B"
   ],
   "monsters": [
     "snowdancer"

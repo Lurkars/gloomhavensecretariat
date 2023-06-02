@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="40"
+   viewBox="0 -960 800 800"
+   width="40"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="event-effects.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="16.291667"
+     inkscape:cx="19.97954"
+     inkscape:cy="19.97954"
+     inkscape:window-width="1846"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     d="m 180,-460 v 60 H 60 Q 35.25,-400 17.625,-417.625 0,-435.25 0,-460 V -900 Q 0,-924.75 17.625,-942.375 35.25,-960 60,-960 h 440 q 24.75,0 42.375,17.625 Q 560,-924.75 560,-900 v 120 H 500 V -900 H 60 v 440 z m 120,300 q -24.75,0 -42.375,-17.625 Q 240,-195.25 240,-220 v -440 q 0,-24.75 17.625,-42.375 Q 275.25,-720 300,-720 h 440 q 24.75,0 42.375,17.625 Q 800,-684.75 800,-660 v 440 q 0,24.75 -17.625,42.375 Q 764.75,-160 740,-160 Z m 0,-60 H 740 V -660 H 300 Z m 220,-220 z"
+     id="path2" />
+</svg>

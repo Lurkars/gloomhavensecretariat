@@ -75,7 +75,7 @@ export class LevelDialogComponent implements OnInit, OnDestroy {
     }
 
     ge5Player(): boolean {
-        return gameManager.characterManager.characterCount() > 4;
+        return gameManager.game.playerCount < 1 && gameManager.characterManager.characterCount() > 4;
     }
 
     togglePlayerCount(event: any) {

@@ -95,6 +95,7 @@ import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackm
 import { LootApplyDialogComponent } from './ui/figures/loot/loot-apply-dialog';
 import { EntitiesMenuDialogComponent } from './ui/figures/entities-menu/entities-menu-dialog';
 import { CharacterMenuComponent } from './ui/header/menu/character/character';
+import { MonsterMenuComponent } from './ui/header/menu/monster/monster';
 import { GhsTooltipComponent, GhsTooltipDirective } from './ui/helper/tooltip/tooltip';
 import { ScenarioDialogComponent } from './ui/footer/scenario/dialog/scenario-dialog';
 import { ScenarioSummaryComponent } from './ui/footer/scenario/summary/scenario-summary';
@@ -113,7 +114,7 @@ import { KeyboardShortcuts } from './ui/helper/keyboard-shortcuts';
 import { BuildingRepairDialog } from './ui/header/party/buildings/repair';
 import { ScenarioConclusionComponent } from './ui/footer/scenario/scenario-conclusion/scenario-conclusion';
 import { SelectGoldDialog } from './ui/header/party/buildings/select-gold/select-gold';
-import { EventEffectsDialog } from './ui/footer/scenario/dialog/event-effects/event-effects';
+import { EventEffectsDialog } from './ui/figures/character/event-effects/event-effects';
 import { PointerInputDirective } from './ui/helper/pointer-input';
 
 @Injectable()
@@ -131,7 +132,7 @@ export class GhsErrorHandler extends ErrorHandler {
     MainComponent,
     HeaderComponent, ElementIconComponent, ElementComponent,
     PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, BuildingRepairDialog, MapComponent, ScenarioConclusionComponent, SelectGoldDialog,
-    MainMenuComponent, CharacterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent,
+    MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent,
     FooterComponent,
     LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
     HintDialogComponent, ScenarioRulesComponent,

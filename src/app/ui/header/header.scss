@@ -121,6 +121,26 @@ header {
     }
   }
 
+  .event-effects {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0 calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+
+    img {
+      filter: var(--ghs-filter-gray);
+      height: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      width: auto;
+    }
+
+    &:hover {
+      img {
+        filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+      }
+    }
+  }
 
   .elements {
     display: flex;

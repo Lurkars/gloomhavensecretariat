@@ -316,7 +316,7 @@ export class LootManager {
     return result;
   }
 
-  getValue(loot: Loot): number {
+  getValue(loot: Loot, enhancements: boolean = true): number {
     const charCount = gameManager.characterManager.characterCount();
     let value = loot.value4P;
     if (charCount <= 2) {
@@ -325,7 +325,9 @@ export class LootManager {
       value = loot.value3P;
     }
 
-    value += loot.enhancements;
+    if (enhancements) {
+      value += loot.enhancements;
+    }
 
     return value;
   }

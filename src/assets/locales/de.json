@@ -631,6 +631,10 @@
     "changeStandee": "%game.monsterType.{0}% Aufsteller #{1} ändern",
     "changeType": "Ändere Type von %game.monsterType.{0}% ui %game.monsterType.{1}%",
     "elite": "Elite",
+    "filter": {
+      ".": "Monster filtern",
+      "noResult": "Kein Ergebnis"
+    },
     "normal": "Normal",
     "remove": "Monster entfernen",
     "removeAll": "Alle entfernen",
@@ -641,6 +645,7 @@
       "normal": "Alle Elite Aufsteller auswählen"
     },
     "setStandees": "{1} %game.monsterType.{0}% Aufsteller festlegen",
+    "showBoss": "Boss Monster anzeigen",
     "showHidden": "Ausgeblendete Monster anzeigen"
   },
   "number": {
@@ -855,7 +860,7 @@
     "custom": "Benutzerdefiniert",
     "eventEffects": {
       ".": "Ereigniseffekte",
-      "hint": "Auf alle anwesendenen Charaktere anwenden",
+      "hint": "Auf alle ausgewählten Charaktere anwenden",
       "progress": "Betrifft Charakter Progression"
     },
     "filter": {

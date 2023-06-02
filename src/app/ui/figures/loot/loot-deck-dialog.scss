@@ -189,10 +189,9 @@
         .ghs-svg {
           width: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
           height: auto;
-          opacity: 0.6;
 
           &:hover {
-            opacity: 1;
+            filter: var(--ghs-filter-gray) brightness(1.5);
           }
         }
       }
@@ -291,11 +290,12 @@
         right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
         justify-content: center;
         align-items: center;
-        width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-        height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        width: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
         color: var(--ghs-filter-white) var(--ghs-filter-shadow);
 
         .ghs-svg {
+          height: 100%;
           filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
         }
 

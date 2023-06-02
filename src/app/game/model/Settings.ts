@@ -72,7 +72,9 @@ export class Settings {
   serverSettings: boolean = false;
   serverUrl: string | undefined;
   serverWss: boolean = false;
+  showBossMonster: boolean = true;
   showFullAbilityCard: boolean = false;
+  showHiddenMonster: boolean = false;
   spoilers: string[] = [];
   statAnimations: boolean = false;
   theme: string = "";

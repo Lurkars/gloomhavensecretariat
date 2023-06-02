@@ -37,6 +37,7 @@
       margin: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor)) 0;
 
       .character {
+        position: relative;
         cursor: pointer;
         display: flex;
         justify-content: center;
@@ -47,12 +48,21 @@
         border: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-white);
         border-radius: 100%;
 
-        img {
+        .icon {
           height: calc(var(--ghs-unit) * 4.5 * var(--ghs-dialog-factor));
           width: auto;
         }
 
-        &.absent {
+        .absent {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+          width: auto;
+          filter: var(--ghs-filter-white);
+        }
+
+        &.inactive {
           filter: grayscale(0.7);
           border-color: transparent;
         }
@@ -68,13 +78,13 @@
 
   .container {
     display: flex;
-    justify-content: center;
   }
 
   .entity-container {
     display: grid;
     grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor)));
     align-content: start;
+    margin: 0 auto;
 
     .ghs-svg {
       filter: var(--ghs-filter-white);

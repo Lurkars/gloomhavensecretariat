@@ -59,7 +59,7 @@ export class MainComponent implements OnInit {
     gameManager.uiChange.subscribe({
       next: () => {
 
-        this.figures = settingsManager.settings.monsters ? gameManager.game.figures : gameManager.game.figures.filter((figure) => !(figure instanceof Monster));
+        this.figures = gameManager.game.figures.filter((figure) => (settingsManager.settings.monsters || !(figure instanceof Monster)) && (!(figure instanceof Character) || !figure.absent || !settingsManager.settings.hideAbsent));
 
         if (this.initialized) {
           const figure = gameManager.game.figures.find((figure) => figure instanceof Character && figure.fullview);

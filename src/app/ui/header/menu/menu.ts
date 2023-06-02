@@ -38,8 +38,6 @@ export class MainMenuComponent implements OnInit, OnDestroy {
   version = packageJson.version;
   WebSocket = WebSocket;
 
-  showHiddenMonster: boolean = false;
-  characterLevel: number = 1;
 
   undoInfo: string[] = [];
   undoOffset: number = 0;
@@ -167,71 +165,23 @@ export class MainMenuComponent implements OnInit, OnDestroy {
   }
 
   monsters(): Monster[] {
-    return gameManager.game.figures.filter((figure) => {
-      return figure instanceof Monster;
-    }).map((figure) => {
-      return figure as Monster;
-    }).sort((a, b) => {
-      const aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
-      const bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
-      if (aName > bName) {
-        return 1;
-      }
-      if (aName < bName) {
-        return -1;
-      }
-      return 0;
-    });
+      return gameManager.game.figures.filter((figure) => {
+          return figure instanceof Monster;
+      }).map((figure) => {
+          return figure as Monster;
+      }).sort((a, b) => {
+          const aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
+          const bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
+          if (aName > bName) {
+              return 1;
+          }
+          if (aName < bName) {
+              return -1;
+          }
+          return 0;
+      });
   }
 
-  hasHiddenMonster(): boolean {
-    return gameManager.monstersData(gameManager.currentEdition()).some((monsterData) => monsterData.hidden);
-  }
-
-  monsterData(edition: string | undefined = undefined): MonsterData[] {
-    return gameManager.monstersData(edition).filter((monsterData) => (!monsterData.hidden || monsterData.hidden == this.showHiddenMonster)).sort((a, b) => {
-      const aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
-      const bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
-
-      if (a.spoiler && !b.spoiler) {
-        return 1;
-      }
-      if (!a.spoiler && b.spoiler) {
-        return -1;
-      }
-
-      if (a.boss && !b.boss) {
-        return 1;
-      }
-      if (!a.boss && b.boss) {
-        return -1;
-      }
-
-      if (a.hidden && !b.hidden) {
-        return 1;
-      }
-      if (!a.hidden && b.hidden) {
-        return -1;
-      }
-
-      if (a.spoiler && b.spoiler) {
-        if (!this.isSpoiled(a) && this.isSpoiled(b)) {
-          return 1;
-        }
-        if (this.isSpoiled(a) && !this.isSpoiled(b)) {
-          return -1;
-        }
-      }
-
-      if (aName > bName) {
-        return 1;
-      }
-      if (aName < bName) {
-        return -1;
-      }
-      return 0;
-    });
-  }
 
   removeCharacter(character: Character) {
     gameManager.stateManager.before("removeChar", "data.character." + character.name);
@@ -278,16 +228,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
     this.close();
     gameManager.stateManager.after();
   }
-
-  addMonster(monsterData: MonsterData) {
-    gameManager.stateManager.before("addMonster", "data.monster." + monsterData.name);
-    gameManager.monsterManager.addMonster(monsterData, gameManager.game.level);
-    if (this.hasAllMonster()) {
-      this.close();
-    }
-    gameManager.stateManager.after();
-  }
-
+  
   removeMonster(monster: Monster) {
     gameManager.stateManager.before("removeMonster", "data.monster." + monster.name);
     gameManager.monsterManager.removeMonster(monster);
@@ -304,12 +245,6 @@ export class MainMenuComponent implements OnInit, OnDestroy {
     })
     this.close();
     gameManager.stateManager.after();
-  }
-
-  hasMonster(monsterData: MonsterData) {
-    return gameManager.game.figures.some((figure) => {
-      return figure instanceof Monster && monsterData.name == figure.name && monsterData.edition == figure.edition;
-    })
   }
 
   hasAllMonster() {

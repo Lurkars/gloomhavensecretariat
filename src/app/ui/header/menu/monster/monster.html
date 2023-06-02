@@ -1,0 +1,45 @@
+<div class="menu-container monster-add">
+  <div class="line filter-monster-menu" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh'}">
+    <input [(ngModel)]="filter" type="text" [ghs-label]="'monster.filter'" [ghs-label-attribute]="'placeholder'">
+    <label [ngClass]="{'disabled' : !hasBossMonster()}">
+      <input type="checkbox" [checked]="settingsManager.settings.showBossMonster"
+        (change)="settingsManager.setShowBossMonster(!settingsManager.settings.showBossMonster)">
+      <span [ghs-label]="'monster.showBoss'"></span>
+    </label>
+    <label [ngClass]="{'disabled' : !hasHiddenMonster()}">
+      <input type="checkbox" [checked]="settingsManager.settings.showHiddenMonster"
+        (change)="settingsManager.setShowHiddenMonster(!settingsManager.settings.showHiddenMonster)">
+      <span [ghs-label]="'monster.showHidden'"></span>
+    </label>
+  </div>
+  <div class="columns">
+    <ng-container *ngFor="let edition of gameManager.currentEditions()">
+      <div class="column spoilers bosses" *ngIf="monsterData(edition, filter).length > 0">
+        <div class="line title sticky" *ngIf="gameManager.currentEditions().length > 1"
+          [ngClass]="{'fh' : settingsManager.settings.theme == 'fh'}">
+          <label><span [ghs-label]="'data.edition.' + edition"></span></label>
+        </div>
+        <div class="line" *ngFor="let monsterData of monsterData(edition, filter)"
+          [ngClass]="{'disabled' : hasMonster(monsterData), 'spoiler' : monsterData.spoiler, 'boss' : monsterData.boss, 'hidden-monster' : monsterData.hidden}">
+          <a (click)="addMonster(monsterData);" *ngIf="isSpoiled(monsterData)">
+            <span class="boss-icon" *ngIf="monsterData.boss"><img src="./assets/images/monster/enemy.png" /></span>
+            <span [ghs-label]="'data.monster.' + monsterData.name"></span>
+            <img  class="ghs-svg hidden-icon" *ngIf="monsterData.hidden" src="./assets/images/hidden.svg" />
+          </a>
+          <a (click)="settingsManager.addSpoiler(monsterData.name);" *ngIf="!isSpoiled(monsterData)">
+            <span class="name"><span [ghs-label]="'spoiler.placeholder'"></span></span>
+            <span class="add"><span [ghs-label]="'spoiler.add'"></span></span>
+          </a>
+        </div>
+      </div>
+    </ng-container>
+    <div class="column" *ngIf="filter && noResults()">
+      <div class="line">
+        <label><span [ghs-label]="'monster.filter.noResult'"></span></label>
+      </div>
+    </div>
+  </div>
+  <div class="line" *ngIf="hasSpoilers(monsterData())">
+    <a (click)="settingsManager.addSpoilers(notSpoiled(monsterData()))"><span [ghs-label]="'spoiler.all'"></span></a>
+  </div>
+</div>

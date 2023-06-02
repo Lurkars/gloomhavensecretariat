@@ -471,8 +471,18 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setShowBossMonster(showBossMonster: boolean) {
+    this.settings.showBossMonster = showBossMonster;
+    this.storeSettings();
+  }
+
   setShowFullAbilityCard(showFullAbilityCard: boolean) {
     this.settings.showFullAbilityCard = showFullAbilityCard;
+    this.storeSettings();
+  }
+
+  setShowHiddenMonster(showHiddenMonster: boolean) {
+    this.settings.showHiddenMonster = showHiddenMonster;
     this.storeSettings();
   }
 

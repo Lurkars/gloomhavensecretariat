@@ -5,7 +5,7 @@
             <span class="revealed"><span [ghs-label]="'game.cards.confirmReveal'"></span></span>
         </div>
         <div class="card-front front"
-            [style.background-image]="'url(./assets/images/fh/loot/loot-' + loot.type +  (loot.type == LootType.money ? gameManager.lootManager.getValue(loot) : '') + '.png)'">
+            [style.background-image]="'url(./assets/images/fh/loot/loot-' + loot.type +  (loot.type == LootType.money ? gameManager.lootManager.getValue(loot, false) : '') + '.png)'">
             <span class="header"
                 *ngIf="loot.type != LootType.money && loot.type != LootType.special1 && loot.type != LootType.special2">
                 <span *ngIf="loot.value2P == loot.value3P && loot.value3P == loot.value4P">{{loot.value4P > 0 ? '' +

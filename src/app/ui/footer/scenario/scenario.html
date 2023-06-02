@@ -47,7 +47,7 @@
       <img *ngIf="section.conclusion" class="ghs-svg" src="./assets/images/scenario/conclusion.svg">
       <span *ngIf="!section.conclusion || !section.name">#{{section.index}}</span>
       <span class="marker" *ngIf="section.marker" [ghs-label]="'%game.mapMarker.' + section.marker +'%'"></span>
-      <span *ngIf="section.conclusion && section.name" class="name">
+      <span *ngIf="(section.conclusion || section.named) && section.name" class="name">
         &nbsp;<span [ghs-label]="'data.section.' + section.name"></span>
       </span>
     </span>

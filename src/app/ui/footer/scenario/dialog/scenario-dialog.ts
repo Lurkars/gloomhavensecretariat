@@ -12,7 +12,7 @@ import { SectionDialogComponent } from "../section/section-dialog";
 import { StatsListComponent } from "./stats-list/stats-list";
 import { ScenarioSummaryComponent } from "../summary/scenario-summary";
 import { ScenarioTreasuresDialogComponent } from "../treasures/treasures-dialog";
-import { EventEffectsDialog } from "./event-effects/event-effects";
+import { EventEffectsDialog } from "../../../figures/character/event-effects/event-effects";
 import { ScenarioConclusionComponent } from "../scenario-conclusion/scenario-conclusion";
 
 @Component({

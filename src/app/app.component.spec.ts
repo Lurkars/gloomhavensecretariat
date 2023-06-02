@@ -108,7 +108,7 @@ import { PointerInputDirective } from './ui/helper/pointer-input';
 import { BuildingRepairDialog } from './ui/header/party/buildings/repair';
 import { ScenarioConclusionComponent } from './ui/footer/scenario/scenario-conclusion/scenario-conclusion';
 import { SelectGoldDialog } from './ui/header/party/buildings/select-gold/select-gold';
-import { EventEffectsDialog } from './ui/footer/scenario/dialog/event-effects/event-effects';
+import { EventEffectsDialog } from './ui/figures/character/event-effects/event-effects';
 import { CharacterSheetComponent } from './ui/figures/character/sheet/character-sheet';
 import { KeyboardShortcuts } from './ui/helper/keyboard-shortcuts';
 import { InViewportModule } from 'ng-in-viewport';

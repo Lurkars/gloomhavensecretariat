@@ -1,3 +1,7 @@
+.character-add {
+  min-width: calc(var(--ghs-unit) * 45 * var(--ghs-dialog-factor));
+}
+
 .level-container {
   position: fixed;
   top: 0;
@@ -6,7 +10,7 @@
   margin: calc(var(--ghs-unit) * 0.6 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
   background-image: url('~src/assets/images/dialog_background.png');
   z-index: 2;
-  
+
   &.fh {
     background-image: url('~src/assets/images/fh/dialog_background_fh.png');
   }
@@ -67,7 +71,8 @@
   width: auto !important;
 }
 
-.spoilers .line:nth-child(2), .spoilers .reveal-all+.line {
+.spoilers .line:nth-child(2),
+.spoilers .reveal-all+.line {
   border-top: none !important;
 }
 

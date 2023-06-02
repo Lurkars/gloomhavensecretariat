@@ -9,6 +9,7 @@ import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MainMenuComponent, SubMenu } from './menu/menu';
 import { Subscription } from 'rxjs';
+import { EventEffectsDialog } from '../figures/character/event-effects/event-effects';
 
 @Component({
   selector: 'ghs-header',
@@ -97,6 +98,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
           { originX: 'end', originY: 'top' },
           { overlayX: 'start', overlayY: 'top' })]).withDefaultOffsetX(10)
     });
+  }
+
+  openEventEffects() {
+    this.dialog.open(EventEffectsDialog, { panelClass: 'dialog', data: gameManager.game.round > 0 || gameManager.game.state == GameState.next });
   }
 
 }

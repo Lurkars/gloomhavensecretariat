@@ -187,37 +187,7 @@
     </div>
   </div>
 
-  <div *ngSwitchCase="SubMenu.monster_add" class="menu-container monster-add">
-    <div class="line hidden-monster-menu" *ngIf="hasHiddenMonster()">
-      <label>
-        <input type="checkbox" [checked]="showHiddenMonster" (change)="showHiddenMonster=!showHiddenMonster">
-        <span [ghs-label]="'monster.showHidden'"></span>
-      </label>
-    </div>
-    <div class="columns">
-      <ng-container *ngFor="let edition of gameManager.currentEditions()">
-        <div class="column spoilers bosses" *ngIf="monsterData(edition).length > 0">
-          <div class="line title sticky" *ngIf="gameManager.currentEditions().length > 1"
-            [ngClass]="{'fh' : settingsManager.settings.theme == 'fh'}">
-            <label><span [ghs-label]="'data.edition.' + edition"></span></label>
-          </div>
-          <div class="line" *ngFor="let monsterData of monsterData(edition)"
-            [ngClass]="{'disabled' : hasMonster(monsterData), 'spoiler' : monsterData.spoiler, 'boss' : monsterData.boss, 'hidden-monster' : monsterData.hidden}">
-            <a (click)="addMonster(monsterData);" *ngIf="isSpoiled(monsterData)">
-              <span [ghs-label]="'data.monster.' + monsterData.name"></span>
-            </a>
-            <a (click)="settingsManager.addSpoiler(monsterData.name);" *ngIf="!isSpoiled(monsterData)">
-              <span class="name"><span [ghs-label]="'spoiler.placeholder'"></span></span>
-              <span class="add"><span [ghs-label]="'spoiler.add'"></span></span>
-            </a>
-          </div>
-        </div>
-      </ng-container>
-    </div>
-    <div class="line" *ngIf="hasSpoilers(monsterData())">
-      <a (click)="settingsManager.addSpoilers(notSpoiled(monsterData()))"><span [ghs-label]="'spoiler.all'"></span></a>
-    </div>
-  </div>
+  <ghs-monster-menu *ngSwitchCase="SubMenu.monster_add"></ghs-monster-menu>
 
   <div *ngSwitchCase="SubMenu.monster_remove" class="menu-container monster-remove">
     <div class="line">
@@ -254,7 +224,7 @@
         <div class="line">
           <a target="_blank"
             [href]="'https://github.com/Lurkars/gloomhavensecretariat/releases/tag/v' + version">Gloomhaven Secretariat
-            <span class="devil">v{{version}}</span></a>
+            v{{version}}</a>
         </div>
       </div>
       <div class="column">

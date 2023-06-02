@@ -1,0 +1,63 @@
+.monster-add {
+
+    min-width: calc(var(--ghs-unit) * 70 * var(--ghs-dialog-factor));
+
+    .filter-monster-menu {
+        position: fixed;
+        background-image: url('~src/assets/images/dialog_background.png');
+        z-index: 2;
+        width: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &.fh {
+            background-image: url('~src/assets/images/fh/dialog_background_fh.png');
+        }
+
+        &+.columns .column .line.sticky,
+        &+.columns .column .line:not(sticky):first-child {
+            padding-top: calc(var(--ghs-unit) * 14 * var(--ghs-dialog-factor));
+        }
+    }
+
+    .bosses {
+        &>.boss:not(:nth-child(2)) {
+            margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+            border-top: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor)) solid var(--ghs-color-gray);
+        }
+
+        &>.boss~.boss {
+            margin-top: 0;
+            border-top: none;
+        }
+
+        .boss-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+            height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+            background-color: var(--ghs-color-darkred);
+            border: 2px solid var(--ghs-color-gray);
+            border-radius: 100%;
+            margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+            img {
+                width: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+                height: auto;
+            }
+        }
+
+        .hidden-icon {
+            margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+            filter: var(--ghs-filter-gray);
+        }
+    }
+
+    .hidden-monster a {
+        font-style: italic;
+        font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-dialog-factor));
+    }
+
+}

@@ -37,6 +37,8 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.currentZoom = settingsManager.settings.zoom;
 
+        gameManager.uiChange.subscribe({ next: () => this.currentZoom = settingsManager.settings.zoom })
+
         this.keydown = window.addEventListener('keydown', (event: KeyboardEvent) => {
             if (!event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
                 if ((!this.dialogOpen || this.allowed.indexOf('undo') != -1) && event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'z') {
