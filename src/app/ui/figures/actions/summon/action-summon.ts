@@ -196,7 +196,7 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
     return this.highlight && this.objective != undefined || false;
   }
 
-  spawnSummons(event: any, spawn: MonsterSpawnData, index: number) {
+  spawnSummons(event: TouchEvent | MouseEvent, spawn: MonsterSpawnData, index: number) {
     if (this.spawnHightlight(spawn, index) || this.objective) {
       const spawnerTag = this.getTag(index, true);
       const spawners = this.spawners.filter((entity) => entity instanceof Objective || entity.tags.indexOf(spawnerTag) == -1).filter((entity, index) => settingsManager.settings.combineSummonAction || index == 0);
@@ -242,6 +242,7 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
         this.update();
         gameManager.stateManager.after();
       }
+      event.stopPropagation();
       event.preventDefault();
     }
   }

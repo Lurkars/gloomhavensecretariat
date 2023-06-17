@@ -481,7 +481,7 @@ export class ActionComponent implements OnInit, OnDestroy {
     return false;
   }
 
-  applyHighlightAction(event: MouseEvent) {
+  applyHighlightAction(event: TouchEvent | MouseEvent) {
     if (this.monster && this.highlightAction() && this.action) {
       gameManager.stateManager.before('applyHightlightAction.' + this.action.type, "data.monster." + this.monster.name, '' + this.action.value);
       let after: boolean = true;
