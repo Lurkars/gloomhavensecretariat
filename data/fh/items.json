@@ -1306,7 +1306,7 @@
     "slot": "small",
     "spent": true,
     "resources": {
-      "rockroot": 1,
+      "axenut": 1,
       "flamefruit": 1
     },
     "requiredBuilding": "alchemist",
