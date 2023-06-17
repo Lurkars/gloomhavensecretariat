@@ -725,7 +725,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   setWeekSection(week: number) {
     this.dialog.open(PartyWeekDialogComponent, {
-      panelClass: ['dialog', 'dialog-invert'],
+      panelClass: ['dialog-invert'],
       data: week
     });
   }
