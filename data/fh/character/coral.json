@@ -200,7 +200,7 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "Ignore item %game.card.minus1% effects, and, whenever you would gain %game.condition.impair%, prevent the condition"
+      "custom": "%game.custom.perks.ignoreNegativeItemFh% and, whenever you would gain %game.condition.impair%, prevent the condition"
     },
     {
       "type": "custom",
