@@ -11,6 +11,20 @@
       "Unfettered Allies"
     ],
     "unlockCharacter": "prism",
+    "townGuardAm": [
+      {
+        "type": "townguard",
+        "valueType": "plus",
+        "value": 50,
+        "effects": [
+          {
+            "type": "custom",
+            "value": "fh-unfettered",
+            "icon": true
+          }
+        ]
+      }
+    ],
     "prosperity": 2,
     "items": [
       "246"

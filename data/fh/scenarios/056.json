@@ -9,6 +9,13 @@
       "Friend of the Icespeakers"
     ],
     "unlockCharacter": "fist",
+    "townGuardAm": [
+      {
+        "type": "townguard",
+        "valueType": "plus",
+        "value": 50
+      }
+    ],
     "events": [
       "summer-outpost:SO-51"
     ]

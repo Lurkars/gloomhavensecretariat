@@ -31,6 +31,7 @@ export class AttackModifierComponent implements OnInit, OnChanges {
   csOak: boolean = false;
   mixedElement: AttackModifierEffect | undefined;
   orTypeEffect: AttackModifierEffect | undefined;
+  townGuardEffectIcon: AttackModifierEffect | undefined;
 
   settingsManager: SettingsManager = settingsManager;
 
@@ -45,6 +46,10 @@ export class AttackModifierComponent implements OnInit, OnChanges {
       if (this.attackModifier.effects) {
         if (this.attackModifier.effects.find((effect) => effect.type == AttackModifierEffectType.element) && this.attackModifier.effects.some((effect) => effect.type != AttackModifierEffectType.element)) {
           this.mixedElement = this.attackModifier.effects.find((effect) => effect.type == AttackModifierEffectType.element);
+        }
+
+        if (this.townGuard) {
+          this.townGuardEffectIcon = this.attackModifier.effects.find((effect) => effect.type == AttackModifierEffectType.custom && effect.icon);
         }
 
         this.multipe = this.effects().length > 1 && this.effects().every((effect) => effect.type == AttackModifierEffectType.element) || this.effects().length > 1 && this.effects().every((effect) => effect.type == AttackModifierEffectType.condition || effect.type == AttackModifierEffectType.pierce || effect.type == AttackModifierEffectType.pull || effect.type == AttackModifierEffectType.push) || this.effects().length == 1 && this.effects().every((effect) => effect.type == AttackModifierEffectType.elementHalf) || false;
@@ -89,7 +94,7 @@ export class AttackModifierComponent implements OnInit, OnChanges {
   }
 
   effects(): AttackModifierEffect[] {
-    return this.mixedElement ? this.attackModifier.effects.filter((effect) => effect != this.mixedElement) : this.attackModifier.effects;
+    return (this.mixedElement ? this.attackModifier.effects.filter((effect) => effect != this.mixedElement) : this.attackModifier.effects).filter((effect) => !this.townGuard || effect.type != AttackModifierEffectType.custom || !effect.icon);
   }
 
   filter(effect: AttackModifierEffect): boolean {

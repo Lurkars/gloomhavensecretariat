@@ -107,10 +107,6 @@
       },
       "retired": "Ruhestand",
       "retirements": "Ruhestände",
-      "selectGold": {
-        ".": "Gemeinschaftliches Gold",
-        "apply": "Gold auswählen"
-      },
       "title": "{1} {0}",
       "xp": "XP"
     },
@@ -131,7 +127,31 @@
       "auto": {
         ".": "Automatische Sicherungen",
         "count": "Alle (x) Aktionen",
-        "countHint": "Anzahl an Aktionen zwischen den automatischen Spielsicherungen"
+        "countHint": "Anzahl an Aktionen zwischen den automatischen Spielsicherungen",
+        "onFinish": "Nachdem Szenario beendet",
+        "uploadUrl": {
+          ".": "Upload Url",
+          "hint": "Instead of donwloading the automatic backup file, set an URL to upload the data to. {FILENAME} can be used as placeholder for filename.  (This requires proper CORS settings to work!)"
+        },
+        "uploadUrlFileUpload": {
+          ".": "Upload as File",
+          "hint": "Create a file object to upload. If unchecked, raw JSON string data will be send."
+        },
+        "uploadUrlMethod": {
+          ".": "Method",
+          "get": "GET",
+          "hint": "HTTP Method for uploading",
+          "post": "POST",
+          "put": "PUT"
+        },
+        "uploadUrlPassword": {
+          ".": "Password",
+          "hint": "Used password for upload request"
+        },
+        "uploadUrlUsername": {
+          ".": "Username",
+          "hint": "Used username for upload request"
+        }
       },
       "delete": "Spielsicherungen löschen",
       "latest": "Aktuellste Spielsicherung herunterladen"
@@ -675,6 +695,7 @@
       "achievements": "Globale Erfolge",
       "donations": "Spenden an den Tempel der Großen Eiche",
       "items": "Freigeschaltete Gegenstände",
+      "manage": "Globale Kampagne verwalten",
       "map": "Karte",
       "retirements": {
         ".": "Charaktere im Ruhestand",
@@ -713,7 +734,7 @@
             ".": "Aufbauen",
             "hint": "Aufbauen (Erzwingen mit Doppelclick)"
           },
-          "costs": "Kosten für Aktion",
+          "costs": "Kosten",
           "id": "Nummer",
           "level": "Stufe",
           "name": "Name",
@@ -725,6 +746,10 @@
             ".": "Gebäude reparieren",
             "costs": "{0} beliebige",
             "hint": "Gebäude reparieren (Erzwingen mit Doppelclick)"
+          },
+          "selectResources": {
+            ".": "Ressourcen auswählen",
+            "confirm": "Bestätigen"
           },
           "unlock": "Gebäude freischalten",
           "upgrade": {
@@ -927,6 +952,7 @@
       "reputation": "{0} Ansehen",
       "resources": "Erhalte jeweils {1} %game.resource.{0}%",
       "resourcesLose": "Verliere jeweils {1} %game.resource.{0}%",
+      "townGuardAm": "Füge eine %game.townGuardAm.{1}:{0}% Karte zum Stadtwachendeck hinzu.",
       "unlockCharacter": {
         ".": "Freischalten von",
         "box": "%game.characterIcon.{0}% Box"

@@ -25,6 +25,20 @@
       "Unfettered Deactivated"
     ],
     "unlockCharacter": "prism",
+    "townGuardAm": [
+      {
+        "type": "townguard",
+        "valueType": "plus",
+        "value": 50,
+        "effects": [
+          {
+            "type": "custom",
+            "value": "fh-unfettered",
+            "icon": true
+          }
+        ]
+      }
+    ],
     "items": [
       "246"
     ],

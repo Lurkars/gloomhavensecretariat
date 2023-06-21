@@ -52,7 +52,7 @@ export class Summon implements Entity {
   tags: string[] = [];
 
   constructor(uuid: string, name: string, cardId: string, level: number, number: number, color: SummonColor, summonData: SummonData | undefined = undefined) {
-    this.uuid = uuid;
+    this.uuid = uuid || uuidv4();
     this.name = name;
     this.title = "";
     this.cardId = cardId;
@@ -80,9 +80,7 @@ export class Summon implements Entity {
   }
 
   fromModel(model: GameSummonModel) {
-    if (model.uuid) {
-      this.uuid = model.uuid;
-    }
+    this.uuid = model.uuid || uuidv4();
     this.name = model.name || "";
     this.title = model.title || "";
     this.cardId = model.cardId || "";

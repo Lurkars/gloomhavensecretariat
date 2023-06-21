@@ -96,11 +96,16 @@
             [src]="'./assets/images/attackmodifier/town-guard/' + (attackModifier.type == AttackModifierType.townguard ? attackModifier.valueType : attackModifier.type) + '.png'" />
         </div>
         <ng-container *ngIf="attackModifier.type == AttackModifierType.townguard">
-          <span class="am-value" [ngClass]="{'effects' : attackModifier.effects.length > 0}"
+          <span class="am-value"
+            [ngClass]="{'effects' : !townGuardEffectIcon &&  attackModifier.effects.length > 0 ||  townGuardEffectIcon &&  attackModifier.effects.length > 1}"
             *ngIf="(attackModifier.value > 0 || attackModifier.effects.length == 0) && (attackModifier.valueType == AttackModifierValueType.plus || attackModifier.valueType == AttackModifierValueType.default)">+{{attackModifier.value}}</span>
           <span class="am-value" [ngClass]="{'effects' : attackModifier.effects.length > 0}"
             *ngIf="attackModifier.valueType == AttackModifierValueType.minus">-{{attackModifier.value}}</span>
         </ng-container>
+
+        <span *ngIf="townGuardEffectIcon" class="town-guard-icon">
+          <img [src]="'./assets/images/action/custom/' + townGuardEffectIcon.value + '.svg'" />
+        </span>
 
         <ng-container *ngIf="attackModifier.effects">
           <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="effects()"

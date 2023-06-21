@@ -143,15 +143,11 @@ export class Game {
       monster.fromModel(value);
     });
 
+    this.figures = this.figures.filter((figure) => !(figure instanceof Objective) || model.objectives.some((value) => value.uuid && value.uuid == figure.uuid));
+
     model.objectives.forEach((value) => {
-      let objective: Objective | undefined = this.figures.find((figure, index, self) => figure instanceof Objective && (
-        // match uuid
-        value.uuid && figure.uuid == value.uuid ||
-        // migration
-        (!value.uuid || value.uuid && !figure.uuid && !self.find((existing) => existing instanceof Objective && existing.uuid == value.uuid)) && figure.name == value.name && figure.id == value.id && figure.escort == value.escort && figure.marker == value.marker &&
-        (!figure.tags && !value.tags || figure.tags && value.tags && figure.tags.length == value.tags.length && figure.tags.every((tag) => value.tags.indexOf(tag) != -1)) &&
-        (!figure.objectiveId && !value.objectiveId || figure.objectiveId && value.objectiveId && figure.objectiveId.index == value.objectiveId.index && figure.objectiveId.edition == value.objectiveId.edition && figure.objectiveId.group == value.objectiveId.group && figure.objectiveId.scenario == value.objectiveId.scenario && figure.objectiveId.section == value.objectiveId.section))
-      ) as Objective;
+      let objective: Objective | undefined = this.figures.find((figure) => figure instanceof Objective &&
+        value.uuid && figure.uuid == value.uuid) as Objective;
       if (!objective) {
         if (!value.id) {
           value.id = 0;
@@ -165,14 +161,6 @@ export class Game {
       }
       objective.fromModel(value);
     });
-
-    this.figures = this.figures.filter((figure) => !(figure instanceof Objective) || model.objectives.some((value) =>
-      // match uuid
-      value.uuid && value.uuid == figure.uuid ||
-      // migration
-      !value.uuid && !figure.uuid && figure.name == value.name && figure.id == value.id && figure.escort == value.escort && figure.marker == value.marker &&
-      (!figure.tags && !value.tags || figure.tags && value.tags && figure.tags.length == value.tags.length && figure.tags.every((tag) => value.tags.indexOf(tag) != -1)) &&
-      (!figure.objectiveId && !value.objectiveId || figure.objectiveId && value.objectiveId && figure.objectiveId.index == value.objectiveId.index && figure.objectiveId.edition == value.objectiveId.edition && figure.objectiveId.group == value.objectiveId.group && figure.objectiveId.scenario == value.objectiveId.scenario && figure.objectiveId.section == value.objectiveId.section)));
 
     this.figures.sort((a, b) => {
       const aId = a instanceof Objective && a.uuid ? a.uuid : a.edition + '-' + a.name;

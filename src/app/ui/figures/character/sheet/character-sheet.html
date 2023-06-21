@@ -20,12 +20,14 @@
         <div class="row base">
           <div class="name">
             <label><span [ghs-label]="'character.progress.name'"></span>:</label>
-            <ng-container *ngIf="titles.length == 0">
+            <ng-container *ngIf="titles.length == 0 || !settingsManager.settings.characterIdentities">
               <input #charactertitle type="text" [value]="character.title" (change)="titleChange()">
             </ng-container>
-            <ng-container *ngFor="let i of [] | ghsRange:character.identities.length">
-              <img [src]="gameManager.characterManager.characterIdentityIcon(character, i)">
-              <input type="text" [value]="titles[i]" (change)="setTitle($event, i)">
+            <ng-container *ngIf="titles.length > 0 && settingsManager.settings.characterIdentities">
+              <ng-container *ngFor="let i of [] | ghsRange:character.identities.length">
+                <img [src]="gameManager.characterManager.characterIdentityIcon(character, i)">
+                <input type="text" [value]="titles[i]" (change)="setTitle($event, i)">
+              </ng-container>
             </ng-container>
           </div>
           <div class="level">
@@ -46,7 +48,8 @@
                     <div class="xp-item"
                       [ngClass]="{'checked' : character.progress.experience >= gameManager.characterManager.xpMap[level]}"
                       (click)="setLevel(level + 1)">
-                      {{gameManager.characterManager.xpMap[level]}}</div>
+                      {{gameManager.characterManager.xpMap[level]}}
+                    </div>
                   </ng-container>
                 </div>
               </div>

@@ -46,6 +46,8 @@
     &.characters,
     &.monsters {
       margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     .server-run {

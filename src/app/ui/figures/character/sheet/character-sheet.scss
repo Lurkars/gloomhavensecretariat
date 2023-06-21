@@ -450,16 +450,6 @@
       }
     }
 
-    .name {
-      display: flex;
-      align-items: center;
-
-      img {
-        height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-        width: auto;
-      }
-    }
-
     input[type="text"] {
       margin: 0;
       margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
@@ -501,6 +491,20 @@
       line-height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
       width: 100%;
       height: 100%;
+    }
+
+    .name {
+      display: flex;
+      align-items: center;
+
+      img {
+        height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        width: auto;
+      }
+
+      input[type="text"] {
+        min-width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+      }
     }
 
   }

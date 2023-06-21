@@ -296,6 +296,38 @@ export class AttackModifierManager {
       })
     }
 
+    party.scenarios.forEach((scenarioModel) => {
+      const scenarioData = gameManager.scenarioManager.scenarioDataForModel(scenarioModel);
+      if (scenarioData && scenarioData.rewards && scenarioData.rewards.townGuardAm) {
+        scenarioData.rewards.townGuardAm.forEach((attackModifier, index) => {
+          let am = Object.assign(new AttackModifier(attackModifier.type, attackModifier.value, attackModifier.valueType), attackModifier);
+          am.id = "scenario-reward-" + scenarioData.index + "-" + index;
+          if (!this.findByAttackModifier(attackModifierDeck.attackModifiers, am)) {
+            attackModifierDeck.attackModifiers.push(am);
+          }
+          if (!attackModifierDeck.cards.find((attackModifier) => attackModifier.id == am.id)) {
+            attackModifierDeck.cards.push(am);
+          }
+        })
+      }
+    })
+
+    party.conclusions.forEach((sectionModel) => {
+      const sectionData = gameManager.scenarioManager.sectionDataForModel(sectionModel);
+      if (sectionData && sectionData.rewards && sectionData.rewards.townGuardAm) {
+        sectionData.rewards.townGuardAm.forEach((attackModifier, index) => {
+          let am = Object.assign(new AttackModifier(attackModifier.type, attackModifier.value, attackModifier.valueType), attackModifier);
+          am.id = "conclusion-reward-" + sectionData.index + "-" + index;
+          if (!this.findByAttackModifier(attackModifierDeck.attackModifiers, am)) {
+            attackModifierDeck.attackModifiers.push(am);
+          }
+          if (!attackModifierDeck.cards.find((attackModifier) => attackModifier.id == am.id)) {
+            attackModifierDeck.cards.push(am);
+          }
+        })
+      }
+    })
+
     return attackModifierDeck;
   }
 

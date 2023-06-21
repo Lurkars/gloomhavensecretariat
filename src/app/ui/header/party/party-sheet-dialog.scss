@@ -452,23 +452,20 @@
           display: flex;
           position: absolute;
           justify-content: space-between;
-          top: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
+          top: calc(var(--ghs-unit) * 0.8 * var(--ghs-dialog-factor));
           left: 0;
           width: calc(var(--ghs-unit) * 120.5 * var(--ghs-dialog-factor));
 
           .headline {
             cursor: pointer;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
             margin-left: calc(var(--ghs-unit) * -4 * var(--ghs-dialog-factor));
             font-size: calc(var(--ghs-unit) * 2.4 * var(--ghs-dialog-factor));
             text-transform: uppercase;
             flex-grow: initial;
-
-            img {
-              height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-              margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-            }
 
             &:hover {
               color: var(--ghs-color-gray);
@@ -477,12 +474,23 @@
                 filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
               }
             }
+
+            .management {
+              display: flex;
+              align-items: center;
+              font-family: var(--ghs-font-text);
+
+              img {
+                height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+              }
+            }
           }
 
           .summer,
           .winter {
             font-size: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
-            margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+            margin-top: calc(var(--ghs-unit) * -1.8 * var(--ghs-dialog-factor));
 
             img {
               height: 1.2em;
@@ -1189,7 +1197,6 @@
           top: calc(var(--ghs-unit) * 101.5 * var(--ghs-dialog-factor));
           width: calc(var(--ghs-unit) * 118.5 * var(--ghs-dialog-factor));
           height: calc(var(--ghs-unit) * 28 * var(--ghs-dialog-factor));
-          max-width: 98vw;
         }
       }
     }
@@ -1427,6 +1434,7 @@
               &.disabled {
                 pointer-events: initial;
                 cursor: not-allowed;
+                border-color: var(--ghs-color-gray);
 
                 &:hover {
                   img {

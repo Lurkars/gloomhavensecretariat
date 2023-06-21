@@ -32,7 +32,7 @@ export class Objective implements Entity, Figure {
   objectiveId: ScenarioObjectiveIdentifier | undefined;
 
   constructor(uuid: string, id: number, objectiveId: ScenarioObjectiveIdentifier | undefined = undefined) {
-    this.uuid = uuid;
+    this.uuid = uuid || uuidv4();
     this.id = id;
     this.objectiveId = objectiveId;
   }
@@ -46,9 +46,7 @@ export class Objective implements Entity, Figure {
   }
 
   fromModel(model: GameObjectiveModel) {
-    if (model.uuid) {
-      this.uuid = model.uuid;
-    }
+    this.uuid = model.uuid || uuidv4();
     this.id = model.id;
     this.marker = model.marker;
     this.title = model.title;

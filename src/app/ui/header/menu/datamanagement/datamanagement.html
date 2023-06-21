@@ -59,7 +59,7 @@
         <div class="line">
           <div class="hint-container">
             <label class="label"><span [ghs-label]="'datamanagement.backup.auto.count'"></span>
-              <input type="number" #autoBackup [value]="settingsManager.settings.autoBackup" min="1" (keyup)="0"
+              <input type="number" #autoBackup [value]="settingsManager.settings.autoBackup" min="0" (keyup)="0"
                 (change)="settingsManager.setAutoBackup(+autoBackup.value)" [size]="autoBackup.value.length"
                 [ghs-label]="'datamanagement.backup.auto.count'" [ghs-label-attribute]="'placeholder'"></label>
             <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
@@ -69,6 +69,13 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="line">
+          <label>
+            <input type="checkbox" [checked]="settingsManager.settings.autoBackupFinish"
+              (change)="settingsManager.setAutoBackupFinish(!settingsManager.settings.autoBackupFinish)">
+            <span [ghs-label]="'datamanagement.backup.auto.onFinish'"></span>
+          </label>
         </div>
         <div class="line">
           <div class="hint-container input-container">

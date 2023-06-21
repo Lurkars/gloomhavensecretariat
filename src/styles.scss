@@ -1134,7 +1134,8 @@ input[type="radio"] {
     }
   }
 
-  .placeholder-character-icon-colored {
+  .placeholder-character-icon-colored,
+  .placeholder-character-icon-colored-bg {
     position: relative;
     top: 0.1em;
     display: inline-flex;
@@ -1147,7 +1148,12 @@ input[type="radio"] {
     img {
       width: 80%;
       height: auto;
-      filter: brightness(10);
+    }
+
+    &.placeholder-character-icon-colored-bg {
+      img {
+        filter: brightness(10);
+      }
     }
   }
 
@@ -1224,6 +1230,29 @@ input[type="radio"] {
     border-radius: 100%;
     border: 2px solid var(--ghs-color-black);
     margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+  }
+
+  .placeholder-town-guard-am {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.8em;
+    height: 1.8em;
+    font-family: 'ghs-title';
+    font-size: 0.9em;
+    text-shadow: var(--ghs-outline-thin);
+    color: var(--ghs-color-white);
+    border-radius: 100%;
+    border: 2px solid var(--ghs-color-brown);
+    margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+    &.plus {
+      background-color: var(--ghs-color-green);
+    }
+
+    &.minus {
+      background-color: var(--ghs-color-red);
+    }
   }
 
   &.text-white {

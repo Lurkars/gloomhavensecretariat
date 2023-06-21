@@ -111,9 +111,8 @@ import { ScenarioTreasuresDialogComponent } from './ui/footer/scenario/treasures
 import { TreasureLabelComponent } from './ui/footer/scenario/treasures/label/label';
 import { StatsListComponent } from './ui/footer/scenario/dialog/stats-list/stats-list';
 import { KeyboardShortcuts } from './ui/helper/keyboard-shortcuts';
-import { BuildingRepairDialog } from './ui/header/party/buildings/repair';
 import { ScenarioConclusionComponent } from './ui/footer/scenario/scenario-conclusion/scenario-conclusion';
-import { SelectGoldDialog } from './ui/header/party/buildings/select-gold/select-gold';
+import { SelectResourcesDialog } from './ui/header/party/buildings/select-resources/select-resources';
 import { EventEffectsDialog } from './ui/figures/character/event-effects/event-effects';
 import { PointerInputDirective } from './ui/helper/pointer-input';
 
@@ -131,7 +130,7 @@ export class GhsErrorHandler extends ErrorHandler {
     AppComponent,
     MainComponent,
     HeaderComponent, ElementIconComponent, ElementComponent,
-    PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, BuildingRepairDialog, MapComponent, ScenarioConclusionComponent, SelectGoldDialog,
+    PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, MapComponent, ScenarioConclusionComponent, SelectResourcesDialog,
     MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent,
     FooterComponent,
     LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,

@@ -7,6 +7,7 @@ import { EntityValueFunction, EntityValueRegex, EntityValueRegexExtended } from 
 import { ActionHex } from "src/app/game/model/ActionHex";
 import { ActionTypesIcons } from "../figures/actions/action";
 import { Subscription } from "rxjs";
+import { AttackModifierValueType } from "src/app/game/model/data/AttackModifier";
 
 export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\,|\+|\(|\)|\||\_|\[|\]|\||\{|\}|\$|\\|\/|\%U+200B)+)\%/;
 
@@ -102,7 +103,11 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "characterIconColored" && split.length == 3) {
         const characterName = split[2];
         image = '<img class="icon" src="' + gameManager.characterManager.characterIcon(characterName) + '">';
-        replace = '<span class="placeholder-character-icon-colored" style="background-color:' + gameManager.characterManager.characterColor(characterName) + '">' + image + '</span>';
+        replace = '<span class="placeholder-character-icon-colored">' + image + '</span>';
+      } else if (type == "characterIconColoredBg" && split.length == 3) {
+        const characterName = split[2];
+        image = '<img class="icon" src="' + gameManager.characterManager.characterIcon(characterName) + '">';
+        replace = '<span class="placeholder-character-icon-colored-bg" style="background-color:' + gameManager.characterManager.characterColor(characterName) + '">' + image + '</span>';
       } else if (type == "characterToken" && split.length >= 3) {
         const characterName = split[2];
         let icon = gameManager.characterManager.characterIcon(characterName);
@@ -149,6 +154,17 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "section" && value) {
         image = '<img src="./assets/images/fh/party/section.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-section">' + image + value + '</span>';
+      } else if (type == "townGuardAm" && split.length == 3 && value) {
+        const valueType = split[2];
+        let valueSign = "";
+        if (valueType == AttackModifierValueType.plus) {
+          valueSign = "+";
+        } else if (valueType == AttackModifierValueType.minus) {
+          valueSign = "-";
+        } else if (valueType == AttackModifierValueType.multiply) {
+          valueSign = "x";
+        }
+        replace = '<span class="placeholder-town-guard-am ' + split[2] + '">' + valueSign + value + '</span>';
       } else {
         let labelArgs = label.split(':').splice(1).map((arg) =>
           applyPlaceholder(settingsManager.getLabel(arg), placeholder, relative));

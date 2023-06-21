@@ -35,7 +35,6 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   prosperityHighlightSteps = GH_PROSPERITY_STEPS;
   priceModifier: number = 0;
   campaign: boolean = false;
-  doubleClickAddSuccess: any = null;
 
   scenarioEditions: string[] = [];
   scenarios: Record<string, ScenarioData[]> = {};
@@ -371,10 +370,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     return this.party.manualScenarios.find((value) => scenarioData.index == value.index && scenarioData.edition == value.edition && scenarioData.group == value.group) != undefined;
   }
 
-  addSuccess(scenarioData: ScenarioData) {
-    if (!gameManager.scenarioManager.isBlocked(scenarioData) || this.doubleClickAddSuccess) {
-      clearTimeout(this.doubleClickAddSuccess);
-      this.doubleClickAddSuccess = null;
+  addSuccess(scenarioData: ScenarioData, force: boolean = false) {
+    if (!gameManager.scenarioManager.isBlocked(scenarioData) && !gameManager.scenarioManager.isLocked(scenarioData) || force) {
       const conclusions = gameManager.sectionData(scenarioData.edition).filter((sectionData) =>
         sectionData.edition == scenarioData.edition && sectionData.parent == scenarioData.index && sectionData.group == scenarioData.group && sectionData.conclusion);
       if (conclusions.length == 0) {
@@ -391,18 +388,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
           }
         });
       }
-    } else {
-      this.doubleClickAddSuccess = setTimeout(() => {
-        if (this.doubleClickAddSuccess) {
-          this.doubleClickAddSuccess = null;
-        }
-      }, 200)
     }
   }
 
   addSuccessIntern(scenarioData: ScenarioData, conclusionSection: ScenarioData | undefined = undefined) {
     gameManager.stateManager.before("finishScenario.success", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
-    gameManager.scenarioManager.finishScenario(new Scenario(scenarioData), true, conclusionSection, false, undefined, false, false, true);
+    gameManager.scenarioManager.finishScenario(new Scenario(scenarioData), true, conclusionSection, false, undefined, false, this.countFinished(scenarioData) > 0, true);
     gameManager.stateManager.after();
 
     this.update();

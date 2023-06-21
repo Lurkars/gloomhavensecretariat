@@ -1,0 +1,10 @@
+{
+  "index": "11.2",
+  "name": "Hungry Maw is dead",
+  "edition": "fh",
+  "parent": "122",
+  "conclusion": true,
+  "rewards": {
+    "gold": 10
+  }
+}

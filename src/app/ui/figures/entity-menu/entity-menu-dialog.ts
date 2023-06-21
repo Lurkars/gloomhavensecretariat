@@ -55,6 +55,8 @@ export class EntityMenuDialogComponent {
   objectiveDead: boolean = false;
   entityConditions: EntityCondition[] = [];
 
+  titles: string[] = [];
+
   AttackModifierType = AttackModifierType;
   SummonState = SummonState;
   ConditionName = ConditionName;
@@ -604,11 +606,35 @@ export class EntityMenuDialogComponent {
     this.levelDialog = true;
     this.changeDetectorRef.detectChanges();
     if (this.data.entity instanceof Character) {
-      this.characterTitleInput.nativeElement.value = this.data.entity.title || settingsManager.getLabel('data.character.' + this.data.entity.name.toLowerCase());
+
+      if (this.characterTitleInput) {
+        this.characterTitleInput.nativeElement.value = this.data.entity.title || settingsManager.getLabel('data.character.' + this.data.entity.name.toLowerCase());
+      }
+
+      this.titles = [];
+      if (this.data.entity.identities && this.data.entity.identities.length > 1 && settingsManager.settings.characterIdentities) {
+        this.titles = this.data.entity.title.split('|');
+        if (this.titles.length < this.data.entity.identities.length) {
+          for (let i = this.titles.length; i < this.data.entity.identities.length; i++) {
+            this.titles.push('');
+          }
+        }
+        for (let i = 0; i < this.titles.length; i++) {
+          if (!this.titles[i]) {
+            this.titles[i] = settingsManager.getLabel('data.character.' + this.data.entity.name.toLowerCase());
+          }
+        }
+      }
     }
     if (this.data.entity instanceof Summon) {
       this.summonTitleInput.nativeElement.value = this.data.entity.title || settingsManager.getLabel('data.summon.' + this.data.entity.name.toLowerCase());
     }
+  }
+
+
+
+  setTitle(event: any, index: number) {
+    this.titles[index] = event.target.value;
   }
 
   close(): void {
@@ -699,18 +725,35 @@ export class EntityMenuDialogComponent {
         this.curse = 0;
       }
 
-      if (this.levelDialog && this.characterTitleInput) {
-        if (this.characterTitleInput.nativeElement.value && this.characterTitleInput.nativeElement.value != settingsManager.getLabel('data.character.' + this.data.entity.name.toLowerCase())) {
-          if (this.data.entity.title != this.characterTitleInput.nativeElement.value) {
-            gameManager.stateManager.before("setTitle", "data.character." + this.data.entity.name, this.characterTitleInput.nativeElement.value);
-            this.data.entity.title = this.characterTitleInput.nativeElement.value;
-            gameManager.stateManager.after();
+      let title = "";
+
+      if (this.characterTitleInput) {
+        title = this.characterTitleInput.nativeElement.value;
+      }
+
+      if (this.titles.length > 0) {
+        for (let i = 0; i < this.titles.length; i++) {
+          if (this.titles[i] == settingsManager.getLabel('data.character.' + this.data.entity.name.toLowerCase())) {
+            this.titles[i] = '';
           }
-        } else if (this.data.entity.title != "") {
-          gameManager.stateManager.before("unsetTitle", "data.character." + this.data.entity.name, this.data.entity.title);
-          this.data.entity.title = "";
+        }
+
+        title = this.titles.join('|');
+        while (title.endsWith('|')) {
+          title = title.substring(0, title.length - 1);
+        }
+      }
+
+      if (title != settingsManager.getLabel('data.character.' + this.data.entity.name.toLowerCase())) {
+        if (this.data.entity.title != title) {
+          gameManager.stateManager.before("setTitle", "data.character." + this.data.entity.name, title);
+          this.data.entity.title = title;
           gameManager.stateManager.after();
         }
+      } else if (this.data.entity.title != "") {
+        gameManager.stateManager.before("unsetTitle", "data.character." + this.data.entity.name, this.data.entity.title);
+        this.data.entity.title = "";
+        gameManager.stateManager.after();
       }
     }
   }

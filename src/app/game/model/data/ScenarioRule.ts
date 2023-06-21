@@ -1,3 +1,4 @@
+import { AttackModifier } from "./AttackModifier";
 import { ElementModel } from "./Element";
 import { AdditionalIdentifier } from "./Identifier";
 import { LootType } from "./Loot";
@@ -115,7 +116,7 @@ export class ScenarioRewards {
   collectiveResources: { type: LootType, value: number | string }[] = [];
   calenderSection: string[] = [];
   calenderSectionManual: { section: string, hint: string }[] = [];
-  townGuardAm: string[] = []; // TODO
+  townGuardAm: AttackModifier[] = [];
   unlockCharacter: string = "";
   chooseUnlockCharacter: string[] = [];
   custom: string = "";

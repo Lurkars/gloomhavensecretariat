@@ -275,7 +275,8 @@
     font-size: 1.5em;
   }
 
-  .exhausted, .condition.marker {
+  .exhausted,
+  .condition.marker {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -457,6 +458,16 @@
       display: flex;
       align-items: center;
       margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+      .titles-container {
+        display: flex;
+        flex-direction: column;
+
+        .title-container {
+          display: flex;
+          align-items: center;
+        }
+      }
 
       .max-health {
         right: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));

@@ -187,8 +187,8 @@
           "1": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.hound%'s allies."
         },
         "mindthief": {
-          "augment": "Augment %game.characterIconColored.mindthief%",
-          "augments": "Augments %game.characterIconColored.mindthief%"
+          "augment": "Augment %game.characterIconColoredBg.mindthief%",
+          "augments": "Augments %game.characterIconColoredBg.mindthief%"
         },
         "night-demon": {
           "1": "All adjacent enemies and allies suffer %game.damage:1%."
@@ -464,8 +464,8 @@
           "1": "Füge +2 %game.action.attack% hinzu wenn das Ziel an einem Verbündeten des %data.monster.hound% angrenzt."
         },
         "mindthief": {
-          "augment": "Erweiterung %game.characterIconColored.mindthief%",
-          "augments": "Erweiterungen %game.characterIconColored.mindthief%"
+          "augment": "Erweiterung %game.characterIconColoredBg.mindthief%",
+          "augments": "Erweiterungen %game.characterIconColoredBg.mindthief%"
         },
         "night-demon": {
           "1": "Alle angrenzenden Verbündeten und Gegner erleiden %game.damage:2%."
@@ -745,8 +745,8 @@
           "1": "Ajoute +2 %game.action.attack% si la cible est adjacente à un allié du %data.monster.hound%."
         },
         "mindthief": {
-          "augment": "Augmentation %game.characterIconColored.mindthief%",
-          "augments": "Augmente %game.characterIconColored.mindthief%"
+          "augment": "Augmentation %game.characterIconColoredBg.mindthief%",
+          "augments": "Augmente %game.characterIconColoredBg.mindthief%"
         },
         "night-demon": {
           "1": "Tous les alliés et adversaires adjacents subissent 1 dégât."
@@ -1050,8 +1050,8 @@
           "1": "%data.monster.living-corpse%가 스스로 피해 %game.damage:1%점을 입는다."
         },
         "mindthief": {
-          "augment": "증강 %game.characterIconColored.mindthief%",
-          "augments": "증강 %game.characterIconColored.mindthief%"
+          "augment": "증강 %game.characterIconColoredBg.mindthief%",
+          "augments": "증강 %game.characterIconColoredBg.mindthief%"
         },
         "night-demon": {
           "1": "인접한 모든 적과 아군이 피해 %game.damage:1%점을 입는다."

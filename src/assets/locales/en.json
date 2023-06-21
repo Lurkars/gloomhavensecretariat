@@ -88,9 +88,9 @@
       "import": "Import",
       "items": {
         ".": "Items",
-        "brewing" : {
-          "." : "Brewing",
-          "threeHerbs" : "3 Herbs %game.resource.{0}%",
+        "brewing": {
+          ".": "Brewing",
+          "threeHerbs": "3 Herbs %game.resource.{0}%",
           "twoHerbs": "2 Herbs"
         },
         "effect": "If the item is equipped, it's effect is automatically applied. To equip an item, just click it's name. Equipping items is only allowed before and between scenarios. Doubleclick to force equipping.",
@@ -112,10 +112,6 @@
       },
       "retired": "Retired",
       "retirements": "Retirements",
-      "selectGold": {
-        ".": "Collective Gold",
-        "apply": "Select Gold"
-      },
       "title": "{1} {0}",
       "xp": "XP"
     },
@@ -137,6 +133,7 @@
         ".": "Automatic Backups",
         "count": "Every (x) actions",
         "countHint": "Number of actions between automatic backups",
+        "onFinish": "After finishing Scenario",
         "uploadUrl": {
           ".": "Upload Url",
           "hint": "Instead of donwloading the automatic backup file, set an URL to upload the data to. {FILENAME} can be used as placeholder for filename.  (This requires proper CORS settings to work!)"
@@ -804,6 +801,7 @@
       "achievements": "Global Achievements",
       "donations": "Donations to Sanctuary of the Great Oak",
       "items": "Unlocked Items",
+      "manage": "Global Campaign Management",
       "map": "Map",
       "retirements": {
         ".": "Retired Characters",
@@ -842,7 +840,7 @@
             ".": "Build",
             "hint": "Build (force with doubleclick)"
           },
-          "costs": "Action Costs",
+          "costs": "Costs",
           "id": "Number",
           "level": "Level",
           "name": "Name",
@@ -854,6 +852,10 @@
             ".": "Repair building",
             "costs": "Any {0}",
             "hint": "Repair building (force with doubleclick)"
+          },
+          "selectResources": {
+            ".": "Select Resources",
+            "confirm": "Confirm"
           },
           "unlock": "Unlock building",
           "upgrade": {
@@ -1055,6 +1057,7 @@
       "randomItemBlueprint": "Gain one random item blueprint:",
       "resources": "Gain {1} %game.resource.{0}% each",
       "resourcesLose": "Lose {1} %game.resource.{0}% each",
+      "townGuardAm": "Add one %game.townGuardAm.{1}:{0}% card to the town guard deck.",
       "unlockCharacter": {
         ".": "Unlock",
         "box": "%game.characterIcon.{0}% class box"

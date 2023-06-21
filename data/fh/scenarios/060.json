@@ -21,6 +21,20 @@
       "coral",
       "kelp"
     ],
+    "townGuardAm": [
+      {
+        "type": "townguard",
+        "valueType": "plus",
+        "value": 50,
+        "effects": [
+          {
+            "type": "custom",
+            "value": "fh-lurkers",
+            "icon": true
+          }
+        ]
+      }
+    ],
     "experience": 30,
     "prosperity": 1,
     "events": [

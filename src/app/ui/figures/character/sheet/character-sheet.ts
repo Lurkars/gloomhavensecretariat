@@ -1,7 +1,7 @@
 import { Dialog } from "@angular/cdk/dialog";
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
 import { CharacterProgress } from "src/app/game/model/CharacterProgress";
@@ -26,6 +26,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   @ViewChild('charactertitle', { static: false }) titleInput!: ElementRef;
 
   gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
   ghsInputFullScreenCheck = ghsInputFullScreenCheck;
   GameState = GameState;
   PerkType = PerkType;
@@ -49,7 +50,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.retired = this.character.progress.retired;
-    if (this.character.identities && this.character.identities.length > 1) {
+    if (this.character.identities && this.character.identities.length > 1 && settingsManager.settings.characterIdentities) {
       this.titles = this.character.title.split('|');
       if (this.titles.length < this.character.identities.length) {
         for (let i = this.titles.length; i < this.character.identities.length; i++) {
@@ -127,7 +128,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       }
 
       title = this.titles.join('|');
-      if (title.endsWith('|')) {
+      while (title.endsWith('|')) {
         title = title.substring(0, title.length - 1);
       }
     }

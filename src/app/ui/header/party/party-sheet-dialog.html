@@ -124,9 +124,13 @@
           <label class="summer"><img src="./assets/images/fh/party/summer.svg">
             <span [ghs-label]="'party.campaign.sheet.summer'"></span>
           </label>
-          <label class="headline" (click)="campaign = true">
-            <img src="./assets/images/left.svg">
-            <span [ghs-label]="'party.campaign.sheet'"></span></label>
+          <label class="headline"  (click)="campaign = true">
+            <span [ghs-label]="'party.campaign.sheet'"></span>
+            <span class="management">
+              <img src="./assets/images/left.svg">
+              <span [ghs-label]="'party.campaign.manage'"></span>
+            </span>
+          </label>
           <label class="winter"><span [ghs-label]="'party.campaign.sheet.winter'"></span><img
               src="./assets/images/fh/party/winter.svg"></label>
         </div>
@@ -450,13 +454,14 @@
                 </span>
                 <a class="toggle-manual" [ghs-label]="'party.campaign.scenarios.removeManual'"
                   [ghs-label-attribute]="'title'" (click)="removeManual(scenarioData)"
-                  *ngIf="isManual(scenarioData)"><img class="manual" src="./assets/images/hint.svg"><img class="remove"
-                    src="./assets/images/close.svg"></a>
+                  *ngIf="isManual(scenarioData) && countFinished(scenarioData) < 1"><img class="manual"
+                    src="./assets/images/hint.svg"><img class="remove" src="./assets/images/close.svg"></a>
                 <span class="spacer"></span>
                 <a class="add-success"
-                  [ghs-label]="(gameManager.scenarioManager.isBlocked(scenarioData) ? 'scenario.blocked' : 'party.campaign.scenarios.addSuccess')"
-                  [ghs-label-attribute]="'title'" (click)="addSuccess(scenarioData)"
-                  [ngClass]="{'disabled' : gameManager.scenarioManager.isBlocked(scenarioData)}"><img
+                  [ghs-label]="gameManager.scenarioManager.isBlocked(scenarioData) ? 'scenario.blocked' : (gameManager.scenarioManager.isLocked(scenarioData) ? 'scenario.locked' : 'party.campaign.scenarios.addSuccess')"
+                  [ghs-label-attribute]="'title'" ghs-pointer-input (singleClick)="addSuccess(scenarioData)"
+                  (doubleClick)="addSuccess(scenarioData,true)"
+                  [ngClass]="{'disabled' : gameManager.scenarioManager.isBlocked(scenarioData) || gameManager.scenarioManager.isLocked(scenarioData)}"><img
                     src="./assets/images/check.svg"></a>
               </span>
             </div>

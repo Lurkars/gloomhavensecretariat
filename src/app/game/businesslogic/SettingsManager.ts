@@ -185,6 +185,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setAutoBackupFinish(autoBackupFinish: boolean) {
+    this.settings.autoBackupFinish = autoBackupFinish;
+    this.storeSettings();
+  }
+
   setAutoBackupUrl(autoBackupUrl: { url: string, method: string, fileUpload: boolean, username: string, password: string } | undefined) {
     this.settings.autoBackupUrl = autoBackupUrl;
     if (this.settings.autoBackupUrl && !this.settings.autoBackupUrl.method) {

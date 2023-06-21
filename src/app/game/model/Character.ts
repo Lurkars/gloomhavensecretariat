@@ -146,25 +146,12 @@ export class Character extends CharacterData implements Entity, Figure {
     this.tags = model.tags || this.tags;
     this.identity = model.identity || 0;
 
-    this.summons = this.summons.filter((summon, index, self) => model.summons.some((value) =>
-      // match uuid
-      value.uuid == summon.uuid ||
-      // migration
-      (!value.uuid || value.uuid && !summon.uuid && !self.find((existing) => existing.uuid == value.uuid)) && value.name == summon.name && value.color == summon.color && value.number == summon.number
-    ));
+    this.summons = this.summons.filter((summon) => model.summons.some((value) => value.uuid && value.uuid == summon.uuid));
 
     model.summons.forEach((value, index) => {
-      let summon = this.summons.find((summonEntity) =>
-        // match uuid
-        value.uuid == summonEntity.uuid ||
-        // migration
-        !value.uuid && !summonEntity.uuid && value.name == summonEntity.name && value.color == summonEntity.color && value.number == summonEntity.number
-      ) as Summon;
+      let summon = this.summons.find((summonEntity) => value.uuid == summonEntity.uuid) as Summon;
       if (!summon) {
         summon = new Summon(value.uuid, value.name, value.cardId, value.level, value.number, value.color);
-        this.summons.splice(index, 0, summon);
-      } else if (index != this.summons.indexOf(summon)) {
-        this.summons.splice(this.summons.indexOf(summon), 1);
         this.summons.splice(index, 0, summon);
       }
       summon.fromModel(value);

@@ -304,6 +304,28 @@
     }
   }
 
+  .front .town-guard-icon {
+    position: absolute;
+    left: 7.5%;
+    top: 67%;
+    z-index: 2;
+    width: 16%;
+    height: 24%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-image: url('~/src/assets/images/attackmodifier/am-town-guard-icon.png');
+
+    img {
+      filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+      height: 70%;
+      width: auto;
+    }
+  }
+
   .front .am-value {
     position: absolute;
     display: flex;

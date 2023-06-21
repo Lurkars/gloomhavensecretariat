@@ -4,9 +4,8 @@ import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager
 import { Party } from "src/app/game/model/Party";
 import { BuildingCosts, BuildingData, BuildingModel } from "src/app/game/model/data/BuildingData";
 import { LootType } from "src/app/game/model/data/Loot";
-import { BuildingRepairDialog } from "./repair";
 import { Character } from "src/app/game/model/Character";
-import { SelectGoldDialog } from "./select-gold/select-gold";
+import { SelectResourceResult, SelectResourcesDialog } from "./select-resources/select-resources";
 
 export type Building = { model: BuildingModel, data: BuildingData };
 
@@ -143,22 +142,29 @@ export class PartyBuildingsComponent implements OnInit {
 
   upgrade(building: Building, force: boolean = false) {
     if (building.model.level < building.data.upgrades.length + 1 || building.model.level < building.data.manualUpgrades + 1) {
-      if (this.upgradeable(building) || force) {
+      if (force) {
+        gameManager.stateManager.before(building.model.level ? "upgradeBuilding" : "buildBuilding", "data.buildings." + building.model.name, '' + (building.model.level + 1));
+        building.model.level++;
+        gameManager.stateManager.after();
+      } else if (this.upgradeable(building)) {
         const costs = building.model.level ? building.data.upgrades[building.model.level - 1] : building.data.costs;
-        if (costs && costs.gold && !force) {
-          this.dialog.open(SelectGoldDialog, {
-            panelClass: ['dialog'],
-            data: { min: costs.gold, max: costs.gold }
-          }).closed.subscribe({
-            next: (value) => {
-              if (value && (+value) >= costs.gold) {
-                this.upgradeIntern(building, force);
-              }
+        this.dialog.open(SelectResourcesDialog, {
+          panelClass: ['dialog'],
+          data: {
+            costs: costs,
+            building: building.data,
+            action: building.model.level > 0 ? 'upgrade' : 'build'
+          }
+        }).closed.subscribe({
+          next: (result) => {
+            if (result instanceof SelectResourceResult) {
+              gameManager.stateManager.before(building.model.level ? "upgradeBuilding" : "buildBuilding", "data.buildings." + building.model.name, '' + (building.model.level + 1));
+              this.applySelectResources(result);
+              building.model.level++;
+              gameManager.stateManager.after();
             }
-          })
-        } else {
-          this.upgradeIntern(building, force);
-        }
+          }
+        })
       }
     }
   }
@@ -177,16 +183,30 @@ export class PartyBuildingsComponent implements OnInit {
 
   rebuild(building: Building, force: boolean = false) {
     if (building.model.state == 'wrecked') {
-      if (this.upgradeable(building) || force) {
-        gameManager.stateManager.before("rebuildBuilding", "data.buildings." + building.model.name);
-        if (!force) {
-          const costs = building.data.rebuild[building.model.level - 1];
-          this.party.loot[LootType.lumber] = (this.party.loot[LootType.lumber] || 0) - costs.lumber;
-          this.party.loot[LootType.metal] = (this.party.loot[LootType.metal] || 0) - costs.metal;
-          this.party.loot[LootType.hide] = (this.party.loot[LootType.hide] || 0) - costs.hide;
+      if (this.upgradeable(building)) {
+        if (force) {
+          gameManager.stateManager.before("rebuildBuilding", "data.buildings." + building.model.name);
+          building.model.state = 'normal';
+          gameManager.stateManager.after();
+        } else {
+          this.dialog.open(SelectResourcesDialog, {
+            panelClass: ['dialog'],
+            data: {
+              costs: building.data.rebuild[building.model.level - 1],
+              building: building.data,
+              action: 'rebuild'
+            }
+          }).closed.subscribe({
+            next: (result) => {
+              if (result instanceof SelectResourceResult) {
+                gameManager.stateManager.before("rebuildBuilding", "data.buildings." + building.model.name);
+                this.applySelectResources(result);
+                building.model.state = 'normal';
+                gameManager.stateManager.after();
+              }
+            }
+          })
         }
-        building.model.state = 'normal';
-        gameManager.stateManager.after();
       }
     }
   }
@@ -195,16 +215,55 @@ export class PartyBuildingsComponent implements OnInit {
     if (building.model.state == 'damaged') {
       if (this.upgradeable(building) || force) {
         if (!force) {
-          this.dialog.open(BuildingRepairDialog, {
+          this.dialog.open(SelectResourcesDialog, {
             panelClass: ['dialog'],
-            data: building
-          });
+            data: {
+              repair: building.data.repair && building.data.repair[building.model.level - 1],
+              building: building.data,
+              action: 'repair'
+            }
+          }).closed.subscribe({
+            next: (result) => {
+              if (result instanceof SelectResourceResult) {
+                gameManager.stateManager.before("repairBuilding", "data.buildings." + building.data.name);
+                this.applySelectResources(result);
+                building.model.state = 'normal';
+                gameManager.stateManager.after();
+              }
+            }
+          })
         } else {
           gameManager.stateManager.before("repairBuilding", "data.buildings." + building.model.name);
           building.model.state = 'normal';
           gameManager.stateManager.after();
         }
       }
+    }
+  }
+
+  applySelectResources(result: SelectResourceResult) {
+    result.characters.forEach((character, index) => {
+      if (result.characterSpent[index].gold) {
+        character.progress.gold -= result.characterSpent[index].gold;
+      }
+      if (result.characterSpent[index].hide) {
+        character.progress.loot[LootType.hide] = (character.progress.loot[LootType.hide] || 0) - (result.characterSpent[index].hide);
+      }
+      if (result.characterSpent[index].lumber) {
+        character.progress.loot[LootType.lumber] = (character.progress.loot[LootType.lumber] || 0) - (result.characterSpent[index].lumber);
+      }
+      if (result.characterSpent[index].metal) {
+        character.progress.loot[LootType.metal] = (character.progress.loot[LootType.metal] || 0) - (result.characterSpent[index].metal);
+      }
+    })
+    if (result.fhSupportSpent.hide) {
+      gameManager.game.party.loot[LootType.hide] = (gameManager.game.party.loot[LootType.hide] || 0) - (result.fhSupportSpent.hide);
+    }
+    if (result.fhSupportSpent.lumber) {
+      gameManager.game.party.loot[LootType.lumber] = (gameManager.game.party.loot[LootType.lumber] || 0) - (result.fhSupportSpent.lumber);
+    }
+    if (result.fhSupportSpent.metal) {
+      gameManager.game.party.loot[LootType.metal] = (gameManager.game.party.loot[LootType.metal] || 0) - (result.fhSupportSpent.metal);
     }
   }
 

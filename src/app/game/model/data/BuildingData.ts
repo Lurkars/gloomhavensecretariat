@@ -10,7 +10,9 @@ export class BuildingData {
     prosperityUnlock: boolean = false;
 }
 
-export type BuildingCosts = Record<"prosperity" | "lumber" | "metal" | "hide" | "gold", number>;
+export type BuildingCostType = "prosperity" | "lumber" | "metal" | "hide" | "gold";
+
+export type BuildingCosts = Record<BuildingCostType, number>;
 
 export class BuildingModel {
     name: string;

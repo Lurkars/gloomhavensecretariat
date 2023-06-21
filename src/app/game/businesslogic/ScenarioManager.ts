@@ -90,8 +90,8 @@ export class ScenarioManager {
         })
       }
 
-      if (success && !casual && !noRewards) {
-        if (rewards) {
+      if (success && !casual) {
+        if (rewards && !noRewards) {
           if (!internal && settingsManager.settings.characterSheet) {
             this.game.figures.forEach((figure) => {
               if (rewards && figure instanceof Character && !figure.absent) {
@@ -251,29 +251,36 @@ export class ScenarioManager {
           }
         }
 
-        if (gameManager.characterManager.characterCount() < 4 && !internal && !scenario.solo) {
+        if (gameManager.characterManager.characterCount() < 4 && !internal && !scenario.solo && !noRewards) {
           this.game.party.inspiration += 4 - gameManager.characterManager.characterCount();
         }
 
-
-        if (conclusionSection) {
+        if (conclusionSection && !this.game.party.conclusions.find((conclusion) => conclusion.index == conclusionSection.index && conclusion.edition == conclusionSection.edition && conclusion.group == conclusionSection.group)) {
           this.game.party.conclusions.push(new GameScenarioModel(conclusionSection.index, conclusionSection.edition, conclusionSection.group, false, "", []));
         }
 
         if (gameManager.game.party.campaignMode && !casual) {
           if (scenario.conclusion) {
-            this.game.party.conclusions.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, false, "", []));
+            if (!this.game.party.conclusions.find((conclusion) => conclusion.index == scenario.index && conclusion.edition == scenario.edition && conclusion.group == scenario.group)) {
+              this.game.party.conclusions.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, false, "", []));
+            }
           } else {
             this.game.party.scenarios.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, scenario.custom, scenario.custom ? scenario.name : "", scenario.revealedRooms));
           }
-          this.game.party.manualScenarios = this.game.party.manualScenarios.filter((identifier) => scenario && (scenario.index != identifier.index || scenario.edition != identifier.edition || scenario.group != identifier.group));
+
+          if (rewards && settingsManager.settings.partySheet && rewards.townGuardAm && rewards.townGuardAm.length > 0) {
+            const townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.game.party, gameManager.campaignData());
+            gameManager.attackModifierManager.shuffleModifiers(townGuardDeck);
+            townGuardDeck.active = false;
+            this.game.party.townGuardDeck = townGuardDeck.toModel();
+          }
         }
       }
 
       if (restart) {
         gameManager.scenarioManager.setScenario(scenario);
       } else {
-        if (!casual && scenario && !scenario.conclusion && gameManager.fhRules() && !linkedScenario && settingsManager.settings.partySheet) {
+        if (!casual && scenario && !scenario.conclusion && gameManager.fhRules() && !linkedScenario && settingsManager.settings.partySheet && (!internal || !noRewards)) {
 
           if (!scenario.solo) {
             this.game.party.weeks++;

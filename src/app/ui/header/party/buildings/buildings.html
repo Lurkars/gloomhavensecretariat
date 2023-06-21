@@ -86,14 +86,14 @@
                     (doubleClick)="repair(building, true)" [ghsTooltip]="('party.campaign.sheet.buildings.repair.hint')"
                     [originX]="'end'" [originY]="'bottom'" [overlayX]="'end'">
                     <span [ghs-label]="'party.campaign.sheet.buildings.repair'"></span>
-                    <img src="./assets/images/fh/buildings/damaged.svg">
+                    <img src="./assets/images/fh/buildings/repair.svg">
                 </span>
                 <span *ngIf="building.model.state == 'wrecked'" [ngClass]="{'disabled' : !upgradeable(building)}"
                     class="button upgrade" ghs-pointer-input (singleClick)="rebuild(building)"
                     (doubleClick)="rebuild(building, true)" [ghsTooltip]="('party.campaign.sheet.buildings.rebuild.hint')"
                     [originX]="'end'" [originY]="'bottom'" [overlayX]="'end'">
                     <span [ghs-label]="'party.campaign.sheet.buildings.rebuild'"></span>
-                    <img src="./assets/images/fh/buildings/wrecked.svg">
+                    <img src="./assets/images/fh/buildings/rebuild.svg">
                 </span>
             </span>
         </div>

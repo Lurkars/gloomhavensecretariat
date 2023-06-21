@@ -16,6 +16,13 @@
       "Friend of the Snowspeakers"
     ],
     "unlockCharacter": "snowflake",
+    "townGuardAm": [
+      {
+        "type": "townguard",
+        "valueType": "plus",
+        "value": 50
+      }
+    ],
     "events": [
       "winter-outpost:WO-68"
     ]
