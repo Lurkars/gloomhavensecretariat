@@ -105,9 +105,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DialogModule } from '@angular/cdk/dialog';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { PointerInputDirective } from './ui/helper/pointer-input';
-import { BuildingRepairDialog } from './ui/header/party/buildings/repair';
 import { ScenarioConclusionComponent } from './ui/footer/scenario/scenario-conclusion/scenario-conclusion';
-import { SelectGoldDialog } from './ui/header/party/buildings/select-gold/select-gold';
 import { EventEffectsDialog } from './ui/figures/character/event-effects/event-effects';
 import { CharacterSheetComponent } from './ui/figures/character/sheet/character-sheet';
 import { KeyboardShortcuts } from './ui/helper/keyboard-shortcuts';
@@ -120,7 +118,7 @@ describe('AppComponent', () => {
         AppComponent,
         MainComponent,
         HeaderComponent, ElementIconComponent, ElementComponent,
-        PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, BuildingRepairDialog, MapComponent, ScenarioConclusionComponent, SelectGoldDialog,
+        PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, MapComponent, ScenarioConclusionComponent,
         MainMenuComponent, CharacterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent,
         FooterComponent,
         LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
