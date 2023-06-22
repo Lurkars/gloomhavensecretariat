@@ -109,27 +109,27 @@ export class PartyBuildingsComponent implements OnInit {
 
     if (building.data.repair && building.model.state == "damaged") {
       const totalCosts = building.data.repair[building.model.level - 1];
-      return ((this.party.loot[LootType.lumber] || 0) + (this.party.loot[LootType.metal] || 0) + (this.party.loot[LootType.hide] || 0)) > totalCosts;
+      return (this.partyResource(LootType.lumber) + this.partyResource(LootType.metal) + this.partyResource(LootType.hide)) > totalCosts;
     }
 
     if (building.model.state == 'wrecked') {
       costs = building.data.rebuild[building.model.level - 1];
-      if (costs.lumber > (this.party.loot[LootType.lumber] || 0)) {
+      if (costs.lumber > this.partyResource(LootType.lumber)) {
         return false;
-      } else if (costs.metal > (this.party.loot[LootType.metal] || 0)) {
+      } else if (costs.metal > this.partyResource(LootType.metal)) {
         return false;
-      } else if (costs.hide > (this.party.loot[LootType.hide] || 0)) {
+      } else if (costs.hide > this.partyResource(LootType.hide)) {
         return false;
       }
       return true;
     } else if (building.model.level < building.data.upgrades.length + 1) {
       if (costs.prosperity && costs.prosperity > gameManager.prosperityLevel()) {
         return false;
-      } else if ((costs.lumber || 0) > (this.party.loot[LootType.lumber] || 0)) {
+      } else if ((costs.lumber || 0) > this.partyResource(LootType.lumber)) {
         return false;
-      } else if ((costs.metal || 0) > (this.party.loot[LootType.metal] || 0)) {
+      } else if ((costs.metal || 0) > this.partyResource(LootType.metal)) {
         return false;
-      } else if ((costs.hide || 0) > (this.party.loot[LootType.hide] || 0)) {
+      } else if ((costs.hide || 0) > this.partyResource(LootType.hide)) {
         return false;
       } else if ((costs.gold || 0) > gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => (figure as Character).progress.gold).reduce((a, b) => a + b)) {
         return false;
@@ -138,6 +138,10 @@ export class PartyBuildingsComponent implements OnInit {
     }
 
     return false;
+  }
+
+  partyResource(type: LootType): number {
+    return (this.party.loot[type] || 0) + gameManager.game.figures.filter((figure) => figure instanceof Character).map((character) => (character as Character).progress.loot[type] || 0).reduce((a, b) => a + b);
   }
 
   upgrade(building: Building, force: boolean = false) {
@@ -167,18 +171,6 @@ export class PartyBuildingsComponent implements OnInit {
         })
       }
     }
-  }
-
-  upgradeIntern(building: Building, force: boolean) {
-    const costs = building.model.level ? building.data.upgrades[building.model.level - 1] : building.data.costs;
-    gameManager.stateManager.before(building.model.level ? "upgradeBuilding" : "buildBuilding", "data.buildings." + building.model.name, '' + (building.model.level + 1));
-    if (!force) {
-      this.party.loot[LootType.lumber] = (this.party.loot[LootType.lumber] || 0) - costs.lumber;
-      this.party.loot[LootType.metal] = (this.party.loot[LootType.metal] || 0) - costs.metal;
-      this.party.loot[LootType.hide] = (this.party.loot[LootType.hide] || 0) - costs.hide;
-    }
-    building.model.level++;
-    gameManager.stateManager.after();
   }
 
   rebuild(building: Building, force: boolean = false) {
