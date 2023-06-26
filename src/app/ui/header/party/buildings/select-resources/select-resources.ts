@@ -4,6 +4,7 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { BuildingCostType, BuildingCosts, BuildingData } from "src/app/game/model/data/BuildingData";
+import { LootType } from "src/app/game/model/data/Loot";
 
 export class SelectResourceResult {
     characters: Character[];
@@ -42,6 +43,23 @@ export class SelectResourcesDialog {
             this.costs.hide = this.costs.hide || 0;
             this.costs.lumber = this.costs.lumber || 0;
             this.costs.metal = this.costs.metal || 0;
+
+            this.fhSupportSpent.hide = this.costs.hide;
+            if (this.fhSupportSpent.hide > (gameManager.game.party.loot[LootType.hide] || 0)) {
+                this.fhSupportSpent.hide = (gameManager.game.party.loot[LootType.hide] || 0);
+            }
+            this.spent[LootType.hide] = this.fhSupportSpent.hide;
+            this.fhSupportSpent.lumber = this.costs.lumber;
+            if (this.fhSupportSpent.lumber > (gameManager.game.party.loot[LootType.lumber] || 0)) {
+                this.fhSupportSpent.lumber = (gameManager.game.party.loot[LootType.lumber] || 0);
+            }
+            this.spent[LootType.lumber] = this.fhSupportSpent.lumber;
+            this.fhSupportSpent.metal = this.costs.metal;
+            if (this.fhSupportSpent.metal > (gameManager.game.party.loot[LootType.metal] || 0)) {
+                this.fhSupportSpent.metal = (gameManager.game.party.loot[LootType.metal] || 0);
+            }
+            this.spent[LootType.metal] = this.fhSupportSpent.metal;
+
         } else {
             this.costs = { "gold": 0, "hide": this.repair, "lumber": this.repair, "metal": this.repair, "prosperity": 0 }
         }

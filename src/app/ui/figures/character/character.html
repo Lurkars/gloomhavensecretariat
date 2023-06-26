@@ -11,7 +11,7 @@
 </div>
 
 <div class="character" [style.--ghs-character-color]="character.color"
-  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'absent' : character.absent, 'dimmed' : character.attackModifierDeckVisible && !settingsManager.settings.characterAttackModifierDeckPermanent || character.lootCardsVisible}">
+  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'absent' : character.absent, 'dimmed' : settingsManager.settings.characterAttackModifierDeck && character.attackModifierDeckVisible && !settingsManager.settings.characterAttackModifierDeckPermanent || settingsManager.settings.lootDeck && settingsManager.settings.applyLoot && character.lootCardsVisible}">
 
   <ghs-character-image [character]="character"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
@@ -134,8 +134,7 @@
 
     <ng-container *ngIf="character.absent">
       <div class="title" #characterName><img class="icon" [src]="character.iconUrl" />
-        <span *ngIf="character.title"> {{character.title}}</span>
-        <span *ngIf="!character.title" [ghs-label]="'data.character.' + character.name"></span>
+        {{gameManager.characterManager.characterName(character, character.absent)}}
         <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" />
       </div>
       <span class="spacer"></span>

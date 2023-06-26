@@ -35,9 +35,7 @@
         <span class="first" *ngFor="let character of characters; let index = index;">
             <img class="icon character-icon" [src]="character.iconUrl" />
             <span class="name" [ngClass]="{'absent' : character.absent}">
-                <span *ngIf="!character.title" [ghs-label]="'data.character.' + character.name"></span>
-                <span *ngIf="character.title">{{character.title}}&nbsp;(<span
-                        [ghs-label]="'data.character.' + character.name"></span>)</span>
+                {{gameManager.characterManager.characterName(character, character.absent)}}
             </span>
         </span>
 
@@ -71,7 +69,7 @@
         <ng-container *ngIf="costs.lumber">
             <span class="head-col calc-col"
                 [ngClass]="{'costs' : !repair, 'some' : spent.lumber, 'full' : spent.lumber == costs.lumber}">
-                <img class="ghs-svg" [src]="'./assets/images/fh/loot/lumber.svg'">
+                <img class="ghs-svg" src="./assets/images/fh/loot/lumber.svg">
                 <span *ngIf="!repair" class="cost"><span class="current">{{spent.lumber || '-'}}</span> / {{costs.lumber}}</span>
             </span>
             <span class="calc-col">
@@ -113,7 +111,7 @@
         <ng-container *ngIf="costs.metal">
             <span class="head-col calc-col"
                 [ngClass]="{'costs' : !repair, 'some' : spent.metal, 'full' : spent.metal == costs.metal}">
-                <img class="ghs-svg" [src]="'./assets/images/fh/loot/metal.svg'">
+                <img class="ghs-svg" src="./assets/images/fh/loot/metal.svg">
                 <span *ngIf="!repair" class="cost"><span class="current">{{spent.metal || '-'}}</span> / {{costs.metal}}</span>
             </span>
             <span class="calc-col">
@@ -155,7 +153,7 @@
         <ng-container *ngIf="costs.hide">
             <span class="head-col calc-col"
                 [ngClass]="{'costs' : !repair, 'some' : spent.hide, 'full' : spent.hide == costs.hide}">
-                <img class="ghs-svg" [src]="'./assets/images/fh/loot/hide.svg'">
+                <img class="ghs-svg" src="./assets/images/fh/loot/hide.svg">
                 <span *ngIf="!repair" class="cost"><span class="current">{{spent.hide || '-'}}</span> / {{costs.hide}}</span>
             </span>
             <span class="calc-col">

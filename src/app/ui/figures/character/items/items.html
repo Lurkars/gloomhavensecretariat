@@ -79,10 +79,7 @@
         </ng-container>
     </div>
     <div class="brew" *ngIf="brewing">
-        <a click="brewDialog()" [ghs-label]="'character.progress.items.brewing.twoHerbs'"></a>
-        <ng-container *ngIf="brewing > 2">
-            <a *ngFor="let herb of herbs" click="brewDialog(herb)"
-                [ghs-label]="'character.progress.items.brewing.threeHerbs'" [ghs-label-args]="[herb]"></a>
-        </ng-container>
+        <a (click)="brewDialog()"><img src="./assets/images/fh/brewing.svg"><span
+                [ghs-label]="'character.progress.items.brewing'"></span></a>
     </div>
 </div>

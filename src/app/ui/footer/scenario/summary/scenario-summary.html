@@ -23,9 +23,7 @@
       <span class="first" *ngFor="let character of characters; let index = index;">
         <img class="icon character-icon" (click)="openCharacterSheet(character)" [src]="character.iconUrl" />
         <span class="name" [ngClass]="{'absent' : character.absent}">
-          <span *ngIf="!character.title" [ghs-label]="'data.character.' + character.name"></span>
-          <span *ngIf="character.title">{{character.title}}&nbsp;(<span
-              [ghs-label]="'data.character.' + character.name"></span>)</span>
+          {{gameManager.characterManager.characterName(character)}}
         </span>
         <img class="ghs-svg absent-icon"
           [src]="'./assets/images/status/' + (character.absent ? 'absent': 'present') + '.svg'"

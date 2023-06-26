@@ -60,7 +60,6 @@
 
   .table {
     --ghs-summary-columns: 5;
-    min-width: calc(var(--ghs-unit) * 10 * var(--ghs-summary-columns) * var(--ghs-dialog-factor));
     font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
     display: grid;
     grid-template-columns: repeat(var(--ghs-summary-columns), auto);

@@ -1418,7 +1418,7 @@
     "slot": "small",
     "spent": true,
     "requiredBuilding": "alchemist",
-    "requiredBuildingLevel": 3
+    "requiredBuildingLevel": 1
   },
   {
     "id": 99,

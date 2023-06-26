@@ -15,9 +15,11 @@
           <span [ghs-label]="'game.loot.config.' + (configuration ? 'hide' :
           'show')"></span></a>
       </ng-container>
-      <a class="toggle-enhancements" (click)="enhancements = !enhancements; configuration = false"><img class="ghs-svg"
+      <a class="toggle-enhancements" (click)="toggleEnhancements()"
+        [ngClass]="{'disabled': !gameManager.game.scenario}"><img class="ghs-svg"
           [src]="'./assets/images/fh/loot/' + (enhancements ?  'money' : 'plus1') + '.svg'">
-        <span [ghs-label]="('game.loot.' + (enhancements ? 'deck' : 'enhancements'))"></span></a>
+        <span
+          [ghs-label]="('game.loot.' + (enhancements && gameManager.game.scenario ? 'deck' : 'enhancements'))"></span></a>
     </div>
     <div class="config" *ngIf="configuration">
       <label class="title"><span [ghs-label]="'game.loot.config'"></span></label>

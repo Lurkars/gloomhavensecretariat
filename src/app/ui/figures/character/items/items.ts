@@ -6,6 +6,8 @@ import { Identifier } from "src/app/game/model/data/Identifier";
 import { getLootClass, LootClass, LootType } from "src/app/game/model/data/Loot";
 import { GameState } from "src/app/game/model/Game";
 import { Subscription } from "rxjs";
+import { Dialog } from "@angular/cdk/dialog";
+import { ItemsBrewDialog } from "./brew/brew";
 
 
 @Component({
@@ -27,6 +29,8 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
 
     gameManager: GameManager = gameManager;
     GameState = GameState;
+
+    constructor(private dialog: Dialog) { }
 
     ngOnInit() {
         this.updateItems();
@@ -82,13 +86,13 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
                 this.brewing = alchemist.level < 3 ? 2 : 3;
             }
         }
-
-        // disable unfinished brewing for now
-        this.brewing = 0;
     }
 
-    brewDialog(baseHerb: LootType | undefined = undefined) {
-
+    brewDialog() {
+        this.dialog.open(ItemsBrewDialog, {
+            panelClass: ['dialog'],
+            data: this.character
+        })
     }
 
     itemChange(itemIndexChange: number = 0) {
@@ -139,7 +143,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
     assigned(item: ItemData): number {
         return gameManager.game.figures.filter((figure) => figure instanceof Character && figure.progress && figure.progress.items).map((figure) => figure as Character).map((figure) => figure.progress && figure.progress.items).reduce((pre, cur): Identifier[] => {
             return pre && cur && pre.concat(cur);
-        }).filter((itemData) => item && itemData.name == item.id + "" && itemData.edition == item.edition).length;
+        }).filter((identifier) => item && identifier.name == '' + item.id && identifier.edition == item.edition).length;
     }
 
     canBuy(item: ItemData | undefined, cost: number = 0): boolean {
@@ -232,11 +236,11 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
                         if (!requiredItem) {
                             console.error("Missing required item '" + itemId + "' for item '" + item.id + "' (" + item.name + ")");
                         } else if (this.items.find((itemData) => itemData.id == requiredItem.id && itemData.edition == requiredItem.edition)) {
-                            const charItem = this.character.progress.items.find((item) => item.name == "" + requiredItem.id && item.edition == requiredItem.edition);
+                            const charItem = this.character.progress.items.find((identifier) => identifier.name == '' + requiredItem.id && identifier.edition == requiredItem.edition);
                             if (charItem) {
                                 const index = this.character.progress.items.indexOf(charItem);
                                 this.character.progress.items.splice(index, 1);
-                                this.character.progress.equippedItems = this.character.progress.equippedItems.filter((identifier) => identifier.name != requiredItem.name || identifier.edition != requiredItem.edition);
+                                this.character.progress.equippedItems = this.character.progress.equippedItems.filter((identifier) => identifier.name != '' + requiredItem.id || identifier.edition != requiredItem.edition);
                                 this.items.splice(index, 1);
                             }
                         } else if (this.canBuy(requiredItem)) {
@@ -264,12 +268,12 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
 
 
     removeItem(itemData: ItemData) {
-        const item = this.character.progress.items.find((item) => item.name == "" + itemData.id && item.edition == itemData.edition);
+        const item = this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition);
         if (item) {
             const index = this.character.progress.items.indexOf(item)
             gameManager.stateManager.before("removeItem", "data.character." + this.character.name, this.character.progress.items[index].name, this.character.progress.items[index].edition);
             this.character.progress.items.splice(index, 1);
-            this.character.progress.equippedItems = this.character.progress.equippedItems.filter((identifier) => identifier.name != itemData.name || identifier.edition != itemData.edition);
+            this.character.progress.equippedItems = this.character.progress.equippedItems.filter((identifier) => identifier.name != '' + itemData.id || identifier.edition != itemData.edition);
             this.items.splice(index, 1);
             gameManager.stateManager.after();
             this.itemChange();
@@ -277,13 +281,13 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
     }
 
     sellItem(itemData: ItemData) {
-        const item = this.character.progress.items.find((item) => item.name == "" + itemData.id && item.edition == itemData.edition);
+        const item = this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition);
         if (item && gameManager.lootManager.itemSellValue(itemData)) {
             const index = this.character.progress.items.indexOf(item)
             gameManager.stateManager.before("sellItem", "data.character." + this.character.name, this.character.progress.items[index].name, this.character.progress.items[index].edition);
             this.character.progress.gold += gameManager.lootManager.itemSellValue(itemData);
             this.character.progress.items.splice(index, 1);
-            this.character.progress.equippedItems = this.character.progress.equippedItems.filter((identifier) => identifier.name != itemData.name || identifier.edition != itemData.edition);
+            this.character.progress.equippedItems = this.character.progress.equippedItems.filter((identifier) => identifier.name != '' + itemData.id || identifier.edition != itemData.edition);
             this.items.splice(index, 1);
             gameManager.stateManager.after();
             this.itemChange();
@@ -361,6 +365,16 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
             gameManager.stateManager.before(equipIndex != -1 ? 'unequipItem' : 'equipItem', "data.character." + this.character.name, item.name, item.edition)
             this.character.progress.equippedItems = equippedItems.map((itemData) => new Identifier(itemData.id + '', itemData.edition));
             this.character.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character);
+
+            if (item.id == 3 && item.edition == 'fh') {
+                if (equipIndex == -1) {
+                    this.character.maxHealth += 1;
+                } else {
+                    this.character.maxHealth -= 1;
+                }
+                this.character.health = this.character.maxHealth;
+            }
+
             gameManager.stateManager.after();
         }
     }

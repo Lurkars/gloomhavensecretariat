@@ -259,6 +259,12 @@ export class CharacterManager {
     }
 
     character.maxHealth = character.stat.health;
+
+    if (character.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '3')) {
+      character.maxHealth += 1;
+      character.health += 1;
+    }
+
     if (character.health > character.maxHealth) {
       character.health = character.maxHealth;
     }
@@ -281,16 +287,6 @@ export class CharacterManager {
       summon.state = SummonState.true;
       summon.init = false;
       this.addSummon(character, summon);
-    }
-  }
-
-  applyItemEffects(character: Character) {
-    if (character.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '3')) {
-      const stats = gameManager.getCharacterData(character.name, character.edition).stats.find((stats) => stats.level == character.level);
-      if (stats && character.maxHealth <= stats.health) {
-        character.maxHealth = stats.health + 1;
-        character.health = character.maxHealth;
-      }
     }
   }
 
@@ -382,7 +378,6 @@ export class CharacterManager {
     if (this.game.round == 1) {
       this.game.figures.forEach((figure) => {
         if (figure instanceof Character) {
-          this.applyItemEffects(figure);
           this.applyDonations(figure);
           figure.initiativeVisible = true;
         }

@@ -73,6 +73,20 @@ export class EntityMenuDialogComponent {
       for (let index = 0; index < data.entity.tokens.length; index++) {
         this.characterTokenValues[index] = data.entity.tokenValues[index] || 0;
       }
+
+      if (data.entity.identities && data.entity.identities.length > 1 && settingsManager.settings.characterIdentities) {
+        this.titles = data.entity.title.split('|');
+        if (this.titles.length < data.entity.identities.length) {
+          for (let i = this.titles.length; i < data.entity.identities.length; i++) {
+            this.titles.push('');
+          }
+        }
+        for (let i = 0; i < this.titles.length; i++) {
+          if (!this.titles[i]) {
+            this.titles[i] = settingsManager.getLabel('data.character.' + data.entity.name.toLowerCase());
+          }
+        }
+      }
     } else if (data.entity instanceof Objective) {
       this.conditionType = 'character';
     } else if (data.entity instanceof MonsterEntity) {
@@ -725,7 +739,7 @@ export class EntityMenuDialogComponent {
         this.curse = 0;
       }
 
-      let title = "";
+      let title = this.data.entity.title;
 
       if (this.characterTitleInput) {
         title = this.characterTitleInput.nativeElement.value;

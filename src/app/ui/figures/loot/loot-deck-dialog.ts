@@ -57,6 +57,11 @@ export class LootDeckDialogComponent implements OnInit {
       this.configuration = true;
     }
 
+    if (!gameManager.game.scenario) {
+      this.enhancements = true;
+      this.configuration = false;
+    }
+
     this.dialogRef.closed.subscribe({
       next: () => {
         const close = this.deck.cards.length == 0;
@@ -98,6 +103,16 @@ export class LootDeckDialogComponent implements OnInit {
     }, 0);
   }
 
+  toggleEnhancements() {
+    this.enhancements = !this.enhancements;
+    this.edit = false;
+    this.configuration = false;
+    if (!this.enhancements && this.deck.cards.length == 0) {
+      this.edit = true;
+      this.configuration = true;
+    }
+  }
+
   maxValue(type: LootType): number {
     return gameManager.lootManager.fullLootDeck().filter((loot) => loot.type == type).length;
   }
@@ -114,20 +129,24 @@ export class LootDeckDialogComponent implements OnInit {
   }
 
   applyConfig() {
-    this.before.emit(new LootDeckChange(this.deck, 'lootDeckChangeConfig'));
-    const close = this.deck.cards.length == 0;
-    gameManager.lootManager.apply(this.deck, this.lootDeckConfig);
-    gameManager.lootManager.shuffleDeck(this.deck);
-    this.types.forEach((type) => {
-      if (this.lootDeckConfig[type] == 0) {
-        this.lootDeckConfig[type] = undefined;
+    const empty = this.deck.cards.length == 0;
+    if (Object.values(this.lootDeckConfig).reduce((a, b) => (a || 0) + (b || 0)) > 0 || !empty) {
+      this.before.emit(new LootDeckChange(this.deck, 'lootDeckChangeConfig'));
+      gameManager.lootManager.apply(this.deck, this.lootDeckConfig);
+      gameManager.lootManager.shuffleDeck(this.deck);
+      this.types.forEach((type) => {
+        if (this.lootDeckConfig[type] == 0) {
+          this.lootDeckConfig[type] = undefined;
+        }
+      })
+      this.after.emit(new LootDeckChange(this.deck, 'lootDeckChangeConfig'));
+      if (this.deck.cards.length > 0) {
+        if (empty) {
+          this.dialogRef.close();
+        } else {
+          this.toggleEdit();
+        }
       }
-    })
-    this.after.emit(new LootDeckChange(this.deck, 'lootDeckChangeConfig'));
-    if (close && this.deck.cards.length > 0) {
-      this.dialogRef.close();
-    } else {
-      this.toggleEdit();
     }
   }
 

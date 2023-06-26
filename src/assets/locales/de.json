@@ -88,6 +88,16 @@
       "import": "Importieren",
       "items": {
         ".": "Gegenstände",
+        "brewing": {
+          ".": "Tränke brauen",
+          "brew": "Brauen",
+          "brewed": "%data.character.{2}% hat {1} %data.itemFh.{0}% gebraut",
+          "brewFor": "Braue für %data.character.{0}%",
+          "brewedOther": "%data.character.{2}% hat {1} %data.itemFh.{0}% für %data.character.{3}% gebraut",
+          "item": "{1} %data.itemFh.{0}%",
+          "noChar": "Jeder Charakter besitzt schon diesen Trank!",
+          "selectCharacter": "Charakter auswählen für den der Trank gebraut wird:"
+        },
         "effect": "Falls der Gegenstand angelegt ist, wird der Effekt automatisch angewendet. Um einen Gegenstand anzulegen, einfach auf den Namen klicken. Anlegen von Gegenständen ist nur vor oder zwischen Scenarien möglich. Durch Doppelclick kann das Anlegen erzwungen werden.",
         "wip": "%wip%! Gegenstände für %data.edition.{0}% sind noch nicht vollständig."
       },

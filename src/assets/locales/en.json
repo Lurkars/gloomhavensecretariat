@@ -89,9 +89,14 @@
       "items": {
         ".": "Items",
         "brewing": {
-          ".": "Brewing",
-          "threeHerbs": "3 Herbs %game.resource.{0}%",
-          "twoHerbs": "2 Herbs"
+          ".": "Brew Potions",
+          "brew": "Brew",
+          "brewed": "%data.character.{2}% brewed {1} %data.itemFh.{0}%",
+          "brewFor": "Brew for %data.character.{0}%",
+          "brewedOther": "%data.character.{2}% brewed {1} %data.itemFh.{0}% for %data.character.{3}%",
+          "item": "{1} %data.itemFh.{0}%",
+          "noChar": "Potion already owned by every character!",
+          "selectCharacter": "Select Character to brew for:"
         },
         "effect": "If the item is equipped, it's effect is automatically applied. To equip an item, just click it's name. Equipping items is only allowed before and between scenarios. Doubleclick to force equipping.",
         "wip": "%wip%! Items for %data.edition.{0}% not complete yet."

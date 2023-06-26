@@ -16,8 +16,7 @@
             [ngClass]="{'selected' : character == char && treasureIndex != -1, 'disabled' : treasureIndex == -1}">
             <img class="icon" [src]="char.iconUrl" />
             <span class="name">
-                <span *ngIf="char.title">{{char.title}}</span>
-                <span *ngIf="!char.title" [ghs-label]="'data.character.' + char.name"></span>
+                {{gameManager.characterManager.characterName(char)}}
             </span>
 
             <div class="treasures">

@@ -18,6 +18,10 @@
       text-shadow: var(--ghs-outline);
       margin: 0 calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
 
+      &.disabled {
+        pointer-events: none;
+      }
+
       &:hover {
         color: var(--ghs-color-white);
       }
