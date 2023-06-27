@@ -1,8 +1,6 @@
-
-
 <a class="close" (click)="dialogRef.close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'">
     <img src="./assets/images/close_dialog.svg">
-  </a>
+</a>
 
 <p><span [ghs-label]="'game.loot.chooseCharacter'"
         [ghs-label-args]="['' +gameManager.lootManager.getValue(loot), 'game.loot.' + loot.type]"></span></p>
@@ -10,7 +8,7 @@
     <div class="character" *ngFor="let character of characters" (click)="toggleSelect(character.name)"
         [ngClass]="{'selected' : character.name == selected}">
         <img class="icon" [src]="character.iconUrl" />
-        <span>{{gameManager.characterManager.characterName(character)}}</span>
+        <span>{{gameManager.characterManager.characterName(character, true)}}</span>
     </div>
 </div>
 

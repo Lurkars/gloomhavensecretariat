@@ -1803,6 +1803,7 @@
           height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
 
           .level {
+            cursor: pointer;
             display: flex;
             justify-content: center;
             font-family: var(--ghs-font-title);

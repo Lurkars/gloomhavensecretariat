@@ -412,7 +412,7 @@ export class ScenarioSummaryComponent {
                 gameManager.game.party.manualScenarios.push(new GameScenarioModel(this.chooseLocation, this.scenario.edition, this.scenario.group));
             }
 
-            if (this.chooseUnlockCharacter && gameManager.game.unlockedCharacters.indexOf(this.chooseUnlockCharacter) == -1) {
+            if (settingsManager.settings.automaticUnlocking && this.chooseUnlockCharacter && gameManager.game.unlockedCharacters.indexOf(this.chooseUnlockCharacter) == -1) {
                 gameManager.game.unlockedCharacters.push(this.chooseUnlockCharacter);
             }
 

@@ -213,6 +213,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setAutomaticUnlocking(automaticUnlocking: boolean) {
+    this.settings.automaticUnlocking = automaticUnlocking;
+    this.storeSettings();
+  }
+
   setAutoscroll(autoscroll: boolean) {
     this.settings.autoscroll = autoscroll;
     this.storeSettings();

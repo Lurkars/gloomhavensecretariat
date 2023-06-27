@@ -9,8 +9,7 @@
   <div *ngIf="settingsManager.settings.disableStandees && hideStats(MonsterType.elite)" class="filter-stats elite">
   </div>
 
-  <div class="name-container" ghs-pointer-input (singleClick)="openStatsPopup()" (doubleClick)="openStatPopup()"
-    [disabled]="noClick">
+  <div class="name-container" ghs-pointer-input (singleClick)="openStatsPopup()" (doubleClick)="openStatPopup()">
     <span class="name">
       <span [ghs-label]="'data.monster.' + monster.name"></span>
       <span class="ally" *ngIf="monster.isAlly"><span [ghs-label]="'game.ally'"></span></span>

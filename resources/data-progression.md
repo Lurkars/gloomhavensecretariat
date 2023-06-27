@@ -1,18 +1,18 @@
 In order to avoid error reports due to incomplete data, here is the current status for all editions
 
-- :heavy_check_mark: `complete`
-- :white_check_mark: `some (raw) data available, but needs checking/rework`
-- :no_entry_sign: `no data yet` 
+- ✅ `complete`
+- ❔ `some (raw) data available, but needs checking/rework`
+- ⛔ `no data yet` 
 
-|                              |        *GH*        |        *FH*        |       *JotL*       |        *FC*        |        *CS*        |       *ToA*        |
-| ---------------------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: |
-|               **Characters** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-|                 **Monsters** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :white_check_mark: |
-|      **Char. Perks/AM Deck** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  :no_entry_sign:   |
-|       **Scenarios/Sections** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Rooms/Automatic Standees** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-|            **Special Rules** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :white_check_mark: | :heavy_check_mark: |
-|         **Scenario Rewards** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-|           **Solo Scenarios** | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-|                **Treasures** | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-|                **Buildings** |         -          | :heavy_check_mark: |         -          |         -          |         -          |         -          |
+|                              | *GH*  | *FH*  | *JotL* | *FC*  | *CS*  | *ToA* |
+| ---------------------------: | :---: | :---: | :----: | :---: | :---: | :---: |
+|               **Characters** |   ✅   |   ✅   |   ✅    |   ✅   |   ✅   |   ✅   |
+|                 **Monsters** |   ✅   |   ✅   |   ✅    |   ✅   |   ✅   |   ❔   |
+|      **Char. Perks/AM Deck** |   ✅   |   ✅   |   ✅    |   ✅   |   ✅   |   ⛔   |
+|       **Scenarios/Sections** |   ✅   |   ✅   |   ✅    |   ✅   |   ✅   |   ✅   |
+| **Rooms/Automatic Standees** |   ✅   |   ✅   |   ✅    |   ✅   |   ✅   |   ✅   |
+|            **Special Rules** |   ✅   |   ✅   |   ✅    |   ✅   |   ❔   |   ✅   |
+|         **Scenario Rewards** |   ✅   |   ✅   |   ✅    |   ✅   |   ✅   |   ✅   |
+|           **Solo Scenarios** |   ❔   |   ❔   |   ❔    |   ❔   |   ❔   |   ❔   |
+|                **Treasures** |   ✅   |   ✅   |   ✅    |   ✅   |   ✅   |   ✅   |
+|                **Buildings** |   -   |   ✅   |   -    |   -   |   -   |   -   |

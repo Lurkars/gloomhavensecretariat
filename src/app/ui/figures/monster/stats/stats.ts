@@ -117,22 +117,30 @@ export class MonsterStatsComponent implements OnInit {
     })
   }
 
-  openStatPopup() {
-    this.dialog.open(MonsterStatDialogComponent, { data: this.monster });
+  openStatsPopup() {
+    if (!this.noClick) {
+      this.dialog.open(MonsterStatsDialogComponent, { panelClass: 'dialog', data: this.monster });
+    } else {
+      this.dialog.open(MonsterStatDialogComponent, { data: this.monster });
+    }
   }
 
-  openStatsPopup() {
-    this.dialog.open(MonsterStatsDialogComponent, { panelClass: 'dialog', data: this.monster });
+  openStatPopup() {
+    if (!this.noClick) {
+      this.dialog.open(MonsterStatDialogComponent, { data: this.monster });
+    }
   }
 
   openEntityMenu(event: any): void {
-    this.dialog.open(EntityMenuDialogComponent, {
-      panelClass: 'dialog',
-      data: {
-        entity: undefined,
-        figure: this.monster
-      },
-      positionStrategy: this.overlay.position().flexibleConnectedTo(this.element).withPositions(ghsDefaultDialogPositions())
-    });
+    if (!this.noClick) {
+      this.dialog.open(EntityMenuDialogComponent, {
+        panelClass: 'dialog',
+        data: {
+          entity: undefined,
+          figure: this.monster
+        },
+        positionStrategy: this.overlay.position().flexibleConnectedTo(this.element).withPositions(ghsDefaultDialogPositions())
+      });
+    }
   }
 }

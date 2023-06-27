@@ -16,7 +16,7 @@
             [ngClass]="{'selected' : character == char && treasureIndex != -1, 'disabled' : treasureIndex == -1}">
             <img class="icon" [src]="char.iconUrl" />
             <span class="name">
-                {{gameManager.characterManager.characterName(char)}}
+                {{gameManager.characterManager.characterName(char,true)}}
             </span>
 
             <div class="treasures">

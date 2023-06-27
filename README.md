@@ -134,7 +134,7 @@ For use with docker compose, just run `docker compose up -d`.
 
 ## Building from source
 
-If you want to create your own custom build (e.g. on [Selfhosting](#Selfhosting)), prepare a [development setup](#development). Then run `npm run build' ([available options](https://angular.io/cli/build#options)) and access the build at `./dist/gloomhavensecretariat'.
+If you want to create your own custom build (e.g. on [Selfhosting](#Selfhosting)), prepare a [development setup](#development). Then run `npm run build` ([available options](https://angular.io/cli/build#options)) and access the build at `./dist/gloomhavensecretariat`.
 
 ## Development
 
@@ -159,7 +159,7 @@ Each edition folder will be concatenated into a single edition data file on buil
 
 Pull requests are also welcome!
 
-> Please note: all files in the data subfolder will be automatically formatted and added to each commit. If you have made local changes to these files and do NOT want to commit those changes, please use the `--no-verify' parameter for your `git commit' and `git push' commands.
+> Please note: all files in the data subfolder will be automatically formatted and added to each commit. If you have made local changes to these files and do NOT want to commit those changes, please use the `--no-verify` parameter for your `git commit` and `git push` commands.
 
 Thanks to everyone who has already [contributed](https://github.com/Lurkars/gloomhavensecretariat/graphs/contributors), you're awesome!
 

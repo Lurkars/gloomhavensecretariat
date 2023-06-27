@@ -3,7 +3,7 @@
     <div class="title">
       <ng-container *ngIf="character">
         <img class="icon" [src]="character.iconUrl" />
-        {{gameManager.characterManager.characterName(character)}}
+        {{gameManager.characterManager.characterName(character, true)}}
         &nbsp;
       </ng-container>
 

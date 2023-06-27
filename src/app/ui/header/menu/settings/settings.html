@@ -640,6 +640,19 @@
         </span>
       </div>
     </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.automaticUnlocking"
+            (change)="settingsManager.setAutomaticUnlocking(!settingsManager.settings.automaticUnlocking)">
+          <span [ghs-label]="'settings.automaticUnlocking'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.automaticUnlocking.hint'"></span>
+        </span>
+      </div>
+    </div>
   </div>
 
   <div class="column">
@@ -735,7 +748,8 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.characterAttackModifierDeck}">
-          <input type="checkbox" [checked]="settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierDeckPermanent"
+          <input type="checkbox"
+            [checked]="settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierDeckPermanent"
             (change)="settingsManager.setCharacterAttackModifierDeckPermanent(!settingsManager.settings.characterAttackModifierDeckPermanent)">
           <span [ghs-label]="'settings.characterAttackModifierDeckPermanent'"></span>
         </label>

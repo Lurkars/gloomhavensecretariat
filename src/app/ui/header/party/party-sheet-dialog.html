@@ -124,7 +124,7 @@
           <label class="summer"><img src="./assets/images/fh/party/summer.svg">
             <span [ghs-label]="'party.campaign.sheet.summer'"></span>
           </label>
-          <label class="headline"  (click)="campaign = true">
+          <label class="headline" (click)="campaign = true">
             <span [ghs-label]="'party.campaign.sheet'"></span>
             <span class="management">
               <img src="./assets/images/left.svg">
@@ -531,7 +531,8 @@
               *ngFor="let check of []|ghsRange:(prosperitySteps[prosperitySteps.length-1]+1); let index = index;"
               [autoscroll]="party.prosperity == index +1 || party.prosperity == 0 && index == 0"
               [ngClass]="{'large' : prosperitySteps.indexOf(index) != -1}">
-              <div class="level" *ngIf="prosperitySteps.indexOf(index) != -1">{{prosperitySteps.indexOf(index) + 2}}
+              <div class="level" *ngIf="prosperitySteps.indexOf(index) != -1" (click)="setProsperity(index+1)">
+                {{prosperitySteps.indexOf(index) + 2}}
               </div>
               <div class="checkbox" (click)="setProsperity(index+1)"
                 [ngClass]="{'checked': party.prosperity > index, 'highlight' : prosperityHighlightSteps.indexOf(index) != -1}">

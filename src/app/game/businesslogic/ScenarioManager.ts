@@ -246,7 +246,7 @@ export class ScenarioManager {
             }
           }
 
-          if (rewards.unlockCharacter && this.game.unlockedCharacters.indexOf(rewards.unlockCharacter) == -1) {
+          if (settingsManager.settings.automaticUnlocking && rewards.unlockCharacter && this.game.unlockedCharacters.indexOf(rewards.unlockCharacter) == -1) {
             this.game.unlockedCharacters.push(rewards.unlockCharacter);
           }
         }

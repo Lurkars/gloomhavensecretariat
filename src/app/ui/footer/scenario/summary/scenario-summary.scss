@@ -285,20 +285,21 @@
 
         &.disabled {
           pointer-events: none;
+        }
 
-          &.character {
+        &.character.unlocked {
+          pointer-events: none;
 
-            &::before {
-              content: ' ';
-              position: absolute;
-              top: 50%;
-              left: 0;
-              right: 0;
-              height: 0.1em;
-              background-color: var(--ghs-color-white);
-              transform: translateY(-50%);
-              z-index: 2;
-            }
+          &::before {
+            content: ' ';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 0.1em;
+            background-color: var(--ghs-color-white);
+            transform: translateY(-50%);
+            z-index: 2;
           }
         }
 

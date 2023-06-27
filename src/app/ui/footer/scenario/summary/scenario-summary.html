@@ -23,7 +23,7 @@
       <span class="first" *ngFor="let character of characters; let index = index;">
         <img class="icon character-icon" (click)="openCharacterSheet(character)" [src]="character.iconUrl" />
         <span class="name" [ngClass]="{'absent' : character.absent}">
-          {{gameManager.characterManager.characterName(character)}}
+          {{gameManager.characterManager.characterName(character,true)}}
         </span>
         <img class="ghs-svg absent-icon"
           [src]="'./assets/images/status/' + (character.absent ? 'absent': 'present') + '.svg'"
@@ -504,8 +504,8 @@
               <span><span [ghs-label]="'scenario.rewards.unlockCharacter'"></span></span>
               <label class="item character choose"
                 *ngFor="let character of rewards.chooseUnlockCharacter; let i = index;"
-                [ngClass]="{'disabled': unlocked(character)}">
-                <input type="radio" name="chooseUnlockCharacter" (change)="selectCharacter(character)"
+                [ngClass]="{'unlocked': unlocked(character), 'disabled': !settingsManager.settings.automaticUnlocking}">
+                <input *ngIf="settingsManager.settings.automaticUnlocking" type="radio" name="chooseUnlockCharacter" (change)="selectCharacter(character)"
                   [value]="character" [checked]="chooseUnlockCharacter == character">
                 <span class="placeholder text-white" [ghs-label]="'scenario.rewards.unlockCharacter.box'"
                   [ghs-label-args]="[character]"></span>

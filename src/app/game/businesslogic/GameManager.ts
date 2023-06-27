@@ -515,7 +515,7 @@ export class GameManager {
     let prosperityLevel = 1;
     const prosperitySteps = this.fhRules() ? FH_PROSPERITY_STEPS : GH_PROSPERITY_STEPS;
     prosperitySteps.forEach((step) => {
-      if (this.game.party.prosperity >= step) {
+      if (this.game.party.prosperity > step) {
         prosperityLevel++;
       }
     })

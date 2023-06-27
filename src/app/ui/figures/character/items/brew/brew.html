@@ -81,7 +81,7 @@
     <div class="receipe" *ngIf="brewed && otherCharacters.length == 0 && !noChar">
         <span class="placeholder text-white item"
             [ghs-label]="'character.progress.items.brewing.brewed' + (otherCharacter ? 'Other' : '')"
-            [ghs-label-args]="['' + brewed.id, brewed.name, character.name, otherCharacter ? otherCharacter.name : '']"></span>
+            [ghs-label-args]="['' + brewed.id, brewed.name, gameManager.characterManager.characterName(character,true) , otherCharacter ? gameManager.characterManager.characterName(otherCharacter,true): '']"></span>
     </div>
 
     <ng-container *ngIf="brewed && otherCharacters.length > 0">
@@ -96,15 +96,14 @@
                 [ngClass]="{'selected' : otherCharacter == char}">
                 <img class="icon" [src]="char.iconUrl" />
                 <span class="name">
-                    {{gameManager.characterManager.characterName(char)}}
+                    {{gameManager.characterManager.characterName(char,true)}}
                 </span>
             </div>
         </div>
     </ng-container>
 
     <div class="receipe" *ngIf="noChar">
-        <span class="placeholder item already"
-            [ghs-label]="'character.progress.items.brewing.noChar'"></span>
+        <span class="placeholder item already" [ghs-label]="'character.progress.items.brewing.noChar'"></span>
     </div>
 
     <div class="menu">
@@ -112,6 +111,6 @@
         <a class="apply"
             [ngClass]="{'disabled' : noChar || brewed && (otherCharacters.length == 0 || !otherCharacter) || receipe.length < 2 || !receipe[0] || !receipe[1]}"
             (click)="brew()"><span [ghs-label]="'character.progress.items.brewing.brew' + (otherCharacter ? 'For' : '')"
-                [ghs-label-args]="[otherCharacter ? otherCharacter.name : '']"></span></a>
+                [ghs-label-args]="[otherCharacter ? gameManager.characterManager.characterName(otherCharacter, true) : '']"></span></a>
     </div>
 </div>

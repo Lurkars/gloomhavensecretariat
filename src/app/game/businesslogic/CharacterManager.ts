@@ -55,10 +55,10 @@ export class CharacterManager {
     let name = settingsManager.getLabel('data.character.' + character.name);
     let hasTitle = false;
     if (character.identities.length > 0 && settingsManager.settings.characterIdentities) {
-      if (character.title && character.title.split('|')[character.identity]) {
+      if (character.title && character.title.split('|')[character.identity] && character.title.split('|')[character.identity]) {
         name = character.title.split('|')[character.identity];
         hasTitle = true;
-      } else if (settingsManager.settings.characterIdentityHint) {
+      } else if (settingsManager.settings.characterIdentityHint && !full) {
         name += " (" + settingsManager.getLabel('data.character.' + character.name + '.' + character.identities[character.identity]) + ")"
       }
     } else if (character.title) {

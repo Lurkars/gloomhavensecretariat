@@ -110,7 +110,7 @@ footer {
     left: 0;
     width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
-    bottom: calc(var(--ghs-unit) * 11.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    bottom: calc(var(--ghs-unit) * 12.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     z-index: 2;
 
     &::before {

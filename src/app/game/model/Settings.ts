@@ -21,6 +21,7 @@ export class Settings {
   automaticAttackModifierFullscreen: boolean = true;
   automaticStandees: boolean = true;
   automaticStandeesDialog: boolean = false;
+  automaticUnlocking: boolean = true;
   autoscroll: boolean = true;
   barsize: number = 1;
   browserNavigation: boolean = false;

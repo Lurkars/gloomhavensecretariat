@@ -12,96 +12,96 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 
 > This is **not** a comparison of **usability**, **performance** or any **visual**, so personal taste and expectations may differ from a simple table of features!
 
-- :heavy_check_mark: `supported`
-- :exclamation: `support with limitations`
-- :no_entry_sign: `no support` 
-- :grey_question: `missing information`
+- ✅ `supported`
+- ❗ `support with limitations`
+- ⛔ `no support` 
+- ❔ `missing information`
 
-| Tracking                                                                        | *GHS*                                  | *XHA*                                  | *FOC*                                | *GHFS*                                | *GHH*                                |
-| :------------------------------------------------------------------------------ | :------------------------------------- | :------------------------------------- | :----------------------------------- | :------------------------------------ | :----------------------------------- |
-| Track all figures (Character, Monster + Standees, Summons, Objectives, Escorts) | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Track basic data (HP, Conditions)                                               | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Track Initiative (incl. sorting)                                                | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Monster Abilities                                                               | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Monster Attack Modifier Deck                                                    | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Curse & Bless Attack Modifier                                                   | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Ally Attack Modifier Deck                                                       | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :no_entry_sign:                       | :no_entry_sign:                      |
-| Scenario Setup (Monster, Objectives, Escorts)                                   | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Sperate Rooms/Sections                                                          | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Character Attack Modifier Deck                                                  | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Character Perks                                                                 | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Character Scenario XP                                                           | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Character Scenario Gold                                                         | :heavy_check_mark:                     | :no_entry_sign:                        | :heavy_check_mark:                   | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Character Progress (XP, Gold/Resources, Items, Perks etc.)                      | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Character Abilities                                                             | :no_entry_sign:                        | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Campaign Progress                                                               | :heavy_check_mark:                     | :no_entry_sign:                        | :heavy_check_mark::exclamation:      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Event-Decks                                                                     | :no_entry_sign:                        | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Battle Goal Deck                                                                | :no_entry_sign:                        | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Multiple Parties/Campaigns                                                      | :heavy_check_mark:                     | :no_entry_sign:                        | :heavy_check_mark:                   | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Loot Deck                                                                       | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Frosthaven Outpost (Calender, Resources, Buildings, Town Guard etc.)            | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Town Guard Deck                                                                 | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-|                                                                                 |                                        |                                        |                                      |                                       |                                      |
-| **Editions**                                                                    | *GHS*                                  | *XHA*                                  | *FOC*                                | *GHFS*                                | *GHH*                                |
-| Gloomhaven                                                                      | :heavy_check_mark:                     | :heavy_check_mark:                     | :no_entry_sign:                      | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Forgotten Circles (including Diviner Mechanics)                                 | :heavy_check_mark:                     | :heavy_check_mark:                     | :no_entry_sign:                      | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Jaws Of The Lion                                                                | :heavy_check_mark:                     | :heavy_check_mark:                     | :no_entry_sign:                      | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Frosthaven                                                                      | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:[^2.2]              | :no_entry_sign:                      |
-| The Crimson Scales                                                              | :heavy_check_mark:[^2.1]               | :heavy_check_mark:                     | :no_entry_sign:                      | :heavy_check_mark::exclamation:[^1.3] | :no_entry_sign:                      |
-| Solo Scenarios (for supported Editions)                                         | :heavy_check_mark::exclamation:        | :heavy_check_mark:                     | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Seeker Of Xorn                                                                  | :heavy_check_mark:[^3]                 | :heavy_check_mark:                     | :no_entry_sign:                      | :no_entry_sign:                       | :no_entry_sign:                      |
-| Blood and Sand                                                                  | :heavy_check_mark:[^3]                 | :no_entry_sign:                        | :no_entry_sign:                      | :no_entry_sign:                       | :no_entry_sign:                      |
-| Trail Of Ashes                                                                  | :heavy_check_mark::exclamation:[^16.1] | :heavy_check_mark:                     | :no_entry_sign:                      | :no_entry_sign:                       | :no_entry_sign:                      |
-| supports Envelope X                                                             | :heavy_check_mark:[^3]                 | :heavy_check_mark:                     | :no_entry_sign:                      | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| supports Frosthaven Crossover Characters                                        | :heavy_check_mark:[^3]                 | :no_entry_sign:[^19]                   | :no_entry_sign:[^19]                 | :no_entry_sign:                       | :no_entry_sign:[^19]                 |
-|                                                                                 |                                        |                                        |                                      |                                       |                                      |
-| **Additional Features**                                                         | *GHS*                                  | *XHA*                                  | *FOC*                                | *GHFS*                                | *GHH*                                |
-| Synchronize multiple clients                                                    | :heavy_check_mark:[^4]                 | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Right Management for clients                                                    | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :no_entry_sign:                       | :no_entry_sign:                      |
-| Undo/Redo function                                                              | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:[^13]               | :heavy_check_mark:                   |
-| Calculate Abilities (based on stats)                                            | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Add Basic Values to Stats                                                       | :heavy_check_mark:                     | :heavy_check_mark:                     | :no_entry_sign:                      | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Update Elements                                                                 | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Consume Elements by Monsters                                                    | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Expire Conditions                                                               | :heavy_check_mark:                     | :heavy_check_mark:                     | :no_entry_sign:                      | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Apply Conditions                                                                | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Loot Deck Enhancements                                                          | :heavy_check_mark:                     | :heavy_check_mark:                     | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Assign Loot Cards to Character                                                  | :heavy_check_mark:                     | :heavy_check_mark:                     | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Special Scenario Rules/Notes                                                    | :heavy_check_mark:                     | :heavy_check_mark:                     | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Apply Special Scenario Rules                                                    | :heavy_check_mark:                     | :heavy_check_mark::exclamation:[^16.2] | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Automatic Standees                                                              | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Assign Standee Numbers                                                          | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Sort Standees                                                                   | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Select multiple standees                                                        | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :no_entry_sign:                       | :no_entry_sign:                      |
-| Random Standees                                                                 | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :heavy_check_mark:                   |
-| Active Standees                                                                 | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Hide Standees                                                                   | :heavy_check_mark:                     | :heavy_check_mark:                     | :no_entry_sign:                      | :no_entry_sign:                       | :heavy_check_mark:                   |
-| Drag Values (Initiative, HP, XP, Gold)                                          | :heavy_check_mark:                     | :heavy_check_mark::exclamation:[^18]   | :heavy_check_mark::exclamation:[^18] | :no_entry_sign:                       | :heavy_check_mark:                   |
-| Play without initiative required                                                | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :no_entry_sign:                       | :heavy_check_mark:                   |
-| Automatic level calculation                                                     | :heavy_check_mark:                     | :heavy_check_mark::exclamation:[^12]   | :no_entry_sign:                      | :heavy_check_mark:                    | :heavy_check_mark::exclamation:[^12] |
-| Ability Card Names                                                              | :heavy_check_mark:[^17.1]              | :heavy_check_mark:                     | :heavy_check_mark:[^17.2]            | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Named Summons                                                                   | :heavy_check_mark:                     | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Summon Stats                                                                    | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Active Summons                                                                  | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Mark Long Rest                                                                  | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :no_entry_sign:                       | :no_entry_sign:                      |
-| Automatic apply Long Rest (perform Heal 2)                                      | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :no_entry_sign:                       | :no_entry_sign:                      |
-| Support ≥ 5 Players rules                                                       | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Absent Characters                                                               | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:                      |
-| Localization                                                                    | :heavy_check_mark:[^5]                 | :no_entry_sign:                        | :no_entry_sign:                      | :no_entry_sign:                       | :heavy_check_mark::exclamation:[^6]  |
-| Offline Support                                                                 | :heavy_check_mark:[^10]                | :heavy_check_mark:                     | :heavy_check_mark:                   | :no_entry_sign:                       | :heavy_check_mark:                   |
-|                                                                                 |                                        |                                        |                                      |                                       |                                      |
-| **Devices**                                                                     | *GHS*                                  | *XHA*                                  | *FOC*                                | *GHFS*                                | *GHH*                                |
-| Web                                                                             | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :heavy_check_mark:                    | :no_entry_sign:[^8]                  |
-| Windows                                                                         | :heavy_check_mark:[^7]                 | :heavy_check_mark:                     | :no_entry_sign:                      | :heavy_check_mark::exclamation:[^7]   | :exclamation:[^9]                    |
-| MacOS                                                                           | :heavy_check_mark:[^7]                 | :heavy_check_mark:                     | :no_entry_sign:                      | :heavy_check_mark::exclamation:[^7]   | :exclamation:[^9]                    |
-| Linux                                                                           | :heavy_check_mark:[^7]                 | :heavy_check_mark:                     | :no_entry_sign:                      | :heavy_check_mark::exclamation:[^7]   | :exclamation:[^9]                    |
-| Android                                                                         | :heavy_check_mark::exclamation:[^7]    | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark::exclamation:[^7]   | :exclamation:[^9]                    |
-| iOS                                                                             | :heavy_check_mark::exclamation:[^7]    | :heavy_check_mark:                     | :heavy_check_mark:                   | :heavy_check_mark::exclamation:[^7]   | :no_entry_sign:[^8]                  |
-|                                                                                 |                                        |                                        |                                      |                                       |                                      |
-| **Contribution**                                                                | *GHS*                                  | *XHA*                                  | *FOC*                                | *GHFS*                                | *GHH*                                |
-| OpenSource License                                                              | :heavy_check_mark:[^14]                | :heavy_check_mark:[^15]                | :no_entry_sign:                      | :no_entry_sign:                       | :no_entry_sign:                      |
-| Custom Content                                                                  | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :no_entry_sign:                       | :no_entry_sign:                      |
-| Monster Editor (Stats + Abilities)                                              | :heavy_check_mark:                     | :no_entry_sign:                        | :no_entry_sign:                      | :no_entry_sign:                       | :no_entry_sign:                      |
+| Tracking                                                                        | *GHS*     | *XHA*     | *FOC*    | *GHFS*   | *GHH*   |
+| :------------------------------------------------------------------------------ | :-------- | :-------- | :------- | :------- | :------ |
+| Track all figures (Character, Monster + Standees, Summons, Objectives, Escorts) | ✅         | ✅         | ✅        | ✅        | ✅       |
+| Track basic data (HP, Conditions)                                               | ✅         | ✅         | ✅        | ✅        | ✅       |
+| Track Initiative (incl. sorting)                                                | ✅         | ✅         | ✅        | ✅        | ✅       |
+| Monster Abilities                                                               | ✅         | ✅         | ✅        | ✅        | ✅       |
+| Monster Attack Modifier Deck                                                    | ✅         | ✅         | ✅        | ✅        | ✅       |
+| Curse & Bless Attack Modifier                                                   | ✅         | ✅         | ✅        | ✅        | ✅       |
+| Ally Attack Modifier Deck                                                       | ✅         | ✅         | ✅        | ⛔        | ⛔       |
+| Scenario Setup (Monster, Objectives, Escorts)                                   | ✅         | ✅         | ✅        | ✅        | ✅       |
+| Sperate Rooms/Sections                                                          | ✅         | ✅         | ✅        | ✅        | ⛔       |
+| Character Attack Modifier Deck                                                  | ✅         | ⛔         | ⛔        | ✅        | ⛔       |
+| Character Perks                                                                 | ✅         | ⛔         | ⛔        | ✅        | ⛔       |
+| Character Scenario XP                                                           | ✅         | ✅         | ✅        | ✅        | ✅       |
+| Character Scenario Gold                                                         | ✅         | ⛔         | ✅        | ✅        | ✅       |
+| Character Progress (XP, Gold/Resources, Items, Perks etc.)                      | ✅         | ⛔         | ⛔        | ✅        | ⛔       |
+| Character Abilities                                                             | ⛔         | ⛔         | ⛔        | ✅        | ⛔       |
+| Campaign Progress                                                               | ✅         | ⛔         | ✅❗       | ✅        | ⛔       |
+| Event-Decks                                                                     | ⛔         | ⛔         | ⛔        | ✅        | ⛔       |
+| Battle Goal Deck                                                                | ⛔         | ⛔         | ⛔        | ✅        | ⛔       |
+| Multiple Parties/Campaigns                                                      | ✅         | ⛔         | ✅        | ✅        | ⛔       |
+| Loot Deck                                                                       | ✅         | ✅         | ✅        | ✅        | ⛔       |
+| Frosthaven Outpost (Calender, Resources, Buildings, Town Guard etc.)            | ✅         | ⛔         | ⛔        | ✅        | ⛔       |
+| Town Guard Deck                                                                 | ✅         | ⛔         | ⛔        | ✅        | ⛔       |
+|                                                                                 |           |           |          |          |         |
+| **Editions**                                                                    | *GHS*     | *XHA*     | *FOC*    | *GHFS*   | *GHH*   |
+| Gloomhaven                                                                      | ✅         | ✅         | ⛔        | ✅        | ✅       |
+| Forgotten Circles (including Diviner Mechanics)                                 | ✅         | ✅         | ⛔        | ✅        | ✅       |
+| Jaws Of The Lion                                                                | ✅         | ✅         | ⛔        | ✅        | ✅       |
+| Frosthaven                                                                      | ✅         | ✅         | ✅        | ✅[^2.2]  | ⛔       |
+| The Crimson Scales                                                              | ✅[^2.1]   | ✅         | ⛔        | ✅❗[^1.3] | ⛔       |
+| Solo Scenarios (for supported Editions)                                         | ✅❗        | ✅         | ⛔        | ✅        | ⛔       |
+| Seeker Of Xorn                                                                  | ✅[^3]     | ✅         | ⛔        | ⛔        | ⛔       |
+| Blood and Sand                                                                  | ✅[^3]     | ⛔         | ⛔        | ⛔        | ⛔       |
+| Trail Of Ashes                                                                  | ✅❗[^16.1] | ✅         | ⛔        | ⛔        | ⛔       |
+| supports Envelope X                                                             | ✅[^3]     | ✅         | ⛔        | ✅        | ✅       |
+| supports Frosthaven Crossover Characters                                        | ✅[^3]     | ⛔[^19]    | ⛔[^19]   | ⛔        | ⛔[^19]  |
+|                                                                                 |           |           |          |          |         |
+| **Additional Features**                                                         | *GHS*     | *XHA*     | *FOC*    | *GHFS*   | *GHH*   |
+| Synchronize multiple clients                                                    | ✅[^4]     | ✅         | ✅        | ✅        | ✅       |
+| Right Management for clients                                                    | ✅         | ⛔         | ⛔        | ⛔        | ⛔       |
+| Undo/Redo function                                                              | ✅         | ✅         | ✅        | ✅[^13]   | ✅       |
+| Calculate Abilities (based on stats)                                            | ✅         | ✅         | ✅        | ✅        | ✅       |
+| Add Basic Values to Stats                                                       | ✅         | ✅         | ⛔        | ✅        | ✅       |
+| Update Elements                                                                 | ✅         | ✅         | ✅        | ✅        | ✅       |
+| Consume Elements by Monsters                                                    | ✅         | ⛔         | ⛔        | ✅        | ⛔       |
+| Expire Conditions                                                               | ✅         | ✅         | ⛔        | ✅        | ✅       |
+| Apply Conditions                                                                | ✅         | ⛔         | ⛔        | ✅        | ⛔       |
+| Loot Deck Enhancements                                                          | ✅         | ✅         | ⛔        | ✅        | ⛔       |
+| Assign Loot Cards to Character                                                  | ✅         | ✅         | ⛔        | ✅        | ⛔       |
+| Special Scenario Rules/Notes                                                    | ✅         | ✅         | ⛔        | ✅        | ⛔       |
+| Apply Special Scenario Rules                                                    | ✅         | ✅❗[^16.2] | ⛔        | ✅        | ⛔       |
+| Automatic Standees                                                              | ✅         | ✅         | ✅        | ✅        | ⛔       |
+| Assign Standee Numbers                                                          | ✅         | ✅         | ✅        | ✅        | ✅       |
+| Sort Standees                                                                   | ✅         | ✅         | ✅        | ✅        | ✅       |
+| Select multiple standees                                                        | ✅         | ⛔         | ⛔        | ⛔        | ⛔       |
+| Random Standees                                                                 | ✅         | ✅         | ✅        | ✅        | ✅       |
+| Active Standees                                                                 | ✅         | ⛔         | ⛔        | ✅        | ⛔       |
+| Hide Standees                                                                   | ✅         | ✅         | ⛔        | ⛔        | ✅       |
+| Drag Values (Initiative, HP, XP, Gold)                                          | ✅         | ✅❗[^18]   | ✅❗[^18]  | ⛔        | ✅       |
+| Play without initiative required                                                | ✅         | ✅         | ✅        | ⛔        | ✅       |
+| Automatic level calculation                                                     | ✅         | ✅❗[^12]   | ⛔        | ✅        | ✅❗[^12] |
+| Ability Card Names                                                              | ✅[^17.1]  | ✅         | ✅[^17.2] | ✅        | ⛔       |
+| Named Summons                                                                   | ✅         | ✅         | ✅        | ✅        | ⛔       |
+| Summon Stats                                                                    | ✅         | ⛔         | ⛔        | ✅        | ⛔       |
+| Active Summons                                                                  | ✅         | ⛔         | ⛔        | ✅        | ⛔       |
+| Mark Long Rest                                                                  | ✅         | ⛔         | ⛔        | ⛔        | ⛔       |
+| Automatic apply Long Rest (perform Heal 2)                                      | ✅         | ⛔         | ⛔        | ⛔        | ⛔       |
+| Support ≥ 5 Players rules                                                       | ✅         | ⛔         | ⛔        | ✅        | ⛔       |
+| Absent Characters                                                               | ✅         | ⛔         | ⛔        | ✅        | ⛔       |
+| Localization                                                                    | ✅[^5]     | ⛔         | ⛔        | ⛔        | ✅❗[^6]  |
+| Offline Support                                                                 | ✅[^10]    | ✅         | ✅        | ⛔        | ✅       |
+|                                                                                 |           |           |          |          |         |
+| **Devices**                                                                     | *GHS*     | *XHA*     | *FOC*    | *GHFS*   | *GHH*   |
+| Web                                                                             | ✅         | ⛔         | ⛔        | ✅        | ⛔[^8]   |
+| Windows                                                                         | ✅[^7]     | ✅         | ⛔        | ✅❗[^7]   | ❗[^9]   |
+| MacOS                                                                           | ✅[^7]     | ✅         | ⛔        | ✅❗[^7]   | ❗[^9]   |
+| Linux                                                                           | ✅[^7]     | ✅         | ⛔        | ✅❗[^7]   | ❗[^9]   |
+| Android                                                                         | ✅❗[^7]    | ✅         | ✅        | ✅❗[^7]   | ❗[^9]   |
+| iOS                                                                             | ✅❗[^7]    | ✅         | ✅        | ✅❗[^7]   | ⛔[^8]   |
+|                                                                                 |           |           |          |          |         |
+| **Contribution**                                                                | *GHS*     | *XHA*     | *FOC*    | *GHFS*   | *GHH*   |
+| OpenSource License                                                              | ✅[^14]    | ✅[^15]    | ⛔        | ⛔        | ⛔       |
+| Custom Content                                                                  | ✅         | ⛔         | ⛔        | ⛔        | ⛔       |
+| Monster Editor (Stats + Abilities)                                              | ✅         | ⛔         | ⛔        | ⛔        | ⛔       |
 
 [^1.3]: Not all scenarios available yet, but WIP, some Attackmodifier Rules missing
 
