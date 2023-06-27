@@ -91,9 +91,9 @@
         "brewing": {
           ".": "Tränke brauen",
           "brew": "Brauen",
-          "brewed": "%data.character.{2}% hat {1} %data.itemFh.{0}% gebraut",
-          "brewFor": "Braue für %data.character.{0}%",
-          "brewedOther": "%data.character.{2}% hat {1} %data.itemFh.{0}% für %data.character.{3}% gebraut",
+          "brewed": "{2} hat {1} %data.itemFh.{0}% gebraut",
+          "brewFor": "Braue für {0}",
+          "brewedOther": "{2} hat {1} %data.itemFh.{0}% für {3} gebraut",
           "item": "{1} %data.itemFh.{0}%",
           "noChar": "Jeder Charakter besitzt schon diesen Trank!",
           "selectCharacter": "Charakter auswählen für den der Trank gebraut wird:"
@@ -1214,6 +1214,10 @@
       ".": "Automatische Aufsteller Dialoge",
       "hint": "Öffne automatische Auswahl-Dialoge zur Nummerauswahl für alle neuen Aufsteller."
     },
+    "automaticUnlocking": {
+      ".": "Automatische Charakter Freischaltung",
+      "hint": "Automatisches Charaktere durch Szenario Belohnungen freischalten."
+    },
     "barsize": {
       ".": "Leistengröße",
       "dec": "Leistengröße verringern",
@@ -1646,6 +1650,7 @@
       "setAbsent": "{0} abwesend",
       "setActive": "Zug von {0} beginnen",
       "setAlly": "{0} als Verbündeter",
+      "setAllied": "{0} zur Fraktion zufügen",
       "setBG": "Kampfziele {1} für {0}",
       "setConditionValue": {
         "char": "{1} auf {2} für {0}",
@@ -1702,6 +1707,7 @@
       "unsetAbsent": "{0} anwesend",
       "unsetActive": "Zug beenden von {0}",
       "unsetAlly": "{0} als Gegner",
+      "unsetAllied": "{0} von Fraktion entfernen",
       "unsetCustomScenario": "Benutzerdefiniertes Szenario deaktivieren",
       "unsetDrawExtraAbility": "Zusätzlich Aufdecken für {0} deaktivieren",
       "unsetEntityActive": "Aufsteller {1} von {0} inaktiv",

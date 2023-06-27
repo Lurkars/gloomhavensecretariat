@@ -91,9 +91,9 @@
         "brewing": {
           ".": "Brew Potions",
           "brew": "Brew",
-          "brewed": "%data.character.{2}% brewed {1} %data.itemFh.{0}%",
-          "brewFor": "Brew for %data.character.{0}%",
-          "brewedOther": "%data.character.{2}% brewed {1} %data.itemFh.{0}% for %data.character.{3}%",
+          "brewed": "{2} brewed {1} %data.itemFh.{0}%",
+          "brewFor": "Brew for {0}",
+          "brewedOther": "{2} brewed {1} %data.itemFh.{0}% for {3}",
           "item": "{1} %data.itemFh.{0}%",
           "noChar": "Potion already owned by every character!",
           "selectCharacter": "Select Character to brew for:"
@@ -1314,6 +1314,10 @@
       ".": "Automatic Standees Dialogs",
       "hint": "Automatically open standee number dialogs for all new standees."
     },
+    "automaticUnlocking": {
+      ".": "Automatic Character Unlock",
+      "hint": "Automatically unlock characters from scenario rewards."
+    },
     "barsize": {
       ".": "Barsize",
       "dec": "Decrease barsize",
@@ -1745,6 +1749,7 @@
       "setAbsent": "{0} absent",
       "setActive": "Start turn for {0}",
       "setAlly": "{0} as ally",
+      "setAllied": "{0} as allied",
       "setBG": "Set Battle Goals of {0} to {1}",
       "setConditionValue": {
         "char": "{1} to {2} for {0}",
@@ -1801,6 +1806,7 @@
       "unsetAbsent": "{0} present",
       "unsetActive": "End turn of {0}",
       "unsetAlly": "{0} as enemy",
+      "unsetAllied": "{0} not as allied",
       "unsetCustomScenario": "Unset custom scenario",
       "unsetDrawExtraAbility": "Unset draw extra for {0}",
       "unsetEntityActive": "Set standee {1} of {0} inactive",
