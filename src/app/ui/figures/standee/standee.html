@@ -1,25 +1,42 @@
 <div class="entity-border"
-  [ngClass]="{'dead' : entity.dead, 'off' : entity.off, 'active' : entity.active && settingsManager.settings.activeStandees, 'active-focus': entity.active && settingsManager.settings.activeStandees && !monster.active, 'denied' : !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition], 'fh': settingsManager.settings.theme == 'fh'}"
+  [ngClass]="{'dead' : entity.dead, 'off' : entity.off, 'active' : entity.active && settingsManager.settings.activeStandees, 'active-focus': entity.active && settingsManager.settings.activeStandees && !figure.active, 'denied' : gameManager.isMonster(figure) && !gameManager.stateManager.monsterPermissions[figure.name + '|' + figure.edition] || gameManager.isObjective(figure) && !gameManager.stateManager.permissions?.characters ||  gameManager.isCharacter(figure) && !gameManager.stateManager.characterPermissions[figure.name + '|' + figure.edition] , 'fh': settingsManager.settings.theme == 'fh'}"
   [entityAnimation]="entity.dead">
   <div class="entity" [ngClass]="entity.type">
     <div #standee class="standee">
       <div class="background-image-container">
         <div class="background-image"
-          [style.background-image]="monster.noArtwork ? '': 'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'">
+          [style.background-image]="figure.noArtwork ? '': 'url(' + gameManager.monsterManager.monsterThumbnail(figure) + ')'">
         </div>
       </div>
       <span class="number" [ngClass]="{'highlight' : entity.number < 1 && !settingsManager.settings.disableAnimations}">
         <span class="value">{{entity.number < 0 ? '?' : entity.number}}</span>
-        </span>
-        <span class="health" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'">{{entity.maxHealth > 0 ?
+      </span>
+      <span class="health" [ghs-label]="'game.health'"
+        [ghs-label-attribute]="'title'">{{EntityValueFunction(entity.maxHealth) > 0 ?
           ((entity.health + health) >= 0 ? entity.health + health : 0) :
           '-'}}
-          <span class="value-overlay" [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}"
-            *ngIf="health"><span class="value">{{health |
+        <span class="value-overlay" [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}"
+          *ngIf="health"><span class="value">{{health |
               ghsValueSign}}</span>
-          </span>
         </span>
+      </span>
     </div>
+
+    <div class="conditions actions">
+      <span *ngIf="+shieldAction.value" class="condition-container" [ngClass]="{'center' : !+retaliateAction.value}">
+        <span class="condition">
+          <img [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') +  'action/shield.svg'" />
+          <span class="value">{{shieldAction.value}}</span>
+        </span>
+      </span>
+      <span *ngIf="+retaliateAction.value" class="condition-container" [ngClass]="{'center' : !+shieldAction.value}">
+        <span class="condition">
+          <img [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') +  'action/retaliate.svg'" />
+          <span class="value">{{retaliateAction.value}}</span>
+        </span>
+      </span>
+    </div>
+
 
     <div class="markers">
       <span *ngIf="entity.marker" class="placeholder placeholder-marker"
@@ -29,7 +46,7 @@
       </span>
     </div>
 
-    <ghs-highlight-conditions [entity]="entity" [figure]="monster"></ghs-highlight-conditions>
+    <ghs-highlight-conditions [entity]="entity" [figure]="figure"></ghs-highlight-conditions>
 
     <div class="conditions">
       <span class="condition-container" *ngFor="let entityCondition of activeConditions; let index = index;"
@@ -45,7 +62,7 @@
         [ngClass]="{'center' : (entity.entityConditions.length % 2) == 0}">
         <span class="summon"
           [ngClass]="{'active' : entity.summon == SummonState.true, 'new' : entity.summon == SummonState.new}">
-          <img src="./assets/images/summons/{{monster.summonColor}}.png">
+          <img src="./assets/images/summons/{{figure.summonColor}}.png">
         </span>
       </span>
     </div>

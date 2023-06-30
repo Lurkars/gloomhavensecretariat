@@ -10,7 +10,6 @@ import { MonsterImageComponent } from './ui/figures/monster/cards/image';
 import { MonsterStatsComponent } from './ui/figures/monster/stats/stats';
 import { MonsterNumberPicker } from './ui/figures/monster/dialogs/numberpicker';
 import { MonsterNumberPickerDialog } from './ui/figures/monster/dialogs/numberpicker-dialog';
-import { MonsterEntityComponent } from './ui/figures/monster/entity/entity';
 import { MonsterComponent } from './ui/figures/monster/monster';
 import { UndoDialogComponent } from './ui/header/menu/undo/dialog';
 import { FooterComponent } from './ui/footer/footer';
@@ -132,7 +131,6 @@ describe('AppComponent', () => {
         ObjectiveComponent,
         SummonEntityComponent, SummonSheetComponent,
         MonsterComponent,
-        MonsterEntityComponent,
         MonsterImageComponent,
         MonsterAbilityCardComponent, MonsterStatsComponent,
         MonsterStatDialogComponent, MonsterStatsDialogComponent, MonsterLevelDialogComponent,

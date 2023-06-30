@@ -6,4 +6,5 @@ export interface Figure extends Editional {
   off: boolean;
   active: boolean;
   getInitiative(): number;
+  type: string;
 }

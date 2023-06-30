@@ -54,6 +54,8 @@ export class EntityMenuDialogComponent {
   characterTokenValues: number[] = [];
   objectiveDead: boolean = false;
   entityConditions: EntityCondition[] = [];
+  shieldAction: Action = new Action(ActionType.shield, 0, ActionValueType.fixed, []);
+  retaliateAction: Action = new Action(ActionType.retaliate, 0, ActionValueType.fixed, []);
 
   titles: string[] = [];
 
@@ -99,6 +101,77 @@ export class EntityMenuDialogComponent {
     }
     if (this.data.entity) {
       this.entityConditions = JSON.parse(JSON.stringify(this.data.entity.entityConditions))
+    }
+
+    if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
+      let stat = gameManager.monsterManager.getStat(this.data.figure, this.data.entity.type);
+      let statAction = stat.actions.find((action) => action.type == ActionType.shield);
+      if (statAction) {
+        this.shieldAction.value = +this.shieldAction.value + +statAction.value;
+        if (statAction.subActions && statAction.subActions.length > 0) {
+          this.shieldAction.subActions.push(...JSON.parse(JSON.stringify(statAction.subActions)));
+        }
+      }
+
+      if (gameManager.entityManager.isAlive(this.data.entity, true)) {
+        const activeFigure = gameManager.game.figures.find((figure) => figure.active);
+        if (this.data.figure.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(this.data.figure))) {
+          let ability = gameManager.monsterManager.getAbility(this.data.figure);
+          if (ability) {
+            ability.actions.forEach((action) => {
+              if (action.type == ActionType.shield && (!action.subActions || !action.subActions.find((shieldSubAction) => shieldSubAction.type == ActionType.specialTarget && !('' + shieldSubAction.value).startsWith('self')))) {
+                this.shieldAction.value = +this.shieldAction.value + +action.value;
+                if (action.subActions && action.subActions.length > 0) {
+                  this.shieldAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions.filter((subAction) => subAction.type != ActionType.specialTarget))));
+                }
+              } else if (action.type == ActionType.monsterType && action.value == (this.data.entity as MonsterEntity).type) {
+                action.subActions.forEach((action) => {
+                  if (action.type == ActionType.shield) {
+                    this.shieldAction.value = +this.shieldAction.value + +action.value;
+                    if (action.subActions && action.subActions.length > 0) {
+                      this.shieldAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions.filter((subAction) => subAction.type != ActionType.specialTarget))));
+                    }
+                  }
+                });
+              }
+            })
+          }
+        }
+      }
+
+      statAction = stat.actions.find((action) => action.type == ActionType.retaliate);
+      if (statAction) {
+        this.retaliateAction.value = +this.retaliateAction.value + +statAction.value;
+        if (statAction.subActions && statAction.subActions.length > 0) {
+          this.retaliateAction.subActions.push(...JSON.parse(JSON.stringify(statAction.subActions)));
+        }
+      }
+
+      if (gameManager.entityManager.isAlive(this.data.entity, true)) {
+        const activeFigure = gameManager.game.figures.find((figure) => figure.active);
+        if (this.data.figure.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(this.data.figure))) {
+          let ability = gameManager.monsterManager.getAbility(this.data.figure);
+          if (ability) {
+            ability.actions.forEach((action) => {
+              if (action.type == ActionType.retaliate) {
+                this.retaliateAction.value = +this.retaliateAction.value + +action.value;
+                if (action.subActions && action.subActions.length > 0) {
+                  this.retaliateAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions)));
+                }
+              } else if (action.type == ActionType.monsterType && action.value == (this.data.entity as MonsterEntity).type) {
+                action.subActions.forEach((action) => {
+                  if (action.type == ActionType.retaliate) {
+                    this.retaliateAction.value = +this.retaliateAction.value + +action.value;
+                    if (action.subActions && action.subActions.length > 0) {
+                      this.retaliateAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions)));
+                    }
+                  }
+                });
+              }
+            })
+          }
+        }
+      }
     }
 
     this.dialogRef.closed.subscribe({
@@ -348,87 +421,6 @@ export class EntityMenuDialogComponent {
       return gameManager.entityManager.isImmune(this.data.figure, this.data.entity, conditionName);
     }
     return false;
-  }
-
-  shieldAction(): Action {
-    let shieldAction = new Action(ActionType.shield, 0, ActionValueType.fixed, []);
-    if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
-      const stat = gameManager.monsterManager.getStat(this.data.figure, this.data.entity.type);
-      const statAction = stat.actions.find((action) => action.type == ActionType.shield);
-      if (statAction) {
-        shieldAction.value = +shieldAction.value + +statAction.value;
-        if (statAction.subActions && statAction.subActions.length > 0) {
-          shieldAction.subActions.push(...JSON.parse(JSON.stringify(statAction.subActions)));
-        }
-      }
-
-      if (gameManager.entityManager.isAlive(this.data.entity, true)) {
-        const activeFigure = gameManager.game.figures.find((figure) => figure.active);
-        if (this.data.figure.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(this.data.figure))) {
-          let ability = gameManager.monsterManager.getAbility(this.data.figure);
-          if (ability) {
-            ability.actions.forEach((action) => {
-              if (action.type == ActionType.shield && (!action.subActions || !action.subActions.find((shieldSubAction) => shieldSubAction.type == ActionType.specialTarget && !('' + shieldSubAction.value).startsWith('self')))) {
-                shieldAction.value = +shieldAction.value + +action.value;
-                if (action.subActions && action.subActions.length > 0) {
-                  shieldAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions.filter((subAction) => subAction.type != ActionType.specialTarget))));
-                }
-              } else if (action.type == ActionType.monsterType && action.value == (this.data.entity as MonsterEntity).type) {
-                action.subActions.forEach((action) => {
-                  if (action.type == ActionType.shield) {
-                    shieldAction.value = +shieldAction.value + +action.value;
-                    if (action.subActions && action.subActions.length > 0) {
-                      shieldAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions.filter((subAction) => subAction.type != ActionType.specialTarget))));
-                    }
-                  }
-                });
-              }
-            })
-          }
-        }
-      }
-    }
-    return shieldAction;
-  }
-
-  retaliateAction(): Action {
-    let retaliateAction = new Action(ActionType.retaliate, 0, ActionValueType.fixed, []);
-    if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
-      const stat = gameManager.monsterManager.getStat(this.data.figure, this.data.entity.type);
-      const statAction = stat.actions.find((action) => action.type == ActionType.retaliate);
-      if (statAction) {
-        retaliateAction.value = +retaliateAction.value + +statAction.value;
-        if (statAction.subActions && statAction.subActions.length > 0) {
-          retaliateAction.subActions.push(...JSON.parse(JSON.stringify(statAction.subActions)));
-        }
-      }
-
-      const activeFigure = gameManager.game.figures.find((figure) => figure.active);
-      if (this.data.figure.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(this.data.figure))) {
-        let ability = gameManager.monsterManager.getAbility(this.data.figure);
-        if (ability) {
-          ability.actions.forEach((action) => {
-            if (action.type == ActionType.retaliate) {
-              retaliateAction.value = +retaliateAction.value + +action.value;
-              if (action.subActions && action.subActions.length > 0) {
-                retaliateAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions)));
-              }
-            } else if (action.type == ActionType.monsterType && action.value == (this.data.entity as MonsterEntity).type) {
-              action.subActions.forEach((action) => {
-                if (action.type == ActionType.retaliate) {
-                  retaliateAction.value = +retaliateAction.value + +action.value;
-                  if (action.subActions && action.subActions.length > 0) {
-                    retaliateAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions)));
-                  }
-                }
-              });
-            }
-          })
-        }
-      }
-    }
-
-    return retaliateAction;
   }
 
   markers(): string[] {

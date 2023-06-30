@@ -36,7 +36,6 @@ export class ActionComponent implements OnInit, OnDestroy {
   @Input() hexSize!: number;
   @Input('index') actionIndex: string = "";
 
-
   action!: Action | undefined;
   subActions: Action[] = [];
 
@@ -217,7 +216,7 @@ export class ActionComponent implements OnInit, OnDestroy {
       }
     }
 
-    if (settingsManager.settings.calculateStats && !this.relative && !this.forceRelative) {
+    if (settingsManager.settings.calculateStats && settingsManager.settings.calculateShieldStats && !this.relative && !this.forceRelative) {
       const stat = this.getStat(type);
       let statValue: number = 0;
       if (this.action.type == ActionType.shield || this.action.type == ActionType.retaliate) {

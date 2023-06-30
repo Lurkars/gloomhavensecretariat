@@ -18,7 +18,6 @@ import { MonsterImageComponent } from './ui/figures/monster/cards/image';
 import { MonsterStatsComponent } from './ui/figures/monster/stats/stats';
 import { MonsterNumberPicker } from './ui/figures/monster/dialogs/numberpicker';
 import { MonsterNumberPickerDialog } from './ui/figures/monster/dialogs/numberpicker-dialog';
-import { MonsterEntityComponent } from './ui/figures/monster/entity/entity';
 import { MonsterComponent } from './ui/figures/monster/monster';
 import { gameManager } from './game/businesslogic/GameManager';
 import { UndoDialogComponent } from './ui/header/menu/undo/dialog';
@@ -116,6 +115,7 @@ import { ScenarioConclusionComponent } from './ui/footer/scenario/scenario-concl
 import { SelectResourcesDialog } from './ui/header/party/buildings/select-resources/select-resources';
 import { EventEffectsDialog } from './ui/figures/character/event-effects/event-effects';
 import { PointerInputDirective } from './ui/helper/pointer-input';
+import { StandeeComponent } from './ui/figures/standee/standee';
 
 @Injectable()
 export class GhsErrorHandler extends ErrorHandler {
@@ -144,8 +144,8 @@ export class GhsErrorHandler extends ErrorHandler {
     CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterItemsComponent, ItemsBrewDialog,
     ObjectiveComponent,
     SummonEntityComponent, SummonSheetComponent,
+    StandeeComponent,
     MonsterComponent,
-    MonsterEntityComponent,
     MonsterImageComponent,
     MonsterAbilityCardComponent, MonsterStatsComponent,
     MonsterStatDialogComponent, MonsterStatsDialogComponent, MonsterLevelDialogComponent,

@@ -67,12 +67,12 @@
     class="status-container">
     <div class="entity-container">
 
-      <div class="shield-action" *ngIf="gameManager.isMonster(data.figure) && +shieldAction().value > 0">
-        <ghs-action [action]="shieldAction()" [highlight]="settingsManager.settings.statAnimations"></ghs-action>
+      <div class="shield-action" *ngIf="+shieldAction.value > 0">
+        <ghs-action [action]="shieldAction" [highlight]="settingsManager.settings.statAnimations"></ghs-action>
       </div>
 
-      <div class="retaliate-action" *ngIf="gameManager.isMonster(data.figure) && +retaliateAction().value > 0">
-        <ghs-action [action]="retaliateAction()" [highlight]="settingsManager.settings.statAnimations"></ghs-action>
+      <div class="retaliate-action" *ngIf="+retaliateAction.value > 0">
+        <ghs-action [action]="retaliateAction" [highlight]="settingsManager.settings.statAnimations"></ghs-action>
       </div>
       <ng-container
         *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal)">
@@ -476,7 +476,7 @@
           <img [src]="gameManager.characterManager.characterIcon(gameManager.toCharacter(data.entity).name)">
           <input class="title" #charactertitle type="text" [value]="gameManager.toCharacter(data.entity).title">
         </ng-container>
-        <div class="titles-container"  *ngIf="titles.length > 0 && settingsManager.settings.characterIdentities">
+        <div class="titles-container" *ngIf="titles.length > 0 && settingsManager.settings.characterIdentities">
           <div class="title-container"
             *ngFor="let i of [] | ghsRange:gameManager.toCharacter(data.entity).identities.length">
             <img [src]="gameManager.characterManager.characterIdentityIcon(gameManager.toCharacter(data.entity), i)">

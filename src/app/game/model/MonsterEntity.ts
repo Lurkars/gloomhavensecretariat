@@ -13,10 +13,10 @@ export class MonsterEntity implements Entity {
   stat: MonsterStat;
   dead: boolean = false;
   summon: SummonState = SummonState.false;
-  active: boolean = false;
-  off: boolean = false;
 
   // from entity
+  active: boolean = false;
+  off: boolean = false;
   level: number;
   health: number;
   maxHealth: number;

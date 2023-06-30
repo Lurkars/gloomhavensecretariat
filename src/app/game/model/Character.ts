@@ -27,7 +27,6 @@ export class Character extends CharacterData implements Entity, Figure {
   attackModifierDeckVisible: boolean = false;
   lootCardsVisible: boolean = false;
   fullview: boolean = false;
-  number: number = 0;
   attackModifierDeck: AttackModifierDeck;
 
   token: number = 0;
@@ -39,11 +38,13 @@ export class Character extends CharacterData implements Entity, Figure {
   level: number;
   off: boolean = false;
   active: boolean = false;
+  type : string = 'objective';
 
   // from entity
   health: number;
   maxHealth: number;
   entityConditions: EntityCondition[] = [];
+  number: number = 0;
   markers: string[] = [];
   tags: string[] = [];
 

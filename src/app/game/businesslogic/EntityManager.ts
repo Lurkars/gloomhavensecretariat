@@ -2,7 +2,7 @@ import { Character } from "../model/Character";
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "../model/Condition";
 import { Entity, EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
-import { Game } from "../model/Game";
+import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { Objective } from "../model/Objective";
@@ -521,6 +521,34 @@ export class EntityManager {
       entity.markers.splice(entity.markers.indexOf(marker), 1);
     } else {
       entity.markers.push(marker);
+    }
+  }
+
+  toggleActive(figure: Figure, entity: Entity) {
+    if (this.game.state == GameState.next) {
+      if (figure.active) {
+        entity.active = !entity.active;
+        if (this.entities(figure).every((entity) => !this.isAlive(entity) || !entity.active)) {
+          gameManager.roundManager.toggleFigure(figure);
+        }
+      } else if (entity.active) {
+        entity.active = false;
+        if (this.entities(figure).every((entity) => !this.isAlive(entity, true) || !entity.active)) {
+          figure.off = true;
+        }
+      } else {
+        figure.off = false;
+        entity.active = true;
+      }
+
+      if (entity.active) {
+        entity.off = false;
+        if (!figure.active && this.game.figures.every((figure) => !figure.active)) {
+          figure.active = true;
+        }
+      } else {
+        entity.off = true;
+      }
     }
   }
 

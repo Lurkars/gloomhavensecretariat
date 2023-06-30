@@ -233,13 +233,18 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setCalculate(calculate: boolean) {
+    this.settings.calculate = calculate;
+    this.storeSettings();
+  }
+
   setCalculateStats(calculateStats: boolean) {
     this.settings.calculateStats = calculateStats;
     this.storeSettings();
   }
 
-  setCalculate(calculate: boolean) {
-    this.settings.calculate = calculate;
+  setCalculateShieldStats(calculateShieldStats: boolean) {
+    this.settings.calculateShieldStats = calculateShieldStats;
     this.storeSettings();
   }
 
@@ -318,6 +323,11 @@ export class SettingsManager {
 
   setDisableStandees(disableStandees: boolean) {
     this.settings.disableStandees = disableStandees;
+    this.storeSettings();
+  }
+
+  setStandeeStats(standeeStats: boolean) {
+    this.settings.standeeStats = standeeStats;
     this.storeSettings();
   }
 

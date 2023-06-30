@@ -15,6 +15,7 @@ export class Monster extends MonsterData implements Figure {
   active: boolean = false;
   drawExtra: boolean = false;
   lastDraw: number = 0;
+  type : string = 'monster';
 
   getInitiative(): number {
     const ability: Ability | undefined = gameManager.monsterManager.getAbility(this);

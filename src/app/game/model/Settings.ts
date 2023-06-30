@@ -27,6 +27,7 @@ export class Settings {
   browserNavigation: boolean = false;
   calculate: boolean = true;
   calculateStats: boolean = true;
+  calculateShieldStats: boolean = true;
   characterAttackModifierDeck: boolean = true;
   characterAttackModifierDeckPermanent: boolean = false;
   characterHandSize: boolean = false;
@@ -78,6 +79,7 @@ export class Settings {
   showFullAbilityCard: boolean = false;
   showHiddenMonster: boolean = false;
   spoilers: string[] = [];
+  standeeStats: boolean = false;
   statAnimations: boolean = false;
   theme: string = "";
   tooltips: boolean = true;

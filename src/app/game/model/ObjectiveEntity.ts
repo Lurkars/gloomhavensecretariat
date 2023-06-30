@@ -7,18 +7,25 @@ export class ObjectiveEntity implements Entity {
   uuid: string;
   marker: string = "";
   dead: boolean = false;
-  active: boolean = false;
+
+  // workaround
+  type: "" = "";
+  summon: "" = "";
 
   // from entity
+  active: boolean = false;
+  off: boolean = false;
   level: number = -1;
   health: number;
   maxHealth: number;
   entityConditions: EntityCondition[] = [];
+  number: number;
   markers: string[] = [];
   tags: string[] = [];
 
-  constructor(uuid: string, objective: ObjectiveContainer) {
+  constructor(uuid: string, number: number, objective: ObjectiveContainer) {
     this.uuid = uuid;
+    this.number = number;
     this.marker = objective.marker;
     this.maxHealth = EntityValueFunction(objective.maxHealth);
     this.health = this.maxHealth;
@@ -28,7 +35,7 @@ export class ObjectiveEntity implements Entity {
   }
 
   toModel(): GameObjectiveEntityModel {
-    return new GameObjectiveEntityModel(this.uuid, this.marker, this.dead, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || []);
+    return new GameObjectiveEntityModel(this.uuid, this.number, this.marker, this.dead, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || []);
   }
 
   fromModel(model: GameObjectiveEntityModel) {
@@ -54,6 +61,7 @@ export class ObjectiveEntity implements Entity {
 
 export class GameObjectiveEntityModel {
   uuid: string;
+  number: number;
   marker: string;
   dead: boolean;
   active: boolean;
@@ -65,6 +73,7 @@ export class GameObjectiveEntityModel {
 
   constructor(
     uuid: string,
+    number: number,
     marker: string,
     dead: boolean,
     active: boolean,
@@ -74,6 +83,7 @@ export class GameObjectiveEntityModel {
     markers: string[],
     tags: string[]) {
     this.uuid = uuid;
+    this.number = number;
     this.marker = marker;
     this.dead = dead;
     this.active = active;

@@ -223,11 +223,38 @@
             <input type="checkbox"
               [checked]="settingsManager.settings.abilities && settingsManager.settings.calculateStats"
               (change)="settingsManager.setCalculateStats(!settingsManager.settings.calculateStats)">
-            <span [ghs-label]="'settings.calcStats'"></span>
+            <span [ghs-label]="'settings.calculateStats'"></span>
           </label>
           <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
           <span class="hint">
-            <span class="text" [ghs-label]="'settings.calcStats.hint'"></span>
+            <span class="text" [ghs-label]="'settings.calculateStats.hint'"></span>
+          </span>
+        </div>
+      </div>
+      <div class="line">
+        <div class="hint-container">
+          <label [ngClass]="{'disabled' : !settingsManager.settings.abilities || !settingsManager.settings.calculateStats}">
+            <input type="checkbox" [checked]="settingsManager.settings.abilities && settingsManager.settings.calculateStats && settingsManager.settings.calculateShieldStats"
+              (change)="settingsManager.setCalculateShieldStats(!settingsManager.settings.calculateShieldStats)">
+            <span [ghs-label]="'settings.calculateShieldStats'"></span>
+          </label>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <span class="hint">
+            <span class="text" [ghs-label]="'settings.calculateShieldStats.hint'"></span>
+          </span>
+        </div>
+      </div>
+      <div class="line">
+        <div class="hint-container">
+          <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
+            <input type="checkbox"
+              [checked]="settingsManager.settings.abilities && settingsManager.settings.interactiveAbilities"
+              (change)="settingsManager.setInteractiveAbilities(!settingsManager.settings.interactiveAbilities)">
+            <span [ghs-label]="'settings.interactiveAbilities'"></span>
+          </label>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <span class="hint">
+            <span class="text" [ghs-label]="'settings.interactiveAbilities.hint'"></span>
           </span>
         </div>
       </div>
@@ -245,36 +272,9 @@
           </span>
         </div>
       </div>
-      <div class="line">
-        <div class="hint-container">
-          <label>
-            <input type="checkbox" [checked]="settingsManager.settings.hideStats"
-              (change)="settingsManager.setHideStats(!settingsManager.settings.hideStats)">
-            <span [ghs-label]="'settings.hideStats'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.hideStats.hint'"></span>
-          </span>
-        </div>
-      </div>
     </div>
 
     <div class="column">
-      <div class="line">
-        <div class="hint-container">
-          <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
-            <input type="checkbox"
-              [checked]="settingsManager.settings.abilities && settingsManager.settings.interactiveAbilities"
-              (change)="settingsManager.setInteractiveAbilities(!settingsManager.settings.interactiveAbilities)">
-            <span [ghs-label]="'settings.interactiveAbilities'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.interactiveAbilities.hint'"></span>
-          </span>
-        </div>
-      </div>
       <div class="line">
         <div class="hint-container">
           <label
@@ -307,6 +307,19 @@
       <div class="line">
         <div class="hint-container">
           <label>
+            <input type="checkbox" [checked]="settingsManager.settings.hideStats"
+              (change)="settingsManager.setHideStats(!settingsManager.settings.hideStats)">
+            <span [ghs-label]="'settings.hideStats'"></span>
+          </label>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <span class="hint">
+            <span class="text" [ghs-label]="'settings.hideStats.hint'"></span>
+          </span>
+        </div>
+      </div>
+      <div class="line">
+        <div class="hint-container">
+          <label>
             <input type="checkbox" [checked]="settingsManager.settings.showFullAbilityCard"
               (change)="settingsManager.setShowFullAbilityCard(!settingsManager.settings.showFullAbilityCard)">
             <span [ghs-label]="'settings.showFullAbilityCard'"></span>
@@ -317,7 +330,6 @@
           </span>
         </div>
       </div>
-
       <div class="line">
         <div class="hint-container">
           <label>
@@ -382,6 +394,19 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text" [ghs-label]="'settings.automaticStandees.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
+          <input type="checkbox" [checked]="!settingsManager.settings.disableStandees && settingsManager.settings.standeeStats"
+            (change)="settingsManager.setStandeeStats(!settingsManager.settings.standeeStats)">
+          <span [ghs-label]="'settings.standeeStats'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.standeeStats.hint'"></span>
         </span>
       </div>
     </div>

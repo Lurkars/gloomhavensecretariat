@@ -5,12 +5,15 @@ import { GameObjectiveEntityModel, ObjectiveEntity } from "./ObjectiveEntity";
 export class ObjectiveContainer implements Figure {
 
   uuid: string;
-  id: number;
   marker: string = "";
   title: string = "";
   exhausted: boolean = false;
   escort: boolean = false;
   entities: ObjectiveEntity[] = [];
+
+  // workaround
+  noArtwork: true = true;
+  summonColor: "" = "";
 
   // from figure
   name: string = "";
@@ -20,12 +23,12 @@ export class ObjectiveContainer implements Figure {
   edition: string = "";
   maxHealth: number | string = 7;
   initiative: number = 99;
+  type: string = 'objective';
 
   objectiveId: ScenarioObjectiveIdentifier | undefined;
 
-  constructor(uuid: string, id: number, objectiveId: ScenarioObjectiveIdentifier | undefined = undefined) {
+  constructor(uuid: string, objectiveId: ScenarioObjectiveIdentifier | undefined = undefined) {
     this.uuid = uuid;
-    this.id = id;
     this.objectiveId = objectiveId;
   }
 
@@ -34,12 +37,11 @@ export class ObjectiveContainer implements Figure {
   }
 
   toModel(): GameObjectiveContainerModel {
-    return new GameObjectiveContainerModel(this.uuid, this.id, this.marker, this.title, this.name, this.escort, this.entities.map((value) => value.toModel()), this.level, this.exhausted, this.off, this.active, this.maxHealth, this.initiative, this.objectiveId);
+    return new GameObjectiveContainerModel(this.uuid, this.marker, this.title, this.name, this.escort, this.entities.map((value) => value.toModel()), this.level, this.exhausted, this.off, this.active, this.maxHealth, this.initiative, this.objectiveId);
   }
 
 
   fromModel(model: GameObjectiveContainerModel) {
-    this.id = model.id;
     this.marker = model.marker;
     this.title = model.title;
     this.name = model.name;
@@ -49,7 +51,7 @@ export class ObjectiveContainer implements Figure {
     model.entities.forEach((value, index) => {
       let entity = this.entities.find((entity) => value.uuid == entity.uuid) as ObjectiveEntity;
       if (!entity) {
-        entity = new ObjectiveEntity(value.uuid, this);
+        entity = new ObjectiveEntity(value.uuid, value.number, this);
         this.entities.splice(index, 0, entity);
       } else if (index != this.entities.indexOf(entity)) {
         this.entities.splice(this.entities.indexOf(entity), 1);
@@ -74,7 +76,6 @@ export class ObjectiveContainer implements Figure {
 export class GameObjectiveContainerModel {
 
   uuid: string;
-  id: number;
   marker: string;
   title: string;
   name: string;
@@ -90,7 +91,6 @@ export class GameObjectiveContainerModel {
 
   constructor(
     uuid: string,
-    id: number,
     marker: string,
     title: string,
     name: string,
@@ -104,7 +104,6 @@ export class GameObjectiveContainerModel {
     initiative: number,
     objectiveId: ScenarioObjectiveIdentifier | undefined) {
     this.uuid = uuid;
-    this.id = id;
     this.marker = marker;
     this.title = title;
     this.name = name;

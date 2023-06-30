@@ -4,10 +4,13 @@ import { GameState } from "./Game";
 import { AdditionalIdentifier } from "./data/Identifier";
 
 export interface Entity {
+  active: boolean;
+  off: boolean;
   health: number;
   level: number;
   maxHealth: number | string;
   entityConditions: EntityCondition[];
+  number: number;
   markers: string[];
   tags: string[];
 }

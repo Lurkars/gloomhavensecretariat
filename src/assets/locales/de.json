@@ -1237,9 +1237,13 @@
       ".": "Zeige berechnete Werte an",
       "hint": "Fähigkeitswerte werden mit den Basiswerten zusammengerechnet, statt Angriff +1 wird z.B. Angriff 4 angezeigt bei einem Basis Angriffswert von 3"
     },
-    "calcStats": {
-      ".": "Füge Monsterwerte zu Fähigkeiten zu",
+    "calculateStats": {
+      ".": "Füge Monsterwerte zu Fähigkeiten hinzu",
       "hint": "Basiswerte werden zu Fähigkeiten hinzugefügt, z.B. wird die Reichweite automatisch bei einer Angriffsfertigkeit angezeigt"
+    },
+    "calculateShieldStats": {
+      ".": "Füge Schild und Vergeltung zu Fähigkeiten hinzu",
+      "hint": "Basiswerte von %game.action.shield% und %game.action.retaliate% werden zu %game.action.shield% und %game.action.retaliate% Aktionen auf der Fertigkeitskarte zugefügt, es werden also die vollständigen zusammengezählten Werte angezeigt."
     },
     "character": "Charakter",
     "characterAttackModifierDeck": {
@@ -1438,6 +1442,10 @@
       "hint": "Zeigt die Fertigkeitskarten vollständig inklusive Titel an."
     },
     "standees": "Aufsteller",
+    "standeeStats": {
+      ".": "Schild und Vergeltung auf Aufsteller",
+      "hint": "Zeige aktuelle Werte von %game.action.shield% und %game.action.retaliate% neben jedem Aufsteller an."
+    },
     "statAnimations": {
       ".": "Animation für Werte",
       "hint": "Aktiviert Animation zur Hervorhebung bestimmter Werte wie %game.action.shield% oder %game.action.retaliate%."

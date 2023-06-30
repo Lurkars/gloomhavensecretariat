@@ -40,10 +40,11 @@ export class Summon implements Entity {
   init: boolean = true;
   action: Action | undefined;
   additionalAction: Action | undefined;
-  active: boolean = false;
   thumbnail: string | undefined;
 
   // from entity
+  active: boolean = false;
+  off: boolean = false;
   level: number;
   health: number = 2;
   maxHealth: number = 2;

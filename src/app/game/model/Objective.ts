@@ -19,6 +19,7 @@ export class Objective implements Entity, Figure {
   off: boolean = false;
   active: boolean = false;
   edition: string = "";
+  type: string = 'objective';
 
   // from entity
   health: number = 7;
@@ -26,6 +27,7 @@ export class Objective implements Entity, Figure {
   entityConditions: EntityCondition[] = [];
   markers: string[] = [];
   tags: string[] = [];
+  number: number;
 
   initiative: number = 99;
 
@@ -34,6 +36,7 @@ export class Objective implements Entity, Figure {
   constructor(uuid: string, id: number, objectiveId: ScenarioObjectiveIdentifier | undefined = undefined) {
     this.uuid = uuid || uuidv4();
     this.id = id;
+    this.number = id;
     this.objectiveId = objectiveId;
   }
 
@@ -48,6 +51,7 @@ export class Objective implements Entity, Figure {
   fromModel(model: GameObjectiveModel) {
     this.uuid = model.uuid || uuidv4();
     this.id = model.id;
+    this.number = model.id;
     this.marker = model.marker;
     this.title = model.title;
     this.name = model.name;
