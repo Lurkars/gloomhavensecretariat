@@ -579,7 +579,7 @@
     "bonusAdjustment": "Level bonuses adjustment",
     "browserNavigation": "Défaire/Refaire par la navigation",
     "calc": "Afficher les stats calculées",
-    "calcStats": "Ajouter les valeurs des stats aux capacités",
+    "calculateStats": "Ajouter les valeurs des stats aux capacités",
     "debug": {
       ".": "Paramètres de debug/instruments",
       "rightClick": "Toujour activer le clic droit"

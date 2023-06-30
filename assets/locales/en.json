@@ -1337,9 +1337,13 @@
       ".": "Show calculated stats",
       "hint": "Ability values are calculated with stats, so instead of Attack +1 Attack 4 is shown for an Attack value of 3 in the stats "
     },
-    "calcStats": {
+    "calculateStats": {
       ".": "Add stats values to abilities",
       "hint": "Default stats values are added to the ability value, for example a Range value is automatically added to the Attack ability"
+    },
+    "calculateShieldStats": {
+      ".": "Add Shield and Retaliate to abilities",
+      "hint": "Default stats values of %game.action.shield% and %game.action.retaliate% are added to %game.action.shield% and %game.action.retaliate% actions on ability card, so full aggregated values are shown."
     },
     "character": "Character",
     "characterAttackModifierDeck": {
@@ -1537,6 +1541,10 @@
       "hint": "Show full ability cards including card title."
     },
     "standees": "Standees",
+    "standeeStats": {
+      ".": "Shield and Retaliate on Standee",
+      "hint": "Show current %game.action.shield% and %game.action.retaliate% value next to every standee."
+    },
     "statAnimations": {
       ".": "Stat Animation",
       "hint": "Enable animation to highlight stats as %game.action.shield% or %game.action.retaliate%."
