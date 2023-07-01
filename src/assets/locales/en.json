@@ -1296,7 +1296,7 @@
     },
     "applyLoot": {
       ".": "Apply Loot to Character",
-      "hint": "Automatically add Loot after card drawn to active/choosen character"
+      "hint": "Automatically add Loot after card drawn to active/chosen character"
     },
     "autoscroll": {
       ".": "Autoscroll",
