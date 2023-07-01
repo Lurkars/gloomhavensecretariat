@@ -27,7 +27,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Curse & Bless Attack Modifier                                                   | ✅         | ✅         | ✅        | ✅        | ✅       |
 | Ally Attack Modifier Deck                                                       | ✅         | ✅         | ✅        | ⛔        | ⛔       |
 | Scenario Setup (Monster, Objectives, Escorts)                                   | ✅         | ✅         | ✅        | ✅        | ✅       |
-| Sperate Rooms/Sections                                                          | ✅         | ✅         | ✅        | ✅        | ⛔       |
+| Separate Rooms/Sections                                                          | ✅         | ✅         | ✅        | ✅        | ⛔       |
 | Character Attack Modifier Deck                                                  | ✅         | ⛔         | ⛔        | ✅        | ⛔       |
 | Character Perks                                                                 | ✅         | ⛔         | ⛔        | ✅        | ⛔       |
 | Character Scenario XP                                                           | ✅         | ✅         | ✅        | ✅        | ✅       |
