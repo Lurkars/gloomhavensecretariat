@@ -192,4 +192,4 @@ Source code is licensed under [AGPL](/LICENSE)
 
 ## Personal disclaimer
 
-This is a hobby project I do in my spare time. The software fills a practical need due to the demise of the original Gloomhaven Helper application, so I am following the **Quick'n'Dirty** approach to get things done quickly. This of course leads to a lack of quality and testing and the code base is definitely not in line with my professional taste.
+This is a hobby project I do in my spare time. The software fills a practical need due to the demise of the original Gloomhaven Helper application, so I am following the **Quick'n'Dirty** approach to get things done quickly. This of course leads to a lack of quality and testing and the code base is definitely not in line with my professional work.
