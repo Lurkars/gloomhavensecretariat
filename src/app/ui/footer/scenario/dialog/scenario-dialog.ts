@@ -65,7 +65,7 @@ export class ScenarioDialogComponent {
     }
 
     openStats(monsterData: MonsterData) {
-        const monster = new Monster(monsterData);
+        const monster = new Monster(monsterData, gameManager.game.level);
         gameManager.monsterManager.resetMonsterAbilities(monster);
         this.dialog.open(StatsListComponent, { panelClass: 'dialog', data: monster });
     }

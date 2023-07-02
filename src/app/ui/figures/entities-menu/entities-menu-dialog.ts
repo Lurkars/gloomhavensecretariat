@@ -26,12 +26,11 @@ export class EntitiesMenuDialogComponent {
   ConditionType = ConditionType;
   MonsterType = MonsterType;
   entities: MonsterEntity[];
+  allEntities: MonsterEntity[];
   entityConditions: EntityCondition[] = [];
 
-  toogleTypeAvailable: boolean;
-
   constructor(@Inject(DIALOG_DATA) public data: { monster: Monster, type: MonsterType | undefined }, private dialogRef: DialogRef) {
-    this.entities = data.monster.entities.filter((entity) => !data.type || entity.type == data.type);
+    this.allEntities = data.monster.entities.filter((entity) => !data.type || entity.type == data.type);
     this.dialogRef.closed.subscribe({
       next: (forced) => {
         if (!forced) {
@@ -39,7 +38,14 @@ export class EntitiesMenuDialogComponent {
         }
       }
     })
-    this.toogleTypeAvailable = this.entities.some((entity) => entity.type == MonsterType.normal) && this.entities.some((entity) => entity.type == MonsterType.elite);
+
+    this.entities = [];
+    this.allEntities.forEach((entity) => this.entities.push(entity));
+    this.update();
+  }
+
+  update() {
+    this.entityConditions = [];
 
     this.entities.forEach((entity, index, self) => {
       entity.entityConditions.forEach((entityCondition) => {
@@ -48,6 +54,15 @@ export class EntitiesMenuDialogComponent {
         }
       })
     })
+  }
+
+  toggleEntity(entity: MonsterEntity) {
+    if (this.entities.indexOf(entity) == -1) {
+      this.entities.push(entity);
+    } else {
+      this.entities.splice(this.entities.indexOf(entity), 1);
+    }
+    this.update();
   }
 
   changeHealth(value: number) {

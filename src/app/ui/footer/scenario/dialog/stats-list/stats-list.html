@@ -3,24 +3,32 @@
     <img src="./assets/images/close_dialog.svg">
   </a>
   <div class="scroll-container">
-    <div class="container">
-      <div class="stats-container">
-        <div class="stats" *ngFor="let level of [] | ghsRange:8" ghs-pointer-input (singleClick)="dialogRef.close()"
-          (doubleClick)="openStatPopup(level)">
-          <ghs-monster-stats [monster]="getMonsterForLevel(level)" [forceStats]="true" [noClick]="true">
-          </ghs-monster-stats>
-        </div>
-      </div>
-      <div class="abilities-container">
-        <ng-container *ngFor="let ability of gameManager.abilities(monster);let index = index;">
-          <div class="container" [ngClass]="{'bottom-actions' : gameManager.hasBottomAbility(ability)}"
-            ghs-pointer-input (singleClick)="dialogRef.close()" (doubleClick)="openAbility(ability)">
-            <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true" [reveal]="true" [relative]="true"
-              [statsCalculation]="false">
-            </ghs-ability>
+    <div class="header" [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
+      <div class="image">
+        <div class="outer-border">
+          <div class="inner-border">
+            <div class="image-container">
+              <img *ngIf="!monster.noArtwork" [src]="gameManager.monsterManager.monsterThumbnail(monster)">
+            </div>
           </div>
-        </ng-container>
+        </div>
+        <span class="boss" *ngIf="monster.boss"><img src="./assets/images/monster/enemy.png" /></span>
+        <span class="custom" *ngIf="monster.standeeShare">*</span>
       </div>
+      <div class="name"><span [ghs-label]="'data.monster.' + monster.name"></span></div>
+    </div>
+    <div class="container">
+      <div class="stats">
+        <ghs-monster-stats [monster]="monster" [forceStats]="true"> </ghs-monster-stats>
+      </div>
+      <ng-container *ngFor="let ability of gameManager.abilities(monster);let index = index;">
+        <div class="ability" [ngClass]="{'bottom-actions' : gameManager.hasBottomAbility(ability)}" ghs-pointer-input
+          (singleClick)="dialogRef.close()" (doubleClick)="openAbility(ability)">
+          <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true" [reveal]="true" [relative]="true"
+            [statsCalculation]="false">
+          </ghs-ability>
+        </div>
+      </ng-container>
     </div>
   </div>
 </div>
