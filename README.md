@@ -10,15 +10,15 @@
 
 ## Introduction
 
-*Gloomhaven Secretariat* is a  **companion app** for Gloomhaven based board games. The app supports all official editions namely **Gloomhaven**, **Frosthaven**, **Jaws of the Lion** and **Forgotten Circles**, the community editions **The Crimson Scales** and **Trail of Ashes** as well as **Solo** scenarios and custom content.
+*Gloomhaven Secretariat* is a **companion app** for Gloomhaven-based board games. The app supports all official editions, namely **Gloomhaven**, **Frosthaven**, **Jaws of the Lion** and **Forgotten Circles**, the community editions **The Crimson Scales** and **Trail of Ashes** as well as **Solo** scenarios and custom content.
 
-*GHS* is a complete replacement for the abandoned original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) app (by [Esoteric Software®](http://esotericsoftware.com)), enhanced with more tracking and automation features. As a single-screen web application, *GHS* helps manage scenario play by tracking character and monster turns, automatically setting up monsters separately for each room or section, assisting with scenario-specific rules, attack modifiers, loot deck, and much more. *GHS* also tracks your progress on the Character, Party and Campaign sheets, allowing you to buy and equip items, loot treasures, apply all scenario rewards, register scenario unlocks and manages your outpost. For a more detailed feature list, including a comparison of some popular applications, see [Comparison of Companion Apps](./resources/app-comparison.md).
+*GHS* is a complete replacement for the abandoned [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) app (by [Esoteric Software®](http://esotericsoftware.com)), enhanced with more tracking and automation features. As a single-screen web application, *GHS* helps manage scenario play by tracking character and monster turns, automatically setting up monsters separately for each room or section, assisting with scenario-specific rules, attack modifiers, loot deck, and much more. *GHS* also tracks your progress on the Character, Party and Campaign sheets, allowing you to buy and equip items, loot treasures, apply all scenario rewards, register scenario unlocks and manage your outpost. For a more detailed feature list, including a comparison of some popular applications, see [Comparison of Companion Apps](./resources/app-comparison.md).
 
 Multiple clients are supported by a server component [Gloomhaven Secretariat Server](https://github.com/Lurkars/ghs-server) with a public instance available at `gloomhaven-secretariat.de`.
 
-As *GHS* is a web application, no installation is required and it runs in any modern browser, even on mobile devices, but it can also be [installed](#install) for offline use.
+Since *GHS* is a web application, no installation is required and it runs in any modern browser, even on mobile devices, but it can also be [installed](#install) for offline use.
 
-*Gloomhaven Secretariat is open source software built with [Angular](https://angular.io/) and is intended for the community to actively [contribute](#contributing) with ideas, suggestions and of course feedback.
+*Gloomhaven Secretariat is open-source software built with [Angular](https://angular.io/) and is open for the community to actively [contribute](#contributing) ideas, suggestions and of course feedback and bug fixes.
 
 A basic user guide is available [online](https://help.gloomhaven-secretariat.de).
 
@@ -39,43 +39,43 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - **Health** automatic exhaust/dead, max values for each level
   - **Conditions** auto expire + auto apply (wound, wound_x, regen, bane, poison, poison_x, ward, brittle)
   - **Level**, **Loot**, **Experience** of characters
-  - **Character Progression** Level, loot, experience, items, battlegoals, perks, masteries
+  - **Character Progression** level, loot, experience, items, battle goals, perks, masteries
   - **Character Attack Modifier Deck** including Perks & CS Oak Cards
   - **Elements** automatic update status
   - **Monster Stats**
   - **Monster Standees** automatically adds stats for scenario rooms/sections and special rules (room/section data WIP)
-  - **Monster Modifier Deck** Adding **Blessings** and **Curses**, auto shuffling
+  - **Monster Modifier Deck** Adding **Blessings** and **Curses**, auto-shuffling
   - **Monster Ability Cards** auto-shuffling, calculated values (separate for normal and elite)
   - **Character Summons**
-  - **Scenarios** and **Sections** with automatic level calculation, display and apply special rules and end scenario to apply character progression
+  - **Scenarios** and **Sections** with automatic level calculation, displays and applies special rules, and applies scenario results to character progression
   - **Party Sheet**
   - **Campaign Management** (some special rules for CS are missing)
   - **Markers**
   - **Treasures**
 - Elimination of the following physical components
-  - monster ability cards
-  - monster stat cards
-  - Monster Attack Modifier Deck
-  - damage tokens
+  - Monster ability cards
+  - Monster stat cards
+  - Monster attack modifier deck
+  - Damage tokens
   - Condition tokens
-  - Elemental Board, Elemental Disc, Round Tracker, Initiative Tracker
+  - Element board, elemental disc, round tracker, initiative trackers
   - Character HP/XP dials
   - Character boards
   - Character sheets
   - Character attack modifier deck
-  - Loot Deck
-  - Town Guard Deck
-  - Party/Campaign Sheet
+  - Loot deck
+  - Town guard deck
+  - Party/Campaign sheet
 - Other features:
   - i18n support (currently en, de, fr and ko, more translations needed. Many thanks to the contributors of french and korean)
   - PWA for installation on all devices!
   - Synchronise state (+ settings) with [GHS Server](https://github.com/Lurkars/ghs-server)
   - Manage permissions for different clients with [GHS Server](https://github.com/Lurkars/ghs-server)
   - Load custom JSON edition data for custom content!
-  - Edit Monster Attack Modifier and Monster Ability decks (support for Diviner class mechanics): reveal cards, remove cards, rearrange cards
-  - Support for FH Loot Deck (including enhancements) and Town Guard Deck
-  - Monster Data Editor (https://gloomhaven-secretariat.de/editor/monster)
-  - Includes Solo Scenarios
+  - Edit monster attack modifier and monster ability decks (support for Diviner class mechanics): reveal cards, remove cards, rearrange cards
+  - Support for Frosthaven loot deck (including enhancements) and town guard deck
+  - Monster data editor (https://gloomhaven-secretariat.de/editor/monster)
+  - Includes Solo scenarios
   - Includes [Blood and Sand](https://boardgamegeek.com/thread/2613617/blood-and-sand-gloomhaven-campaign-set-red-desert) campaign: can be enabled in *Data Management* (Thanks to [/u/Calm_Construction131](https://www.reddit.com/user/Calm_Construction131) for contribution)
   - Includes the [Seeker of Xorn](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under *Data Management*.
   - Manage multiple parties (on the party sheet while no active scenario is set)
@@ -113,9 +113,9 @@ Download the appropriate files from the [latest release](https://github.com/Lurk
 
 > Linux AppImage only tested for now
 
-### Selfhosting
+### Self-hosting
 
-To self host *Gloomhaven Secretariat* on your web server, simply download the zip file from the [latest release](https://github.com/Lurkars/gloomhavensecretariat/releases/latest) and unzip it on your web server.
+To self-host *Gloomhaven Secretariat* on your web server, simply download the zip file from the [latest release](https://github.com/Lurkars/gloomhavensecretariat/releases/latest) and unzip it on your web server.
 
 > The base url for this build is set to root. To use a different base URL, please [build your own package](#build-from-source).
 
@@ -134,7 +134,7 @@ For use with docker compose, just run `docker compose up -d`.
 
 ## Building from source
 
-If you want to create your own custom build (e.g. on [Selfhosting](#Selfhosting)), prepare a [development setup](#development). Then run `npm run build` ([available options](https://angular.io/cli/build#options)) and access the build at `./dist/gloomhavensecretariat`.
+If you want to create your own custom build (e.g. for [self-hosting](#Selfhosting)), prepare a [development setup](#development). Then run `npm run build` ([available options](https://angular.io/cli/build#options)) and access the build at `./dist/gloomhavensecretariat`.
 
 ## Development
 
@@ -152,9 +152,9 @@ To develop with docker, install docker compose and run `docker compose -f docker
 
 ## Contributing
 
-Feel free to file a [new issue](https://github.com/Lurkars/gloomhavensecretariat/issues/new/choose) for bugs, features and improvements or start a new [new discussion](https://github.com/Lurkars/gloomhavensecretariat/discussions/new/choose) for help or feedback.
+Feel free to file a [new issue](https://github.com/Lurkars/gloomhavensecretariat/issues/new/choose) for bugs, features, and improvements, or start a new [new discussion](https://github.com/Lurkars/gloomhavensecretariat/discussions/new/choose) for help or feedback.
 
-All game data is located in the [data](./data/) folder with subfolders for each release. A third party review of all data would be great. As all files are JSON data, they should be easily human readable. Each character, monster and monster deck has it's own file, so it should be easy to check.
+All game data is located in the [data](./data/) folder with subfolders for each release. A third-party review of all data would be great. As all files are JSON data, they should easily be human-readable. Each character, monster, and monster deck has its own file, so it should be easy to check.
 Each edition folder will be concatenated into a single edition data file on build.
 
 Pull requests are also welcome!
@@ -171,7 +171,7 @@ All older versions are also available on `gloomhaven-secretariat.de`, for exampl
 
 ## Privacy
 
-This application does NOT collect any personal data. Everything runs and stays in your browser/local memory. For using the server component please go to [Gloomhaven Secretariat Server#Privacy](https://github.com/Lurkars/ghs-server#privacy).
+This application does NOT collect any personal data. Everything runs and stays in your browser/local memory. For details on the server component please go to [Gloomhaven Secretariat Server#Privacy](https://github.com/Lurkars/ghs-server#privacy).
 
 ## Copyright / License
 
@@ -192,4 +192,4 @@ Source code is licensed under [AGPL](/LICENSE)
 
 ## Personal disclaimer
 
-This is a hobby project I do in my spare time. The software fills a practical need due to the demise of the original Helper application, so I am following the **Quick'n'Dirty** approach to get things done quickly. This of course leads to a lack of quality and testing and the code base is definitely not in line with my profession.
+This is a hobby project I do in my spare time. The software fills a practical need due to the demise of the original Gloomhaven Helper application, so I am following the **Quick'n'Dirty** approach to get things done quickly. This of course leads to a lack of quality and testing and the code base is definitely not in line with my professional taste.
