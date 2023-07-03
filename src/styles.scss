@@ -278,6 +278,10 @@ body {
   }
 }
 
+.outer-denied {
+  pointer-events: none !important;
+}
+
 .no-animations {
   transition: none !important;
   animation: none !important;

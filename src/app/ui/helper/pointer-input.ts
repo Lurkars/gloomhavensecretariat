@@ -198,17 +198,19 @@ export class PointerInputDirective implements OnInit, OnDestroy {
   }
 
   pointerdown(event: TouchEvent | MouseEvent) {
-    this.down = true;
-    this.startX = event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
-    if (!this.move && this.repeat && !this.doubleClick.observed) {
-      this.repeats = -1;
-      this.repeatTimeout(event);
-    } else if (this.forcePress || settingsManager.settings.pressDoubleClick && this.doubleClick.observed && !this.move && !(event instanceof MouseEvent)) {
-      this.timeout = setTimeout(() => {
-        this.doubleClick.emit(event);
-        this.timeout = null;
-        this.clicks = 2;
-      }, longPressTreshhold);
+    if (!(event instanceof MouseEvent) || !event.button) {
+      this.down = true;
+      this.startX = event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
+      if (!this.move && this.repeat && !this.doubleClick.observed) {
+        this.repeats = -1;
+        this.repeatTimeout(event);
+      } else if (this.forcePress || settingsManager.settings.pressDoubleClick && this.doubleClick.observed && !this.move && !(event instanceof MouseEvent)) {
+        this.timeout = setTimeout(() => {
+          this.doubleClick.emit(event);
+          this.timeout = null;
+          this.clicks = 2;
+        }, longPressTreshhold);
+      }
     }
   }
 

@@ -9,16 +9,16 @@
     <ghs-healthbar [entity]="objective"></ghs-healthbar>
   </a>
 
-  <ghs-pointer-input class="drag-initiative" (dragMove)="dragInitiativeMove($event)" (dragEnd)="dragInitiativeEnd($event)"
-    (singleClick)="toggleFigure($event)" (doubleClick)="openInitiativeDialog($event)"
-    [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }">
+  <ghs-pointer-input class="drag-initiative" (dragMove)="(!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters) && dragInitiativeMove($event)" (dragEnd)="(!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters) && dragInitiativeEnd($event)"
+    (singleClick)="toggleFigure($event)" (doubleClick)="(!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters) && openInitiativeDialog($event)"
+    [ngClass]="{'outer-denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }">
   </ghs-pointer-input>
 
-  <ghs-pointer-input *ngIf="maxHealth() >= 0" class="drag-hp" (singleClick)="openEntityMenu($event)"
+  <ghs-pointer-input *ngIf="maxHealth() >= 0" class="drag-hp" [style.margin-left]="initiativeElement.elementRef.nativeElement.clientWidth + 'px'" (singleClick)="openEntityMenu($event)"
     (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true"
     [screenWidth]="true"></ghs-pointer-input>
 
-  <ghs-character-initiative [figure]="objective"></ghs-character-initiative>
+  <ghs-character-initiative #initiativeElement [figure]="objective"></ghs-character-initiative>
 
   <ghs-highlight-conditions [entity]="objective"></ghs-highlight-conditions>
 
@@ -55,11 +55,17 @@
         </div>
         <div class="conditions">
           <span class="condition" [ngClass]="{'permanent' : entityCondition.permanent}"
-            *ngFor="let entityCondition of activeConditions">
+            *ngFor="let entityCondition of activeConditions; let index = index;">
             <img
-              [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
-            <span class="value"
-              *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
+              [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
+              [style.z-index]="index * 10 + entityCondition.value" />
+            <ng-container *ngIf="entityCondition.types.indexOf(ConditionType.stack) != -1">
+              <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)"
+                [style.z-index]="index * 10 + entityCondition.value - i * 10 - 1"
+                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
+            </ng-container>
+            <span class="value" [style.z-index]="index * 10 + entityCondition.value +1"
+              *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1 && entityCondition.types.indexOf(ConditionType.stack) == -1">{{entityCondition.value}}</span>
           </span>
         </div>
       </div>

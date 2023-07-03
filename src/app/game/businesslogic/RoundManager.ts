@@ -299,6 +299,10 @@ export class RoundManager {
         gameManager.entityManager.applyCondition(figure, ConditionName.heal, true);
       }
     }
+
+    if ((figure instanceof Character || figure instanceof Objective) && !gameManager.entityManager.isAlive(figure) || figure instanceof Monster && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity))) {
+      gameManager.roundManager.toggleFigure(figure);
+    }
   }
 
   afterTurn(figure: Figure) {

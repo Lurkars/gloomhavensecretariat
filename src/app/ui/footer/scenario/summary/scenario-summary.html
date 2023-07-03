@@ -25,10 +25,13 @@
         <span class="name" [ngClass]="{'absent' : character.absent}">
           {{gameManager.characterManager.characterName(character,true)}}
         </span>
-        <img class="ghs-svg absent-icon"
-          [src]="'./assets/images/status/' + (character.absent ? 'absent': 'present') + '.svg'"
-          [ghs-label]="(character.absent ? 'character.present' : 'character.absent')" [ghs-label-attribute]="'title'"
-          (click)="character.absent = !character.absent">
+        <span class="absent-icon-container"
+          [ngClass]="{'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]}">
+          <img class="ghs-svg absent-icon"
+            [src]="'./assets/images/status/' + (character.absent ? 'absent': 'present') + '.svg'"
+            [ghs-label]="(character.absent ? 'character.present' : 'character.absent')" [ghs-label-attribute]="'title'"
+            (click)="toggleAbsent(character)">
+        </span>
       </span>
 
       <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.loot'"></span></span>
@@ -505,8 +508,9 @@
               <label class="item character choose"
                 *ngFor="let character of rewards.chooseUnlockCharacter; let i = index;"
                 [ngClass]="{'unlocked': unlocked(character), 'disabled': !settingsManager.settings.automaticUnlocking}">
-                <input *ngIf="settingsManager.settings.automaticUnlocking" type="radio" name="chooseUnlockCharacter" (change)="selectCharacter(character)"
-                  [value]="character" [checked]="chooseUnlockCharacter == character">
+                <input *ngIf="settingsManager.settings.automaticUnlocking" type="radio" name="chooseUnlockCharacter"
+                  (change)="selectCharacter(character)" [value]="character"
+                  [checked]="chooseUnlockCharacter == character">
                 <span class="placeholder text-white" [ghs-label]="'scenario.rewards.unlockCharacter.box'"
                   [ghs-label-args]="[character]"></span>
                 <span *ngIf="i < rewards.chooseUnlockCharacter.length - 1"><span [ghs-label]="'or'"></span></span>
@@ -552,7 +556,8 @@
     </div>
   </div>
 
-  <div class="buttons" *ngIf="!conclusionOnly || !alreadyWarning">
+  <div class="buttons" *ngIf="!conclusionOnly || !alreadyWarning"
+    [ngClass]="{'denied' : gameManager.stateManager.permissions && (!gameManager.stateManager.permissions.round  || !gameManager.stateManager.permissions.scenario || !gameManager.stateManager.permissions.characters)}">
     <a class="cancel" (click)="close()"><span [ghs-label]="'scenario.summary.cancel'"></span></a>
     <span class="links"
       *ngIf="success && (gameManager.game.party.campaignMode || forceCampaign) && (scenario.links && scenario.links.length > 0 || scenario.forcedLinks && scenario.forcedLinks.length > 0)">

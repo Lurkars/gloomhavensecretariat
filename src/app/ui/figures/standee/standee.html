@@ -53,9 +53,15 @@
         [ngClass]="{'center' : entity.summon == SummonState.false && ((activeConditions).length % 2) == 1 && (activeConditions).length == index + 1, 'expired' : entityCondition.expired}">
         <span class="condition" [ngClass]="{'permanent' : entityCondition.permanent}">
           <img
-            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
-          <span class="value"
-            *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
+            [style.z-index]="index * 10 + entityCondition.value" />
+          <ng-container *ngIf="entityCondition.types.indexOf(ConditionType.stack) != -1">
+            <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)"
+              [style.z-index]="index * 10 + entityCondition.value - i - 1"
+              [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
+          </ng-container>
+          <span class="value" [style.z-index]="index * 10 + entityCondition.value +1"
+            *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1 && entityCondition.types.indexOf(ConditionType.stack) == -1">{{entityCondition.value}}</span>
         </span>
       </span>
       <span *ngIf="entity.summon != SummonState.false" class="summon-container"

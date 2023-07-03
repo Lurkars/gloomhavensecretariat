@@ -208,7 +208,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
 
   addEscort() {
     gameManager.stateManager.before("addEscort");
-    gameManager.characterManager.addObjective(new ObjectiveData("escort", 3, true));
+    gameManager.characterManager.addObjective(new ObjectiveData("", 3, true));
     this.close();
     gameManager.stateManager.after();
   }

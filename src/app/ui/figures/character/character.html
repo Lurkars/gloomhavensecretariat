@@ -13,17 +13,18 @@
 <div class="character" [style.--ghs-character-color]="character.color"
   [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'absent' : character.absent, 'dimmed' : settingsManager.settings.characterAttackModifierDeck && character.attackModifierDeckVisible && !settingsManager.settings.characterAttackModifierDeckPermanent || settingsManager.settings.lootDeck && settingsManager.settings.applyLoot && character.lootCardsVisible}">
 
-  <ghs-character-image [character]="character"
-    [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
-  </ghs-character-image>
+  <ghs-character-image [character]="character"></ghs-character-image>
 
   <ng-container *ngIf="!character.absent">
 
     <ng-container
       *ngIf="(!settingsManager.settings.characterAttackModifierDeck || !character.attackModifierDeckVisible || settingsManager.settings.characterAttackModifierDeckPermanent) && (!settingsManager.settings.lootDeck ||!character.lootCardsVisible)">
-      <ghs-pointer-input class="drag-initiative" (dragMove)="dragInitiativeMove($event)"
-        (dragEnd)="dragInitiativeEnd($event)" (singleClick)="toggleFigure($event)"
-        (doubleClick)="initiativeDoubleClick($event)">
+      <ghs-pointer-input class="drag-initiative"
+        (dragMove)="gameManager.stateManager.characterPermissions[character.name + '|' + character.edition] && dragInitiativeMove($event)"
+        (dragEnd)="gameManager.stateManager.characterPermissions[character.name + '|' + character.edition] && dragInitiativeEnd($event)"
+        (singleClick)="toggleFigure($event)"
+        (doubleClick)="gameManager.stateManager.characterPermissions[character.name + '|' + character.edition] && initiativeDoubleClick($event)"
+        [ngClass]="{'outer-denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round && !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]}">
       </ghs-pointer-input>
 
       <ghs-pointer-input class="drag-hp"
@@ -115,17 +116,17 @@
           </div>
           <div class="conditions">
             <span class="condition" [ngClass]="{'permanent' : entityCondition.permanent}"
-              *ngFor="let entityCondition of activeConditions">
+              *ngFor="let entityCondition of activeConditions; let index = index;">
               <img
                 [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
-                [style.z-index]="entityCondition.value" />
+                [style.z-index]="index * 10 + entityCondition.value" />
               <ng-container *ngIf="entityCondition.types.indexOf(ConditionType.stack) != -1">
                 <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)"
-                  [style.z-index]="entityCondition.value - i - 1"
+                  [style.z-index]="index * 10 + entityCondition.value - i - 1"
                   [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
               </ng-container>
-              <span class="value"
-                *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
+              <span class="value" [style.z-index]="index * 10 + entityCondition.value +1"
+                *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1 && entityCondition.types.indexOf(ConditionType.stack) == -1">{{entityCondition.value}}</span>
             </span>
           </div>
         </div>

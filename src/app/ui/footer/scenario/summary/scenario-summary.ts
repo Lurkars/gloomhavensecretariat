@@ -65,10 +65,8 @@ export class ScenarioSummaryComponent {
         this.conclusionWarning = !this.conclusion && gameManager.sectionData(this.scenario.edition).find((sectionData) => sectionData.parent == this.scenario.index && sectionData.group == this.scenario.group && sectionData.edition == this.scenario.edition && sectionData.conclusion) != undefined;
 
         this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure, index) => {
-            let char = new Character((figure as Character), figure.level);
-            char.fromModel((figure as Character).toModel());
             this.battleGoals[index] = 0;
-            return char;
+            return figure as Character;
         })
 
         for (let value in LootType) {
@@ -370,6 +368,12 @@ export class ScenarioSummaryComponent {
         });
     }
 
+    toggleAbsent(character: Character): void {
+        gameManager.stateManager.before(character.absent ? "unsetAbsent" : "setAbsent", "data.character." + character.name);
+        character.absent = !character.absent;
+        gameManager.stateManager.after();
+    }
+
     finish(linkedIndex: string | undefined = undefined) {
         const linked = gameManager.scenarioData(this.scenario.edition).find((scenarioData) => scenarioData.group == this.scenario.group && scenarioData.index == linkedIndex);
         if (this.conclusionOnly) {
@@ -377,9 +381,6 @@ export class ScenarioSummaryComponent {
         } else {
             gameManager.stateManager.before(this.success && linked ? "finishScenario.linked" : ("finishScenario." + (this.success ? "success" : "failure")), ...gameManager.scenarioManager.scenarioUndoArgs(), linkedIndex ? linkedIndex : '');
         }
-        gameManager.game.figures.filter((figure) => figure instanceof Character).forEach((figure, index) => {
-            (figure as Character).fromModel(this.characters[index].toModel());
-        });
 
         if (this.success) {
             gameManager.game.figures.filter((figure) => figure instanceof Character).forEach((figure, index) => {

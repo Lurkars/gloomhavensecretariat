@@ -390,4 +390,11 @@
       color: var(--ghs-color-white);
     }
   }
+
+  &.denied {
+
+    .cancel {
+      pointer-events: initial;
+    }
+  }
 }

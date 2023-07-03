@@ -233,6 +233,8 @@
       grid-template-rows: repeat(2, auto);
       grid-auto-flow: column;
       height: calc(var(--ghs-unit) * 7.5 * var(--ghs-text-factor));
+      margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      margin-right: calc(var(--ghs-unit) * -0.5 * var(--ghs-text-factor));
 
       .condition-container,
       .summon-container {
@@ -240,7 +242,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+        margin-left: calc(var(--ghs-unit) * -0.5 * var(--ghs-text-factor));
 
         &.expired {
           opacity: 0.6;
@@ -252,13 +254,17 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          width: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
           height: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
           overflow: visible;
 
           img {
             width: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
             height: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
+            margin: 0;
+  
+            &.stack {
+              margin-left: calc(var(--ghs-unit) * -2 * var(--ghs-text-factor));
+            }
           }
 
           .value {
