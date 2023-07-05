@@ -24,6 +24,7 @@ export class Settings {
   automaticUnlocking: boolean = true;
   autoscroll: boolean = true;
   barsize: number = 1;
+  backupHint: boolean = true;
   browserNavigation: boolean = false;
   calculate: boolean = true;
   calculateStats: boolean = true;

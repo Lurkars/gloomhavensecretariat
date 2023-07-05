@@ -175,15 +175,15 @@ export class MonsterManager {
       monster.off = true;
       this.resetMonsterAbilities(monster);
       this.game.figures.push(monster);
-      if (gameManager.game.state == GameState.next) {
-        gameManager.sortFigures();
-      }
-
-      gameManager.uiChange.emit();
     } else if (level != gameManager.game.level && monster.level != level) {
       this.setLevel(monster, level);
-      gameManager.uiChange.emit();
     }
+
+    if (gameManager.game.state == GameState.next) {
+      gameManager.sortFigures();
+    }
+
+    gameManager.uiChange.emit();
 
     return monster;
   }

@@ -452,6 +452,11 @@
                     [ghs-label-attribute]="'title'" (click)="removeSuccess(scenarioData)"><img class="success"
                       src="./assets/images/check.svg"><img class="remove" src="./assets/images/close.svg"></a>
                 </span>
+                <span *ngFor="let success of [] | ghsRange:countFinished(scenarioData, true)">
+                  <a class="toggle-success casual" [ghs-label]="'party.campaign.scenarios.removeSuccessCasual'"
+                    [ghs-label-attribute]="'title'" (click)="removeSuccess(scenarioData, true)"><img class="success"
+                      src="./assets/images/check.svg"><img class="remove" src="./assets/images/close.svg"></a>
+                </span>
                 <a class="toggle-manual" [ghs-label]="'party.campaign.scenarios.removeManual'"
                   [ghs-label-attribute]="'title'" (click)="removeManual(scenarioData)"
                   *ngIf="isManual(scenarioData) && countFinished(scenarioData) < 1"><img class="manual"

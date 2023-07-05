@@ -164,6 +164,14 @@
         }
       },
       "delete": "Delete Game Backups",
+      "download": {
+        "." : "Download Backup file now",
+        "hint" : {
+          "." : "Back up your game regularly to prevent data loss.",
+          "text": "Your entire process is stored in your browser's storage. Although no browser should accidentally delete this data, there are still very few reports of such incidents. Regardless of whether these incidents are caused by errors in use, but to be on the safe side, it is a good idea to create a backup."
+        },
+        "onFinish": "Automatic backup after finishing a scenario"
+      },
       "latest": "Download latest Game Backup"
     },
     "clearAll": "Reset all Data",
@@ -1324,6 +1332,10 @@
       "hint": "Set size of header and footer",
       "inc": "Increase barsize",
       "reset": "Reset barsize"
+    },
+    "backupHint": {
+      ".": "Show Backup Hint",
+      "hint": "Show a backup reminder when no scenario is running."
     },
     "bonusAdjustment": {
       ".": "Level bonuses adjustment",

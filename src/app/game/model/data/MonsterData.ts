@@ -1,6 +1,6 @@
 import { Editional } from "./Editional";
 import { FigureError } from "./FigureError";
-import { MonsterStat } from "./MonsterStat";
+import { MonsterStat, MonsterStatEffect } from "./MonsterStat";
 import { MonsterType } from "./MonsterType";
 import { Spoilable } from "./Spoilable";
 
@@ -13,6 +13,7 @@ export class MonsterData implements Editional, Spoilable {
   standeeShareEdition: string | undefined;
   baseStat: MonsterStat = new MonsterStat(MonsterType.normal, 0, 0, 0, 0, 0);
   stats: MonsterStat[] = [];
+  effect: MonsterStatEffect | undefined;
   deck: string = "";
   boss: boolean = false;
   flying: boolean = false;
@@ -38,6 +39,8 @@ export class MonsterData implements Editional, Spoilable {
 
   replace: boolean = false;
 
+  tags: string[] = [];
+
   constructor(monsterData: MonsterData | undefined = undefined) {
     if (monsterData) {
       this.name = monsterData.name;
@@ -47,6 +50,7 @@ export class MonsterData implements Editional, Spoilable {
       this.standeeShareEdition = monsterData.standeeShareEdition;
       this.baseStat = monsterData.baseStat;
       this.stats = monsterData.stats;
+      this.effect = monsterData.effect;
       this.deck = monsterData.deck;
       this.boss = monsterData.boss;
       this.flying = monsterData.flying;
@@ -60,6 +64,7 @@ export class MonsterData implements Editional, Spoilable {
       this.errors = monsterData.errors || [];
       this.hidden = monsterData.hidden;
       this.replace = monsterData.replace;
+      this.tags = monsterData.tags || [];
     }
   }
 

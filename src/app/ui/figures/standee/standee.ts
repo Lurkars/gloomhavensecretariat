@@ -83,7 +83,7 @@ export class StandeeComponent implements OnInit, OnDestroy {
           }
         }
 
-        if (gameManager.entityManager.isAlive(this.entity, true)) {
+        if (gameManager.entityManager.isAlive(this.entity, true) && (!this.entity.active || this.figure.active)) {
           const activeFigure = gameManager.game.figures.find((figure) => figure.active);
           if (this.figure.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(this.figure))) {
             let ability = gameManager.monsterManager.getAbility(this.figure);
@@ -118,7 +118,7 @@ export class StandeeComponent implements OnInit, OnDestroy {
           }
         }
 
-        if (gameManager.entityManager.isAlive(this.entity, true)) {
+        if (gameManager.entityManager.isAlive(this.entity, true) && (!this.entity.active || this.figure.active)) {
           const activeFigure = gameManager.game.figures.find((figure) => figure.active);
           if (this.figure.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(this.figure))) {
             let ability = gameManager.monsterManager.getAbility(this.figure);

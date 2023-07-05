@@ -91,6 +91,21 @@
       </div>
     </div>
   </div>
+  <div class="backup-hint" *ngIf="showBackupHint">
+    <h2 [ghs-label]="'datamanagement.backup'"></h2>
+    <p [ghs-label]="'datamanagement.backup.download.hint'" [ghsTooltip]="'datamanagement.backup.download.hint.text'"
+      [originY]="'top'" [overlayY]="'bottom'">
+    </p>
+    <a (click)="exportDataDump()">
+      <img class="ghs-svg" src="./assets/images/export.svg">
+      <span [ghs-label]="'datamanagement.backup.download'"></span>
+    </a>
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.autoBackupFinish"
+        (change)="settingsManager.setAutoBackupFinish(!settingsManager.settings.autoBackupFinish)">
+      <span [ghs-label]="'datamanagement.backup.download.onFinish'"></span>
+    </label>
+  </div>
   <ghs-character-fullview *ngIf="fullviewChar" [character]="fullviewChar"></ghs-character-fullview>
 </main>
 <ghs-footer #footer></ghs-footer>

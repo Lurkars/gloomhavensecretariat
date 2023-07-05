@@ -61,27 +61,6 @@ export class ScenarioRulesManager {
     this.filterDisabledScenarioRules();
   }
 
-  addScenarioRulesRooms() {
-    const scenario = this.game.scenario;
-    if (scenario && scenario.rules) {
-      scenario.rules.filter((rule) => rule.requiredRooms && rule.requiredRooms.length > 0).forEach((rule) => {
-        this.addScenarioRule(scenario, rule, scenario.rules.indexOf(rule), false);
-      })
-    }
-
-    if (this.game.sections) {
-      this.game.sections.forEach((section) => {
-        if (section.rules) {
-          section.rules.sort((a, b) => a.start == b.start ? section.rules.indexOf(a) - section.rules.indexOf(b) : (a.start ? 1 : -1)).filter((rule) => rule.requiredRooms && rule.requiredRooms.length > 0).forEach((rule, index) => {
-            this.addScenarioRule(section, rule, section.rules.indexOf(rule), true);
-          })
-        }
-      })
-    }
-
-    this.filterDisabledScenarioRules();
-  }
-
   filterDisabledScenarioRules() {
     this.game.scenarioRules = this.game.scenarioRules.filter((ruleModel, index, self) => !self.find((disableRule) => disableRule.rule.disableRules && disableRule.rule.disableRules.some((value) => value.edition == ruleModel.identifier.edition && value.group == ruleModel.identifier.group && (value.index == ruleModel.identifier.index || value.index == -1) && value.scenario == ruleModel.identifier.scenario && value.section == ruleModel.identifier.section)));
   }

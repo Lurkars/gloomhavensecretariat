@@ -259,6 +259,7 @@ export class StateManager {
             settings.autoBackupUrl = settingsManager.settings.autoBackupUrl;
             settings.autoscroll = settingsManager.settings.autoscroll;
             settings.barsize = settingsManager.settings.barsize;
+            settings.backupHint = settingsManager.settings.backupHint;
             settings.browserNavigation = settingsManager.settings.browserNavigation;
             settings.characterAttackModifierDeckPermanent = settingsManager.settings.characterAttackModifierDeckPermanent;
             settings.debugRightClick = settingsManager.settings.debugRightClick;

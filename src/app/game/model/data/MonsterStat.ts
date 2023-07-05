@@ -36,3 +36,14 @@ export class MonsterStat {
     this.note = note;
   }
 }
+
+export class MonsterStatEffect {
+
+  health: number = 0;
+  movement: number = 0;
+  attack: number = 0;
+  range: number = 0;
+  actions: Action[] = [];
+  immunities: string[] = [];
+
+}

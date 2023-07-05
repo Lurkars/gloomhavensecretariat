@@ -36,23 +36,37 @@ export class ScenarioDialogComponent {
 
     updateMonster() {
         this.monsters = [];
-        this.hasSpoiler = this.spoiler;
+        this.hasSpoiler = false;
         gameManager.scenarioManager.getMonsters(this.scenario).forEach((monster) => {
             if (this.spoiler || !monster.standeeShare || gameManager.scenarioManager.openRooms().find((room) => room.initial && room.monster.find((standee) => standee.name.split(':')[0] == monster.name)) || gameManager.game.figures.some((figure) => figure instanceof Monster && figure.name == monster.name && figure.edition == monster.edition)) {
                 if (this.monsters.indexOf(monster) == -1) {
+                    monster.tags = [];
                     this.monsters.push(monster);
                 }
             } else {
                 const standee = gameManager.monstersData().find((monsterData) => monsterData.name == monster.standeeShare && monsterData.edition == (monster.standeeShareEdition || monster.edition));
                 if (standee) {
-                    const changedStandee = JSON.parse(JSON.stringify(standee));
-                    changedStandee.tag = monster.edition;
-                    changedStandee.standeeShareEdition = monster.name;
-                    changedStandee.boss = monster.boss;
-                    if (!this.monsters.find((m) => m.name == changedStandee.name && m.edition == changedStandee.edition)) {
-                        this.monsters.push(changedStandee);
-                        this.hasSpoiler = true;
+                    const changedStandee = JSON.parse(JSON.stringify(standee)) as MonsterData;
+                    changedStandee.tags = changedStandee.tags || [];
+                    if (gameManager.editionRules('cs')) {
+                        if (monster.boss) {
+                            changedStandee.tags.push('boss');
+                        }
                     }
+
+                    const otherStandee = this.monsters.find((m) => m.name == changedStandee.name && m.edition == changedStandee.edition);
+                    if (!otherStandee) {
+                        this.hasSpoiler = true;
+                        this.monsters.push(changedStandee);
+                    } else
+                        if (!this.spoiler && gameManager.editionRules('cs')) {
+                            otherStandee.tags = otherStandee.tags || [];
+                            if (monster.boss) {
+                                this.hasSpoiler = true;
+                                otherStandee.tags.push('boss');
+                            }
+                        }
+
                 }
             }
         })
@@ -66,6 +80,7 @@ export class ScenarioDialogComponent {
 
     openStats(monsterData: MonsterData) {
         const monster = new Monster(monsterData, gameManager.game.level);
+        monster.tags = monsterData.tags;
         gameManager.monsterManager.resetMonsterAbilities(monster);
         this.dialog.open(StatsListComponent, { panelClass: 'dialog', data: monster });
     }

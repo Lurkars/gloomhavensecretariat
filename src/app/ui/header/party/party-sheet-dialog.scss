@@ -1389,10 +1389,29 @@
 
             .toggle-success {
               cursor: pointer;
+              display: flex;
+              align-items: center;
+
+              img.success {
+                height: calc(var(--ghs-unit) * 1.3 * var(--ghs-dialog-factor));
+                filter: var(--ghs-filter-green);
+              }
 
               img.remove {
+                height: calc(var(--ghs-unit) * 1.3 * var(--ghs-dialog-factor));
                 filter: var(--ghs-filter-red) var(--ghs-filter-shadow);
                 display: none;
+              }
+
+              &.casual {
+                img.success {
+                  height: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+                  filter: none;
+                }
+
+                img.remove {
+                  height: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+                }
               }
 
               &:hover {

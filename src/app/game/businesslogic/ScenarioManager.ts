@@ -303,6 +303,10 @@ export class ScenarioManager {
           })
         }
 
+        if (success && (!gameManager.game.party.campaignMode || casual)) {
+          this.game.party.casualScenarios.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, scenario.custom, scenario.custom ? scenario.name : "", scenario.revealedRooms));
+        }
+
         if (!internal) {
           this.game.scenario = undefined;
           this.game.sections = [];
@@ -537,11 +541,6 @@ export class ScenarioManager {
           }
         }
       })
-    }
-
-    if (settingsManager.settings.scenarioRules) {
-      gameManager.scenarioRulesManager.addScenarioRulesRooms();
-      gameManager.scenarioRulesManager.addScenarioRulesAlways();
     }
   }
 

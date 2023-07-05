@@ -21,7 +21,7 @@
       <span><span [ghs-label]="'scenario.setup'"></span></span>
     </span>
 
-    <label class="checkbox" *ngIf="hasSpoiler">
+    <label class="checkbox" *ngIf="hasSpoiler || spoiler">
       <input type="checkbox" [(ngModel)]="spoiler" (change)="updateMonster()"><span
         [ghs-label]="'scenario.setup.spoiler'"></span>
     </label>
@@ -35,7 +35,7 @@
               </div>
             </div>
           </div>
-          <span class="boss" *ngIf="monster.boss"><img src="./assets/images/monster/enemy.png" /></span>
+          <span class="boss" *ngIf="monster.boss || monster.tags.indexOf('boss') != -1"><img src="./assets/images/monster/enemy.png" /></span>
           <span class="custom" *ngIf="monster.standeeShare">*</span>
         </div>
         <div class="name"><span [ghs-label]="'data.monster.' + monster.name"></span></div>

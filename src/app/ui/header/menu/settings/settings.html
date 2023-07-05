@@ -859,9 +859,6 @@
         </span>
       </div>
     </div>
-  </div>
-
-  <div class="column">
     <div class="line">
       <div class="hint-container">
         <label>
@@ -875,6 +872,9 @@
         </span>
       </div>
     </div>
+  </div>
+
+  <div class="column">
     <div class="line">
       <div class="hint-container">
         <label>
@@ -898,6 +898,19 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text" [ghs-label]="'settings.tooltips.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.backupHint"
+            (change)="settingsManager.setBackupHint(!settingsManager.settings.backupHint)">
+          <span [ghs-label]="'settings.backupHint'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.backupHint.hint'"></span>
         </span>
       </div>
     </div>

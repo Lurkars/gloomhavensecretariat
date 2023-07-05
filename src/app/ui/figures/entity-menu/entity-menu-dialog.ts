@@ -113,7 +113,7 @@ export class EntityMenuDialogComponent {
         }
       }
 
-      if (gameManager.entityManager.isAlive(this.data.entity, true)) {
+      if (gameManager.entityManager.isAlive(this.data.entity, true) && (!this.data.entity.active || this.data.figure.active)) {
         const activeFigure = gameManager.game.figures.find((figure) => figure.active);
         if (this.data.figure.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(this.data.figure))) {
           let ability = gameManager.monsterManager.getAbility(this.data.figure);
@@ -147,7 +147,7 @@ export class EntityMenuDialogComponent {
         }
       }
 
-      if (gameManager.entityManager.isAlive(this.data.entity, true)) {
+      if (gameManager.entityManager.isAlive(this.data.entity, true) && (!this.data.entity.active || this.data.figure.active)) {
         const activeFigure = gameManager.game.figures.find((figure) => figure.active);
         if (this.data.figure.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(this.data.figure))) {
           let ability = gameManager.monsterManager.getAbility(this.data.figure);

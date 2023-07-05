@@ -94,6 +94,8 @@ export class ScenarioSummaryComponent {
             gameManager.stateManager.before("finishScenario.dialog", ...gameManager.scenarioManager.scenarioUndoArgs());
             this.updateFinish();
             gameManager.stateManager.after();
+        } else {
+            this.loadFinish();
         }
 
         this.dialogRef.closed.subscribe({
@@ -114,17 +116,7 @@ export class ScenarioSummaryComponent {
                         gameManager.stateManager.scenarioSummary = false;
                         this.dialogRef.close();
                     } else {
-                        const finish = gameManager.game.finish;
-                        this.conclusion = finish.conclusion ? gameManager.sectionData(finish.conclusion.edition).find((sectionData) => finish.conclusion && sectionData.index == finish.conclusion.index && sectionData.group == finish.conclusion.group && sectionData.conclusion) : undefined;
-                        this.success = finish.success;
-                        this.battleGoals = finish.battleGoals;
-                        this.challenges = finish.challenges;
-                        this.chooseLocation = finish.chooseLocation;
-                        this.chooseUnlockCharacter = finish.chooseUnlockCharacter;
-                        this.collectiveGold = finish.collectiveGold;
-                        this.items = finish.items;
-                        this.calenderSectionManual = finish.calenderSectionManual;
-                        this.randomItemBlueprints = finish.randomItemBlueprints;
+                        this.loadFinish();
                     }
                 }
             }
@@ -152,6 +144,22 @@ export class ScenarioSummaryComponent {
         finish.calenderSectionManual = this.calenderSectionManual;
         finish.randomItemBlueprints = this.randomItemBlueprints;
         gameManager.game.finish = finish;
+    }
+
+    loadFinish() {
+        if (gameManager.game.finish) {
+            const finish = gameManager.game.finish;
+            this.conclusion = finish.conclusion ? gameManager.sectionData(finish.conclusion.edition).find((sectionData) => finish.conclusion && sectionData.index == finish.conclusion.index && sectionData.group == finish.conclusion.group && sectionData.conclusion) : undefined;
+            this.success = finish.success;
+            this.battleGoals = finish.battleGoals;
+            this.challenges = finish.challenges;
+            this.chooseLocation = finish.chooseLocation;
+            this.chooseUnlockCharacter = finish.chooseUnlockCharacter;
+            this.collectiveGold = finish.collectiveGold;
+            this.items = finish.items;
+            this.calenderSectionManual = finish.calenderSectionManual;
+            this.randomItemBlueprints = finish.randomItemBlueprints;
+        }
     }
 
     updateState(forceCampaign: boolean = false): void {

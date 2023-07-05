@@ -362,8 +362,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     }
   }
 
-  countFinished(scenarioData: ScenarioData): number {
-    return this.party.scenarios.filter((value) => scenarioData.index == value.index && scenarioData.edition == value.edition && scenarioData.group == value.group).length;
+  countFinished(scenarioData: ScenarioData, casual: boolean = false): number {
+    return (casual ? this.party.casualScenarios : this.party.scenarios).filter((value) => scenarioData.index == value.index && scenarioData.edition == value.edition && scenarioData.group == value.group).length;
   }
 
   isManual(scenarioData: ScenarioData): boolean {
@@ -399,11 +399,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     this.update();
   }
 
-  removeSuccess(scenarioData: ScenarioData) {
-    const value = this.party.scenarios.find((value) => value.index == scenarioData.index && value.edition == scenarioData.edition && value.group == scenarioData.group);
+  removeSuccess(scenarioData: ScenarioData, casual: boolean = false) {
+    const scenarios = (casual ? this.party.casualScenarios : this.party.scenarios);
+    const value = scenarios.find((value) => value.index == scenarioData.index && value.edition == scenarioData.edition && value.group == scenarioData.group);
     if (value) {
-      gameManager.stateManager.before("finishScenario.remove", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
-      this.party.scenarios.splice(this.party.scenarios.indexOf(value), 1);
+      gameManager.stateManager.before("finishScenario.remove" + (casual ? 'Casual' : ''), ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
+      scenarios.splice(scenarios.indexOf(value), 1);
       gameManager.stateManager.after();
     }
     this.update();

@@ -15,6 +15,10 @@
     "giant-viper",
     "ooze"
   ],
+  "allied": [
+    "flame-demon",
+    "frost-demon"
+  ],
   "rules": [
     {
       "round": "R % 2 == 1",

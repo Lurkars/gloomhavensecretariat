@@ -39,6 +39,7 @@ export class MainComponent implements OnInit {
   cancelLoading: boolean = false;
   welcome: boolean = false;
   fullviewChar: Character | undefined;
+  showBackupHint: boolean = false;
 
   draggingEnabled: boolean = false;
   draggingeTimeout: any = null;
@@ -88,6 +89,7 @@ export class MainComponent implements OnInit {
                 })
               }
             }
+            this.showBackupHint = settingsManager.settings.backupHint && !this.loading && !gameManager.game.scenario && (gameManager.game.party.scenarios.length > 0 || gameManager.game.parties.some((party) => party.scenarios.length > 0) || gameManager.game.party.casualScenarios.length > 0 || gameManager.game.parties.some((party) => party.casualScenarios.length > 0));
           }
         }
       }
@@ -502,6 +504,20 @@ export class MainComponent implements OnInit {
           }
         })
       }
+    }
+  }
+
+  async exportDataDump() {
+    try {
+      let datadump: any = await storageManager.datadump();
+      let downloadButton = document.createElement('a');
+      downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(datadump)));
+      downloadButton.setAttribute('download', "ghs-data-dump.json");
+      document.body.appendChild(downloadButton);
+      downloadButton.click();
+      document.body.removeChild(downloadButton);
+    } catch {
+      console.warn("Could not read datadump");
     }
   }
 }

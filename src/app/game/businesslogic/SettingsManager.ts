@@ -187,6 +187,11 @@ export class SettingsManager {
 
   setAutoBackupFinish(autoBackupFinish: boolean) {
     this.settings.autoBackupFinish = autoBackupFinish;
+    if (this.settings.autoBackupFinish && this.settings.autoBackup < 0) {
+      this.settings.autoBackup = 0;
+    } else if (!this.settings.autoBackupFinish && this.settings.autoBackup == 0) {
+      this.settings.autoBackup = -1;
+    }
     this.storeSettings();
   }
 
@@ -225,6 +230,11 @@ export class SettingsManager {
 
   setBarsize(barsize: number) {
     this.settings.barsize = barsize;
+    this.storeSettings();
+  }
+
+  setBackupHint(backupHint: boolean) {
+    this.settings.backupHint = backupHint;
     this.storeSettings();
   }
 

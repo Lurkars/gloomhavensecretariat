@@ -18,6 +18,7 @@ export class Party {
   prosperity: number = 0;
   scenarios: GameScenarioModel[] = [];
   conclusions: GameScenarioModel[] = [];
+  casualScenarios: GameScenarioModel[] = [];
   manualScenarios: GameScenarioModel[] = [];
   campaignMode: boolean = false;
   globalAchievements: string = "";
