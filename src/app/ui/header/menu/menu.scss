@@ -1,7 +1,6 @@
 :host {
   position: relative;
   z-index: 9999;
-  --ghs-color-disabled: #52565f;
 }
 
 .hint-container .hint .text {
@@ -287,6 +286,10 @@
 
       &.fh {
         background-image: url('~src/assets/images/fh/dialog_background_fh.png');
+      }
+
+      &.modern {
+        background-image: url('~src/assets/images/modern/dialog_background_modern.png');
       }
 
       z-index: 1;

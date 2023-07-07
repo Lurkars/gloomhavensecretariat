@@ -77,6 +77,7 @@ body {
   --ghs-color-white: #fff;
   --ghs-color-gray: #98b0b5;
   --ghs-color-darkgray: #202830;
+  --ghs-color-disabled: #52565f;
   --ghs-color-yellow: #eca610;
   --ghs-color-yellow-light: #eed07d;
   --ghs-color-blue: #56c8ef;
@@ -109,7 +110,8 @@ body {
     -webkit-user-select: none;
   }
 
-  &.fh {
+  &.fh,
+  &.modern {
     --ghs-font-normal: 'ghs-normal-fh';
     --ghs-font-text: 'ghs-text-fh';
     --ghs-font-extra: 'ghs-extra';
@@ -1470,5 +1472,29 @@ input[type="radio"] {
     }
 
     border-image-source: url('~src/assets/images/fh/dialog_border_fh.png');
+  }
+}
+
+.modern {
+  --ghs-color-darkgray: #52565f;
+  --ghs-color-disabled: #727272;
+  --ghs-filter-shadow: brightness(1);
+
+  .dialog,
+  .dialog-invert {
+
+    border: none;
+    border-color: var(--ghs-color-gray);
+    border-style: solid;
+    border-radius: 0;
+    border-width: 3px;
+
+    &.dialog {
+      background-image: url('~src/assets/images/modern/dialog_background_modern.png');
+    }
+
+    &.dialog-invert {
+      border-color: var(--ghs-color-darkgray);
+    }
   }
 }

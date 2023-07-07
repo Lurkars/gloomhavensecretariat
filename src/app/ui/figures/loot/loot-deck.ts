@@ -52,6 +52,7 @@ export class LootDeckComponent implements OnInit, OnDestroy {
     queue: number = 0;
     queueTimeout: any = null;
     compact: boolean = false;
+    disabled: boolean = false;
 
     constructor(private element: ElementRef, private dialog: Dialog) {
         this.element.nativeElement.addEventListener('click', (event: any) => {
@@ -66,6 +67,7 @@ export class LootDeckComponent implements OnInit, OnDestroy {
         this.current = this.deck.current;
         this.internalDraw = -99;
         this.compact = this.deck.cards.length > 0 && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+        this.disabled = !this.standalone && gameManager.game.state == GameState.draw;
         this.uiChangeSubscription = gameManager.uiChange.subscribe({
             next: () => {
                 if (this.internalDraw == -99 && this.current < this.deck.current) {
@@ -93,6 +95,7 @@ export class LootDeckComponent implements OnInit, OnDestroy {
                 }
 
                 this.compact = settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+                this.disabled = !this.standalone && gameManager.game.state == GameState.draw;
             }
         })
 
@@ -153,7 +156,7 @@ export class LootDeckComponent implements OnInit, OnDestroy {
     draw(event: any) {
         if (this.compact && this.fullscreen) {
             this.openFullscreen(event);
-        } else if ((this.standalone || gameManager.game.state == GameState.next) && this.deck.cards.length > 0) {
+        } else if (!this.disabled && this.deck.cards.length > 0) {
             if (!this.drawTimeout && this.deck.current < this.deck.cards.length - 1) {
                 this.drawTimeout = setTimeout(() => {
                     this.before.emit(new LootDeckChange(this.deck, 'lootDeckDraw'));
@@ -174,6 +177,17 @@ export class LootDeckComponent implements OnInit, OnDestroy {
                     this.drawTimeout = null;
                 }, settingsManager.settings.disableAnimations ? 0 : 150)
             }
+        } else {
+            this.dialog.open(LootDeckDialogComponent, {
+                panelClass: 'dialog',
+                data: {
+                    deck: this.deck,
+                    characters: this.characters,
+                    before: this.before,
+                    after: this.after,
+                    apply: !this.standalone
+                }
+            });
         }
     }
 

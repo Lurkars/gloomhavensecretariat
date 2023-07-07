@@ -1,5 +1,6 @@
 <ghs-header #header></ghs-header>
-<main [ngClass]="{'compact' : footer.compact}" ghs-keyboard-shortcuts [footer]="footer">
+<main [ngClass]="{'compact' : footer.compact, 'modern' : settingsManager.settings.theme == 'modern'}"
+  ghs-keyboard-shortcuts [footer]="footer">
   <div
     *ngIf="gameManager.stateManager.updateBlocked && settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword"
     class="dialog blocked">
@@ -21,7 +22,8 @@
       </a>
     </div>
   </div>
-  <div *ngIf="!fullviewChar && welcome" class="welcome" [ngClass]="{'fh': settingsManager.settings.theme == 'fh'}">
+  <div *ngIf="!fullviewChar && welcome" class="welcome"
+    [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
 
     <img class="ghs-logo" src="./assets/images/logo-transparent.svg">
 
@@ -72,7 +74,7 @@
         (cdkDragStarted)="startedDrag($event, figureDrag)" (cdkDragReleased)="releasedDrag($event, figureDrag)">
 
         <div cdkDragHandle class="handle" (click)="handleClick($event)"
-          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard, 'permanent-am' : gameManager.isCharacter(figure) && gameManager.toCharacter(figure).attackModifierDeck.active && settingsManager.settings.characterAttackModifierDeckPermanent}"
+          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard, 'permanent-am' : gameManager.isCharacter(figure) && gameManager.toCharacter(figure).attackModifierDeckVisible && settingsManager.settings.characterAttackModifierDeckPermanent}"
           *ngIf="!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters || gameManager.stateManager.permissions.monsters">
         </div>
 
@@ -84,7 +86,7 @@
         </ghs-monster>
 
         <div cdkDragHandle class="handle right" (click)="handleClick($event)"
-          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard, 'permanent-am' : gameManager.isCharacter(figure) && gameManager.toCharacter(figure).attackModifierDeck.active && settingsManager.settings.characterAttackModifierDeckPermanent}"
+          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard, 'permanent-am' : gameManager.isCharacter(figure) && gameManager.toCharacter(figure).attackModifierDeckVisible && settingsManager.settings.characterAttackModifierDeckPermanent}"
           *ngIf=" !gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters ||
           gameManager.stateManager.permissions.monsters">
         </div>

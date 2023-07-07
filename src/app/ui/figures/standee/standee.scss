@@ -261,7 +261,7 @@
             width: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
             height: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
             margin: 0;
-  
+
             &.stack {
               margin-left: calc(var(--ghs-unit) * -2 * var(--ghs-text-factor));
             }
@@ -426,6 +426,13 @@
 
     .standee {
       box-shadow: 0px 0px calc(var(--ghs-unit) * 1) calc(var(--ghs-unit) * 0.5) var(--ghs-color-blue);
+    }
+  }
+
+  &.modern:not(.active) {
+    .standee {
+      box-shadow: none;
+      filter: none;
     }
   }
 }

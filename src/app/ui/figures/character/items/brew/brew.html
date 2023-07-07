@@ -1,4 +1,4 @@
-<div class="items-brew-dialog" [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
+<div class="items-brew-dialog" [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
     <label class="title">
         <span [ghs-label]="'character.progress.items.brewing'"></span>
     </label>

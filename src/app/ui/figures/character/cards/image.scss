@@ -40,6 +40,17 @@
       filter: grayscale(0.7);
     }
   }
+
+  &.modern {
+    border-radius: 0;
+    mask: url('~/src/assets/images/modern/character/char-image-mask.png');
+    mask-size: 100% 100%;
+    
+    &.active-border {
+      border: none !important;
+      box-shadow: none;
+    }
+  }
 }
 
 .number-container {

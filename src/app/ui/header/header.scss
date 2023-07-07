@@ -22,6 +22,21 @@ header {
     background-image: url('~/src/assets/images/fh/bar.jpg');
   }
 
+  &.modern::before {
+    background-image: url('~/src/assets/images/modern/dialog_background_modern.png');
+  }
+
+  &.modern::after {
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4%;
+    background: linear-gradient(90deg, var(--ghs-color-darkgray) 0%, var(--ghs-color-white) 35%, var(--ghs-color-white) 65%, var(--ghs-color-darkgray) 100%);
+    opacity: 0.2;
+  }
+
   .menu-button {
     display: flex;
     align-items: center;

@@ -58,8 +58,8 @@
     z-index: 4;
 
     &.dragging {
-      left: 0;
-      width: 100%;
+      left: 0 !important;
+      width: 100% !important;
     }
   }
 
@@ -312,12 +312,12 @@
 
       &.experience {
         color: var(--ghs-color-blue);
-        margin-bottom: calc(var(--ghs-unit) *0.5 * var(--ghs-text-factor));
+        margin-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
       }
 
       &.loot {
         color: var(--ghs-color-yellow);
-        margin-top: calc(var(--ghs-unit) *0.5 * var(--ghs-text-factor));
+        margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
       }
     }
 
@@ -472,8 +472,96 @@
       pointer-events: initial;
     }
   }
-}
 
+  &.modern {
+    height: calc(var(--ghs-unit) * 16);
+    border-top-left-radius: calc(var(--ghs-unit) * 13);
+    border-top-right-radius: calc(var(--ghs-unit) * 12);
+    border-bottom-right-radius: calc(var(--ghs-unit) * 12);
+    background-image: url('~/src/assets/images/modern/character/char-mat_modern.png');
+    background-blend-mode: hard-light;
+    filter: none;
+    overflow: hidden;
+
+    &.dimmed {
+      background-image: url('~/src/assets/images/modern/character/char-mat_modern.png');
+    }
+
+    ghs-character-image,
+    ghs-pointer-input.drag-initiative {
+      top: 0;
+      left: 0;
+      width: calc(var(--ghs-unit) * 16);
+      height: calc(var(--ghs-unit) * 16);
+      margin: 0;
+    }
+
+    .character-sheet-button {
+      img {
+        filter: grayscale(1) brightness(0.3);
+      }
+    }
+
+    .stats {
+      margin-left: calc(var(--ghs-unit) * 2.5);
+
+
+      .title-bar {
+        margin-top: calc(var(--ghs-unit) * -2.5);
+
+        .title {
+          .icon {
+            height: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
+            filter: grayscale(1) brightness(0.3);
+            margin-left: calc(var(--ghs-unit) * -0.5);
+          }
+        }
+      }
+
+      .health {
+        font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+
+        img {
+          height: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+        }
+      }
+
+      .status-bar {
+        margin-top: calc(var(--ghs-unit) * 3.5);
+      }
+
+      .attack-modifier-button {
+        margin-top: calc(var(--ghs-unit) * 5.5);
+      }
+
+      .summon-dialog-button {
+        margin-top: calc(var(--ghs-unit) * 6);
+      }
+    }
+
+    ghs-pointer-input.drag-token {
+      left: calc(var(--ghs-unit) * 17.5);
+      top: 0;
+    }
+
+    ghs-pointer-input.drag-hp {
+      bottom: calc(var(--ghs-unit) * 4);
+    }
+
+    ghs-pointer-input.drag-xp {
+      top: calc(var(--ghs-unit) * 3);
+    }
+
+    ghs-pointer-input.drag-loot {
+      bottom: calc(var(--ghs-unit) * 3);
+    }
+
+  }
+
+  .attack-modifierdeck-container ghs-attackmodifier-deck {
+    top: calc(var(--ghs-unit) * 3 / var(--ghs-text-factor) / var(--ghs-text-factor));
+  }
+}
 
 .attack-modifierdeck-container,
 .loot-cards-container {

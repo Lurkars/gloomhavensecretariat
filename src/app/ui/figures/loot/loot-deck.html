@@ -2,7 +2,7 @@
     [ngClass]="{'disabled' : !standalone && gameManager.game.state == GameState.draw, 'vertical' : vertical, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.lootDeck}">
     <div class="loot-container draw" [style.z-index]="deck.cards.length + 1">
         <div class="loot-card" #card [style.fontSize]="card.offsetWidth * 0.08 + 'px'" (click)="draw($event)"
-            [ngClass]="{'disabled' : !standalone && gameManager.game.state == GameState.draw}">
+            [ngClass]="{'disabled' : disabled}">
             <span class="number">{{deck.current < deck.cards.length -1 ? deck.cards.length - deck.current - 1 :
                     0}}</span>
         </div>
@@ -24,8 +24,7 @@
             [ngClass]="{'disgarded' : index < current - 1, 'current' : index == current, 'last' : index == current - 1, 'bottom' : bottom}">
             <ghs-loot class="loot-card" [loot]="card" [flipped]="index <= current" [looted]="index <= current"
                 [index]="index" [disableFlip]="!drawing || index != current" [character]="getCharacter(index)"
-                [apply]="!standalone"
-                [ngClass]="{'disabled' : !standalone && gameManager.game.state == GameState.draw}"></ghs-loot>
+                [apply]="!standalone" [ngClass]="{'disabled' : disabled }"></ghs-loot>
         </div>
     </ng-container>
 </div>

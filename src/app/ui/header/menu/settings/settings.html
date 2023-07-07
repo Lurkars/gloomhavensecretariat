@@ -233,8 +233,10 @@
       </div>
       <div class="line">
         <div class="hint-container">
-          <label [ngClass]="{'disabled' : !settingsManager.settings.abilities || !settingsManager.settings.calculateStats}">
-            <input type="checkbox" [checked]="settingsManager.settings.abilities && settingsManager.settings.calculateStats && settingsManager.settings.calculateShieldStats"
+          <label
+            [ngClass]="{'disabled' : !settingsManager.settings.abilities || !settingsManager.settings.calculateStats}">
+            <input type="checkbox"
+              [checked]="settingsManager.settings.abilities && settingsManager.settings.calculateStats && settingsManager.settings.calculateShieldStats"
               (change)="settingsManager.setCalculateShieldStats(!settingsManager.settings.calculateShieldStats)">
             <span [ghs-label]="'settings.calculateShieldStats'"></span>
           </label>
@@ -400,7 +402,8 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
-          <input type="checkbox" [checked]="!settingsManager.settings.disableStandees && settingsManager.settings.standeeStats"
+          <input type="checkbox"
+            [checked]="!settingsManager.settings.disableStandees && settingsManager.settings.standeeStats"
             (change)="settingsManager.setStandeeStats(!settingsManager.settings.standeeStats)">
           <span [ghs-label]="'settings.standeeStats'"></span>
         </label>
@@ -1031,8 +1034,8 @@
     </div>
 
     <div class="line" *ngFor="let theme of ['default', 'fh', 'modern']">
-      <label [ngClass]="{'disabled' : settingsManager.settings.theme == theme || theme == 'modern'}">
-        <input type="checkbox" [checked]="settingsManager.settings.theme == theme" [disabled]="theme == 'modern'"
+      <label [ngClass]="{'disabled' : settingsManager.settings.theme == theme}">
+        <input type="checkbox" [checked]="settingsManager.settings.theme == theme"
           (change)="settingsManager.setTheme(theme)">
         <span [ghs-label]="'settings.theme.' + theme"></span>
       </label>

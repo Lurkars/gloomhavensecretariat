@@ -1,6 +1,8 @@
-<div class="move-resources-dialog" [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
+<div class="move-resources-dialog"
+    [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
     <label class="title">
-        <span class="name"><span [ghs-label]="'data.buildings.' + data.building.name"></span> ({{data.building.id}})</span>
+        <span class="name"><span [ghs-label]="'data.buildings.' + data.building.name"></span>
+            ({{data.building.id}})</span>
         <span class="building">
             <img class="action" [src]="'./assets/images/fh/buildings/' + data.action + '.svg'">
             <span [ghs-label]="'party.campaign.sheet.buildings.' + data.action"></span>
@@ -44,7 +46,8 @@
                 [ngClass]="{'costs' : !repair, 'some' : spent.gold, 'full' : spent.gold == costs.gold}">
                 <img class="ghs-svg"
                     [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') +  'loot.svg'">
-                <span *ngIf="!repair" class="cost"><span class="current">{{spent.gold || '-'}}</span> / {{costs.gold}}</span>
+                <span *ngIf="!repair" class="cost"><span class="current">{{spent.gold || '-'}}</span> /
+                    {{costs.gold}}</span>
             </span>
             <span class="calc-col"> - </span>
             <span class="calc-col" *ngFor="let character of characters; let i = index;">
@@ -70,7 +73,8 @@
             <span class="head-col calc-col"
                 [ngClass]="{'costs' : !repair, 'some' : spent.lumber, 'full' : spent.lumber == costs.lumber}">
                 <img class="ghs-svg" src="./assets/images/fh/loot/lumber.svg">
-                <span *ngIf="!repair" class="cost"><span class="current">{{spent.lumber || '-'}}</span> / {{costs.lumber}}</span>
+                <span *ngIf="!repair" class="cost"><span class="current">{{spent.lumber || '-'}}</span> /
+                    {{costs.lumber}}</span>
             </span>
             <span class="calc-col">
                 <ng-container *ngIf="gameManager.game.party.loot['lumber']">
@@ -112,7 +116,8 @@
             <span class="head-col calc-col"
                 [ngClass]="{'costs' : !repair, 'some' : spent.metal, 'full' : spent.metal == costs.metal}">
                 <img class="ghs-svg" src="./assets/images/fh/loot/metal.svg">
-                <span *ngIf="!repair" class="cost"><span class="current">{{spent.metal || '-'}}</span> / {{costs.metal}}</span>
+                <span *ngIf="!repair" class="cost"><span class="current">{{spent.metal || '-'}}</span> /
+                    {{costs.metal}}</span>
             </span>
             <span class="calc-col">
                 <ng-container *ngIf="gameManager.game.party.loot['metal']">
@@ -154,7 +159,8 @@
             <span class="head-col calc-col"
                 [ngClass]="{'costs' : !repair, 'some' : spent.hide, 'full' : spent.hide == costs.hide}">
                 <img class="ghs-svg" src="./assets/images/fh/loot/hide.svg">
-                <span *ngIf="!repair" class="cost"><span class="current">{{spent.hide || '-'}}</span> / {{costs.hide}}</span>
+                <span *ngIf="!repair" class="cost"><span class="current">{{spent.hide || '-'}}</span> /
+                    {{costs.hide}}</span>
             </span>
             <span class="calc-col">
                 <ng-container *ngIf="gameManager.game.party.loot['hide']">

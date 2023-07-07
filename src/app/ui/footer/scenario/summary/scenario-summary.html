@@ -15,7 +15,7 @@
     <span *ngIf="!success" class="failure"><span [ghs-label]="'scenario.finish.failure'"></span></span>
   </div>
 
-  <div class="main" [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
+  <div class="main" [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
     <div class="table" [style.--ghs-summary-columns]="1 + characters.length"
       *ngIf="(!casual || forceCampaign) && settingsManager.settings.characterSheet && !conclusionOnly">
 

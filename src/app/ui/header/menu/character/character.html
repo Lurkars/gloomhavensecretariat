@@ -1,5 +1,5 @@
 <div class="menu-container character-add">
-  <div class="level-container" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh'}">
+  <div class="level-container" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
     <span class="item"><img src="./assets/images/status/level.svg" /></span>
     <span class="item" *ngFor="let level of [] | ghsRange:9"><a class="level"
         [ngClass]="{'active' : level + 1 == characterLevel}" (click)="characterLevel = level+1">{{level
@@ -16,7 +16,7 @@
   <div class="columns">
     <ng-container *ngFor="let edition of (allEditions ? gameManager.editions() : gameManager.currentEditions(true))">
       <div class="column spoilers" *ngIf="characterData[edition] && characterData[edition].length > 0">
-        <div class="line title sticky" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh'}">
+        <div class="line title sticky" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
           <label><span [ghs-label]="'data.edition.' + edition"></span></label>
         </div>
         <div class="line separator reveal-all" *ngIf="locked(edition)">

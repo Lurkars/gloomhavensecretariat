@@ -105,5 +105,6 @@ export class GhsTooltipDirective implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.hide();
+        this.overlayRef.dispose();
     }
 }

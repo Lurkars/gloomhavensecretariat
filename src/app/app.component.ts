@@ -28,10 +28,16 @@ export class AppComponent implements OnInit {
   applyStyle() {
     this.theme = settingsManager.settings.theme;
     if (this.theme == 'fh') {
+      document.body.classList.remove('modern');
       document.body.classList.add('fh');
       this.meta.updateTag({ name: 'theme-color', content: '#a2bbd1' });
+    } else if (this.theme == 'modern') {
+      document.body.classList.remove('fh');
+      document.body.classList.add('modern');
+      this.meta.updateTag({ name: 'theme-color', content: '#0e1f1f' });
     } else {
       document.body.classList.remove('fh');
+      document.body.classList.remove('modern');
       this.meta.updateTag({ name: 'theme-color', content: '#936658' });
     }
   }

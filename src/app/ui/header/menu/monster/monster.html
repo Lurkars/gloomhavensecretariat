@@ -1,5 +1,5 @@
 <div class="menu-container monster-add">
-  <div class="line filter-monster-menu" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh'}">
+  <div class="line filter-monster-menu" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
     <input [(ngModel)]="filter" type="text" [ghs-label]="'monster.filter'" [ghs-label-attribute]="'placeholder'">
     <label [ngClass]="{'disabled' : !hasBossMonster()}">
       <input type="checkbox" [checked]="settingsManager.settings.showBossMonster"
@@ -16,7 +16,7 @@
     <ng-container *ngFor="let edition of gameManager.currentEditions()">
       <div class="column spoilers bosses" *ngIf="monsterData(edition, filter).length > 0">
         <div class="line title sticky" *ngIf="gameManager.currentEditions().length > 1"
-          [ngClass]="{'fh' : settingsManager.settings.theme == 'fh'}">
+          [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
           <label><span [ghs-label]="'data.edition.' + edition"></span></label>
         </div>
         <div class="line" *ngFor="let monsterData of monsterData(edition, filter)"

@@ -145,6 +145,12 @@
         }
     }
 
+    &.modern {
+        .table .head-col {
+            background-image: url('~src/assets/images/modern/dialog_background_modern.png');
+        }
+    }
+
     .receipe {
 
         display: flex;

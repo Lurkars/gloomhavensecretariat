@@ -64,4 +64,12 @@
     height: calc(var(--ghs-unit) * 17.5);
   }
 
+  &.modern {
+    img {
+      &:not(.active-border) {
+        box-shadow: none;
+      }
+    }
+  }
+
 }

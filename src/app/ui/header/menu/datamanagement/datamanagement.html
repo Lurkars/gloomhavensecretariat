@@ -161,7 +161,7 @@
   <div class="separator"></div>
   <div class="columns columns-break">
     <div class="column">
-      <div class="line title sticky" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh'}">
+      <div class="line title sticky" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
         <label><span [ghs-label]="'datamanagement.unlocks'"></span></label>
       </div>
       <div class="line">
@@ -183,7 +183,7 @@
       <div class="line separator" *ngIf="gameManager.game.unlockedCharacters.length > 0">
         <a (click)="removeAllUnlocks()"><span [ghs-label]="'datamanagement.removeAllUnlocks'"></span></a>
       </div>
-      <div class="line title sticky" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh'}">
+      <div class="line title sticky" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
         <label><span [ghs-label]="'datamanagement.spoilers'"></span></label>
       </div>
       <div class="line">
@@ -209,7 +209,7 @@
     </div>
 
     <div class="column">
-      <div class="line title sticky" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh'}">
+      <div class="line title sticky" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
         <label><span [ghs-label]="'datamanagement.editionDataUrls'"></span></label>
       </div>
       <div class="line">

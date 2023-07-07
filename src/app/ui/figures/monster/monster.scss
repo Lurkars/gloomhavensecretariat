@@ -75,6 +75,24 @@
       margin: 0 calc(var(--ghs-unit) * 1.25);
     }
   }
+
+  &.modern {
+
+    ghs-monster-ability-card,
+    ghs-monster-stats,
+    ghs-monster-image {
+      filter: none;
+    }
+
+    &.off {
+
+      ghs-monster-ability-card,
+      ghs-monster-stats,
+      ghs-monster-image {
+        filter: grayscale(0.7);
+      }
+    }
+  }
 }
 
 .entities-container {

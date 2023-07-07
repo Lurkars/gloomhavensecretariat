@@ -12,6 +12,8 @@ import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 import { Condition, ConditionName } from "../model/Condition";
 import { MonsterEntity } from "../model/MonsterEntity";
+import { Scenario } from "../model/Scenario";
+import { ScenarioData } from "../model/data/ScenarioData";
 
 export class RoundManager {
 
@@ -22,7 +24,7 @@ export class RoundManager {
     this.game = game;
   }
 
-  nextAvailable(): boolean {
+  drawAvailable(): boolean {
     return this.game.figures.length > 0 && (this.game.state == GameState.next || this.game.figures.every((figure) => figure instanceof Monster || figure instanceof Objective && (figure.getInitiative() > 0 || figure.exhausted || !settingsManager.settings.initiativeRequired) || figure instanceof Character && (figure.getInitiative() > 0 || figure.exhausted || figure.absent || !settingsManager.settings.initiativeRequired)
     ));
   }
@@ -61,10 +63,13 @@ export class RoundManager {
         figure.active = false;
       });
 
-    } else if (this.nextAvailable() || force) {
+    } else if (this.drawAvailable() || force) {
       if (this.game.round == 0) {
         gameManager.attackModifierManager.draw();
         gameManager.lootManager.draw();
+        if (!this.game.scenario) {
+          this.game.scenario = new Scenario(new ScenarioData(), [], true);
+        }
       }
       this.game.state = GameState.next;
       this.game.round++;

@@ -15,6 +15,10 @@
             background-image: url('~src/assets/images/fh/dialog_background_fh.png');
         }
 
+        &.modern {
+            background-image: url('~src/assets/images/modern/dialog_background_modern.png');
+        }
+
         &+.columns .column .line.sticky,
         &+.columns .column .line:not(sticky):first-child {
             padding-top: calc(var(--ghs-unit) * 14 * var(--ghs-dialog-factor));

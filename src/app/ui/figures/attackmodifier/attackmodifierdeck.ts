@@ -62,6 +62,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
   queueTimeout: any = null;
   newStyle: boolean = false;
   init: boolean = false;
+  disabled: boolean = false;
 
   rollingIndex: number[] = [];
   rollingIndexPrev: number[] = [];
@@ -114,6 +115,8 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
       this.newStyle = true;
     }
 
+    this.disabled = !this.standalone && (!this.townGuard && gameManager.game.state == GameState.draw || this.townGuard && gameManager.game.scenario != undefined);
+
     window.addEventListener('resize', (event) => {
       this.compact = settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
     });
@@ -138,6 +141,8 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
   }
 
   update(fromServer: boolean = false) {
+    this.disabled = !this.standalone && (!this.townGuard && gameManager.game.state == GameState.draw || this.townGuard && gameManager.game.scenario != undefined);
+
     if (this.character && this.deck != this.character.attackModifierDeck) {
       this.deck = this.character.attackModifierDeck;
     }
@@ -213,7 +218,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
   draw(event: any) {
     if (this.compact && this.fullscreen) {
       this.openFullscreen(event);
-    } else if (this.standalone || !this.townGuard && gameManager.game.state == GameState.next || this.townGuard && !gameManager.game.scenario) {
+    } else if (!this.disabled) {
       if (!this.drawTimeout && this.deck.current < (this.deck.cards.length - (this.queue == 0 ? 0 : 1))) {
         this.drawTimeout = setTimeout(() => {
           this.before.emit(new AttackModiferDeckChange(this.deck, "draw"));
@@ -222,6 +227,19 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
           this.drawTimeout = null;
         }, settingsManager.settings.disableAnimations ? 0 : 150)
       }
+    } else {
+      this.dialog.open(AttackModifierDeckDialogComponent, {
+        panelClass: 'dialog', data: {
+          deck: this.deck,
+          character: this.character,
+          ally: this.ally,
+          numeration: this.numeration,
+          newStyle: this.newStyle,
+          townGuard: this.townGuard,
+          before: this.before,
+          after: this.after
+        }
+      });
     }
   }
 
