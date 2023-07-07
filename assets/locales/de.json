@@ -333,31 +333,31 @@
     "condition": {
       "bane": {
         ".": "Ruin",
-        "hint": "Erleide %game.damage:10% am Ende des nächsten Zugs, then remove. Auch bei Heilung entfernt."
+        "hint": "Ruin: Erleide %game.damage:10% am Ende des nächsten Zugs, then remove. Auch bei Heilung entfernt."
       },
       "bless": {
         ".": "Segen",
-        "hint": "Mische eine %game.attackmodifier.bless% Karte ins Angriffsmodifikatordeck"
+        "hint": "Segen: Mische eine %game.attackmodifier.bless% Karte ins Angriffsmodifikatordeck"
       },
       "brittle": {
         ".": "Spröde",
-        "hint": "Verdopple den nächsten %game.damage%, anschließend entfernen. Auch bei Heilung entfernt."
+        "hint": "Spröde: Verdopple den nächsten %game.damage%, anschließend entfernen. Auch bei Heilung entfernt."
       },
       "chill": {
         ".": "Mutlosigkeit",
-        "hint": "Bekomme -1 auf alle Bewegungen und Angriffe für jeden Marker. Entferne einen Marker am Ende des nächsten Zugs."
+        "hint": "Mutlosigkeit: Bekomme -1 auf alle Bewegungen und Angriffe für jeden Marker. Entferne einen Marker am Ende des nächsten Zugs."
       },
       "curse": {
         ".": "Fluch",
-        "hint": "Mische eine %game.attackmodifier.curse% Karte ins Angriffsmodifikatordeck"
+        "hint": "Fluch: Mische eine %game.attackmodifier.curse% Karte ins Angriffsmodifikatordeck"
       },
       "disarm": {
         ".": "Entwaffnen",
-        "hint": "Kein Angriff möglich. Entferne am Ende des nächsten Zugs."
+        "hint": "Entwaffnen: Kein Angriff möglich. Entferne am Ende des nächsten Zugs."
       },
       "dodge": {
         ".": "Ausweichen",
-        "hint": "Discard or lose a card to prevent an attack, then remove."
+        "hint": "Ausweichen: Discard or lose a card to prevent an attack, then remove."
       },
       "heal": {
         ".": "Heilen",
@@ -365,59 +365,59 @@
       },
       "immobilize": {
         ".": "Lähmung",
-        "hint": "Keine Bewegung möglich. Entferne am Ende des nächsten Zugs."
+        "hint": "Lähmung: Keine Bewegung möglich. Entferne am Ende des nächsten Zugs."
       },
       "impair": {
         ".": "Beschädigt",
-        "hint": "Kein Verwenden von Gegenständen möglich. Entferne am Ende des nächsten Zugs."
+        "hint": "Beschädigt: Kein Verwenden von Gegenständen möglich. Entferne am Ende des nächsten Zugs."
       },
       "infect": {
         ".": "Infektion",
-        "hint": "Kein Schild möglich. Bei Heilung entfernen."
+        "hint": "Infektion: Kein Schild möglich. Bei Heilung entfernen."
       },
       "invisible": {
         ".": "Unsichtbar",
-        "hint": "Kann nicht fokkusiert werden. Entferne am Ende des nächsten Zugs."
+        "hint": "Unsichtbar: Kann nicht fokkusiert werden. Entferne am Ende des nächsten Zugs."
       },
       "muddle": {
         ".": "Verwirrrung",
-        "hint": "Nachteil für alle Angriffe. Entferne am Ende des nächsten Zugs."
+        "hint": "Verwirrrung: Nachteil für alle Angriffe. Entferne am Ende des nächsten Zugs."
       },
       "poison": {
         ".": "Gift",
-        "hint": "Alle Angreifer bekommen +1 %game.action.attack%. Verhindert Heilung. Bei Heilung entfernen."
+        "hint": "Gift: Alle Angreifer bekommen +1 %game.action.attack%. Verhindert Heilung. Bei Heilung entfernen."
       },
       "poison_x": {
         ".": "Gift {0}",
-        "hint": "Alle Angreifer bekommen +X %game.action.attack%. Verhindert Heilung. Bei Heilung entfernen."
+        "hint": "Gift X: Alle Angreifer bekommen +X %game.action.attack%. Verhindert Heilung. Bei Heilung entfernen."
       },
       "regenerate": {
         ".": "Regeneration",
-        "hint": "%game.action.heal% 1 zu Beginn des Zuges. Bei Schaden entfernen."
+        "hint": "Regeneration: %game.action.heal% 1 zu Beginn des Zuges. Bei Schaden entfernen."
       },
       "rupture": {
         ".": "Bruch",
-        "hint": "Bei jeder Beweung, erleide %game.damage:1%. Bei Heilung entfernen."
+        "hint": "Bruch: Bei jeder Beweung, erleide %game.damage:1%. Bei Heilung entfernen."
       },
       "strengthen": {
         ".": "Stärkung",
-        "hint": "Vorteil für alle Angriffe. Entferne am Ende des nächsten Zugs."
+        "hint": "Stärkung: Vorteil für alle Angriffe. Entferne am Ende des nächsten Zugs."
       },
       "stun": {
         ".": "Betäubung",
-        "hint": "Weder Fertigkeiten ausführen noch Gegenstände verwenden. Entferne am Ende des nächsten Zugs."
+        "hint": "Betäubung: Weder Fertigkeiten ausführen noch Gegenstände verwenden. Entferne am Ende des nächsten Zugs."
       },
       "ward": {
         ".": "Schutz",
-        "hint": "Halbiere (abgerundend) des nächsten %game.damage%, anschließend entfernen."
+        "hint": "Schutz: Halbiere (abgerundend) des nächsten %game.damage%, anschließend entfernen."
       },
       "wound": {
         ".": "Wunde",
-        "hint": "Erleide %game.damage:1% zu Beginn jedes Zuges. Bei Heilung entfernen."
+        "hint": "Wunde: Erleide %game.damage:1% zu Beginn jedes Zuges. Bei Heilung entfernen."
       },
       "wound_x": {
         ".": "Wunde {0}",
-        "hint": "Erleide %game.damage:X% zu Beginn jedes Zuges. Bei Heilung entfernen."
+        "hint": "Wunde X: Erleide %game.damage:X% zu Beginn jedes Zuges. Bei Heilung entfernen."
       }
     },
     "custom": {

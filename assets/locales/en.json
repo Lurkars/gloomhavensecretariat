@@ -434,31 +434,31 @@
     "condition": {
       "bane": {
         ".": "Bane",
-        "hint": "Suffer %game.damage:10% at end of next turn, then remove. Also remove when healed."
+        "hint": "Bane: Suffer %game.damage:10% at end of next turn, then remove. Also remove when healed."
       },
       "bless": {
         ".": "Bless",
-        "hint": "Shuffle %game.attackmodifier.bless% card into attack modifier deck"
+        "hint": "Bless: Shuffle %game.attackmodifier.bless% card into attack modifier deck"
       },
       "brittle": {
         ".": "Brittle",
-        "hint": "Double next source of %game.damage%, then remove. Also remove when healed."
+        "hint": "Brittle: Double next source of %game.damage%, then remove. Also remove when healed."
       },
       "chill": {
         ".": "Chill",
-        "hint": "Gain -1 on all move and attacks for each token. Remove one at end of next turn."
+        "hint": "Chill: Gain -1 on all move and attacks for each token. Remove one at end of next turn."
       },
       "curse": {
         ".": "Curse",
-        "hint": "Shuffle %game.attackmodifier.curse% card into attack modifier deck"
+        "hint": "Curse: Shuffle %game.attackmodifier.curse% card into attack modifier deck"
       },
       "disarm": {
         ".": "Disarm",
-        "hint": "Cannot attack. Remove at end of next turn."
+        "hint": "Disarm: Cannot attack. Remove at end of next turn."
       },
       "dodge": {
         ".": "Dodge",
-        "hint": "Discard or lose a card to prevent an attack, then remove."
+        "hint": "Dodge: Discard or lose a card to prevent an attack, then remove."
       },
       "heal": {
         ".": "Heal",
@@ -466,59 +466,59 @@
       },
       "immobilize": {
         ".": "Immobilize",
-        "hint": "Cannot move. Remove at end of next turn."
+        "hint": "Immobilize: Cannot move. Remove at end of next turn."
       },
       "impair": {
         ".": "Impair",
-        "hint": "Cannot use items. Remove at end of next turn."
+        "hint": "Impair: Cannot use items. Remove at end of next turn."
       },
       "infect": {
         ".": "Infect",
-        "hint": "Cannot gain shield. Remove when healed."
+        "hint": "Infect: Cannot gain shield. Remove when healed."
       },
       "invisible": {
         ".": "Invisible",
-        "hint": "Cannot be targeted. Remove at end of next turn."
+        "hint": "Invisible: Cannot be targeted. Remove at end of next turn."
       },
       "muddle": {
         ".": "Muddle",
-        "hint": "Disadvantage on all atacks. Remove at end of next turn."
+        "hint": "Muddle: Disadvantage on all atacks. Remove at end of next turn."
       },
       "poison": {
         ".": "Poison",
-        "hint": "All attackers gain +1 %game.action.attack%. Prevents healing. Remove when healed."
+        "hint": "Poison: All attackers gain +1 %game.action.attack%. Prevents healing. Remove when healed."
       },
       "poison_x": {
         ".": "Poison {0}",
-        "hint": "All attackers gain +X %game.action.attack%. Prevents healing. Remove when healed."
+        "hint": "Poison X: All attackers gain +X %game.action.attack%. Prevents healing. Remove when healed."
       },
       "regenerate": {
         ".": "Regenerate",
-        "hint": "%game.action.heal% 1 at start of turn. Removed when damaged."
+        "hint": "Regenerate: %game.action.heal% 1 at start of turn. Removed when damaged."
       },
       "rupture": {
         ".": "Rupture",
-        "hint": "On move suffer %game.damage:1%. Remove when healed."
+        "hint": "Rupture: On move suffer %game.damage:1%. Remove when healed."
       },
       "strengthen": {
         ".": "Strengthen",
-        "hint": "Advantage on all atacks. Remove at end of next turn."
+        "hint": "Strengthen: Advantage on all atacks. Remove at end of next turn."
       },
       "stun": {
         ".": "Stun",
-        "hint": "Cannot perform abilities or use or trigger items. Remove at end of next turn."
+        "hint": "Stun: Cannot perform abilities or use or trigger items. Remove at end of next turn."
       },
       "ward": {
         ".": "Ward",
-        "hint": "Halve (round down) next source of %game.damage%, then remove."
+        "hint": "Ward: Halve (round down) next source of %game.damage%, then remove."
       },
       "wound": {
         ".": "Wound",
-        "hint": "Suffer %game.damage:1% at start of each turn. Remove when healed."
+        "hint": "Wound: Suffer %game.damage:1% at start of each turn. Remove when healed."
       },
       "wound_x": {
         ".": "Wound {0}",
-        "hint": "Suffer %game.damage:X% at start of each turn. Remove when healed."
+        "hint": "Wound X: Suffer %game.damage:X% at start of each turn. Remove when healed."
       }
     },
     "custom": {
