@@ -228,7 +228,7 @@
     "spent": true,
     "requiredItems": [
       4,
-      8
+      98
     ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 3
