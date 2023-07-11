@@ -224,19 +224,19 @@ export class GameManager {
       return Conditions;
     }
 
-    let conditions = this.editionData.filter((editionData) => (editionData.edition == edition || this.editionExtensions(edition).indexOf(editionData.edition) != -1) && editionData.conditions && editionData.conditions.length > 0).map((other) => other.conditions).flat().map((value) => {
+    let conditions = this.editionData.filter((editionData) => (editionData.edition == edition || this.editionExtensions(edition).indexOf(editionData.edition) != -1) && editionData.conditions && editionData.conditions.length > 0).map((other) => other.conditions).flat()
+
+    if (!forceEdition && this.game.conditions) {
+      conditions.push(...this.game.conditions);
+    }
+
+    return conditions.filter((value, index, self) => self.indexOf(value) == index).map((value) => {
       if (value.split(':').length > 1) {
         return new Condition(value.split(':')[0], + value.split(':')[1]);
       } else {
         return new Condition(value);
       }
-    })
-
-    if (!forceEdition && this.game.conditions && this.game.conditions.length > 0) {
-      conditions.push(...this.game.conditions.map((value) => new Condition(value)));
-    }
-
-    return conditions.filter((value, index, self) => self.indexOf(value) == index);
+    });
   }
 
   figureConditions(figure: Figure, entity: Entity | undefined = undefined): ConditionName[] {
