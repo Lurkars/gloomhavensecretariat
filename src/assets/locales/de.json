@@ -200,7 +200,8 @@
   },
   "edition": {
     ".": "Edition auswählen",
-    "all": "Alle Editionen"
+    "all": "Alle Editionen",
+    "conditions": "Verfügbare Zustände"
   },
   "escort": {
     ".": "Begleiter",
@@ -1487,6 +1488,12 @@
       "out": "Rauszoomen",
       "reset": "Zoom zurücksetzen"
     }
+  },
+  "sheets": {
+    ".": "Charakter-/Gruppen-/Kampagnenbogen",
+    "campaign": "Globale Kampagne",
+    "character": "Charakterbogen",
+    "party": "Gruppen-/Kampagnenbogen"
   },
   "spoiler": {
     "add": "Spoiler hinzufügen",

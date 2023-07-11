@@ -1,6 +1,6 @@
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { Character } from "../model/Character";
-import { Condition, ConditionName } from "../model/Condition";
+import { Condition, ConditionName } from "../model/data/Condition";
 import { ItemData } from "../model/data/ItemData";
 import { TreasureData, TreasureReward, TreasureRewardType } from "../model/data/RoomData";
 import { Game } from "../model/Game";

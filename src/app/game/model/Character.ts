@@ -5,7 +5,7 @@ import { CharacterData } from "./data/CharacterData";
 import { GameSummonModel, Summon } from "./Summon";
 import { gameManager } from "../businesslogic/GameManager";
 import { FigureError, FigureErrorType } from "./data/FigureError";
-import { EntityCondition, GameEntityConditionModel } from "./Condition";
+import { EntityCondition, GameEntityConditionModel } from "./data/Condition";
 import { CharacterProgress } from "./CharacterProgress";
 import { AttackModifierDeck, GameAttackModifierDeckModel } from "./data/AttackModifier";
 

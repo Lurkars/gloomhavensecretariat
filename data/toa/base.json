@@ -14,7 +14,9 @@
     "ward",
     "rupture",
     "poison_x",
-    "wound_x"
+    "wound_x",
+    "brittle",
+    "dodge"
   ],
   "edition": "toa",
   "extensions": [

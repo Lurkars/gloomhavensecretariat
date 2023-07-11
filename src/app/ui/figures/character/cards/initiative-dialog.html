@@ -24,14 +24,14 @@
     <span *ngFor="let number of [1,2,3,4,5,6,7,8,9]" class="number-button" (click)="pickNumber(number)">
       <span class="number">{{number}}</span>
     </span>
-    <span *ngIf="character" class="long-rest-button" [ngClass]="{'active' : character.longRest}"
-      [ghs-label]="'game.figure.longRest'" [ghs-label-attribute]="'title'" (click)="longRest()">
-      <img class="ghs-svg" src="./assets/images/long-rest.svg">
-    </span>
-    <span *ngIf="objective"></span>
+    <span></span>
     <span class="number-button" (click)="pickNumber(0)">
       <span class="number">0</span>
     </span>
     <span></span>
   </div>
+  <span *ngIf="character" class="long-rest-button" [ngClass]="{'active' : character.longRest}" (click)="longRest()">
+    <img class="ghs-svg" src="./assets/images/long-rest.svg"> <span
+      [ghs-label]="'game.figure.longRest' + (character.longRest ? 'Off' : '')"></span>
+  </span>
 </div>

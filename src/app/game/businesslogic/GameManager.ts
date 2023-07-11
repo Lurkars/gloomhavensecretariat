@@ -15,7 +15,7 @@ import { CharacterManager } from "./CharacterManager";
 import { MonsterManager } from "./MonsterManager";
 import { settingsManager } from "./SettingsManager";
 import { StateManager } from "./StateManager";
-import { Condition, Conditions, ConditionType } from "../model/Condition";
+import { Condition, ConditionName, Conditions, ConditionType } from "../model/data/Condition";
 import { EntityManager } from "./EntityManager";
 import { EventEmitter } from "@angular/core";
 import { ItemData } from "../model/data/ItemData";
@@ -30,6 +30,8 @@ import { ObjectiveData, ScenarioObjectiveIdentifier } from "../model/data/Object
 import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
 import { ScenarioRulesManager } from "./ScenarioRulesManager";
 import { ElementModel, ElementState } from "../model/data/Element";
+import { MonsterStat } from "../model/data/MonsterStat";
+import { Action, ActionType } from "../model/data/Action";
 
 
 export class GameManager {
@@ -217,18 +219,91 @@ export class GameManager {
     return Math.max(...this.itemData(edition).map((itemData) => itemData.id));
   }
 
-  conditions(edition: string | undefined = undefined): Condition[] {
+  conditions(edition: string | undefined = undefined, forceEdition: boolean = false): Condition[] {
     if (!edition) {
       return Conditions;
     }
 
-    return this.editionData.filter((editionData) => (editionData.edition == edition || this.editionExtensions(edition).indexOf(editionData.edition) != -1) && editionData.conditions && editionData.conditions.length > 0).map((other) => other.conditions).flat().filter((value, index, self) => self.indexOf(value) == index).map((value) => {
+    let conditions = this.editionData.filter((editionData) => (editionData.edition == edition || this.editionExtensions(edition).indexOf(editionData.edition) != -1) && editionData.conditions && editionData.conditions.length > 0).map((other) => other.conditions).flat().map((value) => {
       if (value.split(':').length > 1) {
         return new Condition(value.split(':')[0], + value.split(':')[1]);
       } else {
         return new Condition(value);
       }
     })
+
+    if (!forceEdition && this.game.conditions && this.game.conditions.length > 0) {
+      conditions.push(...this.game.conditions.map((value) => new Condition(value)));
+    }
+
+    return conditions.filter((value, index, self) => self.indexOf(value) == index);
+  }
+
+  figureConditions(figure: Figure, entity: Entity | undefined = undefined): ConditionName[] {
+    let conditions: ConditionName[] = [];
+
+    if (figure instanceof Character) {
+      figure.conditions.forEach((figureCondition) => {
+        if (!figureCondition.level || figureCondition.level <= figure.level) {
+          conditions.push(figureCondition.name);
+        }
+      })
+
+      if (figure.summons) {
+        figure.summons.forEach((summon) => {
+          if (summon.action) {
+            this.actionConditions(summon.action).forEach((condition) => {
+              if (!conditions.find((name) => name == condition)) {
+                conditions.push(condition);
+              }
+            })
+          }
+
+          if (summon.additionalAction) {
+            this.actionConditions(summon.additionalAction).forEach((condition) => {
+              if (!conditions.find((name) => name == condition)) {
+                conditions.push(condition);
+              }
+            })
+          }
+        })
+      }
+    } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
+      const stat: MonsterStat = gameManager.monsterManager.getStat(figure, entity.type);
+      const ability: Ability | undefined = gameManager.monsterManager.getAbility(figure);
+      if (ability) {
+        ability.actions.forEach((action) => {
+          this.actionConditions(action, stat).forEach((condition) => {
+            if (!conditions.find((name) => name == condition)) {
+              conditions.push(condition);
+            }
+          })
+        })
+      }
+    }
+
+    return conditions;
+  }
+
+  actionConditions(action: Action, stat: MonsterStat | undefined = undefined): ConditionName[] {
+    let conditions: ConditionName[] = [];
+    if (action.type == ActionType.condition) {
+      conditions.push(action.value as ConditionName);
+    } else if (stat && action.type == ActionType.attack && stat.actions) {
+      stat.actions.forEach((statAction) => {
+        if (statAction.type == ActionType.condition) {
+          conditions.push(statAction.value as ConditionName);
+        }
+      })
+    }
+
+    if (action.subActions) {
+      action.subActions.forEach((subAction) => {
+        conditions.push(...this.actionConditions(subAction, stat));
+      })
+    }
+
+    return conditions;
   }
 
   objectiveDataByScenarioObjectiveIdentifier(objectiveIdentifier: ScenarioObjectiveIdentifier): ObjectiveData | undefined {

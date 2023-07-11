@@ -1,7 +1,7 @@
 import { AttackModifier, AttackModifierType, CsOakDeckAttackModifier } from "src/app/game/model/data//AttackModifier";
 import { Character } from "../model/Character";
 import { CharacterStat } from "../model/data/CharacterStat";
-import { Condition, ConditionName } from "../model/Condition";
+import { Condition, ConditionName } from "../model/data/Condition";
 import { CharacterData } from "../model/data/CharacterData";
 import { ItemData } from "../model/data/ItemData";
 import { ObjectiveData, ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";

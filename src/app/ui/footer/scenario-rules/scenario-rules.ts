@@ -9,7 +9,7 @@ import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { Objective } from "src/app/game/model/Objective";
-import { Condition } from "src/app/game/model/Condition";
+import { Condition } from "src/app/game/model/data/Condition";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { AttackModifier, AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { Figure } from "src/app/game/model/Figure";
@@ -17,7 +17,7 @@ import { ScenarioObjectiveIdentifier } from "src/app/game/model/data/ObjectiveDa
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
 import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
-import { ConditionName } from "src/app/game/model/Condition";
+import { ConditionName } from "src/app/game/model/data/Condition";
 
 @Component({
     selector: 'ghs-scenario-rules',
@@ -182,7 +182,7 @@ export class ScenarioRulesComponent {
                 return true;
             }).map((figure) => {
                 if (figure instanceof Character) {
-                    return figure.title || settingsManager.getLabel('data.character.' + figure.name);
+                    return settingsManager.getLabel('%game.characterIconColored.' + figure.name + '%') + gameManager.characterManager.characterName(figure);
                 }
                 if (figure instanceof Objective) {
                     return (figure.title || settingsManager.getLabel('data.objective.' + figure.name)) + ' %game.objectiveMarker.' + (figure.id + 1) + '%' + (figure.marker ? ' %game.mapMarker.' + figure.marker + '%' : '');

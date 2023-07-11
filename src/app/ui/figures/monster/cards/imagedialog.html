@@ -1,0 +1,5 @@
+<div class="monster-image-dialog"
+  [ngClass]="{'closed' : !opened, 'opened' : opened}">
+  <img  [src]="gameManager.monsterManager.monsterThumbnail(monster)">
+</div>
+<div class="close-container" (click)="close()"></div>

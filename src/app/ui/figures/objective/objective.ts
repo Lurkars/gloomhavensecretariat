@@ -4,7 +4,7 @@ import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@ang
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { ConditionType, EntityCondition } from 'src/app/game/model/Condition';
+import { ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { ObjectiveData } from 'src/app/game/model/data/ObjectiveData';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';

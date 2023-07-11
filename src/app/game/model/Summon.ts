@@ -1,5 +1,5 @@
 import { Action } from "./data/Action";
-import { EntityCondition, GameEntityConditionModel } from "./Condition";
+import { EntityCondition, GameEntityConditionModel } from "./data/Condition";
 import { SummonData } from "./data/SummonData";
 import { Entity, EntityValueFunction } from "./Entity";
 import { v4 as uuidv4 } from 'uuid';

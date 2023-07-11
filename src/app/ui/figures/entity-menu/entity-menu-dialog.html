@@ -172,7 +172,7 @@
 
         <span class="item">
           <ghs-pointer-input class="button"
-            [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) + this.bless == 0 || isImmune(ConditionName.bless)}"
+            [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) + bless == 0 || isImmune(ConditionName.bless)}"
             (singleClick)="changeBless(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </ghs-pointer-input>
@@ -182,15 +182,15 @@
             [originY]="'top'" [overlayY]="'bottom'" [ngClass]="{'immunity disabled' : isImmune(ConditionName.bless)}">
             <img src="./assets/images/status/bless.svg" />
           </span>
-          <span class="badge bless-count">{{countUpcomingAttackModifier(AttackModifierType.bless) + this.bless}}</span>
+          <span class="badge bless-count">{{countUpcomingAttackModifier(AttackModifierType.bless) + bless}}</span>
           <span class="warning-badge"
-            *ngIf="gameManager.attackModifierManager.countUpcomingBlesses() + this.bless > 10">
+            *ngIf="gameManager.attackModifierManager.countUpcomingBlesses() + bless > 10">
             <img src="./assets/images/warning.svg" />
           </span>
         </span>
         <span class="item">
           <ghs-pointer-input class="button"
-            [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingBlesses() + this.bless >= 10 || isImmune(ConditionName.bless)}"
+            [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingBlesses() + bless >= 10 || isImmune(ConditionName.bless)}"
             (singleClick)="changeBless(1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </ghs-pointer-input>
@@ -198,7 +198,7 @@
 
         <span class="item">
           <ghs-pointer-input class="button"
-            [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.curse) + this.curse == 0 || isImmune(ConditionName.curse)}"
+            [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.curse) + curse == 0 || isImmune(ConditionName.curse)}"
             (singleClick)="changeCurse(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </ghs-pointer-input>
@@ -208,70 +208,72 @@
             [originY]="'top'" [overlayY]="'bottom'" [ngClass]="{'immunity disabled' : isImmune(ConditionName.curse)}">
             <img src="./assets/images/status/curse.svg" />
           </span>
-          <span class="badge curse-count">{{countUpcomingAttackModifier(AttackModifierType.curse) + this.curse}}</span>
+          <span class="badge curse-count">{{countUpcomingAttackModifier(AttackModifierType.curse) + curse}}</span>
           <span class="warning-badge"
-            *ngIf="gameManager.attackModifierManager.countUpcomingCurses(gameManager.isMonster(data.figure) && !gameManager.toMonster(data.figure).isAlly && !gameManager.toMonster(data.figure).isAllied) + this.curse > 10">
+            *ngIf="gameManager.attackModifierManager.countUpcomingCurses(gameManager.isMonster(data.figure) && !gameManager.toMonster(data.figure).isAlly && !gameManager.toMonster(data.figure).isAllied) + curse > 10">
             <img src="./assets/images/warning.svg" />
           </span>
         </span>
         <span class="item">
           <ghs-pointer-input class="button"
-            [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingCurses(gameManager.isMonster(data.figure) && !gameManager.toMonster(data.figure).isAlly && !gameManager.toMonster(data.figure).isAllied) + this.curse >= 10 || isImmune(ConditionName.curse)}"
+            [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingCurses(gameManager.isMonster(data.figure) && !gameManager.toMonster(data.figure).isAlly && !gameManager.toMonster(data.figure).isAllied) + curse >= 10 || isImmune(ConditionName.curse)}"
             (singleClick)="changeCurse(1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </ghs-pointer-input>
         </span>
 
-        <ng-container *ngIf="gameManager.isCharacter(data.figure) && this.countAdditional(AttackModifierType.empower)">
+        <ng-container *ngIf="gameManager.isCharacter(data.figure) && countAdditional(AttackModifierType.empower)">
           <span class="item">
             <ghs-pointer-input class="button"
-              [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.empower) + this.empower == 0}"
+              [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.empower) + empower == 0}"
               (singleClick)="changeEmpower(-1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/minus.svg">
             </ghs-pointer-input>
           </span>
-          <span class="item" [ghs-label]="'game.condition.empower'" [ghs-label-attribute]="'title'">
+          <span class="item" [ghsTooltip]="'game.condition.empower.hint'" [originX]="'center'" [overlayX]="'center'"
+          [originY]="'top'" [overlayY]="'bottom'">
             <span class="condition">
               <img src="./assets/images/status/empower.svg" />
             </span>
             <span class="badge empower-count">{{countUpcomingAttackModifier(AttackModifierType.empower) +
-              this.empower}}</span>
+              empower}}</span>
             <span class="warning-badge"
-              *ngIf="countUpcomingAttackModifier(AttackModifierType.empower) + this.empower > this.countAdditional(AttackModifierType.empower)">
+              *ngIf="countUpcomingAttackModifier(AttackModifierType.empower) + empower > countAdditional(AttackModifierType.empower)">
               <img src="./assets/images/warning.svg" />
             </span>
           </span>
           <span class="item">
             <ghs-pointer-input class="button"
-              [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.empower) + this.empower >= this.countAdditional(AttackModifierType.empower)}"
+              [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.empower) + empower >= countAdditional(AttackModifierType.empower)}"
               (singleClick)="changeEmpower(1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/plus.svg">
             </ghs-pointer-input>
           </span>
         </ng-container>
 
-        <ng-container *ngIf="gameManager.isCharacter(data.figure) && this.countAdditional(AttackModifierType.enfeeble)">
+        <ng-container *ngIf="gameManager.isCharacter(data.figure) && countAdditional(AttackModifierType.enfeeble)">
           <span class="item">
             <ghs-pointer-input class="button"
-              [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.enfeeble) + this.enfeeble == 0}"
+              [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.enfeeble) + enfeeble == 0}"
               (singleClick)="changeEnfeeble(-1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/minus.svg">
             </ghs-pointer-input>
           </span>
-          <span class="item" [ghs-label]="'game.condition.enfeeble'" [ghs-label-attribute]="'title'">
+          <span class="item" [ghsTooltip]="'game.condition.enfeeble.hint'" [originX]="'center'" [overlayX]="'center'"
+          [originY]="'top'" [overlayY]="'bottom'">
             <span class="condition">
               <img src="./assets/images/status/enfeeble.svg" />
             </span>
             <span class="badge enfeeble-count">{{countUpcomingAttackModifier(AttackModifierType.enfeeble) +
-              this.enfeeble}}</span>
+              enfeeble}}</span>
             <span class="warning-badge"
-              *ngIf="countUpcomingAttackModifier(AttackModifierType.enfeeble) + this.enfeeble > this.countAdditional(AttackModifierType.enfeeble)">
+              *ngIf="countUpcomingAttackModifier(AttackModifierType.enfeeble) + enfeeble > countAdditional(AttackModifierType.enfeeble)">
               <img src="./assets/images/warning.svg" />
             </span>
           </span>
           <span class="item">
             <ghs-pointer-input class="button"
-              [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.enfeeble) + this.enfeeble >= this.countAdditional(AttackModifierType.enfeeble)}"
+              [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.enfeeble) + enfeeble >= countAdditional(AttackModifierType.enfeeble)}"
               (singleClick)="changeEnfeeble(1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/plus.svg">
             </ghs-pointer-input>
@@ -287,7 +289,7 @@
           </ghs-pointer-input>
         </span>
         <span class="item">
-          <span class="objective-marker">{{((gameManager.toObjective(data.entity).id + this.id) % 12) + 1}}</span>
+          <span class="objective-marker">{{((gameManager.toObjective(data.entity).id + id) % 12) + 1}}</span>
         </span>
         <span class="item">
           <ghs-pointer-input class="button" (singleClick)="changeId(1)" [repeat]="true">

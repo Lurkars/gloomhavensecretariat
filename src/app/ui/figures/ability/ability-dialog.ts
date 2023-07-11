@@ -28,7 +28,7 @@ export class AbilityDialogComponent implements OnInit {
   }
 
   close() {
-    this.opened = false
+    this.opened = false;
     setTimeout(() => {
       this.dialogRef.close();
     }, 1000);

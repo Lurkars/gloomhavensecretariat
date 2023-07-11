@@ -394,18 +394,18 @@ main {
   .figures {
 
     .figure.last {
-      padding-bottom: calc(var(--ghs-unit) * 12.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      padding-bottom: calc(var(--ghs-unit) * 13.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
 
     &.ally-deck {
       .figure.last {
-        padding-bottom: calc(var(--ghs-unit) * 24.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+        padding-bottom: calc(var(--ghs-unit) * 26.5 * var(--ghs-text-factor) * var(--ghs-barsize));
       }
     }
 
     &.loot-deck {
       .figure.last {
-        padding-bottom: calc(var(--ghs-unit) * 24.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+        padding-bottom: calc(var(--ghs-unit) * 26.5 * var(--ghs-text-factor) * var(--ghs-barsize));
       }
     }
   }
@@ -453,17 +453,8 @@ main {
   &.monster {
     height: calc(var(--ghs-unit) * 21.5);
 
-    &.right {
-      top: calc(var(--ghs-unit) * 5);
-      height: calc(var(--ghs-unit) * 11.5);
-    }
-
     &.monster-full {
       height: calc(var(--ghs-unit) * 24);
-
-      &.right {
-        height: calc(var(--ghs-unit) * 13);
-      }
     }
   }
 

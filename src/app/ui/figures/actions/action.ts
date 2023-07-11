@@ -2,7 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionType, ActionValueType, ActionSpecialTarget } from 'src/app/game/model/data/Action';
-import { Condition, ConditionName, ConditionType } from 'src/app/game/model/Condition';
+import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';
 import { Element, ElementState } from 'src/app/game/model/data/Element';
 import { EntityValueFunction, EntityExpressionRegex, EntityValueRegex } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';

@@ -14,7 +14,7 @@ import { ActionComponent } from './ui/figures/actions/action';
 import { ActionsComponent } from './ui/figures/actions/actions';
 import { ActionHexComponent } from './ui/figures/actions/area/action-hex';
 import { MonsterAbilityCardComponent } from './ui/figures/monster/cards/ability-card';
-import { MonsterImageComponent } from './ui/figures/monster/cards/image';
+import { MonsterImageComponent, MonsterImageDialogComponent } from './ui/figures/monster/cards/image';
 import { MonsterStatsComponent } from './ui/figures/monster/stats/stats';
 import { MonsterNumberPicker } from './ui/figures/monster/dialogs/numberpicker';
 import { MonsterNumberPickerDialog } from './ui/figures/monster/dialogs/numberpicker-dialog';
@@ -30,6 +30,7 @@ import { HeaderComponent } from './ui/header/header';
 import { EditionMenuComponent } from './ui/header/menu/edition/edition';
 import { MainMenuComponent } from './ui/header/menu/menu';
 import { SettingsMenuComponent } from './ui/header/menu/settings/settings';
+import { SheetsMenuComponent } from './ui/header/menu/sheets/sheets';
 import { CardRevealDirective } from './ui/helper/CardReveal';
 import { GhsCeilPipe, GhsFloorPipe, GhsRangePipe, GhsScenarioSearch, GhsValueSignPipe } from './ui/helper/Pipes';
 import { MainComponent } from './ui/main';
@@ -132,7 +133,7 @@ export class GhsErrorHandler extends ErrorHandler {
     MainComponent,
     HeaderComponent, ElementIconComponent, ElementComponent,
     PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, MapComponent, ScenarioConclusionComponent, SelectResourcesDialog,
-    MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent,
+    MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, SheetsMenuComponent,
     FooterComponent,
     LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
     HintDialogComponent, ScenarioRulesComponent,
@@ -149,7 +150,7 @@ export class GhsErrorHandler extends ErrorHandler {
     MonsterImageComponent,
     MonsterAbilityCardComponent, MonsterStatsComponent,
     MonsterStatDialogComponent, MonsterStatsDialogComponent, MonsterLevelDialogComponent,
-    MonsterNumberPicker, MonsterNumberPickerDialog,
+    MonsterNumberPicker, MonsterNumberPickerDialog, MonsterImageDialogComponent,
     AbilityComponent, AbiltiesDialogComponent, AbilityDialogComponent,
     ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,
     FigureErrorsComponent, FigureErrorsDialogComponent,

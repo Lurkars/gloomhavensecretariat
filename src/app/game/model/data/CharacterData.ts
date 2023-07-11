@@ -1,4 +1,5 @@
 import { CharacterStat } from "./CharacterStat";
+import { FigureCondition } from "./Condition";
 import { Editional } from "./Editional";
 import { FigureError } from "./FigureError";
 import { Perk, PerkCard } from "./Perks";
@@ -39,6 +40,7 @@ export class CharacterData implements Editional, Spoilable {
   primaryToken: number = -1;
   handSize: number = 0;
   availableSummons: SummonData[] = [];
+  conditions: FigureCondition[] = [];
 
   icon: string = '';
   iconUrl: string = '';
@@ -82,6 +84,7 @@ export class CharacterData implements Editional, Spoilable {
       this.primaryToken = characterData.primaryToken >= 0 ? characterData.primaryToken : -1;
       this.handSize = characterData.handSize || 0;
       this.availableSummons = characterData.availableSummons || [];
+      this.conditions = characterData.conditions || [];
       this.edition = characterData.edition || "";
       this.icon = characterData.icon || characterData.edition + '-' + characterData.name;
       this.iconUrl = characterData.iconUrl || './assets/images/character/icons/' + this.icon + '.svg';

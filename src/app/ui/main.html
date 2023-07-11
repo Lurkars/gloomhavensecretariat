@@ -73,9 +73,10 @@
       <div cdkDrag #figureDrag [cdkDragStartDelay]="isTouch ? 500 : 0" [ngClass]="{'enabled' : draggingEnabled}"
         (cdkDragStarted)="startedDrag($event, figureDrag)" (cdkDragReleased)="releasedDrag($event, figureDrag)">
 
-        <div cdkDragHandle class="handle" (click)="handleClick($event)"
+        <div cdkDragHandle class="handle"
           [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard, 'permanent-am' : gameManager.isCharacter(figure) && gameManager.toCharacter(figure).attackModifierDeckVisible && settingsManager.settings.characterAttackModifierDeckPermanent}"
-          *ngIf="!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters || gameManager.stateManager.permissions.monsters">
+          *ngIf="!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters || gameManager.stateManager.permissions.monsters"
+          ghs-pointer-input [clickBehind]="true">
         </div>
 
         <ghs-character [character]="gameManager.toCharacter(figure)" *ngIf="gameManager.isCharacter(figure)">
@@ -85,10 +86,10 @@
         <ghs-monster [monster]="gameManager.toMonster(figure)" *ngIf="gameManager.isMonster(figure)">
         </ghs-monster>
 
-        <div cdkDragHandle class="handle right" (click)="handleClick($event)"
+        <div cdkDragHandle class="handle right"
           [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard, 'permanent-am' : gameManager.isCharacter(figure) && gameManager.toCharacter(figure).attackModifierDeckVisible && settingsManager.settings.characterAttackModifierDeckPermanent}"
           *ngIf=" !gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters ||
-          gameManager.stateManager.permissions.monsters">
+          gameManager.stateManager.permissions.monsters" ghs-pointer-input [clickBehind]="true">
         </div>
       </div>
     </div>

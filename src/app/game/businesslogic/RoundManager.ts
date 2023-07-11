@@ -10,7 +10,7 @@ import { Objective } from "../model/Objective";
 import { Summon, SummonState } from "../model/Summon";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
-import { Condition, ConditionName } from "../model/Condition";
+import { Condition, ConditionName, ConditionType } from "../model/data/Condition";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { Scenario } from "../model/Scenario";
 import { ScenarioData } from "../model/data/ScenarioData";
@@ -220,9 +220,8 @@ export class RoundManager {
     if (figure instanceof Character && figure.longRest && settingsManager.settings.applyLongRest) {
       const healCondition = figure.entityConditions.find((condition) => condition.name == ConditionName.heal && condition.value && condition.expired);
       if (healCondition) {
-        figure.health = figure.health - healCondition?.value;
         figure.entityConditions = figure.entityConditions.filter((condition) => condition != healCondition);
-      };
+      }
     }
 
     if (figure.off && gameManager.entityManager.entities(figure).length > 0) {
@@ -297,10 +296,9 @@ export class RoundManager {
     }
 
     if (figure instanceof Character && settingsManager.settings.applyLongRest && figure.longRest && (skipSummons || !figure.summons.some((summon) => summon.active))) {
-      const change = figure.health < figure.maxHealth ? (figure.health < figure.maxHealth - 2 ? 2 : 1) : 0;
-      if (change > 0) {
-        figure.health += change;
-        gameManager.entityManager.addCondition(figure, new Condition(ConditionName.heal, change), figure.active || false, figure.off || false);
+      if (figure.health < figure.maxHealth || figure.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.clearHeal) != -1 && !entityCondition.permanent)) {
+        figure.health += 2;
+        gameManager.entityManager.addCondition(figure, new Condition(ConditionName.heal, 2), figure.active || false, figure.off || false);
         gameManager.entityManager.applyCondition(figure, ConditionName.heal, true);
       }
     }

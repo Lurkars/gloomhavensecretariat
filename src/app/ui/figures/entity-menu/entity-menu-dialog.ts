@@ -5,7 +5,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Action";
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { Character } from "src/app/game/model/Character";
-import { ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/Condition";
+import { ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
 import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
 import { GameState } from "src/app/game/model/Game";

@@ -9,7 +9,7 @@ import { Ability } from "../model/data/Ability";
 import { SummonState } from "../model/Summon";
 import { settingsManager } from "./SettingsManager";
 import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
-import { ConditionType, EntityConditionState } from "../model/Condition";
+import { ConditionType, EntityConditionState } from "../model/data/Condition";
 import { EntityValueFunction } from "../model/Entity";
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { Action, ActionType } from "src/app/game/model/data/Action";

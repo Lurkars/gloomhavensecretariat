@@ -4,7 +4,7 @@ import { Component, EventEmitter, Inject, Input, OnInit, Output } from "@angular
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Action, ActionCardType, ActionSpecialTarget, ActionType, ActionValueType } from "src/app/game/model/data/Action";
-import { Condition, ConditionName, ConditionType } from "src/app/game/model/Condition";
+import { Condition, ConditionName, ConditionType } from "src/app/game/model/data/Condition";
 import { SummonData } from "src/app/game/model/data/SummonData";
 import { Element } from "src/app/game/model/data/Element";
 import { MonsterType } from "src/app/game/model/data/MonsterType";

@@ -2,7 +2,7 @@ import { Component, Directive, ElementRef, Input, OnDestroy, OnInit } from "@ang
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { ConditionName, ConditionType, EntityCondition } from "src/app/game/model/Condition";
+import { ConditionName, ConditionType, EntityCondition } from "src/app/game/model/data/Condition";
 import { Entity } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
 import { Monster } from "src/app/game/model/Monster";

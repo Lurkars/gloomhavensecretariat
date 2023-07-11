@@ -1,4 +1,4 @@
-import { ConditionName } from "../Condition";
+import { ConditionName } from "./Condition";
 
 export class CharacterStat {
   level: number;

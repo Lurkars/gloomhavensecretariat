@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, Output } from "@angular/core";
 import { Action } from "src/app/game/model/data/Action";
-import { ConditionName } from "src/app/game/model/Condition";
+import { ConditionName } from "src/app/game/model/data/Condition";
 import { ActionHex } from "src/app/game/model/ActionHex";
 
 @Component({

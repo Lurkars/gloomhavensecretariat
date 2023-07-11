@@ -141,16 +141,6 @@
     {
       "roomNumber": 2,
       "initial": true,
-      "monster": [
-        {
-          "name": "ruined-machine",
-          "type": "normal"
-        },
-        {
-          "name": "ruined-machine",
-          "type": "normal"
-        }
-      ],
       "objectives": [
         1,
         2,

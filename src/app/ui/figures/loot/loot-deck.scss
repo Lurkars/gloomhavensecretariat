@@ -20,9 +20,9 @@
         cursor: pointer;
         display: block;
         transition: filter 1000ms ease-in-out;
-    
+
         &.disabled {
-          filter: grayscale(0.8);
+            filter: grayscale(0.8);
         }
     }
 
@@ -58,49 +58,55 @@
 
         .settings,
         .fullscreen {
-          cursor: pointer;
-          position: absolute;
-          right: -14%;
-          font-family: "ghs-title";
-          display: flex;
-          justify-content: center;
-          position: absolute;
-          color: var(--ghs-color-white);
-          width: 22%;
-          height: 15%;
-          background-position: center;
-          background-size: 100% auto;
-          background-repeat: no-repeat;
-          background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
-        
-          &.fullscreen {
-            cursor: zoom-in;
-            bottom: 32.5%;
-          }
-  
-          &.settings {
-            cursor: help;
-            bottom: -4%;
-  
-            &.without-fullscreen {
-              top: 50%;
-              bottom: initial;
-              transform: translateY(-50%);
+            cursor: pointer;
+            position: absolute;
+            right: -14%;
+            font-family: "ghs-title";
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            color: var(--ghs-color-white);
+            width: 22%;
+            height: 15%;
+            background-position: center;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
+            transition: transform 500ms ease-in-out;
+            transform: scale(1.1);
+
+            &.minimize {
+                transform: scale(0);
             }
-          }
-  
-          img {
-            height: 60%;
-            width: auto;
-            align-self: center;
-            filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
-          }
-  
-          &:hover {
+
+            &.fullscreen {
+                cursor: zoom-in;
+                bottom: 32.5%;
+            }
+
+            &.settings {
+                cursor: help;
+                bottom: -4%;
+
+                &.without-fullscreen {
+                    top: 50%;
+                    bottom: initial;
+                    transform: translateY(-50%);
+                }
+            }
+
             img {
-              filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+                height: 60%;
+                width: auto;
+                align-self: center;
+                filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
             }
-          }
+
+            &:hover {
+                img {
+                    filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+                }
+            }
         }
     }
 
@@ -172,13 +178,13 @@
     }
 
     .disabled {
-  
-      filter: grayscale(0.8);
-  
-      &:hover {
-        transition: filter 250ms linear, transform 0.8s cubic-bezier(0.75, 0, 0.85, 1), top 0.5s linear, left 0.5s linear;
-        filter: grayscale(15%);
-      }
+
+        filter: grayscale(0.8);
+
+        &:hover {
+            transition: filter 250ms linear, transform 0.8s cubic-bezier(0.75, 0, 0.85, 1), top 0.5s linear, left 0.5s linear;
+            filter: grayscale(15%);
+        }
     }
 
 

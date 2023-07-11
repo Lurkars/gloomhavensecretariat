@@ -16,5 +16,22 @@
       <input type="checkbox" [checked]="gameManager.game.party.campaignMode" (change)="toggleCampaignMode()">
       <span [ghs-label]="'party.campaignMode'"></span>
     </label>
+  </div>  
+  
+  <div class="line title span">
+    <label><span [ghs-label]="'edition.conditions'"></span></label>
   </div>
-</div>
+  <div class="line">
+    <div class="conditions">
+      <span class="item" *ngFor="let condition of conditions">
+        <span class="condition" (click)="toggleCondition(condition.name)"
+          [ghsTooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
+          [originY]="'top'" [overlayY]="'bottom'"
+          [ngClass]="{'disabled' : gameManager.game.conditions.indexOf(condition.name) == -1 &&  editionConditions.indexOf(condition.name) != -1, 'active' : gameManager.game.conditions.indexOf(condition.name) != -1 }">
+          <img
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+
+        </span>
+      </span>
+    </div>
+  </div>

@@ -16,7 +16,7 @@ import { UndoDialogComponent } from "./undo/dialog";
 import { Subscription } from "rxjs";
 
 export enum SubMenu {
-  main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_add, objective_remove, settings, debug, server, datamanagement, about
+  main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_add, objective_remove, settings, debug, server, datamanagement, about, sheets
 }
 
 @Component({

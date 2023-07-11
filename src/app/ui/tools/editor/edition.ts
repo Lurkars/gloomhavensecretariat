@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { ConditionName } from "src/app/game/model/Condition";
+import { ConditionName } from "src/app/game/model/data/Condition";
 import { CharacterData } from "src/app/game/model/data/CharacterData";
 import { DeckData } from "src/app/game/model/data/DeckData";
 import { EditionData } from "src/app/game/model/data/EditionData";

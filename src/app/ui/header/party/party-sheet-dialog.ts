@@ -1,5 +1,5 @@
-import { Dialog, DialogRef } from "@angular/cdk/dialog";
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from "@angular/core";
+import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
+import { Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
@@ -53,7 +53,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   @ViewChild('itemIndex') itemIndex!: ElementRef;
   @ViewChild('treasureIndex') treasureIndex!: ElementRef;
 
-  constructor(private dialogRef: DialogRef, private dialog: Dialog) {
+  constructor(@Inject(DIALOG_DATA) public data: { campaign: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
+    this.campaign = data && data.campaign;
     this.party = gameManager.game.party;
 
     if (gameManager.game.edition && !this.party.edition) {

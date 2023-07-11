@@ -67,6 +67,12 @@
       </div>
 
       <div class="separator"></div>
+
+      <div class="line span">
+        <a (click)="setActive(SubMenu.sheets)"><span [ghs-label]="'sheets'"></span></a>
+      </div>
+
+      <div class="separator"></div>
     </ng-container>
 
     <div class="line">
@@ -133,6 +139,8 @@
 
   <ghs-character-menu *ngSwitchCase="SubMenu.character_add">
   </ghs-character-menu>
+
+  <ghs-sheets-menu *ngSwitchCase="SubMenu.sheets" (close)="close()"></ghs-sheets-menu>
 
   <div *ngSwitchCase="SubMenu.character_remove" class="menu-container character-remove">
     <div class="line">

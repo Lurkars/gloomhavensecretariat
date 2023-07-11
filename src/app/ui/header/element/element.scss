@@ -4,14 +4,14 @@ ghs-element {
 
     display: block;
     position: relative;
-    width: calc(var(--ghs-unit) * 6.4 * var(--ghs-text-factor) * var(--ghs-barsize));
-    height: calc(var(--ghs-unit) * 6.4 * var(--ghs-text-factor) * var(--ghs-barsize));
+    width: calc(var(--ghs-unit) * 6.4 * var(--ghs-text-factor));
+    height: calc(var(--ghs-unit) * 6.4 * var(--ghs-text-factor));
 
     margin: 0 calc(var(--ghs-unit) * 0.75);
 
     &:hover {
-      width: calc(var(--ghs-unit) * 7.4 * var(--ghs-text-factor) * var(--ghs-barsize));
-      height: calc(var(--ghs-unit) * 7.4 * var(--ghs-text-factor) * var(--ghs-barsize));
+      width: calc(var(--ghs-unit) * 7.4 * var(--ghs-text-factor));
+      height: calc(var(--ghs-unit) * 7.4 * var(--ghs-text-factor));
       margin: 0 calc(var(--ghs-unit) * 0.25);
     }
 

@@ -6,7 +6,7 @@ import { ActionComponent } from './ui/figures/actions/action';
 import { ActionsComponent } from './ui/figures/actions/actions';
 import { ActionHexComponent } from './ui/figures/actions/area/action-hex';
 import { MonsterAbilityCardComponent } from './ui/figures/monster/cards/ability-card';
-import { MonsterImageComponent } from './ui/figures/monster/cards/image';
+import { MonsterImageComponent, MonsterImageDialogComponent } from './ui/figures/monster/cards/image';
 import { MonsterStatsComponent } from './ui/figures/monster/stats/stats';
 import { MonsterNumberPicker } from './ui/figures/monster/dialogs/numberpicker';
 import { MonsterNumberPickerDialog } from './ui/figures/monster/dialogs/numberpicker-dialog';
@@ -109,6 +109,11 @@ import { EventEffectsDialog } from './ui/figures/character/event-effects/event-e
 import { CharacterSheetComponent } from './ui/figures/character/sheet/character-sheet';
 import { KeyboardShortcuts } from './ui/helper/keyboard-shortcuts';
 import { InViewportModule } from 'ng-in-viewport';
+import { SelectResourcesDialog } from './ui/header/party/buildings/select-resources/select-resources';
+import { MonsterMenuComponent } from './ui/header/menu/monster/monster';
+import { SheetsMenuComponent } from './ui/header/menu/sheets/sheets';
+import { ItemsBrewDialog } from './ui/figures/character/items/brew/brew';
+import { StandeeComponent } from './ui/figures/standee/standee';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -117,8 +122,8 @@ describe('AppComponent', () => {
         AppComponent,
         MainComponent,
         HeaderComponent, ElementIconComponent, ElementComponent,
-        PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, MapComponent, ScenarioConclusionComponent,
-        MainMenuComponent, CharacterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent,
+        PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, MapComponent, ScenarioConclusionComponent, SelectResourcesDialog,
+        MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, SheetsMenuComponent,
         FooterComponent,
         LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
         HintDialogComponent, ScenarioRulesComponent,
@@ -127,14 +132,15 @@ describe('AppComponent', () => {
         ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, StatsListComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent, EventEffectsDialog,
         ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
         EntityMenuDialogComponent, EntitiesMenuDialogComponent,
-        CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterItemsComponent,
+        CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterItemsComponent, ItemsBrewDialog,
         ObjectiveComponent,
         SummonEntityComponent, SummonSheetComponent,
+        StandeeComponent,
         MonsterComponent,
         MonsterImageComponent,
         MonsterAbilityCardComponent, MonsterStatsComponent,
         MonsterStatDialogComponent, MonsterStatsDialogComponent, MonsterLevelDialogComponent,
-        MonsterNumberPicker, MonsterNumberPickerDialog,
+        MonsterNumberPicker, MonsterNumberPickerDialog, MonsterImageDialogComponent,
         AbilityComponent, AbiltiesDialogComponent, AbilityDialogComponent,
         ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,
         FigureErrorsComponent, FigureErrorsDialogComponent,

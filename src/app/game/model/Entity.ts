@@ -1,5 +1,5 @@
 import { gameManager } from "../businesslogic/GameManager";
-import { EntityCondition } from "./Condition";
+import { EntityCondition } from "./data/Condition";
 import { GameState } from "./Game";
 import { AdditionalIdentifier } from "./data/Identifier";
 

@@ -127,7 +127,7 @@
       background-repeat: no-repeat;
       background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
       transition: transform 500ms ease-in-out;
-      transform: scale(1);
+      transform: scale(1.2);
 
       &.minimize {
         transform: scale(0);

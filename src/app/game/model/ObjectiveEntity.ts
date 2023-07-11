@@ -1,4 +1,4 @@
-import { EntityCondition, GameEntityConditionModel } from "./Condition";
+import { EntityCondition, GameEntityConditionModel } from "./data/Condition";
 import { Entity, EntityValueFunction } from "./Entity";
 import { ObjectiveContainer } from "./ObjectiveContainer";
 

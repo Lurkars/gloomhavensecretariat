@@ -460,14 +460,6 @@ export class MainComponent implements OnInit {
     this.translate();
   }
 
-  handleClick(event: any) {
-    let elements = document.elementsFromPoint(event.clientX, event.clientY);
-    if (elements[0].classList.contains('cdk-drag-handle') && elements.length > 1) {
-      (elements[1] as HTMLElement).click();
-    }
-    event.preventDefault();
-  }
-
   automaticStandeeDialogs() {
     if (!gameManager.stateManager.standeeDialogCanceled && this.dialog.openDialogs.length == 0 && gameManager.game.scenarioRules.length == 0) {
       const figure = gameManager.game.figures.find((figure) => figure instanceof Monster && figure.entities.find((entity) => entity.number < 1 && gameManager.entityManager.isAlive(entity)));

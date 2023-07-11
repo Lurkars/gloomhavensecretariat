@@ -1,5 +1,5 @@
 import { Character } from "../model/Character";
-import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "../model/Condition";
+import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "../model/data/Condition";
 import { Entity, EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";

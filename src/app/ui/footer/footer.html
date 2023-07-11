@@ -26,7 +26,8 @@
       (before)="beforeAllyAttackModifierDeck($event)" (after)="afterAllyAttackModifierDeck($event)" numeration="A"
       [bottom]="true"></ghs-attackmodifier-deck>
 
-    <div class="active-toggle" (click)="toggleActiveAllyAttackModifierDeck()">
+    <div class="active-toggle" (click)="toggleActiveAllyAttackModifierDeck()"
+      [ngClass]="{'inactive' : !gameManager.game.allyAttackModifierDeck.active}">
       <span class="numeration">A</span>
     </div>
   </div>
@@ -37,7 +38,8 @@
       (before)="beforeMonsterAttackModifierDeck($event)" (after)="afterMonsterAttackModifierDeck($event)" numeration="m"
       [bottom]="true"></ghs-attackmodifier-deck>
 
-    <div class="active-toggle" (click)="toggleActiveMonsterAttackModifierDeck()">
+    <div class="active-toggle" (click)="toggleActiveMonsterAttackModifierDeck()"
+      [ngClass]="{'inactive' : !gameManager.game.monsterAttackModifierDeck.active}">
       <span class="numeration">m</span>
     </div>
   </div>
@@ -48,7 +50,7 @@
     <ghs-loot-deck [deck]="gameManager.game.lootDeck" (before)="beforeLootDeck($event)" (after)="afterLootDeck($event)"
       [bottom]="true"></ghs-loot-deck>
 
-    <div class="active-toggle" (click)="toggleLootDeck()">
+    <div class="active-toggle" (click)="toggleLootDeck()" [ngClass]="{'inactive' : !gameManager.game.lootDeck.active}">
       <span class="numeration">
         <img src="./assets/images/fh/loot-token.png">
       </span>

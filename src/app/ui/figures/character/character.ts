@@ -6,7 +6,7 @@ import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Character } from 'src/app/game/model/Character';
-import { ConditionType, EntityCondition } from 'src/app/game/model/Condition';
+import { ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { GameState } from 'src/app/game/model/Game';
 import { ghsDefaultDialogPositions, ghsValueSign } from '../../helper/Static';
 import { AttackModiferDeckChange } from '../attackmodifier/attackmodifierdeck';

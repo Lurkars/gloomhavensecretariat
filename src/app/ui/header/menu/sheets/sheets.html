@@ -1,0 +1,28 @@
+<div class="menu-container sheets">
+
+    <div class="line title span">
+        <label><span [ghs-label]="'sheets'"></span></label>
+    </div>
+
+    <div class="line">
+        <a (click)="openPartySheet()" [ghs-label]="'sheets.party'"></a>
+    </div>
+
+    <div class="line">
+        <a (click)="openCampaignSheet()" [ghs-label]="'sheets.campaign'"></a>
+    </div>
+
+    <div class="line title span">
+        <label><span [ghs-label]="'sheets.character'"></span></label>
+    </div>
+
+    <div class="line" *ngFor="let character of characters">
+        <a (click)="openCharacterSheet(character);">
+            <img class="icon" [src]="character.iconUrl" />
+            <span>{{gameManager.characterManager.characterName(character, true)}}</span>
+            <span class="edition" *ngIf="gameManager.getEdition(character)">&nbsp;[
+                <span [ghs-label]="'data.edition.' + gameManager.getEdition(character)"></span>
+                ]</span>
+        </a>
+    </div>
+</div>

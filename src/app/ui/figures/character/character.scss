@@ -1,3 +1,157 @@
+.attack-modifierdeck-container,
+.loot-cards-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+
+  .scroll-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  ghs-attackmodifier-deck {
+    position: absolute;
+    display: flex;
+    top: calc(var(--ghs-unit) * 1.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
+    left: calc(var(--ghs-unit) * 21.5);
+    width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor));
+    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
+    z-index: 3;
+  }
+
+  &.active,
+  &.loot-cards-container {
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+  }
+
+  &.permanent.active {
+    position: relative;
+    width: calc(var(--ghs-unit) * 98);
+    height: calc(var(--ghs-unit) * 12);
+
+    .scroll-container {
+      height: calc(var(--ghs-unit) * 17 * var(--ghs-text-factor));
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    ghs-attackmodifier-deck {
+      left: calc(var(--ghs-unit) * 17);
+    }
+  }
+
+
+  .loot-cards {
+    position: absolute;
+    display: flex;
+    top: calc(var(--ghs-unit) * 0.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
+    left: calc(var(--ghs-unit) * 21.5);
+    z-index: 3;
+
+    .loot-card {
+      position: relative;
+      width: calc(var(--ghs-unit) * (13 * 2 / 3) * var(--ghs-text-factor));
+      height: calc(var(--ghs-unit) * 13 * var(--ghs-text-factor));
+      margin-right: calc(var(--ghs-unit) * 0.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
+
+      ghs-loot {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        display: block;
+      }
+    }
+  }
+
+  .attack-modifierdeck-close,
+  .loot-cards-close {
+    display: inline-block;
+    position: relative;
+    cursor: zoom-out;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.summons-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  transition: max-height 2s ease-out;
+  max-height: 100%;
+  min-width: calc(var(--ghs-unit) * 7);
+  max-width: calc(var(--ghs-unit) * 96);
+
+  &.empty {
+    max-height: 0;
+  }
+
+
+  .spacer {
+    flex: none;
+    width: calc(var(--ghs-unit) * 10.5);
+    height: 100%;
+  }
+
+  .icon {
+    display: block;
+    width: calc(var(--ghs-unit) * 6);
+    height: calc(var(--ghs-unit) * 6);
+    margin-right: calc(var(--ghs-unit) * 1);
+
+    img {
+      width: 100%;
+      height: auto;
+      filter: var(--ghs-filter-shadow);
+    }
+
+    &:not(.empty) {
+      opacity: 1;
+      transform: translate(0%, 0%);
+    }
+
+    &.empty {
+      opacity: 0;
+      max-width: 0;
+      transform: translate(0%, 100%);
+    }
+  }
+
+  .summons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: calc(var(--ghs-unit) * 77.5);
+  }
+
+  &.off {
+    .icon {
+      filter: grayscale(100%);
+    }
+  }
+}
+
 .character {
   position: relative;
   z-index: 1;
@@ -278,6 +432,7 @@
 
     .attack-modifier-button,
     .loot-cards-button {
+      position: relative;
       display: flex;
       align-items: center;
       align-self: center;
@@ -295,6 +450,15 @@
 
       &.disabled {
         pointer-events: none;
+      }
+
+      &.loot-cards-button .badge {
+        position: absolute;
+        bottom: calc(var(--ghs-unit) * -1.5 * var(--ghs-text-factor));
+        right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));;
+        font-family: var(--ghs-font-title);
+        font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+        color: var(--ghs-color-white);
       }
     }
 
@@ -530,7 +694,8 @@
         margin-top: calc(var(--ghs-unit) * 3.5);
       }
 
-      .attack-modifier-button {
+      .attack-modifier-button,
+      .loot-cards-button {
         margin-top: calc(var(--ghs-unit) * 5.5);
       }
 
@@ -556,163 +721,17 @@
       bottom: calc(var(--ghs-unit) * 3);
     }
 
-  }
-
-  .attack-modifierdeck-container ghs-attackmodifier-deck {
-    top: calc(var(--ghs-unit) * 3 / var(--ghs-text-factor) / var(--ghs-text-factor));
-  }
-}
-
-.attack-modifierdeck-container,
-.loot-cards-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 3;
-  width: 0;
-  height: 0;
-  visibility: hidden;
-
-  .scroll-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-  }
-
-  ghs-attackmodifier-deck {
-    position: absolute;
-    display: flex;
-    top: calc(var(--ghs-unit) * 1.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
-    left: calc(var(--ghs-unit) * 21.5);
-    width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor));
-    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
-    z-index: 3;
-  }
-
-  &.active,
-  &.loot-cards-container {
-    visibility: visible;
-    width: 100%;
-    height: 100%;
-  }
-
-  &.permanent.active {
-    position: relative;
-    width: calc(var(--ghs-unit) * 98);
-    height: calc(var(--ghs-unit) * 12);
-
-    .scroll-container {
-      height: calc(var(--ghs-unit) * 17 * var(--ghs-text-factor));
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-
-      &::-webkit-scrollbar {
-        display: none;
+    .attack-modifierdeck-container ghs-attackmodifier-deck {
+      top: calc(var(--ghs-unit) * 3 / var(--ghs-text-factor) / var(--ghs-text-factor));
+    }
+  
+    .loot-cards {
+      top: calc(var(--ghs-unit) * 0.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
+      .loot-card {
+        position: relative;
+        width: calc(var(--ghs-unit) * (15 * 2 / 3) * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 15 * var(--ghs-text-factor));
       }
-    }
-
-    ghs-attackmodifier-deck {
-      left: calc(var(--ghs-unit) * 17);
-    }
-  }
-
-
-  .loot-cards {
-    position: absolute;
-    display: flex;
-    top: calc(var(--ghs-unit) * 0.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
-    left: calc(var(--ghs-unit) * 21.5);
-    z-index: 3;
-
-    .loot-card {
-      position: relative;
-      width: calc(var(--ghs-unit) * (13 * 2 / 3) * var(--ghs-text-factor));
-      height: calc(var(--ghs-unit) * 13 * var(--ghs-text-factor));
-      margin-right: calc(var(--ghs-unit) * 0.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
-
-      ghs-loot {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        display: block;
-      }
-    }
-  }
-
-  .attack-modifierdeck-close,
-  .loot-cards-close {
-    display: inline-block;
-    position: relative;
-    cursor: zoom-out;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.summons-container {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  transition: max-height 2s ease-out;
-  max-height: 100%;
-  min-width: calc(var(--ghs-unit) * 7);
-  max-width: calc(var(--ghs-unit) * 96);
-
-  &.empty {
-    max-height: 0;
-  }
-
-
-  .spacer {
-    flex: none;
-    width: calc(var(--ghs-unit) * 10.5);
-    height: 100%;
-  }
-
-  .icon {
-    display: block;
-    width: calc(var(--ghs-unit) * 6);
-    height: calc(var(--ghs-unit) * 6);
-    margin-right: calc(var(--ghs-unit) * 1);
-
-    img {
-      width: 100%;
-      height: auto;
-      filter: var(--ghs-filter-shadow);
-    }
-
-    &:not(.empty) {
-      opacity: 1;
-      transform: translate(0%, 0%);
-    }
-
-    &.empty {
-      opacity: 0;
-      max-width: 0;
-      transform: translate(0%, 100%);
-    }
-  }
-
-  .summons {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    max-width: calc(var(--ghs-unit) * 77.5);
-  }
-
-  &.off {
-    .icon {
-      filter: grayscale(100%);
     }
   }
 }

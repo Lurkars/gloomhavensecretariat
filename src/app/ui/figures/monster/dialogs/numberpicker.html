@@ -1,4 +1,4 @@
-<a #button (click)="open()" class="button active-outline {{type}}"
+<a #button ghs-pointer-input (singleClick)="open()" class="button active-outline {{type}}"
   [ngClass]="{'disabled' : !settingsManager.settings.disableStandees && (nonDead >= count || usedStandees >= maxStandees) }"
   [ghs-label]="'monster.addEntity.' + type" [ghs-label-attribute]="'title'">
   <img *ngIf="!settingsManager.settings.disableStandees || !hasEntity()" class="ghs-svg" src="./assets/images/plus.svg">

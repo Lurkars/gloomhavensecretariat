@@ -1,6 +1,6 @@
 import { Figure } from "./Figure";
 import { Entity } from "./Entity";
-import { EntityCondition, GameEntityConditionModel } from "./Condition";
+import { EntityCondition, GameEntityConditionModel } from "./data/Condition";
 import { ScenarioObjectiveIdentifier } from "./data/ObjectiveData";
 import { v4 as uuidv4 } from 'uuid';
 

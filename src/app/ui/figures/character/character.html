@@ -148,6 +148,7 @@
         *ngIf="settingsManager.settings.lootDeck && character.lootCards && character.lootCards.length > 0"
         (click)="toggleLootCardsVisible()" [ngClass]="{'disabled': character.lootCardsVisible}">
         <img src="./assets/images/fh/loot-token.png" />
+        <span class="badge">{{character.lootCards.length}}</span>
       </div>
 
       <span *ngIf="settingsManager.settings.characterAttackModifierDeck" class="attack-modifier-button"

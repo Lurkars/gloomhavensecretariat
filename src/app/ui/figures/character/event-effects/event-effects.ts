@@ -3,7 +3,7 @@ import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Character } from 'src/app/game/model/Character';
 import { Subscription } from 'rxjs';
-import { EntityCondition, EntityConditionState } from 'src/app/game/model/Condition';
+import { EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { ghsValueSign } from 'src/app/ui/helper/Static';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';

@@ -8,12 +8,12 @@
         </div>
 
         <span class="fullscreen" [ghs-label]="'game.cards.fullscreen'" [ghs-label-attribute]="'title'"
-            *ngIf="fullscreen && !compact" (click)="openFullscreen($event)">
+            *ngIf="fullscreen && !compact" (click)="openFullscreen($event)" [ngClass]="{'vertical' : vertical, 'minimize' : !deck.active}">
             <img src="./assets/images/fullscreen.svg">
         </span>
 
         <span class="settings" [ghs-label]="'game.cards.openDialog'" [ghs-label-attribute]="'title'"
-            (click)="open($event)" *ngIf="!compact || vertical" [ngClass]="{'without-fullscreen' : !fullscreen}">
+            (click)="open($event)" *ngIf="!compact || vertical" [ngClass]="{'vertical' : vertical, 'without-fullscreen' : !fullscreen, 'minimize' : !deck.active}">
             <img class="ghs-svg" src="./assets/images/settings.svg">
         </span>
     </div>

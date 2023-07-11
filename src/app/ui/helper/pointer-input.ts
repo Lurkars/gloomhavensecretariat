@@ -29,7 +29,20 @@ export class PointerInputService {
       if (this.active) {
         if (this.active.clickBehind) {
           this.active = this.find(this.active.elementRef.nativeElement.parentElement);
+          if (!this.active) {
+            const elements = document.elementsFromPoint(event.clientX, event.clientY);
+            for (let i = 0; i < elements.length; i++) {
+              const element = elements[i];
+              if (element != event.target) {
+                this.active = this.directives.find((directive) => element && directive.elementRef.nativeElement == element);
+                if (this.active) {
+                  break;
+                }
+              }
+            }
+          }
         }
+
         if (this.active) {
           this.active.pointerdown(event);
           event.preventDefault();
@@ -44,7 +57,19 @@ export class PointerInputService {
         if (this.active) {
           this.active.pointerdown(event);
           if (this.active.clickBehind) {
-            this.active = this.find(this.active.elementRef.nativeElement)
+            this.active = this.find(this.active.elementRef.nativeElement);
+            if (!this.active) {
+              const elements = document.elementsFromPoint(event.touches[0].clientX, event.touches[0].clientY);
+              for (let i = 0; i < elements.length; i++) {
+                const element = elements[i];
+                if (element != event.target) {
+                  this.active = this.directives.find((directive) => element && directive.elementRef.nativeElement == element);
+                  if (this.active) {
+                    break;
+                  }
+                }
+              }
+            }
           }
 
           event.preventDefault();

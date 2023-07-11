@@ -5,17 +5,17 @@ export enum ConditionName {
   wound = "wound",
   muddle = "muddle",
   poison = "poison",
-  invisible = "invisible",
   strengthen = "strengthen",
+  invisible = "invisible",
   curse = "curse",
   bless = "bless",
   regenerate = "regenerate",
-  chill = "chill",
-  infect = "infect",
   ward = "ward",
   bane = "bane",
   brittle = "brittle",
   impair = "impair",
+  chill = "chill",
+  infect = "infect",
   rupture = "rupture",
   dodge = "dodge",
   empower = "empower",
@@ -47,6 +47,8 @@ export enum ConditionType {
   expiredIndicator = "expiredIndicator",
   hidden = "hidden"
 }
+
+export type FigureCondition = { name: ConditionName, level: number | undefined };
 
 export enum EntityConditionState {
   new = "new",
@@ -140,8 +142,13 @@ export class Condition {
     }
 
     if ([ConditionName.heal].indexOf(this.name) != -1) {
+      this.types.push(ConditionType.positive);
       this.types.push(ConditionType.hidden);
       this.types.push(ConditionType.value);
+    }
+
+    if ([ConditionName.bless, ConditionName.curse, ConditionName.empower, ConditionName.enfeeble, ConditionName.invalid].indexOf(this.name) != -1) {
+      this.types.push(ConditionType.hidden);
     }
 
     if (this.types.indexOf(ConditionType.positive) == -1) {

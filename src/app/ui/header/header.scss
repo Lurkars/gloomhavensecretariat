@@ -161,11 +161,18 @@ header {
     display: flex;
     height: 100%;
     align-items: center;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     .element {
-      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor) * var(--ghs-barsize));
-      width: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor) * var(--ghs-barsize));
-      height: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor) * var(--ghs-barsize));
+      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      width: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor));
+      height: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor));
       cursor: pointer;
 
       span {
