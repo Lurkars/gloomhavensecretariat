@@ -671,7 +671,7 @@
 
 
       .title-bar {
-        margin-top: calc(var(--ghs-unit) * -2.5);
+        margin-top: calc(var(--ghs-unit) * -2.5 / var(--ghs-text-factor));
 
         .title {
           .icon {
