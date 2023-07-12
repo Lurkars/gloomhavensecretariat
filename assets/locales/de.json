@@ -141,7 +141,16 @@
         "onFinish": "Nachdem Szenario beendet",
         "uploadUrl": {
           ".": "Upload Url",
+          "error" : {
+            "." : "Warnung: Automatisches Backup fehlgeschlagen",
+            "status": "Das automatische Backup ist mit dem Statuscode '{0}' fehlgeschlagen. Öffne die Console des Browsers für mehr Details.",
+            "unknown": "Das automatische Backup ist aus unbekannten Gründen fehlgeschlagen. Öffne die Console des Browsers für mehr Details."
+          },
           "hint": "Instead of donwloading the automatic backup file, set an URL to upload the data to. {FILENAME} can be used as placeholder for filename.  (This requires proper CORS settings to work!)"
+        },
+        "uploadUrlAuthorization": {
+          ".": "Authorization Header",
+          "hint": "Used as the 'Authorization' header for upload request"
         },
         "uploadUrlFileUpload": {
           ".": "Upload as File",

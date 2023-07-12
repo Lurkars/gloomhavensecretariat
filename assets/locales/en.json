@@ -141,7 +141,16 @@
         "onFinish": "After finishing Scenario",
         "uploadUrl": {
           ".": "Upload Url",
+          "error": {
+            ".": "Warning: Automatic Backup failed",
+            "status": "Automatic Backup failed with response code '{0}'. Take a look at the browser console for more details.",
+            "unknown": "Automatic Backup failed due to unknown reaseon. Please take a look at the browser console for more details."
+          },
           "hint": "Instead of donwloading the automatic backup file, set an URL to upload the data to. {FILENAME} can be used as placeholder for filename.  (This requires proper CORS settings to work!)"
+        },
+        "uploadUrlAuthorization": {
+          ".": "Authorization Header",
+          "hint": "Used as the 'Authorization' header for upload request"
         },
         "uploadUrlFileUpload": {
           ".": "Upload as File",
