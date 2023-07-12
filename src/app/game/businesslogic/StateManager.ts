@@ -26,6 +26,7 @@ export class StateManager {
   updateBlocked: boolean = false;
   serverError: boolean = false;
   errorLog: any[] = [];
+  backupError: number | undefined;
   permissionBackup: Permissions | undefined;
   connectionTries: number = 0;
   gameOffsetWarning: boolean = true;
@@ -487,6 +488,7 @@ export class StateManager {
 
       if (settingsManager.settings.autoBackupUrl && settingsManager.settings.autoBackupUrl.url) {
         try {
+          this.backupError = undefined;
           let xhr = new XMLHttpRequest();
           xhr.open(settingsManager.settings.autoBackupUrl.method, settingsManager.settings.autoBackupUrl.url.replaceAll('{FILENAME}', filename), true, settingsManager.settings.autoBackupUrl.username, settingsManager.settings.autoBackupUrl.password);
 
@@ -494,11 +496,32 @@ export class StateManager {
           if (settingsManager.settings.autoBackupUrl.fileUpload) {
             data = new FormData();
             data.append(filename, new File([JSON.stringify(datadump)], filename, { type: "application/json" }));
+          } else {
+            xhr.setRequestHeader("Content-Type", "application/json");
+          }
+
+          if (settingsManager.settings.autoBackupUrl.authorization) {
+            xhr.setRequestHeader("Authorization", settingsManager.settings.autoBackupUrl.authorization);
           }
 
           xhr.send(data);
+
+          xhr.addEventListener("error", (event) => {
+            this.backupError = -1;
+            console.warn("Could not post autobackup", settingsManager.settings.autoBackupUrl, event);
+          });
+
+          xhr.addEventListener("readystatechange", (event) => {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+              if (xhr.status >= 400) {
+                this.backupError = xhr.status;
+                console.warn("Could not post autobackup", settingsManager.settings.autoBackupUrl, xhr.status, xhr.responseText);
+              }
+            }
+          });
         } catch (error) {
-          console.warn("Could not post autobackup to '", settingsManager.settings.autoBackupUrl, error);
+          this.backupError = -1;
+          console.warn("Could not post autobackup", settingsManager.settings.autoBackupUrl, error);
         }
       } else {
         let downloadButton = document.createElement('a');

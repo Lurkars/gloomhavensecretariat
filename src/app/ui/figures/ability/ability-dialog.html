@@ -1,5 +1,5 @@
 <div class="ability-dialog"
   [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0 || false, 'closed' : !opened, 'opened' : opened}">
-  <ghs-ability [ability]="ability" [monster]="monster" [flipped]="opened"></ghs-ability>
+  <ghs-ability [ability]="ability" [monster]="monster" [flipped]="opened" [relative]="relative"></ghs-ability>
 </div>
 <div class="close-container" (click)="close()"></div>

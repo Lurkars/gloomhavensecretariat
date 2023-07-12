@@ -195,7 +195,7 @@ export class SettingsManager {
     this.storeSettings();
   }
 
-  setAutoBackupUrl(autoBackupUrl: { url: string, method: string, fileUpload: boolean, username: string, password: string } | undefined) {
+  setAutoBackupUrl(autoBackupUrl: { url: string, method: string, fileUpload: boolean, username: string, password: string, authorization: string } | undefined) {
     this.settings.autoBackupUrl = autoBackupUrl;
     if (this.settings.autoBackupUrl && !this.settings.autoBackupUrl.method) {
       this.settings.autoBackupUrl.method = "POST";
@@ -625,6 +625,7 @@ export class SettingsManager {
           value.sections = value.sections || [];
           value.items = value.items || [];
           value.conditions = value.conditions || [];
+          value.battleGoals = value.battleGoals || [];
           value.label = value.label || {};
           value.labelSpoiler = value.labelSpoiler || {};
           value.url = url;

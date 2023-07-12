@@ -17,7 +17,7 @@ export class Settings {
   applyLoot: boolean = true;
   autoBackup: number = -1;
   autoBackupFinish: boolean = false;
-  autoBackupUrl: { url: string, method: string, fileUpload: boolean, username: string | undefined, password: string | undefined } | undefined;
+  autoBackupUrl: { url: string, method: string, fileUpload: boolean, username: string | undefined, password: string | undefined, authorization: string | undefined } | undefined;
   automaticAttackModifierFullscreen: boolean = true;
   automaticStandees: boolean = true;
   automaticStandeesDialog: boolean = false;

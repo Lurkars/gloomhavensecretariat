@@ -6,6 +6,7 @@ import { DeckData } from "./DeckData";
 import { ItemData } from "./ItemData";
 import { Perk } from "./Perks";
 import { BuildingData } from "./BuildingData";
+import { BattleGoal } from "./BattleGoal";
 
 export const GH_PROSPERITY_STEPS = [3, 8, 14, 21, 29, 38, 49, 63];
 export const FH_PROSPERITY_STEPS = [5, 14, 26, 41, 59, 80, 104, 131];
@@ -21,6 +22,7 @@ export class EditionData implements Editional {
   sections: ScenarioData[];
   items: ItemData[];
   conditions: string[] = [];
+  battleGoals: BattleGoal[] = [];
   label: any = {};
   labelSpoiler: any = {};
   url: string = "";
@@ -39,6 +41,7 @@ export class EditionData implements Editional {
     sections: ScenarioData[],
     items: ItemData[],
     conditions: string[] | undefined = undefined,
+    battleGoals: BattleGoal[] = [],
     additional: boolean = false,
     extensions: string[] = []) {
     this.edition = edition;
@@ -51,6 +54,7 @@ export class EditionData implements Editional {
     if (conditions) {
       this.conditions = conditions;
     }
+    this.battleGoals = battleGoals;
     this.additional = additional;
     this.extensions = extensions;
   }

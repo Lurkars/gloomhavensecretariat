@@ -64,6 +64,58 @@
 
     margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
 
+    .setup-container {
+      margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
+      display: flex;
+      align-items: center;
+    }
+
+    .loot-config {
+
+      display: flex;
+      flex-direction: column;
+      background-color: var(--ghs-color-gray);
+      margin-right: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
+      border-top-left-radius: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      border-top-right-radius: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      border-bottom-left-radius: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
+      border-bottom-right-radius: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
+      padding-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+
+      .title {
+        display: flex;
+        justify-content: center;
+        color: var(--ghs-color-white);
+        font-family: var(--ghs-font-normal);
+        font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+        background-color: var(--ghs-color-darkgray);
+        padding: 0 calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
+        border-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor)) solid var(--ghs-color-black);
+        border-top-left-radius: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+        border-top-right-radius: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      }
+
+      .loot {
+        display: flex;
+        align-items: center;
+
+        color: var(--ghs-color-black);
+        font-family: var(--ghs-font-title);
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+        margin: 0 calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
+
+        .sign {
+          font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-text-factor));
+        }
+
+        img {
+          height: 1.3em;
+          width: auto;
+          filter: var(--ghs-filter-black);
+          margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+        }
+      }
+    }
 
     .monsters {
       display: flex;

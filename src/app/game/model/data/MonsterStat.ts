@@ -39,10 +39,10 @@ export class MonsterStat {
 
 export class MonsterStatEffect {
 
-  health: number = 0;
-  movement: number = 0;
-  attack: number = 0;
-  range: number = 0;
+  health: number | string = 0;
+  movement: number | string = 0;
+  attack: number | string = 0;
+  range: number | string = 0;
   actions: Action[] = [];
   immunities: string[] = [];
 

@@ -154,6 +154,8 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "section" && value) {
         image = '<img src="./assets/images/fh/party/section.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-section">' + image + value + '</span>';
+      } else if (type == "checkmark") {
+        replace = '<span class="placeholder-checkmark"><img src="./assets/images/check.svg" class="icon ghs-svg"></span>';
       } else if (type == "townGuardAm" && split.length == 3 && value) {
         const valueType = split[2];
         let valueSign = "";

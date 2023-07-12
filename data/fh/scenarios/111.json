@@ -24,7 +24,7 @@
     "lumber": 1,
     "metal": 3,
     "hide": 3,
-    "corpse": 1,
+    "corpsecap": 1,
     "arrowvine": 2
   },
   "rules": [

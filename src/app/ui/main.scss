@@ -511,6 +511,27 @@ main {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
+.backup-error {
+  cursor: zoom-out;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  h2 {
+    color: var(--ghs-color-yellow);
+    font-size: 2em;
+    padding: 0;
+    margin: calc(var(--ghs-unit) * 0.5) 0;
+  }
+
+  p {
+    color: var(--ghs-color-white);
+    font-size: 1.5em;
+  }
+}
+
 .backup-hint {
   display: flex;
   flex-direction: column;

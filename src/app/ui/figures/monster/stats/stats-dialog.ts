@@ -3,7 +3,6 @@ import { Component, Inject } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Monster } from "src/app/game/model/Monster";
-import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { MonsterStatDialogComponent } from "./stat-dialog";
 
 @Component({
@@ -23,29 +22,15 @@ export class MonsterStatsDialogComponent {
   }
 
   getMonsterForLevel(level: number): Monster {
-    let monster: Monster = new Monster(this.monster);
-    if (monster.boss) {
-      gameManager.monsterManager.addMonsterEntity(monster, level, MonsterType.boss);
-    } else {
-      gameManager.monsterManager.addMonsterEntity(monster, level, MonsterType.normal);
-      gameManager.monsterManager.addMonsterEntity(monster, level, MonsterType.elite);
-    }
+    let monster: Monster = new Monster(this.monster, level);
     monster.isAlly = this.monster.isAlly;
     monster.isAllied = this.monster.isAllied;
-    monster.level = level;
     monster.errors = this.monster.errors;
     return monster;
   }
 
   openStatPopup(level: number) {
-    const monster = new Monster(this.monster);
-    if (monster.boss) {
-      gameManager.monsterManager.addMonsterEntity(monster, level, MonsterType.boss);
-    } else {
-      gameManager.monsterManager.addMonsterEntity(monster, level, MonsterType.normal);
-      gameManager.monsterManager.addMonsterEntity(monster, level, MonsterType.elite);
-    }
-
-    this.dialog.open(MonsterStatDialogComponent, { data: monster });
+    const monster = new Monster(this.monster, level);
+    this.dialog.open(MonsterStatDialogComponent, { data: { monster: monster, forceStats: true } });
   }
 }

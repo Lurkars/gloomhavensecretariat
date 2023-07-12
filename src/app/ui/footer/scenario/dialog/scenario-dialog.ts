@@ -14,6 +14,7 @@ import { ScenarioSummaryComponent } from "../summary/scenario-summary";
 import { ScenarioTreasuresDialogComponent } from "../treasures/treasures-dialog";
 import { EventEffectsDialog } from "../../../figures/character/event-effects/event-effects";
 import { ScenarioConclusionComponent } from "../scenario-conclusion/scenario-conclusion";
+import { LootType } from "src/app/game/model/data/Loot";
 
 @Component({
     selector: 'ghs-scenario-dialog',
@@ -26,12 +27,21 @@ export class ScenarioDialogComponent {
     settingsManager: SettingsManager = settingsManager;
 
     monsters: MonsterData[] = [];
+    lootConfig: { type: LootType, value: number }[] = [];
     setup: boolean = false;
     hasSpoiler: boolean = false;
     spoiler: boolean = false;
 
     constructor(@Inject(DIALOG_DATA) public scenario: Scenario, public dialogRef: DialogRef, private dialog: Dialog) {
         this.updateMonster();
+        if (scenario.lootDeckConfig) {
+            for (let value in LootType) {
+                const lootType: LootType = value as LootType;
+                if (scenario.lootDeckConfig[lootType]) {
+                    this.lootConfig.push({ type: lootType, value: scenario.lootDeckConfig[lootType] || 0 });
+                }
+            }
+        }
     }
 
     updateMonster() {

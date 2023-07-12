@@ -2,10 +2,10 @@
   <div class="card-container">
     <div class="card reverse" [ngClass]="{'flipped' : opened}">
       <div class="card-back">
-        <ghs-monster-stats [monster]="getBackside()" [noClick]="true"></ghs-monster-stats>
+        <ghs-monster-stats [monster]="getBackside()" [noClick]="true" [forceStats]="forceStats"></ghs-monster-stats>
       </div>
       <div class="card-front">
-        <ghs-monster-stats [monster]="monster" [noClick]="true"></ghs-monster-stats>
+        <ghs-monster-stats [monster]="monster" [noClick]="true" [forceStats]="forceStats"></ghs-monster-stats>
       </div>
     </div>
   </div>

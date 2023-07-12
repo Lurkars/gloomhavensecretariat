@@ -24,7 +24,17 @@ export class SheetsMenuComponent implements OnInit {
     constructor(private dialog: Dialog) { }
 
     ngOnInit(): void {
-        this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);
+        this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character).sort((a, b) => {
+            const aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
+            const bName = b.title.toLowerCase() || settingsManager.getLabel('data.character.' + b.name).toLowerCase();
+            if (aName > bName) {
+                return 1;
+            }
+            if (aName < bName) {
+                return -1;
+            }
+            return 0;
+        });
     }
 
     openCharacterSheet(character: Character) {

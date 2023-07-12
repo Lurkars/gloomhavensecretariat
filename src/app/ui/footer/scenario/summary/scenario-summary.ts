@@ -67,7 +67,17 @@ export class ScenarioSummaryComponent {
         this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure, index) => {
             this.battleGoals[index] = 0;
             return figure as Character;
-        })
+        }).sort((a, b) => {
+            const aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
+            const bName = b.title.toLowerCase() || settingsManager.getLabel('data.character.' + b.name).toLowerCase();
+            if (aName > bName) {
+                return 1;
+            }
+            if (aName < bName) {
+                return -1;
+            }
+            return 0;
+        });
 
         for (let value in LootType) {
             const lootType: LootType = value as LootType;

@@ -12,8 +12,13 @@ import { MonsterType } from 'src/app/game/model/data/MonsterType';
 export class MonsterStatDialogComponent implements OnInit {
 
   opened: boolean = false;
+  monster: Monster;
+  forceStats: boolean;
 
-  constructor(@Inject(DIALOG_DATA) public monster: Monster, private dialogRef: DialogRef) { }
+  constructor(@Inject(DIALOG_DATA) public data: { monster: Monster, forceStats: boolean }, private dialogRef: DialogRef) {
+    this.monster = data.monster;
+    this.forceStats = data.forceStats;
+  }
 
   ngOnInit(): void {
     this.opened = true;

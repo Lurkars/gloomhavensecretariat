@@ -94,6 +94,15 @@
       </div>
     </div>
   </div>
+  <div class="dialog backup-error" *ngIf="gameManager.stateManager.backupError"
+    (click)="gameManager.stateManager.backupError = 0">
+    <h2 [ghs-label]="'datamanagement.backup.auto.uploadUrl.error'"></h2>
+    <p *ngIf="gameManager.stateManager.backupError > 0"
+      [ghs-label]="'datamanagement.backup.auto.uploadUrl.error.status'"
+      [ghs-label-args]="['' + gameManager.stateManager.backupError]"></p>
+    <p *ngIf="gameManager.stateManager.backupError == -1"
+      [ghs-label]="'datamanagement.backup.auto.uploadUrl.error.unknown'"></p>
+  </div>
   <div class="backup-hint" *ngIf="showBackupHint">
     <h2 [ghs-label]="'datamanagement.backup'"></h2>
     <p [ghs-label]="'datamanagement.backup.download.hint'" [ghsTooltip]="'datamanagement.backup.download.hint.text'"

@@ -20,9 +20,11 @@
         <a (click)="openCharacterSheet(character);">
             <img class="icon" [src]="character.iconUrl" />
             <span>{{gameManager.characterManager.characterName(character, true)}}</span>
-            <span class="edition" *ngIf="gameManager.getEdition(character)">&nbsp;[
+            <span class="edition" *ngIf="gameManager.getEdition(character)">&nbsp;
+                <span>[</span>
                 <span [ghs-label]="'data.edition.' + gameManager.getEdition(character)"></span>
-                ]</span>
+                <span>]</span>
+            </span>
         </a>
     </div>
 </div>

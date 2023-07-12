@@ -25,20 +25,30 @@
       <input type="checkbox" [(ngModel)]="spoiler" (change)="updateMonster()"><span
         [ghs-label]="'scenario.setup.spoiler'"></span>
     </label>
-    <div class="monsters">
-      <div class="monster" *ngFor="let monster of monsters" (click)="openStats(monster)">
-        <div class="image">
-          <div class="outer-border">
-            <div class="inner-border">
-              <div class="image-container">
-                <img *ngIf="!monster.noArtwork" [src]="gameManager.monsterManager.monsterThumbnail(monster)">
+    <div class="setup-container">
+      <div class="loot-config" *ngIf="lootConfig.length > 0">
+        <div class="title" [ghs-label]="'game.loot'"></div>
+        <div class="loot" *ngFor="let loot of lootConfig">
+          <img class="ghs-svg" [src]="'./assets/images/fh/loot/' +loot.type + '.svg'"><span
+            class="sign">x</span>{{loot.value}}
+        </div>
+      </div>
+      <div class="monsters">
+        <div class="monster" *ngFor="let monster of monsters" (click)="openStats(monster)">
+          <div class="image">
+            <div class="outer-border">
+              <div class="inner-border">
+                <div class="image-container">
+                  <img *ngIf="!monster.noArtwork" [src]="gameManager.monsterManager.monsterThumbnail(monster)">
+                </div>
               </div>
             </div>
+            <span class="boss" *ngIf="monster.boss || monster.tags.indexOf('boss') != -1"><img
+                src="./assets/images/monster/enemy.png" /></span>
+            <span class="custom" *ngIf="monster.standeeShare">*</span>
           </div>
-          <span class="boss" *ngIf="monster.boss || monster.tags.indexOf('boss') != -1"><img src="./assets/images/monster/enemy.png" /></span>
-          <span class="custom" *ngIf="monster.standeeShare">*</span>
+          <div class="name"><span [ghs-label]="'data.monster.' + monster.name"></span></div>
         </div>
-        <div class="name"><span [ghs-label]="'data.monster.' + monster.name"></span></div>
       </div>
     </div>
   </div>

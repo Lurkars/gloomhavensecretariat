@@ -121,13 +121,13 @@ export class MonsterStatsComponent implements OnInit {
     if (!this.noClick) {
       this.dialog.open(MonsterStatsDialogComponent, { panelClass: 'dialog', data: this.monster });
     } else {
-      this.dialog.open(MonsterStatDialogComponent, { data: this.monster });
+      this.dialog.open(MonsterStatDialogComponent, { data: { monster: this.monster, forceStats: this.forceStats } });
     }
   }
 
   openStatPopup() {
     if (!this.noClick) {
-      this.dialog.open(MonsterStatDialogComponent, { data: this.monster });
+      this.dialog.open(MonsterStatDialogComponent, { data: { monster: this.monster, forceStats: this.forceStats } });
     }
   }
 

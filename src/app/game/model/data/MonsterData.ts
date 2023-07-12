@@ -1,6 +1,6 @@
 import { Editional } from "./Editional";
 import { FigureError } from "./FigureError";
-import { MonsterStat, MonsterStatEffect } from "./MonsterStat";
+import { MonsterStat } from "./MonsterStat";
 import { MonsterType } from "./MonsterType";
 import { Spoilable } from "./Spoilable";
 
@@ -13,7 +13,6 @@ export class MonsterData implements Editional, Spoilable {
   standeeShareEdition: string | undefined;
   baseStat: MonsterStat = new MonsterStat(MonsterType.normal, 0, 0, 0, 0, 0);
   stats: MonsterStat[] = [];
-  effect: MonsterStatEffect | undefined;
   deck: string = "";
   boss: boolean = false;
   flying: boolean = false;
@@ -50,7 +49,6 @@ export class MonsterData implements Editional, Spoilable {
       this.standeeShareEdition = monsterData.standeeShareEdition;
       this.baseStat = monsterData.baseStat;
       this.stats = monsterData.stats;
-      this.effect = monsterData.effect;
       this.deck = monsterData.deck;
       this.boss = monsterData.boss;
       this.flying = monsterData.flying;

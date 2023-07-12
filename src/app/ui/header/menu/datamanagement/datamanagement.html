@@ -81,7 +81,7 @@
           <div class="hint-container input-container">
             <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrl'"></span></label>
             <input type="text" #autoBackupuploadUrl [value]="settingsManager.settings.autoBackupUrl?.url" (keyup)="0"
-              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value})"
+              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value, authorization: autoBackupPostAuthorization.value})"
               [ghs-label]="'datamanagement.backup.auto.uploadUrl'" [ghs-label-attribute]="'placeholder'">
             <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
             <div class="hint">
@@ -95,7 +95,7 @@
           <div class="hint-container input-container">
             <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod'"></span></label>
             <select #autoBackupPostMethod [value]="settingsManager.settings.autoBackupUrl?.method"
-              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value})">
+              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value, authorization: autoBackupPostAuthorization.value})">
               <option value="POST"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod.post'"></span>
               </option>
               <option value="PUT"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod.put'"></span></option>
@@ -114,7 +114,7 @@
             <label class="label">
               <input type="checkbox" #autoBackupPostFileUpload
                 [checked]="settingsManager.settings.autoBackupUrl?.fileUpload"
-                (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value, fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value})">
+                (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value, fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value, authorization: autoBackupPostAuthorization.value})">
               <span [ghs-label]="'datamanagement.backup.auto.uploadUrlFileUpload'"></span></label>
             <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
             <div class="hint">
@@ -126,10 +126,25 @@
         </div>
         <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
           <div class="hint-container input-container">
+            <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlAuthorization'"></span></label>
+            <input type="text" #autoBackupPostAuthorization [value]="settingsManager.settings.autoBackupUrl?.authorization"
+              (keyup)="0"
+              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value, authorization: autoBackupPostAuthorization.value})"
+              [ghs-label]="'datamanagement.backup.auto.uploadUrlAuthorization'" [ghs-label-attribute]="'placeholder'">
+            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+            <div class="hint">
+              <div class="text">
+                <div [ghs-label]="'datamanagement.backup.auto.uploadUrlAuthorization.hint'"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
+          <div class="hint-container input-container">
             <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlUsername'"></span></label>
             <input type="text" #autoBackupPostUsername [value]="settingsManager.settings.autoBackupUrl?.username"
               (keyup)="0"
-              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value, fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value})"
+              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value, fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value, authorization: autoBackupPostAuthorization.value})"
               [ghs-label]="'datamanagement.backup.auto.uploadUrlUsername'" [ghs-label-attribute]="'placeholder'">
             <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
             <div class="hint">
@@ -144,7 +159,7 @@
             <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlPassword'"></span></label>
             <input type="text" #autoBackupPostPassword [value]="settingsManager.settings.autoBackupUrl?.password"
               (keyup)="0"
-              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value})"
+              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value, authorization: autoBackupPostAuthorization.value})"
               [ghs-label]="'datamanagement.backup.auto.uploadUrlPassword'" [ghs-label-attribute]="'placeholder'">
             <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
             <div class="hint">
