@@ -12,6 +12,8 @@ import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/chara
 import { EntityValueFunction } from "src/app/game/model/Entity";
 import { Subscription } from "rxjs";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { CharacterBattleGoalsDialog } from "src/app/ui/figures/battlegoal/dialog/battlegoal-dialog";
+import { BattleGoal } from "src/app/game/model/data/BattleGoal";
 
 
 @Component({
@@ -303,14 +305,36 @@ export class ScenarioSummaryComponent {
     }
 
     toggleBattleGoal(event: any, index: number, value: number) {
-        gameManager.stateManager.before("finishScenario.dialog.battleGoal", '' + index, '' + value);
+        const character = this.characters[index];
+        gameManager.stateManager.before("finishScenario.battleGoal", character.name, '' + value);
+        let battleGoal: BattleGoal | undefined;
+
+        if (settingsManager.settings.battleGoals) {
+            if (character.battleGoal && character.battleGoals.length > 0) {
+                battleGoal = gameManager.battleGoalManager.getBattleGoal(character.battleGoals[0]);
+            }
+        }
         if (event.target.checked && this.battleGoals[index] < value) {
             this.battleGoals[index] = value;
+            if (battleGoal && battleGoal.checks > value) {
+                this.battleGoals[index] = battleGoal.checks;
+            }
         } else if (this.battleGoals[index] >= value) {
             this.battleGoals[index] = value - 1;
+            if (battleGoal && battleGoal.checks > value - 1) {
+                this.battleGoals[index] = 0;
+            }
         }
+
         this.updateFinish();
         gameManager.stateManager.after();
+    }
+
+    openBattleGoals(character: Character): void {
+        this.dialog.open(CharacterBattleGoalsDialog, {
+            panelClass: ['dialog'],
+            data: { character: character, cardOnly: character.battleGoal }
+        });
     }
 
     toggleChallenges(second: boolean = false) {

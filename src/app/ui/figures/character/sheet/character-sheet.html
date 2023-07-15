@@ -189,7 +189,7 @@
         </div>
         <div class="row battlegoals">
           <label *ngIf="!fhSheet && !csSheet" class="headline"><span
-              [ghs-label]="'character.progress.battlegoals'"></span></label>
+              [ghs-label]="'game.battleGoals'"></span></label>
           <label *ngIf="fhSheet" class="headline"><span [ghs-label]="'game.attackModifiers.perks'"></span></label>
           <div class="battlegoals-grid">
             <ng-container *ngFor="let item of [] | ghsRange:18">

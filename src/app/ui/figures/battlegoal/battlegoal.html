@@ -1,0 +1,22 @@
+<div class="battlegoal-container" #container>
+    <div class="card vertical reverse battlegoal"
+        [ngClass]="{'flipped': flipped, 'selected': selected, 'disabled': disabled, 'filtered': filtered, 'fh': settingsManager.settings.fhStyle}"
+        [style.fontSize]="container.offsetWidth * 0.072 + 'px'" card-reveal [disabled]="!reveal">
+        <div class="card-front">
+            <ng-container *ngIf="battleGoal">
+                <div class="name" [ghs-label]="battleGoal.name"></div>
+                <div class="text"><span class="placeholder" [ghs-label]="battleGoal.text"></span></div>
+                <div class="checks">
+                    <img src="./assets/images/check.svg" *ngFor="let check of [] | ghsRange:battleGoal.checks">
+                </div>
+                <div class="card-id">
+                    {{battleGoal.cardId}}
+                    <img *ngIf="settingsManager.settings.fhStyle" src="./assets/images/fh/battlegoals/winter.svg">
+                </div>
+            </ng-container>
+        </div>
+        <div class="card-back">
+            <span class="revealed"><span [ghs-label]="'game.cards.confirmReveal'"></span></span>
+        </div>
+    </div>
+</div>

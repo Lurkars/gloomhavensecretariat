@@ -21,7 +21,7 @@
   ghs-attackmodifier-deck {
     position: absolute;
     display: flex;
-    top: calc(var(--ghs-unit) * 1.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
+    top: calc(var(--ghs-unit) * 1.5 / var(--ghs-text-factor));
     left: calc(var(--ghs-unit) * 21.5);
     width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor));
     height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
@@ -38,7 +38,7 @@
   &.permanent.active {
     position: relative;
     width: calc(var(--ghs-unit) * 98);
-    height: calc(var(--ghs-unit) * 12);
+    height: calc(var(--ghs-unit) * 13 * var(--ghs-text-factor));
 
     .scroll-container {
       height: calc(var(--ghs-unit) * 17 * var(--ghs-text-factor));
@@ -51,6 +51,7 @@
     }
 
     ghs-attackmodifier-deck {
+      top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
       left: calc(var(--ghs-unit) * 17);
     }
   }
@@ -430,6 +431,7 @@
       }
     }
 
+    .battlegoals-button,
     .attack-modifier-button,
     .loot-cards-button {
       position: relative;
@@ -455,10 +457,26 @@
       &.loot-cards-button .badge {
         position: absolute;
         bottom: calc(var(--ghs-unit) * -1.5 * var(--ghs-text-factor));
-        right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));;
+        right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
         font-family: var(--ghs-font-title);
         font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
         color: var(--ghs-color-white);
+      }
+
+      &.battlegoals-button {
+        img {
+          width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
+          border-radius: calc(var(--ghs-unit) * 0.3 * var(--ghs-text-factor));
+        }
+
+        .check {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-70%, -50%);
+          width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+          filter: var(--ghs-filter-green) var(--ghs-filter-outline);
+        }
       }
     }
 
@@ -508,6 +526,7 @@
   .summon-dialog {
     display: flex;
     align-items: center;
+    margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
   }
 
   .summon-dialog-button {
@@ -521,7 +540,6 @@
     filter: var(--ghs-filter-gray);
     stroke: var(--ghs-color-black);
     stroke-width: calc(var(--ghs-unit) * 1.5);
-    margin: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
 
     &:hover {
       color: var(--ghs-color-white);
@@ -724,9 +742,10 @@
     .attack-modifierdeck-container ghs-attackmodifier-deck {
       top: calc(var(--ghs-unit) * 3 / var(--ghs-text-factor) / var(--ghs-text-factor));
     }
-  
+
     .loot-cards {
       top: calc(var(--ghs-unit) * 0.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
+
       .loot-card {
         position: relative;
         width: calc(var(--ghs-unit) * (15 * 2 / 3) * var(--ghs-text-factor));

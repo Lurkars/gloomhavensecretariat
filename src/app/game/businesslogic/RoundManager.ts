@@ -384,6 +384,8 @@ export class RoundManager {
         figure.exhausted = false;
         figure.longRest = false;
         figure.token = 0;
+        figure.battleGoal = false;
+        figure.battleGoals = [];
 
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));
 

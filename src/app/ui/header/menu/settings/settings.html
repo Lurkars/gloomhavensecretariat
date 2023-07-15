@@ -126,6 +126,21 @@
         </span>
       </div>
     </div>
+
+    <div class="line">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : !settingsManager.settings.battleGoals}">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.battleGoals && settingsManager.settings.battleGoalsCharacter"
+            (change)="settingsManager.setBattleGoalsCharacter(!settingsManager.settings.battleGoalsCharacter)">
+          <span [ghs-label]="'settings.battleGoalsCharacter'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.battleGoalsCharacter.hint'"></span>
+        </span>
+      </div>
+    </div>
   </div>
 
   <div class="column">
@@ -574,6 +589,21 @@
         </span>
       </div>
     </div>
+
+    <div class="line">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : !settingsManager.settings.battleGoals || gameManager.fhRules()}">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.battleGoals && (gameManager.fhRules() || settingsManager.settings.battleGoalsFh)"
+            (change)="settingsManager.setBattleGoalsFh(!settingsManager.settings.battleGoalsFh)">
+          <span [ghs-label]="'settings.battleGoalsFh'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.battleGoalsFh.hint'"></span>
+        </span>
+      </div>
+    </div>
   </div>
 
   <div class="column">
@@ -720,6 +750,19 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text" [ghs-label]="'settings.monsters.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.battleGoals"
+            (change)="settingsManager.setBattleGoals(!settingsManager.settings.battleGoals)">
+          <span [ghs-label]="'settings.battleGoals'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.battleGoals.hint'"></span>
         </span>
       </div>
     </div>

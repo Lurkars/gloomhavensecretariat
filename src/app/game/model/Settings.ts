@@ -25,6 +25,9 @@ export class Settings {
   autoscroll: boolean = true;
   barsize: number = 1;
   backupHint: boolean = true;
+  battleGoals: boolean = false;
+  battleGoalsCharacter: boolean = false;
+  battleGoalsFh: boolean = false;
   browserNavigation: boolean = false;
   calculate: boolean = true;
   calculateStats: boolean = true;

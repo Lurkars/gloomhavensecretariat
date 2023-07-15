@@ -17,7 +17,12 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
     undoArray: number[] = [];
     redoArray: number[] = [];
 
-    constructor(public dialogRef: DialogRef) { }
+    constructor(public dialogRef: DialogRef) {
+        this.dialogRef.overlayRef.hostElement.style.zIndex = '3000';
+        if (this.dialogRef.overlayRef.backdropElement) {
+            this.dialogRef.overlayRef.backdropElement.style.zIndex = '3000';
+        }
+    }
 
     ngOnInit(): void {
         this.undoOffset = gameManager.stateManager.undos.length > 0 ? (gameManager.game.revision

@@ -1,0 +1,30 @@
+<div class="battle-goals-dialog">
+  <div class="scroll-container">
+    <a class="close" (click)="close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'"><img
+        src="./assets/images/close_dialog.svg"></a>
+    <div class="header" [ghs-label]="character.battleGoal ? 'game.battleGoals.choosen' : 'game.battleGoals.choose'"
+      [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"></div>
+    <div class="battle-goals">
+      <ghs-battlegoal *ngFor="let battleGoal of battleGoals; let index = index;" ghs-pointer-input
+        (singleClick)="select(index)" (doubleClick)="select(index,true)" [battleGoal]="battleGoal"
+        [flipped]="gameManager.game.round == 0 || selected == index || !character.battleGoal || revealed.indexOf(index) != -1"
+        [selected]="selected == index"
+        [reveal]="gameManager.game.round > 0 && selected != index && character.battleGoal && revealed.indexOf(index) == -1"
+        [disabled]="character.battleGoal && gameManager.game.scenario && gameManager.game.round > 0 || false">
+      </ghs-battlegoal>
+    </div>
+    <div class="menu" *ngIf="!character.battleGoal || selected != 0">
+      <a class="cancel" (click)="cancel()" [ghs-label]="'game.battleGoals.cancel'"></a>
+      <a class="accept" (click)="accept()" [ngClass]="{'disabled': selected == -1}"
+        [ghs-label]="'game.battleGoals.chooseCard'"></a>
+    </div>
+    <div class="menu small">
+      <a (click)="drawCards()" [ghs-label]="'game.battleGoals.drawCards'"></a>
+      <a (click)="drawCard()" [ghs-label]="'game.battleGoals.drawCard'"></a>
+    </div>
+    <div class="menu small">
+      <a (click)="setup()" [ghs-label]="'game.battleGoals.setup'"></a>
+    </div>
+  </div>
+
+</div>

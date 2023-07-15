@@ -19,6 +19,7 @@ import { ScenarioConclusionComponent } from "../../footer/scenario/scenario-conc
 import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
 import { Subscription } from "rxjs";
 import { ScenarioSummaryComponent } from "../../footer/scenario/summary/scenario-summary";
+import { BattleGoalSetupDialog } from "../../figures/battlegoal/setup/battlegoal-setup";
 
 @Component({
   selector: 'ghs-party-sheet-dialog',
@@ -892,6 +893,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       this.townGuardDeck.active = !this.townGuardDeck.active;
       this.afterTownGuardDeck(new AttackModiferDeckChange(this.townGuardDeck, !this.townGuardDeck.active ? 'amDeckHide' : 'amDeckShow'));
     }
+  }
+
+  battleGoalSetup() {
+    this.dialog.open(BattleGoalSetupDialog, {
+      panelClass: ['dialog']
+    });
   }
 
 }

@@ -75,7 +75,6 @@
     "present": "Anwesend",
     "progress": {
       ".": "Charakterbogen",
-      "battlegoals": "Kampfziele",
       "donate": "Spende",
       "donations": "Spenden an den Tempel der Großen Eiche",
       "export": "Exportieren",
@@ -141,8 +140,8 @@
         "onFinish": "Nachdem Szenario beendet",
         "uploadUrl": {
           ".": "Upload Url",
-          "error" : {
-            "." : "Warnung: Automatisches Backup fehlgeschlagen",
+          "error": {
+            ".": "Warnung: Automatisches Backup fehlgeschlagen",
             "status": "Das automatische Backup ist mit dem Statuscode '{0}' fehlgeschlagen. Öffne die Console des Browsers für mehr Details.",
             "unknown": "Das automatische Backup ist aus unbekannten Gründen fehlgeschlagen. Öffne die Console des Browsers für mehr Details."
           },
@@ -173,9 +172,9 @@
         }
       },
       "download": {
-        "." : "Backup Datei herunterladen",
-        "hint" : {
-          "." : "Sichere dein Spiel regelmäßig, um Datenverluste zu vermeiden.",
+        ".": "Backup Datei herunterladen",
+        "hint": {
+          ".": "Sichere dein Spiel regelmäßig, um Datenverluste zu vermeiden.",
           "text": "Dein gesamter Prozess wird im Speicher deines Browsers gespeichert. Obwohl kein Browser diese Daten versehentlich löschen sollte, gibt es trotzdem sehr wenige Berichte über derartige Vorfälle. Unabhängig davon dass nicht klar ist, ob diese Vorfälle durch Fehler in der Benutzung verursacht wurden, aber um auf Nummer sicher zu gehen, ist es eine gute Idee, ein Backup zu erstellen."
         },
         "onFinish": "Automatische Sicherung nach Abschluss eines Szenarios"
@@ -312,6 +311,21 @@
         "plus2": "Plus 2",
         "plus3": "Plus 3",
         "plus4": "Plus 4"
+      }
+    },
+    "battleGoals": {
+      ".": "Kampfziele",
+      "all": "Aktuelle Karten",
+      "cancel": "Abbrechen",
+      "choose": "Kampfziel für %game.characterIconColored.{0}% {1} auswählen",
+      "choosen": "Kampfziel für %game.characterIconColored.{0}% {1}",
+      "chooseCard": "Markierte Karte auswählen",
+      "drawCard": "Weitere Karte ziehen",
+      "drawCards": "Neue Karten ziehen",
+      "edition": "%data.edition.{0}% Karten",
+      "setup": {
+        ".": "Kampfziel-Karten einrichten",
+        "empty": "Keine Kampfziel-Karten ausgewählt."
       }
     },
     "card": {
@@ -891,6 +905,7 @@
     "draw": "Ziehen",
     "hint": {
       "active": "Es waren noch nicht alle Figuren am Zug. Trotzdem die Runde beenden?",
+      "battleGoals": "Es haben noch nicht alle Charaktere ein Kampfziel ausgewählt. Trotzdem die Runde starten?",
       "confirm": "Bestätigen",
       "confirmFailed": "Szenario mit Niederlage beenden",
       "confirmFinish": "Szenario mit Erfolg beenden",
@@ -1053,7 +1068,6 @@
         "reapply": "Belohnungen wieder zurücknehmen"
       },
       "apply": "Abschließen",
-      "battlegoals": "Kampfziele",
       "cancel": "Abbrechen",
       "casualWarning": {
         ".": "Gelegenheitsmodus",
@@ -1246,6 +1260,18 @@
     "backupHint": {
       ".": "Backup Hinweis anzeigen",
       "hint": "Zeige eine Errinerung für Backups wenn gerade kein Szenario läuft."
+    },
+    "battleGoals": {
+      ".": "Kampfziele",
+      "hint": "Ziehen aus Auswählen von Kampfzielen vor der ersten Runde eines Szenarios."
+    },
+    "battleGoalsCharacter": {
+      ".": "Kampfziele immer anzeigen",
+      "hint": "Zeige immer das Kampfziele Menu an."
+    },
+    "battleGoalsFh": {
+      ".": "Immer 3 Kampfziele ziehen",
+      "hint": "Immer Frosthaven Regel zum ziehen von drei Kampfzielen anwenden (Für Frosthaven automatisch immer aktiviert)"
     },
     "bonusAdjustment": {
       ".": "Anpassung Boni Szenariostufe",
@@ -1499,8 +1525,9 @@
     }
   },
   "sheets": {
-    ".": "Charakter-/Gruppen-/Kampagnenbogen",
-    "campaign": "Globale Kampagne",
+    ".": "Charakter- und Kampagnenverwaltung",
+    "battleGoals": "Kampfziele einrichten",
+    "campaign": "Globaler Kampagnenbogen",
     "character": "Charakterbogen",
     "party": "Gruppen-/Kampagnenbogen"
   },
@@ -1564,6 +1591,20 @@
         "sufferDamage": "Aktion %game.damage:{1}% erleiden andwenden auf {0}"
       },
       "applyScenarioRule": "Szenario Regel anwenden",
+      "battleGoals": {
+        "drawCard": "Weitere Kampfzielkarte für {0} ziehen",
+        "drawCards": "Ziehe Kampfzielkarten für {0}",
+        "deselect": "Kampfziel von {0} abwählen",
+        "select": "Kampfziel für {0} auswählen",
+        "setup": {
+          "addEdtion": "Kampfzielkarten von %data.edition.{0}% hinzufügen",
+          "filter": {
+            "addCard": "Kampfziel '{1}' (%data.edition.{0}%) zu Kampfzielkarten hinzufügen",
+            "removeCard": "Kampfziel '{1}' (%data.edition.{0}%) von Kampfzielkarten entfernen"
+          },
+          "removeEdtion": "Kampfzielkarten von %data.edition.{0}% entfernen"
+        }
+      },
       "buyItem": "Gegenstand {1} (%data.edition.{2}%) für {0} kaufen",
       "cancelScenario": "Szenario #{0} {1} ({2}) abbrechen",
       "changeCustomScenario": "Namen '{0}' fpr benutzerdefiniertes Szenario",
@@ -1611,6 +1652,7 @@
       "entityDead": "Töte {1} Aufsteller {2} von {0}",
       "equipItem": "Gegenstand {1} (%data.edition.{2}%) von {0} anlegen",
       "finishScenario": {
+        "battleGoal": "Kampfziele Harken für %data.character.{0}% auf {1} setzen",
         "close": "Szenario Zusammenfassung schließen",
         "dialog": "Szenario Zusammenfassung von #{0} {1} ({2})",
         "failure": "Szenario #{0} {1} ({2}) gescheitert",

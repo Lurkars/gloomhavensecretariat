@@ -1,13 +1,14 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
 import { AttackModifierDeckDialogComponent } from './attackmodifierdeck-dialog';
 import { AttackModifierDeckFullscreenComponent } from './attackmodifierdeck-fullscreen';
 import { Subscription } from 'rxjs';
+import { CharacterBattleGoalsDialog } from '../battlegoal/dialog/battlegoal-dialog';
 
 export class AttackModiferDeckChange {
 
@@ -42,11 +43,14 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
   @Input('fullscreen') fullscreen: boolean = true;
   @Input('vertical') vertical: boolean = false;
   @Input() townGuard: boolean = false;
+  @Input() battleGoals: boolean = true;
   @Input() standalone: boolean = false;
   @Input() edition!: string;
   @Input() initTimeout: number = 1500;
 
   gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
+
   GameState = GameState;
   reveal: number = 0;
   edit: boolean = false;
@@ -86,6 +90,8 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
       this.edition = this.character.edition;
       this.numeration = "" + this.character.number;
       this.characterIcon = this.character.iconUrl;
+    } else {
+      this.battleGoals = false;
     }
     this.current = this.deck.current;
     this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
@@ -260,6 +266,16 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
     event.preventDefault();
     event.stopPropagation();
   }
+
+  openBattleGoals(event: any): void {
+    this.dialog.open(CharacterBattleGoalsDialog, {
+      panelClass: ['dialog'],
+      data: { character: this.character, draw: !this.character.battleGoals || this.character.battleGoals.length == 0 }
+    });
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
 
   calcRollingIndex(index: number, current: number): number {
     const am: AttackModifier = this.deck.cards[index];

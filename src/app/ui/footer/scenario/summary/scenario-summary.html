@@ -149,16 +149,25 @@
 
 
       <ng-container *ngIf="success">
-        <span class="head-col"><span [ghs-label]="'scenario.summary.battlegoals'"></span></span>
+        <span class="head-col"><span [ghs-label]="'game.battleGoals'"></span></span>
         <span *ngFor="let character of characters; let index = index;">
-          <ng-container *ngIf="rewards && rewards.battleGoals">
-            <input type="checkbox" [disabled]="true" [checked]="true"
-              *ngFor="let bg of [] | ghsRange:rewards.battleGoals">
-          </ng-container>
-          <input type="checkbox" [disabled]="character.absent" [checked]="!character.absent && battleGoals[index] > 0"
-            (change)="toggleBattleGoal($event, index, 1)">
-          <input type="checkbox" *ngIf="!character.absent && battleGoals[index] > 0" [checked]="battleGoals[index] > 1"
-            (change)="toggleBattleGoal($event, index, 2)">
+          <span class="battlegoals">
+            <span class="battlegoal"
+              *ngIf="settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 0"
+              (click)="openBattleGoals(character)">
+              <ghs-battlegoal [identifier]="character.battleGoal && character.battleGoals[0]" [flipped]="character.battleGoal"></ghs-battlegoal>
+            </span>
+            <span class="checkmarks">
+              <ng-container *ngIf="rewards && rewards.battleGoals">
+                <input type="checkbox" [disabled]="true" [checked]="true"
+                  *ngFor="let bg of [] | ghsRange:rewards.battleGoals">
+              </ng-container>
+              <input type="checkbox" [disabled]="character.absent"
+                [checked]="!character.absent && battleGoals[index] > 0" (change)="toggleBattleGoal($event, index, 1)">
+              <input type="checkbox" *ngIf="!character.absent && battleGoals[index] > 0"
+                [checked]="battleGoals[index] > 1" (change)="toggleBattleGoal($event, index, 2)">
+            </span>
+          </span>
         </span>
       </ng-container>
 
@@ -430,7 +439,7 @@
             </div>
 
             <div class="item battleGoals" *ngIf="rewards.battleGoals">
-              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.battleGoals'"
+              <span class="placeholder text-white" [ghs-label]="'game.battleGoals'"
                 [ghs-label-args]="[''+rewards.battleGoals]"></span>
               <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.battleGoals"
                 [ghs-label]="rewards.hints.battleGoals"></span>

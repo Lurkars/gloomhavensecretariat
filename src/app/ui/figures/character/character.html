@@ -52,7 +52,7 @@
     <div
       *ngIf="settingsManager.settings.characterAttackModifierDeck && !settingsManager.settings.characterAttackModifierDeckPermanent"
       class="attack-modifierdeck-container" [ngClass]="{'active' : character.attackModifierDeckVisible}">
-      <div class="scroll-container">
+      <div class="scroll-container">        
         <ghs-attackmodifier-deck [character]="character" (before)="beforeAttackModifierDeck($event)"
           (after)="afterAttackModifierDeck($event)">
         </ghs-attackmodifier-deck>
@@ -156,6 +156,16 @@
         [ghs-label-attribute]="'title'">
         <img src="./assets/images/attackmodifier/icon.png" />
       </span>
+
+      <div
+        *ngIf="gameManager.game.scenario && settingsManager.settings.battleGoals && (gameManager.game.round == 0 || settingsManager.settings.battleGoalsCharacter)"
+        class="battlegoals-button" (click)="openBattleGoals()" [ghs-label]="'game.battleGoals'"
+        [ghs-label-attribute]="'title'">
+        <img
+          [src]="settingsManager.settings.fhStyle ? './assets/images/fh/battlegoals/battle-goal-back-fh.png' : './assets/images/battlegoals/battle-goal-back.png'" />
+        <img *ngIf="character.battleGoal && character.battleGoals.length > 0" class="check"
+          src="./assets/images/check.svg" />
+      </div>
 
       <div class="summon-dialog">
         <a #summonButton class="summon-dialog-button" (click)="openSummonDialog($event)" [ghs-label]="'summon'"

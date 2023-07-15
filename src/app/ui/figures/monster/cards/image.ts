@@ -20,7 +20,7 @@ export class MonsterImageComponent {
   constructor(private dialog: Dialog) { }
 
   toggleFigure() {
-    if (gameManager.game.state == GameState.next) {
+    if (gameManager.game.state == GameState.next && gameManager.monsterManager.monsterEntityCount(this.monster)) {
       gameManager.stateManager.before(this.monster.active ? "unsetActive" : "setActive", "data.monster." + this.monster.name);
       gameManager.roundManager.toggleFigure(this.monster);
       gameManager.stateManager.after();

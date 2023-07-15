@@ -616,7 +616,6 @@
           </div>
         </div>
 
-
         <div class="row">
           <div class="treasures">
             <label><span [ghs-label]="'party.campaign.treasures'"></span>:</label>
@@ -652,20 +651,30 @@
           </div>
         </div>
 
-        <div class="row">
-          <label><span [ghs-label]="'party.campaign.players'"></span>:</label>
-        </div>
+        <div class="columns">
+          <div class="column">
+            <div class="row">
+              <label><span [ghs-label]="'party.campaign.players'"></span>:</label>
+            </div>
 
-        <div class="row players">
-          <div class="player" *ngFor="let player of party.players; let index = index;">
-            <span class="index">#{{index + 1}}</span>
-            <input type="text" [value]="player" (change)="changePlayer($event, index)">
-            <a class="remove" (click)="removePlayer(index)"><img src="./assets/images/close.svg"></a>
+            <div class="row players">
+              <div class="player" *ngFor="let player of party.players; let index = index;">
+                <span class="index">#{{index + 1}}</span>
+                <input type="text" [value]="player" (change)="changePlayer($event, index)">
+                <a class="remove" (click)="removePlayer(index)"><img src="./assets/images/close.svg"></a>
+              </div>
+              <a class="add" (click)="party.players[party.players.length] = ''">
+                <img src="./assets/images/plus.svg">
+                <span [ghs-label]="'party.campaign.players.add'"></span>
+              </a>
+            </div>
           </div>
-          <a class="add" (click)="party.players[party.players.length] = ''">
-            <img src="./assets/images/plus.svg">
-            <span [ghs-label]="'party.campaign.players.add'"></span>
-          </a>
+
+          <div class="column" *ngIf="settingsManager.settings.battleGoals">
+            <div class="row battle-goals">
+              <a (click)="battleGoalSetup()"><span [ghs-label]="'game.battleGoals.setup'"></span></a>
+            </div>
+          </div>
         </div>
 
         <div class="row" *ngIf="party.retirements && party.retirements.length > 0">

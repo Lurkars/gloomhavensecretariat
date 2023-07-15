@@ -56,7 +56,7 @@
   }
 
   &.disabled {
-    pointer-events: none;
+    cursor: initial;
   }
 
   &.full-ability {

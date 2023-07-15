@@ -83,6 +83,7 @@ body {
   --ghs-color-blue: #56c8ef;
   --ghs-color-green: #7da82a;
   --ghs-color-lightgreen: #7be502;
+  --ghs-color-darkgreen: #304110;
   --ghs-color-red: #e2421f;
   --ghs-color-darkred: #4d0e00;
   --ghs-color-brown: #513821;
@@ -93,6 +94,7 @@ body {
   --ghs-filter-blue: invert(72%) sepia(96%) saturate(1077%) hue-rotate(164deg) brightness(97%) contrast(94%);
   --ghs-filter-green: invert(56%) sepia(53%) saturate(536%) hue-rotate(39deg) brightness(95%) contrast(93%);
   --ghs-filter-red: invert(26%) sepia(70%) saturate(2000%) hue-rotate(348deg) brightness(104%) contrast(97%);
+  --ghs-filter-brown: brightness(0) saturate(100%) invert(21%) sepia(11%) saturate(2303%) hue-rotate(347deg) brightness(93%) contrast(89%);
   --ghs-filter-shadow: drop-shadow(2px 2px 2px var(--ghs-color-darkgray));
   --ghs-filter-shadow-thin: drop-shadow(1px 1px 1px var(--ghs-color-darkgray));
   --ghs-filter-outline: drop-shadow(2px 2px 2px var(--ghs-color-darkgray)) drop-shadow(-2px -2px 2px var(--ghs-color-darkgray));
@@ -146,22 +148,6 @@ body {
 .hidden-md,
 .hidden-lg {
   display: none;
-}
-
-@media (max-width: 600px) {
-  body {
-    --ghs-width: 100vw;
-    --ghs-dialog-factor: 1.8;
-    --ghs-text-factor: 1.3;
-    --ghs-small-text-factor: 0.7;
-    --ghs-filter-outline: drop-shadow(1px 1px 1px var(--ghs-color-darkgray)) drop-shadow(-1px -1px 1px var(--ghs-color-darkgray));
-  }
-
-  @media (orientation: landscape) {
-    body {
-      --ghs-width: 70vw;
-    }
-  }
 }
 
 @media (min-width: 600px) {
@@ -243,6 +229,22 @@ body {
   .hidden-md,
   .hidden-lg {
     display: unset;
+  }
+}
+
+@media (max-width: 600px), (orientation: portrait) {
+  body {
+    --ghs-width: 100vw;
+    --ghs-dialog-factor: 1.8;
+    --ghs-text-factor: 1.3;
+    --ghs-small-text-factor: 0.7;
+    --ghs-filter-outline: drop-shadow(1px 1px 1px var(--ghs-color-darkgray)) drop-shadow(-1px -1px 1px var(--ghs-color-darkgray));
+  }
+
+  @media (orientation: landscape) {
+    body {
+      --ghs-width: 70vw;
+    }
   }
 }
 
@@ -388,6 +390,14 @@ a {
     &.reverse {
       transform: rotateX(-180deg);
     }
+
+    &.vertical {
+      transform: rotateY(180deg);
+
+      &.reverse {
+        transform: rotateY(-180deg);
+      }
+    }
   }
 
   .revealed {
@@ -421,6 +431,14 @@ a {
 
   &.reverse .card-front {
     transform: rotateX(-180deg);
+  }
+
+  &.vertical .card-front {
+    transform: rotateY(180deg);
+  }
+
+  &.vertical.reverse .card-front {
+    transform: rotateY(-180deg);
   }
 }
 
@@ -1143,10 +1161,9 @@ input[type="radio"] {
   .placeholder-character-icon-colored,
   .placeholder-character-icon-colored-bg {
     position: relative;
-    top: 0.1em;
     display: inline-flex;
-    height: 1em;
-    width: 1em;
+    height: 1.3em;
+    width: 1.3em;
     border-radius: 100%;
     justify-content: center;
     align-items: center;
@@ -1157,6 +1174,9 @@ input[type="radio"] {
     }
 
     &.placeholder-character-icon-colored-bg {
+      top: 0.1em;
+      height: 1em;
+      width: 1em;
       img {
         filter: brightness(10);
       }

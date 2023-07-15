@@ -141,7 +141,7 @@ export class PartyBuildingsComponent implements OnInit {
   }
 
   partyResource(type: LootType): number {
-    return (this.party.loot[type] || 0) + gameManager.game.figures.filter((figure) => figure instanceof Character).map((character) => (character as Character).progress.loot[type] || 0).reduce((a, b) => a + b);
+    return (this.party.loot[type] || 0) + (gameManager.game.figures.filter((figure) => figure instanceof Character).length == 0 ? 0 : gameManager.game.figures.filter((figure) => figure instanceof Character).map((character) => (character as Character).progress.loot[type] || 0).reduce((a, b) => a + b));
   }
 
   upgrade(building: Building, force: boolean = false) {

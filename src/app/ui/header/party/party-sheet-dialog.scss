@@ -1561,6 +1561,17 @@
           }
         }
 
+        .battle-goals {
+          a {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            color: var(--ghs-color-black);
+            font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+            margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+          }
+        }
+
 
         .retirements .list {
           display: flex;

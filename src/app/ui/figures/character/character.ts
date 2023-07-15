@@ -18,6 +18,7 @@ import { CharacterSummonDialog } from './dialogs/summondialog';
 import { CharacterInitiativeDialogComponent } from './cards/initiative-dialog';
 import { SummonState } from 'src/app/game/model/Summon';
 import { Subscription } from 'rxjs';
+import { CharacterBattleGoalsDialog } from '../battlegoal/dialog/battlegoal-dialog';
 
 @Component({
   selector: 'ghs-character',
@@ -297,6 +298,13 @@ export class CharacterComponent implements OnInit, OnDestroy {
     this.dialog.open(CharacterSheetDialog, {
       panelClass: ['dialog-invert'],
       data: this.character
+    });
+  }
+
+  openBattleGoals(): void {
+    this.dialog.open(CharacterBattleGoalsDialog, {
+      panelClass: ['dialog'],
+      data: { character: this.character, draw: !this.character.battleGoals || this.character.battleGoals.length == 0 }
     });
   }
 

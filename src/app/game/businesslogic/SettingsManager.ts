@@ -10,7 +10,7 @@ export class SettingsManager {
 
   defaultLocale: string = 'en';
   defaultEditions: string[] = ["gh", "jotl", "fc", "cs", "fh", "solo"];
-  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/toa.json", "./assets/data/solo.json", "./assets/data/fh-crossover.json", "./assets/data/gh-envx.json", "./assets/data/toa-envv.json", "./assets/data/sox.json", "./assets/data/bas.json", "./assets/data/cc.json"];
+  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/toa.json", "./assets/data/solo.json", "./assets/data/fh-crossover.json", "./assets/data/gh-envx.json", "./assets/data/toa-envv.json", "./assets/data/sc.json", "./assets/data/sox.json", "./assets/data/bas.json", "./assets/data/cc.json"];
 
   settings: Settings = new Settings();
   label: any = {};
@@ -235,6 +235,21 @@ export class SettingsManager {
 
   setBackupHint(backupHint: boolean) {
     this.settings.backupHint = backupHint;
+    this.storeSettings();
+  }
+
+  setBattleGoals(battleGoals: boolean) {
+    this.settings.battleGoals = battleGoals;
+    this.storeSettings();
+  }
+
+  setBattleGoalsCharacter(battleGoalsCharacter: boolean) {
+    this.settings.battleGoalsCharacter = battleGoalsCharacter;
+    this.storeSettings();
+  }
+
+  setBattleGoalsFh(battleGoalsFh: boolean) {
+    this.settings.battleGoalsFh = battleGoalsFh;
     this.storeSettings();
   }
 
@@ -640,6 +655,16 @@ export class SettingsManager {
             value.campaign.buildings = value.campaign.buildings.map((buildingData) => Object.assign(new BuildingData, buildingData));
           }
 
+          value.battleGoals.map((battleGoal, index) => {
+            if (!battleGoal.edition) {
+              battleGoal.edition = value.edition;
+            }
+            if (!battleGoal.cardId) {
+              battleGoal.cardId = battleGoal.edition + "-" + (index + 1);
+            }
+            return battleGoal;
+          })
+
           gameManager.editionData.push(value);
           gameManager.editionData.sort((a, b) => {
             return this.settings.editionDataUrls.indexOf(a.url) - this.settings.editionDataUrls.indexOf(b.url);
@@ -787,6 +812,15 @@ export class SettingsManager {
         console.warn("Could not find usage of '" + monsterData.name + "'", monsterData.edition);
       }
 
+    })
+
+    gameManager.battleGoalManager.getBattleGoals(undefined, true).forEach((battleGoal, index, self) => {
+      if (!battleGoal.alias) {
+        const others = self.filter((other, otherIndex) => otherIndex != index && (other.name == battleGoal.name || other.text == battleGoal.text));
+        if (others.length > 0 && others.find((other) => !other.alias)) {
+          console.warn("BattleGoal doubles:", battleGoal.edition + " - " + battleGoal.name, others.map((other) => other.edition + " - " + other.name));
+        }
+      }
     })
   }
 

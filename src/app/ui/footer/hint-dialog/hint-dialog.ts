@@ -53,7 +53,11 @@ export class HintDialogComponent {
 
     active(): boolean {
         return gameManager.game.figures.find((figure) => figure.active && !figure.off) != undefined;
-    };
+    }
+
+    battleGoals(): boolean {
+        return !this.missingInitiative() && settingsManager.settings.battleGoals && gameManager.game.scenario != undefined && gameManager.game.round == 0 && !gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure.battleGoal);
+    }
 
     finish(): boolean {
         return false;

@@ -86,7 +86,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 600px), (orientation: portrait) {
 
   .menu-container.two-column {
     display: grid;

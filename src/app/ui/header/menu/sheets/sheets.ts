@@ -5,6 +5,7 @@ import { settingsManager, SettingsManager } from "src/app/game/businesslogic/Set
 import { Character } from "src/app/game/model/Character";
 import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/character-sheet-dialog";
 import { PartySheetDialogComponent } from "../../party/party-sheet-dialog";
+import { BattleGoalSetupDialog } from "src/app/ui/figures/battlegoal/setup/battlegoal-setup";
 
 
 @Component({
@@ -56,6 +57,13 @@ export class SheetsMenuComponent implements OnInit {
         this.dialog.open(PartySheetDialogComponent, {
             panelClass: ['dialog-invert'],
             data: { campaign: true }
+        });
+        this.close.emit();
+    }
+
+    openBattleGoalsSetup() {
+        this.dialog.open(BattleGoalSetupDialog, {
+            panelClass: ['dialog']
         });
         this.close.emit();
     }

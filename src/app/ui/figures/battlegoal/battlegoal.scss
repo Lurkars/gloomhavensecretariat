@@ -1,0 +1,154 @@
+.battlegoal-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 147%;
+}
+
+.battlegoal {
+    cursor: pointer;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 0.2em solid transparent;
+    border-radius: 0.5em;
+
+    .card-front {
+        background-image: url('~src/assets/images/battlegoals/battle-goal-front.png');
+        background-size: 100% 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        border-radius: 0.5em;
+
+        .name {
+            position: absolute;
+            top: 22.5%;
+            left: 50%;
+            width: 60%;
+            height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateX(-50%);
+            font-family: var(--ghs-font-title);
+            color: var(--ghs-color-black);
+            font-size: 1.5em;
+        }
+
+        .text {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            width: 55%;
+            height: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transform: translateX(-50%);
+            font-family: var(--ghs-font-text);
+            color: var(--ghs-color-black);
+            font-size: 1em;
+            line-height: 1em;
+        }
+
+        .checks {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            width: 60%;
+            height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateX(-50%);
+
+            img {
+                height: 1.5em;
+                width: auto;
+                margin: 0 0.2em;
+            }
+        }
+
+
+        .card-id {
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            width: 60%;
+            height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            text-transform: uppercase;
+            transform: translateX(-50%);
+            font-family: var(--ghs-font-normal);
+            font-size: 0.75em;
+            color: var(--ghs-color-white);
+            filter: var(--ghs-filter-outline-thin);
+        }
+    }
+
+    .card-back {
+        background-image: url('~src/assets/images/battlegoals/battle-goal-back.png');
+        background-size: 100% 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        border-radius: 0.5em;
+    }
+
+    &.confirm {
+        .revealed {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--ghs-color-white);
+            font-size: 1.5em;
+            filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
+        }
+    }
+
+    &.disabled {
+        cursor: initial;
+    }
+
+    &.selected {
+        border-color: var(--ghs-color-green);
+    }
+
+    &.filtered {
+        border-color: var(--ghs-color-red);
+    }
+
+    &.fh {
+
+        .card-front {
+            background-image: url('~src/assets/images/fh/battlegoals/battle-goal-front-fh.png');
+
+            .text {
+                font-family: var(--ghs-font-normal);
+            }
+
+            .card-id {
+                color: var(--ghs-color-brown);
+                filter: none;
+                font-weight: bold;
+
+                img {
+                    height: 1em;
+                    width: auto;
+                    margin-left: 0.1em;
+                    filter: var(--ghs-filter-brown);
+                }
+            }
+        }
+
+        .card-back {
+            background-image: url('~src/assets/images/fh/battlegoals/battle-goal-back-fh.png');
+        }
+    }
+
+}

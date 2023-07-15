@@ -1,13 +1,22 @@
 <div class="attack-modifiers"
-  [ngClass]="{'disabled' : !standalone && (!townGuard && gameManager.game.state == GameState.draw || townGuard && gameManager.game.scenario), 'vertical' : vertical}">
+  [ngClass]="{'disabled' : !standalone && (!townGuard && gameManager.game.state == GameState.draw || townGuard && gameManager.game.scenario), 'vertical' : vertical, 'character' : character}">
+
+  <div
+    *ngIf="character && battleGoals && gameManager.game.scenario && settingsManager.settings.battleGoals && gameManager.game.round > 0 && !settingsManager.settings.battleGoalsCharacter"
+    class="battlegoals-button" (click)="openBattleGoals($event)" [ghs-label]="'game.battleGoals'"
+    [ghs-label-attribute]="'title'">
+    <img
+      [src]="settingsManager.settings.fhStyle ? './assets/images/fh/battlegoals/battle-goal-back-fh.png' : './assets/images/battlegoals/battle-goal-back.png'" />
+    <img *ngIf="character.battleGoal && character.battleGoals.length > 0" class="check"
+      src="./assets/images/check.svg" />
+  </div>
 
   <div #drawCard class="am-container draw"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers && (!character || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition])}"
     [style.z-index]="deck.cards.length + 1" [style.fontSize]="drawCard.offsetWidth * 0.08 + 'px'">
     <div class="am" (click)="draw($event)"
       [ghs-label]="deck.current == deck.cards.length -1 ? 'game.cards.shuffle' : 'game.cards.draw'"
-      [ghs-label-attribute]="'title'"
-      [ngClass]="{'town-guard' : townGuard, 'disabled' : disabled }">
+      [ghs-label-attribute]="'title'" [ngClass]="{'town-guard' : townGuard, 'disabled' : disabled }">
       <span class="number" [ngClass]="{'has-shuffle' : deck.current == deck.cards.length -1}"> {{ deck.current <
           deck.cards.length -1 ? deck.cards.length - deck.current - 1 : '' }} </span>
       <img *ngIf="deck.current == deck.cards.length -1" class="shuffle" [ghs-label]="'game.cards.openDialog'"

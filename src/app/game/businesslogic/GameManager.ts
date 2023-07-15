@@ -32,6 +32,7 @@ import { ScenarioRulesManager } from "./ScenarioRulesManager";
 import { ElementModel, ElementState } from "../model/data/Element";
 import { MonsterStat } from "../model/data/MonsterStat";
 import { Action, ActionType } from "../model/data/Action";
+import { BattleGoalManager } from "./BattleGoalManager";
 
 
 export class GameManager {
@@ -48,6 +49,7 @@ export class GameManager {
   scenarioRulesManager: ScenarioRulesManager;
   roundManager: RoundManager;
   lootManager: LootManager;
+  battleGoalManager: BattleGoalManager;
 
   uiChange = new EventEmitter<boolean>();
 
@@ -62,6 +64,7 @@ export class GameManager {
     this.scenarioRulesManager = new ScenarioRulesManager(this.game);
     this.roundManager = new RoundManager(this.game);
     this.lootManager = new LootManager(this.game);
+    this.battleGoalManager = new BattleGoalManager(this.game);
     this.uiChange.subscribe({
       next: () => {
         this.checkEntitiesKilled();
@@ -601,8 +604,9 @@ export class GameManager {
     return this.editionRules('fh');
   }
 
-  editionRules(edition: string): boolean {
-    return this.currentEdition() == edition || this.editionExtensions(this.currentEdition()).indexOf(edition) != -1;
+  editionRules(edition: string, current: boolean = true): boolean {
+    const currentEdition = current ? this.currentEdition() : this.game.edition;
+    return currentEdition && (currentEdition == edition || this.editionExtensions(currentEdition).indexOf(edition) != -1) || false;
   }
 
   additionalIdentifier(figure: Figure, entity: Entity | undefined = undefined): AdditionalIdentifier {

@@ -12,7 +12,11 @@
         <a (click)="openCampaignSheet()" [ghs-label]="'sheets.campaign'"></a>
     </div>
 
-    <div class="line title span">
+    <div class="line" *ngIf="settingsManager.settings.battleGoals">
+        <a (click)="openBattleGoalsSetup()" [ghs-label]="'sheets.battleGoals'"></a>
+    </div>
+
+    <div class="line title span" *ngIf="characters.length > 0">
         <label><span [ghs-label]="'sheets.character'"></span></label>
     </div>
 

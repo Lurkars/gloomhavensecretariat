@@ -190,7 +190,11 @@ export class FooterComponent implements OnInit {
 
   active(): boolean {
     return gameManager.game.figures.find((figure) => figure.active && !figure.off && (!(figure instanceof Character) || !figure.absent)) != undefined;
-  };
+  }
+
+  battleGoals(): boolean {
+    return !this.missingInitiative() && settingsManager.settings.battleGoals && gameManager.game.scenario != undefined && gameManager.game.round == 0 && !gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure.battleGoal);
+  }
 
   activeHint(): boolean {
     return (this.active() && !settingsManager.settings.disabledTurnConfirmation && (settingsManager.settings.expireConditions || settingsManager.settings.applyConditions));
@@ -209,7 +213,7 @@ export class FooterComponent implements OnInit {
   }
 
   drawDisabled(): boolean {
-    return this.empty() || this.missingInitiative() || this.finish() || this.failed();
+    return this.empty() || this.missingInitiative() || this.battleGoals() || this.finish() || this.failed();
   }
 
   nextDisabled(): boolean {

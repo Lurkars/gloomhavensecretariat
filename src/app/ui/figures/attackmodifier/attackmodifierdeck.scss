@@ -180,6 +180,35 @@
     }
   }
 
+  .battlegoals-button {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    z-index: 3;
+    width: 20%;
+    left: -20%;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    img {
+      width: 80%;
+      border-radius: 5%;
+    }
+
+    .check {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-70%, -50%);
+      width: 40%;
+      filter: var(--ghs-filter-green) var(--ghs-filter-outline);
+    }
+  }
 
   @keyframes attackmodifier-draw {
     0% {
@@ -386,6 +415,11 @@
     z-index: 0;
   }
 
+  .battlegoals-button {
+    width: 27%;
+    left: 72%;
+    top: 12%;
+  }
 
   @keyframes attackmodifier-draw-vertical {
     0% {

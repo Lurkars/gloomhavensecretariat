@@ -29,12 +29,15 @@ export class CardRevealDirective {
           this.clicked = false;
           this.el.nativeElement.classList.remove("confirm");
         }
+    } else if (this.clicked) {
+      this.clicked = false;
+      this.el.nativeElement.classList.remove("confirm");
     }
   }
 
 
   @HostListener('mouseleave') onMouseLeave() {
-    if (!this.disabled) {
+    if (!this.disabled || this.clicked) {
       this.clicked = false;
       this.el.nativeElement.classList.remove("confirm");
     }
