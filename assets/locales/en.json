@@ -75,7 +75,6 @@
     "present": "Present",
     "progress": {
       ".": "Character Sheet",
-      "battlegoals": "Battle Goals",
       "donate": "Donate",
       "donations": "Donations to Sanctuary of the Great Oak",
       "export": "Export",
@@ -413,6 +412,21 @@
         "plus2": "Plus 2",
         "plus3": "Plus 3",
         "plus4": "Plus 4"
+      }
+    },
+    "battleGoals": {
+      ".": "Battle Goals",
+      "all": "Current Cards",
+      "cancel": "Cancel",
+      "choose": "Choose Battle Goal for %game.characterIconColored.{0}% {1}",
+      "choosen": "Battle Goal for %game.characterIconColored.{0}% {1}",
+      "chooseCard": "Choose selected Card",
+      "drawCard": "Draw another card",
+      "drawCards": "Redraw cards",
+      "edition": "%data.edition.{0}% Cards",
+      "setup": {
+        ".": "Setup Battle Goals",
+        "empty": "No Battle Goals Cards selected."
       }
     },
     "card": {
@@ -999,6 +1013,7 @@
     "draw": "Draw",
     "hint": {
       "active": "Not all figures are done yet. End round anyway?",
+      "battleGoals": "Not all characters choosed a Battle Goal. Start round anyway?",
       "confirm": "Confirm",
       "confirmFailed": "Finish Scenario with failure",
       "confirmFinish": "Finish Scenario with success",
@@ -1161,7 +1176,6 @@
         "reapply": "Remove rewards"
       },
       "apply": "Finish",
-      "battlegoals": "Battle Goals",
       "cancel": "Cancel",
       "casualWarning": {
         ".": "Casual Mode",
@@ -1354,6 +1368,18 @@
     "backupHint": {
       ".": "Show Backup Hint",
       "hint": "Show a backup reminder when no scenario is running."
+    },
+    "battleGoals": {
+      ".": "Battle Goals",
+      "hint": "Enable drawing and selecting Battle Goals before first round of a scenario."
+    },
+    "battleGoalsCharacter": {
+      ".": "Always show Battle Goals",
+      "hint": "Always show the Battle Goals menu on character."
+    },
+    "battleGoalsFh": {
+      ".": "Always draw 3 Battle Goals",
+      "hint": "Always apply Frosthaven rules to draw three Battle Goals. (Automatic enabled when playing Frosthaven)"
     },
     "bonusAdjustment": {
       ".": "Level bonuses adjustment",
@@ -1611,10 +1637,11 @@
     "placeholder": "???"
   },
   "sheets": {
-    ".": "Character/Party/Campaign Sheets",
-    "campaign": "Global Campaign Management",
+    ".": "Character/Campaign Management",
+    "battleGoals": "Battle Goal Setup",
+    "campaign": "Global Campaign Management Sheet",
     "character": "Character Sheets",
-    "party": "Party/Campaign"
+    "party": "Party/Campaign Sheet"
   },
   "state": {
     "clear": {
@@ -1671,6 +1698,20 @@
         "sufferDamage": "Apply action suffer %game.damage:{1}% to {0}"
       },
       "applyScenarioRule": "Apply scenario rule",
+      "battleGoals": {
+        "drawCard": "Draw another Battle Goal card for {0}",
+        "drawCards": "Draw Battle Goal cards for {0}",
+        "deselect": "Deselect current Battle Goal of {0}",
+        "select": "Select Battle Goal of {0}",
+        "setup": {
+          "addEdtion": "Add Battle Goal cards from edition %data.edition.{0}%",
+          "filter": {
+            "addCard": "Re-Add Battle Goal '{1}' (%data.edition.{0}%) to Battel Goal cards",
+            "removeCard": "Remove Battle Goal '{1}' (%data.edition.{0}%) from Battel Goal cards"
+          },
+          "removeEdtion": "Remove Battle Goal cards from edition %data.edition.{0}%"
+        }
+      },
       "buyItem": "Buy Item {1} (%data.edition.{2}%) for {0}",
       "cancelScenario": "Cancel Scenario #{0} {1} ({2})",
       "changeCustomScenario": "Name '{0}' for custom scenario",
@@ -1718,8 +1759,9 @@
       "entityDead": "Kill {1} standee {2} of {0}",
       "equipItem": "Equip Item {1} (%data.edition.{2}%) for {0}",
       "finishScenario": {
+        "battleGoal": "Set Battle Goal checkmarks for %data.character.{0}% to {1}",
         "close": "Close Scenario Summary",
-        "dialog": "Scenario summary for #{0} {1} ({2}) ",
+        "dialog": "Scenario summary for #{0} {1} ({2})",
         "failure": "Scenario #{0} {1} ({2}) failed",
         "linked": "Scenario #{0} {1} successful, continue with #{3} ({2})",
         "remove": "Remove scenario #{0} {1} ({2}) success",
