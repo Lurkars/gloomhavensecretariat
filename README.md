@@ -52,6 +52,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - **Campaign Management** (some special rules for CS are missing)
   - **Markers**
   - **Treasures**
+  - **Battle Goals** (must be enabled in Settings!)
 - Elimination of the following physical components
   - Monster ability cards
   - Monster stat cards
@@ -66,6 +67,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Loot deck
   - Town guard deck
   - Party/Campaign sheet
+  - Battle Goals
 - Other features:
   - i18n support (currently en, de, fr and ko, more translations needed. Many thanks to the contributors of french and korean)
   - PWA for installation on all devices!
@@ -78,6 +80,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Includes Solo scenarios
   - Includes [Blood and Sand](https://boardgamegeek.com/thread/2613617/blood-and-sand-gloomhaven-campaign-set-red-desert) campaign: can be enabled in *Data Management* (Thanks to [/u/Calm_Construction131](https://www.reddit.com/user/Calm_Construction131) for contribution)
   - Includes the [Seeker of Xorn](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under *Data Management*.
+  - Includes the [Satire's Extended Battle Goals](https://boardgamegeek.com/thread/2184131/satires-extended-battle-goals): can be enabled under *Data Management*.
   - Manage multiple parties (on the party sheet while no active scenario is set)
   - <details>
       <summary>SPOILER WARNING: Envelope X (and V)</summary>

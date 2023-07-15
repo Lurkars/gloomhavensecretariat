@@ -27,7 +27,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Curse & Bless Attack Modifier                                                   | ✅         | ✅         | ✅        | ✅        | ✅       |
 | Ally Attack Modifier Deck                                                       | ✅         | ✅         | ✅        | ⛔        | ⛔       |
 | Scenario Setup (Monster, Objectives, Escorts)                                   | ✅         | ✅         | ✅        | ✅        | ✅       |
-| Separate Rooms/Sections                                                          | ✅         | ✅         | ✅        | ✅        | ⛔       |
+| Separate Rooms/Sections                                                         | ✅         | ✅         | ✅        | ✅        | ⛔       |
 | Character Attack Modifier Deck                                                  | ✅         | ⛔         | ⛔        | ✅        | ⛔       |
 | Character Perks                                                                 | ✅         | ⛔         | ⛔        | ✅        | ⛔       |
 | Character Scenario XP                                                           | ✅         | ✅         | ✅        | ✅        | ✅       |
@@ -36,7 +36,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Character Abilities                                                             | ⛔         | ⛔         | ⛔        | ✅        | ⛔       |
 | Campaign Progress                                                               | ✅         | ⛔         | ✅❗       | ✅        | ⛔       |
 | Event-Decks                                                                     | ⛔         | ⛔         | ⛔        | ✅        | ⛔       |
-| Battle Goal Deck                                                                | ⛔         | ⛔         | ⛔        | ✅        | ⛔       |
+| Battle Goal Deck                                                                | ✅[^1.1]   | ⛔         | ⛔        | ✅        | ⛔       |
 | Multiple Parties/Campaigns                                                      | ✅         | ⛔         | ✅        | ✅        | ⛔       |
 | Loot Deck                                                                       | ✅         | ✅         | ✅        | ✅        | ⛔       |
 | Frosthaven Outpost (Calender, Resources, Buildings, Town Guard etc.)            | ✅         | ⛔         | ⛔        | ✅        | ⛔       |
@@ -102,6 +102,9 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | OpenSource License                                                              | ✅[^14]    | ✅[^15]    | ⛔        | ⛔        | ⛔       |
 | Custom Content                                                                  | ✅         | ⛔         | ⛔        | ⛔        | ⛔       |
 | Monster Editor (Stats + Abilities)                                              | ✅         | ⛔         | ⛔        | ⛔        | ⛔       |
+
+
+[^1.1]: Need to be enabled in **Settings** Menu
 
 [^1.3]: Not all scenarios available yet, but WIP, some Attackmodifier Rules missing
 
