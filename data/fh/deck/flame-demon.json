@@ -212,7 +212,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "All adjacent<br>enemeis suffer %game.damage:2%",
+              "value": "All adjacent<br>enemies suffer %game.damage:2%",
               "small": true
             }
           ]
