@@ -68,7 +68,7 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
     } else {
       this.objective.off = false;
     }
-    gameManager.sortFigures();
+    gameManager.sortFigures(this.objective);
     gameManager.stateManager.after();
   }
 
@@ -129,7 +129,7 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
       this.objective.initiative = value;
       this.initiative = -1;
       if (gameManager.game.state == GameState.next) {
-        gameManager.sortFigures();
+        gameManager.sortFigures(this.objective);
       }
       gameManager.stateManager.after();
     }

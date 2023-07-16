@@ -92,7 +92,7 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
       }
       this.figure.initiative = initiative;
       if (gameManager.game.state == GameState.next) {
-        gameManager.sortFigures();
+        gameManager.sortFigures(this.character);
       }
       gameManager.stateManager.after();
     }
@@ -103,7 +103,7 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
       gameManager.stateManager.before("characterLongRestOff", "data.character." + this.character.name);
       this.character.longRest = false;
       if (gameManager.game.state == GameState.next) {
-        gameManager.sortFigures();
+        gameManager.sortFigures(this.character);
       }
       gameManager.stateManager.after();
       event.preventDefault();

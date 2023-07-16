@@ -127,7 +127,7 @@ export class MonsterNumberPicker implements OnInit, OnDestroy {
       if (gameManager.game.state == GameState.next && entity) {
         this.monster.active = !gameManager.game.figures.some((figure) => figure.active);
         if (this.monster.active) {
-          gameManager.sortFigures();
+          gameManager.sortFigures(this.monster);
           entity.active = true;
         }
       }

@@ -105,7 +105,7 @@ export class MonsterNumberPickerDialog implements OnInit {
                 if (gameManager.game.state == GameState.next && entity) {
                     this.monster.active = !gameManager.game.figures.some((figure) => figure.active);
                     if (this.monster.active) {
-                        gameManager.sortFigures();
+                        gameManager.sortFigures(this.monster);
                         entity.active = true;
                     }
                 }
@@ -121,7 +121,7 @@ export class MonsterNumberPickerDialog implements OnInit {
             let existing = gameManager.monsterManager.monsterStandeeUsed(this.monster, number);
             if (existing) {
                 let otherNumber = -1;
-                while(gameManager.monsterManager.monsterStandeeUsed(this.monster, otherNumber)) {
+                while (gameManager.monsterManager.monsterStandeeUsed(this.monster, otherNumber)) {
                     otherNumber -= 1;
                 }
                 existing.number = otherNumber;

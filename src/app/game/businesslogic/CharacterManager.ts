@@ -128,7 +128,7 @@ export class CharacterManager {
       if (this.game.state == GameState.next) {
         gameManager.attackModifierManager.shuffleModifiers(character.attackModifierDeck);
       }
-      gameManager.sortFigures();
+      gameManager.sortFigures(character);
     }
     if (this.game.levelCalculation) {
       gameManager.levelManager.calculateScenarioLevel();
@@ -204,7 +204,7 @@ export class CharacterManager {
 
     this.game.figures.push(objective);
     gameManager.addEntityCount(objective);
-    gameManager.sortFigures();
+    gameManager.sortFigures(objective);
     return objective;
   }
 

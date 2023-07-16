@@ -180,7 +180,7 @@ export class MonsterManager {
     }
 
     if (gameManager.game.state == GameState.next) {
-      gameManager.sortFigures();
+      gameManager.sortFigures(monster);
     }
 
     gameManager.uiChange.emit();

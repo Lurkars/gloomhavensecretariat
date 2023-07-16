@@ -65,7 +65,7 @@ export class CharacterInitiativeDialogComponent {
                 this.figure.initiative = 0;
             }
             if (gameManager.game.state == GameState.next) {
-                gameManager.sortFigures();
+                gameManager.sortFigures(this.character);
             }
             gameManager.stateManager.after();
         }
@@ -100,7 +100,7 @@ export class CharacterInitiativeDialogComponent {
                 } else {
                     this.setInitiative(99);
                     if (gameManager.game.state == GameState.next) {
-                        gameManager.sortFigures();
+                        gameManager.sortFigures(this.character);
                     }
                 }
                 gameManager.stateManager.after();

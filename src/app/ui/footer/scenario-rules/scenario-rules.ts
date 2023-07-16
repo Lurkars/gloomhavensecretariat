@@ -446,7 +446,7 @@ export class ScenarioRulesComponent {
                                 if (monster != figure) {
                                     gameManager.monsterManager.removeMonster(figure);
                                 }
-                                gameManager.sortFigures();
+                                gameManager.sortFigures(monster);
                             }
                         } else if (figures.length == 1 && figures[0] instanceof Objective) {
                             const figure = figures[0];

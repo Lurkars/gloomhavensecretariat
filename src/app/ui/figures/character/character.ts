@@ -89,7 +89,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
     } else {
       this.character.off = false;
     }
-    gameManager.sortFigures();
+    gameManager.sortFigures(this.character);
   }
 
   dragInitiativeMove(value: number) {
@@ -140,7 +140,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
         this.character.initiativeVisible = true;
       }
       if (gameManager.game.state == GameState.next) {
-        gameManager.sortFigures();
+        gameManager.sortFigures(this.character);
       }
       gameManager.stateManager.after();
     }

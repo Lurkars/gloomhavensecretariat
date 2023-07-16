@@ -345,7 +345,7 @@ export class GameManager {
     }).map((figure) => (figure as Character).edition + '-' + figure.name);
   }
 
-  sortFigures() {
+  sortFigures(figure: Figure | undefined = undefined) {
     this.game.figures.sort((a, b) => {
       if (settingsManager.settings.disableSortFigures) {
         return 0;
@@ -353,6 +353,8 @@ export class GameManager {
 
       if (this.game.state == GameState.draw) {
         return this.sortFiguresByTypeAndName(a, b);
+      } else if (figure && figure != a && figure != b) {
+        return 0;
       } else if (settingsManager.settings.initiativeRequired || a.getInitiative() > 0 && b.getInitiative() > 0) {
         if (a.getInitiative() == b.getInitiative()) {
           return this.sortFiguresByTypeAndName(a, b);
