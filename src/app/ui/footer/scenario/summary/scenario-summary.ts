@@ -425,8 +425,17 @@ export class ScenarioSummaryComponent {
         }
 
         if (this.success) {
-            gameManager.game.figures.filter((figure) => figure instanceof Character).forEach((figure, index) => {
-                const character = (figure as Character);
+            gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character).sort((a, b) => {
+                const aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
+                const bName = b.title.toLowerCase() || settingsManager.getLabel('data.character.' + b.name).toLowerCase();
+                if (aName > bName) {
+                    return 1;
+                }
+                if (aName < bName) {
+                    return -1;
+                }
+                return 0;
+            }).forEach((character, index) => {
                 if (!character.absent) {
                     if (this.battleGoals[index] > 0) {
                         character.progress.battleGoals += this.battleGoals[index];
