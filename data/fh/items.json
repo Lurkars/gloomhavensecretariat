@@ -840,7 +840,7 @@
     "name": "Shovel",
     "count": 2,
     "edition": "fh",
-    "slot": "head",
+    "slot": "onehand",
     "blueprint": true,
     "resources": {
       "lumber": 1,
