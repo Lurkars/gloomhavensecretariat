@@ -134,6 +134,12 @@ header {
         color: var(--ghs-color-white);
       }
     }
+
+    @media (max-width: 600px),
+    (orientation: portrait) {
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 
   .event-effects {
@@ -161,13 +167,6 @@ header {
     display: flex;
     height: 100%;
     align-items: center;
-    overflow: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  
-    &::-webkit-scrollbar {
-      display: none;
-    }
 
     .element {
       margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
