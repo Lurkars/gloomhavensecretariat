@@ -23,6 +23,10 @@
         {
           "type": "shield",
           "value": 1
+        },
+        {
+          "type": "push",
+          "value": 1
         }
       ],
       "immunities": [
@@ -39,6 +43,10 @@
         {
           "type": "shield",
           "value": 2
+        },
+        {
+          "type": "push",
+          "value": 1
         }
       ],
       "immunities": [
@@ -55,6 +63,10 @@
         {
           "type": "shield",
           "value": 2
+        },
+        {
+          "type": "push",
+          "value": 1
         }
       ],
       "immunities": [
@@ -75,6 +87,10 @@
         {
           "type": "condition",
           "value": "curse"
+        },
+        {
+          "type": "push",
+          "value": 1
         }
       ],
       "immunities": [
@@ -95,6 +111,10 @@
         {
           "type": "condition",
           "value": "curse"
+        },
+        {
+          "type": "push",
+          "value": 2
         }
       ],
       "immunities": [
@@ -115,6 +135,10 @@
         {
           "type": "condition",
           "value": "curse"
+        },
+        {
+          "type": "push",
+          "value": 2
         }
       ],
       "immunities": [
@@ -135,6 +159,10 @@
         {
           "type": "condition",
           "value": "curse"
+        },
+        {
+          "type": "push",
+          "value": 2
         }
       ],
       "immunities": [
@@ -156,6 +184,10 @@
         {
           "type": "condition",
           "value": "curse"
+        },
+        {
+          "type": "push",
+          "value": 2
         }
       ],
       "immunities": [
@@ -170,6 +202,12 @@
       "health": "[3+7x(C/2){$math.floor}]",
       "movement": 4,
       "attack": 3,
+      "actions": [
+        {
+          "type": "push",
+          "value": 1
+        }
+      ],
       "immunities": [
         "disarm",
         "stun"
@@ -192,6 +230,10 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "push",
+          "value": 1
         }
       ],
       "immunities": [
@@ -215,6 +257,10 @@
               "value": 2
             }
           ]
+        },
+        {
+          "type": "push",
+          "value": 1
         }
       ],
       "immunities": [
@@ -242,6 +288,10 @@
         {
           "type": "condition",
           "value": "wound"
+        },
+        {
+          "type": "push",
+          "value": 1
         }
       ],
       "immunities": [
@@ -269,6 +319,10 @@
         {
           "type": "condition",
           "value": "wound"
+        },
+        {
+          "type": "push",
+          "value": 2
         }
       ],
       "immunities": [
@@ -296,6 +350,10 @@
         {
           "type": "condition",
           "value": "wound"
+        },
+        {
+          "type": "push",
+          "value": 2
         }
       ],
       "immunities": [
@@ -323,6 +381,10 @@
         {
           "type": "condition",
           "value": "wound"
+        },
+        {
+          "type": "push",
+          "value": 2
         }
       ],
       "immunities": [
@@ -351,6 +413,10 @@
         {
           "type": "condition",
           "value": "wound"
+        },
+        {
+          "type": "push",
+          "value": 2
         }
       ],
       "immunities": [
