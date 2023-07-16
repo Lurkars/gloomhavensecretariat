@@ -19,7 +19,7 @@
     },
     {
         "cardId": "1346",
-        "name": "Assasin",
+        "name": "Assassin",
         "text": "Kill an enemy before it takes its first turn.",
         "checks": 2
     },
@@ -80,7 +80,7 @@
     {
         "cardId": "1349",
         "name": "Duelist",
-        "text": "Never exit a hex adjacent to an enemy except trough forced movement.",
+        "text": "Never exit a hex adjacent to an enemy except through forced movement.",
         "checks": 2
     },
     {
