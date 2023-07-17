@@ -8,7 +8,7 @@
     {
         "cardId": "1302",
         "name": "Acrobat",
-        "text": "Have zero cards in your hand each time you rest.",
+        "text": "Lose a card to negate suffering 5 or more damage.",
         "checks": 1
     },
     {
@@ -56,7 +56,7 @@
     {
         "cardId": "1309",
         "name": "Conservator",
-        "text": "Never peform an action with a lost icon.",
+        "text": "Never perform an action with a lost icon.",
         "checks": 1
     },
     {
@@ -200,19 +200,19 @@
     {
         "cardId": "1325",
         "name": "Pickpocket",
-        "text": "Collect two or more loot tokens by performing a loot ability while adjacent to one or more enemeis.",
+        "text": "Collect two or more loot tokens by performing a loot ability while adjacent to one or more enemies.",
         "checks": 1
     },
     {
         "cardId": "1326",
-        "name": "Pincusion",
+        "name": "Pincushion",
         "text": "Be targeted by attacks from three or more enemies in the same round.",
         "checks": 1
     },
     {
         "cardId": "1327",
         "name": "Plebeian",
-        "text": "Never kill an eleite enemy, named enemy or boss.",
+        "text": "Never kill an elite enemy, named enemy or boss.",
         "checks": 1
     },
     {
