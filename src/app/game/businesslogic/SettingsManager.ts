@@ -135,6 +135,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setAddAllMonsters(addAllMonsters: boolean) {
+    this.settings.addAllMonsters = addAllMonsters;
+    this.storeSettings();
+  }
+
   setAllyAttackModifierDeck(allyAttackModifierDeck: boolean) {
     this.settings.allyAttackModifierDeck = allyAttackModifierDeck;
     this.storeSettings();

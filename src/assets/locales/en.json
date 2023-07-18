@@ -1183,6 +1183,7 @@
     "setup": {
       ".": "Scenario Setup",
       "abilities": "Abilities",
+      "detailed": "Show detailed Monster Stats",
       "spoiler": "Spoiler",
       "stats": "Monster Stats"
     },
@@ -1321,6 +1322,10 @@
       ".": "Active summons",
       "hint": "At start of the characters turn, summons will be activated in its order, double click to toggle active state."
     },
+    "addAllMonsters": {
+      ".": "Add for all rooms/sections",
+      "hint": "This will automatically add all monsters appearing in the scenario. Please consider that this may spoiler unrevealed rooms/sections."
+    },
     "additional": "Additional Gameplay",
     "allyAttackModifierDeck": {
       ".": "Attack Modifier Deck for allies",
@@ -1395,7 +1400,7 @@
     },
     "battleGoalsCharacter": {
       ".": "Always show Battle Goals",
-      "hint": "Always show the Battle Goals menu on character."
+      "hint": "Always show the Battle Goals menu on character. This is enabled automatically if Character Attack Modifier Deck are disabled to still access the battle goal menu."
     },
     "battleGoalsFh": {
       ".": "Always draw 3 Battle Goals",

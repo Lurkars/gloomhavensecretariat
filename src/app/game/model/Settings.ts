@@ -6,6 +6,7 @@ export class Settings {
   activeApplyConditions: boolean = true;
   activeStandees: boolean = true;
   activeSummons: boolean = true;
+  addAllMonsters: boolean = false;
   allyAttackModifierDeck: boolean = true;
   alwaysAllyAttackModifierDeck: boolean = false;
   alwaysFhSolo: boolean = false;

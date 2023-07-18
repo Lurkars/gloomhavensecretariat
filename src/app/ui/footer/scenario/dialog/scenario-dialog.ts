@@ -31,6 +31,7 @@ export class ScenarioDialogComponent {
     setup: boolean = false;
     hasSpoiler: boolean = false;
     spoiler: boolean = false;
+    detailed: boolean = false;
 
     constructor(@Inject(DIALOG_DATA) public scenario: Scenario, public dialogRef: DialogRef, private dialog: Dialog) {
         this.updateMonster();
@@ -86,6 +87,10 @@ export class ScenarioDialogComponent {
             const textB = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
             return textA < textB ? -1 : 1;
         });
+    }
+
+    toMonster(monsterData: MonsterData): Monster {
+        return new Monster(monsterData, gameManager.game.level);
     }
 
     openStats(monsterData: MonsterData) {

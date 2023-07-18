@@ -414,6 +414,15 @@ export class ScenarioManager {
       }
     }
 
+    if (settingsManager.settings.addAllMonsters) {
+      this.getMonsters(scenarioData).forEach((monster) => {
+        if (!this.game.figures.find((figure) =>
+          figure instanceof MonsterData && figure.name == monster.name && figure.edition == monster.edition)) {
+          gameManager.monsterManager.addMonster(monster, this.game.level);
+        }
+      })
+    }
+
     if (scenarioData.solo) {
       gameManager.game.figures.forEach((figure) => {
         if (figure instanceof Character) {

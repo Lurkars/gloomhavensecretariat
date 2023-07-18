@@ -1075,6 +1075,7 @@
     "setup": {
       ".": "Szenario Setup",
       "abilities": "Fertigkeitskarten",
+      "detailed": "Zeige detaillierte Monsterwerte an",
       "spoiler": "Spoiler",
       "stats": "Monsterwerte"
     },
@@ -1212,6 +1213,10 @@
       ".": "Aktive Beschwörungen",
       "hint": "Zu Beginn eines Zuges werden die Beschwörungen eines Charakters nacheinander als aktiv markiert und entsprechende Daten angezeigt, durch Doppelklick wird die jeweils nächste Beschwörung ausgewählt."
     },
+    "addAllMonsters": {
+      ".": "Für alle Räumen/Sektionen hinzufügen",
+      "hint": "Fügt automatisc alle Monster des Szenarios hinzu. Bitte beachten, dass diese Option zu Spoilern für ungeöffnete Räume/Sektionen führen kann."
+    },
     "additional": "Erweiterter Spielablauf",
     "allyAttackModifierDeck": {
       ".": "Angriffsmodifikatordeck für Verbündete",
@@ -1286,7 +1291,7 @@
     },
     "battleGoalsCharacter": {
       ".": "Kampfziele immer anzeigen",
-      "hint": "Zeige immer das Kampfziele Menu an."
+      "hint": "Zeige immer das Kampfziele Menu an. Automatisch aktiviert, falls das Angriffsmodifikatordeck für Charaktere deaktiviert ist um weiterhin das Kampfziele Menu zu öffnen."
     },
     "battleGoalsFh": {
       ".": "Immer 3 Kampfziele ziehen",

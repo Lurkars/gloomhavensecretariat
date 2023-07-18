@@ -4,7 +4,10 @@
 
   color: var(--ghs-color-white);
   min-width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
-  padding: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+
+  .scroll-container {
+    padding: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+  }
 
   .title {
     display: flex;
@@ -41,10 +44,6 @@
     align-items: center;
     text-align: center;
 
-    font-family: var(--ghs-font-title);
-    color: var(--ghs-color-white);
-    font-size: calc(var(--ghs-unit) * 4* var(--ghs-text-factor));
-
     .title {
       position: relative;
       display: flex;
@@ -60,15 +59,10 @@
       display: flex;
       font-family: var(--ghs-font-normal);
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+      margin: 0 calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
     }
 
     margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
-
-    .setup-container {
-      margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
-      display: flex;
-      align-items: center;
-    }
 
     .loot-config {
 
@@ -220,6 +214,27 @@
           font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
           line-height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
           padding: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        }
+      }
+    }
+
+    .setup-container {
+      margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
+      display: flex;
+      align-items: center;
+
+      &.detailed {
+        .monsters {
+
+          .monster {
+            width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
+            margin: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
+
+            ghs-monster-stats {
+              width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
+              height: calc(var(--ghs-unit) * 21.5 * var(--ghs-dialog-factor));
+            }
+          }
         }
       }
     }

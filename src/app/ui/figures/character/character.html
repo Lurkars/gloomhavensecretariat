@@ -158,7 +158,7 @@
       </span>
 
       <div
-        *ngIf="gameManager.game.scenario && settingsManager.settings.battleGoals && (gameManager.game.round == 0 || settingsManager.settings.battleGoalsCharacter)"
+        *ngIf="gameManager.game.scenario && settingsManager.settings.battleGoals && (gameManager.game.round == 0 || settingsManager.settings.battleGoalsCharacter || !settingsManager.settings.characterAttackModifierDeck)"
         class="battlegoals-button" (click)="openBattleGoals()" [ghs-label]="'game.battleGoals'"
         [ghs-label-attribute]="'title'">
         <img

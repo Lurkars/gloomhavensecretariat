@@ -129,9 +129,10 @@
 
     <div class="line">
       <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.battleGoals}">
+        <label
+          [ngClass]="{'disabled' : !settingsManager.settings.battleGoals || !settingsManager.settings.characterAttackModifierDeck}">
           <input type="checkbox"
-            [checked]="settingsManager.settings.battleGoals && settingsManager.settings.battleGoalsCharacter"
+            [checked]="settingsManager.settings.battleGoals && (settingsManager.settings.battleGoalsCharacter || !settingsManager.settings.characterAttackModifierDeck)"
             (change)="settingsManager.setBattleGoalsCharacter(!settingsManager.settings.battleGoalsCharacter)">
           <span [ghs-label]="'settings.battleGoalsCharacter'"></span>
         </label>
@@ -331,6 +332,19 @@
           <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
           <span class="hint">
             <span class="text" [ghs-label]="'settings.hideStats.hint'"></span>
+          </span>
+        </div>
+      </div>
+      <div class="line">
+        <div class="hint-container">
+          <label>
+            <input type="checkbox" [checked]="settingsManager.settings.addAllMonsters"
+              (change)="settingsManager.setAddAllMonsters(!settingsManager.settings.addAllMonsters)">
+            <span [ghs-label]="'settings.addAllMonsters'"></span>
+          </label>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <span class="hint">
+            <span class="text" [ghs-label]="'settings.addAllMonsters.hint'"></span>
           </span>
         </div>
       </div>

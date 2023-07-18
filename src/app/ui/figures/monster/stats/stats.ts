@@ -24,6 +24,7 @@ export class MonsterStatsComponent implements OnInit {
   @Input() forceStats: boolean = false;
   @Input() relative: boolean = false;
   @Input() noClick: boolean = false;
+  @Input() disablePoup: boolean = false;
   @Input() fullAbility: boolean = false;
   MonsterType = MonsterType;
   gameManager: GameManager = gameManager;
@@ -120,13 +121,13 @@ export class MonsterStatsComponent implements OnInit {
   openStatsPopup() {
     if (!this.noClick) {
       this.dialog.open(MonsterStatsDialogComponent, { panelClass: 'dialog', data: this.monster });
-    } else {
+    } else if (!this.disablePoup) {
       this.dialog.open(MonsterStatDialogComponent, { data: { monster: this.monster, forceStats: this.forceStats } });
     }
   }
 
   openStatPopup() {
-    if (!this.noClick) {
+    if (!this.noClick && !this.disablePoup) {
       this.dialog.open(MonsterStatDialogComponent, { data: { monster: this.monster, forceStats: this.forceStats } });
     }
   }
