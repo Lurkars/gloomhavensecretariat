@@ -24,11 +24,8 @@
       "resources": {
         "files": [
           "/assets/**",
-          "/**/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
-        ],
-        "urls": [
-          "/assets/**",
-          "/**"
+          "/**/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)",
+          "!/assets/artwork/**"
         ]
       }
     }

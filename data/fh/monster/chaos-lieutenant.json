@@ -1,6 +1,5 @@
 {
   "name": "chaos-lieutenant",
-  "thumbnail": "fh-chaos-demon",
   "edition": "fh",
   "deck": "chaos-demon",
   "boss": true,

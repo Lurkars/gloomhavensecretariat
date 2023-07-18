@@ -615,6 +615,35 @@
     }
   }
 
+  .character-level {
+    position: absolute;
+    right: calc(var(--ghs-unit) * 13.3);
+    top: calc(var(--ghs-unit) * 10);
+    width: calc(var(--ghs-unit) * 4.2);
+    height: calc(var(--ghs-unit) * 5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--ghs-font-text);
+    font-size: calc(var(--ghs-unit) * 2.4);
+    padding-right: calc(var(--ghs-unit) * 0.4);
+    z-index: 1;
+
+    &:after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: calc(var(--ghs-unit) * -0.5);
+      bottom: 0;
+      right: 0;
+      background-color: var(--ghs-character-color);
+      mask-image: url('~/src/assets/images/level.svg');
+      mask-size: 100%;
+      mask-repeat: no-repeat;
+      z-index: -1;
+    }
+  }
+
   .title,
   .conditions,
   .experience,
@@ -652,6 +681,16 @@
     .loot-cards-close,
     .drag-initiative {
       pointer-events: initial;
+    }
+  }
+
+  &.fh {
+    .stats {
+      .character-level {
+        &:after {
+          top: calc(var(--ghs-unit) * -0.5);
+        }
+      }
     }
   }
 
@@ -712,6 +751,7 @@
         margin-top: calc(var(--ghs-unit) * 3.5);
       }
 
+      .battlegoals-button,
       .attack-modifier-button,
       .loot-cards-button {
         margin-top: calc(var(--ghs-unit) * 5.5);
@@ -719,6 +759,19 @@
 
       .summon-dialog-button {
         margin-top: calc(var(--ghs-unit) * 6);
+      }
+
+      .hand-size {
+        margin-top: calc(var(--ghs-unit) * 6.5);
+      }
+
+      .character-level {
+        right: calc(var(--ghs-unit) * 13.9);
+        top: 0;
+
+        &:after {
+          top: calc(var(--ghs-unit) * -0.5);
+        }
       }
     }
 

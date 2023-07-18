@@ -1,11 +1,11 @@
 {
   "name": "hollow-scholar",
-  "thumbnail": "fh-living-bones",
   "edition": "fh",
   "deck": "living-bones",
   "boss": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "living-bones",
   "baseStat": {
     "type": "boss",
     "actions": [

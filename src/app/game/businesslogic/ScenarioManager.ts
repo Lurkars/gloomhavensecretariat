@@ -622,7 +622,7 @@ export class ScenarioManager {
         requirement.global && requirement.global.some((achievement) => {
           if (achievement.startsWith('!')) {
             return this.game.party.globalAchievementsList.find((globalAchievement) => globalAchievement.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim());
-          } else if (achievement.indexOf(':') != -1) {
+          } else if (achievement.indexOf(':') != -1 && (!isNaN(+achievement.split(':')[1]))) {
             let count = +achievement.split(':')[1];
             this.game.party.globalAchievementsList.forEach((globalAchievement) => {
               if (globalAchievement.toLowerCase().trim() == achievement.split(':')[0].toLowerCase().trim()) {
@@ -638,7 +638,7 @@ export class ScenarioManager {
         requirement.party && requirement.party.some((achievement) => {
           if (achievement.startsWith('!')) {
             return this.game.party.achievementsList.find((partyAchievement) => partyAchievement.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim());
-          } else if (achievement.indexOf(':') != -1) {
+          } else if (achievement.indexOf(':') != -1 && (!isNaN(+achievement.split(':')[1]))) {
             let count = +achievement.split(':')[1];
             this.game.party.achievementsList.forEach((partyAchievement) => {
               if (partyAchievement.toLowerCase().trim() == achievement.split(':')[0].toLowerCase().trim()) {
@@ -654,7 +654,7 @@ export class ScenarioManager {
         requirement.campaignSticker && requirement.campaignSticker.some((achievement) => {
           if (achievement.startsWith('!')) {
             return this.game.party.campaignStickers.find((campaignSticker) => campaignSticker.toLowerCase().replaceAll(' ', '-').trim() == achievement.substring(1, achievement.length).toLowerCase().trim());
-          } else if (achievement.indexOf(':') != -1) {
+          } else if (achievement.indexOf(':') != -1 && (!isNaN(+achievement.split(':')[1]))) {
             let count = +achievement.split(':')[1];
             this.game.party.campaignStickers.forEach((campaignSticker) => {
               if (campaignSticker.toLowerCase().replaceAll(' ', '-').trim() == achievement.split(':')[0].toLowerCase().trim()) {
@@ -670,7 +670,7 @@ export class ScenarioManager {
         requirement.buildings && requirement.buildings.some((achievement) => {
           if (achievement.startsWith('!')) {
             return this.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim() && buildingModel.level > 0);
-          } else if (achievement.indexOf(':') != -1) {
+          } else if (achievement.indexOf(':') != -1 && (!isNaN(+achievement.split(':')[1]))) {
             let level = +achievement.split(':')[1];
             return !this.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim() && buildingModel.level >= level)
           } else {

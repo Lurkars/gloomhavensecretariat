@@ -1,12 +1,10 @@
 {
   "name": "giant-viper-angry-face-solo",
-  "thumbnail": "gh-giant-viper",
   "edition": "gh",
   "deck": "giant-viper",
   "hidden": true,
   "count": 10,
   "standeeShare": "giant-viper",
-  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal",
     "actions": [

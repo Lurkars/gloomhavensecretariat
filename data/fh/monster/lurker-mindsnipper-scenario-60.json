@@ -1,10 +1,10 @@
 {
   "name": "lurker-mindsnipper-scenario-60",
-  "thumbnail": "fh-lurker-mindsnipper",
   "edition": "fh",
   "deck": "lurker-mindsnipper",
   "hidden": true,
   "count": 2,
+  "standeeShare": "lurker-mindsnipper",
   "baseStat": {
     "type": "normal"
   },

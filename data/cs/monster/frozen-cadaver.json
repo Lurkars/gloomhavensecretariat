@@ -1,8 +1,9 @@
 {
   "name": "frozen-cadaver",
-  "thumbnail": "gh-living-corpse",
   "edition": "cs",
   "count": 6,
+  "standeeShare": "living-corpse",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

@@ -1,13 +1,11 @@
 {
   "name": "deep-earth",
-  "thumbnail": "gh-earth-demon",
   "edition": "gh",
   "deck": "earth-demon",
   "boss": true,
   "hidden": true,
   "count": 6,
   "standeeShare": "earth-demon",
-  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss"
   },

@@ -1,11 +1,11 @@
 {
   "name": "enraged-vanquisher-scenario-71",
-  "thumbnail": "toa-valrath-vanquisher",
   "edition": "toa",
   "deck": "enraged-vanquisher-scenario-71",
   "boss": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "valrath-vanquisher",
   "baseStat": {
     "type": "boss",
     "actions": [

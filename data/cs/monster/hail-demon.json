@@ -1,9 +1,10 @@
 {
   "name": "hail-demon",
-  "thumbnail": "gh-wind-demon",
   "edition": "cs",
   "flying": true,
   "count": 6,
+  "standeeShare": "wind-demon",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

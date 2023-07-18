@@ -1,11 +1,11 @@
 {
   "name": "fish-king-scenario-77",
-  "thumbnail": "fh-fish-king",
   "edition": "fh",
   "deck": "boss",
   "boss": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "fish-king",
   "baseStat": {
     "type": "boss",
     "health": "Cx8",

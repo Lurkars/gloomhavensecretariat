@@ -1,12 +1,10 @@
 {
   "name": "stone-golem-scoundrel-solo",
-  "thumbnail": "gh-stone-golem",
   "edition": "gh",
   "deck": "stone-golem",
   "hidden": true,
   "count": 6,
   "standeeShare": "stone-golem",
-  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

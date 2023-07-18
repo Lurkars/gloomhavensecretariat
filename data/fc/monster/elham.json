@@ -1,9 +1,7 @@
 {
   "name": "elham",
-  "thumbnail": "fc-aesther-ashblade",
   "edition": "fc",
   "deck": "ashblade",
-  "boss": true,
   "hidden": true,
   "count": 1,
   "standeeShare": "aesther-ashblade",

@@ -1,6 +1,5 @@
 {
   "name": "terrible-two-archer",
-  "thumbnail": "gh-bandit-archer",
   "edition": "cs",
   "deck": "archer",
   "boss": true,

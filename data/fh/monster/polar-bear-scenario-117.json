@@ -1,10 +1,10 @@
 {
   "name": "polar-bear-scenario-117",
-  "thumbnail": "fh-polar-bear",
   "edition": "fh",
   "deck": "polar-bear",
   "hidden": true,
   "count": 5,
+  "standeeShare": "polar-bear",
   "baseStat": {
     "type": "normal",
     "immunities": [

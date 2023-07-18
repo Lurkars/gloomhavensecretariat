@@ -6,6 +6,7 @@ import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { Monster } from "src/app/game/model/Monster";
 import { Objective } from "src/app/game/model/Objective";
+import packageJson from '../../../../../package.json';
 
 @Component({
     selector: 'ghs-feedback-dialog',
@@ -47,7 +48,7 @@ export class FeedbackDialogComponent {
     issueMail(type: string, text: string): string {
         let mailto = 'mailto:issue@gloomhaven-secretariat.de';
 
-        mailto += '?subject=[GHS] ' + settingsManager.getLabel('tools.feedback.reportIssue.type.' + type + '.subject');
+        mailto += '?subject=[GHS v' + packageJson.version + '] ' + settingsManager.getLabel('tools.feedback.reportIssue.type.' + type + '.subject');
 
         mailto += '&body=' + settingsManager.getLabel('tools.feedback.reportIssue.type.' + type + '.hint') + '%0D%0A%0D%0A' + text;
 

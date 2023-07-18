@@ -29,7 +29,7 @@
     </ng-container>
     <div class="name" *ngIf="gameManager.isMonster(data.figure)" (click)="changeMonsterEntity()"
       [ngClass]="{'change-entity': gameManager.monsterManager.monsterStandeeMax(gameManager.toMonster(data.figure)) > 1 || data.entity && gameManager.isMonsterEntity(data.entity) && gameManager.toMonsterEntity(data.entity).type != MonsterType.boss}">
-      <img *ngIf="!gameManager.toMonster(data.figure).noArtwork" class="standee"
+      <img *ngIf="!gameManager.toMonster(data.figure).noThumbnail" class="standee"
         [src]="gameManager.monsterManager.monsterThumbnail(gameManager.toMonster(data.figure))" />
       <span [ghs-label]="'data.monster.' + data.figure.name"></span>&nbsp;
       <span class="ally" *ngIf="gameManager.toMonster(data.figure).isAlly"><span

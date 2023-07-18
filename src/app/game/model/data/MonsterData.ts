@@ -21,6 +21,7 @@ export class MonsterData implements Editional, Spoilable {
   thumbnail: string | undefined;
   thumbnailUrl: string | undefined;
 
+  noThumbnail: boolean = false;
   noArtwork: boolean = false;
 
   catching: boolean = false;
@@ -55,6 +56,7 @@ export class MonsterData implements Editional, Spoilable {
       this.immortal = monsterData.immortal;
       this.thumbnail = monsterData.thumbnail;
       this.thumbnailUrl = monsterData.thumbnailUrl;
+      this.noThumbnail = monsterData.noThumbnail;
       this.noArtwork = monsterData.noArtwork;
       this.catching = monsterData.catching;
       this.edition = monsterData.edition;

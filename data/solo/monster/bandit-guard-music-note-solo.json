@@ -1,11 +1,9 @@
 {
   "name": "bandit-guard-music-note-solo",
-  "thumbnail": "gh-bandit-guard",
   "edition": "gh",
   "hidden": true,
   "count": 6,
   "standeeShare": "bandit-guard",
-  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal",
     "note": "%data.custom.solo.char-am-deck%"

@@ -1387,6 +1387,30 @@
 
             }
 
+            .locked {
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+
+              img.ghs-svg {
+                height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                width: auto;
+                filter: var(--ghs-filter-yellow);
+              }
+            }
+
+            .rewards {
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+              img.ghs-svg {
+                height: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
+                width: auto;
+              }
+            }
+
             .toggle-success {
               cursor: pointer;
               display: flex;

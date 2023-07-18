@@ -19,7 +19,7 @@
     "city-guard-banner-spear-solo"
   ],
   "lootDeckConfig": {
-    "coin": 15
+    "money": 15
   },
   "rules": [
     {

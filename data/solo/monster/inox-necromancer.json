@@ -1,12 +1,10 @@
 {
   "name": "inox-necromancer",
-  "thumbnail": "gh-inox-shaman",
   "edition": "gh",
   "boss": true,
   "hidden": true,
   "count": 4,
   "standeeShare": "inox-shaman",
-  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss"
   },

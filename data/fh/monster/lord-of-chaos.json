@@ -86,7 +86,7 @@
         },
         {
           "type": "custom",
-          "value": "Force all enemies to move one hex toward the closest unocuupied corridor hex.",
+          "value": "Force all enemies to move one hex toward the closest unoccupied corridor hex.",
           "small": true
         }
       ]

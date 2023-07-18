@@ -182,6 +182,16 @@ export class DatamanagementMenuComponent implements OnInit {
     }
   }
 
+  importGameCheck() {
+    if (this.confirm != "importGame") {
+      setTimeout(() => {
+        this.confirm = "importGame";
+      }, 100);
+    } else {
+      ghsInputFullScreenCheck();
+    }
+  }
+
   importGame(event: any) {
     event.target.parentElement.classList.remove("error");
     try {
@@ -234,6 +244,16 @@ export class DatamanagementMenuComponent implements OnInit {
     }
   }
 
+  importSettingsCheck() {
+    if (this.confirm != "importSettings") {
+      setTimeout(() => {
+        this.confirm = "importSettings";
+      }, 100);
+    } else {
+      ghsInputFullScreenCheck();
+    }
+  }
+
   importSettings(event: any) {
     event.target.parentElement.classList.remove("error");
     try {
@@ -273,6 +293,17 @@ export class DatamanagementMenuComponent implements OnInit {
       console.warn("Could not read datadump");
     }
   }
+
+  importDataDumpCheck() {
+    if (this.confirm != "importDataDump") {
+      setTimeout(() => {
+        this.confirm = "importDataDump";
+      }, 100);
+    } else {
+      ghsInputFullScreenCheck();
+    }
+  }
+
 
   importDataDump(event: any) {
     event.target.parentElement.classList.remove("error");

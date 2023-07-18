@@ -1,5 +1,6 @@
 {
   "name": "horned-lizard",
+  "noArtwork": true,
   "edition": "bas",
   "count": 6,
   "baseStat": {

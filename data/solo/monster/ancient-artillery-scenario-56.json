@@ -1,11 +1,11 @@
 {
   "name": "ancient-artillery-scenario-56",
-  "thumbnail": "gh-ancient-artillery",
   "edition": "cs",
   "deck": "ancient-artillery",
   "hidden": true,
   "count": 6,
   "standeeShare": "ancient-artillery",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

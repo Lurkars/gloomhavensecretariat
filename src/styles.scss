@@ -232,7 +232,8 @@ body {
   }
 }
 
-@media (max-width: 600px), (orientation: portrait) {
+@media (max-width: 600px),
+(orientation: portrait) {
   body {
     --ghs-width: 100vw;
     --ghs-dialog-factor: 1.8;
@@ -1162,22 +1163,27 @@ input[type="radio"] {
   .placeholder-character-icon-colored-bg {
     position: relative;
     display: inline-flex;
-    height: 1.3em;
-    width: 1.3em;
+    height: 1em;
+    width: 1em;
     border-radius: 100%;
     justify-content: center;
     align-items: center;
+    top: 0.3em;
+    position: relative;
+    margin: 0 0.2em;
 
     img {
-      width: 80%;
-      height: auto;
+      position: relative;
     }
 
     &.placeholder-character-icon-colored-bg {
       top: 0.1em;
       height: 1em;
       width: 1em;
+
       img {
+        width: 80%;
+        height: auto;
         filter: brightness(10);
       }
     }

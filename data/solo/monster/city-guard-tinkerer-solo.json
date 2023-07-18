@@ -1,12 +1,10 @@
 {
   "name": "city-guard-tinkerer-solo",
-  "thumbnail": "gh-city-guard",
   "edition": "gh",
   "deck": "guard",
   "hidden": true,
   "count": 6,
   "standeeShare": "city-guard",
-  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal",
     "note": "%data.custom.solo.char-am-deck%"

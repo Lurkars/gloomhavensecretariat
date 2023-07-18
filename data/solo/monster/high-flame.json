@@ -1,13 +1,11 @@
 {
   "name": "high-flame",
-  "thumbnail": "gh-flame-demon",
   "edition": "gh",
   "deck": "flame-demon",
   "boss": true,
   "hidden": true,
   "count": 6,
   "standeeShare": "flame-demon",
-  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss"
   },

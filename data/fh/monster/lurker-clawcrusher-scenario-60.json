@@ -1,10 +1,10 @@
 {
   "name": "lurker-clawcrusher-scenario-60",
-  "thumbnail": "fh-lurker-clawcrusher",
   "edition": "fh",
   "deck": "lurker-clawcrusher",
   "hidden": true,
   "count": 2,
+  "standeeShare": "lurker-clawcrusher",
   "baseStat": {
     "type": "normal"
   },

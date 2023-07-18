@@ -1,12 +1,10 @@
 {
   "name": "earth-demon-mindthief-solo",
-  "thumbnail": "gh-earth-demon",
   "edition": "gh",
   "deck": "earth-demon",
   "hidden": true,
   "count": 6,
   "standeeShare": "earth-demon",
-  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

@@ -5,6 +5,8 @@ import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameState } from "src/app/game/model/Game";
 import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
 import { Spoilable, SpoilableMock } from "src/app/game/model/data/Spoilable";
+import { ScenarioRequirementsComponent } from "../../party/requirements/requirements";
+import { Dialog } from "@angular/cdk/dialog";
 
 @Component({
   selector: 'ghs-scenario-menu',
@@ -20,6 +22,8 @@ export class ScenarioMenuComponent implements OnInit {
   GameState = GameState;
   edition: string = "";
   filterSuccess: boolean = false;
+
+  constructor(private dialog: Dialog) { }
 
   scenarioCache: { edition: string, group: string | undefined, filterSuccess: boolean, includeSpoiler: boolean, all: boolean, scenarios: ScenarioData[] }[] = [];
 
@@ -85,10 +89,17 @@ export class ScenarioMenuComponent implements OnInit {
 
   setScenario(scenarioData: ScenarioData) {
     if (!this.hasScenario(scenarioData)) {
-      gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
-      gameManager.scenarioManager.setScenario(scenarioData as Scenario);
+      if (gameManager.scenarioManager.isLocked(scenarioData)) {
+        this.dialog.open(ScenarioRequirementsComponent, {
+          panelClass: 'dialog',
+          data: scenarioData
+        })
+      } else {
+        gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
+        gameManager.scenarioManager.setScenario(scenarioData as Scenario);
+        gameManager.stateManager.after();
+      }
       this.close.emit();
-      gameManager.stateManager.after();
     }
   }
 

@@ -1,13 +1,11 @@
 {
   "name": "lieutenant",
-  "thumbnail": "gh-city-guard",
   "edition": "gh",
   "deck": "guard",
   "boss": true,
   "hidden": true,
   "count": 6,
   "standeeShare": "city-guard",
-  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss"
   },

@@ -1,10 +1,10 @@
 {
   "name": "lurker-wavethrower-scenario-60",
-  "thumbnail": "fh-lurker-wavethrower",
   "edition": "fh",
   "deck": "lurker-wavethrower",
   "hidden": true,
   "count": 2,
+  "standeeShare": "lurker-wavethrower",
   "baseStat": {
     "type": "normal"
   },

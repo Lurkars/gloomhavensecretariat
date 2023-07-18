@@ -75,7 +75,7 @@ export class LevelManager {
     const charCount = gameManager.characterManager.characterCount();
 
     if (charCount == 0) {
-      return 0;
+      return 1;
     }
 
     const charLevel = this.game.figures.some((figure) => figure instanceof Character) ? this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).map((figure) => (figure as Character).level).reduce((a, b) => a + b) : 1;

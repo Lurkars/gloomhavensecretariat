@@ -1,11 +1,11 @@
 {
   "name": "energized-corpse",
-  "thumbnail": "fh-frozen-corpse",
   "edition": "fh",
   "deck": "frozen-corpse",
   "boss": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "frozen-corpse",
   "baseStat": {
     "type": "boss"
   },

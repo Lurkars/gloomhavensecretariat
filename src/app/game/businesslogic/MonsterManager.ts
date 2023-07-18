@@ -29,10 +29,28 @@ export class MonsterManager {
       return monsterData.thumbnailUrl;
     }
 
+    if (!monsterData.thumbnail && monsterData.standeeShare) {
+      const share = gameManager.monstersData(monsterData.standeeShareEdition || monsterData.edition).find((value) => value.name == monsterData.standeeShare);
+      if (share) {
+        this.monsterThumbnail(share);
+        if (share.thumbnail) {
+          monsterData.thumbnail = share.thumbnail;
+        }
+      }
+    }
+
     if (!monsterData.thumbnail) {
       monsterData.thumbnail = monsterData.edition + '-' + monsterData.name;
     }
     return './assets/images/monster/thumbnail/' + monsterData.thumbnail + '.png';
+  }
+
+  monsterArtwork(monsterData: MonsterData) {
+    if (monsterData.noArtwork) {
+      return this.monsterThumbnail(monsterData);
+    }
+    this.monsterThumbnail(monsterData);
+    return './assets/artwork/monster/' + monsterData.thumbnail + '.png';
   }
 
   getStat(monster: Monster, type: MonsterType): MonsterStat {

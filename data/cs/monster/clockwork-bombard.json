@@ -1,6 +1,5 @@
 {
   "name": "clockwork-bombard",
-  "thumbnail": "gh-ancient-artillery",
   "edition": "cs",
   "deck": "ancient-artillery",
   "boss": true,

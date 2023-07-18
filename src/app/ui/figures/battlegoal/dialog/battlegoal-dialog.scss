@@ -2,9 +2,7 @@
   position: relative;
 
   .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     font-family: var(--ghs-font-title);
     font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
     color: var(--ghs-color-white);

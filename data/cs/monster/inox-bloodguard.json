@@ -4,6 +4,8 @@
   "deck": "boss",
   "boss": true,
   "count": 1,
+  "standeeShare": "inox-bodyguard",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss",
     "immunities": [

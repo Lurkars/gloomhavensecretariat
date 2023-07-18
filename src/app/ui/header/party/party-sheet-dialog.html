@@ -447,6 +447,12 @@
               </span>
               <span>
                 <span class="spacer"></span>
+                <span *ngIf="gameManager.scenarioManager.isLocked(scenarioData)"
+                  (click)="scenarioRequirements(scenarioData)" class="locked" [ghsTooltip]="'scenario.locked'"><img
+                    class="ghs-svg" src="./assets/images/warning.svg"></span>
+                <span *ngIf="countFinished(scenarioData)" (click)="scenarioRewards(scenarioData)" class="rewards"
+                  [ghsTooltip]="'scenario.summary.rewards'"><img class="ghs-svg"
+                    src="./assets/images/scenario/conclusion.svg"></span>
                 <span *ngFor="let success of [] | ghsRange:countFinished(scenarioData)">
                   <a class="toggle-success" [ghs-label]="'party.campaign.scenarios.removeSuccess'"
                     [ghs-label-attribute]="'title'" (click)="removeSuccess(scenarioData)"><img class="success"

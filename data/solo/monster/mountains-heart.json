@@ -1,11 +1,11 @@
 {
   "name": "mountains-heart",
-  "thumbnail": "fh-earth-demon",
   "edition": "fh",
   "deck": "earth-demon",
   "boss": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "earth-demon",
   "baseStat": {
     "type": "boss",
     "note": "At the start of each turn, remove the closest one 1-hex hazardous terrain tile"

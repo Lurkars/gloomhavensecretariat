@@ -1,11 +1,9 @@
 {
   "name": "city-guard-saw-solo",
-  "thumbnail": "gh-city-guard",
   "edition": "gh",
   "hidden": true,
   "count": 6,
   "standeeShare": "city-guard",
-  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

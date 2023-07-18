@@ -34,6 +34,7 @@ export class ScenarioSummaryComponent {
     casual: boolean = false;
     forceCampaign: boolean = false;
     conclusionOnly: boolean;
+    rewardsOnly: boolean;
 
     characters: Character[];
     battleGoals: number[] = [];
@@ -54,12 +55,13 @@ export class ScenarioSummaryComponent {
 
     EntityValueFunction = EntityValueFunction;
 
-    constructor(@Inject(DIALOG_DATA) data: { scenario: Scenario, success: boolean, conclusion: ScenarioData | undefined, conclusionOnly: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
+    constructor(@Inject(DIALOG_DATA) data: { scenario: Scenario, success: boolean, conclusion: ScenarioData | undefined, conclusionOnly: boolean, rewardsOnly: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
 
         this.scenario = data.scenario;
         this.success = data.success;
         this.conclusion = data.conclusion;
         this.conclusionOnly = data.conclusionOnly;
+        this.rewardsOnly = data.rewardsOnly;
         if (this.conclusionOnly) {
             this.conclusion = this.scenario;
             this.success = true;
@@ -95,8 +97,8 @@ export class ScenarioSummaryComponent {
             this.totalGold += gameManager.lootManager.getTotal(gameManager.game.lootDeck, LootType.special2);
         }
 
-        this.alreadyWarning = gameManager.game.party.campaignMode && this.success && (gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == this.scenario.index && scenarioModel.edition == this.scenario.edition && scenarioModel.group == this.scenario.group) != undefined || this.conclusion && gameManager.game.party.conclusions.find((scenarioModel) => this.conclusion && scenarioModel.index == this.conclusion.index && scenarioModel.edition == this.conclusion.edition && scenarioModel.group == this.conclusion.group) != undefined) || false;
-        this.casual = !this.conclusionOnly && !gameManager.game.party.campaignMode && gameManager.fhRules();
+        this.alreadyWarning = !this.rewardsOnly && gameManager.game.party.campaignMode && this.success && (gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == this.scenario.index && scenarioModel.edition == this.scenario.edition && scenarioModel.group == this.scenario.group) != undefined || this.conclusion && gameManager.game.party.conclusions.find((scenarioModel) => this.conclusion && scenarioModel.index == this.conclusion.index && scenarioModel.edition == this.conclusion.edition && scenarioModel.group == this.conclusion.group) != undefined) || false;
+        this.casual = !this.rewardsOnly && !this.conclusionOnly && !gameManager.game.party.campaignMode && gameManager.fhRules();
         this.updateState()
 
 

@@ -1,13 +1,11 @@
 {
   "name": "ghost-wolf",
-  "thumbnail": "gh-hound",
   "edition": "gh",
   "deck": "hound",
   "boss": true,
   "hidden": true,
   "count": 6,
   "standeeShare": "hound",
-  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss"
   },

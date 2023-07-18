@@ -1,6 +1,5 @@
 {
   "name": "terrible-two-guard",
-  "thumbnail": "gh-bandit-guard",
   "edition": "cs",
   "deck": "guard",
   "boss": true,

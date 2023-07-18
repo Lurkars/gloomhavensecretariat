@@ -1,10 +1,10 @@
 {
   "name": "black-imp-deathwalker-solo",
-  "thumbnail": "fh-black-imp",
   "edition": "fh",
   "deck": "imp",
   "hidden": true,
   "count": 10,
+  "standeeShare": "black-imp",
   "baseStat": {
     "type": "normal",
     "movement": 1

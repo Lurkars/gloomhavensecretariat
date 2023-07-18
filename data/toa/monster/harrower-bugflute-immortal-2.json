@@ -1,6 +1,5 @@
 {
   "name": "harrower-bugflute-immortal-2",
-  "thumbnail": "toa-harrower-bugflute",
   "edition": "toa",
   "deck": "boss",
   "boss": true,
@@ -8,6 +7,7 @@
   "immortal": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "harrower-bugflute",
   "baseStat": {
     "type": "boss",
     "immunities": [

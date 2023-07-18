@@ -1,9 +1,9 @@
 {
   "name": "basic-giant-viper",
-  "thumbnail": "jotl-giant-viper",
   "edition": "jotl",
   "hidden": true,
   "count": 10,
+  "standeeShare": "giant-viper",
   "baseStat": {
     "type": "normal",
     "actions": [

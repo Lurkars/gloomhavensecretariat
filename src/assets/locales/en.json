@@ -1057,6 +1057,25 @@
     },
     "openRoom": "Open door for tile '{0}'",
     "openRoomMarker": "Open door %game.mapMarker.{1}% for tile '{0}'",
+    "requirements": {
+      ".": "Scenario Requirements",
+      "all": "Show all requirements (include fulfilled)",
+      "cancel": "Cancel",
+      "buildings": "'%data.buildings.{0}%' (Building) BUILD",
+      "buildingsLevel": "'%data.buildings.{0}%' (Building) Level {1} BUILD",
+      "buildingsMissing": "'%data.buildings.{0}%' (Building) NOT BUILD",
+      "campaignStickers": "'{0}' (Campaign Sticker) COMPLETE",
+      "campaignStickersCount": "'{0}' (Campaign Sticker) x{2} COMPLETE  (got {1})",
+      "campaignStickersMissing": "'{0}' (Campaign Sticker) INCOMPLETE",
+      "global": "'{0}' (Global) COMPLETE",
+      "globalCount": "'{0}' (Global) x{2} COMPLETE (got {1})",
+      "globalMissing": "'{0}' (Global) INCOMPLETE",
+      "party": "'{0}' (Party) COMPLETE",
+      "partyCount": "'{0}' (Party)x{2} COMPLETE  (got {1})",
+      "partyMissing": "'{0}' (Party) INCOMPLETE",
+      "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' Level 5 or higher",
+      "start": "Start Scenario anyway"
+    },
     "reset": "Restart Scenario",
     "rewards": {
       ".": "Rewards",
@@ -1202,6 +1221,7 @@
       "loot": "Loot",
       "name": "%character%",
       "rewards": {
+        ".": "Scenario Rewards",
         "experience": "Reward XP",
         "gold": "Reward Gold"
       },

@@ -11,7 +11,7 @@
 </div>
 
 <div class="character" [style.--ghs-character-color]="character.color"
-  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'absent' : character.absent, 'dimmed' : settingsManager.settings.characterAttackModifierDeck && character.attackModifierDeckVisible && !settingsManager.settings.characterAttackModifierDeckPermanent || settingsManager.settings.lootDeck && settingsManager.settings.applyLoot && character.lootCardsVisible, 'modern': settingsManager.settings.theme == 'modern', 'active-border' : character.active && settingsManager.settings.theme == 'modern'}">
+  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'absent' : character.absent, 'dimmed' : settingsManager.settings.characterAttackModifierDeck && character.attackModifierDeckVisible && !settingsManager.settings.characterAttackModifierDeckPermanent || settingsManager.settings.lootDeck && settingsManager.settings.applyLoot && character.lootCardsVisible, 'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern', 'active-border' : character.active && settingsManager.settings.theme == 'modern'}">
 
   <ghs-character-image [character]="character"></ghs-character-image>
 
@@ -52,7 +52,7 @@
     <div
       *ngIf="settingsManager.settings.characterAttackModifierDeck && !settingsManager.settings.characterAttackModifierDeckPermanent"
       class="attack-modifierdeck-container" [ngClass]="{'active' : character.attackModifierDeckVisible}">
-      <div class="scroll-container">        
+      <div class="scroll-container">
         <ghs-attackmodifier-deck [character]="character" (before)="beforeAttackModifierDeck($event)"
           (after)="afterAttackModifierDeck($event)">
         </ghs-attackmodifier-deck>
@@ -204,6 +204,10 @@
 
     <div *ngIf="settingsManager.settings.characterHandSize && !character.absent" class="hand-size">
       {{character.handSize}}
+    </div>
+
+    <div *ngIf="settingsManager.settings.characterHandSize && !character.absent" class="character-level">
+      {{character.level}}
     </div>
   </div>
 

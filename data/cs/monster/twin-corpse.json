@@ -1,6 +1,5 @@
 {
   "name": "twin-corpse",
-  "thumbnail": "gh-living-corpse",
   "edition": "cs",
   "deck": "living-corpse",
   "boss": true,

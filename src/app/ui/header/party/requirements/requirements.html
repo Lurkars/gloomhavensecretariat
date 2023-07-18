@@ -1,0 +1,86 @@
+<div class="requirements-dialog">
+  <a class="close" (click)="close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'">
+    <img src="./assets/images/close_dialog.svg">
+  </a>
+  <div class="header">
+    <span class="title">
+      <span [ghs-label]="'scenario.requirements'"></span>
+      <span class="name">#{{scenarioData.index}} <span [ghs-label]="'data.scenario.' + scenarioData.name"></span></span>
+    </span>
+  </div>
+
+  <div class="requirements">
+    <div class="solo" *ngIf="solo">
+      <span [ghs-label]="'scenario.requirements.solo'" [ghs-label-args]="[solo]"></span>
+    </div>
+    <ng-container *ngFor="let requirement of missingRequirements; let i = index;">
+      <div class="requirement">
+        <div class="party">
+          <div class="achievement" *ngFor="let achievement of requirement.partyAchievements"
+            [ghs-label]="'scenario.requirements.party'" [ghs-label-args]="[achievement]"></div>
+        </div>
+        <div class="party">
+          <div class="achievement" *ngFor="let achievement of requirement.partyAchievementsCount"
+            [ghs-label]="'scenario.requirements.partyCount'"
+            [ghs-label-args]="[achievement.name, '' + (achievement.required - achievement.count) , '' + achievement.required]"></div>
+        </div>
+        <div class="party">
+          <div class="achievement" *ngFor="let achievement of requirement.partyAchievementsMissing"
+            [ghs-label]="'scenario.requirements.partyMissing'" [ghs-label-args]="[achievement]"></div>
+        </div>
+        <div class="global">
+          <div class="achievement" *ngFor="let achievement of requirement.globalAchievements"
+            [ghs-label]="'scenario.requirements.global'" [ghs-label-args]="[achievement]"></div>
+        </div>
+        <div class="global">
+          <div class="achievement" *ngFor="let achievement of requirement.globalAchievementsCount"
+            [ghs-label]="'scenario.requirements.globalCount'"
+            [ghs-label-args]="[achievement.name, '' + (achievement.required - achievement.count) , '' + achievement.required]"></div>
+        </div>
+        <div class="global">
+          <div class="achievement" *ngFor="let achievement of requirement.globalAchievementsMissing"
+            [ghs-label]="'scenario.requirements.globalMissing'" [ghs-label-args]="[achievement]"></div>
+        </div>
+        <div class="campaign-stickers">
+          <div class="achievement" *ngFor="let achievement of requirement.campaignStickers"
+            [ghs-label]="'scenario.requirements.campaignStickers'" [ghs-label-args]="[achievement]"></div>
+        </div>
+        <div class="campaign-stickers">
+          <div class="achievement" *ngFor="let achievement of requirement.campaignStickersCount"
+            [ghs-label]="'scenario.requirements.campaignStickersCount'"
+            [ghs-label-args]="[achievement.name, '' + (achievement.required - achievement.count) , '' + achievement.required]"></div>
+        </div>
+        <div class="campaign-stickers">
+          <div class="achievement" *ngFor="let achievement of requirement.campaignStickersMissing"
+            [ghs-label]="'scenario.requirements.campaignStickersMissing'" [ghs-label-args]="[achievement]"></div>
+        </div>
+        <div class="buildings">
+          <div class="achievement" *ngFor="let achievement of requirement.buildings"
+            [ghs-label]="'scenario.requirements.buildings'" [ghs-label-args]="[achievement]"></div>
+        </div>
+        <div class="buildings">
+          <div class="achievement" *ngFor="let achievement of requirement.buildingsLevel"
+            [ghs-label]="'scenario.requirements.buildingsLevel'"
+            [ghs-label-args]="[achievement.name, '' + achievement.level]"></div>
+        </div>
+        <div class="buildings">
+          <div class="achievement" *ngFor="let achievement of requirement.buildingsMissing"
+            [ghs-label]="'scenario.requirements.buildingsMissing'" [ghs-label-args]="[achievement]"></div>
+        </div>
+      </div>
+      <span *ngIf="i < missingRequirements.length -1" class="separator"><span [ghs-label]="'or'"></span></span>
+    </ng-container>
+
+    <label class="checkbox">
+      <input type="checkbox" [(ngModel)]="all" (change)="update()"><span
+        [ghs-label]="'scenario.requirements.all'"></span>
+    </label>
+
+  </div>
+
+  <div class="buttons">
+    <a class="cancel" (click)="close()"><span [ghs-label]="'scenario.requirements.cancel'"></span></a>
+    <a class="start" (click)="startScenario()"><span [ghs-label]="'scenario.requirements.start'"></span></a>
+  </div>
+
+</div>

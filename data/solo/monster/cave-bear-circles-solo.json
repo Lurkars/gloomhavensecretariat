@@ -1,12 +1,10 @@
 {
   "name": "cave-bear-circles-solo",
-  "thumbnail": "gh-cave-bear",
   "edition": "gh",
   "deck": "cave-bear",
   "hidden": true,
   "count": 4,
   "standeeShare": "cave-bear",
-  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

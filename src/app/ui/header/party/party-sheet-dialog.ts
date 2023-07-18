@@ -20,6 +20,7 @@ import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
 import { Subscription } from "rxjs";
 import { ScenarioSummaryComponent } from "../../footer/scenario/summary/scenario-summary";
 import { BattleGoalSetupDialog } from "../../figures/battlegoal/setup/battlegoal-setup";
+import { ScenarioRequirementsComponent } from "./requirements/requirements";
 
 @Component({
   selector: 'ghs-party-sheet-dialog',
@@ -421,6 +422,25 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     }
     this.update();
   }
+
+  scenarioRewards(scenarioData: ScenarioData) {
+    this.dialog.open(ScenarioSummaryComponent, {
+      panelClass: 'dialog',
+      data: {
+        scenario: new Scenario(scenarioData),
+        success: true,
+        rewardsOnly: true
+      }
+    })
+  }
+
+  scenarioRequirements(scenarioData: ScenarioData) {
+    this.dialog.open(ScenarioRequirementsComponent, {
+      panelClass: 'dialog',
+      data: scenarioData
+    })
+  }
+
 
   maxScenario(scenarios: ScenarioData[]) {
     return Math.max(...scenarios.map((scenarioData) => scenarioData.index.length));

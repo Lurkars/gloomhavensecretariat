@@ -1,11 +1,11 @@
 {
   "name": "ruinmaw-section-4",
-  "thumbnail": "cs-ruinmaw",
   "edition": "cs",
   "deck": "boss",
   "boss": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "ruinmaw",
   "baseStat": {
     "type": "boss",
     "actions": [

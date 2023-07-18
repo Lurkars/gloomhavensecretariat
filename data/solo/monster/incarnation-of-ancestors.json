@@ -1,12 +1,12 @@
 {
   "name": "incarnation-of-ancestors",
-  "thumbnail": "fh-sun-demon",
   "edition": "fh",
   "deck": "boss",
   "boss": true,
   "flying": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "sun-demon",
   "baseStat": {
     "type": "boss",
     "immunities": [

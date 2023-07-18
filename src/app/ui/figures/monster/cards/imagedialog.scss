@@ -21,7 +21,8 @@
     img {
         width: 80%;
         height: auto;
-        border-radius: 100%;
+        border-radius: 2%;
+        filter: var(--ghs-filter-shadow);
     }
 
     &.opened {

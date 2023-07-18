@@ -1,9 +1,9 @@
 {
   "name": "vermling-scout-scenario-94",
-  "thumbnail": "fh-vermling-scout",
   "edition": "fh",
   "hidden": true,
   "count": 8,
+  "standeeShare": "vermling-scout",
   "baseStat": {
     "type": "normal",
     "movement": 3

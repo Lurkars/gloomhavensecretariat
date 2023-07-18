@@ -1,11 +1,9 @@
 {
   "name": "bandit-archer-music-note-solo",
-  "thumbnail": "gh-bandit-archer",
   "edition": "gh",
   "hidden": true,
   "count": 6,
   "standeeShare": "bandit-archer",
-  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal",
     "note": "%data.custom.solo.char-am-deck%"

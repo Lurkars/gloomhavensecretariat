@@ -1,16 +1,16 @@
 <div class="scroll-container">
   <div class="header">
     <span class="title">
-      <span [ghs-label]="conclusionOnly ? 'scenario.conclusion' : 'scenario.summary'"></span>
+      <span [ghs-label]="conclusionOnly ? 'scenario.conclusion' : (rewardsOnly ? 'scenario.summary.rewards' : 'scenario.summary')"></span>
       <span class="name">#{{scenario.index}} <span [ghs-label]="'data.scenario.' + scenario.name"></span></span>
     </span>
-    <span *ngIf="success && !conclusionOnly" class="success"><span
+    <span *ngIf="success && !conclusionOnly && !rewardsOnly" class="success"><span
         [ghs-label]="'scenario.finish.success'"></span></span>
     <span class="conclusion" *ngIf="conclusion && conclusion != scenario">
       <span [ghs-label]="(conclusion.name ? 'data.section.' + conclusion.name :
       '%scenario.section% #' + conclusion.index)"></span>
     </span>
-    <span *ngIf="success && !gameManager.game.party.campaignMode" class="casual">
+    <span *ngIf="success && !gameManager.game.party.campaignMode && !rewardsOnly" class="casual">
       <span [ghs-label]="'scenario.summary.casualWarning'"></span></span>
     <span *ngIf="!success" class="failure"><span [ghs-label]="'scenario.finish.failure'"></span></span>
   </div>
@@ -18,7 +18,7 @@
   <div class="main"
     [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
     <div class="table" [style.--ghs-summary-columns]="1 + characters.length"
-      *ngIf="(!casual || forceCampaign) && settingsManager.settings.characterSheet && !conclusionOnly">
+      *ngIf="(!casual || forceCampaign) && settingsManager.settings.characterSheet && !conclusionOnly && !rewardsOnly">
 
       <span class="head-col first"><span [ghs-label]="'scenario.summary.name'"></span></span>
       <span class="first" *ngFor="let character of characters; let index = index;">
@@ -566,7 +566,7 @@
     </div>
   </div>
 
-  <div class="buttons" *ngIf="!conclusionOnly || !alreadyWarning"
+  <div class="buttons" *ngIf="(!conclusionOnly || !alreadyWarning) && !rewardsOnly"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && (!gameManager.stateManager.permissions.round  || !gameManager.stateManager.permissions.scenario || !gameManager.stateManager.permissions.characters)}">
     <a class="cancel" (click)="close()"><span [ghs-label]="'scenario.summary.cancel'"></span></a>
     <span class="links"

@@ -414,6 +414,7 @@ export class MainComponent implements OnInit {
   }
 
   startedDrag(event: CdkDragStart, element: HTMLElement) {
+    this.pointerInputService.cancel();
     this.draggingEnabled = true;
     element.classList.add('dragging');
     event.source.getPlaceholderElement().classList.add('dragging');

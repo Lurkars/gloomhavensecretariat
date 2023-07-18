@@ -1,6 +1,6 @@
 {
+  "standeeEdition": "gh",
   "name": "tomb-protector",
-  "thumbnail": "gh-stone-golem",
   "edition": "cs",
   "deck": "stone-golem",
   "boss": true,

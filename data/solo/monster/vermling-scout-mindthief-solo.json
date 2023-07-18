@@ -1,12 +1,10 @@
 {
   "name": "vermling-scout-mindthief-solo",
-  "thumbnail": "gh-vermling-scout",
   "edition": "gh",
   "deck": "scout",
   "hidden": true,
   "count": 10,
   "standeeShare": "vermling-scout",
-  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

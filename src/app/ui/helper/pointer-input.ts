@@ -2,7 +2,7 @@ import { Directive, ElementRef, EventEmitter, Injectable, Input, OnDestroy, OnIn
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 export const doubleClickTreshhold: number = 250;
-export const longPressTreshhold: number = 500;
+export const longPressTreshhold: number = 550;
 export const holdTreshhold: number = 500;
 export const moveTreshhold: number = 7;
 export const repeatInterval: number = 100;

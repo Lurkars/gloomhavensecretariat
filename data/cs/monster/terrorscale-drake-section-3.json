@@ -1,11 +1,11 @@
 {
   "name": "terrorscale-drake-section-3",
-  "thumbnail": "cs-terrorscale-drake",
   "edition": "cs",
   "deck": "boss",
   "boss": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "terrorscale-drake",
   "baseStat": {
     "type": "boss",
     "immunities": [

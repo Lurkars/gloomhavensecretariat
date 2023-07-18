@@ -1,10 +1,10 @@
 {
   "name": "living-bones-scenario-55",
-  "thumbnail": "gh-living-bones",
   "edition": "cs",
   "hidden": true,
   "count": 10,
   "standeeShare": "living-bones",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

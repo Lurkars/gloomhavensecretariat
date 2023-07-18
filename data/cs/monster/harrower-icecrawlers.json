@@ -1,8 +1,9 @@
 {
   "name": "harrower-icecrawlers",
-  "thumbnail": "gh-harrower-infester",
   "edition": "cs",
   "count": 4,
+  "standeeShare": "harrower-infester",
+  "standeeShareEdition": "gh",
   "baseStat": {
     "type": "normal"
   },

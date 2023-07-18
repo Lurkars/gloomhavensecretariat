@@ -1,9 +1,9 @@
 {
   "name": "basic-zealot",
-  "thumbnail": "jotl-zealot",
   "edition": "jotl",
   "hidden": true,
   "count": 6,
+  "standeeShare": "zealot",
   "baseStat": {
     "type": "normal"
   },

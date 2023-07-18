@@ -1,5 +1,6 @@
 {
   "name": "dust-demon",
+  "noArtwork": true,
   "edition": "bas",
   "flying": true,
   "count": 6,

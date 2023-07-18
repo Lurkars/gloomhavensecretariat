@@ -12,7 +12,7 @@ export class ObjectiveContainer implements Figure {
   entities: ObjectiveEntity[] = [];
 
   // workaround
-  noArtwork: true = true;
+  noThumbnail: true = true;
   summonColor: "" = "";
 
   // from figure

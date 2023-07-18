@@ -1,5 +1,6 @@
 {
   "name": "sand-spider",
+  "noArtwork": true,
   "edition": "bas",
   "count": 10,
   "baseStat": {

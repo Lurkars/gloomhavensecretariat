@@ -48,7 +48,7 @@ export class CharacterData implements Editional, Spoilable {
   thumbnailUrl: string | undefined;
   color: string = "#aaaaaa";
 
-  noArtwork: boolean = false;
+  noThumbnail: boolean = false;
 
   marker: boolean = false;
 
@@ -90,7 +90,7 @@ export class CharacterData implements Editional, Spoilable {
       this.iconUrl = characterData.iconUrl || './assets/images/character/icons/' + this.icon + '.svg';
       this.thumbnail = characterData.thumbnail || undefined;
       this.thumbnailUrl = characterData.thumbnailUrl || undefined;
-      this.noArtwork = characterData.noArtwork;
+      this.noThumbnail = characterData.noThumbnail;
       this.color = characterData.color || "#00000";
       this.marker = characterData.marker || false;
       this.spoiler = characterData.spoiler || false;

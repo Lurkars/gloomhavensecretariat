@@ -36,7 +36,7 @@ export class MonsterMenuComponent {
     }
 
     monsterData(edition: string | undefined = undefined, filter: string = ""): MonsterData[] {
-        return gameManager.monstersData(edition).filter((monsterData) => (!monsterData.boss || monsterData.boss == settingsManager.settings.showBossMonster) && (!monsterData.hidden || monsterData.hidden == settingsManager.settings.showHiddenMonster) && (ghsTextSearch(monsterData.name, filter) || ghsTextSearch(settingsManager.getLabel('data.monster.' + monsterData.name), filter))).sort((a, b) => {
+        return gameManager.monstersData(edition).filter((monsterData) => (!monsterData.boss || monsterData.boss == settingsManager.settings.showBossMonster) && (!monsterData.hidden || monsterData.hidden == settingsManager.settings.showHiddenMonster) && (!filter || ghsTextSearch(monsterData.name, filter) || ghsTextSearch(settingsManager.getLabel('data.monster.' + monsterData.name), filter))).sort((a, b) => {
             const aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
             const bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
 

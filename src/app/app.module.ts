@@ -120,6 +120,7 @@ import { StandeeComponent } from './ui/figures/standee/standee';
 import { BattleGoalComponent } from './ui/figures/battlegoal/battlegoal';
 import { CharacterBattleGoalsDialog } from './ui/figures/battlegoal/dialog/battlegoal-dialog';
 import { BattleGoalSetupDialog } from './ui/figures/battlegoal/setup/battlegoal-setup';
+import { ScenarioRequirementsComponent } from './ui/header/party/requirements/requirements';
 
 @Injectable()
 export class GhsErrorHandler extends ErrorHandler {
@@ -135,7 +136,7 @@ export class GhsErrorHandler extends ErrorHandler {
     AppComponent,
     MainComponent,
     HeaderComponent, ElementIconComponent, ElementComponent,
-    PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, MapComponent, ScenarioConclusionComponent, SelectResourcesDialog,
+    PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, MapComponent, ScenarioConclusionComponent, SelectResourcesDialog, ScenarioRequirementsComponent,
     MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, SheetsMenuComponent,
     FooterComponent,
     LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,

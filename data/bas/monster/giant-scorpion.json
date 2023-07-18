@@ -1,5 +1,6 @@
 {
   "name": "giant-scorpion",
+  "noArtwork": true,
   "edition": "bas",
   "count": 6,
   "baseStat": {

@@ -22,7 +22,7 @@
     }
   ],
   "lootDeckConfig": {
-    "coin": 15
+    "money": 15
   },
   "rules": [
     {

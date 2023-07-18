@@ -1,5 +1,6 @@
 {
   "name": "desiccated-corpse",
+  "noArtwork": true,
   "edition": "bas",
   "deck": "desiccated-corpse",
   "count": 10,

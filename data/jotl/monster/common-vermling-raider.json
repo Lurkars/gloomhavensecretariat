@@ -1,9 +1,9 @@
 {
   "name": "common-vermling-raider",
-  "thumbnail": "jotl-vermling-raider",
   "edition": "jotl",
   "hidden": true,
   "count": 6,
+  "standeeShare": "vermling-raider",
   "baseStat": {
     "type": "normal"
   },
