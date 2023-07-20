@@ -1,7 +1,12 @@
 {
   "index": "10",
   "name": "Plane of Elemental Power",
-  "gridLocation": "C:7:-58:82",
+  "coordinates": {
+    "x": 948.6000061035156,
+    "y": 462,
+    "width": 189,
+    "height": 162
+  },
   "edition": "gh",
   "unlocks": [
     "21",

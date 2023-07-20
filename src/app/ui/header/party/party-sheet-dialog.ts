@@ -13,7 +13,6 @@ import { Party } from "src/app/game/model/Party";
 import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
 import { AttackModiferDeckChange } from "../../figures/attackmodifier/attackmodifierdeck";
 import { ghsInputFullScreenCheck } from "../../helper/Static";
-import { MapComponent } from "./map/map";
 import { CharacterMoveResourcesDialog } from "../../figures/character/sheet/move-resources";
 import { ScenarioConclusionComponent } from "../../footer/scenario/scenario-conclusion/scenario-conclusion";
 import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
@@ -21,6 +20,7 @@ import { Subscription } from "rxjs";
 import { ScenarioSummaryComponent } from "../../footer/scenario/summary/scenario-summary";
 import { BattleGoalSetupDialog } from "../../figures/battlegoal/setup/battlegoal-setup";
 import { ScenarioRequirementsComponent } from "./requirements/requirements";
+import { WorldMapComponent } from "./world-map/world-map";
 
 @Component({
   selector: 'ghs-party-sheet-dialog',
@@ -42,6 +42,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   scenarios: Record<string, ScenarioData[]> = {};
   conclusions: Record<string, ScenarioData[]> = {};
   characters: Character[] = [];
+  worldMap: boolean = false;
 
   fhSheet: boolean = false;
   csSheet: boolean = false;
@@ -106,9 +107,10 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   openMap() {
-    this.dialog.open(MapComponent, {
+    this.dialog.open(WorldMapComponent, {
       backdropClass: 'fullscreen-backdrop',
-      panelClass: 'fullscreen-panel'
+      panelClass: 'fullscreen-panel',
+      data: gameManager.game.edition
     })
     this.close();
   }
@@ -520,6 +522,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       })
     } else {
       this.prosperityHighlightSteps = this.prosperitySteps;
+    }
+
+    if (gameManager.game.edition) {
+      const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.game.edition);
+      if (editionData && editionData.worldMap)
+        this.worldMap = true;
     }
   }
 

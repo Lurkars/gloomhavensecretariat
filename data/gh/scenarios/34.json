@@ -1,7 +1,12 @@
 {
   "index": "34",
   "name": "Scorched Summit",
-  "gridLocation": "A:4:-32:-33",
+  "coordinates": {
+    "x": 524.2999877929688,
+    "y": 47,
+    "width": 191,
+    "height": 165
+  },
   "edition": "gh",
   "requires": [
     [

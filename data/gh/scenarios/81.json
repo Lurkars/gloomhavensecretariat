@@ -1,7 +1,12 @@
 {
   "index": "81",
   "name": "Temple of the Eclipse",
-  "gridLocation": "D:2:-3:-6",
+  "coordinates": {
+    "x": 253.0999755859375,
+    "y": 524,
+    "width": 202,
+    "height": 168
+  },
   "edition": "gh",
   "rewards": {
     "experience": 10

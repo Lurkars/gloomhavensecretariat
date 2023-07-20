@@ -1,7 +1,12 @@
 {
   "index": "40",
   "name": "Ancient Defense Network",
-  "gridLocation": "F:12:-12:-18",
+  "coordinates": {
+    "x": 1745.0999755859375,
+    "y": 812,
+    "width": 193,
+    "height": 151
+  },
   "edition": "gh",
   "unlocks": [
     "41"

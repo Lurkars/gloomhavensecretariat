@@ -1,7 +1,12 @@
 {
   "index": "54",
   "name": "Palace of Ice",
-  "gridLocation": "D:8:80:-60",
+  "coordinates": {
+    "x": 1236.6999969482422,
+    "y": 470,
+    "width": 178,
+    "height": 184
+  },
   "edition": "gh",
   "rewards": {
     "envelopes": [

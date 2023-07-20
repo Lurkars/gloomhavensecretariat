@@ -1,7 +1,12 @@
 {
   "index": "70",
   "name": "Chained Isle",
-  "gridLocation": "J:17:-76:-61",
+  "coordinates": {
+    "x": 2431.5999755859375,
+    "y": 1369,
+    "width": 300,
+    "height": 273
+  },
   "edition": "gh",
   "random": true,
   "rewards": {

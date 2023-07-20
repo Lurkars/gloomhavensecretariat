@@ -1,7 +1,12 @@
 {
   "index": "38",
   "name": "Slave Pens",
-  "gridLocation": "G:2:30:-20",
+  "coordinates": {
+    "x": 286.0999755859375,
+    "y": 960,
+    "width": 173,
+    "height": 174
+  },
   "edition": "gh",
   "unlocks": [
     "44",

@@ -1,7 +1,12 @@
 {
   "index": "19",
   "name": "Forgotten Crypt",
-  "gridLocation": "M:7:-22:-19",
+  "coordinates": {
+    "x": 984.6000061035156,
+    "y": 1861,
+    "width": 191,
+    "height": 175
+  },
   "edition": "gh",
   "unlocks": [
     "27"

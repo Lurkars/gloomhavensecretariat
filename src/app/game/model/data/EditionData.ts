@@ -23,6 +23,7 @@ export class EditionData implements Editional {
   items: ItemData[];
   conditions: string[] = [];
   battleGoals: BattleGoal[] = [];
+  worldMap: { width: number, height: number } | undefined;
   label: any = {};
   labelSpoiler: any = {};
   url: string = "";

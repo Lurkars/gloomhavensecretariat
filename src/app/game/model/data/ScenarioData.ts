@@ -10,7 +10,8 @@ export class ScenarioData implements Editional, Spoilable {
 
   name: string = "";
   index: string = "";
-  gridLocation: string = "";
+  gridLocation: string | undefined = "";
+  coordinates: { x: number, y: number, width: number, height: number } | undefined;
   unlocks: string[] = [];
   blocks: string[] = [];
   requires: string[][] = [];

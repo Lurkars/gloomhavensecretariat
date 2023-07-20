@@ -1,7 +1,12 @@
 {
   "index": "90",
   "name": "Demonic Rift",
-  "gridLocation": "J:7:-5:2",
+  "coordinates": {
+    "x": 1001.6000061035156,
+    "y": 1432,
+    "width": 204,
+    "height": 180
+  },
   "edition": "gh",
   "rewards": {
     "items": [

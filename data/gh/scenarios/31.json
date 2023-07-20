@@ -1,7 +1,12 @@
 {
   "index": "31",
   "name": "Plane of the Night",
-  "gridLocation": "A:16:34:50",
+  "coordinates": {
+    "x": 2391.5,
+    "y": 130,
+    "width": 164,
+    "height": 146
+  },
   "edition": "gh",
   "unlocks": [
     "37",

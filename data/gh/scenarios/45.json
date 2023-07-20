@@ -1,7 +1,12 @@
 {
   "index": "45",
   "name": "Rebel Swamp",
-  "gridLocation": "M:9:-97:-72",
+  "coordinates": {
+    "x": 1209.8000030517578,
+    "y": 1808,
+    "width": 177,
+    "height": 175
+  },
   "edition": "gh",
   "unlocks": [
     "49",

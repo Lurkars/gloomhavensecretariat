@@ -1,7 +1,12 @@
 {
   "index": "13",
   "name": "Temple of the Seer",
-  "gridLocation": "N:3:53:72",
+  "coordinates": {
+    "x": 459.20001220703125,
+    "y": 2102,
+    "width": 207,
+    "height": 175
+  },
   "edition": "gh",
   "rewards": {
     "chooseLocation": [

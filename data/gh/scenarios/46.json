@@ -1,7 +1,12 @@
 {
   "index": "46",
   "name": "Nightmare Peak",
-  "gridLocation": "A:11:-53:-31",
+  "coordinates": {
+    "x": 1554,
+    "y": 49,
+    "width": 193,
+    "height": 191
+  },
   "edition": "gh",
   "unlocks": [
     "51"

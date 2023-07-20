@@ -1,7 +1,12 @@
 {
   "index": "32",
   "name": "Decrepit Wood",
-  "gridLocation": "L:11:11:-25",
+  "coordinates": {
+    "x": 1618,
+    "y": 1705,
+    "width": 183,
+    "height": 148
+  },
   "edition": "gh",
   "unlocks": [
     "33",

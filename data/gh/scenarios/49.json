@@ -1,7 +1,12 @@
 {
   "index": "49",
   "name": "Rebel's Stand",
-  "gridLocation": "N:7:-22:-18",
+  "coordinates": {
+    "x": 984.6000061035156,
+    "y": 2012,
+    "width": 194,
+    "height": 164
+  },
   "edition": "gh",
   "requires": [
     [

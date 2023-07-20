@@ -1,7 +1,12 @@
 {
   "index": "15",
   "name": "Shrine of Strength",
-  "gridLocation": "B:11:-23:76",
+  "coordinates": {
+    "x": 1584,
+    "y": 306,
+    "width": 202,
+    "height": 177
+  },
   "edition": "gh",
   "rewards": {
     "experience": 20

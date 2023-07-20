@@ -1,7 +1,12 @@
 {
   "index": "2",
   "name": "Barrow Lair",
-  "gridLocation": "G:11:-35:-15",
+  "coordinates": {
+    "x": 1572,
+    "y": 965,
+    "width": 187,
+    "height": 131
+  },
   "edition": "gh",
   "unlocks": [
     "3",

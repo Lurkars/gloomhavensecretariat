@@ -1,7 +1,12 @@
 {
   "index": "48",
   "name": "Shadow Weald",
-  "gridLocation": "E:1:37:-11",
+  "coordinates": {
+    "x": 143,
+    "y": 669,
+    "width": 199,
+    "height": 177
+  },
   "edition": "gh",
   "unlocks": [
     "51"

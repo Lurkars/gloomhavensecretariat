@@ -1,7 +1,12 @@
 {
   "index": "16",
   "name": "Mountain Pass",
-  "gridLocation": "B:6:9:99",
+  "coordinates": {
+    "x": 865.5,
+    "y": 329,
+    "width": 170,
+    "height": 153
+  },
   "edition": "gh",
   "unlocks": [
     "24",

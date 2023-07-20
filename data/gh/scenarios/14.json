@@ -1,7 +1,12 @@
 {
   "index": "14",
   "name": "Frozen Hollow",
-  "gridLocation": "C:10:8:-8",
+  "coordinates": {
+    "x": 1464.8999938964844,
+    "y": 372,
+    "width": 178,
+    "height": 155
+  },
   "edition": "gh",
   "rewards": {
     "globalAchievements": [

@@ -1,7 +1,12 @@
 {
   "index": "51",
   "name": "The Void",
-  "gridLocation": "A:15:49:52",
+  "coordinates": {
+    "x": 2256.4000244140625,
+    "y": 132,
+    "width": 151,
+    "height": 151
+  },
   "edition": "gh",
   "requirements": [
     {

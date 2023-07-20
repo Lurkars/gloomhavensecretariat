@@ -1,7 +1,12 @@
 {
   "index": "86",
   "name": "Harried Village",
-  "gridLocation": "D:15:-27:80",
+  "coordinates": {
+    "x": 2180.4000244140625,
+    "y": 610,
+    "width": 181,
+    "height": 126
+  },
   "edition": "gh",
   "unlocks": [
     "87"

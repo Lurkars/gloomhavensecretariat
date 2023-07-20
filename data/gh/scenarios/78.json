@@ -1,7 +1,12 @@
 {
   "index": "78",
   "name": "Sacrifice Pit",
-  "gridLocation": "B:14:-20:14",
+  "coordinates": {
+    "x": 2037.2999877929688,
+    "y": 244,
+    "width": 166,
+    "height": 125
+  },
   "edition": "gh",
   "rewards": {
     "reputation": 3

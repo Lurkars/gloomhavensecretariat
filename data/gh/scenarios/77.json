@@ -1,7 +1,12 @@
 {
   "index": "77",
   "name": "Vault of Secrets",
-  "gridLocation": "B:17:-26:-52",
+  "coordinates": {
+    "x": 2481.5999755859375,
+    "y": 178,
+    "width": 172,
+    "height": 163
+  },
   "edition": "gh",
   "rewards": {
     "experience": 5

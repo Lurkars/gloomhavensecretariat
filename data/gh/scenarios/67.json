@@ -1,7 +1,12 @@
 {
   "index": "67",
   "name": "Arcane Library",
-  "gridLocation": "K:2:-25:-62",
+  "coordinates": {
+    "x": 231.0999755859375,
+    "y": 1518,
+    "width": 193,
+    "height": 164
+  },
   "edition": "gh",
   "random": true,
   "rewards": {

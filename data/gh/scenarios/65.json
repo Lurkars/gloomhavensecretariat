@@ -1,7 +1,12 @@
 {
   "index": "65",
   "name": "Sulfur Mine",
-  "gridLocation": "L:5:-44:39",
+  "coordinates": {
+    "x": 662.3999938964844,
+    "y": 1769,
+    "width": 213,
+    "height": 188
+  },
   "edition": "gh",
   "random": true,
   "rewards": {

@@ -1,7 +1,12 @@
 {
   "index": "57",
   "name": "Investigation",
-  "gridLocation": "D:14:-19:9",
+  "coordinates": {
+    "x": 2038.2999877929688,
+    "y": 539,
+    "width": 231,
+    "height": 157
+  },
   "edition": "gh",
   "unlocks": [
     "58"

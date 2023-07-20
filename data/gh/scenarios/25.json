@@ -1,7 +1,12 @@
 {
   "index": "25",
   "name": "Icecrag Ascent",
-  "gridLocation": "A:5:-68:79",
+  "coordinates": {
+    "x": 638.3999938964844,
+    "y": 159,
+    "width": 195,
+    "height": 187
+  },
   "edition": "gh",
   "unlocks": [
     "33",

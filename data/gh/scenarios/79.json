@@ -1,7 +1,12 @@
 {
   "index": "79",
   "name": "Lost Temple",
-  "gridLocation": "K:12:47:-43",
+  "coordinates": {
+    "x": 1804.0999755859375,
+    "y": 1537,
+    "width": 172,
+    "height": 132
+  },
   "edition": "gh",
   "requirements": [
     {

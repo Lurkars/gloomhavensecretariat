@@ -1,7 +1,12 @@
 {
   "index": "21",
   "name": "Infernal Throne",
-  "gridLocation": "C:7:40:56",
+  "coordinates": {
+    "x": 1046.6000061035156,
+    "y": 436,
+    "width": 191,
+    "height": 153
+  },
   "edition": "gh",
   "requirements": [
     {

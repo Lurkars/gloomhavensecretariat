@@ -1,7 +1,12 @@
 {
   "index": "26",
   "name": "Ancient Cistern",
-  "gridLocation": "D:15:72:-14",
+  "coordinates": {
+    "x": 2279.4000244140625,
+    "y": 516,
+    "width": 176,
+    "height": 136
+  },
   "edition": "gh",
   "unlocks": [
     "22"

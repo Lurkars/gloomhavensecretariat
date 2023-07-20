@@ -1,7 +1,12 @@
 {
   "index": "94",
   "name": "Vermling Nest",
-  "gridLocation": "F:12:-56,82",
+  "coordinates": {
+    "x": 1703,
+    "y": 912,
+    "width": 171,
+    "height": 132
+  },
   "edition": "gh",
   "unlocks": [
     "95"

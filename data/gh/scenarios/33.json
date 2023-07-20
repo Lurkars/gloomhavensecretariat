@@ -1,7 +1,12 @@
 {
   "index": "33",
   "name": "Savvas Armory",
-  "gridLocation": "A:7:-61:14",
+  "coordinates": {
+    "x": 945.6000061035156,
+    "y": 94,
+    "width": 173,
+    "height": 159
+  },
   "edition": "gh",
   "requires": [
     [

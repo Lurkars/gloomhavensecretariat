@@ -1,7 +1,12 @@
 {
   "index": "11",
   "name": "Gloomhaven Square A",
-  "gridLocation": "B:16:23:58",
+  "coordinates": {
+    "x": 2380.5,
+    "y": 288,
+    "width": 182,
+    "height": 159
+  },
   "edition": "gh",
   "unlocks": [
     "16",

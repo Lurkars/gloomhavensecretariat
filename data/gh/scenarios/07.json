@@ -1,7 +1,12 @@
 {
   "index": "7",
   "name": "Vibrant Grotto",
-  "gridLocation": "C:12:31:22",
+  "coordinates": {
+    "x": 1788.0999755859375,
+    "y": 402,
+    "width": 184,
+    "height": 155
+  },
   "edition": "gh",
   "unlocks": [
     "20"

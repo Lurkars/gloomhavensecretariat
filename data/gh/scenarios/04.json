@@ -1,7 +1,12 @@
 {
   "index": "4",
   "name": "Crypt of the Damned",
-  "gridLocation": "E:11:-143:15",
+  "coordinates": {
+    "x": 1464,
+    "y": 695,
+    "width": 218,
+    "height": 162
+  },
   "edition": "gh",
   "unlocks": [
     "5",

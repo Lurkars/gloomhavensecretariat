@@ -1,7 +1,12 @@
 {
   "index": "1",
   "name": "Black Barrow",
-  "gridLocation": "G:10:-25:-5",
+  "coordinates": {
+    "x": 1431.8999938964844,
+    "y": 975,
+    "width": 182,
+    "height": 140
+  },
   "edition": "gh",
   "initial": true,
   "unlocks": [

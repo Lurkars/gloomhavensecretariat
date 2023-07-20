@@ -1,7 +1,12 @@
 {
   "index": "47",
   "name": "Lair of the Unseeing Eye",
-  "gridLocation": "H:18:-14:-36",
+  "coordinates": {
+    "x": 2643.699951171875,
+    "y": 1094,
+    "width": 234,
+    "height": 198
+  },
   "edition": "gh",
   "unlocks": [
     "51"

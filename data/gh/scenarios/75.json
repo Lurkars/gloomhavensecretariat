@@ -1,7 +1,12 @@
 {
   "index": "75",
   "name": "Overgrown Graveyard",
-  "gridLocation": "G:12:94:17",
+  "coordinates": {
+    "x": 1851.0999755859375,
+    "y": 997,
+    "width": 200,
+    "height": 130
+  },
   "edition": "gh",
   "requirements": [
     {

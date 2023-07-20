@@ -28,14 +28,19 @@
   <div class="line search">
     <input type="text" #search [ghs-label]="'scenario.filter'" [ghs-label-attribute]="'placeholder'">
   </div>
-  <div class="line" *ngIf="gameManager.game.party.campaignMode">
-    <label>
+  <div class="line campaign">
+    <label *ngIf="gameManager.game.party.campaignMode">
       <input type="checkbox" [(ngModel)]="filterSuccess">
       <span [ghs-label]="'scenario.filterSuccess'"></span>
     </label>
+    <label>
+      <input type="checkbox" [checked]="gameManager.game.party.campaignMode" (change)="toggleCampaignMode()">
+      <span [ghs-label]="'party.campaignMode'"></span>
+    </label>
   </div>
   <ng-container *ngFor="let group of groups()">
-    <div *ngIf="group" class="line title"><label><span [ghs-label]="'data.scenario.group.' + group"></span></label></div>
+    <div *ngIf="group" class="line title"><label><span [ghs-label]="'data.scenario.group.' + group"></span></label>
+    </div>
     <div class="line scenarios">
       <span (click)="setScenario(scenario)" class="scenario"
         [ngClass]="{'current' : hasScenario(scenario), 'blocked' : gameManager.scenarioManager.isBlocked(scenario) , 'locked' : gameManager.scenarioManager.isLocked(scenario)}"
@@ -73,11 +78,11 @@
       </div>
       <div class="line">
         <span class="input-button">
-          <input #manualScenarioIndex type="text" [ghs-label]="'scenario.manual.index'" [ghs-label-attribute]="'placeholder'"
-            (keyup)="manualScenarioIndex.classList.remove('error')"
+          <input #manualScenarioIndex type="text" [ghs-label]="'scenario.manual.index'"
+            [ghs-label-attribute]="'placeholder'" (keyup)="manualScenarioIndex.classList.remove('error')"
             (keyup.enter)="manualScenario(manualScenarioIndex, group)">
-          <span class="add-button" (click)="manualScenario(manualScenarioIndex, group)" [ghs-label]="'scenario.manual.add'"
-            [ghs-label-attribute]="'title'"
+          <span class="add-button" (click)="manualScenario(manualScenarioIndex, group)"
+            [ghs-label]="'scenario.manual.add'" [ghs-label-attribute]="'title'"
             [ngClass]="{'disabled' : !manualScenarioIndex.value || manualScenarioIndex.classList.contains('error')}">
           </span>
         </span>

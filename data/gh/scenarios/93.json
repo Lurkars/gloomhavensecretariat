@@ -1,7 +1,12 @@
 {
   "index": "93",
   "name": "Sunken Vessel",
-  "gridLocation": "N:17:-88:11",
+  "coordinates": {
+    "x": 2419.5999755859375,
+    "y": 2041,
+    "width": 258,
+    "height": 233
+  },
   "edition": "gh",
   "requirements": [
     {

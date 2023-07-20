@@ -1,7 +1,12 @@
 {
   "index": "84",
   "name": "Crystalline Cave",
-  "gridLocation": "D:12:50:50",
+  "coordinates": {
+    "x": 1807.0999755859375,
+    "y": 580,
+    "width": 186,
+    "height": 132
+  },
   "edition": "gh",
   "requirements": [
     {

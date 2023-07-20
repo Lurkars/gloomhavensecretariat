@@ -1,7 +1,12 @@
 {
   "index": "71",
   "name": "Windswept Highlands",
-  "gridLocation": "K:5:76:65",
+  "coordinates": {
+    "x": 782.3999938964844,
+    "y": 1645,
+    "width": 234,
+    "height": 164
+  },
   "edition": "gh",
   "random": true,
   "rewards": {

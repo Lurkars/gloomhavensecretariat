@@ -1,7 +1,12 @@
 {
   "index": "73",
   "name": "Rockslide Ridge",
-  "gridLocation": "N:5:39:-42",
+  "coordinates": {
+    "x": 745.3999938964844,
+    "y": 1988,
+    "width": 206,
+    "height": 198
+  },
   "edition": "gh",
   "rewards": {
     "reputation": 1

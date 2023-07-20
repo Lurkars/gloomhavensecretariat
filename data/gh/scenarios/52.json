@@ -1,7 +1,12 @@
 {
   "index": "52",
   "name": "Noxious Cellar",
-  "gridLocation": "D:14:-25:-70",
+  "coordinates": {
+    "x": 2032.2999877929688,
+    "y": 460,
+    "width": 165,
+    "height": 131
+  },
   "edition": "gh",
   "unlocks": [
     "53"

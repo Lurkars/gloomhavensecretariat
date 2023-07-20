@@ -1,7 +1,12 @@
 {
   "index": "29",
   "name": "Sanctuary of Gloom",
-  "gridLocation": "E:3:-10:-1",
+  "coordinates": {
+    "x": 396.20001220703125,
+    "y": 679,
+    "width": 200,
+    "height": 159
+  },
   "edition": "gh",
   "requires": [
     [

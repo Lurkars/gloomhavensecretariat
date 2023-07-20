@@ -1,7 +1,12 @@
 {
   "index": "82",
   "name": "Burning Mountain",
-  "gridLocation": "M:6:-11:25",
+  "coordinates": {
+    "x": 845.5,
+    "y": 1905,
+    "width": 201,
+    "height": 176
+  },
   "edition": "gh",
   "monsters": [
     "earth-demon",

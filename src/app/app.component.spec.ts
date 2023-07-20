@@ -45,7 +45,6 @@ import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-s
 import { ScenarioComponent } from './ui/footer/scenario/scenario';
 import { PartySheetComponent } from './ui/header/party/party-sheet';
 import { PartySheetDialogComponent } from './ui/header/party/party-sheet-dialog';
-import { MapComponent } from './ui/header/party/map/map';
 import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/autoscroll';
 import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
@@ -114,6 +113,11 @@ import { MonsterMenuComponent } from './ui/header/menu/monster/monster';
 import { SheetsMenuComponent } from './ui/header/menu/sheets/sheets';
 import { ItemsBrewDialog } from './ui/figures/character/items/brew/brew';
 import { StandeeComponent } from './ui/figures/standee/standee';
+import { WorldMapComponent } from './ui/header/party/world-map/world-map';
+import { ScenarioRequirementsComponent } from './ui/header/party/requirements/requirements';
+import { BattleGoalComponent } from './ui/figures/battlegoal/battlegoal';
+import { CharacterBattleGoalsDialog } from './ui/figures/battlegoal/dialog/battlegoal-dialog';
+import { BattleGoalSetupDialog } from './ui/figures/battlegoal/setup/battlegoal-setup';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -122,7 +126,7 @@ describe('AppComponent', () => {
         AppComponent,
         MainComponent,
         HeaderComponent, ElementIconComponent, ElementComponent,
-        PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, MapComponent, ScenarioConclusionComponent, SelectResourcesDialog,
+        PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, SelectResourcesDialog, ScenarioRequirementsComponent,
         MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, SheetsMenuComponent,
         FooterComponent,
         LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
@@ -132,7 +136,7 @@ describe('AppComponent', () => {
         ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, StatsListComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent, EventEffectsDialog,
         ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
         EntityMenuDialogComponent, EntitiesMenuDialogComponent,
-        CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterItemsComponent, ItemsBrewDialog,
+        CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
         ObjectiveComponent,
         SummonEntityComponent, SummonSheetComponent,
         StandeeComponent,

@@ -1,7 +1,12 @@
 {
   "index": "53",
   "name": "Crypt Basement",
-  "gridLocation": "F:11:-23:-52",
+  "coordinates": {
+    "x": 1584,
+    "y": 778,
+    "width": 182,
+    "height": 143
+  },
   "edition": "gh",
   "unlocks": [
     "54"

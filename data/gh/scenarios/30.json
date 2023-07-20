@@ -1,7 +1,12 @@
 {
   "index": "30",
   "name": "Shrine of the Depths",
-  "gridLocation": "N:15:-21:16",
+  "coordinates": {
+    "x": 2186.4000244140625,
+    "y": 2046,
+    "width": 215,
+    "height": 156
+  },
   "edition": "gh",
   "unlocks": [
     "42"

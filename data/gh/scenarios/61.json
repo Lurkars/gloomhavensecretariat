@@ -1,7 +1,12 @@
 {
   "index": "61",
   "name": "Fading Lighthouse",
-  "gridLocation": "N:11:43:0",
+  "coordinates": {
+    "x": 1650,
+    "y": 2030,
+    "width": 197,
+    "height": 157
+  },
   "edition": "gh",
   "unlocks": [
     "62"

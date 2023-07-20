@@ -1,0 +1,67 @@
+.world-map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+
+    .world-map {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        overflow: auto;
+        background: none;
+
+        .scenario {
+            z-index: 2;
+            filter: brightness(1.2) drop-shadow(4px 4px 4px var(--ghs-color-darkgray)) drop-shadow(-4px -4px 4px var(--ghs-color-darkgray));
+
+            &:hover {
+                cursor: pointer;
+
+                filter: brightness(1.1);
+                opacity: 0.9;
+            }
+
+            &.success {
+                cursor: initial;
+                z-index: 2;
+
+                filter: brightness(0.8) hue-rotate(30deg);
+
+
+                &:hover {
+                    cursor: initial;
+                    filter: none;
+                }
+            }
+
+            &.locked:not(.blocked) {
+                cursor: initial;
+                z-index: 1;
+                filter: brightness(1);
+
+                &:hover {
+                    cursor: initial;
+                    filter: brightness(0.8) grayscale(0.8);
+                }
+            }
+
+            &.blocked {
+                cursor: initial;
+                z-index: 1;
+                filter: brightness(0.7) sepia(2.5) hue-rotate(340deg);
+
+                &:hover {
+                    cursor: initial;
+
+                    filter: brightness(0.8) grayscale(0.8);
+                }
+            }
+        }
+    }
+
+}

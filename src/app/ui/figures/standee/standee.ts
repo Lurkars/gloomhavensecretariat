@@ -160,6 +160,13 @@ export class StandeeComponent implements OnInit, OnDestroy {
     if (this.health != 0 && EntityValueFunction(this.entity.maxHealth) > 0 && (!(this.figure instanceof Monster) || !this.figure.immortal)) {
       gameManager.stateManager.before(this.figure.type + "ChangeEntityHp", this.figure.name, "" + this.entity.number, "" + this.health, this.additionalType());
       gameManager.entityManager.changeHealth(this.entity, this.health);
+
+      if (this.figure instanceof Monster && this.figure.entities.every((monsterEntity) => monsterEntity.dead)) {
+        if (this.figure.active) {
+          gameManager.roundManager.toggleFigure(this.figure);
+        }
+      }
+
       gameManager.stateManager.after();
     }
     this.health = 0;

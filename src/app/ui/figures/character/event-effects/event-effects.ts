@@ -45,7 +45,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
 
   update() {
     this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);
-    this.activeCharacters = this.characters.filter((character) => !character.absent);
+    this.activeCharacters = this.characters.filter((character) => !character.absent && !character.exhausted);
 
     this.activeCharacters.forEach((character, index, self) => {
       character.entityConditions.forEach((entityCondition) => {

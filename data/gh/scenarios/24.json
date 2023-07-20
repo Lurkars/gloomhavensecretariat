@@ -1,7 +1,12 @@
 {
   "index": "24",
   "name": "Echo Chamber",
-  "gridLocation": "C:6:-103:-35",
+  "coordinates": {
+    "x": 753.5,
+    "y": 345,
+    "width": 167,
+    "height": 171
+  },
   "edition": "gh",
   "unlocks": [
     "30",

@@ -1,7 +1,12 @@
 {
   "index": "58",
   "name": "Bloody Shack",
-  "gridLocation": "E:15:27:19",
+  "coordinates": {
+    "x": 2234.4000244140625,
+    "y": 699,
+    "width": 173,
+    "height": 123
+  },
   "edition": "gh",
   "rewards": {
     "envelopes": [

@@ -11,6 +11,14 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.line.campaign {
+  display: flex;
+
+  label {
+    margin-right: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+  }
+}
+
 .scenarios {
   display: grid !important;
   grid-template-columns: repeat(6, 1fr);
@@ -99,7 +107,8 @@
   margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 }
 
-@media (max-width: 600px), (orientation: portrait) {
+@media (max-width: 600px),
+(orientation: portrait) {
 
   .editions {
     grid-template-columns: 1fr;

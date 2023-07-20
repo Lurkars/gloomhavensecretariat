@@ -1,7 +1,12 @@
 {
   "index": "17",
   "name": "Lost Island",
-  "gridLocation": "K:17:65:-53",
+  "coordinates": {
+    "x": 2572.5999755859375,
+    "y": 1527,
+    "width": 242,
+    "height": 235
+  },
   "edition": "gh",
   "rewards": {
     "gold": 25

@@ -1,7 +1,12 @@
 {
   "index": "44",
   "name": "Tribal Assault",
-  "gridLocation": "F:3:38:0",
+  "coordinates": {
+    "x": 444.20001220703125,
+    "y": 830,
+    "width": 223,
+    "height": 168
+  },
   "edition": "gh",
   "requires": [
     [

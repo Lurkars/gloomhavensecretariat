@@ -41,6 +41,7 @@
 }
 
 @import '@angular/cdk/overlay-prebuilt.css';
+@import '~leaflet/dist/leaflet.css';
 
 * {
   -webkit-box-sizing: border-box;
@@ -733,6 +734,16 @@ ghs-pointer-input {
   border-image-outset: calc(var(--ghs-unit) * 1);
   border-image-width: calc(var(--ghs-unit) * 6);
 
+  &.dialog-invert {
+    background-color: var(--ghs-color-white);
+    background-image: none;
+  }
+
+}
+
+.dialog,
+.dialog-invert,
+.fullscreen-panel {
   .close {
     position: fixed;
     top: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
@@ -750,12 +761,6 @@ ghs-pointer-input {
       filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
     }
   }
-
-  &.dialog-invert {
-    background-color: var(--ghs-color-white);
-    background-image: none;
-  }
-
 }
 
 .fullscreen-backdrop {

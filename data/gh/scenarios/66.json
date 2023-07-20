@@ -1,7 +1,12 @@
 {
   "index": "66",
   "name": "Clockwork Cove",
-  "gridLocation": "G:14:20:22",
+  "coordinates": {
+    "x": 2077.2999877929688,
+    "y": 1002,
+    "width": 213,
+    "height": 159
+  },
   "edition": "gh",
   "random": true,
   "rewards": {

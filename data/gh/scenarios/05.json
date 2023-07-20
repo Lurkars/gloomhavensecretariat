@@ -1,7 +1,12 @@
 {
   "index": "5",
   "name": "Ruinous Crypt",
-  "gridLocation": "D:6:-7:9",
+  "coordinates": {
+    "x": 849.5,
+    "y": 539,
+    "width": 182,
+    "height": 166
+  },
   "edition": "gh",
   "unlocks": [
     "10",

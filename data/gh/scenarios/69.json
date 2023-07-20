@@ -1,7 +1,12 @@
 {
   "index": "69",
   "name": "Well of the Unfortunate",
-  "gridLocation": "F:8:-2:-53",
+  "coordinates": {
+    "x": 1154.6999969482422,
+    "y": 777,
+    "width": 226,
+    "height": 183
+  },
   "edition": "gh",
   "random": true,
   "rewards": {

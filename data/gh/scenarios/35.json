@@ -1,7 +1,12 @@
 {
   "index": "35",
   "name": "Gloomhaven Battlements A",
-  "gridLocation": "A:14:46:56",
+  "coordinates": {
+    "x": 2103.2999877929688,
+    "y": 136,
+    "width": 206,
+    "height": 185
+  },
   "edition": "gh",
   "unlocks": [
     "45"

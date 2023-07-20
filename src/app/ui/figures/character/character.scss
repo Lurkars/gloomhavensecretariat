@@ -358,6 +358,10 @@
         height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
         width: auto;
       }
+
+      .value-overlay {
+        z-index: 1000;
+      }
     }
 
     .markers {

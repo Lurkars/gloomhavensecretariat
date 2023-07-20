@@ -1,7 +1,12 @@
 {
   "index": "6",
   "name": "Decaying Crypt",
-  "gridLocation": "F:10:-125:49",
+  "coordinates": {
+    "x": 1331.8999938964844,
+    "y": 879,
+    "width": 194,
+    "height": 139
+  },
   "edition": "gh",
   "unlocks": [
     "8"

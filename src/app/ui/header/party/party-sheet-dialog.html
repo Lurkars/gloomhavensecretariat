@@ -23,7 +23,7 @@
                 </option>
               </select>
               <span class="spacer"></span>
-              <span class="map" *ngIf="gameManager.game.edition == 'gh'" (click)="openMap()">
+              <span class="map" *ngIf="worldMap" (click)="openMap()">
                 <img src="./assets/images/fullscreen.svg"><span [ghs-label]="'party.campaign.map'"></span>
               </span>
             </div>

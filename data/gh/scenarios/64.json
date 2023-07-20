@@ -1,7 +1,12 @@
 {
   "index": "64",
   "name": "Underwater Lagoon",
-  "gridLocation": "K:16:60:-30",
+  "coordinates": {
+    "x": 2417.5,
+    "y": 1550,
+    "width": 200,
+    "height": 174
+  },
   "edition": "gh",
   "random": true,
   "requires": [

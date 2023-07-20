@@ -1,7 +1,12 @@
 {
   "index": "68",
   "name": "Toxic Moor",
-  "gridLocation": "N:8:26:-24",
+  "coordinates": {
+    "x": 1182.6999969482422,
+    "y": 2006,
+    "width": 178,
+    "height": 212
+  },
   "edition": "gh",
   "random": true,
   "rewards": {

@@ -1,7 +1,12 @@
 {
   "index": "43",
   "name": "Drake Nest",
-  "gridLocation": "D:4:-121:57",
+  "coordinates": {
+    "x": 435.29998779296875,
+    "y": 587,
+    "width": 178,
+    "height": 139
+  },
   "edition": "gh",
   "requires": [
     [

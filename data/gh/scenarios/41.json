@@ -1,7 +1,12 @@
 {
   "index": "41",
   "name": "Timeworn Tomb",
-  "gridLocation": "F:13:-27:-17",
+  "coordinates": {
+    "x": 1880.2000122070312,
+    "y": 813,
+    "width": 191,
+    "height": 137
+  },
   "edition": "gh",
   "requires": [
     [

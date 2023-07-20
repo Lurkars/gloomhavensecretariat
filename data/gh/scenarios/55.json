@@ -1,7 +1,12 @@
 {
   "index": "55",
   "name": "Foggy Ticket",
-  "gridLocation": "G:5:-55:0",
+  "coordinates": {
+    "x": 656,
+    "y": 980,
+    "width": 176,
+    "height": 157
+  },
   "edition": "gh",
   "unlocks": [
     "56"

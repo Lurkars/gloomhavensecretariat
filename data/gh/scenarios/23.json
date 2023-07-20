@@ -1,7 +1,12 @@
 {
   "index": "23",
   "name": "Deep Ruins",
-  "gridLocation": "C:15:72:45",
+  "coordinates": {
+    "x": 2279.4000244140625,
+    "y": 425,
+    "width": 161,
+    "height": 139
+  },
   "edition": "gh",
   "unlocks": [
     "26"

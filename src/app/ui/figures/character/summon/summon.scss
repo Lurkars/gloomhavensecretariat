@@ -182,6 +182,7 @@
         font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
         width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
         height: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+        z-index: 1000;
       }
     }
 
@@ -333,6 +334,7 @@
           .value-overlay {
             left: 100%;
             bottom: calc(var(--ghs-unit) * 0.6);
+            z-index: 1000;
           }
         }
       }

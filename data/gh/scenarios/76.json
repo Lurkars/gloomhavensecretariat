@@ -1,7 +1,12 @@
 {
   "index": "76",
   "name": "Harrower Hive",
-  "gridLocation": "L:3:58:14",
+  "coordinates": {
+    "x": 464.20001220703125,
+    "y": 1744,
+    "width": 211,
+    "height": 160
+  },
   "edition": "gh",
   "monsters": [
     "giant-viper",

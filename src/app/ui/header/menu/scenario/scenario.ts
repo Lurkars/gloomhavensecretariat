@@ -68,7 +68,7 @@ export class ScenarioMenuComponent implements OnInit {
 
     model = { edition: this.edition, group: group, filterSuccess: filterSuccess, includeSpoiler: includeSpoiler, all: all, scenarios: [] };
 
-    model.scenarios = gameManager.scenarioManager.scenarioData(this.edition, all).filter((scenarioData) => scenarioData.group == group && (includeSpoiler || (!scenarioData.spoiler || gameManager.game.unlockedCharacters.indexOf(scenarioData.name) != -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) != -1)) && (!filterSuccess || !this.scenarioSuccess(scenarioData) && !gameManager.scenarioManager.isBlocked(scenarioData))).sort(gameManager.scenarioManager.sortScenarios);
+    model.scenarios = gameManager.scenarioManager.scenarioData(this.edition, all).filter((scenarioData) => scenarioData.group == group && (includeSpoiler || (!scenarioData.spoiler || gameManager.game.unlockedCharacters.indexOf(scenarioData.name) != -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) != -1)) && (!filterSuccess || !this.scenarioSuccess(scenarioData) && !gameManager.scenarioManager.isBlocked(scenarioData)) && !gameManager.scenarioManager.isLocked(scenarioData)).sort(gameManager.scenarioManager.sortScenarios);
 
     this.scenarioCache.push(model);
 
@@ -181,4 +181,10 @@ export class ScenarioMenuComponent implements OnInit {
     return this.scenarios(group, true).filter((scenarioData) => scenarioData.spoiler && (gameManager.game.unlockedCharacters.indexOf(scenarioData.name) == -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) == -1)).map((scenarioData) => scenarioData.solo && new SpoilableMock(scenarioData.solo) || new SpoilableMock(scenarioData.name));
   }
 
+  toggleCampaignMode() {
+    gameManager.stateManager.before(gameManager.game.party.campaignMode ? "disablePartyCampaignMode" : "enablePartyCampaignMode");
+    gameManager.game.party.campaignMode = !gameManager.game.party.campaignMode;
+    this.scenarioCache = [];
+    gameManager.stateManager.after();
+  }
 }

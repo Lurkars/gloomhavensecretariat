@@ -1,7 +1,12 @@
 {
   "index": "18",
   "name": "Abandoned Sewers",
-  "gridLocation": "C:14:63:60",
+  "coordinates": {
+    "x": 2120.2999877929688,
+    "y": 440,
+    "width": 192,
+    "height": 123
+  },
   "edition": "gh",
   "unlocks": [
     "14",

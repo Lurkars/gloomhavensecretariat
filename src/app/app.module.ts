@@ -55,7 +55,6 @@ import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-s
 import { ScenarioComponent } from './ui/footer/scenario/scenario';
 import { PartySheetComponent } from './ui/header/party/party-sheet';
 import { PartySheetDialogComponent } from './ui/header/party/party-sheet-dialog';
-import { MapComponent } from './ui/header/party/map/map';
 import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/autoscroll';
 import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
@@ -121,6 +120,7 @@ import { BattleGoalComponent } from './ui/figures/battlegoal/battlegoal';
 import { CharacterBattleGoalsDialog } from './ui/figures/battlegoal/dialog/battlegoal-dialog';
 import { BattleGoalSetupDialog } from './ui/figures/battlegoal/setup/battlegoal-setup';
 import { ScenarioRequirementsComponent } from './ui/header/party/requirements/requirements';
+import { WorldMapComponent } from './ui/header/party/world-map/world-map';
 
 @Injectable()
 export class GhsErrorHandler extends ErrorHandler {
@@ -136,7 +136,7 @@ export class GhsErrorHandler extends ErrorHandler {
     AppComponent,
     MainComponent,
     HeaderComponent, ElementIconComponent, ElementComponent,
-    PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, MapComponent, ScenarioConclusionComponent, SelectResourcesDialog, ScenarioRequirementsComponent,
+    PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, SelectResourcesDialog, ScenarioRequirementsComponent,
     MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, SheetsMenuComponent,
     FooterComponent,
     LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,

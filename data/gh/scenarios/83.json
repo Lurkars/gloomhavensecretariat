@@ -1,7 +1,12 @@
 {
   "index": "83",
   "name": "Shadows Within",
-  "gridLocation": "C:15:-57:2",
+  "coordinates": {
+    "x": 2150.4000244140625,
+    "y": 382,
+    "width": 195,
+    "height": 110
+  },
   "edition": "gh",
   "requirements": [
     {

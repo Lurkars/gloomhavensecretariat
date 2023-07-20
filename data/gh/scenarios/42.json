@@ -1,7 +1,12 @@
 {
   "index": "42",
   "name": "Realm of the Voice",
-  "gridLocation": "C:5:-116:-52",
+  "coordinates": {
+    "x": 590.4000244140625,
+    "y": 328,
+    "width": 213,
+    "height": 176
+  },
   "edition": "gh",
   "requires": [
     [

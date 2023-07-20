@@ -1,7 +1,12 @@
 {
   "index": "9",
   "name": "Diamond Mine",
-  "gridLocation": "L:2:-20:-17",
+  "coordinates": {
+    "x": 236.0999755859375,
+    "y": 1713,
+    "width": 202,
+    "height": 176
+  },
   "edition": "gh",
   "unlocks": [
     "11",

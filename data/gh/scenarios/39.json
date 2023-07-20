@@ -1,7 +1,12 @@
 {
   "index": "39",
   "name": "Treacherous Divide",
-  "gridLocation": "B:11:-52:-39",
+  "coordinates": {
+    "x": 1555,
+    "y": 191,
+    "width": 202,
+    "height": 148
+  },
   "edition": "gh",
   "unlocks": [
     "15",

@@ -1,7 +1,12 @@
 {
   "index": "74",
   "name": "Merchant Ship",
-  "gridLocation": "I:14:-7:44",
+  "coordinates": {
+    "x": 2050.2999877929688,
+    "y": 1324,
+    "width": 234,
+    "height": 172
+  },
   "edition": "gh",
   "requirements": [
     {

@@ -1,7 +1,12 @@
 {
   "index": "91",
   "name": "Wild Melee",
-  "gridLocation": "E:2:27:-33",
+  "coordinates": {
+    "x": 283.0999755859375,
+    "y": 647,
+    "width": 179,
+    "height": 143
+  },
   "edition": "gh",
   "rewards": {
     "battleGoals": 2

@@ -1,7 +1,12 @@
 {
   "index": "8",
   "name": "Gloomhaven Warehouse",
-  "gridLocation": "C:18:-47:14",
+  "coordinates": {
+    "x": 2610.699951171875,
+    "y": 394,
+    "width": 160,
+    "height": 137
+  },
   "edition": "gh",
   "unlocks": [
     "13",

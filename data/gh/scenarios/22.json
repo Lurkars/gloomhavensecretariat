@@ -1,7 +1,12 @@
 {
   "index": "22",
   "name": "Temple of the Elements",
-  "gridLocation": "K:8:12:3",
+  "coordinates": {
+    "x": 1168.6999969482422,
+    "y": 1583,
+    "width": 206,
+    "height": 162
+  },
   "edition": "gh",
   "unlocks": [
     "31",

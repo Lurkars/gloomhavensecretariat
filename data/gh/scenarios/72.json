@@ -1,7 +1,12 @@
 {
   "index": "72",
   "name": "Oozing Grove",
-  "gridLocation": "H:12:-119:-40",
+  "coordinates": {
+    "x": 1638.1000061035156,
+    "y": 1090,
+    "width": 182,
+    "height": 149
+  },
   "edition": "gh",
   "rewards": {
     "reputation": 1,

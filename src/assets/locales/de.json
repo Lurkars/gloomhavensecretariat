@@ -935,7 +935,7 @@
       ".": "Szenario filtern",
       "noResult": "Kein Ergebnis"
     },
-    "filterSuccess": "Nur neue Szenarien anzeigen",
+    "filterSuccess": "Nur offene Szenarien anzeigen",
     "finish": {
       ".": "Szenario beenden",
       "failure": "Niederlage",

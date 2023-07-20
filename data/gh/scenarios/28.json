@@ -1,7 +1,12 @@
 {
   "index": "28",
   "name": "Outer Ritual Chamber",
-  "gridLocation": "E:4:-24:-10",
+  "coordinates": {
+    "x": 532.2999877929688,
+    "y": 670,
+    "width": 206,
+    "height": 150
+  },
   "edition": "gh",
   "unlocks": [
     "29"

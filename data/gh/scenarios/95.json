@@ -1,7 +1,12 @@
 {
   "index": "95",
   "name": "Payment Due",
-  "gridLocation": "G:12:43:-65",
+  "coordinates": {
+    "x": 1800.0999755859375,
+    "y": 915,
+    "width": 166,
+    "height": 148
+  },
   "edition": "gh",
   "requires": [
     [

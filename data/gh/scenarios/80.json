@@ -1,7 +1,12 @@
 {
   "index": "80",
   "name": "Vigil Keep",
-  "gridLocation": "K:1:-21:14",
+  "coordinates": {
+    "x": 85,
+    "y": 1594,
+    "width": 173,
+    "height": 170
+  },
   "edition": "gh",
   "rewards": {
     "experience": 10

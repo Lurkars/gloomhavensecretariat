@@ -1,7 +1,12 @@
 {
   "index": "87",
   "name": "Corrupted Cove",
-  "gridLocation": "I:9:56:70",
+  "coordinates": {
+    "x": 1362.8000030517578,
+    "y": 1350,
+    "width": 193,
+    "height": 162
+  },
   "edition": "gh",
   "requires": [
     [

@@ -1,7 +1,12 @@
 {
   "index": "27",
   "name": "Ruinous Rift",
-  "gridLocation": "E:6:23:-37",
+  "coordinates": {
+    "x": 879.5,
+    "y": 643,
+    "width": 177,
+    "height": 108
+  },
   "edition": "gh",
   "requires": [
     [

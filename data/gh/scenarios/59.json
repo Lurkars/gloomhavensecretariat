@@ -1,7 +1,12 @@
 {
   "index": "59",
   "name": "Forgotten Grove",
-  "gridLocation": "F:1:-5:8",
+  "coordinates": {
+    "x": 101,
+    "y": 838,
+    "width": 204,
+    "height": 179
+  },
   "edition": "gh",
   "unlocks": [
     "60"

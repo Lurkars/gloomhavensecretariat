@@ -1,7 +1,12 @@
 {
   "index": "62",
   "name": "Pit of Souls",
-  "gridLocation": "O:11:71:-43",
+  "coordinates": {
+    "x": 1678,
+    "y": 2137,
+    "width": 172,
+    "height": 155
+  },
   "edition": "gh",
   "rewards": {
     "envelopes": [
