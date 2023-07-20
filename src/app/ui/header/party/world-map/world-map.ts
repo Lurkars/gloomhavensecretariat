@@ -4,6 +4,7 @@ import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { Scenario } from "src/app/game/model/Scenario";
 import L, { LatLngBoundsLiteral } from 'leaflet';
+import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 @Component({
     selector: 'ghs-world-map',
@@ -27,6 +28,8 @@ export class WorldMapComponent implements AfterViewInit {
     zooming: boolean = false;
 
     constructor(@Inject(DIALOG_DATA) public edition: string, public dialogRef: DialogRef) {
+        const disablePinchZoom = settingsManager.settings.disablePinchZoom;
+        settingsManager.settings.disablePinchZoom = true;
         const editionData = gameManager.editionData.find((editionData) => editionData.edition == this.edition);
         if (editionData) {
             this.worldMap = editionData.worldMap;
@@ -34,6 +37,10 @@ export class WorldMapComponent implements AfterViewInit {
                 this.scenarios = gameManager.scenarioManager.scenarioData(this.edition).filter((scenarioData) => scenarioData.coordinates);
             }
         }
+
+        this.dialogRef.closed.subscribe({next:() => {
+            settingsManager.settings.disablePinchZoom = disablePinchZoom;
+        }})
     }
 
     ngAfterViewInit(): void {
