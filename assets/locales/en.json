@@ -1043,7 +1043,7 @@
       ".": "Filter Scenario",
       "noResult": "No Result"
     },
-    "filterSuccess": "Show new scenarios only",
+    "filterSuccess": "Show open scenarios only",
     "finish": {
       ".": "Finish Scenario",
       "failure": "Failure",
