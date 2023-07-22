@@ -52,6 +52,11 @@
             *ngIf="maxScenario(group) > 1 && scenario.index.length < 2">0</span>
           <span class="index">{{scenario.index}}</span>
         </ng-container>
+        <ng-container [ngSwitch]="scenario.complexity">
+          <span class="complexity" *ngSwitchCase="3">&#8226;&#8226;&#8226;</span>
+          <span class="complexity" *ngSwitchCase="2">&#8226;&#8226;</span>
+          <span class="complexity" *ngSwitchCase="1">&#8226;</span>
+        </ng-container>
         <ng-container *ngIf="scenario.solo">
           <img class="ghs-svg solo" [src]="gameManager.characterManager.characterIcon(scenario.solo)" />
         </ng-container>

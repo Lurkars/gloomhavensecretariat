@@ -1544,6 +1544,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "complexity": {
+                    "default": 0,
+                    "type": "number"
                 }
             },
             "type": "object"
