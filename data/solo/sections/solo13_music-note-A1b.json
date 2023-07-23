@@ -1,9 +1,15 @@
 {
-  "index": "13-A1b(2)",
+  "index": "A1b",
   "group": "solo",
   "name": "Battle of the Bards",
   "edition": "gh",
   "parent": "13",
+  "parentSections": [
+    [
+      "G2b"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "city-guard",
     "song-of-the-deep"

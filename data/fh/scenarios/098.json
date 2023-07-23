@@ -2,6 +2,7 @@
   "index": "98",
   "name": "Collapsing Vent",
   "edition": "fh",
+  "complexity": 1,
   "rewards": {
     "prosperity": 1
   },
@@ -73,6 +74,5 @@
         }
       ]
     }
-  ],
-  "complexity": 1
+  ]
 }

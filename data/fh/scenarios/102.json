@@ -2,6 +2,7 @@
   "index": "102",
   "name": "Into the Black",
   "edition": "fh",
+  "complexity": 3,
   "rewards": {
     "experience": 20
   },
@@ -43,6 +44,5 @@
       ],
       "monster": []
     }
-  ],
-  "complexity": 3
+  ]
 }

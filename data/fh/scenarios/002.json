@@ -2,6 +2,7 @@
   "index": "2",
   "name": "Algox Scouting",
   "edition": "fh",
+  "complexity": 1,
   "unlocks": [
     "4B"
   ],
@@ -64,6 +65,5 @@
         }
       ]
     }
-  ],
-  "complexity": 1
+  ]
 }

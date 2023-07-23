@@ -1,9 +1,10 @@
 {
-  "index": "13-I1a(1)",
+  "index": "I1a",
   "group": "solo",
   "name": "Battle of the Bards",
   "edition": "gh",
   "parent": "13",
+  "marker": "1",
   "monsters": [
     "city-archer",
     "city-guard"

@@ -2,6 +2,7 @@
   "index": "110",
   "name": "Guardian's Temple",
   "edition": "fh",
+  "complexity": 2,
   "random": true,
   "requirements": [
     {
@@ -219,6 +220,5 @@
         3
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

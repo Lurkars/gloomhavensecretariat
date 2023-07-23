@@ -2,6 +2,7 @@
   "index": "127",
   "name": "Derelict Freighter",
   "edition": "fh",
+  "complexity": 1,
   "monsters": [
     "ancient-artillery",
     "ice-wraith"
@@ -51,6 +52,5 @@
         }
       ]
     }
-  ],
-  "complexity": 1
+  ]
 }

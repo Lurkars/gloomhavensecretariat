@@ -2,6 +2,7 @@
   "index": "95",
   "name": "To Bury the Dead",
   "edition": "fh",
+  "complexity": 2,
   "rewards": {
     "morale": 1,
     "gold": 10
@@ -49,6 +50,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

@@ -2,6 +2,7 @@
   "index": "19",
   "name": "Skyhall",
   "edition": "fh",
+  "complexity": 3,
   "rewards": {
     "morale": 1,
     "randomItemBlueprint": 1,
@@ -161,6 +162,5 @@
       "ref": "16-B",
       "initial": true
     }
-  ],
-  "complexity": 3
+  ]
 }

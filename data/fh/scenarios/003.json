@@ -2,6 +2,7 @@
   "index": "3",
   "name": "Algox Offensive",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "4A"
   ],
@@ -111,6 +112,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

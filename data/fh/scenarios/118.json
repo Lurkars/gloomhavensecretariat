@@ -2,6 +2,7 @@
   "index": "118",
   "name": "Lurker Necromancy",
   "edition": "fh",
+  "complexity": 1,
   "requirements": [
     {
       "buildings": [
@@ -51,6 +52,5 @@
         }
       ]
     }
-  ],
-  "complexity": 1
+  ]
 }

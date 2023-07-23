@@ -2,6 +2,7 @@
   "index": "88",
   "name": "Collection's Capstone",
   "edition": "fh",
+  "complexity": 2,
   "rewards": {
     "morale": 2
   },
@@ -60,6 +61,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

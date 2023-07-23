@@ -2,6 +2,7 @@
   "index": "26",
   "name": "Quatryl Library",
   "edition": "fh",
+  "complexity": 2,
   "blocks": [
     "25"
   ],
@@ -104,6 +105,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

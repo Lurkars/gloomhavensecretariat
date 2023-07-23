@@ -2,6 +2,7 @@
   "index": "129",
   "name": "How to Lay an Ambush",
   "edition": "fh",
+  "complexity": 3,
   "unlocks": [
     "130"
   ],
@@ -59,6 +60,5 @@
         }
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

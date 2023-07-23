@@ -2,6 +2,7 @@
   "index": "79",
   "name": "Relic",
   "edition": "fh",
+  "complexity": 3,
   "requirements": [
     {
       "buildings": [
@@ -75,6 +76,5 @@
         }
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

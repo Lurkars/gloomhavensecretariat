@@ -2,6 +2,7 @@
   "index": "60",
   "name": "Uniting the Crown",
   "edition": "fh",
+  "complexity": 2,
   "requirements": [
     {
       "buildings": [
@@ -285,6 +286,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

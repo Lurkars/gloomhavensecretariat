@@ -2,6 +2,7 @@
   "index": "40",
   "name": "Relief Effort",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "48"
   ],
@@ -53,6 +54,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

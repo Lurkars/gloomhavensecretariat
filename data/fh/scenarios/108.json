@@ -2,6 +2,7 @@
   "index": "108",
   "name": "Lustrous Pit",
   "edition": "fh",
+  "complexity": 2,
   "random": true,
   "rewards": {
     "morale": 2,
@@ -60,6 +61,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

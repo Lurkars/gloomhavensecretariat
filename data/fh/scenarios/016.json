@@ -2,6 +2,7 @@
   "index": "16",
   "name": "Derelict Elevator",
   "edition": "fh",
+  "complexity": 3,
   "unlocks": [
     "25",
     "26"
@@ -123,6 +124,5 @@
         }
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

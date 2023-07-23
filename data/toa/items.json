@@ -5,7 +5,8 @@
     "cost": 20,
     "count": 1,
     "edition": "toa",
-    "slot": "head"
+    "slot": "head",
+    "text": "You can carry two additional \"Orb\" items."
   },
   {
     "id": 102,
@@ -14,7 +15,8 @@
     "count": 2,
     "edition": "toa",
     "slot": "legs",
-    "spent": true
+    "consumed": true,
+    "text": "At the beginning of a round, after al ability cards have been revealed gain %game.condition.invisible%"
   },
   {
     "id": 103,
@@ -23,16 +25,10 @@
     "count": 1,
     "edition": "toa",
     "slot": "onehand",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn perform \"%game.action.teleport% 5\". This Teleport must end in a hex containing a treasure tile or money token."
   },
   {
-    "id": 104,
-    "name": "Shepherd's Flute",
-    "cost": 50,
-    "count": 1,
-    "edition": "toa",
-    "slot": "head",
-    "spent": true,
     "summon": {
       "health": 3,
       "attack": 2,
@@ -43,7 +39,15 @@
         "type": "condition",
         "value": "poison"
       }
-    }
+    },
+    "id": 104,
+    "name": "Shepherd's Flute",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "slot": "head",
+    "consumed": true,
+    "text": "Summon Harrower Swarm ^flying^"
   },
   {
     "id": 105,
@@ -52,7 +56,8 @@
     "count": 1,
     "edition": "toa",
     "slot": "twohand",
-    "spent": true
+    "consumed": true,
+    "text": "During your rangedAttack ability, place your character token on one of the target of the attack. That enemy loses %game.action.fly% after the attack."
   },
   {
     "id": 106,
@@ -61,8 +66,9 @@
     "count": 2,
     "edition": "toa",
     "slot": "twohand",
-    "spent": true,
-    "minusOne": 1
+    "consumed": true,
+    "minusOne": 1,
+    "text": "During your melee attack ability, add +2 %game.action.attack% and %game.condition.stun% to one attack."
   },
   {
     "id": 107,
@@ -70,7 +76,8 @@
     "cost": 30,
     "count": 1,
     "edition": "toa",
-    "slot": "body"
+    "slot": "body",
+    "text": "Remove one %game.attackmodifier.minus2% modifier card from your modifier deck."
   },
   {
     "id": 108,
@@ -79,8 +86,9 @@
     "count": 1,
     "edition": "toa",
     "slot": "onehand",
-    "spent": true,
-    "minusOne": 1
+    "consumed": true,
+    "minusOne": 1,
+    "text": "When attacked, you may %game.element.consume.ice% to gain %game.action.shield% 1 for the attack and flip this card over."
   },
   {
     "id": 109,
@@ -89,7 +97,8 @@
     "count": 1,
     "edition": "toa",
     "slot": "onehand",
-    "spent": true
+    "spent": true,
+    "text": "During your Heal, ability targeting Self, affect one ally within %game.action.range:3% instead."
   },
   {
     "id": 110,
@@ -98,7 +107,8 @@
     "count": 1,
     "edition": "toa",
     "slot": "head",
-    "minusOne": 1
+    "minusOne": 1,
+    "text": "When you are adjacent to two or more enemies gain %game.action.retaliate% 1."
   },
   {
     "id": 111,
@@ -107,7 +117,8 @@
     "count": 1,
     "edition": "toa",
     "slot": "onehand",
-    "spent": true
+    "consumed": true,
+    "text": "When damaged by an attack perform a \"%game.action.heal% X, %game.action.range:3%\" ability after the attack, where X is the damage you suffered."
   },
   {
     "id": 112,
@@ -116,7 +127,8 @@
     "count": 1,
     "edition": "toa",
     "slot": "onehand",
-    "spent": true
+    "spent": true,
+    "text": "During your melee Attack ability, before modifiers are draw, add +2 %game.action.attack% to one attack if your first modifier drawn is positive."
   },
   {
     "id": 113,
@@ -125,7 +137,8 @@
     "count": 1,
     "edition": "toa",
     "slot": "onehand",
-    "spent": true
+    "spent": true,
+    "text": "During your turn, add +1 %game.action.range% to your next ranged ability."
   },
   {
     "id": 114,
@@ -134,7 +147,8 @@
     "count": 1,
     "edition": "toa",
     "slot": "onehand",
-    "spent": true
+    "spent": true,
+    "text": "During your Move ability, perform a %game.action.teleport% ability of equal value instead."
   },
   {
     "id": 115,
@@ -143,7 +157,8 @@
     "count": 1,
     "edition": "toa",
     "slot": "onehand",
-    "spent": true
+    "spent": true,
+    "text": "During your turn, one ally within %game.action.range:2% may perform \"%game.action.attack% 2\"."
   },
   {
     "id": 116,
@@ -152,7 +167,8 @@
     "count": 1,
     "edition": "toa",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, you and all allies within %game.action.range:2% gain %game.condition.strengthen%, an all enemies within %game.action.range:2% gain %game.condition.muddle%."
   },
   {
     "id": 117,
@@ -161,7 +177,8 @@
     "count": 2,
     "edition": "toa",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your heal ability, add BLESS $bless$, or EMPOWER $empower$, EMPOWER $empower$, EMPOWER $empower$ to a single heal."
   },
   {
     "id": 118,
@@ -170,7 +187,8 @@
     "count": 2,
     "edition": "toa",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your Attack ability, add %game.condition.curse%, or ENFEEBLE $enfeeble$, ENFEEBLE $enfeeble$, ENFEEBLE $enfeeble$ to a one attack."
   },
   {
     "id": 122,
@@ -179,7 +197,8 @@
     "count": 1,
     "edition": "toa",
     "slot": "small",
-    "spent": true
+    "spent": true,
+    "text": "During your melee Attack ability, add %game.condition.pierce% 1 and %game.condition.wound% to one attack."
   },
   {
     "id": 124,
@@ -188,7 +207,8 @@
     "count": 1,
     "edition": "toa",
     "slot": "onehand",
-    "spent": true
+    "spent": true,
+    "text": "During your melee Attack ability, add %game.condition.wound% and %game.condition.muddle% to one attack.  You may consue %game.card.lost% this item instead to gain ADD TARGET $target$."
   },
   {
     "id": 125,
@@ -197,7 +217,8 @@
     "count": 1,
     "edition": "toa",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn perform \"DODGE $dodge$, %game.action.range:5%\"."
   },
   {
     "id": 126,
@@ -206,7 +227,8 @@
     "count": 1,
     "edition": "toa",
     "slot": "legs",
-    "spent": true
+    "spent": true,
+    "text": "At the beginning of a round, after all ability cards have been revealed, change your leading initiative value to 100-X where X is the initiative value of your leading card."
   },
   {
     "id": 127,
@@ -215,7 +237,8 @@
     "count": 1,
     "edition": "toa",
     "slot": "head",
-    "spent": true
+    "spent": true,
+    "text": "You are immune to %game.condition.immobilize%, even if this item is spent.  When attacked, the attacker gains Disadvantage on the attack and gain DODGE $dodge$ after the attack."
   },
   {
     "id": 129,
@@ -224,7 +247,8 @@
     "count": 2,
     "edition": "toa",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, remove negative condition from Self and perform \"%game.action.heal% 3, Self\". This can be used while you have %game.condition.stun%."
   },
   {
     "id": 130,
@@ -233,7 +257,8 @@
     "count": 1,
     "edition": "toa",
     "slot": "onehand",
-    "spent": true
+    "spent": true,
+    "text": "During your melee Attack ability, %game.element.consume.wild% to add +2 %game.action.attack% and %game.condition.muddle% to one attack."
   },
   {
     "id": 131,
@@ -241,6 +266,7 @@
     "cost": 50,
     "count": 1,
     "edition": "toa",
-    "slot": "onehand"
+    "slot": "onehand",
+    "text": "After you kill an enemy during your turn, gain two \"%Rage%\" ^TOA6^ cards."
   }
 ]

@@ -2,6 +2,7 @@
   "index": "128",
   "name": "A Tall Drunken Tale",
   "edition": "fh",
+  "complexity": 3,
   "monsters": [
     "abael-scout",
     "lurker-wavethrower-scenario-128",
@@ -122,6 +123,5 @@
         }
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

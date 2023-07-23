@@ -2,6 +2,7 @@
   "index": "43",
   "name": "Overrun Barricade",
   "edition": "fh",
+  "complexity": 3,
   "unlocks": [
     "51"
   ],
@@ -70,6 +71,5 @@
         }
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

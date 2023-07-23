@@ -2,6 +2,7 @@
   "index": "10",
   "name": "Crystal Enclosure",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "18"
   ],
@@ -97,6 +98,5 @@
         1
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

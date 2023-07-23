@@ -2,6 +2,7 @@
   "index": "74B",
   "name": "Gaps in the Road B",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "75"
   ],
@@ -49,6 +50,5 @@
         1
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

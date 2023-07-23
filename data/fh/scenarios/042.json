@@ -2,6 +2,7 @@
   "index": "42",
   "name": "Sunless Trench",
   "edition": "fh",
+  "complexity": 1,
   "requirements": [
     {
       "buildings": [
@@ -110,6 +111,5 @@
         }
       ]
     }
-  ],
-  "complexity": 1
+  ]
 }

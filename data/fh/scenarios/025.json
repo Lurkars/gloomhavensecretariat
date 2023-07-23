@@ -2,6 +2,7 @@
   "index": "25",
   "name": "Rusted Tunnels",
   "edition": "fh",
+  "complexity": 2,
   "blocks": [
     "26"
   ],
@@ -63,6 +64,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

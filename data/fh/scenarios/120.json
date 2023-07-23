@@ -2,6 +2,7 @@
   "index": "120",
   "name": "Under the Influence",
   "edition": "fh",
+  "complexity": 1,
   "rewards": {
     "morale": 1,
     "collectiveResources": [
@@ -89,6 +90,5 @@
         }
       ]
     }
-  ],
-  "complexity": 1
+  ]
 }

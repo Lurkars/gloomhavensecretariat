@@ -2,6 +2,7 @@
   "index": "131",
   "name": "The Dancing Iceberg",
   "edition": "fh",
+  "complexity": 3,
   "rewards": {
     "experience": 10,
     "items": [
@@ -64,6 +65,5 @@
         }
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

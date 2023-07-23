@@ -2,6 +2,7 @@
   "index": "28",
   "name": "Summit Meeting",
   "edition": "fh",
+  "complexity": 3,
   "allyDeck": true,
   "unlocks": [
     "38"
@@ -204,6 +205,5 @@
         1
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

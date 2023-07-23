@@ -2,6 +2,7 @@
   "index": "5",
   "name": "Frozen Crypt",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "9",
     "10"
@@ -70,6 +71,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

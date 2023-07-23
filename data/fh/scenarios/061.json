@@ -2,6 +2,7 @@
   "index": "61",
   "name": "Life and Death",
   "edition": "fh",
+  "complexity": 2,
   "rewards": {
     "unlockCharacter": "shackles",
     "calenderSection": [
@@ -124,6 +125,5 @@
         1
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

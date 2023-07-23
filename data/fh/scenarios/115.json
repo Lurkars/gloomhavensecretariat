@@ -2,6 +2,7 @@
   "index": "115",
   "name": "Pylon Problems",
   "edition": "fh",
+  "complexity": 2,
   "rewards": {
     "calenderSectionManual": [
       {
@@ -202,6 +203,5 @@
         1
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

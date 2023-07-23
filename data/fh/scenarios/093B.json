@@ -2,6 +2,7 @@
   "index": "93B",
   "name": "Midwinter Brawl B",
   "edition": "fh",
+  "complexity": 2,
   "rewards": {
     "items": [
       "235"
@@ -111,6 +112,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

@@ -2,6 +2,7 @@
   "index": "47",
   "name": "Carrion Ridge",
   "edition": "fh",
+  "complexity": 1,
   "unlocks": [
     "56"
   ],
@@ -85,6 +86,5 @@
         }
       ]
     }
-  ],
-  "complexity": 1
+  ]
 }

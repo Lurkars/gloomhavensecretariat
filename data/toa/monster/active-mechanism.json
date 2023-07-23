@@ -45,7 +45,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.target% all enemies adjacent to exactly one pillar",
+              "value": "%game.action.target% all enemies adjacent to exactly one pillar",
               "small": true
             }
           ]

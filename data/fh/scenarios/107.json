@@ -2,6 +2,7 @@
   "index": "107",
   "name": "My Private Empire",
   "edition": "fh",
+  "complexity": 2,
   "random": true,
   "requirements": [
     {
@@ -26,6 +27,5 @@
       "initial": true,
       "monster": []
     }
-  ],
-  "complexity": 2
+  ]
 }

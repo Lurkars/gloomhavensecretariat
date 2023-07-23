@@ -2,6 +2,7 @@
   "index": "100",
   "name": "Inside the Swarm",
   "edition": "fh",
+  "complexity": 3,
   "unlocks": [
     "101"
   ],
@@ -59,6 +60,5 @@
         }
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

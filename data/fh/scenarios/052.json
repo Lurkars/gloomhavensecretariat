@@ -2,6 +2,7 @@
   "index": "52",
   "name": "Fleeting Permanence",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "55"
   ],
@@ -71,6 +72,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

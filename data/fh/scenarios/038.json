@@ -2,6 +2,7 @@
   "index": "38",
   "name": "The Way Forward",
   "edition": "fh",
+  "complexity": 3,
   "unlocks": [
     "45",
     "46"
@@ -118,6 +119,5 @@
         2
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

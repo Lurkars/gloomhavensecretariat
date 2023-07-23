@@ -2,6 +2,7 @@
   "index": "104",
   "name": "Ruins of the Solstice",
   "edition": "fh",
+  "complexity": 2,
   "random": true,
   "requirements": [
     {
@@ -86,6 +87,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

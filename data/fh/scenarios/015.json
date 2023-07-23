@@ -2,6 +2,7 @@
   "index": "15",
   "name": "Ancient Spire",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "23",
     "24"
@@ -104,6 +105,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

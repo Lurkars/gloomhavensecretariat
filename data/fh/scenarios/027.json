@@ -2,6 +2,7 @@
   "index": "27",
   "name": "Depths of Delirium",
   "edition": "fh",
+  "complexity": 2,
   "requirements": [
     {
       "campaignSticker": [
@@ -90,6 +91,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

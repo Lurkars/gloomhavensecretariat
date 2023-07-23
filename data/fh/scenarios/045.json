@@ -2,6 +2,7 @@
   "index": "45",
   "name": "Living Glacier",
   "edition": "fh",
+  "complexity": 1,
   "unlocks": [
     "52"
   ],
@@ -94,6 +95,5 @@
         }
       ]
     }
-  ],
-  "complexity": 1
+  ]
 }

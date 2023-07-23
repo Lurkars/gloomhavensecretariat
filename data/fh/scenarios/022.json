@@ -2,6 +2,7 @@
   "index": "22",
   "name": "Ice Floes",
   "edition": "fh",
+  "complexity": 2,
   "requirements": [
     {
       "buildings": [
@@ -91,6 +92,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

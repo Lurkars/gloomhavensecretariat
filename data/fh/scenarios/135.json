@@ -2,6 +2,7 @@
   "index": "135",
   "name": "Belara's Keep",
   "edition": "fh",
+  "complexity": 3,
   "rewards": {
     "morale": 2,
     "inspiration": 1,
@@ -79,6 +80,5 @@
         }
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

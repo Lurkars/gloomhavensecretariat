@@ -2,6 +2,7 @@
   "index": "13",
   "name": "Frozen Fjord",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "21",
     "32"
@@ -70,6 +71,5 @@
         1
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

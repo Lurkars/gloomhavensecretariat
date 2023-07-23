@@ -2,6 +2,7 @@
   "index": "37",
   "name": "The Dead Mile",
   "edition": "fh",
+  "complexity": 1,
   "unlocks": [
     "44"
   ],
@@ -84,6 +85,5 @@
         }
       ]
     }
-  ],
-  "complexity": 1
+  ]
 }

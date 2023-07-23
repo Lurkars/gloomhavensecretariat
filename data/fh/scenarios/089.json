@@ -2,6 +2,7 @@
   "index": "89",
   "name": "A Contained Fire",
   "edition": "fh",
+  "complexity": 2,
   "rewards": {
     "collectiveResources": [
       {
@@ -46,6 +47,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

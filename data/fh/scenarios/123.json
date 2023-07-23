@@ -2,6 +2,7 @@
   "index": "123",
   "name": "The Titan",
   "edition": "fh",
+  "complexity": 3,
   "rewards": {
     "morale": 1,
     "inspiration": 1
@@ -53,6 +54,5 @@
         }
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

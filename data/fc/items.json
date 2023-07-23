@@ -6,7 +6,8 @@
     "count": 1,
     "edition": "fc",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "After performing the top action of any ability card, you may immediately perform the bottom action of the same card. This item cannot be used if both actions trigger a lost card icon consumed %game.card.lost%."
   },
   {
     "id": 153,
@@ -14,7 +15,8 @@
     "cost": 25,
     "count": 2,
     "edition": "fc",
-    "slot": "small"
+    "slot": "small",
+    "text": "The next three times you would gain %game.condition.poison% prevent the condition."
   },
   {
     "id": 154,
@@ -22,7 +24,8 @@
     "cost": 50,
     "count": 2,
     "edition": "fc",
-    "slot": "small"
+    "slot": "small",
+    "text": "The next five times you would gain %game.condition.poison% prevent the condition."
   },
   {
     "id": 155,
@@ -32,7 +35,8 @@
     "edition": "fc",
     "slot": "body",
     "spent": true,
-    "minusOne": 3
+    "minusOne": 3,
+    "text": "You are immune to %game.condition.curse%, even if the item is spent. On the next three sources of damage from attacks targeting you gain %game.action.shield% 1."
   },
   {
     "id": 156,
@@ -40,7 +44,8 @@
     "cost": 50,
     "count": 2,
     "edition": "fc",
-    "slot": "twohand"
+    "slot": "twohand",
+    "text": "During your melee attack, %game.element.consume.wild% to add +2 %game.action.attack% to a single attack."
   },
   {
     "id": 157,
@@ -49,7 +54,8 @@
     "count": 2,
     "edition": "fc",
     "slot": "twohand",
-    "spent": true
+    "consumed": true,
+    "text": "During your ranged attack, add +2 %game.action.attack%, %game.condition.curse%, and %game.condition.wound% to a single attack."
   },
   {
     "id": 158,
@@ -58,7 +64,8 @@
     "count": 2,
     "edition": "fc",
     "slot": "legs",
-    "spent": true
+    "spent": true,
+    "text": "During your movement, add +2 %game.action.move% to the movement and gain REGENERATE $regenerate$."
   },
   {
     "id": 159,
@@ -67,7 +74,8 @@
     "count": 2,
     "edition": "fc",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During any one ally's movement, add +2 %game.action.move% to the movement."
   },
   {
     "id": 160,
@@ -76,7 +84,8 @@
     "count": 1,
     "edition": "fc",
     "slot": "onehand",
-    "spent": true
+    "spent": true,
+    "text": "When you kill a monster during your turn, gain one money token."
   },
   {
     "id": 161,
@@ -85,7 +94,8 @@
     "count": 2,
     "edition": "fc",
     "slot": "onehand",
-    "spent": true
+    "consumed": true,
+    "text": "During your single-target melee attack action, add %game.action.range:3% to the attack."
   },
   {
     "id": 162,
@@ -94,7 +104,8 @@
     "count": 1,
     "edition": "fc",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, %game.action.teleport% to any unoccupied hex within 4 hexes of you."
   },
   {
     "id": 163,
@@ -102,7 +113,8 @@
     "cost": 75,
     "count": 1,
     "edition": "fc",
-    "slot": "head"
+    "slot": "head",
+    "text": "When you perform a long or short rest, gain %game.condition.strengthen%."
   },
   {
     "id": 280,
@@ -110,6 +122,7 @@
     "cost": 125,
     "count": 1,
     "edition": "fc",
-    "slot": "body"
+    "slot": "body",
+    "text": "You are immune to POISON and !enchantment-circle!. When damage by an attack, gain %game.action.shield% 0 !enchantment-circle! for the attack."
   }
 ]

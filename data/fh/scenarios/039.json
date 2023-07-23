@@ -2,6 +2,7 @@
   "index": "39",
   "name": "Corrupted Camp",
   "edition": "fh",
+  "complexity": 3,
   "unlocks": [
     "47"
   ],
@@ -142,6 +143,5 @@
         }
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

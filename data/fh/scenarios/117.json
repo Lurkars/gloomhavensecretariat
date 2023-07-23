@@ -2,6 +2,7 @@
   "index": "117",
   "name": "A Waiting Game",
   "edition": "fh",
+  "complexity": 2,
   "rewards": {
     "collectiveResources": [
       {
@@ -160,6 +161,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

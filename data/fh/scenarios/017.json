@@ -2,6 +2,7 @@
   "index": "17",
   "name": "Haunted Vault",
   "edition": "fh",
+  "complexity": 3,
   "unlocks": [
     "27"
   ],
@@ -45,6 +46,5 @@
         "1:4-C"
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

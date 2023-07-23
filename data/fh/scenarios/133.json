@@ -2,6 +2,7 @@
   "index": "133",
   "name": "Bolt",
   "edition": "fh",
+  "complexity": 2,
   "rewards": {
     "items": [
       "238"
@@ -68,6 +69,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

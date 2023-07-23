@@ -2,6 +2,7 @@
   "index": "113",
   "name": "Lush Grotto",
   "edition": "fh",
+  "complexity": 1,
   "rewards": {
     "custom": "Gain any 4 collective herb resources"
   },
@@ -61,6 +62,5 @@
         }
       ]
     }
-  ],
-  "complexity": 1
+  ]
 }

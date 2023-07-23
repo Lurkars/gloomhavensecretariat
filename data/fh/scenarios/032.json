@@ -2,6 +2,7 @@
   "index": "32",
   "name": "Ravens' Roost",
   "edition": "fh",
+  "complexity": 2,
   "rewards": {
     "itemBlueprints": [
       "69"
@@ -71,6 +72,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

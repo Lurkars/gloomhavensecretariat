@@ -2,6 +2,7 @@
   "index": "96",
   "name": "Underground Station",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "97"
   ],
@@ -59,6 +60,5 @@
         1
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

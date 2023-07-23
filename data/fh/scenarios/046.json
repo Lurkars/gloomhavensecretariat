@@ -2,6 +2,7 @@
   "index": "46",
   "name": "Dead Pass",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "52"
   ],
@@ -71,6 +72,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

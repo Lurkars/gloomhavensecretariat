@@ -2,6 +2,7 @@
   "index": "49",
   "name": "Beneath Sea and Stone",
   "edition": "fh",
+  "complexity": 3,
   "unlocks": [
     "53"
   ],
@@ -126,6 +127,5 @@
       ],
       "objectives": []
     }
-  ],
-  "complexity": 3
+  ]
 }

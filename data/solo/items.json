@@ -6,7 +6,8 @@
     "count": 1,
     "edition": "gh",
     "solo": "brute",
-    "slot": "onehand"
+    "slot": "onehand",
+    "text": "Any time you kill an enemy during your turn, gain %game.action.shield% 1 for the rest of the round."
   },
   {
     "id": 135,
@@ -16,7 +17,8 @@
     "edition": "gh",
     "solo": "tinkerer",
     "slot": "onehand",
-    "spent": true
+    "consumed": true,
+    "text": "During your Heal action, double the value of the Heal."
   },
   {
     "id": 136,
@@ -26,7 +28,8 @@
     "edition": "gh",
     "solo": "spellweaver",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your ranged attack, add +2 %game.action.attack% and gain Advantage on the entire Attack action, but suffer 2 damage for each attack made."
   },
   {
     "id": 137,
@@ -35,7 +38,8 @@
     "count": 1,
     "edition": "gh",
     "solo": "scoundrel",
-    "slot": "onehand"
+    "slot": "onehand",
+    "text": "Any time you perform a melee attack, add %game.condition.pierce% 1 to the Attack."
   },
   {
     "id": 138,
@@ -45,7 +49,8 @@
     "edition": "gh",
     "solo": "cragheart",
     "slot": "head",
-    "spent": true
+    "spent": true,
+    "text": "During your action where an obstacle is created, create one additional obstacle and apply all effects of the action to it."
   },
   {
     "id": 139,
@@ -54,7 +59,8 @@
     "count": 1,
     "edition": "gh",
     "solo": "mindthief",
-    "slot": "onehand"
+    "slot": "onehand",
+    "text": "Any time you perform an %Augment% action, add +1 %game.action.attack% to the entire action."
   },
   {
     "id": 140,
@@ -63,7 +69,8 @@
     "count": 1,
     "edition": "gh",
     "solo": "sun",
-    "slot": "onehand"
+    "slot": "onehand",
+    "text": "When damaged by an attack, you may %game.element.consume.light% to gain %game.action.shield% 3 for the attack."
   },
   {
     "id": 141,
@@ -73,7 +80,8 @@
     "edition": "gh",
     "solo": "three-spears",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, you or any one ally may Refresh %game.card.refresh% one of your spent or consumed items."
   },
   {
     "id": 142,
@@ -83,7 +91,8 @@
     "edition": "gh",
     "solo": "circles",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "When a summon you own is damaged by an attack, it suffers no damage instead."
   },
   {
     "id": 143,
@@ -93,7 +102,15 @@
     "edition": "gh",
     "solo": "eclipse",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, gain %game.condition.invisible% and create dark.",
+    "actions": [
+      {
+        "type": "element",
+        "value": "dark"
+      }
+    ],
+    "actionSize": 1.5
   },
   {
     "id": 144,
@@ -103,7 +120,8 @@
     "edition": "gh",
     "solo": "squidface",
     "slot": "head",
-    "spent": true
+    "spent": true,
+    "text": "During your turn, %game.condition.poison% and %game.condition.curse% one enemy within %game.action.range:3%."
   },
   {
     "id": 145,
@@ -112,7 +130,8 @@
     "count": 1,
     "edition": "gh",
     "solo": "lightning",
-    "slot": "head"
+    "slot": "head",
+    "text": "Any time you perform a melee attack and you have exactly 1 hit point, add +2 %game.action.attack% to the Attack."
   },
   {
     "id": 146,
@@ -121,7 +140,8 @@
     "count": 1,
     "edition": "gh",
     "solo": "music-note",
-    "slot": "twohand"
+    "slot": "twohand",
+    "text": "After performing any %song% action, immediately perform an %game.action.attack% 2 or %game.action.move% 2 action."
   },
   {
     "id": 147,
@@ -130,7 +150,8 @@
     "count": 1,
     "edition": "gh",
     "solo": "angry-face",
-    "slot": "body"
+    "slot": "body",
+    "text": "Any time you perform a %Doom% action, %game.condition.muddle% the target of the %Doom%."
   },
   {
     "id": 148,
@@ -139,7 +160,8 @@
     "count": 1,
     "edition": "gh",
     "solo": "saw",
-    "slot": "body"
+    "slot": "body",
+    "text": "Any time an ally performs a Medical Pack or Large Medical Pack action, they add +1 %game.action.heal% to their Heal."
   },
   {
     "id": 149,
@@ -149,7 +171,15 @@
     "edition": "gh",
     "solo": "triangles",
     "slot": "legs",
-    "spent": true
+    "spent": true,
+    "text": "If you move 5 or more hexes on your turn, create any element.",
+    "actions": [
+      {
+        "type": "element",
+        "value": "wild"
+      }
+    ],
+    "actionSize": 1.5
   },
   {
     "id": 150,
@@ -159,7 +189,8 @@
     "edition": "gh",
     "solo": "two-mini",
     "slot": "twohand",
-    "spent": true
+    "spent": true,
+    "text": "After performing a %Command% action, play one card from your hand and immediately perform the same side of the card (top or bottom) as the %Command% action."
   },
   {
     "id": 151,
@@ -169,7 +200,8 @@
     "edition": "gh-envx",
     "solo": "envx",
     "slot": "onehand",
-    "spent": true
+    "consumed": true,
+    "text": "During your melee attack, add %game.condition.poison% and %game.condition.wound% to the entire action."
   },
   {
     "id": 164,
@@ -178,7 +210,8 @@
     "count": 1,
     "edition": "fc",
     "solo": "diviner",
-    "slot": "twohand"
+    "slot": "twohand",
+    "text": "When you reveal cards from any deck, reveal one additional card."
   },
   {
     "id": 34,
@@ -188,7 +221,8 @@
     "edition": "cs",
     "solo": "chain-helmet",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "At the end of your turn, create one 4 damage %game.condition.poison% trap in an adjacent empty hex."
   },
   {
     "id": 40,
@@ -198,7 +232,8 @@
     "edition": "cs",
     "solo": "galaxy",
     "slot": "legs",
-    "spent": true
+    "consumed": true,
+    "text": "Add +1 %game.action.move% to all your movement while you are at full health."
   },
   {
     "id": 41,
@@ -208,7 +243,8 @@
     "edition": "cs",
     "solo": "skull",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn remove one damage token from one %Spirit% {cs-spirit-caller-token}. This %Spirit% may immediately take a turn without receiving a damage token."
   },
   {
     "id": 42,
@@ -217,7 +253,8 @@
     "count": 1,
     "edition": "cs",
     "solo": "leaf",
-    "slot": "body"
+    "slot": "body",
+    "text": "Whenever you given an ally a %Prayer% ability card, that ally may perform \"%game.action.heal% 2, Self\"."
   },
   {
     "id": 45,
@@ -227,7 +264,8 @@
     "edition": "cs",
     "solo": "target",
     "slot": "onehand",
-    "spent": true
+    "spent": true,
+    "text": "During your turn, perform \"%game.action.pull% 2, Self toward one enemy within %game.action.range:3%\"."
   },
   {
     "id": 47,
@@ -236,7 +274,8 @@
     "count": 1,
     "edition": "cs",
     "solo": "tusks",
-    "slot": "onehand"
+    "slot": "onehand",
+    "text": "While %Mounted% on a summon, you can aply your %game.items.slots.small% items item effects to the summon instead."
   },
   {
     "id": 48,
@@ -246,7 +285,8 @@
     "edition": "cs",
     "solo": "flask",
     "slot": "onehand",
-    "spent": true
+    "spent": true,
+    "text": "During your turn, %game.element.consume.wild% to peforme one of the following: %game.action.move% 2, %game.action.jump%, %game.element.air% | %game.action.heal% 3, Self, %game.element.light% | %game.action.attack% 2, %game.element.fire%."
   },
   {
     "id": 50,
@@ -256,7 +296,8 @@
     "edition": "cs",
     "solo": "crescent-sun",
     "slot": "body",
-    "spent": true
+    "spent": true,
+    "text": "During your turn, when you %game.element.consume.wild% an element, do not move the consumed element to the Inert column."
   },
   {
     "id": 51,
@@ -265,7 +306,8 @@
     "count": 1,
     "edition": "cs",
     "solo": "ladder-axe",
-    "slot": "body"
+    "slot": "body",
+    "text": "When attacked, you may %game.element.consume.fire% to gain %game.action.retaliate% 3 for the attack."
   },
   {
     "id": 53,
@@ -274,7 +316,8 @@
     "count": 1,
     "edition": "cs",
     "solo": "sprig",
-    "slot": "small"
+    "slot": "small",
+    "text": "Once each turn, during your turn, you may remove one condition from an adjacent figure and place that condition on this card if it is not already on this card. During your turn, one adjacent figure gains all conditions on this card, then consume %game.card.lost% this item."
   },
   {
     "id": 56,
@@ -284,7 +327,8 @@
     "edition": "cs",
     "solo": "chain-helmet",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "At the end of your turn create one 3 damage %game.condition.immobilize% trap in an adjacent empty hex."
   },
   {
     "id": 57,
@@ -293,7 +337,8 @@
     "count": 1,
     "edition": "cs",
     "solo": "vortex",
-    "slot": "body"
+    "slot": "body",
+    "text": "You are immune to %game.condition.muddle%. At the end of each round, if you have %game.condition.wound% gain REGENERATE $regenerate$."
   },
   {
     "id": 103,
@@ -303,7 +348,8 @@
     "edition": "cs",
     "solo": "beetle",
     "slot": "onehand",
-    "spent": true
+    "spent": true,
+    "text": "The next two times an enemy suffers damage from attacking you, that enemy gains %game.condition.immobilize%."
   },
   {
     "id": 109,
@@ -313,7 +359,8 @@
     "edition": "cs",
     "solo": "tools",
     "slot": "twohand",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, forgo your top action to play a summon action from a card in your lost pile, ignoring two ^scrapx^."
   },
   {
     "id": 114,
@@ -323,7 +370,8 @@
     "edition": "cs",
     "solo": "bleeding-claw",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your attack ability gain %game.condition.wound% to add +3 %game.action.attack% to one attack. If you kill the target perform \"%game.action.heal% 3, Self\"."
   },
   {
     "id": 248,
@@ -333,7 +381,8 @@
     "edition": "fh",
     "solo": "drifter",
     "slot": "onehand",
-    "spent": true
+    "consumed": true,
+    "text": "Duing your attack ability, move one character token on one of your peristent abilities backward one slot and add +X %game.action.attack% to one attack, where X is the nuber of active peristent abilities."
   },
   {
     "id": 249,
@@ -343,7 +392,8 @@
     "edition": "fh",
     "solo": "blinkblade",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During our turn, perform one of the two following abilities: Lose one card from your hand to gain 3 ^fh-hourglass^. ~@-2 ^fh-hourglass^ : %game.card.recover% up to two of your discarded cards@~"
   },
   {
     "id": 250,
@@ -353,7 +403,8 @@
     "edition": "fh",
     "solo": "banner-spear",
     "slot": "onehand",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn perform: %game.action.attack% 2 ~!%game.action.range:3%!~. All your banners are treated as additionally occupying the hex of the attack target of their bonuses and that hex is treated as occupied by an ally this round. ^eot^"
   },
   {
     "id": 251,
@@ -363,7 +414,8 @@
     "edition": "fh",
     "solo": "deathwalker",
     "slot": "onehand",
-    "spent": true
+    "consumed": true,
+    "text": "Place one ^fh-shadow^ in an adjacent hex. @wfh-dark@"
   },
   {
     "id": 252,
@@ -373,7 +425,8 @@
     "edition": "fh",
     "solo": "boneshaper",
     "slot": "onehand",
-    "spent": true
+    "consumed": true,
+    "text": "On the next three deaths of any of your summons,"
   },
   {
     "id": 253,
@@ -382,7 +435,8 @@
     "count": 1,
     "edition": "fh",
     "solo": "geminate",
-    "slot": "head"
+    "slot": "head",
+    "text": "During your ranged attack ability while in ^fh-geminate-right^, gain advantage for one attack, then flip this card over."
   },
   {
     "id": 254,
@@ -392,7 +446,8 @@
     "edition": "fh",
     "solo": "astral",
     "slot": "twohand",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, activate all your ^fh-astral^ as if you just performed a ^fh-astral^ action."
   },
   {
     "id": 255,
@@ -402,7 +457,8 @@
     "edition": "fh",
     "solo": "meteor",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, you may create either one 1-hex obstacle or hazardous terrain tile in an empty tile within %game.action.range:2%."
   },
   {
     "id": 256,
@@ -412,7 +468,8 @@
     "edition": "fh",
     "solo": "shards",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "Gain 3 ^fh-shards^"
   },
   {
     "id": 257,
@@ -422,7 +479,8 @@
     "edition": "fh",
     "solo": "trap",
     "slot": "onehand",
-    "spent": true
+    "spent": true,
+    "text": "When you create a trap, place a character token on it.  Monsters do not treat the trap as negative. Remvoe the token when you %game.card.recover% this item. ^ongoing^"
   },
   {
     "id": 258,
@@ -432,7 +490,8 @@
     "edition": "fh",
     "solo": "shackles",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "When you suffer damage, if your hit point value is reduced to below half your maximum, perform: %game.action.heal% 7 ~!self, $wfh-curse$!~ This heal is not affect by and cannot remove negative conditions."
   },
   {
     "id": 259,
@@ -441,7 +500,8 @@
     "count": 1,
     "edition": "fh",
     "solo": "snowflake",
-    "slot": "onehand"
+    "slot": "onehand",
+    "text": "During an attack ability you grant an ally, add $wfh-push$ 2 to one of their attacks, then flip this card over."
   },
   {
     "id": 260,
@@ -451,7 +511,8 @@
     "edition": "fh",
     "solo": "fist",
     "slot": "onehand",
-    "spent": true
+    "consumed": true,
+    "text": "During your attack ability, add $wfh-brittle$ to one attack and create one 1-hex icy terrain tile in the featureless hex occupied by the target."
   },
   {
     "id": 261,
@@ -461,7 +522,8 @@
     "edition": "fh",
     "solo": "prism",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "Remove all damage and negative conditions from one of your summons, then ^fh-prism^ to that summon."
   },
   {
     "id": 262,
@@ -470,7 +532,8 @@
     "count": 1,
     "edition": "fh",
     "solo": "drill",
-    "slot": "legs"
+    "slot": "legs",
+    "text": "During your move ability, when you have ^fh-meter-yellow^ or ^fh-meter-red^, add +1 %game.action.move%, then flip this card over at the end of your turn."
   },
   {
     "id": 263,
@@ -479,7 +542,8 @@
     "count": 1,
     "edition": "fh",
     "solo": "kelp",
-    "slot": "onehand"
+    "slot": "onehand",
+    "text": "Whenever you gain $wfh-invisible$ or peform a teleport ability while you have $wfh-invisible$, after the ability perform: $wfh-muddle$ ~!%game.action.range:1%!~"
   },
   {
     "id": 264,
@@ -487,9 +551,10 @@
     "cost": 0,
     "count": 1,
     "edition": "fh",
-    "slot": "head",
     "solo": "coral",
-    "spent": true
+    "slot": "head",
+    "consumed": true,
+    "text": "When you rest, you may keep up to three ^fh-anemone^ cards in your active area."
   },
   {
     "id": 119,
@@ -497,9 +562,10 @@
     "cost": 50,
     "count": 1,
     "edition": "toa",
-    "slot": "onehand",
     "solo": "three-eyes",
-    "spent": true
+    "slot": "onehand",
+    "spent": true,
+    "text": "During your Attack ability, add +1 %game.action.attack% to one attack. Whenever this item is refreshed, one adjacent enemy suffers 1 damage."
   },
   {
     "id": 120,
@@ -507,8 +573,9 @@
     "cost": 50,
     "count": 1,
     "edition": "toa",
+    "solo": "ice-meteor",
     "slot": "onehand",
-    "solo": "ice-meteor"
+    "text": "During your melee Attack abilit, gain CHILL $chill$ to add CHILL $chill$ to the attack. After the attack flip, this card."
   },
   {
     "id": 121,
@@ -516,9 +583,10 @@
     "cost": 50,
     "count": 1,
     "edition": "toa",
-    "slot": "small",
     "solo": "gemstone",
-    "spent": true
+    "slot": "small",
+    "consumed": true,
+    "text": "During your turn, play one level 5 or lower card from your hand or discard pile and immediately perform a %Crystalize% ^Crystalize^ action from that card."
   },
   {
     "id": 123,
@@ -526,9 +594,10 @@
     "cost": 50,
     "count": 1,
     "edition": "toa",
-    "slot": "body",
     "solo": "lightning-ball",
-    "spent": true
+    "slot": "body",
+    "spent": true,
+    "text": "Whenever you DODGE $dodge$ an attack, you may spend this item instead of discarding a card from your hand."
   },
   {
     "id": 128,
@@ -536,8 +605,9 @@
     "cost": 50,
     "count": 1,
     "edition": "toa",
-    "slot": "onehand",
     "solo": "spiked-ring",
-    "spent": true
+    "slot": "onehand",
+    "spent": true,
+    "text": "During your turn, perform \"%game.action.pull% 1, %game.condition.muddle%, %game.action.range:3%\"."
   }
 ]

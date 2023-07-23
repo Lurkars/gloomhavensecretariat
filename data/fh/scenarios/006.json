@@ -2,6 +2,7 @@
   "index": "6",
   "name": "Avalanche",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "11",
     "12"
@@ -107,6 +108,5 @@
         1
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

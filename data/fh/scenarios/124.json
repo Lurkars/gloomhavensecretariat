@@ -2,6 +2,7 @@
   "index": "124",
   "name": "A Growing Problem",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "125"
   ],
@@ -65,6 +66,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

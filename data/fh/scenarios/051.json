@@ -2,6 +2,7 @@
   "index": "51",
   "name": "Orphan's Halls",
   "edition": "fh",
+  "complexity": 3,
   "forcedLinks": [
     "58",
     "59"
@@ -75,6 +76,5 @@
         }
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

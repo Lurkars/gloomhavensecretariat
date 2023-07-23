@@ -2,6 +2,7 @@
   "index": "12",
   "name": "Temple Entrance",
   "edition": "fh",
+  "complexity": 1,
   "unlocks": [
     "20"
   ],
@@ -57,6 +58,5 @@
         }
       ]
     }
-  ],
-  "complexity": 1
+  ]
 }

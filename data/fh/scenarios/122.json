@@ -2,6 +2,7 @@
   "index": "122",
   "name": "The Eternal Crave",
   "edition": "fh",
+  "complexity": 2,
   "lootDeckConfig": {
     "money": 6,
     "lumber": 3,
@@ -17,6 +18,5 @@
       "initial": true,
       "monster": []
     }
-  ],
-  "complexity": 2
+  ]
 }

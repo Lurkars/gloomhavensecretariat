@@ -2,6 +2,7 @@
   "index": "92",
   "name": "Sinking Ship",
   "edition": "fh",
+  "complexity": 3,
   "requirements": [
     {
       "buildings": [
@@ -227,6 +228,5 @@
         }
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

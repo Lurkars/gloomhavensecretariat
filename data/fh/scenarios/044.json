@@ -2,6 +2,7 @@
   "index": "44",
   "name": "Nerve Center",
   "edition": "fh",
+  "complexity": 2,
   "forcedLinks": [
     "58",
     "59"
@@ -62,6 +63,5 @@
         1
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

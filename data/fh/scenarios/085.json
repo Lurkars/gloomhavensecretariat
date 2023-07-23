@@ -2,6 +2,7 @@
   "index": "85",
   "name": "Deadly Pastimes",
   "edition": "fh",
+  "complexity": 3,
   "requirements": [
     {
       "buildings": [
@@ -65,6 +66,5 @@
         }
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

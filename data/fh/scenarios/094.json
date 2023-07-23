@@ -2,6 +2,7 @@
   "index": "94",
   "name": "A Grand View",
   "edition": "fh",
+  "complexity": 3,
   "requirements": [
     {
       "buildings": [
@@ -132,6 +133,5 @@
         "1:4"
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

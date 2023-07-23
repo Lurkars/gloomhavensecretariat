@@ -2,6 +2,7 @@
   "index": "87",
   "name": "The Collection",
   "edition": "fh",
+  "complexity": 1,
   "unlocks": [
     "88"
   ],
@@ -49,6 +50,5 @@
         }
       ]
     }
-  ],
-  "complexity": 1
+  ]
 }

@@ -2,6 +2,7 @@
   "index": "48",
   "name": "Blizzard Island",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "57"
   ],
@@ -85,6 +86,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

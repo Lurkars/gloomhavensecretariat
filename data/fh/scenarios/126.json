@@ -2,6 +2,7 @@
   "index": "126",
   "name": "Joseph the Lion",
   "edition": "fh",
+  "complexity": 2,
   "rewards": {
     "gold": 10
   },
@@ -289,6 +290,5 @@
         5
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

@@ -2,6 +2,7 @@
   "index": "0",
   "name": "Howling in the Snow",
   "edition": "fh",
+  "complexity": 1,
   "initial": true,
   "forcedLinks": [
     "1"
@@ -42,6 +43,5 @@
         }
       ]
     }
-  ],
-  "complexity": 1
+  ]
 }

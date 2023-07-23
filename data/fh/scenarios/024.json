@@ -2,6 +2,7 @@
   "index": "24",
   "name": "Upper Spire",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "34"
   ],
@@ -81,6 +82,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

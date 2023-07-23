@@ -2,6 +2,7 @@
   "index": "64",
   "name": "The Frosthaven Seal",
   "edition": "fh",
+  "complexity": 3,
   "rewards": {
     "morale": 3,
     "prosperity": 3,
@@ -555,6 +556,5 @@
         "2:C>3"
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

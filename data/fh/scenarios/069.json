@@ -2,6 +2,7 @@
   "index": "69",
   "name": "Sacred Soil",
   "edition": "fh",
+  "complexity": 2,
   "requirements": [
     {
       "campaignSticker": [
@@ -84,6 +85,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

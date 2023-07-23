@@ -2,6 +2,7 @@
   "index": "132",
   "name": "Temple of Feline Power",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "133"
   ],
@@ -108,6 +109,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

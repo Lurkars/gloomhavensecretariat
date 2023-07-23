@@ -2,6 +2,7 @@
   "index": "59",
   "name": "Automaton Uprising",
   "edition": "fh",
+  "complexity": 2,
   "blocks": [
     "58"
   ],
@@ -322,6 +323,5 @@
         1
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

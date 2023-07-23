@@ -7,12 +7,9 @@
   "initial": true,
   "solo": "music-note",
   "monsters": [
-    "bandit-archer-music-note-solo",
-    "bandit-guard-music-note-solo",
-    "city-archer",
-    "city-guard",
-    "song-of-the-deep",
-    "stone-golem"
+    "bandit-archer-music-note-solo:-2",
+    "bandit-guard-music-note-solo:-2",
+    "city-guard"
   ],
   "rooms": [
     {
@@ -20,27 +17,27 @@
       "initial": true,
       "monster": [
         {
-          "name": "bandit-archer-music-note-solo",
+          "name": "bandit-archer-music-note-solo:-2",
           "type": "normal"
         },
         {
-          "name": "bandit-archer-music-note-solo",
+          "name": "bandit-archer-music-note-solo:-2",
           "type": "normal"
         },
         {
-          "name": "bandit-guard-music-note-solo",
+          "name": "bandit-guard-music-note-solo:-2",
           "type": "normal"
         },
         {
-          "name": "bandit-guard-music-note-solo",
+          "name": "bandit-guard-music-note-solo:-2",
           "type": "normal"
         },
         {
-          "name": "bandit-guard-music-note-solo",
+          "name": "bandit-guard-music-note-solo:-2",
           "type": "normal"
         },
         {
-          "name": "bandit-guard-music-note-solo",
+          "name": "bandit-guard-music-note-solo:-2",
           "type": "normal"
         },
         {

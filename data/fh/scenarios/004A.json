@@ -2,6 +2,7 @@
   "index": "4A",
   "name": "Heart of Ice A",
   "edition": "fh",
+  "complexity": 2,
   "rewards": {
     "morale": 1,
     "calenderSection": [
@@ -99,6 +100,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

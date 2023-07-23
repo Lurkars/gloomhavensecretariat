@@ -2,6 +2,7 @@
   "index": "70",
   "name": "The True Oak",
   "edition": "fh",
+  "complexity": 1,
   "rewards": {
     "prosperity": 1,
     "custom": "\"The True Oak\" quest complete"
@@ -96,6 +97,5 @@
         1
       ]
     }
-  ],
-  "complexity": 1
+  ]
 }

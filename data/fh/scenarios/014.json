@@ -2,6 +2,7 @@
   "index": "14",
   "name": "Jagged Shoals",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "22"
   ],
@@ -163,6 +164,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

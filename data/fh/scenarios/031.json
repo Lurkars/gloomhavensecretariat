@@ -2,6 +2,7 @@
   "index": "31",
   "name": "Crackling Tunnel",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "41"
   ],
@@ -43,6 +44,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

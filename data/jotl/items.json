@@ -10,7 +10,8 @@
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
-    }
+    },
+    "text": "During your attack, gain Advantage on the entire Attack action."
   },
   {
     "id": 2,
@@ -22,7 +23,8 @@
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
-    }
+    },
+    "text": "When attacked, consider any %game.attackmodifier.double% attack modifier card the enemy draws to be a %game.attackmodifier.plus0% instead."
   },
   {
     "id": 3,
@@ -35,7 +37,8 @@
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
-    }
+    },
+    "text": "During your turn gain %game.action.shield% 1 for the rest of the round"
   },
   {
     "id": 4,
@@ -48,7 +51,8 @@
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
-    }
+    },
+    "text": "When attacked, the attacker gains Disadvantage on the attack and you gain %game.action.shield% 1 for the attack."
   },
   {
     "id": 5,
@@ -61,7 +65,8 @@
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
-    }
+    },
+    "text": "During your movement add +1 %game.action.move% to a single movement."
   },
   {
     "id": 6,
@@ -74,7 +79,8 @@
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
-    }
+    },
+    "text": "During your movement, add %game.action.jump% to the entire Move Action."
   },
   {
     "id": 7,
@@ -87,7 +93,8 @@
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
-    }
+    },
+    "text": "When damaged by an attack, gain %game.action.shield% 1 for the attack."
   },
   {
     "id": 8,
@@ -96,11 +103,12 @@
     "count": 2,
     "edition": "jotl",
     "slot": "onehand",
-    "spent": true,
+    "consumed": true,
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
-    }
+    },
+    "text": "During your ranged attack, add %game.condition.stun% to a single attack"
   },
   {
     "id": 9,
@@ -113,7 +121,8 @@
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
-    }
+    },
+    "text": "During your melee attack, add %game.condition.poison% to a single attack."
   },
   {
     "id": 10,
@@ -126,7 +135,8 @@
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
-    }
+    },
+    "text": "During your single-target melee Attack ability, attack any one enemy wihin 2 hexes"
   },
   {
     "id": 11,
@@ -135,11 +145,12 @@
     "count": 2,
     "edition": "jotl",
     "slot": "small",
-    "spent": true,
+    "consumed": true,
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
-    }
+    },
+    "text": "During your turn, perform a \"%game.action.heal% 3, Self\" action."
   },
   {
     "id": 12,
@@ -148,11 +159,12 @@
     "count": 2,
     "edition": "jotl",
     "slot": "small",
-    "spent": true,
+    "consumed": true,
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
-    }
+    },
+    "text": "During your turn, return one of your discarded cards to your hand."
   },
   {
     "id": 13,
@@ -161,11 +173,12 @@
     "count": 2,
     "edition": "jotl",
     "slot": "small",
-    "spent": true,
+    "consumed": true,
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
-    }
+    },
+    "text": "During your attack, add +1 %game.action.attack% to your entire Attack action."
   },
   {
     "id": 14,
@@ -174,7 +187,15 @@
     "count": 2,
     "edition": "jotl",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, infuse any one element.",
+    "actions": [
+      {
+        "type": "element",
+        "value": "wild"
+      }
+    ],
+    "actionSize": 1.5
   },
   {
     "id": 15,
@@ -187,7 +208,8 @@
     "unlockScenario": {
       "name": 9,
       "edition": "jotl"
-    }
+    },
+    "text": "During your turn, \"%game.action.heal% 1, Self\" action."
   },
   {
     "id": 16,
@@ -200,7 +222,8 @@
     "unlockScenario": {
       "name": 9,
       "edition": "jotl"
-    }
+    },
+    "text": "During your attack, %game.element.consume.wild% to add +1 %game.action.attack% to the entire Attack action."
   },
   {
     "id": 17,
@@ -212,7 +235,8 @@
     "unlockScenario": {
       "name": 9,
       "edition": "jotl"
-    }
+    },
+    "text": "Whenever you use the default bottom of an ability card, perform a \"%game.action.move% 3\" action instead of a \"%game.action.move% 2\" action."
   },
   {
     "id": 18,
@@ -221,11 +245,12 @@
     "count": 1,
     "edition": "jotl",
     "slot": "onehand",
-    "spent": true,
+    "consumed": true,
     "unlockScenario": {
       "name": 9,
       "edition": "jotl"
-    }
+    },
+    "text": "During your single-target melee attack action, turn the attack into the following: *cone_0_1*"
   },
   {
     "id": 19,
@@ -238,7 +263,8 @@
     "unlockScenario": {
       "name": 9,
       "edition": "jotl"
-    }
+    },
+    "text": "During your ranged attack, add %game.condition.curse% to a single attack."
   },
   {
     "id": 20,
@@ -247,11 +273,12 @@
     "count": 2,
     "edition": "jotl",
     "slot": "small",
-    "spent": true,
+    "consumed": true,
     "unlockScenario": {
       "name": 9,
       "edition": "jotl"
-    }
+    },
+    "text": "During your attack, add %game.condition.stun% to a single attack."
   },
   {
     "id": 21,
@@ -264,7 +291,8 @@
     "unlockScenario": {
       "name": 15,
       "edition": "jotl"
-    }
+    },
+    "text": "During your ranged attack, add +1 %game.action.range% to your entire Attack action."
   },
   {
     "id": 22,
@@ -277,7 +305,8 @@
     "unlockScenario": {
       "name": 15,
       "edition": "jotl"
-    }
+    },
+    "text": "When damaged by an attack, gain %game.action.shield% 2 for the attack and the attacker suffers 2 damage."
   },
   {
     "id": 23,
@@ -290,7 +319,8 @@
     "unlockScenario": {
       "name": 15,
       "edition": "jotl"
-    }
+    },
+    "text": "During your movement, add +2 %game.action.move% to a single movement."
   },
   {
     "id": 24,
@@ -299,11 +329,12 @@
     "count": 1,
     "edition": "jotl",
     "slot": "onehand",
-    "spent": true,
+    "consumed": true,
     "unlockScenario": {
       "name": 15,
       "edition": "jotl"
-    }
+    },
+    "text": "During your single-target ranged attack action, turn the attack into the following: *cone_1_1*"
   },
   {
     "id": 25,
@@ -316,7 +347,8 @@
     "unlockScenario": {
       "name": 15,
       "edition": "jotl"
-    }
+    },
+    "text": "During your ranged attack, add %game.action.pull% 2 to a single attack."
   },
   {
     "id": 26,
@@ -325,11 +357,12 @@
     "count": 2,
     "edition": "jotl",
     "slot": "small",
-    "spent": true,
+    "consumed": true,
     "unlockScenario": {
       "name": 15,
       "edition": "jotl"
-    }
+    },
+    "text": "During your turn, perform a \"BLESS $bless$, %game.action.range:5%\" action."
   },
   {
     "id": 27,
@@ -338,7 +371,8 @@
     "count": 1,
     "edition": "jotl",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, force one enemy within %game.action.range:3% to perform a \"%game.action.move% 2\" action with you controlling the action."
   },
   {
     "id": 28,
@@ -346,7 +380,8 @@
     "cost": 10,
     "count": 1,
     "edition": "jotl",
-    "slot": "body"
+    "slot": "body",
+    "text": "You are considered to have an initiative of 99 for the purpose of enemy focusing."
   },
   {
     "id": 29,
@@ -355,7 +390,8 @@
     "count": 1,
     "edition": "jotl",
     "slot": "onehand",
-    "spent": true
+    "spent": true,
+    "text": "When damaged by an attack, gain %game.action.shield% 2 for the attack."
   },
   {
     "id": 30,
@@ -364,7 +400,8 @@
     "count": 1,
     "edition": "jotl",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "At the end of your turn, play one card from your hand and immediately perform the bottom action of that card."
   },
   {
     "id": 31,
@@ -373,7 +410,8 @@
     "count": 1,
     "edition": "jotl",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, gain %game.condition.strengthen%."
   },
   {
     "id": 32,
@@ -382,7 +420,8 @@
     "count": 1,
     "edition": "jotl",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, perform a \"%game.action.heal% 3, %game.action.range:5%\" action."
   },
   {
     "id": 33,
@@ -391,7 +430,8 @@
     "count": 1,
     "edition": "jotl",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "When damaged by an attack, gain %game.action.shield% 4 for the attack."
   },
   {
     "id": 34,
@@ -400,7 +440,8 @@
     "count": 1,
     "edition": "jotl",
     "slot": "onehand",
-    "spent": true
+    "consumed": true,
+    "text": "During your attack, add %game.condition.wound% to the entire Attack Action."
   },
   {
     "id": 35,
@@ -409,7 +450,8 @@
     "count": 1,
     "edition": "jotl",
     "slot": "body",
-    "spent": true
+    "spent": true,
+    "text": "During your turn, one adjacent ally may perform and \"%game.action.attack% 2\" Action."
   },
   {
     "id": 36,
@@ -418,6 +460,7 @@
     "count": 1,
     "edition": "jotl",
     "slot": "legs",
-    "spent": true
+    "spent": true,
+    "text": "During your movement, add +1 %game.action.move% and %game.action.jump% to a single movement."
   }
 ]

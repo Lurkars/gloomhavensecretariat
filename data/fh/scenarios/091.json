@@ -2,6 +2,7 @@
   "index": "91",
   "name": "Shoreline Scramble",
   "edition": "fh",
+  "complexity": 2,
   "rewards": {
     "morale": 1,
     "collectiveResources": [
@@ -47,6 +48,5 @@
       "initial": true,
       "monster": []
     }
-  ],
-  "complexity": 2
+  ]
 }

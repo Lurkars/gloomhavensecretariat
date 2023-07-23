@@ -2,6 +2,7 @@
   "index": "97",
   "name": "Program Control Nexus",
   "edition": "fh",
+  "complexity": 3,
   "unlocks": [
     "98"
   ],
@@ -94,6 +95,5 @@
         }
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

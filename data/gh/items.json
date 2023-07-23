@@ -7,7 +7,8 @@
     "edition": "gh",
     "slot": "legs",
     "spent": true,
-    "unlockProsperity": 1
+    "unlockProsperity": 1,
+    "text": "During your movement, add +2 %game.action.move% to the movement."
   },
   {
     "id": 2,
@@ -17,7 +18,8 @@
     "edition": "gh",
     "slot": "legs",
     "spent": true,
-    "unlockProsperity": 1
+    "unlockProsperity": 1,
+    "text": "During your movement, add %game.action.jump% to the movement."
   },
   {
     "id": 3,
@@ -29,7 +31,8 @@
     "spent": true,
     "minusOne": 2,
     "slots": 2,
-    "unlockProsperity": 1
+    "unlockProsperity": 1,
+    "text": "On the next two sources of damage to you from attacks, gain %game.action.shield% 1."
   },
   {
     "id": 4,
@@ -39,7 +42,8 @@
     "edition": "gh",
     "slot": "body",
     "spent": true,
-    "unlockProsperity": 1
+    "unlockProsperity": 1,
+    "text": "When attacked, the attacker gains Disadvantage on the attack."
   },
   {
     "id": 5,
@@ -48,8 +52,9 @@
     "count": 2,
     "edition": "gh",
     "slot": "body",
-    "spent": true,
-    "unlockProsperity": 1
+    "consumed": true,
+    "unlockProsperity": 1,
+    "text": "During your turn, gain %game.condition.invisible%."
   },
   {
     "id": 6,
@@ -59,7 +64,8 @@
     "edition": "gh",
     "slot": "head",
     "spent": true,
-    "unlockProsperity": 1
+    "unlockProsperity": 1,
+    "text": "During your attack, gain Advantage on the entire Attack action."
   },
   {
     "id": 7,
@@ -68,7 +74,8 @@
     "count": 2,
     "edition": "gh",
     "slot": "head",
-    "unlockProsperity": 1
+    "unlockProsperity": 1,
+    "text": "When attacked, consider any %game.attackmodifier.double% attack modifier card the enemy draws to be a %game.attackmodifier.plus0% instead."
   },
   {
     "id": 8,
@@ -78,7 +85,8 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "unlockProsperity": 1
+    "unlockProsperity": 1,
+    "text": "When damaged by an attack, gain %game.action.shield% 1 for the attack."
   },
   {
     "id": 9,
@@ -87,8 +95,9 @@
     "count": 2,
     "edition": "gh",
     "slot": "twohand",
-    "spent": true,
-    "unlockProsperity": 1
+    "consumed": true,
+    "unlockProsperity": 1,
+    "text": "During your ranged attack, ignore all Shield values for the entire Attack action."
   },
   {
     "id": 10,
@@ -97,8 +106,9 @@
     "count": 2,
     "edition": "gh",
     "slot": "twohand",
-    "spent": true,
-    "unlockProsperity": 1
+    "consumed": true,
+    "unlockProsperity": 1,
+    "text": "During your melee attack, add %game.condition.stun% to the entire Attack action."
   },
   {
     "id": 11,
@@ -108,7 +118,8 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "unlockProsperity": 1
+    "unlockProsperity": 1,
+    "text": "During your melee attack, add %game.condition.poison% to a single attack."
   },
   {
     "id": 12,
@@ -117,8 +128,9 @@
     "count": 4,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "unlockProsperity": 1
+    "consumed": true,
+    "unlockProsperity": 1,
+    "text": "During your turn, perform a \"%game.action.heal% 3, self\" action."
   },
   {
     "id": 13,
@@ -127,8 +139,9 @@
     "count": 4,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "unlockProsperity": 1
+    "consumed": true,
+    "unlockProsperity": 1,
+    "text": "During your turn, Recover %game.card.recover% up to two of your discarded cards."
   },
   {
     "id": 14,
@@ -137,8 +150,9 @@
     "count": 4,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "unlockProsperity": 1
+    "consumed": true,
+    "unlockProsperity": 1,
+    "text": "During your attack, add +1 %game.action.attack% to your entire Attack action."
   },
   {
     "id": 15,
@@ -148,7 +162,8 @@
     "edition": "gh",
     "slot": "legs",
     "spent": true,
-    "unlockProsperity": 2
+    "unlockProsperity": 2,
+    "text": "At the beginning of a round, after all ability cards have been revealed, increase or decrease your leading initiative value by 10."
   },
   {
     "id": 16,
@@ -157,7 +172,8 @@
     "count": 2,
     "edition": "gh",
     "slot": "body",
-    "unlockProsperity": 2
+    "unlockProsperity": 2,
+    "text": "You can carry two additional %game.items.slots.small% items."
   },
   {
     "id": 17,
@@ -166,8 +182,9 @@
     "count": 2,
     "edition": "gh",
     "slot": "head",
-    "spent": true,
-    "unlockProsperity": 2
+    "consumed": true,
+    "unlockProsperity": 2,
+    "text": "During your turn, Refresh %game.card.refresh% one of your consumed %game.items.slots.small% items."
   },
   {
     "id": 18,
@@ -176,8 +193,16 @@
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "spent": true,
-    "unlockProsperity": 2
+    "consumed": true,
+    "unlockProsperity": 2,
+    "text": "During your single-target melee attack action, turn the attack into the following:",
+    "actions": [
+      {
+        "type": "area",
+        "value": "(1,0,target)|(1,1,target)|(0,1,active)"
+      }
+    ],
+    "actionSize": 1.3
   },
   {
     "id": 19,
@@ -187,7 +212,8 @@
     "edition": "gh",
     "slot": "twohand",
     "spent": true,
-    "unlockProsperity": 2
+    "unlockProsperity": 2,
+    "text": "During your ranged attack, add %game.condition.immobilize% to a single attack."
   },
   {
     "id": 20,
@@ -196,8 +222,16 @@
     "count": 4,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "unlockProsperity": 2
+    "consumed": true,
+    "unlockProsperity": 2,
+    "text": "During your turn, create any element.",
+    "actions": [
+      {
+        "type": "element",
+        "value": "wild"
+      }
+    ],
+    "actionSize": 1.5
   },
   {
     "id": 21,
@@ -206,8 +240,9 @@
     "count": 2,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "unlockProsperity": 2
+    "consumed": true,
+    "unlockProsperity": 2,
+    "text": "During your attack, add %game.condition.stun% to a single attack."
   },
   {
     "id": 22,
@@ -217,7 +252,8 @@
     "edition": "gh",
     "slot": "legs",
     "minusOne": 1,
-    "unlockProsperity": 3
+    "unlockProsperity": 3,
+    "text": "You are immune to all forced movement caused by enemies or scenario effects."
   },
   {
     "id": 23,
@@ -228,7 +264,8 @@
     "slot": "body",
     "spent": true,
     "minusOne": 3,
-    "unlockProsperity": 3
+    "unlockProsperity": 3,
+    "text": "On the next three sources of damage to you from attacks, gain %game.action.shield% 1."
   },
   {
     "id": 24,
@@ -238,7 +275,8 @@
     "edition": "gh",
     "slot": "head",
     "spent": true,
-    "unlockProsperity": 3
+    "unlockProsperity": 3,
+    "text": "During your turn, perform \"%game.action.heal% 1, Self\" action."
   },
   {
     "id": 25,
@@ -248,7 +286,8 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "unlockProsperity": 3
+    "unlockProsperity": 3,
+    "text": "During your melee attack, add %game.condition.wound% to a single attack."
   },
   {
     "id": 26,
@@ -258,7 +297,8 @@
     "edition": "gh",
     "slot": "twohand",
     "spent": true,
-    "unlockProsperity": 3
+    "unlockProsperity": 3,
+    "text": "Turn a single-target melee attack into the following: *line_0_1_1*"
   },
   {
     "id": 27,
@@ -267,8 +307,9 @@
     "count": 4,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "unlockProsperity": 3
+    "consumed": true,
+    "unlockProsperity": 3,
+    "text": "During your turn, perform a \"%game.action.heal% 5, self\" action."
   },
   {
     "id": 28,
@@ -277,8 +318,9 @@
     "count": 2,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "unlockProsperity": 3
+    "consumed": true,
+    "unlockProsperity": 3,
+    "text": "During your turn, Refresh %game.card.refresh% all of your spent items."
   },
   {
     "id": 29,
@@ -287,7 +329,8 @@
     "count": 2,
     "edition": "gh",
     "slot": "legs",
-    "unlockProsperity": 4
+    "unlockProsperity": 4,
+    "text": "Whenever you use the default bottom of an ability card, perform a \"%game.action.move% 3\" action instead of a \"%game.action.move% 2\" action."
   },
   {
     "id": 30,
@@ -297,7 +340,8 @@
     "edition": "gh",
     "slot": "body",
     "spent": true,
-    "unlockProsperity": 4
+    "unlockProsperity": 4,
+    "text": "When attacked, the attacker gains Disadvantage on the attack and you gain %game.action.shield% 1 for the attack."
   },
   {
     "id": 31,
@@ -307,7 +351,8 @@
     "edition": "gh",
     "slot": "head",
     "spent": true,
-    "unlockProsperity": 4
+    "unlockProsperity": 4,
+    "text": "During your ranged attack, add +1 %game.action.range% to your entire Attack action."
   },
   {
     "id": 32,
@@ -317,7 +362,8 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "unlockProsperity": 4
+    "unlockProsperity": 4,
+    "text": "When damaged by an attack, gain %game.action.shield% 2 for the attack."
   },
   {
     "id": 33,
@@ -326,8 +372,9 @@
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "spent": true,
-    "unlockProsperity": 4
+    "consumed": true,
+    "unlockProsperity": 4,
+    "text": "During your single-target ranged attack action, turn the attack into the following: *cone_1_1*"
   },
   {
     "id": 34,
@@ -336,8 +383,9 @@
     "count": 4,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "unlockProsperity": 4
+    "consumed": true,
+    "unlockProsperity": 4,
+    "text": "During your turn, Recover %game.card.recover% up to three of your discarded cards."
   },
   {
     "id": 35,
@@ -346,7 +394,8 @@
     "count": 2,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
+    "consumed": true,
+    "unlockProsperity": 4,
     "summon": {
       "name": "Jade Falcon",
       "health": 2,
@@ -354,8 +403,7 @@
       "movement": 3,
       "range": 0,
       "flying": true
-    },
-    "unlockProsperity": 4
+    }
   },
   {
     "id": 36,
@@ -365,7 +413,8 @@
     "edition": "gh",
     "slot": "legs",
     "spent": true,
-    "unlockProsperity": 5
+    "unlockProsperity": 5,
+    "text": "During your movement, add +3 %game.action.move% to the movement."
   },
   {
     "id": 37,
@@ -375,7 +424,8 @@
     "edition": "gh",
     "slot": "body",
     "spent": true,
-    "unlockProsperity": 5
+    "unlockProsperity": 5,
+    "text": "During your attack, %game.element.consume.wild%  to add +1 %game.action.attack% to the entire Attack action."
   },
   {
     "id": 38,
@@ -385,7 +435,8 @@
     "edition": "gh",
     "slot": "head",
     "minusOne": 2,
-    "unlockProsperity": 5
+    "unlockProsperity": 5,
+    "text": "You are immune to %game.condition.stun% and %game.condition.muddle%."
   },
   {
     "id": 39,
@@ -395,7 +446,8 @@
     "edition": "gh",
     "slot": "twohand",
     "spent": true,
-    "unlockProsperity": 5
+    "unlockProsperity": 5,
+    "text": "During your ranged attack, add %game.action.pull% 2 to the entire Attack action."
   },
   {
     "id": 40,
@@ -404,7 +456,8 @@
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "unlockProsperity": 5
+    "unlockProsperity": 5,
+    "text": "Whenever you use the default top of an ability card, perform an \"%game.action.attack% 3\" action instead of an \"%game.action.attack% 2\" action."
   },
   {
     "id": 41,
@@ -413,8 +466,9 @@
     "count": 4,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "unlockProsperity": 5
+    "consumed": true,
+    "unlockProsperity": 5,
+    "text": "During your attack, add +2 %game.action.attack% to your entire Attack action."
   },
   {
     "id": 42,
@@ -423,8 +477,9 @@
     "count": 2,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "unlockProsperity": 5
+    "consumed": true,
+    "unlockProsperity": 5,
+    "text": "At the end of your turn, play one card from your hand and immediately perform the bottom action of the card."
   },
   {
     "id": 43,
@@ -434,7 +489,8 @@
     "edition": "gh",
     "slot": "legs",
     "spent": true,
-    "unlockProsperity": 6
+    "unlockProsperity": 6,
+    "text": "At the beginning of a round, after all ability cards have been revealed, increase or decrease your leading initiative value by 20."
   },
   {
     "id": 44,
@@ -444,7 +500,8 @@
     "edition": "gh",
     "slot": "body",
     "minusOne": 4,
-    "unlockProsperity": 6
+    "unlockProsperity": 6,
+    "text": "On the next four sources of damage to you from attacks, gain %game.action.shield% 1."
   },
   {
     "id": 45,
@@ -453,8 +510,9 @@
     "count": 2,
     "edition": "gh",
     "slot": "head",
-    "spent": true,
-    "unlockProsperity": 6
+    "consumed": true,
+    "unlockProsperity": 6,
+    "text": "During your turn, Refresh %game.card.refresh% two of your consumed %game.items.slots.small% items. Gain %game.condition.curse%."
   },
   {
     "id": 46,
@@ -464,7 +522,8 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "unlockProsperity": 6
+    "unlockProsperity": 6,
+    "text": "When damaged by an attack, gain %game.action.shield% 1 and %game.action.retaliate% 2 for the attack."
   },
   {
     "id": 47,
@@ -473,8 +532,9 @@
     "count": 2,
     "edition": "gh",
     "slot": "twohand",
-    "spent": true,
-    "unlockProsperity": 6
+    "consumed": true,
+    "unlockProsperity": 6,
+    "text": "During your single-target melee attack action, turn the attack into the following:  *cleave_0_1*"
   },
   {
     "id": 48,
@@ -483,8 +543,25 @@
     "count": 4,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "unlockProsperity": 6
+    "consumed": true,
+    "unlockProsperity": 6,
+    "text": "During your turn, create any two elements.",
+    "actions": [
+      {
+        "type": "grid",
+        "subActions": [
+          {
+            "type": "element",
+            "value": "wild"
+          },
+          {
+            "type": "element",
+            "value": "wild"
+          }
+        ]
+      }
+    ],
+    "actionSize": 1.5
   },
   {
     "id": 49,
@@ -493,8 +570,9 @@
     "count": 2,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "unlockProsperity": 6
+    "consumed": true,
+    "unlockProsperity": 6,
+    "text": "During your turn, Refresh %game.card.refresh% all of your spent items and \"%game.action.heal% 3, Self\" action."
   },
   {
     "id": 50,
@@ -504,7 +582,8 @@
     "edition": "gh",
     "slot": "legs",
     "minusOne": 2,
-    "unlockProsperity": 7
+    "unlockProsperity": 7,
+    "text": "If you move 1 or fewer hexes on your turn, gain %game.action.shield% 1 for the round."
   },
   {
     "id": 51,
@@ -513,8 +592,9 @@
     "count": 2,
     "edition": "gh",
     "slot": "body",
-    "spent": true,
-    "unlockProsperity": 7
+    "consumed": true,
+    "unlockProsperity": 7,
+    "text": "When you are damaged by an attack, suffer no damage instead."
   },
   {
     "id": 52,
@@ -523,7 +603,8 @@
     "count": 2,
     "edition": "gh",
     "slot": "head",
-    "unlockProsperity": 7
+    "unlockProsperity": 7,
+    "text": "You are immune to %game.condition.poison% and %game.condition.wound%."
   },
   {
     "id": 53,
@@ -533,7 +614,8 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "unlockProsperity": 7
+    "unlockProsperity": 7,
+    "text": "During your melee attack, add %game.condition.curse% to a single attack."
   },
   {
     "id": 54,
@@ -543,7 +625,8 @@
     "edition": "gh",
     "slot": "twohand",
     "spent": true,
-    "unlockProsperity": 7
+    "unlockProsperity": 7,
+    "text": "During your ranged attack, %game.element.consume.wild% to add +1 %game.action.attack% to the entire Attack action."
   },
   {
     "id": 55,
@@ -552,8 +635,9 @@
     "count": 4,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "unlockProsperity": 7
+    "consumed": true,
+    "unlockProsperity": 7,
+    "text": "During your turn, perform a \"%game.action.heal% 7, self\" action."
   },
   {
     "id": 56,
@@ -562,8 +646,9 @@
     "count": 2,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "unlockProsperity": 7
+    "consumed": true,
+    "unlockProsperity": 7,
+    "text": "At the end of your turn, play one card from your hand and immediately perform the top action of the card."
   },
   {
     "id": 57,
@@ -572,7 +657,8 @@
     "count": 2,
     "edition": "gh",
     "slot": "legs",
-    "unlockProsperity": 8
+    "unlockProsperity": 8,
+    "text": "Whenever you use the default bottom of an ability card perform a \"%game.action.move% 4\" action instead of a \"%game.action.move% 2\" action."
   },
   {
     "id": 58,
@@ -581,7 +667,8 @@
     "count": 2,
     "edition": "gh",
     "slot": "body",
-    "unlockProsperity": 8
+    "unlockProsperity": 8,
+    "text": "Gain %game.action.fly%. While occupying an obstacle hex, you are considered %game.condition.invisible% and cannot attack"
   },
   {
     "id": 59,
@@ -591,7 +678,8 @@
     "edition": "gh",
     "slot": "head",
     "spent": true,
-    "unlockProsperity": 8
+    "unlockProsperity": 8,
+    "text": "During your ranged attack, add +2 %game.action.range% to your entire Attack action"
   },
   {
     "id": 60,
@@ -600,8 +688,9 @@
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "spent": true,
-    "unlockProsperity": 8
+    "consumed": true,
+    "unlockProsperity": 8,
+    "text": "Turn a single target ranged attack into the following: *cube_2_2*. All allies in the attack area suffer 3 damage."
   },
   {
     "id": 61,
@@ -611,7 +700,8 @@
     "edition": "gh",
     "slot": "twohand",
     "spent": true,
-    "unlockProsperity": 8
+    "unlockProsperity": 8,
+    "text": "When damaged by an attack, gain %game.action.shield% 4 for the attack."
   },
   {
     "id": 62,
@@ -620,8 +710,9 @@
     "count": 2,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "unlockProsperity": 8
+    "consumed": true,
+    "unlockProsperity": 8,
+    "text": "During your attack, add %game.condition.stun%, %game.condition.poison%, and %game.condition.curse% to a single attack."
   },
   {
     "id": 63,
@@ -630,8 +721,9 @@
     "count": 2,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "unlockProsperity": 8
+    "consumed": true,
+    "unlockProsperity": 8,
+    "text": "During your turn, %game.condition.strengthen% yourself and all adjacent allies."
   },
   {
     "id": 64,
@@ -641,7 +733,8 @@
     "edition": "gh",
     "slot": "legs",
     "spent": true,
-    "unlockProsperity": 9
+    "unlockProsperity": 9,
+    "text": "During your movement, add +4 %game.action.move% to the movement."
   },
   {
     "id": 65,
@@ -653,7 +746,8 @@
     "spent": true,
     "minusOne": 5,
     "slots": 5,
-    "unlockProsperity": 9
+    "unlockProsperity": 9,
+    "text": "On the next five sources of damage to you from attacks, gain %game.action.shield% 1."
   },
   {
     "id": 66,
@@ -662,7 +756,8 @@
     "count": 2,
     "edition": "gh",
     "slot": "head",
-    "unlockProsperity": 9
+    "unlockProsperity": 9,
+    "text": "During your melee attack, add %game.action.push% 1."
   },
   {
     "id": 67,
@@ -671,7 +766,8 @@
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "unlockProsperity": 9
+    "unlockProsperity": 9,
+    "text": "Whenever you use the default top of an ability card, perform an \"%game.action.attack% 4\" instead of an \"%game.action.attack% 2\" action."
   },
   {
     "id": 68,
@@ -680,7 +776,8 @@
     "count": 2,
     "edition": "gh",
     "slot": "twohand",
-    "unlockProsperity": 9
+    "unlockProsperity": 9,
+    "text": "During your single target melee attack, you can attack any single enemy within 2 hexes."
   },
   {
     "id": 69,
@@ -689,8 +786,9 @@
     "count": 2,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "unlockProsperity": 9
+    "consumed": true,
+    "unlockProsperity": 9,
+    "text": "During your turn, Refresh %game.card.refresh% all of your spent items, \"%game.action.heal% 3, Self\" action, and Recover %game.card.recover% up to two of your discarded cards."
   },
   {
     "id": 70,
@@ -699,38 +797,43 @@
     "count": 2,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "unlockProsperity": 9
+    "consumed": true,
+    "unlockProsperity": 9,
+    "text": "At the end of your turn, play two cards from your hand and perform an additional turn this round based on your new leading initiative (which must be later than your previous initiative)."
   },
   {
+    "random": true,
     "id": 71,
     "name": "Boots of Levitation",
     "cost": 50,
     "count": 2,
     "edition": "gh",
     "slot": "legs",
-    "random": true
+    "text": "Gain %game.action.fly%"
   },
   {
+    "random": true,
     "id": 72,
     "name": "Shoes of Happiness",
     "cost": 50,
     "count": 2,
     "edition": "gh",
     "slot": "legs",
-    "random": true
+    "text": "If you move 6 or more hexes on your turn, gain %game.card.experience:1%."
   },
   {
+    "random": true,
     "id": 73,
     "name": "Blinking Cape",
     "cost": 50,
     "count": 2,
     "edition": "gh",
     "slot": "body",
-    "spent": true,
-    "random": true
+    "consumed": true,
+    "text": "During your turn, perform a \"%game.action.move% 4, %game.action.jump%\" action"
   },
   {
+    "random": true,
     "id": 74,
     "name": "Swordedge Armor",
     "cost": 40,
@@ -739,9 +842,10 @@
     "slot": "body",
     "spent": true,
     "minusOne": 4,
-    "random": true
+    "text": "On the next three sources of damage from attacks targeting you, gain %game.action.shield% 1, %game.action.retaliate% 1"
   },
   {
+    "random": true,
     "id": 75,
     "name": "Circlet of Elements",
     "cost": 25,
@@ -749,9 +853,17 @@
     "edition": "gh",
     "slot": "head",
     "spent": true,
-    "random": true
+    "text": "During your turn, %game.element.consume.wild% to create any element. ",
+    "actions": [
+      {
+        "type": "element",
+        "value": "wild"
+      }
+    ],
+    "actionSize": 1.5
   },
   {
+    "random": true,
     "id": 76,
     "name": "Chain Hood",
     "cost": 40,
@@ -759,63 +871,70 @@
     "edition": "gh",
     "slot": "head",
     "minusOne": 1,
-    "random": true
+    "text": "While you are adjacent to three or more monsters, gain %game.action.shield% 1"
   },
   {
+    "random": true,
     "id": 77,
     "name": "Frigid Blade",
     "cost": 30,
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "random": true
+    "text": "During your melee attack, %game.element.consume.ice% to add +2 %game.action.attack% to a single attack."
   },
   {
+    "random": true,
     "id": 78,
     "name": "Storm Blade",
     "cost": 30,
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "random": true
+    "text": "During your melee attack, %game.element.consume.air% to add +2 %game.action.attack% to a single attack."
   },
   {
+    "random": true,
     "id": 79,
     "name": "Inferno Blade",
     "cost": 30,
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "random": true
+    "text": "During your melee attack, %game.element.consume.fire% to add +2 %game.action.attack% to a single attack."
   },
   {
+    "random": true,
     "id": 80,
     "name": "Tremor Blade",
     "cost": 30,
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "random": true
+    "text": "During your melee attack, %game.element.consume.earth% to add +2 %game.action.attack% to a single attack."
   },
   {
+    "random": true,
     "id": 81,
     "name": "Brilliant Blade",
     "cost": 30,
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "random": true
+    "text": "During your melee attack, %game.element.consume.light% to add +2 %game.action.attack% to a single attack."
   },
   {
+    "random": true,
     "id": 82,
     "name": "Night Blade",
     "cost": 30,
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "random": true
+    "text": "During your melee attack, %game.element.consume.dark% to add +2 %game.action.attack% to a single attack."
   },
   {
+    "random": true,
     "id": 83,
     "name": "Wand of Frost",
     "cost": 30,
@@ -823,9 +942,17 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "random": true
+    "text": "During your turn, create Ice.",
+    "actions": [
+      {
+        "type": "element",
+        "value": "ice"
+      }
+    ],
+    "actionSize": 1.5
   },
   {
+    "random": true,
     "id": 84,
     "name": "Wand of Storms",
     "cost": 30,
@@ -833,9 +960,17 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "random": true
+    "text": "During your turn, create Air.",
+    "actions": [
+      {
+        "type": "element",
+        "value": "air"
+      }
+    ],
+    "actionSize": 1.5
   },
   {
+    "random": true,
     "id": 85,
     "name": "Wand of Infernos",
     "cost": 30,
@@ -843,9 +978,17 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "random": true
+    "text": "During your turn, create Fire.",
+    "actions": [
+      {
+        "type": "element",
+        "value": "fire"
+      }
+    ],
+    "actionSize": 1.5
   },
   {
+    "random": true,
     "id": 86,
     "name": "Wand of Tremors",
     "cost": 30,
@@ -853,9 +996,17 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "random": true
+    "text": "During your turn, create Earth.",
+    "actions": [
+      {
+        "type": "element",
+        "value": "earth"
+      }
+    ],
+    "actionSize": 1.5
   },
   {
+    "random": true,
     "id": 87,
     "name": "Wand of Brilliance",
     "cost": 30,
@@ -863,9 +1014,17 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "random": true
+    "text": "During your turn, create Light.",
+    "actions": [
+      {
+        "type": "element",
+        "value": "light"
+      }
+    ],
+    "actionSize": 1.5
   },
   {
+    "random": true,
     "id": 88,
     "name": "Wand of Darkness",
     "cost": 30,
@@ -873,77 +1032,91 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "random": true
+    "text": "During your turn, create Dark.",
+    "actions": [
+      {
+        "type": "element",
+        "value": "dark"
+      }
+    ],
+    "actionSize": 1.5
   },
   {
+    "random": true,
     "id": 89,
     "name": "Minor Cure Potion",
     "cost": 10,
     "count": 2,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "random": true
+    "consumed": true,
+    "text": "During your turn, remove one negative condition on yourself. This can be used while you have %game.condition.stun%."
   },
   {
+    "random": true,
     "id": 90,
     "name": "Major Cure Potion",
     "cost": 30,
     "count": 2,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "random": true
+    "consumed": true,
+    "text": "During your turn, remove all negative conditions on yourself. This can be used while you have %game.condition.stun%."
   },
   {
+    "random": true,
     "id": 91,
     "name": "Steel Ring",
     "cost": 20,
     "count": 2,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "random": true
+    "consumed": true,
+    "text": "When damaged by an attack targeting you, gain %game.action.shield% 4 for the attack."
   },
   {
+    "random": true,
     "id": 92,
     "name": "Dampening Ring",
     "cost": 25,
     "count": 2,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "random": true
+    "consumed": true,
+    "text": "Before an enemy would consume an element, consume that element instead for no effect"
   },
   {
+    "random": true,
     "id": 93,
     "name": "Scroll of Power",
     "cost": 30,
     "count": 2,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "random": true
+    "consumed": true,
+    "text": "During an ally's attack, add +1 %game.action.attack% to their entire attack action"
   },
   {
+    "random": true,
     "id": 94,
     "name": "Scroll of Healing",
     "cost": 30,
     "count": 2,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "random": true
+    "consumed": true,
+    "text": "During your turn, perform a \"%game.action.heal% 3, %game.action.range:5%\" action"
   },
   {
+    "random": true,
     "id": 95,
     "name": "Scroll of Stamina",
     "cost": 50,
     "count": 2,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "random": true
+    "consumed": true,
+    "text": "During your turn, an ally within %game.action.range:5% may Recover %game.card.recover% up to two of their discarded cards"
   },
   {
     "id": 96,
@@ -952,7 +1125,8 @@
     "count": 2,
     "edition": "gh",
     "slot": "legs",
-    "spent": true
+    "spent": true,
+    "text": "During your movement, add +3 %game.action.move% and %game.action.jump% to a single movement"
   },
   {
     "id": 97,
@@ -960,7 +1134,8 @@
     "cost": 40,
     "count": 1,
     "edition": "gh",
-    "slot": "legs"
+    "slot": "legs",
+    "text": "If you move 4 or more hexes on your turn, perform a \"\"%game.action.heal% 1, Self\"\" action."
   },
   {
     "id": 98,
@@ -968,7 +1143,8 @@
     "cost": 50,
     "count": 1,
     "edition": "gh",
-    "slot": "legs"
+    "slot": "legs",
+    "text": "You are unaffected by difficult and hazardous terrain."
   },
   {
     "id": 99,
@@ -976,7 +1152,8 @@
     "cost": 50,
     "count": 1,
     "edition": "gh",
-    "slot": "legs"
+    "slot": "legs",
+    "text": "Ignore the damaging effects of hazardous terrain and perform a \"%game.action.heal% 2, Self\" action on any turn in which you have entered a hazardous terrain hex."
   },
   {
     "id": 100,
@@ -985,7 +1162,8 @@
     "count": 1,
     "edition": "gh",
     "slot": "body",
-    "spent": true
+    "spent": true,
+    "text": "During your turn, perform a \"%game.action.heal% 2, target any summoned ally\" action."
   },
   {
     "id": 101,
@@ -993,7 +1171,8 @@
     "cost": 30,
     "count": 1,
     "edition": "gh",
-    "slot": "body"
+    "slot": "body",
+    "text": "Remove two %game.attackmodifier.minus1% from your attack modifier deck."
   },
   {
     "id": 102,
@@ -1002,7 +1181,8 @@
     "count": 1,
     "edition": "gh",
     "slot": "body",
-    "spent": true
+    "spent": true,
+    "text": "During your ranged attack, suffer 3 damage to add +1 %game.action.attack% to the entire Attack action."
   },
   {
     "id": 103,
@@ -1010,7 +1190,8 @@
     "cost": 50,
     "count": 1,
     "edition": "gh",
-    "slot": "body"
+    "slot": "body",
+    "text": "You are immune to %game.condition.poison% and %game.condition.wound%."
   },
   {
     "id": 104,
@@ -1019,7 +1200,8 @@
     "count": 1,
     "edition": "gh",
     "slot": "body",
-    "spent": true
+    "consumed": true,
+    "text": "On the next five sources of damage from attacks targeting you, gain %game.action.shield% 1."
   },
   {
     "id": 105,
@@ -1027,7 +1209,8 @@
     "cost": 10,
     "count": 1,
     "edition": "gh",
-    "slot": "body"
+    "slot": "body",
+    "text": "You are considered to have an initiative of 99 for the purpose of enemy focusing."
   },
   {
     "id": 106,
@@ -1035,7 +1218,8 @@
     "cost": 40,
     "count": 1,
     "edition": "gh",
-    "slot": "head"
+    "slot": "head",
+    "text": "Any time you kill an enemy during your turn, perform a \"%game.action.heal% 1, Self\" action."
   },
   {
     "id": 107,
@@ -1043,7 +1227,8 @@
     "cost": 30,
     "count": 2,
     "edition": "gh",
-    "slot": "head"
+    "slot": "head",
+    "text": "After moving 4 or more hexes on your turn, add +1 %game.action.attack% to your next melee attack this turn."
   },
   {
     "id": 108,
@@ -1051,7 +1236,8 @@
     "cost": 50,
     "count": 1,
     "edition": "gh",
-    "slot": "head"
+    "slot": "head",
+    "text": "Whenever you gain %game.condition.muddle%, gain %game.condition.strengthen% instead."
   },
   {
     "id": 109,
@@ -1060,7 +1246,8 @@
     "count": 1,
     "edition": "gh",
     "slot": "head",
-    "spent": true
+    "consumed": true,
+    "text": "During your \"%game.action.loot% 1\" ability, perform a \"%game.action.loot% 2\" ability instead."
   },
   {
     "id": 110,
@@ -1068,7 +1255,8 @@
     "cost": 50,
     "count": 1,
     "edition": "gh",
-    "slot": "head"
+    "slot": "head",
+    "text": "When attacked, if %game.element.earth% is Strong, %game.condition.immobilize% the attacker."
   },
   {
     "id": 111,
@@ -1076,7 +1264,8 @@
     "cost": 50,
     "count": 1,
     "edition": "gh",
-    "slot": "head"
+    "slot": "head",
+    "text": "When attacked, if %game.element.ice% is Strong, perform a \"%game.action.push% 2\" action targeting the attacker."
   },
   {
     "id": 112,
@@ -1085,7 +1274,8 @@
     "count": 2,
     "edition": "gh",
     "slot": "twohand",
-    "spent": true
+    "consumed": true,
+    "text": "During your melee attack, add +2 %game.action.attack% and %game.condition.pierce% 2 to the entire Attack action"
   },
   {
     "id": 113,
@@ -1094,7 +1284,8 @@
     "count": 1,
     "edition": "gh",
     "slot": "twohand",
-    "spent": true
+    "spent": true,
+    "text": "During your melee attack targeting a Living Corpse, Living Spirit, or Living Bones, add +5 %game.action.attack% to a single attack."
   },
   {
     "id": 114,
@@ -1103,7 +1294,8 @@
     "count": 1,
     "edition": "gh",
     "slot": "twohand",
-    "spent": true
+    "consumed": true,
+    "text": "During your ranged attack, add %game.condition.poison% and %game.condition.muddle% to the entire Attack action"
   },
   {
     "id": 115,
@@ -1112,7 +1304,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "twohand",
-    "spent": true,
+    "consumed": true,
     "summon": {
       "name": "Warrior Spirit",
       "health": 4,
@@ -1128,7 +1320,8 @@
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "spent": true
+    "consumed": true,
+    "text": "During your single-target melee attack, the target and all enemies adjacent to the target suffer 1 damage"
   },
   {
     "id": 117,
@@ -1137,7 +1330,8 @@
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "spent": true
+    "spent": true,
+    "text": "During your melee attack, suffer 2 damage to add +1 %game.action.attack% to the entire Attack action."
   },
   {
     "id": 118,
@@ -1146,7 +1340,15 @@
     "count": 2,
     "edition": "gh",
     "slot": "twohand",
-    "spent": true
+    "spent": true,
+    "text": "During your turn, create any element.",
+    "actions": [
+      {
+        "type": "element",
+        "value": "wild"
+      }
+    ],
+    "actionSize": 1.5
   },
   {
     "id": 119,
@@ -1155,7 +1357,8 @@
     "count": 1,
     "edition": "gh",
     "slot": "onehand",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, %game.condition.curse% all adjacent enemies."
   },
   {
     "id": 120,
@@ -1164,7 +1367,8 @@
     "count": 1,
     "edition": "gh",
     "slot": "twohand",
-    "spent": true
+    "spent": true,
+    "text": "During your turn, a summoned ally within %game.action.range:3% performs a \"%game.action.move% 3\" action with you controlling the action."
   },
   {
     "id": 121,
@@ -1172,7 +1376,15 @@
     "cost": 50,
     "count": 1,
     "edition": "gh",
-    "slot": "onehand"
+    "slot": "onehand",
+    "text": "During your turn, %game.element.consume.dark% to create Light.",
+    "actions": [
+      {
+        "type": "element",
+        "value": "light"
+      }
+    ],
+    "actionSize": 1.5
   },
   {
     "id": 122,
@@ -1180,7 +1392,15 @@
     "cost": 50,
     "count": 1,
     "edition": "gh",
-    "slot": "onehand"
+    "slot": "onehand",
+    "text": "During your turn, %game.element.consume.light% to create Dark.",
+    "actions": [
+      {
+        "type": "element",
+        "value": "dark"
+      }
+    ],
+    "actionSize": 1.5
   },
   {
     "id": 123,
@@ -1189,7 +1409,7 @@
     "count": 2,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
+    "consumed": true,
     "summon": {
       "name": "Skeleton",
       "health": 3,
@@ -1205,7 +1425,8 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, force an enemy within %game.action.range:5% to perform a \"%game.action.move% 2\" action with you controlling the action."
   },
   {
     "id": 125,
@@ -1214,7 +1435,8 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, disarm all traps within %game.action.range:2%."
   },
   {
     "id": 126,
@@ -1223,7 +1445,8 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, %game.condition.poison% all adjacent enemies."
   },
   {
     "id": 127,
@@ -1232,7 +1455,8 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, perform a \"%game.action.loot% 1\" action."
   },
   {
     "id": 128,
@@ -1241,7 +1465,8 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, %game.condition.muddle% all enemies with %game.action.range:2%."
   },
   {
     "id": 129,
@@ -1250,7 +1475,8 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, place a character token on an adjacent normal or elite enemy. You add +1 %game.action.attack% to all your attacks targeting this enemy."
   },
   {
     "id": 130,
@@ -1259,7 +1485,8 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, %game.element.consume.light% %game.element.consume.dark% to perform a \"%game.action.heal% 25, Self\" action"
   },
   {
     "id": 131,
@@ -1268,7 +1495,8 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "When attacked by an adjacent normal enemy, force the enemy to attack one of its allies within its range instead."
   },
   {
     "id": 132,
@@ -1277,7 +1505,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
+    "consumed": true,
     "summon": {
       "name": "Steel Construct",
       "health": 5,
@@ -1293,6 +1521,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true
+    "consumed": true,
+    "text": "During your turn, destroy an adjacent obstacle."
   }
 ]

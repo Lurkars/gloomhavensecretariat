@@ -2,6 +2,7 @@
   "index": "18",
   "name": "Crystal Fields",
   "edition": "fh",
+  "complexity": 1,
   "rewards": {
     "morale": 1,
     "randomItemBlueprint": 1,
@@ -69,6 +70,5 @@
         }
       ]
     }
-  ],
-  "complexity": 1
+  ]
 }

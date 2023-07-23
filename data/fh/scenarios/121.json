@@ -2,6 +2,7 @@
   "index": "121",
   "name": "Black Memories",
   "edition": "fh",
+  "complexity": 3,
   "monsters": [
     "vermling-priest",
     "vermling-scout"
@@ -47,6 +48,5 @@
         }
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

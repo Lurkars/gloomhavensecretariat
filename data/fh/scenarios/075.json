@@ -2,6 +2,7 @@
   "index": "75",
   "name": "Infiltrating the Lair",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "77"
   ],
@@ -71,6 +72,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

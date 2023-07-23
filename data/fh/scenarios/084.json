@@ -2,6 +2,7 @@
   "index": "84",
   "name": "Here There Be Oozes",
   "edition": "fh",
+  "complexity": 3,
   "rewards": {
     "campaignSticker": [
       "Brummix"
@@ -66,6 +67,5 @@
         }
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

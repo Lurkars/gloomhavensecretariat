@@ -2,6 +2,7 @@
   "index": "54",
   "name": "Among the Wreckage",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "60"
   ],
@@ -156,6 +157,5 @@
         2
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

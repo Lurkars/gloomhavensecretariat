@@ -2,6 +2,7 @@
   "index": "53",
   "name": "Underwater Throne",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "60"
   ],
@@ -134,6 +135,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

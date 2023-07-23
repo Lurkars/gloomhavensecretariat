@@ -2,6 +2,7 @@
   "index": "67",
   "name": "Core Attunement",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "68"
   ],
@@ -70,6 +71,5 @@
         "1:4"
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

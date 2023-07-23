@@ -2,6 +2,7 @@
   "index": "62",
   "name": "The Unfettered Seal",
   "edition": "fh",
+  "complexity": 3,
   "unlocks": [
     "63"
   ],
@@ -68,6 +69,5 @@
         1
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

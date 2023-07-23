@@ -2,6 +2,7 @@
   "index": "130",
   "name": "And Then, a Stream",
   "edition": "fh",
+  "complexity": 3,
   "monsters": [
     "frozen-corpse",
     "lightning-eel",
@@ -99,6 +100,5 @@
         }
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

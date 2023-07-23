@@ -2,6 +2,7 @@
   "index": "83",
   "name": "Rising Brine",
   "edition": "fh",
+  "complexity": 2,
   "requirements": [
     {
       "buildings": [
@@ -138,6 +139,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

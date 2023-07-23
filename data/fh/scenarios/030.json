@@ -2,6 +2,7 @@
   "index": "30",
   "name": "War of the Spire B",
   "edition": "fh",
+  "complexity": 2,
   "blocks": [
     "28"
   ],
@@ -184,6 +185,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

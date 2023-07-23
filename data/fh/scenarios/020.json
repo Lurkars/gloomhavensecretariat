@@ -2,6 +2,7 @@
   "index": "20",
   "name": "Temple of Liberation",
   "edition": "fh",
+  "complexity": 3,
   "rewards": {
     "gold": 15
   },
@@ -212,6 +213,5 @@
         2
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

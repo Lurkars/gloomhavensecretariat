@@ -2,6 +2,7 @@
   "index": "9",
   "name": "Glowing Catacombs",
   "edition": "fh",
+  "complexity": 1,
   "rewards": {
     "collectiveResources": [
       {
@@ -62,6 +63,5 @@
         }
       ]
     }
-  ],
-  "complexity": 1
+  ]
 }

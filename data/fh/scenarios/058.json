@@ -2,6 +2,7 @@
   "index": "58",
   "name": "Orphan's Core",
   "edition": "fh",
+  "complexity": 3,
   "blocks": [
     "59"
   ],
@@ -121,6 +122,5 @@
         1
       ]
     }
-  ],
-  "complexity": 3
+  ]
 }

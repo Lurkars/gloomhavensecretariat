@@ -2,6 +2,7 @@
   "index": "105",
   "name": "Ruins of the Equinox",
   "edition": "fh",
+  "complexity": 2,
   "requirements": [
     {
       "buildings": [
@@ -108,6 +109,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }

@@ -2,6 +2,7 @@
   "index": "23",
   "name": "Spire Basement",
   "edition": "fh",
+  "complexity": 1,
   "unlocks": [
     "34"
   ],
@@ -84,6 +85,5 @@
         }
       ]
     }
-  ],
-  "complexity": 1
+  ]
 }

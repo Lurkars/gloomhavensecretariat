@@ -2,6 +2,7 @@
   "index": "72",
   "name": "A Giant Block of Ice",
   "edition": "fh",
+  "complexity": 2,
   "unlocks": [
     "73"
   ],
@@ -37,6 +38,5 @@
         }
       ]
     }
-  ],
-  "complexity": 2
+  ]
 }
