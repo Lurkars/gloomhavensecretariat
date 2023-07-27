@@ -272,22 +272,24 @@
     </div>
 
 
-    <div class="column" *ngIf="backups > 0">
-      <div class="line title">
-        <label><span [ghs-label]="'datamanagement.backup'"></span></label>
-      </div>
-      <div class="line">
-        <a (click)="exportLatestBackup()"><span [ghs-label]="'datamanagement.backup.latest'"></span></a>
-      </div>
-      <div class="line" *ngIf="backups > 1">
-        <a (click)="exportAllBackups()">
-          <span [ghs-label]="'datamanagement.backup.all'" [ghs-label-args]="['' + backups]"></span>
-        </a>
-      </div>
-      <div class="line">
-        <a (click)="deleteBackups()" [ngClass]="{'confirm-delete' : confirm == 'deleteBackups'}"
-          (mouseleave)="cancelConfirm()">&lt;<span [ghs-label]="'datamanagement.backup.delete'"></span>(!)&gt;</a>
-      </div>
+    <div class="column">
+      <ng-container *ngIf="backups > 0">
+        <div class="line title">
+          <label><span [ghs-label]="'datamanagement.backup'"></span></label>
+        </div>
+        <div class="line">
+          <a (click)="exportLatestBackup()"><span [ghs-label]="'datamanagement.backup.latest'"></span></a>
+        </div>
+        <div class="line" *ngIf="backups > 1">
+          <a (click)="exportAllBackups()">
+            <span [ghs-label]="'datamanagement.backup.all'" [ghs-label-args]="['' + backups]"></span>
+          </a>
+        </div>
+        <div class="line">
+          <a (click)="deleteBackups()" [ngClass]="{'confirm-delete' : confirm == 'deleteBackups'}"
+            (mouseleave)="cancelConfirm()">&lt;<span [ghs-label]="'datamanagement.backup.delete'"></span>(!)&gt;</a>
+        </div>
+      </ng-container>
     </div>
 
   </div>

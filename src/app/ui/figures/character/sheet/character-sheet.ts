@@ -152,7 +152,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
         gameManager.game.party.retirements.push(this.character.toModel());
         // add items to available pool (except solo)
         this.character.progress.items.forEach((item) => {
-          const itemData = gameManager.item(+item.name, item.edition, true);
+          const itemData = gameManager.itemManager.getItem(+item.name, item.edition, true);
           if (itemData && !itemData.solo && !gameManager.itemData(item.edition).find((available) => available.id == itemData.id && available.edition == itemData.edition)) {
             gameManager.game.party.unlockedItems.push(item);
           }

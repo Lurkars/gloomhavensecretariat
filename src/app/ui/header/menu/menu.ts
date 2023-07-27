@@ -16,7 +16,7 @@ import { UndoDialogComponent } from "./undo/dialog";
 import { Subscription } from "rxjs";
 
 export enum SubMenu {
-  main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_add, objective_remove, settings, debug, server, datamanagement, about, sheets
+  main, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_add, objective_remove, settings, debug, server, datamanagement, about, sheets
 }
 
 @Component({
@@ -165,21 +165,21 @@ export class MainMenuComponent implements OnInit, OnDestroy {
   }
 
   monsters(): Monster[] {
-      return gameManager.game.figures.filter((figure) => {
-          return figure instanceof Monster;
-      }).map((figure) => {
-          return figure as Monster;
-      }).sort((a, b) => {
-          const aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
-          const bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
-          if (aName > bName) {
-              return 1;
-          }
-          if (aName < bName) {
-              return -1;
-          }
-          return 0;
-      });
+    return gameManager.game.figures.filter((figure) => {
+      return figure instanceof Monster;
+    }).map((figure) => {
+      return figure as Monster;
+    }).sort((a, b) => {
+      const aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
+      const bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
+      if (aName > bName) {
+        return 1;
+      }
+      if (aName < bName) {
+        return -1;
+      }
+      return 0;
+    });
   }
 
 
@@ -213,6 +213,13 @@ export class MainMenuComponent implements OnInit, OnDestroy {
     gameManager.stateManager.after();
   }
 
+  addObjectiveContainer() {
+    gameManager.stateManager.before("addObjectiveContainer");
+    gameManager.objectiveManager.addObjective();
+    this.close();
+    gameManager.stateManager.after();
+  }
+
   removeObjective(objective: Objective) {
     gameManager.stateManager.before("removeObjective", objective.title || objective.name);
     gameManager.characterManager.removeObjective(objective);
@@ -228,7 +235,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
     this.close();
     gameManager.stateManager.after();
   }
-  
+
   removeMonster(monster: Monster) {
     gameManager.stateManager.before("removeMonster", "data.monster." + monster.name);
     gameManager.monsterManager.removeMonster(monster);

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { ItemData } from "src/app/game/model/data/ItemData";
 import { TreasureData, TreasureReward, TreasureRewardType } from "src/app/game/model/data/RoomData";
 
 @Component({
@@ -14,6 +15,9 @@ export class TreasureLabelComponent implements OnInit {
     @Input() index!: number;
     @Input() edition!: string;
     @Input() rewardResults!: string[][];
+    @Input() itemCards: boolean = false;
+
+    items: ItemData[] = [];
 
     labelPrefix = 'game.loot.treasures.rewards.';
 
@@ -31,6 +35,22 @@ export class TreasureLabelComponent implements OnInit {
             }
         } else {
             this.index = this.treasure.index;
+        }
+
+        if (this.treasure && this.itemCards) {
+            this.treasure.rewards.forEach((reward, index) => {
+                if ([TreasureRewardType.item, TreasureRewardType.itemBlueprint, TreasureRewardType.itemDesign, TreasureRewardType.itemFh,].indexOf(reward.type) != -1 && typeof reward.value == 'number') {
+                    const itemData = gameManager.itemManager.getItem(reward.value, this.edition, true);
+                    if (itemData) {
+                        this.items.push(itemData);
+                    }
+                } else if ([TreasureRewardType.randomItem, TreasureRewardType.randomItemBlueprint, TreasureRewardType.randomItemDesign].indexOf(reward.type) != -1 && this.rewardResults && this.rewardResults[index] && this.rewardResults[index][0] && !isNaN(+this.rewardResults[index][0])) {
+                    const itemData = gameManager.itemManager.getItem(+this.rewardResults[index][0], this.edition, true);
+                    if (itemData) {
+                        this.items.push(itemData);
+                    }
+                }
+            })
         }
     }
 
@@ -56,7 +76,7 @@ export class TreasureLabelComponent implements OnInit {
             case TreasureRewardType.heal:
             case TreasureRewardType.loot:
             case TreasureRewardType.lootCards:
-                return [this.labelPrefix + reward.type, value]
+                return [this.labelPrefix + reward.type, value];
             case TreasureRewardType.damage:
                 if (value == "terrain") {
                     return [this.labelPrefix + reward.type, "%game.level.hazardousTerrain%"];
@@ -86,7 +106,7 @@ export class TreasureLabelComponent implements OnInit {
                         itemId = +itemString;
                     }
 
-                    const item = gameManager.item(itemId, itemEdition, true);
+                    const item = gameManager.itemManager.getItem(itemId, itemEdition, true);
 
                     if (item) {
                         if (reward.type == TreasureRewardType.itemFh || reward.type == TreasureRewardType.itemBlueprint) {

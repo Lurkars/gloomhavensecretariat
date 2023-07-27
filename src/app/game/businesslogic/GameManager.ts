@@ -33,6 +33,10 @@ import { ElementModel, ElementState } from "../model/data/Element";
 import { MonsterStat } from "../model/data/MonsterStat";
 import { Action, ActionType } from "../model/data/Action";
 import { BattleGoalManager } from "./BattleGoalManager";
+import { ObjectiveManager } from "./ObjectiveManager";
+import { ObjectiveContainer } from "../model/ObjectiveContainer";
+import { ObjectiveEntity } from "../model/ObjectiveEntity";
+import { ItemManager } from "./ItemManager";
 
 
 export class GameManager {
@@ -43,12 +47,14 @@ export class GameManager {
   entityManager: EntityManager;
   characterManager: CharacterManager;
   monsterManager: MonsterManager;
+  objectiveManager: ObjectiveManager;
   attackModifierManager: AttackModifierManager;
   levelManager: LevelManager;
   scenarioManager: ScenarioManager;
   scenarioRulesManager: ScenarioRulesManager;
   roundManager: RoundManager;
   lootManager: LootManager;
+  itemManager: ItemManager;
   battleGoalManager: BattleGoalManager;
 
   uiChange = new EventEmitter<boolean>();
@@ -58,11 +64,13 @@ export class GameManager {
     this.entityManager = new EntityManager(this.game);
     this.characterManager = new CharacterManager(this.game);
     this.monsterManager = new MonsterManager(this.game);
+    this.objectiveManager = new ObjectiveManager(this.game);
     this.attackModifierManager = new AttackModifierManager(this.game);
     this.levelManager = new LevelManager(this.game);
     this.scenarioManager = new ScenarioManager(this.game);
     this.scenarioRulesManager = new ScenarioRulesManager(this.game);
     this.roundManager = new RoundManager(this.game);
+    this.itemManager = new ItemManager(this.game);
     this.lootManager = new LootManager(this.game);
     this.battleGoalManager = new BattleGoalManager(this.game);
     this.uiChange.subscribe({
@@ -123,7 +131,7 @@ export class GameManager {
         if (extensions.indexOf(extension) == -1 && this.editions(all, true).indexOf(extension) != -1) {
           extensions.push(extension);
         }
-        this.editionExtensions(extension).forEach((extExt) => {
+        this.editionExtensions(extension, all).forEach((extExt) => {
           if (extensions.indexOf(extExt) == -1 && this.editions(all, true).indexOf(extension) != -1) {
             extensions.push(extExt);
           }
@@ -143,8 +151,8 @@ export class GameManager {
     return false;
   }
 
-  charactersData(edition: string | undefined = undefined, all: boolean = false): CharacterData[] {
-    const characters = this.editionData.filter((editionData) => (all || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.characters).flat();
+  charactersData(edition: string | undefined = undefined): CharacterData[] {
+    const characters = this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.characters).flat();
 
     const merges = characters.filter((characterData) => characterData.merge);
 
@@ -158,25 +166,26 @@ export class GameManager {
     });
   }
 
-  monstersData(edition: string | undefined = undefined, all: boolean = false): MonsterData[] {
-    return this.editionData.filter((editionData) => (all || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.monsters).flat().filter((monsterData, index, monsters) => (!edition || monsterData.edition == edition) && (monsterData.replace || !monsterData.replace && !monsters.find((monsterDataReplacement) => monsterDataReplacement.replace && monsterDataReplacement.name == monsterData.name && monsterDataReplacement.edition == monsterData.edition)));
+  monstersData(edition: string | undefined = undefined): MonsterData[] {
+    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.monsters).flat().filter((monsterData, index, monsters) => (!edition || monsterData.edition == edition) && (monsterData.replace || !monsterData.replace && !monsters.find((monsterDataReplacement) => monsterDataReplacement.replace && monsterDataReplacement.name == monsterData.name && monsterDataReplacement.edition == monsterData.edition)));
   }
 
-  decksData(edition: string | undefined = undefined, all: boolean = false): DeckData[] {
-    return this.editionData.filter((editionData) => (all || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.decks).flat().filter((deckData) => !edition || deckData.edition == edition);
+  decksData(edition: string | undefined = undefined): DeckData[] {
+    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.decks).flat().filter((deckData) => !edition || deckData.edition == edition);;
   }
 
-  scenarioData(edition: string | undefined = undefined, all: boolean = false): ScenarioData[] {
-    return this.editionData.filter((editionData) => (all || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.scenarios).flat().filter((scenarioData) => !edition || scenarioData.edition == edition);
+  scenarioData(edition: string | undefined = undefined): ScenarioData[] {
+    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.scenarios).flat().filter((scenarioData) => !edition || scenarioData.edition == edition);
   }
 
-  sectionData(edition: string | undefined = undefined, all: boolean = false): ScenarioData[] {
-    return this.editionData.filter((editionData) => (all || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.sections).flat().filter((sectionData) => !edition || sectionData.edition == edition);
+  sectionData(edition: string | undefined = undefined): ScenarioData[] {
+    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.sections).flat().filter((sectionData) => !edition || sectionData.edition == edition);
   }
 
   itemData(edition: string | undefined = undefined, all: boolean = false): ItemData[] {
     const prosperityLevel = this.prosperityLevel();
-    return this.editionData.filter((editionData) => settingsManager.settings.editions.indexOf(editionData.edition) != -1 && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.items).flat().filter((itemData) => {
+
+    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition, true).indexOf(edition) != -1)).map((editionData) => editionData.items).flat().filter((itemData) => {
       if (edition && itemData.edition != edition) {
         return false;
       }
@@ -201,25 +210,17 @@ export class GameManager {
         return true;
       }
 
+      if (this.game.figures.find((figure) => figure instanceof Character && figure.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition))) {
+        return true;
+      }
+
       if (this.game.edition == 'fh' && itemData.edition == 'gh') {
         return [10, 25, 72, 105, 109, 116].indexOf(itemData.id) != -1;
       }
 
       return false;
 
-    });
-  }
-
-  item(id: number, edition: string, all: boolean): ItemData | undefined {
-    let item = this.itemData(edition, all).find((itemData) => itemData && itemData.id == id && itemData.edition == edition);
-    if (!item) {
-      item = this.itemData(undefined, all).find((itemData) => itemData && itemData.id == id && this.editionExtensions(edition).indexOf(itemData.edition) != -1);
-    }
-    return item;
-  }
-
-  maxItemIndex(edition: string): number {
-    return Math.max(...this.itemData(edition).map((itemData) => itemData.id));
+    }).sort((a, b) => a.id - b.id);
   }
 
   conditions(edition: string | undefined = undefined, forceEdition: boolean = false): Condition[] {
@@ -487,6 +488,14 @@ export class GameManager {
     return entity instanceof Summon;
   }
 
+  isObjectiveContainer(figure: Figure): boolean {
+    return figure instanceof ObjectiveContainer;
+  }
+
+  isObjectiveEntity(entity: Entity): boolean {
+    return entity instanceof ObjectiveEntity;
+  }
+
   toCharacter(figure: Figure | Entity): Character {
     return figure as Character;
   }
@@ -505,6 +514,14 @@ export class GameManager {
 
   toSummon(entity: Entity): Summon {
     return entity as Summon;
+  }
+
+  toObjectiveContainer(figure: Figure): ObjectiveContainer {
+    return figure as ObjectiveContainer;
+  }
+
+  toObjectiveEntity(entity: Entity): ObjectiveEntity {
+    return entity as ObjectiveEntity;
   }
 
   getEdition(figure: any, fallback: string = ""): string {

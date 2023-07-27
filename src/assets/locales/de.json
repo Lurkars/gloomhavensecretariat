@@ -85,21 +85,6 @@
       "gold": "Gold",
       "gold-notes": "Gold Notizen",
       "import": "Importieren",
-      "items": {
-        ".": "Gegenstände",
-        "brewing": {
-          ".": "Tränke brauen",
-          "brew": "Brauen",
-          "brewed": "{2} hat {1} %data.itemFh.{0}% gebraut",
-          "brewFor": "Braue für {0}",
-          "brewedOther": "{2} hat {1} %data.itemFh.{0}% für {3} gebraut",
-          "item": "{1} %data.itemFh.{0}%",
-          "noChar": "Jeder Charakter besitzt schon diesen Trank!",
-          "selectCharacter": "Charakter auswählen für den der Trank gebraut wird:"
-        },
-        "effect": "Falls der Gegenstand angelegt ist, wird der Effekt automatisch angewendet. Um einen Gegenstand anzulegen, einfach auf den Namen klicken. Anlegen von Gegenständen ist nur vor oder zwischen Scenarien möglich. Durch Doppelclick kann das Anlegen erzwungen werden.",
-        "wip": "%wip%! Gegenstände für %data.edition.{0}% sind noch nicht vollständig."
-      },
       "level": "Level",
       "masteries": "Errungenschaften",
       "name": "Name",
@@ -518,7 +503,38 @@
     "hp": "TP",
     "initiative": "Initiative",
     "item": "Gegenstand",
-    "items": "Gegenstände",
+    "items": {
+      ".": "Gegenstände",
+      "add": "'{0}' hinzufügen",
+      "anyResource": "Beliebig %game.loot.{0}%",
+      "brewing": {
+        ".": "Tränke brauen",
+        "brew": "Brauen",
+        "brewed": "{2} hat {1} %data.itemFh.{0}% gebraut",
+        "brewFor": "Braue für {0}",
+        "brewedOther": "{2} hat {1} %data.itemFh.{0}% für {3} gebraut",
+        "item": "{1} %data.itemFh.{0}%",
+        "noChar": "Jeder Charakter besitzt schon diesen Trank!",
+        "selectCharacter": "Charakter auswählen für den der Trank gebraut wird:"
+      },
+      "buy": "'{0}' für {1} Gold kaufen",
+      "choose": "Gegenstand auswählen",
+      "craft": "'{0}' anertigen",
+      "effect": "Falls der Gegenstand angelegt ist, wird der Effekt automatisch angewendet. Um einen Gegenstand anzulegen, einfach auf den Namen klicken. Anlegen von Gegenständen ist nur vor oder zwischen Scenarien möglich. Durch Doppelclick kann das Anlegen erzwungen werden.",
+      "empty": "Keine Gegenstände gefunden",
+      "filter": {
+        ".": "Suchen...",
+        "affordable": "Nur erschwingliche Gegenstäne",
+        "all": "Alle Gegenstände anzeigen",
+        "sorted": "Sortiert"
+      },
+      "remove": "'{0}' entfernen",
+      "sell": "'{0}' für {1} Gold veraufen",
+      "shop": "Gegenstandskarten",
+      "unlock": "Gegenstand freischalten",
+      "unlocked": "Gegenstand freigeschaltet",
+      "wip": "%wip%! Gegenstände für %data.edition.{0}% sind noch nicht vollständig."
+    },
     "level": {
       ".": "Level",
       "experience": "Bonuserfahrung",
@@ -548,6 +564,7 @@
         "remove": "Verbesserung entfernen"
       },
       "flamefruit": "Flammenfrucht",
+      "herb_resources": "Kräuter",
       "hide": "Fell",
       "keep": "Bei %data.character.{0}% belassen",
       "lootTreasure": {
@@ -556,12 +573,14 @@
         "looted": "{0} erbeutet:"
       },
       "lumber": "Holz",
+      "material_resources": "Material",
       "metal": "Metall",
       "money": "Geld",
       "random_item": "Zufälliger Gegenstand",
       "remove": "Von %data.character.{0}% entfernen",
       "rockroot": "Steinwurzel",
       "snowthistle": "Schneedistel",
+      "special": "Spezial",
       "special1": "Spezial Karte 1 (#1418)",
       "special2": "Spezial Karte 2 (#1419)",
       "treasures": {
@@ -725,6 +744,7 @@
   "objective": {
     ".": "Zielobjekte",
     "add": "Zielobjekt hinzufügen",
+    "addContainer": "Zielobjekt-Container hinzufügen (%wip%)",
     "remove": "Zielobjekt entfernen",
     "removeAll": "Alle entfernen"
   },
@@ -1327,8 +1347,8 @@
       "hint": "Angriffsmodifikatordeck dauerthaft unterhalb des Charakters anzeigen."
     },
     "characterHandSize": {
-      ".": "Handkartenanzahl anzeigen",
-      "hint": "Zeige die Handkartenanzahl auf dem Charakterboard an."
+      ".": "Handkartenanzahl und Stufe anzeigen",
+      "hint": "Zeige die Handkartenanzahl und Charakter Stufe auf dem Charakterboard an."
     },
     "characterIdentities": {
       ".": "Charakter Formen",
@@ -1549,10 +1569,11 @@
     }
   },
   "sheets": {
-    ".": "Charakter- und Kampagnenverwaltung",
+    ".": "Kampagnen- und Charakterverwaltung",
     "battleGoals": "Kampfziele einrichten",
     "campaign": "Globaler Kampagnenbogen",
     "character": "Charakterbogen",
+    "items": "Gegenstandskarten Übersicht",
     "party": "Gruppen-/Kampagnenbogen"
   },
   "spoiler": {

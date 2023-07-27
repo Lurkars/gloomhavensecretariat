@@ -9,6 +9,7 @@ import { GameState } from "src/app/game/model/Game";
 import { Objective } from "src/app/game/model/Objective";
 import { ghsDefaultDialogPositions } from "src/app/ui/helper/Static";
 import { CharacterInitiativeDialogComponent } from "./initiative-dialog";
+import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 
 
 @Component({
@@ -18,7 +19,7 @@ import { CharacterInitiativeDialogComponent } from "./initiative-dialog";
 })
 export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
 
-  @Input() figure!: Character | Objective;
+  @Input() figure!: Character | Objective | ObjectiveContainer;
   @ViewChild('initativeInput', { static: false }) initiativeInput!: ElementRef;
 
   characterManager: CharacterManager = gameManager.characterManager;
@@ -27,6 +28,7 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
   GameState = GameState;
   character: Character | undefined;
   objective: Objective | undefined;
+  objectiveContainer: ObjectiveContainer | undefined;
 
   constructor(private dialog: Dialog, private overlay: Overlay, public elementRef: ElementRef) { };
 
@@ -35,6 +37,8 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
       this.character = this.figure;
     } else if (this.figure instanceof Objective) {
       this.objective = this.figure;
+    } else if (this.figure instanceof ObjectiveContainer) {
+      this.objectiveContainer = this.figure;
     }
   }
 
@@ -66,7 +70,7 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
   }
 
   initiativeHidden(): boolean {
-    return gameManager.game.state == GameState.draw && this.character instanceof Character && !this.character.initiativeVisible;
+    return gameManager.game.state == GameState.draw && this.figure instanceof Character && !this.figure.initiativeVisible;
   }
 
   updateInitiative(event: any) {

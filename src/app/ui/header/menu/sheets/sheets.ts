@@ -6,6 +6,9 @@ import { Character } from "src/app/game/model/Character";
 import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/character-sheet-dialog";
 import { PartySheetDialogComponent } from "../../party/party-sheet-dialog";
 import { BattleGoalSetupDialog } from "src/app/ui/figures/battlegoal/setup/battlegoal-setup";
+import { ItemsDialogComponent } from "src/app/ui/figures/items/dialog/items-dialog";
+import { GameState } from "src/app/game/model/Game";
+import { Condition, ConditionName, ConditionType } from "src/app/game/model/data/Condition";
 
 
 @Component({
@@ -19,7 +22,9 @@ export class SheetsMenuComponent implements OnInit {
 
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
-
+    GameState = GameState;
+    conditions: Condition[] = [];
+    editionConditions: ConditionName[] = [];
     characters: Character[] = [];
 
     constructor(private dialog: Dialog) { }
@@ -35,7 +40,36 @@ export class SheetsMenuComponent implements OnInit {
                 return -1;
             }
             return 0;
-        });
+        }); this.conditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => condition.types.indexOf(ConditionType.hidden) == -1);
+        this.editionConditions = gameManager.conditions(gameManager.game.edition, true).map((condition) => condition.name);
+    }
+
+    setEdition(edition: string | undefined = undefined) {
+        gameManager.stateManager.before("setEdition", "data.edition." + edition);
+        if (edition == 'fh') {
+            settingsManager.setFhStyle(true);
+        } else {
+            settingsManager.setFhStyle(false);
+        }
+        gameManager.game.edition = edition;
+        this.editionConditions = gameManager.conditions(gameManager.game.edition, true).map((condition) => condition.name);
+        gameManager.stateManager.after();
+    }
+
+    toggleCampaignMode() {
+        gameManager.stateManager.before(gameManager.game.party.campaignMode ? "disablePartyCampaignMode" : "enablePartyCampaignMode");
+        gameManager.game.party.campaignMode = !gameManager.game.party.campaignMode;
+        gameManager.stateManager.after();
+    }
+
+    toggleCondition(condition: ConditionName) {
+        gameManager.stateManager.before(gameManager.game.conditions.indexOf(condition) == -1 ? 'addGameCondition' : 'removeGameCondition', condition);
+        if (gameManager.game.conditions.indexOf(condition) == -1) {
+            gameManager.game.conditions.push(condition);
+        } else {
+            gameManager.game.conditions = gameManager.game.conditions.filter((conditionName) => condition != conditionName);
+        }
+        gameManager.stateManager.after();
     }
 
     openCharacterSheet(character: Character) {
@@ -64,6 +98,16 @@ export class SheetsMenuComponent implements OnInit {
     openBattleGoalsSetup() {
         this.dialog.open(BattleGoalSetupDialog, {
             panelClass: ['dialog']
+        });
+        this.close.emit();
+    }
+
+    openItems() {
+        this.dialog.open(ItemsDialogComponent, {
+            panelClass: ['dialog'],
+            data: {
+                edition: gameManager.game.edition
+            }
         });
         this.close.emit();
     }

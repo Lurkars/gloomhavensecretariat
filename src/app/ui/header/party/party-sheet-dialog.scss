@@ -1912,7 +1912,7 @@
             .legend {
               flex-direction: row;
               align-items: center;
-              justify-content: start;
+              justify-content: flex-start;
 
               img {
                 height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));

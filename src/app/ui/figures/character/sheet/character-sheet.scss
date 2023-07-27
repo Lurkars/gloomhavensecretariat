@@ -215,11 +215,16 @@
     .notes,
     ghs-character-items {
       height: calc(var(--ghs-unit) * 34 * var(--ghs-dialog-factor));
+      width: 100%;
       margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
 
+      .items {
+        width: 100%;
+      }
+
       .item-list {
-        height: calc(var(--ghs-unit) * 24 * var(--ghs-dialog-factor));
-        max-height: calc(var(--ghs-unit) * 24 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
+        max-height: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
         overflow: auto;
       }
     }

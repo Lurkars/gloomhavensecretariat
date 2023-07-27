@@ -11,7 +11,13 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 1,
-    "text": "During your attack ability, gain advantage on one attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your attack ability, gain advantage on one attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 2,
@@ -24,7 +30,13 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 1,
-    "text": "When you are attacked, treat any %game.attackmodifier.double% attack modifier card the enemy draws as a %game.attackmodifier.plus1% instead."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you are attacked, treat any %game.attackmodifier.double% attack modifier card the enemy draws as a %game.attackmodifier.plus1% instead.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 3,
@@ -37,7 +49,13 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 1,
-    "text": "At the start of the scenario increase your maximum hit point value by 1."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the start of the scenario increase your maximum hit point value by 1.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 4,
@@ -47,12 +65,19 @@
     "slot": "body",
     "spent": true,
     "minusOne": 1,
+    "slots": 2,
     "resources": {
       "hide": 2
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 1,
-    "text": "On the next two attacks targeting you, the attacker gains disadvantage."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "On the next two attacks targeting you, the attacker gains disadvantage.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 5,
@@ -66,7 +91,13 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 1,
-    "text": "During your move ability, add +1 %game.action.move%"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your move ability, add +1 %game.action.move%",
+        "small": true
+      }
+    ]
   },
   {
     "id": 6,
@@ -80,7 +111,13 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 1,
-    "text": "During your end-of-turn looting, loot an adjacent hex instead of the hex you occupy."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your end-of-turn looting, loot an adjacent hex instead of the hex you occupy.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 7,
@@ -94,7 +131,13 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 1,
-    "text": "During your turn, add +1 %game.action.range% to one of your ranged attacks."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, add +1 %game.action.range% to one of your ranged attacks.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 8,
@@ -109,7 +152,13 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 1,
-    "text": "During your turn, one of your single-target melee attack abilities may target an enemy two hexes away."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, one of your single-target melee attack abilities may target an enemy two hexes away.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 9,
@@ -124,7 +173,21 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 1,
-    "text": "During you turn, grant one ally within %game.action.range:2%: %game.action.shield:1%. ^eot^"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During you turn, grant one ally within %game.action.range:2%:",
+        "small": true
+      },
+      {
+        "type": "shield",
+        "value": 1
+      },
+      {
+        "type": "card",
+        "value": "round"
+      }
+    ]
   },
   {
     "id": 10,
@@ -139,7 +202,13 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 1,
-    "text": "When an enemy would apply a negative condition to you, prevent the condition"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When an enemy would apply a negative condition to you, prevent the condition",
+        "small": true
+      }
+    ]
   },
   {
     "id": 11,
@@ -152,7 +221,13 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 2,
-    "text": "At the start of the scenario remove one %game.attackmodifier.minus1% modifier card from your attack modifier deck."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the start of the scenario remove one %game.attackmodifier.minus1% modifier card from your attack modifier deck.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 12,
@@ -167,7 +242,13 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 2,
-    "text": "When you suffer %game.damage% from an attack, gain %game.action.shield:2% for the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you suffer %game.damage% from an attack, gain %game.action.shield:2% for the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 13,
@@ -182,7 +263,17 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 2,
-    "text": "After you suffer %game.damage% from an attack, perform: %game.action.move% 2"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After you suffer %game.damage% from an attack, perform:",
+        "small": true
+      },
+      {
+        "type": "move",
+        "value": 2
+      }
+    ]
   },
   {
     "id": 14,
@@ -197,12 +288,15 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 2,
-    "text": "During your melee attack ability, add +1 %game.action.attack% to one attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee attack ability, add +1 %game.action.attack% to one attack.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      10
-    ],
     "id": 15,
     "name": "Reinforced Shield",
     "count": 2,
@@ -213,14 +307,20 @@
     "resources": {
       "lumber": 1
     },
+    "requiredItems": [
+      10
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 2,
-    "text": "When an enemy would apply a negative condition to you, prevent the condition."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When an enemy would apply a negative condition to you, prevent the condition.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      2
-    ],
     "id": 16,
     "name": "Inspiring Helmet",
     "count": 2,
@@ -231,29 +331,42 @@
       "metal": 1,
       "hide": 1
     },
+    "requiredItems": [
+      2
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, grant all adjacent allies: %game.action.move% 2"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, grant all adjacent allies: %game.action.move% 2",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      4,
-      98
-    ],
     "id": 17,
     "name": "Cured Leather Armor",
     "count": 2,
     "edition": "fh",
     "slot": "body",
     "spent": true,
+    "slots": 2,
+    "requiredItems": [
+      4,
+      98
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 3,
-    "text": "On the next two attacks targeting you, the attacker gains disadvantage."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "On the next two attacks targeting you, the attacker gains disadvantage.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      5
-    ],
     "id": 18,
     "name": "Rough Boots",
     "count": 2,
@@ -263,9 +376,18 @@
     "resources": {
       "hide": 1
     },
+    "requiredItems": [
+      5
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 3,
-    "text": "During your turn add +1 %game.action.move% to all your move abilities."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn add +1 %game.action.move% to all your move abilities.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 19,
@@ -282,12 +404,15 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 3,
-    "text": "During your attack ability add $wfh-muddle$ to all your attacks."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your attack ability add %game.condition.muddle% all your attacks.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      7
-    ],
     "id": 20,
     "name": "Well Strung Bow",
     "count": 2,
@@ -297,9 +422,18 @@
     "resources": {
       "arrowvine": 1
     },
+    "requiredItems": [
+      7
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, add +1 %game.action.range% to all your ranged attacks."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, add +1 %game.action.range% to all your ranged attacks.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 21,
@@ -314,12 +448,15 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 4,
-    "text": "While you are adjacent to tree or more enemies, gain %game.action.shield:1%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "While you are adjacent to tree or more enemies, gain %game.action.shield:1%.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      12
-    ],
     "id": 22,
     "name": "Heavy Chain Armor",
     "count": 2,
@@ -330,9 +467,18 @@
     "resources": {
       "metal": 1
     },
+    "requiredItems": [
+      12
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 4,
-    "text": "When you suffer %game.damage% from an attack, gain %game.action.shield:3% for the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you suffer %game.damage% from an attack, gain %game.action.shield:3% for the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 23,
@@ -348,22 +494,38 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 4,
-    "text": "At the start of your turn, add -2 %game.action.move% to all your move abilities to gain %game.action.shield% this round. ^eot^"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the start of your turn, add -2 %game.action.move% to all your move abilities to gain %game.action.shield% this round. ",
+        "small": true
+      },
+      {
+        "type": "card",
+        "value": "round"
+      }
+    ]
   },
   {
-    "requiredItems": [
-      14,
-      98
-    ],
     "id": 24,
     "name": "Corrupted Blade",
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
     "consumed": true,
+    "requiredItems": [
+      14,
+      98
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 4,
-    "text": "During your melee attack ability, add $wfh-wound$, $wfh-poison$, $wfh-muddle$ to one attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee attack ability, add %game.condition.wound%, %game.condition.poison%, and %game.condition.muddle% to one attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 25,
@@ -379,7 +541,13 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 4,
-    "text": "During your turn, perform $wfh-regenerate$ ~!%game.action.target% 1 ally, %game.action.range:2%!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform %game.condition.regenerate% %game.action.target% 1 ally, %game.action.range:2%",
+        "small": true
+      }
+    ]
   },
   {
     "id": 26,
@@ -394,13 +562,15 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 5,
-    "text": "During your attack ability, treat all negative and %game.attackmodifier.null% modifier cards as %game.attackmodifier.plus0% instead."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your attack ability, treat all negative and %game.attackmodifier.null% modifier cards as %game.attackmodifier.plus0% instead.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      3,
-      91
-    ],
     "id": 27,
     "name": "Cloak of Warding",
     "count": 2,
@@ -410,14 +580,21 @@
     "resources": {
       "hide": 1
     },
+    "requiredItems": [
+      3,
+      91
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 5,
-    "text": "Immediately after an enemy ends its move ability adjacent to you, perform $wfh-push$ 1 ~!%game.action.target% the enemy!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Immediately after an enemy ends its move ability adjacent to you, perform %game.action.push% %game.action.target% the enemy",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      18
-    ],
     "id": 28,
     "name": "Sturdy Boots",
     "count": 2,
@@ -427,9 +604,18 @@
     "resources": {
       "hide": 1
     },
+    "requiredItems": [
+      18
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 5,
-    "text": "During your turn add +1 %game.action.move% to all your move abilities and ignor difficult terrain."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn add +1 %game.action.move% to all your move abilities and ignor difficult terrain.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 29,
@@ -444,7 +630,13 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 5,
-    "text": "After your melee attack, one enemy adjacent to the target suffers %game.damage% 2."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After your melee attack, one enemy adjacent to the target suffers %game.damage% 2.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 30,
@@ -459,22 +651,34 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 5,
-    "text": "Immediately after an enemy ends its move ability adjacent to you, perform %game.action.attack% 3 ~!%game.action.target% the enemy!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Immediately after an enemy ends its move ability adjacent to you, perform %game.action.attack% 3 %game.action.target% the enemy",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      11,
-      106
-    ],
     "id": 31,
     "name": "Deathproof Charm",
     "count": 2,
     "edition": "fh",
     "slot": "head",
     "consumed": true,
+    "requiredItems": [
+      11,
+      106
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 6,
-    "text": "When you suffer %game.damage% from any source, negate the %game.damage%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you suffer %game.damage% from any source, negate the %game.damage%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 32,
@@ -490,13 +694,15 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 6,
-    "text": "During yur turn, perform $wfh-ward$ ~!self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During yur turn, perform %game.condition.ward% self",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      18,
-      96
-    ],
     "id": 33,
     "name": "Volatile Boots",
     "count": 2,
@@ -505,14 +711,28 @@
     "resources": {
       "metal": 1
     },
+    "requiredItems": [
+      18,
+      96
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 6,
-    "text": "Up to once each turn during your move ability, add +1 %game.action.move%, then flip this card over at the end of your turn."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Up to once each turn during your move ability, add +1 %game.action.move%, then flip this card over at the end of your turn.",
+        "small": true
+      }
+    ],
+    "actionsBack": [
+      {
+        "type": "custom",
+        "value": "Up to once each turn during your move ability, suffer %game.damage:1%, then flip this card over at the end of your turn.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      97
-    ],
     "id": 34,
     "name": "Shrapnel Bomb",
     "count": 2,
@@ -522,9 +742,18 @@
     "resources": {
       "metal": 2
     },
+    "requiredItems": [
+      97
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 6,
-    "text": "After your ranged attack, all enemies adjacent to the target suffer %game.damage% 2."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After your ranged attack, all enemies adjacent to the target suffer %game.damage% 2.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 35,
@@ -540,12 +769,15 @@
     },
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 6,
-    "text": "When you suffer %game.damage% from an attack, gain %game.action.shield:1% for the attack and prevent any negative conditions from the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you suffer %game.damage% from an attack, gain %game.action.shield:1% for the attack and prevent any negative conditions from the attack.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      16
-    ],
     "id": 36,
     "name": "Plumed Helmet",
     "count": 2,
@@ -555,15 +787,20 @@
       "hide": 1,
       "snowthistle": 1
     },
+    "requiredItems": [
+      16
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 7,
-    "text": "When you are attacked by an attack with disadvantage, treat all %game.attackmodifier.plus0% and %game.attackmodifier.plus1% attack modifier cards as %game.attackmodifier.minus1%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you are attacked by an attack with disadvantage, treat all %game.attackmodifier.plus0% and %game.attackmodifier.plus1% attack modifier cards as %game.attackmodifier.minus1%.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      3,
-      114
-    ],
     "id": 37,
     "name": "Ghost Cloak",
     "count": 2,
@@ -573,46 +810,64 @@
     "resources": {
       "corpsecap": 1
     },
+    "requiredItems": [
+      3,
+      114
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 7,
-    "text": "During your turn suffer %game.damage% 3 to perform $invisible$ ~!self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn suffer %game.damage% 3 to perform $invisible$ self",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      13,
-      113
-    ],
     "id": 38,
     "name": "Duelists Shoes",
     "count": 2,
     "edition": "fh",
     "slot": "legs",
     "spent": true,
+    "requiredItems": [
+      13,
+      113
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 7,
-    "text": "During your turn, perform: %game.action.move% 2 This movement must end adjacent to an enemy."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform: %game.action.move% 2 This movement must end adjacent to an enemy.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      29,
-      101,
-      112
-    ],
     "id": 39,
     "name": "Abyss Axe",
     "count": 2,
     "edition": "fh",
     "slot": "twohand",
     "spent": true,
+    "requiredItems": [
+      29,
+      101,
+      112
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 7,
-    "text": "During your attack ability, add +3 %game.action.attack% and $wfh-pierce$ 1 to one attack targeting a Frozen Corpse, Ice Wraith, or Living Doom."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your attack ability, add +3 %game.action.attack% and %game.action.pierce% to one attack targeting a Frozen Corpse, Ice Wraith, or Living Doom.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      20,
-      85
-    ],
     "id": 40,
     "name": "Heartstrike Bow",
     "count": 2,
@@ -622,15 +877,21 @@
     "resources": {
       "lumber": 1
     },
+    "requiredItems": [
+      20,
+      85
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 7,
-    "text": "During your turn, add +1 %game.action.attack% and +2 %game.action.range% to one of your ranged attacks."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, add +1 %game.action.attack% and +2 %game.action.range% to one of your ranged attacks.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      11,
-      110
-    ],
     "id": 41,
     "name": "Intricate Charm",
     "count": 2,
@@ -639,14 +900,21 @@
     "resources": {
       "metal": 1
     },
+    "requiredItems": [
+      11,
+      110
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 8,
-    "text": "At the start of the scenario remove one %game.attackmodifier.plus0% and one %game.attackmodifier.minus1% modifier card from your attack modifier deck."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the start of the scenario remove one %game.attackmodifier.plus0% and one %game.attackmodifier.minus1% modifier card from your attack modifier deck.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      112
-    ],
     "id": 42,
     "name": "Ornate Armor",
     "count": 2,
@@ -654,18 +922,24 @@
     "slot": "body",
     "spent": true,
     "minusOne": 4,
+    "slots": 2,
     "resources": {
       "metal": 3
     },
+    "requiredItems": [
+      112
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 8,
-    "text": "On the next two sources of %game.damage% from attacks targeting you gain %game.action.shield:2% for the attacks."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "On the next two sources of %game.damage% from attacks targeting you gain %game.action.shield:2% for the attacks.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      28,
-      90
-    ],
     "id": 43,
     "name": "Kicking Boots",
     "count": 2,
@@ -675,45 +949,84 @@
     "resources": {
       "metal": 1
     },
+    "requiredItems": [
+      28,
+      90
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 8,
-    "text": "During your melee attack ability, add $wfh-push$ 2 to one attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee attack ability, add %game.action.push% to one attack.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      24,
-      101
-    ],
     "id": 44,
     "name": "Sword of Absolution",
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
+    "requiredItems": [
+      24,
+      101
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 8,
-    "text": "When you would gain $wfh-poison$ or $wfh-curse$, gain $wfh-bless$ instead."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you would gain %game.condition.poison% %game.condition.curse%, gain %game.condition.bless%.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      9,
-      25
-    ],
     "id": 45,
     "name": "Master Scepter",
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
+    "requiredItems": [
+      9,
+      25
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 8,
-    "text": "During your turn, perform: %game.action.heal% 1 ~!%game.action.target% 1 ally, %game.action.range:2%, $wfh-ward$!~ "
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform:",
+        "small": true
+      },
+      {
+        "type": "heal",
+        "value": 1,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "ally",
+            "small": true
+          },
+          {
+            "type": "range",
+            "value": 2,
+            "small": true
+          },
+          {
+            "type": "condition",
+            "value": "ward",
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
-    "requiredItems": [
-      26,
-      129
-    ],
     "id": 46,
     "name": "Double-Lens Goggles",
     "count": 2,
@@ -723,30 +1036,44 @@
     "resources": {
       "hide": 1
     },
+    "requiredItems": [
+      26,
+      129
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 9,
-    "text": "During your attack ability, gain advantage on all attacks and treat all %game.attackmodifier.plus0% and %game.attackmodifier.minus1% modifier cards as %game.attackmodifier.plus1% instead."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your attack ability, gain advantage on all attacks and treat all %game.attackmodifier.plus0% and %game.attackmodifier.minus1% modifier cards as %game.attackmodifier.plus1% instead.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      27,
-      119,
-      162
-    ],
     "id": 47,
     "name": "Robes of Doom",
     "count": 2,
     "edition": "fh",
     "slot": "body",
     "spent": true,
+    "slots": 2,
+    "requiredItems": [
+      27,
+      119,
+      162
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 9,
-    "text": "On the next two sources of %game.damage% from attacks targeting you, suffer %game.damage% 3 to give the attacker $wfh-brittle$."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "On the next two sources of %game.damage% from attacks targeting you, suffer %game.damage% 3 to give the attacker %game.condition.brittle%.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      13
-    ],
     "id": 48,
     "name": "Living Shoes",
     "count": 2,
@@ -756,15 +1083,24 @@
       "hide": 2,
       "flamefruit": 1
     },
+    "requiredItems": [
+      13
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 9,
-    "text": "After an ally's heal ability targeting you, perform: %game.action.move% 2"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After an ally's heal ability targeting you, perform:",
+        "small": true
+      },
+      {
+        "type": "move",
+        "value": 2
+      }
+    ]
   },
   {
-    "requiredItems": [
-      111,
-      145
-    ],
     "id": 49,
     "name": "Cruel Dagger",
     "count": 2,
@@ -774,16 +1110,21 @@
     "resources": {
       "metal": 1
     },
+    "requiredItems": [
+      111,
+      145
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 9,
-    "text": "During your melee attack ability, add +1 %game.action.attack% and $wfh-wound$ to one attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee attack ability, add +1 %game.action.attack% and %game.condition.wound% one attack.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      35,
-      105,
-      161
-    ],
     "id": 50,
     "name": "Shield of Reciprocity",
     "count": 2,
@@ -793,269 +1134,391 @@
     "resources": {
       "metal": 1
     },
+    "requiredItems": [
+      35,
+      105,
+      161
+    ],
     "requiredBuilding": "craftsman",
     "requiredBuildingLevel": 9,
-    "text": "When you suffer %game.damage% from an attack, gain %game.action.shield:1% for the attack and flip this card over."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you suffer %game.damage% from an attack, gain %game.action.shield:1% for the attack and flip this card over.",
+        "small": true
+      }
+    ],
+    "actionsBack": [
+      {
+        "type": "custom",
+        "value": "During your melee attack ability, add %game.action.pierce% 1 to one attack and flip this card over.",
+        "small": true
+      }
+    ]
   },
   {
-    "blueprint": true,
-    "requiredItems": [
-      11
-    ],
     "id": 51,
     "name": "Spiked Collar",
     "count": 2,
     "edition": "fh",
     "slot": "head",
     "spent": true,
+    "blueprint": true,
     "resources": {
       "flamefruit": 1
     },
-    "text": "During your turn perform $wfh-wound$ ~!self!~"
+    "requiredItems": [
+      11
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn perform %game.condition.wound% self",
+        "small": true
+      }
+    ]
   },
   {
-    "blueprint": true,
-    "requiredItems": [
-      97,
-      129
-    ],
     "id": 52,
     "name": "Laser Lens",
     "count": 2,
     "edition": "fh",
     "slot": "head",
     "spent": true,
-    "text": "During your turn, @wfh-fire-consume@ to cause up to two enemies within %game.action.range:4% to suffer %game.damage% 1."
-  },
-  {
     "blueprint": true,
     "requiredItems": [
-      18,
-      88
+      97,
+      129
     ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, %game.element.consume.fire% to cause up to two enemies within %game.action.range:4% to suffer %game.damage% 1.",
+        "small": true
+      }
+    ]
+  },
+  {
     "id": 53,
     "name": "Hobnail Boots",
     "count": 2,
     "edition": "fh",
     "slot": "legs",
+    "blueprint": true,
     "resources": {
       "metal": 1
     },
-    "text": "After you move 4 or more hexes during your turn, gain %game.action,retaliate% 1 for the round."
+    "requiredItems": [
+      18,
+      88
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After you move 4 or more hexes during your turn, gain %game.action,retaliate% 1 for the round.",
+        "small": true
+      }
+    ]
   },
   {
-    "blueprint": true,
-    "requiredItems": [
-      6,
-      92
-    ],
     "id": 54,
     "name": "Restful Slippers",
     "count": 2,
     "edition": "fh",
     "slot": "head",
     "spent": true,
+    "blueprint": true,
     "resources": {
       "snowthistle": 1
     },
-    "text": "During your short rest, instead of randomly losing one card from your discard pile, randomly draw three cards from your discard pile and choose one to lose."
+    "requiredItems": [
+      6,
+      92
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your short rest, instead of randomly losing one card from your discard pile, randomly draw three cards from your discard pile and choose one to lose.",
+        "small": true
+      }
+    ]
   },
   {
-    "blueprint": true,
-    "requiredItems": [
-      94
-    ],
     "id": 55,
     "name": "Biting Gauntlet",
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
+    "blueprint": true,
     "resources": {
       "metal": 1,
       "hide": 1
     },
-    "text": "When you are attacked by an adjacent enemy, gain %game.action,retaliate% 2 for the attack."
+    "requiredItems": [
+      94
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you are attacked by an adjacent enemy, gain %game.action,retaliate% 2 for the attack.",
+        "small": true
+      }
+    ]
   },
   {
-    "blueprint": true,
     "id": 56,
     "name": "Scavenger's Magnet",
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
+    "blueprint": true,
     "resources": {
       "lumber": 1,
       "metal": 1
     },
-    "text": "During your turn, @wfh-earth-consume@ to loot one adjacent loot token."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, %game.element.consume.earth% to loot one adjacent loot token.",
+        "small": true
+      }
+    ]
   },
   {
-    "blueprint": true,
     "id": 57,
     "name": "Shovel",
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
+    "blueprint": true,
     "resources": {
       "lumber": 1,
       "metal": 1
     },
-    "text": "During your turn, destroy one adjacent obstacle, hazardous terrain, difficult terrain, icy terrain, or trap tile."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, destroy one adjacent obstacle, hazardous terrain, difficult terrain, icy terrain, or trap tile.",
+        "small": true
+      }
+    ]
   },
   {
-    "blueprint": true,
-    "requiredItems": [
-      14,
-      85,
-      90
-    ],
     "id": 58,
     "name": "Slippery Sword",
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
-    "text": "During your melee attack abiluty, add +2 %game.action.attack% to one attack. After the ability, gain $wfh-disarm$."
-  },
-  {
     "blueprint": true,
     "requiredItems": [
-      11,
-      113
+      14,
+      85,
+      90
     ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee attack abiluty, add +2 %game.action.attack% to one attack. After the ability, gain %game.condition.disarm%.",
+        "small": true
+      }
+    ]
+  },
+  {
     "id": 59,
     "name": "Charm of Expertise",
     "count": 2,
     "edition": "fh",
     "slot": "head",
-    "requiredBuilding": "alchemist",
-    "requiredBuildingLevel": 3,
-    "text": "At the start of the scenario, for the scenario, gain one 1-mark perk from your character sheet which you have not yet gained."
-  },
-  {
     "blueprint": true,
     "requiredItems": [
-      132
+      11,
+      113
     ],
+    "requiredBuilding": "alchemist",
+    "requiredBuildingLevel": 3,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the start of the scenario, for the scenario, gain one 1-mark perk from your character sheet which you have not yet gained.",
+        "small": true
+      }
+    ]
+  },
+  {
     "id": 60,
     "name": "Cloak of Many Pockets",
     "count": 2,
     "edition": "fh",
     "slot": "body",
+    "blueprint": true,
     "resources": {
       "hide": 3
     },
+    "requiredItems": [
+      132
+    ],
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "At the start of the scenario, bring up to two additional %game.items.slots.small% items."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the start of the scenario, bring up to two additional %game.items.slots.small% items.",
+        "small": true
+      }
+    ]
   },
   {
-    "blueprint": true,
-    "requiredItems": [
-      32,
-      105
-    ],
     "id": 61,
     "name": "Spiked Shell",
     "count": 2,
     "edition": "fh",
     "slot": "body",
     "spent": true,
+    "blueprint": true,
     "resources": {
       "metal": 1
     },
+    "requiredItems": [
+      32,
+      105
+    ],
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "Immediately after you are attacked by an adjacent enemy, that enemy suffers %game.damage% X, where is X is your %game.action.shield% value for the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Immediately after you are attacked by an adjacent enemy, that enemy suffers %game.damage% X, where is X is your %game.action.shield% value for the attack.",
+        "small": true
+      }
+    ]
   },
   {
-    "blueprint": true,
-    "requiredItems": [
-      28,
-      99
-    ],
     "id": 62,
     "name": "Everlasting Boots",
     "count": 2,
     "edition": "fh",
     "slot": "legs",
     "spent": true,
-    "requiredBuilding": "alchemist",
-    "requiredBuildingLevel": 3,
-    "text": "During your move ability, add +1 %game.action.move% and gain $wfh-regenerate$"
-  },
-  {
     "blueprint": true,
     "requiredItems": [
-      13,
-      158
+      28,
+      99
     ],
+    "requiredBuilding": "alchemist",
+    "requiredBuildingLevel": 3,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your move ability, add +1 %game.action.move% and gain %game.condition.regenerate%",
+        "small": true
+      }
+    ]
+  },
+  {
     "id": 63,
     "name": "Shadow Stompers",
     "count": 2,
     "edition": "fh",
     "slot": "legs",
     "spent": true,
-    "requiredBuilding": "alchemist",
-    "requiredBuildingLevel": 3,
-    "text": "During your move ability, @wfh-dark-consume@ add +2 %game.action.move%"
-  },
-  {
     "blueprint": true,
     "requiredItems": [
-      96,
-      112
+      13,
+      158
     ],
+    "requiredBuilding": "alchemist",
+    "requiredBuildingLevel": 3,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your move ability, %game.element.consume.dark% add +2 %game.action.move%",
+        "small": true
+      }
+    ]
+  },
+  {
     "id": 64,
     "name": "Detonator",
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
     "consumed": true,
+    "blueprint": true,
     "resources": {
       "metal": 1
     },
+    "requiredItems": [
+      96,
+      112
+    ],
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "When one of your summons is killed, all enemies adjacent to it suffer %game.damage% 2 and gain $wfh-wound$."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When one of your summons is killed, all enemies adjacent to it suffer %game.damage% 2 and gain %game.condition.wound%.",
+        "small": true
+      }
+    ]
   },
   {
-    "blueprint": true,
-    "requiredItems": [
-      157
-    ],
     "id": 65,
     "name": "Rust Powder",
     "count": 2,
     "edition": "fh",
     "slot": "small",
     "consumed": true,
+    "persistent": true,
+    "blueprint": true,
     "resources": {
       "corpsecap": 1
     },
+    "requiredItems": [
+      157
+    ],
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, place a character token on one normal or elite enemy within %game.action.range:3%.  That enemy gains -1 %game.action.shield% for the scenario. ^ongoing^"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, place a character token on one normal or elite enemy within %game.action.range:3%.  That enemy gains -1 %game.action.shield% for the scenario.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      109,
-      120
-    ],
     "id": 66,
     "name": "Amulet of Eternal Life",
     "count": 2,
     "edition": "fh",
     "slot": "head",
-    "text": "At the start of your rest, perform: %game.action.heal% 1 ~!self!~"
+    "requiredItems": [
+      109,
+      120
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the start of your rest, perform:",
+        "small": true
+      },
+      {
+        "type": "heal",
+        "value": 1,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "self",
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
-    "requiredItems": [
-      1,
-      93
-    ],
     "id": 67,
     "name": "Converging Lenses",
     "count": 2,
@@ -1064,50 +1527,83 @@
     "resources": {
       "metal": 1
     },
-    "text": "When you are attacked, add +1 %game.action.attack% to attack to instead of drawing an attack modifier card and flip this card over."
+    "requiredItems": [
+      1,
+      93
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you are attacked, add +1 %game.action.attack% to attack to instead of drawing an attack modifier card and flip this card over.",
+        "small": true
+      }
+    ],
+    "actionsBack": [
+      {
+        "type": "custom",
+        "value": "During you attack ability add +1 %game.action.attack% to one attack instead of drawing an attack modifier card and flip this card over.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      89,
-      123
-    ],
     "id": 68,
     "name": "Scaled Armor",
     "count": 2,
     "edition": "fh",
     "slot": "body",
     "consumed": true,
-    "text": "On the next three sources of 2 or fewer %game.damage% you would suffer, negate the %game.damage%."
+    "slots": 3,
+    "requiredItems": [
+      89,
+      123
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "On the next three sources of 2 or fewer %game.damage% you would suffer, negate the %game.damage%.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      3,
-      233
-    ],
     "id": 69,
     "name": "Feathered Cloak",
     "count": 2,
     "edition": "fh",
     "slot": "body",
     "spent": true,
-    "text": "When you suffer %game.damage% from an attack, @wfh-air-consume@ to gain %game.action.shield:3% for the attack."
+    "requiredItems": [
+      3,
+      233
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you suffer %game.damage% from an attack, %game.element.consume.air% to gain %game.action.shield:3% for the attack.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      27,
-      113
-    ],
     "id": 70,
     "name": "Aesther Robe",
     "count": 2,
     "edition": "fh",
     "slot": "body",
-    "text": "When you suffer %game.damage% from %game.action,retaliate%, reduce the %game.damage% to 1. If it already 1, reduce it to 0 instead."
+    "requiredItems": [
+      27,
+      113
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you suffer %game.damage% from %game.action,retaliate%, reduce the %game.damage% to 1. If it already 1, reduce it to 0 instead.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      18
-    ],
     "id": 71,
     "name": "Bone Boots",
     "count": 2,
@@ -1117,12 +1613,22 @@
     "resources": {
       "corpsecap": 1
     },
-    "text": "After your ability where you kill an enemy, perform: %game.action.move% 4"
+    "requiredItems": [
+      18
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After your ability where you kill an enemy, perform:",
+        "small": true
+      },
+      {
+        "type": "move",
+        "value": 4
+      }
+    ]
   },
   {
-    "requiredItems": [
-      91
-    ],
     "id": 72,
     "name": "Oak Staff",
     "count": 2,
@@ -1132,12 +1638,29 @@
     "resources": {
       "lumber": 1
     },
-    "text": "During you turn, @wfh-light-consume@ to perform: $wfh-bless$ ~!%game.action.range:3%!~"
+    "requiredItems": [
+      91
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During you turn, %game.element.consume.light% to perform:",
+        "small": true
+      },
+      {
+        "type": "condition",
+        "value": "bless",
+        "subActions": [
+          {
+            "type": "range",
+            "value": 3,
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
-    "requiredItems": [
-      101
-    ],
     "id": 73,
     "name": "Energizing Baton",
     "count": 2,
@@ -1147,25 +1670,53 @@
     "resources": {
       "metal": 2
     },
-    "text": "When you apply a positive condition to an ally, a different ally within %game.action.range:3% gains the same condition."
+    "requiredItems": [
+      101
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you apply a positive condition to an ally, a different ally within %game.action.range:3% gains the same condition.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      19,
-      97
-    ],
     "id": 74,
     "name": "Shock Grenades",
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
-    "text": "During your turn, perform $wfh-muddle$ ~!%game.action.range:2%!~ *cone_1_1*"
+    "requiredItems": [
+      19,
+      97
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform:",
+        "small": true
+      },
+      {
+        "type": "condition",
+        "value": "muddle",
+        "subActions": [
+          {
+            "type": "area",
+            "value": "(1,0,target)|(0,1,target)|(1,1,target)",
+            "small": true
+          },
+          {
+            "type": "range",
+            "value": 2,
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
-    "requiredItems": [
-      30
-    ],
     "id": 75,
     "name": "Rose Gauntlet",
     "count": 2,
@@ -1176,7 +1727,32 @@
       "flamefruit": 1,
       "snowthistle": 1
     },
-    "text": "After any ally within %game.action.range:2% suffers %game.damage% from an attack, remove all negative conditions from the ally then perform: %game.action.heal% 3 ~!%game.action.target% the ally, $wfh-pull$ 1!~"
+    "requiredItems": [
+      30
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After any ally within %game.action.range:2% suffers %game.damage% from an attack, remove all negative conditions from the ally then perform:",
+        "small": true
+      },
+      {
+        "type": "heal",
+        "value": 3,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "the ally",
+            "small": true
+          },
+          {
+            "type": "pull",
+            "value": 2,
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 76,
@@ -1190,12 +1766,15 @@
       "hide": 1,
       "rockroot": 1
     },
-    "text": "During one of your summons' turns, decide how it peforms it's abilities."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During one of your summons' turns, decide how it peforms it's abilities.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      86
-    ],
     "id": 77,
     "name": "Chaos Cannon",
     "count": 2,
@@ -1205,12 +1784,18 @@
     "resources": {
       "metal": 2
     },
-    "text": "During you turn, replace one 1-hex obstacle, hazardous terrain, difficult terrain, or icy terrain tile in an unoccupied hex withing %game.action.range:2% with a different type of tile listed above."
+    "requiredItems": [
+      86
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During you turn, replace one 1-hex obstacle, hazardous terrain, difficult terrain, or icy terrain tile in an unoccupied hex withing %game.action.range:2% with a different type of tile listed above.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      110
-    ],
     "id": 78,
     "name": "Balanced Scales",
     "count": 2,
@@ -1220,7 +1805,23 @@
       "metal": 1,
       "hide": 1
     },
-    "text": "Once each turn, during your attack ability, gain advantage on one attack, then flip this card over at the end of your turn."
+    "requiredItems": [
+      110
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Once each turn, during your attack ability, gain advantage on one attack, then flip this card over at the end of your turn.",
+        "small": true
+      }
+    ],
+    "actionsBack": [
+      {
+        "type": "custom",
+        "value": "Once each turn, during your attack ability, gain disadvantage on one attack, then flip this card over at the end of your turn.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 79,
@@ -1234,13 +1835,26 @@
       "flamefruit": 1,
       "snowthistle": 1
     },
-    "text": "During you turn, add +1 %game.action.attack% to all your attacks and perform: %game.action.heal% 2 ~!self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During you turn, add +1 %game.action.attack% to all your attacks and perform:",
+        "small": true
+      },
+      {
+        "type": "heal",
+        "value": 2,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "self",
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
-    "requiredItems": [
-      99,
-      156
-    ],
     "id": 80,
     "name": "Living Stone",
     "count": 2,
@@ -1250,12 +1864,19 @@
     "resources": {
       "rockroot": 1
     },
-    "text": "When you would suffer 4 or fewer %game.damage% from attack, negate the %game.damage% and perform %game.action.heal% X ~!self!~ wheee x is the amount of damage you would have suffered."
+    "requiredItems": [
+      99,
+      156
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you would suffer 4 or fewer %game.damage% from attack, negate the %game.damage% and perform %game.action.heal% X self wheee x is the amount of damage you would have suffered.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      97
-    ],
     "id": 81,
     "name": "Pain Simulacrum",
     "count": 2,
@@ -1265,12 +1886,18 @@
     "resources": {
       "hide": 2
     },
-    "text": "When you suffer 5 or fewer %game.damage% from an attack, one enemy within %game.action.range:2% also suffers the same amount of %game.damage%."
+    "requiredItems": [
+      97
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you suffer 5 or fewer %game.damage% from an attack, one enemy within %game.action.range:2% also suffers the same amount of %game.damage%.",
+        "small": true
+      }
+    ]
   },
   {
-    "requiredItems": [
-      112
-    ],
     "id": 82,
     "name": "Mechanical Cube",
     "count": 2,
@@ -1280,7 +1907,16 @@
     "resources": {
       "metal": 2
     },
-    "text": "During your move ability, after you enter any one hex, give $wfh-immobilize$ to all adjacent enemies."
+    "requiredItems": [
+      112
+    ],
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your move ability, after you enter any one hex, give %game.condition.immobilize% all adjacent enemies.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 83,
@@ -1295,7 +1931,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1,
-    "text": "During your turn, perform %game.action.heal% 3 ~!self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform %game.action.heal% 3 self",
+        "small": true
+      }
+    ]
   },
   {
     "id": 84,
@@ -1310,7 +1952,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1,
-    "text": "During your turn, %game.card.recover% one level 1 card from your discard pile."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, %game.card.recover% one level 1 card from your discard pile.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 85,
@@ -1325,7 +1973,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1,
-    "text": "During your turn, add +1 %game.action.attack% to all your attacks."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, add +1 %game.action.attack% to all your attacks.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 86,
@@ -1340,7 +1994,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1,
-    "text": "During your turn, @wfh-wild@"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, %game.element.wild%",
+        "small": true
+      }
+    ]
   },
   {
     "id": 87,
@@ -1355,7 +2015,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1,
-    "text": "During your turn, remove one negative condition you have.  This item can be used while you have $wfh-impair$ or $wfh-stun$."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, remove one negative condition you have.  This item can be used while you have %game.condition.impair% %game.condition.stun%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 88,
@@ -1370,7 +2036,17 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1,
-    "text": "During your turn perform %game.action,retaliate% 1 ~!%game.action.range:3%!~ ^eot^"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn perform %game.action,retaliate% 1 %game.action.range:3% ",
+        "small": true
+      },
+      {
+        "type": "card",
+        "value": "round"
+      }
+    ]
   },
   {
     "id": 89,
@@ -1385,7 +2061,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1,
-    "text": "During your turn, perform $wfh-ward$ ~!self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform %game.condition.ward% self",
+        "small": true
+      }
+    ]
   },
   {
     "id": 90,
@@ -1400,7 +2082,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1,
-    "text": "During your turn, perform $wfh-strengthen$ ~!self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform %game.condition.strengthen% self",
+        "small": true
+      }
+    ]
   },
   {
     "id": 91,
@@ -1415,7 +2103,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1,
-    "text": "During your turn, perform $wfh-bless$ ~!self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform %game.condition.bless% self",
+        "small": true
+      }
+    ]
   },
   {
     "id": 92,
@@ -1430,7 +2124,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1,
-    "text": "During your turn, %game.card.recover% up to two of your spent items."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, %game.card.recover% up to two of your spent items.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 93,
@@ -1445,7 +2145,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1,
-    "text": "When you reveal a %game.attackmodifier.null% attack modifier card from your attack modifier deck, treat it as a %game.attackmodifier.plus0% instead."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you reveal a %game.attackmodifier.null% attack modifier card from your attack modifier deck, treat it as a %game.attackmodifier.plus0% instead.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 94,
@@ -1460,7 +2166,17 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1,
-    "text": "During your turn, perform: %game.action.attack% 2"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform:",
+        "small": true
+      },
+      {
+        "type": "attack",
+        "value": 2
+      }
+    ]
   },
   {
     "id": 95,
@@ -1475,7 +2191,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1,
-    "text": "During your turn, perform $wfh-poison$ ~!%game.action.range:1%!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform %game.condition.poison% %game.action.range:1%",
+        "small": true
+      }
+    ]
   },
   {
     "id": 96,
@@ -1490,7 +2212,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1,
-    "text": "During your turn, perform $wfh-wound$ ~!%game.action.range:1%!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform %game.condition.wound% %game.action.range:1%",
+        "small": true
+      }
+    ]
   },
   {
     "id": 97,
@@ -1505,7 +2233,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1,
-    "text": "During your turn, one enemy withing %game.action.range:2% suffers %game.damage% 2."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, one enemy withing %game.action.range:2% suffers %game.damage% 2.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 98,
@@ -1514,9 +2248,23 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
+    "resourcesAny": [
+      {
+        "herb_resources": 1
+      },
+      {
+        "herb_resources": 1
+      }
+    ],
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 1,
-    "text": "During your turn, perform $wfh-wound$, $wfh-poison$ ~!self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform %game.condition.wound%, %game.condition.poison% self",
+        "small": true
+      }
+    ]
   },
   {
     "id": 99,
@@ -1532,7 +2280,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, perform %game.action.heal% 6 ~!self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform %game.action.heal% 6 self",
+        "small": true
+      }
+    ]
   },
   {
     "id": 100,
@@ -1548,7 +2302,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, %game.card.recover% one card from your discard pile."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, %game.card.recover% one card from your discard pile.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 101,
@@ -1564,7 +2324,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, add +2 %game.action.attack% to all your attacks."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, add +2 %game.action.attack% to all your attacks.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 102,
@@ -1580,7 +2346,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, @wfh-wild@ @wfh-wild@"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, %game.element.wild% %game.element.wild%",
+        "small": true
+      }
+    ]
   },
   {
     "id": 103,
@@ -1596,7 +2368,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, remove all negative conditions you have.  This item can be used while you have $wfh-impair$ or $wfh-stun$."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, remove all negative conditions you have.  This item can be used while you have %game.condition.impair% %game.condition.stun%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 104,
@@ -1612,7 +2390,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your move ability, add +3 %game.action.move% and %game.action.jump%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your move ability, add +3 %game.action.move% and %game.action.jump%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 105,
@@ -1628,7 +2412,17 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, perform, %game.action,retaliate% 2 ~!%game.action.range:3%!~ ^eot^"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform, %game.action,retaliate% 2 %game.action.range:3% ",
+        "small": true
+      },
+      {
+        "type": "card",
+        "value": "round"
+      }
+    ]
   },
   {
     "id": 106,
@@ -1644,7 +2438,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, perform $wfh-ward$ ~!%game.action.target% 2 adjacent allies and self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform %game.condition.ward% %game.action.target% 2 adjacent allies and self",
+        "small": true
+      }
+    ]
   },
   {
     "id": 107,
@@ -1660,7 +2460,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, perform $wfh-strengthen$ ~!%game.action.target% 2 adjacent allies and self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform %game.condition.strengthen% %game.action.target% 2 adjacent allies and self",
+        "small": true
+      }
+    ]
   },
   {
     "id": 108,
@@ -1676,7 +2482,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, perform $wfh-bless$ ~!%game.action.target% 2 adjacent allies and self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform %game.condition.bless% %game.action.target% 2 adjacent allies and self",
+        "small": true
+      }
+    ]
   },
   {
     "id": 109,
@@ -1692,7 +2504,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, %game.card.recover% up to one of your lost 2-herb potions."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, %game.card.recover% up to one of your lost 2-herb potions.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 110,
@@ -1708,7 +2526,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "When you reveal a %game.attackmodifier.null% attack modifier card from your attack modifier deck, treat it as a %game.attackmodifier.plus2% instead."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you reveal a %game.attackmodifier.null% attack modifier card from your attack modifier deck, treat it as a %game.attackmodifier.plus2% instead.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 111,
@@ -1724,7 +2548,17 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, perform: %game.action.attack% 4"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform:",
+        "small": true
+      },
+      {
+        "type": "attack",
+        "value": 4
+      }
+    ]
   },
   {
     "id": 112,
@@ -1740,7 +2574,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn suffer %game.damage% 10."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn suffer %game.damage% 10.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 113,
@@ -1756,7 +2596,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "At the start of your turn, discard one of your played cards to perform both the top and bottom actions of your other played card. At most one action can trigger a %game.card.lost% icon."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the start of your turn, discard one of your played cards to perform both the top and bottom actions of your other played card. At most one action can trigger a %game.card.lost% icon.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 114,
@@ -1772,7 +2618,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, reveal the top card of one monster ability deck. You may place the card on the bottom of the deck."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, reveal the top card of one monster ability deck. You may place the card on the bottom of the deck.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 115,
@@ -1788,7 +2640,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, ignore one elemental consumption symbol on an action you played and gain its effect."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, ignore one elemental consumption symbol on an action you played and gain its effect.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 116,
@@ -1804,7 +2662,29 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn perform, $wfh-poison$ ~!%game.action.range:1%!~ *cone_1_1*"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn perform:",
+        "small": true
+      },
+      {
+        "type": "condition",
+        "value": "poison",
+        "subActions": [
+          {
+            "type": "area",
+            "value": "(1,0,target)|(0,1,target)|(1,1,target)",
+            "small": true
+          },
+          {
+            "type": "range",
+            "value": 1,
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 117,
@@ -1820,7 +2700,29 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn perform, $wfh-wound$ ~!%game.action.range:1%!~ *cone_1_1*"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn perform:",
+        "small": true
+      },
+      {
+        "type": "condition",
+        "value": "wound",
+        "subActions": [
+          {
+            "type": "area",
+            "value": "(1,0,target)|(0,1,target)|(1,1,target)",
+            "small": true
+          },
+          {
+            "type": "range",
+            "value": 1,
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 118,
@@ -1836,7 +2738,13 @@
     },
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, one enemy within %game.action.range:2% suffers %game.damage% 4."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, one enemy within %game.action.range:2% suffers %game.damage% 4.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 119,
@@ -1845,9 +2753,52 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
+    "resourcesAny": [
+      {
+        "herb_resources": 2
+      },
+      {
+        "herb_resources": 1
+      }
+    ],
     "requiredBuilding": "alchemist",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, perform: $wfh-wound$, $wfh-poison$, $wfh-immobilize$, $wfh-disarm$ ~!self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform:",
+        "small": true
+      },
+      {
+        "type": "concatenation",
+        "value": ",",
+        "subActions": [
+          {
+            "type": "condition",
+            "value": "wound"
+          },
+          {
+            "type": "condition",
+            "value": "poison"
+          },
+          {
+            "type": "condition",
+            "value": "immobilize"
+          },
+          {
+            "type": "condition",
+            "value": "disarm",
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "self",
+                "small": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 120,
@@ -1858,7 +2809,24 @@
     "slot": "head",
     "spent": true,
     "unlockProsperity": 1,
-    "text": "During your turn, perform %game.action.heal% 1 ~!self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform ",
+        "small": true
+      },
+      {
+        "type": "heal",
+        "value": 1,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "self",
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 121,
@@ -1869,7 +2837,24 @@
     "slot": "head",
     "spent": true,
     "unlockProsperity": 1,
-    "text": "During your turn, perform"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform:",
+        "small": true
+      },
+      {
+        "type": "element",
+        "value": "wild",
+        "valueType": "minus",
+        "subActions": [
+          {
+            "type": "element",
+            "value": "wild"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 122,
@@ -1880,7 +2865,13 @@
     "slot": "body",
     "spent": true,
     "unlockProsperity": 1,
-    "text": "When one of your summons suffers %game.damage% from an attack, that summons gains %game.action.shield:2% for the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When one of your summons suffers %game.damage% from an attack, that summons gains %game.action.shield:2% for the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 123,
@@ -1891,7 +2882,13 @@
     "slot": "body",
     "spent": true,
     "unlockProsperity": 1,
-    "text": "When you are attacked, before drawing an attack modifier car, the attacker gains disadvantage on the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you are attacked, before drawing an attack modifier car, the attacker gains disadvantage on the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 124,
@@ -1902,7 +2899,13 @@
     "slot": "legs",
     "spent": true,
     "unlockProsperity": 1,
-    "text": "During your turn, add %game.action.jump% to all your move abilities."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, add %game.action.jump% to all your move abilities.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 125,
@@ -1913,7 +2916,13 @@
     "slot": "legs",
     "spent": true,
     "unlockProsperity": 1,
-    "text": "During ordering of initiative after all ability card have been revealed, increase or decrease your initiative by 10."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During ordering of initiative after all ability card have been revealed, increase or decrease your initiative by 10.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 126,
@@ -1924,7 +2933,13 @@
     "slot": "twohand",
     "spent": true,
     "unlockProsperity": 1,
-    "text": "During your ranged attack ability, add $wfh-immobilize$ to one attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your ranged attack ability, add %game.condition.immobilize% one attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 127,
@@ -1935,7 +2950,13 @@
     "slot": "onehand",
     "spent": true,
     "unlockProsperity": 1,
-    "text": "During your melee attack ability, add $wfh-poison$ to one attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee attack ability, add %game.condition.poison% one attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 128,
@@ -1946,7 +2967,13 @@
     "slot": "onehand",
     "spent": true,
     "unlockProsperity": 1,
-    "text": "When you suffer %game.damage% from an attack, gain %game.action.shield:1% for the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you suffer %game.damage% from an attack, gain %game.action.shield:1% for the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 129,
@@ -1958,7 +2985,13 @@
     "spent": true,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 2,
-    "text": "During your attack ability, gain advantage on all attacks."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your attack ability, gain advantage on all attacks.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 130,
@@ -1970,7 +3003,13 @@
     "minusOne": 1,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 2,
-    "text": "When you are attacked, treat any %game.attackmodifier.double% attack modifier card the enemy draws as a %game.attackmodifier.plus0% instead."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you are attacked, treat any %game.attackmodifier.double% attack modifier card the enemy draws as a %game.attackmodifier.plus0% instead.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 131,
@@ -1981,9 +3020,16 @@
     "slot": "body",
     "spent": true,
     "minusOne": 3,
+    "slots": 3,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 2,
-    "text": "On the next three sources of %game.damage% from attacks targeting you, you gain %game.action.shield:1% for the attacks."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "On the next three sources of %game.damage% from attacks targeting you, you gain %game.action.shield:1% for the attacks.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 132,
@@ -1994,7 +3040,13 @@
     "slot": "body",
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 2,
-    "text": "At the start of the scenario, bring one additional %game.items.slots.small% items."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the start of the scenario, bring one additional %game.items.slots.small% items.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 133,
@@ -2006,7 +3058,13 @@
     "spent": true,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 2,
-    "text": "When an adjacent ally would be targeted by an attack, you are targeted instead, regardless of range and line-of-sight."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When an adjacent ally would be targeted by an attack, you are targeted instead, regardless of range and line-of-sight.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 134,
@@ -2017,7 +3075,13 @@
     "slot": "legs",
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 2,
-    "text": "When you use the basic bottom action of an ability card, perform %game.action.move% 3 instead of %game.action.move% 2."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you use the basic bottom action of an ability card, perform %game.action.move% 3 instead of %game.action.move% 2.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 135,
@@ -2029,7 +3093,13 @@
     "consumed": true,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 2,
-    "text": "During your attack, add $wfh-pierce$ 3 to all your ranged attacks."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your attack, add %game.action.pierce% to all your ranged attacks.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 136,
@@ -2041,7 +3111,18 @@
     "consumed": true,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 2,
-    "text": "During your single-target melee attack ability, change the targeting of the ability to: *cone_0_1*"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your single-target melee attack ability, change the targeting of the ability to:",
+        "small": true
+      },
+      {
+        "type": "area",
+        "value": "(1,0,target)|(0,1,active)|(1,1,target)",
+        "small": true
+      }
+    ]
   },
   {
     "id": 137,
@@ -2054,7 +3135,13 @@
     "minusOne": 1,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 2,
-    "text": "When you suffer %game.damage% from an attack, gain %game.action.shield:2% for the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you suffer %game.damage% from an attack, gain %game.action.shield:2% for the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 138,
@@ -2066,7 +3153,13 @@
     "minusOne": 2,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 3,
-    "text": "When an enemy would give you $wfh-disarm$, $wfh-stun$, or $wfh-muddle$, prevent the condition."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When an enemy would give you %game.condition.disarm%, %game.condition.stun%, or %game.condition.muddle%, prevent the condition.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 139,
@@ -2077,7 +3170,13 @@
     "slot": "head",
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 3,
-    "text": "After your move 4 or more hexes on your turn, add +1 %game.action.attack% to your next melee attack this turn."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After your move 4 or more hexes on your turn, add +1 %game.action.attack% to your next melee attack this turn.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 140,
@@ -2089,7 +3188,17 @@
     "spent": true,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, grant one of your summons: %game.action.shield:2%. ^eot^"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, grant one of your summons: %game.action.shield:2%. ",
+        "small": true
+      },
+      {
+        "type": "card",
+        "value": "round"
+      }
+    ]
   },
   {
     "id": 141,
@@ -2101,7 +3210,13 @@
     "spent": true,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 3,
-    "text": "When you are attacked, before drawing an attack modifier car, the attacker gains disadvantage on the attack and you gain %game.action.shield:1% for the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you are attacked, before drawing an attack modifier car, the attacker gains disadvantage on the attack and you gain %game.action.shield:1% for the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 142,
@@ -2113,7 +3228,13 @@
     "spent": true,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 3,
-    "text": "During ordering of initiative after all ability card have been revealed, increase or decrease your initiative by 20."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During ordering of initiative after all ability card have been revealed, increase or decrease your initiative by 20.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 143,
@@ -2124,7 +3245,24 @@
     "slot": "legs",
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 3,
-    "text": "After you move 4 or more hexes during your turn, after the move ability perform: %game.action.heal% 1 ~!self!~."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After you move 4 or more hexes during your turn, after the move ability perform:",
+        "small": true
+      },
+      {
+        "type": "heal",
+        "value": 1,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "self",
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 144,
@@ -2136,7 +3274,13 @@
     "spent": true,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, @wfh-wild-consume@ to add +1 %game.action.attack% to all your attacks."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, %game.element.consume.wild% to add +1 %game.action.attack% to all your attacks.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 145,
@@ -2147,7 +3291,13 @@
     "slot": "onehand",
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 3,
-    "text": "When you use the basic top action of an ability card, perform %game.action.attack% 3 instead of %game.action.attack% 2."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you use the basic top action of an ability card, perform %game.action.attack% 3 instead of %game.action.attack% 2.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 146,
@@ -2159,7 +3309,13 @@
     "spent": true,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 3,
-    "text": "Duiring your attack, add $wfh-pull$ 2 to all your ranged attacks."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Duiring your attack, add %game.action.pull% to all your ranged attacks.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 147,
@@ -2170,7 +3326,13 @@
     "slot": "head",
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 4,
-    "text": "During your melee attack, add $wfh-push$ 1."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee attack, add %game.action.push%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 148,
@@ -2179,9 +3341,39 @@
     "count": 2,
     "edition": "fh",
     "slot": "head",
+    "slots": 3,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 4,
-    "text": "After the next three attacks targeting an ally within %game.action.range:2%, flip this card over."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After the next three attacks targeting an ally within %game.action.range:2%, flip this card over.",
+        "small": true
+      }
+    ],
+    "actionsBack": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform:",
+        "small": true
+      },
+      {
+        "type": "condition",
+        "value": "ward",
+        "subActions": [
+          {
+            "type": "range",
+            "value": 3,
+            "small": true
+          }
+        ]
+      },
+      {
+        "type": "custom",
+        "value": "then flip this card over.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 149,
@@ -2192,9 +3384,16 @@
     "slot": "body",
     "spent": true,
     "minusOne": 5,
+    "slots": 5,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 4,
-    "text": "On the next five sources of %game.damage% from attacks targeting you, you gain %game.action.shield:1% for the attacks."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "On the next five sources of %game.damage% from attacks targeting you, you gain %game.action.shield:1% for the attacks.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 150,
@@ -2206,7 +3405,29 @@
     "spent": true,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 4,
-    "text": "During your turn, perform: %game.action.heal% 3 ~!%game.action.target% 1 ally, %game.action.range:1%!~ "
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform:",
+        "small": true
+      },
+      {
+        "type": "heal",
+        "value": 3,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "ally",
+            "small": true
+          },
+          {
+            "type": "range",
+            "value": 1,
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 151,
@@ -2217,7 +3438,13 @@
     "slot": "legs",
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 4,
-    "text": "When you use the basic bottom action of an ability card, perform %game.action.move% 4 instead of %game.action.move% 2."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you use the basic bottom action of an ability card, perform %game.action.move% 4 instead of %game.action.move% 2.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 152,
@@ -2229,7 +3456,13 @@
     "minusOne": 2,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 4,
-    "text": "At the end of your turn, if you have moved 1 or fewer hexes during your turn, gain %game.action.shield:1% for the round."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the end of your turn, if you have moved 1 or fewer hexes during your turn, gain %game.action.shield:1% for the round.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 153,
@@ -2241,7 +3474,18 @@
     "spent": true,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 4,
-    "text": "During your single-target melee attack ability, change the targeting of the ability to: *line_0_1_1*"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your single-target melee attack ability, change the targeting of the ability to:",
+        "small": true
+      },
+      {
+        "type": "area",
+        "value": "(0,0,active)|(1,0,target)|(2,0,target)",
+        "small": true
+      }
+    ]
   },
   {
     "id": 154,
@@ -2253,7 +3497,18 @@
     "consumed": true,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 4,
-    "text": "During your single-target ranged attack ability, change the targeting of the ability to: *cone_1_1*"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your single-target ranged attack ability, change the targeting of the ability to:",
+        "small": true
+      },
+      {
+        "type": "area",
+        "value": "(1,0,target)|(0,1,target)|(1,1,target)",
+        "small": true
+      }
+    ]
   },
   {
     "id": 155,
@@ -2266,7 +3521,13 @@
     "minusOne": 2,
     "requiredBuilding": "trading-post",
     "requiredBuildingLevel": 4,
-    "text": "When you suffer %game.damage% from an attack, gain %game.action.shield:4% for the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you suffer %game.damage% from an attack, gain %game.action.shield:4% for the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 156,
@@ -2278,7 +3539,13 @@
     "consumed": true,
     "requiredBuilding": "jeweler",
     "requiredBuildingLevel": 1,
-    "text": "When you short rest, %game.card.recover% up to three of your spent items."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you short rest, %game.card.recover% up to three of your spent items.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 157,
@@ -2290,7 +3557,13 @@
     "consumed": true,
     "requiredBuilding": "jeweler",
     "requiredBuildingLevel": 1,
-    "text": "When you suffer %game.damage% from an attack, gain %game.action.shield:4% for the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you suffer %game.damage% from an attack, gain %game.action.shield:4% for the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 158,
@@ -2302,7 +3575,36 @@
     "consumed": true,
     "requiredBuilding": "jeweler",
     "requiredBuildingLevel": 1,
-    "text": "During your turn, perform"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform:",
+        "small": true
+      },
+      {
+        "type": "elementHalf",
+        "value": "earth|dark",
+        "valueType": "minus",
+        "subActions": [
+          {
+            "type": "heal",
+            "value": 3,
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "self",
+                "small": true
+              },
+              {
+                "type": "condition",
+                "value": "ward",
+                "small": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 159,
@@ -2314,7 +3616,34 @@
     "consumed": true,
     "requiredBuilding": "jeweler",
     "requiredBuildingLevel": 1,
-    "text": "After your attack ability during which one enemy suffered at least %game.damage% 6, perform: $wfh-bless$, $wfh-bless$ ~!self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After your attack ability during which one enemy suffered at least %game.damage% 6, perform:",
+        "small": true
+      },
+      {
+        "type": "concatenation",
+        "value": ",",
+        "subActions": [
+          {
+            "type": "condition",
+            "value": "bless"
+          },
+          {
+            "type": "condition",
+            "value": "bless",
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "self",
+                "small": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 160,
@@ -2326,7 +3655,24 @@
     "consumed": true,
     "requiredBuilding": "jeweler",
     "requiredBuildingLevel": 2,
-    "text": "When you short rest, %game.card.recover% up to three of your spent items, and perform %game.action.heal% 2 ~!self!~."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you short rest, %game.card.recover% up to three of your spent items, and perform:",
+        "small": true
+      },
+      {
+        "type": "heal",
+        "value": 2,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "self",
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 161,
@@ -2338,7 +3684,13 @@
     "consumed": true,
     "requiredBuilding": "jeweler",
     "requiredBuildingLevel": 2,
-    "text": "At the end of your turn, play one card from your hand and perform all persistent and mandatory abilities on either the top or bottom action of the card."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the end of your turn, play one card from your hand and perform all persistent and mandatory abilities on either the top or bottom action of the card.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 162,
@@ -2350,7 +3702,36 @@
     "consumed": true,
     "requiredBuilding": "jeweler",
     "requiredBuildingLevel": 2,
-    "text": "During your turn, perform"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform:",
+        "small": true
+      },
+      {
+        "type": "elementHalf",
+        "value": "ice|air",
+        "valueType": "minus",
+        "subActions": [
+          {
+            "type": "attack",
+            "value": 3,
+            "subActions": [
+              {
+                "type": "range",
+                "value": 3,
+                "small": true
+              },
+              {
+                "type": "condition",
+                "value": "immobilize",
+                "small": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 163,
@@ -2362,7 +3743,13 @@
     "consumed": true,
     "requiredBuilding": "jeweler",
     "requiredBuildingLevel": 2,
-    "text": "During your turn, give $wfh-stun$ to half (rounded up) the enemies adjacent to you."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, give %game.condition.stun% to half (rounded up) the enemies adjacent to you.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 164,
@@ -2374,7 +3761,24 @@
     "consumed": true,
     "requiredBuilding": "jeweler",
     "requiredBuildingLevel": 3,
-    "text": "When you short rest, %game.card.recover% up to three of your spent items, choose which card to lose during the rest, and perform %game.action.heal% 2 ~!self!~."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you short rest, %game.card.recover% up to three of your spent items, choose which card to lose during the rest, and perform:",
+        "small": true
+      },
+      {
+        "type": "heal",
+        "value": 2,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "self",
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 165,
@@ -2386,7 +3790,13 @@
     "consumed": true,
     "requiredBuilding": "jeweler",
     "requiredBuildingLevel": 3,
-    "text": "At the end of you turn, play one card from your hand and perform the bottom action of the card."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the end of you turn, play one card from your hand and perform the bottom action of the card.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 166,
@@ -2398,7 +3808,31 @@
     "consumed": true,
     "requiredBuilding": "jeweler",
     "requiredBuildingLevel": 3,
-    "text": "During your turn, perform "
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform:",
+        "small": true
+      },
+      {
+        "type": "elementHalf",
+        "value": "fire|light",
+        "valueType": "minus",
+        "subActions": [
+          {
+            "type": "attack",
+            "value": 3,
+            "subActions": [
+              {
+                "type": "condition",
+                "value": "disarm",
+                "small": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 167,
@@ -2410,10 +3844,36 @@
     "consumed": true,
     "requiredBuilding": "jeweler",
     "requiredBuildingLevel": 3,
-    "text": "At the start of the enemy's turn, before it determines its focus, perform: $wfh-pull$ 4 ~!%game.action.target% the enemy, %game.action.range:5%, $wfh-muddle$!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the start of the enemy's turn, before it determines its focus, perform:",
+        "small": true
+      },
+      {
+        "type": "pull",
+        "value": 4,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "the enemy",
+            "small": true
+          },
+          {
+            "type": "range",
+            "value": 5,
+            "small": true
+          },
+          {
+            "type": "condition",
+            "value": "muddle",
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
-    "random": true,
     "id": 168,
     "name": "Circlet of Eyes",
     "cost": 50,
@@ -2421,10 +3881,16 @@
     "edition": "fh",
     "slot": "head",
     "consumed": true,
-    "text": "During your ranged attack ability, add +1 %game.action.target%."
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your ranged attack ability, add +1 %game.action.target%.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 169,
     "name": "Fateful Charm",
     "cost": 30,
@@ -2432,10 +3898,16 @@
     "edition": "fh",
     "slot": "head",
     "spent": true,
-    "text": "During your turn, reveal the top card of your attack modifier deck.  You may place the card on the bottom of the deck."
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, reveal the top card of your attack modifier deck. You may place the card on the bottom of the deck.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 170,
     "name": "Eye of Truth",
     "cost": 25,
@@ -2443,20 +3915,32 @@
     "edition": "fh",
     "slot": "head",
     "consumed": true,
-    "text": "During your turn, reveal the top card of each monster ability deck."
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, reveal the top card of each monster ability deck.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 171,
     "name": "Rejuvenating Charm",
     "cost": 20,
     "count": 1,
     "edition": "fh",
     "slot": "head",
-    "text": "Whenever you lose a card to negate %game.damage%, %game.card.recover% up to one card from your discard pile and gain $wfh-regenerate$."
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Whenever you lose a card to negate %game.damage%, %game.card.recover% up to one card from your discard pile and gain %game.condition.regenerate%.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 172,
     "name": "Cap of Premonition",
     "cost": 25,
@@ -2464,10 +3948,16 @@
     "edition": "fh",
     "slot": "head",
     "consumed": true,
-    "text": "During your turn, look at the top four cards of your attack modifier deck and put them back in any order."
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, look at the top four cards of your attack modifier deck and put them back in any order.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 173,
     "name": "Multi Colored Cloak",
     "cost": 20,
@@ -2475,10 +3965,16 @@
     "edition": "fh",
     "slot": "body",
     "spent": true,
-    "text": "When attacked: @wfh-wild@."
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When attacked: %game.element.wild%.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 174,
     "name": "Magnetic Cape",
     "cost": 40,
@@ -2486,10 +3982,16 @@
     "edition": "fh",
     "slot": "body",
     "consumed": true,
-    "text": "During your turn, perform: %game.action.teleport% 20 This teleport must end in a hex adjacent to one of your allies."
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform: %game.action.teleport% 20 This teleport must end in a hex adjacent to one of your allies.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 175,
     "name": "Mirrored Armor",
     "cost": 35,
@@ -2497,11 +3999,17 @@
     "edition": "fh",
     "slot": "body",
     "consumed": true,
+    "random": true,
     "minusOne": 2,
-    "text": "When you suffer %game.damage% from an attack, the attacker suffers and equal amount of %game.damage%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you suffer %game.damage% from an attack, the attacker suffers and equal amount of %game.damage%.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 176,
     "name": "Blinking Cape",
     "cost": 50,
@@ -2509,10 +4017,16 @@
     "edition": "fh",
     "slot": "body",
     "consumed": true,
-    "text": "During your turn, perform: %game.action.teleport% 4 This teleport must end in a hex adjacent to one of your enemies."
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform: %game.action.teleport% 4 This teleport must end in a hex adjacent to one of your enemies.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 177,
     "name": "Boots of Transference",
     "cost": 40,
@@ -2520,20 +4034,32 @@
     "edition": "fh",
     "slot": "legs",
     "consumed": true,
-    "text": "When you spring a trap by entering its hex, you may apply its effects to a figure withing %game.action.range:3% instead of yourself."
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you spring a trap by entering its hex, you may apply its effects to a figure withing %game.action.range:3% instead of yourself.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 178,
     "name": "Tranquil Shoes",
     "cost": 40,
     "count": 1,
     "edition": "fh",
     "slot": "legs",
-    "text": "At the start of your turn in which your initiative is 60 or higher and you are not performing a long rest, perform %game.action.heal% 1 ~!self!~."
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the start of your turn in which your initiative is 60 or higher and you are not performing a long rest, perform %game.action.heal% 1 self.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 179,
     "name": "Burst Boots",
     "cost": 25,
@@ -2541,20 +4067,32 @@
     "edition": "fh",
     "slot": "legs",
     "consumed": true,
-    "text": "During your move ability, add +4 %game.action.move%.  After the move ability gain $wfh-immobilize$."
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your move ability, add +4 %game.action.move%.  After the move ability gain %game.condition.immobilize%.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 180,
     "name": "Boots of Greed",
     "cost": 35,
     "count": 1,
     "edition": "fh",
     "slot": "legs",
-    "text": "When you loot two or more tokens at once, peform: $wfh-bless$ ~!self!~."
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you loot two or more tokens at once, peform: %game.condition.bless% self.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 181,
     "name": "Translocation Rod",
     "cost": 30,
@@ -2562,10 +4100,16 @@
     "edition": "fh",
     "slot": "twohand",
     "consumed": true,
-    "text": "During your turn, designate two allies or any two normal or elite monsters. Each designated figure simultaneously %game.action.teleport% to the hex occupied by the other designated figure."
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, designate two allies or any two normal or elite monsters. Each designated figure simultaneously %game.action.teleport% to the hex occupied by the other designated figure.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 182,
     "name": "Wing Clippers",
     "cost": 40,
@@ -2573,10 +4117,17 @@
     "edition": "fh",
     "slot": "twohand",
     "spent": true,
-    "text": "Afer your melee attack , place a character token on the target. The target loses %game.action.fly%. ^ongoing^"
+    "persistent": true,
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Afer your melee attack , place a character token on the target. The target loses %game.action.fly%.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 183,
     "name": "Decanter of Mists",
     "cost": 35,
@@ -2584,10 +4135,20 @@
     "edition": "fh",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your turn, all figures gain disadvantage on and add 1 %game.action.range% to all ranged attacks this round. ^eot^"
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, all figures gain disadvantage on and add 1 %game.action.range% to all ranged attacks this round. ",
+        "small": true
+      },
+      {
+        "type": "card",
+        "value": "round"
+      }
+    ]
   },
   {
-    "random": true,
     "id": 184,
     "name": "Flashing Axe",
     "cost": 20,
@@ -2595,10 +4156,16 @@
     "edition": "fh",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your multi-target melee attack ability, add +1 %game.action.target%."
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your multi-target melee attack ability, add +1 %game.action.target%.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 185,
     "name": "Mirrored Knife",
     "cost": 20,
@@ -2606,10 +4173,16 @@
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
-    "text": "During your melee attack ability, add all negative conditions you have except $wfh-brittle$, $wfh-bane$ and $wfh-stun$ to one attack."
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee attack ability, add all negative conditions you have except %game.condition.brittle%, %game.condition.bane% %game.condition.stun% one attack.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 186,
     "name": "Wild Growth Seeds",
     "cost": 20,
@@ -2617,10 +4190,16 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, create one 1-hex obstacle in an adjacent empty hex."
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, create one 1-hex obstacle in an adjacent empty hex.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 187,
     "name": "Dangerous Gear",
     "cost": 25,
@@ -2628,10 +4207,16 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, create one %game.damage% 3 trap in an adjacent empty hex."
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, create one %game.damage% 3 trap in an adjacent empty hex.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 188,
     "name": "Freezing Crystal",
     "cost": 35,
@@ -2639,10 +4224,16 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, create one 1-hex hazardous terrain, icy terrain, or water tile in an adjacent featureless hex."
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, create one 1-hex hazardous terrain, icy terrain, or water tile in an adjacent featureless hex.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 189,
     "name": "Ring of the Night",
     "cost": 50,
@@ -2650,10 +4241,16 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
-    "text": "During your, perform"
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your, perform",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 190,
     "name": "White Card",
     "cost": 20,
@@ -2661,10 +4258,17 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, place a character token on one normal or elite enemy withing %game.action.range:3%. This enemy adds -1 %game.action.attack% to all its attacks. ^ongoing^."
+    "persistent": true,
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, place a character token on one normal or elite enemy withing %game.action.range:3%. This enemy adds -1 %game.action.attack% to all its attacks.",
+        "small": true
+      }
+    ]
   },
   {
-    "random": true,
     "id": 191,
     "name": "Corrupted Scroll",
     "cost": 25,
@@ -2672,10 +4276,43 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
-    "text": "During your, perform %game.action.heal% 5 ~!%game.action.range:5%!~ $wfh-poison$ ~@!~!%game.action.target% the target of the heal ability@~"
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your, perform:",
+        "small": true
+      },
+      {
+        "type": "heal",
+        "value": 5,
+        "subActions": [
+          {
+            "type": "range",
+            "value": 5,
+            "small": true
+          }
+        ]
+      },
+      {
+        "type": "forceBox",
+        "subActions": [
+          {
+            "type": "condition",
+            "value": "poison",
+            "subActions": [
+              {
+                "type": "target",
+                "value": "the target of the heal ability",
+                "small": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
-    "random": true,
     "id": 192,
     "name": "Enticing Bell",
     "cost": 25,
@@ -2683,7 +4320,18 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
-    "text": "At the end of your turn, designate one enemy withing %game.action.range:3%. You are its primary focus and it does not avoid negative hexes when determining movement this round. ^eot^"
+    "random": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the end of your turn, designate one enemy withing %game.action.range:3%. You are its primary focus and it does not avoid negative hexes when determining movement this round. ",
+        "small": true
+      },
+      {
+        "type": "card",
+        "value": "round"
+      }
+    ]
   },
   {
     "id": 193,
@@ -2693,7 +4341,17 @@
     "edition": "fh",
     "slot": "head",
     "consumed": true,
-    "text": "During your turn, control one enemy withing %game.action.range:3%: %game.action.attack% 3"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, control one enemy withing %game.action.range:3%:",
+        "small": true
+      },
+      {
+        "type": "attack",
+        "value": 3
+      }
+    ]
   },
   {
     "id": 194,
@@ -2702,7 +4360,13 @@
     "count": 1,
     "edition": "fh",
     "slot": "head",
-    "text": "During ordering of initiative after all ability card have been revealed, increase or decrease a monster set's initiative by 30."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During ordering of initiative after all ability card have been revealed, increase or decrease a monster set's initiative by 30.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 195,
@@ -2712,7 +4376,13 @@
     "edition": "fh",
     "slot": "head",
     "spent": true,
-    "text": "During your turn add +1 %game.action.range% and $wfh-pierce$ 1 to one of your ranged attacks."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn add +1 %game.action.range% and %game.action.pierce% to one of your ranged attacks.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 196,
@@ -2722,7 +4392,29 @@
     "edition": "fh",
     "slot": "head",
     "consumed": true,
-    "text": "During your turn, discard one loot card except Random Item to perform: %game.action.heal% 5 ~!%game.action.range:2%, $wfh-ward$!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, discard one loot card except Random Item to perform:",
+        "small": true
+      },
+      {
+        "type": "heal",
+        "value": 5,
+        "subActions": [
+          {
+            "type": "range",
+            "value": 2,
+            "small": true
+          },
+          {
+            "type": "condition",
+            "value": "ward",
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 197,
@@ -2732,7 +4424,13 @@
     "edition": "fh",
     "slot": "head",
     "consumed": true,
-    "text": "After ordering of initiative, exchange a card in your hand for one which you have played. Your initiative is unaffected."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After ordering of initiative, exchange a card in your hand for one which you have played. Your initiative is unaffected.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 198,
@@ -2742,7 +4440,24 @@
     "edition": "fh",
     "slot": "head",
     "consumed": true,
-    "text": "During your turn, perform $wfh-pull$ 3 ~!%game.action.range:4%!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform:",
+        "small": true
+      },
+      {
+        "type": "pull",
+        "value": 3,
+        "subActions": [
+          {
+            "type": "range",
+            "value": 4,
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 199,
@@ -2751,7 +4466,13 @@
     "count": 2,
     "edition": "fh",
     "slot": "legs",
-    "text": "At the start of the scenario, consider yourself to be your summons in initiative order when determining monster focus for the remainder of the scenario."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the start of the scenario, consider yourself to be your summons in initiative order when determining monster focus for the remainder of the scenario.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 200,
@@ -2760,7 +4481,20 @@
     "count": 1,
     "edition": "fh",
     "slot": "onehand",
-    "text": "During your heal ability targeting an ally, @wfh-light-consume@ to add $wfh-regenerate$ to one heal and flip this card over."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your heal ability targeting an ally, %game.element.consume.light% to add %game.condition.regenerate% one heal and flip this card over.",
+        "small": true
+      }
+    ],
+    "actionsBack": [
+      {
+        "type": "custom",
+        "value": "During your attack ability, %game.element.consume.dark% to add %game.condition.curse% to one attack and flip this card over.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 201,
@@ -2770,7 +4504,13 @@
     "edition": "fh",
     "slot": "twohand",
     "spent": true,
-    "text": "Diromg your attack ability performed while occupying or ad adjacent to a hex with a water tile, add $wfh-push$ 1 and $wfh-immobilize$ to one attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your attack ability performed while occupying or ad adjacent to a hex with a water tile, add %game.action.push% and %game.condition.immobilize% one attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 202,
@@ -2780,7 +4520,13 @@
     "edition": "fh",
     "slot": "twohand",
     "spent": true,
-    "text": "During your melee attack ability, add $wfh-pierce$ 2 and $wfh-wound$ to one attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee attack ability, add %game.action.pierce% and %game.condition.wound% one attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 203,
@@ -2790,7 +4536,17 @@
     "edition": "fh",
     "slot": "onehand",
     "consumed": true,
-    "text": "After your ability control one target: %game.action.move% 2"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After your ability control one target:",
+        "small": true
+      },
+      {
+        "type": "move",
+        "value": 2
+      }
+    ]
   },
   {
     "id": 204,
@@ -2801,7 +4557,13 @@
     "slot": "onehand",
     "consumed": true,
     "minusOne": 1,
-    "text": "During your turn, one adjacent normal or elite enemy suffers %game.damage% to their %game.action.shield% value."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, one adjacent normal or elite enemy suffers %game.damage% to their %game.action.shield% value.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 205,
@@ -2811,7 +4573,29 @@
     "edition": "fh",
     "slot": "twohand",
     "consumed": true,
-    "text": "During your, perform %game.action.attack% 2 ~!%game.action.range%, $wfh-pull$ 2!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your, perform:",
+        "small": true
+      },
+      {
+        "type": "attack",
+        "value": 2,
+        "subActions": [
+          {
+            "type": "range",
+            "value": 3,
+            "small": true
+          },
+          {
+            "type": "pull",
+            "value": 2,
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 206,
@@ -2822,7 +4606,13 @@
     "slot": "twohand",
     "spent": true,
     "minusOne": 3,
-    "text": "During your melee attack ability, if you have not move this round, add +2 %game.action.attack% to one attack, and you may perform no move abilites this turn."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee attack ability, if you have not move this round, add +2 %game.action.attack% to one attack, and you may perform no move abilites this turn.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 207,
@@ -2832,7 +4622,13 @@
     "edition": "fh",
     "slot": "twohand",
     "spent": true,
-    "text": "After your attack, if the target's current hit point is 3 or less, give the target $wfh-bane$"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After your attack, if the target's current hit point is 3 or less, give the target %game.condition.bane%",
+        "small": true
+      }
+    ]
   },
   {
     "id": 208,
@@ -2842,7 +4638,13 @@
     "edition": "fh",
     "slot": "twohand",
     "spent": true,
-    "text": "During your attack ability add $wfh-pierce$ 3 to one attack targeting an enemy whose current hit point value is 4 or less."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your attack ability add %game.action.pierce% to one attack targeting an enemy whose current hit point value is 4 or less.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 209,
@@ -2852,7 +4654,13 @@
     "edition": "fh",
     "slot": "twohand",
     "spent": true,
-    "text": "During your melee attack ability, give advantage on one atrack.  For each master you have completed also add one following to the attack: +1 %game.action.attack%, $wfh-wound$, or $wfh-poison$. "
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee attack ability, give advantage on one atrack.  For each master you have completed also add one following to the attack: +1 %game.action.attack%, %game.condition.wound%, or %game.condition.poison%. ",
+        "small": true
+      }
+    ]
   },
   {
     "id": 210,
@@ -2862,7 +4670,17 @@
     "edition": "fh",
     "slot": "twohand",
     "spent": true,
-    "text": "During your turn, add +3 %game.action.attack% to all your attacks performed by Lurkers targeting you this round. ^eot^"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, add +3 %game.action.attack% to all your attacks performed by Lurkers targeting you this round. ",
+        "small": true
+      },
+      {
+        "type": "card",
+        "value": "round"
+      }
+    ]
   },
   {
     "id": 211,
@@ -2872,7 +4690,13 @@
     "edition": "fh",
     "slot": "twohand",
     "consumed": true,
-    "text": "During your turn, designate one adjacent hex.  At the end of your turn, all figures withing %game.action.range:2% of the designated hex suffer %game.damage% 1."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, designate one adjacent hex.  At the end of your turn, all figures withing %game.action.range:2% of the designated hex suffer %game.damage% 1.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 212,
@@ -2882,7 +4706,17 @@
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
-    "text": "After ordering of initiative, choose one element. This element cannot be infused or consume by any monster this round. ^eot^"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After ordering of initiative, choose one element. This element cannot be infused or consume by any monster this round. ",
+        "small": true
+      },
+      {
+        "type": "card",
+        "value": "round"
+      }
+    ]
   },
   {
     "id": 213,
@@ -2891,7 +4725,20 @@
     "count": 1,
     "edition": "fh",
     "slot": "onehand",
-    "text": "During your attack ability @wfh-ice-consume@ to add $wfh-immobilize$ to one attack, then flip this card over at the end of your turn."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your attack ability %game.element.consume.ice% to add %game.condition.immobilize% one attack, then flip this card over at the end of your turn.",
+        "small": true
+      }
+    ],
+    "actionsBack": [
+      {
+        "type": "custom",
+        "value": "During your attack ability, %game.element.consume.fire% to add %game.condition.wound% to one attack and flip this card over.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 214,
@@ -2901,7 +4748,13 @@
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
-    "text": "During your heal ability add one positive condition you have to one heal."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your heal ability add one positive condition you have to one heal.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 215,
@@ -2911,7 +4764,24 @@
     "edition": "fh",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your, add +1 %game.action.attack% and $wfh-muddle$ to all your attacks. At the end of your turn, perform: $wfh-muddle$ ~!self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your, add +1 %game.action.attack% and %game.condition.muddle% to all your attacks. At the end of your turn, perform:",
+        "small": true
+      },
+      {
+        "type": "condition",
+        "value": "muddle",
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "self",
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 216,
@@ -2921,7 +4791,57 @@
     "edition": "fh",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your turn, @wfh-fire@ @wfh-ice@ @wfh-air@ @wfh-earth@ @wfh-light@ @wfh-dark@ Elements do not move from strong to waning at the end of this round. ^eot^"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn,",
+        "small": true
+      },
+      {
+        "type": "concatenation",
+        "subActions": [
+          {
+            "type": "element",
+            "value": "fire",
+            "small": true
+          },
+          {
+            "type": "element",
+            "value": "ice",
+            "small": true
+          },
+          {
+            "type": "element",
+            "value": "air",
+            "small": true
+          },
+          {
+            "type": "element",
+            "value": "earth",
+            "small": true
+          },
+          {
+            "type": "element",
+            "value": "light",
+            "small": true
+          },
+          {
+            "type": "element",
+            "value": "dark",
+            "small": true
+          }
+        ]
+      },
+      {
+        "type": "custom",
+        "value": "Elements do not move from strong to waning at the end of this round. ",
+        "small": true
+      },
+      {
+        "type": "card",
+        "value": "round"
+      }
+    ]
   },
   {
     "id": 217,
@@ -2931,7 +4851,13 @@
     "edition": "fh",
     "slot": "onehand",
     "consumed": true,
-    "text": "During ordering of initiative after all ability card have been revealed, shuffle all monster ability decks and draw a new card for each active monster set."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During ordering of initiative after all ability card have been revealed, shuffle all monster ability decks and draw a new card for each active monster set.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 218,
@@ -2941,7 +4867,24 @@
     "edition": "fh",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your turn, remove all conditions from all figures then grant all figures: %game.action.heal% 2 ~!self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, remove all conditions from all figures then grant all figures:",
+        "small": true
+      },
+      {
+        "type": "heal",
+        "value": 2,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "self",
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 219,
@@ -2951,7 +4894,14 @@
     "edition": "fh",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your turn all figures gain $wfh-strengthen$. Until any monster is killed, the first attack modifier card drawn for every attack is treated as rolling. ^ongoing^"
+    "persistent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn all figures gain %game.condition.strengthen%. Until any monster is killed, the first attack modifier card drawn for every attack is treated as rolling.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 220,
@@ -2961,7 +4911,13 @@
     "edition": "fh",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your turn, %game.card.recover% up to one Tome item."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, %game.card.recover% up to one Tome item.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 221,
@@ -2971,7 +4927,13 @@
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
-    "text": "During your melee attack ability, @wfh-ice-consume@ to add $wfh-pierce$ 3 to one attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee attack ability, %game.element.consume.ice% to add %game.action.pierce% to one attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 222,
@@ -2981,7 +4943,24 @@
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
-    "text": "During yor turn, discard two cards from your hand to perform: %game.action.heal% 6 ~!self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During yor turn, discard two cards from your hand to perform:",
+        "small": true
+      },
+      {
+        "type": "heal",
+        "value": 6,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "self",
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 223,
@@ -2991,7 +4970,17 @@
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
-    "text": "After ordering of initiative, all monsters consider you to be first in initiative order when determining focus this round. ^eot^"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After ordering of initiative, all monsters consider you to be first in initiative order when determining focus this round. ",
+        "small": true
+      },
+      {
+        "type": "card",
+        "value": "round"
+      }
+    ]
   },
   {
     "id": 224,
@@ -3000,7 +4989,47 @@
     "count": 1,
     "edition": "fh",
     "slot": "body",
-    "text": "After the next three attacks targeting you, flip this card over."
+    "slots": 3,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After the next three attacks targeting you, flip this card over.",
+        "small": true
+      }
+    ],
+    "actionsBack": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform:",
+        "small": true
+      },
+      {
+        "type": "heal",
+        "value": 3,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "ally",
+            "small": true
+          },
+          {
+            "type": "range",
+            "value": 3,
+            "small": true
+          },
+          {
+            "type": "condition",
+            "value": "bless",
+            "small": true
+          }
+        ]
+      },
+      {
+        "type": "custom",
+        "value": "then flip this card over.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 225,
@@ -3009,7 +5038,20 @@
     "count": 1,
     "edition": "fh",
     "slot": "body",
-    "text": "During your melee attack ability, @wfh-earth-consume@ to add +1 %game.action.attack% to one attack and flip this card over."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee attack ability, %game.element.consume.earth% to add +1 %game.action.attack% to one attack and flip this card over.",
+        "small": true
+      }
+    ],
+    "actionsBack": [
+      {
+        "type": "custom",
+        "value": "During your melee attack ability, %game.element.consume.air% to add %game.action.push% 2 to one attack and flip this card over.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 226,
@@ -3019,7 +5061,13 @@
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
-    "text": "During your attack ability, double the numerical value of the next attack modifier card you draw. %game.attackmodifier.double% and %game.attackmodifier.null% modifier cards are unaffected."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your attack ability, double the numerical value of the next attack modifier card you draw. %game.attackmodifier.double% and %game.attackmodifier.null% modifier cards are unaffected.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 227,
@@ -3029,7 +5077,13 @@
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
-    "text": "When you short rest, place half (rounded down) of your discard pile on this item, lose of the remaining cards randomly as normal, then draw the cards on this item."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you short rest, place half (rounded down) of your discard pile on this item, lose of the remaining cards randomly as normal, then draw the cards on this item.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 228,
@@ -3039,7 +5093,13 @@
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
-    "text": "During your turn, open one unlocked door while withing %game.action.range:2%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, open one unlocked door while withing %game.action.range:2%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 229,
@@ -3049,7 +5109,17 @@
     "edition": "fh",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your turn grant one ally withing %game.action.range:3%: %game.action.move% 3"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn grant one ally withing %game.action.range:3%:",
+        "small": true
+      },
+      {
+        "type": "move",
+        "value": 3
+      }
+    ]
   },
   {
     "id": 230,
@@ -3059,7 +5129,13 @@
     "edition": "fh",
     "slot": "onehand",
     "consumed": true,
-    "text": "After you draw one loot card, draw one additional card, keep one, and place the other on either the top or bottom of the loot deck."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After you draw one loot card, draw one additional card, keep one, and place the other on either the top or bottom of the loot deck.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 231,
@@ -3069,7 +5145,13 @@
     "edition": "fh",
     "slot": "onehand",
     "consumed": true,
-    "text": "When you gain a loot token, gain 3 `hide` instead of drawning a loot card."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you gain a loot token, gain 3 `hide` instead of drawning a loot card.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 232,
@@ -3079,7 +5161,24 @@
     "edition": "fh",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your turn lose 1 morale to perform: $wfh-bless$ ~!%game.action.target% all allies and self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn lose 1 morale to perform:",
+        "small": true
+      },
+      {
+        "type": "condition",
+        "value": "bless",
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "selfAllies",
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 233,
@@ -3089,7 +5188,13 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
-    "text": "During you ally's ranged attack ability, add $wfh-muddle$ and $wfh-curse$ to one attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During you ally's ranged attack ability, add %game.condition.muddle% %game.condition.curse% one attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 234,
@@ -3099,7 +5204,13 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, create one $wfh-poison$, $wfh-immobilize$ trap in an empty hex within %game.action.range:2%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, create one %game.condition.poison%, %game.condition.immobilize% in an empty hex within %game.action.range:2%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 235,
@@ -3109,7 +5220,13 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, loot one loot token within %game.action.range:2%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, loot one loot token within %game.action.range:2%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 236,
@@ -3119,7 +5236,13 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, lose one card from your hand to %game.card.recover% one card from your loot pile of equal of lower level."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, lose one card from your hand to %game.card.recover% one card from your loot pile of equal of lower level.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 237,
@@ -3129,7 +5252,13 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, choose one of six directions. You and all figures withing %game.action.range:2% are forced to simultaneously move 2 hexes in the chosen directon."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, choose one of six directions. You and all figures withing %game.action.range:2% are forced to simultaneously move 2 hexes in the chosen directon.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 238,
@@ -3139,7 +5268,13 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
-    "text": "When you would become exhausted from suffering %game.damage%, set your hit point value to 1 instead."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you would become exhausted from suffering %game.damage%, set your hit point value to 1 instead.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 239,
@@ -3149,7 +5284,13 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, all allies and enemies within %game.action.range:2% suffer %game.damage% 1."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, all allies and enemies within %game.action.range:2% suffer %game.damage% 1.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 240,
@@ -3158,8 +5299,13 @@
     "count": 1,
     "edition": "fh",
     "slot": "small",
-    "consumed": true,
-    "text": "When you fail a scenario, still earn all ^checkmark^ from your battle goal if it was completed."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you fail a scenario, still earn all %game.checkmark% from your battle goal if it was completed.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 241,
@@ -3169,7 +5315,13 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
-    "text": "After you draw one loot card, draw one additional loot card."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After you draw one loot card, draw one additional loot card.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 242,
@@ -3179,7 +5331,13 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
-    "text": "During your attack ability, treat the next three attack modifier cards you draw as rolling"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your attack ability, treat the next three attack modifier cards you draw as rolling",
+        "small": true
+      }
+    ]
   },
   {
     "id": 243,
@@ -3189,7 +5347,39 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
-    "text": "This item cannot be sold and must be brought into and used every scenario. At the start of the scenario perform: $wfh-curse$, $wfh-bless$ ~!self!~"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "This item cannot be sold and must be brought into and used every scenario.",
+        "small": true
+      },
+      {
+        "type": "custom",
+        "value": "At the start of the scenario perform:",
+        "small": true
+      },
+      {
+        "type": "concatenation",
+        "value": ",",
+        "subActions": [
+          {
+            "type": "condition",
+            "value": "curse"
+          },
+          {
+            "type": "condition",
+            "value": "bless",
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "self",
+                "small": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 244,
@@ -3199,23 +5389,27 @@
     "edition": "fh",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, increase the printed %game.action.attack%, %game.action.move%, %game.action.target%, or %game.action.range% numerical value on one of your abilities by 1."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, increase the printed %game.action.attack%, %game.action.move%, %game.action.target%, or %game.action.range% numerical value on one of your abilities by 1.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 245,
     "name": "Ancient Coin",
     "cost": 0,
     "count": 4,
-    "edition": "fh",
-    "text": ""
+    "edition": "fh"
   },
   {
     "id": 246,
     "name": "Key Card",
     "cost": 0,
     "count": 1,
-    "edition": "fh",
-    "text": ""
+    "edition": "fh"
   },
   {
     "id": 247,
@@ -3225,6 +5419,12 @@
     "edition": "fh",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your turn, capture an adjacent enemy whose hit point value is 1 or 2."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, capture an adjacent enemy whose hit point value is 1 or 2.",
+        "small": true
+      }
+    ]
   }
 ]

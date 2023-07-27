@@ -6,6 +6,7 @@ import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { Objective } from "../model/Objective";
+import { ObjectiveEntity } from "../model/ObjectiveEntity";
 import { Summon, SummonState } from "../model/Summon";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
@@ -61,6 +62,10 @@ export class EntityManager {
 
     if (entity instanceof Summon) {
       return !entity.dead && (!acting || entity.state != SummonState.new);
+    }
+
+    if (entity instanceof ObjectiveEntity) {
+      return !entity.dead;
     }
 
     return false;

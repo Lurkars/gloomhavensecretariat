@@ -100,11 +100,20 @@
         height: auto;
       }
     }
-    
+
     .complexity {
-      color: var(--ghs-color-darkgray);
       position: absolute;
-      bottom: -5px;    }
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      bottom: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+
+      img {
+        width: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        filter: var(--ghs-filter-gray);
+      }
+    }
   }
 }
 

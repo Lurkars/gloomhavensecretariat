@@ -1,6 +1,7 @@
+import { Action } from "./Action";
 import { Editional } from "./Editional";
 import { Identifier } from "./Identifier";
-import { LootType } from "./Loot";
+import { LootClass, LootType } from "./Loot";
 import { SummonData } from "./SummonData";
 
 export class ItemData implements Editional {
@@ -11,17 +12,22 @@ export class ItemData implements Editional {
   count: number = 0;
   edition: string = "";
   slot: ItemSlot | undefined = undefined;
+  actions: Action[] = [];
+  actionsBack: Action[] | undefined = undefined;
   random: boolean = false;
   blueprint: boolean = false;
   spent: boolean = false;
   consumed: boolean = false;
+  persistent: boolean = false;
   slots: number = 0;
+  slotsBack: number = 0;
   minusOne: number = 0;
   solo: string = "";
   unlockScenario: Identifier | undefined;
   unlockProsperity: number = 0;
   summon: SummonData | undefined;
   resources: Partial<Record<LootType, number>> = {};
+  resourcesAny: Record<LootClass, number>[] = [];
   requiredItems: number[] = [];
   requiredBuilding: string = "";
   requiredBuildingLevel: number = 0;

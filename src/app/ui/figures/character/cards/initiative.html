@@ -1,5 +1,5 @@
 <div class="initiative"
-  [ngClass]="{'empty' : figure.initiative <= 0 && (!settingsManager.settings.initiativeRequired || figure.exhausted)}"
+  [ngClass]="{'empty' : figure.initiative <= 0 && (!settingsManager.settings.initiativeRequired || character && character.exhausted || objective && objective.exhausted)}"
   [ghs-label]="'game.figure.setInitiative'" [ghs-label-attribute]="'title'">
   <img (click)="open($event)" class="ghs-svg" src="./assets/images/initiative.svg" />
   <input [ngClass]="{'hidden' : figure.initiative > 0 && initiativeHidden()}" #initativeInput
@@ -9,6 +9,6 @@
     [id]="'initiative-input-' + tabindex()">
   <span *ngIf="figure.initiative > 0 && initiativeHidden()">??</span>
   <img class="ghs-svg long-rest" [ghs-label]="'game.figure.longRestOff'" [ghs-label-attribute]="'title'"
-    *ngIf="character && !initiativeHidden() && character.longRest"
-    src="./assets/images/long-rest.svg" (click)="longRestOff($event)" />
+    *ngIf="character && !initiativeHidden() && character.longRest" src="./assets/images/long-rest.svg"
+    (click)="longRestOff($event)" />
 </div>

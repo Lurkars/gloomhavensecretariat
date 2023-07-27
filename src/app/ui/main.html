@@ -61,7 +61,7 @@
     </ng-container>
   </div>
   <div *ngIf="!fullviewChar && !welcome" class="figures" cdkDropListGroup cdkScrollable
-    [ngClass]="{'loot-deck' : footer.lootDeck || settingsManager.settings.alwaysLootDeck && gameManager.game.lootDeck.active , 'ally-deck' :  footer.hasAllyAttackModifierDeck, 'drag-disabled': settingsManager.settings.disableDragFigures}"
+    [ngClass]="{'loot-deck' : footer.lootDeck || settingsManager.settings.alwaysLootDeck && gameManager.game.lootDeck.active , 'ally-deck' :  footer.hasAllyAttackModifierDeck, 'drag-disabled': settingsManager.settings.disableDragFigures, 'backup-hint-spacer' : showBackupHint}"
     (scroll)="onFigureScroll($event)">
     <div class="figure" *ngFor="let figure of figures; let i = index;" [figure-autoscroll]="figure"
       [block]="i == this.lastScroll || i == this.lastScrollColumn ? 'end' : 'center'" [cdkDropListData]="i" cdkDropList
@@ -81,10 +81,13 @@
 
         <ghs-character [character]="gameManager.toCharacter(figure)" *ngIf="gameManager.isCharacter(figure)">
         </ghs-character>
-        <ghs-objective [objective]="gameManager.toObjective(figure)" *ngIf="gameManager.isObjective(figure)">
-        </ghs-objective>
         <ghs-monster [monster]="gameManager.toMonster(figure)" *ngIf="gameManager.isMonster(figure)">
         </ghs-monster>
+        <ghs-objective [objective]="gameManager.toObjective(figure)" *ngIf="gameManager.isObjective(figure)">
+        </ghs-objective>
+        <ghs-objective-container [objective]="gameManager.toObjectiveContainer(figure)"
+          *ngIf="gameManager.isObjectiveContainer(figure)">
+        </ghs-objective-container>
 
         <div cdkDragHandle class="handle right"
           [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard, 'permanent-am' : gameManager.isCharacter(figure) && gameManager.toCharacter(figure).attackModifierDeckVisible && settingsManager.settings.characterAttackModifierDeckPermanent}"
@@ -103,7 +106,7 @@
     <p *ngIf="gameManager.stateManager.backupError == -1"
       [ghs-label]="'datamanagement.backup.auto.uploadUrl.error.unknown'"></p>
   </div>
-  <div class="backup-hint" *ngIf="showBackupHint">
+  <div class="dialog backup-hint" *ngIf="showBackupHint">
     <h2 [ghs-label]="'datamanagement.backup'"></h2>
     <p [ghs-label]="'datamanagement.backup.download.hint'" [ghsTooltip]="'datamanagement.backup.download.hint.text'"
       [originY]="'top'" [overlayY]="'bottom'">

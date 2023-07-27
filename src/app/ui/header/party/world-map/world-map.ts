@@ -50,7 +50,7 @@ export class WorldMapComponent implements AfterViewInit {
             var map = L.map('map', {
                 crs: L.CRS.Simple,
                 maxBounds: [[height * -0.5, width * -0.5], [height * 1.5, width * 1.5]],
-                minZoom: -2,
+                minZoom: -4,
                 attributionControl: false
             });
             var bounds: LatLngBoundsLiteral = [[0, 0], [height, width]];

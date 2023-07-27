@@ -11,7 +11,13 @@
       "name": 2,
       "edition": "jotl"
     },
-    "text": "During your attack, gain Advantage on the entire Attack action."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your attack, gain Advantage on the entire Attack action.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 2,
@@ -24,7 +30,13 @@
       "name": 2,
       "edition": "jotl"
     },
-    "text": "When attacked, consider any %game.attackmodifier.double% attack modifier card the enemy draws to be a %game.attackmodifier.plus0% instead."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When attacked, consider any %game.attackmodifier.double% attack modifier card the enemy draws to be a %game.attackmodifier.plus0% instead.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 3,
@@ -38,7 +50,13 @@
       "name": 2,
       "edition": "jotl"
     },
-    "text": "During your turn gain %game.action.shield% 1 for the rest of the round"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn gain %game.action.shield% 1 for the rest of the round",
+        "small": true
+      }
+    ]
   },
   {
     "id": 4,
@@ -52,7 +70,13 @@
       "name": 2,
       "edition": "jotl"
     },
-    "text": "When attacked, the attacker gains Disadvantage on the attack and you gain %game.action.shield% 1 for the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When attacked, the attacker gains Disadvantage on the attack and you gain %game.action.shield% 1 for the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 5,
@@ -66,7 +90,13 @@
       "name": 2,
       "edition": "jotl"
     },
-    "text": "During your movement add +1 %game.action.move% to a single movement."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your movement add +1 %game.action.move% to a single movement.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 6,
@@ -80,7 +110,13 @@
       "name": 2,
       "edition": "jotl"
     },
-    "text": "During your movement, add %game.action.jump% to the entire Move Action."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your movement, add %game.action.jump% to the entire Move Action.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 7,
@@ -94,7 +130,13 @@
       "name": 2,
       "edition": "jotl"
     },
-    "text": "When damaged by an attack, gain %game.action.shield% 1 for the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When damaged by an attack, gain %game.action.shield% 1 for the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 8,
@@ -108,7 +150,13 @@
       "name": 2,
       "edition": "jotl"
     },
-    "text": "During your ranged attack, add %game.condition.stun% to a single attack"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your ranged attack, add %game.condition.stun% to a single attack",
+        "small": true
+      }
+    ]
   },
   {
     "id": 9,
@@ -122,7 +170,13 @@
       "name": 2,
       "edition": "jotl"
     },
-    "text": "During your melee attack, add %game.condition.poison% to a single attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee attack, add %game.condition.poison% to a single attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 10,
@@ -136,7 +190,13 @@
       "name": 2,
       "edition": "jotl"
     },
-    "text": "During your single-target melee Attack ability, attack any one enemy wihin 2 hexes"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your single-target melee Attack ability, attack any one enemy wihin 2 hexes",
+        "small": true
+      }
+    ]
   },
   {
     "id": 11,
@@ -150,7 +210,13 @@
       "name": 2,
       "edition": "jotl"
     },
-    "text": "During your turn, perform a \"%game.action.heal% 3, Self\" action."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform a \"%game.action.heal% 3, Self\" action.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 12,
@@ -164,7 +230,13 @@
       "name": 2,
       "edition": "jotl"
     },
-    "text": "During your turn, return one of your discarded cards to your hand."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, return one of your discarded cards to your hand.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 13,
@@ -178,7 +250,13 @@
       "name": 2,
       "edition": "jotl"
     },
-    "text": "During your attack, add +1 %game.action.attack% to your entire Attack action."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your attack, add +1 %game.action.attack% to your entire Attack action.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 14,
@@ -188,14 +266,17 @@
     "edition": "jotl",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, infuse any one element.",
     "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, infuse any one element.",
+        "small": true
+      },
       {
         "type": "element",
         "value": "wild"
       }
-    ],
-    "actionSize": 1.5
+    ]
   },
   {
     "id": 15,
@@ -209,7 +290,13 @@
       "name": 9,
       "edition": "jotl"
     },
-    "text": "During your turn, \"%game.action.heal% 1, Self\" action."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, \"%game.action.heal% 1, Self\" action.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 16,
@@ -223,7 +310,13 @@
       "name": 9,
       "edition": "jotl"
     },
-    "text": "During your attack, %game.element.consume.wild% to add +1 %game.action.attack% to the entire Attack action."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your attack, %game.element.consume.wild% to add +1 %game.action.attack% to the entire Attack action.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 17,
@@ -236,7 +329,13 @@
       "name": 9,
       "edition": "jotl"
     },
-    "text": "Whenever you use the default bottom of an ability card, perform a \"%game.action.move% 3\" action instead of a \"%game.action.move% 2\" action."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Whenever you use the default bottom of an ability card, perform a \"%game.action.move% 3\" action instead of a \"%game.action.move% 2\" action.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 18,
@@ -250,7 +349,18 @@
       "name": 9,
       "edition": "jotl"
     },
-    "text": "During your single-target melee attack action, turn the attack into the following: *cone_0_1*"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your single-target melee attack action, turn the attack into the following:",
+        "small": true
+      },
+      {
+        "type": "area",
+        "value": "(1,0,target)|(0,1,active)|(1,1,target)",
+        "small": true
+      }
+    ]
   },
   {
     "id": 19,
@@ -264,7 +374,13 @@
       "name": 9,
       "edition": "jotl"
     },
-    "text": "During your ranged attack, add %game.condition.curse% to a single attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your ranged attack, add %game.condition.curse% to a single attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 20,
@@ -278,7 +394,13 @@
       "name": 9,
       "edition": "jotl"
     },
-    "text": "During your attack, add %game.condition.stun% to a single attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your attack, add %game.condition.stun% to a single attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 21,
@@ -292,7 +414,13 @@
       "name": 15,
       "edition": "jotl"
     },
-    "text": "During your ranged attack, add +1 %game.action.range% to your entire Attack action."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your ranged attack, add +1 %game.action.range% to your entire Attack action.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 22,
@@ -306,7 +434,13 @@
       "name": 15,
       "edition": "jotl"
     },
-    "text": "When damaged by an attack, gain %game.action.shield% 2 for the attack and the attacker suffers 2 damage."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When damaged by an attack, gain %game.action.shield% 2 for the attack and the attacker suffers 2 damage.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 23,
@@ -320,7 +454,13 @@
       "name": 15,
       "edition": "jotl"
     },
-    "text": "During your movement, add +2 %game.action.move% to a single movement."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your movement, add +2 %game.action.move% to a single movement.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 24,
@@ -334,7 +474,18 @@
       "name": 15,
       "edition": "jotl"
     },
-    "text": "During your single-target ranged attack action, turn the attack into the following: *cone_1_1*"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your single-target ranged attack action, turn the attack into the following:",
+        "small": true
+      },
+      {
+        "type": "area",
+        "value": "(1,0,target)|(0,1,target)|(1,1,target)",
+        "small": true
+      }
+    ]
   },
   {
     "id": 25,
@@ -348,7 +499,13 @@
       "name": 15,
       "edition": "jotl"
     },
-    "text": "During your ranged attack, add %game.action.pull% 2 to a single attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your ranged attack, add %game.action.pull% 2 to a single attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 26,
@@ -362,7 +519,13 @@
       "name": 15,
       "edition": "jotl"
     },
-    "text": "During your turn, perform a \"BLESS $bless$, %game.action.range:5%\" action."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform a \"%game.condition.bless%, %game.action.range:5%\" action.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 27,
@@ -372,7 +535,13 @@
     "edition": "jotl",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, force one enemy within %game.action.range:3% to perform a \"%game.action.move% 2\" action with you controlling the action."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, force one enemy within %game.action.range:3% to perform a \"%game.action.move% 2\" action with you controlling the action.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 28,
@@ -381,7 +550,13 @@
     "count": 1,
     "edition": "jotl",
     "slot": "body",
-    "text": "You are considered to have an initiative of 99 for the purpose of enemy focusing."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "You are considered to have an initiative of 99 for the purpose of enemy focusing.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 29,
@@ -391,7 +566,13 @@
     "edition": "jotl",
     "slot": "onehand",
     "spent": true,
-    "text": "When damaged by an attack, gain %game.action.shield% 2 for the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When damaged by an attack, gain %game.action.shield% 2 for the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 30,
@@ -401,7 +582,13 @@
     "edition": "jotl",
     "slot": "small",
     "consumed": true,
-    "text": "At the end of your turn, play one card from your hand and immediately perform the bottom action of that card."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the end of your turn, play one card from your hand and immediately perform the bottom action of that card.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 31,
@@ -411,7 +598,13 @@
     "edition": "jotl",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, gain %game.condition.strengthen%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, gain %game.condition.strengthen%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 32,
@@ -421,7 +614,13 @@
     "edition": "jotl",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, perform a \"%game.action.heal% 3, %game.action.range:5%\" action."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform a \"%game.action.heal% 3, %game.action.range:5%\" action.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 33,
@@ -431,7 +630,13 @@
     "edition": "jotl",
     "slot": "small",
     "consumed": true,
-    "text": "When damaged by an attack, gain %game.action.shield% 4 for the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When damaged by an attack, gain %game.action.shield% 4 for the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 34,
@@ -441,7 +646,13 @@
     "edition": "jotl",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your attack, add %game.condition.wound% to the entire Attack Action."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your attack, add %game.condition.wound% to the entire Attack Action.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 35,
@@ -451,7 +662,13 @@
     "edition": "jotl",
     "slot": "body",
     "spent": true,
-    "text": "During your turn, one adjacent ally may perform and \"%game.action.attack% 2\" Action."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, one adjacent ally may perform and \"%game.action.attack% 2\" Action.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 36,
@@ -461,6 +678,12 @@
     "edition": "jotl",
     "slot": "legs",
     "spent": true,
-    "text": "During your movement, add +1 %game.action.move% and %game.action.jump% to a single movement."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your movement, add +1 %game.action.move% and %game.action.jump% to a single movement.",
+        "small": true
+      }
+    ]
   }
 ]

@@ -1,9 +1,11 @@
 <div class="actions" [ngClass]="{'inline' : inline, 'right' : right, 'fh' : settingsManager.settings.fhStyle}">
   <ng-container *ngFor="let action of actions; let index = index;">
-    <div class="divider" *ngIf="divider(action,index)"></div>
-    <ghs-action [action]="action" [monster]="monster" [objective]="objective" [inline]="inline" [right]="right" [hexSize]="hexSize"
-      [relative]="relative" [statsCalculation]="statsCalculation"
-      [highlight]="highlightActions.indexOf(action.type) != -1" [highlightElements]="highlightElements" [index]="(actionIndex ? actionIndex + '-' : '') + index">
+    <div class="divider" *ngIf="divider[index]"></div>
+    <ghs-action [action]="action" [monster]="monster" [objective]="objective" [inline]="inline" [right]="right"
+      [hexSize]="hexSize" [relative]="relative" [statsCalculation]="statsCalculation"
+      [highlight]="highlightActions.indexOf(action.type) != -1" [highlightElements]="highlightElements"
+      [index]="(actionIndex ? actionIndex + '-' : '') + index" [style]="style"
+      [ngClass]="{'spacing' : !noDivider && !inline && index > 0 &&  !divider[index]}">
     </ghs-action>
   </ng-container>
   <div class="hint" *ngIf="hint" [ghs-label]="hint"></div>

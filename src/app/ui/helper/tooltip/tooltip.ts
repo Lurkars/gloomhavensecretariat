@@ -26,7 +26,7 @@ export class GhsTooltipComponent {
     @Input() value = '';
     @Input('ghs-label-args') args: string[] = [];
     @Input('ghs-label-args-replace') argLabel: boolean = true;
-    @Input('fh-force') fhForce: boolean = false;
+    @Input('style') style: 'gh' | 'fh' | false = false;
     @Input() relative: boolean = false;
     @Input() size: 'small' | 'large' | undefined;
     @Input() hint: boolean = false;
@@ -38,7 +38,7 @@ export class GhsTooltipDirective implements OnInit, OnDestroy {
     @Input('ghsTooltip') value = '';
     @Input('ghs-label-args') args: string[] = [];
     @Input('ghs-label-args-replace') argLabel: boolean = true;
-    @Input('fh-force') fhForce: boolean = false;
+    @Input('style') style: 'gh' | 'fh' | false = false;
     @Input() relative: boolean = false;
     @Input() size: 'small' | 'large' | undefined;
     @Input() hint: boolean = false;
@@ -84,7 +84,7 @@ export class GhsTooltipDirective implements OnInit, OnDestroy {
                 tooltipRef.instance.value = this.value;
                 tooltipRef.instance.args = this.args;
                 tooltipRef.instance.argLabel = this.argLabel;
-                tooltipRef.instance.fhForce = this.fhForce;
+                tooltipRef.instance.style = this.style;
                 tooltipRef.instance.relative = this.relative;
                 tooltipRef.instance.size = this.size;
                 tooltipRef.instance.hint = this.hint;

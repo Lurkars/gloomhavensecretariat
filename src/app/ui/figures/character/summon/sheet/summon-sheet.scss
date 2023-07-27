@@ -97,6 +97,22 @@
         }
     }
 
+    &.item {
+        background-image: url('~/src/assets/images/items/summon-item.png');
+
+        .name {
+            font-size: 1em;
+        }
+
+        .grid {
+            grid-template-columns: 65% 25% 0%;
+
+            .action {
+                grid-row: 1 span;
+            }
+        }
+    }
+
     &.fh {
         background-image: url('~/src/assets/images/fh/character/abilities/character-ability-summon1.png');
 

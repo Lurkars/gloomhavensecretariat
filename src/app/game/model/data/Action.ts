@@ -57,6 +57,7 @@ export enum ActionType {
   concatenation = "concatenation",
   grid = "grid",
   box = "box",
+  forceBox = "forceBox",
 }
 
 export enum ActionValueType {

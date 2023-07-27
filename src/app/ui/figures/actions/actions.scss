@@ -20,6 +20,10 @@
   ghs-action {
     position: relative;
     width: 100%;
+
+    &.spacing {
+      margin-top: 0.7em;
+    }
   }
 
   .divider {

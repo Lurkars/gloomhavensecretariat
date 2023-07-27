@@ -1045,17 +1045,16 @@ input[type="radio"] {
   .placeholder-attackmodifier {
     position: relative;
     display: inline;
+    height: 1em;
     overflow: visible;
-    margin: 0 1em;
+    margin: 0 0.05em;
 
     img {
-      position: absolute;
-      height: 1.4em;
+      position: relative;
+      height: 1.1em;
       width: auto;
-      left: 25%;
-      top: 25%;
-      transform: translate(-50%, -25%);
-      margin: 0;
+      left: 0;
+      top: 0;
     }
 
   }
@@ -1197,25 +1196,22 @@ input[type="radio"] {
   .placeholder-card {
     position: relative;
     margin: 0 0.1em;
-    display: inline-block;
+    display: inline-flex;
     height: 1em;
+    width: 1em;
 
     img {
-      position: relative;
+      position: absolute;
+      top: 0.3em;
       left: 0;
       margin: 0;
-      height: 100%;
-    }
-
-    img.card-overlay {
-      position: absolute;
+      height: 0.9em;
     }
 
     .card-value {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 0.47em;
+      left: 0.47em;
       font-family: var(--ghs-font-title);
       font-size: 0.8em;
       filter: invert(1);
@@ -1228,14 +1224,20 @@ input[type="radio"] {
     justify-content: flex-end;
     color: var(--ghs-color-white);
     width: 1.8em;
-    height: 1.5em;
+    height: 1.3em;
+    font-family: ghs-title-fh;
     font-size: 0.9em;
     line-height: 1.3em;
     padding-right: 0.1em;
-    background-image: url('~/src/assets/images/items/fh-item.svg');
-    background-position: top center;
+    background-color: var(--ghs-color-white);
+    background-image: url('~/src/assets/images/fh/items/fh-item.svg');
+    background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+
+    .value {
+      font-size: 0.9em;
+    }
   }
 
   .placeholder-section {

@@ -10,10 +10,10 @@
         <span class="target-value-container {{'target-' + getTarget(effect).replace('game.specialTarget.','')}}"
           *ngIf="getTarget(effect)">
           <span class="target-value text-white" [ghs-label]="getTarget(effect).split(':')[0]"
-            [ghs-label-args]="getTarget(effect).split(':').slice(1)" [fh-force]="newStyle"></span>
+            [ghs-label-args]="getTarget(effect).split(':').slice(1)" [style]="newStyle ? 'fh' : false"></span>
         </span>
         <span class="target-value-container range" *ngIf="getRange(effect)">
-          <span class="target-value text-white" [ghs-label]="getRange(effect)" [fh-force]="newStyle"></span>
+          <span class="target-value text-white" [ghs-label]="getRange(effect)" [style]="newStyle ? 'fh' : false"></span>
         </span>
       </ng-container>
       <ng-container *ngSwitchCase="AttackModifierEffectType.element">
@@ -52,10 +52,10 @@
         <span class="target-value-container {{'target-' + getTarget(effect).replace('game.specialTarget.','')}}"
           *ngIf="getTarget(effect)">
           <span class="target-value text-white" [ghs-label]="getTarget(effect).split(':')[0]"
-            [ghs-label-args]="getTarget(effect).split(':').slice(1)" [fh-force]="newStyle"></span>
+            [ghs-label-args]="getTarget(effect).split(':').slice(1)" [style]="newStyle ? 'fh' : false"></span>
         </span>
         <span class="target-value-container range" *ngIf="getRange(effect)">
-          <span class="target-value text-white" [ghs-label]="getRange(effect)" [fh-force]="newStyle"></span>
+          <span class="target-value text-white" [ghs-label]="getRange(effect)" [style]="newStyle ? 'fh' : false"></span>
         </span>
         <div class="sub-effects">
           <span class="divider">,</span>
@@ -73,10 +73,10 @@
         <span class="target-value-container {{'target-' + getTarget(effect).replace('game.specialTarget.','')}}"
           *ngIf="getTarget(effect)">
           <span class="target-value text-white" [ghs-label]="getTarget(effect).split(':')[0]"
-            [ghs-label-args]="getTarget(effect).split(':').slice(1)" [fh-force]="newStyle"></span>
+            [ghs-label-args]="getTarget(effect).split(':').slice(1)" [style]="newStyle ? 'fh' : false"></span>
         </span>
         <span class="target-value-container range" *ngIf="getRange(effect)">
-          <span class="target-value text-white" [ghs-label]="getRange(effect)" [fh-force]="newStyle"></span>
+          <span class="target-value text-white" [ghs-label]="getRange(effect)" [style]="newStyle ? 'fh' : false"></span>
         </span>
         <div class="sub-effects">
           <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="subEffects(effect)"
@@ -92,10 +92,10 @@
         <span class="target-value-container {{'target-' + getTarget(effect).replace('game.specialTarget.','')}}"
           *ngIf="getTarget(effect)">
           <span class="target-value text-white" [ghs-label]="getTarget(effect).split(':')[0]"
-            [ghs-label-args]="getTarget(effect).split(':').slice(1)" [fh-force]="newStyle"></span>
+            [ghs-label-args]="getTarget(effect).split(':').slice(1)" [style]="newStyle ? 'fh' : false"></span>
         </span>
         <span class="target-value-container range" *ngIf="getRange(effect)">
-          <span class="target-value text-white" [ghs-label]="getRange(effect)" [fh-force]="newStyle"></span>
+          <span class="target-value text-white" [ghs-label]="getRange(effect)" [style]="newStyle ? 'fh' : false"></span>
         </span>
         <div class="sub-effects">
           <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="subEffects(effect)"

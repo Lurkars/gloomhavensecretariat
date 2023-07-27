@@ -258,7 +258,7 @@
           "2": "where X is the number of active Cultivate %data.action.custom.cs-cultivate% actions"
         },
         "bleeding-claw": {
-          "1": "Addc %game.attackmodifier.plus3% instead if the target has %game.condition.rupture% or %game.condition.wound%",
+          "1": "Add %game.attackmodifier.plus3% instead if the target has %game.condition.rupture% or %game.condition.wound%",
           "2": "Once each scenario, become %game.action.custom.cs-sated% after collecting your fifth loot token",
           "3": "Become %game.action.custom.cs-sated% each time you lose a card to negate suffering damage",
           "4": "Whenever one of your abilities causes at least one enemy to gain %game.condition.rupture%, immediately after that ability perform \"%game.action.move:1%\""

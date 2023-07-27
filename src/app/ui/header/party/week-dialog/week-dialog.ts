@@ -30,7 +30,7 @@ export class PartyWeekDialogComponent {
     }
 
     isConclusion(section: string): boolean {
-        return gameManager.sectionData(gameManager.currentEdition(), true).find((sectionData) => sectionData.index == section && !sectionData.group && sectionData.conclusion) != undefined;
+        return gameManager.sectionData(gameManager.currentEdition()).find((sectionData) => sectionData.index == section && !sectionData.group && sectionData.conclusion) != undefined;
     }
 
     isSolved(section: string): boolean {
@@ -43,7 +43,7 @@ export class PartyWeekDialogComponent {
     }
 
     finishConclusion(index: string) {
-        const conclusion = gameManager.sectionData(gameManager.currentEdition(), true).find((sectionData) => sectionData.index == index && sectionData.conclusion);
+        const conclusion = gameManager.sectionData(gameManager.currentEdition()).find((sectionData) => sectionData.index == index && sectionData.conclusion);
         if (conclusion) {
             const scenario = new Scenario(conclusion as ScenarioData);
             this.dialog.open(ScenarioSummaryComponent, {

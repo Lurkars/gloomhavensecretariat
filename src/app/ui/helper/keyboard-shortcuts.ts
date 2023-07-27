@@ -21,7 +21,7 @@ export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot"
 export class KeyboardShortcuts implements OnInit, OnDestroy {
 
     @Input() footer: FooterComponent | undefined;
-    @Input() allowed: KEYBOARD_SHORTCUT_EVENTS[] = ["undo"];
+    @Input() allowed: KEYBOARD_SHORTCUT_EVENTS[] = ["undo", "zoom"];
     scrollTimeout: any = null;
     zoomInterval: any = null;
     currentZoom: number = 0;

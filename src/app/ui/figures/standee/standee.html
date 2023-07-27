@@ -64,7 +64,7 @@
             *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1 && entityCondition.types.indexOf(ConditionType.stack) == -1">{{entityCondition.value}}</span>
         </span>
       </span>
-      <span *ngIf="entity.summon != SummonState.false" class="summon-container"
+      <span *ngIf="entity.summon && entity.summon != SummonState.false" class="summon-container"
         [ngClass]="{'center' : (entity.entityConditions.length % 2) == 0}">
         <span class="summon"
           [ngClass]="{'active' : entity.summon == SummonState.true, 'new' : entity.summon == SummonState.new}">

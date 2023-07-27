@@ -60,7 +60,7 @@ export class LootManager {
         }
         if (item) {
           if (character.progress.items.find((existing) => item && existing.name == item.name && existing.edition == item.edition)) {
-            character.progress.gold += this.itemSellValue(itemData);
+            character.progress.gold += gameManager.itemManager.itemSellValue(itemData);
           } else {
             character.progress.items.push(item);
           }
@@ -203,12 +203,12 @@ export class LootManager {
             } else {
               itemId = +itemValue;
             }
-            const item = gameManager.item(itemId, itemEdition, true);
+            const item = gameManager.itemManager.getItem(itemId, itemEdition, true);
             if (item) {
               const identifier = new Identifier('' + item.id, item.edition);
               if (reward.type == TreasureRewardType.item || reward.type == TreasureRewardType.itemFh) {
                 if (character.progress.items.find((existing) => existing.name == identifier.name && existing.edition == identifier.edition)) {
-                  character.progress.gold += this.itemSellValue(item);
+                  character.progress.gold += gameManager.itemManager.itemSellValue(item);
                 } else {
                   character.progress.items.push(identifier);
                 }
@@ -330,27 +330,6 @@ export class LootManager {
     }
 
     return value;
-  }
-
-  itemSellValue(itemData: ItemData): number {
-    if (itemData.cost) {
-      return Math.floor(itemData.cost / 2);
-    } else {
-      let costs = 0;
-      if (itemData.resources) {
-        Object.keys(itemData.resources).forEach(key => {
-          const lootType = key as LootType;
-          costs += (itemData.resources[lootType] || 0) * 2;
-        });
-
-        if (itemData.requiredItems) {
-          itemData.requiredItems.forEach(() => {
-            costs += 2;
-          })
-        }
-      }
-      return costs;
-    }
   }
 
   draw(): void {

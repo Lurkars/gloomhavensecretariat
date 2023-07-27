@@ -6,7 +6,13 @@
     "count": 2,
     "edition": "cs",
     "slot": "small",
-    "text": "During your Attack ability, you may place one characer token on this card to add %game.condition.muddle% to one attack.  When there are three tokens on this card it is consumed %game.card.lost%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your Attack ability, you may place one characer token on this card to add %game.condition.muddle% to one attack.  When there are three tokens on this card it is consumed %game.card.lost%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 2,
@@ -15,7 +21,13 @@
     "count": 2,
     "edition": "cs",
     "slot": "small",
-    "text": "During your Move ability, you may place one characer token on this card to add +1 %game.action.move%. When there are three tokens on this card it is consumed %game.card.lost%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your Move ability, you may place one characer token on this card to add +1 %game.action.move%. When there are three tokens on this card it is consumed %game.card.lost%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 3,
@@ -24,7 +36,13 @@
     "count": 2,
     "edition": "cs",
     "slot": "small",
-    "text": "During your Move ability, you may place one characer token on this card to add %game.action.jump%. When there are three tokens on this card it is consumed %game.card.lost%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your Move ability, you may place one characer token on this card to add %game.action.jump%. When there are three tokens on this card it is consumed %game.card.lost%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 4,
@@ -33,7 +51,13 @@
     "count": 2,
     "edition": "cs",
     "slot": "small",
-    "text": "During your Attack ability, you may place one characer token on this card to add +1 %game.action.attack%. When there are three tokens on this card it is consumed %game.card.lost%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your Attack ability, you may place one characer token on this card to add +1 %game.action.attack%. When there are three tokens on this card it is consumed %game.card.lost%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 5,
@@ -42,7 +66,13 @@
     "count": 2,
     "edition": "cs",
     "slot": "small",
-    "text": "When attacked by an adjacent enemy, you may place one characer token on this card to gain %game.action.retaliate% 1 for the attack. When there are three tokens on this card it is consumed %game.card.lost%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When attacked by an adjacent enemy, you may place one characer token on this card to gain %game.action.retaliate% 1 for the attack. When there are three tokens on this card it is consumed %game.card.lost%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 6,
@@ -51,7 +81,13 @@
     "count": 2,
     "edition": "cs",
     "slot": "small",
-    "text": "During your Attack ability, you may place one characer token on this card to add %game.condition.poison% to one attack. When there are three tokens on this card it is consumed %game.card.lost%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your Attack ability, you may place one characer token on this card to add %game.condition.poison% to one attack. When there are three tokens on this card it is consumed %game.card.lost%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 7,
@@ -60,7 +96,13 @@
     "count": 2,
     "edition": "cs",
     "slot": "small",
-    "text": "During your turn, you may place one characer token on this card to perform \"%game.action.heal% 1, Self\". When there are three tokens on this card it is consumed %game.card.lost%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, you may place one characer token on this card to perform \"%game.action.heal% 1, Self\". When there are three tokens on this card it is consumed %game.card.lost%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 8,
@@ -69,7 +111,13 @@
     "count": 2,
     "edition": "cs",
     "slot": "small",
-    "text": "When damaged by an attack, you may place one characer token on this card to gain %game.action.shield% 1 for the attack. When there are three tokens on this card it is consumed %game.card.lost%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When damaged by an attack, you may place one characer token on this card to gain %game.action.shield% 1 for the attack. When there are three tokens on this card it is consumed %game.card.lost%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 9,
@@ -78,7 +126,13 @@
     "count": 2,
     "edition": "cs",
     "slot": "small",
-    "text": "During your Attack ability, you may place one characer token on this card to gain Advantage for one attack. When there are three tokens on this card it is consumed %game.card.lost%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your Attack ability, you may place one characer token on this card to gain Advantage for one attack. When there are three tokens on this card it is consumed %game.card.lost%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 10,
@@ -87,7 +141,13 @@
     "count": 2,
     "edition": "cs",
     "slot": "small",
-    "text": "During your Attack ability, you may place one characer token on this card to add %game.condition.curse% to one attack. When there are three tokens on this card it is consumed %game.card.lost%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your Attack ability, you may place one characer token on this card to add %game.condition.curse% to one attack. When there are three tokens on this card it is consumed %game.card.lost%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 11,
@@ -97,7 +157,13 @@
     "edition": "cs",
     "slot": "small",
     "spent": true,
-    "text": "During your turn, remove INFECT $infect$ from Self or adjacent ally."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, remove %game.condition.infect% from Self or adjacent ally.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 12,
@@ -106,7 +172,13 @@
     "count": 1,
     "edition": "cs",
     "slot": "head",
-    "text": "Your attacks are unaffected by %game.action.retaliate%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Your attacks are unaffected by %game.action.retaliate%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 13,
@@ -116,7 +188,13 @@
     "edition": "cs",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your melee Attack ability, add %game.condition.pierce% 4 to one attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee Attack ability, add %game.action.pierce% 4 to one attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 14,
@@ -126,7 +204,13 @@
     "edition": "cs",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your turn, perform \"%game.action.attack% 3, %game.action.range:2%\"."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform \"%game.action.attack% 3, %game.action.range:2%\".",
+        "small": true
+      }
+    ]
   },
   {
     "id": 15,
@@ -135,7 +219,13 @@
     "count": 2,
     "edition": "cs",
     "slot": "legs",
-    "text": "At the end of your turn, if you moved four or more hexes during your turn, one adjacent enemy suffers one damage."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the end of your turn, if you moved four or more hexes during your turn, one adjacent enemy suffers one damage.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 16,
@@ -144,7 +234,13 @@
     "count": 1,
     "edition": "cs",
     "slot": "legs",
-    "text": "During your Move abilities, you may move through enemies."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your Move abilities, you may move through enemies.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 17,
@@ -154,7 +250,13 @@
     "edition": "cs",
     "slot": "legs",
     "spent": true,
-    "text": "During your Move ability, add +2 %game.action.move% and %game.action.jump%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your Move ability, add +2 %game.action.move% and %game.action.jump%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 18,
@@ -164,7 +266,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your Heal ability, add +2 %game.action.heal% and %game.condition.strengthen% to each heal."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your Heal ability, add +2 %game.action.heal% and %game.condition.strengthen% to each heal.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 19,
@@ -173,7 +281,13 @@
     "count": 1,
     "edition": "cs",
     "slot": "legs",
-    "text": "You are immune to %game.condition.immobilize%. At the end of your turn, if you moved zeo hexes on your turn, perform \"%game.action.move% 1\""
+    "actions": [
+      {
+        "type": "custom",
+        "value": "You are immune to %game.condition.immobilize%. At the end of your turn, if you moved zeo hexes on your turn, perform \"%game.action.move% 1\"",
+        "small": true
+      }
+    ]
   },
   {
     "id": 20,
@@ -183,7 +297,13 @@
     "edition": "cs",
     "slot": "head",
     "consumed": true,
-    "text": "During your turn, Recover %game.card.recover% one lost card played this round."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, Recover %game.card.recover% one lost card played this round.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 21,
@@ -192,7 +312,13 @@
     "count": 1,
     "edition": "cs",
     "slot": "head",
-    "text": "Gain Advantage on all attacks you perform while %game.condition.invisible%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Gain Advantage on all attacks you perform while %game.condition.invisible%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 22,
@@ -202,7 +328,13 @@
     "edition": "cs",
     "slot": "head",
     "minusOne": 1,
-    "text": "When attacked, consider any %game.attackmodifier.plus1% modifier card the enemy draws to be a %game.attackmodifier.plus0% instead."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When attacked, consider any %game.attackmodifier.plus1% modifier card the enemy draws to be a %game.attackmodifier.plus0% instead.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 23,
@@ -212,7 +344,13 @@
     "edition": "cs",
     "slot": "body",
     "spent": true,
-    "text": "When attacked, the attacker gains Disadvantage on the attack and you gain %game.action.shield% 2 for the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When attacked, the attacker gains Disadvantage on the attack and you gain %game.action.shield% 2 for the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 24,
@@ -222,7 +360,13 @@
     "edition": "cs",
     "slot": "body",
     "spent": true,
-    "text": "When you would gain one or more negative conditions, prevent the conditions."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you would gain one or more negative conditions, prevent the conditions.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 25,
@@ -232,7 +376,14 @@
     "edition": "cs",
     "slot": "body",
     "spent": true,
-    "text": "On the next two attacks targeting you peformed by adjacent enemies, gain %game.action.retaliate% 2 for the attack."
+    "slots": 2,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "On the next two attacks targeting you peformed by adjacent enemies, gain %game.action.retaliate% 2 for the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 26,
@@ -242,7 +393,13 @@
     "edition": "cs",
     "slot": "body",
     "consumed": true,
-    "text": "When your hit point would be reduced to 0 by an attack targeting you, instead suffer no damage and gain %game.condition.invisible%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When your hit point would be reduced to 0 by an attack targeting you, instead suffer no damage and gain %game.condition.invisible%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 27,
@@ -252,7 +409,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, swap positions with one enemy within %game.action.range:5%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, swap positions with one enemy within %game.action.range:5%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 28,
@@ -262,7 +425,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, replace one adjacent obstacle tile with a money token."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, replace one adjacent obstacle tile with a money token.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 29,
@@ -272,7 +441,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, perform \"%game.action.heal% 5, %game.condition.poison%, Self\"."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform \"%game.action.heal% 5, %game.condition.poison%, Self\".",
+        "small": true
+      }
+    ]
   },
   {
     "id": 30,
@@ -282,7 +457,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, create one %game.condition.immobilize% trap in an empty hex within %game.action.range:3%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, create one %game.condition.immobilize% trap in an empty hex within %game.action.range:3%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 31,
@@ -292,7 +473,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, create one %game.condition.stun% trap in an empty hex within %game.action.range:3%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, create one %game.condition.stun% trap in an empty hex within %game.action.range:3%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 32,
@@ -302,7 +489,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, force an enemy within %game.action.range:5% to perform a \"%game.action.move% 2, %game.action.jump%\" ability with you controlling the ability."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, force an enemy within %game.action.range:5% to perform a \"%game.action.move% 2, %game.action.jump%\" ability with you controlling the ability.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 33,
@@ -312,7 +505,13 @@
     "edition": "cs",
     "slot": "twohand",
     "spent": true,
-    "text": "During your melee Attack ability, add %game.condition.muddle% and %game.action.push% 2 to all your attacks."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee Attack ability, add %game.condition.muddle% and %game.action.push% 2 to all your attacks.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 35,
@@ -322,7 +521,13 @@
     "edition": "cs",
     "slot": "onehand",
     "spent": true,
-    "text": "When attacked, gain %game.action.retaliate% 1, %game.action.range:3% for the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When attacked, gain %game.action.retaliate% 1, %game.action.range:3% for the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 36,
@@ -332,7 +537,13 @@
     "edition": "cs",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your melee Attack ability, suffer 1 damage to add %game.condition.curse% to all your attacks."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee Attack ability, suffer 1 damage to add %game.condition.curse% to all your attacks.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 37,
@@ -342,7 +553,13 @@
     "edition": "cs",
     "slot": "onehand",
     "spent": true,
-    "text": "When attacked by an adjacent enemy, gain %game.action.retaliate% 3 for the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When attacked by an adjacent enemy, gain %game.action.retaliate% 3 for the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 38,
@@ -352,7 +569,13 @@
     "edition": "cs",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your melee Attack ability, do not draw an attack modifier card for one attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee Attack ability, do not draw an attack modifier card for one attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 39,
@@ -362,7 +585,13 @@
     "edition": "cs",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your turn, perform \"%game.action.attack% 2, %game.action.range:3%, %game.condition.pierce% 2\"."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform \"%game.action.attack% 2, %game.action.range:3%, %game.action.pierce% 2\".",
+        "small": true
+      }
+    ]
   },
   {
     "id": 43,
@@ -372,7 +601,13 @@
     "edition": "cs",
     "slot": "head",
     "spent": true,
-    "text": "During your Heal action, add +2 %game.action.heal% to each Heal."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your Heal action, add +2 %game.action.heal% to each Heal.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 44,
@@ -382,7 +617,13 @@
     "edition": "cs",
     "slot": "onehand",
     "spent": true,
-    "text": "During your ranged Attack ability, add %game.condition.pierce% 2 to one attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your ranged Attack ability, add %game.action.pierce% 2 to one attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 46,
@@ -392,7 +633,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, one summoned ally you own performs %game.action.move% +0 %game.action.attack% +0 with you controlling the abilities."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, one summoned ally you own performs %game.action.move% +0 %game.action.attack% +0 with you controlling the abilities.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 49,
@@ -402,7 +649,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, perform one of the following: Recover %game.card.recover% one discarded card | %game.action.heal% 3, Self | Add +2 %game.action.attack% to your next attack this turn."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform one of the following: Recover %game.card.recover% one discarded card | %game.action.heal% 3, Self | Add +2 %game.action.attack% to your next attack this turn.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 52,
@@ -412,14 +665,17 @@
     "edition": "cs",
     "slot": "twohand",
     "consumed": true,
-    "text": "During your melee Attack ability, add +1 %game.action.attack% and %game.condition.wound% to all your attacks.",
     "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee Attack ability, add +1 %game.action.attack% and %game.condition.wound% to all your attacks.",
+        "small": true
+      },
       {
         "type": "element",
         "value": "fire"
       }
-    ],
-    "actionSize": 1.5
+    ]
   },
   {
     "id": 54,
@@ -428,7 +684,13 @@
     "count": 1,
     "edition": "cs",
     "slot": "onehand",
-    "text": "Gain Advantage on all your melee attacks while you are occupying difficult terrain."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Gain Advantage on all your melee attacks while you are occupying difficult terrain.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 55,
@@ -438,7 +700,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your Attack ability, add %game.condition.poison% 2 to one attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your Attack ability, add %game.condition.poison% 2 to one attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 58,
@@ -448,7 +716,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During you Attack ability, add %game.condition.disarm% to one attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During you Attack ability, add %game.condition.disarm% to one attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 59,
@@ -458,7 +732,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, remove all positive conditions from all enemies within %game.action.range:2%.  This can be used on enemies that have %game.condition.invisible%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, remove all positive conditions from all enemies within %game.action.range:2%.  This can be used on enemies that have %game.condition.invisible%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 60,
@@ -468,14 +748,17 @@
     "edition": "cs",
     "slot": "small",
     "spent": true,
-    "text": "During your turn, perform \"%game.action.heal% 5, Self\"",
     "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform \"%game.action.heal% 5, Self\"",
+        "small": true
+      },
       {
         "type": "element",
         "value": "wild"
       }
-    ],
-    "actionSize": 1.5
+    ]
   },
   {
     "id": 61,
@@ -486,7 +769,17 @@
     "slot": "onehand",
     "spent": true,
     "minusOne": 2,
-    "text": "You are immune to %game.condition.disarm%, even if this item is spent. During your turn gain %game.action.shield% 1 for the round. ^eot^"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "You are immune to %game.condition.disarm%, even if this item is spent. During your turn gain %game.action.shield% 1 for the round. ",
+        "small": true
+      },
+      {
+        "type": "card",
+        "value": "round"
+      }
+    ]
   },
   {
     "id": 62,
@@ -496,7 +789,17 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "At the end of your turn, all enemies consider all empty hexes within %game.action.range:2% of you to be difficult terrain for the round. ^eot^"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "At the end of your turn, all enemies consider all empty hexes within %game.action.range:2% of you to be difficult terrain for the round. ",
+        "small": true
+      },
+      {
+        "type": "card",
+        "value": "round"
+      }
+    ]
   },
   {
     "id": 63,
@@ -506,7 +809,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "When you are damage by an attack targeting you, suffer half (rounded down) the damage instead."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When you are damage by an attack targeting you, suffer half (rounded down) the damage instead.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 64,
@@ -516,7 +825,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "When an ally targets you with a Heal ability, remove one negative condition from yourself before the Heal and gain %game.condition.strengthen%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When an ally targets you with a Heal ability, remove one negative condition from yourself before the Heal and gain %game.condition.strengthen%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 65,
@@ -526,7 +841,13 @@
     "edition": "cs",
     "slot": "onehand",
     "spent": true,
-    "text": "During your melee Attack ability, add +1 %game.action.attack% and %game.condition.muddle% to one attack targeting an enemy adjacent to one of your allies."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee Attack ability, add +1 %game.action.attack% and %game.condition.muddle% to one attack targeting an enemy adjacent to one of your allies.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 66,
@@ -536,7 +857,13 @@
     "edition": "cs",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your melee Attack ability, add +1 %game.action.attack% and %game.condition.immobilize% to all your attacks."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee Attack ability, add +1 %game.action.attack% and %game.condition.immobilize% to all your attacks.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 67,
@@ -546,7 +873,13 @@
     "edition": "cs",
     "slot": "twohand",
     "spent": true,
-    "text": "During your single-target melee Attack ability, add %game.condition.pierce% 2 and %game.action.pull% 1 to the attack and you may target one enemy within 2 hexes."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your single-target melee Attack ability, add %game.action.pierce% 2 and %game.action.pull% 1 to the attack and you may target one enemy within 2 hexes.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 68,
@@ -555,7 +888,28 @@
     "count": 1,
     "edition": "cs",
     "slot": "small",
-    "text": "During your turn, perform: %game.condition.wound% %game.action.range:3% *cone_1_1*"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform:",
+        "small": true
+      },
+      {
+        "type": "condition",
+        "value": "wound",
+        "subActions": [
+          {
+            "type": "area",
+            "value": "(1,0,target)|(0,1,target)|(1,1,target)"
+          },
+          {
+            "type": "range",
+            "value": 3,
+            "small": true
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 69,
@@ -564,7 +918,14 @@
     "count": 1,
     "edition": "cs",
     "slot": "small",
-    "text": "On the next three Heal abilities targeting you, you may either first remove all negative conditions from yourself or gain %game.condition.strengthen%."
+    "slots": 3,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "On the next three Heal abilities targeting you, you may either first remove all negative conditions from yourself or gain %game.condition.strengthen%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 70,
@@ -574,7 +935,13 @@
     "edition": "cs",
     "slot": "onehand",
     "spent": true,
-    "text": "During your turn, perform \"%game.action.pull% 2, Target one ally or enemy within %game.action.range:3%.\""
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform \"%game.action.pull% 2, Target one ally or enemy within %game.action.range:3%.\"",
+        "small": true
+      }
+    ]
   },
   {
     "id": 71,
@@ -583,7 +950,13 @@
     "count": 1,
     "edition": "cs",
     "slot": "head",
-    "text": "Whenever you would suffer damage from %game.condition.wound% instead perform \"%game.action.heal% 1, Self\""
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Whenever you would suffer damage from %game.condition.wound% instead perform \"%game.action.heal% 1, Self\"",
+        "small": true
+      }
+    ]
   },
   {
     "id": 72,
@@ -592,7 +965,13 @@
     "count": 1,
     "edition": "cs",
     "slot": "twohand",
-    "text": "Add +1 %game.action.range% to all your ranged abilities peformed while adjacent to an obstacle. Whenever you enter a hex with a trap, you may choose not to spring the trap."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Add +1 %game.action.range% to all your ranged abilities peformed while adjacent to an obstacle. Whenever you enter a hex with a trap, you may choose not to spring the trap.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 73,
@@ -601,7 +980,13 @@
     "count": 1,
     "edition": "cs",
     "slot": "onehand",
-    "text": "Whenever you use the default top action of an ability card, you may perform a \"%game.action.heal% 2, %game.action.range:1%\" ability instead of an \"%game.action.attack% 2\" ability."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Whenever you use the default top action of an ability card, you may perform a \"%game.action.heal% 2, %game.action.range:1%\" ability instead of an \"%game.action.attack% 2\" ability.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 74,
@@ -611,7 +996,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your Heal ability targeting at least one ally, add +1 %game.action.heal% and %game.condition.strengthen% to each Heal."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your Heal ability targeting at least one ally, add +1 %game.action.heal% and %game.condition.strengthen% to each Heal.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 75,
@@ -621,7 +1012,13 @@
     "edition": "cs",
     "slot": "head",
     "spent": true,
-    "text": "When attacked this round, you and all adjacent allies consider any negative and %game.attackmodifier.null% attack modifiers drawn to be %game.attackmodifier.plus0% instead."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When attacked this round, you and all adjacent allies consider any negative and %game.attackmodifier.null% attack modifiers drawn to be %game.attackmodifier.plus0% instead.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 76,
@@ -631,7 +1028,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your Heal ability, add +3 %game.action.heal% and %game.condition.wound% to each Heal."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your Heal ability, add +3 %game.action.heal% and %game.condition.wound% to each Heal.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 77,
@@ -641,7 +1044,13 @@
     "edition": "cs",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your Heal ability, double the value of each Heal. If this Heal ability removes %game.condition.wound%, this item is spent %game.card.spent% instead of consumed."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your Heal ability, double the value of each Heal. If this Heal ability removes %game.condition.wound%, this item is spent %game.card.spent% instead of consumed.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 78,
@@ -651,7 +1060,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, one ally within %game.action.range:2% may perform one of the following: %game.action.attack% 2| %game.action.move% 2| %game.action.heal% 2, Self."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, one ally within %game.action.range:2% may perform one of the following: %game.action.attack% 2| %game.action.move% 2| %game.action.heal% 2, Self.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 79,
@@ -661,7 +1076,13 @@
     "edition": "cs",
     "slot": "onehand",
     "consumed": true,
-    "text": "When an adjacent ally is damage by an attack targeting them, that ally gains %game.action.shield% 2 for the attack and removes all negative conditions applied by the attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When an adjacent ally is damage by an attack targeting them, that ally gains %game.action.shield% 2 for the attack and removes all negative conditions applied by the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 80,
@@ -671,7 +1092,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "When an ally within %game.action.range:5% would be damaged by an attack targeting them, they suffer no damage instead."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "When an ally within %game.action.range:5% would be damaged by an attack targeting them, they suffer no damage instead.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 81,
@@ -681,7 +1108,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your Heal ability targeting at least one ally add +2 %game.action.heal% %game.condition.strengthen% and BLESS $bless$ to each Heal."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your Heal ability targeting at least one ally add +2 %game.action.heal% %game.condition.strengthen% and %game.condition.bless% to each Heal.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 82,
@@ -691,7 +1124,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During you turn one ally within %game.action.range:3% may perform one of the following: %game.action.attack% 3 | %game.action.move% 3 | %game.action.heal% 3, Self."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During you turn one ally within %game.action.range:3% may perform one of the following: %game.action.attack% 3 | %game.action.move% 3 | %game.action.heal% 3, Self.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 83,
@@ -701,7 +1140,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, create two water difficult terrain tiles in hexes within %game.action.range:3% that contain no overlay tiles. %game.condition.muddle% all figures within %game.action.range:3% occupying a water tile."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, create two water difficult terrain tiles in hexes within %game.action.range:3% that contain no overlay tiles. %game.condition.muddle% all figures within %game.action.range:3% occupying a water tile.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 84,
@@ -710,7 +1155,18 @@
     "edition": "cs",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your single-target ranged Attack ability, turn the attack into the following: *line_1_1*."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your single-target ranged Attack ability, turn the attack into the following:",
+        "small": true
+      },
+      {
+        "type": "area",
+        "value": "(0,0,target)|(1,0,target)",
+        "small": true
+      }
+    ]
   },
   {
     "id": 85,
@@ -720,7 +1176,18 @@
     "edition": "cs",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your single-targetranged Attack ability, add +1 %game.action.attack% and turn the attack into the following: *line_1_1*."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your single-targetranged Attack ability, add +1 %game.action.attack% and turn the attack into the following:",
+        "small": true
+      },
+      {
+        "type": "area",
+        "value": "(0,0,target)|(1,0,target)",
+        "small": true
+      }
+    ]
   },
   {
     "id": 86,
@@ -729,7 +1196,17 @@
     "edition": "cs",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your turn, you and all allies gain %game.action.shield% 1 for the round. ^eot^"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, you and all allies gain %game.action.shield% 1 for the round. ",
+        "small": true
+      },
+      {
+        "type": "card",
+        "value": "round"
+      }
+    ]
   },
   {
     "id": 87,
@@ -739,7 +1216,17 @@
     "edition": "cs",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your turn, all adjacent allies gain %game.action.shield% equal to your current Shield value from abilities for the round. ^eot^"
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, all adjacent allies gain %game.action.shield% equal to your current Shield value from abilities for the round. ",
+        "small": true
+      },
+      {
+        "type": "card",
+        "value": "round"
+      }
+    ]
   },
   {
     "id": 88,
@@ -748,7 +1235,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, open one unlocked closed door within %game.action.range:2%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, open one unlocked closed door within %game.action.range:2%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 89,
@@ -758,7 +1251,13 @@
     "edition": "cs",
     "slot": "small",
     "spent": true,
-    "text": "During your turn, open one unlocked closed door within %game.action.range:2%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, open one unlocked closed door within %game.action.range:2%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 90,
@@ -767,7 +1266,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your Move ability, double the value of the movement."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your Move ability, double the value of the movement.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 91,
@@ -777,7 +1282,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your Move ability, add %game.action.jump% and double the value of the movement."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your Move ability, add %game.action.jump% and double the value of the movement.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 92,
@@ -786,7 +1297,13 @@
     "edition": "cs",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your turn, you may %game.element.consume.earth% to perform \"%game.action.attack% 1, %game.action.range:3%, %game.condition.poison%\"."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, you may %game.element.consume.earth% to perform \"%game.action.attack% 1, %game.action.range:3%, %game.condition.poison%\".",
+        "small": true
+      }
+    ]
   },
   {
     "id": 93,
@@ -796,7 +1313,13 @@
     "edition": "cs",
     "slot": "onehand",
     "consumed": true,
-    "text": "During your turn, perform \"%game.action.attack% 1, %game.action.range:4%, %game.condition.poison%\". You may %game.element.consume.earth% to ADD TARGET $target$."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform \"%game.action.attack% 1, %game.action.range:4%, %game.condition.poison%\". You may %game.element.consume.earth% to ADD %game.condition.target%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 94,
@@ -806,7 +1329,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn you may place one character token on this card to generate: %game.element.ice%. When there are two tokens on this card it is consumed %game.card.lost%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn you may place one character token on this card to generate: %game.element.ice%. When there are two tokens on this card it is consumed %game.card.lost%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 95,
@@ -816,7 +1345,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn you may place one character token on this card to generate: %game.element.air%. When there are two tokens on this card it is consumed %game.card.lost%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn you may place one character token on this card to generate: %game.element.air%. When there are two tokens on this card it is consumed %game.card.lost%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 96,
@@ -826,7 +1361,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn you may place one character token on this card to generate: %game.element.fire%. When there are two tokens on this card it is consumed %game.card.lost%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn you may place one character token on this card to generate: %game.element.fire%. When there are two tokens on this card it is consumed %game.card.lost%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 97,
@@ -836,7 +1377,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn you may place one character token on this card to generate: %game.element.earth%. When there are two tokens on this card it is consumed %game.card.lost%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn you may place one character token on this card to generate: %game.element.earth%. When there are two tokens on this card it is consumed %game.card.lost%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 98,
@@ -846,7 +1393,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn you may place one character token on this card to generate: %game.element.light%. When there are two tokens on this card it is consumed %game.card.lost%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn you may place one character token on this card to generate: %game.element.light%. When there are two tokens on this card it is consumed %game.card.lost%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 99,
@@ -856,7 +1409,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn you may place one character token on this card to generate: %game.element.dark%. When there are two tokens on this card it is consumed %game.card.lost%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn you may place one character token on this card to generate: %game.element.dark%. When there are two tokens on this card it is consumed %game.card.lost%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 100,
@@ -866,7 +1425,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn you may place one character token on this card to generate: %game.element.wild%. When there are two tokens on this card it is consumed %game.card.lost%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn you may place one character token on this card to generate: %game.element.wild%. When there are two tokens on this card it is consumed %game.card.lost%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 101,
@@ -877,7 +1442,14 @@
     "slot": "body",
     "spent": true,
     "minusOne": 3,
-    "text": "On the next three sources of damage from attacks targeting you or an adjacent ally, the attacked figure gains %game.action.shield% 1 for the attack."
+    "slots": 3,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "On the next three sources of damage from attacks targeting you or an adjacent ally, the attacked figure gains %game.action.shield% 1 for the attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 102,
@@ -887,7 +1459,13 @@
     "edition": "cs",
     "slot": "small",
     "consumed": true,
-    "text": "During your turn, perform %game.action.heal% 3 REGENERATE $regenerate$ Affect self and one adjacent ally."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your turn, perform %game.action.heal% 3 %game.condition.regenerate% Affect self and one adjacent ally.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 104,
@@ -897,7 +1475,13 @@
     "edition": "cs",
     "slot": "twohand",
     "consumed": true,
-    "text": "(X is 1, 2, 3) During your turn, forgo your top action to perform %game.action.attack% X + 1 %game.action.range:2% %game.action.target% 4 - X."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "(X is 1, 2, 3) During your turn, forgo your top action to perform %game.action.attack% X + 1 %game.action.range:2% %game.action.target% 4 - X.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 105,
@@ -907,7 +1491,13 @@
     "edition": "cs",
     "slot": "onehand",
     "spent": true,
-    "text": "During your melee Attack ability, add %game.condition.muddle% and %game.action.push% 1 to a single attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee Attack ability, add %game.condition.muddle% and %game.action.push% 1 to a single attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 106,
@@ -916,7 +1506,13 @@
     "count": 2,
     "edition": "cs",
     "slot": "onehand",
-    "text": "Your movement may enter and end in hexes containing obstacles as if you had %game.action.fly%."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Your movement may enter and end in hexes containing obstacles as if you had %game.action.fly%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 107,
@@ -926,20 +1522,33 @@
     "edition": "cs",
     "slot": "small",
     "spent": true,
-    "text": "Crate one trap in an empty hex within %game.action.range:3%. If you or an ally trigger this trap, that figure gains %game.action.fly% for the round. | Any enemy that enters a hex with this trap triggers it and loses %game.action.fly% for the round."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Crate one trap in an empty hex within %game.action.range:3%. If you or an ally trigger this trap, that figure gains %game.action.fly% for the round. | Any enemy that enters a hex with this trap triggers it and loses %game.action.fly% for the round.",
+        "small": true
+      }
+    ]
   },
   {
-    "summon": {
-      "health": 1,
-      "movement": 1
-    },
     "id": 108,
     "name": "Delicate Model",
     "cost": 50,
     "count": 1,
     "edition": "cs",
     "slot": "small",
-    "text": "You %game.action.loot% each hex this summon enters. You control this summon's actions."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "You %game.action.loot% each hex this summon enters. You control this summon's actions.",
+        "small": true
+      }
+    ],
+    "summon": {
+      "name": "Scrap Collector",
+      "health": 1,
+      "movement": 1
+    }
   },
   {
     "id": 110,
@@ -949,7 +1558,13 @@
     "edition": "cs",
     "slot": "onehand",
     "spent": true,
-    "text": "During your melee attack ability, add RUPTURE $rupture$ to one attack."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee attack ability, add %game.condition.rupture% to one attack.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 111,
@@ -959,7 +1574,13 @@
     "edition": "cs",
     "slot": "legs",
     "spent": true,
-    "text": "After your move ability, perform %game.action.push% 1 Target one adjacent enemy. Add +1 %game.action.push% if you have move 4 or more hexes this round."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "After your move ability, perform %game.action.push% 1 Target one adjacent enemy. Add +1 %game.action.push% if you have move 4 or more hexes this round.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 112,
@@ -969,7 +1590,13 @@
     "edition": "cs",
     "slot": "onehand",
     "spent": true,
-    "text": "During your melee attack ability, add +1 %game.action.attack% and %game.condition.pierce% 2 to one attack targeting an enemy with %game.condition.wound% or RUPTURE $rupture$."
+    "actions": [
+      {
+        "type": "custom",
+        "value": "During your melee attack ability, add +1 %game.action.attack% and %game.action.pierce% 2 to one attack targeting an enemy with %game.condition.wound% or %game.condition.rupture%.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 113,
@@ -979,7 +1606,14 @@
     "edition": "cs",
     "slot": "twohand",
     "spent": true,
-    "text": "On your next three melee attacks targeting enemies with at least one negative condition, gain Advantage."
+    "slots": 3,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "On your next three melee attacks targeting enemies with at least one negative condition, gain Advantage.",
+        "small": true
+      }
+    ]
   },
   {
     "id": 115,
@@ -989,6 +1623,13 @@
     "edition": "cs",
     "slot": "body",
     "consumed": true,
-    "text": "The next two times you would lose a card from your hand to negate suffering damage, discard it instead and gain %game.condition.wound%."
+    "slots": 2,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "The next two times you would lose a card from your hand to negate suffering damage, discard it instead and gain %game.condition.wound%.",
+        "small": true
+      }
+    ]
   }
 ]

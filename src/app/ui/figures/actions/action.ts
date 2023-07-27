@@ -35,9 +35,11 @@ export class ActionComponent implements OnInit, OnDestroy {
   @Input() statsCalculation: boolean = false;
   @Input() hexSize!: number;
   @Input('index') actionIndex: string = "";
+  @Input() style: 'gh' | 'fh' | false = false;
 
   action!: Action | undefined;
   subActions: Action[] = [];
+  fhStyle: boolean = false;
 
   settingsManager: SettingsManager = settingsManager;
   EntityValueFunction = EntityValueFunction;
@@ -74,6 +76,7 @@ export class ActionComponent implements OnInit, OnDestroy {
   }
 
   update() {
+    this.fhStyle = settingsManager.settings.fhStyle && !this.style || this.style == 'fh';
     if (this.origAction) {
       this.action = JSON.parse(JSON.stringify(this.origAction));
     } else {
@@ -112,7 +115,7 @@ export class ActionComponent implements OnInit, OnDestroy {
       return this.hasEntities(MonsterType.boss);
     }
 
-    return this.monster && this.monster.entities.some((monsterEntity) => (!type || monsterEntity.type == type) && gameManager.entityManager.isAlive(monsterEntity)) || false;
+    return this.monster && (!this.monsterType || !type || this.monsterType == type) && this.monster.entities.some((monsterEntity) => (!type || monsterEntity.type == type) && gameManager.entityManager.isAlive(monsterEntity)) || false;
   }
 
   getNormalValue(): number | string {
@@ -128,6 +131,10 @@ export class ActionComponent implements OnInit, OnDestroy {
     }
 
     return this.getValue(MonsterType.elite);
+  }
+
+  getMonsterType(value: string): MonsterType {
+    return value as MonsterType;
   }
 
   getStat(type: MonsterType): MonsterStat {

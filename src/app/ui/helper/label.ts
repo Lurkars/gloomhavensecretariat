@@ -11,8 +11,8 @@ import { AttackModifierValueType } from "src/app/game/model/data/AttackModifier"
 
 export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\,|\+|\(|\)|\||\_|\[|\]|\||\{|\}|\$|\\|\/|\%U+200B)+)\%/;
 
-export const applyPlaceholder = function (value: string, placeholder: string[] = [], relative: boolean = false, forceFh: boolean = false): string {
-  const fh = settingsManager.settings.fhStyle || forceFh;
+export const applyPlaceholder = function (value: string, placeholder: string[] = [], relative: boolean = false, style: 'gh' | 'fh' | false = false): string {
+  const fh = !style && settingsManager.settings.fhStyle || style == 'fh';
   while (value.match(ghsLabelRegex)) {
     value = value.replace(ghsLabelRegex, (match, ...args) => {
       let label: string = args[0];
@@ -82,20 +82,22 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         replace = '<span class="placeholder-item-slot">' + image + value + '</span>';
       } else if (type == "itemFh" && split.length == 3) {
         const itemId: number = +split[2];
-        replace = '<span class="placeholder-item-fh">' + (itemId < 100 ? '0' : '') + (itemId < 10 ? '0' : '') + itemId + '</span>';
+        replace = '<span class="placeholder-item-fh">' + '<span class="value">' + (itemId < 100 ? '0' : '') + (itemId < 10 ? '0' : '') + itemId + '</span></span>';
       } else if (type == "card" && split.length == 3) {
         let card = split[2]
         let cardValue = "";
-        if (card.split(':').length > 1) {
-          cardValue = '<span class="card-value">' + card.split(':')[1] + '</span>';
-          card = card.split(':')[0];
+        if (value) {
+          cardValue = '<span class="card-value">' + value + '</span>';
         }
         image = '<img class="icon ghs-svg" src="./assets/images/action/card/' + card + '.svg">';
         const cardOverlay = '<img class="card-overlay" src="./assets/images/action/card/overlay/' + card + '.svg">';
         replace = '<span class="placeholder-effect placeholder-card">' + image + cardOverlay + cardValue + '</span>';
       } else if (type == "attackmodifier" && split.length == 3) {
-        image = '<img  src="./assets/images/attackmodifier/icons/' + split[2] + '.png" class="icon">';
+        image = '<img  src="./assets/images' + (fh ? '/fh' : '') + '/attackmodifier/icons/' + split[2] + '.png" class="icon">';
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';
+      } else if (type == "experience") {
+        image = '<img  src="./assets/images/experience.svg" class="icon ghs-svg">';
+        replace = '<span class="placeholder-experience">' + image + (value ? '<span class="value">' + value + '</span>' : '') + '</span>';
       } else if (type == "characterIcon" && split.length == 3) {
         const characterName = split[2];
         image = '<img class="icon" src="' + gameManager.characterManager.characterIcon(characterName) + '">';
@@ -229,33 +231,33 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
   @Input('ghs-label-empty') empty: boolean = true;
   @Input('ghs-label-attribute') attribute: string = "";
   @Input('relative') relative: boolean = false;
-  @Input('fh-force') fhForce: boolean = false;
+  @Input('style') style: 'gh' | 'fh' | false = false;
 
   private C: number;
   private L: number;
   private locale: string;
-  private fhStyle: boolean = false;
   private calc: boolean = false;
+  private fhStyle: boolean = false;
 
   constructor(private el: ElementRef) {
     el.nativeElement.classList.add('placeholder');
     this.C = Math.max(2, gameManager.characterManager.characterCount());
     this.L = gameManager.game.level;
     this.locale = settingsManager.settings.locale;
-    this.fhStyle = settingsManager.settings.fhStyle || this.fhForce;
     this.calc = settingsManager.settings.calculate;
+    this.fhStyle = settingsManager.settings.fhStyle;
   }
 
   ngOnInit(): void {
     this.uiChangeSubscription =
       gameManager.uiChange.subscribe({
         next: () => {
-          if (this.locale != settingsManager.settings.locale || this.C != gameManager.game.figures.filter((figure) => figure instanceof Character).length || this.L != gameManager.game.level || (!this.fhForce && this.fhStyle != settingsManager.settings.fhStyle) || this.calc != settingsManager.settings.calculate) {
+          if (this.locale != settingsManager.settings.locale || this.C != gameManager.game.figures.filter((figure) => figure instanceof Character).length || this.L != gameManager.game.level || (this.fhStyle != settingsManager.settings.fhStyle) || this.calc != settingsManager.settings.calculate) {
             this.C = Math.max(2, gameManager.characterManager.characterCount());
             this.L = gameManager.game.level;
             this.locale = settingsManager.settings.locale;
-            this.fhStyle = settingsManager.settings.fhStyle || this.fhForce;
             this.calc = settingsManager.settings.calculate;
+            this.fhStyle = settingsManager.settings.fhStyle;
             this.apply();
           }
         }
@@ -273,7 +275,7 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
 
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['args'] && JSON.stringify(changes['args'].previousValue) != JSON.stringify(changes['args'].currentValue) || changes['value'] && changes['value'].previousValue != changes['value'].currentValue) {
+    if (changes['args'] && JSON.stringify(changes['args'].previousValue) != JSON.stringify(changes['args'].currentValue) || changes['value'] && changes['value'].previousValue != changes['value'].currentValue || changes['style'] && changes['style'].previousValue != changes['style'].currentValue) {
       this.apply();
     }
   }
@@ -281,10 +283,10 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
   apply(): void {
     let args = this.args || [];
     if (this.argLabel) {
-      args = args.map((arg) => applyPlaceholder(settingsManager.getLabel(arg, [], false, this.empty), [], this.relative, this.fhStyle));
+      args = args.map((arg) => applyPlaceholder(settingsManager.getLabel(arg, [], false, this.empty), [], this.relative, this.style));
     }
 
-    const value = this.value && applyPlaceholder(settingsManager.getLabel(this.value, args, false, this.empty), args, this.relative, this.fhStyle) || "";
+    const value = this.value && applyPlaceholder(settingsManager.getLabel(this.value, args, false, this.empty), args, this.relative, this.style) || "";
     if (this.attribute) {
       this.el.nativeElement.setAttribute(this.attribute, value);
     } else {

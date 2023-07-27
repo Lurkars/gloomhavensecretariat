@@ -14,6 +14,7 @@ import { settingsManager } from "../businesslogic/SettingsManager";
 import { ScenarioFinish } from "./data/ScenarioData";
 import { ConditionName } from "./data/Condition";
 import { Identifier } from "./data/Identifier";
+import { GameObjectiveContainerModel, ObjectiveContainer } from "./ObjectiveContainer";
 
 export class Game {
   revision: number = 0;
@@ -61,7 +62,7 @@ export class Game {
   }
 
   toModel(): GameModel {
-    return new GameModel(this.revision, this.revisionOffset, this.edition, this.conditions, this.battleGoalEditions, this.filteredBattleGoals, this.figures.map((figure) => figure instanceof Objective && figure.uuid ? figure.uuid : figure.edition + '-' + figure.name), this.entitiesCounter, this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.revealedRooms, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((section) => gameManager.scenarioManager.toModel(section, section.revealedRooms)), this.scenarioRules.map((value) => value.identifier), this.disgardedScenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.playerCount, this.round, this.roundResets, this.roundResetsHidden, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck, this.lootDeckEnhancements, this.lootDeckFixed, this.lootDeckSections, this.unlockedCharacters, this.server, this.finish);
+    return new GameModel(this.revision, this.revisionOffset, this.edition, this.conditions, this.battleGoalEditions, this.filteredBattleGoals, this.figures.map((figure) => figure instanceof Objective && figure.uuid ? figure.uuid : figure.edition + '-' + figure.name), this.entitiesCounter, this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.figures.filter((figure) => figure instanceof ObjectiveContainer).map((figure) => ((figure as ObjectiveContainer).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.revealedRooms, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((section) => gameManager.scenarioManager.toModel(section, section.revealedRooms)), this.scenarioRules.map((value) => value.identifier), this.disgardedScenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.playerCount, this.round, this.roundResets, this.roundResetsHidden, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck, this.lootDeckEnhancements, this.lootDeckFixed, this.lootDeckSections, this.unlockedCharacters, this.server, this.finish);
   }
 
   fromModel(model: GameModel, server: boolean = false) {
@@ -74,7 +75,8 @@ export class Game {
     this.figures = this.figures.filter((figure) =>
       model.characters.map((gcm) => gcm.name).indexOf(figure.name) != -1 ||
       model.monsters.map((gmm) => gmm.name).indexOf(figure.name) != -1 ||
-      model.objectives.map((gom) => gom.name).indexOf(figure.name) != -1
+      model.objectives.map((gom) => gom.name).indexOf(figure.name) != -1 ||
+      model.objectiveContainers.map((gom) => gom.name).indexOf(figure.name) != -1
     );
 
     this.entitiesCounter = model.entitiesCounter || [];
@@ -89,60 +91,6 @@ export class Game {
     });
 
     model.monsters.forEach((value) => {
-
-      // < 0.43 migration
-      switch (value.name) {
-        case 'ancient-artillery-133':
-          value.name = 'ancient-artillery-section-133';
-          break;
-        case 'the-husk-66':
-          value.name = 'the-husk-section-66';
-          break;
-        case 'the-husk-128':
-          value.name = 'the-husk-section-128';
-          break;
-        case 'frozen-corpse-65':
-          value.name = 'frozen-corpse-scenario-65';
-          break;
-        case 'living-bones-65':
-          value.name = 'living-bones-scenario-65';
-          break;
-        case 'snow-imp-65':
-          value.name = 'snow-imp-scenario-65';
-          break;
-        case 'cave-bear-54':
-          value.name = 'cave-bear-scenario-54';
-          break;
-        case 'cultist-78':
-          value.name = 'cultist-scenario-78';
-          break;
-        case 'cultist-89':
-          value.name = 'cultist-scenario-89';
-          break;
-        case 'prime-demon-36':
-          value.name = 'prime-demon-scenario-36';
-          break;
-        case 'vermling-raider-22':
-          value.name = 'vermling-raider-scenario-223';
-          break;
-        case 'giant-viper-21':
-          value.name = 'giant-viper-scenario-21';
-          break;
-        case 'rat-monstrosity-16-1':
-          value.name = 'rat-monstrosity-scenario-16-1';
-          break;
-        case 'rat-monstrosity-16-2':
-          value.name = 'rat-monstrosity-scenario-16-2';
-          break;
-        case 'stone-golem-22':
-          value.name = 'stone-golem-scenario-22';
-          break;
-        case 'vermling-raider-22':
-          value.name = 'vermling-raider-scenario-22';
-          break;
-      }
-
-
       let monster = this.figures.find((figure) => figure instanceof Monster && figure.name == value.name && figure.edition == value.edition) as Monster;
       if (!monster) {
         monster = new Monster(gameManager.getMonsterData(value.name, value.edition));
@@ -168,6 +116,17 @@ export class Game {
         this.figures.push(objective);
       }
       objective.fromModel(value);
+    });
+
+
+
+    model.objectiveContainers.forEach((value) => {
+      let objectiveContainer = this.figures.find((figure) => figure instanceof ObjectiveContainer && figure.uuid == value.uuid) as ObjectiveContainer;
+      if (!objectiveContainer) {
+        objectiveContainer = new ObjectiveContainer(value.uuid, value.objectiveId);
+        this.figures.push(objectiveContainer);
+      }
+      objectiveContainer.fromModel(value);
     });
 
     this.figures.sort((a, b) => {
@@ -329,7 +288,7 @@ export class Game {
 
     // migration
     if (settingsManager.settings.spoilers) {
-      gameManager.charactersData(undefined, true).filter((characterData) => characterData.spoiler).forEach((characterData) => {
+      gameManager.charactersData().filter((characterData) => characterData.spoiler).forEach((characterData) => {
         const index = settingsManager.settings.spoilers.indexOf(characterData.name);
         if (index != -1) {
           if (this.unlockedCharacters.indexOf(characterData.name) == -1) {
@@ -363,6 +322,7 @@ export class GameModel {
   characters: GameCharacterModel[];
   monsters: GameMonsterModel[];
   objectives: GameObjectiveModel[];
+  objectiveContainers: GameObjectiveContainerModel[];
   state: GameState;
   scenario: GameScenarioModel | undefined;
   sections: GameScenarioModel[];
@@ -405,6 +365,7 @@ export class GameModel {
     characters: GameCharacterModel[] = [],
     monsters: GameMonsterModel[] = [],
     objectives: GameObjectiveModel[] = [],
+    objectiveContainers: GameObjectiveContainerModel[] = [],
     state: GameState = GameState.next,
     scenario: GameScenarioModel | undefined = undefined,
     sections: GameScenarioModel[] = [],
@@ -445,6 +406,7 @@ export class GameModel {
     this.characters = characters;
     this.monsters = monsters;
     this.objectives = objectives;
+    this.objectiveContainers = objectiveContainers;
     this.state = state;
     this.scenario = scenario;
     this.sections = sections;

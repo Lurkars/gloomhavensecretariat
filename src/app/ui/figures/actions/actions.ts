@@ -26,6 +26,10 @@ export class ActionsComponent implements OnInit, OnDestroy {
   @Input() hexSize!: number;
   @Input() hint!: string | undefined;
   @Input('index') actionIndex: string = "";
+  @Input() style: 'gh' | 'fh' | false = false;
+  @Input() noDivider: boolean = false;
+
+  divider: boolean[] = [];
 
   settingsManager: SettingsManager = settingsManager;
 
@@ -35,10 +39,10 @@ export class ActionsComponent implements OnInit, OnDestroy {
   additionActionTypes: ActionType[] = [ActionType.shield, ActionType.retaliate, ActionType.heal, ActionType.element, ActionType.elementHalf];
 
   ngOnInit(): void {
-    this.updateAdditionalActions();
+    this.update();
     this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
-        this.updateAdditionalActions();
+        this.update();
       }
     })
   }
@@ -51,7 +55,7 @@ export class ActionsComponent implements OnInit, OnDestroy {
     }
   }
 
-  updateAdditionalActions(): void {
+  update(): void {
     this.additionalActions = [];
     if (this.monster && settingsManager.settings.calculateStats) {
       const stat = gameManager.monsterManager.getStat(this.monster, this.monster.boss ? MonsterType.boss : MonsterType.normal);
@@ -75,9 +79,15 @@ export class ActionsComponent implements OnInit, OnDestroy {
         })
       }
     }
+
+    if (!this.noDivider) {
+      this.actions.forEach((action, index) => {
+        this.divider[index] = this.calcDivider(action, index);
+      })
+    }
   }
 
-  divider(action: Action, index: number): boolean {
+  calcDivider(action: Action, index: number): boolean {
     if (index < 1 || this.inline) {
       return false;
     }

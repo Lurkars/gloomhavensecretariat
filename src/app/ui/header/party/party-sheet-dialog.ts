@@ -482,7 +482,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         this.scenarioEditions.push(edition);
       }
 
-      this.conclusions[edition] = this.party.conclusions.filter((value) => value.edition == edition).map((value) => gameManager.sectionData(edition, true).find((sectionData) => sectionData.index == value.index && sectionData.edition == value.edition && sectionData.group == value.group) as ScenarioData);
+      this.conclusions[edition] = this.party.conclusions.filter((value) => value.edition == edition).map((value) => gameManager.sectionData(edition).find((sectionData) => sectionData.index == value.index && sectionData.edition == value.edition && sectionData.group == value.group) as ScenarioData);
     });
 
     if (this.party.reputation >= 0) {
@@ -542,7 +542,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       }
 
       return +a.name - +b.name;
-    }).map((identifier) => gameManager.item(+identifier.name, identifier.edition, true)).filter((itemData) => itemData != undefined).map((itemData) => itemData as ItemData);
+    }).map((identifier) => gameManager.itemManager.getItem(+identifier.name, identifier.edition, true)).filter((itemData) => itemData != undefined).map((itemData) => itemData as ItemData);
   }
 
   addItem(indexElement: HTMLInputElement, edition: string) {
@@ -681,7 +681,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   finishConclusion(indexElement: HTMLInputElement) {
     let index: string = indexElement.value;
     indexElement.classList.add('error');
-    const conclusion = gameManager.sectionData(this.party.edition || gameManager.currentEdition(), true).find((sectionData) => sectionData.index == index);
+    const conclusion = gameManager.sectionData(this.party.edition || gameManager.currentEdition()).find((sectionData) => sectionData.index == index);
     if (conclusion) {
       const scenario = new Scenario(conclusion as ScenarioData);
       indexElement.classList.remove('error');

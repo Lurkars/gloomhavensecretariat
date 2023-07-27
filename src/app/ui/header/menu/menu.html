@@ -78,6 +78,13 @@
     <div class="line">
       <a (click)="setActive(SubMenu.settings)"><span [ghs-label]="'settings'"></span></a>
     </div>
+    <ng-container *ngIf="!standalone">
+      <div class="line">
+        <a (click)="setActive(SubMenu.datamanagement)"><span [ghs-label]="'datamanagement'"></span></a>
+      </div>
+    </ng-container>
+
+    <div class="separator"></div>
     <div class="line">
       <a (click)="setActive(SubMenu.server)" [ngSwitch]="gameManager.stateManager.wsState()">
         <span *ngSwitchCase="WebSocket.OPEN"><span [ghs-label]="'server.menu.connected'"></span></span>
@@ -85,18 +92,6 @@
         <span *ngSwitchDefault><span [ghs-label]="'server.menu.connect'"></span></span>
       </a>
     </div>
-
-    <ng-container *ngIf="!standalone">
-      <div class="separator"></div>
-
-      <div class="line"
-        [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
-        <a (click)="setActive(SubMenu.edition)"><span [ghs-label]="'edition'"></span></a>
-      </div>
-      <div class="line">
-        <a (click)="setActive(SubMenu.datamanagement)"><span [ghs-label]="'datamanagement'"></span></a>
-      </div>
-    </ng-container>
 
     <div class="separator"></div>
     <div class="line">
@@ -130,8 +125,6 @@
       <a (click)="update()">&lt;<span [ghs-label]="'update'"></span>(!)&gt;</a>
     </div>
   </div>
-
-  <ghs-edition-menu *ngSwitchCase="SubMenu.edition"></ghs-edition-menu>
 
   <ghs-scenario-menu *ngSwitchCase="SubMenu.scenario" (close)="close()"></ghs-scenario-menu>
 
@@ -172,6 +165,12 @@
       <a (click)="addEscort();">
         <img class="icon" src="./assets/images/objective/escort.svg" />
         <span [ghs-label]="'escort.add'"></span>
+      </a>
+    </div>
+    <div class="line">
+      <a (click)="addObjectiveContainer();">
+        <img class="icon" src="./assets/images/objective/objective.svg" />
+        <span [ghs-label]="'objective.addContainer'"></span>
       </a>
     </div>
   </div>

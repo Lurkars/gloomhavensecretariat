@@ -400,7 +400,7 @@ export class MonsterManager {
 
   removeMonsterEntity(monster: Monster, monsterEntity: MonsterEntity) {
     monster.entities.splice(monster.entities.indexOf(monsterEntity), 1);
-    if (monster.entities.length == 0 || monster.entities.every((entity) => entity.dead || entity.health <= 0)) {
+    if (monster.entities.length == 0 || monster.entities.every((entity) => !gameManager.entityManager.isAlive(entity))) {
       if (!monster.off && gameManager.game.state == GameState.next) {
         if (monster.active) {
           gameManager.roundManager.toggleFigure(monster);

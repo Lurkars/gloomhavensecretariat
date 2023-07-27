@@ -95,7 +95,7 @@ export class DatamanagementMenuComponent implements OnInit {
   addUnlock(): void {
     const character = this.unlockElement.nativeElement.value;
     if (character) {
-      if (gameManager.game.unlockedCharacters.indexOf(character) == -1 && gameManager.charactersData(undefined, true).find((characterData) => characterData.spoiler && characterData.name == character)) {
+      if (gameManager.game.unlockedCharacters.indexOf(character) == -1 && gameManager.charactersData(undefined).find((characterData) => characterData.spoiler && characterData.name == character)) {
         gameManager.stateManager.before("unlockChar", "data.character." + character);
         gameManager.game.unlockedCharacters.push(character)
         gameManager.stateManager.after();

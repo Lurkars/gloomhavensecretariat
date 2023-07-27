@@ -6,6 +6,7 @@
     "battleGoal:1|event:rift-19",
     "item:159|gold:10",
     "itemDesign:158",
+    "item:41",
     "item:66",
     "damage:3|condition:poison|gold:10",
     "custom:%data.treasures.fc.86%",

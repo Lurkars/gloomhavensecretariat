@@ -29,6 +29,7 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
   @Input() additional: boolean = false;
   @Input() highlight: boolean = true;
   @Input('index') actionIndex: string = "";
+  @Input() style: 'gh' | 'fh' | false = false;
   spawners: Entity[] = [];
   monsters: MonsterSpawnData[] = [];
   type: MonsterType | undefined;
@@ -71,7 +72,7 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
     this.tags = [];
     this.count = undefined;
     this.type = undefined;
-    if (this.action.value == 'summonData') {
+    if (this.action.value == 'summonData' || this.action.value == 'summonDataItem') {
       this.summonData = this.action.valueObject as SummonData;
     } else if (this.action.value == 'monsterStandee') {
       this.monsters = JSON.parse(JSON.stringify(this.action.valueObject)) as MonsterSpawnData[];

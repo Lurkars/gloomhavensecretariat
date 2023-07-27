@@ -94,7 +94,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Summon Stats                                                                    | ✅         | ⛔         | ⛔        | ✅      | ⛔       |
 | Active Summons                                                                  | ✅         | ⛔         | ⛔        | ✅      | ⛔       |
 | Mark Long Rest                                                                  | ✅         | ⛔         | ⛔        | ✅      | ⛔       |
-| Automatic apply Long Rest (perform Heal 2)                                      | ✅         | ⛔         | ⛔        | ⛔      | ⛔       |
+| Automatic apply Long Rest (perform Heal 2)                                      | ✅         | ⛔         | ⛔        | ✅      | ⛔       |
 | Support ≥ 5 Players rules                                                       | ✅         | ⛔         | ⛔        | ✅      | ⛔       |
 | Absent Characters                                                               | ✅         | ⛔         | ⛔        | ✅      | ⛔       |
 | Localization                                                                    | ✅[^5]     | ⛔         | ⛔        | ⛔      | ✅❗[^6]  |

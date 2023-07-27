@@ -1,22 +1,22 @@
 <div class="summon-container" *ngIf="summon"
-    [ngClass]="{'action' : summon.action,  'additional' : summon.additionalAction || additional, 'fh' : settingsManager.settings.fhStyle}">
+    [ngClass]="{'action' : summon.action,  'additional' : summon.additionalAction || additional, 'item': item, 'fh' : fhStyle}">
     <span class="name">
-        <span class="summon-label" *ngIf="action"><span [ghs-label]="'game.action.summon'"></span>&nbsp;</span>
+        <span class="summon-label" *ngIf="action"><span [ghs-label]="'game.action.summon'"
+                [style]="style"></span>&nbsp;</span>
         <span *ngIf="summon.title" [ngClass]="{'text-white' : !right}">{{summon.title}}</span>
-        <span *ngIf="!summon.title" [ghs-label]="'data.summon.' + summon.name" [ngClass]="{'text-white' : !right}"></span>
+        <span *ngIf="!summon.title" [ghs-label]="'data.summon.' + summon.name" [style]="style"
+            [ngClass]="{'text-white' : !right}"></span>
         <span *ngIf="summon.flying" class="flying"><img
-                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
+                [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
     </span>
     <div class="grid">
         <span class="item health">
-            <img class="ghs-svg"
-                [src]="'./assets/images/' +(settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/heal.svg'" />
+            <img class="ghs-svg" [src]="'./assets/images/' +(fhStyle ? 'fh/' : '') + 'action/heal.svg'" />
             <span>:</span>
             <span [value-calc]="summon.maxHealth" [empty]="true"></span>
         </span>
         <span class="item move">
-            <img class="ghs-svg"
-                [src]="'./assets/images/' +(settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/move.svg'" />
+            <img class="ghs-svg" [src]="'./assets/images/' +(fhStyle ? 'fh/' : '') + 'action/move.svg'" />
             <span>:</span>
             <span [value-calc]="summon.movement" [empty]="true"></span>
         </span>
@@ -24,15 +24,13 @@
             <ghs-action *ngIf="summon.action" [action]="summon.action"></ghs-action>
         </span>
         <span class="item attack">
-            <img class="ghs-svg"
-                [src]="'./assets/images/' +(settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/attack.svg'" />
+            <img class="ghs-svg" [src]="'./assets/images/' +(fhStyle ? 'fh/' : '') + 'action/attack.svg'" />
             <span>:</span>
-            <span *ngIf="summon.attack != 0" [ghs-label]="'' + summon.attack"></span>
+            <span *ngIf="summon.attack != 0" [ghs-label]="'' + summon.attack" [style]="style"></span>
             <span *ngIf="summon.attack == 0">-</span>
         </span>
         <span class="item range">
-            <img class="ghs-svg"
-                [src]="'./assets/images/' +(settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/range.svg'" />
+            <img class="ghs-svg" [src]="'./assets/images/' +(fhStyle ? 'fh/' : '') + 'action/range.svg'" />
             <span>:</span>
             <span [value-calc]="summon.range" [empty]="true"></span>
         </span>

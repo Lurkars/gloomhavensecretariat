@@ -27,7 +27,6 @@ import { LevelDialogComponent } from './ui/footer/level/level-dialog';
 import { ElementIconComponent } from './ui/header/element/element-icon';
 import { ElementComponent } from './ui/header/element/element';
 import { HeaderComponent } from './ui/header/header';
-import { EditionMenuComponent } from './ui/header/menu/edition/edition';
 import { MainMenuComponent } from './ui/header/menu/menu';
 import { SettingsMenuComponent } from './ui/header/menu/settings/settings';
 import { SheetsMenuComponent } from './ui/header/menu/sheets/sheets';
@@ -104,8 +103,8 @@ import { CharacterMoveResourcesDialog } from './ui/figures/character/sheet/move-
 import { CharacterSheetComponent } from './ui/figures/character/sheet/character-sheet';
 import { PerkLabelComponent } from './ui/figures/attackmodifier/perk/label';
 import { PartyWeekDialogComponent } from './ui/header/party/week-dialog/week-dialog';
-import { CharacterItemsComponent } from './ui/figures/character/items/items';
-import { ItemsBrewDialog } from './ui/figures/character/items/brew/brew';
+import { CharacterItemsComponent } from './ui/figures/items/items';
+import { ItemsBrewDialog } from './ui/figures/items/brew/brew';
 import { PartyBuildingsComponent } from './ui/header/party/buildings/buildings';
 import { ScenarioTreasuresDialogComponent } from './ui/footer/scenario/treasures/treasures-dialog';
 import { TreasureLabelComponent } from './ui/footer/scenario/treasures/label/label';
@@ -121,6 +120,9 @@ import { CharacterBattleGoalsDialog } from './ui/figures/battlegoal/dialog/battl
 import { BattleGoalSetupDialog } from './ui/figures/battlegoal/setup/battlegoal-setup';
 import { ScenarioRequirementsComponent } from './ui/header/party/requirements/requirements';
 import { WorldMapComponent } from './ui/header/party/world-map/world-map';
+import { ObjectiveContainerComponent } from './ui/figures/objective-container/objective-container';
+import { ItemComponent } from './ui/figures/items/item/item';
+import { ItemsDialogComponent } from './ui/figures/items/dialog/items-dialog';
 
 @Injectable()
 export class GhsErrorHandler extends ErrorHandler {
@@ -137,7 +139,7 @@ export class GhsErrorHandler extends ErrorHandler {
     MainComponent,
     HeaderComponent, ElementIconComponent, ElementComponent,
     PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, SelectResourcesDialog, ScenarioRequirementsComponent,
-    MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, SheetsMenuComponent,
+    MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, SheetsMenuComponent,
     FooterComponent,
     LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
     HintDialogComponent, ScenarioRulesComponent,
@@ -146,8 +148,8 @@ export class GhsErrorHandler extends ErrorHandler {
     ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, StatsListComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent, EventEffectsDialog,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
     EntityMenuDialogComponent, EntitiesMenuDialogComponent,
-    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
-    ObjectiveComponent,
+    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, ItemComponent, ItemsDialogComponent, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
+    ObjectiveComponent, ObjectiveContainerComponent,
     SummonEntityComponent, SummonSheetComponent,
     StandeeComponent,
     MonsterComponent,

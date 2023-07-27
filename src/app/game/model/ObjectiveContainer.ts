@@ -7,7 +7,6 @@ export class ObjectiveContainer implements Figure {
   uuid: string;
   marker: string = "";
   title: string = "";
-  exhausted: boolean = false;
   escort: boolean = false;
   entities: ObjectiveEntity[] = [];
 
@@ -21,9 +20,9 @@ export class ObjectiveContainer implements Figure {
   off: boolean = false;
   active: boolean = false;
   edition: string = "";
-  maxHealth: number | string = 7;
+  health: number | string = 7;
   initiative: number = 99;
-  type: string = 'objective';
+  type: string = 'objective.container';
 
   objectiveId: ScenarioObjectiveIdentifier | undefined;
 
@@ -37,7 +36,7 @@ export class ObjectiveContainer implements Figure {
   }
 
   toModel(): GameObjectiveContainerModel {
-    return new GameObjectiveContainerModel(this.uuid, this.marker, this.title, this.name, this.escort, this.entities.map((value) => value.toModel()), this.level, this.exhausted, this.off, this.active, this.maxHealth, this.initiative, this.objectiveId);
+    return new GameObjectiveContainerModel(this.uuid, this.marker, this.title, this.name, this.escort, this.entities.map((value) => value.toModel()), this.level, this.off, this.active, this.health, this.initiative, this.objectiveId);
   }
 
 
@@ -63,10 +62,9 @@ export class ObjectiveContainer implements Figure {
     this.entities.sort((a, b) => model.entities.map((model) => model.uuid).indexOf(a.uuid) - model.entities.map((model) => model.uuid).indexOf(b.uuid));
 
     this.level = model.level;
-    this.exhausted = model.exhausted;
     this.off = model.off;
     this.active = model.active;
-    this.maxHealth = model.maxHealth;
+    this.health = model.health;
     this.initiative = model.initiative;
     this.objectiveId = model.objectiveId;
   }
@@ -82,10 +80,9 @@ export class GameObjectiveContainerModel {
   escort: boolean;
   entities: GameObjectiveEntityModel[];
   level: number;
-  exhausted: boolean;
   off: boolean;
   active: boolean;
-  maxHealth: number | string;
+  health: number | string;
   initiative: number;
   objectiveId: ScenarioObjectiveIdentifier | undefined;
 
@@ -97,10 +94,9 @@ export class GameObjectiveContainerModel {
     escort: boolean,
     entities: GameObjectiveEntityModel[],
     level: number,
-    exhausted: boolean,
     off: boolean,
     active: boolean,
-    maxHealth: number | string,
+    health: number | string,
     initiative: number,
     objectiveId: ScenarioObjectiveIdentifier | undefined) {
     this.uuid = uuid;
@@ -110,10 +106,9 @@ export class GameObjectiveContainerModel {
     this.escort = escort;
     this.entities = entities;
     this.level = level;
-    this.exhausted = exhausted;
     this.off = off;
     this.active = active;
-    this.maxHealth = maxHealth;
+    this.health = health;
     this.initiative = initiative;
     this.objectiveId = objectiveId && JSON.parse(JSON.stringify(objectiveId)) || undefined;
   }

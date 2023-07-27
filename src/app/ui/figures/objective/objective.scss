@@ -48,6 +48,15 @@
     width: calc(var(--ghs-unit) * 9.5);
   }
 
+  .entity-menu-container {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
   .drag-initiative {
     position: absolute;
     top: 0;
@@ -60,15 +69,6 @@
       left: 0;
       width: 100%;
     }
-  }
-
-  .drag-hp {
-    position: absolute;
-    bottom: calc(var(--ghs-unit) * 1.5);
-    left: calc(var(--ghs-unit) * 17);
-    width: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor));
-    height: calc(var(--ghs-unit) * 5);
-    z-index: 4;
   }
 
   .stats {

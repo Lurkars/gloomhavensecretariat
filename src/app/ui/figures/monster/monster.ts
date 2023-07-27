@@ -26,18 +26,13 @@ export class MonsterComponent implements OnInit, OnDestroy {
 
   nonDead: number = 0;
   count: number = 0;
+  sortedEntites: MonsterEntity[] = [];
 
   constructor(private dialog: Dialog, private overlay: Overlay) { }
 
   ngOnInit(): void {
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
-      next: () => {
-        this.nonDead = gameManager.monsterManager.monsterEntityCount(this.monster);
-        this.count = EntityValueFunction(this.monster.count, this.monster.level);
-      }
-    })
-    this.nonDead = gameManager.monsterManager.monsterEntityCount(this.monster);
-    this.count = EntityValueFunction(this.monster.count, this.monster.level);
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+    this.update();
   }
 
   uiChangeSubscription: Subscription | undefined;
@@ -48,8 +43,10 @@ export class MonsterComponent implements OnInit, OnDestroy {
     }
   }
 
-  sortedEntites(): MonsterEntity[] {
-    return this.monster.entities.sort((a, b) => {
+  update() {
+    this.nonDead = gameManager.monsterManager.monsterEntityCount(this.monster);
+    this.count = EntityValueFunction(this.monster.count, this.monster.level);
+    this.sortedEntites = this.monster.entities.sort((a, b) => {
       if (settingsManager.settings.eliteFirst) {
         if (a.type == MonsterType.elite && b.type == MonsterType.normal) {
           return -1;

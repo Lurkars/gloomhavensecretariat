@@ -18,7 +18,6 @@ import { LevelDialogComponent } from './ui/footer/level/level-dialog';
 import { ElementIconComponent } from './ui/header/element/element-icon';
 import { ElementComponent } from './ui/header/element/element';
 import { HeaderComponent } from './ui/header/header';
-import { EditionMenuComponent } from './ui/header/menu/edition/edition';
 import { MainMenuComponent } from './ui/header/menu/menu';
 import { SettingsMenuComponent } from './ui/header/menu/settings/settings';
 import { CardRevealDirective } from './ui/helper/CardReveal';
@@ -92,7 +91,7 @@ import { CharacterLootCardsDialog } from './ui/figures/character/dialogs/loot-ca
 import { PerkLabelComponent } from './ui/figures/attackmodifier/perk/label';
 import { CharacterMoveResourcesDialog } from './ui/figures/character/sheet/move-resources';
 import { PartyWeekDialogComponent } from './ui/header/party/week-dialog/week-dialog';
-import { CharacterItemsComponent } from './ui/figures/character/items/items';
+import { CharacterItemsComponent } from './ui/figures/items/items';
 import { PartyBuildingsComponent } from './ui/header/party/buildings/buildings';
 import { ScenarioTreasuresDialogComponent } from './ui/footer/scenario/treasures/treasures-dialog';
 import { TreasureLabelComponent } from './ui/footer/scenario/treasures/label/label';
@@ -111,7 +110,7 @@ import { InViewportModule } from 'ng-in-viewport';
 import { SelectResourcesDialog } from './ui/header/party/buildings/select-resources/select-resources';
 import { MonsterMenuComponent } from './ui/header/menu/monster/monster';
 import { SheetsMenuComponent } from './ui/header/menu/sheets/sheets';
-import { ItemsBrewDialog } from './ui/figures/character/items/brew/brew';
+import { ItemsBrewDialog } from './ui/figures/items/brew/brew';
 import { StandeeComponent } from './ui/figures/standee/standee';
 import { WorldMapComponent } from './ui/header/party/world-map/world-map';
 import { ScenarioRequirementsComponent } from './ui/header/party/requirements/requirements';
@@ -127,7 +126,7 @@ describe('AppComponent', () => {
         MainComponent,
         HeaderComponent, ElementIconComponent, ElementComponent,
         PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, SelectResourcesDialog, ScenarioRequirementsComponent,
-        MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, SheetsMenuComponent,
+        MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, SheetsMenuComponent,
         FooterComponent,
         LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
         HintDialogComponent, ScenarioRulesComponent,

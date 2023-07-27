@@ -27,7 +27,7 @@ export class ObjectiveEntity implements Entity {
     this.uuid = uuid;
     this.number = number;
     this.marker = objective.marker;
-    this.maxHealth = EntityValueFunction(objective.maxHealth);
+    this.maxHealth = EntityValueFunction(objective.health);
     this.health = this.maxHealth;
     if (this.health == 0) {
       this.health = 1;

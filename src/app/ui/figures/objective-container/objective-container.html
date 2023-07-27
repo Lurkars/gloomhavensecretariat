@@ -1,0 +1,57 @@
+<div class="objective"
+  [ngClass]="{'off' : objective.off, 'escort' : objective.escort, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
+  <a class="image-container">
+    <span *ngIf="objective.marker" class="placeholder placeholder-marker"
+      [ghs-label]="'%game.mapMarker.' + objective.marker + '%'"></span>
+  </a>
+
+  <ghs-pointer-input class="drag-initiative"
+    (dragMove)="(!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters) && dragInitiativeMove($event)"
+    (dragEnd)="(!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters) && dragInitiativeEnd($event)"
+    (singleClick)="toggleFigure($event)"
+    (doubleClick)="(!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters) && openInitiativeDialog($event)"
+    [ngClass]="{'outer-denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }">
+  </ghs-pointer-input>
+
+  <ghs-character-initiative #initiativeElement [figure]="objective"></ghs-character-initiative>
+
+  <div class="stats">
+    <div class="column col-1">
+      <div class="title-container">
+        <div class="title" #objectiveName>
+          <img class="icon"
+            [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+          <span *ngIf="objective.title">
+            {{objective.title}}</span>
+          <span *ngIf="!objective.title" [ghs-label]="objective.name ? ('data.objective.' + objective.name) :
+          (objective.escort ? 'escort' : 'objective')"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions" *ngIf="objectiveData && objectiveData.actions">
+      <ghs-actions [actions]="objectiveData.actions"></ghs-actions>
+    </div>
+
+    <span class="spacer"></span>
+
+    <div class="add-entity">
+      <a class="add-entity-button" ghs-pointer-input (singleClick)="addEntity()" [ghs-label]="'objective.addEntity'"
+        [ghs-label-attribute]="'title'">
+        <img class="ghs-svg" src="./assets/images/plus.svg">
+      </a>
+    </div>
+
+    <div class="icon-container">
+      <img [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+    </div>
+  </div>
+</div>
+
+<div class="entities-container" [ngClass]="{'empty' : nonDead == 0}">
+  <span class="spacer"></span>
+  <div class="entities">
+    <ghs-standee *ngFor="let entity of objective.entities" [figure]="objective" [entity]="entity">
+    </ghs-standee>
+  </div>
+</div>
