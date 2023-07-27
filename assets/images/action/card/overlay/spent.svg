@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 246.24 204.92"
+   version="1.1"
+   id="svg26"
+   sodipodi:docname="spent.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview28"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.92191164"
+     inkscape:cx="216.39818"
+     inkscape:cy="30.914026"
+     inkscape:window-width="1846"
+     inkscape:window-height="1136"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg26" />
+  <defs
+     id="defs4">
+    <style
+       id="style2">.cls-1{fill:#fff;}.cls-2{fill:#e26969;}</style>
+  </defs>
+  <path
+     class="cls-2"
+     d="M 201.32,121 C 199.52,89.43 188.32,64.65 168.5,49 146.38,31.44 118,29.05 93.31,31.83 a 23.5,23.5 0 1 0 1.88,24.92 c 24.43,-3 44.19,1 57.78,11.82 16.61,13.17 22.03,34.37 23.29,52.43 h -18.35 l 31.17,54 31.16,-54 z"
+     id="path10" />
+</svg>

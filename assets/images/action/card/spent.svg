@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 246.24 204.92"
+   version="1.1"
+   id="svg26"
+   sodipodi:docname="spent.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview28"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.92191164"
+     inkscape:cx="216.39818"
+     inkscape:cy="30.914025"
+     inkscape:window-width="1846"
+     inkscape:window-height="1136"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg26" />
+  <defs
+     id="defs4">
+    <style
+       id="style2">.cls-1{fill:#fff;}.cls-2{fill:#e26969;}</style>
+  </defs>
+  <path
+     class="cls-1"
+     d="m 110.13,65.81 c -2.94,0 -6,0.13 -9.17,0.4 A 33.49,33.49 0 0 1 46,28.13 33.58,33.58 0 0 1 74.43,12.29 a 33.6,33.6 0 0 1 22.92,9.1 c 4.36,-0.36 8.65,-0.54 12.81,-0.54 a 117.92,117.92 0 0 1 36.21,5.3 V 10 a 10,10 0 0 0 -10,-10 H 10 A 10,10 0 0 0 0,10 v 184.92 a 10,10 0 0 0 10,10 h 126.37 a 10,10 0 0 0 10,-10 V 76.12 c -8.84,-6.84 -21,-10.31 -36.24,-10.31"
+     id="path6"
+     style="fill:#000000" />
+  <path
+     class="cls-1"
+     d="m 231.24,48.55 h -48.37 a 88.9,88.9 0 0 1 11.75,15 h 36.62 V 189.92 H 31.33 a 15,15 0 0 0 15,15 h 184.91 a 15,15 0 0 0 15,-15 V 63.55 a 15,15 0 0 0 -15,-15"
+     id="path8"
+     style="fill:#000000" />
+  <path
+     class="cls-2"
+     d="M 201.32,121 C 199.52,89.43 188.32,64.65 168.5,49 146.38,31.44 118,29.05 93.31,31.83 a 23.5,23.5 0 1 0 1.88,24.92 c 24.43,-3 44.19,1 57.78,11.82 16.61,13.17 22.03,34.37 23.29,52.43 h -18.35 l 31.17,54 31.16,-54 z"
+     id="path10" />
+  <g
+     id="g895"
+     style="fill:#ffffff">
+    <path
+       d="m 47.12,95.16 a 2.69,2.69 0 1 1 2.69,2.68 2.68,2.68 0 0 1 -2.69,-2.68"
+       id="path18"
+       style="fill:#ffffff" />
+    <path
+       d="m 10.16,95.16 a 2.69,2.69 0 1 1 2.69,2.68 2.68,2.68 0 0 1 -2.69,-2.68"
+       id="path20"
+       style="fill:#ffffff" />
+    <g
+       id="g868"
+       style="fill:#ffffff">
+      <path
+         d="m 36.57,62.9 a 5.24,5.24 0 0 1 -10.48,0 c 1.66,0 3.3,-1.21 5.24,-1.21 1.59,0 3.42,1.21 5.24,1.21"
+         id="path12"
+         style="fill:#ffffff" />
+      <polygon
+         points="27.55,93.14 35.1,93.14 33.88,66.8 28.77,66.8 "
+         id="polygon14"
+         style="fill:#ffffff" />
+      <polygon
+         points="14.54,96.32 31.33,97.71 48.12,96.32 48.12,94 31.33,92.6 14.54,94 "
+         id="polygon16"
+         style="fill:#ffffff" />
+      <polygon
+         points="31.33,96.64 24.54,95.83 24.54,185.6 31.33,192.05 38.11,185.6 38.11,95.83 "
+         id="polygon22"
+         style="fill:#ffffff" />
+    </g>
+  </g>
+</svg>

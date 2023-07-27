@@ -85,21 +85,6 @@
       "gold": "Gold",
       "gold-notes": "Gold Notes",
       "import": "Import",
-      "items": {
-        ".": "Items",
-        "brewing": {
-          ".": "Brew Potions",
-          "brew": "Brew",
-          "brewed": "{2} brewed {1} %data.itemFh.{0}%",
-          "brewFor": "Brew for {0}",
-          "brewedOther": "{2} brewed {1} %data.itemFh.{0}% for {3}",
-          "item": "{1} %data.itemFh.{0}%",
-          "noChar": "Potion already owned by every character!",
-          "selectCharacter": "Select Character to brew for:"
-        },
-        "effect": "If the item is equipped, it's effect is automatically applied. To equip an item, just click it's name. Equipping items is only allowed before and between scenarios. Doubleclick to force equipping.",
-        "wip": "%wip%! Items for %data.edition.{0}% not complete yet."
-      },
       "level": "Level",
       "masteries": "Masteries",
       "name": "Name",
@@ -627,7 +612,38 @@
     "hp": "HP",
     "initiative": "Initiative",
     "item": "Item",
-    "items": "Items",
+    "items": {
+      ".": "Items",
+      "add": "Add '{0}'",
+      "anyResource": "Any %game.loot.{0}%",
+      "brewing": {
+        ".": "Brew Potions",
+        "brew": "Brew",
+        "brewed": "{2} brewed {1} %data.itemFh.{0}%",
+        "brewFor": "Brew for {0}",
+        "brewedOther": "{2} brewed {1} %data.itemFh.{0}% for {3}",
+        "item": "{1} %data.itemFh.{0}%",
+        "noChar": "Potion already owned by every character!",
+        "selectCharacter": "Select Character to brew for:"
+      },
+      "buy": "Buy '{0}' for {1} gold",
+      "choose": "Select Item",
+      "craft": "Craft '{0}'",
+      "effect": "If the item is equipped, it's effect is automatically applied. To equip an item, just click it's name. Equipping items is only allowed before and between scenarios. Doubleclick to force equipping.",
+      "empty": "No items found",
+      "filter": {
+        ".": "Search...",
+        "affordable": "Only affordable Items",
+        "all": "Show all items",
+        "sorted": "Sorted"
+      },
+      "remove": "Remove '{0}'",
+      "sell": "Sell '{0}' for {1} gold",
+      "shop": "Itemcards",
+      "unlock": "Unlock Item",
+      "unlocked": "Item unlocked",
+      "wip": "%wip%! Items for %data.edition.{0}% not complete yet."
+    },
     "level": {
       ".": "Level",
       "experience": "Bonus experience",
@@ -657,6 +673,7 @@
         "remove": "Remove Enhancement"
       },
       "flamefruit": "Flamefruit",
+      "herb_resources": "herb",
       "hide": "Hide",
       "keep": "Keep on %data.character.{0}%",
       "lootTreasure": {
@@ -665,12 +682,14 @@
         "looted": "{0} loots:"
       },
       "lumber": "Lumber",
+      "material_resources": "material",
       "metal": "Metal",
       "money": "Money",
       "random_item": "Random Item",
       "remove": "Remove from %data.character.{0}%",
       "rockroot": "Rockroot",
       "snowthistle": "Snowthistle",
+      "special": "special",
       "special1": "Special Card 1 (#1418)",
       "special2": "Special Card 2 (#1419)",
       "treasures": {
@@ -834,6 +853,7 @@
   "objective": {
     ".": "Objective",
     "add": "Add Objective",
+    "addContainer": "Add Objective Container (%wip%)",
     "remove": "Remove Objective",
     "removeAll": "Remove All"
   },
@@ -1436,8 +1456,8 @@
       "hint": "Display Attack Modifier Deck permanent under Character."
     },
     "characterHandSize": {
-      ".": "Display hand size",
-      "hint": "Display the hand size on the character's board."
+      ".": "Display hand size and level",
+      "hint": "Display the hand size and level on the character's board."
     },
     "characterIdentities": {
       ".": "Character Forms",
@@ -1662,10 +1682,11 @@
     "placeholder": "???"
   },
   "sheets": {
-    ".": "Character/Campaign Management",
+    ".": "Campaign/Character Management",
     "battleGoals": "Battle Goal Setup",
     "campaign": "Global Campaign Management Sheet",
     "character": "Character Sheets",
+    "items": "Itemcards Overview",
     "party": "Party/Campaign Sheet"
   },
   "state": {
