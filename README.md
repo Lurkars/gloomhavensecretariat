@@ -67,6 +67,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Loot deck
   - Town guard deck
   - Party/Campaign sheet
+  - Item Cards
   - Battle Goals
 - Other features:
   - i18n support (currently en, de, fr and ko, more translations needed. Many thanks to the contributors of french and korean)
