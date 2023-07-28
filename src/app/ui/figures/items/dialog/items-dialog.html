@@ -4,7 +4,9 @@
             src="./assets/images/close_dialog.svg"></a>
     <div class="scroll-container">
         <div class="header">
-            <span class="title" [ghs-label]="'game.items.shop'"></span>
+            <span class="title" *ngIf="!character" [ghs-label]="'game.items.shop'"></span>
+            <span class="title" *ngIf="character" [ghs-label]="'game.items.character'"
+                [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"></span>
             <div class="filter">
                 <input type="text" [(ngModel)]="filter" (change)="update()" (keyup)="update()"
                     [ghs-label]="'game.items.filter'" [ghs-label-attribute]="'placeholder'">

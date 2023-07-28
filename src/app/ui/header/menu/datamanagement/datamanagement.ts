@@ -199,6 +199,7 @@ export class DatamanagementMenuComponent implements OnInit {
       reader.addEventListener('load', (event: any) => {
         gameManager.stateManager.before("loadGameFromFile");
         const gameModel: GameModel = Object.assign(new GameModel(), JSON.parse(event.target.result));
+        console.log(gameModel, event.target.result, JSON.parse(event.target.result));
         if (gameModel.revision < gameManager.game.revision) {
           storageManager.addBackup(gameManager.game.toModel());
           gameModel.revision = gameManager.game.revision;

@@ -76,7 +76,7 @@ export class Game {
       model.characters.map((gcm) => gcm.name).indexOf(figure.name) != -1 ||
       model.monsters.map((gmm) => gmm.name).indexOf(figure.name) != -1 ||
       model.objectives.map((gom) => gom.name).indexOf(figure.name) != -1 ||
-      model.objectiveContainers.map((gom) => gom.name).indexOf(figure.name) != -1
+      model.objectiveContainers && model.objectiveContainers.map((gom) => gom.name).indexOf(figure.name) != -1
     );
 
     this.entitiesCounter = model.entitiesCounter || [];
@@ -119,15 +119,16 @@ export class Game {
     });
 
 
-
-    model.objectiveContainers.forEach((value) => {
-      let objectiveContainer = this.figures.find((figure) => figure instanceof ObjectiveContainer && figure.uuid == value.uuid) as ObjectiveContainer;
-      if (!objectiveContainer) {
-        objectiveContainer = new ObjectiveContainer(value.uuid, value.objectiveId);
-        this.figures.push(objectiveContainer);
-      }
-      objectiveContainer.fromModel(value);
-    });
+    if (model.objectiveContainers) {
+      model.objectiveContainers.forEach((value) => {
+        let objectiveContainer = this.figures.find((figure) => figure instanceof ObjectiveContainer && figure.uuid == value.uuid) as ObjectiveContainer;
+        if (!objectiveContainer) {
+          objectiveContainer = new ObjectiveContainer(value.uuid, value.objectiveId);
+          this.figures.push(objectiveContainer);
+        }
+        objectiveContainer.fromModel(value);
+      });
+    }
 
     this.figures.sort((a, b) => {
       const aId = a instanceof Objective && a.uuid ? a.uuid : a.edition + '-' + a.name;
@@ -322,7 +323,7 @@ export class GameModel {
   characters: GameCharacterModel[];
   monsters: GameMonsterModel[];
   objectives: GameObjectiveModel[];
-  objectiveContainers: GameObjectiveContainerModel[];
+  objectiveContainers: GameObjectiveContainerModel[] | undefined;
   state: GameState;
   scenario: GameScenarioModel | undefined;
   sections: GameScenarioModel[];
@@ -365,7 +366,7 @@ export class GameModel {
     characters: GameCharacterModel[] = [],
     monsters: GameMonsterModel[] = [],
     objectives: GameObjectiveModel[] = [],
-    objectiveContainers: GameObjectiveContainerModel[] = [],
+    objectiveContainers: GameObjectiveContainerModel[] | undefined = undefined,
     state: GameState = GameState.next,
     scenario: GameScenarioModel | undefined = undefined,
     sections: GameScenarioModel[] = [],

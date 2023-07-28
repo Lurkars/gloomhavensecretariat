@@ -627,6 +627,7 @@
         "selectCharacter": "Select Character to brew for:"
       },
       "buy": "Buy '{0}' for {1} gold",
+      "character": "Itemcards for %game.characterIconColored.{0}% {1}",
       "choose": "Select Item",
       "craft": "Craft '{0}'",
       "effect": "If the item is equipped, it's effect is automatically applied. To equip an item, just click it's name. Equipping items is only allowed before and between scenarios. Doubleclick to force equipping.",
