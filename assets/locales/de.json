@@ -518,6 +518,7 @@
         "selectCharacter": "Charakter auswählen für den der Trank gebraut wird:"
       },
       "buy": "'{0}' für {1} Gold kaufen",
+      "character": "Gegenstandskarten für %game.characterIconColored.{0}% {1}",
       "choose": "Gegenstand auswählen",
       "craft": "'{0}' anertigen",
       "effect": "Falls der Gegenstand angelegt ist, wird der Effekt automatisch angewendet. Um einen Gegenstand anzulegen, einfach auf den Namen klicken. Anlegen von Gegenständen ist nur vor oder zwischen Scenarien möglich. Durch Doppelclick kann das Anlegen erzwungen werden.",
