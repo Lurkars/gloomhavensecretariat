@@ -115,10 +115,9 @@
 
                         .marker {
                             position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-64%, -55%);
-                            font-size: 1.2em;
+                            top: calc(0.05em * var(--ghs-fontsize) * var(--ghs-text-factor));
+                            left: calc(0.05em * var(--ghs-fontsize) * var(--ghs-text-factor) );
+                            font-size: calc(1.1em * var(--ghs-fontsize) * var(--ghs-text-factor));
                         }
                     }
                 }

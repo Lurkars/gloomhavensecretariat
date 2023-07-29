@@ -92,6 +92,7 @@ export class ItemsCharacterDialogComponent {
             if (equipped) {
                 equipped.tags = equipped.tags || [];
                 const count = this.countFlag(itemData, flag);
+                gameManager.stateManager.before(count <= index ? 'characterItemApply.' + flag : 'characterItemUnapply.' + flag, "data.character." + this.character.name, '' + itemData.id, itemData.edition);
                 if (count <= index) {
                     for (let i = count; i <= index; i++) {
                         equipped.tags.push(flag);
@@ -108,6 +109,7 @@ export class ItemsCharacterDialogComponent {
                         equipped.tags.splice(equipped.tags.indexOf(flag), 1);
                     }
                 }
+                gameManager.stateManager.after();
             }
         }
     }

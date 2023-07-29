@@ -9,10 +9,10 @@
     justify-content: flex-start;
     align-items: center;
     z-index: 1;
-    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
 
     .title {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
       font-family: var(--ghs-font-title);
