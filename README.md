@@ -52,6 +52,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - **Campaign Management** (some special rules for CS are missing)
   - **Markers**
   - **Treasures**
+  - **Character Items** (must be enabled in Settings!) manage state of items during a scenario 
   - **Battle Goals** (must be enabled in Settings!)
 - Elimination of the following physical components
   - Monster ability cards
@@ -67,6 +68,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Loot deck
   - Town guard deck
   - Party/Campaign sheet
+  - Item Cards
   - Battle Goals
 - Other features:
   - i18n support (currently en, de, fr and ko, more translations needed. Many thanks to the contributors of french and korean)

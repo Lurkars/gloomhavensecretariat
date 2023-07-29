@@ -74,6 +74,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Automaitc apply Conditions  (like wound, regenarate etc.)                       | ✅         | ⛔         | ⛔        | ✅      | ⛔       |
 | Automatic ask for applying Conditions  (like poison, ward etc.)                 | ✅         | ⛔         | ⛔        | ⛔      | ⛔       |
 | Character Ability Cards Enhancements                                            | ⛔         | ⛔         | ⛔        | ✅      | ⛔       |
+| Character Items (manage item states)                                            | ✅         | ⛔         | ⛔        | ⛔      | ⛔       |
 | Loot Deck Enhancements                                                          | ✅         | ✅         | ⛔        | ✅      | ⛔       |
 | Assign Loot Cards to Character                                                  | ✅         | ✅         | ⛔        | ✅      | ⛔       |
 | Special Scenario Rules/Notes                                                    | ✅         | ✅         | ⛔        | ✅      | ⛔       |
