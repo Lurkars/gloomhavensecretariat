@@ -13,7 +13,7 @@ export class AdditionalIdentifier extends Identifier {
   marker: string | undefined;
   tags: string[] | undefined;;
 
-  constructor(type: "all" | "character" | "objective" | "monster" | undefined, name: string, edition: string, marker: string | undefined = undefined, tags: string[] | undefined = undefined) {
+  constructor(name: string, edition: string, type: "all" | "character" | "objective" | "monster" | undefined = undefined, marker: string | undefined = undefined, tags: string[] | undefined = undefined) {
     super(name, edition);
     this.type = type;
     this.marker = marker;

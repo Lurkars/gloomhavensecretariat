@@ -1,6 +1,6 @@
 import { Character } from "../model/Character";
 import { Game } from "../model/Game";
-import { Identifier } from "../model/data/Identifier";
+import { AdditionalIdentifier, Identifier } from "../model/data/Identifier";
 import { ItemData, ItemSlot } from "../model/data/ItemData";
 import { LootClass, LootType, getLootClass } from "../model/data/Loot";
 import { gameManager } from "./GameManager";
@@ -196,10 +196,14 @@ export class ItemManager {
         return character.progress.equippedItems.find((identifier) => identifier.name == '' + item.id && identifier.edition == item.edition) != undefined;
     }
 
-    toggleEquippedItem(item: ItemData, character: Character) {
+    toggleEquippedItem(item: ItemData, character: Character, force: boolean) {
         let equippedItems: ItemData[] = character.progress.equippedItems.map((identifier) => this.getItem(+identifier.name, identifier.edition, true)).filter((itemData) => itemData).map((itemData) => itemData as ItemData);
         const equipIndex = equippedItems.indexOf(item);
-        if (equipIndex != -1) {
+        if (force && equipIndex == -1) {
+            equippedItems.push(item);
+        } else if (force) {
+            equippedItems.splice(equipIndex, 1);
+        } else if (equipIndex != -1) {
             equippedItems.splice(equipIndex, 1);
             const allowed = Math.ceil(character.level / 2);
             const smallEquipped = equippedItems.filter((itemData) => itemData.slot == ItemSlot.small).length;
@@ -258,7 +262,7 @@ export class ItemManager {
             equippedItems.push(item);
         }
 
-        character.progress.equippedItems = equippedItems.map((itemData) => new Identifier(itemData.id + '', itemData.edition));
+        character.progress.equippedItems = equippedItems.map((itemData) => new AdditionalIdentifier(itemData.id + '', itemData.edition));
         character.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(character);
 
         if (item.id == 3 && item.edition == 'fh') {

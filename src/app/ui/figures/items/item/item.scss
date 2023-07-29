@@ -92,7 +92,6 @@
 
             .actions {
                 width: 95%;
-                margin-bottom: 0.5em;
                 font-size: calc(1em * var(--ghs-fontsize));
 
                 * {
@@ -100,6 +99,27 @@
 
                     .text-white .ghs-svg {
                         filter: var(--ghs-filter-white);
+                    }
+                }
+
+                &.slot-actions {
+                    width: 85%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+
+                    .slot-action {
+                        position: relative;
+                        margin: -0.2em 0.2em;
+
+                        .marker {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-64%, -55%);
+                            font-size: 1.2em;
+                        }
                     }
                 }
             }
@@ -222,6 +242,14 @@
 
             &.flip {
                 cursor: ew-resize;
+            }
+        }
+
+        .interactive {
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.6;
             }
         }
 

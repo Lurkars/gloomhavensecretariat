@@ -14,6 +14,7 @@ import { Condition, ConditionName, ConditionType } from "../model/data/Condition
 import { MonsterEntity } from "../model/MonsterEntity";
 import { Scenario } from "../model/Scenario";
 import { ScenarioData } from "../model/data/ScenarioData";
+import { ItemFlags } from "../model/data/ItemData";
 
 export class RoundManager {
 
@@ -222,6 +223,18 @@ export class RoundManager {
       if (healCondition) {
         figure.entityConditions = figure.entityConditions.filter((condition) => condition != healCondition);
       }
+
+      if (settingsManager.settings.characterItems) {
+        figure.progress.equippedItems.forEach((identifier) => {
+          if (identifier.tags) {
+            const item = gameManager.itemManager.getItem(+identifier.name, identifier.edition, true);
+            identifier.tags = identifier.tags.filter((tag) => tag != ItemFlags.spent);
+            if (item && item.spent) {
+              identifier.tags = identifier.tags.filter((tag) => tag != ItemFlags.slot && tag != ItemFlags.slotBack);
+            }
+          }
+        })
+      }
     }
 
     if (figure.off && gameManager.entityManager.entities(figure).length > 0) {
@@ -391,6 +404,8 @@ export class RoundManager {
 
         figure.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(figure);
         figure.lootCardsVisible = false;
+
+        figure.progress.equippedItems.forEach((identifier) => identifier.tags = []);
         gameManager.characterManager.applyDonations(figure);
       } else if (figure instanceof Monster) {
         figure.entities = [];

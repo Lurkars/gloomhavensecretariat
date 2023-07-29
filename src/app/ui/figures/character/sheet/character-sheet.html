@@ -145,8 +145,7 @@
             [ghs-label]="'character.progress.notes'" [ghs-label-attribute]="'placeholder'"></textarea>
         </div>
 
-        <ghs-character-items *ngIf="!fhSheet" class="row" [character]="character"
-          [priceModifier]="priceModifier"></ghs-character-items>
+        <ghs-character-items *ngIf="!fhSheet" class="row" [character]="character"></ghs-character-items>
 
         <div class="row masteries" *ngIf="fhSheet">
           <label><span [ghs-label]="'character.progress.masteries'"></span>:</label>
@@ -188,8 +187,7 @@
           </div>
         </div>
         <div class="row battlegoals">
-          <label *ngIf="!fhSheet && !csSheet" class="headline"><span
-              [ghs-label]="'game.battleGoals'"></span></label>
+          <label *ngIf="!fhSheet && !csSheet" class="headline"><span [ghs-label]="'game.battleGoals'"></span></label>
           <label *ngIf="fhSheet" class="headline"><span [ghs-label]="'game.attackModifiers.perks'"></span></label>
           <div class="battlegoals-grid">
             <ng-container *ngFor="let item of [] | ghsRange:18">
@@ -212,8 +210,7 @@
             [ghs-label]="'character.progress.notes'" [ghs-label-attribute]="'placeholder'"></textarea>
 
 
-          <ghs-character-items *ngIf="fhSheet" [character]="character"
-            [priceModifier]="priceModifier"></ghs-character-items>
+          <ghs-character-items *ngIf="fhSheet" [character]="character"></ghs-character-items>
 
         </div>
         <div class="column column-right">

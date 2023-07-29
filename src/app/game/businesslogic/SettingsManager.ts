@@ -303,6 +303,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setCharacterItems(characterItems: boolean) {
+    this.settings.characterItems = characterItems;
+    this.storeSettings();
+  }
+
   setCharacterSheet(characterSheet: boolean) {
     this.settings.characterSheet = characterSheet;
     this.storeSettings();

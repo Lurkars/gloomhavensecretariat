@@ -1,4 +1,4 @@
-import { Identifier } from "./data/Identifier";
+import { AdditionalIdentifier, Identifier } from "./data/Identifier";
 import { LootType } from "./data/Loot";
 
 export class CharacterProgress {
@@ -7,7 +7,7 @@ export class CharacterProgress {
   gold: number = 0;
   loot: Partial<Record<LootType, number>> = {};
   items: Identifier[] = [];
-  equippedItems: Identifier[] = [];
+  equippedItems: AdditionalIdentifier[] = [];
   personalQuest: number = 0;
   battleGoals: number = 0;
   notes: string = "";

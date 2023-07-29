@@ -518,7 +518,10 @@
         "selectCharacter": "Charakter auswählen für den der Trank gebraut wird:"
       },
       "buy": "'{0}' für {1} Gold kaufen",
-      "character": "Gegenstandskarten für %game.characterIconColored.{0}% {1}",
+      "character": {
+        ".": "Gegenstandskarten für %game.characterIconColored.{0}% {1}",
+        "shop": "Gegenstandsladen"
+      },
       "choose": "Gegenstand auswählen",
       "craft": "'{0}' anertigen",
       "effect": "Falls der Gegenstand angelegt ist, wird der Effekt automatisch angewendet. Um einen Gegenstand anzulegen, einfach auf den Namen klicken. Anlegen von Gegenständen ist nur vor oder zwischen Scenarien möglich. Durch Doppelclick kann das Anlegen erzwungen werden.",
@@ -531,7 +534,10 @@
       },
       "remove": "'{0}' entfernen",
       "sell": "'{0}' für {1} Gold veraufen",
-      "shop": "Gegenstandskarten",
+      "shop": {
+        ".": "Gegenstandskarten",
+        "character": "Gegenstandsladen für %game.characterIconColored.{0}% {1}"
+      },
       "unlock": "Gegenstand freischalten",
       "unlocked": "Gegenstand freigeschaltet",
       "wip": "%wip%! Gegenstände für %data.edition.{0}% sind noch nicht vollständig."
@@ -1358,6 +1364,10 @@
     "characterIdentityHint": {
       ".": "Formhinweis",
       "hint": "Zeigt die aktive Form hinter dem Charakternamen."
+    },
+    "characterItems": {
+      ".": "Character Gegenstände",
+      "hint": "Zustände von Gegenständen während eines Szenarios verwalten."
     },
     "characterSheet": {
       ".": "Charakterbogen",

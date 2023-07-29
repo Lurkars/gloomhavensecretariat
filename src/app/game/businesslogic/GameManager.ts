@@ -630,14 +630,14 @@ export class GameManager {
 
   additionalIdentifier(figure: Figure, entity: Entity | undefined = undefined): AdditionalIdentifier {
     if (figure instanceof Character) {
-      return new AdditionalIdentifier("character", figure.name, figure.edition, undefined, figure.tags);
+      return new AdditionalIdentifier(figure.name, figure.edition, "character", undefined, figure.tags);
     } else if (figure instanceof Objective) {
-      return new AdditionalIdentifier("objective", figure.name, figure.escort ? "escort" : "objective", figure.marker, figure.tags);
+      return new AdditionalIdentifier(figure.name, figure.escort ? "escort" : "objective", "objective", figure.marker, figure.tags);
     } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
-      return new AdditionalIdentifier("monster", figure.name, figure.edition, entity.marker, entity.tags);
+      return new AdditionalIdentifier(figure.name, figure.edition, "monster", entity.marker, entity.tags);
     }
 
-    return new AdditionalIdentifier(undefined, figure.name, figure.edition, undefined, entity && entity.tags || []);
+    return new AdditionalIdentifier(figure.name, figure.edition, undefined, undefined, entity && entity.tags || []);
   }
 
   entityCounter(identifier: AdditionalIdentifier): EntityCounter | undefined {

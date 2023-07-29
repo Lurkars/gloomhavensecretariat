@@ -123,6 +123,7 @@ import { WorldMapComponent } from './ui/header/party/world-map/world-map';
 import { ObjectiveContainerComponent } from './ui/figures/objective-container/objective-container';
 import { ItemComponent } from './ui/figures/items/item/item';
 import { ItemsDialogComponent } from './ui/figures/items/dialog/items-dialog';
+import { ItemsCharacterDialogComponent } from './ui/figures/items/character/items-character-dialog';
 
 @Injectable()
 export class GhsErrorHandler extends ErrorHandler {
@@ -148,7 +149,7 @@ export class GhsErrorHandler extends ErrorHandler {
     ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, StatsListComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent, EventEffectsDialog,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
     EntityMenuDialogComponent, EntitiesMenuDialogComponent,
-    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, ItemComponent, ItemsDialogComponent, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
+    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, ItemComponent, ItemsDialogComponent, ItemsCharacterDialogComponent, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
     ObjectiveComponent, ObjectiveContainerComponent,
     SummonEntityComponent, SummonSheetComponent,
     StandeeComponent,

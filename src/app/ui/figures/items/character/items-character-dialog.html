@@ -1,0 +1,49 @@
+<div class="items-dialog"
+    [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
+    <a class="close" (click)="close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'"><img
+            src="./assets/images/close_dialog.svg"></a>
+    <div class="scroll-container">
+        <div class="header">
+            <span class="title" [ghs-label]="'game.items.character'"
+                [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"></span>
+
+            <a (click)="openShop()" class="shop" [ghs-label]="'game.items.character.shop'"></a>
+        </div>
+
+        <div class="item-list" *ngIf="items.length == 0">
+            <div class="empty"><span [ghs-label]="'game.items.empty'"></span></div>
+        </div>
+
+        <div class="item-list" *ngIf="items.length > 0">
+            <ng-container *ngFor="let itemData of items">
+                <div class="item" *ngIf="setup">
+                    <ghs-item *ngIf="character" [item]="itemData" [flipped]="true" ghs-pointer-input
+                        [count]="!character ? 1 : (gameManager.itemManager.assigned(itemData) >= itemData.count ? '-' : (gameManager.itemManager.assigned(itemData) +1))"
+                        [disabled]="true" [selected]="equipped(itemData) && true || false"></ghs-item>
+                    <a class="button-equip" [ngClass]="{'equipped' : equipped(itemData)}" ghs-pointer-input
+                        (singleClick)="toggleEquippedItem(itemData)" (doubleClick)="toggleEquippedItem(itemData, true)">
+                        <img class="ghs-svg" src="./assets/images/check.svg"></a>
+                </div>
+                <div class="item" *ngIf="!setup" [ngClass]="{'spent' : countFlag(itemData, ItemFlags.spent)}">
+                    <ghs-item *ngIf="character" [item]="itemData"
+                        [count]="!character ? 1 : (gameManager.itemManager.assigned(itemData) >= itemData.count ? '-' : (gameManager.itemManager.assigned(itemData) +1))"
+                        [flipped]="true && !countFlag(itemData,ItemFlags.flipped)"
+                        [filtered]="!equipped(itemData) || gameManager.game.state == GameState.draw"
+                        [unavailable]="countFlag(itemData, ItemFlags.consumed) > 0"
+                        [owned]="countFlag(itemData, ItemFlags.persistent) > 0" [disabled]="true"
+                        [slotsMarked]="slotsMarked(itemData, ItemFlags.slot)"
+                        [slotsBackMarked]="slotsMarked(itemData, ItemFlags.slotBack)"
+                        (clickedConsumed)="toggleFlag($event,itemData,ItemFlags.consumed)"
+                        (clickedFlip)="toggleFlag($event,itemData,ItemFlags.flipped)"
+                        (clickedSpent)="toggleFlag($event,itemData,ItemFlags.spent)"
+                        (clickedPersistent)="toggleFlag($event,itemData,ItemFlags.persistent)"
+                        (clickedSlot)="toggleFlagCount($event,itemData,ItemFlags.slot)"
+                        (clickedSlotBack)="toggleFlagCount($event,itemData,ItemFlags.slotBack)"></ghs-item>
+                    <a class="button-equip disabled" [ngClass]="{'equipped' : equipped(itemData)}" ghs-pointer-input
+                        (doubleClick)="toggleEquippedItem(itemData, true)">
+                        <img class="ghs-svg" src="./assets/images/check.svg"></a>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

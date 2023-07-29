@@ -702,19 +702,6 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.lootDeck"
-            (change)="settingsManager.setLootDeck(!settingsManager.settings.lootDeck)">
-          <span [ghs-label]="'settings.lootDeck'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.lootDeck.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
           <input type="checkbox" [checked]="settingsManager.settings.automaticUnlocking"
             (change)="settingsManager.setAutomaticUnlocking(!settingsManager.settings.automaticUnlocking)">
           <span [ghs-label]="'settings.automaticUnlocking'"></span>
@@ -725,9 +712,48 @@
         </span>
       </div>
     </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.characterItems"
+            (change)="settingsManager.setCharacterItems(!settingsManager.settings.characterItems)">
+          <span [ghs-label]="'settings.characterItems'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.characterItems.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.battleGoals"
+            (change)="settingsManager.setBattleGoals(!settingsManager.settings.battleGoals)">
+          <span [ghs-label]="'settings.battleGoals'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.battleGoals.hint'"></span>
+        </span>
+      </div>
+    </div>
   </div>
 
   <div class="column">
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.lootDeck"
+            (change)="settingsManager.setLootDeck(!settingsManager.settings.lootDeck)">
+          <span [ghs-label]="'settings.lootDeck'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.lootDeck.hint'"></span>
+        </span>
+      </div>
+    </div>
     <div class="line">
       <div class="hint-container">
         <label>
@@ -764,19 +790,6 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text" [ghs-label]="'settings.monsters.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.battleGoals"
-            (change)="settingsManager.setBattleGoals(!settingsManager.settings.battleGoals)">
-          <span [ghs-label]="'settings.battleGoals'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.battleGoals.hint'"></span>
         </span>
       </div>
     </div>

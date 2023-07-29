@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit, ViewEncapsulation } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { Character } from "src/app/game/model/Character";
-import { ItemData, ItemSlot } from "src/app/game/model/data/ItemData";
+import { ItemData } from "src/app/game/model/data/ItemData";
 import { Identifier } from "src/app/game/model/data/Identifier";
 import { getLootClass, LootClass, LootType } from "src/app/game/model/data/Loot";
 import { GameState } from "src/app/game/model/Game";
@@ -20,7 +20,6 @@ import { ItemsDialogComponent } from "./dialog/items-dialog";
 export class CharacterItemsComponent implements OnInit, OnDestroy {
 
     @Input() character!: Character;
-    @Input() priceModifier: number = 0;
     items: ItemData[] = [];
     item: ItemData | undefined;
     itemIndex: number = 1;
@@ -71,12 +70,6 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
             });
 
             this.items.sort((a, b) => a.id - b.id);
-
-            if (gameManager.game.party.reputation >= 0) {
-                this.priceModifier = Math.ceil((gameManager.game.party.reputation - 2) / 4) * -1;
-            } else {
-                this.priceModifier = Math.floor((gameManager.game.party.reputation + 2) / 4) * -1;
-            }
         }
 
         this.brewing = 0;
@@ -99,21 +92,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
     itemDialog() {
         this.dialog.open(ItemsDialogComponent, {
             panelClass: ['dialog'],
-            data: { edition: gameManager.game.edition, select: this.character, priceModifier: this.priceModifier }
-        }).closed.subscribe((result: any) => {
-            if (result && result.item) {
-                if (result.add) {
-                    this.addItem(result.item, true);
-                } else {
-                    if (this.canBuy(result.item)) {
-                        this.buyItem(result.item);
-                    } else if (this.canCraft(result.item)) {
-                        this.craftItem(result.item);
-                    } else {
-                        console.warn("Cannot add selected item:", result.item);
-                    }
-                }
-            }
+            data: { edition: gameManager.game.edition, select: this.character }
         })
     }
 
@@ -170,7 +149,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
 
     canBuy(item: ItemData | undefined, cost: number = 0): boolean {
         if (item) {
-            return item.cost && (item.cost + this.priceModifier + cost) <= this.character.progress.gold && this.canAdd(item) || false;
+            return item.cost && (item.cost + gameManager.itemManager.pricerModifier() + cost) <= this.character.progress.gold && this.canAdd(item) || false;
         }
         return false;
     }
@@ -224,7 +203,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
     buyItem(item: ItemData | undefined) {
         if (item && this.canBuy(item)) {
             gameManager.stateManager.before("buyItem", "data.character." + this.character.name, item.id + "", item.edition);
-            this.character.progress.gold -= (item.cost + this.priceModifier);
+            this.character.progress.gold -= (item.cost + gameManager.itemManager.pricerModifier());
             this.character.progress.items.push(new Identifier(item.id + "", item.edition));
             this.items.push(item);
             this.items.sort((a, b) => a.id - b.id);
@@ -266,7 +245,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
                                 this.items.splice(index, 1);
                             }
                         } else if (this.canBuy(requiredItem)) {
-                            this.character.progress.gold -= (item.cost + this.priceModifier);
+                            this.character.progress.gold -= (item.cost + gameManager.itemManager.pricerModifier());
                         } else {
                             this.craftItemResources(requiredItem);
                         }
@@ -320,83 +299,11 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
         return this.character.progress.equippedItems.find((identifier) => identifier.name == '' + item.id && identifier.edition == item.edition);
     }
 
-    toggleEquippedItem(item: ItemData, force: boolean = false) {
+    toggleEquippedItem(itemData: ItemData, force: boolean = false) {
         const disabled = gameManager.game.state != GameState.draw || gameManager.game.round > 0;
-        if (!disabled || force) {
-            let equippedItems: ItemData[] = this.character.progress.equippedItems.map((identifier) => this.items.find((itemData) => identifier.name == '' + itemData.id && itemData.edition == identifier.edition)).filter((itemData) => itemData).map((itemData) => itemData as ItemData);
-            const equipIndex = equippedItems.indexOf(item);
-            if (equipIndex != -1) {
-                equippedItems.splice(equipIndex, 1);
-                const allowed = Math.ceil(this.character.level / 2);
-                const smallEquipped = equippedItems.filter((itemData) => itemData.slot == ItemSlot.small).length;
-                if (item.id == 16 && item.edition == 'gh' && smallEquipped >= allowed) {
-                    for (let i = 0; i < (smallEquipped - allowed); i++) {
-                        const equipped = equippedItems.find((itemData) => itemData.slot == ItemSlot.small);
-                        if (equipped) {
-                            equippedItems.splice(equippedItems.indexOf(equipped), 1);
-                        }
-                    }
-                }
-            } else {
-                const drifterAdditionalHand = this.character.name == 'drifter' && this.character.edition == 'fh' && this.character.progress.perks[11];
-                if (item.slot == ItemSlot.small) {
-                    let allowed = Math.ceil(this.character.level / 2);
-                    if (equippedItems.find((itemData) => itemData.id == 16 && itemData.edition == 'gh' || itemData.id == 60 && itemData.edition == 'fh')) {
-                        allowed += 2;
-                    }
-                    if (equippedItems.find((itemData) => itemData.id == 132 && itemData.edition == 'fh')) {
-                        allowed += 1;
-                    }
-
-                    if (equippedItems.filter((itemData) => itemData.slot == item.slot).length >= allowed) {
-                        const equipped = equippedItems.find((itemData) => itemData.slot == item.slot);
-                        if (equipped) {
-                            equippedItems.splice(equippedItems.indexOf(equipped), 1);
-                        }
-                    }
-                } else if (item.slot == ItemSlot.onehand) {
-                    const twoHand = equippedItems.find((equipped) => equipped.slot == ItemSlot.twohand)
-                    if (twoHand && !drifterAdditionalHand) {
-                        equippedItems = equippedItems.filter((equipped) => equipped.slot != ItemSlot.twohand);
-                    }
-                    if (equippedItems.filter((equipped) => equipped.slot == item.slot).length > (drifterAdditionalHand ? (twoHand ? 0 : 2) : 1)) {
-                        const equipped = equippedItems.find((equipped) => equipped.slot == item.slot);
-                        if (equipped) {
-                            equippedItems.splice(equippedItems.indexOf(equipped), 1);
-                        }
-                    }
-                } else if (item.slot == ItemSlot.twohand) {
-                    equippedItems = equippedItems.filter((equipped) => equipped.slot != item.slot);
-                    if (drifterAdditionalHand) {
-                        while (equippedItems.filter((equipped) => equipped.slot == ItemSlot.onehand).length > 1) {
-                            const equipped = equippedItems.find((equipped) => equipped.slot == ItemSlot.onehand);
-                            if (equipped) {
-                                equippedItems.splice(equippedItems.indexOf(equipped), 1);
-                            }
-                        }
-                    } else {
-                        equippedItems = equippedItems.filter((equipped) => equipped.slot != ItemSlot.onehand);
-                    }
-                } else {
-                    equippedItems = equippedItems.filter((equipped) => equipped.slot != item.slot);
-                }
-
-                equippedItems.push(item);
-            }
-
-            gameManager.stateManager.before(equipIndex != -1 ? 'unequipItem' : 'equipItem', "data.character." + this.character.name, item.name, item.edition)
-            this.character.progress.equippedItems = equippedItems.map((itemData) => new Identifier(itemData.id + '', itemData.edition));
-            this.character.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character);
-
-            if (item.id == 3 && item.edition == 'fh') {
-                if (equipIndex == -1) {
-                    this.character.maxHealth += 1;
-                } else {
-                    this.character.maxHealth -= 1;
-                }
-                this.character.health = this.character.maxHealth;
-            }
-
+        if ((!disabled || force) && this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition) != undefined) {
+            gameManager.stateManager.before(gameManager.itemManager.isEquipped(itemData, this.character) ? 'unequipItem' : 'equipItem', "data.character." + this.character.name, '' + itemData.id, itemData.edition)
+            gameManager.itemManager.toggleEquippedItem(itemData, this.character, force)
             gameManager.stateManager.after();
         }
     }

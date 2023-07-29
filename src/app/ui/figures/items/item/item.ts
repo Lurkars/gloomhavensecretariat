@@ -22,10 +22,20 @@ export class ItemComponent implements OnInit {
     @Input() unavailable: boolean = false;
     @Input() reveal: boolean = false;
     @Input() count: number | '-' = 1;
+    @Input() slotsMarked: string[] = [];
+    @Input() slotsBackMarked: string[] = [];
     @Output() revealed = new EventEmitter<boolean>();
+    @Output() clickedConsumed = new EventEmitter<boolean>();
+    @Output() clickedSpent = new EventEmitter<boolean>();
+    @Output() clickedFlip = new EventEmitter<boolean>();
+    @Output() clickedSlot = new EventEmitter<number>();
+    @Output() clickedSlotBack = new EventEmitter<number>();
+    @Output() clickedPersistent = new EventEmitter<boolean>();
     fhStyle: boolean = false;
     craft: boolean = false;
     edition: string = "";
+    slots: Action[] = [];
+    slotsBack: Action[] = [];
 
     settingsManager: SettingsManager = settingsManager;
 
@@ -52,10 +62,10 @@ export class ItemComponent implements OnInit {
 
             this.item.actions = this.item.actions || [];
 
-            this.applySlots(this.item.slots, this.item.actions);
+            this.applySlots(this.item.slots, this.slots);
             if (this.item.slotsBack) {
                 this.item.actionsBack = this.item.actionsBack || [];
-                this.applySlots(this.item.slotsBack, this.item.actionsBack);
+                this.applySlots(this.item.slotsBack, this.slots);
             }
 
             if (this.item.summon && !this.item.actions.find((action) => action.type == ActionType.summon && action.value == 'summonDataItem')) {
@@ -69,6 +79,24 @@ export class ItemComponent implements OnInit {
     }
 
     applySlots(slotCount: number, actions: Action[]) {
+        if (slotCount && !actions.find((action) => action.type == ActionType.card && action.subActions.length > 0 && ('' + action.value).startsWith('slot'))) {
+            for (let i = 0; i < slotCount; i++) {
+                let action = new Action(ActionType.card, "slot");
+                if (this.fhStyle && i == 0) {
+                    action = new Action(ActionType.card, "slotStart");
+                } else if (this.fhStyle && i == slotCount - 1) {
+                    action = new Action(ActionType.card, "slotEnd");
+                }
+
+                if (slotCount > 3) {
+                    action.small = true;
+                }
+                actions.push(action);
+            }
+        }
+    }
+
+    applySlotsGrid(slotCount: number, actions: Action[]) {
         if (slotCount && !actions.find((action) => action.type == ActionType.grid && action.subActions.length > 0 && action.subActions[0].type == ActionType.card && ('' + action.subActions[0].value).startsWith('slot'))) {
             if (slotCount < 5) {
                 const action = new Action(ActionType.grid, slotCount);

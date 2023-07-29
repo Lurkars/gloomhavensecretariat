@@ -19,6 +19,8 @@ import { CharacterInitiativeDialogComponent } from './cards/initiative-dialog';
 import { SummonState } from 'src/app/game/model/Summon';
 import { Subscription } from 'rxjs';
 import { CharacterBattleGoalsDialog } from '../battlegoal/dialog/battlegoal-dialog';
+import { ItemsCharacterDialogComponent } from '../items/character/items-character-dialog';
+import { ItemsDialogComponent } from '../items/dialog/items-dialog';
 
 @Component({
   selector: 'ghs-character',
@@ -306,6 +308,20 @@ export class CharacterComponent implements OnInit, OnDestroy {
       panelClass: ['dialog'],
       data: { character: this.character, draw: !this.character.battleGoals || this.character.battleGoals.length == 0 }
     });
+  }
+
+  openItems(): void {
+    if (this.character.progress.items.length == 0) {
+      this.dialog.open(ItemsDialogComponent, {
+        panelClass: ['dialog'],
+        data: { edition: gameManager.game.edition, select: this.character, affordable: true }
+      })
+    } else {
+      this.dialog.open(ItemsCharacterDialogComponent, {
+        panelClass: ['dialog'],
+        data: this.character
+      });
+    }
   }
 
   characterFullView() {

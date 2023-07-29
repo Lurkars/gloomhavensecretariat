@@ -26,7 +26,6 @@ export class ItemsDialogComponent {
     items: ItemData[] = [];
     selected: ItemData | undefined;
     character: Character | undefined;
-    priceModifier: number = 0;
     filter: string = "";
     all: boolean = false;
     affordable: boolean = false;
@@ -34,16 +33,16 @@ export class ItemsDialogComponent {
     unlocks: ItemData[] = [];
     campaignMode: boolean = false;
 
-    constructor(@Inject(DIALOG_DATA) public data: { edition: string | undefined, select: Character | undefined, priceModifier: number }, private dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) public data: { edition: string | undefined, select: Character | undefined, affordable: boolean }, private dialogRef: DialogRef) {
         this.selected = undefined;
         this.character = data.select;
         this.sorted = this.character != undefined;
         this.edition = data.edition;
+        this.affordable = data.affordable || false;
         this.campaignMode = this.edition && gameManager.game.party.campaignMode || false;
         this.editions = this.edition ? gameManager.itemManager.itemEditions(this.edition) : gameManager.itemManager.itemEditions();
         this.all = this.edition == undefined;
         this.currentEdition = this.edition || this.editions[0];
-        this.priceModifier = data.priceModifier || 0;
     }
 
     ngOnInit() {
@@ -227,12 +226,12 @@ export class ItemsDialogComponent {
             let equippedItems: ItemData[] = this.character.progress.equippedItems.map((identifier) => this.items.find((itemData) => identifier.name == '' + itemData.id && itemData.edition == identifier.edition)).filter((itemData) => itemData).map((itemData) => itemData as ItemData);
             const equipIndex = equippedItems.indexOf(itemData);
             gameManager.stateManager.before(equipIndex != -1 ? 'unequipItem' : 'equipItem', "data.character." + this.character.name, itemData.name, itemData.edition)
-            gameManager.itemManager.toggleEquippedItem(itemData, this.character)
+            gameManager.itemManager.toggleEquippedItem(itemData, this.character, force)
             gameManager.stateManager.after();
         }
     }
 
-    close(result: 'add' | 'add-force' | undefined = undefined) {
-        this.dialogRef.close(result ? { item: this.selected, add: result == 'add-force' } : undefined);
+    close() {
+        this.dialogRef.close();
     }
 }

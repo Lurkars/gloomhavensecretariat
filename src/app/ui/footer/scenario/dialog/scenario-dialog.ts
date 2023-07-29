@@ -104,7 +104,7 @@ export class ScenarioDialogComponent {
         this.dialogRef.close();
         const conclusions = gameManager.sectionData(this.scenario.edition).filter((sectionData) =>
             sectionData.edition == this.scenario.edition && sectionData.parent == this.scenario.index && sectionData.group == this.scenario.group && sectionData.conclusion);
-        if (conclusions.length == 0) {
+        if (conclusions.length == 0 || !success) {
             this.dialog.open(ScenarioSummaryComponent, {
                 panelClass: 'dialog',
                 data: {

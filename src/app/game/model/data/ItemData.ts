@@ -55,3 +55,12 @@ export enum ItemResourceTypes {
   lumber = "lumber",
   metal = "metal",
 }
+
+export enum ItemFlags {
+  spent = "spent",
+  consumed = "consumed",
+  flipped = "flipped",
+  persistent = "persistend",
+  slot = "slot",
+  slotBack = "slotBack"
+}

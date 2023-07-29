@@ -32,7 +32,6 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   LootType = LootType;
   availablePerks: number = 0;
   perksWip: boolean = true;
-  priceModifier: number = 0;
   retired: boolean = false;
 
   goldTimeout: any = null;

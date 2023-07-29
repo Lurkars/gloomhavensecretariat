@@ -407,6 +407,7 @@
     }
 
     .battlegoals-button,
+    .items-button,
     .attack-modifier-button,
     .loot-cards-button {
       position: relative;
@@ -438,7 +439,8 @@
         color: var(--ghs-color-white);
       }
 
-      &.battlegoals-button {
+      &.battlegoals-button,
+      &.items-button {
         img {
           width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
           border-radius: calc(var(--ghs-unit) * 0.3 * var(--ghs-text-factor));
@@ -720,6 +722,7 @@
       }
 
       .battlegoals-button,
+      .items-button,
       .attack-modifier-button,
       .loot-cards-button {
         margin-top: calc(var(--ghs-unit) * 5.5);

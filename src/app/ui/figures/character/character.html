@@ -161,6 +161,12 @@
           src="./assets/images/check.svg" />
       </div>
 
+      <div *ngIf="settingsManager.settings.characterItems" class="items-button" ghs-pointer-input
+        (singleClick)="openItems()" [ghs-label]="'game.items'" [ghs-label-attribute]="'title'">
+        <img
+          [src]="settingsManager.settings.fhStyle ? './assets/images/fh/items/item-back-fh.png' : './assets/images/items/item-back.png'" />
+      </div>
+
       <div class="summon-dialog">
         <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"></div>
         <a #summonButton class="summon-dialog-button" ghs-pointer-input (singleClick)="openSummonDialog($event)"

@@ -19,7 +19,8 @@
     <a class="double" [conditionHighlight]="entityCondition"
       *ngIf="settingsManager.settings.activeApplyConditions &&  entityCondition.types.indexOf(ConditionType.apply) != -1 && entityCondition.types.indexOf(ConditionType.double) != -1"
       ghs-pointer-input (singleClick)="applyCondition(entityCondition.name, $event, true)">
-      <img src="./assets/images/attackmodifier/icons/double.png" />
+      <img
+        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') +  '/attackmodifier/icons/double.png'" />
     </a>
 
     <a class="check" [conditionHighlight]="entityCondition"

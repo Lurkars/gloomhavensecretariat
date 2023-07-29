@@ -66,7 +66,7 @@ export class ScenarioSummaryComponent {
             this.conclusion = this.scenario;
             this.success = true;
         }
-        this.conclusionWarning = !this.conclusion && gameManager.sectionData(this.scenario.edition).find((sectionData) => sectionData.parent == this.scenario.index && sectionData.group == this.scenario.group && sectionData.edition == this.scenario.edition && sectionData.conclusion) != undefined;
+        this.conclusionWarning = this.success && !this.conclusion && gameManager.sectionData(this.scenario.edition).find((sectionData) => sectionData.parent == this.scenario.index && sectionData.group == this.scenario.group && sectionData.edition == this.scenario.edition && sectionData.conclusion) != undefined;
 
         this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure, index) => {
             this.battleGoals[index] = 0;

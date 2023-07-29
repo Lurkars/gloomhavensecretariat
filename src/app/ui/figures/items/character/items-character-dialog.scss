@@ -1,0 +1,162 @@
+.items-dialog {
+    position: relative;
+
+    .scroll-container {
+        overflow-x: hidden;
+        max-height: calc(90vh - var(--ghs-unit) * 6);
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .title {
+            font-family: var(--ghs-font-title);
+            font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-white);
+        }
+
+        .shop {
+            cursor: pointer;
+            font-family: var(--ghs-font-normal);
+            font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-white);
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    .item-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        min-height: calc(var(--ghs-unit) * 40.5 * var(--ghs-dialog-factor));
+
+        .empty {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: var(--ghs-font-text);
+            font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-yellow);
+        }
+
+        .item {
+            position: relative;
+            margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            width: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
+            height: calc(var(--ghs-unit) * 40.5 * var(--ghs-dialog-factor));
+            transition: all 500ms ease-in-out;
+
+            &.spent {
+                transform: rotate(90deg);
+                margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 7.25 * var(--ghs-dialog-factor));
+            }
+
+            ghs-item {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                border: calc(var(--ghs-unit) * 0.35 * var(--ghs-dialog-factor)) solid transparent;
+                border-radius: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+                overflow: hidden;
+
+                &.disabled {
+                    cursor: initial;
+                    opacity: 0.5;
+                }
+
+                &.unavailable {
+                    cursor: not-allowed;
+                    border-color: var(--ghs-color-darkgray);
+                    filter: grayscale(0.3);
+
+                }
+
+                &.filtered {
+                    cursor: initial;
+                    border-color: var(--ghs-color-red);
+
+                }
+
+                &.selected {
+                    cursor: pointer;
+                    border-color: var(--ghs-color-green);
+                }
+            }
+
+
+
+            .button-equip {
+                z-index: 1;
+                position: absolute;
+                display: flex;
+                cursor: pointer;
+                bottom: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                left: calc(var(--ghs-unit) * 11.8 * var(--ghs-dialog-factor));
+                justify-content: center;
+                align-items: center;
+                width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+                height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+                opacity: 0.6;
+
+                &.disabled {
+                    cursor: initial;
+                }
+
+                .ghs-svg {
+                    width: 100%;
+                    height: auto;
+                    filter: var(--ghs-filter-white);
+                }
+
+                &.equipped {
+                    opacity: 1;
+
+                    .ghs-svg {
+                        filter: var(--ghs-filter-green);
+                    }
+                }
+
+                &:hover:not(.disabled) {
+                    opacity: 0.6;
+
+                    .ghs-svg {
+                        filter: var(--ghs-filter-green);
+                    }
+
+                    &.equipped {
+
+                        .ghs-svg {
+                            filter: var(--ghs-filter-red);
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 600px),
+        (orientation: portrait) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &.fh {
+        .menu {
+            background-image: url('~src/assets/images/fh/dialog_background_fh.png');
+        }
+    }
+
+    &.modern {
+        .menu {
+            background-image: url('~src/assets/images/modern/dialog_background_modern.png');
+        }
+    }
+}

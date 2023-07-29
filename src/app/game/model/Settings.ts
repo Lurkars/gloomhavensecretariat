@@ -38,6 +38,7 @@ export class Settings {
   characterHandSize: boolean = false;
   characterIdentities: boolean = true;
   characterIdentityHint: boolean = true;
+  characterItems: boolean = false;
   characterSheet: boolean = true;
   combineSummonAction: boolean = true;
   debugRightClick: boolean = false;
