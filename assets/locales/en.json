@@ -1628,6 +1628,10 @@
       ".": "Manual character count",
       "hint": ""
     },
+    "portraitMode": {
+      ".": "Portrait-Mode Optimization",
+      "hint": "Optimization of Portrait-Mode for smaller screens."
+    },
     "pressDoubleClick": {
       ".": "Long press for doubleclick (Touch)",
       "hint": "On touchscreens, trigger doubleclick with long press instead. (Recommended to avoid ghost clicks)"

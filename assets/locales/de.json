@@ -1520,6 +1520,10 @@
       ".": "Manuelle Charakter Anzahl",
       "hint": ""
     },
+    "portraitMode": {
+      ".": "Portraitmodus Optimierungen",
+      "hint": "Optimierung des Portraitmodus für kleine Displays."
+    },
     "pressDoubleClick": {
       ".": "Lange Drücken für Doppelclick (Touch)",
       "hint": "Löse Doppelclick-Aktionen auf Touch-Screens stattdessen durch langes Gedrückthalten auf. (Empfohlen um Geisterklicks zu vermeiden)"
