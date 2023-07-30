@@ -21,6 +21,7 @@ import { Subscription } from 'rxjs';
 import { CharacterBattleGoalsDialog } from '../battlegoal/dialog/battlegoal-dialog';
 import { ItemsCharacterDialogComponent } from '../items/character/items-character-dialog';
 import { ItemsDialogComponent } from '../items/dialog/items-dialog';
+import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
 
 @Component({
   selector: 'ghs-character',
@@ -51,7 +52,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   maxHp: number = 0;
   token: number = 0;
 
-  emptySummons: boolean = true;
+  summonCount: number = 0;
   activeConditions: EntityCondition[] = [];
 
   constructor(private dialog: Dialog, private overlay: Overlay) { }
@@ -70,7 +71,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   }
 
   update(): void {
-    this.emptySummons = this.character.summons.length == 0 || this.character.summons.every((summon) => !gameManager.entityManager.isAlive(summon));
+    this.summonCount = this.character.summons.filter((summon) => gameManager.entityManager.isAlive(summon)).length;
     this.activeConditions = gameManager.entityManager.activeConditions(this.character);
   }
 
@@ -286,6 +287,16 @@ export class CharacterComponent implements OnInit, OnDestroy {
       positionStrategy: this.overlay.position().flexibleConnectedTo(this.characterName).withPositions(ghsDefaultDialogPositions())
     });
     // }
+  }
+
+  openEntitiesMenu(event: any) {
+    this.dialog.open(EntitiesMenuDialogComponent, {
+      panelClass: 'dialog',
+      data: {
+        character: this.character
+      },
+      positionStrategy: this.overlay.position().flexibleConnectedTo(event.target).withPositions(ghsDefaultDialogPositions())
+    });
   }
 
   openSummonDialog(event: any): void {

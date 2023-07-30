@@ -415,10 +415,9 @@ export class EntityMenuDialogComponent {
     }
   }
 
-
   isImmune(conditionName: ConditionName): boolean {
-    if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
-      return gameManager.entityManager.isImmune(this.data.figure, this.data.entity, conditionName);
+    if (this.data.entity) {
+      return gameManager.entityManager.isImmune(this.data.entity, this.data.figure, conditionName);
     }
     return false;
   }

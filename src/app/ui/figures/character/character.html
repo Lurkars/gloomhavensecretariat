@@ -1,10 +1,12 @@
 <div class="summons-container" *ngIf="!character.absent"
-  [ngClass]="{'empty' : emptySummons, 'off' : character.off || character.exhausted || character.health <= 0 }">
+  [ngClass]="{'empty' : summonCount == 0, 'off' : character.off || character.exhausted || character.health <= 0 }">
   <span class="spacer"></span>
-  <span class="icon" [ngClass]="{'empty' : emptySummons}" [entityAnimation]="emptySummons">
-    <img [src]="character.iconUrl" />
+  <span class="entities-menu" [ngClass]="{'empty' : summonCount == 0, 'disabled' : summonCount < 2}" [entityAnimation]="summonCount == 0"
+    (click)="openEntitiesMenu($event)">
+    <img class="icon" [src]="character.iconUrl" />
+    <img class="menu" src="./assets/images/up.svg">
   </span>
-  <div class="summons">
+  <div class="summons" *ngIf="summonCount">
     <ghs-summon-entity *ngFor="let summon of character.summons" [character]="character" [summon]="summon">
     </ghs-summon-entity>
   </div>

@@ -237,10 +237,13 @@ body {
 (orientation: portrait) {
   body {
     --ghs-width: 100vw;
-    --ghs-dialog-factor: 1.8;
-    --ghs-text-factor: 1.3;
-    --ghs-small-text-factor: 0.7;
-    --ghs-filter-outline: drop-shadow(1px 1px 1px var(--ghs-color-darkgray)) drop-shadow(-1px -1px 1px var(--ghs-color-darkgray));
+
+    &.portrait-mode {
+      --ghs-dialog-factor: 1.8;
+      --ghs-text-factor: 1.3;
+      --ghs-small-text-factor: 0.7;
+      --ghs-filter-outline: drop-shadow(1px 1px 1px var(--ghs-color-darkgray)) drop-shadow(-1px -1px 1px var(--ghs-color-darkgray));
+    }
   }
 
   @media (orientation: landscape) {

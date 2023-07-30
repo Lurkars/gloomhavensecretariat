@@ -310,8 +310,14 @@ export class RoundManager {
 
     if (figure instanceof Character && settingsManager.settings.applyLongRest && figure.longRest && (skipSummons || !figure.summons.some((summon) => summon.active))) {
       if (figure.health < figure.maxHealth || figure.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.clearHeal) != -1 && !entityCondition.permanent)) {
-        figure.health += 2;
-        gameManager.entityManager.addCondition(figure, new Condition(ConditionName.heal, 2), figure.active || false, figure.off || false);
+        let heal = 2;
+
+        if (figure.name == 'lightning' && figure.edition == 'fh-crossover' && figure.progress.perks[9]) {
+          heal += 1;
+        }
+
+        figure.health += heal;
+        gameManager.entityManager.addCondition(figure, new Condition(ConditionName.heal, heal), figure.active || false, figure.off || false);
         gameManager.entityManager.applyCondition(figure, ConditionName.heal, true);
       }
     }

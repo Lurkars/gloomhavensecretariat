@@ -67,6 +67,7 @@ export class Settings {
   locale: string = "en";
   lootDeck: boolean = true;
   maxUndo: number = 100;
+  portraitMode: boolean = true;
   monsters: boolean = true;
   moveElements: boolean = true;
   partySheet: boolean = true;

@@ -112,6 +112,16 @@ export class SettingsMenuComponent {
     }
   }
 
+  togglePortraitMode() {
+    settingsManager.setPortraitMode(!settingsManager.settings.portraitMode);
+
+    if (settingsManager.settings.portraitMode) {
+      document.body.classList.add('portrait-mode');
+    } else {
+      document.body.classList.remove('portrait-mode');
+    }
+  }
+
   helperDefaults(): void {
     settingsManager.settings.abilityNumbers = false;
     settingsManager.settings.activeApplyConditions = false;

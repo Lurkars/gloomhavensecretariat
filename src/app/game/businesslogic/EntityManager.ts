@@ -181,22 +181,51 @@ export class EntityManager {
     return entity.entityConditions.filter((value) => (!value.expired || expiredIndicator && value.types.indexOf(ConditionType.expiredIndicator) != -1) && (hidden || value.types.indexOf(ConditionType.hidden) == -1));
   }
 
-  isImmune(monster: Monster, entity: MonsterEntity, conditionName: ConditionName): boolean {
-    const stat = monster.stats.find((monsterStat) => monsterStat.level == entity.level && monsterStat.type == entity.type);
+  isImmune(entity: Entity, figure: Figure, conditionName: ConditionName): boolean {
+    let immune: boolean = false;
+    if (figure instanceof Monster && entity instanceof MonsterEntity) {
+      const stat = figure.stats.find((monsterStat) => monsterStat.level == entity.level && monsterStat.type == entity.type);
+      immune = stat != undefined && stat.immunities != undefined && stat.immunities.indexOf(conditionName as string) != -1;
+    } else if (figure instanceof Character) {
+      let immunities: ConditionName[] = [];
+      if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '38')) {
+        immunities.push(ConditionName.stun, ConditionName.muddle);
+      }
+      if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '52')) {
+        immunities.push(ConditionName.poison, ConditionName.wound);
+      }
+      if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '103')) {
+        immunities.push(ConditionName.poison, ConditionName.wound);
+      }
+      if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '57')) {
+        immunities.push(ConditionName.muddle);
+      }
+      if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '138')) {
+        immunities.push(ConditionName.disarm, ConditionName.stun, ConditionName.muddle);
+      }
 
-    let immune = stat != undefined && stat.immunities != undefined && stat.immunities.indexOf(conditionName as string) != -1;
+      if (figure.name == 'blinkblade' && figure.edition == 'fh' && figure.progress.perks[10]) {
+        immunities.push(ConditionName.immobilize);
+      } else if (figure.name == 'coral' && figure.edition == 'fh' && figure.progress.perks[7]) {
+        immunities.push(ConditionName.impair);
+      } else if (figure.name == 'prism' && figure.edition == 'fh' && figure.progress.perks[9]) {
+        immunities.push(ConditionName.wound);
+      }
+
+      immune = immunities.indexOf(conditionName) != -1;
+    }
 
     if (!immune) {
       if (conditionName == ConditionName.wound_x) {
-        return this.isImmune(monster, entity, ConditionName.wound);
+        return this.isImmune(entity, figure, ConditionName.wound);
       } else if (conditionName == ConditionName.poison_x) {
-        return this.isImmune(monster, entity, ConditionName.poison);
+        return this.isImmune(entity, figure, ConditionName.poison);
       } else if (conditionName == ConditionName.rupture) {
-        return this.isImmune(monster, entity, ConditionName.wound);
+        return this.isImmune(entity, figure, ConditionName.wound);
       } else if (conditionName == ConditionName.infect) {
-        return this.isImmune(monster, entity, ConditionName.poison);
+        return this.isImmune(entity, figure, ConditionName.poison);
       } else if (conditionName == ConditionName.chill) {
-        return this.isImmune(monster, entity, ConditionName.immobilize) || this.isImmune(monster, entity, ConditionName.muddle);
+        return this.isImmune(entity, figure, ConditionName.immobilize) || this.isImmune(entity, figure, ConditionName.muddle);
       }
     }
 

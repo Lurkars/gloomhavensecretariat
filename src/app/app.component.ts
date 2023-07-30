@@ -40,6 +40,12 @@ export class AppComponent implements OnInit {
       document.body.classList.remove('modern');
       this.meta.updateTag({ name: 'theme-color', content: '#936658' });
     }
+
+    if (settingsManager.settings.portraitMode) {
+      document.body.classList.add('portrait-mode');
+    } else {
+      document.body.classList.remove('portrait-mode');
+    }
   }
 
   applyAnimations() {

@@ -75,13 +75,6 @@ export class CharacterInitiativeDialogComponent {
         if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0 || initiative > 0) && initiative < 100 && initiative != this.figure.initiative) {
             this.figure.initiative = initiative;
             if (this.character) {
-                if (initiative == 99 && !this.character.longRest) {
-                    this.character.longRest = true;
-                } else {
-                    this.character.longRest = false;
-                }
-            }
-            if (this.character) {
                 this.character.initiativeVisible = true;
             }
         }
@@ -99,6 +92,7 @@ export class CharacterInitiativeDialogComponent {
                     this.character.longRest = true;
                 } else {
                     this.setInitiative(99);
+                    this.character.longRest = true;
                     if (gameManager.game.state == GameState.next) {
                         gameManager.sortFigures(this.character);
                     }

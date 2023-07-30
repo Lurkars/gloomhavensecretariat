@@ -474,6 +474,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setPortraitMode(portraitMode: boolean) {
+    this.settings.portraitMode = portraitMode;
+    this.storeSettings();
+  }
+
   setPressDoubleClick(pressDoubleClick: boolean) {
     this.settings.pressDoubleClick = pressDoubleClick;
     this.storeSettings();

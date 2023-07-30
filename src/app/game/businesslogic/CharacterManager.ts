@@ -254,18 +254,20 @@ export class CharacterManager {
 
     character.level = level;
 
-    if (character.health == character.maxHealth) {
-      character.health = character.stat.health;
-    }
+    const adjustHealth = character.health == character.maxHealth;
 
     character.maxHealth = character.stat.health;
+
+    if (character.name == 'shackles' && character.edition == 'fh' && character.progress.perks[11] == 2) {
+      character.maxHealth += 5;
+    }
 
     if (character.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '3')) {
       character.maxHealth += 1;
       character.health += 1;
     }
 
-    if (character.health > character.maxHealth) {
+    if (character.health > character.maxHealth || adjustHealth) {
       character.health = character.maxHealth;
     }
 

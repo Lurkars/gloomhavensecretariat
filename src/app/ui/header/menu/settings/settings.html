@@ -990,6 +990,19 @@
     <div class="line">
       <div class="hint-container">
         <label>
+          <input type="checkbox" [checked]="settingsManager.settings.portraitMode"
+            (change)="togglePortraitMode()">
+          <span [ghs-label]="'settings.portraitMode'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.portraitMode.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
           <input type="checkbox" [checked]="settingsManager.settings.disableColumns"
             (change)="settingsManager.setDisableColumns(!settingsManager.settings.disableColumns)">
           <span [ghs-label]="'settings.disableColumns'"></span>

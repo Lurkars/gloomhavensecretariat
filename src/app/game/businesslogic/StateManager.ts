@@ -271,6 +271,7 @@ export class StateManager {
             settings.fhStyle = settingsManager.settings.fhStyle;
             settings.fontsize = settingsManager.settings.fontsize;
             settings.fullscreen = settingsManager.settings.fullscreen;
+            settings.portraitMode = settingsManager.settings.portraitMode;
             settings.pressDoubleClick = settingsManager.settings.pressDoubleClick;
             settings.serverAutoconnect = settingsManager.settings.serverAutoconnect;
             settings.serverPassword = settingsManager.settings.serverPassword;

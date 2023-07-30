@@ -124,33 +124,14 @@ export class ConditionsComponent implements OnInit {
   }
 
   isImmune(conditionName: ConditionName): boolean {
-
-    if (this.figure instanceof Character) {
-      let immunities: ConditionName[] = [];
-      if (this.figure.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '38')) {
-        immunities.push(ConditionName.stun, ConditionName.muddle);
-      }
-      if (this.figure.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '52')) {
-        immunities.push(ConditionName.poison, ConditionName.wound);
-      }
-      if (this.figure.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '103')) {
-        immunities.push(ConditionName.poison, ConditionName.wound);
-      }
-      if (this.figure.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '57')) {
-        immunities.push(ConditionName.muddle);
-      }
-      if (this.figure.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '138')) {
-        immunities.push(ConditionName.disarm, ConditionName.stun, ConditionName.muddle);
-      }
-
-      return immunities.indexOf(conditionName) != -1;
-    }
-
     if (this.figure instanceof Monster) {
       if (!(this.entity instanceof MonsterEntity)) {
-        return this.entities.every((entity) => this.figure instanceof Monster && entity instanceof MonsterEntity && gameManager.entityManager.isImmune(this.figure, entity, conditionName));
+        return this.entities.every((entity) => this.figure instanceof Monster && entity instanceof MonsterEntity && gameManager.entityManager.isImmune(entity, this.figure, conditionName));
+      } else {
+        return gameManager.entityManager.isImmune(this.entity, this.figure, conditionName);
       }
-      return gameManager.entityManager.isImmune(this.figure, this.entity, conditionName);
+    } else if (this.figure instanceof Character && this.entity instanceof Character) {
+      return gameManager.entityManager.isImmune(this.entity, this.figure, conditionName);
     }
 
     return false;

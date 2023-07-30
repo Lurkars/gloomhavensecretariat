@@ -24,19 +24,11 @@
       height: calc(var(--ghs-unit) * 4.5 * var(--ghs-dialog-factor));
       width: auto;
     }
-
-    .character-icon {
-      cursor: pointer;
-
-      &:hover {
-        opacity: 0.4;
-      }
-    }
   }
 
 
   .entities {
-   
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,6 +73,52 @@
         opacity: 0.7;
         border-color: var(--ghs-color-gray);
       }
+
+      .summon-image {
+        position: relative;
+        width: calc(var(--ghs-unit) * 4);
+        height: calc(var(--ghs-unit) * 4);
+        transition: top 500ms ease-out, left 500ms ease-out;
+
+        &.new::before {
+          content: " ";
+          display: block;
+          position: absolute;
+          width: calc(var(--ghs-unit) * 4);
+          height: calc(var(--ghs-unit) * 4);
+          background-image: url('~/src/assets/images/summons/minus.svg');
+          background-size: cover;
+          z-index: 2;
+        }
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+        }
+
+        .summon-number {
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          top: 0;
+          left: calc(var(--ghs-unit) * -0.1);
+          height: calc(var(--ghs-unit) * 4);
+          width: calc(var(--ghs-unit) * 2);
+          font-family: var(--ghs-font-title);
+          font-size: calc(var(--ghs-unit) * 2.5);
+          color: var(--ghs-color-white);
+          background-color: var(--ghs-color-darkgray);
+          border-top-left-radius: calc(var(--ghs-unit) * 4);
+          border-bottom-left-radius: calc(var(--ghs-unit) * 4);
+          z-index: 3;
+          opacity: 0.9;
+        }
+      }
     }
   }
 
@@ -88,6 +126,20 @@
     display: grid;
     grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor)));
     align-content: space-between;
+
+    .max-health-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      grid-column: 2 span;
+      width: calc(var(--ghs-unit) * 14 * var(--ghs-dialog-factor));
+
+      img {
+        height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        width: auto;
+      }
+    }
   }
 
   .ghs-svg {

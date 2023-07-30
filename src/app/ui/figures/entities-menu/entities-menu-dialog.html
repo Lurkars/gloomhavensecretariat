@@ -1,17 +1,33 @@
 <div class="entity-menu-dialog">
 
-  <div class="name">
-    <img *ngIf="!data.monster.noThumbnail" class="standee"
-      [src]="gameManager.monsterManager.monsterThumbnail(data.monster)" />
-    <span [ghs-label]="'data.monster.' + data.monster.name"></span>&nbsp;
-    <span class="ally" *ngIf="data.monster.isAlly"><span [ghs-label]="'game.ally'"></span>&nbsp;</span>
-    <span class="allied" *ngIf="data.monster.isAllied"><span [ghs-label]="'game.allied'"></span>&nbsp;</span>
+  <div class="name" *ngIf="monster">
+    <img *ngIf="!monster.noThumbnail" class="standee" [src]="gameManager.monsterManager.monsterThumbnail(monster)" />
+    <span [ghs-label]="'data.monster.' + monster.name"></span>&nbsp;
+    <span class="ally" *ngIf="monster.isAlly"><span [ghs-label]="'game.ally'"></span>&nbsp;</span>
+    <span class="allied" *ngIf="monster.isAllied"><span [ghs-label]="'game.allied'"></span>&nbsp;</span>
     <span class="monster-type" *ngIf="data.type" [ghs-label]="'(%game.monsterType.' +  data.type + '%)'"></span>
   </div>
 
+  <span class="name" *ngIf="character">
+    <img class="icon character-icon" [src]="character.iconUrl" />
+    <span>{{gameManager.characterManager.characterName(character,true)}}</span>
+  </span>
+
   <div class="entities">
-    <div class="entity {{entity.type}}" *ngFor="let entity of allEntities" (click)="toggleEntity(entity)"
-      [ngClass]="{'inactive' : entities.indexOf(entity) == -1}">{{entity.number}}</div>
+    <ng-container *ngFor="let entity of allEntities">
+      <div class="entity {{gameManager.toMonsterEntity(entity).type}}" *ngIf="monster" (click)="toggleEntity(entity)"
+        [ngClass]="{'inactive' : entities.indexOf(entity) == -1}">{{entity.number}}</div>
+      <div class="entity" *ngIf="character" (click)="toggleEntity(entity)"
+        [ngClass]="{'inactive' : entities.indexOf(entity) == -1}">
+        <span class="summon-image"
+          [ngClass]="{'active' : gameManager.toSummon(entity).state == SummonState.true, 'new' : gameManager.toSummon(entity).state == SummonState.new, 'center' : (gameManager.toSummon(entity).entityConditions.length % 2) == 0}">
+          <img src="./assets/images/summons/{{gameManager.toSummon(entity).color}}.png">
+          <span class="summon-number">
+            <span *ngIf="gameManager.toSummon(entity).number == 0">-</span>
+            <span *ngIf="gameManager.toSummon(entity).number > 0">{{gameManager.toSummon(entity).number}}</span></span>
+        </span>
+      </div>
+    </ng-container>
   </div>
 
   <div class="entity-container">
@@ -32,8 +48,11 @@
     </span>
   </div>
 
-  <ghs-conditions [entityConditions]="entityConditions" [entities]="entities" [figure]="data.monster" [type]="'monster'"
-    [columns]="4"></ghs-conditions>
+  <ghs-conditions *ngIf="monster" [entityConditions]="entityConditions" [entities]="entities" [figure]="monster"
+    [type]="'monster'" [columns]="4"></ghs-conditions>
+
+  <ghs-conditions *ngIf="character" [entityConditions]="entityConditions" [entities]="entities" [figure]="character"
+    [type]="'monster'" [columns]="4"></ghs-conditions>
 
   <div class="entity-container">
     <span class="item" [ghs-label]="'game.dead'" [ghs-label-attribute]="'title'">
@@ -41,9 +60,20 @@
         <img src="./assets/images/status/dead.svg" />
       </a>
     </span>
+    <span class="item max-health-container">
+      <ghs-pointer-input class="button" (singleClick)="changeMaxHealth(-1)" [repeat]="true">
+        <img class="ghs-svg" src="./assets/images/minus.svg">
+      </ghs-pointer-input>
+      <img src="./assets/images/status/health.svg" [ghs-label]="'game.maxHealth'" [ghs-label-attribute]="'title'" />
+      <span class="badge health-count"
+        [ngClass]="{'negative-value' : maxHealth < 0, 'positive-value' : maxHealth > 0}">{{maxHealth | ghsValueSign}}</span>
+      <ghs-pointer-input class="button" (singleClick)="changeMaxHealth(1)" [repeat]="true">
+        <img class="ghs-svg" src="./assets/images/plus.svg">
+      </ghs-pointer-input>
+    </span>
   </div>
 
-  <span class="toggle-type" (click)="toggleType()">
+  <span class="toggle-type" (click)="toggleType()" *ngIf="monster">
     <span [ghs-label]="'%game.monsterType.normal%'"></span>
     <img class="ghs-svg" src="./assets/images/switch.svg" />
     <span [ghs-label]="'%game.monsterType.elite%'"></span>
