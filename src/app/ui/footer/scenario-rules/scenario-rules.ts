@@ -18,6 +18,7 @@ import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
 import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
 import { ConditionName } from "src/app/game/model/data/Condition";
+import { GameState } from "src/app/game/model/Game";
 
 @Component({
     selector: 'ghs-scenario-rules',
@@ -510,6 +511,23 @@ export class ScenarioRulesComponent {
                                 }
                             }
 
+                        })
+                    })
+
+                    rule.figures.filter((figureRule) => figureRule.type == "setAbility").forEach((figureRule) => {
+                        const figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
+                        figures.forEach((figure) => {
+                            if (figure instanceof Monster) {
+                                const ability = gameManager.abilities(figure).find((ability) => isNaN(+figureRule.value) ? ability.name == figureRule.value : ability.cardId == (+figureRule.value));
+                                if (ability) {
+                                    const index = gameManager.abilities(figure).indexOf(ability);
+                                    if (index != -1) {
+                                        figure.abilities = figure.abilities.filter((number) => number != index);
+                                        figure.abilities.unshift(index);
+                                        figure.ability = gameManager.game.state == GameState.draw ? -1 : 0;
+                                    }
+                                }
+                            }
                         })
                     })
 

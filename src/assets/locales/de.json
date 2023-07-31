@@ -1063,6 +1063,7 @@
         "loseCondition": "{0} verliert %game.condition.{1}%",
         "permanentCondition": "{0} erlangt dauerhaft %game.condition.{1}%",
         "scenarioEffect": "als Szenarioeffekt",
+        "setAbility": "Aktive Fertigkeitskarte von {0} auf '{1}' festlegen",
         "setHp": "{0} TP auf {2}",
         "toggleOff": "{0} inaktiv setzen",
         "toggleOn": "{0} aktiv setzen",

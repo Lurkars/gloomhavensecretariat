@@ -46,8 +46,7 @@ export class ItemComponent implements OnInit {
         }
 
         if (this.item) {
-
-            if (!gameManager.game.edition || gameManager.itemManager.itemEditions(gameManager.game.edition).find((edition) => edition != gameManager.game.edition)) {
+            if (!gameManager.game.edition || this.item.edition != gameManager.game.edition) {
                 this.edition = this.item.edition;
             }
 

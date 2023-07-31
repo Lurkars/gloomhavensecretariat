@@ -20,7 +20,8 @@ export class ItemManager {
 
     itemData(edition: string, all: boolean = false): ItemData[] {
         const extenstions = this.itemEditions(edition);
-        return gameManager.itemData(undefined, all).filter((itemData) => itemData.edition == edition || extenstions.indexOf(itemData.edition) != -1);
+        return gameManager.itemData(undefined, all).filter((itemData) => itemData.edition == edition || extenstions.indexOf(itemData.edition) != -1 ||
+            edition == 'fh' && itemData.edition == 'gh' && [10, 25, 72, 105, 109, 116].indexOf(itemData.id) != -1);
     }
 
     getItem(id: number, edition: string, all: boolean): ItemData | undefined {

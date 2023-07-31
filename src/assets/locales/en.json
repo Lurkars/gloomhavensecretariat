@@ -1171,6 +1171,7 @@
         "loseCondition": "{0} lose %game.condition.{1}%",
         "permanentCondition": "{0} gain permanent %game.condition.{1}%",
         "scenarioEffect": "as scenario effect",
+        "setAbility": "Set active ability card of {0} to '{1}'",
         "setHp": "{0} HP to {2}",
         "toggleOff": "{0} to inactive",
         "toggleOn": "{0} to active",
