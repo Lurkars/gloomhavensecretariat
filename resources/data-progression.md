@@ -8,7 +8,7 @@ In order to avoid error reports due to incomplete data, here is the current stat
 | ---------------------------: | :---: | :---: | :----: | :---: | :---: | :---: |
 |               **Characters** |   ✅   |   ✅   |   ✅    |   ✅   |   ✅   |   ✅   |
 |                 **Monsters** |   ✅   |   ✅   |   ✅    |   ✅   |   ✅   |   ❔   |
-|      **Char. Perks/AM Deck** |   ✅   |   ✅   |   ✅    |   ✅   |   ✅   |   ⛔   |
+|      **Char. Perks/AM Deck** |   ✅   |   ✅   |   ✅    |   ✅   |   ✅   |   ✅   |
 |       **Scenarios/Sections** |   ✅   |   ✅   |   ✅    |   ✅   |   ✅   |   ✅   |
 | **Rooms/Automatic Standees** |   ✅   |   ✅   |   ✅    |   ✅   |   ✅   |   ✅   |
 |            **Special Rules** |   ✅   |   ✅   |   ✅    |   ✅   |   ❔   |   ✅   |

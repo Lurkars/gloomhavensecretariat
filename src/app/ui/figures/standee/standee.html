@@ -1,5 +1,5 @@
 <div class="entity-border"
-  [ngClass]="{'dead' : entity.dead, 'off' : entity.off, 'active' : entity.active && settingsManager.settings.activeStandees, 'active-focus': entity.active && settingsManager.settings.activeStandees && !figure.active, 'denied' : gameManager.isMonster(figure) && !gameManager.stateManager.monsterPermissions[figure.name + '|' + figure.edition] || gameManager.isObjective(figure) && !gameManager.stateManager.permissions?.characters ||  gameManager.isCharacter(figure) && !gameManager.stateManager.characterPermissions[figure.name + '|' + figure.edition] , 'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}"
+  [ngClass]="{'dead' : entity.dead, 'off' : entity.off, 'active' : entity.active && settingsManager.settings.activeStandees, 'active-focus': entity.active && settingsManager.settings.activeStandees && !figure.active, 'denied' : gameManager.isMonster(figure) && !gameManager.stateManager.monsterPermissions[figure.name + '|' + figure.edition] || gameManager.isObjective(figure) && !gameManager.stateManager.permissions?.characters ||  gameManager.isCharacter(figure) && !gameManager.stateManager.characterPermissions[figure.name + '|' + figure.edition], 'action-hint-border' : actionHints.length > 0 && (actionHints.length % 2) == 1 && activeConditions.length ==  0 && entity.summon == SummonState.false,  'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}"
   [entityAnimation]="entity.dead">
   <div class="entity" [ngClass]="entity.type">
     <div #standee class="standee">
@@ -23,16 +23,16 @@
     </div>
 
     <div class="conditions actions">
-      <span *ngIf="+shieldAction.value" class="condition-container" [ngClass]="{'center' : !+retaliateAction.value}">
+      <span *ngFor="let actionHint of actionHints; let i = index;" class="condition-container"
+        [ngClass]="{'center' : (actionHints.length % 2) == 1 && i == actionHints.length - 1}">
         <span class="condition">
-          <img [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') +  'action/shield.svg'" />
-          <span class="value">{{shieldAction.value}}</span>
-        </span>
-      </span>
-      <span *ngIf="+retaliateAction.value" class="condition-container" [ngClass]="{'center' : !+shieldAction.value}">
-        <span class="condition">
-          <img [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') +  'action/retaliate.svg'" />
-          <span class="value">{{retaliateAction.value}}</span>
+          <img
+            [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') +  'action/' + actionHint.type +'.svg'" />
+          <span class="value">{{actionHint.value}}</span>
+          <span class="range" *ngIf="actionHint.range">
+            <img [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') +  'action/range.svg'" />
+            <span class="value">{{actionHint.range}}</span>
+          </span>
         </span>
       </span>
     </div>

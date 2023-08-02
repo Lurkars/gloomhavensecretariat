@@ -69,6 +69,24 @@ export class AttackModifierManager {
     return count;
   }
 
+  getAdditional(character: Character, type: AttackModifierType, all: boolean = false): AttackModifier[] {
+    let additional: AttackModifier[] = [];
+    if (character.additionalModifier.find((perk) => perk.attackModifier && perk.attackModifier.type == type)) {
+      character.additionalModifier.forEach((card, index) => {
+        if (card.attackModifier && card.attackModifier.type == type) {
+          let am = Object.assign(new AttackModifier(card.attackModifier.type, card.attackModifier.value, card.attackModifier.valueType), card.attackModifier);
+          am.id = "additional" + index;
+          am.character = true;
+          const existing: number = all ? 0 : character.attackModifierDeck.cards.filter((other) => other.id == am.id).length;
+          for (let i = 0; i < card.count - existing; i++) {
+            additional.push(JSON.parse(JSON.stringify(am)));
+          }
+        }
+      })
+    }
+    return additional;
+  }
+
   countExtraMinus1(): number {
     let count = 0;
     if (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied))) {
@@ -181,6 +199,15 @@ export class AttackModifierManager {
         })
       }
     })
+
+    if (character.additionalModifier) {
+      character.additionalModifier.forEach((card, index) => {
+        let am = Object.assign(new AttackModifier(card.attackModifier.type, card.attackModifier.value, card.attackModifier.valueType), card.attackModifier);
+        am.id = "additional" + index;
+        am.character = true;
+        attackModifierDeck.attackModifiers.push(am);
+      })
+    }
 
     if (character.progress && character.progress.perks) {
       character.progress.perks.forEach((checked, index) => {
@@ -331,7 +358,7 @@ export class AttackModifierManager {
     perk.cards = perk.cards || [];
 
     perk.cards.forEach((card, index) => {
-      if (!this.findByAttackModifier(characterCards, card.attackModifier) || perk.type == PerkType.add || perk.type == PerkType.replace && (index > 0 && !this.replaceThreeCheck(perk) || index > 1 && this.replaceThreeCheck(perk))) {
+      if (!this.findByAttackModifier(characterCards, card.attackModifier) || perk.type == PerkType.add || perk.type == PerkType.replace && index >= this.replaceCount(perk)) {
         card.attackModifier.character = true;
       }
     })
@@ -341,18 +368,25 @@ export class AttackModifierManager {
     } else if (perk.type == PerkType.remove) {
       this.removeCards(attackModifierDeck, perk.cards);
     } else if (perk.type == PerkType.replace) {
-      if (this.replaceThreeCheck(perk)) {
-        this.removeCards(attackModifierDeck, [perk.cards[0], perk.cards[1]]);
-        this.addCards(attackModifierDeck, [perk.cards[2]]);
-      } else {
-        this.removeCards(attackModifierDeck, [perk.cards[0]]);
-        this.addCards(attackModifierDeck, perk.cards.slice(1, perk.cards.length));
-      }
+      const count = this.replaceCount(perk);
+      this.removeCards(attackModifierDeck, perk.cards.slice(0, count));
+      this.addCards(attackModifierDeck, perk.cards.slice(count, perk.cards.length));
     }
   }
 
-  replaceThreeCheck(perk: Perk) {
-    return perk.type == PerkType.replace && perk.cards.length == 3 && (perk.cards[0].count + perk.cards[1].count) == perk.cards[2].count
+
+  replaceCount(perk: Perk): number {
+    let remove: number = -1;
+    if (perk.type == PerkType.replace) {
+      remove = 0;
+      perk.cards.forEach((card, index, self) => {
+        let count = self.slice(0, index + 1).map((a) => a.count).reduce((a, b) => a + b);
+        if (index < self.length - 1 && count <= self.slice(index + 1, self.length).map((a) => a.count).reduce((a, b) => a + b)) {
+          remove = index + 1;
+        }
+      })
+    }
+    return remove;
   }
 
   findByAttackModifier(attackModifiers: AttackModifier[], attackModifier: AttackModifier): AttackModifier | undefined {

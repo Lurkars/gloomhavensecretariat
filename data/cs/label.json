@@ -296,7 +296,8 @@
           "6": "Ignore damage, and negative conditions and modifiers from Events,"
         },
         "target": {
-          "1": "if projectile %data.action.custom.cs-projectile%"
+          "1": "if the attack is a Projectile %data.action.custom.cs-projectile%",
+          "2": "if projectile %data.action.custom.cs-projectile%"
         },
         "tusks": {
           "1": "Affect all summoned allies owned",

@@ -484,6 +484,14 @@
         width: 100%;
         height: 100%;
         transform: none;
+
+        ghs-attackmodifier-effects {
+          position: absolute;
+          top: 40%;
+          left: -15%;
+          width: 135%;
+          height: 50%;
+        }
       }
 
       &.or {

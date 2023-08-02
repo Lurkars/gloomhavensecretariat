@@ -12,5 +12,5 @@
   </ng-container>
 </div>
 <span class="left-abilities" *ngIf="settingsManager.settings.abilities">
-  {{this.monster.abilities.length - gameManager.monsterManager.drawnAbilities(this.monster) - (secondAbility ? 1 : 0)}}
+  {{this.monster.abilities.length - gameManager.monsterManager.drawnAbilities(this.monster) - (secondAbility ? 1 : 0)}}/{{this.monster.abilities.length}}
 </span>

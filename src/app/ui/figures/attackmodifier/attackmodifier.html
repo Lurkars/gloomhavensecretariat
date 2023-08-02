@@ -58,11 +58,24 @@
           <img src="./assets/images/attackmodifier/cs-oak.png" />
         </div>
 
+        <div class="type empower" *ngIf="attackModifier.type == AttackModifierType.empower">
+          <img src="./assets/images/attackmodifier/empower.png" />
+        </div>
+
+        <div class="type enfeeble" *ngIf="attackModifier.type == AttackModifierType.enfeeble">
+          <img src="./assets/images/attackmodifier/enfeeble.png" />
+        </div>
+
         <img class="overlay custom" src="./assets/images/attackmodifier/overlays/custom.png">
         <img class="overlay custom-fh" src="./assets/images/attackmodifier/overlays/custom-fh.png">
         <img class="overlay" [ngClass]="{'side' : newStyle}"
-          *ngIf="attackModifier.effects && attackModifier.effects.length > 0 && (attackModifier.type != AttackModifierType.plus0 && attackModifier.type != AttackModifierType.plus && attackModifier.type != AttackModifierType.minus || newStyle)"
+          *ngIf="attackModifier.effects && attackModifier.effects.length > 0 && (attackModifier.type != AttackModifierType.plus0  && attackModifier.type != AttackModifierType.plus && attackModifier.type != AttackModifierType.minus || newStyle) && attackModifier.type != AttackModifierType.empower && attackModifier.type != AttackModifierType.enfeeble"
           [src]="'./assets/images/attackmodifier/' + (newStyle ? 'icons/' : 'overlays/') + attackModifier.type + '.png'" />
+
+        <img class="overlay side"
+          *ngIf="attackModifier.type == AttackModifierType.empower || attackModifier.type == AttackModifierType.enfeeble"
+          [src]="'./assets/images/attackmodifier/' + (newStyle ? 'icons/' : 'overlays/') + attackModifier.valueType + attackModifier.value + '.png'" />
+
         <img class="rolling" *ngIf="attackModifier.rolling" src="./assets/images/attackmodifier/rolling.svg" />
         <span
           *ngIf="(!characterIcon && !ally || !attackModifier.character && attackModifier.type !=

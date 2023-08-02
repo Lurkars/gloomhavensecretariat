@@ -8,7 +8,6 @@ import { Character } from "src/app/game/model/Character";
 import { ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
 import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
-import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
@@ -54,8 +53,7 @@ export class EntityMenuDialogComponent {
   characterTokenValues: number[] = [];
   objectiveDead: boolean = false;
   entityConditions: EntityCondition[] = [];
-  shieldAction: Action = new Action(ActionType.shield, 0, ActionValueType.fixed, []);
-  retaliateAction: Action = new Action(ActionType.retaliate, 0, ActionValueType.fixed, []);
+  actionHints: Action[] = [];
 
   titles: string[] = [];
 
@@ -104,74 +102,7 @@ export class EntityMenuDialogComponent {
     }
 
     if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
-      let stat = gameManager.monsterManager.getStat(this.data.figure, this.data.entity.type);
-      let statAction = stat.actions.find((action) => action.type == ActionType.shield);
-      if (statAction) {
-        this.shieldAction.value = +this.shieldAction.value + +statAction.value;
-        if (statAction.subActions && statAction.subActions.length > 0) {
-          this.shieldAction.subActions.push(...JSON.parse(JSON.stringify(statAction.subActions)));
-        }
-      }
-
-      if (gameManager.entityManager.isAlive(this.data.entity, true) && (!this.data.entity.active || this.data.figure.active)) {
-        const activeFigure = gameManager.game.figures.find((figure) => figure.active);
-        if (this.data.figure.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(this.data.figure))) {
-          let ability = gameManager.monsterManager.getAbility(this.data.figure);
-          if (ability) {
-            ability.actions.forEach((action) => {
-              if (action.type == ActionType.shield && (!action.subActions || !action.subActions.find((shieldSubAction) => shieldSubAction.type == ActionType.specialTarget && !('' + shieldSubAction.value).startsWith('self')))) {
-                this.shieldAction.value = +this.shieldAction.value + +action.value;
-                if (action.subActions && action.subActions.length > 0) {
-                  this.shieldAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions.filter((subAction) => subAction.type != ActionType.specialTarget))));
-                }
-              } else if (action.type == ActionType.monsterType && action.value == (this.data.entity as MonsterEntity).type) {
-                action.subActions.forEach((action) => {
-                  if (action.type == ActionType.shield) {
-                    this.shieldAction.value = +this.shieldAction.value + +action.value;
-                    if (action.subActions && action.subActions.length > 0) {
-                      this.shieldAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions.filter((subAction) => subAction.type != ActionType.specialTarget))));
-                    }
-                  }
-                });
-              }
-            })
-          }
-        }
-      }
-
-      statAction = stat.actions.find((action) => action.type == ActionType.retaliate);
-      if (statAction) {
-        this.retaliateAction.value = +this.retaliateAction.value + +statAction.value;
-        if (statAction.subActions && statAction.subActions.length > 0) {
-          this.retaliateAction.subActions.push(...JSON.parse(JSON.stringify(statAction.subActions)));
-        }
-      }
-
-      if (gameManager.entityManager.isAlive(this.data.entity, true) && (!this.data.entity.active || this.data.figure.active)) {
-        const activeFigure = gameManager.game.figures.find((figure) => figure.active);
-        if (this.data.figure.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(this.data.figure))) {
-          let ability = gameManager.monsterManager.getAbility(this.data.figure);
-          if (ability) {
-            ability.actions.forEach((action) => {
-              if (action.type == ActionType.retaliate) {
-                this.retaliateAction.value = +this.retaliateAction.value + +action.value;
-                if (action.subActions && action.subActions.length > 0) {
-                  this.retaliateAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions)));
-                }
-              } else if (action.type == ActionType.monsterType && action.value == (this.data.entity as MonsterEntity).type) {
-                action.subActions.forEach((action) => {
-                  if (action.type == ActionType.retaliate) {
-                    this.retaliateAction.value = +this.retaliateAction.value + +action.value;
-                    if (action.subActions && action.subActions.length > 0) {
-                      this.retaliateAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions)));
-                    }
-                  }
-                });
-              }
-            })
-          }
-        }
-      }
+      this.actionHints = gameManager.monsterManager.calcActionHints(this.data.figure, this.data.entity).map((actionHint) => new Action(actionHint.type, actionHint.value, ActionValueType.fixed, actionHint.range ? [new Action(ActionType.range, actionHint.range, ActionValueType.fixed, [], true)] : []));
     }
 
     this.dialogRef.closed.subscribe({
@@ -728,6 +659,44 @@ export class EntityMenuDialogComponent {
         this.changeAttackModifier(AttackModifierType.curse, this.curse);
         gameManager.stateManager.after();
         this.curse = 0;
+      }
+
+      if (this.empower != 0) {
+        gameManager.stateManager.before(this.empower < 0 ? "removeEmpower" + (this.empower < -1 ? 's' : '') : "addEmpower" + (this.empower > 1 ? 's' : ''), "data.character." + this.data.figure.name, '' + (this.empower > 0 ? this.empower : this.empower * -1));
+        if (this.empower > 0) {
+          const additional = gameManager.attackModifierManager.getAdditional(this.data.entity, AttackModifierType.empower);
+          for (let i = 0; i < Math.min(this.empower, additional.length); i++) {
+            gameManager.attackModifierManager.addModifier(this.data.entity.attackModifierDeck, additional[i]);
+          }
+        } else {
+          for (let i = 0; i < this.empower * -1; i++) {
+            const empower = this.data.entity.attackModifierDeck.cards.find((am, index) => index > (this.data.entity as Character).attackModifierDeck.current && am.type == AttackModifierType.empower);
+            if (empower) {
+              this.data.entity.attackModifierDeck.cards.splice(this.data.entity.attackModifierDeck.cards.indexOf(empower), 1);
+            }
+          }
+        }
+        gameManager.stateManager.after();
+        this.empower = 0;
+      }
+
+      if (this.enfeeble != 0) {
+        gameManager.stateManager.before(this.enfeeble < 0 ? "removeEnfeeble" + (this.enfeeble < -1 ? 's' : '') : "addEnfeeble" + (this.enfeeble > 1 ? 's' : ''), "data.character." + this.data.figure.name, '' + (this.enfeeble > 0 ? this.enfeeble : this.enfeeble * -1));
+        if (this.enfeeble > 0) {
+          const additional = gameManager.attackModifierManager.getAdditional(this.data.entity, AttackModifierType.enfeeble);
+          for (let i = 0; i < Math.min(this.enfeeble, additional.length); i++) {
+            gameManager.attackModifierManager.addModifier(this.data.entity.attackModifierDeck, additional[i]);
+          }
+        } else {
+          for (let i = 0; i < this.enfeeble * -1; i++) {
+            const enfeeble = this.data.entity.attackModifierDeck.cards.find((am, index) => index > (this.data.entity as Character).attackModifierDeck.current && am.type == AttackModifierType.enfeeble);
+            if (enfeeble) {
+              this.data.entity.attackModifierDeck.cards.splice(this.data.entity.attackModifierDeck.cards.indexOf(enfeeble), 1);
+            }
+          }
+        }
+        gameManager.stateManager.after();
+        this.enfeeble = 0;
       }
 
       let title = this.data.entity.title;

@@ -116,3 +116,5 @@ export enum ActionCardType {
   slotXp = "slotXp"
 
 }
+
+export type ActionHint = { type: ActionType, value: number, range: number };

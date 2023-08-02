@@ -18,7 +18,7 @@
       [ghs-label]="deck.current == deck.cards.length -1 ? 'game.cards.shuffle' : 'game.cards.draw'"
       [ghs-label-attribute]="'title'" [ngClass]="{'town-guard' : townGuard, 'disabled' : disabled }">
       <span class="number" [ngClass]="{'has-shuffle' : deck.current == deck.cards.length -1}"> {{ deck.current <
-          deck.cards.length -1 ? deck.cards.length - deck.current - 1 : '' }} </span>
+          deck.cards.length - 1 ? (deck.cards.length - deck.current - 1) + '/' + deck.cards.length : '' }} </span>
       <img *ngIf="deck.current == deck.cards.length -1" class="shuffle" [ghs-label]="'game.cards.openDialog'"
         [ghs-label-attribute]="'title'" src="./assets/images/shuffle.svg">
 

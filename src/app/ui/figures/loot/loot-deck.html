@@ -3,17 +3,19 @@
     <div class="loot-container draw" [style.z-index]="deck.cards.length + 1">
         <div class="loot-card" #card [style.fontSize]="card.offsetWidth * 0.08 + 'px'" (click)="draw($event)"
             [ngClass]="{'disabled' : disabled}">
-            <span class="number">{{deck.current < deck.cards.length -1 ? deck.cards.length - deck.current - 1 :
+            <span class="number">{{deck.current < deck.cards.length -1 ? (deck.cards.length - deck.current - 1) + '/' + deck.cards.length :
                     0}}</span>
         </div>
 
         <span class="fullscreen" [ghs-label]="'game.cards.fullscreen'" [ghs-label-attribute]="'title'"
-            *ngIf="fullscreen && !compact" (click)="openFullscreen($event)" [ngClass]="{'vertical' : vertical, 'minimize' : !deck.active}">
+            *ngIf="fullscreen && !compact" (click)="openFullscreen($event)"
+            [ngClass]="{'vertical' : vertical, 'minimize' : !deck.active}">
             <img src="./assets/images/fullscreen.svg">
         </span>
 
         <span class="settings" [ghs-label]="'game.cards.openDialog'" [ghs-label-attribute]="'title'"
-            (click)="open($event)" *ngIf="!compact || vertical" [ngClass]="{'vertical' : vertical, 'without-fullscreen' : !fullscreen, 'minimize' : !deck.active}">
+            (click)="open($event)" *ngIf="!compact || vertical"
+            [ngClass]="{'vertical' : vertical, 'without-fullscreen' : !fullscreen, 'minimize' : !deck.active}">
             <img class="ghs-svg" src="./assets/images/settings.svg">
         </span>
     </div>

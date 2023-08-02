@@ -102,9 +102,8 @@
                 "effects": [
                   {
                     "type": "custom",
-                    "value": "cs-projectile",
-                    "icon": true,
-                    "hint": "%data.custom.perks.target.1%"
+                    "value": "%data.custom.perks.target.1%",
+                    "hint": "%data.custom.perks.target.2%"
                   }
                 ]
               }

@@ -31,6 +31,12 @@
     white-space: nowrap;
     overflow: auto;
     z-index: 4;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     .edition {
       margin-left: 1.25%;

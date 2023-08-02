@@ -67,13 +67,10 @@
     class="status-container">
     <div class="entity-container">
 
-      <div class="shield-action" *ngIf="+shieldAction.value > 0">
-        <ghs-action [action]="shieldAction" [highlight]="settingsManager.settings.statAnimations"></ghs-action>
+      <div class="action-hint" *ngFor="let actionHint of actionHints">
+        <ghs-action [action]="actionHint" [highlight]="settingsManager.settings.statAnimations"></ghs-action>
       </div>
 
-      <div class="retaliate-action" *ngIf="+retaliateAction.value > 0">
-        <ghs-action [action]="retaliateAction" [highlight]="settingsManager.settings.statAnimations"></ghs-action>
-      </div>
       <ng-container
         *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal)">
         <span class="item">
@@ -183,8 +180,7 @@
             <img src="./assets/images/status/bless.svg" />
           </span>
           <span class="badge bless-count">{{countUpcomingAttackModifier(AttackModifierType.bless) + bless}}</span>
-          <span class="warning-badge"
-            *ngIf="gameManager.attackModifierManager.countUpcomingBlesses() + bless > 10">
+          <span class="warning-badge" *ngIf="gameManager.attackModifierManager.countUpcomingBlesses() + bless > 10">
             <img src="./assets/images/warning.svg" />
           </span>
         </span>
@@ -231,7 +227,7 @@
             </ghs-pointer-input>
           </span>
           <span class="item" [ghsTooltip]="'game.condition.empower.hint'" [originX]="'center'" [overlayX]="'center'"
-          [originY]="'top'" [overlayY]="'bottom'">
+            [originY]="'top'" [overlayY]="'bottom'">
             <span class="condition">
               <img src="./assets/images/status/empower.svg" />
             </span>
@@ -260,7 +256,7 @@
             </ghs-pointer-input>
           </span>
           <span class="item" [ghsTooltip]="'game.condition.enfeeble.hint'" [originX]="'center'" [overlayX]="'center'"
-          [originY]="'top'" [overlayY]="'bottom'">
+            [originY]="'top'" [overlayY]="'bottom'">
             <span class="condition">
               <img src="./assets/images/status/enfeeble.svg" />
             </span>

@@ -207,5 +207,21 @@
         }
       ]
     }
+  ],
+  "additionalModifier": [
+    {
+      "count": 10,
+      "attackModifier": {
+        "type": "empower",
+        "value": 1,
+        "rolling": true,
+        "effects": [
+          {
+            "type": "push",
+            "value": 1
+          }
+        ]
+      }
+    }
   ]
 }

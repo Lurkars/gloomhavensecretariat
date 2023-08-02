@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="columns">
-    <ng-container *ngFor="let edition of (allEditions ? gameManager.editions() : gameManager.currentEditions(true))">
+    <ng-container *ngFor="let edition of (allEditions ? gameManager.editions(true,true) : gameManager.currentEditions(true))">
       <div class="column spoilers" *ngIf="characterData[edition] && characterData[edition].length > 0">
         <div class="line title sticky" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
           <label><span [ghs-label]="'data.edition.' + edition"></span></label>

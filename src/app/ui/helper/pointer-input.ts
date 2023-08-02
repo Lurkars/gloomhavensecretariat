@@ -85,13 +85,16 @@ export class PointerInputService {
     window.addEventListener('mousemove', (event: MouseEvent) => {
       if (this.active) {
         this.active.pointermove(event);
+        window.document.body.classList.add('dragging');
+        window.document.body.classList.add('no-pointer');
       }
     }, { passive: true });
 
     window.addEventListener('touchmove', (event: TouchEvent) => {
       if (event.touches.length == 1 && this.active) {
         this.active.pointermove(event);
-
+        window.document.body.classList.add('dragging');
+        window.document.body.classList.add('no-pointer');
         if (this.behindActive) {
           this.behindActive.cancel();
           this.behindActive = undefined;
@@ -109,6 +112,8 @@ export class PointerInputService {
         event.preventDefault();
         event.stopPropagation();
       }
+      window.document.body.classList.remove('dragging');
+      window.document.body.classList.remove('no-pointer');
     });
 
     window.addEventListener('touchend', (event: TouchEvent) => {
@@ -124,6 +129,8 @@ export class PointerInputService {
       } else {
         this.touchend(event);
       }
+      window.document.body.classList.remove('dragging');
+      window.document.body.classList.remove('no-pointer');
     });
 
     window.addEventListener('touchcancel', (event: TouchEvent) => {
@@ -141,6 +148,8 @@ export class PointerInputService {
       } else {
         this.touchend(event);
       }
+      window.document.body.classList.remove('dragging');
+      window.document.body.classList.remove('no-pointer');
     });
   }
 
@@ -180,6 +189,8 @@ export class PointerInputService {
       this.behindActive.cancel();
       this.behindActive = undefined;
     }
+    window.document.body.classList.remove('dragging');
+    window.document.body.classList.remove('no-pointer');
   }
 
   register(directive: PointerInputDirective) {
@@ -217,6 +228,7 @@ export class PointerInputDirective implements OnInit, OnDestroy {
   @Input() disabled: boolean = false;
   @Input() forcePress: boolean = false;
   @Input() forceDoubleClick: boolean = false;
+  @Input() onRelease: boolean = false;
   @Output('dragMove') dragMove = new EventEmitter<number>();
   @Output('dragEnd') dragEnd = new EventEmitter<number>();
 
@@ -254,7 +266,9 @@ export class PointerInputDirective implements OnInit, OnDestroy {
         this.repeatTimeout(event);
       } else if (this.forcePress || settingsManager.settings.pressDoubleClick && !this.forceDoubleClick && this.doubleClick.observed && !this.move && !(event instanceof MouseEvent)) {
         this.timeout = setTimeout(() => {
-          this.doubleClick.emit(event);
+          if ((event instanceof MouseEvent) || !this.onRelease) {
+            this.doubleClick.emit(event);
+          }
           this.timeout = null;
           this.clicks = 2;
         }, longPressTreshhold);
@@ -296,6 +310,9 @@ export class PointerInputDirective implements OnInit, OnDestroy {
               this.timeout = null;
             }, this.doubleClick.observed ? doubleClickTreshhold : 0)
           }
+        } else if (!(event instanceof MouseEvent) && this.onRelease && this.clicks == 2) {
+          this.doubleClick.emit(event);
+          this.clicks = 0;
         } else {
           if (this.clicks < 2 && (!this.repeat || this.doubleClick.observed)) {
             this.singleClick.emit(event);

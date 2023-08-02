@@ -23,20 +23,41 @@ export class PerkLabelComponent {
                 cardLabel.push(settingsManager.getLabel('game.attackModifiers.perks.cardLabel', ['game.attackModifiers.perks.cards.' + card.count, this.attackModifierHtml(card.attackModifier), card.count > 1 ? 'game.attackModifiers.perks.cards' : 'game.attackModifiers.perks.card']))
             })
 
-            if (cardLabel.length < 2 || perk.type == PerkType.replace && cardLabel.length == 2) {
-                label = cardLabel;
-            } else if (perk.type == PerkType.replace) {
-                if (gameManager.attackModifierManager.replaceThreeCheck(perk)) {
-                    label.push(settingsManager.getLabel('game.attackModifiers.perks.additional', [cardLabel[0], cardLabel[1]]));
-                    label.push(cardLabel[2]);
+            if (perk.type == PerkType.replace) {
+                const replace = gameManager.attackModifierManager.replaceCount(perk);
+                if (replace == 1 && cardLabel.length == 2) {
+                    label = cardLabel;
                 } else {
-                    label.push(cardLabel[0]);
-                    cardLabel.forEach((value, index, self) => {
-                        if (index > 0 && index % 2 == 1 && index < self.length - 1) {
-                            label.push(settingsManager.getLabel('game.attackModifiers.perks.additional', [value, cardLabel[index + 1]]));
+                    if (replace > 1) {
+                        let multiLabel = "";
+                        for (let i = replace - 1; i >= 0; i--) {
+                            if (!multiLabel) {
+                                multiLabel = cardLabel[i];
+                            } else {
+                                multiLabel = settingsManager.getLabel('game.attackModifiers.perks.additional', [cardLabel[i], multiLabel])
+                            }
                         }
-                    });
+                        label.push(multiLabel);
+                    } else {
+                        label.push(cardLabel[0]);
+                    }
+
+                    if (cardLabel.length - replace == 1) {
+                        label.push(cardLabel[replace]);
+                    } else {
+                        let multiLabel = "";
+                        for (let i = cardLabel.length; i >= replace; i--) {
+                            if (!multiLabel) {
+                                multiLabel = cardLabel[i];
+                            } else {
+                                multiLabel = settingsManager.getLabel('game.attackModifiers.perks.additional', [cardLabel[i], multiLabel])
+                            }
+                        }
+                        label.push(multiLabel);
+                    }
                 }
+            } if (cardLabel.length < 2) {
+                label = cardLabel;
             } else {
                 cardLabel.forEach((value, index, self) => {
                     if (index % 2 == 0 && index < self.length - 1) {

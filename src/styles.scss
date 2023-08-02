@@ -123,6 +123,10 @@ body {
 
   &.dragging {
     cursor: grabbing !important;
+
+    &.no-pointer * {
+      pointer-events: none;
+    }
   }
 }
 

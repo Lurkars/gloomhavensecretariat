@@ -3,7 +3,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 3;
+  z-index: 5;
   width: 0;
   height: 0;
   visibility: hidden;
@@ -25,7 +25,7 @@
     left: calc(var(--ghs-unit) * 21.5);
     width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor));
     height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
-    z-index: 3;
+    z-index: 5;
   }
 
   &.active,
