@@ -27,7 +27,6 @@ export class BattleGoalComponent implements OnChanges {
         if (changes['identifier'] && changes['identifier'].previousValue != changes['identifier'].currentValue) {
             if (!this.battleGoal && this.identifier) {
                 this.battleGoal = gameManager.battleGoalManager.getBattleGoal(this.identifier);
-                console.log(this.identifier);
             }
         }
     }

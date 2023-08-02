@@ -120,7 +120,6 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
   addEntity() {
     gameManager.stateManager.before('addObjectiveEntity');
     gameManager.objectiveManager.addObjectiveEntity(this.objective);
-    console.log(this.objective);
     gameManager.stateManager.after();
   }
 }

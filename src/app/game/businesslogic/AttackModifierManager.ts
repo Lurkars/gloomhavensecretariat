@@ -378,7 +378,7 @@ export class AttackModifierManager {
   replaceCount(perk: Perk): number {
     let remove: number = -1;
     if (perk.type == PerkType.replace) {
-      remove = 0;
+      remove = 1;
       perk.cards.forEach((card, index, self) => {
         let count = self.slice(0, index + 1).map((a) => a.count).reduce((a, b) => a + b);
         if (index < self.length - 1 && count <= self.slice(index + 1, self.length).map((a) => a.count).reduce((a, b) => a + b)) {
