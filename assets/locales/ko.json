@@ -130,7 +130,7 @@
             "status": "반응 코드 '{0}' 값에 의한 자동 백업 실패. 세부 사항은 브라우저 콘솔을 통해 확인하십시오.",
             "unknown": "알 수 없는 이유로 자동 백업이 실패하였습니다. 세부 사항은 브라우저 콘솔을 통해 확인하십시오."
           },
-          "hint": "자동 백업 파일을 로드하지 않는 대신 데이터를 업로드할 URL을 설정하세요. 파일 이름 자리 표시자로 {FILENAME}을 사용할 수 있습니다.  (이 기능이 작동하려면 적절한 CORS 설정이 필요합니다!)"
+          "hint": "자동 백업 파일을 로드하지 않는 대신 데이터를 업로드할 URL을 설정하세요. 파일 이름 자리 표시자로 {FILENAME}을 사용할 수 있습니다. (이 기능이 작동하려면 적절한 CORS 설정이 필요합니다!)"
         },
         "uploadUrlAuthorization": {
           ".": "인증 헤더",
@@ -403,8 +403,8 @@
       ".": "전투 목표",
       "all": "현재 카드",
       "cancel": "취소",
-      "choose": "전투 목표 선택 for %game.characterIconColored.{0}% {1}",
-      "choosen": "전투 목표 for %game.characterIconColored.{0}% {1}",
+      "choose": "%game.characterIconColored.{0}% {1}의 전투 목표 선택",
+      "choosen": "%game.characterIconColored.{0}% {1}의 전투 목표",
       "chooseCard": "고른 카드 중에 선택",
       "drawCard": "다른 카드 뽑기",
       "drawCards": "카드 다시 뽑기",
@@ -455,7 +455,7 @@
       },
       "chill": {
         ".": "Chill",
-        "hint": "Chill: Gain -1 on all move and attacks for each token. Remove one at end of next turn."
+        "hint": "Chill: Gain -1 on all move and attacks for each token. 다음 차례 끝에 하나 제거."
       },
       "curse": {
         ".": "저주",
@@ -471,11 +471,11 @@
       },
       "empower": {
         ".": "Empower",
-        "hint": "Empower: Shuffle EMPOWER card into attack modifier deck."
+        "hint": "Empower: 공격 보정 덱에 EMPOWER 카드를 섞어 넣음."
       },
       "enfeeble": {
         ".": "Enfeeble",
-        "hint": "Enfeeble: Shuffle ENFEEBLE card into attack modifier deck."
+        "hint": "Enfeeble: 공격 보정 덱에 ENFEEBLE 카드를 섞어 넣음."
       },
       "heal": {
         ".": "치료",
@@ -487,11 +487,11 @@
       },
       "impair": {
         ".": "Impair",
-        "hint": "Impair: Cannot use items. 다음 차례 끝에 제거."
+        "hint": "Impair: 아이템을 사용할 수 없음. 다음 차례 끝에 제거."
       },
       "infect": {
         ".": "Infect",
-        "hint": "Infect: Cannot gain shield. Remove when healed."
+        "hint": "Infect: 방어를 획득할 수 없음. 치료될 때 제거."
       },
       "invisible": {
         ".": "투명",
@@ -515,7 +515,7 @@
       },
       "rupture": {
         ".": "Rupture",
-        "hint": "Rupture: On move suffer %game.damage:1%. Remove when healed."
+        "hint": "Rupture: On move suffer %game.damage:1%. 치료될 때 제거."
       },
       "strengthen": {
         ".": "강화",
@@ -628,7 +628,7 @@
       },
       "buy": "금화 {1}개로 '{0}' 구매",
       "character": {
-        ".": "아이템 카드 for %game.characterIconColored.{0}% {1}",
+        ".": "%game.characterIconColored.{0}% {1}의 아이템 카드",
         "shop": "아이템 상점"
       },
       "choose": "아이템 선택",
@@ -703,7 +703,7 @@
         ".": "보물",
         "rewards": {
           "battleGoal": "{0} 획득 <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
-          "calenderSection": "add %data.section:{0}% in %number.{1}% weeks",
+          "calenderSection": "%number.{1}%주 안에 %data.section:{0}% 추가",
           "campaignSticker": "캠페인 스티거 \"{0}\" 획득",
           "condition": "{0} 획득",
           "damage": "{0} 피해",
@@ -764,9 +764,9 @@
       "enemiesMovedThrough": "%game.target% 이동 경로에 있는 모든 적 대상",
       "enemiesMovedThroughAdjacent": "%game.target% 이동 능력 동안 들어간 칸을 점유하거나 인접하고 있는 모든 적 대상",
       "enemiesRange": "%game.target% 사정거리 %game.action.range% {0} 내 모든 적 대상",
-      "enemiesRangeExact": "%game.target% all enemies at exactly %game.action.range% {0}",
+      "enemiesRangeExact": "%game.target% 정확히 사정거리 %game.action.range% {0}인 모든 적 대상",
       "enemiesRangeAffect": "%game.affect% 사정거리 %game.action.range% {0} 내 모든 적에게 영향",
-      "enemiesRangeAffectExact": "%game.affect% all enemies at exactly %game.action.range% {0}",
+      "enemiesRangeAffectExact": "%game.affect% 정확히 사정거리 %game.action.range% {0}인 모든 적에게 영향",
       "enemy": "%game.target% 적 하나 대상",
       "enemyAdjacent": "%game.target% 인접한 적 하나 대상",
       "enemyOneAll": "%game.target% 모든 공격이 하나의 적 대상",
@@ -789,9 +789,9 @@
       "spawnMarker": "%game.mapMarker.{2}% 위치에 %data.monster.{0}% {1}",
       "spawnType": "%game.monsterType.{1}% %data.monster.{0}% {2}",
       "spawnTypeMarker": "%game.mapMarker.{3}% 위치에 %game.monsterType.{1}% %data.monster.{0}% {2}",
-      "playerAll": "%game.monsterType.{0}% for all characters",
-      "player2-3": "%game.monsterType.{0}% for two or three characters or %game.monsterType.{1}% for four characters",
-      "player3-4": "%game.monsterType.{0}% for two or %game.monsterType.{1}% for three or four characters"
+      "playerAll": "전원 %game.monsterType.{0}%",
+      "player2-3": "2~3인인 경우 %game.monsterType.{0}% 또는 4인인 경우 %game.monsterType.{1}%",
+      "player3-4": "2인인 경우 %game.monsterType.{0}% 또는 3~4인인 경우 %game.monsterType.{1}%"
     },
     "target": {
       ".": "대상",
@@ -950,11 +950,11 @@
         "totalDefense": "총 수비",
         "townGuardPerks": "마을 경비병 특혜",
         "weekSections": {
-          ".": "Set Sections for week {0}",
-          "addSection": "Add Section to week",
-          "calc": "{0} weeks from current week",
-          "hint": "Doubleclick to set/edit sections for week",
-          "openConclusion": "Select continuing section",
+          ".": "{0}주차 섹션 설정",
+          "addSection": "주에 섹션 추가",
+          "calc": "이번 주로부터 {0}주",
+          "hint": "두 번 클릭하여 주 별로 섹션 설정/수정하기",
+          "openConclusion": "섹션 계속 선택",
           "section": "섹션"
         },
         "winter": "겨울"
@@ -1106,11 +1106,11 @@
     "reset": "시나리오 재시작하기",
     "rewards": {
       ".": "보상",
-      "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> each",
+      "battleGoals": "{0} 각각 <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
       "bonus": "보너스",
       "calenderSection": {
         ".": "섹션 연결",
-        "add": "Add %data.section:{0}% in %number.{1}% weeks."
+        "add": "%number.{1}%주 안에 %data.section:{0}% 추가."
       },
       "campaignSticker": "캠페인 스티커",
       "chooseItem": "다음 중 하나를 획득하기로 선택",
@@ -1162,15 +1162,16 @@
       "dismiss": "취소하기",
       "figures": {
         "all": "모든 피규어",
-        "amAdd": "{0} add %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% to Attack Modifier Deck",
-        "amRemove": "{0} remove %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% from Attack Modifier deck",
+        "amAdd": "{0}의 %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% 카드를 공격 보정 덱에 추가",
+        "amRemove": "{0}의 %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% 카드를 공격 보정 덱에서 제거",
         "damage": "{0}에게 피해 %game.damage:{1}%점",
-        "discard": "{0} discard %number.{2}% ability cards each",
+        "discard": "{0} 효과로 각각 능력 카드 %number.{2}%장을 버림",
         "gainCondition": "{0}에게 %game.condition.{1}% 상태 추가",
-        "heal": "{0} %game.action.heal% {2}",
+        "heal": "{0}의 {2} %game.action.heal%",
         "loseCondition": "{0}의 %game.condition.{1}% 상태 해제",
-        "permanentCondition": "{0} gain permanent %game.condition.{1}%",
+        "permanentCondition": "{0}의 영구 %game.condition.{1}% 획득",
         "scenarioEffect": "(시나리오 효과)",
+        "setAbility": "{0}의 능력 카드를 '{1}'에게 활성화로 설정",
         "setHp": "{0} 체력을 {1}",
         "toggleOff": "{0} 비활성화",
         "toggleOn": "{0} 활성화",
@@ -1609,7 +1610,7 @@
       "hint": "",
       "warning": {
         ".": "브라우저가 인덱싱된 DB를 지원하지 않거나 사용이 제한되어 있는 것 같습니다. 따라서 실행 취소 횟수는 최대 50회로 제한됩니다.",
-        "firefox": "Firefox에서는 <a href=\"about:config\" target=\"_blank\">about:config</a> 항목 아래의 <i>dom.indexedDB.privateBrowsing.enabled</i> 키 값을 조정하여 비공개 모드에서도 IndexedDB를 활성화할 수 있습니다."
+        "firefox": "파이어 폭스에서는 <a href=\"about:config\" target=\"_blank\">about:config</a> 항목 아래의 <i>dom.indexedDB.privateBrowsing.enabled</i> 키 값을 조정하여 비공개 모드에서도 IndexedDB를 활성화할 수 있습니다."
       }
     },
     "monsters": {
@@ -1738,9 +1739,9 @@
       "addObjective": "목표 대상 {0} 추가",
       "addParty": "새로운 파티 '{0}' 생성",
       "addPartyTownGuardPerkSection": "섹션 {0}의 마을 경비병에게 특혜 추가",
-      "addPartyWeekSection": "Add section {2} to week {1}",
+      "addPartyWeekSection": "{1}주차에 섹션 {2} 추가",
       "addRandomStandee": "무작위 {1} {0} 몬스터 말 {2}번 추가",
-      "addResource": "Add +{2} {1} for {0}",
+      "addResource": "{0}의 {1} +{2} 추가",
       "addSection": "섹션 추가 #{0} {1} ({2})",
       "addStandee": "{1} {0} 몬스터 말 {2}번 추가",
       "addSummon": "{0}의 '{1}' 소환수 추가",
@@ -1753,10 +1754,10 @@
         "summon": "{0}의 {1}에게 {2} 적용"
       },
       "applyHightlightAction": {
-        "condition": "Apply action %game.condition.{1}% to {0}",
-        "heal": "Apply action %game.action.heal% {1} to {0}",
-        "switchType": "Apply switching of %game.monsterType.normal% and %game.monsterType.elite% standees to {0}",
-        "sufferDamage": "Apply action suffer %game.damage:{1}% to {0}"
+        "condition": "{0}에게 %game.condition.{1}% 상태가 되도록 행동을 적용",
+        "heal": "{0}에게 %game.action.heal% {1} 되도록 행동 적용",
+        "switchType": "%game.monsterType.normal% 및 %game.monsterType.elite% 말에 대해 {0} 유형으로 전환을 적용",
+        "sufferDamage": "행동이 {0}에게 %game.damage:{1}%만큼 피해를 주도록 행동을 적용"
       },
       "applyScenarioRule": "시나리오 규칙 적용",
       "battleGoals": {
@@ -1881,12 +1882,12 @@
       "removeParty": "'{0}' 파티 제거",
       "removePartyAchievements": "파티 업적 {0} 제거",
       "removePartyTownGuardPerkSection": "마을 경비병 특혜 섹션 {0} 제거",
-      "removePartyWeekSection": "Remove section {2} from week {1}",
+      "removePartyWeekSection": "{1}주차로부터 섹션 {2} 제거",
       "removePlayer": "플레이어 {1} ({0}) 제거",
-      "removeResource": "-{2} {1} of {0}",
+      "removeResource": "{0}의 {1}에서 -{2}",
       "removeScenarioRule": "시나리오 규칙 제거",
       "removeTreasure": "{1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) 보물 제거",
-      "removeCharTreasure": "Remove treasure {1} for {2}",
+      "removeCharTreasure": "{2}의 보물 {1} 제거",
       "reorder": "재정렬",
       "reorderAbilities": "{0}의 능력 카드 재정렬",
       "resetScenario": "시나리오 초기화 #{0} {1} ({2})",
@@ -1900,7 +1901,7 @@
       "setBG": "{0}에게 {1} 전투 목표를 설정",
       "setConditionValue": {
         "char": "{0}의 {1} 상태를 변경: {2}",
-        "monsterEntities": "{1} to {2} for all {3}{0}",
+        "monsterEntities": "모든 {3}{0}에 대해 {1}에서 변경: {2}",
         "monster": "{0} {1}번의 {2} 상태를 변경: {3}",
         "objective": "{0}의 {1} 상태를 변경: {2}",
         "summon": "{0} {1}번의 {2} 상태를 변경: {3}"
@@ -1930,12 +1931,12 @@
       "setPartySoldiers": "병사 {0}",
       "setPartyTotalDefense": "수비 {1} 설정",
       "setPartyTownGuardPerks": "마을 경비병 특혜 {0} 설정",
-      "setPartyWeeks": "Weeks to {0}",
+      "setPartyWeeks": "{0}주차로 설정",
       "setPerk": "{0}의 {1}번째 특혜 중 {2}번째 칸을 변경함",
       "setPlayer": "플레이어 {1}에서 {0} 설정",
       "setPlayerNumber": "{0}의 플레이어 번호를 {1}번으로 할당",
       "setPQ": "{0}의 개인 퀘스트 {1} ",
-      "setResource": "Set {1} {2} for {0}",
+      "setResource": "{0}의 {2} 자원을 {1}개로 설정",
       "setRetired": "{0}: {1} 은퇴",
       "setRetirements": "{0}: {1} 은퇴",
       "setScenario": "시나리오 #{0} {1} ({2})",
@@ -2063,7 +2064,7 @@
   },
   "update": "갱신하고 다시 불러오기",
   "welcome": {
-    ".": "‘글룸헤이븐 사무국: GHS’에 오신 것을 환영합니다.",
+    ".": "글룸헤이븐 사무국에 오신 것을 환영합니다.",
     "chooseCharacters": "캐릭터를 선택하십시오",
     "chooseEdition": "보유한 에디션 중 하나를 골라 새로운 캠페인을 시작하십시오:",
     "orChooseCharacters": "또는 직접 캐릭터를 추가하여 캐주얼 게임을 시작하십시오"
