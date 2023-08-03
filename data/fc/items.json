@@ -10,7 +10,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After performing the top action of any ability card, you may immediately perform the bottom action of the same card. This item cannot be used if both actions trigger a lost card icon consumed %game.card.lost%.",
+        "value": "%data.items.fc-152.1%",
         "small": true
       }
     ]
@@ -26,7 +26,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "The next three times you would gain %game.condition.poison% prevent the condition.",
+        "value": "%data.items.fc-153.1%",
         "small": true
       }
     ]
@@ -42,7 +42,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "The next five times you would gain %game.condition.poison% prevent the condition.",
+        "value": "%data.items.fc-154.1%",
         "small": true
       }
     ]
@@ -60,7 +60,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "You are immune to %game.condition.curse%, even if the item is spent. On the next three sources of damage from attacks targeting you gain %game.action.shield% 1.",
+        "value": "%data.items.fc-155.1%",
         "small": true
       }
     ]
@@ -75,7 +75,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your melee attack, %game.element.consume.wild% to add +2 %game.action.attack% to a single attack.",
+        "value": "%data.items.fc-156.1%",
         "small": true
       }
     ]
@@ -91,7 +91,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your ranged attack, add +2 %game.action.attack%, %game.condition.curse%, and %game.condition.wound% to a single attack.",
+        "value": "%data.items.fc-157.1%",
         "small": true
       }
     ]
@@ -107,7 +107,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your movement, add +2 %game.action.move% to the movement and gain %game.condition.regenerate%.",
+        "value": "%data.items.fc-158.1%",
         "small": true
       }
     ]
@@ -123,7 +123,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During any one ally's movement, add +2 %game.action.move% to the movement.",
+        "value": "%data.items.fc-159.1%",
         "small": true
       }
     ]
@@ -139,7 +139,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you kill a monster during your turn, gain one money token.",
+        "value": "%data.items.fc-160.1%",
         "small": true
       }
     ]
@@ -155,7 +155,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your single-target melee attack action, add %game.action.range:3% to the attack.",
+        "value": "%data.items.fc-161.1%",
         "small": true
       }
     ]
@@ -171,7 +171,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, %game.action.teleport% to any unoccupied hex within 4 hexes of you.",
+        "value": "%data.items.fc-162.1%",
         "small": true
       }
     ]
@@ -186,7 +186,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you perform a long or short rest, gain %game.condition.strengthen%.",
+        "value": "%data.items.fc-163.1%",
         "small": true
       }
     ]
@@ -201,7 +201,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "You are immune to POISON and !enchantment-circle!. When damage by an attack, gain %game.action.shield% 0 !enchantment-circle! for the attack.",
+        "value": "%data.items.fc-165.1%",
         "small": true
       }
     ]

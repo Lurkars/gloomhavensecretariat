@@ -30,6 +30,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         value = "";
       }
 
+      const prefix = split[0];
       const type = split[1];
 
       let replace: string = match;
@@ -77,7 +78,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "action" && split.length == 4) {
         image = '<img  src="./assets/images/action/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-perk">' + image + value + '</span>';
-      } else if (type == "items" && split.length == 4) {
+      } else if (prefix == "game" && type == "items" && split.length == 4) {
         image = '<img  src="./assets/images/items/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-item-slot">' + image + value + '</span>';
       } else if (type == "itemFh" && split.length == 3) {

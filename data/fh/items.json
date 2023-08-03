@@ -14,7 +14,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your attack ability, gain advantage on one attack.",
+        "value": "%data.items.fh-1.1%",
         "small": true
       }
     ]
@@ -33,7 +33,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you are attacked, treat any %game.attackmodifier.double% attack modifier card the enemy draws as a %game.attackmodifier.plus1% instead.",
+        "value": "%data.items.fh-2.1%",
         "small": true
       }
     ]
@@ -52,7 +52,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "At the start of the scenario increase your maximum hit point value by 1.",
+        "value": "%data.items.fh-3.1%",
         "small": true
       }
     ]
@@ -74,7 +74,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "On the next two attacks targeting you, the attacker gains disadvantage.",
+        "value": "%data.items.fh-4.1%",
         "small": true
       }
     ]
@@ -94,7 +94,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your move ability, add +1 %game.action.move%",
+        "value": "%data.items.fh-5.1%",
         "small": true
       }
     ]
@@ -114,7 +114,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your end-of-turn looting, loot an adjacent hex instead of the hex you occupy.",
+        "value": "%data.items.fh-6.1%",
         "small": true
       }
     ]
@@ -134,7 +134,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, add +1 %game.action.range% to one of your ranged attacks.",
+        "value": "%data.items.fh-7.1%",
         "small": true
       }
     ]
@@ -155,7 +155,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, one of your single-target melee attack abilities may target an enemy two hexes away.",
+        "value": "%data.items.fh-8.1%",
         "small": true
       }
     ]
@@ -176,7 +176,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During you turn, grant one ally within %game.action.range:2%:",
+        "value": "%data.items.fh-9.1%",
         "small": true
       },
       {
@@ -205,7 +205,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When an enemy would apply a negative condition to you, prevent the condition",
+        "value": "%data.items.fh-10.1%",
         "small": true
       }
     ]
@@ -224,7 +224,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "At the start of the scenario remove one %game.attackmodifier.minus1% modifier card from your attack modifier deck.",
+        "value": "%data.items.fh-11.1%",
         "small": true
       }
     ]
@@ -245,7 +245,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you suffer %game.damage% from an attack, gain %game.action.shield:2% for the attack.",
+        "value": "%data.items.fh-12.1%",
         "small": true
       }
     ]
@@ -266,7 +266,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After you suffer %game.damage% from an attack, perform:",
+        "value": "%data.items.fh-13.1%",
         "small": true
       },
       {
@@ -291,7 +291,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your melee attack ability, add +1 %game.action.attack% to one attack.",
+        "value": "%data.items.fh-14.1%",
         "small": true
       }
     ]
@@ -315,7 +315,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When an enemy would apply a negative condition to you, prevent the condition.",
+        "value": "%data.items.fh-15.1%",
         "small": true
       }
     ]
@@ -339,7 +339,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, grant all adjacent allies: %game.action.move% 2",
+        "value": "%data.items.fh-16.1%",
         "small": true
       }
     ]
@@ -361,7 +361,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "On the next two attacks targeting you, the attacker gains disadvantage.",
+        "value": "%data.items.fh-17.1%",
         "small": true
       }
     ]
@@ -384,7 +384,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn add +1 %game.action.move% to all your move abilities.",
+        "value": "%data.items.fh-18.1%",
         "small": true
       }
     ]
@@ -407,7 +407,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your attack ability add %game.condition.muddle% all your attacks.",
+        "value": "%data.items.fh-19.1%",
         "small": true
       }
     ]
@@ -430,7 +430,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, add +1 %game.action.range% to all your ranged attacks.",
+        "value": "%data.items.fh-20.1%",
         "small": true
       }
     ]
@@ -451,7 +451,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "While you are adjacent to tree or more enemies, gain %game.action.shield:1%.",
+        "value": "%data.items.fh-21.1%",
         "small": true
       }
     ]
@@ -475,7 +475,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you suffer %game.damage% from an attack, gain %game.action.shield:3% for the attack.",
+        "value": "%data.items.fh-22.1%",
         "small": true
       }
     ]
@@ -497,7 +497,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "At the start of your turn, add -2 %game.action.move% to all your move abilities to gain %game.action.shield% this round. ",
+        "value": "%data.items.fh-23.1%",
         "small": true
       },
       {
@@ -522,7 +522,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your melee attack ability, add %game.condition.wound%, %game.condition.poison%, and %game.condition.muddle% to one attack.",
+        "value": "%data.items.fh-24.1%",
         "small": true
       }
     ]
@@ -544,7 +544,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform %game.condition.regenerate% %game.action.target% 1 ally, %game.action.range:2%",
+        "value": "%data.items.fh-25.1%",
         "small": true
       }
     ]
@@ -565,7 +565,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your attack ability, treat all negative and %game.attackmodifier.null% modifier cards as %game.attackmodifier.plus0% instead.",
+        "value": "%data.items.fh-26.1%",
         "small": true
       }
     ]
@@ -589,7 +589,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Immediately after an enemy ends its move ability adjacent to you, perform %game.action.push% %game.action.target% the enemy",
+        "value": "%data.items.fh-27.1%",
         "small": true
       }
     ]
@@ -612,7 +612,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn add +1 %game.action.move% to all your move abilities and ignor difficult terrain.",
+        "value": "%data.items.fh-28.1%",
         "small": true
       }
     ]
@@ -633,7 +633,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After your melee attack, one enemy adjacent to the target suffers %game.damage% 2.",
+        "value": "%data.items.fh-29.1%",
         "small": true
       }
     ]
@@ -654,7 +654,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Immediately after an enemy ends its move ability adjacent to you, perform %game.action.attack% 3 %game.action.target% the enemy",
+        "value": "%data.items.fh-30.1%",
         "small": true
       }
     ]
@@ -675,7 +675,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you suffer %game.damage% from any source, negate the %game.damage%.",
+        "value": "%data.items.fh-31.1%",
         "small": true
       }
     ]
@@ -697,7 +697,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During yur turn, perform %game.condition.ward% self",
+        "value": "%data.items.fh-32.1%",
         "small": true
       }
     ]
@@ -720,14 +720,14 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Up to once each turn during your move ability, add +1 %game.action.move%, then flip this card over at the end of your turn.",
+        "value": "%data.items.fh-33.1%",
         "small": true
       }
     ],
     "actionsBack": [
       {
         "type": "custom",
-        "value": "Up to once each turn during your move ability, suffer %game.damage:1%, then flip this card over at the end of your turn.",
+        "value": "%data.items.fh-33.2%",
         "small": true
       }
     ]
@@ -750,7 +750,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After your ranged attack, all enemies adjacent to the target suffer %game.damage% 2.",
+        "value": "%data.items.fh-34.1%",
         "small": true
       }
     ]
@@ -772,7 +772,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you suffer %game.damage% from an attack, gain %game.action.shield:1% for the attack and prevent any negative conditions from the attack.",
+        "value": "%data.items.fh-35.1%",
         "small": true
       }
     ]
@@ -795,7 +795,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you are attacked by an attack with disadvantage, treat all %game.attackmodifier.plus0% and %game.attackmodifier.plus1% attack modifier cards as %game.attackmodifier.minus1%.",
+        "value": "%data.items.fh-36.1%",
         "small": true
       }
     ]
@@ -819,7 +819,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn suffer %game.damage% 3 to perform $invisible$ self",
+        "value": "%data.items.fh-37.1%",
         "small": true
       }
     ]
@@ -840,7 +840,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform: %game.action.move% 2 This movement must end adjacent to an enemy.",
+        "value": "%data.items.fh-38.1%",
         "small": true
       }
     ]
@@ -862,7 +862,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your attack ability, add +3 %game.action.attack% and %game.action.pierce% to one attack targeting a Frozen Corpse, Ice Wraith, or Living Doom.",
+        "value": "%data.items.fh-39.1%",
         "small": true
       }
     ]
@@ -886,7 +886,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, add +1 %game.action.attack% and +2 %game.action.range% to one of your ranged attacks.",
+        "value": "%data.items.fh-40.1%",
         "small": true
       }
     ]
@@ -909,7 +909,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "At the start of the scenario remove one %game.attackmodifier.plus0% and one %game.attackmodifier.minus1% modifier card from your attack modifier deck.",
+        "value": "%data.items.fh-41.1%",
         "small": true
       }
     ]
@@ -934,7 +934,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "On the next two sources of %game.damage% from attacks targeting you gain %game.action.shield:2% for the attacks.",
+        "value": "%data.items.fh-42.1%",
         "small": true
       }
     ]
@@ -958,7 +958,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your melee attack ability, add %game.action.push% to one attack.",
+        "value": "%data.items.fh-43.1%",
         "small": true
       }
     ]
@@ -979,7 +979,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you would gain %game.condition.poison% %game.condition.curse%, gain %game.condition.bless%.",
+        "value": "%data.items.fh-44.1%",
         "small": true
       }
     ]
@@ -1000,7 +1000,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform:",
+        "value": "%data.items.fh-45.1%",
         "small": true
       },
       {
@@ -1045,7 +1045,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your attack ability, gain advantage on all attacks and treat all %game.attackmodifier.plus0% and %game.attackmodifier.minus1% modifier cards as %game.attackmodifier.plus1% instead.",
+        "value": "%data.items.fh-46.1%",
         "small": true
       }
     ]
@@ -1068,7 +1068,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "On the next two sources of %game.damage% from attacks targeting you, suffer %game.damage% 3 to give the attacker %game.condition.brittle%.",
+        "value": "%data.items.fh-47.1%",
         "small": true
       }
     ]
@@ -1091,7 +1091,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After an ally's heal ability targeting you, perform:",
+        "value": "%data.items.fh-48.1%",
         "small": true
       },
       {
@@ -1119,7 +1119,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your melee attack ability, add +1 %game.action.attack% and %game.condition.wound% one attack.",
+        "value": "%data.items.fh-49.1%",
         "small": true
       }
     ]
@@ -1144,14 +1144,14 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you suffer %game.damage% from an attack, gain %game.action.shield:1% for the attack and flip this card over.",
+        "value": "%data.items.fh-50.1%",
         "small": true
       }
     ],
     "actionsBack": [
       {
         "type": "custom",
-        "value": "During your melee attack ability, add %game.action.pierce% 1 to one attack and flip this card over.",
+        "value": "%data.items.fh-50.2%",
         "small": true
       }
     ]
@@ -1173,7 +1173,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn perform %game.condition.wound% self",
+        "value": "%data.items.fh-51.1%",
         "small": true
       }
     ]
@@ -1193,7 +1193,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, %game.element.consume.fire% to cause up to two enemies within %game.action.range:4% to suffer %game.damage% 1.",
+        "value": "%data.items.fh-52.1%",
         "small": true
       }
     ]
@@ -1215,7 +1215,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After you move 4 or more hexes during your turn, gain %game.action,retaliate% 1 for the round.",
+        "value": "%data.items.fh-53.1%",
         "small": true
       }
     ]
@@ -1238,7 +1238,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your short rest, instead of randomly losing one card from your discard pile, randomly draw three cards from your discard pile and choose one to lose.",
+        "value": "%data.items.fh-54.1%",
         "small": true
       }
     ]
@@ -1261,7 +1261,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you are attacked by an adjacent enemy, gain %game.action,retaliate% 2 for the attack.",
+        "value": "%data.items.fh-55.1%",
         "small": true
       }
     ]
@@ -1281,7 +1281,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, %game.element.consume.earth% to loot one adjacent loot token.",
+        "value": "%data.items.fh-56.1%",
         "small": true
       }
     ]
@@ -1300,7 +1300,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, destroy one adjacent obstacle, hazardous terrain, difficult terrain, icy terrain, or trap tile.",
+        "value": "%data.items.fh-57.1%",
         "small": true
       }
     ]
@@ -1321,7 +1321,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your melee attack abiluty, add +2 %game.action.attack% to one attack. After the ability, gain %game.condition.disarm%.",
+        "value": "%data.items.fh-58.1%",
         "small": true
       }
     ]
@@ -1342,7 +1342,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "At the start of the scenario, for the scenario, gain one 1-mark perk from your character sheet which you have not yet gained.",
+        "value": "%data.items.fh-59.1%",
         "small": true
       }
     ]
@@ -1365,7 +1365,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "At the start of the scenario, bring up to two additional %game.items.slots.small% items.",
+        "value": "%data.items.fh-60.1%",
         "small": true
       }
     ]
@@ -1390,7 +1390,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Immediately after you are attacked by an adjacent enemy, that enemy suffers %game.damage% X, where is X is your %game.action.shield% value for the attack.",
+        "value": "%data.items.fh-61.1%",
         "small": true
       }
     ]
@@ -1412,7 +1412,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your move ability, add +1 %game.action.move% and gain %game.condition.regenerate%",
+        "value": "%data.items.fh-62.1%",
         "small": true
       }
     ]
@@ -1434,7 +1434,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your move ability, %game.element.consume.dark% add +2 %game.action.move%",
+        "value": "%data.items.fh-63.1%",
         "small": true
       }
     ]
@@ -1459,7 +1459,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When one of your summons is killed, all enemies adjacent to it suffer %game.damage% 2 and gain %game.condition.wound%.",
+        "value": "%data.items.fh-64.1%",
         "small": true
       }
     ]
@@ -1484,7 +1484,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, place a character token on one normal or elite enemy within %game.action.range:3%.  That enemy gains -1 %game.action.shield% for the scenario.",
+        "value": "%data.items.fh-65.1%",
         "small": true
       }
     ]
@@ -1502,7 +1502,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "At the start of your rest, perform:",
+        "value": "%data.items.fh-66.1%",
         "small": true
       },
       {
@@ -1534,14 +1534,14 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you are attacked, add +1 %game.action.attack% to attack to instead of drawing an attack modifier card and flip this card over.",
+        "value": "%data.items.fh-67.1%",
         "small": true
       }
     ],
     "actionsBack": [
       {
         "type": "custom",
-        "value": "During you attack ability add +1 %game.action.attack% to one attack instead of drawing an attack modifier card and flip this card over.",
+        "value": "%data.items.fh-67.2%",
         "small": true
       }
     ]
@@ -1561,7 +1561,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "On the next three sources of 2 or fewer %game.damage% you would suffer, negate the %game.damage%.",
+        "value": "%data.items.fh-68.1%",
         "small": true
       }
     ]
@@ -1580,7 +1580,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you suffer %game.damage% from an attack, %game.element.consume.air% to gain %game.action.shield:3% for the attack.",
+        "value": "%data.items.fh-69.1%",
         "small": true
       }
     ]
@@ -1598,7 +1598,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you suffer %game.damage% from %game.action,retaliate%, reduce the %game.damage% to 1. If it already 1, reduce it to 0 instead.",
+        "value": "%data.items.fh-70.1%",
         "small": true
       }
     ]
@@ -1619,7 +1619,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After your ability where you kill an enemy, perform:",
+        "value": "%data.items.fh-71.1%",
         "small": true
       },
       {
@@ -1644,7 +1644,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During you turn, %game.element.consume.light% to perform:",
+        "value": "%data.items.fh-72.1%",
         "small": true
       },
       {
@@ -1676,7 +1676,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you apply a positive condition to an ally, a different ally within %game.action.range:3% gains the same condition.",
+        "value": "%data.items.fh-73.1%",
         "small": true
       }
     ]
@@ -1695,7 +1695,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform:",
+        "value": "%data.items.fh-74.1%",
         "small": true
       },
       {
@@ -1733,7 +1733,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After any ally within %game.action.range:2% suffers %game.damage% from an attack, remove all negative conditions from the ally then perform:",
+        "value": "%data.items.fh-75.1%",
         "small": true
       },
       {
@@ -1769,7 +1769,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During one of your summons' turns, decide how it peforms it's abilities.",
+        "value": "%data.items.fh-76.1%",
         "small": true
       }
     ]
@@ -1790,7 +1790,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During you turn, replace one 1-hex obstacle, hazardous terrain, difficult terrain, or icy terrain tile in an unoccupied hex withing %game.action.range:2% with a different type of tile listed above.",
+        "value": "%data.items.fh-77.1%",
         "small": true
       }
     ]
@@ -1811,14 +1811,14 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Once each turn, during your attack ability, gain advantage on one attack, then flip this card over at the end of your turn.",
+        "value": "%data.items.fh-78.1%",
         "small": true
       }
     ],
     "actionsBack": [
       {
         "type": "custom",
-        "value": "Once each turn, during your attack ability, gain disadvantage on one attack, then flip this card over at the end of your turn.",
+        "value": "%data.items.fh-78.2%",
         "small": true
       }
     ]
@@ -1838,7 +1838,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During you turn, add +1 %game.action.attack% to all your attacks and perform:",
+        "value": "%data.items.fh-79.1%",
         "small": true
       },
       {
@@ -1871,7 +1871,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you would suffer 4 or fewer %game.damage% from attack, negate the %game.damage% and perform %game.action.heal% X self wheee x is the amount of damage you would have suffered.",
+        "value": "%data.items.fh-80.1%",
         "small": true
       }
     ]
@@ -1892,7 +1892,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you suffer 5 or fewer %game.damage% from an attack, one enemy within %game.action.range:2% also suffers the same amount of %game.damage%.",
+        "value": "%data.items.fh-81.1%",
         "small": true
       }
     ]
@@ -1913,7 +1913,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your move ability, after you enter any one hex, give %game.condition.immobilize% all adjacent enemies.",
+        "value": "%data.items.fh-82.1%",
         "small": true
       }
     ]
@@ -1934,7 +1934,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform %game.action.heal% 3 self",
+        "value": "%data.items.fh-83.1%",
         "small": true
       }
     ]
@@ -1955,7 +1955,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, %game.card.recover% one level 1 card from your discard pile.",
+        "value": "%data.items.fh-84.1%",
         "small": true
       }
     ]
@@ -1976,7 +1976,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, add +1 %game.action.attack% to all your attacks.",
+        "value": "%data.items.fh-85.1%",
         "small": true
       }
     ]
@@ -1997,7 +1997,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, %game.element.wild%",
+        "value": "%data.items.fh-86.1%",
         "small": true
       }
     ]
@@ -2018,7 +2018,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, remove one negative condition you have.  This item can be used while you have %game.condition.impair% %game.condition.stun%.",
+        "value": "%data.items.fh-87.1%",
         "small": true
       }
     ]
@@ -2039,7 +2039,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn perform %game.action,retaliate% 1 %game.action.range:3% ",
+        "value": "%data.items.fh-88.1%",
         "small": true
       },
       {
@@ -2064,7 +2064,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform %game.condition.ward% self",
+        "value": "%data.items.fh-89.1%",
         "small": true
       }
     ]
@@ -2085,7 +2085,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform %game.condition.strengthen% self",
+        "value": "%data.items.fh-90.1%",
         "small": true
       }
     ]
@@ -2106,7 +2106,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform %game.condition.bless% self",
+        "value": "%data.items.fh-91.1%",
         "small": true
       }
     ]
@@ -2127,7 +2127,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, %game.card.recover% up to two of your spent items.",
+        "value": "%data.items.fh-92.1%",
         "small": true
       }
     ]
@@ -2148,7 +2148,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you reveal a %game.attackmodifier.null% attack modifier card from your attack modifier deck, treat it as a %game.attackmodifier.plus0% instead.",
+        "value": "%data.items.fh-93.1%",
         "small": true
       }
     ]
@@ -2169,7 +2169,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform:",
+        "value": "%data.items.fh-94.1%",
         "small": true
       },
       {
@@ -2194,7 +2194,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform %game.condition.poison% %game.action.range:1%",
+        "value": "%data.items.fh-95.1%",
         "small": true
       }
     ]
@@ -2215,7 +2215,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform %game.condition.wound% %game.action.range:1%",
+        "value": "%data.items.fh-96.1%",
         "small": true
       }
     ]
@@ -2236,7 +2236,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, one enemy withing %game.action.range:2% suffers %game.damage% 2.",
+        "value": "%data.items.fh-97.1%",
         "small": true
       }
     ]
@@ -2261,7 +2261,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform %game.condition.wound%, %game.condition.poison% self",
+        "value": "%data.items.fh-98.1%",
         "small": true
       }
     ]
@@ -2283,7 +2283,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform %game.action.heal% 6 self",
+        "value": "%data.items.fh-99.1%",
         "small": true
       }
     ]
@@ -2305,7 +2305,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, %game.card.recover% one card from your discard pile.",
+        "value": "%data.items.fh-100.1%",
         "small": true
       }
     ]
@@ -2327,7 +2327,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, add +2 %game.action.attack% to all your attacks.",
+        "value": "%data.items.fh-101.1%",
         "small": true
       }
     ]
@@ -2349,7 +2349,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, %game.element.wild% %game.element.wild%",
+        "value": "%data.items.fh-102.1%",
         "small": true
       }
     ]
@@ -2371,7 +2371,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, remove all negative conditions you have.  This item can be used while you have %game.condition.impair% %game.condition.stun%.",
+        "value": "%data.items.fh-103.1%",
         "small": true
       }
     ]
@@ -2393,7 +2393,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your move ability, add +3 %game.action.move% and %game.action.jump%.",
+        "value": "%data.items.fh-104.1%",
         "small": true
       }
     ]
@@ -2415,7 +2415,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform, %game.action,retaliate% 2 %game.action.range:3% ",
+        "value": "%data.items.fh-105.1%",
         "small": true
       },
       {
@@ -2441,7 +2441,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform %game.condition.ward% %game.action.target% 2 adjacent allies and self",
+        "value": "%data.items.fh-106.1%",
         "small": true
       }
     ]
@@ -2463,7 +2463,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform %game.condition.strengthen% %game.action.target% 2 adjacent allies and self",
+        "value": "%data.items.fh-107.1%",
         "small": true
       }
     ]
@@ -2485,7 +2485,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform %game.condition.bless% %game.action.target% 2 adjacent allies and self",
+        "value": "%data.items.fh-108.1%",
         "small": true
       }
     ]
@@ -2507,7 +2507,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, %game.card.recover% up to one of your lost 2-herb potions.",
+        "value": "%data.items.fh-109.1%",
         "small": true
       }
     ]
@@ -2529,7 +2529,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you reveal a %game.attackmodifier.null% attack modifier card from your attack modifier deck, treat it as a %game.attackmodifier.plus2% instead.",
+        "value": "%data.items.fh-110.1%",
         "small": true
       }
     ]
@@ -2551,7 +2551,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform:",
+        "value": "%data.items.fh-111.1%",
         "small": true
       },
       {
@@ -2577,7 +2577,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn suffer %game.damage% 10.",
+        "value": "%data.items.fh-112.1%",
         "small": true
       }
     ]
@@ -2599,7 +2599,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "At the start of your turn, discard one of your played cards to perform both the top and bottom actions of your other played card. At most one action can trigger a %game.card.lost% icon.",
+        "value": "%data.items.fh-113.1%",
         "small": true
       }
     ]
@@ -2621,7 +2621,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, reveal the top card of one monster ability deck. You may place the card on the bottom of the deck.",
+        "value": "%data.items.fh-114.1%",
         "small": true
       }
     ]
@@ -2643,7 +2643,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, ignore one elemental consumption symbol on an action you played and gain its effect.",
+        "value": "%data.items.fh-115.1%",
         "small": true
       }
     ]
@@ -2665,7 +2665,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn perform:",
+        "value": "%data.items.fh-116.1%",
         "small": true
       },
       {
@@ -2703,7 +2703,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn perform:",
+        "value": "%data.items.fh-117.1%",
         "small": true
       },
       {
@@ -2741,7 +2741,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, one enemy within %game.action.range:2% suffers %game.damage% 4.",
+        "value": "%data.items.fh-118.1%",
         "small": true
       }
     ]
@@ -2766,7 +2766,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform:",
+        "value": "%data.items.fh-119.1%",
         "small": true
       },
       {
@@ -2812,7 +2812,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform ",
+        "value": "%data.items.fh-120.1%",
         "small": true
       },
       {
@@ -2840,7 +2840,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform:",
+        "value": "%data.items.fh-121.1%",
         "small": true
       },
       {
@@ -2868,7 +2868,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When one of your summons suffers %game.damage% from an attack, that summons gains %game.action.shield:2% for the attack.",
+        "value": "%data.items.fh-122.1%",
         "small": true
       }
     ]
@@ -2885,7 +2885,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you are attacked, before drawing an attack modifier car, the attacker gains disadvantage on the attack.",
+        "value": "%data.items.fh-123.1%",
         "small": true
       }
     ]
@@ -2902,7 +2902,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, add %game.action.jump% to all your move abilities.",
+        "value": "%data.items.fh-124.1%",
         "small": true
       }
     ]
@@ -2919,7 +2919,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During ordering of initiative after all ability card have been revealed, increase or decrease your initiative by 10.",
+        "value": "%data.items.fh-125.1%",
         "small": true
       }
     ]
@@ -2936,7 +2936,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your ranged attack ability, add %game.condition.immobilize% one attack.",
+        "value": "%data.items.fh-126.1%",
         "small": true
       }
     ]
@@ -2953,7 +2953,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your melee attack ability, add %game.condition.poison% one attack.",
+        "value": "%data.items.fh-127.1%",
         "small": true
       }
     ]
@@ -2970,7 +2970,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you suffer %game.damage% from an attack, gain %game.action.shield:1% for the attack.",
+        "value": "%data.items.fh-128.1%",
         "small": true
       }
     ]
@@ -2988,7 +2988,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your attack ability, gain advantage on all attacks.",
+        "value": "%data.items.fh-129.1%",
         "small": true
       }
     ]
@@ -3006,7 +3006,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you are attacked, treat any %game.attackmodifier.double% attack modifier card the enemy draws as a %game.attackmodifier.plus0% instead.",
+        "value": "%data.items.fh-130.1%",
         "small": true
       }
     ]
@@ -3026,7 +3026,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "On the next three sources of %game.damage% from attacks targeting you, you gain %game.action.shield:1% for the attacks.",
+        "value": "%data.items.fh-131.1%",
         "small": true
       }
     ]
@@ -3043,7 +3043,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "At the start of the scenario, bring one additional %game.items.slots.small% items.",
+        "value": "%data.items.fh-132.1%",
         "small": true
       }
     ]
@@ -3061,7 +3061,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When an adjacent ally would be targeted by an attack, you are targeted instead, regardless of range and line-of-sight.",
+        "value": "%data.items.fh-133.1%",
         "small": true
       }
     ]
@@ -3078,7 +3078,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you use the basic bottom action of an ability card, perform %game.action.move% 3 instead of %game.action.move% 2.",
+        "value": "%data.items.fh-134.1%",
         "small": true
       }
     ]
@@ -3096,7 +3096,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your attack, add %game.action.pierce% to all your ranged attacks.",
+        "value": "%data.items.fh-135.1%",
         "small": true
       }
     ]
@@ -3114,7 +3114,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your single-target melee attack ability, change the targeting of the ability to:",
+        "value": "%data.items.fh-136.1%",
         "small": true
       },
       {
@@ -3138,7 +3138,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you suffer %game.damage% from an attack, gain %game.action.shield:2% for the attack.",
+        "value": "%data.items.fh-137.1%",
         "small": true
       }
     ]
@@ -3156,7 +3156,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When an enemy would give you %game.condition.disarm%, %game.condition.stun%, or %game.condition.muddle%, prevent the condition.",
+        "value": "%data.items.fh-138.1%",
         "small": true
       }
     ]
@@ -3173,7 +3173,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After your move 4 or more hexes on your turn, add +1 %game.action.attack% to your next melee attack this turn.",
+        "value": "%data.items.fh-139.1%",
         "small": true
       }
     ]
@@ -3191,7 +3191,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, grant one of your summons: %game.action.shield:2%. ",
+        "value": "%data.items.fh-140.1%",
         "small": true
       },
       {
@@ -3213,7 +3213,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you are attacked, before drawing an attack modifier car, the attacker gains disadvantage on the attack and you gain %game.action.shield:1% for the attack.",
+        "value": "%data.items.fh-141.1%",
         "small": true
       }
     ]
@@ -3231,7 +3231,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During ordering of initiative after all ability card have been revealed, increase or decrease your initiative by 20.",
+        "value": "%data.items.fh-142.1%",
         "small": true
       }
     ]
@@ -3248,7 +3248,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After you move 4 or more hexes during your turn, after the move ability perform:",
+        "value": "%data.items.fh-143.1%",
         "small": true
       },
       {
@@ -3277,7 +3277,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, %game.element.consume.wild% to add +1 %game.action.attack% to all your attacks.",
+        "value": "%data.items.fh-144.1%",
         "small": true
       }
     ]
@@ -3294,7 +3294,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you use the basic top action of an ability card, perform %game.action.attack% 3 instead of %game.action.attack% 2.",
+        "value": "%data.items.fh-145.1%",
         "small": true
       }
     ]
@@ -3312,7 +3312,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Duiring your attack, add %game.action.pull% to all your ranged attacks.",
+        "value": "%data.items.fh-146.1%",
         "small": true
       }
     ]
@@ -3329,7 +3329,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your melee attack, add %game.action.push%.",
+        "value": "%data.items.fh-147.1%",
         "small": true
       }
     ]
@@ -3347,14 +3347,14 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After the next three attacks targeting an ally within %game.action.range:2%, flip this card over.",
+        "value": "%data.items.fh-148.1%",
         "small": true
       }
     ],
     "actionsBack": [
       {
         "type": "custom",
-        "value": "During your turn, perform:",
+        "value": "%data.items.fh-148.2%",
         "small": true
       },
       {
@@ -3370,7 +3370,7 @@
       },
       {
         "type": "custom",
-        "value": "then flip this card over.",
+        "value": "%data.items.fh-148.4%",
         "small": true
       }
     ]
@@ -3390,7 +3390,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "On the next five sources of %game.damage% from attacks targeting you, you gain %game.action.shield:1% for the attacks.",
+        "value": "%data.items.fh-149.1%",
         "small": true
       }
     ]
@@ -3408,7 +3408,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform:",
+        "value": "%data.items.fh-150.1%",
         "small": true
       },
       {
@@ -3441,7 +3441,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you use the basic bottom action of an ability card, perform %game.action.move% 4 instead of %game.action.move% 2.",
+        "value": "%data.items.fh-151.1%",
         "small": true
       }
     ]
@@ -3459,7 +3459,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "At the end of your turn, if you have moved 1 or fewer hexes during your turn, gain %game.action.shield:1% for the round.",
+        "value": "%data.items.fh-152.1%",
         "small": true
       }
     ]
@@ -3477,7 +3477,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your single-target melee attack ability, change the targeting of the ability to:",
+        "value": "%data.items.fh-153.1%",
         "small": true
       },
       {
@@ -3500,7 +3500,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your single-target ranged attack ability, change the targeting of the ability to:",
+        "value": "%data.items.fh-154.1%",
         "small": true
       },
       {
@@ -3524,7 +3524,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you suffer %game.damage% from an attack, gain %game.action.shield:4% for the attack.",
+        "value": "%data.items.fh-155.1%",
         "small": true
       }
     ]
@@ -3542,7 +3542,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you short rest, %game.card.recover% up to three of your spent items.",
+        "value": "%data.items.fh-156.1%",
         "small": true
       }
     ]
@@ -3560,7 +3560,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you suffer %game.damage% from an attack, gain %game.action.shield:4% for the attack.",
+        "value": "%data.items.fh-157.1%",
         "small": true
       }
     ]
@@ -3578,7 +3578,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform:",
+        "value": "%data.items.fh-158.1%",
         "small": true
       },
       {
@@ -3619,7 +3619,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After your attack ability during which one enemy suffered at least %game.damage% 6, perform:",
+        "value": "%data.items.fh-159.1%",
         "small": true
       },
       {
@@ -3658,7 +3658,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you short rest, %game.card.recover% up to three of your spent items, and perform:",
+        "value": "%data.items.fh-160.1%",
         "small": true
       },
       {
@@ -3687,7 +3687,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "At the end of your turn, play one card from your hand and perform all persistent and mandatory abilities on either the top or bottom action of the card.",
+        "value": "%data.items.fh-161.1%",
         "small": true
       }
     ]
@@ -3705,7 +3705,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform:",
+        "value": "%data.items.fh-162.1%",
         "small": true
       },
       {
@@ -3746,7 +3746,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, give %game.condition.stun% to half (rounded up) the enemies adjacent to you.",
+        "value": "%data.items.fh-163.1%",
         "small": true
       }
     ]
@@ -3764,7 +3764,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you short rest, %game.card.recover% up to three of your spent items, choose which card to lose during the rest, and perform:",
+        "value": "%data.items.fh-164.1%",
         "small": true
       },
       {
@@ -3793,7 +3793,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "At the end of you turn, play one card from your hand and perform the bottom action of the card.",
+        "value": "%data.items.fh-165.1%",
         "small": true
       }
     ]
@@ -3811,7 +3811,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform:",
+        "value": "%data.items.fh-166.1%",
         "small": true
       },
       {
@@ -3847,7 +3847,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "At the start of the enemy's turn, before it determines its focus, perform:",
+        "value": "%data.items.fh-167.1%",
         "small": true
       },
       {
@@ -3885,7 +3885,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your ranged attack ability, add +1 %game.action.target%.",
+        "value": "%data.items.fh-168.1%",
         "small": true
       }
     ]
@@ -3902,7 +3902,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, reveal the top card of your attack modifier deck. You may place the card on the bottom of the deck.",
+        "value": "%data.items.fh-169.1%",
         "small": true
       }
     ]
@@ -3919,7 +3919,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, reveal the top card of each monster ability deck.",
+        "value": "%data.items.fh-170.1%",
         "small": true
       }
     ]
@@ -3935,7 +3935,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Whenever you lose a card to negate %game.damage%, %game.card.recover% up to one card from your discard pile and gain %game.condition.regenerate%.",
+        "value": "%data.items.fh-171.1%",
         "small": true
       }
     ]
@@ -3952,7 +3952,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, look at the top four cards of your attack modifier deck and put them back in any order.",
+        "value": "%data.items.fh-172.1%",
         "small": true
       }
     ]
@@ -3969,7 +3969,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When attacked: %game.element.wild%.",
+        "value": "%data.items.fh-173.1%",
         "small": true
       }
     ]
@@ -3986,7 +3986,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform: %game.action.teleport% 20 This teleport must end in a hex adjacent to one of your allies.",
+        "value": "%data.items.fh-174.1%",
         "small": true
       }
     ]
@@ -4004,7 +4004,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you suffer %game.damage% from an attack, the attacker suffers and equal amount of %game.damage%.",
+        "value": "%data.items.fh-175.1%",
         "small": true
       }
     ]
@@ -4021,7 +4021,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform: %game.action.teleport% 4 This teleport must end in a hex adjacent to one of your enemies.",
+        "value": "%data.items.fh-176.1%",
         "small": true
       }
     ]
@@ -4038,7 +4038,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you spring a trap by entering its hex, you may apply its effects to a figure withing %game.action.range:3% instead of yourself.",
+        "value": "%data.items.fh-177.1%",
         "small": true
       }
     ]
@@ -4054,7 +4054,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "At the start of your turn in which your initiative is 60 or higher and you are not performing a long rest, perform %game.action.heal% 1 self.",
+        "value": "%data.items.fh-178.1%",
         "small": true
       }
     ]
@@ -4071,7 +4071,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your move ability, add +4 %game.action.move%.  After the move ability gain %game.condition.immobilize%.",
+        "value": "%data.items.fh-179.1%",
         "small": true
       }
     ]
@@ -4087,7 +4087,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you loot two or more tokens at once, peform: %game.condition.bless% self.",
+        "value": "%data.items.fh-180.1%",
         "small": true
       }
     ]
@@ -4104,7 +4104,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, designate two allies or any two normal or elite monsters. Each designated figure simultaneously %game.action.teleport% to the hex occupied by the other designated figure.",
+        "value": "%data.items.fh-181.1%",
         "small": true
       }
     ]
@@ -4122,7 +4122,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Afer your melee attack , place a character token on the target. The target loses %game.action.fly%.",
+        "value": "%data.items.fh-182.1%",
         "small": true
       }
     ]
@@ -4139,7 +4139,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, all figures gain disadvantage on and add 1 %game.action.range% to all ranged attacks this round. ",
+        "value": "%data.items.fh-183.1%",
         "small": true
       },
       {
@@ -4160,7 +4160,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your multi-target melee attack ability, add +1 %game.action.target%.",
+        "value": "%data.items.fh-184.1%",
         "small": true
       }
     ]
@@ -4177,7 +4177,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your melee attack ability, add all negative conditions you have except %game.condition.brittle%, %game.condition.bane% %game.condition.stun% one attack.",
+        "value": "%data.items.fh-185.1%",
         "small": true
       }
     ]
@@ -4194,7 +4194,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, create one 1-hex obstacle in an adjacent empty hex.",
+        "value": "%data.items.fh-186.1%",
         "small": true
       }
     ]
@@ -4211,7 +4211,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, create one %game.damage% 3 trap in an adjacent empty hex.",
+        "value": "%data.items.fh-187.1%",
         "small": true
       }
     ]
@@ -4228,7 +4228,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, create one 1-hex hazardous terrain, icy terrain, or water tile in an adjacent featureless hex.",
+        "value": "%data.items.fh-188.1%",
         "small": true
       }
     ]
@@ -4245,7 +4245,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your, perform",
+        "value": "%data.items.fh-189.1%",
         "small": true
       }
     ]
@@ -4263,7 +4263,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, place a character token on one normal or elite enemy withing %game.action.range:3%. This enemy adds -1 %game.action.attack% to all its attacks.",
+        "value": "%data.items.fh-190.1%",
         "small": true
       }
     ]
@@ -4280,7 +4280,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your, perform:",
+        "value": "%data.items.fh-191.1%",
         "small": true
       },
       {
@@ -4324,7 +4324,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "At the end of your turn, designate one enemy withing %game.action.range:3%. You are its primary focus and it does not avoid negative hexes when determining movement this round. ",
+        "value": "%data.items.fh-192.1%",
         "small": true
       },
       {
@@ -4344,7 +4344,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, control one enemy withing %game.action.range:3%:",
+        "value": "%data.items.fh-193.1%",
         "small": true
       },
       {
@@ -4363,7 +4363,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During ordering of initiative after all ability card have been revealed, increase or decrease a monster set's initiative by 30.",
+        "value": "%data.items.fh-194.1%",
         "small": true
       }
     ]
@@ -4379,7 +4379,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn add +1 %game.action.range% and %game.action.pierce% to one of your ranged attacks.",
+        "value": "%data.items.fh-195.1%",
         "small": true
       }
     ]
@@ -4395,7 +4395,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, discard one loot card except Random Item to perform:",
+        "value": "%data.items.fh-196.1%",
         "small": true
       },
       {
@@ -4427,7 +4427,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After ordering of initiative, exchange a card in your hand for one which you have played. Your initiative is unaffected.",
+        "value": "%data.items.fh-197.1%",
         "small": true
       }
     ]
@@ -4443,7 +4443,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform:",
+        "value": "%data.items.fh-198.1%",
         "small": true
       },
       {
@@ -4469,7 +4469,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "At the start of the scenario, consider yourself to be your summons in initiative order when determining monster focus for the remainder of the scenario.",
+        "value": "%data.items.fh-199.1%",
         "small": true
       }
     ]
@@ -4484,14 +4484,14 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your heal ability targeting an ally, %game.element.consume.light% to add %game.condition.regenerate% one heal and flip this card over.",
+        "value": "%data.items.fh-200.1%",
         "small": true
       }
     ],
     "actionsBack": [
       {
         "type": "custom",
-        "value": "During your attack ability, %game.element.consume.dark% to add %game.condition.curse% to one attack and flip this card over.",
+        "value": "%data.items.fh-200.2%",
         "small": true
       }
     ]
@@ -4507,7 +4507,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your attack ability performed while occupying or ad adjacent to a hex with a water tile, add %game.action.push% and %game.condition.immobilize% one attack.",
+        "value": "%data.items.fh-201.1%",
         "small": true
       }
     ]
@@ -4523,7 +4523,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your melee attack ability, add %game.action.pierce% and %game.condition.wound% one attack.",
+        "value": "%data.items.fh-202.1%",
         "small": true
       }
     ]
@@ -4539,7 +4539,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After your ability control one target:",
+        "value": "%data.items.fh-203.1%",
         "small": true
       },
       {
@@ -4560,7 +4560,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, one adjacent normal or elite enemy suffers %game.damage% to their %game.action.shield% value.",
+        "value": "%data.items.fh-204.1%",
         "small": true
       }
     ]
@@ -4576,7 +4576,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your, perform:",
+        "value": "%data.items.fh-205.1%",
         "small": true
       },
       {
@@ -4609,7 +4609,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your melee attack ability, if you have not move this round, add +2 %game.action.attack% to one attack, and you may perform no move abilites this turn.",
+        "value": "%data.items.fh-206.1%",
         "small": true
       }
     ]
@@ -4625,7 +4625,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After your attack, if the target's current hit point is 3 or less, give the target %game.condition.bane%",
+        "value": "%data.items.fh-207.1%",
         "small": true
       }
     ]
@@ -4641,7 +4641,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your attack ability add %game.action.pierce% to one attack targeting an enemy whose current hit point value is 4 or less.",
+        "value": "%data.items.fh-208.1%",
         "small": true
       }
     ]
@@ -4657,7 +4657,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your melee attack ability, give advantage on one atrack.  For each master you have completed also add one following to the attack: +1 %game.action.attack%, %game.condition.wound%, or %game.condition.poison%. ",
+        "value": "%data.items.fh-209.1%",
         "small": true
       }
     ]
@@ -4673,7 +4673,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, add +3 %game.action.attack% to all your attacks performed by Lurkers targeting you this round. ",
+        "value": "%data.items.fh-210.1%",
         "small": true
       },
       {
@@ -4693,7 +4693,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, designate one adjacent hex.  At the end of your turn, all figures withing %game.action.range:2% of the designated hex suffer %game.damage% 1.",
+        "value": "%data.items.fh-211.1%",
         "small": true
       }
     ]
@@ -4709,7 +4709,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After ordering of initiative, choose one element. This element cannot be infused or consume by any monster this round. ",
+        "value": "%data.items.fh-212.1%",
         "small": true
       },
       {
@@ -4728,14 +4728,14 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your attack ability %game.element.consume.ice% to add %game.condition.immobilize% one attack, then flip this card over at the end of your turn.",
+        "value": "%data.items.fh-213.1%",
         "small": true
       }
     ],
     "actionsBack": [
       {
         "type": "custom",
-        "value": "During your attack ability, %game.element.consume.fire% to add %game.condition.wound% to one attack and flip this card over.",
+        "value": "%data.items.fh-213.2%",
         "small": true
       }
     ]
@@ -4751,7 +4751,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your heal ability add one positive condition you have to one heal.",
+        "value": "%data.items.fh-214.1%",
         "small": true
       }
     ]
@@ -4767,7 +4767,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your, add +1 %game.action.attack% and %game.condition.muddle% to all your attacks. At the end of your turn, perform:",
+        "value": "%data.items.fh-215.1%",
         "small": true
       },
       {
@@ -4794,7 +4794,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn,",
+        "value": "%data.items.fh-216.1%",
         "small": true
       },
       {
@@ -4834,7 +4834,7 @@
       },
       {
         "type": "custom",
-        "value": "Elements do not move from strong to waning at the end of this round. ",
+        "value": "%data.items.fh-216.3%",
         "small": true
       },
       {
@@ -4854,7 +4854,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During ordering of initiative after all ability card have been revealed, shuffle all monster ability decks and draw a new card for each active monster set.",
+        "value": "%data.items.fh-217.1%",
         "small": true
       }
     ]
@@ -4870,7 +4870,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, remove all conditions from all figures then grant all figures:",
+        "value": "%data.items.fh-218.1%",
         "small": true
       },
       {
@@ -4898,7 +4898,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn all figures gain %game.condition.strengthen%. Until any monster is killed, the first attack modifier card drawn for every attack is treated as rolling.",
+        "value": "%data.items.fh-219.1%",
         "small": true
       }
     ]
@@ -4914,7 +4914,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, %game.card.recover% up to one Tome item.",
+        "value": "%data.items.fh-220.1%",
         "small": true
       }
     ]
@@ -4930,7 +4930,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your melee attack ability, %game.element.consume.ice% to add %game.action.pierce% to one attack.",
+        "value": "%data.items.fh-221.1%",
         "small": true
       }
     ]
@@ -4946,7 +4946,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During yor turn, discard two cards from your hand to perform:",
+        "value": "%data.items.fh-222.1%",
         "small": true
       },
       {
@@ -4973,7 +4973,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After ordering of initiative, all monsters consider you to be first in initiative order when determining focus this round. ",
+        "value": "%data.items.fh-223.1%",
         "small": true
       },
       {
@@ -4993,14 +4993,14 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After the next three attacks targeting you, flip this card over.",
+        "value": "%data.items.fh-224.1%",
         "small": true
       }
     ],
     "actionsBack": [
       {
         "type": "custom",
-        "value": "During your turn, perform:",
+        "value": "%data.items.fh-224.2%",
         "small": true
       },
       {
@@ -5026,7 +5026,7 @@
       },
       {
         "type": "custom",
-        "value": "then flip this card over.",
+        "value": "%data.items.fh-224.4%",
         "small": true
       }
     ]
@@ -5041,14 +5041,14 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your melee attack ability, %game.element.consume.earth% to add +1 %game.action.attack% to one attack and flip this card over.",
+        "value": "%data.items.fh-225.1%",
         "small": true
       }
     ],
     "actionsBack": [
       {
         "type": "custom",
-        "value": "During your melee attack ability, %game.element.consume.air% to add %game.action.push% 2 to one attack and flip this card over.",
+        "value": "%data.items.fh-225.2%",
         "small": true
       }
     ]
@@ -5064,7 +5064,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your attack ability, double the numerical value of the next attack modifier card you draw. %game.attackmodifier.double% and %game.attackmodifier.null% modifier cards are unaffected.",
+        "value": "%data.items.fh-226.1%",
         "small": true
       }
     ]
@@ -5080,7 +5080,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you short rest, place half (rounded down) of your discard pile on this item, lose of the remaining cards randomly as normal, then draw the cards on this item.",
+        "value": "%data.items.fh-227.1%",
         "small": true
       }
     ]
@@ -5096,7 +5096,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, open one unlocked door while withing %game.action.range:2%.",
+        "value": "%data.items.fh-228.1%",
         "small": true
       }
     ]
@@ -5112,7 +5112,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn grant one ally withing %game.action.range:3%:",
+        "value": "%data.items.fh-229.1%",
         "small": true
       },
       {
@@ -5132,7 +5132,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After you draw one loot card, draw one additional card, keep one, and place the other on either the top or bottom of the loot deck.",
+        "value": "%data.items.fh-230.1%",
         "small": true
       }
     ]
@@ -5148,7 +5148,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you gain a loot token, gain 3 `hide` instead of drawning a loot card.",
+        "value": "%data.items.fh-231.1%",
         "small": true
       }
     ]
@@ -5164,7 +5164,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn lose 1 morale to perform:",
+        "value": "%data.items.fh-232.1%",
         "small": true
       },
       {
@@ -5191,7 +5191,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During you ally's ranged attack ability, add %game.condition.muddle% %game.condition.curse% one attack.",
+        "value": "%data.items.fh-233.1%",
         "small": true
       }
     ]
@@ -5207,7 +5207,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, create one %game.condition.poison%, %game.condition.immobilize% in an empty hex within %game.action.range:2%.",
+        "value": "%data.items.fh-234.1%",
         "small": true
       }
     ]
@@ -5223,7 +5223,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, loot one loot token within %game.action.range:2%.",
+        "value": "%data.items.fh-235.1%",
         "small": true
       }
     ]
@@ -5239,7 +5239,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, lose one card from your hand to %game.card.recover% one card from your loot pile of equal of lower level.",
+        "value": "%data.items.fh-236.1%",
         "small": true
       }
     ]
@@ -5255,7 +5255,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, choose one of six directions. You and all figures withing %game.action.range:2% are forced to simultaneously move 2 hexes in the chosen directon.",
+        "value": "%data.items.fh-237.1%",
         "small": true
       }
     ]
@@ -5271,7 +5271,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you would become exhausted from suffering %game.damage%, set your hit point value to 1 instead.",
+        "value": "%data.items.fh-238.1%",
         "small": true
       }
     ]
@@ -5287,7 +5287,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, all allies and enemies within %game.action.range:2% suffer %game.damage% 1.",
+        "value": "%data.items.fh-239.1%",
         "small": true
       }
     ]
@@ -5302,7 +5302,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you fail a scenario, still earn all %game.checkmark% from your battle goal if it was completed.",
+        "value": "%data.items.fh-240.1%",
         "small": true
       }
     ]
@@ -5318,7 +5318,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After you draw one loot card, draw one additional loot card.",
+        "value": "%data.items.fh-241.1%",
         "small": true
       }
     ]
@@ -5334,7 +5334,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your attack ability, treat the next three attack modifier cards you draw as rolling",
+        "value": "%data.items.fh-242.1%",
         "small": true
       }
     ]
@@ -5350,12 +5350,12 @@
     "actions": [
       {
         "type": "custom",
-        "value": "This item cannot be sold and must be brought into and used every scenario.",
+        "value": "%data.items.fh-243.1%",
         "small": true
       },
       {
         "type": "custom",
-        "value": "At the start of the scenario perform:",
+        "value": "%data.items.fh-243.2%",
         "small": true
       },
       {
@@ -5392,7 +5392,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, increase the printed %game.action.attack%, %game.action.move%, %game.action.target%, or %game.action.range% numerical value on one of your abilities by 1.",
+        "value": "%data.items.fh-244.1%",
         "small": true
       }
     ]
@@ -5422,7 +5422,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, capture an adjacent enemy whose hit point value is 1 or 2.",
+        "value": "%data.items.fh-247.1%",
         "small": true
       }
     ]

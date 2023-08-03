@@ -10,7 +10,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Any time you kill an enemy during your turn, gain %game.action.shield% 1 for the rest of the round.",
+        "value": "%data.items.solo-134.1%",
         "small": true
       }
     ]
@@ -27,7 +27,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your Heal action, double the value of the Heal.",
+        "value": "%data.items.solo-135.1%",
         "small": true
       }
     ]
@@ -44,7 +44,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your ranged attack, add +2 %game.action.attack% and gain Advantage on the entire Attack action, but suffer 2 damage for each attack made.",
+        "value": "%data.items.solo-136.1%",
         "small": true
       }
     ]
@@ -60,7 +60,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Any time you perform a melee attack, add %game.action.pierce% 1 to the Attack.",
+        "value": "%data.items.solo-137.1%",
         "small": true
       }
     ]
@@ -77,7 +77,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your action where an obstacle is created, create one additional obstacle and apply all effects of the action to it.",
+        "value": "%data.items.solo-138.1%",
         "small": true
       }
     ]
@@ -93,7 +93,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Any time you perform an %Augment% action, add +1 %game.action.attack% to the entire action.",
+        "value": "%data.items.solo-139.1%",
         "small": true
       }
     ]
@@ -109,7 +109,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When damaged by an attack, you may %game.element.consume.light% to gain %game.action.shield% 3 for the attack.",
+        "value": "%data.items.solo-140.1%",
         "small": true
       }
     ]
@@ -126,7 +126,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, you or any one ally may Refresh %game.card.refresh% one of your spent or consumed items.",
+        "value": "%data.items.solo-141.1%",
         "small": true
       }
     ]
@@ -143,7 +143,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When a summon you own is damaged by an attack, it suffers no damage instead.",
+        "value": "%data.items.solo-142.1%",
         "small": true
       }
     ]
@@ -160,7 +160,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, gain %game.condition.invisible% and create dark.",
+        "value": "%data.items.solo-143.1%",
         "small": true
       },
       {
@@ -181,7 +181,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, %game.condition.poison% and %game.condition.curse% one enemy within %game.action.range:3%.",
+        "value": "%data.items.solo-144.1%",
         "small": true
       }
     ]
@@ -197,7 +197,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Any time you perform a melee attack and you have exactly 1 hit point, add +2 %game.action.attack% to the Attack.",
+        "value": "%data.items.solo-145.1%",
         "small": true
       }
     ]
@@ -213,7 +213,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After performing any %song% action, immediately perform an %game.action.attack% 2 or %game.action.move% 2 action.",
+        "value": "%data.items.solo-146.1%",
         "small": true
       }
     ]
@@ -229,7 +229,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Any time you perform a %Doom% action, %game.condition.muddle% the target of the %Doom%.",
+        "value": "%data.items.solo-147.1%",
         "small": true
       }
     ]
@@ -245,7 +245,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Any time an ally performs a Medical Pack or Large Medical Pack action, they add +1 %game.action.heal% to their Heal.",
+        "value": "%data.items.solo-148.1%",
         "small": true
       }
     ]
@@ -262,7 +262,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "If you move 5 or more hexes on your turn, create any element.",
+        "value": "%data.items.solo-149.1%",
         "small": true
       },
       {
@@ -283,7 +283,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "After performing a %Command% action, play one card from your hand and immediately perform the same side of the card (top or bottom) as the %Command% action.",
+        "value": "%data.items.solo-150.1%",
         "small": true
       }
     ]
@@ -300,7 +300,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your melee attack, add %game.condition.poison% and %game.condition.wound% to the entire action.",
+        "value": "%data.items.solo-151.1%",
         "small": true
       }
     ]
@@ -316,7 +316,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you reveal cards from any deck, reveal one additional card.",
+        "value": "%data.items.solo-164.1%",
         "small": true
       }
     ]
@@ -333,7 +333,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "At the end of your turn, create one 4 damage %game.condition.poison% trap in an adjacent empty hex.",
+        "value": "%data.items.solo-34.1%",
         "small": true
       }
     ]
@@ -350,7 +350,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Add +1 %game.action.move% to all your movement while you are at full health.",
+        "value": "%data.items.solo-40.1%",
         "small": true
       }
     ]
@@ -367,7 +367,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn remove one damage token from one %Spirit% {cs-spirit-caller-token}. This %Spirit% may immediately take a turn without receiving a damage token.",
+        "value": "%data.items.solo-41.1%",
         "small": true
       }
     ]
@@ -383,7 +383,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Whenever you given an ally a %Prayer% ability card, that ally may perform \"%game.action.heal% 2, Self\".",
+        "value": "%data.items.solo-42.1%",
         "small": true
       }
     ]
@@ -400,7 +400,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform \"%game.action.pull% 2, Self toward one enemy within %game.action.range:3%\".",
+        "value": "%data.items.solo-45.1%",
         "small": true
       }
     ]
@@ -416,7 +416,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "While %Mounted% on a summon, you can aply your %game.items.slots.small% items item effects to the summon instead.",
+        "value": "%data.items.solo-47.1%",
         "small": true
       }
     ]
@@ -433,7 +433,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, %game.element.consume.wild% to peforme one of the following: %game.action.move% 2, %game.action.jump%, %game.element.air% | %game.action.heal% 3, Self, %game.element.light% | %game.action.attack% 2, %game.element.fire%.",
+        "value": "%data.items.solo-48.1%",
         "small": true
       }
     ]
@@ -450,7 +450,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, when you %game.element.consume.wild% an element, do not move the consumed element to the Inert column.",
+        "value": "%data.items.solo-50.1%",
         "small": true
       }
     ]
@@ -466,7 +466,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When attacked, you may %game.element.consume.fire% to gain %game.action.retaliate% 3 for the attack.",
+        "value": "%data.items.solo-51.1%",
         "small": true
       }
     ]
@@ -482,7 +482,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Once each turn, during your turn, you may remove one condition from an adjacent figure and place that condition on this card if it is not already on this card. During your turn, one adjacent figure gains all conditions on this card, then consume %game.card.lost% this item.",
+        "value": "%data.items.solo-53.1%",
         "small": true
       }
     ]
@@ -499,7 +499,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "At the end of your turn create one 3 damage %game.condition.immobilize% trap in an adjacent empty hex.",
+        "value": "%data.items.solo-56.1%",
         "small": true
       }
     ]
@@ -515,7 +515,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "You are immune to %game.condition.muddle%. At the end of each round, if you have %game.condition.wound% gain %game.condition.regenerate%.",
+        "value": "%data.items.solo-57.1%",
         "small": true
       }
     ]
@@ -533,7 +533,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "The next two times an enemy suffers damage from attacking you, that enemy gains %game.condition.immobilize%.",
+        "value": "%data.items.solo-103.1%",
         "small": true
       }
     ]
@@ -550,7 +550,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, forgo your top action to play a summon action from a card in your lost pile, ignoring two ^scrapx^.",
+        "value": "%data.items.solo-109.1%",
         "small": true
       }
     ]
@@ -567,7 +567,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your attack ability gain %game.condition.wound% to add +3 %game.action.attack% to one attack. If you kill the target perform \"%game.action.heal% 3, Self\".",
+        "value": "%data.items.solo-114.1%",
         "small": true
       }
     ]
@@ -584,7 +584,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Duing your attack ability, move one character token on one of your persistent abilities backward one slot and add +X %game.action.attack% to one attack, where X is the nuber of active persistent abilities.",
+        "value": "%data.items.solo-248.1%",
         "small": true
       }
     ]
@@ -601,7 +601,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During our turn, perform one of the two following abilities: Lose one card from your hand to gain 3 ^fh-hourglass^. ~@-2 ^fh-hourglass^ : %game.card.recover% up to two of your discarded cards@~",
+        "value": "%data.items.solo-249.1%",
         "small": true
       }
     ]
@@ -618,7 +618,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn perform: %game.action.attack% 2 %game.action.range:3%. All your banners are treated as additionally occupying the hex of the attack target of their bonuses and that hex is treated as occupied by an ally this round. ",
+        "value": "%data.items.solo-250.1%",
         "small": true
       },
       {
@@ -639,7 +639,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Place one ^fh-shadow^ in an adjacent hex. %game.element.dark%",
+        "value": "%data.items.solo-251.1%",
         "small": true
       }
     ]
@@ -657,7 +657,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "On the next three deaths of any of your summons,",
+        "value": "%data.items.solo-252.1%",
         "small": true
       }
     ]
@@ -673,14 +673,14 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your ranged attack ability while in ^fh-geminate-right^, gain advantage for one attack, then flip this card over.",
+        "value": "%data.items.solo-253.1%",
         "small": true
       }
     ],
     "actionsBack": [
       {
         "type": "custom",
-        "value": "When an enemy performs an attack targeting you while you are in ^fh-geminate-left^, the attacker gains disadvantage, then flip this card over.",
+        "value": "%data.items.solo-253.2%",
         "small": true
       }
     ]
@@ -697,7 +697,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, activate all your ^fh-astral^ as if you just performed a ^fh-astral^ action.",
+        "value": "%data.items.solo-254.1%",
         "small": true
       }
     ]
@@ -714,7 +714,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, you may create either one 1-hex obstacle or hazardous terrain tile in an empty tile within %game.action.range:2%.",
+        "value": "%data.items.solo-255.1%",
         "small": true
       }
     ]
@@ -731,7 +731,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Gain 3 ^fh-shards^",
+        "value": "%data.items.solo-256.1%",
         "small": true
       }
     ]
@@ -749,7 +749,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you create a trap, place a character token on it.  Monsters do not treat the trap as negative. Remvoe the token when you %game.card.recover% this item.",
+        "value": "%data.items.solo-257.1%",
         "small": true
       }
     ]
@@ -766,7 +766,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you suffer damage, if your hit point value is reduced to below half your maximum, perform: %game.action.heal% 7 self, %game.condition.curse% This heal is not affect by and cannot remove negative conditions.",
+        "value": "%data.items.solo-258.1%",
         "small": true
       }
     ]
@@ -782,14 +782,14 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During an attack ability you grant an ally, add %game.action.push% to one of their attacks, then flip this card over.",
+        "value": "%data.items.solo-259.1%",
         "small": true
       }
     ],
     "actionsBack": [
       {
         "type": "custom",
-        "value": "During your attack ability you, add %game.action.pull% 2 to one attack, then flip this card over.",
+        "value": "%data.items.solo-259.2%",
         "small": true
       }
     ]
@@ -806,7 +806,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your attack ability, add %game.condition.brittle% one attack and create one 1-hex icy terrain tile in the featureless hex occupied by the target.",
+        "value": "%data.items.solo-260.1%",
         "small": true
       }
     ]
@@ -823,7 +823,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Remove all damage and negative conditions from one of your summons, then ^fh-prism^ to that summon.",
+        "value": "%data.items.solo-261.1%",
         "small": true
       }
     ]
@@ -839,14 +839,14 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your move ability, when you have ^fh-meter-yellow^ or ^fh-meter-red^, add +1 %game.action.move%, then flip this card over at the end of your turn.",
+        "value": "%data.items.solo-262.1%",
         "small": true
       }
     ],
     "actionsBack": [
       {
         "type": "custom",
-        "value": "During your turn when you have ^fh-meter-blue^, perform:",
+        "value": "%data.items.solo-262.2%",
         "small": true
       },
       {
@@ -862,7 +862,7 @@
       },
       {
         "type": "custom",
-        "value": "then flip this card over at the end of your turn.",
+        "value": "%data.items.solo-262.4%",
         "small": true
       }
     ]
@@ -878,7 +878,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Whenever you gain %game.condition.invisible% peform a teleport ability while you have %game.condition.invisible%, after the ability perform: %game.condition.muddle% %game.action.range:1%",
+        "value": "%data.items.solo-263.1%",
         "small": true
       }
     ]
@@ -895,7 +895,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "When you rest, you may keep up to three ^fh-anemone^ cards in your active area.",
+        "value": "%data.items.solo-264.1%",
         "small": true
       }
     ]
@@ -912,7 +912,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your Attack ability, add +1 %game.action.attack% to one attack. Whenever this item is refreshed, one adjacent enemy suffers 1 damage.",
+        "value": "%data.items.solo-119.1%",
         "small": true
       }
     ]
@@ -928,14 +928,14 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your melee Attack abilit, gain %game.condition.chill% to add %game.condition.chill% to the attack. After the attack flip, this card.",
+        "value": "%data.items.solo-120.1%",
         "small": true
       }
     ],
     "actionsBack": [
       {
         "type": "custom",
-        "value": "During your melee Attack ability, if you do not have %game.condition.wound%, gain %game.condition.wound% to add %game.condition.wound% to the attack. After the attack flip, this card.",
+        "value": "%data.items.solo-120.2%",
         "small": true
       }
     ]
@@ -952,7 +952,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, play one level 5 or lower card from your hand or discard pile and immediately perform a %Crystalize% ^Crystalize^ action from that card.",
+        "value": "%data.items.solo-121.1%",
         "small": true
       }
     ]
@@ -969,7 +969,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Whenever you %game.condition.dodge% an attack, you may spend this item instead of discarding a card from your hand.",
+        "value": "%data.items.solo-123.1%",
         "small": true
       }
     ]
@@ -986,7 +986,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "During your turn, perform \"%game.action.pull% 1, %game.condition.muddle%, %game.action.range:3%\".",
+        "value": "%data.items.solo-128.1%",
         "small": true
       }
     ]
