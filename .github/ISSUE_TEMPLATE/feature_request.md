@@ -1,9 +1,9 @@
 ---
-name: Feature request
+name: :rocket: Feature request
 about: Suggest an idea for this project
 title: ''
-labels: ''
-assignees: ''
+labels: 'enhancement'
+assignees: 'Lurkars'
 
 ---
 
