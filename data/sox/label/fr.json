@@ -1,0 +1,15 @@
+{
+  "edition": {
+    "sox": "Chercheur de Xorn"
+  },
+  "monster": {
+    "night-demon-sox": "%data.monster.night-demon% (%data.edition.sox%)",
+    "tormented-soul": "Âme tourmentée",
+    "water-eel": "Anguille d'eau"
+  },
+  "scenario": {
+    "Nobles' Crypt": "Crypte des nobles",
+    "Flooded Crypt": "Crypte Inondée",
+    "Crypt of the Ancients": "Crypte des Anciens"
+  }
+}

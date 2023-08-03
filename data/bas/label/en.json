@@ -1,0 +1,33 @@
+{
+  "edition": {
+    "bas": "Blood and Sand"
+  },
+  "monster": {
+    "desiccated-corpse": "Desiccated Corpse",
+    "dust-demon": "Dust Demon",
+    "giant-scorpion": "Giant Scorpion",
+    "horned-lizard": "Horned Lizard",
+    "jackal": "Jackal",
+    "sand-spider": "Sand Spider"
+  },
+  "scenario": {},
+  "custom": {
+    "bas": {
+      "desiccated-corpse": {
+        "1": "DESICCATE",
+        "2": "Destroy all water carried by adjacent enemies."
+      },
+      "dust-demon": {
+        "1": "%data.monster.dust-demon% moves through as many enemies as possible."
+      },
+      "jackal": {
+        "1": "Pack"
+      },
+      "sand-spider": {
+        "1": "Add +3 %game.action.attack% if the target is %game.condition.immobilize%.",
+        "2": "All attacks targeting %data.monster.sand-spider% this round gain Disadvantage.",
+        "3": "Create a %game.condition.immobilize% trap in an adjacent empty hex closest to an enemy."
+      }
+    }
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "character": {
+    "diviner": "Devineresse"
+  },
+  "edition": {
+    "fc": "Les Cercles Oubliés"
+  },
+  "monster": {
+    "aesther-ashblade": "Esther Sabre de Cendre",
+    "aesther-scout": "Éclaireur Esther",
+    "avatar-of-ashtar": "Avatar d'Ashtar",
+    "avatar-of-thelija": "Avatar de Thelija",
+    "bear-drake-abomination": "Abomination Ours-Wyverne",
+    "elham": "Elham",
+    "human-commander": "Commandante Humaine",
+    "icestorm-guardian-of-the-firmament": "Gardien du Firmament Vent-de-Glace",
+    "lavaflow-guardian-of-the-firmament": "Gardien du Firmament Flot-de-Lave",
+    "manifestation-of-corruption": "Manifestation de la Corruption",
+    "naaret": "Naaret",
+    "selah-naberis": "Selah Naberis",
+    "sraka-the-wise": "Sraka la Sage",
+    "the-husk": "Le Karkass",
+    "the-steel-lion": "Le Lion d'Acier",
+    "uyart-ikkuma": "Uyart Ikkuma",
+    "valrath-commander": "Commandant Valrath",
+    "valrath-savage": "Valrath Sauvage",
+    "valrath-tracker": "Pisteur Valrath",
+    "wolf-viper-abomination": "Abomination Loup-Vipère"
+  },
+  "deck": {
+    "ashblade": "Sabre de Cendre",
+    "savage": "Sauvage",
+    "tracker": "Pisteur"
+  },
+  "ability": {
+    "Pulse of Malice": "Poussée Malveillante",
+    "Harsh Entrapment": "Piège Cruel",
+    "Searing Vapors": "Émanation Brûlante",
+    "Toxic Blast": "Explosion Toxique",
+    "Blistering Heat": "Chaleur Étouffante",
+    "Nightmare Spheres": "Sphères Cauchemardesques",
+    "Lure Them In": "Tous les attirer",
+    "Plaque Their Dreams": "Tourmenter leurs Rêves",
+    "Flame Lance": "Lance de Feu",
+    "What's Yours is Mine": "Ce qui est à vous m'appartient",
+    "Corruptiing Presence": "Présence Corruptrice",
+    "Endless Legions": "Légions Innombrables",
+    "Heed My Call": "Écoutez mon Appel",
+    "Unfathomable Fortitude": "Volonté Inflexible",
+    "Marked for Death": "Destiné à Mourir",
+    "You Date to Defy Me": "Vous Osez me Défier",
+    "Legendary - Void": "Légendaire - Le Néant",
+    "Legandary - Shadows": "Légendaire - Les Ténèbres",
+    "Legengary - Gloom": "Légendaire - L'Ombre",
+    "Legendary - Domination": "Légendaire - Contrôle"
+  },
+  "scenario": {
+    "Unexpected Visitors": "Des Visiteurs Inattendus",
+    "Lore Untold": "Connaissances Secrètes",
+    "Past In Flames": "Passé En Flammes",
+    "Aftershocks": "Résurgences",
+    "Shifting Gears": "Engrenages Perturbants",
+    "Shrouded Crypt": "La Crypte des Ténèbres",
+    "Bazaar of Knowledge": "Le Bazar du Savoir",
+    "Where It Is Needed": "Nécessité fait Loi",
+    "A Gaping Wound": "Une Plaie Béante",
+    "Monstrosities of a Cult": "Les Monstruosités d'un Culte",
+    "Intricate Work": "Une Tâche Ardue",
+    "Mechanical Genius": "Le Génie de la Mécanique",
+    "Prologue to the End": "Le Début de la Fin",
+    "Epilogue of a War": "Les derniers Instants d'une Guerre",
+    "A Circular Solution": "Une Solution Circulaire",
+    "The Shackles Loosen": "L'Étau de Desserre",
+    "The Bottom of It": "Le Fond des Choses",
+    "The Lost Thread": "La Piste Perdue",
+    "Ink Not Yet Dry": "Une Encre Encore Humide",
+    "Future Uncertain": "Des Lendemains Incertains"
+  },
+  "section": {
+    "Volcanic Wasteland": "Landes Volcaniques",
+    "Barge Ablaze": "Barge en feu",
+    "Kennel of Things": "Le Repaire des Créatures Hybrides",
+    "A Life Taken, a Life Given": "Une vie pour une vie",
+    "Shrine of Ashtar": "Le Mausolée d'Ashtar",
+    "The Floor Moves": "Sol Rotatif",
+    "Trash Dump": "Déversement d'ordures",
+    "Escape is Not So Easy": "Pas si facile de fuir",
+    "A Rumbling Sound": "Un grondement",
+    "Narrow Vault": "L'Étroit Caveau",
+    "Withered Grove": "Le Bosquet Flétri",
+    "Secret Library": "La Bibliothèque Secrète",
+    "A Bear of a Drake": "Une Wyverne Mal Léchée",
+    "Serene Path": "Un Chemin Tranquille",
+    "Seal of Attraction": "Le Sceau d'Attraction",
+    "Flaming Caravel": "La Caravelle en feu",
+    "Frozen Cave": "La Grotte Gelée",
+    "Shrine of Thelija": "L'Oratoire de Thelija",
+    "Aiding Diamara": "Au Service de Diamara",
+    "Another Revolution": "Une nouvelle Rotation",
+    "Venerated Tomb": "La Tombe des Vénérables",
+    "A Sphere of Nightmares": "La Sphère du Cauchemar",
+    "Collapsed Atrium": "L'Atrium Effonfré",
+    "Quick Turn": "Rotation Rapide",
+    "Hall of Horrors": "L'Étage de l'Horreur",
+    "Slow Turn": "Rotation Douce",
+    "Seal of Repulsion": "Le Sceau de la Répulsion",
+    "Flooded Catacombs": "Les Catacombes Inondées",
+    "Branching Alleyway": "L'Embranchement",
+    "Quiet Rotation": "Rotation Silencieuse",
+    "Clinging Fog": "Brume Épaisse",
+    "Reflecting Road": "L'Étang Réfléchissant",
+    "Narrow Street": "La Ruelle",
+    "Gateway to the Firmament": "La Passerelle vers le Firmament",
+    "Misty Glade": "La Clairière Brumeuse",
+    "Nesting Grounds": "Les Nids",
+    "Rays of Sunlight": "Rayons de Soleil",
+    "Seal of Reanimation": "Le Sceau de Réanimation",
+    "The Horde's Kitchen": "La Cuisine de la Horde",
+    "Haunted Treasury": "Un Trésor Hanté",
+    "Sekhem Fountain": "La Fontaine de Sekhem",
+    "The Thorns of Hate": "Les Épines de la Haine",
+    "Strangler's Park": "Le Parc aux Étranglés",
+    "Seal of Distortion": "Le Sceau de la Distorsion",
+    "Access Hall": "Le Hall d'Accès",
+    "A Multitude of Tomes": "Des Ouvrages Innombrables",
+    "Lingering Darkness": "L'Obscurité Persistante",
+    "Training Maneuvers": "Séance d'Entraînement",
+    "Guarded Nursery": "La Crèche Protégée",
+    "Fighting Dirty": "Un Combat Déloyal",
+    "Near the Gates": "Près des Portes",
+    "A Secret Floor": "Un Étage Secret",
+    "Clawing at Victory": "La Victore à portée de Pince"
+  },
+  "summon": {
+    "ghost-falcon": "Faucon Fantôme",
+    "twilight-archon": "Archonte Crépusculaire"
+  },
+  "custom": {
+    "fc": {
+      "ashblade": {
+        "1": "Se focalise sur l'adversaire ayant la plus haute initiative.",
+        "2": "Se %game.action.teleport% sur le plus près des hexagones inoccupés adjacents à sa cible en focus."
+      },
+      "manifestation-of-corruption": {
+        "1": "Joue les deux cartes du dessus du paquet ; utilise la première pour déterminer l'initiative. Effectue l'action inférieure de la première carte et l'action supérieur de la deuxième.",
+        "2": "Effectue cette action lorsqu'elle est révélée, sans suivre l'ordre d'initiative normal.",
+        "3": "L'aventurier possédant la plus grande valeur d'initiative doit agir ce round comme si ses adversaires étaient des alliées et vice versa. À son tour, il effectue \"%game.action.move%2\", puis l'action supérieure de sa carte Principale. Ensuite, il défausse les deux cartes jouées, même si normalement elles ne devaient pas être perdues.",
+        "4": "Tous les attaquants le ciblant gagnent %game.condition.curse% ce round.",
+        "5": "Invoque un Démon de Flamme : normal pour deux ou trois aventuriers, d'élite pour quatre aventuriers. Invoque un Démon de la Nuit : normal pour deux aventuriers, d'élite pour trois ou quatre aventuriers.",
+        "7": "Invoque un Démon de la Nuit normal supplémentaire",
+        "8": "Invoque un Démon de Flamme normal supplémentaire",
+        "9": "Invoque un Pisteur Valrath : normal pour deux aventuriers, d'élite pour trois ou quatre aventuriers.",
+        "10": "Invoque deux Diablotins Noirs: normaux à deux aventuriers; un normal et un d'élite à trois aventuriers; d'élite à quatre aventuriers.",
+        "11": "Invoque un Diablotin Noir d'élite supplémentaire",
+        "12": "Cible tous les adversaires à %game.action.range%4",
+        "13": "Tous les adversaires adjacents subissent %game.damage:3%.",
+        "14": "Pour les trois prochaines attaques le ciblant et lui causant des dégâts, gagne %game.action.shield% 3.",
+        "15": "Crée un piège à %game.condition.disarm% et %game.condition.poison% sur chaque hexagone vide adjacent.",
+        "16": "Se %game.action.teleport% sur l'hexagone occupé par l'adversaire le plus éloigné à %game.action.range%+1 et le %game.action.teleport% simultanément sur l'hexagone qu'il occupait.",
+        "17": "Invoque un Valrath Sauvage normal sur un hexagone adjacent pour chaque adversaire à %game.action.range%5.",
+        "18": "Tous les attaquants le prenant pour cible gagnent %game.condition.curse%.",
+        "19": "Tous les attaquants le prenant pour cible gagnent Désavantage pour cette attaque.",
+        "20": "%game.action.attack%-1 sur un autre adversaire à %game.action.range%4 de la première cible, puis %game.action.attack%-2 sur un troisième adversaire à %game.action.range%3 de la seconde cible.",
+        "21": "Invoque un Éclaireur Esther : normal pour deux ou trois aventuriers, d'élite pour quatre aventuriers.",
+        "22": "Les trois prochaines fois qu'une source lui inflige des dégâts, il ne subit pas de dégâts à la place."
+      },
+      "sraka-the-wise": {
+        "1": "Double toutes les valeurs de Soin. Si possible, les soins ciblent en priorité le Lion d'Acier",
+        "2": "Tous les états %game.condition.curse% et %game.condition.bless% appliqués sont doublés"
+      },
+      "the-steel-lion": {
+        "1": "Toutes les attaques ciblant un de ses alliés adjacents le prennent pour cible à la place, sans considération de portée",
+        "2": "Les [C] premières fois qu'il subit %game.damage:6% ou plus provenant d'une seule source, il n'en subit aucun à la place"
+      },
+      "tracker": {
+        "1": "Crée un piège à %game.condition.disarm% sur l'hexagone vide adjacent le plus proche d'un adversaire.",
+        "2": "Se focalise sur l'adversaire ayant le moins de points de vie."
+      },
+      "uyart-ikkuma": {
+        "1": "Les effets %game.element.consume.fire% et %game.element.consume.earth% de ses cartes s'appliquent si un Démon de l'élément correspondant est présent sur le plateau"
+      },
+      "valrath-savage": {
+        "1": "Tous les alliés adjacents ajoutent +1 %game.action.attack% à toutes leurs attaques",
+        "2": "Tous les alliés adjacents ajoutent +2 %game.action.attack% à toutes leurs attaques"
+      }
+    }
+  }
+}

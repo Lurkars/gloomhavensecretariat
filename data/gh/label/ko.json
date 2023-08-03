@@ -1,0 +1,325 @@
+{
+    "character": {
+        "brute": "야만인",
+        "cragheart": "바위심장",
+        "mindthief": "정신도둑",
+        "scoundrel": "무법자",
+        "spellweaver": "주문직인",
+        "tinkerer": "땜장이"
+    },
+    "edition": {
+        "gh": "글룸헤이븐"
+    },
+    "monster": {
+        "ancient-artillery": "고대 대포",
+        "arcane-golem": "신비한 골렘",
+        "bandit-archer": "강도 궁수",
+        "bandit-commander": "강도 두목",
+        "bandit-guard": "강도 경비병",
+        "black-imp": "검은 임프",
+        "bloated-regent": "부어오른 섭정",
+        "captain-of-the-guard": "경비대장",
+        "cave-bear": "동굴 곰",
+        "city-archer": "도시 궁수",
+        "city-guard": "도시 경비병",
+        "cultist": "광신도",
+        "dark-rider": "어둠의 기수",
+        "deep-terror": "심연의 공포",
+        "earth-demon": "대지 악마",
+        "elder-drake": "장로 드레이크",
+        "flame-demon": "화염 악마",
+        "forest-imp": "숲 임프",
+        "frost-demon": "서리 악마",
+        "giant-ooze": "거대 점액",
+        "giant-viper": "거대 독사",
+        "harrower-infester": "해로어 확산자",
+        "hound": "사냥개",
+        "hungry-soul": "굶주린 영혼",
+        "infiltrator": "첩자",
+        "inox-archer": "이녹스 궁수",
+        "inox-bodyguard": "이녹스 경호원",
+        "inox-guard": "이녹스 경비병",
+        "inox-shaman": "이녹스 주술사",
+        "jekserah": "젝세라",
+        "living-bones": "살아있는 뼈",
+        "living-corpse": "살아있는 시체",
+        "living-spirit": "살아있는 영혼",
+        "lurker": "잠복자",
+        "lurker-king": "잠복자 왕",
+        "merciless-overseer": "무자비한 감독관",
+        "night-demon": "밤 악마",
+        "ooze": "점액",
+        "prime-demon": "악마 군주",
+        "prime-lieutenant": "악마 부관",
+        "rending-drake": "발톱 드레이크",
+        "savvas-icestorm": "사바스 얼음폭풍",
+        "savvas-lavaflow": "사바스 용암류",
+        "siege-cannon": "공성포",
+        "spitting-drake": "분비액 드레이크",
+        "stone-golem": "돌 골렘",
+        "sun-demon": "태양 악마",
+        "the-betrayer": "변절자",
+        "the-colorless": "색이 없는 자",
+        "the-gloom": "암영의 존재",
+        "the-harvester": "수확자",
+        "the-sightless-eye": "보이지 않는 눈",
+        "vermling-scout": "버믈링 정찰병",
+        "vermling-shaman": "버믈링 주술사",
+        "wind-demon": "바람 악마",
+        "winged-horror": "날개 달린 공포"
+    },
+    "deck": {
+        "archer": "궁수",
+        "boss": "보스",
+        "guard": "경비병",
+        "imp": "임프",
+        "scout": "정찰병",
+        "shaman": "주술사"
+    },
+    "ability": {},
+    "scenario": {
+        "Black Barrow": "검은 무덤",
+        "Barrow Lair": "무덤 속 은신처",
+        "Inox Encampment": "이녹스 야영지",
+        "Crypt of the Damned": "저주받은 자의 묘지",
+        "Ruinous Crypt": "폐허가 된 묘지",
+        "Decaying Crypt": "썩어가는 묘지",
+        "Vibrant Grotto": "생명력의 동굴",
+        "Gloomhaven Warehouse": "글룸헤이븐 창고",
+        "Diamond Mine": "다이아몬드 광산",
+        "Plane of Elemental Power": "원소력의 차원",
+        "Gloomhaven Square A": "글룸헤이븐 광장 A",
+        "Gloomhaven Square B": "글룸헤이븐 광장 B",
+        "Temple of the Seer": "선지자의 신전",
+        "Frozen Hollow": "얼어붙은 동굴",
+        "Shrine of Strength": "힘의 사원",
+        "Mountain Pass": "산길",
+        "Lost Island": "잊힌 섬",
+        "Abandoned Sewers": "버려진 하수구",
+        "Forgotten Crypt": "망각된 묘지",
+        "Necromancer's Sanctum": "강령술사의 성소",
+        "Infernal Throne": "지옥의 왕좌",
+        "Temple of the Elements": "원소의 신전",
+        "Deep Ruins": "지하 폐허",
+        "Echo Chamber": "에아리의 방",
+        "Icecrag Ascent": "얼음바위 오르막",
+        "Ancient Cistern": "고대 저수조",
+        "Ruinous Rift": "폐허 속 균열",
+        "Outer Ritual Chamber": "교회 의례실",
+        "Sanctuary of Gloom": "암영의 성지",
+        "Shrine of the Depths": "해저 사원",
+        "Plane of the Night": "밤의 차원",
+        "Decrepit Wood": "쇠락한 숲",
+        "Savvas Armory": "사바스 무기고",
+        "Scorched Summit": "그을린 산꼭대기",
+        "Gloomhaven Battlements A": "글룸헤이븐 흉벽 A",
+        "Gloomhaven Battlements B": "글룸헤이븐 흉벽 B",
+        "Doom Trench": "죽음의 해구",
+        "Slave Pens": "노예 수용소",
+        "Treacherous Divide": "위험천만한 협곡",
+        "Ancient Defense Network": "고대 방어망",
+        "Timeworn Tomb": "오래된 무덤",
+        "Realm of the Voice": "목소리의 영역",
+        "Drake Nest": "드레이크 둥지",
+        "Tribal Assault": "부족 습격 현장",
+        "Rebel Swamp": "반군 습지",
+        "Nightmare Peak": "악몽의 봉우리",
+        "Lair of the Unseeing Eye": "보이지 않는 눈의 은신처",
+        "Shadow Weald": "그늘진 숲",
+        "Rebel's Stand": "반군 거점",
+        "Ghost Fortress": "유령 요새",
+        "The Void": "공허",
+        "Noxious Cellar": "유독한 지하실",
+        "Crypt Basement": "묘지 지하",
+        "Palace of Ice": "얼음 궁전",
+        "Foggy Thicket": "안개 낀 덤불숲",
+        "Bandit's Wood": "강도단의 숲",
+        "Investigation": "조사",
+        "Bloody Shack": "핏빛 오두막",
+        "Forgotten Grove": "망각된 숲",
+        "Alchemy Lab": "연금술 실험실",
+        "Fading Lighthouse": "사라지는 등대",
+        "Pit of Souls": "영혼 구덩이",
+        "Magma Pit": "용암 구덩이",
+        "Underwater Lagoon": "해저 석호",
+        "Sulfur Mine": "유황 광산",
+        "Clockwork Cove": "시계태엽 만",
+        "Arcane Library": "신비한 서고",
+        "Toxic Moor": "유독한 황야",
+        "Well of the Unfortunate": "불운한 이들의 우물",
+        "Chained Isle": "속박의 섬",
+        "Windswept Highlands": "바람부는 고원",
+        "Oozing Grove": "점액질 과수원",
+        "Rockslide Ridge": "낙석 고개",
+        "Merchant Ship": "상선",
+        "Overgrown Graveyard": "잡초가 무성한 무덤",
+        "Harrower Hive": "해로어 군락",
+        "Vault of Secrets": "비밀 금고실",
+        "Sacrifice Pit": "제물 구덩이",
+        "Lost Temple": "잊힌 신전",
+        "Vigil Keep": "철야 성채",
+        "Temple of the Eclipse": "일식의 신전",
+        "Burning Mountain": "불타는 산",
+        "Shadows Within": "그늘진 안쪽",
+        "Crystalline Cave": "수정 동굴",
+        "Sun Temple": "태양 신전",
+        "Harried Village": "곤경에 빠진 마을",
+        "Corrupted Cove": "오염된 만",
+        "Plane of Water": "물의 차원",
+        "Syndicate Hideout": "조직 은신처",
+        "Demonic Rift": "악마의 균열",
+        "Wild Melee": "야생의 난전",
+        "Back Alley Brawl": "뒷골목 난투",
+        "Sunken Vessel": "침몰선",
+        "Vermling Nest": "버믈링 소굴",
+        "Payment Due": "상환일",
+        "rules": {
+            "gh": {
+                "19": {
+                    "1": "towards the altar %game.mapMarker.b%"
+                },
+                "38": {
+                    "1": "towards the shaman on the D tile"
+                },
+                "42": {
+                    "1": "All monsters add +1 %game.action.attack% to all their attacks",
+                    "2": "All monsters gain Advantage on all their attacks",
+                    "3": "All monsters heal 1 hit point at the start of each of their turns",
+                    "4": "All characters and character summons suffer 1 damage at the start of each of their turns.",
+                    "5": "All characters and character summons gain Disadvantage on all their attacks.",
+                    "6": "All characters and character summons deduct -1 Attack from all their attacks."
+                },
+                "71": {
+                    "1": "Move left",
+                    "2": "Move up",
+                    "3": "Move right",
+                    "4": "Move down"
+                },
+                "73": {
+                    "1": "Roll boulders down."
+                },
+                "74": {
+                    "1": "Add water tile."
+                },
+                "79": {
+                    "1": "Move to starting location, if moved off, then perform"
+                },
+                "86": {
+                    "1": "towards the end of the docks %game.mapMarker.b%"
+                }
+            }
+        }
+    },
+    "summon": {
+        "angry-wasps": "성난 말벌",
+        "bat-swarm": "박쥐 떼",
+        "battle-boar": "전투 멧돼지",
+        "battle-bot": "전투 로봇",
+        "black-unicorn": "검은 유니콘",
+        "bloat-maggot": "부푼 구더기",
+        "burning-avatar": "불타는 화신",
+        "creeping-beetles": "바글대는 딱정벌레",
+        "decoy": "유인용 모형",
+        "doppelganger": "도플갱어",
+        "giant-toad": "거대 두꺼비",
+        "green-adder": "녹색 살무사",
+        "healing-sprite": "치료 요정",
+        "iron-beast": "강철 야수",
+        "kill-bot": "살육 로봇",
+        "lava-golem": "용암 골렘",
+        "lightning-moth": "반디 나방",
+        "living-bomb": "살아있는 폭탄",
+        "mana-sphere": "마나 구체",
+        "monolith": "거석",
+        "monstrous-rat": "거대 쥐",
+        "mystic-ally": "신비한 아군",
+        "nail-sphere": "못 구체",
+        "rage-hornets": "말벌 전사",
+        "rat-king": "들쥐 군주",
+        "rat-swarm": "쥐 떼",
+        "red-falcon": "붉은 매",
+        "rock-colossus": "암석 거인",
+        "rust-vermin": "녹병 해충",
+        "shadow-wolf": "그림자 늑대",
+        "slime-spirit": "점액질 영혼",
+        "soul-leeches": "영혼 거머리",
+        "spirit-banner": "영혼 깃발",
+        "spitting-cobra": "독물총 코브라",
+        "steel-scarabs": "강철 풍뎅이",
+        "swamp-alligator": "늪지 악어",
+        "tattered-wolf": "지저분한 늑대",
+        "thorn-shooter": "가시 사수",
+        "two-mini": "곰",
+        "vicious-jackal": "사나운 자칼",
+        "void-eater": "공허 탐식자",
+        "war-hawk": "전투 수리",
+        "wind-totem": "바람 토템"
+    },
+    "custom": {
+        "gh": {
+            "ancient-artillery": {
+                "1": "인접한 모든 적이 피해 %game.damage:2%점을 입는다."
+            },
+            "archer": {
+                "1": "인접한 빈칸 중 적과 가장 가까운 칸 하나에 피해 %game.damage:3%점짜리 함정을 생성한다."
+            },
+            "deep-terror": {
+                "1": "대상의 인접한 칸 하나에 %monster.normal% %data.monster.deep-terror% %game.action.summon%"
+            },
+            "flame-demon": {
+                "1": "인접한 모든 적이 피해 %game.damage:2%점을 입는다.",
+                "2": "인접한 빈칸 중 적과 가장 가까운 칸에 피해 %game.damage:4%점짜리 함정을 생성한다."
+            },
+            "giant-viper": {
+                "1": "대상이 %data.monster.giant-viper%의 아군에 인접해 있다면 +2 %game.action.attack% 추가",
+                "2": "이번 라운드 중 %data.monster.giant-viper%를 대상으로 하는 모든 공격이 불이익을 받는다."
+            },
+            "harrower-infester": {
+                "1": "피해를 입은 대상 하나당 \"%game.action.heal% 2, %game.specialTarget.self%\" 수행"
+            },
+            "hound": {
+                "1": "대상이 %data.monster.hound%의 아군에 인접해 있다면 +2 %game.action.attack% 추가."
+            },
+            "living-corpse": {
+                "1": "%data.monster.living-corpse%가 스스로 피해 %game.damage:1%점을 입는다."
+            },
+            "mindthief": {
+                "augment": "증강 %game.characterIconColoredBg.mindthief%",
+                "augments": "증강 %game.characterIconColoredBg.mindthief%"
+            },
+            "night-demon": {
+                "1": "인접한 모든 적과 아군이 피해 %game.damage:1%점을 입는다."
+            },
+            "ooze": {
+                "1": "%data.monster.ooze%의 현재 체력과 동일한 체력을 가진 %monster.normal% %data.monster.ooze% %game.action.summon% (단, 일반 %data.monster.ooze%의 정해진 최대 체력은 초과 불가)"
+            },
+            "savvas-lavaflow": {
+                "1": "대상에 인접한 모든 아군과 적이 피해 %game.damage:2%점을 입는다.",
+                "2": "모든 적이 피해 %game.damage:2%점을 입는다."
+            },
+            "bandit-commander": {
+                "1": "다음 문 위로 이동해서 문과 연결된 방을 공개"
+            },
+            "captain-of-the-guard": {
+                "1": "모든 아군이 이번 라운드 중 모든 공격에 +1 %game.action.attack% 추가"
+            },
+            "merciless-overseer": {
+                "1": "모든 버믈링 정찰병이 즉시 추가 차례를 진행",
+                "2": "V = 버믈링 정찰병의 수"
+            },
+            "prime-demon": {
+                "1": "제단 이동"
+            },
+            "winged-horror": {
+                "1": "알 부화",
+                "2": "알 %game.action.summon% [C]"
+            },
+            "dark-rider": {
+                "1": "X = 이동한 칸 수"
+            },
+            "the-betrayer": {
+                "1": "정신 지배"
+            }
+        }
+    }
+}

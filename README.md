@@ -23,7 +23,7 @@ Since *GHS* is a web application, no installation is required and it runs in any
 A basic user guide is available [online](https://help.gloomhaven-secretariat.de).
 
 > SPOILER WARNING:
-> The `label-spoiler.json` files in the `data` folders, and therefore the final edition data files in the releases in the `./assets/data` folder, contain spoilers by including the appropriate label. 
+> The `label-spoiler` folder in the `data` folders, and therefore the final edition data files in the releases in the `./assets/data` folder, contain spoilers by including the appropriate label. 
 > 
 > [More information about spoilers in this repository](https://github.com/Lurkars/gloomhavensecretariat/discussions/103)
 

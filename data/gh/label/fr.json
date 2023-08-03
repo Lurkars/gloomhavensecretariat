@@ -1,0 +1,281 @@
+{
+    "character": {
+        "brute": "Brute",
+        "cragheart": "Cœur de Roche",
+        "mindthief": "Perce-Esprit",
+        "scoundrel": "Crapule",
+        "spellweaver": "Tisse-Sort",
+        "tinkerer": "Bricoleur"
+    },
+    "edition": {
+        "gh": "Gloomhaven"
+    },
+    "monster": {
+        "ancient-artillery": "Canon Ancien",
+        "bandit-archer": "Archer Bandit",
+        "bandit-commander": "Chef des Bandits",
+        "bandit-guard": "Garde Bandit",
+        "black-imp": "Diablotin Noir",
+        "captain-of-the-guard": "Capitaine de la Garde",
+        "cave-bear": "Ours des Cavernes",
+        "city-archer": "Archer de la Cité",
+        "city-guard": "Garde de la Cité",
+        "cultist": "Cultiste",
+        "dark-rider": "Cavalier Sombre",
+        "deep-terror": "Terreur des Profondeurs",
+        "earth-demon": "Démon de Terre",
+        "elder-drake": "Vénérable Wyverne",
+        "flame-demon": "Démon de Flamme",
+        "forest-imp": "Diablotin des Forêts",
+        "frost-demon": "Démon de Givre",
+        "giant-viper": "Vipère Géante",
+        "harrower-infester": "Infestateur Persécuteur",
+        "hound": "Chien",
+        "inox-archer": "Archer Inox",
+        "inox-bodyguard": "Garde du Corps Inox",
+        "inox-guard": "Garde Inox",
+        "inox-shaman": "Chaman Inox",
+        "jekserah": "Jekserah",
+        "living-bones": "Squelette Réanimé",
+        "living-corpse": "Cadavre Réanimé",
+        "living-spirit": "Esprit Réanimé",
+        "lurker": "Fouineur",
+        "merciless-overseer": "Impitoyable Contremaître",
+        "night-demon": "Démon de la Nuit",
+        "ooze": "Mucus",
+        "prime-demon": "Démon Primordial",
+        "rending-drake": "Wyverne Écorcheuse",
+        "savvas-icestorm": "Vent-de-Glace Savvas",
+        "savvas-lavaflow": "Flot-de-Lave Savvas",
+        "the-betrayer": "Le Traître",
+        "the-colorless": "Le Sans-Couleur",
+        "the-gloom": "L'Ombre",
+        "the-sightless-eye": "L'Oeil Aveugle",
+        "spitting-drake": "Wyverne Cracheuse",
+        "stone-golem": "Golem de Pierre",
+        "sun-demon": "Démon du Soleil",
+        "vermling-scout": "Éclaireur Vermling",
+        "vermling-shaman": "Chaman Vermling",
+        "wind-demon": "Démon du Vent",
+        "winged-horror": "Horreur Ailée"
+    },
+    "deck": {
+        "archer": "Archer",
+        "boss": "Boss",
+        "guard": "Garde",
+        "imp": "Diablotin",
+        "scout": "Éclaireur",
+        "shaman": "Shaman"
+    },
+    "ability": {},
+    "scenario": {
+        "Black Barrow": "Le Tertre Noir",
+        "Barrow Lair": "Le Repaire sous le Tertre",
+        "Inox Encampment": "Le Campement Inox",
+        "Crypt of the Damned": "La Crypte des Damnés",
+        "Ruinous Crypt": "La Crypte dans les Ruines",
+        "Decaying Crypt": "La Crypte en Déclin",
+        "Vibrant Grotto": "La Grotte Foisonnante",
+        "Gloomhaven Warehouse": "L’Entrepôt de Havrenuit",
+        "Diamond Mine": "La Mine de Diamant",
+        "Plane of Elemental Power": "La Dimension du Pouvoir Élémentaire",
+        "Gloomhaven Square A": "La Place de Havrenuit A",
+        "Gloomhaven Square B": "La Place de Havrenuit B",
+        "Temple of the Seer": "Le Temple du Prophète",
+        "Frozen Hollow": "La Caverne Gelée",
+        "Shrine of Strength": "Le Sanctuaire de Puissance",
+        "Mountain Pass": "Le Col de la Montagne",
+        "Lost Island": "L’Île Perdue",
+        "Abandoned Sewers": "Les Égouts Abandonnés",
+        "Forgotten Crypt": "La Crypte Oubliée",
+        "Necromancer's Sanctum": "Le Sanctuaire de la Nécromancienne",
+        "Infernal Throne": "L'Autel Infernal",
+        "Temple of the Elements": "Le Temple des Éléments",
+        "Deep Ruins": "Les Ruines des Profondeurs",
+        "Echo Chamber": "La Chambre des Échos",
+        "Icecrag Ascent": "L’Ascension du Rideau de Glace",
+        "Ancient Cistern": "L’Ancienne Citerne",
+        "Ruinous Rift": "La Faille dans les Ruines",
+        "Outer Ritual Chamber": "La Chambre du Rituel de l'Outre-Monde",
+        "Sanctuary of Gloom": "Le Mausolée de l’Ombre",
+        "Shrine of the Depths": "Le Sanctuaire des Profondeurs",
+        "Plane of the Night": "La Dimension de la Nuit",
+        "Decrepit Wood": "Le Bois Abandonné",
+        "Savvas Armory": "L’Armurerie Savvas",
+        "Scorched Summit": "Le Sommet Calciné",
+        "Gloomhaven Battlements A": "Les Remparts de Havrenuit A",
+        "Gloomhaven Battlements B": "Les Remparts de Havrenuit B",
+        "Doom Trench": "La Tranchée de l'Ombre",
+        "Slave Pens": "L’Enclos des Esclaves",
+        "Treacherous Divide": "Le Précipice Périlleux",
+        "Ancient Defense Network": "L’Ancien Réseau de Défense",
+        "Timeworn Tomb": "Le Tombeau Érodé",
+        "Realm of the Voice": "Le Royaume de la Voix",
+        "Drake Nest": "Le Nid des Wyvernes",
+        "Tribal Assault": "Assaut Tribal",
+        "Rebel Swamp": "Le Marais des Rebelles",
+        "Nightmare Peak": "Le Pic des Cauchemars",
+        "Lair of the Unseeing Eye": "L’Antre de l’Œil Aveugle",
+        "Shadow Weald": "La Forêt Lugubre",
+        "Rebel's Stand": "Le Campement des Rebelles",
+        "Ghost Fortress": "La Forteresse Fantôme",
+        "The Void": "Le Néant",
+        "Noxious Cellar": "La Cave Toxique",
+        "Crypt Basement": "Le Sous-sol de la Crypte",
+        "Palace of Ice": "Le Palais de Glace",
+        "Foggy Thicket": "Le Fourré Brumeux",
+        "Bandit's Wood": "Le Bois du Bandit",
+        "Investigation": "Enquête",
+        "Bloody Shack": "La Planque Ensanglantée",
+        "Forgotten Grove": "Le Bosquet Oublié",
+        "Alchemy Lab": "Le Laboratoire d’Alchimie",
+        "Fading Lighthouse": "Le Phare Évanescent",
+        "Pit of Souls": "La Fosse des Âmes",
+        "Magma Pit": "Le Cratère de Magma",
+        "Underwater Lagoon": "Le Lagon Sous-marin",
+        "Sulfur Mine": "La Mine de Soufre",
+        "Clockwork Cove": "La Crique Mécanique",
+        "Arcane Library": "La Bibliothèque Arcanique",
+        "Toxic Moor": "La Lande Toxique",
+        "Well of the Unfortunate": "Le Puits de l’Infortuné",
+        "Chained Isle": "L’Île Enchaînée",
+        "Windswept Highlands": "Les Plateaux Venteux",
+        "Oozing Grove": "Le Bosquet Suintant",
+        "Rockslide Ridge": "La Crête de l’Éboulement",
+        "Merchant Ship": "Le Navire Marchand",
+        "Overgrown Graveyard": "Le Cimetière en Friche",
+        "Harrower Hive": "La Ruche des Persécuteurs",
+        "Vault of Secrets": "Le Caveau des Secrets",
+        "Sacrifice Pit": "Le Fossé Sacrificiel",
+        "Lost Temple": "Le Temple Perdu",
+        "Vigil Keep": "La Forteresse de la Vigie",
+        "Temple of the Eclipse": "Le Temple de l’Éclipse",
+        "Burning Mountain": "La Montagne Ardente",
+        "Shadows Within": "Les Ombres Intérieures",
+        "Crystalline Cave": "La Grotte Cristalline",
+        "Sun Temple": "Le Temple Solaire",
+        "Harried Village": "Le Village Tourmenté",
+        "Corrupted Cove": "La Crique Corrompue",
+        "Plane of Water": "La Dimension de l'Eau",
+        "Syndicate Hideout": "La Planque du Syndicat",
+        "Demonic Rift": "La Faille Démoniaque",
+        "Wild Melee": "La Mêlée Sauvage",
+        "Back Alley Brawl": "Bagarre dans l’Arrière-cour",
+        "Sunken Vessel": "Le Vaisseau Englouti",
+        "Vermling Nest": "Le Nid des Vermlings",
+        "Payment Due": "L'Heure du Jugement"
+    },
+    "summon": {
+        "two-mini": "Ours",
+        "angry-wasps": "Guêpes Irritées",
+        "bat-swarm": "Nuée de Chauves-souris",
+        "battle-boar": "Sanglier de Combat",
+        "battle-bot": "Automate de Combat",
+        "black-unicorn": "Licorne Noire",
+        "bloat-maggot": "Ver Boursoufflé",
+        "burning-avatar": "Avatar Flamboyant",
+        "creeping-beetles": "Scarabées Rampants",
+        "decoy": "Leurre",
+        "doppelganger": "Doppelgänger",
+        "giant-toad": "Crapaud Géant",
+        "green-adder": "Vipère Verte",
+        "healing-sprite": "Farfadet Guérisseur",
+        "iron-beast": "Bête de Fer",
+        "jade-falcon": "Faucon de Jade",
+        "kill-bot": "Automate Tueur",
+        "lava-golem": "Golem de Lave",
+        "lightning-moth": "Phalène de l'Éclair",
+        "living-bomb": "Bombe Vivante",
+        "mana-sphere": "Sphère de Mana",
+        "monolith": "Monolithe",
+        "monstrous-rat": "Rat Monstrueux",
+        "mystic-ally": "Allié Mystique",
+        "nail-sphere": "Sphère Épineuse",
+        "rage-hornets": "Frelons Combattants",
+        "rat-king": "Roi des Rats",
+        "rat-swarm": "Nuée de rats",
+        "red-falcon": "Faucon Rouge",
+        "rock-colossus": "Colosse de Roche",
+        "rust-vermin": "Vermine de la Rouille",
+        "shadow-wolf": "Loup Fantomatique",
+        "skeleton": "Squelette",
+        "slime-spirit": "Esprit du Limon",
+        "soul-leeches": "Sangsues de l'Âme",
+        "spirit-banner": "Bannière des Esprits",
+        "spirit-warrior": "Esprit Guerrier",
+        "spitting-cobra": "Cobra Cracheur ",
+        "steel-construct": "Construction d'Acier",
+        "steel-scarabs": "Scarabées d'Acier",
+        "swamp-alligator": "Alligator des Marais",
+        "tattered-wolf": "Loup Famélique",
+        "thorn-shooter": "Lance-Épine",
+        "vicious-jackal": "Chacal Vicieux",
+        "void-eater": "Dévoreur du Vide",
+        "war-hawk": "Faucon de Guerre",
+        "wind-totem": "Totem du Vent"
+    },
+    "custom": {
+        "gh": {
+            "ancient-artillery": {
+                "1": "Tous les adversaires adjacents subissent %game.damage:2%."
+            },
+            "archer": {
+                "1": "Crée un piège à %game.damage:3% sur l'hexagone vide adjacent le plus proche d'un adversaire."
+            },
+            "deep-terror": {
+                "1": "Invoque une %data.monster.deep-terror% normale sur un hexagone adjacent à la cible"
+            },
+            "flame-demon": {
+                "1": "Tous les adversaires adjacents subissent %game.damage:2%.",
+                "2": "Crée un piège à %game.damage:4% sur l'hexagone vide adjacent le plus proche d'un adversaire."
+            },
+            "giant-viper": {
+                "1": "Ajoute +2 %game.action.attack% si la cible est adjacente à un allié de la %data.monster.giant-viper%.",
+                "2": "Toutes les attaques ciblant la %data.monster.giant-viper% ce round gagnent Désavantage."
+            },
+            "harrower-infester": {
+                "1": "Effectue une action de %game.action.heal% 2 sur lui-même pour chaque cible ayant subi des dégâts."
+            },
+            "hound": {
+                "1": "Ajoute +2 %game.action.attack% si la cible est adjacente à un allié du %data.monster.hound%."
+            },
+            "mindthief": {
+                "augment": "Augmentation %game.characterIconColoredBg.mindthief%",
+                "augments": "Augmente %game.characterIconColoredBg.mindthief%"
+            },
+            "night-demon": {
+                "1": "Tous les alliés et adversaires adjacents subissent 1 dégât."
+            },
+            "ooze": {
+                "1": "Invoque un %data.monster.ooze% (normal) dont le nombre de points de vie est égal à son propre nombre de points de vie actuel (limité à la valeur maximale de points de vie d'un %data.monster.ooze% normal)"
+            },
+            "savvas-lavaflow": {
+                "1": "Tous les alliés et adversaires adjacents à la cible subissent %game.damage:2%.",
+                "2": "Tous les adversaires subissent %game.damage:2%."
+            },
+            "bandit-commander": {
+                "1": "Se déplace vers la prochaine porte et révèle la salle"
+            },
+            "captain-of-the-guard": {
+                "1": "Tous les alliés ajoutent +1 %game.action.attack% à toutes leurs attaques ce round"
+            },
+            "merciless-overseer": {
+                "1": "Tous les Éclaireurs agissent de nouveau",
+                "2": "R = Nombre d'Éclaireurs présents"
+            },
+            "prime-demon": {
+                "1": "L'autel bouge"
+            },
+            "winged-horror": {
+                "1": "Éclosion des Œufs",
+                "2": "Invoque [C] Œuf(s)"
+            },
+            "dark-rider": {
+                "1": "X =  Nombre d'hexagones du déplacement"
+            },
+            "the-betrayer": {
+                "1": "Contrôle Mental"
+            }
+        }
+    }
+}

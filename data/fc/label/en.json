@@ -1,0 +1,205 @@
+{
+  "character": {
+    "diviner": "Diviner"
+  },
+  "edition": {
+    "fc": "Forgotten Circles"
+  },
+  "monster": {
+    "aesther-ashblade": "Aesther Ashblade",
+    "aesther-scout": "Aesther Scout",
+    "avatar-of-ashtar": "Avatar of Ashtar",
+    "avatar-of-thelija": "Avatar of Thelija",
+    "bear-drake-abomination": "Bear-Drake Abomination",
+    "elham": "Elham",
+    "human-commander": "Human Commander",
+    "icestorm-guardian-of-the-firmament": "Icestorm Guardian of the Firmament",
+    "lavaflow-guardian-of-the-firmament": "Lavaflow Guardian of the Firmament",
+    "manifestation-of-corruption": "Manifestation Of Corruption",
+    "naaret": "Naaret",
+    "selah-naberis": "Selah Naberis",
+    "sraka-the-wise": "Sraka The Wise",
+    "the-husk": "The Husk",
+    "the-steel-lion": "The Steel Lion",
+    "uyart-ikkuma": "Uyart Ikkuma",
+    "valrath-commander": "Valrath Commander",
+    "valrath-savage": "Valrath Savage",
+    "valrath-tracker": "Valrath Tracker",
+    "warden": "Warden",
+    "wolf-viper-abomination": "Wolf-Viper Abomination"
+  },
+  "deck": {
+    "ashblade": "Ashblade",
+    "savage": "Savage",
+    "tracker": "Tracker"
+  },
+  "ability": {},
+  "scenario": {
+    "rules": {
+      "fc": {
+        "98": {
+          "1": "Place 1 damage token to both ships %game.mapMarker.a% and %game.mapMarker.b%."
+        },
+        "101": {
+          "1": "if adjacent Spitting Drake is alive and without %game.condition.stun%."
+        },
+        "104": {
+          "1": "towards portal %game.mapMarker.1%",
+          "2": "towards portal %game.mapMarker.2%"
+        },
+        "105": {
+          "1": "Apply if Dimensional Equilibrium Party) is incomplete"
+        },
+        "115": {
+          "1": "Remove one damage token from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{$math.floor}] hit points for each damage token removed.",
+          "2": "Remove two damage tokens from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{$math.floor}] hit points for each damage token removed.",
+          "3": "at %game.mapMarker.c% if alter %game.mapMarker.a% has no damage token on it",
+          "4": "at %game.mapMarker.d% if altar %game.mapMarker.b% has no damage tokens."
+        }
+      }
+    }
+  },
+  "section": {
+    "rules": {
+      "fc": {
+        "5": {
+          "1": "Flip over the numbered tokens on doors %game.mapMarker.3%, %game.mapMarker.5%, %game.mapMarker.8% and %game.mapMarker.11%",
+          "2": "Move the six iron walls to positions: %game.mapMarker.p%, %game.mapMarker.t%, %game.mapMarker.s%, %game.mapMarker.a1%, %game.mapMarker.a5% and %game.mapMarker.a6%"
+        },
+        "10": {
+          "1": "Flip over the numbered tokens on doors %game.mapMarker.3%, %game.mapMarker.8%, %game.mapMarker.9% and %game.mapMarker.10%",
+          "2": "Move the six iron walls to positions: %game.mapMarker.q%, %game.mapMarker.n%, %game.mapMarker.r%, %game.mapMarker.t%, %game.mapMarker.a4% and %game.mapMarker.a6%"
+        },
+        "19": {
+          "1": "Flip over the numbered tokens on doors %game.mapMarker.1%, %game.mapMarker.6%, %game.mapMarker.7% and %game.mapMarker.10%",
+          "2": "Move the six iron walls to positions: %game.mapMarker.q%, %game.mapMarker.p%, %game.mapMarker.t%, %game.mapMarker.a1%, %game.mapMarker.a2% and %game.mapMarker.a6%"
+        },
+        "31": {
+          "1": "Flip over the numbered tokens on doors %game.mapMarker.2%, %game.mapMarker.3%, %game.mapMarker.4% and %game.mapMarker.9%",
+          "2": "Move the six iron walls to positions: %game.mapMarker.q%, %game.mapMarker.o%, %game.mapMarker.r%, %game.mapMarker.t%, %game.mapMarker.a4% and %game.mapMarker.a6%"
+        },
+        "43": {
+          "1": "Flip over the numbered tokens on doors %game.mapMarker.4%, %game.mapMarker.6%, %game.mapMarker.8% and %game.mapMarker.9%",
+          "2": "Move the six iron walls to positions: %game.mapMarker.m%, %game.mapMarker.s%, %game.mapMarker.p%, %game.mapMarker.a2%, %game.mapMarker.a4% and %game.mapMarker.a6%"
+        },
+        "56": {
+          "1": "Flip over the numbered tokens on doors %game.mapMarker.1%, %game.mapMarker.2%, %game.mapMarker.5% and %game.mapMarker.7%",
+          "2": "Move the six iron walls to positions: %game.mapMarker.m%, %game.mapMarker.q%, %game.mapMarker.s%, %game.mapMarker.a2%, %game.mapMarker.a4% and %game.mapMarker.a5%"
+        },
+        "64": {
+          "1": "Both barrels move two hexes along the water tiles towards water tile %game.mapMarker.9%"
+        },
+        "66": {
+          "1": "%game.action.teleport% %data.monster.the-husk% to %game.mapMarker.b%"
+        },
+        "72": {
+          "1": "adjacent and to the right of any door %game.mapMarker.3%"
+        },
+        "123": {
+          "1": "adjacent and to the right of any door %game.mapMarker.4%"
+        },
+        "128": {
+          "1": "%game.action.teleport% %data.monster.the-husk-section-66% to %game.mapMarker.c% and remove wall section %game.mapMarker.d%"
+        }
+      }
+    }
+  },
+  "summon": {
+    "ghost-falcon": "Ghost Falcon",
+    "twilight-archon": "Twilight Archon"
+  },
+  "items": {
+    "fc-152": {
+      "1": "After performing the top action of any ability card, you may immediately perform the bottom action of the same card. This item cannot be used if both actions trigger a lost card icon consumed %game.card.lost%."
+    },
+    "fc-153": {
+      "1": "The next three times you would gain %game.condition.poison% prevent the condition."
+    },
+    "fc-154": {
+      "1": "The next five times you would gain %game.condition.poison% prevent the condition."
+    },
+    "fc-155": {
+      "1": "You are immune to %game.condition.curse%, even if the item is spent. On the next three sources of damage from attacks targeting you gain %game.action.shield% 1."
+    },
+    "fc-156": {
+      "1": "During your melee attack, %game.element.consume.wild% to add +2 %game.action.attack% to a single attack."
+    },
+    "fc-157": {
+      "1": "During your ranged attack, add +2 %game.action.attack%, %game.condition.curse%, and %game.condition.wound% to a single attack."
+    },
+    "fc-158": {
+      "1": "During your movement, add +2 %game.action.move% to the movement and gain %game.condition.regenerate%."
+    },
+    "fc-159": {
+      "1": "During any one ally's movement, add +2 %game.action.move% to the movement."
+    },
+    "fc-160": {
+      "1": "When you kill a monster during your turn, gain one money token."
+    },
+    "fc-161": {
+      "1": "During your single-target melee attack action, add %game.action.range:3% to the attack."
+    },
+    "fc-162": {
+      "1": "During your turn, %game.action.teleport% to any unoccupied hex within 4 hexes of you."
+    },
+    "fc-163": {
+      "1": "When you perform a long or short rest, gain %game.condition.strengthen%."
+    },
+    "fc-165": {
+      "1": "You are immune to POISON and !enchantment-circle!. When damage by an attack, gain %game.action.shield% 0 !enchantment-circle! for the attack."
+    }
+  },
+  "custom": {
+    "fc": {
+      "ancient-artillery-section-133": {
+        "1": "Immune to all forced movement"
+      },
+      "ashblade": {
+        "1": "Focus on the enemy with the highest initiative.",
+        "2": "%game.action.teleport% to the closest unoccupied hex adjacent to the focus."
+      },
+      "manifestation-of-corruption": {
+        "1": "Play top two cards, using the first card as initiative. Perform the bottom action of the first card, then the top action of the second card",
+        "2": "Perform this action immediately when revealed, not in normal initiative order.",
+        "3": "The character with the highest initiative is forced to act as if their enemies were allies and their allies were enemies this round. On their turn, they will perform \"%game.action.move%2\" and then the top action of their leading initiative card. Afterwards, they discard both played cards, regardless of wherever the cards would normally be lost.",
+        "4": "All attackers targeting you gain %game.condition.curse% this round.",
+        "5": "Summon one %data.monster.flame-demon%: normal for two or three characters, elite for four characters.<br>Summon one %data.monster.night-demon%: normal for two characters, elite for three or four characters.",
+        "7": "Summon one additional %data.monster.night-demon%",
+        "8": "Summon one additional %data.monster.flame-demon%",
+        "9": "Summon one %data.monster.valrath-tracker%: normal for two characters, elite for three or four characters.",
+        "10": "Summon two %data.monster.black-imp%s: both normal for two characters; one normal, one elite for three chararcers; both elite for four characters.",
+        "11": "Summon one additional elite %data.monster.black-imp%",
+        "12": "Target all enemies within %game.action.range%4",
+        "13": "All adjacent enemies suffer %game.damage:3%.",
+        "14": "On the next three sources of damage from attacks targeting you, gain %game.action.shield% 3.",
+        "15": "Create one %game.condition.disarm% and %game.condition.poison% trap in each adjacent empty hex.",
+        "16": "%game.action.teleport% to the hex occupied by the farthest enemy within %game.action.range%+1 and simultaneously %game.action.teleport% that enemy to the hex you occupy.",
+        "17": "Summon one normal %data.monster.valrath-savage% adjacent to each enemy character within %game.action.range%5.",
+        "18": "All attackers targeting you gain %game.condition.curse%.",
+        "19": "All attackers targeting you gain Disadvantage for the attack.",
+        "20": "%game.action.attack%-1 on a new enemy within %game.action.range%4 of the first target, then %game.action.attack%-2 on a third enemy within %game.action.range%3 of the second target.",
+        "21": "Summon one %game.monster.aesther-scout%: normal for two or three characters, elite for four characters.",
+        "22": "On the next three sources of damage to you, suffer no damage instead."
+      },
+      "sraka-the-wise": {
+        "1": "Double all Heal values. Heals target The Steel Lion if able",
+        "2": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+      },
+      "the-steel-lion": {
+        "1": "Attacks targeting adjacent allies, target you instead",
+        "2": "The first [C] times you suffer 6 or more damage, suffer no damage instead"
+      },
+      "tracker": {
+        "1": "Create one %game.condition.disarm% trap in any adjacent empty hex closest to an enemy.",
+        "2": "Focus on the enemy with the lowest current hit point value."
+      },
+      "uyart-ikkuma": {
+        "1": "It may consume %game.element.consume.fire% / %game.element.consume.earth% as if the element is currently strong when a %data.monster.flame-demon% / %data.monster.earth-demon% is present on the map"
+      },
+      "valrath-savage": {
+        "1": "All adjacent allies add +1 %game.action.attack% to all attacks",
+        "2": "All adjacent allies add +2 %game.action.attack% to all attacks"
+      }
+    }
+  }
+}

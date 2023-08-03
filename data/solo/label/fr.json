@@ -1,0 +1,62 @@
+{
+  "edition": {
+    "solo": "Scénarios solo (toutes éditions)"
+  },
+  "monster": {
+    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.music-note% %solo%)",
+    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.music-note% %solo%)",
+    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.circles% %solo%)",
+    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.saw% %solo%)",
+    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.scoundrel% %solo%)",
+    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.sun% %solo%)",
+    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.tinkerer% %solo%)",
+    "deep-earth": "Terre Profonde",
+    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.diviner% %solo%)",
+    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.mindthief% %solo%)",
+    "ghost-wolf": "Loup Fantôme",
+    "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.angry-face% %solo%)",
+    "high-flame": "Haute Flamme",
+    "inox-necromancer": "Nécromancien Inox",
+    "lieutenant": "Lieutenant",
+    "song-of-the-deep": "Chanson des Profondeurs",
+    "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.scoundrel% %solo%)",
+    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.mindthief% %solo%)"
+  },
+  "scenario": {
+    "group": {
+      "solo": "Scénarios solo"
+    },
+    "Return to the Black Barrow": "Retour au Tertre Noir",
+    "An Unfortunate Intrusion": "Une Intrustion Mavenue",
+    "Corrupted Laboratory": "Le Laboratoire Corrompu",
+    "Armory Heist": "Casse à l'Armurerie",
+    "Stone Defense": "Une Défense de Pierre",
+    "Rodent Liberation": "La Libération des Rongeurs",
+    "Caravan Escort": "L'Escorte de la Caravane",
+    "Unnatural Insults": "Insultes Anormales",
+    "Storage Fees": "Frais de Stockage",
+    "Plane of Wild Beasts": "La Dimension des Bêtes Sauvages",
+    "Harvesting the Night": "Récolte Nocturne",
+    "Plagued Crypt": "La Crypte Pesteuse",
+    "Battle of the Bards": "La Bataille des Bardes",
+    "Corrupted Hunt": "Chasse Perverse",
+    "Aftermath": "Conséquences",
+    "Elemental Secrets": "Les Secrets Élémentaires",
+    "The Caged Bear": "L'Ours en Cage",
+    "The Sands of Time": "Les Sables du Temps",
+    "Forecast of the Inevitable": "Un Aperçu de l'Inévitable"
+  },
+  "custom": {
+    "solo": {
+      "char-am-deck": "Utilise le paquet de modificateur d'attaque du personnage"
+    },
+    "gh": {
+      "city-guard-saw-solo": {
+        "1": "Subit 1 dégât à la fin de chaque round tant qu'il n'a pas récupéré tous ses PV"
+      },
+      "ghost-wolf": {
+        "1": "Au début de chaque round:"
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "edition": {
+    "solo": "Solo Szenarien (alle Editionen)"
+  },
+  "monster": {
+    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.music-note% %solo%)",
+    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.music-note% %solo%)",
+    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.circles% %solo%)",
+    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.saw% %solo%)",
+    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.scoundrel% %solo%)",
+    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.sun% %solo%)",
+    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.tinkerer% %solo%)",
+    "deep-earth": "Tiefe Erde",
+    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.diviner% %solo%)",
+    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.mindthief% %solo%)",
+    "ghost-wolf": "Geisterwolf",
+    "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.angry-face% %solo%)",
+    "high-flame": "Hohe Flamme",
+    "inox-necromancer": "Inox Geisterbeschwörer",
+    "lieutenant": "Leutnant",
+    "song-of-the-deep": "Lied der Tiefe",
+    "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.scoundrel% %solo%)",
+    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.mindthief% %solo%)"
+  },
+  "scenario": {
+    "group": {
+      "solo": "Solo Szenarien"
+    }
+  },
+  "custom": {
+    "solo": {
+      "char-am-deck": "Verwendet die Charakter AM Karten"
+    },
+    "gh": {
+      "city-guard-saw-solo": {
+        "1": "Erleidet %game.damage:1% am Ende der Runde solange nicht vollständig geheilt."
+      },
+      "ghost-wolf": {
+        "1": "Zum Beginn jeder Runde:"
+      }
+    }
+  }
+}

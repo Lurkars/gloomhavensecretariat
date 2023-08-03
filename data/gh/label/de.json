@@ -1,0 +1,277 @@
+{
+    "character": {
+        "brute": "Barbar",
+        "cragheart": "Felsenherz",
+        "mindthief": "Gedankendiebin",
+        "scoundrel": "Schürkin",
+        "spellweaver": "Spruchweberin",
+        "tinkerer": "Tüftler"
+    },
+    "edition": {
+        "gh": "Gloomhaven"
+    },
+    "monster": {
+        "ancient-artillery": "Antike Artillerie",
+        "bandit-archer": "Banditen Schützin",
+        "bandit-commander": "Banditen Kommandeur",
+        "bandit-guard": "Banditen-Wache",
+        "black-imp": "Schwarzwicht",
+        "captain-of-the-guard": "Hauptmann der Wache",
+        "cave-bear": "Höhlenbär",
+        "city-archer": "Stadtschütze",
+        "city-guard": "Stadtwache",
+        "cultist": "Kultist",
+        "dark-rider": "Der Dunkle Reiter",
+        "deep-terror": "Tiefenschreck",
+        "earth-demon": "Erddämon",
+        "elder-drake": "Drachenfürst",
+        "flame-demon": "Flammendämon",
+        "forest-imp": "Waldwicht",
+        "frost-demon": "Frostdämon",
+        "giant-viper": "Riesenviper",
+        "harrower-infester": "Schwarmling Kontagion",
+        "hound": "Grimmwolf",
+        "inox-archer": "Inox Schütze",
+        "inox-bodyguard": "Inox Leibwache",
+        "inox-guard": "Inox Wache",
+        "inox-shaman": "Inox Schamane",
+        "jekserah": "Jekserah",
+        "living-bones": "Wandelndes Skelett",
+        "living-corpse": "Wandelnde Leiche",
+        "living-spirit": "Wandelnde Seele",
+        "lurker": "Pirscher",
+        "merciless-overseer": "Gnadenloser Aufseher",
+        "night-demon": "Nachtdämon",
+        "ooze": "Schleim",
+        "prime-demon": "Erzdämon",
+        "rending-drake": "Reißdrachen",
+        "savvas-icestorm": "Savvas Eissturm",
+        "savvas-lavaflow": "Savvas Lavastrom",
+        "the-betrayer": "Der Abtrünnige",
+        "the-colorless": "Der Fahle",
+        "the-gloom": "Das Grauen",
+        "the-sightless-eye": "Das Blicklose Auge",
+        "spitting-drake": "Speidrachen",
+        "stone-golem": "Steingolem",
+        "sun-demon": "Sonnendämon",
+        "vermling-scout": "Ratzenspäher",
+        "vermling-shaman": "Ratzenschamane",
+        "wind-demon": "Winddämon",
+        "winged-horror": "Der Geflügelte Schrecken"
+    },
+    "deck": {
+        "archer": "Schütze",
+        "boss": "Boss",
+        "guard": "Wache",
+        "imp": "Wicht",
+        "scout": "Späher",
+        "shaman": "Schamane"
+    },
+    "ability": {},
+    "scenario": {
+        "Black Barrow": "Schwarzgrab",
+        "Barrow Lair": "Grabhöhle",
+        "Inox Encampment": "Inox-Lager",
+        "Crypt of the Damned": "Kypta der Verdammten",
+        "Ruinous Crypt": "Unheilvolle Krypta",
+        "Decaying Crypt": "Faulige Krypra",
+        "Vibrant Grotto": "Üppige Grotte",
+        "Gloomhaven Warehouse": "Lagerhaus von Gloomhaven",
+        "Diamond Mine": "Diamantenmine",
+        "Plane of Elemental Power": "Ebene der Elementarmächte",
+        "Gloomhaven Square A": "Gloomhaven-Platz A",
+        "Gloomhaven Square B": "Gloomhaven-Platz B",
+        "Temple of the Seer": "Tempel des Sehers",
+        "Frozen Hollow": "Frostsenke",
+        "Shrine of Strength": "Schrein der Stärke",
+        "Mountain Pass": "Gebirgspass",
+        "Lost Island": "Verschollene Insel",
+        "Abandoned Sewers": "Verlassene Kanalisation",
+        "Forgotten Crypt": "Vergessene Krypta",
+        "Necromancer's Sanctum": "Versteck der Nekromantin",
+        "Infernal Throne": "Höllenthron",
+        "Temple of the Elements": "Tempel der Elemente",
+        "Deep Ruins": "Tiefe Ruinen",
+        "Echo Chamber": "Echokammer",
+        "Icecrag Ascent": "Aufstieg zu Eisklippe",
+        "Ancient Cistern": "Die alte Zisterne",
+        "Ruinous Rift": "Unheilvoller Riss",
+        "Outer Ritual Chamber": "Äußere Ritualkammer",
+        "Sanctuary of Gloom": "Heiligtum des Grauens",
+        "Shrine of the Depths": "Schrein der Tiefe",
+        "Plane of the Night": "Ebene der Nacht",
+        "Decrepit Wood": "Moderwald",
+        "Savvas Armory": "Savvas-Waffenkammer",
+        "Scorched Summit": "Versengter Gipfel",
+        "Gloomhaven Battlements A": "Zinnen von Gloomhaven A",
+        "Gloomhaven Battlements B": "Zinnen von Gloomhaven B",
+        "Doom Trench": "Schicksalgraben",
+        "Slave Pens": "Sklavenpferche",
+        "Treacherous Divide": "Tückische Kluft",
+        "Ancient Defense Network": "Altes Verteidigungsnetzwerk",
+        "Timeworn Tomb": "Verfallenes Grab",
+        "Realm of the Voice": "Reich der Stimme",
+        "Drake Nest": "Drachennest",
+        "Tribal Assault": "Stammesangriff",
+        "Rebel Swamp": "Rebellensumpf",
+        "Nightmare Peak": "Albtraumspitze",
+        "Lair of the Unseeing Eye": "Hort des Blicklosen",
+        "Shadow Weald": "Schattenwald",
+        "Rebel's Stand": "Letzter Widerstand",
+        "Ghost Fortress": "Geisterfestung",
+        "The Void": "Die Leere",
+        "Noxious Cellar": "Verseuchter Keller",
+        "Crypt Basement": "Unter der Krypta",
+        "Palace of Ice": "Eispalast",
+        "Foggy Thicket": "Nebeldickicht",
+        "Bandit's Wood": "Banditenwald",
+        "Investigation": "Ermittlungen",
+        "Bloody Shack": "Blutige Hütte",
+        "Forgotten Grove": "Vergessener Hain",
+        "Alchemy Lab": "Alchemielabor",
+        "Fading Lighthouse": "Schwindender Leuchtturm",
+        "Pit of Souls": "Grube der Seelen",
+        "Magma Pit": "Lavagrube",
+        "Underwater Lagoon": "Unterwasserlagune",
+        "Sulfur Mine": "Schwefelmine",
+        "Clockwork Cove": "Zahnradbucht",
+        "Arcane Library": "Arkane Bibliothek",
+        "Toxic Moor": "Giftmoor",
+        "Well of the Unfortunate": "Brunnen der Glücklosen",
+        "Chained Isle": "Ketteninsel",
+        "Windswept Highlands": "Windumtostes Hochland",
+        "Oozing Grove": "Triefender Hain",
+        "Rockslide Ridge": "Felssturzkamm",
+        "Merchant Ship": "Handelsschiff",
+        "Overgrown Graveyard": "Überwucherter Friedhof",
+        "Harrower Hive": "Schwarmling Nest",
+        "Vault of Secrets": "Kammer der Geheimnisse",
+        "Sacrifice Pit": "Opfergrube",
+        "Lost Temple": "Verschollener Tempel",
+        "Vigil Keep": "Wachtburg",
+        "Temple of the Eclipse": "Tempel des Zwielichts",
+        "Burning Mountain": "Brandberg",
+        "Shadows Within": "Schatten im Innern",
+        "Crystalline Cave": "Kristallhöhle",
+        "Sun Temple": "Sonnentempel",
+        "Harried Village": "Verwüstetes Dorf",
+        "Corrupted Cove": "Bucht der Fäulnis",
+        "Plane of Water": "Ebene des Wassers",
+        "Syndicate Hideout": "Syndikatsversteck",
+        "Demonic Rift": "Dämonischer Riss",
+        "Wild Melee": "Wilde Schlacht",
+        "Back Alley Brawl": "Gassenschlägerei",
+        "Sunken Vessel": "Versunkenes Schiff",
+        "Vermling Nest": "Ratzenbau",
+        "Payment Due": "Zahltag"
+    },
+    "summon": {
+        "angry-wasps": "Zornige Wespen",
+        "bat-swarm": "Fledermausschwarm",
+        "battle-boar": "Kampfkeiler",
+        "battle-bot": "Kampfroboter",
+        "black-unicorn": "Schwarzes Einhorn",
+        "bloat-maggot": "Aufgeblähte Made",
+        "burning-avatar": "Brennende Inkarnation",
+        "creeping-beetles": "Kriechende Käfer",
+        "decoy": "Lockvogel",
+        "doppelganger": "Doppelgänger",
+        "giant-toad": "Riesenkröte",
+        "green-adder": "Grüne Natter",
+        "healing-sprite": "Heilender Kobold",
+        "iron-beast": "Eisernes Biest",
+        "kill-bot": "Killerroboter",
+        "lava-golem": "Lavagolem",
+        "lightning-moth": "Blitzende Motte",
+        "living-bomb": "Lebende Bombe",
+        "mana-sphere": "Mana Kobold",
+        "monolith": "Monolith",
+        "monstrous-rat": "Monströse Ratte",
+        "mystic-ally": "Mystischer Verbündeter",
+        "nail-sphere": "Krallender Kobold",
+        "rage-hornets": "Wütende Hornissen",
+        "rat-king": "Rattenkönig",
+        "rat-swarm": "Rattenschwarm",
+        "red-falcon": "Roter Falke",
+        "rock-colossus": "Felsenkoloss",
+        "rust-vermin": "Rostiges Ungeziefer",
+        "shadow-wolf": "Schattenwolf",
+        "slime-spirit": "Schleimige Seele",
+        "soul-leeches": "Seelenblutegel",
+        "spirit-banner": "Geisterbanner",
+        "spitting-cobra": "Spuckende Cobra",
+        "steel-scarabs": "Stahlskarabäen",
+        "swamp-alligator": "Sumpfalligator",
+        "tattered-wolf": "Lumpiger Wolf",
+        "thorn-shooter": "Dornenschütze",
+        "two-mini": "Bär",
+        "vicious-jackal": "Böser Schakal",
+        "void-eater": "Seelenfresser",
+        "war-hawk": "Kriegshabicht",
+        "wind-totem": "Windtotem"
+    },
+    "custom": {
+        "gh": {
+            "ancient-artillery": {
+                "1": "Alle angrenzenden Gegner erleiden %game.damage:2%."
+            },
+            "archer": {
+                "1": "Erstelle eine %game.damage:3% Falle in einem leeren angrenzenden Feld zum nächsten Gegner."
+            },
+            "deep-terror": {
+                "1": "in einem am Ziel angrenzenden Feld."
+            },
+            "flame-demon": {
+                "1": "Alle angrenzenden Gegner erleiden %game.damage:2%.",
+                "2": "Erstelle eine %game.damage:4% Falle in einem leeren angrenzenden Feld zum nächsten Gegner."
+            },
+            "giant-viper": {
+                "1": "Füge +2 %game.action.attack% hinzu wenn das Ziel an einem Verbündeten der %data.monster.giant-viper% angrenzt.",
+                "2": "Alle Angriffe gegen %data.monster.giant-viper% erhalten in dieser Runde Nachteil."
+            },
+            "harrower-infester": {
+                "1": "Führe \"%game.action.heal% 2, %game.specialTarget.self%\" für jedes angegriffene Ziel durch."
+            },
+            "hound": {
+                "1": "Füge +2 %game.action.attack% hinzu wenn das Ziel an einem Verbündeten des %data.monster.hound% angrenzt."
+            },
+            "mindthief": {
+                "augment": "Erweiterung %game.characterIconColoredBg.mindthief%",
+                "augments": "Erweiterungen %game.characterIconColoredBg.mindthief%"
+            },
+            "night-demon": {
+                "1": "Alle angrenzenden Verbündeten und Gegner erleiden %game.damage:2%."
+            },
+            "ooze": {
+                "1": "mit H gleich dem TP Wert des beschwörenden %data.monster.ooze% (limitiert auf den maximalen TP Wert eines normalens %data.monster.ooze%)"
+            },
+            "savvas-lavaflow": {
+                "1": "Alle an das Ziel angrenzenden Verbündeten und Gegner erleiden %game.damage:2%.",
+                "2": "Alle Gegner erleiden %game.damage:2%."
+            },
+            "bandit-commander": {
+                "1": "Zur nächsten Tür gehen und den Raum aufdecken."
+            },
+            "captain-of-the-guard": {
+                "1": "Alle Verbündeten fügen +1 %game.action.attack% zu allen Angriffen dieser Runde hinzu."
+            },
+            "merciless-overseer": {
+                "1": "Alle Späher sind erneut an der Reihe",
+                "2": "V = Anzahl der vorhnanden Späher"
+            },
+            "prime-demon": {
+                "1": "Thron bewegen"
+            },
+            "winged-horror": {
+                "1": "Eier schlüpfen",
+                "2": "%game.action.summon% [C] Eier"
+            },
+            "dark-rider": {
+                "1": "X = Bewegte Felder"
+            },
+            "the-betrayer": {
+                "1": "Gedankenkontrolle"
+            }
+        }
+    }
+}

@@ -1,0 +1,134 @@
+{
+  "character": {
+    "diviner": "Prophetin"
+  },
+  "edition": {
+    "fc": "Forgotten Circles"
+  },
+  "monster": {
+    "aesther-ashblade": "Aesther Ascheklinge",
+    "aesther-scout": "Aesther Späher",
+    "avatar-of-ashtar": "Ashtars Avatar",
+    "avatar-of-thelija": "Thelijas Avatar",
+    "bear-drake-abomination": "Drakenbär-Abscheulichkeit",
+    "elham": "Elham",
+    "human-commander": "Menschliche Kommandantin",
+    "icestorm-guardian-of-the-firmament": "Wächter des Firmaments Savvas-Eissturm",
+    "lavaflow-guardian-of-the-firmament": "Wächter des Firmaments Savvas-Lavastrom",
+    "manifestation-of-corruption": "Das leibhaftige Verderben",
+    "naaret": "Naaret",
+    "selah-naberis": "Selah Naberis",
+    "sraka-the-wise": "Die Weise Sraka",
+    "the-husk": "Die Hülle",
+    "the-steel-lion": "Der Stählernde Löwe",
+    "uyart-ikkuma": "Uyart Ikkuma",
+    "valrath-commander": "Valrath Kommandant",
+    "valrath-savage": "Valrath Wilde",
+    "valrath-tracker": "Valrath Häscher",
+    "warden": "Wächter",
+    "wolf-viper-abomination": "Wolf-Viper-Abscheulichkeit"
+  },
+  "deck": {
+    "ashblade": "Ascheklinge",
+    "savage": "Wilde",
+    "tracker": "Häscher"
+  },
+  "ability": {
+    "Pulse of Malice": "Puls der Bosheit",
+    "Harsh Entrapment": "Harte Verstrickung",
+    "Searing Vapors": "Ätzende Dämpfe",
+    "Toxic Blast": "Giftige Explosion",
+    "Blistering Heat": "Glühende Hitze",
+    "Nightmare Spheres": "Albtraum-Sphären",
+    "Lure Them In": "Lock Sie An",
+    "Plaque Their Dreams": "Tafel Ihre Träume an",
+    "Flame Lance": "Flammenlanze",
+    "What's Yours is Mine": "Was dir gehört, gehört mir",
+    "Corruptiing Presence": "Beschädigen der Anwesenheit",
+    "Endless Legions": "Endlose Legionen",
+    "Heed My Call": "Folge meinen Ruf",
+    "Unfathomable Fortitude": "Unergründliche Stärke",
+    "Marked for Death": "Markiert für den Tod",
+    "You Date to Defy Me": "Treff mich um mir zu trotzen",
+    "Legendary - Void": "Legendär - Leere",
+    "Legandary - Shadows": "Legendär - Schatten",
+    "Legengary - Gloom": "Legendär - Finsternis",
+    "Legendary - Domination": "Legendär - Herrschaft"
+  },
+  "scenario": {
+    "Unexpected Visitors": "Unerwarteter Besuch",
+    "Lore Untold": "Neuigkeiten",
+    "Past In Flames": "Flammenmeer",
+    "Aftershocks": "Nachbeben",
+    "Shifting Gears": "Getrieberaum",
+    "Shrouded Crypt": "Verhüllte Krypta",
+    "Bazaar of Knowledge": "Basar des Wissens",
+    "Where It Is Needed": "Wo Bedarf ist",
+    "A Gaping Wound": "Klaffende Wunde",
+    "Monstrosities of a Cult": "Kultische Monstrositäten",
+    "Intricate Work": "Komplexitäten",
+    "Mechanical Genius": "Mechanisches Genie",
+    "Prologue to the End": "Prolog des Endes",
+    "Epilogue of a War": "Epilog eines Krieges",
+    "A Circular Solution": "Eine runde Sache",
+    "The Shackles Loosen": "Gelockerte Fesseln",
+    "The Bottom of It": "Auf den Grund",
+    "The Lost Thread": "Verlorener Faden",
+    "Ink Not Yet Dry": "In der Schwebe",
+    "Future Uncertain": "Ungewisse Zukunft"
+  },
+  "summon": {
+    "ghost-falcon": "Geisterfalke",
+    "twilight-archon": "Archon Dämmerung"
+  },
+  "custom": {
+    "fc": {
+      "ashblade": {
+        "1": "Fokussiere den Gegner mit der höchsten Initiative.",
+        "2": "%game.action.teleport% zum nächsten freien Feld angrenzend an den Fokus."
+      },
+      "manifestation-of-corruption": {
+        "1": "Spiele die ersten beiden Karten mit der ersten Karte als Initiative. Führe die untere Aktion der ersten und die obere Aktion der zweiten Karte aus.",
+        "2": "Führe diese Aktion direkt nach dem Aufdecken aus, nicht nach Reihenfolge der Initiative.",
+        "3": "Der Charakter mit der höchsten Initiative ist gezwungen alle Verbündeten als Gegner und alle Gegner als Verbündete anzusehen. Während des Zuge, führe \"%game.action.move%2\" also obere Aktion der Initiativ-Karte aus. Anschließend werden beide Karten abgeworfen unabhängig davon ob sie normalerweise verloren wären.",
+        "4": "Alle dich anwisierende Angreifer erleiden diese Runde %game.condition.curse%",
+        "5": "Beschwöre einen %data.monster.flame-demon%: Normal für zwei oder drei, Elite für vier Charaktere.<br>Beschwöre einen %data.monster.night-demon%: Normal für zwei oder drei, Elite für vier Charaktere.",
+        "7": "Beschwöre einen zusätzlichen %data.monster.night-demon%",
+        "8": "Beschwöre einen zusätzlichen %data.monster.flame-demon%",
+        "9": "Beschwöre eine %data.monster.valrath-tracker%: Normal für zwei oder drei, Elite für vier Charaktere.",
+        "10": "Beschwöre zwei %data.monster.black-imp%s: beide Normal für zwei; einen Normal und einen Elite für drei; zwei Elite für vier Charaktere.",
+        "11": "Beschwöre einen zusätzlichen Elite %data.monster.black-imp%",
+        "12": "Visiere alle Gegner in %game.action.range%4",
+        "13": "Alle angrenzenden Gegner erleiden %game.damage:3%.",
+        "14": "Die nächsten drei mal wenn du Schaden erleidest, erhalte %game.action.shield% 3.",
+        "15": "Erstelle eine %game.condition.disarm% und eine %game.condition.poison% Falle in jeweils einem angrenzenden freien Feld.",
+        "16": "%game.action.teleport% zum Feld des weitesten Gegners in %game.action.range%+1 und %game.action.teleport% diesen gleichzeitig auf dein Feld.",
+        "17": "Beschwöre jeweils eine Normal %data.monster.valrath-savage% angrenzend an jeden Gegner in %game.action.range%5.",
+        "18": "Alle dich anvisierenden Angreifer erleiden %game.condition.curse%.",
+        "19": "Alle dich anvisierenden Angreifer erhalten Nachteil.",
+        "20": "%game.action.attack%-1 für einen Gegner in %game.action.range%4 zum ersten Ziel, anschließend %game.action.attack%-2 an einen dritten Gegner in %game.action.range%3 des zweiten Ziels.",
+        "21": "Beschwöre einen %game.monster.aesther-scout%: Normal für zwei oder drei, Elite für vier Charaktere.",
+        "22": "Die nächsten drei mal wenn du Schaden erleidest, erleide stattdessen keinen Schaden."
+      },
+      "sraka-the-wise": {
+        "1": "Verdopple alle Heil-Werte. Wenn möglich visiert Heilung den Stählernden Löwen an.",
+        "2": "Falls %game.condition.curse% oder %game.condition.bless% angewendet wird, wende %game.condition.curse% oder %game.condition.bless% erneut an."
+      },
+      "the-steel-lion": {
+        "1": "Alle Angriffe an angrenzende Verbündete visieren dich stattdessen an.",
+        "2": "Die ersten [C] mal die du 6 oder mehr Schaden erleidest, erleide stattdessen keinen Schaden."
+      },
+      "tracker": {
+        "1": "Erstelle eine %game.condition.disarm% Falle in einem leeren angrenzenden Feld zum nächsten Gegner.",
+        "2": "Visiere den Gegner mit dem niedrigesten TP Wert an."
+      },
+      "uyart-ikkuma": {
+        "1": "Konsumiere %game.element.consume.fire% / %game.element.consume.earth% als wäre das Element stark fall %data.monster.flame-demon% / %data.monster.earth-demon% auf der Karte sind."
+      },
+      "valrath-savage": {
+        "1": "Alle angrenzenden Verbündeten fügen +1 %game.action.attack% zu allen Angriffen hinzu.",
+        "2": "Alle angrenzenden Verbündeten fügen +2 %game.action.attack% zu allen Angriffen hinzu."
+      }
+    }
+  }
+}

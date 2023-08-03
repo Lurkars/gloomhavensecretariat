@@ -1,0 +1,20 @@
+{
+  "character": {
+    "angry-face": "Doomstalker",
+    "circles": "Summoner",
+    "eclipse": "Nightshroud",
+    "lightning": "Berserker",
+    "music-note": "Soothsinger",
+    "saw": "Sawbones",
+    "squidface": "Plagueherald",
+    "sun": "Sunkeeper",
+    "three-spears": "Quartermaster",
+    "triangles": "Elementalist",
+    "two-mini": "Beast Tyrant"
+  },
+  "treasures": {
+    "gh": {
+      "75": "Cryptogram Found (See scenario book page 121)"
+    }
+  }
+}

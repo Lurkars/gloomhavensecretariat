@@ -1,0 +1,277 @@
+{
+  "character": {
+    "demolitionist": "Demolitionist",
+    "hatchet": "Hatchet",
+    "red-guard": "Red Guard",
+    "voidwarden": "Voidwarden"
+  },
+  "edition": {
+    "jotl": "Jaws Of The Lion"
+  },
+  "monster": {
+    "basic-giant-viper": "Basic Giant Viper",
+    "basic-vermling-raider": "Basic Vermling Raider",
+    "basic-zealot": "Basic Zealot",
+    "black-imp": "Black Imp",
+    "black-sludge": "Black Sludge",
+    "blood-horror": "Blood Horror",
+    "blood-imp": "Blood Imp",
+    "blood-monstrosity": "Blood Monstrosity",
+    "blood-tumor": "Blood Tumor",
+    "chaos-demon": "Chaos Demon",
+    "common-vermling-raider": "Common Vermling Raider",
+    "first-of-the-order": "First of the Order",
+    "giant-viper": "Giant Viper",
+    "living-corpse": "Living Corpse",
+    "living-spirit": "Living Spirit",
+    "monstrosity": "Monstrosity",
+    "rat-monstrosity": "Rat Monstrosity",
+    "stone-golem": "Stone Golem",
+    "vermling-raider": "Vermling Raider",
+    "vermling-scout": "Vermling Scout",
+    "zealot": "Zealot"
+  },
+  "deck": {
+    "boss": "Boss",
+    "monstrosity": "Monstrosity",
+    "imp": "Imp"
+  },
+  "ability": {},
+  "scenario": {
+    "rules": {
+      "jotl": {
+        "10": {
+          "1": "Move traps in %game.mapMarker.1% one hex downward",
+          "2": "Move traps in %game.mapMarker.2% one hex closer to nearest character"
+        },
+        "14": {
+          "1": "one for every normal Giant Viper and two for every elite Giant Viper adjacent to a Zealot, the Giant Viper dies"
+        },
+        "15": {
+          "1": "one for every Black Imp within Range 3 of a Zealot which then gain %game.condition.stun%"
+        },
+        "20": {
+          "1": "Loot is represented with Objectives, after looting exhaust corresponding Objective to find good",
+          "2": "Find 1 good",
+          "3": "Find Ring of Restoration (Item 32)"
+        },
+        "21": {
+          "1": "in any hex the last objective was destroyed",
+          "2": "Characters suffer %game.damage:[L/2{$math.floor}]% for each hex they enter in room of Chaos Demon %game.mapMarker.A%"
+        }
+      }
+    }
+  },
+  "battleGoals": {
+    "286": "Lose a card to negate 5 or more damage.",
+    "287": "End each of your turns adjacent to a wall or obstacle.",
+    "288": "Collect fewer money tokens than any other character.",
+    "289": "Kill a monster attacked by an ally earlier in the round.",
+    "290": "Never leave a hex adjacent to a monster.",
+    "291": "Kill the last monster to die in the scenario.",
+    "292": "Never lose a card to negate suffering damage.",
+    "293": "Never allow your hit points to drop below half your maximum hit point value (rounded up).",
+    "294": "Collect more money tokens than any other character.",
+    "295": "End the scenario with hit points equal to your maximum hit point value.",
+    "296": "Kill a monster with an attack that has Disadvantage.",
+    "297": "Perform two actions with Lost icons before your first rest.",
+    "298": "Suffer damage from an attack in the same round you long rest.",
+    "299": "End the scenario with 3 or fewer hit points.",
+    "300": "Kill a monster and loot the money token it drops in the same turn.",
+    "301": "Kill the first monster to die in the scenario.",
+    "302": "Kill three or fewer monsters.",
+    "303": "Collect one or more money tokens by performing a Loot action while you are adjacent to two or more monsters.",
+    "304": "Be targeted by attacks from three or more monsters in the same round.",
+    "305": "Never kill an elite monster or boss.",
+    "306": "Never use a potion.",
+    "307": "Perform two actions with Lost icons in the same turn.",
+    "308": "Never end your turn adjacent to any of your allies.",
+    "309": "Kill five or more monsters.",
+    "310": "Never long rest.",
+    "311": "End each of your turns adjacent to any of your allies.",
+    "312": "Kill a monster not adjacent to you while you are adjacent to another monster.",
+    "313": "Never perform a basic action.",
+    "314": "Never short rest.",
+    "315": "Open a door and end your same turn in the revealed room.",
+    "316": "Apply any negative condition to a monster while you have any negative condition.",
+    "317": "Become exhausted before any other character."
+  },
+  "items": {
+    "jotl-1": {
+      "1": "During your attack, gain Advantage on the entire Attack action."
+    },
+    "jotl-2": {
+      "1": "When attacked, consider any %game.attackmodifier.double% attack modifier card the enemy draws to be a %game.attackmodifier.plus0% instead."
+    },
+    "jotl-3": {
+      "1": "During your turn gain %game.action.shield% 1 for the rest of the round"
+    },
+    "jotl-4": {
+      "1": "When attacked, the attacker gains Disadvantage on the attack and you gain %game.action.shield% 1 for the attack."
+    },
+    "jotl-5": {
+      "1": "During your movement add +1 %game.action.move% to a single movement."
+    },
+    "jotl-6": {
+      "1": "During your movement, add %game.action.jump% to the entire Move Action."
+    },
+    "jotl-7": {
+      "1": "When damaged by an attack, gain %game.action.shield% 1 for the attack."
+    },
+    "jotl-8": {
+      "1": "During your ranged attack, add %game.condition.stun% to a single attack"
+    },
+    "jotl-9": {
+      "1": "During your melee attack, add %game.condition.poison% to a single attack."
+    },
+    "jotl-10": {
+      "1": "During your single-target melee Attack ability, attack any one enemy wihin 2 hexes"
+    },
+    "jotl-11": {
+      "1": "During your turn, perform a \"%game.action.heal% 3, Self\" action."
+    },
+    "jotl-12": {
+      "1": "During your turn, return one of your discarded cards to your hand."
+    },
+    "jotl-13": {
+      "1": "During your attack, add +1 %game.action.attack% to your entire Attack action."
+    },
+    "jotl-14": {
+      "1": "During your turn, infuse any one element."
+    },
+    "jotl-15": {
+      "1": "During your turn, \"%game.action.heal% 1, Self\" action."
+    },
+    "jotl-16": {
+      "1": "During your attack, %game.element.consume.wild% to add +1 %game.action.attack% to the entire Attack action."
+    },
+    "jotl-17": {
+      "1": "Whenever you use the default bottom of an ability card, perform a \"%game.action.move% 3\" action instead of a \"%game.action.move% 2\" action."
+    },
+    "jotl-18": {
+      "1": "During your single-target melee attack action, turn the attack into the following:"
+    },
+    "jotl-19": {
+      "1": "During your ranged attack, add %game.condition.curse% to a single attack."
+    },
+    "jotl-20": {
+      "1": "During your attack, add %game.condition.stun% to a single attack."
+    },
+    "jotl-21": {
+      "1": "During your ranged attack, add +1 %game.action.range% to your entire Attack action."
+    },
+    "jotl-22": {
+      "1": "When damaged by an attack, gain %game.action.shield% 2 for the attack and the attacker suffers 2 damage."
+    },
+    "jotl-23": {
+      "1": "During your movement, add +2 %game.action.move% to a single movement."
+    },
+    "jotl-24": {
+      "1": "During your single-target ranged attack action, turn the attack into the following:"
+    },
+    "jotl-25": {
+      "1": "During your ranged attack, add %game.action.pull% 2 to a single attack."
+    },
+    "jotl-26": {
+      "1": "During your turn, perform a \"%game.condition.bless%, %game.action.range:5%\" action."
+    },
+    "jotl-27": {
+      "1": "During your turn, force one enemy within %game.action.range:3% to perform a \"%game.action.move% 2\" action with you controlling the action."
+    },
+    "jotl-28": {
+      "1": "You are considered to have an initiative of 99 for the purpose of enemy focusing."
+    },
+    "jotl-29": {
+      "1": "When damaged by an attack, gain %game.action.shield% 2 for the attack."
+    },
+    "jotl-30": {
+      "1": "At the end of your turn, play one card from your hand and immediately perform the bottom action of that card."
+    },
+    "jotl-31": {
+      "1": "During your turn, gain %game.condition.strengthen%."
+    },
+    "jotl-32": {
+      "1": "During your turn, perform a \"%game.action.heal% 3, %game.action.range:5%\" action."
+    },
+    "jotl-33": {
+      "1": "When damaged by an attack, gain %game.action.shield% 4 for the attack."
+    },
+    "jotl-34": {
+      "1": "During your attack, add %game.condition.wound% to the entire Attack Action."
+    },
+    "jotl-35": {
+      "1": "During your turn, one adjacent ally may perform and \"%game.action.attack% 2\" Action."
+    },
+    "jotl-36": {
+      "1": "During your movement, add +1 %game.action.move% and %game.action.jump% to a single movement."
+    }
+  },
+  "custom": {
+    "jotl": {
+      "giant-viper": {
+        "1": "All attacks targeting %data.monster.giant-viper% gain Disadvantage this round.",
+        "2": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies."
+      },
+      "giant-viper-scenario-21": {
+        "1": "Each time after any figure attacks a Giant Viper, that figure suffers %game.damage:L%"
+      },
+      "black-sludge": {
+        "1": "The closest enemy in line-of-sight, regardless of range, suffer [1+L/2{$math.ceil}] %game.damage%"
+      },
+      "chaos-demon": {
+        "1": "Any time a figure attacks the %data.monster.chaos-demon% this round, that figure suffer %game.damage:2%",
+        "2": "All enemies adjacent to the target suffer %game.damage:1%"
+      },
+      "living-corpse": {
+        "1": "The target also suffers %game.damage:2%.",
+        "2": "If this movement is performed, the %data.monster.living-corpse% suffers %game.damage:1%.",
+        "3": "If this attack is performed, the %data.monster.living-corpse% suffers %game.damage:1%."
+      },
+      "monstrosity": {
+        "1": "If this attack is performed, the %data.monster.monstrosity% suffers %game.damage:1%.",
+        "2": "Add +1 %game.action.attack% if the target is adjacent to any of the %data.monster.monstrosity%'s allies.",
+        "3": "Any time a figure attacks the %data.monster.monstrosity% this round, that figure suffers %game.damage:2%.",
+        "4": "%data.monster.monstrosity% suffers %game.damage:1%"
+      },
+      "stone-golem": {
+        "1": "Any time a figure attacks the %data.monster.stone-golem% this round, that figure suffers %game.damage:3%.",
+        "2": "If the Move ability was performed, the %data.monster.stone-golem% suffers %game.damage:1%.",
+        "3": "If this attack is performed, the %data.monster.stone-golem% suffers %game.damage:2%."
+      },
+      "vermling-raider": {
+        "1": "Create one 3-%game.damage% trap in an adjacent empty hex closest to an enemy."
+      },
+      "zealot": {
+        "1": "X is %game.damage% suffered by target of attack"
+      },
+      "blood-horror": {
+        "1": "Jump to farthest dead %data.monster.zealot% and revive or jump to farthest character and %game.action.attack%+0",
+        "2": "Revive all dead %data.monster.zealot% in room"
+      },
+      "blood-monstrosity": {
+        "1": "On death, all adjacent figures suffer %game.damage:1%"
+      },
+      "first-of-the-order": {
+        "1": "All enemies within %game.action.range:2% suffer %game.damage:2%",
+        "2": "within %game.action.range:2% of target"
+      },
+      "rat-monstrosity": {
+        "1": "all adjacent figures suffer %game.damage:1%",
+        "2": "all adjacent figures suffer %game.damage:2%",
+        "3": "all adjacent figures suffer %game.damage:3%",
+        "4": "all adjacent figures suffer %game.damage:4%"
+      },
+      "basic-vermling-raider": {
+        "1": "Shuffle this deck at the end of the round.",
+        "2": "They will move to avoid being adjacent to their focus.",
+        "3": "They are not moving this round.",
+        "4": "This is exactly how they acted last scenario."
+      }
+    },
+    "perks": {
+      "demolitionist": {
+        "1": "All adjacent enemies suffer %game.damage:1%"
+      }
+    }
+  }
+}

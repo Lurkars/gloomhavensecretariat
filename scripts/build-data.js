@@ -157,6 +157,40 @@ for (edition_path of edition_dirs) {
   edition_data['label'] = load_file(edition_path, 'label.json', {});
   edition_data['labelSpoiler'] = load_file(edition_path, 'label-spoiler.json', {});
 
+  const labelFolder = path.join(edition_path, 'label');
+  if (fs.existsSync(labelFolder) && fs.lstatSync(labelFolder).isDirectory()) {
+    for (let labelFile of fs.readdirSync(labelFolder)) {
+      const inputFile = path.join(labelFolder, labelFile);
+      if (fs.lstatSync(inputFile).isFile()) {
+        const f = fs.readFileSync(inputFile, 'utf8');
+        try {
+          const label = JSON.parse(f);
+          const locale = labelFile.substring(0, labelFile.length - 5);
+          edition_data['label'][locale] = label;
+        } catch (e) {
+          console.error(inputFile, e);
+        }
+      }
+    }
+  }
+
+  const labelSpoilerFolder = path.join(edition_path, 'label-spoiler');
+  if (fs.existsSync(labelSpoilerFolder) && fs.lstatSync(labelSpoilerFolder).isDirectory()) {
+    for (let labelSpoilerFile of fs.readdirSync(labelSpoilerFolder)) {
+      const inputFile = path.join(labelSpoilerFolder, labelSpoilerFile);
+      if (fs.lstatSync(inputFile).isFile()) {
+        const f = fs.readFileSync(inputFile, 'utf8');
+        try {
+          const label = JSON.parse(f);
+          const locale = labelSpoilerFile.substring(0, labelSpoilerFile.length - 5);
+          edition_data['labelSpoiler'][locale] = label;
+        } catch (e) {
+          console.error(inputFile, e);
+        }
+      }
+    }
+  }
+
   const output_path = path.join(output_dir, (edition_data['edition']) + '.json');
 
   // console.debug("\n> Write file: '" + output_path + "'");

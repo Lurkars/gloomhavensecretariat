@@ -1,0 +1,36 @@
+{
+  "edition": {
+    "bas": "Blut und Sand"
+  },
+  "monster": {
+    "desiccated-corpse": "Ausgetrocknete Leiche",
+    "dust-demon": "Staubdämon",
+    "giant-scorpion": "Riesenskorpion",
+    "horned-lizard": "Krötenechse",
+    "jackal": "Schakal",
+    "sand-spider": "Sandspinne"
+  },
+  "scenario": {
+    "All Over the Map": "Über die ganze Karte verteilt",
+    "Troubled Waters": "Unruhige Gewässer"
+  },
+  "custom": {
+    "bas": {
+      "desiccated-corpse": {
+        "1": "AUSTROCKNEN",
+        "2": "Zerstöre von angrenzenden Gegnern getragenes Wasser."
+      },
+      "dust-demon": {
+        "1": "%data.monster.dust-demon% bewegt sich durch so viele Gegner wie möglich."
+      },
+      "jackal": {
+        "1": "Rudel"
+      },
+      "sand-spider": {
+        "1": "Erhalte +3 %game.action.attack%, wenn das Ziel mit %game.condition.immobilize% belegt ist.",
+        "2": "Alle Angriffe, die in dieser Runde die %data.monster.sand-spider% anvisieren, erhalten Nachteil.",
+        "3": "Erstelle eine %game.condition.immobilize% Falle auf einem angrenzenden Feld, das einem Gegner am nächsten ist."
+      }
+    }
+  }
+}
