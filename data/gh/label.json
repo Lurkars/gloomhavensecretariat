@@ -1379,6 +1379,20 @@
       "Payment Due": "상환일",
       "rules": {
         "gh": {
+          "19": {
+            "1": "towards the altar %game.mapMarker.b%"
+          },
+          "38": {
+            "1": "towards the shaman on the D tile"
+          },
+          "42": {
+            "1": "All monsters add +1 %game.action.attack% to all their attacks",
+            "2": "All monsters gain Advantage on all their attacks",
+            "3": "All monsters heal 1 hit point at the start of each of their turns",
+            "4": "All characters and character summons suffer 1 damage at the start of each of their turns.",
+            "5": "All characters and character summons gain Disadvantage on all their attacks.",
+            "6": "All characters and character summons deduct -1 Attack from all their attacks."
+          },
           "71": {
             "1": "Move left",
             "2": "Move up",
@@ -1390,6 +1404,12 @@
           },
           "74": {
             "1": "Add water tile."
+          },
+          "79": {
+            "1": "Move to starting location, if moved off, then perform"
+          },
+          "86": {
+            "1": "towards the end of the docks %game.mapMarker.b%"
           }
         }
       }
