@@ -1,11 +1,11 @@
 ---
-name: :bug: Bug report
+name: ":bug: Bug report"
 about: Create a report to about something not working as expected
 title: ""
 labels: ["bug"]
-assignees: 'Lurkars'
+assignees: "Lurkars"
 body:
-- type: textarea
+  - type: textarea
     id: bug-description
     attributes:
       label: Describe the bug
