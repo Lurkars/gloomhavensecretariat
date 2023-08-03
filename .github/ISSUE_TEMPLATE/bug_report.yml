@@ -1,7 +1,5 @@
----
 name: ":bug: Bug report"
-about: Create a report to about something not working as expected
-title: ""
+description: "Create a report to about something not working as expected"
 labels: ["bug"]
 assignees: "Lurkars"
 body:
@@ -57,7 +55,7 @@ body:
       placeholder: ex. Windows 11 or iOS 17
     validations:
       required: true
-  - type: markdown
+  - type: textarea
     id: additional
     attributes:
       label: Additional
