@@ -200,10 +200,16 @@ export class ScenarioManager {
                   const from = +item.split('-')[0];
                   const to = +item.split('-')[1];
                   for (let i = from; i <= to; i++) {
-                    this.game.party.unlockedItems.push(new Identifier(i + '', scenario.edition));
+                    const itemData = gameManager.itemManager.getItem(i, scenario.edition, true);
+                    if (itemData && (!itemData.unlockScenario || itemData.unlockScenario.edition != scenario.edition || itemData.unlockScenario.name != scenario.index)) {
+                      this.game.party.unlockedItems.push(new Identifier(itemData.id + '', scenario.edition));
+                    }
                   }
                 } else {
-                  this.game.party.unlockedItems.push(new Identifier(item, scenario.edition));
+                  const itemData = gameManager.itemManager.getItem(+item, scenario.edition, true);
+                  if (itemData && (!itemData.unlockScenario || itemData.unlockScenario.edition != scenario.edition || itemData.unlockScenario.name != scenario.index)) {
+                    this.game.party.unlockedItems.push(new Identifier(itemData.id + '', scenario.edition));
+                  }
                 }
               })
             }

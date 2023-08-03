@@ -202,7 +202,7 @@ export class GameManager {
         return true;
       }
 
-      if (itemData.unlockScenario && this.scenarioData(edition).find((scenarioData) => itemData.unlockScenario && scenarioData.index == itemData.unlockScenario.name && scenarioData.edition == itemData.unlockScenario.edition)) {
+      if (itemData.unlockScenario && this.game.party.scenarios.find((scenarioData) => itemData.unlockScenario && scenarioData.index == itemData.unlockScenario.name && scenarioData.edition == itemData.unlockScenario.edition)) {
         return true;
       }
 
