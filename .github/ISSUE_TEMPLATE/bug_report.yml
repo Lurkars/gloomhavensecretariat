@@ -1,4 +1,4 @@
-name: ":bug: Bug report"
+name: "🐛 Bug report"
 description: "Create a report to about something not working as expected"
 labels: ["bug"]
 assignees: "Lurkars"
@@ -61,4 +61,4 @@ body:
       label: Additional
       description: Any additional information
     validations:
-      required: true
+      required: false
