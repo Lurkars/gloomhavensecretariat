@@ -831,7 +831,7 @@ export class SettingsManager {
 
     gameManager.battleGoalManager.getBattleGoals(undefined, true).forEach((battleGoal, index, self) => {
       if (!battleGoal.alias) {
-        const others = self.filter((other, otherIndex) => otherIndex != index && (other.name == battleGoal.name || other.text == battleGoal.text));
+        const others = self.filter((other, otherIndex) => otherIndex != index && (other.name == battleGoal.name || this.getLabel('data.battleGoals.' + other.cardId) == this.getLabel('data.battleGoals.' + battleGoal.cardId)));
         if (others.length > 0 && others.find((other) => !other.alias)) {
           console.warn("BattleGoal doubles:", battleGoal.edition + " - " + battleGoal.name, others.map((other) => other.edition + " - " + other.name));
         }
@@ -898,6 +898,12 @@ export class SettingsManager {
     }
     if (!this.label.data.summon) {
       this.label.data.summon = {};
+    }
+    if (!this.label.data.battleGoals) {
+      this.label.data.battleGoals = {};
+    }
+    if (!this.label.data.items) {
+      this.label.data.items = {};
     }
   }
 

@@ -2,361 +2,301 @@
     {
         "cardId": "1301",
         "name": "Accountant",
-        "text": "Have zero cards in your hand each time you rest.",
         "checks": 1
     },
     {
         "cardId": "1302",
         "name": "Acrobat",
-        "text": "Lose a card to negate suffering 5 or more damage.",
         "checks": 1
     },
     {
         "cardId": "1303",
         "name": "Ascetic",
-        "text": "Collect fewer loot tokens than any other character.",
         "checks": 1
     },
     {
         "cardId": "1346",
         "name": "Assassin",
-        "text": "Kill an enemy before it takes its first turn.",
         "checks": 2
     },
     {
         "cardId": "1304",
         "name": "Assistant",
-        "text": "Kill an enemy attacked by any of your allies earlier in the same round.",
         "checks": 1
     },
     {
         "cardId": "1305",
         "name": "Bastion",
-        "text": "Occupy a door hex adjacent to two or more enemies at the end of a round.",
         "checks": 1
     },
     {
         "cardId": "1306",
         "name": "Bully",
-        "text": "Kill an enemy that has two or more negative conditions.",
         "checks": 1
     },
     {
         "cardId": "1307",
         "name": "Cleaner",
-        "text": "Collect three or more loot tokens in the same turn.",
         "checks": 1
     },
     {
         "cardId": "1308",
         "name": "Closer",
-        "text": "Kill the last enemy to die in the scenario.",
         "checks": 1
     },
     {
         "cardId": "1309",
         "name": "Conservator",
-        "text": "Never perform an action with a lost icon.",
         "checks": 1
     },
     {
         "cardId": "1347",
         "name": "Daredevil",
-        "text": "Add two cards to your lost pile before your first rest.",
         "checks": 2
     },
     {
         "cardId": "1348",
         "name": "Dawdler",
-        "text": "Never us your lowest initiative played card as your initiative card.",
         "checks": 2
     },
     {
         "cardId": "1310",
         "name": "Diehard",
-        "text": "Never have your hit point value drop below half your maximum hit point value (rounded up).",
         "checks": 1
     },
     {
         "cardId": "1349",
         "name": "Duelist",
-        "text": "Never exit a hex adjacent to an enemy except through forced movement.",
         "checks": 2
     },
     {
         "cardId": "1311",
         "name": "Dynamo",
-        "text": "Kill an enemy with an attack that would have caused at least 4 more points of damage than necessary.",
         "checks": 1
     },
     {
         "cardId": "1312",
         "name": "Egoist",
-        "text": "Collect more loot tokens than any other character.",
         "checks": 1
     },
     {
         "cardId": "1313",
         "name": "Executioner",
-        "text": "Kill an undamaged enemy with a single attack action.",
         "checks": 1
     },
     {
         "cardId": "1350",
         "name": "Exterminator",
-        "text": "Kill one or more enemies of each monster type that appears in the scenario.",
         "checks": 2
     },
     {
         "cardId": "1314",
         "name": "Gambler",
-        "text": "Kill an enemy with an attack that has disadvantage.",
         "checks": 1
     },
     {
         "cardId": "1315",
         "name": "Hunter",
-        "text": "Kill one or more elite enemies, or two or more for four characters.",
         "checks": 1
     },
     {
         "cardId": "1316",
         "name": "Insomniac",
-        "text": "Suffer damage from an attack in the same round you long rest.",
         "checks": 1
     },
     {
         "cardId": "1351",
         "name": "Layabout",
-        "text": "Gain 7 or fewer experience before any bonus scenario experience.",
         "checks": 2
     },
     {
         "cardId": "1317",
         "name": "Masochist",
-        "text": "End the scenario with a hit point value of 3 or less.",
         "checks": 1
     },
     {
         "cardId": "1352",
         "name": "Miser",
-        "text": "Never exit a room with loot tokens in it.",
         "checks": 2
     },
     {
         "cardId": "1318",
         "name": "Mugger",
-        "text": "Kill an enemy and loot the loot token it drops in the same round.",
         "checks": 1
     },
     {
         "cardId": "1319",
         "name": "Opener",
-        "text": "Kill the first enemy to die in the scenario.",
         "checks": 1
     },
     {
         "cardId": "1320",
         "name": "Optimist",
-        "text": "Remove a negative condition from yourself or an ally two or more times.",
         "checks": 1
     },
     {
         "cardId": "1353",
         "name": "Overachiever",
-        "text": "Kill an enemy and open a door in the same turn, in either order.",
         "checks": 2
     },
     {
         "cardId": "1321",
         "name": "Pacifist",
-        "text": "Kill three or fewer enemies.",
         "checks": 1
     },
     {
         "cardId": "1322",
         "name": "Pauper",
-        "text": "Never collect a loot token from end-of-turn looting.",
         "checks": 1
     },
     {
         "cardId": "1354",
         "name": "Peacemonger",
-        "text": "Never kill an enemy.",
         "checks": 2
     },
     {
         "cardId": "1323",
         "name": "Pedestrian",
-        "text": "Never enter a hex occupied by an ally, enemy, objective, or obstacle.",
         "checks": 1
     },
     {
         "cardId": "1324",
         "name": "Perfectionist",
-        "text": "End the scenario with your hit point value equal to your maximum hit point value.",
         "checks": 1
     },
     {
         "cardId": "1325",
         "name": "Pickpocket",
-        "text": "Collect two or more loot tokens by performing a loot ability while adjacent to one or more enemies.",
         "checks": 1
     },
     {
         "cardId": "1326",
         "name": "Pincushion",
-        "text": "Be targeted by attacks from three or more enemies in the same round.",
         "checks": 1
     },
     {
         "cardId": "1327",
         "name": "Plebeian",
-        "text": "Never kill an elite enemy, named enemy or boss.",
         "checks": 1
     },
     {
         "cardId": "1355",
         "name": "Prepper",
-        "text": "Perform no attack abilities in the first three rounds.",
         "checks": 2
     },
     {
         "cardId": "1328",
         "name": "Prohibitionist",
-        "text": "Never use a potion.",
         "checks": 1
     },
     {
         "cardId": "1329",
         "name": "Promoter",
-        "text": "Perform an ability targeting an ally before your first rest and in between each of your rests.",
         "checks": 1
     },
     {
         "cardId": "1330",
         "name": "Rambler",
-        "text": "End no more than three of your turns in the hex in which you started the turn, except when long resting.",
         "checks": 1
     },
     {
         "cardId": "1331",
         "name": "Ravager",
-        "text": "Perform two actions with lost icons in the same turn.",
         "checks": 1
     },
     {
         "cardId": "1332",
         "name": "Recluse",
-        "text": "Never end your turn adjacent to any other character (gain one additional %game.checkmark% for four characters).",
         "checks": 1
     },
     {
         "cardId": "1333",
         "name": "Ritualist",
-        "text": "Kill an enemy while three or more elements are strong or waning.",
         "checks": 1
     },
     {
         "cardId": "1334",
         "name": "Sadist",
-        "text": "Kill five or more enemies.",
         "checks": 1
     },
     {
         "cardId": "1335",
         "name": "Scrambler",
-        "text": "Never long rest.",
         "checks": 1
     },
     {
         "cardId": "1336",
         "name": "Shirker",
-        "text": "Kill an enemy not adjacent to you while you are adjacent to another enemy.",
         "checks": 1
     },
     {
         "cardId": "1356",
         "name": "Slayer",
-        "text": "Kill two or more enemies in the same round.",
         "checks": 2
     },
     {
         "cardId": "1337",
         "name": "Sleeper",
-        "text": "Have on or more cards in your hand each time you rest.",
         "checks": 1
     },
     {
         "cardId": "1357",
         "name": "Slowpoke",
-        "text": "Move no more than two hexes on each turn.",
         "checks": 2
     },
     {
         "cardId": "1338",
         "name": "Sluggard",
-        "text": "Perform a long rest while at your maximum hit point value, after you have already suffered damage.",
         "checks": 1
     },
     {
         "cardId": "1358",
         "name": "Specialist",
-        "text": "Never perform a basic action.",
         "checks": 2
     },
     {
         "cardId": "1339",
         "name": "Straggler",
-        "text": "Never short rest.",
         "checks": 1
     },
     {
         "cardId": "1340",
         "name": "Streamliner",
-        "text": "Have five or more total cards in your hand and discard pile at the end of the scenario.",
         "checks": 1
     },
     {
         "cardId": "1341",
         "name": "Tormentor",
-        "text": "Apply a different negative condition to an enemy that already has one or more negative conditions.",
         "checks": 1
     },
     {
         "cardId": "1359",
         "name": "Vanguard",
-        "text": "Never attack an enemy that has already acted in the round.",
         "checks": 2
     },
     {
         "cardId": "1360",
         "name": "Wallflower",
-        "text": "End each of your turns adjacent to a wall, obstacle, or objective.",
         "checks": 2
     },
     {
         "cardId": "1342",
         "name": "Wastrel",
-        "text": "Lose a card to negate 2 or less damage from an attack.",
         "checks": 1
     },
     {
         "cardId": "1343",
         "name": "Weakling",
-        "text": "Become exhausted before any other character.",
         "checks": 1
     },
     {
         "cardId": "1344",
         "name": "Workhorse",
-        "text": "Gain 13 or more experience before any bonus scenario experience.",
         "checks": 1
     },
     {
         "cardId": "1345",
         "name": "Zealot",
-        "text": "Have three or fewer total cards in your hand and discard pile while also not exhausted at the end of the scenario.",
         "checks": 1
     }
 ]

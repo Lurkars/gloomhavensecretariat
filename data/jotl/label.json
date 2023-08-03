@@ -63,6 +63,40 @@
         }
       }
     },
+    "battleGoals": {
+      "286": "Lose a card to negate 5 or more damage.",
+      "287": "End each of your turns adjacent to a wall or obstacle.",
+      "288": "Collect fewer money tokens than any other character.",
+      "289": "Kill a monster attacked by an ally earlier in the round.",
+      "290": "Never leave a hex adjacent to a monster.",
+      "291": "Kill the last monster to die in the scenario.",
+      "292": "Never lose a card to negate suffering damage.",
+      "293": "Never allow your hit points to drop below half your maximum hit point value (rounded up).",
+      "294": "Collect more money tokens than any other character.",
+      "295": "End the scenario with hit points equal to your maximum hit point value.",
+      "296": "Kill a monster with an attack that has Disadvantage.",
+      "297": "Perform two actions with Lost icons before your first rest.",
+      "298": "Suffer damage from an attack in the same round you long rest.",
+      "299": "End the scenario with 3 or fewer hit points.",
+      "300": "Kill a monster and loot the money token it drops in the same turn.",
+      "301": "Kill the first monster to die in the scenario.",
+      "302": "Kill three or fewer monsters.",
+      "303": "Collect one or more money tokens by performing a Loot action while you are adjacent to two or more monsters.",
+      "304": "Be targeted by attacks from three or more monsters in the same round.",
+      "305": "Never kill an elite monster or boss.",
+      "306": "Never use a potion.",
+      "307": "Perform two actions with Lost icons in the same turn.",
+      "308": "Never end your turn adjacent to any of your allies.",
+      "309": "Kill five or more monsters.",
+      "310": "Never long rest.",
+      "311": "End each of your turns adjacent to any of your allies.",
+      "312": "Kill a monster not adjacent to you while you are adjacent to another monster.",
+      "313": "Never perform a basic action.",
+      "314": "Never short rest.",
+      "315": "Open a door and end your same turn in the revealed room.",
+      "316": "Apply any negative condition to a monster while you have any negative condition.",
+      "317": "Become exhausted before any other character."
+    },
     "custom": {
       "jotl": {
         "giant-viper": {

@@ -369,24 +369,26 @@ export class AttackModifierManager {
       this.removeCards(attackModifierDeck, perk.cards);
     } else if (perk.type == PerkType.replace) {
       const count = this.replaceCount(perk);
-      this.removeCards(attackModifierDeck, perk.cards.slice(0, count));
-      this.addCards(attackModifierDeck, perk.cards.slice(count, perk.cards.length));
+      if (count) {
+        this.removeCards(attackModifierDeck, perk.cards.slice(0, count));
+        this.addCards(attackModifierDeck, perk.cards.slice(count, perk.cards.length));
+      }
     }
   }
 
 
   replaceCount(perk: Perk): number {
-    let remove: number = -1;
+    let count: number = 0;
     if (perk.type == PerkType.replace) {
-      remove = 1;
+      count = 1;
       perk.cards.forEach((card, index, self) => {
         let count = self.slice(0, index + 1).map((a) => a.count).reduce((a, b) => a + b);
         if (index < self.length - 1 && count <= self.slice(index + 1, self.length).map((a) => a.count).reduce((a, b) => a + b)) {
-          remove = index + 1;
+          count = index + 1;
         }
       })
     }
-    return remove;
+    return count;
   }
 
   findByAttackModifier(attackModifiers: AttackModifier[], attackModifier: AttackModifier): AttackModifier | undefined {

@@ -5,7 +5,8 @@
         <div class="card-front">
             <ng-container *ngIf="battleGoal">
                 <div class="name" [ghs-label]="battleGoal.name"></div>
-                <div class="text"><span class="placeholder" [ghs-label]="battleGoal.text"></span></div>
+                <div class="text"><span class="placeholder"
+                        [ghs-label]="'data.battleGoals.' + battleGoal.cardId"></span></div>
                 <div class="checks">
                     <img src="./assets/images/check.svg" *ngFor="let check of [] | ghsRange:battleGoal.checks">
                 </div>

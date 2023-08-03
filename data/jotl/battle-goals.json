@@ -2,49 +2,41 @@
     {
         "cardId": "286",
         "name": "Acrobatic",
-        "text": "Lose a card to negate 5 or more damage.",
         "checks": 1
     },
     {
         "cardId": "287",
         "name": "Agoraphobe",
-        "text": "End each of your turns adjacent to a wall or obstacle.",
         "checks": 1
     },
     {
         "cardId": "288",
         "name": "Altruist",
-        "text": "Collect fewer money tokens than any other character.",
         "checks": 1
     },
     {
         "cardId": "289",
         "name": "Assistant",
-        "text": "Kill a monster attacked by an ally earlier in the round.",
         "checks": 1
     },
     {
         "cardId": "290",
         "name": "Challenger",
-        "text": "Never leave a hex adjacent to a monster.",
         "checks": 1
     },
     {
         "cardId": "291",
         "name": "Closer",
-        "text": "Kill the last monster to die in the scenario.",
         "checks": 1
     },
     {
         "cardId": "292",
         "name": "Conservator",
-        "text": "Never lose a card to negate suffering damage.",
         "checks": 1
     },
     {
         "cardId": "293",
         "name": "Diehard",
-        "text": "Never allow your hit points to drop below half your maximum hit point value (rounded up).",
         "checks": 1,
         "alias": {
             "name": "Diehard",
@@ -54,13 +46,11 @@
     {
         "cardId": "294",
         "name": "Egoist",
-        "text": "Collect more money tokens than any other character.",
         "checks": 1
     },
     {
         "cardId": "295",
         "name": "Fast Healer",
-        "text": "End the scenario with hit points equal to your maximum hit point value.",
         "checks": 1,
         "alias": {
             "name": "Fast Healer",
@@ -70,25 +60,21 @@
     {
         "cardId": "296",
         "name": "Gambler",
-        "text": "Kill a monster with an attack that has Disadvantage.",
         "checks": 1
     },
     {
         "cardId": "297",
         "name": "Hothead",
-        "text": "Perform two actions with Lost icons before your first rest.",
         "checks": 1
     },
     {
         "cardId": "298",
         "name": "Insomniac",
-        "text": "Suffer damage from an attack in the same round you long rest.",
         "checks": 1
     },
     {
         "cardId": "299",
         "name": "Masochist",
-        "text": "End the scenario with 3 or fewer hit points.",
         "checks": 1,
         "alias": {
             "name": "Masochist",
@@ -98,13 +84,11 @@
     {
         "cardId": "300",
         "name": "Mugger",
-        "text": "Kill a monster and loot the money token it drops in the same turn.",
         "checks": 1
     },
     {
         "cardId": "301",
         "name": "Opener",
-        "text": "Kill the first monster to die in the scenario.",
         "checks": 1,
         "alias": {
             "name": "Opener",
@@ -114,7 +98,6 @@
     {
         "cardId": "302",
         "name": "Pacifist",
-        "text": "Kill three or fewer monsters.",
         "checks": 1,
         "alias": {
             "name": "Pacifist",
@@ -124,43 +107,36 @@
     {
         "cardId": "303",
         "name": "Pickpocket",
-        "text": "Collect one or more money tokens by performing a Loot action while you are adjacent to two or more monsters.",
         "checks": 1
     },
     {
         "cardId": "304",
         "name": "Pincushion",
-        "text": "Be targeted by attacks from three or more monsters in the same round.",
         "checks": 1
     },
     {
         "cardId": "305",
         "name": "Plebeian",
-        "text": "Never kill an elite monster or boss.",
         "checks": 1
     },
     {
         "cardId": "306",
         "name": "Prohibitionist",
-        "text": "Never use a potion.",
         "checks": 1
     },
     {
         "cardId": "307",
         "name": "Ravager",
-        "text": "Perform two actions with Lost icons in the same turn.",
         "checks": 1
     },
     {
         "cardId": "308",
         "name": "Recluse",
-        "text": "Never end your turn adjacent to any of your allies.",
         "checks": 1
     },
     {
         "cardId": "309",
         "name": "Sadist",
-        "text": "Kill five or more monsters.",
         "checks": 1,
         "alias": {
             "name": "Sadist",
@@ -170,7 +146,6 @@
     {
         "cardId": "310",
         "name": "Scrambler",
-        "text": "Never long rest.",
         "checks": 1,
         "alias": {
             "name": "Scrambler",
@@ -180,25 +155,21 @@
     {
         "cardId": "311",
         "name": "Shadow",
-        "text": "End each of your turns adjacent to any of your allies.",
         "checks": 1
     },
     {
         "cardId": "312",
         "name": "Shirker",
-        "text": "Kill a monster not adjacent to you while you are adjacent to another monster.",
         "checks": 1
     },
     {
         "cardId": "313",
         "name": "Specialist",
-        "text": "Never perform a basic action.",
         "checks": 1
     },
     {
         "cardId": "314",
         "name": "Straggler",
-        "text": "Never short rest.",
         "checks": 1,
         "alias": {
             "name": "Straggler",
@@ -208,19 +179,16 @@
     {
         "cardId": "315",
         "name": "Trailblazer",
-        "text": "Open a door and end your same turn in the revealed room.",
         "checks": 1
     },
     {
         "cardId": "316",
         "name": "Transmitter",
-        "text": "Apply any negative condition to a monster while you have any negative condition.",
         "checks": 1
     },
     {
         "cardId": "317",
         "name": "Weakling",
-        "text": "Become exhausted before any other character.",
         "checks": 1
     }
 ]
