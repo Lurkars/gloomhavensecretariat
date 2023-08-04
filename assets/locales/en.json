@@ -619,10 +619,10 @@
       "brewing": {
         ".": "Brew Potions",
         "brew": "Brew",
-        "brewed": "{2} brewed {1} %data.itemFh.{0}%",
+        "brewed": "{2} brewed {1} %game.itemFh.{0}%",
         "brewFor": "Brew for {0}",
-        "brewedOther": "{2} brewed {1} %data.itemFh.{0}% for {3}",
-        "item": "{1} %data.itemFh.{0}%",
+        "brewedOther": "{2} brewed {1} %game.itemFh.{0}% for {3}",
+        "item": "{1} %game.itemFh.{0}%",
         "noChar": "Potion already owned by every character!",
         "selectCharacter": "Select Character to brew for:"
       },
@@ -719,9 +719,9 @@
           "goldFh": "gain {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
           "heal": "perform \"Heal {0}, Self\"",
           "item": "gain {1} ({0})",
-          "itemFh": "gain {1} %data.itemFh.{0}%",
+          "itemFh": "gain {1} %game.itemFh.{0}%",
           "itemDesign": "gain {1} design ({0})",
-          "itemBlueprint": "gain {1} blueprint %data.itemFh.{0}%",
+          "itemBlueprint": "gain {1} blueprint %game.itemFh.{0}%",
           "loot": "gain {0} money tokens",
           "lootCards": "gain %number.{0}% loot cards",
           "partyAchievement": "Party Achievement: \"{0}\"",
@@ -742,7 +742,7 @@
             "result": ": {1} %data.scenarioNumber:{0}%"
           },
           "resource": "gain {0}",
-          "scenario": "New Scenario: {1} <span class=\"scenario-number\">{0}</span>"
+          "scenario": "New Scenario: {1} %data.scenarioNumber:{0}%"
         }
       }
     },
@@ -1135,7 +1135,7 @@
       "inspiration": "{0} inspiration",
       "item": "\"{1}\" (Item {0})",
       "items": "{2} \"{1}\" (Item {0})",
-      "itemBlueprint": "Gain \"{1}\" %data.itemFh.{0}% blueprint",
+      "itemBlueprint": "Gain \"{1}\" %game.itemFh.{0}% blueprint",
       "itemDesign": "\"{1}\" design (Item {0})",
       "itemDesignRange": "Add Item designs {0}",
       "location": "New Location",
@@ -1146,6 +1146,7 @@
       "perks": "Gain {0} perk each",
       "prosperity": "{0} prosperity",
       "reputation": "{0} reputation",
+      "randomItems": "Each character gains one random item ({0}-{1})",
       "randomItemBlueprint": "Gain one random item blueprint:",
       "resources": "Gain {1} %game.resource.{0}% each",
       "resourcesLose": "Lose {1} %game.resource.{0}% each",
@@ -1249,6 +1250,8 @@
       "links": "Continue with a linked scenario",
       "loot": "Loot",
       "name": "%character%",
+      "randomItem": "Random Item",
+      "randomItems": "Random Items",
       "rewards": {
         ".": "Scenario Rewards",
         "experience": "Reward XP",

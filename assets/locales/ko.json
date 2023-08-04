@@ -619,10 +619,10 @@
       "brewing": {
         ".": "물약 추출",
         "brew": "추출",
-        "brewed": "{2}의 %data.itemFh.{0}% 물약 {1}병 추출",
+        "brewed": "{2}의 %game.itemFh.{0}% 물약 {1}병 추출",
         "brewFor": "{0}의 물약 추출",
-        "brewedOther": "{2}의 {3}에 대해 %data.itemFh.{0}% 물약 {1}병 추출",
-        "item": "{1} %data.itemFh.{0}%",
+        "brewedOther": "{2}의 {3}에 대해 %game.itemFh.{0}% 물약 {1}병 추출",
+        "item": "{1} %game.itemFh.{0}%",
         "noChar": "모든 캐릭터가 이미 물약을 소유하고 있습니다!",
         "selectCharacter": "추출할 캐릭터 선택:"
       },
@@ -719,9 +719,9 @@
           "goldFh": "{0} 획득 <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
           "heal": "\"치료 {0}, 자신\" 수행",
           "item": "{1} ({0}) 획득",
-          "itemFh": "{1} %data.itemFh.{0}% 획득",
+          "itemFh": "{1} %game.itemFh.{0}% 획득",
           "itemDesign": "{1} 도안 ({0}) 획득",
-          "itemBlueprint": "{1} 설계도 %data.itemFh.{0}% 획득",
+          "itemBlueprint": "{1} 설계도 %game.itemFh.{0}% 획득",
           "loot": "돈 토큰 {0}개 획득",
           "lootCards": "%number.{0}% 노획 카드 획득",
           "partyAchievement": "파티 업적: \"{0}\"",
@@ -742,7 +742,7 @@
             "result": ": {1} %data.scenarioNumber:{0}%"
           },
           "resource": "{0} 획득",
-          "scenario": "새 시나리오: {1} <span class=\"scenario-number\">{0}</span>"
+          "scenario": "새 시나리오: {1} %data.scenarioNumber:{0}%"
         }
       }
     },
@@ -1135,7 +1135,7 @@
       "inspiration": "영감 {0}점",
       "item": "\"{1}\" (아이템 {0}번)",
       "items": "{2} \"{1}\" (아이템 {0}번)",
-      "itemBlueprint": "\"{1}\" %data.itemFh.{0}% 설계도 획득",
+      "itemBlueprint": "\"{1}\" %game.itemFh.{0}% 설계도 획득",
       "itemDesign": "\"{1}\" 도안 (아이템 {0}번)",
       "itemDesignRange": "아이템 도안 {0}번 추가",
       "location": "새로운 장소",

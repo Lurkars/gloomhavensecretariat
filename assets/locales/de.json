@@ -510,10 +510,10 @@
       "brewing": {
         ".": "Tränke brauen",
         "brew": "Brauen",
-        "brewed": "{2} hat {1} %data.itemFh.{0}% gebraut",
+        "brewed": "{2} hat {1} %game.itemFh.{0}% gebraut",
         "brewFor": "Braue für {0}",
-        "brewedOther": "{2} hat {1} %data.itemFh.{0}% für {3} gebraut",
-        "item": "{1} %data.itemFh.{0}%",
+        "brewedOther": "{2} hat {1} %game.itemFh.{0}% für {3} gebraut",
+        "item": "{1} %game.itemFh.{0}%",
         "noChar": "Jeder Charakter besitzt schon diesen Trank!",
         "selectCharacter": "Charakter auswählen für den der Trank gebraut wird:"
       },
@@ -610,9 +610,9 @@
           "goldFh": "erhalte {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
           "heal": "Führe \"Heilen {0}, Selbst\" aus",
           "item": "Erhalte {1} ({0})",
-          "itemFh": "erhalte {1} %data.itemFh.{0}%",
+          "itemFh": "erhalte {1} %game.itemFh.{0}%",
           "itemDesign": "erhalte {1} Gegenstandsplan ({0})",
-          "itemBlueprint": "erhalte {1} Gegenstandsplan %data.itemFh.{0}%",
+          "itemBlueprint": "erhalte {1} Gegenstandsplan %game.itemFh.{0}%",
           "loot": "erhalte {0} Münzmarker",
           "lootCards": "erhalte %number.{0}% Beutekarten",
           "partyAchievement": "Gruppenerfolg: \"{0}\"",
@@ -633,7 +633,7 @@
             "result": ": {1} %data.scenarioNumber:{0}%"
           },
           "resource": "Erhalte {0}",
-          "scenario": "Neues Szenario: {1} <span class=\"scenario-number\">{0}</span>"
+          "scenario": "Neues Szenario: {1} %data.scenarioNumber:{0}%"
         }
       }
     },
@@ -1027,7 +1027,7 @@
       "inspiration": "{0} Inspiration",
       "item": "\"{1}\" (Gegenstand {0})",
       "items": "{2} \"{1}\" (Gegenstand {0})",
-      "itemBlueprint": "Erhalte \"{1}\" %data.itemFh.{0}% Gegenstandsplan",
+      "itemBlueprint": "Erhalte \"{1}\" %game.itemFh.{0}% Gegenstandsplan",
       "itemDesign": "\"{1}\" Design (Gegenstand {0})",
       "itemDesignRange": "Füge Gegenstände {0} hinzu",
       "location": "Neuer Ort",
@@ -1037,6 +1037,7 @@
       "partyAchievements": "Gruppenerfolge",
       "perks": "Jeweils {0} Verbesserungen",
       "prosperity": "{0} Wohlstand",
+      "randomItems": "Jeder Charakter erhält ein zufälliges Item ({0}-{1})",
       "randomItemBlueprint": "Erhalte einen zufälligen Gegenstandsplan:",
       "reputation": "{0} Ansehen",
       "resources": "Erhalte jeweils {1} %game.resource.{0}%",
@@ -1141,6 +1142,8 @@
       "links": "Weiter mit einem verlinktem Szenario",
       "loot": "Beute",
       "name": "%character%",
+      "randomItem": "Zufälliger Gegenstand",
+      "randomItems": "Zufällige Gegenstände",
       "rewards": {
         "experience": "EP Belohnung",
         "gold": "Gold Belohnung"
