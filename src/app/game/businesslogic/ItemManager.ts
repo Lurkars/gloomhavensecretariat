@@ -18,22 +18,49 @@ export class ItemManager {
         return gameManager.editionData.filter((editionData) => settingsManager.settings.editions.indexOf(editionData.edition) != -1 && (!edition || edition == editionData.edition || gameManager.editionExtensions(edition).indexOf(editionData.edition) != -1)).flatMap((editionData) => editionData.items).map((itemData) => itemData.edition).filter((value, index, self) => index == self.indexOf(value) && settingsManager.settings.editions.indexOf(value) != -1);
     }
 
-    itemData(edition: string, all: boolean = false): ItemData[] {
+    getItems(edition: string | undefined, all: boolean = false): ItemData[] {
         const extenstions = this.itemEditions(edition);
-        return gameManager.itemData(undefined, all).filter((itemData) => itemData.edition == edition || extenstions.indexOf(itemData.edition) != -1 ||
-            edition == 'fh' && itemData.edition == 'gh' && [10, 25, 72, 105, 109, 116].indexOf(itemData.id) != -1);
+        return gameManager.itemData().filter((itemData) => (!edition || itemData.edition == edition || extenstions.indexOf(itemData.edition) != -1) && (all || this.isItemAvailable(itemData)));
+    }
+
+    isItemAvailable(itemData: ItemData): boolean {
+        if (!this.game.party.campaignMode) {
+            return true;
+        }
+
+        if (this.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition)) {
+            return true;
+        }
+
+        if (itemData.unlockProsperity > 0 && itemData.unlockProsperity <= gameManager.prosperityLevel()) {
+            return true;
+        }
+
+        if (itemData.unlockScenario && this.game.party.scenarios.find((scenarioData) => itemData.unlockScenario && scenarioData.index == itemData.unlockScenario.name && scenarioData.edition == itemData.unlockScenario.edition)) {
+            return true;
+        }
+
+        if (!itemData.blueprint && !itemData.random && itemData.requiredBuilding && itemData.requiredBuilding != "alchemist" && this.game.party.buildings && this.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel)) {
+            return true;
+        }
+
+        if (this.game.edition == 'fh' && itemData.edition == 'gh') {
+            return [10, 25, 72, 105, 109, 116].indexOf(itemData.id) != -1;
+        }
+
+        return false;
     }
 
     getItem(id: number, edition: string, all: boolean): ItemData | undefined {
-        let item = gameManager.itemData(edition, all).find((itemData) => itemData && itemData.id == id && itemData.edition == edition);
+        let item = this.getItems(edition, all).find((itemData) => itemData && itemData.id == id && itemData.edition == edition);
         if (!item) {
-            item = gameManager.itemData(undefined, all).find((itemData) => itemData && itemData.id == id && gameManager.editionExtensions(edition).indexOf(itemData.edition) != -1);
+            item = this.getItems(undefined, all).find((itemData) => itemData && itemData.id == id && gameManager.editionExtensions(edition).indexOf(itemData.edition) != -1);
         }
         return item;
     }
 
     maxItemIndex(edition: string): number {
-        return Math.max(...gameManager.itemData(edition).map((itemData) => itemData.id));
+        return Math.max(...this.getItems(edition, true).map((itemData) => itemData.id));
     }
 
     pricerModifier(): number {

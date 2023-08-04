@@ -56,6 +56,7 @@ export class Settings {
   eliteFirst: boolean = true;
   excludeEditionDataUrls: string[] = [];
   expireConditions: boolean = true;
+  fhGhItems: boolean = false;
   fhStyle: boolean = false;
   fontsize: number = 1;
   fullscreen: boolean = false;

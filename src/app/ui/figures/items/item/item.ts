@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Action, ActionType } from "src/app/game/model/data/Action";
 import { Identifier } from "src/app/game/model/data/Identifier";
@@ -24,6 +24,7 @@ export class ItemComponent implements OnInit {
     @Input() count: number | '-' = 1;
     @Input() slotsMarked: string[] = [];
     @Input() slotsBackMarked: string[] = [];
+    @Input() editionLabel: string = "";
     @Output() revealed = new EventEmitter<boolean>();
     @Output() clickedConsumed = new EventEmitter<boolean>();
     @Output() clickedSpent = new EventEmitter<boolean>();
@@ -38,7 +39,7 @@ export class ItemComponent implements OnInit {
     slotsBack: Action[] = [];
 
     settingsManager: SettingsManager = settingsManager;
-
+    gameManager: GameManager = gameManager;
 
     ngOnInit(): void {
         if (!this.item && this.identifier) {
@@ -46,7 +47,7 @@ export class ItemComponent implements OnInit {
         }
 
         if (this.item) {
-            if (!gameManager.game.edition || this.item.edition != gameManager.game.edition) {
+            if (this.item.edition != this.editionLabel) {
                 this.edition = this.item.edition;
             }
 

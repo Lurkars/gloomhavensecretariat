@@ -6,6 +6,85 @@
     "spiked-ring": "Thornreaper",
     "three-eyes": "Incarnate"
   },
+  "items": {
+    "toa-101": {
+      "1": "You can carry two additional \"Orb\" items."
+    },
+    "toa-102": {
+      "1": "At the beginning of a round, after al ability cards have been revealed gain %game.condition.invisible%"
+    },
+    "toa-103": {
+      "1": "During your turn perform \"%game.action.teleport% 5\". This Teleport must end in a hex containing a treasure tile or money token."
+    },
+    "toa-104": {},
+    "toa-105": {
+      "1": "During your rangedAttack ability, place your character token on one of the target of the attack. That enemy loses %game.action.fly% after the attack."
+    },
+    "toa-106": {
+      "1": "During your melee attack ability, add +2 %game.action.attack% and %game.condition.stun% to one attack."
+    },
+    "toa-107": {
+      "1": "Remove one %game.attackmodifier.minus2% modifier card from your modifier deck."
+    },
+    "toa-108": {
+      "1": "When attacked, you may %game.element.consume.ice% to gain %game.action.shield% 1 for the attack and flip this card over.",
+      "2": "When attacked, you may %game.element.consume.fire% to gain %game.action.retaliate% 1 for the attack and flip this card over."
+    },
+    "toa-109": {
+      "1": "During your Heal, ability targeting Self, affect one ally within %game.action.range:3% instead."
+    },
+    "toa-110": {
+      "1": "When you are adjacent to two or more enemies gain %game.action.retaliate% 1."
+    },
+    "toa-111": {
+      "1": "When damaged by an attack perform a \"%game.action.heal% X, %game.action.range:3%\" ability after the attack, where X is the damage you suffered."
+    },
+    "toa-112": {
+      "1": "During your melee Attack ability, before modifiers are draw, add +2 %game.action.attack% to one attack if your first modifier drawn is positive."
+    },
+    "toa-113": {
+      "1": "During your turn, add +1 %game.action.range% to your next ranged ability."
+    },
+    "toa-114": {
+      "1": "During your Move ability, perform a %game.action.teleport% ability of equal value instead."
+    },
+    "toa-115": {
+      "1": "During your turn, one ally within %game.action.range:2% may perform \"%game.action.attack% 2\"."
+    },
+    "toa-116": {
+      "1": "During your turn, you and all allies within %game.action.range:2% gain %game.condition.strengthen%, an all enemies within %game.action.range:2% gain %game.condition.muddle%."
+    },
+    "toa-117": {
+      "1": "During your heal ability, add %game.condition.bless%, or %game.condition.empower%, %game.condition.empower%, %game.condition.empower% to a single heal."
+    },
+    "toa-118": {
+      "1": "During your Attack ability, add %game.condition.curse%, or %game.condition.enfeeble%, %game.condition.enfeeble%, %game.condition.enfeeble% to a one attack."
+    },
+    "toa-122": {
+      "1": "During your melee Attack ability, add %game.action.pierce% 1 and %game.condition.wound% to one attack."
+    },
+    "toa-124": {
+      "1": "During your melee Attack ability, add %game.condition.wound% and %game.condition.muddle% to one attack.  You may consue %game.card.lost% this item instead to gain ADD %game.target%."
+    },
+    "toa-125": {
+      "1": "During your turn perform \"%game.condition.dodge%, %game.action.range:5%\"."
+    },
+    "toa-126": {
+      "1": "At the beginning of a round, after all ability cards have been revealed, change your leading initiative value to 100-X where X is the initiative value of your leading card."
+    },
+    "toa-127": {
+      "1": "You are immune to %game.condition.immobilize%, even if this item is spent.  When attacked, the attacker gains Disadvantage on the attack and gain %game.condition.dodge% after the attack."
+    },
+    "toa-129": {
+      "1": "During your turn, remove negative condition from Self and perform \"%game.action.heal% 3, Self\". This can be used while you have %game.condition.stun%."
+    },
+    "toa-130": {
+      "1": "During your melee Attack ability, %game.element.consume.wild% to add +2 %game.action.attack% and %game.condition.muddle% to one attack."
+    },
+    "toa-131": {
+      "1": "After you kill an enemy during your turn, gain two \"%Rage%\" ^TOA6^ cards."
+    }
+  },
   "treasures": {
     "toa": {
       "55": "Either discard one card of suffer %game.damage:3% and gain %game.condition.wound%",

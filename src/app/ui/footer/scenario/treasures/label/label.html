@@ -9,6 +9,7 @@
     </ng-container>
 
     <div class="items" *ngIf="itemCards && items.length > 0">
-        <ghs-item *ngFor="let item of items" [item]="item" [flipped]="true"></ghs-item>
+        <ghs-item *ngFor="let item of items" (click)="openItemDialog(item)" [item]="item" [flipped]="true"
+            [editionLabel]="gameManager.game.edition || ''"></ghs-item>
     </div>
 </span>

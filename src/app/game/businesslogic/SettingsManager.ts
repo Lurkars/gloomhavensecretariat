@@ -9,7 +9,7 @@ import { BuildingData } from "../model/data/BuildingData";
 export class SettingsManager {
 
   defaultLocale: string = 'en';
-  defaultEditions: string[] = ["gh", "jotl", "fc", "cs", "fh", "solo"];
+  defaultEditions: string[] = ["gh", "fh", "jotl", "fc", "cs", "toa", "solo"];
   defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/toa.json", "./assets/data/solo.json", "./assets/data/fh-crossover.json", "./assets/data/gh-envx.json", "./assets/data/toa-envv.json", "./assets/data/sc.json", "./assets/data/sox.json", "./assets/data/bas.json", "./assets/data/cc.json"];
 
   settings: Settings = new Settings();
@@ -395,6 +395,11 @@ export class SettingsManager {
 
   setExpireConditions(expireConditions: boolean) {
     this.settings.expireConditions = expireConditions;
+    this.storeSettings();
+  }
+
+  setFhGhItems(fhGhItems: boolean) {
+    this.settings.fhGhItems = fhGhItems;
     this.storeSettings();
   }
 

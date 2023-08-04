@@ -1,4 +1,4 @@
-import { DIALOG_DATA, DialogRef, } from "@angular/cdk/dialog";
+import { DIALOG_DATA, Dialog, DialogRef, } from "@angular/cdk/dialog";
 import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
@@ -7,6 +7,7 @@ import { Character } from "src/app/game/model/Character";
 import { Identifier } from "src/app/game/model/data/Identifier";
 import { ItemData } from "src/app/game/model/data/ItemData";
 import { LootType } from "src/app/game/model/data/Loot";
+import { ItemDialogComponent } from "../dialog/item-dialog";
 
 @Component({
     selector: 'ghs-items-brew',
@@ -29,7 +30,7 @@ export class ItemsBrewDialog implements OnInit, OnDestroy {
     otherCharacter: Character | undefined;
     noChar: boolean = false;
 
-    constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef, private dialog: Dialog) {
         this.brewing = 0;
         if (gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings) {
             const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist');
@@ -158,13 +159,19 @@ export class ItemsBrewDialog implements OnInit, OnDestroy {
     getItem(): ItemData | undefined {
         if (this.receipe[0] && this.receipe[1]) {
             if (this.receipe.filter((herb, index, self) => herb && self.indexOf(herb) == index).length != this.receipe.filter((herb) => herb).length) {
-                return gameManager.itemData(gameManager.currentEdition(), true).find((itemData) => (!itemData.requiredItems || !itemData.requiredItems.length) && itemData.requiredBuilding == 'alchemist' && (!this.receipe[2] ? itemData.requiredBuildingLevel < 3 : itemData.requiredBuildingLevel >= 3) && !itemData.resources);
+                return gameManager.itemManager.getItems(gameManager.currentEdition(), true).find((itemData) => (!itemData.requiredItems || !itemData.requiredItems.length) && itemData.requiredBuilding == 'alchemist' && (!this.receipe[2] ? itemData.requiredBuildingLevel < 3 : itemData.requiredBuildingLevel >= 3) && !itemData.resources);
             } else {
-                return gameManager.itemData(gameManager.currentEdition(), true).find((itemData) => (!itemData.requiredItems || !itemData.requiredItems.length) && itemData.requiredBuilding == 'alchemist' && (!this.receipe[2] ? itemData.requiredBuildingLevel < 3 : itemData.requiredBuildingLevel >= 3) && itemData.resources && this.herbs.every((herb) => itemData.resources && this.receipe.filter((value) => value == herb).length == (itemData.resources[herb] || 0)));
+                return gameManager.itemManager.getItems(gameManager.currentEdition(), true).find((itemData) => (!itemData.requiredItems || !itemData.requiredItems.length) && itemData.requiredBuilding == 'alchemist' && (!this.receipe[2] ? itemData.requiredBuildingLevel < 3 : itemData.requiredBuildingLevel >= 3) && itemData.resources && this.herbs.every((herb) => itemData.resources && this.receipe.filter((value) => value == herb).length == (itemData.resources[herb] || 0)));
             }
         } else {
             return undefined;
         }
+    }
+
+    openItemDialog() {
+        this.dialog.open(ItemDialogComponent, {
+            data: this.brewed || this.item
+        })
     }
 
     close() {

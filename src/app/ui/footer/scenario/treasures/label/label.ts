@@ -1,7 +1,10 @@
+import { Dialog } from "@angular/cdk/dialog";
 import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ItemData } from "src/app/game/model/data/ItemData";
 import { TreasureData, TreasureReward, TreasureRewardType } from "src/app/game/model/data/RoomData";
+import { ItemDialogComponent } from "src/app/ui/figures/items/dialog/item-dialog";
 
 @Component({
     selector: 'ghs-treasure-label',
@@ -10,6 +13,8 @@ import { TreasureData, TreasureReward, TreasureRewardType } from "src/app/game/m
     encapsulation: ViewEncapsulation.None
 })
 export class TreasureLabelComponent implements OnInit {
+
+    gameManager: GameManager = gameManager;
 
     @Input() treasure: TreasureData | undefined;
     @Input() index!: number;
@@ -20,6 +25,8 @@ export class TreasureLabelComponent implements OnInit {
     items: ItemData[] = [];
 
     labelPrefix = 'game.loot.treasures.rewards.';
+
+    constructor(private dialog: Dialog) { }
 
     ngOnInit() {
         if (!this.treasure) {
@@ -45,7 +52,7 @@ export class TreasureLabelComponent implements OnInit {
                         this.items.push(itemData);
                     }
                 } else if ([TreasureRewardType.randomItem, TreasureRewardType.randomItemBlueprint, TreasureRewardType.randomItemDesign].indexOf(reward.type) != -1 && this.rewardResults && this.rewardResults[index] && this.rewardResults[index][0] && !isNaN(+this.rewardResults[index][0])) {
-                    const itemData = gameManager.itemManager.getItem(+this.rewardResults[index][0], this.edition, true);
+                    const itemData = gameManager.itemManager.getItem(+this.rewardResults[index][0], this.rewardResults[index][2], true);
                     if (itemData) {
                         this.items.push(itemData);
                     }
@@ -114,7 +121,7 @@ export class TreasureLabelComponent implements OnInit {
                         } else {
                             itemIdValues.push('%game.item% ' + (itemEdition == this.edition ? item.id : item.id + ' [%data.edition.' + item.edition + '%]'));
                         }
-                        itemNameValues.push('"' + item.name + '"');
+                        itemNameValues.push('"' + settingsManager.getLabel('data.items.' + item.name) + '"');
                     } else {
                         console.warn("Invalid Item '" + itemId + "' (Edition " + itemEdition + ") on treasure" + this.index + "' for Edition " + this.edition);
                         itemNameValues.push('<img class="icon ghs-svg" src="./assets/images/warning.svg"> %item%')
@@ -164,6 +171,12 @@ export class TreasureLabelComponent implements OnInit {
 
 
         return [];
+    }
+
+    openItemDialog(itemData: ItemData) {
+        this.dialog.open(ItemDialogComponent, {
+            data: itemData
+        })
     }
 
 }

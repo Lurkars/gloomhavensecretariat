@@ -36,7 +36,7 @@ export class ItemsDialogComponent {
     constructor(@Inject(DIALOG_DATA) public data: { edition: string | undefined, select: Character | undefined, affordable: boolean }, private dialogRef: DialogRef) {
         this.selected = undefined;
         this.character = data.select;
-        this.sorted = this.character != undefined;
+        this.sorted = this.character != undefined && this.character.progress.items.length > 0;
         this.edition = data.edition;
         this.affordable = data.affordable || false;
         this.campaignMode = this.edition && gameManager.game.party.campaignMode || false;
@@ -78,7 +78,7 @@ export class ItemsDialogComponent {
             this.currentEdition = this.edition || this.editions[0];
         }
 
-        this.editionItems = this.edition && this.campaignMode && !this.all ? gameManager.itemManager.itemData(this.edition) : gameManager.itemData(this.currentEdition, this.all);
+        this.editionItems = this.edition && this.campaignMode && !this.all ? gameManager.itemManager.getItems(this.edition) : gameManager.itemManager.getItems(this.currentEdition, this.all).filter((itemData) => itemData.edition == this.currentEdition);
         if (this.all) {
             this.sorted = false;
         }
@@ -90,44 +90,57 @@ export class ItemsDialogComponent {
         this.selected = undefined;
         this.items = this.editionItems.filter((itemData) => (!this.filter || ghsTextSearch(itemData.name, this.filter) || ghsTextSearch('' + (itemData.id < 100 ? '0' : '') + (itemData.id < 10 ? '0' : '') + itemData.id, this.filter) && (!this.affordable || gameManager.itemManager.assigned(itemData) < itemData.count))).filter((itemData) => !this.affordable || this.character && gameManager.itemManager.canAdd(itemData, this.character) && (gameManager.itemManager.canBuy(itemData, this.character) || gameManager.itemManager.canCraft(itemData, this.character)));
 
-        if (this.campaignMode && this.edition && !this.all && !this.affordable) {
-            this.unlocks = gameManager.itemManager.itemData(this.edition, true).filter((itemData) => ('' + itemData.id == this.filter || '0' + itemData.id == this.filter || '00' + itemData.id == this.filter) && !this.items.find((item) => item.id == itemData.id && item.edition == itemData.edition));
-        }
-
-        if (this.sorted) {
-            this.items.sort((a, b) => {
-                if (this.character) {
-                    if (gameManager.itemManager.owned(a, this.character) && !gameManager.itemManager.owned(b, this.character)) {
-                        return -1;
-                    } else if (gameManager.itemManager.owned(b, this.character) && !gameManager.itemManager.owned(a, this.character)) {
-                        return 1;
-                    } else if ((gameManager.itemManager.canBuy(a, this.character) || gameManager.itemManager.canCraft(a, this.character)) && !gameManager.itemManager.canBuy(b, this.character) && !gameManager.itemManager.canCraft(b, this.character)) {
-                        return -1;
-                    } else if ((gameManager.itemManager.canBuy(b, this.character) || gameManager.itemManager.canCraft(b, this.character)) && !gameManager.itemManager.canBuy(a, this.character) && !gameManager.itemManager.canCraft(a, this.character)) {
-                        return 1;
-                    } else if (gameManager.itemManager.canAdd(a, this.character) && !gameManager.itemManager.canAdd(b, this.character)) {
-                        return -1;
-                    } else if (gameManager.itemManager.canAdd(b, this.character) && !gameManager.itemManager.canAdd(a, this.character)) {
-                        return 1;
-                    } else if (a.slot && !b.slot) {
-                        return -1;
-                    } else if (b.slot && !a.slot) {
-                        return 1;
+        if (this.character && this.edition && this.campaignMode && !this.all && !this.affordable) {
+            this.character.progress.items.forEach((identifier) => {
+                if (identifier.edition == this.edition && !this.items.find((itemData) => itemData.id == +identifier.name && itemData.edition == identifier.edition)) {
+                    const item = gameManager.itemManager.getItem(+identifier.name, identifier.edition, true);
+                    if (item) {
+                        this.items.push(item);
                     }
                 }
-
-                if (a.slot && b.slot) {
-                    return Object.values(ItemSlot).indexOf(a.slot) - Object.values(ItemSlot).indexOf(b.slot);
-                }
-
-                return 0;
             })
+        }
+
+        if (this.campaignMode && this.edition && !this.all && !this.affordable) {
+            this.unlocks = gameManager.itemManager.getItems(this.edition, true).filter((itemData) => ('' + itemData.id == this.filter || '0' + itemData.id == this.filter || '00' + itemData.id == this.filter) && !this.items.find((item) => item.id == itemData.id && item.edition == itemData.edition));
         }
 
         if (!onlyAffordable && this.affordable && this.items.length == 0) {
             this.affordable = false;
-            this.sorted = true;
+            this.sorted = this.character != undefined && this.character.progress.items.length > 0;
             this.update();
+        } else {
+            this.items.sort((a, b) => {
+                if (this.sorted) {
+                    if (this.character) {
+                        if (gameManager.itemManager.owned(a, this.character) && !gameManager.itemManager.owned(b, this.character)) {
+                            return -1;
+                        } else if (gameManager.itemManager.owned(b, this.character) && !gameManager.itemManager.owned(a, this.character)) {
+                            return 1;
+                        } else if ((gameManager.itemManager.canBuy(a, this.character) || gameManager.itemManager.canCraft(a, this.character)) && !gameManager.itemManager.canBuy(b, this.character) && !gameManager.itemManager.canCraft(b, this.character)) {
+                            return -1;
+                        } else if ((gameManager.itemManager.canBuy(b, this.character) || gameManager.itemManager.canCraft(b, this.character)) && !gameManager.itemManager.canBuy(a, this.character) && !gameManager.itemManager.canCraft(a, this.character)) {
+                            return 1;
+                        } else if (gameManager.itemManager.canAdd(a, this.character) && !gameManager.itemManager.canAdd(b, this.character)) {
+                            return -1;
+                        } else if (gameManager.itemManager.canAdd(b, this.character) && !gameManager.itemManager.canAdd(a, this.character)) {
+                            return 1;
+                        } else if (a.slot && !b.slot) {
+                            return -1;
+                        } else if (b.slot && !a.slot) {
+                            return 1;
+                        }
+                    }
+
+                    if (a.slot && b.slot) {
+                        return Object.values(ItemSlot).indexOf(a.slot) - Object.values(ItemSlot).indexOf(b.slot);
+                    }
+
+                    return 0;
+                } else {
+                    return a.id - b.id;
+                }
+            })
         }
     }
 

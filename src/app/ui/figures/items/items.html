@@ -4,7 +4,7 @@
         <div class="item-entry" *ngFor="let item of items; let index = index;">
             <span class="icon">
                 <img *ngIf="item.slot" [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
-                <span *ngIf="!item.slot" class="item placeholder" [ghs-label]="'%data.itemFh.' + item.id + '%'"></span>
+                <span *ngIf="!item.slot" class="item placeholder" [ghs-label]="'%game.itemFh.' + item.id + '%'"></span>
             </span>
             <span class="id">{{item.id}}.</span>
             <span class="name"

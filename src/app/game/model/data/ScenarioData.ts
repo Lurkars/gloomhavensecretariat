@@ -5,6 +5,7 @@ import { ObjectiveData } from "./ObjectiveData";
 import { RoomData } from "./RoomData";
 import { ScenarioRewards, ScenarioRule } from "./ScenarioRule";
 import { GameScenarioModel } from "../Scenario";
+import { Identifier } from "./Identifier";
 
 export class ScenarioData implements Editional, Spoilable {
 
@@ -107,6 +108,9 @@ export class ScenarioFinish {
   chooseUnlockCharacter: string | undefined;
   challenges: number = 0;
   calenderSectionManual: number[] = [];
+  randomItem: Identifier | undefined = undefined;
+  randomItemIndex: number = -1;
+  randomItems: (Identifier | undefined)[] = [];
   randomItemBlueprints: number[] = [];
 
 }

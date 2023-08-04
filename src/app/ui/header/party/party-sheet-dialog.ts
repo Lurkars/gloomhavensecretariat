@@ -552,7 +552,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         indexElement.classList.add('warning');
       } else {
         indexElement.classList.add('error');
-        const itemData = gameManager.itemData(edition, true).find((itemData) => itemId == '' + itemData.id);
+        const itemData = gameManager.itemManager.getItems(edition, true).find((itemData) => itemId == '' + itemData.id);
         if (itemData) {
           gameManager.stateManager.before("addUnlockedItem", edition, itemId, itemData.name);
           this.party.unlockedItems = this.party.unlockedItems || [];

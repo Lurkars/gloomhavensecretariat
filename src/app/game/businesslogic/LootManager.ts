@@ -44,7 +44,7 @@ export class LootManager {
     if (loot.type == LootType.money || loot.type == LootType.special1 || loot.type == LootType.special2) {
       character.loot += this.getValue(loot);
     } else if (loot.type == LootType.random_item && this.game.scenario && this.game.party.campaignMode) {
-      let availableItems = gameManager.itemData(this.game.scenario.edition).filter((itemData) => itemData.random && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition));
+      let availableItems = gameManager.itemManager.getItems(this.game.scenario.edition, true).filter((itemData) => itemData.random && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition));
 
       if (availableItems.length > 0) {
         let itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
@@ -272,7 +272,7 @@ export class LootManager {
           }
           if (scenario) {
             gameManager.game.party.manualScenarios.push(scenario);
-            result.push(scenarioData.index, scenarioData.name);
+            result.push(scenarioData.index, 'data.scenario.' + scenarioData.name);
           }
         }
 
@@ -280,9 +280,10 @@ export class LootManager {
           gameManager.game.party.inspiration += 1;
         }
         break;
+      case TreasureRewardType.randomItem:
       case TreasureRewardType.randomItemDesign:
       case TreasureRewardType.randomItemBlueprint:
-        let availableItems = gameManager.itemData(edition, true).filter((itemData) => (reward.type == TreasureRewardType.randomItemDesign && itemData.random || reward.type == TreasureRewardType.randomItemBlueprint && itemData.blueprint && (!itemData.requiredBuilding || gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel))) && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition));
+        let availableItems = gameManager.itemData(edition, true).filter((itemData) => (reward.type == TreasureRewardType.randomItem || reward.type == TreasureRewardType.randomItemDesign && itemData.random || reward.type == TreasureRewardType.randomItemBlueprint && itemData.blueprint && (!itemData.requiredBuilding || gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel))) && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition));
         if (typeof reward.value === 'string' && reward.value.indexOf('-') != -1) {
           const from = + reward.value.split('-')[0];
           const to = + reward.value.split('-')[1];
@@ -302,8 +303,12 @@ export class LootManager {
             }
           }
           if (item) {
-            gameManager.game.party.unlockedItems.push(item);
-            result.push('' + itemData.id, itemData.name);
+            if (reward.type == TreasureRewardType.randomItem) {
+              character.progress.items.push(item);
+            } else {
+              gameManager.game.party.unlockedItems.push(item);
+            }
+            result.push('' + itemData.id, 'data.items.' + itemData.name, itemData.edition);
           }
         }
 

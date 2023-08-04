@@ -110,6 +110,8 @@ export class ScenarioRewards {
   events: string[] = [];
   itemBlueprints: string[] = [];
   randomItemBlueprint: number = 0;
+  randomItem: string = "";
+  randomItems: string = "";
   morale: number | string = "";
   inspiration: number | string = "";
   resources: { type: LootType, value: number | string }[] = [];
@@ -146,6 +148,8 @@ export class ScenarioRewardHints {
   events: string[] = [];
   itemBlueprints: string[] = [];
   randomItemBlueprint: string = "";
+  randomItem: string = "";
+  randomItems: string = "";
   morale: string = "";
   inspiration: string = "";
   resources: string[] = [];

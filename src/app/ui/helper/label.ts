@@ -81,7 +81,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (prefix == "game" && type == "items" && split.length == 4) {
         image = '<img  src="./assets/images/items/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-item-slot">' + image + value + '</span>';
-      } else if (type == "itemFh" && split.length == 3) {
+      } else if (prefix == "game" && type == "itemFh" && split.length == 3) {
         const itemId: number = +split[2];
         replace = '<span class="placeholder-item-fh">' + '<span class="value">' + (itemId < 100 ? '0' : '') + (itemId < 10 ? '0' : '') + itemId + '</span></span>';
       } else if (type == "card" && split.length == 3) {

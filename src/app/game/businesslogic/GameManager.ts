@@ -152,7 +152,7 @@ export class GameManager {
   }
 
   charactersData(edition: string | undefined = undefined): CharacterData[] {
-    const characters = this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.characters).flat();
+    const characters = this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).flatMap((editionData) => editionData.characters);
 
     const merges = characters.filter((characterData) => characterData.merge);
 
@@ -167,60 +167,23 @@ export class GameManager {
   }
 
   monstersData(edition: string | undefined = undefined): MonsterData[] {
-    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.monsters).flat().filter((monsterData, index, monsters) => (!edition || monsterData.edition == edition) && (monsterData.replace || !monsterData.replace && !monsters.find((monsterDataReplacement) => monsterDataReplacement.replace && monsterDataReplacement.name == monsterData.name && monsterDataReplacement.edition == monsterData.edition)));
+    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).flatMap((editionData) => editionData.monsters).filter((monsterData, index, monsters) => (!edition || monsterData.edition == edition) && (monsterData.replace || !monsterData.replace && !monsters.find((monsterDataReplacement) => monsterDataReplacement.replace && monsterDataReplacement.name == monsterData.name && monsterDataReplacement.edition == monsterData.edition)));
   }
 
   decksData(edition: string | undefined = undefined): DeckData[] {
-    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.decks).flat().filter((deckData) => !edition || deckData.edition == edition);;
+    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).flatMap((editionData) => editionData.decks).filter((deckData) => !edition || deckData.edition == edition);;
   }
 
   scenarioData(edition: string | undefined = undefined): ScenarioData[] {
-    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.scenarios).flat().filter((scenarioData) => !edition || scenarioData.edition == edition);
+    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).flatMap((editionData) => editionData.scenarios).filter((scenarioData) => !edition || scenarioData.edition == edition);
   }
 
   sectionData(edition: string | undefined = undefined): ScenarioData[] {
-    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).map((editionData) => editionData.sections).flat().filter((sectionData) => !edition || sectionData.edition == edition);
+    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).flatMap((editionData) => editionData.sections).filter((sectionData) => !edition || sectionData.edition == edition);
   }
 
   itemData(edition: string | undefined = undefined, all: boolean = false): ItemData[] {
-    const prosperityLevel = this.prosperityLevel();
-
-    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition, true).indexOf(edition) != -1)).map((editionData) => editionData.items).flat().filter((itemData) => {
-      if (edition && itemData.edition != edition) {
-        return false;
-      }
-
-      if (all || !this.game.party.campaignMode) {
-        return true;
-      }
-
-      if (this.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition)) {
-        return true;
-      }
-
-      if (itemData.unlockProsperity > 0 && itemData.unlockProsperity <= prosperityLevel) {
-        return true;
-      }
-
-      if (itemData.unlockScenario && this.game.party.scenarios.find((scenarioData) => itemData.unlockScenario && scenarioData.index == itemData.unlockScenario.name && scenarioData.edition == itemData.unlockScenario.edition)) {
-        return true;
-      }
-
-      if (!itemData.blueprint && !itemData.random && itemData.requiredBuilding && itemData.requiredBuilding != "alchemist" && this.game.party.buildings && this.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel)) {
-        return true;
-      }
-
-      if (this.game.figures.find((figure) => figure instanceof Character && figure.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition))) {
-        return true;
-      }
-
-      if (this.game.edition == 'fh' && itemData.edition == 'gh') {
-        return [10, 25, 72, 105, 109, 116].indexOf(itemData.id) != -1;
-      }
-
-      return false;
-
-    }).sort((a, b) => a.id - b.id);
+    return this.editionData.filter((editionData) => (all || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition, true).indexOf(edition) != -1)).flatMap((editionData) => editionData.items);
   }
 
   conditions(edition: string | undefined = undefined, forceEdition: boolean = false): Condition[] {
@@ -228,7 +191,7 @@ export class GameManager {
       return Conditions;
     }
 
-    let conditions = this.editionData.filter((editionData) => (editionData.edition == edition || this.editionExtensions(edition).indexOf(editionData.edition) != -1) && editionData.conditions && editionData.conditions.length > 0).map((other) => other.conditions).flat()
+    let conditions = this.editionData.filter((editionData) => (editionData.edition == edition || this.editionExtensions(edition).indexOf(editionData.edition) != -1) && editionData.conditions && editionData.conditions.length > 0).flatMap((other) => other.conditions);
 
     if (!forceEdition && this.game.conditions) {
       conditions.push(...this.game.conditions);

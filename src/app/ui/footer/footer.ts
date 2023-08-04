@@ -71,7 +71,7 @@ export class FooterComponent implements OnInit {
 
     setTimeout(() => {
       this.compact = this.monsterDeck.nativeElement.clientWidth > this.footer.nativeElement.clientWidth * 0.3;
-    })
+    },100)
 
     window.addEventListener('resize', (event) => {
       this.compact = this.monsterDeck.nativeElement.clientWidth > this.footer.nativeElement.clientWidth * 0.3;

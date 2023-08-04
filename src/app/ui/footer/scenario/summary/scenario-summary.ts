@@ -14,6 +14,7 @@ import { Subscription } from "rxjs";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { CharacterBattleGoalsDialog } from "src/app/ui/figures/battlegoal/dialog/battlegoal-dialog";
 import { BattleGoal } from "src/app/game/model/data/BattleGoal";
+import { ItemDialogComponent } from "src/app/ui/figures/items/dialog/item-dialog";
 
 
 @Component({
@@ -51,6 +52,9 @@ export class ScenarioSummaryComponent {
     challenges: number = 0;
     numberChallenges: number = 0;
     calenderSectionManual: number[] = [];
+    randomItem: ItemData | undefined;
+    randomItemIndex: number = -1;
+    randomItems: (ItemData | undefined)[] = [];
     randomItemBlueprints: number[] = [];
 
     EntityValueFunction = EntityValueFunction;
@@ -156,6 +160,9 @@ export class ScenarioSummaryComponent {
         finish.collectiveGold = this.collectiveGold;
         finish.items = this.items;
         finish.calenderSectionManual = this.calenderSectionManual;
+        finish.randomItem = this.randomItem ? new Identifier('' + this.randomItem.id, this.randomItem.edition) : undefined;
+        finish.randomItemIndex = this.randomItemIndex;
+        finish.randomItems = this.randomItems.map((itemData) => itemData ? new Identifier('' + itemData.id, itemData.edition) : undefined);
         finish.randomItemBlueprints = this.randomItemBlueprints;
         gameManager.game.finish = finish;
     }
@@ -172,6 +179,9 @@ export class ScenarioSummaryComponent {
             this.collectiveGold = finish.collectiveGold;
             this.items = finish.items;
             this.calenderSectionManual = finish.calenderSectionManual;
+            this.randomItem = finish.randomItem ? gameManager.itemManager.getItem(+finish.randomItem.name, finish.randomItem.edition, true) : undefined;
+            this.randomItemIndex = finish.randomItemIndex;
+            this.randomItems = finish.randomItems.map((item) => item ? gameManager.itemManager.getItem(+item.name, item.edition, true) : undefined);
             this.randomItemBlueprints = finish.randomItemBlueprints;
         }
     }
@@ -235,7 +245,7 @@ export class ScenarioSummaryComponent {
 
                 if (this.rewards.randomItemBlueprint && this.randomItemBlueprints.length < this.rewards.randomItemBlueprint) {
 
-                    let availableItems = gameManager.itemData(this.scenario.edition, true).filter((itemData) => itemData.blueprint && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition) && (!itemData.requiredBuilding || gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel)));
+                    let availableItems = gameManager.itemManager.getItems(this.scenario.edition, true).filter((itemData) => itemData.blueprint && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition) && (!itemData.requiredBuilding || gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel)));
 
                     for (let i = this.randomItemBlueprints.length; i < this.rewards.randomItemBlueprint; i++) {
                         let itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
@@ -250,6 +260,73 @@ export class ScenarioSummaryComponent {
                             }
                         }
                         this.randomItemBlueprints.push(item ? (+item.name) : -1);
+                    }
+                }
+
+                if (this.rewards.randomItem) {
+                    if (!this.randomItem) {
+                        const from = +this.rewards.randomItem.split('-')[0];
+                        const to = +this.rewards.randomItem.split('-')[1];
+                        const itemEdition = this.rewards.randomItem.split('-').length > 2 ? this.rewards.randomItem.split('-')[2] : this.scenario.edition;
+
+                        let availableItems = gameManager.itemManager.getItems(this.scenario.edition, true).filter((itemData) => itemData.id >= from && itemData.id <= to && itemData.edition == itemEdition);
+
+
+                        let itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
+                        let item: Identifier | undefined = itemData ? new Identifier('' + itemData.id, itemData.edition) : undefined;
+                        while (availableItems.length > 0 && this.characters.flatMap((character) => character.progress.items).filter((owned) => item && owned.name == item.name && owned.edition == item.edition).length >= itemData.count) {
+                            availableItems = availableItems.filter((available) => item && (available.id + '' != item.name || available.edition != item.edition));
+                            if (availableItems.length > 0) {
+                                itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
+                                item = new Identifier('' + itemData.id, itemData.edition);
+                            } else {
+                                item = undefined;
+                            }
+                        }
+
+                        if (item && itemData) {
+                            this.randomItem = itemData;
+                        }
+                    }
+                }
+
+                if (this.rewards.randomItems) {
+                    if (this.randomItems.length < this.characters.length && this.rewards.randomItems.split('-').length > 1) {
+                        const from = +this.rewards.randomItems.split('-')[0];
+                        const to = +this.rewards.randomItems.split('-')[1];
+                        const itemEdition = this.rewards.randomItems.split('-').length > 2 ? this.rewards.randomItems.split('-')[2] : this.scenario.edition;
+
+                        let availableItems = gameManager.itemManager.getItems(this.scenario.edition, true).filter((itemData) => itemData.id >= from && itemData.id <= to && itemData.edition == itemEdition);
+
+                        for (let i = this.randomItems.length; i < this.characters.length; i++) {
+                            const character = this.characters[i];
+                            if (character.absent) {
+                                this.randomItems.push(undefined);
+                            } else {
+                                let itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
+                                let item: Identifier | undefined = itemData ? new Identifier('' + itemData.id, itemData.edition) : undefined;
+                                while (availableItems.length > 0 && this.characters.flatMap((character) => character.progress.items).filter((owned) => item && owned.name == item.name && owned.edition == item.edition).length >= itemData.count) {
+                                    availableItems = availableItems.filter((available) => item && (available.id + '' != item.name || available.edition != item.edition));
+                                    if (availableItems.length > 0) {
+                                        itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
+                                        item = new Identifier('' + itemData.id, itemData.edition);
+                                    } else {
+                                        item = undefined;
+                                    }
+                                }
+
+                                while (availableItems.find((available) => !character.progress.items.find((owned) => owned.name == available.id + '' && owned.edition == available.edition)) && character.progress.items.find((owned) => item && owned.name == item.name + '' && owned.edition == item.edition)) {
+                                    itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
+                                    item = new Identifier('' + itemData.id, itemData.edition);
+                                }
+
+                                if (character.progress.items.find((owned) => item && owned.name == item.name + '' && owned.edition == item.edition)) {
+                                    item = undefined;
+                                }
+
+                                this.randomItems.push(item && itemData ? itemData : undefined);
+                            }
+                        }
                     }
                 }
             }
@@ -375,6 +452,19 @@ export class ScenarioSummaryComponent {
         }
         this.updateFinish();
         gameManager.stateManager.after();
+    }
+
+    toggleRandomItem(event: any, index: number) {
+        gameManager.stateManager.before("finishScenario.dialog.item", '' + index);
+        this.randomItemIndex = this.randomItemIndex == index ? -1 : index;
+        this.updateFinish();
+        gameManager.stateManager.after();
+    }
+
+    openItemDialog(itemData: ItemData) {
+        this.dialog.open(ItemDialogComponent, {
+            data: itemData
+        })
     }
 
     changeCollectiveGold(event: any, index: number) {

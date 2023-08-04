@@ -116,7 +116,7 @@
                         .marker {
                             position: absolute;
                             top: calc(0.05em * var(--ghs-fontsize) * var(--ghs-text-factor));
-                            left: calc(0.05em * var(--ghs-fontsize) * var(--ghs-text-factor) );
+                            left: calc(0.05em * var(--ghs-fontsize) * var(--ghs-text-factor));
                             font-size: calc(1.1em * var(--ghs-fontsize) * var(--ghs-text-factor));
                         }
                     }
@@ -293,15 +293,28 @@
         .id {
             position: absolute;
             top: 1%;
-            left: 85%;
-            width: 10%;
+            left: 80%;
+            width: 15%;
             height: 7%;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
             font-family: ghs-normal;
             font-size: 0.8em;
             filter: var(--ghs-filter-thin);
+        }
+
+        .solo {
+            position: absolute;
+            top: 43.5%;
+            left: 69.5%;
+            width: 23%;
+            height: 15%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            font-size: 2.4em;
         }
 
         &.card-back {
@@ -488,7 +501,13 @@
 
             .id {
                 top: 0%;
-                left: 90%;
+                left: 83%;
+                align-items: flex-start;
+            }
+
+            .solo {
+                top: 35%;
+                font-size: 2em;
             }
 
             &.card-back {

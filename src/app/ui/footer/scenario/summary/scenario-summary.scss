@@ -201,6 +201,10 @@
       }
     }
 
+    ghs-item {
+      width: calc(var(--ghs-unit) * 12 * var(--ghs-dialog-factor));
+    }
+
   }
 
   &.fh {

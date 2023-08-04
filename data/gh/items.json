@@ -606,7 +606,7 @@
     "consumed": true,
     "unlockProsperity": 4,
     "summon": {
-      "name": "Jade Falcon",
+      "name": "jade-falcon",
       "health": 2,
       "attack": 2,
       "movement": 3,
@@ -1988,7 +1988,7 @@
     "slot": "twohand",
     "consumed": true,
     "summon": {
-      "name": "Warrior Spirit",
+      "name": "warrior-spirit",
       "health": 4,
       "attack": 3,
       "movement": 1,
@@ -2126,7 +2126,7 @@
     "slot": "small",
     "consumed": true,
     "summon": {
-      "name": "Skeleton",
+      "name": "skeleton",
       "health": 3,
       "attack": 2,
       "movement": 2,
@@ -2290,7 +2290,7 @@
     "slot": "small",
     "consumed": true,
     "summon": {
-      "name": "Steel Construct",
+      "name": "steel-construct",
       "health": 5,
       "attack": 3,
       "movement": 2,

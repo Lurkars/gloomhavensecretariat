@@ -106,7 +106,7 @@
     </div>
 
     <div class="brewed" *ngIf="brewed || item">
-        <ghs-item [item]="brewed || item" [flipped]="true"></ghs-item>
+        <ghs-item [item]="brewed || item" [flipped]="true" (click)="openItemDialog()"></ghs-item>
     </div>
 
     <div class="menu">

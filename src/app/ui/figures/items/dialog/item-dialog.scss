@@ -1,0 +1,40 @@
+:host {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.item-dialog {
+  width: 66.66vh;
+  max-width: 400px;
+  height: 100vh;
+  max-height: 600px;
+  border-image: none;
+  background: none;
+  transition: transform 150ms ease-in-out;
+  transform: scale(0);
+
+  ghs-item {
+    width: 100%;
+    height: auto;
+  }
+
+  &.opened {
+    transform: scale(1);
+  }
+
+  &.closed {
+    transform: scale(0);
+    transition-delay: 800ms;
+  }
+
+}
+
+.close-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
