@@ -5,6 +5,11 @@
   "edition": "gh",
   "initial": true,
   "solo": "spellweaver",
+  "rewards": {
+    "items": [
+      "136"
+    ]
+  },
   "monsters": [
     "black-imp",
     "spitting-drake",

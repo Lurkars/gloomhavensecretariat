@@ -6,6 +6,11 @@
   "spoiler": true,
   "initial": true,
   "solo": "music-note",
+  "rewards": {
+    "items": [
+      "146"
+    ]
+  },
   "monsters": [
     "bandit-archer-music-note-solo:-2",
     "bandit-guard-music-note-solo:-2",

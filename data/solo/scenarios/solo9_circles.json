@@ -6,6 +6,11 @@
   "spoiler": true,
   "initial": true,
   "solo": "circles",
+  "rewards": {
+    "items": [
+      "142"
+    ]
+  },
   "monsters": [
     "cave-bear-circles-solo",
     "hound",

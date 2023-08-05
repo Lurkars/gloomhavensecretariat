@@ -5,6 +5,11 @@
   "edition": "gh",
   "initial": true,
   "solo": "scoundrel",
+  "rewards": {
+    "items": [
+      "137"
+    ]
+  },
   "monsters": [
     "ancient-artillery",
     "city-guard-scoundrel-solo",
@@ -15,7 +20,18 @@
       "name": "Rikharn",
       "escort": true,
       "health": "15+5xL",
-      "initiative": 49
+      "initiative": 49,
+      "marker": "a",
+      "actions": [
+        {
+          "type": "move",
+          "value": 4
+        },
+        {
+          "type": "attack",
+          "value": 4
+        }
+      ]
     }
   ],
   "rooms": [
@@ -31,6 +47,9 @@
           "name": "city-guard-scoundrel-solo",
           "type": "normal"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

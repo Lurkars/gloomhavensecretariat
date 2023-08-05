@@ -6,6 +6,11 @@
   "spoiler": true,
   "initial": true,
   "solo": "lightning",
+  "rewards": {
+    "items": [
+      "145"
+    ]
+  },
   "monsters": [
     "cultist",
     "inox-necromancer",

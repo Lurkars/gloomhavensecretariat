@@ -5,6 +5,11 @@
   "edition": "gh",
   "initial": true,
   "solo": "mindthief",
+  "rewards": {
+    "items": [
+      "139"
+    ]
+  },
   "monsters": [
     "earth-demon-mindthief-solo",
     "vermling-scout",

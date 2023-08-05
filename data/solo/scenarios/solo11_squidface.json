@@ -6,6 +6,11 @@
   "spoiler": true,
   "initial": true,
   "solo": "squidface",
+  "rewards": {
+    "items": [
+      "144"
+    ]
+  },
   "monsters": [
     "black-imp",
     "giant-viper"

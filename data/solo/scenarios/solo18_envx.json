@@ -6,6 +6,11 @@
   "spoiler": true,
   "initial": true,
   "solo": "envx",
+  "rewards": {
+    "items": [
+      "151"
+    ]
+  },
   "monsters": [
     "giant-viper",
     "living-spirit",

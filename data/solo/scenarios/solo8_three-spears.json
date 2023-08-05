@@ -6,6 +6,11 @@
   "spoiler": true,
   "initial": true,
   "solo": "three-spears",
+  "rewards": {
+    "items": [
+      "141"
+    ]
+  },
   "monsters": [
     "bandit-archer",
     "bandit-guard",

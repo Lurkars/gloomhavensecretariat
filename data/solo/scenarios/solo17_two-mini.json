@@ -6,6 +6,11 @@
   "spoiler": true,
   "initial": true,
   "solo": "two-mini",
+  "rewards": {
+    "items": [
+      "150"
+    ]
+  },
   "monsters": [
     "cave-bear",
     "forest-imp",

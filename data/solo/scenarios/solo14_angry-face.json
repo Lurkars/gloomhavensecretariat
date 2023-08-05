@@ -6,6 +6,11 @@
   "spoiler": true,
   "initial": true,
   "solo": "angry-face",
+  "rewards": {
+    "items": [
+      "147"
+    ]
+  },
   "monsters": [
     "deep-earth",
     "ghost-wolf",

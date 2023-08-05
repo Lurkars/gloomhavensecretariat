@@ -5,6 +5,11 @@
   "edition": "gh",
   "initial": true,
   "solo": "tinkerer",
+  "rewards": {
+    "items": [
+      "135"
+    ]
+  },
   "monsters": [
     "city-guard-tinkerer-solo",
     "vermling-scout",

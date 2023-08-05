@@ -5,6 +5,11 @@
   "edition": "gh",
   "initial": true,
   "solo": "brute",
+  "rewards": {
+    "items": [
+      "134"
+    ]
+  },
   "monsters": [
     "bandit-archer:-1",
     "bandit-guard:-1",
@@ -20,15 +25,15 @@
       ],
       "monster": [
         {
-          "name": "bandit-guard",
+          "name": "bandit-guard:-1",
           "type": "normal"
         },
         {
-          "name": "bandit-guard",
+          "name": "bandit-guard:-1",
           "type": "normal"
         },
         {
-          "name": "bandit-guard",
+          "name": "bandit-guard:-1",
           "type": "elite"
         }
       ]
@@ -41,15 +46,15 @@
       ],
       "monster": [
         {
-          "name": "bandit-archer",
+          "name": "bandit-archer:-1",
           "type": "elite"
         },
         {
-          "name": "bandit-guard",
+          "name": "bandit-guard:-1",
           "type": "normal"
         },
         {
-          "name": "bandit-guard",
+          "name": "bandit-guard:-1",
           "type": "normal"
         }
       ]
@@ -60,19 +65,19 @@
       "marker": "1",
       "monster": [
         {
-          "name": "bandit-archer",
+          "name": "bandit-archer:-1",
           "type": "normal"
         },
         {
-          "name": "bandit-archer",
+          "name": "bandit-archer:-1",
           "type": "normal"
         },
         {
-          "name": "living-bones",
+          "name": "living-bones:-1",
           "type": "normal"
         },
         {
-          "name": "living-bones",
+          "name": "living-bones:-1",
           "type": "normal"
         }
       ]

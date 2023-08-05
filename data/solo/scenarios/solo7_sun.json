@@ -6,6 +6,11 @@
   "spoiler": true,
   "initial": true,
   "solo": "sun",
+  "rewards": {
+    "items": [
+      "140"
+    ]
+  },
   "monsters": [
     "bandit-archer",
     "bandit-guard",

@@ -6,6 +6,11 @@
   "spoiler": true,
   "initial": true,
   "solo": "eclipse",
+  "rewards": {
+    "items": [
+      "143"
+    ]
+  },
   "monsters": [
     "deep-terror",
     "night-demon"

@@ -6,6 +6,11 @@
   "spoiler": true,
   "initial": true,
   "solo": "triangles",
+  "rewards": {
+    "items": [
+      "149"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "flame-demon",

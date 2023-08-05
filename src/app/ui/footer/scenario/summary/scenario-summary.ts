@@ -216,11 +216,19 @@ export class ScenarioSummaryComponent {
                 const rewardItems = this.rewards.items || this.rewards.chooseItem;
                 if (rewardItems) {
                     this.characters.forEach((char, index) => this.items[index] = []);
-                    rewardItems.forEach((item) => {
+                    rewardItems.forEach((item, index) => {
                         const itemData = gameManager.itemManager.getItem(+item.split(':')[0].split('-')[0], item.split(':')[0].split('-')[1] || this.scenario.edition, true);
                         if (itemData) {
                             this.rewardItems.push(itemData);
                             this.rewardItemCount.push(item.indexOf(':') == -1 ? 1 : +item.split(':')[1]);
+
+                            // add automatically on (potential) solo scenario
+                            if (this.characters.filter((char) => !char.absent).length == 1) {
+                                const char = this.characters.find((char) => !char.absent);
+                                if (char) {
+                                    this.items[this.characters.indexOf(char)].push(index);
+                                }
+                            }
                         } else {
                             console.error("Unknown Item '" + item + "' for scenario '" + this.scenario.index + " (" + this.scenario.edition + ")")
                         }
@@ -428,6 +436,9 @@ export class ScenarioSummaryComponent {
     }
 
     itemDistributed(index: number, itemIndex: number, choose: boolean = true): boolean {
+        if (!this.items[index]) {
+            this.items[index] = [];
+        }
         if (choose && this.rewards && this.rewards.chooseItem && this.rewardItems.some((rewardItem, rewardIndex) => rewardIndex != itemIndex && this.characters.some((char, charIndex) => this.itemDistributed(charIndex, rewardIndex, false)))) {
             return true;
         }

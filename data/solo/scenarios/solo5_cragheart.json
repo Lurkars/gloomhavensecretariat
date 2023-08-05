@@ -5,6 +5,11 @@
   "edition": "gh",
   "initial": true,
   "solo": "cragheart",
+  "rewards": {
+    "items": [
+      "138"
+    ]
+  },
   "monsters": [
     "cave-bear",
     "ooze",

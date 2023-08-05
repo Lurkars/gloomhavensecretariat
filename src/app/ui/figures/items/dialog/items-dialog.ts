@@ -88,7 +88,7 @@ export class ItemsDialogComponent {
     update(onlyAffordable: boolean = false) {
         this.unlocks = [];
         this.selected = undefined;
-        this.items = this.editionItems.filter((itemData) => (!this.filter || ghsTextSearch(itemData.name, this.filter) || ghsTextSearch('' + (itemData.id < 100 ? '0' : '') + (itemData.id < 10 ? '0' : '') + itemData.id, this.filter) && (!this.affordable || gameManager.itemManager.assigned(itemData) < itemData.count))).filter((itemData) => !this.affordable || this.character && gameManager.itemManager.canAdd(itemData, this.character) && (gameManager.itemManager.canBuy(itemData, this.character) || gameManager.itemManager.canCraft(itemData, this.character)));
+        this.items = this.editionItems.filter((itemData) => (!this.affordable || gameManager.itemManager.assigned(itemData) < itemData.count)).filter((itemData) => !this.affordable || this.character && gameManager.itemManager.canAdd(itemData, this.character) && (gameManager.itemManager.canBuy(itemData, this.character) || gameManager.itemManager.canCraft(itemData, this.character)));
 
         if (this.character && this.edition && this.campaignMode && !this.all && !this.affordable) {
             this.character.progress.items.forEach((identifier) => {
@@ -100,6 +100,8 @@ export class ItemsDialogComponent {
                 }
             })
         }
+
+        this.items = this.items.filter((itemData) => !this.filter || (ghsTextSearch(itemData.name, this.filter) || ghsTextSearch('' + (itemData.id < 100 ? '0' : '') + (itemData.id < 10 ? '0' : '') + itemData.id, this.filter)));
 
         if (this.campaignMode && this.edition && !this.all && !this.affordable) {
             this.unlocks = gameManager.itemManager.getItems(this.edition, true).filter((itemData) => ('' + itemData.id == this.filter || '0' + itemData.id == this.filter || '00' + itemData.id == this.filter) && !this.items.find((item) => item.id == itemData.id && item.edition == itemData.edition));

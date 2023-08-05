@@ -5,6 +5,11 @@
   "edition": "fc",
   "initial": true,
   "solo": "diviner",
+  "rewards": {
+    "items": [
+      "164"
+    ]
+  },
   "monsters": [
     "earth-demon-diviner-solo",
     "valrath-savage"
