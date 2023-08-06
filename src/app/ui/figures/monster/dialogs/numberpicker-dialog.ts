@@ -1,5 +1,5 @@
 import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
-import { Component, Inject, OnInit } from "@angular/core";
+import { Component, HostListener, Inject, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { EntityValueFunction } from "src/app/game/model/Entity";
@@ -27,6 +27,7 @@ export class MonsterNumberPickerDialog implements OnInit {
     automatic: boolean = false;
     change: boolean = false;
     settingsManager: SettingsManager = settingsManager;
+    oneKeyBufferTimeoutId: number | undefined;
 
     gameManager: GameManager = gameManager;
 
@@ -44,6 +45,46 @@ export class MonsterNumberPickerDialog implements OnInit {
         }
         if (this.entity) {
             this.type = this.entity.type;
+        }
+    }
+
+    @HostListener('document:keydown', ['$event'])
+    onKeyPress(event: KeyboardEvent) {
+        if (event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
+            if (this.oneKeyBufferTimeoutId != null) {
+                // Stop buffering keypresses.
+                clearTimeout(this.oneKeyBufferTimeoutId);
+                this.oneKeyBufferTimeoutId = undefined;
+
+                const combined = +`1${event.key}`;
+                const thisKey = +event.key;
+                if (combined <= this.max) {
+                    // Pick 10 through 19 if it's valid.
+                    this.pickNumber(combined);
+                } else {
+                    // Otherwise, pick the previous '1'...
+                    this.pickNumber(1);
+                    // and the current key.
+                    this.pickNumber(thisKey);
+                }
+            } else if (
+                event.key === '1' &&
+                this.range.filter((number) => number >= 10).some((number) => !this.hasNumber(number))
+            ) {
+                // If monsters 10 or above are still available, wait one second
+                // before picking '1' to allow users to type '10', '11', 12',
+                // etc. There's currently no user indication that this is
+                // happening.
+                this.oneKeyBufferTimeoutId = setTimeout(() => {
+                    this.pickNumber(1);
+                }, 1_000);
+            } else {
+                // Just a basic, direct keypress.
+                this.pickNumber(+event.key);
+            }
+
+            event.preventDefault();
+            event.stopPropagation();
         }
     }
 
@@ -81,6 +122,10 @@ export class MonsterNumberPickerDialog implements OnInit {
     }
 
     pickNumber(number: number, automatic: boolean = false, next: boolean = false) {
+        if (number < 1 || number > this.max) {
+            return;
+        }
+
         if (!this.hasNumber(number) && this.type && !this.change) {
             let undoType = "addStandee";
             if (automatic && !next) {
