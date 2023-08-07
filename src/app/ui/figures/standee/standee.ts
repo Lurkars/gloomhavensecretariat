@@ -66,6 +66,11 @@ export class StandeeComponent implements OnInit, OnDestroy {
 
   update(): void {
     this.activeConditions = gameManager.entityManager.activeConditions(this.entity, true);
+    this.entity.immunities.forEach((immunity) => {
+      if (!this.activeConditions.find((entityCondition) => entityCondition.name == immunity)) {
+        this.activeConditions.push(new EntityCondition(immunity));
+      }
+    })
     this.actionHints = [];
 
     if (settingsManager.settings.standeeStats && this.figure instanceof Monster && this.entity instanceof MonsterEntity) {
@@ -85,7 +90,7 @@ export class StandeeComponent implements OnInit, OnDestroy {
   dragHpEnd(value: number) {
     if (this.health != 0 && EntityValueFunction(this.entity.maxHealth) > 0 && (!(this.figure instanceof Monster) || !this.figure.immortal)) {
       gameManager.stateManager.before(this.figure.type + "ChangeEntityHp", this.figure.name, "" + this.entity.number, "" + this.health, this.additionalType());
-      gameManager.entityManager.changeHealth(this.entity, this.health);
+      gameManager.entityManager.changeHealth(this.entity, this.figure, this.health);
 
       if (this.figure instanceof Monster && this.figure.entities.every((monsterEntity) => monsterEntity.dead)) {
         if (this.figure.active) {

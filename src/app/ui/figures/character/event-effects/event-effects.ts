@@ -3,7 +3,7 @@ import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Character } from 'src/app/game/model/Character';
 import { Subscription } from 'rxjs';
-import { EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
+import { ConditionName, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { ghsValueSign } from 'src/app/ui/helper/Static';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -20,6 +20,8 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
   characters: Character[] = [];
   activeCharacters: Character[] = [];
   entityConditions: EntityCondition[] = [];
+  immunities: ConditionName[] = [];
+  newImmunities: ConditionName[] = [];
   health: number[] = [];
   experience: number[] = [];
   gold: number[] = [];
@@ -51,6 +53,13 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
       character.entityConditions.forEach((entityCondition) => {
         if (!this.entityConditions.find((other) => other.name == entityCondition.name) && self.every((otherEntity) => otherEntity.entityConditions.find((other) => other.name == entityCondition.name && other.state == entityCondition.state))) {
           this.entityConditions.push(JSON.parse(JSON.stringify(entityCondition)));
+        }
+      })
+
+      character.immunities.forEach((immunity) => {
+        if (!this.immunities.find((other) => other == immunity) && self.every((otherEntity) => otherEntity.immunities.find((other) => other == immunity))) {
+          this.immunities.push(immunity);
+          this.newImmunities.push(immunity);
         }
       })
     })
@@ -196,9 +205,9 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
       gameManager.stateManager.before(entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition", "game.condition." + entityCondition.name, 'allCharacters');
       this.activeCharacters.find((character) => {
         if (entityCondition.state == EntityConditionState.removed) {
-          gameManager.entityManager.removeCondition(character, entityCondition);
+          gameManager.entityManager.removeCondition(character, entityCondition, entityCondition.permanent);
         } else {
-          gameManager.entityManager.addCondition(character, entityCondition, character.active, character.off);
+          gameManager.entityManager.addCondition(character, entityCondition, character.active, character.off, entityCondition.permanent);
         }
       })
       gameManager.stateManager.after();
@@ -217,11 +226,31 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
       }
     })
 
+    this.immunities.forEach((immunity) => {
+      if (this.newImmunities.indexOf(immunity) == -1) {
+        gameManager.stateManager.before("removeImmunity", "game.condition." + immunity, 'allCharacters');
+        this.activeCharacters.find((character) => {
+         character.immunities = character.immunities.filter((existing) => existing != immunity);
+        })
+        gameManager.stateManager.after();
+      }
+    })
+
+    this.newImmunities.forEach((immunity) => {
+      if (this.immunities.indexOf(immunity) == -1) {
+        gameManager.stateManager.before("addImmunity", "game.condition." + immunity, 'allCharacters');
+        this.activeCharacters.find((character) => {
+         character.immunities.push(immunity);
+        })
+        gameManager.stateManager.after();
+      }
+    })
+
     if (this.minHealth() != 0 || this.maxHealth() != 0) {
       gameManager.stateManager.before("changeCharacterHP", ghsValueSign(this.minHealth() != 0 ? this.minHealth() : this.maxHealth()));
       this.activeCharacters.forEach((character, i) => {
         if (this.health[i] && this.health[i] != 0) {
-          gameManager.entityManager.changeHealth(character, this.health[i]);
+          gameManager.entityManager.changeHealth(character, character, this.health[i]);
           this.health[i] = 0;
         }
 

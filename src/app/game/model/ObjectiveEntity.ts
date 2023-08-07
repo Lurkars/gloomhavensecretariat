@@ -1,4 +1,4 @@
-import { EntityCondition, GameEntityConditionModel } from "./data/Condition";
+import { ConditionName, EntityCondition, GameEntityConditionModel } from "./data/Condition";
 import { Entity, EntityValueFunction } from "./Entity";
 import { ObjectiveContainer } from "./ObjectiveContainer";
 
@@ -19,6 +19,7 @@ export class ObjectiveEntity implements Entity {
   health: number;
   maxHealth: number;
   entityConditions: EntityCondition[] = [];
+  immunities: ConditionName[] = [];
   number: number;
   markers: string[] = [];
   tags: string[] = [];
@@ -35,7 +36,7 @@ export class ObjectiveEntity implements Entity {
   }
 
   toModel(): GameObjectiveEntityModel {
-    return new GameObjectiveEntityModel(this.uuid, this.number, this.marker, this.dead, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || []);
+    return new GameObjectiveEntityModel(this.uuid, this.number, this.marker, this.dead, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || []);
   }
 
   fromModel(model: GameObjectiveEntityModel) {
@@ -52,6 +53,7 @@ export class ObjectiveEntity implements Entity {
         return condition;
       });
     }
+    this.immunities = model.immunities || [];
     this.markers = model.markers || [];
     this.tags = model.tags || [];
   }
@@ -68,6 +70,7 @@ export class GameObjectiveEntityModel {
   health: number;
   maxHealth: number;
   entityConditions: GameEntityConditionModel[];
+  immunities: ConditionName[];
   markers: string[];
   tags: string[];
 
@@ -80,6 +83,7 @@ export class GameObjectiveEntityModel {
     health: number,
     maxHealth: number,
     entityConditions: GameEntityConditionModel[],
+    immunities: ConditionName[],
     markers: string[],
     tags: string[]) {
     this.uuid = uuid;
@@ -90,6 +94,7 @@ export class GameObjectiveEntityModel {
     this.health = health;
     this.maxHealth = maxHealth;
     this.entityConditions = JSON.parse(JSON.stringify(entityConditions));
+    this.immunities = JSON.parse(JSON.stringify(immunities));
     this.markers = JSON.parse(JSON.stringify(markers));
     this.tags = JSON.parse(JSON.stringify(tags));
   }

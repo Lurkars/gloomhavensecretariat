@@ -18,6 +18,7 @@ import { MonsterType } from "src/app/game/model/data/MonsterType";
 export class ConditionsComponent implements OnInit {
 
   @Input() entityConditions!: EntityCondition[];
+  @Input() immunities!: ConditionName[];
   @Input() entity!: Entity;
   @Input() entities!: Entity[];
   @Input() figure!: Figure;
@@ -34,9 +35,11 @@ export class ConditionsComponent implements OnInit {
   standardPositive: Condition[] = [];
   upgradePositive: Condition[] = [];
   stackPositive: Condition[] = [];
-  permanent: Condition[] = [];
 
   monsterType: MonsterType | boolean = false;
+
+  permanentEnabled: boolean = false;
+  immunityEnabled: boolean = false;
 
   constructor() {
     gameManager.uiChange.subscribe({
@@ -88,43 +91,22 @@ export class ConditionsComponent implements OnInit {
     this.stackNegative = gameManager.conditionsForTypes('stack', 'negative', this.type);
     this.standardPositive = gameManager.conditionsForTypes('standard', 'positive', this.type);
     this.upgradePositive = gameManager.conditionsForTypes('upgrade', 'positive', this.type);
-    this.initializePermanentConditions();
   }
 
-  initializePermanentConditions() {
-    this.permanent = [];
-    this.entityConditions.forEach((entityCondition) => {
-      if (this.isPermanent(entityCondition.name) && this.hasCondition(entityCondition)) {
-        if (!this.permanent.find((condition) => condition.name == entityCondition.name)) {
-          this.permanent.push(new Condition(entityCondition.name));
-        }
-      }
-    })
-    if (this.entity instanceof Character) {
-      this.entity.stats.forEach((stat) => {
-        if (stat.level <= this.entity.level && stat.permanentConditions) {
-          stat.permanentConditions.forEach((conditionName) => {
-            if (!this.permanent.find((condition) => condition.name == conditionName)) {
-              this.permanent.push(new Condition(conditionName));
-            }
-          })
-        }
-      })
-    }
-  }
-
-  hasCondition(condition: Condition): boolean {
+  hasCondition(condition: Condition, permanent: boolean = false, immunity: boolean = false): boolean {
     if (this.entityConditions) {
-      return this.entityConditions.some((entityCondition) => entityCondition.name == condition.name && entityCondition.state != EntityConditionState.removed && !entityCondition.expired);
+      return this.entityConditions.some((entityCondition) => entityCondition.name == condition.name && entityCondition.state != EntityConditionState.removed && !entityCondition.expired && (!this.permanentEnabled || (permanent || this.permanentEnabled) && entityCondition.permanent));
     } else if (this.entity) {
-      return gameManager.entityManager.hasCondition(this.entity, condition);
+      return gameManager.entityManager.hasCondition(this.entity, condition, permanent || this.permanentEnabled);
     } else {
-      return this.entities.every((entity) => gameManager.entityManager.hasCondition(entity, condition));
+      return this.entities.every((entity) => gameManager.entityManager.hasCondition(entity, condition, permanent || this.permanentEnabled));
     }
   }
 
   isImmune(conditionName: ConditionName): boolean {
-    if (this.figure instanceof Monster) {
+    if (this.immunities) {
+      return this.immunities.indexOf(conditionName) != -1;
+    } else if (this.figure instanceof Monster) {
       if (!(this.entity instanceof MonsterEntity)) {
         return this.entities.every((entity) => this.figure instanceof Monster && entity instanceof MonsterEntity && gameManager.entityManager.isImmune(entity, this.figure, conditionName));
       } else {
@@ -178,33 +160,38 @@ export class ConditionsComponent implements OnInit {
   }
 
   toggleCondition(condition: Condition, permanent: boolean = false) {
-    if (this.hasCondition(condition) && (!permanent || this.isPermanent(condition.name))) {
-      let entityCondition: EntityCondition | undefined = this.entityConditions.find((entityCondition) => entityCondition.name == condition.name);
-      if (entityCondition) {
-        entityCondition.expired = true;
-        entityCondition.lastState = entityCondition.state;
-        entityCondition.state = EntityConditionState.removed;
+    if (this.immunityEnabled && !permanent) {
+      if (this.immunities.indexOf(condition.name) == -1) {
+        this.immunities.push(condition.name);
+      } else {
+        this.immunities.splice(this.immunities.indexOf(condition.name), 1);
       }
     } else {
-      let entityCondition: EntityCondition | undefined = this.entityConditions.find((entityCondition) => entityCondition.name == condition.name);
-      if (!entityCondition) {
-        entityCondition = new EntityCondition(condition.name, condition.value);
-        entityCondition.lastState = entityCondition.state;
-        entityCondition.state = EntityConditionState.new;
-        this.entityConditions.push(entityCondition);
+      if (this.hasCondition(condition, permanent || this.permanentEnabled)) {
+        let entityCondition: EntityCondition | undefined = this.entityConditions.find((entityCondition) => entityCondition.name == condition.name && (!permanent || entityCondition.permanent));
+        if (entityCondition) {
+          entityCondition.expired = true;
+          entityCondition.lastState = entityCondition.state;
+          entityCondition.state = EntityConditionState.removed;
+        }
       } else {
-        entityCondition.expired = false;
-        entityCondition.lastState = entityCondition.state;
-        entityCondition.state = EntityConditionState.new;
+        let entityCondition: EntityCondition | undefined = this.entityConditions.find((entityCondition) => entityCondition.name == condition.name && (!permanent || entityCondition.permanent));
+
+        if (!entityCondition) {
+          entityCondition = new EntityCondition(condition.name, condition.value);
+          entityCondition.lastState = entityCondition.state;
+          entityCondition.state = EntityConditionState.new;
+          this.entityConditions.push(entityCondition);
+        } else {
+          entityCondition.expired = false;
+          entityCondition.lastState = entityCondition.state;
+          entityCondition.state = EntityConditionState.new;
+        }
+        entityCondition.permanent = permanent || this.permanentEnabled;
       }
-      entityCondition.permanent = permanent;
-    }
 
-    if (permanent) {
-      this.initializePermanentConditions();
+      this.onChange.emit(this.entityConditions);
     }
-
-    this.onChange.emit(this.entityConditions);
   }
 
 }

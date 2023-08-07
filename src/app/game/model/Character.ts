@@ -5,7 +5,7 @@ import { CharacterData } from "./data/CharacterData";
 import { GameSummonModel, Summon } from "./Summon";
 import { gameManager } from "../businesslogic/GameManager";
 import { FigureError, FigureErrorType } from "./data/FigureError";
-import { EntityCondition, GameEntityConditionModel } from "./data/Condition";
+import { ConditionName, EntityCondition, GameEntityConditionModel } from "./data/Condition";
 import { CharacterProgress } from "./CharacterProgress";
 import { AttackModifierDeck, GameAttackModifierDeckModel } from "./data/AttackModifier";
 import { Identifier } from "./data/Identifier";
@@ -48,6 +48,7 @@ export class Character extends CharacterData implements Entity, Figure {
   health: number;
   maxHealth: number;
   entityConditions: EntityCondition[] = [];
+  immunities: ConditionName[] = [];
   number: number = 0;
   markers: string[] = [];
   tags: string[] = [];
@@ -97,7 +98,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   toModel(): GameCharacterModel {
-    return new GameCharacterModel(this.name, this.edition, this.marker, this.title, this.initiative, this.experience, this.loot, this.lootCards || [], this.treasures && this.treasures.map((treasure) => '' + treasure) || [], this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.identity, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.lootCardsVisible, this.number, this.attackModifierDeck.toModel(), this.donations, this.token, this.tokenValues, this.absent, this.longRest, this.battleGoals, this.battleGoal);
+    return new GameCharacterModel(this.name, this.edition, this.marker, this.title, this.initiative, this.experience, this.loot, this.lootCards || [], this.treasures && this.treasures.map((treasure) => '' + treasure) || [], this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || [], this.identity, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.lootCardsVisible, this.number, this.attackModifierDeck.toModel(), this.donations, this.token, this.tokenValues, this.absent, this.longRest, this.battleGoals, this.battleGoal);
   }
 
   fromModel(model: GameCharacterModel) {
@@ -147,6 +148,7 @@ export class Character extends CharacterData implements Entity, Figure {
         return condition;
       });
     }
+    this.immunities = model.immunities || [];
     this.markers = model.markers || this.markers;
     this.tags = model.tags || this.tags;
     this.identity = model.identity || 0;
@@ -243,6 +245,7 @@ export class GameCharacterModel {
   health: number;
   maxHealth: number;
   entityConditions: GameEntityConditionModel[];
+  immunities: ConditionName[] = [];
   markers: string[];
   tags: string[];
   identity: number;
@@ -277,6 +280,7 @@ export class GameCharacterModel {
     health: number,
     maxHealth: number,
     entityConditions: GameEntityConditionModel[],
+    immunities: ConditionName[],
     markers: string[],
     tags: string[],
     identity: number,
@@ -310,6 +314,7 @@ export class GameCharacterModel {
     this.health = health;
     this.maxHealth = maxHealth;
     this.entityConditions = JSON.parse(JSON.stringify(entityConditions));
+    this.immunities = JSON.parse(JSON.stringify(immunities));
     this.markers = JSON.parse(JSON.stringify(markers));
     this.tags = JSON.parse(JSON.stringify(tags));
     this.identity = identity;

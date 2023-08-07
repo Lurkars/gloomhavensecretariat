@@ -53,6 +53,7 @@ export class EntityMenuDialogComponent {
   characterTokenValues: number[] = [];
   objectiveDead: boolean = false;
   entityConditions: EntityCondition[] = [];
+  entityImmunities: ConditionName[] = [];
   actionHints: Action[] = [];
 
   titles: string[] = [];
@@ -98,7 +99,8 @@ export class EntityMenuDialogComponent {
       }
     }
     if (this.data.entity) {
-      this.entityConditions = JSON.parse(JSON.stringify(this.data.entity.entityConditions))
+      this.entityConditions = JSON.parse(JSON.stringify(this.data.entity.entityConditions));
+      this.entityImmunities = JSON.parse(JSON.stringify(this.data.entity.immunities));
     }
 
     if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
@@ -600,7 +602,7 @@ export class EntityMenuDialogComponent {
 
       if (this.health != 0) {
         gameManager.stateManager.before("changeHP", "data.character." + this.data.entity.name, ghsValueSign(this.health));
-        gameManager.entityManager.changeHealth(this.data.entity, this.health);
+        gameManager.entityManager.changeHealth(this.data.entity, this.data.figure, this.health);
         this.health = 0;
         gameManager.stateManager.after();
       }
@@ -766,7 +768,7 @@ export class EntityMenuDialogComponent {
 
         if (this.health != 0) {
           gameManager.stateManager.before("changeEntityHp", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, ghsValueSign(this.health));
-          gameManager.entityManager.changeHealth(this.data.entity, this.health);
+          gameManager.entityManager.changeHealth(this.data.entity, this.data.figure, this.health);
           gameManager.stateManager.after();
           this.health = 0;
         }
@@ -785,7 +787,7 @@ export class EntityMenuDialogComponent {
         gameManager.stateManager.before("addSummon", "data.character." + this.data.figure.name, this.data.entity.name);
         this.data.entity.init = false;
         if (this.health != 0) {
-          gameManager.entityManager.changeHealth(this.data.entity, this.health);
+          gameManager.entityManager.changeHealth(this.data.entity, this.data.figure, this.health);
         }
         if (this.attack != 0 && typeof this.data.entity.attack == 'number') {
           this.data.entity.attack += this.attack;
@@ -812,7 +814,7 @@ export class EntityMenuDialogComponent {
         }
         if (this.health != 0) {
           gameManager.stateManager.before("changeSummonHp", "data.character." + this.data.figure.name, "data.summon." + this.data.entity.name, ghsValueSign(this.health));
-          gameManager.entityManager.changeHealth(this.data.entity, this.health);
+          gameManager.entityManager.changeHealth(this.data.entity, this.data.figure, this.health);
           gameManager.stateManager.after();
         }
         if (this.attack != 0 && typeof this.data.entity.attack == 'number') {
@@ -872,7 +874,7 @@ export class EntityMenuDialogComponent {
 
       if (this.health != 0) {
         gameManager.stateManager.before("changeHP", this.data.entity.title || this.data.entity.name || this.data.entity.escort ? 'escort' : 'objective', ghsValueSign(this.health));
-        gameManager.entityManager.changeHealth(this.data.entity, this.health);
+        gameManager.entityManager.changeHealth(this.data.entity, this.data.figure, this.health);
         if (this.data.entity.health <= 0 || this.data.entity.exhausted && this.health >= 0 && this.data.entity.health > 0) {
           if (this.data.entity.escort) {
             this.exhausted();
@@ -924,7 +926,7 @@ export class EntityMenuDialogComponent {
   closeConditions() {
     if (this.data.entity) {
       this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
-        if (this.data.entity && (entityCondition.state == EntityConditionState.new || gameManager.entityManager.hasCondition(this.data.entity, entityCondition))) {
+        if (this.data.entity && (entityCondition.state == EntityConditionState.new || gameManager.entityManager.hasCondition(this.data.entity, entityCondition, entityCondition.permanent))) {
           if (this.data.entity instanceof Character && entityCondition.name == ConditionName.muddle && entityCondition.state == EntityConditionState.new &&
             this.data.entity.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '108')) {
             entityCondition.name = ConditionName.strengthen;
@@ -933,7 +935,7 @@ export class EntityMenuDialogComponent {
           entityCondition.expired = entityCondition.state == EntityConditionState.new;
           gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition"), "game.condition." + entityCondition.name, this.data.entity instanceof MonsterEntity ? 'monster.' + this.data.entity.type + ' ' : '');
           if (entityCondition.state == EntityConditionState.removed) {
-            gameManager.entityManager.removeCondition(this.data.entity, entityCondition);
+            gameManager.entityManager.removeCondition(this.data.entity, entityCondition, entityCondition.permanent);
           } else {
             gameManager.entityManager.addCondition(this.data.entity, entityCondition, this.data.figure.active, this.data.figure.off, entityCondition.permanent);
           }
@@ -949,6 +951,22 @@ export class EntityMenuDialogComponent {
             entityCondition.value = condition.value;
             gameManager.stateManager.after();
           }
+        }
+      })
+
+      this.data.entity.immunities.forEach((immunity) => {
+        if (this.data.entity && this.entityImmunities.indexOf(immunity) == -1) {
+          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, 'removeImmunity'), immunity);
+          this.data.entity.immunities = this.data.entity.immunities.filter((existing) => existing != immunity);
+          gameManager.stateManager.after();
+        }
+      })
+
+      this.entityImmunities.forEach((immunity) => {
+        if (this.data.entity && this.data.entity.immunities.indexOf(immunity) == -1) {
+          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, 'addImmunity'), immunity);
+          this.data.entity.immunities.push(immunity);
+          gameManager.stateManager.after();
         }
       })
     }

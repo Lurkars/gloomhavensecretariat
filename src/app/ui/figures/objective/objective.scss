@@ -82,6 +82,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
+      z-index: 2;
 
       &.col-1 {
         width: calc(var(--ghs-unit) * 28);
@@ -96,6 +97,7 @@
     .title-container {
       display: flex;
       align-items: center;
+      z-index: 2;
     }
 
     .title {
@@ -125,6 +127,7 @@
     .status-bar {
       display: flex;
       align-items: center;
+      z-index: 2;
     }
 
     .health {
@@ -139,6 +142,10 @@
         margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
         height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
         width: auto;
+      }
+
+      .value-overlay {
+        z-index: 1000;
       }
     }
 
@@ -216,6 +223,16 @@
         &.stack {
           margin-left: calc(var(--ghs-unit) * -2 * var(--ghs-text-factor));
         }
+      }
+
+      &.condition-overlay {
+        position: absolute;
+        width: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 2;
       }
 
       .value {

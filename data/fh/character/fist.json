@@ -8,10 +8,7 @@
   "stats": [
     {
       "level": 1,
-      "health": 10,
-      "permanentConditions": [
-        "regenerate"
-      ]
+      "health": 10
     },
     {
       "level": 2,

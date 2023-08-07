@@ -1,6 +1,6 @@
 import { Figure } from "./Figure";
 import { Entity } from "./Entity";
-import { EntityCondition, GameEntityConditionModel } from "./data/Condition";
+import { ConditionName, EntityCondition, GameEntityConditionModel } from "./data/Condition";
 import { ScenarioObjectiveIdentifier } from "./data/ObjectiveData";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -25,6 +25,7 @@ export class Objective implements Entity, Figure {
   health: number = 7;
   maxHealth: number | string = 7;
   entityConditions: EntityCondition[] = [];
+  immunities: ConditionName[] = [];
   markers: string[] = [];
   tags: string[] = [];
   number: number;
@@ -45,7 +46,7 @@ export class Objective implements Entity, Figure {
   }
 
   toModel(): GameObjectiveModel {
-    return new GameObjectiveModel(this.uuid || uuidv4(), this.id, this.marker, this.title, this.name, this.escort, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.initiative, this.objectiveId);
+    return new GameObjectiveModel(this.uuid || uuidv4(), this.id, this.marker, this.title, this.name, this.escort, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || [], this.initiative, this.objectiveId);
   }
 
   fromModel(model: GameObjectiveModel) {
@@ -70,6 +71,7 @@ export class Objective implements Entity, Figure {
         return condition;
       });
     }
+    this.immunities = model.immunities || [];
     this.markers = model.markers || this.markers;
     this.tags = model.tags || this.tags;
     this.initiative = model.initiative
@@ -93,6 +95,7 @@ export class GameObjectiveModel {
   health: number;
   maxHealth: number | string;
   entityConditions: GameEntityConditionModel[];
+  immunities: ConditionName[];
   markers: string[];
   tags: string[];
   initiative: number;
@@ -112,6 +115,7 @@ export class GameObjectiveModel {
     health: number,
     maxHealth: number | string,
     entityConditions: GameEntityConditionModel[],
+    immunities: ConditionName[],
     markers: string[],
     tags: string[],
     initiative: number,
@@ -129,6 +133,7 @@ export class GameObjectiveModel {
     this.health = health;
     this.maxHealth = maxHealth;
     this.entityConditions = JSON.parse(JSON.stringify(entityConditions));
+    this.immunities = JSON.parse(JSON.stringify(immunities));
     this.markers = JSON.parse(JSON.stringify(markers));
     this.tags = JSON.parse(JSON.stringify(tags));
     this.initiative = initiative;

@@ -272,6 +272,16 @@
             }
           }
 
+          &.condition-overlay {
+            position: absolute;
+            width: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
+            height: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 2;
+          }
+
           .value {
             font-family: var(--ghs-font-title);
             font-size: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));

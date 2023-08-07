@@ -71,7 +71,7 @@ export class EntityManager {
     return false;
   }
 
-  checkHealth(entity: Entity) {
+  checkHealth(entity: Entity, figure: Figure,) {
     const maxHealth = EntityValueFunction(entity.maxHealth);
     if (entity.health > maxHealth) {
       entity.health = maxHealth;
@@ -103,16 +103,16 @@ export class EntityManager {
     }
   }
 
-  changeHealth(entity: Entity, value: number) {
-    this.changeHealthHighlightConditions(entity, value);
+  changeHealth(entity: Entity, figure: Figure, value: number) {
+    this.changeHealthHighlightConditions(entity, figure, value);
     entity.health += value;
-    this.checkHealth(entity);
+    this.checkHealth(entity, figure);
   }
 
-  changeHealthHighlightConditions(entity: Entity, value: number) {
+  changeHealthHighlightConditions(entity: Entity, figure: Figure, value: number) {
     if (settingsManager.settings.applyConditions) {
       entity.entityConditions.filter((entityCondition) => entityCondition.name == ConditionName.poison || entityCondition.name == ConditionName.poison_x).forEach((entityCondition) => {
-        if (value < 0 && !entityCondition.expired && entityCondition.state != EntityConditionState.new && (entity.health + value > 0)) {
+        if (value < 0 && !entityCondition.expired && entityCondition.state != EntityConditionState.new && (entity.health + value > 0) && !this.isImmune(entity, figure, entityCondition.name)) {
           entityCondition.highlight = true;
         } else {
           entityCondition.highlight = false;
@@ -125,7 +125,7 @@ export class EntityManager {
         regenerate.expired = true;
       }
 
-      this.sufferDamageHighlightConditions(entity, value);
+      this.sufferDamageHighlightConditions(entity, figure, value);
 
       if (entity.health + value > entity.health) {
         const clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.expired);
@@ -143,10 +143,10 @@ export class EntityManager {
     }
   }
 
-  sufferDamageHighlightConditions(entity: Entity, value: number) {
+  sufferDamageHighlightConditions(entity: Entity, figure: Figure, value: number) {
     if (settingsManager.settings.applyConditions) {
-      const ward = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.ward);
-      const brittle = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.brittle);
+      const ward = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.ward && !this.isImmune(entity, figure, entityCondition.name));
+      const brittle = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.brittle && !this.isImmune(entity, figure, entityCondition.name));
 
       if (value < 0 && ward && !brittle && (entity.health + value - Math.floor(value / 2)) > 0) {
         ward.value = value * -1;
@@ -183,9 +183,12 @@ export class EntityManager {
 
   isImmune(entity: Entity, figure: Figure, conditionName: ConditionName): boolean {
     let immune: boolean = false;
-    if (figure instanceof Monster && entity instanceof MonsterEntity) {
+
+    if (entity.immunities && entity.immunities.indexOf(conditionName) != -1) {
+      return true;
+    } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
       const stat = figure.stats.find((monsterStat) => monsterStat.level == entity.level && monsterStat.type == entity.type);
-      immune = stat != undefined && stat.immunities != undefined && stat.immunities.indexOf(conditionName as string) != -1;
+      immune = stat != undefined && stat.immunities != undefined && stat.immunities.indexOf(conditionName) != -1;
     } else if (figure instanceof Character) {
       let immunities: ConditionName[] = [];
       if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '38')) {
@@ -232,7 +235,7 @@ export class EntityManager {
     return immune;
   }
 
-  addCondition(entity: Entity, condition: Condition, active: boolean, off: boolean, permanent: boolean = false) {
+  addCondition(entity: Entity, condition: Condition, active: boolean, off: boolean, permanent: boolean = false, immunity: boolean = false) {
     let entityCondition: EntityCondition | undefined = entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name);
     if (!entityCondition) {
       entityCondition = new EntityCondition(condition.name, condition.value);
@@ -263,38 +266,38 @@ export class EntityManager {
     entityCondition.permanent = permanent;
   }
 
-  removeCondition(entity: Entity, condition: Condition) {
-    entity.entityConditions = entity.entityConditions.filter((entityCondition) => entityCondition.name != condition.name);
+  removeCondition(entity: Entity, condition: Condition, permanent: boolean = false) {
+    entity.entityConditions = entity.entityConditions.filter((entityCondition) => entityCondition.name != condition.name || entityCondition.permanent != permanent);
   }
 
-  applyCondition(entity: Entity, name: ConditionName, highlight: boolean = false) {
+  applyCondition(entity: Entity, figure: Figure, name: ConditionName, highlight: boolean = false) {
     const condition = entity.entityConditions.find((entityCondition) => entityCondition.name == name && !entityCondition.expired && entityCondition.types.indexOf(ConditionType.apply) != -1);
 
-    if (condition) {
+    if (condition && !this.isImmune(entity, figure, condition.name)) {
       if (condition.name == ConditionName.poison || condition.name == ConditionName.poison_x) {
         entity.health -= condition.value;
         condition.highlight = false;
-        this.checkHealth(entity);
+        this.checkHealth(entity, figure);
       }
 
       if (condition.name == ConditionName.ward) {
         entity.health += condition.value;
-        this.checkHealth(entity);
+        this.checkHealth(entity, figure);
         entity.health -= Math.floor(condition.value / 2);
         condition.value = 1;
         condition.expired = true;
         condition.highlight = false;
-        this.checkHealth(entity);
+        this.checkHealth(entity, figure);
       }
 
       if (condition.name == ConditionName.brittle) {
         entity.health += condition.value;
-        this.checkHealth(entity);
+        this.checkHealth(entity, figure);
         entity.health -= condition.value * 2;
         condition.value = 1;
         condition.expired = true;
         condition.highlight = false;
-        this.checkHealth(entity);
+        this.checkHealth(entity, figure);
       }
 
       if (condition.name == ConditionName.heal) {
@@ -318,7 +321,7 @@ export class EntityManager {
           condition.highlight = false;
         }
 
-        this.checkHealth(entity);
+        this.checkHealth(entity, figure);
         setTimeout(() => {
           condition.expired = !condition.permanent;
           condition.highlight = false;
@@ -336,13 +339,15 @@ export class EntityManager {
     if (condition) {
       condition.highlight = false;
 
-      if (condition.name == ConditionName.heal) {
-        condition.expired = true;
-      }
+      if (!condition.permanent) {
+        if (condition.name == ConditionName.heal) {
+          condition.expired = true;
+        }
 
-      if (condition.name == ConditionName.ward || condition.name == ConditionName.brittle) {
-        condition.value = 1;
-        condition.expired = true;
+        if (condition.name == ConditionName.ward || condition.name == ConditionName.brittle) {
+          condition.value = 1;
+          condition.expired = true;
+        }
       }
     }
   }
@@ -388,9 +393,9 @@ export class EntityManager {
     })
   }
 
-  applyConditionsTurn(entity: Entity) {
+  applyConditionsTurn(entity: Entity, figure: Figure) {
 
-    const regenerateCondition = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state == EntityConditionState.normal && entityCondition.name == ConditionName.regenerate);
+    const regenerateCondition = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state == EntityConditionState.normal && entityCondition.name == ConditionName.regenerate && !this.isImmune(entity, figure, entityCondition.name));
 
     if (regenerateCondition) {
       const maxHealth = EntityValueFunction(entity.maxHealth);
@@ -413,7 +418,7 @@ export class EntityManager {
         regenerateCondition.lastState = regenerateCondition.state;
         regenerateCondition.state = EntityConditionState.expire;
         entity.health += regenerateCondition.value;
-        this.checkHealth(entity);
+        this.checkHealth(entity, figure);
       }
 
       regenerateCondition.highlight = true;
@@ -425,35 +430,37 @@ export class EntityManager {
     if (entity instanceof Character && entity.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '178') && entity.initiative >= 60 && !entity.longRest) {
       entity.health = entity.health + 1;
       entity.entityConditions.push(new EntityCondition(ConditionName.heal, 1));
-      this.applyCondition(entity, ConditionName.heal, true);
+      this.applyCondition(entity, figure, ConditionName.heal, true);
     }
 
     entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.state == EntityConditionState.normal && entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => {
-      entityCondition.lastState = entityCondition.state;
-      entityCondition.state = EntityConditionState.turn;
-      if (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) {
-        entity.health = entity.health - entityCondition.value;
+      if (!this.isImmune(entity, figure, entityCondition.name)) {
+        entityCondition.lastState = entityCondition.state;
+        entityCondition.state = EntityConditionState.turn;
+        if (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) {
+          entity.health = entity.health - entityCondition.value;
 
-        if (entity instanceof Character && entity.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '71')) {
-          entity.health = entity.health + entityCondition.value + 1;
-          entity.entityConditions.push(new EntityCondition(ConditionName.heal, 1));
-          this.applyCondition(entity, ConditionName.heal, true);
-        }
-
-        this.checkHealth(entity);
-
-        entityCondition.highlight = true;
-        setTimeout(() => {
-          entityCondition.highlight = false;
-          if (!(entity instanceof Character) || !entity.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '71')) {
-            this.sufferDamageHighlightConditions(entity, - entityCondition.value);
-            this.checkHealth(entity);
+          if (entity instanceof Character && entity.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '71')) {
+            entity.health = entity.health + entityCondition.value + 1;
+            entity.entityConditions.push(new EntityCondition(ConditionName.heal, 1));
+            this.applyCondition(entity, figure, ConditionName.heal, true);
           }
-        }, 1000);
+
+          this.checkHealth(entity, figure);
+
+          entityCondition.highlight = true;
+          setTimeout(() => {
+            entityCondition.highlight = false;
+            if (!(entity instanceof Character) || !entity.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '71')) {
+              this.sufferDamageHighlightConditions(entity, figure, - entityCondition.value);
+              this.checkHealth(entity, figure);
+            }
+          }, 1000);
+        }
       }
     })
 
-    entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.afterTurn) != -1).forEach((entityCondition) => {
+    entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.afterTurn) != -1 && !entityCondition.permanent).forEach((entityCondition) => {
       if (entityCondition.state == EntityConditionState.normal) {
         entityCondition.lastState = entityCondition.state;
         entityCondition.state = EntityConditionState.turn;
@@ -464,7 +471,7 @@ export class EntityManager {
     })
   }
 
-  unapplyConditionsTurn(entity: Entity) {
+  unapplyConditionsTurn(entity: Entity, figure: Figure) {
     entity.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.turn && entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => {
       if (entityCondition.expired) {
         entityCondition.expired = false;
@@ -473,7 +480,7 @@ export class EntityManager {
         entityCondition.state = EntityConditionState.normal;
         if (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) {
           entity.health = entity.health + entityCondition.value;
-          this.checkHealth(entity);
+          this.checkHealth(entity, figure);
         }
       }
     });
@@ -490,7 +497,7 @@ export class EntityManager {
         regenerateCondition.lastState = regenerateCondition.state;
         regenerateCondition.state = EntityConditionState.normal;
         entity.health -= regenerateCondition.value;
-        this.checkHealth(entity);
+        this.checkHealth(entity, figure);
       }
     }
 
@@ -500,36 +507,38 @@ export class EntityManager {
     }
   }
 
-  applyConditionsAfter(entity: Entity) {
+  applyConditionsAfter(entity: Entity, figure: Figure,) {
     entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.afterTurn) != -1).forEach((entityCondition) => {
-      if (entityCondition.state == EntityConditionState.turn) {
-        if (entityCondition.name == ConditionName.bane) {
-          this.changeHealth(entity, -10);
-          entityCondition.expired = true;
-          entityCondition.highlight = true;
-          setTimeout(() => {
-            entityCondition.highlight = false;
-          }, 1000);
+      if (!this.isImmune(entity, figure, entityCondition.name)) {
+        if (entityCondition.state == EntityConditionState.turn) {
+          if (entityCondition.name == ConditionName.bane) {
+            this.changeHealth(entity, figure, -10);
+            entityCondition.expired = true;
+            entityCondition.highlight = true;
+            setTimeout(() => {
+              entityCondition.highlight = false;
+            }, 1000);
+          }
+        } else if (entityCondition.state == EntityConditionState.normal) {
+          entityCondition.lastState = entityCondition.state;
+          entityCondition.state = EntityConditionState.turn;
+        } else if (entityCondition.state == EntityConditionState.new && entityCondition.lastState != EntityConditionState.new) {
+          entityCondition.lastState = entityCondition.state;
+          entityCondition.state = EntityConditionState.normal;
+        } else if (entityCondition.state == EntityConditionState.new && entityCondition.lastState == EntityConditionState.new) {
+          entityCondition.lastState = EntityConditionState.new;
+          entityCondition.state = EntityConditionState.normal;
         }
-      } else if (entityCondition.state == EntityConditionState.normal) {
-        entityCondition.lastState = entityCondition.state;
-        entityCondition.state = EntityConditionState.turn;
-      } else if (entityCondition.state == EntityConditionState.new && entityCondition.lastState != EntityConditionState.new) {
-        entityCondition.lastState = entityCondition.state;
-        entityCondition.state = EntityConditionState.normal;
-      } else if (entityCondition.state == EntityConditionState.new && entityCondition.lastState == EntityConditionState.new) {
-        entityCondition.lastState = EntityConditionState.new;
-        entityCondition.state = EntityConditionState.normal;
       }
     })
   }
 
-  unapplyConditionsAfter(entity: Entity) {
+  unapplyConditionsAfter(entity: Entity, figure: Figure) {
     entity.entityConditions.filter((entityCondition) => entityCondition.state != EntityConditionState.removed && entityCondition.types.indexOf(ConditionType.afterTurn) != -1).forEach((entityCondition) => {
       if (entityCondition.expired) {
         if (entityCondition.name == ConditionName.bane) {
           entity.health = entity.health + 10;
-          this.checkHealth(entity);
+          this.checkHealth(entity, figure);
         }
 
         entityCondition.highlight = false;
@@ -609,7 +618,7 @@ export class EntityManager {
         if (settingsManager.settings.expireConditions) {
           entity.entityConditions = entity.entityConditions.filter((entityCondition) => !entityCondition.expired);
           entity.entityConditions.forEach((entityCondition) => {
-            if (entityCondition.types.indexOf(ConditionType.expire) != -1) {
+            if (entityCondition.types.indexOf(ConditionType.expire) != -1 && !entityCondition.permanent) {
               if (entityCondition.state == EntityConditionState.normal) {
                 entityCondition.lastState = entityCondition.state;
                 entityCondition.state = EntityConditionState.expire;
@@ -619,7 +628,7 @@ export class EntityManager {
         }
 
         if (settingsManager.settings.applyConditions) {
-          entity.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1 || entityCondition.types.indexOf(ConditionType.afterTurn) != -1).forEach((entityCondition) => {
+          entity.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1 || entityCondition.types.indexOf(ConditionType.afterTurn) != -1 && !this.isImmune(entity, figure, entityCondition.name)).forEach((entityCondition) => {
             entityCondition.lastState = entityCondition.state;
             entityCondition.state = EntityConditionState.normal;
           });

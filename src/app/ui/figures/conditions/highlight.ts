@@ -25,9 +25,9 @@ export class HighlightConditionsComponent {
   applyCondition(name: ConditionName, event: any, double: boolean = false) {
     event.stopPropagation();
     gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "applyCondition"), "game.condition." + name);
-    gameManager.entityManager.applyCondition(this.entity, name);
+    gameManager.entityManager.applyCondition(this.entity,this.figure, name);
     if (double) {
-      gameManager.entityManager.applyCondition(this.entity, name);
+      gameManager.entityManager.applyCondition(this.entity,this.figure, name);
     }
 
     this.after();
@@ -41,7 +41,7 @@ export class HighlightConditionsComponent {
   }
 
   after() {
-    gameManager.entityManager.checkHealth(this.entity);
+    gameManager.entityManager.checkHealth(this.entity, this.figure);
     if (this.figure instanceof Monster && this.entity instanceof MonsterEntity && this.entity.dead && (this.entity.entityConditions.length == 0 || this.entity.entityConditions.every((entityCondition) => !entityCondition.highlight || entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1))) {
       setTimeout(() => {
         if (this.figure instanceof Monster && this.entity instanceof MonsterEntity) {

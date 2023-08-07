@@ -1,4 +1,4 @@
-import { EntityCondition, GameEntityConditionModel } from "./data/Condition";
+import { ConditionName, EntityCondition, GameEntityConditionModel } from "./data/Condition";
 import { Entity, EntityValueFunction } from "./Entity";
 import { FigureError, FigureErrorType } from "./data/FigureError";
 import { Monster } from "./Monster";
@@ -22,6 +22,7 @@ export class MonsterEntity implements Entity {
   health: number;
   maxHealth: number;
   entityConditions: EntityCondition[] = [];
+  immunities: ConditionName[] = [];
   markers: string[] = [];
   tags: string[] = [];
 
@@ -53,7 +54,7 @@ export class MonsterEntity implements Entity {
   }
 
   toModel(): GameMonsterEntityModel {
-    return new GameMonsterEntityModel(this.number, this.marker, this.type, this.dead, this.summon, this.active, this.off, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || []);
+    return new GameMonsterEntityModel(this.number, this.marker, this.type, this.dead, this.summon, this.active, this.off, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || []);
   }
 
   fromModel(model: GameMonsterEntityModel) {
@@ -72,6 +73,7 @@ export class MonsterEntity implements Entity {
         return condition;
       });
     }
+    this.immunities = model.immunities || [];
     this.markers = model.markers || [];
     this.tags = model.tags || [];
   }
@@ -90,6 +92,7 @@ export class GameMonsterEntityModel {
   health: number;
   maxHealth: number;
   entityConditions: GameEntityConditionModel[];
+  immunities: ConditionName[];
   markers: string[];
   tags: string[];
 
@@ -103,6 +106,7 @@ export class GameMonsterEntityModel {
     health: number,
     maxHealth: number,
     entityConditions: GameEntityConditionModel[],
+    immunities: ConditionName[],
     markers: string[],
     tags: string[]) {
     this.number = number;
@@ -115,6 +119,7 @@ export class GameMonsterEntityModel {
     this.health = health;
     this.maxHealth = maxHealth;
     this.entityConditions = JSON.parse(JSON.stringify(entityConditions));
+    this.immunities = JSON.parse(JSON.stringify(immunities));
     this.markers = JSON.parse(JSON.stringify(markers));
     this.tags = JSON.parse(JSON.stringify(tags));
   }

@@ -51,7 +51,7 @@
     <div class="conditions">
       <span class="condition-container" *ngFor="let entityCondition of activeConditions; let index = index;"
         [ngClass]="{'center' : entity.summon == SummonState.false && ((activeConditions).length % 2) == 1 && (activeConditions).length == index + 1, 'expired' : entityCondition.expired}">
-        <span class="condition" [ngClass]="{'permanent' : entityCondition.permanent}">
+        <span class="condition">
           <img
             [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
             [style.z-index]="index * 10 + entityCondition.value" />
@@ -62,6 +62,11 @@
           </ng-container>
           <span class="value" [style.z-index]="index * 10 + entityCondition.value +1"
             *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1 && entityCondition.types.indexOf(ConditionType.stack) == -1">{{entityCondition.value}}</span>
+          <span *ngIf="entity.immunities.indexOf(entityCondition.name) != -1"
+            class="condition immunity condition-overlay"
+            [style.z-index]="index * 10 + entityCondition.value + 2"></span>
+          <span *ngIf="entityCondition.permanent" class="condition permanent condition-overlay"
+            [style.z-index]="index * 10 + entityCondition.value + 3"></span>
         </span>
       </span>
       <span *ngIf="entity.summon && entity.summon != SummonState.false" class="summon-container"

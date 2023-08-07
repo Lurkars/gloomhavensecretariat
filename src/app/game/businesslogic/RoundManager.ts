@@ -186,8 +186,8 @@ export class RoundManager {
       gameManager.entityManager.entitiesAll(figure, false).forEach((entity) => {
         if (settingsManager.settings.applyConditions) {
           const killReset = (entity instanceof MonsterEntity || entity instanceof Summon) && entity.dead;
-          gameManager.entityManager.unapplyConditionsTurn(entity);
-          gameManager.entityManager.unapplyConditionsAfter(entity);
+          gameManager.entityManager.unapplyConditionsTurn(entity, figure);
+          gameManager.entityManager.unapplyConditionsAfter(entity, figure);
           if (killReset && !entity.dead) {
             const identifier = gameManager.additionalIdentifier(figure, entity);
             let counter = gameManager.entityCounter(identifier);
@@ -265,15 +265,15 @@ export class RoundManager {
           gameManager.entityManager.expireConditions(prevSummon);
         }
         if (settingsManager.settings.applyConditions && (!activeSummon || index > 0)) {
-          gameManager.entityManager.applyConditionsTurn(prevSummon);
-          gameManager.entityManager.applyConditionsAfter(prevSummon);
+          gameManager.entityManager.applyConditionsTurn(prevSummon, figure);
+          gameManager.entityManager.applyConditionsAfter(prevSummon, figure);
         }
       })
 
       if (nextSummon) {
         nextSummon.active = true;
         if (settingsManager.settings.applyConditions) {
-          gameManager.entityManager.applyConditionsTurn(nextSummon);
+          gameManager.entityManager.applyConditionsTurn(nextSummon, figure);
         }
         if (nextSummon.dead) {
           this.turn(figure);
@@ -301,10 +301,10 @@ export class RoundManager {
     if (settingsManager.settings.applyConditions) {
       if (!(figure instanceof Character) || skipSummons) {
         gameManager.entityManager.entitiesAll(figure).forEach((entity) => {
-          gameManager.entityManager.applyConditionsTurn(entity);
+          gameManager.entityManager.applyConditionsTurn(entity, figure);
         })
       } else if (!skipSummons && !figure.summons.some((summon) => summon.active)) {
-        gameManager.entityManager.applyConditionsTurn(figure);
+        gameManager.entityManager.applyConditionsTurn(figure, figure);
       }
     }
 
@@ -318,7 +318,7 @@ export class RoundManager {
 
         figure.health += heal;
         gameManager.entityManager.addCondition(figure, new Condition(ConditionName.heal, heal), figure.active || false, figure.off || false);
-        gameManager.entityManager.applyCondition(figure, ConditionName.heal, true);
+        gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
       }
     }
 
@@ -351,7 +351,7 @@ export class RoundManager {
         }
 
         if (settingsManager.settings.applyConditions) {
-          gameManager.entityManager.applyConditionsAfter(entity);
+          gameManager.entityManager.applyConditionsAfter(entity, figure);
         }
       })
     }

@@ -75,8 +75,8 @@
       </span>
     </div>
 
-    <ghs-conditions [entities]="activeCharacters" [entityConditions]="entityConditions" [type]="'character'"
-      (change)="changeConditions($event)" *ngIf="gameManager.game.scenario"></ghs-conditions>
+    <ghs-conditions [entities]="activeCharacters" [entityConditions]="entityConditions" [immunities]="newImmunities"
+      [type]="'character'" (change)="changeConditions($event)" *ngIf="gameManager.game.scenario"></ghs-conditions>
 
     <div class="entity-container">
       <span class="progress"><span [ghs-label]="'scenario.eventEffects.progress'"></span></span>

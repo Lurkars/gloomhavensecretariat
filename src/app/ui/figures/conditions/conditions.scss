@@ -31,6 +31,15 @@
     position: relative;
     width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
     height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+    z-index: 1;
+
+    &.permanent-overlay {
+      position: absolute;
+      top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      pointer-events: none;
+      z-index: 2;
+    }
 
     &::after {
       pointer-events: none;

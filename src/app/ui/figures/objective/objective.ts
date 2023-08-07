@@ -57,6 +57,11 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
 
   update(): void {
     this.activeConditions = gameManager.entityManager.activeConditions(this.objective);
+    this.objective.immunities.forEach((immunity) => {
+      if (!this.activeConditions.find((entityCondition) => entityCondition.name == immunity)) {
+        this.activeConditions.push(new EntityCondition(immunity));
+      }
+    })
   }
 
   exhausted() {
@@ -145,7 +150,7 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
   dragHpEnd(value: number) {
     if (this.health != 0) {
       gameManager.stateManager.before("changeObjectiveHP", this.objective.title || this.objective.name, ghsValueSign(this.health));
-      gameManager.entityManager.changeHealth(this.objective, this.health);
+      gameManager.entityManager.changeHealth(this.objective, this.objective, this.health);
       if (this.objective.health <= 0 || this.objective.exhausted && this.health >= 0 && this.objective.health > 0) {
         if (this.objective.escort) {
           this.exhausted();

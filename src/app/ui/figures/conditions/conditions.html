@@ -4,10 +4,11 @@
       <span class="condition" (click)="toggleCondition(condition)"
         [ghsTooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
         [originY]="'top'" [overlayY]="'bottom'"
-        [ngClass]="{'active' : hasCondition(condition) && !isPermanent(condition.name), 'disabled' : isImmune(condition.name) || isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
+        [ngClass]="{'active' : !immunityEnabled && hasCondition(condition) || immunityEnabled && immunities.indexOf(condition.name) != -1, 'disabled': !hasCondition(condition) && !immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
       </span>
+      <span *ngIf="isPermanent(condition.name)" class="condition permanent permanent-overlay"></span>
     </a>
     <a class="item" *ngFor="let condition of upgradeNegative">
       <img (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
@@ -15,11 +16,12 @@
       <span class="condition" (click)="toggleCondition(condition)"
         [ghsTooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
         [originY]="'top'" [overlayY]="'bottom'"
-        [ngClass]="{'active' : hasCondition(condition) && !isPermanent(condition.name), 'disabled' : isImmune(condition.name) || isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
+        [ngClass]="{'active' : !immunityEnabled && hasCondition(condition) || immunityEnabled && immunities.indexOf(condition.name) != -1, 'disabled': !hasCondition(condition) && !immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
         <span class="value">{{getValue(condition)}}</span>
       </span>
+      <span *ngIf="isPermanent(condition.name)" class="condition permanent permanent-overlay"></span>
       <img (click)="inc(condition)" class="ghs-svg inc " src="./assets/images/right.svg" />
     </a>
     <a class="item" *ngFor="let condition of stackNegative">
@@ -28,11 +30,12 @@
       <span class="condition" (click)="toggleCondition(condition)"
         [ghsTooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
         [originY]="'top'" [overlayY]="'bottom'"
-        [ngClass]="{'active' : hasCondition(condition) && !isPermanent(condition.name), 'disabled' : isImmune(condition.name) || isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
+        [ngClass]="{'active' : !immunityEnabled && hasCondition(condition) || immunityEnabled && immunities.indexOf(condition.name) != -1, 'disabled': !hasCondition(condition) && !immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
         <span class="value stack">{{getValue(condition)}}</span>
       </span>
+      <span *ngIf="isPermanent(condition.name)" class="condition permanent permanent-overlay"></span>
       <img (click)="inc(condition)" class="ghs-svg inc " src="./assets/images/right.svg" />
     </a>
   </div>
@@ -42,10 +45,11 @@
       <span class="condition" (click)="toggleCondition(condition)"
         [ghsTooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
         [originY]="'top'" [overlayY]="'bottom'"
-        [ngClass]="{'active' : hasCondition(condition) && !isPermanent(condition.name), 'disabled' : isImmune(condition.name) || isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
+        [ngClass]="{'active' : !immunityEnabled && hasCondition(condition) || immunityEnabled && immunities.indexOf(condition.name) != -1, 'disabled': !hasCondition(condition) && !immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
       </span>
+      <span *ngIf="isPermanent(condition.name)" class="condition permanent permanent-overlay"></span>
     </a>
     <a class="item" *ngFor="let condition of upgradePositive">
       <img (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
@@ -53,11 +57,12 @@
       <span class="condition" (click)="toggleCondition(condition)"
         [ghsTooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
         [originY]="'top'" [overlayY]="'bottom'"
-        [ngClass]="{'active' : hasCondition(condition) && !isPermanent(condition.name), 'disabled' : isImmune(condition.name) || isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
+        [ngClass]="{'active' : !immunityEnabled && hasCondition(condition) || immunityEnabled && immunities.indexOf(condition.name) != -1, 'disabled': !hasCondition(condition) && !immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
         <span class="value">{{getValue(condition)}}</span>
       </span>
+      <span *ngIf="isPermanent(condition.name)" class="condition permanent permanent-overlay"></span>
       <img (click)="inc(condition)" class="ghs-svg inc " src="./assets/images/right.svg" />
     </a>
     <a class="item" *ngFor="let condition of stackPositive">
@@ -66,24 +71,24 @@
       <span class="condition" (click)="toggleCondition(condition)"
         [ghsTooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
         [originY]="'top'" [overlayY]="'bottom'"
-        [ngClass]="{'active' : hasCondition(condition) && !isPermanent(condition.name), 'disabled' : isImmune(condition.name) || isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
+        [ngClass]="{'active' : !immunityEnabled && hasCondition(condition) || immunityEnabled && immunities.indexOf(condition.name) != -1, 'disabled': !hasCondition(condition) && !immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
         <span class="value stack">{{getValue(condition)}}</span>
       </span>
+      <span *ngIf="isPermanent(condition.name)" class="condition permanent permanent-overlay"></span>
       <img (click)="inc(condition)" class="ghs-svg inc " src="./assets/images/right.svg" />
     </a>
   </div>
 
-  <div class="condition-container permanent" *ngIf="permanent.length > 0">
-    <a class="item" *ngFor="let condition of permanent">
-      <span class="condition permanent" (click)="toggleCondition(condition, true)"
-        [ghsTooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
-        [originY]="'top'" [overlayY]="'bottom'"
-        [ngClass]="{'active' : isPermanent(condition.name), 'disabled' : isImmune(condition.name) , 'immunity' : isImmune(condition.name)}">
-        <img
-          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
-      </span>
+  <div class="condition-container menu">
+    <a class="item">
+      <span class="condition permanent" [ngClass]="{'active': permanentEnabled}"
+        (click)="permanentEnabled = !permanentEnabled; immunityEnabled = false;"></span>
+    </a>
+    <a class="item">
+      <span class="condition immunity" [ngClass]="{'active': immunityEnabled}"
+        (click)="immunityEnabled = !immunityEnabled; permanentEnabled = false;"></span>
     </a>
   </div>
 </div>

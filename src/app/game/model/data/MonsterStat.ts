@@ -1,4 +1,5 @@
 import { Action } from "./Action";
+import { ConditionName } from "./Condition";
 import { MonsterType } from "./MonsterType";
 
 export class MonsterStat {
@@ -9,7 +10,7 @@ export class MonsterStat {
   attack: number | string;
   range: number;
   actions: Action[];
-  immunities: string[];
+  immunities: ConditionName[];
   special: Action[][];
   note: string;
 
@@ -20,7 +21,7 @@ export class MonsterStat {
     attack: number | string,
     range: number,
     actions: Action[] = [],
-    immunities: string[] = [],
+    immunities: ConditionName[] = [],
     special: Action[][] = [],
     note: string = ""
   ) {
@@ -44,6 +45,6 @@ export class MonsterStatEffect {
   attack: number | string = 0;
   range: number | string = 0;
   actions: Action[] = [];
-  immunities: string[] = [];
+  immunities: ConditionName[] = [];
 
 }

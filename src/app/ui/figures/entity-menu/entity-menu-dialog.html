@@ -1,5 +1,5 @@
 <div class="entity-menu-dialog">
-
+  <span class="text-white">{{entityImmunities}}</span>
   <div class="name">
     <ng-container *ngIf="data.entity && gameManager.isCharacter(data.figure) && gameManager.isCharacter(data.entity)">
       <span class="spacer"></span>
@@ -434,8 +434,8 @@
 
     <ng-container
       *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isObjective(data.entity) || gameManager.toObjective(data.entity).escort) && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal)">
-      <ghs-conditions [entityConditions]="entityConditions" [entity]="data.entity" [figure]="data.figure"
-        [type]="conditionType"></ghs-conditions>
+      <ghs-conditions [entityConditions]="entityConditions" [immunities]="entityImmunities" [entity]="data.entity"
+        [figure]="data.figure" [type]="conditionType"></ghs-conditions>
     </ng-container>
   </div>
 

@@ -25,7 +25,7 @@
     <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"></div>
     <div class="column col-1">
       <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"></div>
-      <div class="title-container">
+      <div class="title-container" ghs-pointer-input (singleClick)="openEntityMenu($event)">
         <div class="title" #objectiveName>
           <img class="icon"
             [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
@@ -56,18 +56,22 @@
           <span *ngIf="maxHealth() == 0">-</span>
         </div>
         <div class="conditions">
-          <span class="condition" [ngClass]="{'permanent' : entityCondition.permanent}"
-            *ngFor="let entityCondition of activeConditions; let index = index;">
+          <span class="condition" *ngFor="let entityCondition of activeConditions; let index = index;">
             <img
               [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
               [style.z-index]="index * 10 + entityCondition.value" />
             <ng-container *ngIf="entityCondition.types.indexOf(ConditionType.stack) != -1">
               <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)"
-                [style.z-index]="index * 10 + entityCondition.value - i * 10 - 1"
+                [style.z-index]="index * 10 + entityCondition.value - i - 1"
                 [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
             </ng-container>
             <span class="value" [style.z-index]="index * 10 + entityCondition.value +1"
               *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1 && entityCondition.types.indexOf(ConditionType.stack) == -1">{{entityCondition.value}}</span>
+            <span *ngIf="objective.immunities.indexOf(entityCondition.name) != -1"
+              class="condition immunity condition-overlay"
+              [style.z-index]="index * 10 + entityCondition.value + 2"></span>
+            <span *ngIf="entityCondition.permanent" class="condition permanent condition-overlay"
+              [style.z-index]="index * 10 + entityCondition.value + 3"></span>
           </span>
         </div>
       </div>

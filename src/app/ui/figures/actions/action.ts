@@ -494,11 +494,11 @@ export class ActionComponent implements OnInit, OnDestroy {
       this.monster.entities.filter((entity) => gameManager.entityManager.isAlive(entity, true)).forEach((entity) => {
         if (this.action && !entity.tags.find((tag) => tag == 'roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action?.type)) {
           entity.tags.push('roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action.type);
-          if (this.action.type == ActionType.heal) {
+          if (this.monster && this.action.type == ActionType.heal) {
             const heal = EntityValueFunction(this.action.value, this.level);
             entity.health += heal;
             gameManager.entityManager.addCondition(entity, new Condition(ConditionName.heal, heal), this.monster && this.monster.active || false, this.monster && this.monster.off || false);
-            gameManager.entityManager.applyCondition(entity, ConditionName.heal, true);
+            gameManager.entityManager.applyCondition(entity, this.monster, ConditionName.heal, true);
           } else if (this.action.type == ActionType.condition) {
             if (this.action.value == 'bless' || this.action.value == 'curse') {
               const am = settingsManager.settings.allyAttackModifierDeck && (gameManager.fhRules() || settingsManager.settings.alwaysAllyAttackModifierDeck) && (this.monster?.isAlly || this.monster?.isAllied) ? gameManager.game.allyAttackModifierDeck : gameManager.game.monsterAttackModifierDeck;

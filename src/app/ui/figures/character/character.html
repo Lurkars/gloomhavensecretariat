@@ -1,8 +1,8 @@
 <div class="summons-container" *ngIf="!character.absent"
   [ngClass]="{'empty' : summonCount == 0, 'off' : character.off || character.exhausted || character.health <= 0 }">
   <span class="spacer"></span>
-  <span class="entities-menu" [ngClass]="{'empty' : summonCount == 0, 'disabled' : summonCount < 2}" [entityAnimation]="summonCount == 0"
-    (click)="openEntitiesMenu($event)">
+  <span class="entities-menu" [ngClass]="{'empty' : summonCount == 0, 'disabled' : summonCount < 2}"
+    [entityAnimation]="summonCount == 0" (click)="openEntitiesMenu($event)">
     <img class="icon" [src]="character.iconUrl" />
     <img class="menu" src="./assets/images/up.svg">
   </span>
@@ -106,8 +106,7 @@
               </span>
             </div>
             <div class="conditions">
-              <span class="condition" [ngClass]="{'permanent' : entityCondition.permanent}"
-                *ngFor="let entityCondition of activeConditions; let index = index;">
+              <span class="condition" *ngFor="let entityCondition of activeConditions; let index = index;">
                 <img
                   [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
                   [style.z-index]="index * 10 + entityCondition.value" />
@@ -118,6 +117,11 @@
                 </ng-container>
                 <span class="value" [style.z-index]="index * 10 + entityCondition.value +1"
                   *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1 && entityCondition.types.indexOf(ConditionType.stack) == -1">{{entityCondition.value}}</span>
+                <span *ngIf="character.immunities.indexOf(entityCondition.name) != -1"
+                  class="condition immunity condition-overlay"
+                  [style.z-index]="index * 10 + entityCondition.value + 2"></span>
+                <span *ngIf="entityCondition.permanent" class="condition permanent condition-overlay"
+                  [style.z-index]="index * 10 + entityCondition.value + 3"></span>
               </span>
             </div>
           </div>

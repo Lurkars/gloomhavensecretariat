@@ -54,7 +54,6 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   summonCount: number = 0;
   activeConditions: EntityCondition[] = [];
-
   constructor(private dialog: Dialog, private overlay: Overlay) { }
 
   ngOnInit(): void {
@@ -73,6 +72,11 @@ export class CharacterComponent implements OnInit, OnDestroy {
   update(): void {
     this.summonCount = this.character.summons.filter((summon) => gameManager.entityManager.isAlive(summon)).length;
     this.activeConditions = gameManager.entityManager.activeConditions(this.character);
+    this.character.immunities.forEach((immunity) => {
+      if (!this.activeConditions.find((entityCondition) => entityCondition.name == immunity)) {
+        this.activeConditions.push(new EntityCondition(immunity));
+      }
+    })
   }
 
   beforeAttackModifierDeck(change: AttackModiferDeckChange) {
@@ -206,7 +210,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   dragHpEnd(value: number) {
     if (this.health != 0) {
       gameManager.stateManager.before("changeHP", "data.character." + this.character.name, ghsValueSign(this.health));
-      gameManager.entityManager.changeHealth(this.character, this.health);
+      gameManager.entityManager.changeHealth(this.character, this.character, this.health);
       this.health = 0;
       gameManager.stateManager.after();
     }

@@ -69,7 +69,7 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
   dragHpEnd(value: number) {
     if (this.health != 0) {
       gameManager.stateManager.before("changeSummonHp", "data.character." + this.character.name, "data.summon." + this.summon.name, ghsValueSign(this.health));
-      gameManager.entityManager.changeHealth(this.summon, this.health);
+      gameManager.entityManager.changeHealth(this.summon, this.character, this.health);
       if (this.summon.health <= 0 || this.summon.dead && this.health >= 0 && this.summon.health > 0) {
         this.dead();
       }

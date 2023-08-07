@@ -48,10 +48,10 @@
     </span>
   </div>
 
-  <ghs-conditions *ngIf="monster" [entityConditions]="entityConditions" [entities]="entities" [figure]="monster"
+  <ghs-conditions *ngIf="monster" [entityConditions]="entityConditions" [immunities]="entityImmunities" [entities]="entities" [figure]="monster"
     [type]="'monster'" [columns]="4"></ghs-conditions>
 
-  <ghs-conditions *ngIf="character" [entityConditions]="entityConditions" [entities]="entities" [figure]="character"
+  <ghs-conditions *ngIf="character" [entityConditions]="entityConditions" [immunities]="entityImmunities" [entities]="entities" [figure]="character"
     [type]="'monster'" [columns]="4"></ghs-conditions>
 
   <div class="entity-container">

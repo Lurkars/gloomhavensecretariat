@@ -347,6 +347,7 @@
     .status-bar {
       display: flex;
       align-items: center;
+      z-index: 2;
     }
 
     .health {
@@ -417,6 +418,16 @@
           &.stack {
             margin-left: calc(var(--ghs-unit) * -2 * var(--ghs-text-factor));
           }
+        }
+
+        &.condition-overlay {
+          position: absolute;
+          width: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
+          height: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
+          top: 0;
+          left: 0;
+          pointer-events: none;
+          z-index: 2;
         }
 
         .value {
