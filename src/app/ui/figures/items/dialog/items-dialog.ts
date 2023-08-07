@@ -5,7 +5,7 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
-import { Identifier } from "src/app/game/model/data/Identifier";
+import { CountIdentifier } from "src/app/game/model/data/Identifier";
 import { ItemData, ItemSlot } from "src/app/game/model/data/ItemData";
 import { ghsTextSearch } from "src/app/ui/helper/Static";
 
@@ -166,7 +166,7 @@ export class ItemsDialogComponent {
             gameManager.game.party.unlockedItems = gameManager.game.party.unlockedItems || [];
             if (!this.unlocked(item)) {
                 gameManager.stateManager.before("addUnlockedItem", item.edition, '' + item.id, item.name);
-                gameManager.game.party.unlockedItems.push(new Identifier('' + item.id, item.edition));
+                gameManager.game.party.unlockedItems.push(new CountIdentifier('' + item.id, item.edition));
                 gameManager.stateManager.after();
                 this.updateEditionItems();
             }

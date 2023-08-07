@@ -5,7 +5,7 @@ import { Character } from "src/app/game/model/Character";
 import { ItemData } from "src/app/game/model/data/ItemData";
 import { ScenarioData, ScenarioFinish } from "src/app/game/model/data/ScenarioData";
 import { ScenarioRewards } from "src/app/game/model/data/ScenarioRule";
-import { Identifier } from "src/app/game/model/data/Identifier";
+import { CountIdentifier, Identifier } from "src/app/game/model/data/Identifier";
 import { LootType } from "src/app/game/model/data/Loot";
 import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
 import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/character-sheet-dialog";
@@ -582,7 +582,7 @@ export class ScenarioSummaryComponent {
                     if (itemId == -1) {
                         gameManager.game.party.inspiration += 1;
                     } else {
-                        gameManager.game.party.unlockedItems.push(new Identifier('' + itemId, this.scenario.edition));
+                        gameManager.game.party.unlockedItems.push(new CountIdentifier('' + itemId, this.scenario.edition));
                     }
                 })
             }

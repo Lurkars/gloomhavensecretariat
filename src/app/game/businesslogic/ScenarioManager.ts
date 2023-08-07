@@ -6,7 +6,7 @@ import { ScenarioData } from "../model/data/ScenarioData";
 import { ScenarioRewards } from "../model/data/ScenarioRule";
 import { EntityValueFunction } from "../model/Entity";
 import { Game, GameState } from "../model/Game";
-import { Identifier } from "src/app/game/model/data/Identifier";
+import { CountIdentifier, Identifier } from "src/app/game/model/data/Identifier";
 import { LootDeckConfig } from "../model/data/Loot";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
@@ -202,13 +202,13 @@ export class ScenarioManager {
                   for (let i = from; i <= to; i++) {
                     const itemData = gameManager.itemManager.getItem(i, scenario.edition, true);
                     if (itemData && (!itemData.unlockScenario || itemData.unlockScenario.edition != scenario.edition || itemData.unlockScenario.name != scenario.index)) {
-                      this.game.party.unlockedItems.push(new Identifier(itemData.id + '', scenario.edition));
+                      this.game.party.unlockedItems.push(new CountIdentifier(itemData.id + '', scenario.edition));
                     }
                   }
                 } else {
                   const itemData = gameManager.itemManager.getItem(+item, scenario.edition, true);
                   if (itemData && (!itemData.unlockScenario || itemData.unlockScenario.edition != scenario.edition || itemData.unlockScenario.name != scenario.index)) {
-                    this.game.party.unlockedItems.push(new Identifier(itemData.id + '', scenario.edition));
+                    this.game.party.unlockedItems.push(new CountIdentifier(itemData.id + '', scenario.edition));
                   }
                 }
               })
@@ -220,10 +220,10 @@ export class ScenarioManager {
                   const from = +item.split('-')[0];
                   const to = +item.split('-')[1];
                   for (let i = from; i <= to; i++) {
-                    this.game.party.unlockedItems.push(new Identifier(i + '', scenario.edition));
+                    this.game.party.unlockedItems.push(new CountIdentifier(i + '', scenario.edition));
                   }
                 } else {
-                  this.game.party.unlockedItems.push(new Identifier(item, scenario.edition));
+                  this.game.party.unlockedItems.push(new CountIdentifier(item, scenario.edition));
                 }
               })
             }

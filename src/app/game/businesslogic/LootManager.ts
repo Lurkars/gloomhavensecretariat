@@ -4,7 +4,7 @@ import { Condition, ConditionName } from "../model/data/Condition";
 import { ItemData } from "../model/data/ItemData";
 import { TreasureData, TreasureReward, TreasureRewardType } from "../model/data/RoomData";
 import { Game } from "../model/Game";
-import { Identifier } from "../model/data/Identifier";
+import { CountIdentifier, Identifier } from "../model/data/Identifier";
 import { appliableLootTypes, fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from "../model/data/Loot";
 import { GameScenarioModel } from "../model/Scenario";
 import { gameManager } from "./GameManager";
@@ -205,7 +205,7 @@ export class LootManager {
             }
             const item = gameManager.itemManager.getItem(itemId, itemEdition, true);
             if (item) {
-              const identifier = new Identifier('' + item.id, item.edition);
+              const identifier = new CountIdentifier('' + item.id, item.edition);
               if (reward.type == TreasureRewardType.item || reward.type == TreasureRewardType.itemFh) {
                 if (character.progress.items.find((existing) => existing.name == identifier.name && existing.edition == identifier.edition)) {
                   character.progress.gold += gameManager.itemManager.itemSellValue(item);
@@ -292,12 +292,12 @@ export class LootManager {
 
         if (availableItems.length > 0) {
           let itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
-          let item: Identifier | undefined = new Identifier('' + itemData.id, itemData.edition);
+          let item: CountIdentifier | undefined = new CountIdentifier('' + itemData.id, itemData.edition);
           while (availableItems.length > 0 && gameManager.game.party.unlockedItems.find((unlocked) => item && unlocked.name == item.name && unlocked.edition == item.edition)) {
             availableItems = availableItems.filter((available) => item && (available.id + '' != item.name || available.edition != item.edition));
             if (availableItems.length > 0) {
               itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
-              item = new Identifier('' + itemData.id, itemData.edition);
+              item = new CountIdentifier('' + itemData.id, itemData.edition);
             } else {
               item = undefined;
             }

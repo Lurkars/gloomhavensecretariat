@@ -362,6 +362,15 @@
       width: 2.25em;
       height: 2.25em;
 
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+      }
+
       &:nth-child(1) {
         grid-column: 1;
         grid-row: 2;

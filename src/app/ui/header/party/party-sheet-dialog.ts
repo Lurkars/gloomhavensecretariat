@@ -7,7 +7,7 @@ import { Character, GameCharacterModel } from "src/app/game/model/Character";
 import { FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "src/app/game/model/data/EditionData";
 import { ItemData } from "src/app/game/model/data/ItemData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
-import { Identifier } from "src/app/game/model/data/Identifier";
+import { CountIdentifier, Identifier } from "src/app/game/model/data/Identifier";
 import { LootType } from "src/app/game/model/data/Loot";
 import { Party } from "src/app/game/model/Party";
 import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
@@ -556,7 +556,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         if (itemData) {
           gameManager.stateManager.before("addUnlockedItem", edition, itemId, itemData.name);
           this.party.unlockedItems = this.party.unlockedItems || [];
-          this.party.unlockedItems.push(new Identifier(itemId, edition));
+          this.party.unlockedItems.push(new CountIdentifier(itemId, edition));
           this.itemIndex.nativeElement.value = "";
           indexElement.classList.remove('error');
           gameManager.stateManager.after();

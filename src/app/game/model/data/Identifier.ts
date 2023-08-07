@@ -8,6 +8,16 @@ export class Identifier {
   }
 }
 
+export class CountIdentifier extends Identifier {
+
+  count: number;
+
+  constructor(name: string, edition: string, count: number = -1) {
+    super(name, edition);
+    this.count = count;
+  }
+}
+
 export class AdditionalIdentifier extends Identifier {
   type: "all" | "character" | "objective" | "monster" | undefined;
   marker: string | undefined;

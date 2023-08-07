@@ -1,7 +1,7 @@
 import { GameAttackModifierDeckModel } from "./data/AttackModifier";
 import { GameCharacterModel } from "./Character";
 import { BuildingModel } from "./data/BuildingData";
-import { Identifier } from "./data/Identifier";
+import { CountIdentifier, Identifier } from "./data/Identifier";
 import { LootType } from "./data/Loot";
 import { GameScenarioModel } from "./Scenario";
 
@@ -28,7 +28,7 @@ export class Party {
   players: string[] = [];
   characters: GameCharacterModel[] = [];
   retirements: GameCharacterModel[] = [];
-  unlockedItems: Identifier[] = [];
+  unlockedItems: CountIdentifier[] = [];
 
   weeks: number = 0;
   weekSections: Partial<Record<number, string[]>> = {};

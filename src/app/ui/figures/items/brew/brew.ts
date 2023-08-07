@@ -4,7 +4,7 @@ import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
-import { Identifier } from "src/app/game/model/data/Identifier";
+import { CountIdentifier, Identifier } from "src/app/game/model/data/Identifier";
 import { ItemData } from "src/app/game/model/data/ItemData";
 import { LootType } from "src/app/game/model/data/Loot";
 import { ItemDialogComponent } from "../dialog/item-dialog";
@@ -148,7 +148,7 @@ export class ItemsBrewDialog implements OnInit, OnDestroy {
             }
         })
         if (!gameManager.game.party.unlockedItems.find((identitfier) => identitfier.name == '' + itemData.id && identitfier.edition == itemData.edition)) {
-            gameManager.game.party.unlockedItems.push(new Identifier('' + itemData.id, itemData.edition));
+            gameManager.game.party.unlockedItems.push(new CountIdentifier('' + itemData.id, itemData.edition));
         }
         character.progress.items.push(new Identifier('' + itemData.id, itemData.edition));
         gameManager.stateManager.after();
