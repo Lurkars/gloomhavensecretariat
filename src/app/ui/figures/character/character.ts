@@ -351,7 +351,11 @@ export class CharacterComponent implements OnInit, OnDestroy {
     if (this.character.attackModifierDeckVisible) {
       this.character.attackModifierDeck.active = false;
       this.character.attackModifierDeckVisible = false;
-    } else if (settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
+    } else if (settingsManager.settings.characterAttackModifierDeckPermanent) {
+      this.character.attackModifierDeck.active = true;
+      this.character.attackModifierDeckVisible = true;
+      this.character.lootCardsVisible = false;
+    } else if (settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400)) {
       this.character.lootCardsVisible = false;
 
       const before = new EventEmitter<AttackModiferDeckChange>();
@@ -391,7 +395,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   toggleLootCardsVisible() {
     if (this.character.lootCardsVisible) {
       this.character.lootCardsVisible = false;
-    } else if (settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
+    } else if (settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400)) {
       this.character.lootCardsVisible = false;
       this.openLootDeckDialog();
     } else {

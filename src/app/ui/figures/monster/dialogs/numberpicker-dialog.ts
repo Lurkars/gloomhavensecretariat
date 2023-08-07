@@ -27,7 +27,7 @@ export class MonsterNumberPickerDialog implements OnInit {
     automatic: boolean = false;
     change: boolean = false;
     settingsManager: SettingsManager = settingsManager;
-    oneKeyBufferTimeoutId: number | undefined;
+    timeout: any;
 
     gameManager: GameManager = gameManager;
 
@@ -51,35 +51,23 @@ export class MonsterNumberPickerDialog implements OnInit {
     @HostListener('document:keydown', ['$event'])
     onKeyPress(event: KeyboardEvent) {
         if (event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
-            if (this.oneKeyBufferTimeoutId != null) {
-                // Stop buffering keypresses.
-                clearTimeout(this.oneKeyBufferTimeoutId);
-                this.oneKeyBufferTimeoutId = undefined;
+            if (this.timeout) {
+                clearTimeout(this.timeout);
+                this.timeout = undefined;
 
-                const combined = +`1${event.key}`;
-                const thisKey = +event.key;
+                const combined: number = +event.key + 10;
+                const thisKey: number = +event.key;
                 if (combined <= this.max) {
-                    // Pick 10 through 19 if it's valid.
                     this.pickNumber(combined);
                 } else {
-                    // Otherwise, pick the previous '1'...
                     this.pickNumber(1);
-                    // and the current key.
                     this.pickNumber(thisKey);
                 }
-            } else if (
-                event.key === '1' &&
-                this.range.filter((number) => number >= 10).some((number) => !this.hasNumber(number))
-            ) {
-                // If monsters 10 or above are still available, wait one second
-                // before picking '1' to allow users to type '10', '11', 12',
-                // etc. There's currently no user indication that this is
-                // happening.
-                this.oneKeyBufferTimeoutId = setTimeout(() => {
+            } else if (event.key === '1' && this.range.filter((number) => number >= 10).some((number) => !this.hasNumber(number))) {
+                this.timeout = setTimeout(() => {
                     this.pickNumber(1);
-                }, 1_000);
+                }, 1000);
             } else {
-                // Just a basic, direct keypress.
                 this.pickNumber(+event.key);
             }
 
@@ -173,6 +161,11 @@ export class MonsterNumberPickerDialog implements OnInit {
             }
             this.entity.number = number;
             gameManager.stateManager.after();
+        }
+
+        if (this.timeout) {
+            clearTimeout(this.timeout);
+            this.timeout = undefined;
         }
     }
 

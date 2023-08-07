@@ -162,7 +162,7 @@ export class ScenarioSummaryComponent {
         finish.calenderSectionManual = this.calenderSectionManual;
         finish.randomItem = this.randomItem ? new Identifier('' + this.randomItem.id, this.randomItem.edition) : undefined;
         finish.randomItemIndex = this.randomItemIndex;
-        finish.randomItems = this.randomItems.map((itemData) => itemData ? new Identifier('' + itemData.id, itemData.edition) : undefined);
+        finish.randomItems = this.randomItems ? this.randomItems.map((itemData) => itemData ? new Identifier('' + itemData.id, itemData.edition) : undefined) : [];
         finish.randomItemBlueprints = this.randomItemBlueprints;
         gameManager.game.finish = finish;
     }
@@ -181,7 +181,7 @@ export class ScenarioSummaryComponent {
             this.calenderSectionManual = finish.calenderSectionManual;
             this.randomItem = finish.randomItem ? gameManager.itemManager.getItem(+finish.randomItem.name, finish.randomItem.edition, true) : undefined;
             this.randomItemIndex = finish.randomItemIndex;
-            this.randomItems = finish.randomItems.map((item) => item ? gameManager.itemManager.getItem(+item.name, item.edition, true) : undefined);
+            this.randomItems = finish.randomItems ? finish.randomItems.map((item) => item ? gameManager.itemManager.getItem(+item.name, item.edition, true) : undefined) : [];
             this.randomItemBlueprints = finish.randomItemBlueprints;
         }
     }

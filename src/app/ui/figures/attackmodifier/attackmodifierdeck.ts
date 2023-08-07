@@ -94,7 +94,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
       this.battleGoals = false;
     }
     this.current = this.deck.current;
-    this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+    this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
 
     this.deck.cards.forEach((card, index) => {
       this.rollingIndex[index] = this.calcRollingIndex(index, this.current);
@@ -124,11 +124,11 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
     this.disabled = !this.standalone && (!this.townGuard && gameManager.game.state == GameState.draw || this.townGuard && gameManager.game.scenario != undefined);
 
     window.addEventListener('resize', (event) => {
-      this.compact = settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+      this.compact = settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
     });
 
     window.addEventListener('fullscreenchange', (event) => {
-      this.compact = settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+      this.compact = settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
     });
   }
 
@@ -199,7 +199,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
       this.rollingIndexPrev[index] = this.calcRollingIndex(index, this.current - 1);
     });
 
-    this.compact = settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+    this.compact = settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
   }
 
   drawQueue() {
@@ -315,7 +315,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
   }
 
   open(event: any) {
-    if (gameManager.game.state == GameState.next && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
+    if (gameManager.game.state == GameState.next && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400)) {
       this.openFullscreen(event);
     } else {
       this.dialog.open(AttackModifierDeckDialogComponent, {

@@ -66,7 +66,7 @@ export class LootDeckComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.current = this.deck.current;
         this.internalDraw = -99;
-        this.compact = this.deck.cards.length > 0 && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+        this.compact = this.deck.cards.length > 0 && settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
         this.disabled = !this.standalone && gameManager.game.state == GameState.draw;
         this.uiChangeSubscription = gameManager.uiChange.subscribe({
             next: () => {
@@ -94,17 +94,17 @@ export class LootDeckComponent implements OnInit, OnDestroy {
                     }
                 }
 
-                this.compact = settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+                this.compact = settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
                 this.disabled = !this.standalone && gameManager.game.state == GameState.draw;
             }
         })
 
         window.addEventListener('resize', (event) => {
-            this.compact = this.deck.cards.length > 0 && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+            this.compact = this.deck.cards.length > 0 && settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
         });
 
         window.addEventListener('fullscreenchange', (event) => {
-            this.compact = this.deck.cards.length > 0 && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400);
+            this.compact = this.deck.cards.length > 0 && settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
         });
     }
 
@@ -223,7 +223,7 @@ export class LootDeckComponent implements OnInit, OnDestroy {
     }
 
     open(event: any) {
-        if (this.deck.cards.length > 0 && gameManager.game.state == GameState.next && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
+        if (this.deck.cards.length > 0 && gameManager.game.state == GameState.next && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400)) {
             this.openFullscreen(event);
         } else {
             this.dialog.open(LootDeckDialogComponent, {

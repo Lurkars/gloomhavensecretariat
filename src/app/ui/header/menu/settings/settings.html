@@ -859,8 +859,9 @@
     </div>
     <div class="line">
       <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.automaticAttackModifierFullscreen"
+        <label [ngClass]="{'disabled':  !settingsManager.settings.portraitMode}">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode"
             (change)="settingsManager.setAutomaticAttackModifierFullscreen(!settingsManager.settings.automaticAttackModifierFullscreen)">
           <span [ghs-label]="'settings.automaticAttackModifierFullscreen'"></span>
         </label>
@@ -990,8 +991,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.portraitMode"
-            (change)="togglePortraitMode()">
+          <input type="checkbox" [checked]="settingsManager.settings.portraitMode" (change)="togglePortraitMode()">
           <span [ghs-label]="'settings.portraitMode'"></span>
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
