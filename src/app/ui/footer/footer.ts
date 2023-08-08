@@ -10,6 +10,8 @@ import { AttackModiferDeckChange } from '../figures/attackmodifier/attackmodifie
 import { HintDialogComponent } from './hint-dialog/hint-dialog';
 import { LootDeckChange } from '../figures/loot/loot-deck';
 import { Objective } from 'src/app/game/model/Objective';
+import { ScenarioSummaryComponent } from './scenario/summary/scenario-summary';
+import { ScenarioConclusionComponent } from './scenario/scenario-conclusion/scenario-conclusion';
 
 @Component({
   selector: 'ghs-footer',
@@ -71,7 +73,7 @@ export class FooterComponent implements OnInit {
 
     setTimeout(() => {
       this.compact = this.monsterDeck.nativeElement.clientWidth > this.footer.nativeElement.clientWidth * 0.3;
-    },100)
+    }, 100)
 
     window.addEventListener('resize', (event) => {
       this.compact = this.monsterDeck.nativeElement.clientWidth > this.footer.nativeElement.clientWidth * 0.3;
@@ -154,9 +156,42 @@ export class FooterComponent implements OnInit {
   }
 
   finishScenario(success: boolean) {
-    gameManager.stateManager.before("finishScenario." + (success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
-    gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, success, undefined);
-    gameManager.stateManager.after(1000);
+    if (gameManager.game.scenario) {
+      const conclusions = gameManager.sectionData(gameManager.game.scenario.edition).filter((sectionData) => {
+        if (gameManager.game.scenario) {
+          return sectionData.edition == gameManager.game.scenario.edition && sectionData.parent == gameManager.game.scenario.index && sectionData.group == gameManager.game.scenario.group && sectionData.conclusion;
+        }
+        return false;
+      });
+
+      if (conclusions.length == 0 || !success) {
+        this.dialog.open(ScenarioSummaryComponent, {
+          panelClass: 'dialog',
+          data: {
+            scenario: gameManager.game.scenario,
+            success: success
+          }
+        })
+      } else {
+        this.dialog.open(ScenarioConclusionComponent, {
+          panelClass: ['dialog'],
+          data: { conclusions: conclusions, parent: gameManager.game.scenario }
+        }).closed.subscribe({
+          next: (conclusion) => {
+            if (conclusion) {
+              this.dialog.open(ScenarioSummaryComponent, {
+                panelClass: 'dialog',
+                data: {
+                  scenario: gameManager.game.scenario,
+                  conclusion: conclusion,
+                  success: success
+                }
+              })
+            }
+          }
+        });
+      }
+    }
   }
 
   resetScenario() {

@@ -32,7 +32,8 @@ export class ScenarioSummaryComponent {
     success: boolean;
     conclusionWarning: boolean;
     alreadyWarning: boolean = false;
-    casual: boolean = false;
+    characterProgress: boolean = true;
+    gainRewards: boolean = true;
     forceCampaign: boolean = false;
     conclusionOnly: boolean;
     rewardsOnly: boolean;
@@ -102,7 +103,10 @@ export class ScenarioSummaryComponent {
         }
 
         this.alreadyWarning = !this.rewardsOnly && gameManager.game.party.campaignMode && this.success && (gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == this.scenario.index && scenarioModel.edition == this.scenario.edition && scenarioModel.group == this.scenario.group) != undefined || this.conclusion && gameManager.game.party.conclusions.find((scenarioModel) => this.conclusion && scenarioModel.index == this.conclusion.index && scenarioModel.edition == this.conclusion.edition && scenarioModel.group == this.conclusion.group) != undefined) || false;
-        this.casual = !this.rewardsOnly && !this.conclusionOnly && !gameManager.game.party.campaignMode && gameManager.fhRules();
+
+        this.characterProgress = !this.rewardsOnly && !this.conclusionOnly && (gameManager.game.party.campaignMode || !gameManager.fhRules());
+        this.gainRewards = gameManager.game.party.campaignMode;
+
         this.updateState()
 
 
@@ -577,7 +581,7 @@ export class ScenarioSummaryComponent {
                 }
             }
 
-            if (this.randomItemBlueprints.length > 0) {
+            if ((this.gainRewards || this.forceCampaign) && this.randomItemBlueprints.length > 0) {
                 this.randomItemBlueprints.forEach((itemId) => {
                     if (itemId == -1) {
                         gameManager.game.party.inspiration += 1;
@@ -587,7 +591,7 @@ export class ScenarioSummaryComponent {
                 })
             }
 
-            if (this.rewards && this.rewards.calenderSectionManual) {
+            if ((this.gainRewards || this.forceCampaign) && this.rewards && this.rewards.calenderSectionManual) {
                 this.rewards.calenderSectionManual.forEach((sectionManual, index) => {
                     const week = gameManager.game.party.weeks + this.calenderSectionManual[index];
                     if (!gameManager.game.party.weekSections[week]) {
@@ -598,9 +602,9 @@ export class ScenarioSummaryComponent {
             }
         }
         if (this.conclusionOnly) {
-            gameManager.scenarioManager.finishScenario(this.scenario, true, this.conclusion, false, undefined, false, false, true);
+            gameManager.scenarioManager.finishScenario(this.scenario, true, this.conclusion, false, undefined, this.characterProgress || this.forceCampaign, this.gainRewards || this.forceCampaign, true);
         } else {
-            gameManager.scenarioManager.finishScenario(gameManager.game.scenario, this.success, this.conclusion, false, linked ? new Scenario(linked) : undefined, this.casual && !this.forceCampaign, this.alreadyWarning && !this.forceCampaign);
+            gameManager.scenarioManager.finishScenario(gameManager.game.scenario, this.success, this.conclusion, false, linked ? new Scenario(linked) : undefined, this.characterProgress || this.forceCampaign, this.gainRewards || this.forceCampaign);
         }
         gameManager.stateManager.after(1000);
         this.dialogRef.close();
@@ -612,7 +616,7 @@ export class ScenarioSummaryComponent {
 
     restart() {
         gameManager.stateManager.before("finishScenario.restart", ...gameManager.scenarioManager.scenarioUndoArgs());
-        gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, true);
+        gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, true, undefined, this.characterProgress || this.forceCampaign, this.gainRewards || this.forceCampaign, true);
         gameManager.stateManager.after(1000);
         this.dialogRef.close();
     }

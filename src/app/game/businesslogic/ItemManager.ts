@@ -91,11 +91,15 @@ export class ItemManager {
     }
 
     canCraft(item: ItemData, character: Character, resources: Partial<Record<LootType, number>> = {}): boolean {
-        let canCraft = false;
+        let isCraftItem = false;
+        let canCraft = true;
         if (item.resources) {
             Object.keys(item.resources).forEach(key => {
                 const lootType = key as LootType;
-                const requiredResource = ((item.resources[lootType] || 0) + (resources[lootType] || 0))
+                const requiredResource = ((item.resources[lootType] || 0) + (resources[lootType] || 0));
+                if (requiredResource > 0) {
+                    isCraftItem = true;
+                }
                 if (getLootClass(lootType) == LootClass.herb_resources) {
                     canCraft = canCraft && ((character.progress.loot[lootType] || 0) >= requiredResource || (gameManager.game.party.loot[lootType] || 0) >= requiredResource);
                 } else {
@@ -110,14 +114,17 @@ export class ItemManager {
                     const requiredItem = this.getItem(itemId, item.edition, true);
                     if (!requiredItem) {
                         console.error("Missing required item '" + itemId + "' for item '" + item.id + "' (" + item.name + ")");
-                    } else if (!this.owned(requiredItem, character)) {
-                        canCraft = canCraft && (this.canCraft(requiredItem, character, item.resources || {}) || this.canBuy(requiredItem, character, item.cost));
+                    } else {
+                        isCraftItem = true;
+                        if (!this.owned(requiredItem, character)) {
+                            canCraft = canCraft && (this.canCraft(requiredItem, character, item.resources || {}) || this.canBuy(requiredItem, character, item.cost));
+                        }
                     }
                 }
             });
         }
 
-        return canCraft;
+        return canCraft && isCraftItem;
     }
 
     itemSellValue(itemData: ItemData): number {
@@ -182,12 +189,11 @@ export class ItemManager {
                             const index = character.progress.items.indexOf(charItem);
                             character.progress.items.splice(index, 1);
                             character.progress.equippedItems = character.progress.equippedItems.filter((identifier) => identifier.name != '' + requiredItem.id || identifier.edition != requiredItem.edition);
-
+                        } else if (this.canBuy(requiredItem, character)) {
+                            character.progress.gold -= (item.cost + this.pricerModifier());
+                        } else {
+                            this.craftItemResources(requiredItem, character);
                         }
-                    } else if (this.canBuy(requiredItem, character)) {
-                        character.progress.gold -= (item.cost + this.pricerModifier());
-                    } else {
-                        this.craftItemResources(requiredItem, character);
                     }
                 }
             });

@@ -40,8 +40,8 @@ export class StandeeComponent implements OnInit, OnDestroy {
   maxHp: number = 0;
 
   activeConditions: EntityCondition[] = [];
-
   actionHints: ActionHint[] = [];
+  activeIndex: number = -1;
 
   EntityValueFunction = EntityValueFunction;
 
@@ -76,6 +76,19 @@ export class StandeeComponent implements OnInit, OnDestroy {
     if (settingsManager.settings.standeeStats && this.figure instanceof Monster && this.entity instanceof MonsterEntity) {
       this.actionHints = gameManager.monsterManager.calcActionHints(this.figure, this.entity);
     }
+    if (this.entity.revealed) {
+      const activeFigure = gameManager.game.figures.find((figure) => figure.active);
+      if (activeFigure) {
+        const activeIndex: number = gameManager.game.figures.indexOf(activeFigure);
+        if (activeIndex != -1) {
+          if (this.activeIndex == -1) {
+            this.activeIndex = activeIndex;
+          } else if (this.activeIndex != activeIndex && this.entity.number > 0) {
+            this.entity.revealed = false;
+          }
+        }
+      }
+    }
   }
 
   dragHpMove(value: number) {
@@ -104,7 +117,9 @@ export class StandeeComponent implements OnInit, OnDestroy {
   }
 
   doubleClick(event: any): void {
-    if (settingsManager.settings.activeStandees) {
+    if (this.entity.revealed) {
+      this.entity.revealed = false;
+    } else if (settingsManager.settings.activeStandees) {
       gameManager.stateManager.before(this.figure.type + (this.entity.active ? "UnsetEntityActive" : "SetEntityActive"), this.figure.name, "" + this.entity.number, this.additionalType());
       gameManager.entityManager.toggleActive(this.figure, this.entity);
       gameManager.stateManager.after();

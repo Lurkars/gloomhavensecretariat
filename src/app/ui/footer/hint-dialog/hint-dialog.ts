@@ -1,9 +1,11 @@
-import { DialogRef } from "@angular/cdk/dialog";
+import { Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
+import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
+import { ScenarioConclusionComponent } from "../scenario/scenario-conclusion/scenario-conclusion";
 
 @Component({
     selector: 'ghs-hint-dialog',
@@ -15,7 +17,7 @@ export class HintDialogComponent {
     gameManager: GameManager = gameManager;
     GameState = GameState;
 
-    constructor(private dialogRef: DialogRef) { }
+    constructor(private dialogRef: DialogRef, private dialog: Dialog) { }
 
     confirm() {
         const active = gameManager.game.figures.find((figure) => figure.active);
@@ -32,9 +34,42 @@ export class HintDialogComponent {
     }
 
     finishScenario(success: boolean) {
-        gameManager.stateManager.before("finishScenario." + (success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
-        gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, success, undefined);
-        gameManager.stateManager.after(1000);
+        if (gameManager.game.scenario) {
+            const conclusions = gameManager.sectionData(gameManager.game.scenario.edition).filter((sectionData) => {
+                if (gameManager.game.scenario) {
+                    return sectionData.edition == gameManager.game.scenario.edition && sectionData.parent == gameManager.game.scenario.index && sectionData.group == gameManager.game.scenario.group && sectionData.conclusion;
+                }
+                return false;
+            });
+
+            if (conclusions.length == 0 || !success) {
+                this.dialog.open(ScenarioSummaryComponent, {
+                    panelClass: 'dialog',
+                    data: {
+                        scenario: gameManager.game.scenario,
+                        success: success
+                    }
+                })
+            } else {
+                this.dialog.open(ScenarioConclusionComponent, {
+                    panelClass: ['dialog'],
+                    data: { conclusions: conclusions, parent: gameManager.game.scenario }
+                }).closed.subscribe({
+                    next: (conclusion) => {
+                        if (conclusion) {
+                            this.dialog.open(ScenarioSummaryComponent, {
+                                panelClass: 'dialog',
+                                data: {
+                                    scenario: gameManager.game.scenario,
+                                    conclusion: conclusion,
+                                    success: success
+                                }
+                            })
+                        }
+                    }
+                });
+            }
+        }
     }
 
     resetScenario() {

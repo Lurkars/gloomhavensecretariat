@@ -128,6 +128,9 @@ export class MonsterNumberPickerDialog implements OnInit {
             }
             if (this.entity) {
                 this.entity.number = number;
+                if (this.entity.revealed) {
+                    this.entity.revealed = false;
+                }
                 this.entity = this.entities && (this.entities.find((entity) => entity.number < 0 && entity.type == this.type) || this.entities.find((entity) => entity.number < 0)) || undefined;
                 if (this.entity) {
                     this.type = this.entity.type;

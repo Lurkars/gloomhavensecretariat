@@ -62,6 +62,72 @@
     }
   }
 
+  &.revealed {
+
+    @keyframes monster-entity-revealed {
+      0% {
+        box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.1) var(--ghs-color-white);
+      }
+
+      40%,
+      60% {
+        box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.3) var(--ghs-color-white);
+      }
+
+      100% {
+        box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.1) var(--ghs-color-white);
+      }
+    }
+
+    @keyframes monster-entity-revealed-elite {
+      0% {
+        box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.1) var(--ghs-color-yellow);
+      }
+
+      40%,
+      60% {
+        box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.3) var(--ghs-color-yellow);
+      }
+
+      100% {
+        box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.1) var(--ghs-color-yellow);
+      }
+    }
+
+    @keyframes monster-entity-revealed-boss {
+      0% {
+        box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.1) var(--ghs-color-red);
+      }
+
+      40%,
+      60% {
+        box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.3) var(--ghs-color-red);
+      }
+
+      100% {
+        box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.1) var(--ghs-color-red);
+      }
+    }
+
+    .entity {
+      .standee {
+        animation: monster-entity-revealed 1000ms ease-in-out infinite;
+      }
+
+      &.elite {
+        .standee {
+          animation: monster-entity-revealed-elite 1000ms ease-in-out infinite;
+        }
+      }
+
+      &.boss {
+        .standee {
+          animation: monster-entity-revealed-boss 1000ms ease-in-out infinite;
+        }
+      }
+    }
+  }
+
   .entity {
     position: relative;
     display: flex;
@@ -442,31 +508,67 @@
 
 
 
-  &.fh.active {
+  &.fh {
+    &.active {
+      @keyframes monster-entity-active-focus-fh {
+        0% {
+          box-shadow: 0px 0px calc(var(--ghs-unit) * 1) calc(var(--ghs-unit) * 0.3) var(--ghs-color-blue);
+        }
 
-    @keyframes monster-entity-active-focus-fh {
-      0% {
-        box-shadow: 0px 0px calc(var(--ghs-unit) * 1) calc(var(--ghs-unit) * 0.3) var(--ghs-color-blue);
+        40%,
+        60% {
+          box-shadow: 0px 0px calc(var(--ghs-unit) * 1) calc(var(--ghs-unit) * 0.6) var(--ghs-color-blue);
+        }
+
+        100% {
+          box-shadow: 0px 0px calc(var(--ghs-unit) * 1) calc(var(--ghs-unit) * 0.3) var(--ghs-color-blue);
+        }
       }
 
-      40%,
-      60% {
-        box-shadow: 0px 0px calc(var(--ghs-unit) * 1) calc(var(--ghs-unit) * 0.6) var(--ghs-color-blue);
+      &.active-focus {
+        .standee {
+          animation: monster-entity-active-focus-fh 1000ms ease-in-out infinite;
+        }
       }
 
-      100% {
-        box-shadow: 0px 0px calc(var(--ghs-unit) * 1) calc(var(--ghs-unit) * 0.3) var(--ghs-color-blue);
-      }
-    }
-
-    &.active-focus {
       .standee {
-        animation: monster-entity-active-focus-fh 1000ms ease-in-out infinite;
+        box-shadow: 0px 0px calc(var(--ghs-unit) * 1) calc(var(--ghs-unit) * 0.5) var(--ghs-color-blue);
       }
     }
 
-    .standee {
-      box-shadow: 0px 0px calc(var(--ghs-unit) * 1) calc(var(--ghs-unit) * 0.5) var(--ghs-color-blue);
+    &.revealed {
+      @keyframes monster-entity-revealed-fh {
+        0% {
+          box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.1) var(--ghs-color-darkgray);
+        }
+
+        40%,
+        60% {
+          box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.3) var(--ghs-color-darkgray);
+        }
+
+        100% {
+          box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.1) var(--ghs-color-darkgray);
+        }
+      }
+
+      .entity {
+        .standee {
+          animation: monster-entity-revealed-fh 1000ms ease-in-out infinite;
+        }
+
+        &.elite {
+          .standee {
+            animation: monster-entity-revealed-elite 1000ms ease-in-out infinite;
+          }
+        }
+
+        &.boss {
+          .standee {
+            animation: monster-entity-revealed-boss 1000ms ease-in-out infinite;
+          }
+        }
+      }
     }
   }
 

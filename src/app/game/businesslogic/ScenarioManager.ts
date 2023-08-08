@@ -52,7 +52,7 @@ export class ScenarioManager {
     gameManager.stateManager.standeeDialogCanceled = false;
   }
 
-  finishScenario(scenario: Scenario | undefined, success: boolean = true, conclusionSection: ScenarioData | undefined, restart: boolean = false, linkedScenario: Scenario | undefined = undefined, casual: boolean = false, noRewards: boolean = false, internal: boolean = false) {
+  finishScenario(scenario: Scenario | undefined, success: boolean = true, conclusionSection: ScenarioData | undefined, restart: boolean = false, linkedScenario: Scenario | undefined = undefined, characterProgress: boolean = true, gainRewards: boolean = true, internal: boolean = false) {
     gameManager.game.finish = undefined;
     if (scenario) {
       let rewards: ScenarioRewards | undefined = scenario.rewards || undefined;
@@ -63,7 +63,7 @@ export class ScenarioManager {
           Object.assign(rewards, conclusionSection.rewards);
         }
       }
-      if (!internal && !casual && settingsManager.settings.characterSheet) {
+      if (!internal && characterProgress && settingsManager.settings.characterSheet) {
         this.game.figures.forEach((figure) => {
           if (figure instanceof Character && !figure.absent) {
             const scnearioXP: number = success && (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') == -1) ? gameManager.levelManager.experience() : 0;
@@ -90,8 +90,8 @@ export class ScenarioManager {
         })
       }
 
-      if (success && !casual) {
-        if (rewards && !noRewards) {
+      if (success) {
+        if (rewards && gainRewards) {
           if (!internal && settingsManager.settings.characterSheet) {
             this.game.figures.forEach((figure) => {
               if (rewards && figure instanceof Character && !figure.absent) {
@@ -257,7 +257,7 @@ export class ScenarioManager {
           }
         }
 
-        if (gameManager.characterManager.characterCount() < 4 && !internal && !scenario.solo && !noRewards) {
+        if (gameManager.characterManager.characterCount() < 4 && !internal && !scenario.solo && gainRewards) {
           this.game.party.inspiration += 4 - gameManager.characterManager.characterCount();
         }
 
@@ -265,7 +265,7 @@ export class ScenarioManager {
           this.game.party.conclusions.push(new GameScenarioModel(conclusionSection.index, conclusionSection.edition, conclusionSection.group, false, "", []));
         }
 
-        if (gameManager.game.party.campaignMode && !casual) {
+        if (gameManager.game.party.campaignMode && gainRewards) {
           if (scenario.conclusion) {
             if (!this.game.party.conclusions.find((conclusion) => conclusion.index == scenario.index && conclusion.edition == scenario.edition && conclusion.group == scenario.group)) {
               this.game.party.conclusions.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, false, "", []));
@@ -286,7 +286,7 @@ export class ScenarioManager {
       if (restart) {
         gameManager.scenarioManager.setScenario(scenario);
       } else {
-        if (!casual && scenario && !scenario.conclusion && gameManager.fhRules() && !linkedScenario && settingsManager.settings.partySheet && (!internal || !noRewards)) {
+        if (scenario && !scenario.conclusion && gameManager.fhRules() && !linkedScenario && settingsManager.settings.partySheet && !internal && gainRewards) {
 
           if (!scenario.solo) {
             this.game.party.weeks++;
@@ -304,12 +304,12 @@ export class ScenarioManager {
             const sectionData = gameManager.sectionData(scenario.edition).find((sectionData) => sectionData.index == section && sectionData.group == scenario.group && sectionData.conclusion);
             if (sectionData) {
               const conclusion = new Scenario(sectionData);
-              this.finishScenario(conclusion, true, conclusion, false, undefined, false, noRewards, true);
+              this.finishScenario(conclusion, true, conclusion, false, undefined, false, gainRewards, true);
             }
           })
         }
 
-        if (success && (!gameManager.game.party.campaignMode || casual)) {
+        if (success && (!gameManager.game.party.campaignMode || characterProgress)) {
           this.game.party.casualScenarios.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, scenario.custom, scenario.custom ? scenario.name : "", scenario.revealedRooms));
         }
 
@@ -526,6 +526,7 @@ export class ScenarioManager {
             figure.entities.forEach((entity) => {
               if (entities.indexOf(entity) != -1) {
                 entity.active = figure.active || gameManager.game.figures.some((other, index, self) => other.active && index > self.indexOf(figure));
+                entity.revealed = true;
               }
             })
           }

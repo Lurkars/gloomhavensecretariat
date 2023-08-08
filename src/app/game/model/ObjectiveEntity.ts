@@ -15,6 +15,7 @@ export class ObjectiveEntity implements Entity {
   // from entity
   active: boolean = false;
   off: boolean = false;
+  revealed: boolean = false;
   level: number = -1;
   health: number;
   maxHealth: number;

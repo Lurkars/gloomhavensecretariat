@@ -18,6 +18,7 @@ export class MonsterEntity implements Entity {
   // from entity
   active: boolean = false;
   off: boolean = false;
+  revealed: boolean = false;
   level: number;
   health: number;
   maxHealth: number;
@@ -54,7 +55,7 @@ export class MonsterEntity implements Entity {
   }
 
   toModel(): GameMonsterEntityModel {
-    return new GameMonsterEntityModel(this.number, this.marker, this.type, this.dead, this.summon, this.active, this.off, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || []);
+    return new GameMonsterEntityModel(this.number, this.marker, this.type, this.dead, this.summon, this.active, this.off, this.revealed, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || []);
   }
 
   fromModel(model: GameMonsterEntityModel) {
@@ -63,6 +64,7 @@ export class MonsterEntity implements Entity {
     this.summon = model.summon;
     this.active = model.active;
     this.off = model.off;
+    this.revealed = model.revealed;
     this.health = model.health;
     this.maxHealth = model.maxHealth;
     this.entityConditions = [];
@@ -87,6 +89,7 @@ export class GameMonsterEntityModel {
   type: MonsterType;
   dead: boolean;
   summon: SummonState;
+  revealed: boolean;
   active: boolean;
   off: boolean;
   health: number;
@@ -103,6 +106,7 @@ export class GameMonsterEntityModel {
     summon: SummonState,
     active: boolean,
     off: boolean,
+    revealed: boolean,
     health: number,
     maxHealth: number,
     entityConditions: GameEntityConditionModel[],
@@ -116,6 +120,7 @@ export class GameMonsterEntityModel {
     this.summon = summon;
     this.active = active;
     this.off = off;
+    this.revealed = revealed;
     this.health = health;
     this.maxHealth = maxHealth;
     this.entityConditions = JSON.parse(JSON.stringify(entityConditions));

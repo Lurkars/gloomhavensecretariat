@@ -45,6 +45,7 @@ export class Summon implements Entity {
   // from entity
   active: boolean = false;
   off: boolean = false;
+  revealed: boolean = false;
   level: number;
   health: number = 2;
   maxHealth: number = 2;

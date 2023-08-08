@@ -398,7 +398,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   addSuccessIntern(scenarioData: ScenarioData, conclusionSection: ScenarioData | undefined = undefined) {
     gameManager.stateManager.before("finishScenario.success", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
-    gameManager.scenarioManager.finishScenario(new Scenario(scenarioData), true, conclusionSection, false, undefined, false, this.countFinished(scenarioData) > 0, true);
+    gameManager.scenarioManager.finishScenario(new Scenario(scenarioData), true, conclusionSection, false, undefined, false, gameManager.game.party.campaignMode && this.countFinished(scenarioData) == 0, true);
     gameManager.stateManager.after();
 
     this.update();
@@ -660,7 +660,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
           if (conclusion) {
             const scenario = new Scenario(conclusion as ScenarioData);
             gameManager.stateManager.before("finishConclusion", ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
-            gameManager.scenarioManager.finishScenario(scenario, true, scenario, false, undefined, false, false, true);
+            gameManager.scenarioManager.finishScenario(scenario, true, scenario, false, undefined, false, gameManager.game.party.campaignMode, true);
             this.party.weekSections[week] = this.party.weekSections[week] || [];
             this.party.weekSections[week]?.push(scenario.index);
             gameManager.stateManager.after();
@@ -736,7 +736,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       sectionsForWeeks.forEach((section) => {
         const sectionData = gameManager.sectionData(gameManager.game.edition).find((sectionData) => sectionData.index == section && sectionData.conclusion);
         if (sectionData && !gameManager.game.party.conclusions.find((model) => model.edition == sectionData.edition && model.index == sectionData.index && model.group == sectionData.group)) {
-          gameManager.scenarioManager.finishScenario(new Scenario(sectionData), true, undefined, false, undefined, false, false, true);
+          gameManager.scenarioManager.finishScenario(new Scenario(sectionData), true, undefined, false, undefined, false, gameManager.game.party.campaignMode, true);
         }
       })
     }

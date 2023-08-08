@@ -19,7 +19,7 @@
   <div class="main"
     [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
     <div class="table" [style.--ghs-summary-columns]="1 + characters.length"
-      *ngIf="(!casual || forceCampaign) && settingsManager.settings.characterSheet && !conclusionOnly && !rewardsOnly">
+      *ngIf="(characterProgress || forceCampaign) && settingsManager.settings.characterSheet && !conclusionOnly && !rewardsOnly">
 
       <span class="head-col first"><span [ghs-label]="'scenario.summary.name'"></span></span>
       <span class="first" *ngFor="let character of characters; let index = index;">
@@ -239,11 +239,11 @@
         <label><span
             [ghs-label]="('scenario.summary.casualWarning' + (gameManager.fhRules() ? '.fh' : ''))"></span></label>
         <div class="list">
-          <div class="item" *ngIf="casual && gameManager.fhRules()">
+          <div class="item" *ngIf="!characterProgress && gameManager.fhRules()">
             <span><span [ghs-label]="'scenario.summary.casualWarning.hintFh'"></span></span>
           </div>
           <div class="item" *ngIf="forceCampaign || gameManager.fhRules()">
-            <a (click)="casual = gameManager.fhRules() && !casual; updateState()"><span [ghs-label]="'scenario.summary.casualWarning.' + (casual && !forceCampaign
+            <a (click)="characterProgress = gameManager.fhRules() && !characterProgress; updateState()"><span [ghs-label]="'scenario.summary.casualWarning.' + (!characterProgress && !forceCampaign
               ? 'ignore' : 'reapply')"></span></a>
           </div>
           <div class="item" *ngIf="!forceCampaign">
@@ -253,7 +253,7 @@
         </div>
       </div>
 
-      <ng-container *ngIf="!casual && !alreadyWarning && gameManager.game.party.campaignMode || forceCampaign">
+      <ng-container *ngIf="characterProgress && !alreadyWarning && gameManager.game.party.campaignMode || forceCampaign">
 
         <div class="reward warning" *ngIf="conclusionWarning">
           <label><span [ghs-label]="'scenario.summary.conclusionWarning'"></span></label>
