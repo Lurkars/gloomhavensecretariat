@@ -11,6 +11,13 @@ body:
     validations:
       required: true
   - type: textarea
+    id: enviroment
+    attributes:
+      label: "Game Enviroment"
+      description: "Please include the current edition, scenario number, and any other game-specific settings of your session worth mentioning."
+    validations:
+      required: true
+  - type: textarea
     id: reproduce
     attributes:
       label: "To Reproduce"
