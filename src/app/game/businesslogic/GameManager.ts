@@ -37,6 +37,7 @@ import { ObjectiveManager } from "./ObjectiveManager";
 import { ObjectiveContainer } from "../model/ObjectiveContainer";
 import { ObjectiveEntity } from "../model/ObjectiveEntity";
 import { ItemManager } from "./ItemManager";
+import { Party } from "../model/Party";
 
 
 export class GameManager {
@@ -730,6 +731,28 @@ export class GameManager {
     }
 
     return new CampaignData();
+  }
+
+  changeParty(party: Party) {
+    this.game.party.characters = this.game.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel()));
+    this.game.party.edition = this.game.edition;
+    this.game.party.conditions = this.game.conditions;
+    this.game.party.battleGoalEditions = this.game.battleGoalEditions;
+    this.game.party.filteredBattleGoals = this.game.filteredBattleGoals;
+
+    this.game.party = party;
+    this.game.edition = this.game.party.edition;
+    this.game.conditions = this.game.party.conditions || [];
+    this.game.battleGoalEditions = this.game.party.battleGoalEditions || [];
+    this.game.filteredBattleGoals = this.game.party.filteredBattleGoals || [];
+
+    this.game.figures = this.game.figures.filter((figure) => !(figure instanceof Character));
+    this.scenarioManager.setScenario(undefined);
+    party.characters.forEach((value) => {
+      let character = new Character(this.getCharacterData(value.name, value.edition), value.level);
+      character.fromModel(value);
+      this.game.figures.push(character);
+    });
   }
 
 }

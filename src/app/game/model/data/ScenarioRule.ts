@@ -77,7 +77,7 @@ export class ScenarioFigureRule {
 
   identifier: ScenarioFigureRuleIdentifier | undefined = undefined;
   identifierRef: number | undefined = undefined;
-  type: "present" | "dead" | "killed" | "gainCondition" | "loseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove" | "amAdd" | "amRemove" | "setAbility" = "present";
+  type: "present" | "dead" | "killed" | "gainCondition" | "loseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove" | "amAdd" | "amRemove" | "setAbility" | "dormant" | "activate" = "present";
   value: string = "";
   scenarioEffect: boolean = false;
 

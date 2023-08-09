@@ -232,7 +232,7 @@ export class MonsterManager {
   }
 
   monsterEntityCount(monster: Monster, standee: boolean = false, type: MonsterType | undefined = undefined): number {
-    return monster.entities.filter((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity, standee) && (!standee || monsterEntity.number > 0) && (!type || monsterEntity.type == type)).length;
+    return monster.entities.filter((monsterEntity) => (gameManager.entityManager.isAlive(monsterEntity, standee) || monsterEntity.dormant) && (!standee || monsterEntity.number > 0) && (!type || monsterEntity.type == type)).length;
   }
 
   monsterEntityCountIdentifier(monster: Monster, identifier: AdditionalIdentifier): number {
@@ -277,11 +277,11 @@ export class MonsterManager {
   }
 
   monsterStandeeUsed(monster: Monster, number: number): MonsterEntity | undefined {
-    return this.monsterStandeeShared(monster, []).map((monster) => monster.entities).flat().find((entity) => gameManager.entityManager.isAlive(entity) && entity.number == number);
+    return this.monsterStandeeShared(monster, []).map((monster) => monster.entities).flat().find((entity) => (gameManager.entityManager.isAlive(entity) || entity.dormant) && entity.number == number);
   }
 
   monsterStandeeCount(monster: Monster, all: boolean = true): number {
-    return this.monsterStandeeShared(monster, []).map((monster) => monster.entities).flat().filter((entity) => gameManager.entityManager.isAlive(entity) && (all || entity.number > 0)).length;
+    return this.monsterStandeeShared(monster, []).map((monster) => monster.entities).flat().filter((entity) => (gameManager.entityManager.isAlive(entity) || entity.dormant) && (all || entity.number > 0)).length;
   }
 
   monsterStandeeMax(monster: Monster): number {
@@ -400,7 +400,7 @@ export class MonsterManager {
 
   removeMonsterEntity(monster: Monster, monsterEntity: MonsterEntity) {
     monster.entities.splice(monster.entities.indexOf(monsterEntity), 1);
-    if (monster.entities.length == 0 || monster.entities.every((entity) => !gameManager.entityManager.isAlive(entity))) {
+    if (monster.entities.length == 0 || monster.entities.every((entity) => !gameManager.entityManager.isAlive(entity) && !entity.dormant)) {
       if (!monster.off && gameManager.game.state == GameState.next) {
         if (monster.active) {
           gameManager.roundManager.toggleFigure(monster);
@@ -525,7 +525,7 @@ export class MonsterManager {
           }
         }
 
-        figure.entities = figure.entities.filter((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity));
+        figure.entities = figure.entities.filter((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) || monsterEntity.dormant);
 
         figure.entities.forEach((entity) => {
           if (entity.tags) {

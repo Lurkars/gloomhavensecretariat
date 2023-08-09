@@ -89,7 +89,7 @@ export class ScenarioRulesManager {
     if (add) {
       if (rule.figures && rule.figures.filter((figureRule) => figureRule.type == "present" || figureRule.type == "dead").length > 0) {
         rule.figures.filter((figureRule) => figureRule.type == "present" || figureRule.type == "dead").forEach((figureRule) => {
-          const gameplayFigures: Entity[] = this.entitiesByFigureRule(figureRule, rule).filter((entity) => gameManager.entityManager.isAlive(entity) && (!(entity instanceof MonsterEntity) || (!(figureRule.identifier?.marker) || (entity instanceof MonsterEntity && figureRule.identifier && entity.marker == figureRule.identifier.marker && (!figureRule.identifier.tags || figureRule.identifier.tags.length == 0 || (entity instanceof MonsterEntity && figureRule.identifier.tags.forEach((tag) => entity.tags.indexOf(tag) != -1)))))));
+          const gameplayFigures: Entity[] = this.entitiesByFigureRule(figureRule, rule).filter((entity) => (gameManager.entityManager.isAlive(entity) || entity instanceof MonsterEntity && entity.dormant) && (!(entity instanceof MonsterEntity) || (!(figureRule.identifier?.marker) || (entity instanceof MonsterEntity && figureRule.identifier && entity.marker == figureRule.identifier.marker && (!figureRule.identifier.tags || figureRule.identifier.tags.length == 0 || (entity instanceof MonsterEntity && figureRule.identifier.tags.forEach((tag) => entity.tags.indexOf(tag) != -1)))))));
 
           const tolerance: number = figureRule.value ? EntityValueFunction(figureRule.value.split(':')[0]) : (figureRule.type == "present" ? 1 : 0);
 

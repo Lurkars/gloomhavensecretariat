@@ -14,11 +14,12 @@ export class MonsterEntity implements Entity {
   dead: boolean = false;
   summon: SummonState = SummonState.false;
   effect: MonsterStatEffect | undefined;
+  dormant: boolean = false;
+  revealed: boolean = false;
 
   // from entity
   active: boolean = false;
   off: boolean = false;
-  revealed: boolean = false;
   level: number;
   health: number;
   maxHealth: number;
@@ -55,7 +56,7 @@ export class MonsterEntity implements Entity {
   }
 
   toModel(): GameMonsterEntityModel {
-    return new GameMonsterEntityModel(this.number, this.marker, this.type, this.dead, this.summon, this.active, this.off, this.revealed, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || []);
+    return new GameMonsterEntityModel(this.number, this.marker, this.type, this.dead, this.summon, this.active, this.off, this.revealed, this.dormant, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || []);
   }
 
   fromModel(model: GameMonsterEntityModel) {
@@ -65,6 +66,7 @@ export class MonsterEntity implements Entity {
     this.active = model.active;
     this.off = model.off;
     this.revealed = model.revealed;
+    this.dormant = model.dormant;
     this.health = model.health;
     this.maxHealth = model.maxHealth;
     this.entityConditions = [];
@@ -90,6 +92,7 @@ export class GameMonsterEntityModel {
   dead: boolean;
   summon: SummonState;
   revealed: boolean;
+  dormant: boolean;
   active: boolean;
   off: boolean;
   health: number;
@@ -107,6 +110,7 @@ export class GameMonsterEntityModel {
     active: boolean,
     off: boolean,
     revealed: boolean,
+    dormant: boolean,
     health: number,
     maxHealth: number,
     entityConditions: GameEntityConditionModel[],
@@ -121,6 +125,7 @@ export class GameMonsterEntityModel {
     this.active = active;
     this.off = off;
     this.revealed = revealed;
+    this.dormant = dormant;
     this.health = health;
     this.maxHealth = maxHealth;
     this.entityConditions = JSON.parse(JSON.stringify(entityConditions));

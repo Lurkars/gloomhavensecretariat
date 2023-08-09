@@ -319,7 +319,7 @@ export class ScenarioRulesComponent {
                 }
 
                 if (rule.figures) {
-                    rule.figures.filter((figureRule) => figureRule.type == "gainCondition" || figureRule.type == "permanentCondition" || figureRule.type == "loseCondition" || figureRule.type == "damage" || figureRule.type == "heal" || figureRule.type == "setHp").forEach((figureRule) => {
+                    rule.figures.filter((figureRule) => figureRule.type == "gainCondition" || figureRule.type == "permanentCondition" || figureRule.type == "loseCondition" || figureRule.type == "damage" || figureRule.type == "heal" || figureRule.type == "setHp" || figureRule.type == "dormant" || figureRule.type == "activate").forEach((figureRule) => {
                         let figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
                         figures.forEach((figure) => {
                             let entities: Entity[] = gameManager.entityManager.entities(figure).filter((entity) => figureRule.identifier && (!figureRule.identifier.marker || !(entity instanceof MonsterEntity) || entity.marker == figureRule.identifier.marker) && (!figureRule.identifier.tags || figureRule.identifier.tags.length == 0 || figureRule.identifier.tags.every((tag) => entity.tags.indexOf(tag) != -1)));
@@ -386,6 +386,17 @@ export class ScenarioRulesComponent {
 
                                         entity.health = hp;
                                         break;
+                                    case "dormant":
+                                        if (entity instanceof MonsterEntity) {
+                                            entity.dormant = true;
+                                            entity.revealed = false;
+                                        }
+                                        break;
+                                    case "activate":
+                                        if (entity instanceof MonsterEntity) {
+                                            entity.dormant = false;
+                                        }
+                                        break;
                                 }
                             })
                         })
@@ -395,6 +406,11 @@ export class ScenarioRulesComponent {
                         const figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
                         figures.forEach((figure) => {
                             figure.off = figureRule.type == "toggleOff";
+                            if (figure instanceof Monster) {
+                                figure.entities.forEach((entity) => {
+                                    entity.dormant = figureRule.type == "toggleOff";
+                                })
+                            }
                         })
                     })
 

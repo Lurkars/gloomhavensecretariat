@@ -268,13 +268,14 @@
     }
 
     &.title {
-      pointer-events: none;
+      cursor: initial;
       border-bottom: calc(var(--ghs-unit) * 0.1) solid var(--ghs-color-gray);
       margin-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
       white-space: nowrap;
 
       a,
       label {
+        cursor: initial;
         color: var(--ghs-color-disabled);
       }
     }

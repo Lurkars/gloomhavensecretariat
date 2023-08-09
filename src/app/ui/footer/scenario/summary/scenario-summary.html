@@ -62,7 +62,7 @@
         <span *ngIf="!totalGold" [ghs-label]="'scenario.summary.gold'"></span>
         <ng-container *ngIf="totalGold">
           <img class="ghs-svg" [src]="'./assets/images/fh/loot/money.svg'">
-          ({{totalGold}})
+          {{lootedGold}}/{{totalGold}}
         </ng-container>
       </span>
       <ng-container *ngFor="let character of characters; let index = index;">
@@ -76,7 +76,7 @@
         </span>
 
         <span *ngIf="character.absent">
-          <span class="gold">/</span>
+          <span>/</span>
           ({{character.progress.gold}})
         </span>
       </ng-container>
@@ -84,7 +84,7 @@
       <ng-container *ngFor="let lootType of lootColumns; let i = index">
         <span class="head-col">
           <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + lootType + '.svg'">
-          ({{lootColumnsTotal[i]}})
+          {{lootColumnsLooted[i]}}/{{lootColumnsTotal[i]}}
         </span>
         <ng-container *ngFor="let character of characters; let index = index;">
           <span *ngIf="!character.absent">

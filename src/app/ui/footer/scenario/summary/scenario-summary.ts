@@ -26,6 +26,7 @@ export class ScenarioSummaryComponent {
 
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
+    LootType = LootType;
 
     scenario: Scenario;
     conclusion: ScenarioData | undefined;
@@ -42,7 +43,9 @@ export class ScenarioSummaryComponent {
     battleGoals: number[] = [];
     collectiveGold: number[] = [];
     lootColumns: LootType[] = [];
+    lootColumnsLooted: number[] = [];
     lootColumnsTotal: number[] = [];
+    lootedGold: number = 0;
     totalGold: number = 0;
     rewardItems: ItemData[] = [];
     rewardItemCount: number[] = [];
@@ -77,6 +80,11 @@ export class ScenarioSummaryComponent {
             this.battleGoals[index] = 0;
             return figure as Character;
         }).sort((a, b) => {
+            if (!a.absent && b.absent) {
+                return -1;
+            } else if (a.absent && !b.absent) {
+                return 1;
+            }
             const aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
             const bName = b.title.toLowerCase() || settingsManager.getLabel('data.character.' + b.name).toLowerCase();
             if (aName > bName) {
@@ -92,11 +100,13 @@ export class ScenarioSummaryComponent {
             const lootType: LootType = value as LootType;
             if (lootType != LootType.money && lootType != LootType.special1 && lootType != LootType.special2 && this.lootColumns.indexOf(lootType) == -1 && this.characters.some((character) => character.lootCards && character.lootCards.some((index) => gameManager.game.lootDeck.cards[index].type == lootType))) {
                 this.lootColumns.push(lootType);
+                this.lootColumnsLooted.push(this.characters.map((character) => this.lootValue(character, lootType)).reduce((a, b) => a + b));
                 this.lootColumnsTotal.push(gameManager.lootManager.getTotal(gameManager.game.lootDeck, lootType));
             }
         }
 
         if (gameManager.game.lootDeck && gameManager.game.lootDeck.cards.length > 0) {
+            this.lootedGold = this.characters.map((character) => this.lootValue(character, LootType.money) + this.lootValue(character, LootType.special1) + this.lootValue(character, LootType.special2)).reduce((a, b) => a + b);
             this.totalGold = gameManager.lootManager.getTotal(gameManager.game.lootDeck, LootType.money);
             this.totalGold += gameManager.lootManager.getTotal(gameManager.game.lootDeck, LootType.special1);
             this.totalGold += gameManager.lootManager.getTotal(gameManager.game.lootDeck, LootType.special2);

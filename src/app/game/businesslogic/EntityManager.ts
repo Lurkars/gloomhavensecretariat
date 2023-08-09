@@ -26,7 +26,7 @@ export class EntityManager {
         entities.push(figure);
       }
     } else if (figure instanceof Monster) {
-      entities = figure.entities.filter((entity) => this.isAlive(entity, acting));
+      entities = figure.entities.filter((entity) => this.isAlive(entity, acting) || !acting && entity.dormant);
     }
     return entities;
   }
@@ -57,15 +57,15 @@ export class EntityManager {
     }
 
     if (entity instanceof MonsterEntity) {
-      return !entity.dead && (!acting || entity.summon != SummonState.new);
+      return !entity.dead && !entity.dormant && (!acting || entity.summon != SummonState.new);
     }
 
     if (entity instanceof Summon) {
-      return !entity.dead && (!acting || entity.state != SummonState.new);
+      return !entity.dead && !entity.dormant && (!acting || entity.state != SummonState.new);
     }
 
     if (entity instanceof ObjectiveEntity) {
-      return !entity.dead;
+      return !entity.dead && !entity.dormant;
     }
 
     return false;

@@ -23,6 +23,30 @@
       "requiredRooms": [
         3
       ],
+      "note": "Close and lock door %game.mapMarker.b%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "tags": [
+              "off"
+            ]
+          },
+          "type": "dormant"
+        }
+      ]
+    },
+    {
+      "treasures": [
+        "G"
+      ],
+      "round": "true",
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        3
+      ],
       "spawns": [
         {
           "monster": {
@@ -38,9 +62,10 @@
       "round": "true",
       "always": true,
       "once": true,
+      "note": "Reopen door %game.mapMarker.b%",
       "rooms": [
-        4,
-        5
+        3,
+        4
       ],
       "figures": [
         {
@@ -50,7 +75,17 @@
             "name": "stone-golem",
             "marker": "c"
           },
-          "type": "dead"
+          "type": "killed"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "tags": [
+              "off"
+            ]
+          },
+          "type": "activate"
         }
       ]
     }
@@ -66,15 +101,24 @@
       "monster": [
         {
           "name": "black-imp",
-          "type": "normal"
+          "type": "normal",
+          "tags": [
+            "off"
+          ]
         },
         {
           "name": "black-imp",
-          "type": "elite"
+          "type": "elite",
+          "tags": [
+            "off"
+          ]
         },
         {
           "name": "spitting-drake",
-          "type": "normal"
+          "type": "normal",
+          "tags": [
+            "off"
+          ]
         }
       ]
     },
@@ -87,15 +131,24 @@
       "monster": [
         {
           "name": "black-imp",
-          "type": "normal"
+          "type": "normal",
+          "tags": [
+            "off"
+          ]
         },
         {
           "name": "black-imp",
-          "type": "normal"
+          "type": "normal",
+          "tags": [
+            "off"
+          ]
         },
         {
           "name": "spitting-drake",
-          "type": "normal"
+          "type": "normal",
+          "tags": [
+            "off"
+          ]
         }
       ]
     },
@@ -103,10 +156,6 @@
       "roomNumber": 3,
       "ref": "a2a",
       "marker": "b",
-      "rooms": [
-        4,
-        5
-      ],
       "treasures": [
         "G"
       ],
@@ -119,11 +168,6 @@
     },
     {
       "roomNumber": 4,
-      "ref": "i1b",
-      "marker": "b"
-    },
-    {
-      "roomNumber": 5,
       "ref": "a1b",
       "marker": "a",
       "monster": [

@@ -9,14 +9,15 @@ import { BattleGoalSetupDialog } from "src/app/ui/figures/battlegoal/setup/battl
 import { ItemsDialogComponent } from "src/app/ui/figures/items/dialog/items-dialog";
 import { GameState } from "src/app/game/model/Game";
 import { Condition, ConditionName, ConditionType } from "src/app/game/model/data/Condition";
+import { Party } from "src/app/game/model/Party";
 
 
 @Component({
-    selector: 'ghs-sheets-menu',
-    templateUrl: 'sheets.html',
-    styleUrls: ['../menu.scss', 'sheets.scss']
+    selector: 'ghs-campaign-menu',
+    templateUrl: 'campaign.html',
+    styleUrls: ['../menu.scss', 'campaign.scss']
 })
-export class SheetsMenuComponent implements OnInit {
+export class CampaignMenuComponent implements OnInit {
 
     @Output() close = new EventEmitter();
 
@@ -30,6 +31,10 @@ export class SheetsMenuComponent implements OnInit {
     constructor(private dialog: Dialog) { }
 
     ngOnInit(): void {
+        this.update();
+    }
+
+    update() {
         this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character).sort((a, b) => {
             const aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
             const bName = b.title.toLowerCase() || settingsManager.getLabel('data.character.' + b.name).toLowerCase();
@@ -40,7 +45,9 @@ export class SheetsMenuComponent implements OnInit {
                 return -1;
             }
             return 0;
-        }); this.conditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => condition.types.indexOf(ConditionType.hidden) == -1);
+        });
+
+        this.conditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => condition.types.indexOf(ConditionType.hidden) == -1);
         this.editionConditions = gameManager.conditions(gameManager.game.edition, true).map((condition) => condition.name);
     }
 
@@ -52,6 +59,7 @@ export class SheetsMenuComponent implements OnInit {
             settingsManager.setFhStyle(false);
         }
         gameManager.game.edition = edition;
+        gameManager.game.party.edition = edition;
         this.editionConditions = gameManager.conditions(gameManager.game.edition, true).map((condition) => condition.name);
         gameManager.stateManager.after();
     }
@@ -112,4 +120,33 @@ export class SheetsMenuComponent implements OnInit {
         this.close.emit();
     }
 
+
+    addParty() {
+        let party = new Party();
+        let id = 0;
+        while (gameManager.game.parties.some((party) => party.id == id)) {
+            id++;
+        }
+        party.id = id;
+        gameManager.stateManager.before("addParty", party.name || '%party% ' + party.id);
+        gameManager.game.parties.push(party);
+        this.changeParty(party);
+        this.update();
+        gameManager.stateManager.after();
+    }
+
+    changeParty(party: Party) {
+        gameManager.stateManager.before("changeParty", party.name || '%party% ' + party.id);
+        gameManager.changeParty(party);
+        this.update();
+        gameManager.stateManager.after();
+    }
+
+    setName(event: any) {
+        if (gameManager.game.party.name != event.target.value) {
+          gameManager.stateManager.before("setPartyName", event.target.value);
+          gameManager.game.party.name = event.target.value;
+          gameManager.stateManager.after();
+        }
+      }
 }

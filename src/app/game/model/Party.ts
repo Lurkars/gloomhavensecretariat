@@ -4,12 +4,16 @@ import { BuildingModel } from "./data/BuildingData";
 import { CountIdentifier, Identifier } from "./data/Identifier";
 import { LootType } from "./data/Loot";
 import { GameScenarioModel } from "./Scenario";
+import { ConditionName } from "./data/Condition";
 
 export class Party {
 
   id: number = 0;
   name: string = "";
   edition: string | undefined;
+  conditions: ConditionName[] = [];
+  battleGoalEditions: string[] = [];
+  filteredBattleGoals: Identifier[] = [];
   location: string = "";
   notes: string = "";
   achievements: string = "";

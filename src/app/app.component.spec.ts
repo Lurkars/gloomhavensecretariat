@@ -109,7 +109,7 @@ import { KeyboardShortcuts } from './ui/helper/keyboard-shortcuts';
 import { InViewportModule } from 'ng-in-viewport';
 import { SelectResourcesDialog } from './ui/header/party/buildings/select-resources/select-resources';
 import { MonsterMenuComponent } from './ui/header/menu/monster/monster';
-import { SheetsMenuComponent } from './ui/header/menu/sheets/sheets';
+import { CampaignMenuComponent } from './ui/header/menu/campaign/campaign';
 import { ItemsBrewDialog } from './ui/figures/items/brew/brew';
 import { StandeeComponent } from './ui/figures/standee/standee';
 import { WorldMapComponent } from './ui/header/party/world-map/world-map';
@@ -126,7 +126,7 @@ describe('AppComponent', () => {
         MainComponent,
         HeaderComponent, ElementIconComponent, ElementComponent,
         PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, SelectResourcesDialog, ScenarioRequirementsComponent,
-        MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, SheetsMenuComponent,
+        MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, CampaignMenuComponent,
         FooterComponent,
         LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
         HintDialogComponent, ScenarioRulesComponent,

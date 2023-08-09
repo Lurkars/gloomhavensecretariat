@@ -63,6 +63,18 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     if (gameManager.game.edition && !this.party.edition) {
       this.party.edition = gameManager.game.edition;
     }
+
+    if (gameManager.game.conditions && !this.party.conditions) {
+      this.party.conditions = gameManager.game.conditions;
+    }
+
+    if (gameManager.game.battleGoalEditions && !this.party.battleGoalEditions) {
+      this.party.battleGoalEditions = gameManager.game.battleGoalEditions;
+    }
+
+    if (gameManager.game.filteredBattleGoals && !this.party.filteredBattleGoals) {
+      this.party.filteredBattleGoals = gameManager.game.filteredBattleGoals;
+    }
   }
 
   ngOnInit(): void {
@@ -78,9 +90,6 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         }
       }
     })
-    this.fhSheet = gameManager.fhRules();
-    this.csSheet = !this.fhSheet && gameManager.editionRules('cs');
-
     this.update();
   }
 
@@ -291,19 +300,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   changeParty(party: Party) {
-    this.party.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel()));
-    this.party = party;
-    gameManager.game.party = this.party;
-    if (this.party.edition) {
-      gameManager.game.edition = this.party.edition;
-    }
-    gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Character));
-    gameManager.scenarioManager.setScenario(undefined);
-    party.characters.forEach((value) => {
-      let character = new Character(gameManager.getCharacterData(value.name, value.edition), value.level);
-      character.fromModel(value);
-      gameManager.game.figures.push(character);
-    });
+    gameManager.changeParty(party);
     this.update();
   }
 
@@ -459,6 +456,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   update(): void {
+    this.fhSheet = gameManager.fhRules();
+    this.csSheet = !this.fhSheet && gameManager.editionRules('cs');
     const editions = this.party.edition && [this.party.edition] || gameManager.editions();
     this.scenarioEditions = [];
     editions.forEach((edition) => {

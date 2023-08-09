@@ -497,6 +497,18 @@
     }
   }
 
+  &.dormant {
+    .entity {
+
+      filter: grayscale(0.4);
+
+      .background-image-container,
+      ghs-healthbar {
+        filter: grayscale(0.8);
+      }
+    }
+  }
+
   .drag-hp {
     position: absolute;
     top: 0;

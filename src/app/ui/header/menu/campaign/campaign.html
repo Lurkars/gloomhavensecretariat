@@ -20,27 +20,27 @@
     </div>
 
     <div class="line title span">
-        <label><span [ghs-label]="'sheets'"></span></label>
+        <label><span [ghs-label]="'campaign'"></span></label>
     </div>
 
     <div class="line span">
-        <a (click)="openPartySheet()" [ghs-label]="'sheets.party'"></a>
+        <a (click)="openPartySheet()" [ghs-label]="'campaign.party'"></a>
     </div>
 
     <div class="line span">
-        <a (click)="openCampaignSheet()" [ghs-label]="'sheets.campaign'"></a>
+        <a (click)="openCampaignSheet()" [ghs-label]="'campaign.sheet'"></a>
     </div>
 
     <div class="line span">
-        <a (click)="openItems()" [ghs-label]="'sheets.items'"></a>
+        <a (click)="openItems()" [ghs-label]="'campaign.items'"></a>
     </div>
 
     <div class="line" *ngIf="settingsManager.settings.battleGoals">
-        <a (click)="openBattleGoalsSetup()" [ghs-label]="'sheets.battleGoals'"></a>
+        <a (click)="openBattleGoalsSetup()" [ghs-label]="'campaign.battleGoals'"></a>
     </div>
 
     <div class="line title span" *ngIf="characters.length > 0">
-        <label><span [ghs-label]="'sheets.character'"></span></label>
+        <label><span [ghs-label]="'campaign.character'"></span></label>
     </div>
 
     <div class="line" *ngFor="let character of characters">
@@ -54,7 +54,7 @@
             </span>
         </a>
     </div>
-    
+
     <div class="line title span">
         <label><span [ghs-label]="'edition.conditions'"></span></label>
     </div>
@@ -72,4 +72,39 @@
             </span>
         </div>
     </div>
+
+    <div class="line title span">
+        <div class="hint-container">
+            <label>
+                <span [ghs-label]="'campaign.partyManagement'"></span>
+            </label>
+            <ng-container *ngIf="gameManager.game.scenario">
+                <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+                <span class="hint">
+                    <span class="text" [ghs-label]="'campaign.partyManagement.hint'"></span>
+                </span>
+            </ng-container>
+        </div>
+    </div>
+    <div class="line" *ngFor="let party of gameManager.game.parties">
+        <label *ngIf="gameManager.game.party != party"
+            [ngClass]="{'disabled' :  gameManager.game.parties.length == 1 || gameManager.game.scenario}">
+            <input type="checkbox" [checked]="gameManager.game.party == party" (change)="changeParty(party)">
+            <span *ngIf="party.name">{{party.name}}</span>
+            <span *ngIf="!party.name"><span [ghs-label]="'party'"></span>&nbsp;{{party.id}}</span>
+        </label>
+        <label *ngIf="gameManager.game.party == party"
+            [ngClass]="{'disabled' :  gameManager.game.parties.length == 1 || gameManager.game.scenario}">
+            <input type="checkbox" checked="true" disabled="disabled">
+            <input type="text" [value]="party.name" (change)="setName($event)"
+                [ghs-label]="'campaign.partyManagement.name'" [ghs-label-args]="['' + party.id]"
+                [ghs-label-attribute]="'placeholder'">
+        </label>
+    </div>
+
+    <div class="line span">
+        <a (click)="addParty()" [ghs-label]="'campaign.partyManagement.add'"
+            [ngClass]="{'disabled' : gameManager.game.scenario}"></a>
+    </div>
+
 </div>
