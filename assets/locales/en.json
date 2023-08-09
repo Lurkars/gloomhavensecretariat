@@ -15,6 +15,20 @@
       "cancel": "Cancel loading?"
     }
   },
+  "campaign": {
+    ".": "Campaign/Character Management",
+    "battleGoals": "Battle Goal Setup",
+    "character": "Character Sheets",
+    "items": "Itemcards Overview",
+    "party": "Party/Campaign Sheet",
+    "partyManagement": {
+      ".": "Manage Parties",
+      "add": "Add Party",
+      "hint": "Changing current party or creation of new party is disabled during a scenario. Finish or cancel current scenario to change current party or create a new party.",
+      "name": "Name for Party {0}"
+    },
+    "sheet": "Global Campaign Management Sheet"
+  },
   "cancel": "Cancel",
   "character": {
     ".": "Character",
@@ -1162,11 +1176,13 @@
       "apply": "Apply",
       "dismiss": "Dismiss",
       "figures": {
+        "activate": "{0} activate",
         "all": "All figures",
         "amAdd": "{0} add %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% to Attack Modifier Deck",
         "amRemove": "{0} remove %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% from Attack Modifier deck",
         "damage": "{0} suffer %game.damage:{2}%",
         "discard": "{0} discard %number.{2}% ability cards each",
+        "dormant": "{0} become dormant",
         "gainCondition": "{0} gain %game.condition.{1}%",
         "heal": "{0} %game.action.heal% {2}",
         "loseCondition": "{0} lose %game.condition.{1}%",
@@ -1699,14 +1715,6 @@
     "add": "Add Spoiler",
     "all": "Reveal All Spoilers",
     "placeholder": "???"
-  },
-  "sheets": {
-    ".": "Campaign/Character Management",
-    "battleGoals": "Battle Goal Setup",
-    "campaign": "Global Campaign Management Sheet",
-    "character": "Character Sheets",
-    "items": "Itemcards Overview",
-    "party": "Party/Campaign Sheet"
   },
   "state": {
     "clear": {

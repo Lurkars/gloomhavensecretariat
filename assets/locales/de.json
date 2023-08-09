@@ -15,6 +15,20 @@
       "cancel": "Laden abbrechen?"
     }
   },
+  "campaign": {
+    ".": "Kampagnen- und Charakterverwaltung",
+    "battleGoals": "Kampfziele einrichten",
+    "character": "Charakterbogen",
+    "items": "Gegenstandskarten Übersicht",
+    "party": "Gruppen-/Kampagnenbogen",
+    "partyManagement": {
+      ".": "Gruppen verwalten",
+      "add": "Neue Gruppe erstellen",
+      "hint": "Während eines Szenarios ist das Ändern oder Erstellen einer neuen Gruppe deaktiviert. Beende oder breche das aktuelle Szenario ab um die akutelle Gruppe zu ändern oder eine neue Gruppe zu erstellen.",
+      "name": "Name für Gruppe {0}"
+    },
+    "sheet": "Globaler Kampagnenbogen"
+  },
   "cancel": "Abbrechen",
   "character": {
     ".": "Charakter",
@@ -861,7 +875,7 @@
     "name": "Name",
     "new": {
       ".": "Neue Gruppe erstellen",
-      "hint": "Während eines Szenarios ist das Erstellen einer neuen Grupp deaktiviert. Beende oder breche das aktuelle Szenario ab um eine neue Grupp zu erstellen."
+      "hint": "Während eines Szenarios ist das Erstellen einer neuen Gruppe deaktiviert. Beende oder breche das aktuelle Szenario ab um eine neue Gruppe zu erstellen."
     },
     "notes": "Notizen",
     "prosperity": "Wohlstand",
@@ -1054,11 +1068,13 @@
       "apply": "Anwenden",
       "dismiss": "Schließen",
       "figures": {
+        "activate": "{0} werden aktiviert",
         "all": "Alle Figuren",
         "amAdd": "{0} fügen %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% zum Angriffsmodifikatordeck hinzu",
         "amRemove": "{0} entfernen %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% vom Angriffsmodifikatordeck",
         "damage": "{0} erleiden %game.damage:{2}%",
         "discard": "{0} legen jeweils %number.{2}% Fertigkeitskarten ab",
+        "dormant": "{0} ruhend setzen",
         "gainCondition": "{0} erlangt %game.condition.{1}%",
         "heal": "{0} %game.action.heal% {2}",
         "loseCondition": "{0} verliert %game.condition.{1}%",
@@ -1586,14 +1602,6 @@
       "out": "Rauszoomen",
       "reset": "Zoom zurücksetzen"
     }
-  },
-  "sheets": {
-    ".": "Kampagnen- und Charakterverwaltung",
-    "battleGoals": "Kampfziele einrichten",
-    "campaign": "Globaler Kampagnenbogen",
-    "character": "Charakterbogen",
-    "items": "Gegenstandskarten Übersicht",
-    "party": "Gruppen-/Kampagnenbogen"
   },
   "spoiler": {
     "add": "Spoiler hinzufügen",
