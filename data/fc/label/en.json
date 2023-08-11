@@ -104,6 +104,16 @@
       }
     }
   },
+  "partyAchievements": {
+    "Beauty in Freedom": "Beauty in Freedom",
+    "Guard Detail": "Guard Detail",
+    "Hunted Prey": "Hunted Prey"
+  },
+  "globalAchievements": {
+    "A Peril Averted": "A Peril Averted",
+    "Knowledge is Power": "Knowledge is Power",
+    "Severed Ties": "Severed Ties"
+  },
   "custom": {
     "fc": {
       "ancient-artillery-section-133": {

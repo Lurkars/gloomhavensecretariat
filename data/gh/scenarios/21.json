@@ -21,6 +21,9 @@
     "36"
   ],
   "rewards": {
+    "globalAchievements": [
+      "The Rift Neutralized"
+    ],
     "gold": 50,
     "prosperity": 1,
     "events": [

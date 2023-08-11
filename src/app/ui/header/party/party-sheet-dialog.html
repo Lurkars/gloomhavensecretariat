@@ -65,15 +65,19 @@
               <div class="achievements-container">
                 <div class="list">
                   <div class="achievement" *ngFor="let achievement of party.achievementsList; let i = index;">
-                    <input [value]="achievement" (change)="updateAchievement($event, i)">
+                    <span [ghs-label]="'data.partyAchievements.' + achievement"></span>
                     <span class="spacer"></span>
                     <span class="remove" (click)="removeAchievement(i)">
                       <img class="ghs-svg" src="./assets/images/close.svg"></span>
                   </div>
                 </div>
-
-                <textarea type="text" [value]="party.achievements" (change)="setAchievements($event)"
-                  [ghs-label]="'party.achievements'" [ghs-label-attribute]="'placeholder'"></textarea>
+                <div class="form">
+                  <input type="text" #partyAchievementInput (change)="addAchievement(partyAchievementInput)"
+                    [ghs-label]="'party.addPartyAchievement'" [ghs-label-attribute]="'placeholder'"
+                    (keyup.enter)="addAchievement(partyAchievementInput)">
+                  <a class="addScenario" [ghs-label]="'party.addPartyAchievement'" [ghs-label-attribute]="'title'"
+                    (click)="addAchievement(partyAchievementInput)"><img src="./assets/images/plus.svg"></a>
+                </div>
               </div>
             </div>
           </div>
@@ -572,15 +576,19 @@
             <div class="achievements-container">
               <div class="list">
                 <div class="achievement" *ngFor="let achievement of party.globalAchievementsList; let i = index;">
-                  <input [value]="achievement" (change)="updateGlobalAchievement($event, i)">
+                  <span [ghs-label]="'data.globalAchievements.' + achievement"></span>
                   <span class="spacer"></span>
                   <span class="remove" (click)="removeGlobalAchievement(i)">
                     <img class="ghs-svg" src="./assets/images/close.svg"></span>
                 </div>
               </div>
-
-              <textarea type="text" [value]="party.globalAchievements" (change)="setGlobalAchievements($event)"
-                [ghs-label]="'party.campaign.achievements'" [ghs-label-attribute]="'placeholder'"></textarea>
+              <div class="form">
+                <input type="text" #globalAchievementInput (change)="addGlobalAchievement(globalAchievementInput)"
+                  [ghs-label]="'party.addGlobalAchievement'" [ghs-label-attribute]="'placeholder'"
+                  (keyup.enter)="addGlobalAchievement(globalAchievementInput)">
+                <a class="addScenario" [ghs-label]="'party.addGlobalAchievement'" [ghs-label-attribute]="'title'"
+                  (click)="addGlobalAchievement(globalAchievementInput)"><img src="./assets/images/plus.svg"></a>
+              </div>
             </div>
           </div>
         </div>

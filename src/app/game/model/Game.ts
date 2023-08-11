@@ -209,16 +209,32 @@ export class Game {
     this.party = model.party ? Object.assign(new Party(), model.party) : new Party();
 
     // migration
-    if (this.party.achievements) {
-      this.party.achievementsList.push(...this.party.achievements.split("\n"));
+    if (this.party.achievementsList) {
+      const partyAchievementsLabel = settingsManager.label.data.partyAchievements;
       this.party.achievementsList = this.party.achievementsList.filter((item) => item);
-      this.party.achievements = "";
+      this.party.achievementsList = this.party.achievementsList.map((value) => {
+        let achievement = value;
+        Object.keys(partyAchievementsLabel).forEach((key) => {
+          if (partyAchievementsLabel[key].toLowerCase() == achievement.toLowerCase()) {
+            achievement = key;
+          }
+        })
+        return achievement;
+      })
     }
 
-    if (this.party.globalAchievements) {
-      this.party.globalAchievementsList.push(...this.party.globalAchievements.split("\n"));
+    if (this.party.globalAchievementsList) {
+      const globalAchievementsLabel = settingsManager.label.data.globalAchievements;
       this.party.globalAchievementsList = this.party.globalAchievementsList.filter((item) => item);
-      this.party.globalAchievements = "";
+      this.party.globalAchievementsList = this.party.globalAchievementsList.map((value) => {
+        let achievement = value;
+        Object.keys(globalAchievementsLabel).forEach((key) => {
+          if (globalAchievementsLabel[key].toLowerCase() == achievement.toLowerCase()) {
+            achievement = key;
+          }
+        })
+        return achievement;
+      })
     }
 
     if (this.party.campaignStickers) {

@@ -179,21 +179,18 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     }
   }
 
-  setAchievements(event: any) {
-    if (this.party.achievements != event.target.value) {
-      gameManager.stateManager.before("setPartyAchievements", event.target.value);
-      this.party.achievementsList.push(...event.target.value.split("\n").filter((value: string) => value));
-      this.party.achievements = "";
-      event.target.value = "";
+  addAchievement(input: HTMLInputElement) {
+    if (input.value) {
+      let achievement = input.value;
+      Object.keys(settingsManager.label.data.partyAchievements).forEach((key) => {
+        if (settingsManager.label.data.partyAchievements[key].toLowerCase() == achievement.toLowerCase()) {
+          achievement = key;
+        }
+      })
+      gameManager.stateManager.before("addPartyAchievement", achievement);
+      this.party.achievementsList.push(achievement);
       gameManager.stateManager.after();
-    }
-  }
-
-  updateAchievement(event: any, index: number) {
-    if (this.party.achievementsList[index] != event.target.value) {
-      gameManager.stateManager.before("updatePartyAchievement", event.target.value);
-      this.party.achievementsList[index] = event.target.value
-      gameManager.stateManager.after();
+      input.value = "";
     }
   }
 
@@ -203,26 +200,25 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     gameManager.stateManager.after();
   }
 
-  setGlobalAchievements(event: any) {
-    if (this.party.globalAchievements != event.target.value) {
-      gameManager.stateManager.before("setGlobalAchievements", event.target.value);
-      this.party.globalAchievementsList.push(...event.target.value.split("\n").filter((value: string) => value));
-      this.party.globalAchievements = "";
-      event.target.value = "";
-      gameManager.stateManager.after();
-    }
-  }
 
-  updateGlobalAchievement(event: any, index: number) {
-    if (this.party.globalAchievementsList[index] != event.target.value) {
-      gameManager.stateManager.before("updateGlobalAchievement", event.target.value);
-      this.party.globalAchievementsList[index] = event.target.value
+
+  addGlobalAchievement(input: HTMLInputElement) {
+    if (input.value) {
+      let achievement = input.value;
+      Object.keys(settingsManager.label.data.globalAchievements).forEach((key) => {
+        if (settingsManager.label.data.globalAchievements[key].toLowerCase() == achievement.toLowerCase()) {
+          achievement = key;
+        }
+      })
+      gameManager.stateManager.before("addGlobalAchievement", achievement);
+      this.party.globalAchievementsList.push(achievement);
       gameManager.stateManager.after();
+      input.value = "";
     }
   }
 
   removeGlobalAchievement(index: number) {
-    gameManager.stateManager.before("removeGlobalAchievement", this.party.achievementsList[index]);
+    gameManager.stateManager.before("removeGlobalAchievement", this.party.globalAchievementsList[index]);
     this.party.globalAchievementsList.splice(index, 1);
     gameManager.stateManager.after();
   }

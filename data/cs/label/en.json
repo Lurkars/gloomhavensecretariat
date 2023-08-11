@@ -83,6 +83,12 @@
       }
     }
   },
+  "partyAchievements": {
+    "Fallen Lava": "Fallen Lava",
+    "Follow the Money": "Follow the Money",
+    "Frozen Warrior": "Frozen Warrior",
+    "Ooze Destroyed": "Ooze Destroyed"
+  },
   "custom": {
     "cs": {
       "blood-ooze": {

@@ -698,6 +698,7 @@ ghs-pointer-input {
     width: 100%;
     max-height: calc(90vh - var(--ghs-unit) * 4);
     overflow: auto;
+    padding: 0 calc(var(--ghs-unit) * 1);
   }
 
   &.fullscreen-panel {

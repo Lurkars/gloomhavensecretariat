@@ -45,6 +45,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   AttackModifierType = AttackModifierType;
   levelDialog: boolean = false;
 
+  characterTitle: string = "";
   initiative: number = -1;
   health: number = 0;
   experience: number = 0;
@@ -70,6 +71,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   }
 
   update(): void {
+    this.characterTitle = gameManager.characterManager.characterName(this.character);
     this.summonCount = this.character.summons.filter((summon) => gameManager.entityManager.isAlive(summon)).length;
     this.activeConditions = gameManager.entityManager.activeConditions(this.character);
     this.character.immunities.forEach((immunity) => {

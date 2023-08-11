@@ -211,8 +211,8 @@
       margin-top: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
 
       .achievements-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        flex-direction: column;
         column-gap: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
         height: calc(var(--ghs-unit) * 24 * var(--ghs-dialog-factor));
         width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
@@ -221,7 +221,7 @@
         .list {
           display: flex;
           flex-direction: column;
-          width: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));
+          width: 100%;
 
           .achievement {
             display: flex;
@@ -241,6 +241,39 @@
 
               &:hover {
                 opacity: 0.7;
+              }
+            }
+          }
+        }
+
+        .form {
+          display: flex;
+          font-family: var(--ghs-font-text);
+          align-items: center;
+
+          input {
+            font-family: var(--ghs-font-text);
+            width: 100%;
+            min-width: 0;
+            margin: 0;
+          }
+
+          a {
+            font-family: var(--ghs-font-text);
+            display: flex;
+            cursor: pointer;
+
+            img {
+              filter: var(--ghs-filter-green);
+              width: auto;
+              height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+            }
+
+            &.disabled {
+              pointer-events: none;
+
+              img {
+                filter: var(--ghs-filter-darkgray);
               }
             }
           }

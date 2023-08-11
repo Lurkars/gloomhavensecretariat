@@ -67,7 +67,7 @@
                 [src]="character.identities.length == 0 || !settingsManager.settings.characterIdentities ? character.iconUrl : gameManager.characterManager.characterIdentityIcon(character)" />
             </span>
             <span ghs-pointer-input (singleClick)="openEntityMenu($event)">
-              {{gameManager.characterManager.characterName(character)}}
+              {{characterTitle}}
               <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" />
             </span>
           </span>
