@@ -4,9 +4,9 @@
         [style.fontSize]="container.offsetWidth * 0.072 + 'px'" card-reveal [disabled]="!reveal">
         <div class="card-front">
             <ng-container *ngIf="battleGoal">
-                <div class="name" [ghs-label]="battleGoal.name"></div>
+                <div class="name" [ghs-label]="'data.battleGoals.' + battleGoal.cardId"></div>
                 <div class="text"><span class="placeholder"
-                        [ghs-label]="'data.battleGoals.' + battleGoal.cardId"></span></div>
+                        [ghs-label]="'data.battleGoals.' + battleGoal.cardId + '.text'"></span></div>
                 <div class="checks">
                     <img src="./assets/images/check.svg" *ngFor="let check of [] | ghsRange:battleGoal.checks">
                 </div>

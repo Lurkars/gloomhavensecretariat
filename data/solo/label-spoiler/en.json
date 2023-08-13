@@ -1,5 +1,173 @@
 {
     "items": {
+        "gh-134": {
+            ".": "Imposing Blade"
+        },
+        "gh-135": {
+            ".": "Focusing Ray"
+        },
+        "gh-136": {
+            ".": "Volatile Elixir"
+        },
+        "gh-137": {
+            ".": "Silent Stiletto"
+        },
+        "gh-138": {
+            ".": "Stone Charm"
+        },
+        "gh-139": {
+            ".": "Psychic Knife"
+        },
+        "gh-140": {
+            ".": "Sun Shield"
+        },
+        "gh-141": {
+            ".": "Utility Belt"
+        },
+        "gh-142": {
+            ".": "Phasing Idol"
+        },
+        "gh-143": {
+            ".": "Smoke Elixir"
+        },
+        "gh-144": {
+            ".": "Pendant of the Plague"
+        },
+        "gh-145": {
+            ".": "Mask of Death"
+        },
+        "gh-146": {
+            ".": "Master's Lute"
+        },
+        "gh-147": {
+            ".": "Cloak of the Hunter"
+        },
+        "gh-148": {
+            ".": "Doctor's Coat"
+        },
+        "gh-149": {
+            ".": "Elemental Boots"
+        },
+        "gh-150": {
+            ".": "Staff of Command"
+        },
+        "gh-envx-151": {
+            ".": "Sword of the Sands"
+        },
+        "fc-164": {
+            ".": "Basin of Prophecy"
+        },
+        "cs-34": {
+            ".": "Claw Trap"
+        },
+        "cs-40": {
+            ".": "Moonleather Boots"
+        },
+        "cs-41": {
+            ".": "Spirit Libation"
+        },
+        "cs-42": {
+            ".": "Robe of Soothing"
+        },
+        "cs-45": {
+            ".": "Chain Cannon"
+        },
+        "cs-47": {
+            ".": "Nature Armlets"
+        },
+        "cs-48": {
+            ".": "Test Tube"
+        },
+        "cs-50": {
+            ".": "Luminous Carapace"
+        },
+        "cs-51": {
+            ".": "Flaming Armor"
+        },
+        "cs-53": {
+            ".": "Field Mortar"
+        },
+        "cs-56": {
+            ".": "Clamp Trap"
+        },
+        "cs-57": {
+            ".": "Cleansed Voidheart"
+        },
+        "cs-103": {
+            ".": "Steelsilk Spinneret"
+        },
+        "cs-109": {
+            ".": "Auscudec of the Makers"
+        },
+        "cs-114": {
+            ".": "Rite of Ruin"
+        },
+        "fh-248": {
+            ".": "Wanderer's Club"
+        },
+        "fh-249": {
+            ".": "Recalibration Trigger"
+        },
+        "fh-250": {
+            ".": "Spear of Justice"
+        },
+        "fh-251": {
+            ".": "Soul Urn"
+        },
+        "fh-252": {
+            ".": "Black Earth Codex"
+        },
+        "fh-253": {
+            ".": "Mask of Duality"
+        },
+        "fh-254": {
+            ".": "Ancestral Blade"
+        },
+        "fh-255": {
+            ".": "Mountain's Heart"
+        },
+        "fh-256": {
+            ".": "Sonorous Shard"
+        },
+        "fh-257": {
+            ".": "Sly Camouflage"
+        },
+        "fh-258": {
+            ".": "Skull of Agony"
+        },
+        "fh-259": {
+            ".": "Storm Carving"
+        },
+        "fh-260": {
+            ".": "Freezing Orb"
+        },
+        "fh-261": {
+            ".": "Energized Module"
+        },
+        "fh-262": {
+            ".": "Exhaust Boots"
+        },
+        "fh-263": {
+            ".": "Warlord's Skull"
+        },
+        "fh-264": {
+            ".": "Spiraled Medallion"
+        },
+        "toa-119": {
+            ".": "Thrice-Souled Warsword"
+        },
+        "toa-120": {
+            ".": "Rekindled Core"
+        },
+        "toa-121": {
+            ".": "Crystal Catalyst"
+        },
+        "toa-123": {
+            ".": "Arclight Cladding"
+        },
+        "toa-128": {
+            ".": "Barbed Whip"
+        },
         "solo-134": {
             "1": "Any time you kill an enemy during your turn, gain %game.action.shield% 1 for the rest of the round."
         },
