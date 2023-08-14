@@ -283,7 +283,7 @@ export class LootManager {
       case TreasureRewardType.randomItem:
       case TreasureRewardType.randomItemDesign:
       case TreasureRewardType.randomItemBlueprint:
-        let availableItems = gameManager.itemData(edition, true).filter((itemData) => (reward.type == TreasureRewardType.randomItem || reward.type == TreasureRewardType.randomItemDesign && itemData.random || reward.type == TreasureRewardType.randomItemBlueprint && itemData.blueprint && (!itemData.requiredBuilding || gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel))) && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition));
+        let availableItems = gameManager.itemManager.getItems(edition, true).filter((itemData) => (reward.type == TreasureRewardType.randomItem || reward.type == TreasureRewardType.randomItemDesign && itemData.random || reward.type == TreasureRewardType.randomItemBlueprint && itemData.blueprint && (!itemData.requiredBuilding || gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel))) && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition));
         if (typeof reward.value === 'string' && reward.value.indexOf('-') != -1) {
           const from = + reward.value.split('-')[0];
           const to = + reward.value.split('-')[1];
