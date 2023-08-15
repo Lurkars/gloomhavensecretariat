@@ -105,9 +105,15 @@
     }
   },
   "partyAchievements": {
+    "Angels of Death": "Angels of Death",
     "Beauty in Freedom": "Beauty in Freedom",
+    "Custodians": "Custodians",
+    "Diamara's Aid": "Diamara's Aid",
+    "Dimensional Equilibrium": "Dimensional Equilibrium",
     "Guard Detail": "Guard Detail",
-    "Hunted Prey": "Hunted Prey"
+    "Hunted Prey": "Hunted Prey",
+    "Hunting the Hunter": "Hunting the Hunter",
+    "Xangroth's Aid": "Xangroth's Aid"
   },
   "globalAchievements": {
     "A Peril Averted": "A Peril Averted",

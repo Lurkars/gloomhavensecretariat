@@ -457,14 +457,14 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     const editions = this.party.edition && [this.party.edition] || gameManager.editions();
     this.scenarioEditions = [];
     editions.forEach((edition) => {
-      let scenarioData = gameManager.scenarioManager.scenarioData(edition).filter((scenarioData) => (!scenarioData.spoiler || settingsManager.settings.spoilers.indexOf(scenarioData.name) != -1 || scenarioData.solo && settingsManager.settings.spoilers.indexOf(scenarioData.solo) != -1));
+      let scenarioData = gameManager.scenarioManager.scenarioData(edition).filter((scenarioData) => (!scenarioData.spoiler || settingsManager.settings.spoilers.indexOf(scenarioData.name) != -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) != -1));
       if (scenarioData.length > 0) {
         this.scenarios[edition] = scenarioData.sort((a, b) => {
           if (a.group && !b.group) {
             return 1;
           } else if (!a.group && b.group) {
             return -1;
-          } else if (a.group && b.group) {
+          } else if (a.group && b.group && a.group != b.group) {
             return a.group < b.group ? -1 : 1;
           }
 

@@ -5414,7 +5414,7 @@
   {
     "id": 247,
     "name": "Trainers Net",
-    "cost": 50,
+    "cost": 10,
     "count": 1,
     "edition": "fh",
     "slot": "onehand",
