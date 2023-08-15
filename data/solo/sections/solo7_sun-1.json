@@ -4,6 +4,7 @@
   "name": "Caravan Escort",
   "edition": "gh",
   "parent": "7",
+  "marker": "1",
   "monsters": [
     "inox-archer",
     "inox-guard",

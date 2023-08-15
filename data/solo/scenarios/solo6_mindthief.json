@@ -11,22 +11,13 @@
     ]
   },
   "monsters": [
-    "earth-demon-mindthief-solo",
-    "vermling-scout",
-    "vermling-shaman"
+    "vermling-scout:-1"
   ],
   "objectives": [
     {
-      "name": "Altar 1",
-      "health": "3+L"
-    },
-    {
-      "name": "Altar 2",
-      "health": "3+L"
-    },
-    {
-      "name": "Altar 3",
-      "health": "3+L"
+      "name": "Altar",
+      "health": "3+L",
+      "marker": "a"
     }
   ],
   "rooms": [
@@ -35,27 +26,27 @@
       "initial": true,
       "monster": [
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout:-1",
           "type": "normal"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout:-1",
           "type": "normal"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout:-1",
           "type": "normal"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout:-1",
           "type": "normal"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout:-1",
           "type": "normal"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout:-1",
           "type": "normal"
         }
       ]

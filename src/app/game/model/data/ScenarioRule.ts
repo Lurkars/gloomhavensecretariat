@@ -86,6 +86,7 @@ export class ScenarioFigureRule {
 export class ScenarioFigureRuleIdentifier extends AdditionalIdentifier {
 
   health: string | undefined;
+  conditions: string[] | undefined;
 
 }
 

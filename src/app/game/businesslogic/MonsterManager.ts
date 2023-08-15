@@ -154,6 +154,11 @@ export class MonsterManager {
     let level = gameManager.game.level;
     if (name.indexOf(':') != -1) {
       level = eval(gameManager.game.level + name.split(':')[1]);
+      if (level < 0) {
+        level = 0;
+      } else if (level > 7) {
+        level = 7;
+      }
       name = name.split(':')[0];
     }
 

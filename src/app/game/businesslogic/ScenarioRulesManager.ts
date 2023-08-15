@@ -1,4 +1,5 @@
 import { Character } from "../model/Character";
+import { Condition } from "../model/data/Condition";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { ScenarioFigureRule, ScenarioRule, ScenarioRuleIdentifier } from "../model/data/ScenarioRule";
 import { Entity, EntityValueFunction } from "../model/Entity";
@@ -214,7 +215,7 @@ export class ScenarioRulesManager {
       }
     }
 
-    if (!figureRule.identifier || !figureRule.identifier.health) {
+    if (!figureRule.identifier || !figureRule.identifier.health && (!figureRule.identifier.conditions || figureRule.identifier.conditions.length == 0)) {
       return gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
     }
 
@@ -228,6 +229,20 @@ export class ScenarioRulesManager {
             if (figureRule.identifier && figureRule.identifier.health && gameManager.entityManager.isAlive(entity)) {
               const health = EntityValueFunction(figureRule.identifier.health.replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
               return entity.health <= health;
+            }
+
+            return false;
+          });
+        }
+      }
+
+      if (figureRule.identifier && figureRule.identifier.conditions) {
+        if (figure instanceof Character || figure instanceof Objective) {
+          return figureRule.identifier.conditions.every((condition) => condition.startsWith('!') && !gameManager.entityManager.hasCondition(figure, new Condition(condition.substring(1))) || !condition.startsWith('!') && gameManager.entityManager.hasCondition(figure, new Condition(condition)));
+        } else if (figure instanceof Monster) {
+          return figure.entities.some((entity) => {
+            if (figureRule.identifier && figureRule.identifier.health && gameManager.entityManager.isAlive(entity)) {
+              return figureRule.identifier.conditions && figureRule.identifier.conditions.every((condition) => condition.startsWith('!') && !gameManager.entityManager.hasCondition(entity, new Condition(condition.substring(1))) || !condition.startsWith('!') && gameManager.entityManager.hasCondition(entity, new Condition(condition)));
             }
 
             return false;
@@ -248,7 +263,7 @@ export class ScenarioRulesManager {
         return [];
       }
     }
-    if (!figureRule.identifier || !figureRule.identifier.health) {
+    if (!figureRule.identifier || !figureRule.identifier.health && (!figureRule.identifier.conditions || figureRule.identifier.conditions.length == 0)) {
       return gameManager.entitiesByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
     }
 
@@ -256,6 +271,10 @@ export class ScenarioRulesManager {
       if (figureRule.identifier && figureRule.identifier.health && gameManager.entityManager.isAlive(entity)) {
         const health = EntityValueFunction(figureRule.identifier.health.replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
         return entity.health <= health;
+      }
+
+      if (figureRule.identifier && figureRule.identifier.conditions) {
+        return figureRule.identifier.conditions && figureRule.identifier.conditions.every((condition) => condition.startsWith('!') && !gameManager.entityManager.hasCondition(entity, new Condition(condition.substring(1))) || !condition.startsWith('!') && gameManager.entityManager.hasCondition(entity, new Condition(condition)));
       }
 
       return false;

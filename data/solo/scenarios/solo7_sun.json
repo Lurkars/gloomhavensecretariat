@@ -14,13 +14,10 @@
   "monsters": [
     "bandit-archer",
     "bandit-guard",
-    "cave-bear",
-    "city-guard-sun-solo",
-    "inox-archer",
-    "inox-guard",
-    "inox-shaman",
-    "vermling-scout",
-    "vermling-shaman"
+    "city-guard-sun-solo:-2"
+  ],
+  "allies": [
+    "city-guard-sun-solo"
   ],
   "rooms": [
     {
@@ -48,27 +45,27 @@
           "type": "elite"
         },
         {
-          "name": "city-guard-sun-solo",
+          "name": "city-guard-sun-solo:-2",
           "type": "normal"
         },
         {
-          "name": "city-guard-sun-solo",
+          "name": "city-guard-sun-solo:-2",
           "type": "normal"
         },
         {
-          "name": "city-guard-sun-solo",
+          "name": "city-guard-sun-solo:-2",
           "type": "normal"
         },
         {
-          "name": "city-guard-sun-solo",
+          "name": "city-guard-sun-solo:-2",
           "type": "normal"
         },
         {
-          "name": "city-guard-sun-solo",
+          "name": "city-guard-sun-solo:-2",
           "type": "normal"
         },
         {
-          "name": "city-guard-sun-solo",
+          "name": "city-guard-sun-solo:-2",
           "type": "normal"
         }
       ]

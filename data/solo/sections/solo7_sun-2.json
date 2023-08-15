@@ -4,6 +4,12 @@
   "name": "Caravan Escort",
   "edition": "gh",
   "parent": "7",
+  "parentSections": [
+    [
+      "7-1"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "cave-bear",
     "vermling-scout",

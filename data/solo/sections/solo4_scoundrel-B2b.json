@@ -4,6 +4,11 @@
   "name": "Armory Heist",
   "edition": "gh",
   "parent": "4",
+  "parentSections": [
+    [
+      "4-A2a"
+    ]
+  ],
   "monsters": [
     "ancient-artillery"
   ],
@@ -11,6 +16,9 @@
     {
       "roomNumber": 4,
       "initial": true,
+      "treasures": [
+        "G"
+      ],
       "monster": [
         {
           "name": "ancient-artillery",

@@ -4,6 +4,11 @@
   "name": "Armory Heist",
   "edition": "gh",
   "parent": "4",
+  "parentSections": [
+    [
+      "4-H1b"
+    ]
+  ],
   "monsters": [
     "city-guard-scoundrel-solo",
     "stone-golem-scoundrel-solo"

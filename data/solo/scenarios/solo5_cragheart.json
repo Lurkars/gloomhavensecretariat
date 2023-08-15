@@ -15,6 +15,47 @@
     "ooze",
     "sun-demon"
   ],
+  "rules": [
+    {
+      "round": "R == 1 || R == 3 || R == 5",
+      "spawns": [
+        {
+          "monster": {
+            "name": "cave-bear",
+            "type": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "ooze",
+            "type": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 2 || R == 4 || R == 6",
+      "spawns": [
+        {
+          "monster": {
+            "name": "sun-demon",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "ooze",
+            "type": "normal"
+          },
+          "marker": "d",
+          "count": 2
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
