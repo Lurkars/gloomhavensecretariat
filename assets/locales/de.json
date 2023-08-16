@@ -120,8 +120,14 @@
     },
     "remove": "Charakter entfernen",
     "removeAll": "Alle entfernen",
-    "unlock": "Freischalten",
-    "unlockAll": "Alle freischalten"
+    "unlock": {
+      ".": "Freischalten?",
+      "confirm": "Freischalten!"
+    },
+    "unlockAll": {
+      ".": "Alle freischalten?",
+      "confirm": "Alle freischalten!"
+    }
   },
   "close": "Schließen",
   "datamanagement": {

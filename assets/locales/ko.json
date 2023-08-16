@@ -114,8 +114,14 @@
     },
     "remove": "캐릭터 제거",
     "removeAll": "전부 제거",
-    "unlock": "해금",
-    "unlockAll": "전부 해금"
+    "unlock": {
+      ".": "해금?",
+      "confirm": "해금!"
+    },
+    "unlockAll": {
+      ".": "전부 해금?",
+      "confirm": "전부 해금!"
+    }
   },
   "close": "닫기",
   "datamanagement": {
