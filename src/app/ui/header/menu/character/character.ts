@@ -19,6 +19,7 @@ export class CharacterMenuComponent implements OnInit {
   filter: string = "";
   allEditions: boolean = false;
   newUnlocks: string[] = [];
+  confirm: string = "";
 
   characterData: Record<string, CharacterData[]> = {};
 
@@ -28,7 +29,7 @@ export class CharacterMenuComponent implements OnInit {
 
   update() {
     this.characterData = {};
-    (this.allEditions ? gameManager.editions(true,true) : gameManager.currentEditions(true)).forEach((edition) => {
+    (this.allEditions ? gameManager.editions(true, true) : gameManager.currentEditions(true)).forEach((edition) => {
       this.characterData[edition] = this.getCharacterData(this.filter, edition);
     })
   }
@@ -74,30 +75,42 @@ export class CharacterMenuComponent implements OnInit {
     return !characterData.spoiler || gameManager.game.unlockedCharacters.indexOf(characterData.name) != -1;
   }
 
-  locked(edition : string): boolean {
+  locked(edition: string): boolean {
     return this.characterData[edition] && this.characterData[edition].some((characterData) => characterData.spoiler && !this.unlocked(characterData));
   }
 
   unlock(characterData: CharacterData) {
     if (gameManager.game.unlockedCharacters.indexOf(characterData.name) == -1) {
-      gameManager.stateManager.before("unlockChar", "data.character." + characterData.name);
-      gameManager.game.unlockedCharacters.push(characterData.name);
-      this.newUnlocks.push(characterData.name);
-      gameManager.stateManager.after();
+      if (this.confirm == characterData.name) {
+        gameManager.stateManager.before("unlockChar", "data.character." + characterData.name);
+        gameManager.game.unlockedCharacters.push(characterData.name);
+        this.newUnlocks.push(characterData.name);
+        gameManager.stateManager.after();
+      } else {
+        this.confirm = characterData.name;
+      }
     }
+  }
+
+  cancelConfirm() {
+    this.confirm = "";
   }
 
   unlockAll(edition: string) {
     const chars: string[] = gameManager.charactersData(edition).filter((characterData) => characterData.spoiler && !this.unlocked(characterData)).map((characterData) => characterData.name);
     if (chars.length > 0) {
-      gameManager.stateManager.before("unlockAllCharacters", "data.edition." + edition);
-      gameManager.game.unlockedCharacters.push(...chars);
-      gameManager.stateManager.after();
+      if (this.confirm == 'confirm-all-' + edition) {
+        gameManager.stateManager.before("unlockAllCharacters", "data.edition." + edition);
+        gameManager.game.unlockedCharacters.push(...chars);
+        gameManager.stateManager.after();
+      } else {
+        this.confirm = 'confirm-all-' + edition;
+      }
     }
   }
 
   noResults(): boolean {
-    const editions = this.allEditions ? gameManager.editions(true,true) : gameManager.currentEditions(true);
+    const editions = this.allEditions ? gameManager.editions(true, true) : gameManager.currentEditions(true);
     return editions.every((edition) => !this.characterData[edition] || this.characterData[edition].length == 0);
   }
 

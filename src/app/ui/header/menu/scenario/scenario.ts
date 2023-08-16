@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
@@ -7,13 +7,14 @@ import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
 import { Spoilable, SpoilableMock } from "src/app/game/model/data/Spoilable";
 import { ScenarioRequirementsComponent } from "../../party/requirements/requirements";
 import { Dialog } from "@angular/cdk/dialog";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: 'ghs-scenario-menu',
   templateUrl: 'scenario.html',
   styleUrls: ['../menu.scss', 'scenario.scss']
 })
-export class ScenarioMenuComponent implements OnInit {
+export class ScenarioMenuComponent implements OnInit, OnDestroy {
 
   @Output() close = new EventEmitter();
 
@@ -34,7 +35,21 @@ export class ScenarioMenuComponent implements OnInit {
       // edition of last scenario
       !gameManager.game.edition && (!gameManager.game.scenario || !gameManager.game.scenario.custom) && gameManager.game.party.scenarios.length > 0 && gameManager.game.party.scenarios[gameManager.game.party.scenarios.length - 1].edition ||
       // set edition or first
-      gameManager.currentEdition();;
+      gameManager.currentEdition();
+
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+      next: () => {
+        this.scenarioCache = [];
+      }
+    })
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   editions(): string[] {

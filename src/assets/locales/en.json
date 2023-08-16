@@ -120,8 +120,14 @@
     },
     "remove": "Remove Character",
     "removeAll": "Remove All",
-    "unlock": "Unlock",
-    "unlockAll": "Unlock all"
+    "unlock": {
+      ".": "Unlock?",
+      "confirm": "Unlock!"
+    },
+    "unlockAll": {
+      ".": "Unlock all?",
+      "confirm": "Unlock all!"
+    }
   },
   "close": "Close",
   "datamanagement": {
