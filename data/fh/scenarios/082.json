@@ -5,6 +5,11 @@
   "complexity": 2,
   "rewards": {
     "prosperity": 2,
+    "itemDesigns": [
+      "153:fc",
+      "159:fc",
+      "161:fc"
+    ],
     "custom": "Add the following Forgotten Circles items to the Frosthaven supply: 153, 159, and 161"
   },
   "monsters": [

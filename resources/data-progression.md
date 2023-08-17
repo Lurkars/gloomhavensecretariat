@@ -13,6 +13,6 @@ In order to avoid error reports due to incomplete data, here is the current stat
 | **Rooms/Automatic Standees** |   ✅   |   ✅   |   ✅    |   ✅   |   ✅   |   ✅   |
 |            **Special Rules** |   ✅   |   ✅   |   ✅    |   ✅   |   ❔   |   ✅   |
 |         **Scenario Rewards** |   ✅   |   ✅   |   ✅    |   ✅   |   ✅   |   ✅   |
-|           **Solo Scenarios** |   ❔   |   ❔   |   ❔    |   ❔   |   ❔   |   ❔   |
+|           **Solo Scenarios** |   ✅   |   ❔   |   ❔    |   ❔   |   ❔   |   ❔   |
 |                **Treasures** |   ✅   |   ✅   |   ✅    |   ✅   |   ✅   |   ✅   |
 |                **Buildings** |   -   |   ✅   |   -    |   -   |   -   |   -   |

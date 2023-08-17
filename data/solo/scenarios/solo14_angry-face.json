@@ -18,14 +18,90 @@
     "high-flame",
     "spitting-drake"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "ghost-wolf"
+          },
+          "type": "gainCondition",
+          "value": "invisible"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
       "initial": true,
+      "rooms": [
+        2,
+        3
+      ],
       "monster": [
         {
           "name": "ghost-wolf",
           "type": "boss"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "marker": "1",
+      "monster": [
+        {
+          "name": "deep-earth",
+          "type": "boss"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "marker": "2",
+      "rooms": [
+        4,
+        5
+      ],
+      "monster": [
+        {
+          "name": "high-flame",
+          "type": "boss"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "marker": "3",
+      "monster": [
+        {
+          "name": "giant-viper-angry-face-solo",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper-angry-face-solo",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper-angry-face-solo",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper-angry-face-solo",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "ref": "F1b",
+      "monster": [
+        {
+          "name": "spitting-drake",
+          "type": "elite"
         }
       ]
     }

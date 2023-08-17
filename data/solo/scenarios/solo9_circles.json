@@ -16,6 +16,87 @@
     "hound",
     "spitting-drake"
   ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "type": "normal"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R == 2",
+      "spawns": [
+        {
+          "monster": {
+            "name": "spitting-drake",
+            "type": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 3",
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "type": "normal"
+          },
+          "marker": "c",
+          "count": "2"
+        }
+      ]
+    },
+    {
+      "round": "R == 4",
+      "spawns": [
+        {
+          "monster": {
+            "name": "spitting-drake",
+            "type": "normal"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R > 4",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "hound"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "spitting-drake"
+          },
+          "type": "dead"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "cave-bear-circles-solo",
+            "type": "normal"
+          },
+          "marker": "e"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

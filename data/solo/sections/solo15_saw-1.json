@@ -1,0 +1,64 @@
+{
+  "index": "15-1",
+  "group": "solo",
+  "name": "Aftermath",
+  "edition": "gh",
+  "parent": "15",
+  "hideIndex": true,
+  "marker": "1",
+  "monsters": [
+    "city-guard-saw-solo",
+    "lieutenant"
+  ],
+  "allies": [
+    "city-guard-saw-solo",
+    "lieutenant"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-guard-saw-solo",
+          "type": "normal",
+          "marker": "b",
+          "tags": [
+            "r3-b"
+          ]
+        },
+        {
+          "name": "city-guard-saw-solo",
+          "type": "normal",
+          "marker": "c",
+          "tags": [
+            "r3-c"
+          ]
+        },
+        {
+          "name": "city-guard-saw-solo",
+          "type": "normal",
+          "marker": "c",
+          "tags": [
+            "r3-c"
+          ]
+        },
+        {
+          "name": "city-guard-saw-solo",
+          "type": "normal",
+          "marker": "c",
+          "tags": [
+            "r3-c"
+          ]
+        },
+        {
+          "name": "lieutenant",
+          "type": "boss",
+          "tags": [
+            "r3-b"
+          ]
+        }
+      ]
+    }
+  ]
+}

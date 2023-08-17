@@ -19,6 +19,33 @@
   "allies": [
     "city-guard-sun-solo"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "once": true,
+      "note": "Return your figure to the entrance hex and return all living City Guards to %game.mapMarker.a%",
+      "sections": [
+        "7-1"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "bandit-archer"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "bandit-guard"
+          },
+          "type": "dead"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

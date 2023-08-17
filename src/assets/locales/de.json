@@ -996,8 +996,10 @@
       "add": "Szenarien freischalten",
       "index": "Szenarionummern, kommasepariert"
     },
-    "openRoom": "Raum für Kachel '{0}' öffnen",
-    "openRoomMarker": "Raum %game.mapMarker.{1}% für Kachel '{0}' öffnen",
+    "openRoom": "Raum öffnen",
+    "openRoomRef": "Raum für Kachel '{0}' öffnen",
+    "openRoomMarker": "Raum %game.mapMarker.{1}% öffnen",
+    "openRoomMarkerRef": "Raum %game.mapMarker.{1}% für Kachel '{0}' öffnen",
     "requirements": {
       ".": "Szenario Vorraussetzungen",
       "all": "Zeige alle Vorraussetzungen (inkl. erfüllte)",
@@ -1051,6 +1053,7 @@
       "items": "{2} \"{1}\" (Gegenstand {0})",
       "itemBlueprint": "Erhalte \"{1}\" %game.itemFh.{0}% Gegenstandsplan",
       "itemDesign": "\"{1}\" Design (Gegenstand {0})",
+      "itemDesignEdition": "\"{1}\" Design (Gegenstand {0} %data.edition.{2}%)",
       "itemDesignRange": "Füge Gegenstände {0} hinzu",
       "location": "Neuer Ort",
       "locations": "Neue Orte",
@@ -1071,8 +1074,10 @@
       }
     },
     "rules": {
-      "addSection": "Sektion #{0} {1} öffnen",
-      "addSectionMarker": "Sektion #{0} {1} %game.mapMarker.{2}% öffnen",
+      "addSection": "Sektion {1} öffnen",
+      "addSectionIndex": "Sektion #{0} {1} öffnen",
+      "addSectionMarker": "Sektion {1} %game.mapMarker.{2}% öffnen",
+      "addSectionMarkerIndex": "Sektion #{0} {1} %game.mapMarker.{2}% öffnen",
       "apply": "Anwenden",
       "dismiss": "Schließen",
       "figures": {
@@ -1114,8 +1119,10 @@
     },
     "section": {
       ".": "Sektion",
-      "add": "Sektion {1}#{0} öffnen?",
-      "addMarker": "Sektion #{0} %game.mapMarker.{1}% öffnen?",
+      "add": "Sektion {1} öffnen?",
+      "addIndex": "Sektion {1}#{0} öffnen?",
+      "addMarker": "Sektion %game.mapMarker.{1}% öffnen?",
+      "addMarkerIndex": "Sektion #{0} %game.mapMarker.{1}% öffnen?",
       "cancel": "Abbrechen",
       "confirm": "Bestätigen",
       "conclusion": {

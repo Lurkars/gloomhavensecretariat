@@ -12,11 +12,8 @@
     ]
   },
   "monsters": [
-    "cave-bear",
     "forest-imp",
-    "hound",
-    "rending-drake",
-    "vermling-shaman"
+    "hound"
   ],
   "rooms": [
     {

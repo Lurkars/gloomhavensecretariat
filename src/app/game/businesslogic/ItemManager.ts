@@ -19,12 +19,11 @@ export class ItemManager {
     }
 
     getItems(edition: string | undefined, all: boolean = false): ItemData[] {
-        const extenstions = this.itemEditions(edition);
-        return gameManager.itemData().filter((itemData) => (!edition || itemData.edition == edition || extenstions.indexOf(itemData.edition) != -1) && (all || this.isItemAvailable(itemData)));
+        return gameManager.itemData().filter((itemData) => all && itemData.edition == edition || this.isItemAvailable(itemData, edition));
     }
 
-    isItemAvailable(itemData: ItemData): boolean {
-        if (!this.game.party.campaignMode) {
+    isItemAvailable(itemData: ItemData, edition: string | undefined): boolean {
+        if (!this.game.party.campaignMode || !edition) {
             return true;
         }
 
@@ -32,20 +31,22 @@ export class ItemManager {
             return true;
         }
 
-        if (itemData.unlockProsperity > 0 && itemData.unlockProsperity <= gameManager.prosperityLevel()) {
-            return true;
-        }
+        if (itemData.edition == edition || this.itemEditions(edition).indexOf(itemData.edition) != -1) {
+            if (itemData.unlockProsperity > 0 && itemData.unlockProsperity <= gameManager.prosperityLevel()) {
+                return true;
+            }
 
-        if (itemData.unlockScenario && this.game.party.scenarios.find((scenarioData) => itemData.unlockScenario && scenarioData.index == itemData.unlockScenario.name && scenarioData.edition == itemData.unlockScenario.edition)) {
-            return true;
-        }
+            if (itemData.unlockScenario && this.game.party.scenarios.find((scenarioData) => itemData.unlockScenario && scenarioData.index == itemData.unlockScenario.name && scenarioData.edition == itemData.unlockScenario.edition)) {
+                return true;
+            }
 
-        if (!itemData.blueprint && !itemData.random && itemData.requiredBuilding && itemData.requiredBuilding != "alchemist" && this.game.party.buildings && this.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel)) {
-            return true;
-        }
+            if (!itemData.blueprint && !itemData.random && itemData.requiredBuilding && itemData.requiredBuilding != "alchemist" && this.game.party.buildings && this.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel)) {
+                return true;
+            }
 
-        if (this.game.edition == 'fh' && itemData.edition == 'gh') {
-            return [10, 25, 72, 105, 109, 116].indexOf(itemData.id) != -1;
+            if (this.game.edition == 'fh' && itemData.edition == 'gh') {
+                return [10, 25, 72, 105, 109, 116].indexOf(itemData.id) != -1;
+            }
         }
 
         return false;

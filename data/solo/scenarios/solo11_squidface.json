@@ -17,41 +17,174 @@
   ],
   "objectives": [
     {
-      "name": "Spirit of Xorn 1",
+      "name": "Spirit of Xorn",
       "escort": true,
       "health": "4+L"
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 2",
+      "start": true,
+      "rooms": [
+        2
+      ]
     },
     {
-      "name": "Spirit of Xorn 2",
-      "escort": true,
-      "health": "4+L"
+      "round": "R == 5",
+      "start": true,
+      "rooms": [
+        3
+      ]
     },
     {
-      "name": "Spirit of Xorn 3",
-      "escort": true,
-      "health": "4+L"
+      "round": "R == 8",
+      "start": true,
+      "rooms": [
+        4
+      ]
     },
     {
-      "name": "Spirit of Xorn 4",
-      "escort": true,
-      "health": "4+L"
-    },
-    {
-      "name": "Spirit of Xorn 5",
-      "escort": true,
-      "health": "4+L"
-    },
-    {
-      "name": "Spirit of Xorn 6",
-      "escort": true,
-      "health": "4+L"
+      "round": "R == 11",
+      "start": true,
+      "rooms": [
+        5
+      ]
     }
   ],
   "rooms": [
     {
       "roomNumber": 1,
       "initial": true,
-      "monster": []
+      "rooms": [
+        2
+      ],
+      "monster": [],
+      "objectives": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "marker": "b",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "marker": "c",
+      "rooms": [
+        4
+      ],
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "marker": "d",
+      "rooms": [
+        5
+      ],
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "marker": "e",
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        }
+      ]
     }
   ]
 }

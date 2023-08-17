@@ -21,6 +21,7 @@ import { ScenarioSummaryComponent } from "../../footer/scenario/summary/scenario
 import { BattleGoalSetupDialog } from "../../figures/battlegoal/setup/battlegoal-setup";
 import { ScenarioRequirementsComponent } from "./requirements/requirements";
 import { WorldMapComponent } from "./world-map/world-map";
+import { ItemDialogComponent } from "../../figures/items/dialog/item-dialog";
 
 @Component({
   selector: 'ghs-party-sheet-dialog',
@@ -43,6 +44,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   conclusions: Record<string, ScenarioData[]> = {};
   characters: Character[] = [];
   worldMap: boolean = false;
+  items: ItemData[] = [];
+  itemEdition: string = "";
 
   fhSheet: boolean = false;
   csSheet: boolean = false;
@@ -524,14 +527,10 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       if (editionData && editionData.worldMap)
         this.worldMap = true;
     }
-  }
 
-  characterIcon(name: string): string {
-    return gameManager.characterManager.characterIcon(name);
-  }
+    console.log(this.itemEdition);
 
-  items(): ItemData[] {
-    return this.party.unlockedItems.filter((identifier) => !this.party.edition || identifier.edition == this.party.edition).sort((a, b) => {
+    this.items = this.party.unlockedItems.filter((identifier) => !this.itemEdition || identifier.edition == this.itemEdition).sort((a, b) => {
       if (!this.party.edition && a.edition != b.edition) {
         return gameManager.editions().indexOf(a.edition) - gameManager.editions().indexOf(b.edition);
       }
@@ -540,9 +539,14 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     }).map((identifier) => gameManager.itemManager.getItem(+identifier.name, identifier.edition, true)).filter((itemData) => itemData != undefined).map((itemData) => itemData as ItemData);
   }
 
+  characterIcon(name: string): string {
+    return gameManager.characterManager.characterIcon(name);
+  }
+
+
   addItem(indexElement: HTMLInputElement, edition: string) {
     const itemId: string = indexElement.value;
-    if (itemId) {
+    if (itemId && edition) {
       if (this.hasItem(itemId, edition)) {
         indexElement.classList.add('warning');
       } else {
@@ -555,6 +559,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
           this.itemIndex.nativeElement.value = "";
           indexElement.classList.remove('error');
           gameManager.stateManager.after();
+          this.update();
         }
       }
     }
@@ -570,7 +575,14 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       gameManager.stateManager.before("removeUnlockedItem", item.edition, '' + item.id, item.name);
       this.party.unlockedItems.splice(this.party.unlockedItems.indexOf(identifier), 1);
       gameManager.stateManager.after();
+      this.update();
     }
+  }
+
+  openItem(item: ItemData) {
+    this.dialog.open(ItemDialogComponent, {
+      data: item
+    })
   }
 
   treasures(): Identifier[] {

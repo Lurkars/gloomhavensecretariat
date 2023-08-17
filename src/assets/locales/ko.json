@@ -1096,8 +1096,8 @@
       "add": "시나리오 해금하기",
       "index": "쉼표로 구분하여 번호 입력"
     },
-    "openRoom": "'{0}' 타일 문 열기",
-    "openRoomMarker": "%game.mapMarker.{1}% 위치의 '{0}' 타일 문 열기",
+    "openRoomRef": "'{0}' 타일 문 열기",
+    "openRoomMarkerRef": "%game.mapMarker.{1}% 위치의 '{0}' 타일 문 열기",
     "requirements": {
       ".": "시나리오 조건",
       "all": "모든 조건 보기 (달성된 조건 포함)",
@@ -1170,8 +1170,10 @@
       }
     },
     "rules": {
-      "addSection": "#{0} {1}: 섹션 열기",
-      "addSectionMarker": "#{0} {1}: %game.mapMarker.{2}% 위치의 섹션 열기",
+      "addSection": "{1}: 섹션 열기",
+      "addSectionIndex": "#{0} {1}: 섹션 열기",
+      "addSectionMarker": "{1}: %game.mapMarker.{2}% 위치의 섹션 열기",
+      "addSectionMarkerIndex": "#{0} {1}: %game.mapMarker.{2}% 위치의 섹션 열기",
       "apply": "적용하기",
       "dismiss": "취소하기",
       "figures": {
@@ -1212,7 +1214,9 @@
     "section": {
       ".": "섹션",
       "add": "{1} #{0} 섹션을 여시겠습니까?",
-      "addMarker": "%game.mapMarker.{1}% 위치에 #{0} 섹션을 여시겠습니까?",
+      "addIndex": "{1} 섹션을 여시겠습니까?",
+      "addMarker": "%game.mapMarker.{1}% 위치에 섹션을 여시겠습니까?",
+      "addMarkerIndex": "%game.mapMarker.{1}% 위치에 #{0} 섹션을 여시겠습니까?",
       "cancel": "취소",
       "confirm": "확인",
       "conclusion": {

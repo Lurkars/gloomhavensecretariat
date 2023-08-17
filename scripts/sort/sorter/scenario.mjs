@@ -40,5 +40,5 @@ export const sortScenario = function (scenario) {
         scenario.requirements = scenario.requirements.map((requirements) => sortObjectKeys(requirements, 'global', 'party', 'buildings', 'campaignSticker', 'puzzle', 'solo'));
     }
 
-    return sortObjectKeys(scenario, 'index', 'group', 'name', 'gridLocation', 'coordinates', 'edition', 'complexity', 'parent', 'parentSections', 'conclusion', 'named', 'blockedSections', 'marker', 'spoiler', 'initial', 'random', 'solo', 'allyDeck', 'resetRound', 'unlocks', 'requires', 'requirements', 'blocks', 'links', "forcedLinks", "rewards", 'monsters', 'allies', 'allied', 'drawExtra', 'objectives', 'lootDeckConfig', 'rules', 'rooms');
+    return sortObjectKeys(scenario, 'index', 'group', 'name', 'gridLocation', 'coordinates', 'edition', 'complexity', 'parent', 'parentSections', 'conclusion', 'named', 'hideIndex', 'blockedSections', 'marker', 'spoiler', 'initial', 'random', 'solo', 'allyDeck', 'resetRound', 'unlocks', 'requires', 'requirements', 'blocks', 'links', "forcedLinks", "rewards", 'monsters', 'allies', 'allied', 'drawExtra', 'objectives', 'lootDeckConfig', 'rules', 'rooms');
 }

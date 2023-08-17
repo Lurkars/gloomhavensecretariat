@@ -1,12 +1,27 @@
 {
-  "index": "17-N1a(2)",
+  "index": "17-2",
   "group": "solo",
   "name": "The Caged Bear",
   "edition": "gh",
   "parent": "17",
+  "parentSections": [
+    [
+      "17-1"
+    ]
+  ],
+  "hideIndex": true,
+  "marker": "2",
   "monsters": [
     "forest-imp",
     "hound"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Immediately open door %game.mapMarker.b%"
+    }
   ],
   "rooms": [
     {

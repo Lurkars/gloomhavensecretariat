@@ -354,19 +354,20 @@
         border: 2px solid var(--ghs-color-black);
         margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
       }
+    }
 
-      &.list-inline {
-        flex-direction: row;
+    .list-inline {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      flex-wrap: wrap;
+
+      * {
+        margin: 0 0.1em;
+      }
+
+      .choose {
         align-items: flex-end;
-        flex-wrap: wrap;
-
-        * {
-          margin: 0 0.1em;
-        }
-
-        .choose {
-          align-items: flex-end;
-        }
       }
     }
 

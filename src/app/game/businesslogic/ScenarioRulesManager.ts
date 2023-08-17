@@ -215,7 +215,7 @@ export class ScenarioRulesManager {
       }
     }
 
-    if (!figureRule.identifier || !figureRule.identifier.health && (!figureRule.identifier.conditions || figureRule.identifier.conditions.length == 0)) {
+    if (!figureRule.identifier || !figureRule.identifier.health && !figureRule.identifier.hp && (!figureRule.identifier.conditions || figureRule.identifier.conditions.length == 0)) {
       return gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
     }
 
@@ -229,6 +229,20 @@ export class ScenarioRulesManager {
             if (figureRule.identifier && figureRule.identifier.health && gameManager.entityManager.isAlive(entity)) {
               const health = EntityValueFunction(figureRule.identifier.health.replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
               return entity.health <= health;
+            }
+
+            return false;
+          });
+        }
+      }
+
+      if (figureRule.identifier && figureRule.identifier.hp) {
+        if (figure instanceof Character || figure instanceof Objective) {
+          return eval(figureRule.identifier.hp.replaceAll('HP', '' + figure.health).replaceAll('H', '' + EntityValueFunction(figure.maxHealth)));
+        } else if (figure instanceof Monster) {
+          return figure.entities.some((entity) => {
+            if (figureRule.identifier && figureRule.identifier.hp && gameManager.entityManager.isAlive(entity)) {
+              return eval(figureRule.identifier.hp.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
             }
 
             return false;
@@ -263,7 +277,7 @@ export class ScenarioRulesManager {
         return [];
       }
     }
-    if (!figureRule.identifier || !figureRule.identifier.health && (!figureRule.identifier.conditions || figureRule.identifier.conditions.length == 0)) {
+    if (!figureRule.identifier || !figureRule.identifier.health && !figureRule.identifier.hp && (!figureRule.identifier.conditions || figureRule.identifier.conditions.length == 0)) {
       return gameManager.entitiesByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
     }
 
@@ -271,6 +285,10 @@ export class ScenarioRulesManager {
       if (figureRule.identifier && figureRule.identifier.health && gameManager.entityManager.isAlive(entity)) {
         const health = EntityValueFunction(figureRule.identifier.health.replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
         return entity.health <= health;
+      }
+
+      if (figureRule.identifier && figureRule.identifier.hp && gameManager.entityManager.isAlive(entity)) {
+        return eval(figureRule.identifier.hp.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
       }
 
       if (figureRule.identifier && figureRule.identifier.conditions) {

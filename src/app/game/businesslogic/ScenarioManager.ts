@@ -206,9 +206,13 @@ export class ScenarioManager {
                     }
                   }
                 } else {
-                  const itemData = gameManager.itemManager.getItem(+item, scenario.edition, true);
+                  let itemEdition = scenario.edition;
+                  if (item.indexOf(':') != -1) {
+                    itemEdition = item.split(':')[1];
+                  }
+                  const itemData = gameManager.itemManager.getItem(+(item.split(':')[0]), itemEdition, true);
                   if (itemData && (!itemData.unlockScenario || itemData.unlockScenario.edition != scenario.edition || itemData.unlockScenario.name != scenario.index)) {
-                    this.game.party.unlockedItems.push(new CountIdentifier(itemData.id + '', scenario.edition));
+                    this.game.party.unlockedItems.push(new CountIdentifier(itemData.id + '', itemData.edition));
                   }
                 }
               })
@@ -223,7 +227,11 @@ export class ScenarioManager {
                     this.game.party.unlockedItems.push(new CountIdentifier(i + '', scenario.edition));
                   }
                 } else {
-                  this.game.party.unlockedItems.push(new CountIdentifier(item, scenario.edition));
+                  let itemEdition = scenario.edition;
+                  if (item.indexOf(':') != -1) {
+                    itemEdition = item.split(':')[1];
+                  }
+                  this.game.party.unlockedItems.push(new CountIdentifier(item, itemEdition));
                 }
               })
             }

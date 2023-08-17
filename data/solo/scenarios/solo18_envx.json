@@ -8,7 +8,7 @@
   "solo": "envx",
   "rewards": {
     "items": [
-      "151"
+      "151-gh-envx"
     ]
   },
   "monsters": [
@@ -20,6 +20,9 @@
     {
       "roomNumber": 1,
       "initial": true,
+      "rooms": [
+        2
+      ],
       "monster": [
         {
           "name": "giant-viper",
@@ -43,6 +46,37 @@
         },
         {
           "name": "giant-viper",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "L1a",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "M1a",
+      "monster": [
+        {
+          "name": "stone-golem",
           "type": "elite"
         }
       ]

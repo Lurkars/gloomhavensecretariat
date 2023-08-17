@@ -1,7 +1,7 @@
 <div class="section-popup">
 
     <p *ngIf="!sectionData.conclusion"
-        [ghs-label]="sectionData.marker ? 'scenario.section.addMarker' : 'scenario.section.add'"
+        [ghs-label]="(sectionData.marker ? 'scenario.section.addMarker' : 'scenario.section.add')  + (sectionData.hideIndex ? '' : 'Index')"
         [ghs-label-args]="[sectionData.index,  sectionData.marker || '']">
     </p>
 

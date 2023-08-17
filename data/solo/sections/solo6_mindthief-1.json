@@ -4,6 +4,7 @@
   "name": "Rodent Liberation",
   "edition": "gh",
   "parent": "6",
+  "hideIndex": true,
   "marker": "1",
   "rules": [
     {

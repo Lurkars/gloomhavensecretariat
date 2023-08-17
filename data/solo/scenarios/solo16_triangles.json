@@ -17,10 +17,57 @@
     "frost-demon",
     "wind-demon"
   ],
+  "rules": [
+    {
+      "round": "R % 4 == 1",
+      "start": true,
+      "elements": [
+        {
+          "type": "air",
+          "state": "strong"
+        }
+      ]
+    },
+    {
+      "round": "R % 4 == 2",
+      "start": true,
+      "elements": [
+        {
+          "type": "ice",
+          "state": "strong"
+        }
+      ]
+    },
+    {
+      "round": "R % 4 == 3",
+      "start": true,
+      "elements": [
+        {
+          "type": "earth",
+          "state": "strong"
+        }
+      ]
+    },
+    {
+      "round": "R % 4 == 0",
+      "start": true,
+      "elements": [
+        {
+          "type": "fire",
+          "state": "strong"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
       "initial": true,
+      "rooms": [
+        2,
+        3,
+        4
+      ],
       "monster": [
         {
           "name": "earth-demon",
@@ -37,6 +84,40 @@
         {
           "name": "wind-demon",
           "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "B3b",
+      "monster": [
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "C2b",
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "B2b",
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "elite"
         }
       ]
     }

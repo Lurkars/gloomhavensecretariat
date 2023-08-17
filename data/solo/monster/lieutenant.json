@@ -4,8 +4,8 @@
   "deck": "guard",
   "boss": true,
   "hidden": true,
-  "count": 6,
-  "standeeShare": "city-guard",
+  "count": 1,
+  "standeeShare": "city-guard-saw-solo",
   "baseStat": {
     "type": "boss"
   },

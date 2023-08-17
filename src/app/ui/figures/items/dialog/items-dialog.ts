@@ -146,7 +146,6 @@ export class ItemsDialogComponent {
         }
     }
 
-
     select(itemData: ItemData, force: boolean = false) {
         if (this.data.select) {
             if (this.selected != itemData && (force || this.character && (gameManager.itemManager.owned(itemData, this.character) || gameManager.itemManager.canAdd(itemData, this.character) && (gameManager.itemManager.canBuy(itemData, this.character) || gameManager.itemManager.canCraft(itemData, this.character))))) {

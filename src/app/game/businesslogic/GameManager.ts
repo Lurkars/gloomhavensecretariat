@@ -549,7 +549,7 @@ export class GameManager {
       } else {
         return undefined;
       }
-    }).flat().filter((value) => value != undefined).map((value) => value as Entity);
+    }).flat().filter((value) => value != undefined).map((value) => value as Entity).filter((entity) => !identifier || (!identifier.marker || !(entity instanceof MonsterEntity) || entity.marker == identifier.marker) && (!identifier.tags || identifier.tags.length == 0 || identifier.tags.every((tag) => entity.tags.indexOf(tag) != -1)));
   }
 
   getMonsterData(name: string, edition: string): MonsterData {

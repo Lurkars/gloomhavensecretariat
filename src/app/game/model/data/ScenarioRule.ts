@@ -11,6 +11,7 @@ export class ScenarioRule {
   once: boolean = false;
   requiredRooms: number[] = [];
   requiredRules: ScenarioRuleIdentifier[] = [];
+  disablingRules: ScenarioRuleIdentifier[] = [];
   note: string = "";
   rooms: number[] = [];
   sections: string[] = [];
@@ -77,7 +78,7 @@ export class ScenarioFigureRule {
 
   identifier: ScenarioFigureRuleIdentifier | undefined = undefined;
   identifierRef: number | undefined = undefined;
-  type: "present" | "dead" | "killed" | "gainCondition" | "loseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove" | "amAdd" | "amRemove" | "setAbility" | "dormant" | "activate" = "present";
+  type: "present" | "dead" | "killed" | "gainCondition" | "loseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove"| "removeEntity" | "amAdd" | "amRemove" | "setAbility" | "dormant" | "activate" = "present";
   value: string = "";
   scenarioEffect: boolean = false;
 
@@ -85,6 +86,7 @@ export class ScenarioFigureRule {
 
 export class ScenarioFigureRuleIdentifier extends AdditionalIdentifier {
 
+  hp: string | undefined;
   health: string | undefined;
   conditions: string[] | undefined;
 
