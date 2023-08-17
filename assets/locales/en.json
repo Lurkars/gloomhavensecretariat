@@ -1104,8 +1104,10 @@
       "add": "Unlock Scenarios",
       "index": "Scenario number, commaseparated"
     },
-    "openRoom": "Open door for tile '{0}'",
-    "openRoomMarker": "Open door %game.mapMarker.{1}% for tile '{0}'",
+    "openRoom": "Open door",
+    "openRoomRef": "Open door for tile '{0}'",
+    "openRoomMarker": "Open door %game.mapMarker.{1}%",
+    "openRoomMarkerRef": "Open door %game.mapMarker.{1}% for tile '{0}'",
     "requirements": {
       ".": "Scenario Requirements",
       "all": "Show all requirements (include fulfilled)",
@@ -1159,6 +1161,7 @@
       "items": "{2} \"{1}\" (Item {0})",
       "itemBlueprint": "Gain \"{1}\" %game.itemFh.{0}% blueprint",
       "itemDesign": "\"{1}\" design (Item {0})",
+      "itemDesignEdition": "\"{1}\" design (Item {0} %data.edition.{2}%)",
       "itemDesignRange": "Add Item designs {0}",
       "location": "New Location",
       "locations": "New Locations",
@@ -1179,8 +1182,10 @@
       }
     },
     "rules": {
-      "addSection": "Open Section #{0} {1}",
-      "addSectionMarker": "Open Section #{0} {1} %game.mapMarker.{2}%",
+      "addSection": "Open Section {1}",
+      "addSectionIndex": "Open Section #{0} {1}",
+      "addSectionMarker": "Open Section {1} %game.mapMarker.{2}%",
+      "addSectionMarkerIndex": "Open Section #{0} {1} %game.mapMarker.{2}%",
       "apply": "Apply",
       "dismiss": "Dismiss",
       "figures": {
@@ -1222,8 +1227,10 @@
     },
     "section": {
       ".": "Section",
-      "add": "Open Section #{0}?",
-      "addMarker": "Open Section #{0} %game.mapMarker.{1}%?",
+      "add": "Open Section {1}?",
+      "addIndex": "Open Section {1}#{0}?",
+      "addMarker": "Open Section %game.mapMarker.{1}%?",
+      "addMarkerIndex": "Open Section #{0} %game.mapMarker.{1}%?",
       "cancel": "Cancel",
       "confirm": "Confirm",
       "conclusion": {
