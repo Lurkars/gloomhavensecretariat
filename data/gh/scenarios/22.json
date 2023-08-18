@@ -57,7 +57,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "b2b",
+      "ref": "B2b",
       "initial": true,
       "rooms": [
         2
@@ -79,7 +79,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "m1a",
+      "ref": "M1a",
       "marker": "1",
       "rooms": [
         3,
@@ -114,7 +114,7 @@
     },
     {
       "roomNumber": 3,
-      "ref": "d1a",
+      "ref": "D1a",
       "monster": [
         {
           "name": "flame-demon",
@@ -132,7 +132,7 @@
     },
     {
       "roomNumber": 4,
-      "ref": "c2b",
+      "ref": "C2b",
       "monster": [
         {
           "name": "wind-demon",
@@ -149,7 +149,7 @@
     },
     {
       "roomNumber": 5,
-      "ref": "c1a",
+      "ref": "C1a",
       "monster": [
         {
           "name": "frost-demon",
@@ -166,7 +166,7 @@
     },
     {
       "roomNumber": 6,
-      "ref": "d2a",
+      "ref": "D2a",
       "monster": [
         {
           "name": "earth-demon",

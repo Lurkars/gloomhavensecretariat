@@ -32,7 +32,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "c2a",
+      "ref": "C2a",
       "initial": true,
       "rooms": [
         2
@@ -69,7 +69,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "g2b",
+      "ref": "G2b",
       "marker": "1",
       "rooms": [
         3
@@ -119,7 +119,7 @@
     },
     {
       "roomNumber": 3,
-      "ref": "b1a",
+      "ref": "B1a",
       "marker": "2",
       "monster": [
         {

@@ -1814,6 +1814,7 @@
       "restoreDefaultAbilities": "Ursprüngliche Fertigkeitskarten für {0} wiederherstellen",
       "sellItem": "Gegenstand {1} (%data.edition.{2}%) von {0} verkaufen",
       "serverSync": "Server: {0}",
+      "serverSyncEmpty": "Server Sync",
       "setAbsent": "{0} abwesend",
       "setActive": "Zug von {0} beginnen",
       "setAlly": "{0} als Verbündeter",

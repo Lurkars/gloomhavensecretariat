@@ -61,7 +61,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "g1a",
+      "ref": "G1a",
       "initial": true,
       "rooms": [
         2
@@ -102,7 +102,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "m1b",
+      "ref": "M1b",
       "rooms": [
         3,
         4
@@ -150,7 +150,7 @@
     },
     {
       "roomNumber": 3,
-      "ref": "d1b",
+      "ref": "D1b",
       "monster": [
         {
           "name": "city-archer",
@@ -176,7 +176,7 @@
     },
     {
       "roomNumber": 4,
-      "ref": "f1b",
+      "ref": "F1b",
       "treasures": [
         74
       ],

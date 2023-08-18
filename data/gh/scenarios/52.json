@@ -38,7 +38,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "m1a",
+      "ref": "M1a",
       "initial": true,
       "rooms": [
         2,
@@ -98,7 +98,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "j1a",
+      "ref": "J1a",
       "treasures": [
         "G"
       ],
@@ -122,7 +122,7 @@
     },
     {
       "roomNumber": 3,
-      "ref": "k2b",
+      "ref": "K2b",
       "treasures": [
         "G"
       ],
@@ -143,7 +143,7 @@
     },
     {
       "roomNumber": 4,
-      "ref": "j2a",
+      "ref": "J2a",
       "treasures": [
         "G"
       ],
@@ -168,7 +168,7 @@
     },
     {
       "roomNumber": 5,
-      "ref": "k1a",
+      "ref": "K1a",
       "treasures": [
         "G"
       ],

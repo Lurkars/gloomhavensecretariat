@@ -34,7 +34,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "g1b",
+      "ref": "G1b",
       "initial": true,
       "rooms": [
         2,
@@ -44,11 +44,11 @@
     },
     {
       "roomNumber": 2,
-      "ref": "d1a"
+      "ref": "D1a"
     },
     {
       "roomNumber": 3,
-      "ref": "e1a",
+      "ref": "E1a",
       "marker": "1",
       "monster": [
         {
@@ -68,7 +68,7 @@
     },
     {
       "roomNumber": 4,
-      "ref": "k2b",
+      "ref": "K2b",
       "monster": [
         {
           "name": "deep-terror",

@@ -20,6 +20,7 @@
   "rooms": [
     {
       "roomNumber": 1,
+      "ref": "L2a",
       "initial": true,
       "monster": [
         {

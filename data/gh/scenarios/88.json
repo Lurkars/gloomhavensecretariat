@@ -37,7 +37,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "d2b",
+      "ref": "D2b",
       "initial": true,
       "rooms": [
         2
@@ -73,7 +73,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "g2a",
+      "ref": "G2a",
       "marker": "1",
       "treasures": [
         37,

@@ -1922,6 +1922,7 @@
       "restoreDefaultAbilities": "Restore default abilities of {0}",
       "sellItem": "Sell Item {1} (%data.edition.{2}%) for {0}",
       "serverSync": "Server: {0}",
+      "serverSyncEmpty": "Server Sync",
       "setAbsent": "{0} absent",
       "setActive": "Start turn for {0}",
       "setAlly": "{0} as ally",

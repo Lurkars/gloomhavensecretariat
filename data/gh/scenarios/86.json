@@ -96,7 +96,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "b1b",
+      "ref": "B1b",
       "initial": true,
       "rooms": [
         2,
@@ -155,7 +155,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "b2a",
+      "ref": "B2a",
       "monster": [
         {
           "name": "vermling-scout",
@@ -177,7 +177,7 @@
     },
     {
       "roomNumber": 3,
-      "ref": "b3a",
+      "ref": "B3a",
       "monster": [
         {
           "name": "vermling-scout",

@@ -84,7 +84,7 @@
   "rooms": [
     {
       "roomNumber": 2,
-      "ref": "m1",
+      "ref": "M1a",
       "initial": true,
       "treasures": [
         45

@@ -12,7 +12,7 @@
   "rooms": [
     {
       "roomNumber": 2,
-      "ref": "i2b",
+      "ref": "I2b",
       "initial": true,
       "treasures": [
         88

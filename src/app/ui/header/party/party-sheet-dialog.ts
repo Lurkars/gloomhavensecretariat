@@ -454,9 +454,11 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     this.update();
   }
 
-  update(): void {
-    this.fhSheet = gameManager.fhRules();
-    this.csSheet = !this.fhSheet && gameManager.editionRules('cs');
+  update(updateSheet: boolean = true): void {
+    if (updateSheet) {
+      this.fhSheet = gameManager.fhRules();
+      this.csSheet = !this.fhSheet && gameManager.editionRules('cs');
+    }
     const editions = this.party.edition && [this.party.edition] || gameManager.editions();
     this.scenarioEditions = [];
     editions.forEach((edition) => {

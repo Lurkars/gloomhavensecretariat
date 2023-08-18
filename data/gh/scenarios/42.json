@@ -176,7 +176,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "j1b",
+      "ref": "J1b",
       "initial": true,
       "treasures": [
         30,

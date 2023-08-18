@@ -387,7 +387,7 @@
         </div>
       </div>
 
-      <span class="toggle-fh-sheet" *ngIf="!campaign" (click)="fhSheet = !fhSheet; update()">
+      <span class="toggle-fh-sheet" *ngIf="!campaign" (click)="fhSheet = !fhSheet; update(false)">
         <span [ghs-label]="'party.campaign.sheet.' + (fhSheet ? 'disable': 'enable')"></span>
       </span>
 

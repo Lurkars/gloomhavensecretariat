@@ -15,7 +15,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "a4",
+      "ref": "A4a",
       "initial": true,
       "monster": [
         {

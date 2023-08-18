@@ -20,7 +20,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "h1b",
+      "ref": "H1b",
       "initial": true,
       "rooms": [
         2
@@ -62,7 +62,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "l1a",
+      "ref": "L1a",
       "rooms": [
         3
       ],
@@ -98,7 +98,7 @@
     },
     {
       "roomNumber": 3,
-      "ref": "j1a",
+      "ref": "J1a",
       "marker": "1",
       "rooms": [
         4
@@ -136,7 +136,7 @@
     },
     {
       "roomNumber": 4,
-      "ref": "d1b",
+      "ref": "D1b",
       "rooms": [
         5
       ],
@@ -162,7 +162,7 @@
     },
     {
       "roomNumber": 5,
-      "ref": "b1a",
+      "ref": "B1a",
       "monster": [
         {
           "name": "city-guard",

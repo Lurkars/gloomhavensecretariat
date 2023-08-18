@@ -45,7 +45,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "k2a",
+      "ref": "K2a",
       "initial": true,
       "rooms": [
         2
@@ -83,7 +83,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "n1a",
+      "ref": "N1a",
       "marker": "1",
       "rooms": [
         3
@@ -122,7 +122,7 @@
     },
     {
       "roomNumber": 3,
-      "ref": "g2a",
+      "ref": "G2a",
       "monster": [
         {
           "name": "rending-drake",

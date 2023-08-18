@@ -25,7 +25,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "l1b",
+      "ref": "L1b",
       "initial": true,
       "objectives": [
         1

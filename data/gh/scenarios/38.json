@@ -51,7 +51,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "c2a",
+      "ref": "C2a",
       "initial": true,
       "rooms": [
         2
@@ -76,7 +76,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "a4a",
+      "ref": "A4a",
       "rooms": [
         3
       ],
@@ -103,7 +103,7 @@
     },
     {
       "roomNumber": 3,
-      "ref": "m1b",
+      "ref": "M1b",
       "rooms": [
         4
       ],
@@ -138,7 +138,7 @@
     },
     {
       "roomNumber": 4,
-      "ref": "h2b",
+      "ref": "H2b",
       "rooms": [
         5
       ],
@@ -165,7 +165,7 @@
     },
     {
       "roomNumber": 5,
-      "ref": "d1b",
+      "ref": "D1b",
       "monster": [
         {
           "name": "inox-archer",

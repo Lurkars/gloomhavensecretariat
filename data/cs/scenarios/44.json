@@ -30,7 +30,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "f1",
+      "ref": "F1a",
       "initial": true,
       "monster": [
         {

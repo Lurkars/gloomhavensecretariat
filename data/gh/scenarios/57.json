@@ -85,7 +85,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "f1b",
+      "ref": "F1b",
       "initial": true,
       "rooms": [
         2,
@@ -96,7 +96,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "c1a",
+      "ref": "C1a",
       "marker": "1",
       "monster": [
         {
@@ -133,7 +133,7 @@
     },
     {
       "roomNumber": 3,
-      "ref": "i1b",
+      "ref": "I1b",
       "marker": "2",
       "monster": [
         {
@@ -175,7 +175,7 @@
     },
     {
       "roomNumber": 4,
-      "ref": "a1a",
+      "ref": "A1a",
       "marker": "3",
       "treasures": [
         22,
@@ -184,7 +184,7 @@
     },
     {
       "roomNumber": 5,
-      "ref": "c2b",
+      "ref": "C2b",
       "marker": "4",
       "monster": [
         {

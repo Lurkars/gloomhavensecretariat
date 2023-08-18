@@ -16,7 +16,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "k1a",
+      "ref": "K1a",
       "initial": true,
       "rooms": [
         2,
@@ -53,7 +53,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "c1a",
+      "ref": "C1a",
       "marker": "a",
       "rooms": [
         4,
@@ -77,7 +77,7 @@
     },
     {
       "roomNumber": 3,
-      "ref": "d1a",
+      "ref": "D1a",
       "marker": "b",
       "rooms": [
         4,
@@ -101,7 +101,7 @@
     },
     {
       "roomNumber": 4,
-      "ref": "b2b",
+      "ref": "B2b",
       "treasures": [
         62
       ],

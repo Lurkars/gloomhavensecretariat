@@ -33,7 +33,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "i2a",
+      "ref": "I2a",
       "initial": true,
       "rooms": [
         2
@@ -52,7 +52,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "n1a",
+      "ref": "N1a",
       "rooms": [
         3,
         4,
@@ -94,7 +94,7 @@
     },
     {
       "roomNumber": 3,
-      "ref": "g2a",
+      "ref": "G2a",
       "monster": [
         {
           "name": "rending-drake",
@@ -125,7 +125,7 @@
     },
     {
       "roomNumber": 4,
-      "ref": "a2b",
+      "ref": "A2b",
       "monster": [
         {
           "name": "rending-drake",
@@ -148,7 +148,7 @@
     },
     {
       "roomNumber": 5,
-      "ref": "a3a",
+      "ref": "A3a",
       "monster": [
         {
           "name": "rending-drake",
@@ -171,7 +171,7 @@
     },
     {
       "roomNumber": 6,
-      "ref": "e1b",
+      "ref": "E1b",
       "treasures": [
         35
       ],

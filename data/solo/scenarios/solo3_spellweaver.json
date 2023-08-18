@@ -93,7 +93,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "g2b",
+      "ref": "G2b",
       "initial": true,
       "rooms": [
         2
@@ -124,7 +124,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "i1b",
+      "ref": "I1b",
       "rooms": [
         3
       ],
@@ -154,7 +154,7 @@
     },
     {
       "roomNumber": 3,
-      "ref": "a2a",
+      "ref": "A2a",
       "marker": "b",
       "treasures": [
         "G"
@@ -168,7 +168,7 @@
     },
     {
       "roomNumber": 4,
-      "ref": "a1b",
+      "ref": "A1b",
       "marker": "a",
       "monster": [
         {

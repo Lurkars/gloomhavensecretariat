@@ -18,7 +18,7 @@
     {
       "inital": true,
       "roomNumber": 2,
-      "ref": "l2a",
+      "ref": "L2a",
       "monster": [
         {
           "name": "deep-terror",

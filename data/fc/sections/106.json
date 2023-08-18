@@ -19,7 +19,7 @@
   "rooms": [
     {
       "roomNumber": 5,
-      "ref": "h2b",
+      "ref": "H2b",
       "initial": true,
       "treasures": [
         92

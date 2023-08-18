@@ -24,7 +24,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "a2b",
+      "ref": "A2b",
       "initial": true,
       "rooms": [
         2
@@ -61,7 +61,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "k2a",
+      "ref": "K2a",
       "marker": "1",
       "rooms": [
         3
@@ -100,7 +100,7 @@
     },
     {
       "roomNumber": 3,
-      "ref": "i2a",
+      "ref": "I2a",
       "monster": [
         {
           "name": "earth-demon",

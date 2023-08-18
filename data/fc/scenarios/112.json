@@ -13,7 +13,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "k1a",
+      "ref": "K1a",
       "initial": true,
       "monster": [
         {
@@ -52,7 +52,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "k2b",
+      "ref": "K2b",
       "initial": true,
       "monster": [
         {
@@ -91,7 +91,7 @@
     },
     {
       "roomNumber": 3,
-      "ref": "d2a",
+      "ref": "D2a",
       "initial": true,
       "monster": [
         {
@@ -113,7 +113,7 @@
     },
     {
       "roomNumber": 4,
-      "ref": "d1a",
+      "ref": "D1a",
       "initial": true,
       "monster": [
         {

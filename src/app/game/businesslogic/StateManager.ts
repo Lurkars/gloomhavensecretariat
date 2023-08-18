@@ -173,6 +173,8 @@ export class StateManager {
             } else if (gameManager.game.revision - (gameManager.game.revisionOffset || 0) < gameModel.revision - (gameModel.revisionOffset || 0)) {
               gameManager.stateManager.before("serverSync", ...undoinfo);
             }
+          } else {
+            gameManager.stateManager.before("serverSyncEmpty");
           }
           gameManager.game.fromModel(gameModel, true);
           gameManager.stateManager.saveLocal();
@@ -301,7 +303,7 @@ export class StateManager {
           break;
         case "error":
           console.warn("[GHS] Error: " + message.message);
-          if (message.message == "Permission(s) missing" || message.message == "invalid revision") {
+          if (message.message.startsWith("Permission(s) missing") || message.message.startsWith("invalid revision")) {
             if (gameManager.stateManager.lastAction == "redo" || gameManager.stateManager.lastAction == "update") {
               gameManager.stateManager.undo(false);
             } else if (gameManager.stateManager.lastAction == "undo") {

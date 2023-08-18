@@ -32,7 +32,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "c2",
+      "ref": "C2a",
       "initial": true,
       "monster": [
         {

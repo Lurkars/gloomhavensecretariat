@@ -22,7 +22,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "f1a",
+      "ref": "F1a",
       "initial": true,
       "rooms": [
         2
@@ -58,7 +58,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "m1a",
+      "ref": "M1a",
       "marker": "1",
       "rooms": [
         3
@@ -111,7 +111,7 @@
     },
     {
       "roomNumber": 3,
-      "ref": "i1b",
+      "ref": "I1b",
       "monster": [
         {
           "name": "black-imp",

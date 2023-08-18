@@ -53,7 +53,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "l3a",
+      "ref": "L3a",
       "initial": true,
       "rooms": [
         2,
@@ -112,7 +112,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "b1b",
+      "ref": "B1b",
       "monster": [
         {
           "name": "vermling-scout",
@@ -149,7 +149,7 @@
     },
     {
       "roomNumber": 3,
-      "ref": "j1a",
+      "ref": "J1a",
       "marker": "1",
       "rooms": [
         4
@@ -190,7 +190,7 @@
     },
     {
       "roomNumber": 4,
-      "ref": "d2a",
+      "ref": "D2a",
       "monster": [
         {
           "name": "living-spirit",

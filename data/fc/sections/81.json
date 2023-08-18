@@ -20,7 +20,7 @@
   "rooms": [
     {
       "roomNumber": 4,
-      "ref": "h1b",
+      "ref": "H1b",
       "initial": true,
       "monster": [
         {

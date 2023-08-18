@@ -22,7 +22,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "h1b",
+      "ref": "H1b",
       "initial": true,
       "rooms": [
         2
@@ -76,7 +76,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "h3b",
+      "ref": "H3b",
       "rooms": [
         3
       ],
@@ -140,7 +140,7 @@
     },
     {
       "roomNumber": 3,
-      "ref": "m1a",
+      "ref": "M1a",
       "marker": "1",
       "treasures": [
         63

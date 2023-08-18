@@ -58,7 +58,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "i2b",
+      "ref": "I2b",
       "initial": true,
       "monster": [
         {

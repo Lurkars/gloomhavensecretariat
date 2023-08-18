@@ -9,7 +9,7 @@
   "rooms": [
     {
       "roomNumber": 3,
-      "ref": "l1a",
+      "ref": "L1a",
       "initial": true,
       "treasures": [
         90

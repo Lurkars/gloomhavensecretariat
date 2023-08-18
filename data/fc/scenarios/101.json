@@ -88,7 +88,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "d1b",
+      "ref": "D1b",
       "initial": true,
       "monster": [
         {
@@ -99,7 +99,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "h3b",
+      "ref": "H3b",
       "initial": true,
       "monster": [
         {

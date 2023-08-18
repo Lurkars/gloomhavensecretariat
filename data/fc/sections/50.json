@@ -18,7 +18,7 @@
   "rooms": [
     {
       "roomNumber": 2,
-      "ref": "b2b",
+      "ref": "B2b",
       "initial": true,
       "monster": [
         {

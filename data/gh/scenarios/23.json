@@ -45,7 +45,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "i1b",
+      "ref": "I1b",
       "initial": true,
       "rooms": [
         2
@@ -81,7 +81,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "k2b",
+      "ref": "K2b",
       "marker": "1",
       "rooms": [
         3,
@@ -117,7 +117,7 @@
     },
     {
       "roomNumber": 3,
-      "ref": "m1a",
+      "ref": "M1a",
       "monster": [
         {
           "name": "ancient-artillery",
@@ -146,7 +146,7 @@
     },
     {
       "roomNumber": 4,
-      "ref": "d1a",
+      "ref": "D1a",
       "monster": [
         {
           "name": "living-bones",

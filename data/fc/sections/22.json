@@ -10,7 +10,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "f1a",
+      "ref": "F1a",
       "initial": true,
       "rooms": [
         2
@@ -18,7 +18,7 @@
     },
     {
       "roomNumber": 2,
-      "ref": "b3b",
+      "ref": "B3b",
       "initial": true,
       "marker": "1",
       "monster": [
