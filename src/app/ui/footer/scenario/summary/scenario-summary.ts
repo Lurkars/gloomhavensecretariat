@@ -566,6 +566,7 @@ export class ScenarioSummaryComponent {
                         this.items[index].forEach((itemIndex) => {
                             const item = this.rewardItems[itemIndex]
                             character.progress.items.push(new Identifier('' + item.id, item.edition));
+                            gameManager.itemManager.addItemCount(item);
                         })
                     }
 

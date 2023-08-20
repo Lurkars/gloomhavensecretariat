@@ -54,17 +54,15 @@
         </div>
 
         <div class="item-list">
-            <div class="item" *ngFor="let itemData of items">
+            <div class="item" *ngFor="let itemData of items; let i = index;">
                 <ghs-item *ngIf="character" [item]="itemData" [flipped]="true" ghs-pointer-input
                     (singleClick)="select(itemData)" (doubleClick)="select(itemData,true)"
-                    [selected]="itemData == selected" [disabled]="!character"
-                    [filtered]="!gameManager.itemManager.canAdd(itemData, character)"
-                    [unavailable]="!gameManager.itemManager.canBuy(itemData, character) && !gameManager.itemManager.canCraft(itemData, character)"
-                    [owned]="gameManager.itemManager.owned(itemData, character)"
-                    [count]="!character ? 1 : (gameManager.itemManager.assigned(itemData) >= itemData.count ? '-' : (gameManager.itemManager.assigned(itemData) +1))"
+                    [selected]="itemData == selected" [disabled]="!character" [filtered]="!itemsMeta[i].canAdd"
+                    [unavailable]="!itemsMeta[i].canBuy && !itemsMeta[i].canCraft" [owned]="itemsMeta[i].owned"
+                    [count]="!character ? 1 : (itemsMeta[i].countAvailable < 1 ? '-' : itemsMeta[i].assigned +1)"
                     [editionLabel]="currentEdition"></ghs-item>
                 <ghs-item *ngIf="!character || !select" [item]="itemData" [flipped]="true"
-                    [count]="!character ? 1 : (gameManager.itemManager.assigned(itemData) >= itemData.count ? '-' : (gameManager.itemManager.assigned(itemData) +1))"
+                    [count]="!character ? 1 : (itemsMeta[i].countAvailable < 1 ? '-' : itemsMeta[i].assigned +1)"
                     [editionLabel]="currentEdition"></ghs-item>
                 <a class="button-remove" *ngIf="!all && unlocked(itemData)" (click)="removeUnlocked(itemData)">
                     <img class="ghs-svg" src="./assets/images/minus.svg"></a>

@@ -1,6 +1,6 @@
 import { Character } from "../model/Character";
 import { Game } from "../model/Game";
-import { AdditionalIdentifier, Identifier } from "../model/data/Identifier";
+import { AdditionalIdentifier, CountIdentifier, Identifier } from "../model/data/Identifier";
 import { ItemData, ItemSlot } from "../model/data/ItemData";
 import { LootClass, LootType, getLootClass } from "../model/data/Loot";
 import { gameManager } from "./GameManager";
@@ -22,12 +22,12 @@ export class ItemManager {
         return gameManager.itemData().filter((itemData) => all && itemData.edition == edition || this.isItemAvailable(itemData, edition));
     }
 
-    isItemAvailable(itemData: ItemData, edition: string | undefined): boolean {
+    isItemAvailable(itemData: ItemData, edition: string | undefined, withUnlocks: boolean = true): boolean {
         if (!this.game.party.campaignMode || !edition) {
             return true;
         }
 
-        if (this.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition)) {
+        if (withUnlocks && this.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition)) {
             return true;
         }
 
@@ -84,7 +84,7 @@ export class ItemManager {
     }
 
     canAdd(item: ItemData, character: Character): boolean {
-        return item.count && this.assigned(item) < item.count && !character.progress.items.find((identifier) => item && identifier.name == '' + item.id && identifier.edition == item.edition) || false;
+        return item.count && this.countAvailable(item) > 0 && !character.progress.items.find((identifier) => item && identifier.name == '' + item.id && identifier.edition == item.edition) || false;
     }
 
     canBuy(item: ItemData, character: Character, cost: number = 0): boolean {
@@ -225,6 +225,48 @@ export class ItemManager {
             character.progress.items.splice(index, 1);
             character.progress.equippedItems = character.progress.equippedItems.filter((identifier) => identifier.name != '' + itemData.id || identifier.edition != itemData.edition);
         }
+    }
+
+    addItemCount(itemData: ItemData) {
+        if (this.game.party.campaignMode) {
+            const assigend = gameManager.itemManager.assigned(itemData);
+            const countAvailable = gameManager.itemManager.countAvailable(itemData);
+            if (countAvailable + assigend < itemData.count) {
+                const unlocked = gameManager.game.party.unlockedItems.find((identifier) => +identifier.name == itemData.id && identifier.edition == itemData.edition);
+                if (!unlocked) {
+                    gameManager.game.party.unlockedItems.push(new CountIdentifier('' + itemData.id, itemData.edition, 1));
+                } else {
+                    unlocked.count += 1;
+                    if (unlocked.count == itemData.count) {
+                        unlocked.count = -1;
+                    }
+                }
+            }
+        }
+    }
+
+    countAvailable(item: ItemData): number {
+        const existing = gameManager.itemManager.getItems(item.edition).find((available) => available.id == item.id && available.edition == item.edition);
+        if (!existing) {
+            return -1;
+        }
+
+        const assigned = this.assigned(item);
+        if (!this.isItemAvailable(item, item.edition, false)) {
+            const unlocked = gameManager.game.party.unlockedItems.find((identifier) => +identifier.name == item.id && identifier.edition == item.edition);
+            if (unlocked && unlocked.count > 0) {
+                if (unlocked.count - assigned < 0) {
+                    console.warn("More items assigend than available:", item);
+                }
+                return unlocked.count - assigned;
+            }
+        }
+
+        if (item.count - assigned < 0) {
+            console.warn("More items assigend than available:", item);
+        }
+
+        return item.count - assigned;
     }
 
     isEquipped(item: ItemData, character: Character): boolean {

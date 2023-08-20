@@ -9,7 +9,6 @@ import { LootType } from "src/app/game/model/data/Loot";
 import { PerkType } from "src/app/game/model/data/Perks";
 import { ghsInputFullScreenCheck, ghsValueSign } from "src/app/ui/helper/Static";
 import { CharacterMoveResourcesDialog } from "./move-resources";
-import { CountIdentifier } from "src/app/game/model/data/Identifier";
 
 
 @Component({
@@ -150,21 +149,6 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       this.character.progress.retired = this.retired;
       if (this.retired && gameManager.game.party.campaignMode) {
         gameManager.game.party.retirements.push(this.character.toModel());
-        // add items to available pool (except solo)
-        this.character.progress.items.forEach((item) => {
-          const itemData = gameManager.itemManager.getItem(+item.name, item.edition, true);
-          if (itemData && !itemData.solo) {
-            const existing = gameManager.itemManager.getItems(item.edition).find((available) => available.id == itemData.id && available.edition == itemData.edition);
-            if (!existing) {
-              gameManager.game.party.unlockedItems.push(new CountIdentifier(item.name, item.edition, 1));
-            } else {
-              const unlocked = gameManager.game.party.unlockedItems.find((identifier) => +identifier.name == itemData.id && identifier.edition == itemData.edition);
-              if (unlocked && unlocked.count > 0 && unlocked.count < existing.count) {
-                unlocked.count += 1;
-              }
-            }
-          }
-        })
         gameManager.characterManager.removeCharacter(this.character);
       }
       gameManager.stateManager.after();

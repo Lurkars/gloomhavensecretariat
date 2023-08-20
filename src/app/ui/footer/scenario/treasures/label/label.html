@@ -1,9 +1,9 @@
 <span class="treasure-label" *ngIf="treasure">
     <ng-container *ngFor="let reward of treasure.rewards; let index = index">
-        <span class="label" [ghs-label]="rewardLabel(reward)[0]" [ghs-label-args]="rewardLabel(reward).slice(1)"></span>
+        <span class="label" [ghs-label]="rewardLabel[index][0]" [ghs-label-args]="rewardLabel[index].slice(1)"></span>
 
         <span class="result" *ngIf="rewardResults && rewardResults[index] && rewardResults[index].length > 0"
-            [ghs-label]="rewardLabel(reward)[0] + '.result'" [ghs-label-args]="rewardResults[index]"></span>
+            [ghs-label]="rewardLabel[index][0] + '.result'" [ghs-label-args]="rewardResults[index]"></span>
 
         <span *ngIf="treasure.rewards.length > 1 && index < treasure.rewards.length -1">,&nbsp;</span>
     </ng-container>

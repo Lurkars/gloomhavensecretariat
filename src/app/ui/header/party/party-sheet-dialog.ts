@@ -44,7 +44,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   conclusions: Record<string, ScenarioData[]> = {};
   characters: Character[] = [];
   worldMap: boolean = false;
-  items: ItemData[] = [];
+  items: (ItemData | undefined)[] = [];
+  itemIdentifier: CountIdentifier[] = [];
   itemEdition: string = "";
 
   fhSheet: boolean = false;
@@ -78,6 +79,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     if (gameManager.game.filteredBattleGoals && !this.party.filteredBattleGoals) {
       this.party.filteredBattleGoals = gameManager.game.filteredBattleGoals;
     }
+
+    this.itemEdition = this.party.edition || "";
   }
 
   ngOnInit(): void {
@@ -530,15 +533,15 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         this.worldMap = true;
     }
 
-    console.log(this.itemEdition);
-
-    this.items = this.party.unlockedItems.filter((identifier) => !this.itemEdition || identifier.edition == this.itemEdition).sort((a, b) => {
+    this.itemIdentifier = this.party.unlockedItems.filter((identifier) => !this.itemEdition || identifier.edition == this.itemEdition).sort((a, b) => {
       if (!this.party.edition && a.edition != b.edition) {
         return gameManager.editions().indexOf(a.edition) - gameManager.editions().indexOf(b.edition);
       }
 
       return +a.name - +b.name;
-    }).map((identifier) => gameManager.itemManager.getItem(+identifier.name, identifier.edition, true)).filter((itemData) => itemData != undefined).map((itemData) => itemData as ItemData);
+    });
+
+    this.items = this.itemIdentifier.map((identifier) => gameManager.itemManager.getItem(+identifier.name, identifier.edition, true));
   }
 
   characterIcon(name: string): string {
@@ -585,6 +588,19 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     this.dialog.open(ItemDialogComponent, {
       data: item
     })
+  }
+
+  incItemCount(item: ItemData, itemIdentifier: CountIdentifier) {
+    gameManager.stateManager.before("updateUnlockedItemCount", item.edition, '' + item.id, item.name);
+    if (itemIdentifier.count < 0) {
+      itemIdentifier.count = 1;
+    } else {
+      itemIdentifier.count += 1;
+      if (itemIdentifier.count >= item.count) {
+        itemIdentifier.count = -1;
+      }
+    }
+    gameManager.stateManager.after();
   }
 
   treasures(): Identifier[] {

@@ -59,6 +59,7 @@ export class LootManager {
           }
         }
         if (item) {
+          gameManager.itemManager.addItemCount(itemData);
           if (character.progress.items.find((existing) => item && existing.name == item.name && existing.edition == item.edition)) {
             character.progress.gold += gameManager.itemManager.itemSellValue(itemData);
           } else {
@@ -212,6 +213,7 @@ export class LootManager {
                 } else {
                   character.progress.items.push(identifier);
                 }
+                gameManager.itemManager.addItemCount(item);
               } else {
                 gameManager.game.party.unlockedItems.push(identifier);
               }

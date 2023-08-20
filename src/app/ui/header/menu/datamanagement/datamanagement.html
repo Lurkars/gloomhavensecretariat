@@ -8,7 +8,8 @@
       <div class="line">
         <label class="input-file" (click)="importGameCheck()" [ngClass]="{'confirm-delete' : confirm == 'importGame'}"
           (mouseleave)="cancelConfirm()">
-          <input type="file" *ngIf="confirm == 'importGame'" accept="application/json" (change)="importGame($event)" />
+          <input type="file" [ngClass]="{'disabled' : confirm != 'importGame'}" [disabled]="confirm != 'importGame'"
+            accept="application/json" (change)="importGame($event)" />
           &lt;<span [ghs-label]="'datamanagement.importGame'"></span>(!)&gt;
         </label>
       </div>
@@ -25,8 +26,8 @@
       <div class="line">
         <label class="input-file" (click)="importSettingsCheck()"
           [ngClass]="{'confirm-delete' : confirm == 'importSettings'}" (mouseleave)="cancelConfirm()">
-          <input type="file" *ngIf="confirm == 'importSettings'" accept="application/json"
-            (change)="importSettings($event)" />
+          <input type="file" [ngClass]="{'disabled' : confirm != 'importSettings'}"
+            [disabled]="confirm != 'importSettings'" accept="application/json" (change)="importSettings($event)" />
           &lt;<span [ghs-label]="'datamanagement.importSettings'"></span>(!)&gt;
         </label>
       </div>
@@ -43,8 +44,8 @@
       <div class="line" [ngClass]="{'disabled' : working}">
         <label class="input-file" (click)="importDataDumpCheck()"
           [ngClass]="{'confirm-delete' : confirm == 'importDataDump'}" (mouseleave)="cancelConfirm()">
-          <input type="file" *ngIf="confirm == 'importDataDump'" accept="application/json"
-            (change)="importDataDump($event)" />
+          <input type="file" [ngClass]="{'disabled' : confirm != 'importDataDump'}"
+            [disabled]="confirm != 'importDataDump'" accept="application/json" (change)="importDataDump($event)" />
           &lt;<span [ghs-label]="'datamanagement.importDataDump'"></span>(!)&gt;
           <img src="./assets/images/shuffle.svg" class="working" *ngIf="working == 'importDataDump'">
         </label>

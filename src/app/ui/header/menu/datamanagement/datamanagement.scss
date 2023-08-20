@@ -77,6 +77,10 @@
       margin: 0;
       padding: 0;
       visibility: hidden;
+
+      &.disabled {
+        pointer-events: none;
+      }
     }
 
     &.error {
@@ -86,7 +90,8 @@
   }
 }
 
-@media (max-width: 600px), (orientation: portrait) {
+@media (max-width: 600px),
+(orientation: portrait) {
 
   .menu-container.two-column {
     display: grid;

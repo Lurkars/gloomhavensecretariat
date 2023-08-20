@@ -23,6 +23,7 @@ export class TreasureLabelComponent implements OnInit {
     @Input() itemCards: boolean = false;
 
     items: ItemData[] = [];
+    rewardLabel: string[][] = [];
 
     labelPrefix = 'game.loot.treasures.rewards.';
 
@@ -44,24 +45,31 @@ export class TreasureLabelComponent implements OnInit {
             this.index = this.treasure.index;
         }
 
-        if (this.treasure && this.itemCards) {
+
+        if (this.treasure) {
             this.treasure.rewards.forEach((reward, index) => {
-                if ([TreasureRewardType.item, TreasureRewardType.itemBlueprint, TreasureRewardType.itemDesign, TreasureRewardType.itemFh,].indexOf(reward.type) != -1 && typeof reward.value == 'number') {
-                    const itemData = gameManager.itemManager.getItem(reward.value, this.edition, true);
-                    if (itemData) {
-                        this.items.push(itemData);
-                    }
-                } else if ([TreasureRewardType.randomItem, TreasureRewardType.randomItemBlueprint, TreasureRewardType.randomItemDesign].indexOf(reward.type) != -1 && this.rewardResults && this.rewardResults[index] && this.rewardResults[index][0] && !isNaN(+this.rewardResults[index][0])) {
-                    const itemData = gameManager.itemManager.getItem(+this.rewardResults[index][0], this.rewardResults[index][2], true);
-                    if (itemData) {
-                        this.items.push(itemData);
-                    }
-                }
+                this.rewardLabel[index] = this.calcRewardLabel(reward);
             })
+
+            if (this.itemCards) {
+                this.treasure.rewards.forEach((reward, index) => {
+                    if ([TreasureRewardType.item, TreasureRewardType.itemBlueprint, TreasureRewardType.itemDesign, TreasureRewardType.itemFh,].indexOf(reward.type) != -1 && typeof reward.value == 'number') {
+                        const itemData = gameManager.itemManager.getItem(reward.value, this.edition, true);
+                        if (itemData) {
+                            this.items.push(itemData);
+                        }
+                    } else if ([TreasureRewardType.randomItem, TreasureRewardType.randomItemBlueprint, TreasureRewardType.randomItemDesign].indexOf(reward.type) != -1 && this.rewardResults && this.rewardResults[index] && this.rewardResults[index][0] && !isNaN(+this.rewardResults[index][0])) {
+                        const itemData = gameManager.itemManager.getItem(+this.rewardResults[index][0], this.rewardResults[index][2], true);
+                        if (itemData) {
+                            this.items.push(itemData);
+                        }
+                    }
+                })
+            }
         }
     }
 
-    rewardLabel(reward: TreasureReward): string[] {
+    calcRewardLabel(reward: TreasureReward): string[] {
         if (reward.type == "custom") {
             return ['' + reward.value];
         }

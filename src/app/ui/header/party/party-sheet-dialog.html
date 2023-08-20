@@ -613,20 +613,25 @@
             </div>
 
             <div class="item-list">
-              <label class="item" *ngFor="let item of items"
+              <label class="item" *ngFor="let item of items; let i = index;"
                 [ngClass]="{'edition' : !party.edition || !itemEdition}">
-                <span class="item-index open-item" (click)="openItem(item)">
-                  <img class="icon" [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
-                  <span class="index">{{item.id}}</span>
-                </span>
-                <span class="separator">:</span>
-                <span class="checkbox" (click)="removeItem(item)" ><img class="check" src="./assets/images/check.svg"><img class="close"
-                    src="./assets/images/close.svg"></span>
-                <span class="text open-item"  (click)="openItem(item)">
-                  {{item.name}}
-                </span>
-                <span class="text" *ngIf="!party.edition || !itemEdition">[<span
-                    [ghs-label]="'data.edition.' + item.edition"></span>]</span>
+                <ng-container *ngIf="item">
+                  <span class="item-index open-item" (click)="openItem(item)">
+                    <img class="icon" [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
+                    <span class="index">{{item.id}}</span>
+                  </span>
+                  <span class="separator">:</span>
+                  <span class="checkbox" (click)="removeItem(item)"><img class="check"
+                      src="./assets/images/check.svg"><img class="close" src="./assets/images/close.svg"></span>
+                  <span class="text open-item" (click)="openItem(item)">
+                    {{item.name}}
+                  </span>
+                  <span class="count" (click)="incItemCount(item, itemIdentifier[i])">
+                    {{itemIdentifier[i].count > 0 ? itemIdentifier[i].count : '-'}}
+                  </span>
+                  <span class="text edition" *ngIf="!party.edition || !itemEdition">[<span
+                      [ghs-label]="'data.edition.' + item.edition"></span>]</span>
+                </ng-container>
               </label>
             </div>
           </div>

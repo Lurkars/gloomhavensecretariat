@@ -24,6 +24,7 @@ export class ItemsDialogComponent {
     editions: string[];
     editionItems: ItemData[] = [];
     items: ItemData[] = [];
+    itemsMeta: { canAdd: boolean, canBuy: boolean, canCraft: boolean, owned: boolean, assigned: number, countAvailable: number }[] = [];
     selected: ItemData | undefined;
     character: Character | undefined;
     filter: string = "";
@@ -141,6 +142,15 @@ export class ItemsDialogComponent {
                     return 0;
                 } else {
                     return a.id - b.id;
+                }
+            })
+        }
+
+        if (this.character) {
+            this.itemsMeta = [];
+            this.items.forEach((itemData) => {
+                if (this.character) {
+                    this.itemsMeta.push({ canAdd: gameManager.itemManager.canAdd(itemData, this.character), canBuy: gameManager.itemManager.canBuy(itemData, this.character), canCraft: gameManager.itemManager.canCraft(itemData, this.character), owned: gameManager.itemManager.owned(itemData, this.character), assigned: gameManager.itemManager.assigned(itemData), countAvailable: gameManager.itemManager.countAvailable(itemData) })
                 }
             })
         }

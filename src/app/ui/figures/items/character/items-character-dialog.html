@@ -17,22 +17,23 @@
         <div class="item-list" *ngIf="items.length > 0">
             <ng-container *ngFor="let itemData of items">
                 <div class="item" *ngIf="setup">
-                    <ghs-item *ngIf="character" [item]="itemData" [flipped]="true" ghs-pointer-input
-                        [count]="!character ? 1 : (gameManager.itemManager.assigned(itemData) >= itemData.count ? '-' : (gameManager.itemManager.assigned(itemData) +1))"
-                        [disabled]="true" [selected]="equipped(itemData) && true || false"></ghs-item>
+                    <ghs-item [item]="itemData" [flipped]="true" ghs-pointer-input
+                        [count]="gameManager.itemManager.assigned(itemData)"
+                        [disabled]="true" [selected]="equipped(itemData) && true || false" [editionLabel]="gameManager.currentEdition()"></ghs-item>
                     <a class="button-equip" [ngClass]="{'equipped' : equipped(itemData)}" ghs-pointer-input
                         (singleClick)="toggleEquippedItem(itemData)" (doubleClick)="toggleEquippedItem(itemData, true)">
                         <img class="ghs-svg" src="./assets/images/check.svg"></a>
                 </div>
                 <div class="item" *ngIf="!setup" [ngClass]="{'spent' : countFlag(itemData, ItemFlags.spent)}">
-                    <ghs-item *ngIf="character" [item]="itemData"
-                        [count]="!character ? 1 : (gameManager.itemManager.assigned(itemData) >= itemData.count ? '-' : (gameManager.itemManager.assigned(itemData) +1))"
+                    <ghs-item [item]="itemData"
+                        [count]="gameManager.itemManager.assigned(itemData)"
                         [flipped]="true && !countFlag(itemData,ItemFlags.flipped)"
                         [filtered]="!equipped(itemData) || gameManager.game.state == GameState.draw"
                         [unavailable]="countFlag(itemData, ItemFlags.consumed) > 0"
                         [owned]="countFlag(itemData, ItemFlags.persistent) > 0" [disabled]="true"
                         [slotsMarked]="slotsMarked(itemData, ItemFlags.slot)"
                         [slotsBackMarked]="slotsMarked(itemData, ItemFlags.slotBack)"
+                        [editionLabel]="gameManager.currentEdition()"
                         (clickedConsumed)="toggleFlag($event,itemData,ItemFlags.consumed)"
                         (clickedFlip)="toggleFlag($event,itemData,ItemFlags.flipped)"
                         (clickedSpent)="toggleFlag($event,itemData,ItemFlags.spent)"
