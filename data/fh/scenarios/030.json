@@ -22,9 +22,11 @@
   "monsters": [
     "algox-archer",
     "algox-guard",
-    "algox-icespeaker",
     "algox-scout",
     "algox-snowspeaker"
+  ],
+  "allies": [
+    "algox-icespeaker"
   ],
   "lootDeckConfig": {
     "money": 12,
