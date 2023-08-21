@@ -99,7 +99,7 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
   }
 
   select(index: number, force: boolean = false) {
-    if (!this.cardOnly && (force || !this.character.battleGoal || gameManager.game.round == 0)) {
+    if (!this.cardOnly && (force || !this.character.battleGoal || gameManager.roundManager.firstRound)) {
       if (this.revealed.indexOf(index) == -1) {
         this.revealed.push(index);
       }

@@ -85,6 +85,7 @@ export class GameManager {
             this.scenarioRulesManager.addScenarioRulesAlways();
           };
         }
+        this.roundManager.firstRound = this.game.round == 0 && this.game.roundResets.length == 0 && this.game.roundResetsHidden.length == 0;
       }
     })
   }

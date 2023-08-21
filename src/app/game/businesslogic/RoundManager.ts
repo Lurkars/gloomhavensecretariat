@@ -20,6 +20,7 @@ export class RoundManager {
 
   game: Game;
   working: boolean = false;
+  firstRound: boolean = false;
 
   constructor(game: Game) {
     this.game = game;
@@ -65,7 +66,7 @@ export class RoundManager {
       });
 
     } else if (this.drawAvailable() || force) {
-      if (this.game.round == 0) {
+      if (this.firstRound) {
         gameManager.attackModifierManager.draw();
         gameManager.lootManager.draw();
         if (!this.game.scenario) {

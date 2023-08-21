@@ -86,7 +86,7 @@ export class ScenarioComponent implements OnInit, OnDestroy {
     const scenario = gameManager.game.scenario;
     if (scenario) {
 
-      if (gameManager.game.round == 0) {
+      if (gameManager.roundManager.firstRound) {
         this.open(event);
       } else {
         const editionData: EditionData | undefined = gameManager.editionData.find((value) => gameManager.game.scenario && value.edition == gameManager.game.scenario.edition);
@@ -105,7 +105,7 @@ export class ScenarioComponent implements OnInit, OnDestroy {
   addSection(sectionData: ScenarioData, event: any) {
     event.preventDefault();
     event.stopPropagation();
-    if (gameManager.game.round == 0) {
+    if (gameManager.roundManager.firstRound) {
       this.open(event);
     } else {
       this.dialog.open(SectionDialogComponent,

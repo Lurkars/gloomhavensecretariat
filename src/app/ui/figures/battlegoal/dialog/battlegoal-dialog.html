@@ -7,7 +7,7 @@
     <div class="battle-goals">
       <ghs-battlegoal *ngFor="let battleGoal of battleGoals; let index = index;" ghs-pointer-input
         (singleClick)="select(index)" (doubleClick)="select(index,true)" [battleGoal]="battleGoal"
-        [flipped]="gameManager.game.round == 0 || selected == index || !character.battleGoal || revealed.indexOf(index) != -1"
+        [flipped]="gameManager.roundManager.firstRound || selected == index || !character.battleGoal || revealed.indexOf(index) != -1"
         [selected]="selected == index"
         [reveal]="gameManager.game.round > 0 && selected != index && character.battleGoal && revealed.indexOf(index) == -1"
         [disabled]="character.battleGoal && gameManager.game.scenario && gameManager.game.round > 0 || false">
