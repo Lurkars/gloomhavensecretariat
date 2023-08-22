@@ -123,6 +123,7 @@
         </div>
       </div>
 
+      <!-- FH SHEET -->
       <div class="sheet fh-sheet" *ngIf="!campaign && fhSheet">
         <div class="title">
           <label class="summer"><img src="./assets/images/fh/party/summer.svg">
@@ -390,7 +391,7 @@
       <span class="toggle-fh-sheet" *ngIf="!campaign" (click)="fhSheet = !fhSheet; update(false)">
         <span [ghs-label]="'party.campaign.sheet.' + (fhSheet ? 'disable': 'enable')"></span>
       </span>
-
+      <!-- CAMPAIGN -->
       <div class="campaign" *ngIf="campaign">
         <div class="row title">
           <span class="campaign-toggle" (click)="campaign = false">

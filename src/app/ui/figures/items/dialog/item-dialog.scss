@@ -29,6 +29,14 @@
     transition-delay: 800ms;
   }
 
+  @media (max-width: 600px),
+  (orientation: portrait) {
+    width: 80vw;
+    max-width: 400px;
+    height: 120vw;
+    max-height: 600px;
+  }
+
 }
 
 .close-container {

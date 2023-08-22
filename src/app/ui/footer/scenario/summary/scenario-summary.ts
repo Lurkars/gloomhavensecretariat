@@ -486,10 +486,12 @@ export class ScenarioSummaryComponent {
         gameManager.stateManager.after();
     }
 
-    openItemDialog(itemData: ItemData) {
-        this.dialog.open(ItemDialogComponent, {
-            data: itemData
-        })
+    openItemDialog(itemData: ItemData | undefined) {
+        if (itemData) {
+            this.dialog.open(ItemDialogComponent, {
+                data: itemData
+            })
+        }
     }
 
     changeCollectiveGold(event: any, index: number) {
