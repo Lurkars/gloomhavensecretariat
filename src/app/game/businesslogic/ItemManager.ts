@@ -53,11 +53,7 @@ export class ItemManager {
     }
 
     getItem(id: number, edition: string, all: boolean): ItemData | undefined {
-        let item = this.getItems(edition, all).find((itemData) => itemData && itemData.id == id && itemData.edition == edition);
-        if (!item) {
-            item = this.getItems(undefined, all).find((itemData) => itemData && itemData.id == id && gameManager.editionExtensions(edition).indexOf(itemData.edition) != -1);
-        }
-        return item;
+        return gameManager.itemData(undefined, true).find((itemData) => (itemData && itemData.id == id && itemData.edition == edition && (all || this.isItemAvailable(itemData, edition))));
     }
 
     maxItemIndex(edition: string): number {
