@@ -15,7 +15,7 @@ export class ItemManager {
     }
 
     itemEditions(edition: string | undefined = undefined): string[] {
-        return gameManager.editionData.filter((editionData) => settingsManager.settings.editions.indexOf(editionData.edition) != -1 && (!edition || edition == editionData.edition || gameManager.editionExtensions(edition).indexOf(editionData.edition) != -1)).flatMap((editionData) => editionData.items).map((itemData) => itemData.edition).filter((value, index, self) => index == self.indexOf(value) && settingsManager.settings.editions.indexOf(value) != -1);
+        return gameManager.editionData.filter((editionData) => settingsManager.settings.editions.indexOf(editionData.edition) != -1 && (!edition || edition == editionData.edition || gameManager.editionExtensions(edition).indexOf(editionData.edition) != -1 || edition == 'fh' && editionData.edition == 'gh') && editionData.items && editionData.items.length > 0).flatMap((editionData) => editionData.edition);
     }
 
     getItems(edition: string | undefined, all: boolean = false): ItemData[] {
@@ -27,11 +27,11 @@ export class ItemManager {
             return true;
         }
 
-        if (withUnlocks && this.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition)) {
-            return true;
-        }
+        if (itemData.edition == edition || gameManager.editionExtensions(edition).indexOf(itemData.edition) != -1) {
+            if (withUnlocks && this.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition)) {
+                return true;
+            }
 
-        if (itemData.edition == edition || this.itemEditions(edition).indexOf(itemData.edition) != -1) {
             if (itemData.unlockProsperity > 0 && itemData.unlockProsperity <= gameManager.prosperityLevel()) {
                 return true;
             }
@@ -43,10 +43,20 @@ export class ItemManager {
             if (!itemData.blueprint && !itemData.random && itemData.requiredBuilding && itemData.requiredBuilding != "alchemist" && this.game.party.buildings && this.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel)) {
                 return true;
             }
+        }
 
-            if (this.game.edition == 'fh' && itemData.edition == 'gh') {
-                return [10, 25, 72, 105, 109, 116].indexOf(itemData.id) != -1;
+        if (settingsManager.settings.fhGhItems && gameManager.fhRules() && itemData.edition == 'gh') {
+            const tradingPost = this.game.party.buildings && this.game.party.buildings.find((buildingModel) => buildingModel.name == "trading-post");
+            if (tradingPost) {
+                if (tradingPost.level >= 2 && [21, 37, 53, 93, 94, 106, 115].indexOf(itemData.id) != -1) {
+                    return true;
+                } else if (tradingPost.level >= 3 && [46, 83, 84, 85, 86, 87, 88, 102, 110, 111, 120, 121, 122, 123, 126, 128].indexOf(itemData.id) != -1) {
+                    return true;
+                } else if (tradingPost.level >= 4 && [17, 35, 47, 51, 62, 74, 77, 78, 79, 80, 81, 82, 117, 118, 119, 127, 129, 131].indexOf(itemData.id) != -1) {
+                    return true;
+                }
             }
+            return [10, 25, 72, 105, 109, 116].indexOf(itemData.id) != -1;
         }
 
         return false;
@@ -84,6 +94,10 @@ export class ItemManager {
     }
 
     canBuy(item: ItemData, character: Character, cost: number = 0): boolean {
+        if (gameManager.game.party.campaignMode && gameManager.fhRules() && character.tags.indexOf('new-character') == -1 && (!this.game.party.buildings || !this.game.party.buildings.find((buildingModel) => buildingModel.name == "trading-post" && buildingModel.level >= 1))) {
+            return false;
+        }
+
         return item.cost && (item.cost + this.pricerModifier() + cost) <= character.progress.gold && this.canAdd(item, character) || false;
     }
 

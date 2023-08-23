@@ -407,6 +407,12 @@ export class RoundManager {
         figure.battleGoal = false;
         figure.battleGoals = [];
 
+        if (gameManager.fhRules() && figure.tags.indexOf('new-character') != -1) {
+          figure.progress.gold = 0;
+        }
+
+        figure.tags = figure.tags.filter((tag) => tag != 'new-character');
+
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));
 
         figure.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(figure);

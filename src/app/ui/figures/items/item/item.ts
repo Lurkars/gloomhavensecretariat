@@ -15,11 +15,6 @@ export class ItemComponent implements OnInit {
     @Input() item!: ItemData | undefined;
     @Input() identifier: Identifier | undefined | false;
     @Input() flipped: boolean = false;
-    @Input() selected: boolean = false;
-    @Input() disabled: boolean = false;
-    @Input() filtered: boolean = false;
-    @Input() owned: boolean = false;
-    @Input() unavailable: boolean = false;
     @Input() reveal: boolean = false;
     @Input() count: number | '-' = 1;
     @Input() slotsMarked: string[] = [];

@@ -141,6 +141,10 @@ export class ItemsDialogComponent {
 
                     return 0;
                 } else {
+                    if (a.edition != b.edition) {
+                        return a.edition == this.currentEdition ? -1 : 1;
+                    }
+
                     return a.id - b.id;
                 }
             })

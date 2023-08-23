@@ -16,7 +16,6 @@
         background-size: 100% 100%;
         background-position: center center;
         background-repeat: no-repeat;
-        border: 0.2em solid transparent;
         border-radius: 0.5em;
         background-clip: padding-box;
 
@@ -115,9 +114,13 @@
 
                         .marker {
                             position: absolute;
-                            top: calc(0.05em * var(--ghs-fontsize) * var(--ghs-text-factor));
-                            left: calc(0.05em * var(--ghs-fontsize) * var(--ghs-text-factor));
-                            font-size: calc(1.1em * var(--ghs-fontsize) * var(--ghs-text-factor));
+                            top: calc(0.2em * var(--ghs-fontsize));
+                            left: calc(0.2em * var(--ghs-fontsize));
+                            font-size: calc(1.2em * var(--ghs-fontsize));
+
+                            &.fh {
+                                font-size: calc(1em * var(--ghs-fontsize));
+                            }
                         }
                     }
                 }
@@ -302,12 +305,16 @@
             font-family: ghs-normal;
             font-size: 0.8em;
             filter: var(--ghs-filter-thin);
+
+            .edition {
+                text-transform: uppercase;
+            }
         }
 
         .solo {
             position: absolute;
             top: 43.5%;
-            left: 69.5%;
+            left: 70%;
             width: 23%;
             height: 15%;
             display: flex;
@@ -315,6 +322,11 @@
             align-items: center;
             z-index: 1;
             font-size: 2.4em;
+
+            &.fh {
+                font-size: 2.1em;
+                top: 41%;
+            }
         }
 
         &.card-back {
@@ -327,7 +339,6 @@
         background-size: 100% 100%;
         background-position: center center;
         background-repeat: no-repeat;
-        border: 0.2em solid transparent;
         border-radius: 0.5em;
         background-clip: padding-box;
 
@@ -348,43 +359,6 @@
 
     &.disabled {
         cursor: initial;
-    }
-
-    &.unavailable {
-        cursor: not-allowed;
-
-        .front,
-        .back {
-            border-color: var(--ghs-color-red);
-        }
-    }
-
-    &.filtered {
-        cursor: initial;
-
-        .front,
-        .back {
-            border-color: var(--ghs-color-darkgray);
-            filter: grayscale(0.5);
-        }
-    }
-
-    &.owned {
-
-        .front,
-        .back {
-            border-color: var(--ghs-color-blue);
-            filter: none;
-        }
-    }
-
-    &.selected {
-        cursor: pointer;
-
-        .front,
-        .back {
-            border-color: var(--ghs-color-green);
-        }
     }
 
     &.confirm {
@@ -506,7 +480,7 @@
             }
 
             .solo {
-                top: 35%;
+                top: 36%;
                 font-size: 2em;
             }
 

@@ -663,6 +663,20 @@
         </span>
       </div>
     </div>
+
+    <div class="line">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : !gameManager.fhRules()}">
+          <input type="checkbox" [checked]="settingsManager.settings.fhGhItems"
+            (change)="settingsManager.setFhGhItems(!settingsManager.settings.fhGhItems)">
+          <span [ghs-label]="'settings.fhGhItems'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.fhGhItems.hint'"></span>
+        </span>
+      </div>
+    </div>
   </div>
 
   <div class="separator"></div>

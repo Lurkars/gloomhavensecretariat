@@ -122,6 +122,8 @@ export class CharacterManager {
         }
       }
 
+      character.tags.push('new-character');
+
       this.game.figures.push(character);
       gameManager.addEntityCount(character);
 
