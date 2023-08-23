@@ -1574,6 +1574,10 @@
       ".": "Disable Feedback Button",
       "hint": ""
     },
+    "fhGhItems": {
+      ".": "Add Gloomhaven Items",
+      "hint": "Add Items from Gloomhaven to available supply as stated out in the rules."
+    },
     "fhRules": "Frosthaven Rules",
     "fhStyle": {
       ".": "Frosthaven Style",
