@@ -21,11 +21,11 @@
     "character": "Charakterbogen",
     "items": "Gegenstandskarten Übersicht",
     "party": "Gruppen-/Kampagnenbogen",
-    "partyManagement": {
-      ".": "Gruppen verwalten",
-      "add": "Neue Gruppe erstellen",
-      "hint": "Während eines Szenarios ist das Ändern oder Erstellen einer neuen Gruppe deaktiviert. Beende oder breche das aktuelle Szenario ab um die akutelle Gruppe zu ändern oder eine neue Gruppe zu erstellen.",
-      "name": "Name für Gruppe {0}"
+    "campaignManagement": {
+      ".": "Kampagnen verwalten",
+      "add": "Neue Kampagne erstellen",
+      "hint": "Während eines Szenarios ist das Ändern oder Erstellen einer neuen Kampagne deaktiviert. Beende oder breche das aktuelle Szenario ab um die akutelle Kampagne zu ändern oder eine neue Kampagne zu erstellen.",
+      "name": "Name für Kampagne {0}"
     },
     "sheet": "Globaler Kampagnenbogen"
   },
@@ -882,8 +882,8 @@
     "location": "Ort",
     "name": "Name",
     "new": {
-      ".": "Neue Gruppe erstellen",
-      "hint": "Während eines Szenarios ist das Erstellen einer neuen Gruppe deaktiviert. Beende oder breche das aktuelle Szenario ab um eine neue Gruppe zu erstellen."
+      ".": "Neue Kampagne erstellen",
+      "hint": "Während eines Szenarios ist das Erstellen einer neuen Kampagne deaktiviert. Beende oder breche das aktuelle Szenario ab um eine neue Kampagne zu erstellen."
     },
     "notes": "Notizen",
     "prosperity": "Wohlstand",
