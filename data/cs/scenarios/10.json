@@ -19,8 +19,7 @@
   "objectives": [
     {
       "name": "Supply Crate",
-      "health": "2x(C+L+1)",
-      "count": 6
+      "health": "2x(C+L+1)"
     }
   ],
   "rules": [

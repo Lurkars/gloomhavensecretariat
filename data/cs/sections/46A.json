@@ -10,8 +10,7 @@
   "objectives": [
     {
       "name": "Void Pit",
-      "health": "C+L",
-      "count": 6
+      "health": "C+L"
     }
   ],
   "rooms": [

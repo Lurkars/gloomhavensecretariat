@@ -6,6 +6,21 @@
   "unlocks": [
     "97"
   ],
+  "rewards": {
+    "globalAchievements": [
+      "Through the Portal"
+    ],
+    "experience": 10,
+    "events": [
+      "city:82",
+      "road:82"
+    ],
+    "hints": {
+      "globalAchievements": [
+        "(read section 33 on page 12)"
+      ]
+    }
+  },
   "monsters": [
     "earth-demon",
     "flame-demon",

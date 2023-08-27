@@ -7,6 +7,7 @@ import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { Monster } from "src/app/game/model/Monster";
 import { Objective } from "src/app/game/model/Objective";
 import packageJson from '../../../../../package.json';
+import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 
 @Component({
     selector: 'ghs-feedback-dialog',
@@ -29,9 +30,23 @@ export class FeedbackDialogComponent {
         scenario.allies = gameManager.game.figures.filter((figure) => figure instanceof Monster && figure.isAlly).map((figure) => (figure as Monster).name);
         scenario.allied = gameManager.game.figures.filter((figure) => figure instanceof Monster && figure.isAllied).map((figure) => (figure as Monster).name);
         scenario.drawExtra = gameManager.game.figures.filter((figure) => figure instanceof Monster && figure.drawExtra).map((figure) => (figure as Monster).name);
-        scenario.objectives = gameManager.game.figures.filter((figure) => figure instanceof Objective).map((figure) => {
-            const objective = figure as Objective;
-            return new ObjectiveData(objective.name, objective.maxHealth, objective.escort, objective.id, objective.marker, objective.tags, objective.initiative);
+        scenario.objectives = gameManager.game.figures.filter((figure) => figure instanceof Objective || figure instanceof ObjectiveContainer).map((figure) => {
+            if (figure instanceof Objective || figure instanceof ObjectiveContainer) {
+                if (figure.objectiveId) {
+                    const objectiveData = gameManager.objectiveDataByScenarioObjectiveIdentifier(figure.objectiveId);
+                    if (objectiveData) {
+                        return objectiveData;
+                    }
+                }
+                if (figure instanceof Objective) {
+                    const objective = figure as Objective;
+                    return new ObjectiveData(objective.name, objective.maxHealth, objective.escort, objective.id, objective.marker, objective.tags, objective.initiative);
+                } else if (figure instanceof ObjectiveContainer) {
+                    const objective = figure as ObjectiveContainer;
+                    return new ObjectiveData(objective.name, objective.health, objective.escort, -1, objective.marker, [], objective.initiative);
+                }
+            }
+            return new ObjectiveData(figure.name, 0, false);
         });
         scenario.rooms = gameManager.game.scenario?.rooms || [];
         scenario.marker = gameManager.game.scenario?.marker || "";

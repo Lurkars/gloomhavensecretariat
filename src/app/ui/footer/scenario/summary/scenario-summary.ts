@@ -227,10 +227,9 @@ export class ScenarioSummaryComponent {
                 if (this.rewards.collectiveGold) {
                     this.characters.forEach((char, index) => this.collectiveGold[index] = 0);
                 }
-                const rewardItems = this.rewards.items || this.rewards.chooseItem;
-                if (rewardItems) {
+                if (this.rewards.items) {
                     this.characters.forEach((char, index) => this.items[index] = []);
-                    rewardItems.forEach((item, index) => {
+                    this.rewards.items.forEach((item, index) => {
                         const itemData = gameManager.itemManager.getItem(+item.split(':')[0].split('-')[0], item.split(':')[0].split('-').slice(1).join('-') || this.scenario.edition, true);
                         if (itemData) {
                             this.rewardItems.push(itemData);
@@ -247,6 +246,21 @@ export class ScenarioSummaryComponent {
                             console.error("Unknown Item '" + item + "' for scenario '" + this.scenario.index + " (" + this.scenario.edition + ")")
                         }
 
+                    })
+                }
+                if (this.rewards.chooseItem) {
+                    this.characters.forEach((char, index) => this.items[index] = []);
+                    this.rewards.chooseItem.forEach((itemList) => {
+                        itemList.forEach((item, index) => {
+                            const itemData = gameManager.itemManager.getItem(+item.split(':')[0].split('-')[0], item.split(':')[0].split('-').slice(1).join('-') || this.scenario.edition, true);
+                            if (itemData) {
+                                this.rewardItems.push(itemData);
+                                this.rewardItemCount.push(item.indexOf(':') == -1 ? 1 : +item.split(':')[1]);
+                            } else {
+                                console.error("Unknown Item '" + item + "' for scenario '" + this.scenario.index + " (" + this.scenario.edition + ")")
+                            }
+
+                        })
                     })
                 }
                 if (this.rewards.chooseLocation && this.rewards.chooseLocation.length > 0) {
@@ -453,8 +467,24 @@ export class ScenarioSummaryComponent {
         if (!this.items[index]) {
             this.items[index] = [];
         }
-        if (choose && this.rewards && this.rewards.chooseItem && this.rewardItems.some((rewardItem, rewardIndex) => rewardIndex != itemIndex && this.characters.some((char, charIndex) => this.itemDistributed(charIndex, rewardIndex, false)))) {
-            return true;
+        if (choose && this.rewards && this.rewards.chooseItem) {
+            let startIndex = 0;
+            let endIndex = 0;
+            let count = 0;
+            let found = false;
+            this.rewards.chooseItem.forEach((itemList) => {
+                if (!found && itemIndex < (itemList.length + count)) {
+                    endIndex = itemList.length + count - 1;
+                    found = true;
+                }
+                count += itemList.length;
+                if (!found) {
+                    startIndex = count;
+                }
+            });
+            if (this.rewardItems.some((rewardItem, rewardIndex) => rewardIndex != itemIndex && (rewardIndex < startIndex || rewardIndex > endIndex) && this.characters.some((char, charIndex) => this.itemDistributed(charIndex, rewardIndex, false)))) {
+                return true;
+            }
         }
 
         const item = this.rewardItems[itemIndex];

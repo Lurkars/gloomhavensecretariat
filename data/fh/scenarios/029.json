@@ -31,13 +31,11 @@
   "objectives": [
     {
       "name": "Ice Pillar",
-      "health": "[(L+2)xC/2{$math.floor}]",
-      "count": 9
+      "health": "[(L+2)xC/2{$math.floor}]"
     },
     {
       "name": "Ice Core",
-      "health": "[(L+2)xC/2{$math.floor}]",
-      "count": 3
+      "health": "[(L+2)xC/2{$math.floor}]"
     }
   ],
   "lootDeckConfig": {
@@ -157,7 +155,20 @@
           "player2": "normal"
         }
       ],
-      "objectives": []
+      "objectives": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ]
     }
   ]
 }

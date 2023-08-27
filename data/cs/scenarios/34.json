@@ -19,7 +19,6 @@
       "escort": true,
       "health": "C+L+2",
       "marker": "a",
-      "count": 4,
       "actions": [
         {
           "type": "custom",

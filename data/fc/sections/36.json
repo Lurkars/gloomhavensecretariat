@@ -8,10 +8,14 @@
       "Knowledge is Power"
     ],
     "chooseItem": [
-      "59",
-      "112",
-      "125",
-      "126"
+      [
+        "59-gh",
+        "112-gh",
+        "125-gh"
+      ],
+      [
+        "126-gh"
+      ]
     ],
     "hints": {
       "globalAchievements": [

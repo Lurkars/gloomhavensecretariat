@@ -12,6 +12,11 @@ export class ScenarioConclusionComponent {
 
     gameManager: GameManager = gameManager;
 
-    constructor(@Inject(DIALOG_DATA) public data: { conclusions: ScenarioData[], parent: ScenarioData }, public dialogRef: DialogRef) { }
+    constructor(@Inject(DIALOG_DATA) public data: { conclusions: ScenarioData[], parent: ScenarioData }, public dialogRef: DialogRef) {
+        if (this.data.conclusions.length == 1) {
+            this.dialogRef.close(this.data.conclusions[0]);
+        }
+
+    }
 
 }

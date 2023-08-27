@@ -14,7 +14,6 @@
       "health": 4,
       "initiative": 50,
       "marker": "b",
-      "count": 2,
       "actions": [
         {
           "type": "move",

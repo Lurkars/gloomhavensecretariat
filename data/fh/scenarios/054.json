@@ -30,7 +30,6 @@
     {
       "name": "Ice Pillar",
       "health": "[(L+1)xC/2{$math.floor}]",
-      "count": 4,
       "tags": [
         "objective"
       ],
@@ -45,7 +44,6 @@
     {
       "name": "Large Cave Rock",
       "health": "[(L+1)xC/2{$math.floor}]",
-      "count": 3,
       "tags": [
         "objective"
       ],

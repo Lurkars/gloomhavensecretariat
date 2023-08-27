@@ -13,7 +13,6 @@
     {
       "name": "Ice Pillar",
       "health": "[4+(LxC)/2{$math.floor}]",
-      "count": 3,
       "actions": [
         {
           "type": "shield",

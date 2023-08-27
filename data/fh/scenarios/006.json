@@ -26,7 +26,6 @@
     {
       "name": "Snowdrift",
       "health": "L+C",
-      "count": 6,
       "tags": [
         "Snowdrift"
       ]
@@ -34,7 +33,6 @@
     {
       "name": "Snow Rock",
       "health": "L+C",
-      "count": 2,
       "tags": [
         "Snow Rock"
       ]

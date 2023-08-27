@@ -12,6 +12,7 @@ import { LootDeckChange } from '../figures/loot/loot-deck';
 import { Objective } from 'src/app/game/model/Objective';
 import { ScenarioSummaryComponent } from './scenario/summary/scenario-summary';
 import { ScenarioConclusionComponent } from './scenario/scenario-conclusion/scenario-conclusion';
+import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 
 @Component({
   selector: 'ghs-footer',
@@ -38,13 +39,13 @@ export class FooterComponent implements OnInit {
   constructor(private dialog: Dialog, private overlay: Overlay) { }
 
   ngOnInit(): void {
-    this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied) || figure instanceof Objective && figure.objectiveId && gameManager.objectiveDataByScenarioObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck) || false;
+    this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied) || (figure instanceof Objective || figure instanceof ObjectiveContainer) && figure.objectiveId && gameManager.objectiveDataByScenarioObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck) || false;
 
     this.lootDeck = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
 
     gameManager.uiChange.subscribe({
       next: () => {
-        this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied) || figure instanceof Objective && figure.objectiveId && gameManager.objectiveDataByScenarioObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck) || false;
+        this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied) || (figure instanceof Objective || figure instanceof ObjectiveContainer) && figure.objectiveId && gameManager.objectiveDataByScenarioObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck) || false;
         this.lootDeck = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
       }
     })

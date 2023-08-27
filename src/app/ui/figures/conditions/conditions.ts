@@ -9,6 +9,7 @@ import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { Objective } from "src/app/game/model/Objective";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
+import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 
 @Component({
   selector: 'ghs-conditions',
@@ -61,7 +62,7 @@ export class ConditionsComponent implements OnInit {
     window.addEventListener('keydown', (event: KeyboardEvent) => {
       if (!event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
         if (!event.ctrlKey && !event.shiftKey && ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'].indexOf(event.key) != -1) {
-          if (!(this.entity instanceof Objective) || this.entity.escort) {
+          if ((!(this.entity instanceof Objective) || this.entity.escort) && (!(this.figure instanceof ObjectiveContainer) || this.figure.escort)) {
             let index = +event.key;
             let condition: Condition | undefined;
             if (index == 0) {

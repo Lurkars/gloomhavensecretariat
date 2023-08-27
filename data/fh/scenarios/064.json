@@ -31,7 +31,6 @@
       "escort": true,
       "health": "[(L/2)+2{$math.ceil}]",
       "initiative": 51,
-      "count": "Cx2",
       "actions": [
         {
           "type": "move",

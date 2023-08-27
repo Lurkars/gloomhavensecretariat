@@ -17,6 +17,8 @@ import { ghsDefaultDialogPositions, ghsModulo, ghsValueSign } from "../../helper
 import { AttackModiferDeckChange } from "../attackmodifier/attackmodifierdeck";
 import { MonsterNumberPickerDialog } from "../monster/dialogs/numberpicker-dialog";
 import { Overlay } from "@angular/cdk/overlay";
+import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
+import { ObjectiveEntity } from "src/app/game/model/ObjectiveEntity";
 
 @Component({
   selector: 'ghs-entity-menu-dialog',
@@ -88,7 +90,7 @@ export class EntityMenuDialogComponent {
           }
         }
       }
-    } else if (data.entity instanceof Objective) {
+    } else if (data.entity instanceof Objective && data.entity.escort || data.figure instanceof ObjectiveContainer && data.figure.escort) {
       this.conditionType = 'character';
     } else if (data.entity instanceof MonsterEntity) {
       this.conditionType = 'monster';
@@ -330,13 +332,16 @@ export class EntityMenuDialogComponent {
 
   changeMaxHealth(value: number) {
     this.maxHp += value;
-    if (!(this.data.entity instanceof Character) && !(this.data.entity instanceof Objective)) {
+    if (!(this.data.entity instanceof Character) && !(this.data.entity instanceof Objective) && !(this.data.figure instanceof ObjectiveContainer)) {
       this.health += value;
     }
-    if (this.data.entity) {
-      if (EntityValueFunction(this.data.entity.maxHealth) + this.maxHp <= 1) {
-        this.maxHp = -EntityValueFunction(this.data.entity.maxHealth) + 1;
+
+    if (this.data.figure instanceof ObjectiveContainer) {
+      if (EntityValueFunction(this.data.figure.health) + this.maxHp <= 1) {
+        this.maxHp = -EntityValueFunction(this.data.figure.health) + 1;
       }
+    } else if (this.data.entity && EntityValueFunction(this.data.entity.maxHealth) + this.maxHp <= 1) {
+      this.maxHp = -EntityValueFunction(this.data.entity.maxHealth) + 1;
     }
   }
 
@@ -398,6 +403,8 @@ export class EntityMenuDialogComponent {
         gameManager.stateManager.before(this.hasMarker(marker) ? "removeSummonMarker" : "addSummonMarker", "data.character." + this.data.figure.name, "data.summon." + this.data.entity.name, "data.character." + marker.split('-')[1]);
       } else if (this.data.entity instanceof Objective) {
         gameManager.stateManager.before(this.hasMarker(marker) ? "removeObjectiveMarker" : "addObjectiveMarker", this.data.entity.title || this.data.entity.name, "data.character." + marker.split('-')[1]);
+      } else if (this.data.figure instanceof ObjectiveContainer && this.data.entity instanceof ObjectiveEntity) {
+        gameManager.stateManager.before(this.hasMarker(marker) ? "removeObjectiveEntityMarker" : "addObjectiveEntityMarker", this.data.figure.title || this.data.figure.name, "" + this.data.entity.number, "data.character." + marker.split('-')[1]);
       }
 
       gameManager.entityManager.toggleMarker(this.data.entity, marker);
@@ -446,6 +453,8 @@ export class EntityMenuDialogComponent {
       this.dead();
     } else if (this.data.entity instanceof Objective) {
       this.dead();
+    } else if (this.data.entity instanceof ObjectiveEntity) {
+      this.dead();
     }
   }
 
@@ -479,6 +488,22 @@ export class EntityMenuDialogComponent {
       gameManager.stateManager.before("removeObjective", this.data.entity.title || this.data.entity.name);
       gameManager.characterManager.removeObjective(this.data.entity);
       gameManager.stateManager.after();
+    } else if (this.data.figure instanceof ObjectiveContainer && this.data.entity instanceof ObjectiveEntity) {
+      gameManager.stateManager.before("objectiveEntityDead", this.data.figure.title || this.data.figure.name, "" + this.data.entity.number);
+      this.data.entity.dead = true;
+
+      if (this.data.figure.entities.every((entity) => entity.dead)) {
+        if (this.data.figure.active) {
+          gameManager.roundManager.toggleFigure(this.data.figure);
+        }
+      }
+
+      setTimeout(() => {
+        if (this.data.figure instanceof ObjectiveContainer && this.data.entity instanceof ObjectiveEntity) {
+          gameManager.objectiveManager.removeObjectiveEntity(this.data.figure, this.data.entity);
+          gameManager.stateManager.after();
+        }
+      }, settingsManager.settings.disableAnimations || !this.data.figure.entities.some((entity) => gameManager.entityManager.isAlive(entity)) ? 0 : 1500);
     }
     this.dialogRef.close(true);
   }
@@ -532,10 +557,32 @@ export class EntityMenuDialogComponent {
         }
       }
     }
+    if (this.data.figure instanceof ObjectiveContainer && this.data.entity instanceof ObjectiveEntity) {
+      this.id += value;
+      let newId = this.data.entity.number + this.id;
+      if (newId < 1) {
+        this.id = 12 - this.data.entity.number;
+      } else if (newId > 12) {
+        this.id = 1 - this.data.entity.number;
+      }
+      newId = this.data.entity.number + this.id;
+      if (this.data.figure.entities.length < 12) {
+        while (this.data.figure.entities.some((entity) => entity.number == newId && entity != this.data.entity)) {
+          this.id += value;
+          newId = this.data.entity.number + this.id;
+          if (newId < 1) {
+            this.id = 12 - this.data.entity.number;
+          } else if (newId > 12) {
+            this.id = 1 - this.data.entity.number;
+          }
+          newId = this.data.entity.number + this.id;
+        }
+      }
+    }
   }
 
   changeMarker(value: number) {
-    if (this.data.entity instanceof Objective) {
+    if (this.data.entity instanceof Objective || this.data.entity instanceof ObjectiveEntity) {
       this.marker = ghsModulo(this.marker + value, OBJECTIV_MARKERS.length);
     }
   }
@@ -585,6 +632,8 @@ export class EntityMenuDialogComponent {
       this.closeSummon();
     } else if (this.data.entity instanceof Objective) {
       this.closeObjective();
+    } else if (this.data.entity instanceof ObjectiveEntity) {
+      this.closeObjectiveEntity();
     }
   }
 
@@ -857,6 +906,8 @@ export class EntityMenuDialogComponent {
   showMaxHealth(): boolean {
     if (this.data.entity instanceof Objective) {
       return !isNaN(+this.data.entity.maxHealth) && EntityValueFunction(this.data.entity.maxHealth) > 0;
+    } else if (this.data.figure instanceof ObjectiveContainer) {
+      return !isNaN(+this.data.figure.health) && EntityValueFunction(this.data.figure.health) > 0;
     }
     return false;
   }
@@ -917,6 +968,69 @@ export class EntityMenuDialogComponent {
         } else if (this.data.entity.title != "") {
           gameManager.stateManager.before("unsetTitle", this.data.entity.name || this.data.entity.escort ? 'escort' : 'objective', this.data.entity.title);
           this.data.entity.title = "";
+          gameManager.stateManager.after();
+        }
+      }
+    }
+  }
+
+
+  closeObjectiveEntity() {
+    if (this.data.figure instanceof ObjectiveContainer && this.data.entity instanceof ObjectiveEntity) {
+      if (this.maxHp) {
+        gameManager.stateManager.before("changeObjectiveMaxHp", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', ghsValueSign(this.maxHp));
+        const maxHealth: number = EntityValueFunction(this.data.figure.health) + this.maxHp;
+        this.data.figure.health = maxHealth;
+        this.data.figure.entities.forEach((entity) => {
+          if (entity.health == entity.maxHealth || entity.health > maxHealth) {
+            entity.health = maxHealth;
+          }
+          entity.maxHealth = maxHealth;
+        })
+        gameManager.stateManager.after();
+      }
+
+      if (this.health != 0) {
+        gameManager.stateManager.before("changeObjectiveEntityHP", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', '' + this.data.entity.number, ghsValueSign(this.health));
+        gameManager.entityManager.changeHealth(this.data.entity, this.data.figure, this.health);
+        if (this.data.entity.health <= 0) {
+          gameManager.objectiveManager.removeObjectiveEntity(this.data.figure, this.data.entity);
+        }
+        gameManager.stateManager.after();
+        this.health = 0;
+      }
+
+      const newId = this.data.entity.number + this.id;
+      if (newId != this.data.entity.number) {
+        gameManager.stateManager.before("changeObjectiveEntityNumber", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', '' + this.data.entity.number, "" + newId);
+        this.data.entity.number = newId;
+        gameManager.stateManager.after();
+      }
+      this.id = 0;
+
+      if (!this.data.entity.marker) {
+        this.data.entity.marker = "";
+      }
+
+      const newMarker = OBJECTIV_MARKERS[ghsModulo(this.marker + OBJECTIV_MARKERS.indexOf(this.data.entity.marker), OBJECTIV_MARKERS.length)];
+
+      if (newMarker != this.data.entity.marker) {
+        gameManager.stateManager.before("changeObjectiveEntityMarker", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', '' + this.data.entity.number, newMarker);
+        this.data.entity.marker = newMarker;
+        gameManager.stateManager.after();
+      }
+      this.marker = 0;
+
+      if (this.objectiveTitleInput) {
+        if (this.objectiveTitleInput.nativeElement.value && this.objectiveTitleInput.nativeElement.value != this.data.figure.name) {
+          if (this.data.figure.title != this.objectiveTitleInput.nativeElement.value) {
+            gameManager.stateManager.before("setTitle", this.data.figure.name, this.objectiveTitleInput.nativeElement.value);
+            this.data.figure.title = this.objectiveTitleInput.nativeElement.value;
+            gameManager.stateManager.after();
+          }
+        } else if (this.data.figure.title != "") {
+          gameManager.stateManager.before("unsetTitle", this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', this.data.figure.title);
+          this.data.figure.title = "";
           gameManager.stateManager.after();
         }
       }

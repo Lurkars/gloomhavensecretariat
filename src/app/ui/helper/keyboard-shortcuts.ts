@@ -11,6 +11,7 @@ import { FooterComponent } from '../footer/footer';
 import { SummonState } from 'src/app/game/model/Summon';
 import { LootApplyDialogComponent } from '../figures/loot/loot-apply-dialog';
 import { LootType } from 'src/app/game/model/data/Loot';
+import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 
 
 export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent";
@@ -232,7 +233,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     gameManager.roundManager.toggleFigure(activeFigure);
                     gameManager.stateManager.after();
                 }
-            } else if (activeFigure instanceof Objective) {
+            } else if (activeFigure instanceof Objective || activeFigure instanceof ObjectiveContainer) {
                 gameManager.stateManager.before(activeFigure.active ? "unsetActive" : "setActive", activeFigure.title || activeFigure.name);
                 gameManager.roundManager.toggleFigure(activeFigure);
                 gameManager.stateManager.after();

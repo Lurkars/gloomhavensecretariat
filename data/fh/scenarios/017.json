@@ -21,7 +21,6 @@
       "escort": true,
       "health": 0,
       "initiative": 50,
-      "count": "4-C",
       "actions": [
         {
           "type": "move",

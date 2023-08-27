@@ -3,6 +3,7 @@ import { EntityValueFunction } from "../model/Entity";
 import { Game } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { Objective } from "../model/Objective";
+import { ObjectiveContainer } from "../model/ObjectiveContainer";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
@@ -118,6 +119,12 @@ export class LevelManager {
           if (figure.health > EntityValueFunction(figure.maxHealth)) {
             figure.health = EntityValueFunction(figure.maxHealth);
           }
+        } else if (figure instanceof ObjectiveContainer) {
+          figure.entities.forEach((objectiveEntity) => {
+            if (objectiveEntity.health > EntityValueFunction(figure.health)) {
+              figure.health = EntityValueFunction(figure.health);
+            }
+          })
         }
       })
     }

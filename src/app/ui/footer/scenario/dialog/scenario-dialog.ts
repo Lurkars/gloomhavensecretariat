@@ -102,13 +102,14 @@ export class ScenarioDialogComponent {
 
     finishScenario(success: boolean) {
         this.dialogRef.close();
-        const conclusions = gameManager.sectionData(this.scenario.edition).filter((sectionData) =>
+        const conclusions = gameManager.scenarioManager.availableSections(true).filter((sectionData) =>
             sectionData.edition == this.scenario.edition && sectionData.parent == this.scenario.index && sectionData.group == this.scenario.group && sectionData.conclusion);
-        if (conclusions.length == 0 || !success) {
+        if (conclusions.length < 2 || !success) {
             this.dialog.open(ScenarioSummaryComponent, {
                 panelClass: 'dialog',
                 data: {
                     scenario: this.scenario,
+                    conclusion: conclusions.length == 1 ? conclusions[0] : undefined,
                     success: success
                 }
             })

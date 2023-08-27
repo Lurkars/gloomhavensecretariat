@@ -7,10 +7,14 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { ObjectiveData } from 'src/app/game/model/data/ObjectiveData';
 import { GameState } from 'src/app/game/model/Game';
-import { ghsDefaultDialogPositions } from '../../helper/Static';
+import { ghsDefaultDialogPositions, ghsValueSign } from '../../helper/Static';
 import { CharacterInitiativeDialogComponent } from '../character/cards/initiative-dialog';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { Subscription } from 'rxjs';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
+import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
+import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
+import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
 
 @Component({
   selector: 'ghs-objective-container',
@@ -31,8 +35,11 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
   GameState = GameState;
   ConditionType = ConditionType;
   objectiveData: ObjectiveData | undefined;
+  entity: ObjectiveEntity | undefined;
   activeConditions: EntityCondition[] = [];
   initiative: number = -1;
+  health: number = 0;
+  marker: string = "";
 
   nonDead: number = 0;
 
@@ -42,12 +49,8 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
     if (this.objective && this.objective.objectiveId) {
       this.objectiveData = gameManager.objectiveDataByScenarioObjectiveIdentifier(this.objective.objectiveId);
     }
-    this.uiChangeSubscription = gameManager.uiChange.subscribe({
-      next: () => {
-        this.nonDead = this.objective.entities.filter((entity) => gameManager.entityManager.isAlive(entity)).length;
-      }
-    })
-    this.nonDead = this.objective.entities.filter((entity) => gameManager.entityManager.isAlive(entity)).length;
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+    this.update();
   }
 
   uiChangeSubscription: Subscription | undefined;
@@ -55,6 +58,26 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.uiChangeSubscription) {
       this.uiChangeSubscription.unsubscribe();
+    }
+  }
+
+  update() {
+    this.nonDead = this.objective.entities.filter((entity) => gameManager.entityManager.isAlive(entity)).length;
+    this.activeConditions = [];
+    this.entity = undefined;
+    this.marker = "";
+    if (this.nonDead == 1) {
+      this.entity = this.objective.entities.find((entity) => gameManager.entityManager.isAlive(entity));
+      if (this.entity) {
+        this.activeConditions = gameManager.entityManager.activeConditions(this.entity);
+        this.entity.immunities.forEach((immunity) => {
+          if (!this.activeConditions.find((entityCondition) => entityCondition.name == immunity)) {
+            this.activeConditions.push(new EntityCondition(immunity));
+          }
+        })
+      }
+    } else if (this.objective.entities.flatMap((entity) => entity.marker).every((marker, index, self) => self.indexOf(marker) == 0)) {
+      this.marker = this.objective.entities.flatMap((entity) => entity.marker)[0];
     }
   }
 
@@ -115,6 +138,47 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
       }
       gameManager.stateManager.after();
     }
+  }
+
+  dragHpMove(value: number) {
+    this.health = value;
+    if (this.entity && this.entity.health + this.health > EntityValueFunction(this.entity.maxHealth)) {
+      this.health = EntityValueFunction(this.entity.maxHealth) - this.entity.health;
+    }
+  }
+
+  dragHpEnd(value: number) {
+    if (this.health != 0 && this.entity) {
+      gameManager.stateManager.before("changeObjectiveEntityHP", this.objective.title || this.objective.name, ghsValueSign(this.health), '' + this.entity.number);
+      gameManager.entityManager.changeHealth(this.entity, this.objective, this.health);
+      if (this.entity.health <= 0 && this.entity.maxHealth > 0) {
+        gameManager.objectiveManager.removeObjective(this.objective)
+      }
+      this.health = 0;
+      gameManager.stateManager.after();
+    }
+  }
+
+  openEntityMenu(event: any): void {
+    if (this.entity) {
+      this.dialog.open(EntityMenuDialogComponent, {
+        panelClass: 'dialog', data: {
+          entity: this.entity,
+          figure: this.objective
+        },
+        positionStrategy: this.overlay.position().flexibleConnectedTo(this.objectiveName).withPositions(ghsDefaultDialogPositions())
+      });
+    }
+  }
+
+  openEntitiesMenu(event: any) {
+    this.dialog.open(EntitiesMenuDialogComponent, {
+      panelClass: 'dialog',
+      data: {
+        objective: this.objective
+      },
+      positionStrategy: this.overlay.position().flexibleConnectedTo(event.target).withPositions(ghsDefaultDialogPositions())
+    });
   }
 
   addEntity() {

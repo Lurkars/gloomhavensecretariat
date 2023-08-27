@@ -12,6 +12,8 @@ import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { Objective } from "src/app/game/model/Objective";
 import { Summon, SummonColor } from "src/app/game/model/Summon";
 import { Subscription } from "rxjs";
+import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
+import { ObjectiveEntity } from "src/app/game/model/ObjectiveEntity";
 
 @Component({
   selector: 'ghs-action-summon',
@@ -22,7 +24,7 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
 
   @Input() monster: Monster | undefined;
   @Input() monsterType: MonsterType | undefined;
-  @Input() objective: Objective | undefined;
+  @Input() objective: Objective | ObjectiveContainer | undefined;
   @Input() action!: Action;
   @Input() right: boolean = false;
   @Input('spawn') isSpawn: boolean = false;
@@ -65,8 +67,10 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
     this.spawners = [];
     if (this.monster) {
       this.spawners = gameManager.entityManager.entities(this.monster, true).map((entity) => entity as MonsterEntity).filter((entity) => (!this.monsterType || entity.type == this.monsterType));
-    } else if (this.objective) {
+    } else if (this.objective instanceof Objective) {
       this.spawners = [this.objective];
+    } else if (this.objective instanceof ObjectiveContainer) {
+      this.spawners = gameManager.entityManager.entities(this.objective, true).map((entity) => entity as ObjectiveEntity)
     }
     this.monsters = [];
     this.tags = [];
@@ -181,8 +185,11 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
     if (this.monster) {
       return (spawner ? 'roundAction-spawner-' : 'roundAction-summon-') + this.monster.name + "-" + (this.actionIndex ? this.actionIndex + '-' : '') + this.getSpawnId() + "-" + index;
     }
-    if (this.objective) {
+    if (this.objective instanceof Objective) {
       return (spawner ? 'roundAction-spawner-' : 'roundAction-summon-') + this.objective.id + "-" + (this.actionIndex ? this.actionIndex + '-' : '') + index;
+    }
+    if (this.objective instanceof ObjectiveContainer) {
+      return (spawner ? 'roundAction-spawner-' : 'roundAction-summon-') + this.objective.uuid + "-" + (this.actionIndex ? this.actionIndex + '-' : '') + index;
     }
     return "";
   }
@@ -200,7 +207,7 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
   spawnSummons(event: TouchEvent | MouseEvent, spawn: MonsterSpawnData, index: number) {
     if (this.spawnHightlight(spawn, index) || this.objective) {
       const spawnerTag = this.getTag(index, true);
-      const spawners = this.spawners.filter((entity) => entity instanceof Objective || entity.tags.indexOf(spawnerTag) == -1).filter((entity, index) => settingsManager.settings.combineSummonAction || index == 0);
+      const spawners = this.spawners.filter((entity) => entity instanceof Objective || entity instanceof ObjectiveEntity || entity.tags.indexOf(spawnerTag) == -1).filter((entity, index) => settingsManager.settings.combineSummonAction || index == 0);
 
       if (spawn.monster && spawn.monster.type) {
         const count = EntityValueFunction(spawn.count || 1);

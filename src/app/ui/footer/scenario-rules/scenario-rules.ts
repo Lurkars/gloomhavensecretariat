@@ -19,6 +19,7 @@ import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
 import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
 import { ConditionName } from "src/app/game/model/data/Condition";
 import { GameState } from "src/app/game/model/Game";
+import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 
 @Component({
     selector: 'ghs-scenario-rules',
@@ -186,8 +187,8 @@ export class ScenarioRulesComponent {
                     if (figure instanceof Character) {
                         return settingsManager.getLabel('%game.characterIconColored.' + figure.name + '%') + gameManager.characterManager.characterName(figure);
                     }
-                    if (figure instanceof Objective) {
-                        return (figure.title || settingsManager.getLabel('data.objective.' + figure.name)) + ' %game.objectiveMarker.' + (figure.id + 1) + '%' + (figure.marker ? ' %game.mapMarker.' + figure.marker + '%' : '');
+                    if (figure instanceof Objective || figure instanceof ObjectiveContainer) {
+                        return (figure.title || settingsManager.getLabel('data.objective.' + figure.name)) + (figure.marker ? ' %game.mapMarker.' + figure.marker + '%' : '');
                     }
                     if (figure instanceof Monster) {
                         if (figureRule.type == 'removeEntity') {
@@ -238,6 +239,8 @@ export class ScenarioRulesComponent {
                         figures.forEach((figure) => {
                             if (figure instanceof Objective) {
                                 gameManager.characterManager.removeObjective(figure);
+                            } else if (figure instanceof ObjectiveContainer) {
+                                gameManager.objectiveManager.removeObjective(figure);
                             } else if (figure instanceof Monster) {
                                 gameManager.monsterManager.removeMonster(figure);
                             }
@@ -278,18 +281,20 @@ export class ScenarioRulesComponent {
                         const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenario.edition, "scenario": scenario.index, "group": scenario.group, "section": section, "index": spawn.objective.index - 1 };
                         const objectiveData = gameManager.objectiveDataByScenarioObjectiveIdentifier(objectiveIdentifier);
                         if (objectiveData && spawn.count != 0) {
-                            for (let i = 0; i < EntityValueFunction(spawn.count || 1); i++) {
-                                let objective = gameManager.characterManager.addObjective(objectiveData, objectiveData.name, objectiveIdentifier);
-                                if (objective) {
-                                    if (spawn.objective.marker) {
-                                        objective.marker = spawn.objective.marker;
-                                    }
-                                    if (spawn.objective.tags) {
-                                        objective.tags = spawn.objective.tags;
-                                    }
-                                    if (objective.marker || objective.tags.length > 0) {
-                                        gameManager.addEntityCount(objective);
-                                    }
+                            const count = EntityValueFunction(spawn.count || 1) - 1;
+                            let objective = gameManager.objectiveManager.addObjective(objectiveData, objectiveData.name, objectiveIdentifier);
+                            if (objective) {
+                                if (spawn.objective.marker) {
+                                    objective.marker = spawn.objective.marker;
+                                }
+                            }
+                            for (let i = 0; i < count; i++) {
+                                const objectiveEntity = gameManager.objectiveManager.addObjectiveEntity(objective);
+                                if (spawn.objective.tags) {
+                                    objectiveEntity.tags = spawn.objective.tags;
+                                }
+                                if (objective.marker || objectiveEntity.tags.length > 0) {
+                                    gameManager.addEntityCount(objective);
                                 }
                             }
                         }
@@ -508,6 +513,31 @@ export class ScenarioRulesComponent {
                             }
                             objective.entityConditions = figure.entityConditions;
                             gameManager.characterManager.removeObjective(figure);
+                        } else if (figures.length == 1 && figures[0] instanceof ObjectiveContainer) {
+                            const figure = figures[0];
+                            const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenario.edition, "scenario": scenario.index, "group": scenario.group, "section": section, "index": (+figureRule.value) - 1 };
+
+                            const objectiveData = scenario.objectives[(+figureRule.value) - 1];
+                            let objectiveContainer = gameManager.objectiveManager.addObjective(objectiveData,undefined, objectiveIdentifier);
+
+                            objectiveContainer.entities = figure.entities;
+
+                            objectiveContainer.entities.forEach((entity) => {
+                                entity.maxHealth = EntityValueFunction(figure.health);
+                                if (entity.health > entity.maxHealth) {
+                                    entity.health = entity.maxHealth;
+                                }
+                                if (objectiveData) {
+                                    if (objectiveData.tags) {
+                                        entity.tags = objectiveData.tags;
+                                    }
+                                    if (objectiveData.marker) {
+                                        entity.marker = objectiveData.marker;
+                                    }
+                                }
+                            })
+
+                            gameManager.objectiveManager.removeObjective(figure);
                         }
                     })
 

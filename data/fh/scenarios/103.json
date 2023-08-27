@@ -17,8 +17,7 @@
   "objectives": [
     {
       "name": "Ice Pillar",
-      "health": "(2xL)+4",
-      "count": 4
+      "health": "(2xL)+4"
     }
   ],
   "lootDeckConfig": {

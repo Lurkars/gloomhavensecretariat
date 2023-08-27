@@ -54,6 +54,9 @@
   <ghs-conditions *ngIf="character" [entityConditions]="entityConditions" [immunities]="entityImmunities" [entities]="entities" [figure]="character"
     [type]="'monster'" [columns]="4"></ghs-conditions>
 
+    <ghs-conditions *ngIf="objective && objective.escort" [entityConditions]="entityConditions" [immunities]="entityImmunities" [entities]="entities" [figure]="objective"
+      [type]="'character'" [columns]="4"></ghs-conditions>
+
   <div class="entity-container">
     <span class="item" [ghs-label]="'game.dead'" [ghs-label-attribute]="'title'">
       <a class="button" (click)="toggleDead()">

@@ -26,10 +26,10 @@ export class ObjectiveEntity implements Entity {
   markers: string[] = [];
   tags: string[] = [];
 
-  constructor(uuid: string, number: number, objective: ObjectiveContainer) {
+  constructor(uuid: string, number: number, objective: ObjectiveContainer, marker: string | undefined) {
     this.uuid = uuid;
     this.number = number;
-    this.marker = objective.marker;
+    this.marker = marker || "";
     this.maxHealth = EntityValueFunction(objective.health);
     this.health = this.maxHealth;
     if (this.health == 0) {

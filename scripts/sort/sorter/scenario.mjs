@@ -24,6 +24,20 @@ export const sortScenario = function (scenario) {
         })
     }
 
+    if (scenario.unlocks) {
+        scenario.unlocks = scenario.unlocks.sort((a, b) => {
+            if (!isNaN(+a) && !isNaN(+b)) {
+                return +a - +b;
+            } else if (!isNaN(a)) {
+                return -1;
+            } else if (!isNaN(b)) {
+                return 1;
+            } else {
+                return a < b ? -1 : 1;
+            }
+        })
+    }
+
     if (scenario.rewards) {
         if (scenario.rewards.hints) {
             scenario.rewards.hints = sortObjectKeys(scenario.rewards.hints, "globalAchievements", "partyAchievements", "lostPartyAchievements", "envelopes", "gold", "experience", "collectiveGold", "reputation", "prosperity", "perks", "battleGoals", "items", "chooseItem", "itemDesigns", "events", "custom");

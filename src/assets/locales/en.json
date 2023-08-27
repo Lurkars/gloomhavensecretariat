@@ -21,11 +21,11 @@
     "character": "Character Sheets",
     "items": "Itemcards Overview",
     "party": "Party/Campaign Sheet",
-    "partyManagement": {
-      ".": "Manage Parties",
-      "add": "Add Party",
-      "hint": "Changing current party or creation of new party is disabled during a scenario. Finish or cancel current scenario to change current party or create a new party.",
-      "name": "Name for Party {0}"
+    "campaignManagement": {
+      ".": "Manage Campaign",
+      "add": "Add Campaign",
+      "hint": "Changing current campaign or creation of new campaign is disabled during a scenario. Finish or cancel current scenario to change current campaign or create a new campaign.",
+      "name": "Name for Campaign {0}"
     },
     "sheet": "Global Campaign Management Sheet"
   },
@@ -992,8 +992,8 @@
     "location": "Location",
     "name": "Name",
     "new": {
-      ".": "Create new Party",
-      "hint": "Creation of new party is disabled during a scenario. Finish or cancel current scenario to create a new party."
+      ".": "Create new Campaign",
+      "hint": "Creation of new campaign is disabled during a scenario. Finish or cancel current scenario to create a new campaign."
     },
     "notes": "Notes",
     "prosperity": "Prosperity",

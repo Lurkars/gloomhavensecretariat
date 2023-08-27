@@ -317,7 +317,7 @@ export class ScenarioManager {
           })
         }
 
-        if (success && (!gameManager.game.party.campaignMode || characterProgress)) {
+        if (success && (!gameManager.game.party.campaignMode || !characterProgress && !conclusionSection)) {
           this.game.party.casualScenarios.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, scenario.custom, scenario.custom ? scenario.name : "", scenario.revealedRooms));
         }
 
@@ -377,18 +377,7 @@ export class ScenarioManager {
       if (scenarioData.objectives) {
         scenarioData.objectives.forEach((objectiveData, index) => {
           const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "section": section, "index": index };
-          if (objectiveData.count) {
-            const count = EntityValueFunction(objectiveData.count);
-            if (typeof count == 'number') {
-              for (let i = 0; i < count; i++) {
-                gameManager.characterManager.addObjective(objectiveData, undefined, objectiveIdentifier);
-              }
-            } else {
-              gameManager.characterManager.addObjective(objectiveData, undefined, objectiveIdentifier);
-            }
-          } else {
-            gameManager.characterManager.addObjective(objectiveData, undefined, objectiveIdentifier);
-          }
+          gameManager.objectiveManager.addObjective(objectiveData, undefined, objectiveIdentifier);
         })
       }
     } else {
@@ -548,7 +537,7 @@ export class ScenarioManager {
           const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "section": section, "index": index - 1 };
           const objective = gameManager.objectiveDataByScenarioObjectiveIdentifier(objectiveIdentifier);
           if (objective) {
-            gameManager.characterManager.addObjective(objective, undefined, objectiveIdentifier);
+            gameManager.objectiveManager.addObjective(objective, undefined, objectiveIdentifier);
           }
         } else if (typeof index == 'string' && index.indexOf(':') != -1) {
           let split = index.split(':');
@@ -558,8 +547,9 @@ export class ScenarioManager {
             const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "section": section, "index": id - 1 };
             const objective = gameManager.objectiveDataByScenarioObjectiveIdentifier(objectiveIdentifier);
             if (objective) {
-              for (let i = 0; i < count; i++) {
-                gameManager.characterManager.addObjective(objective, undefined, objectiveIdentifier);
+              const objectiveContainer = gameManager.objectiveManager.addObjective(objective, undefined, objectiveIdentifier);
+              for (let i = 0; i < count - 1; i++) {
+                gameManager.objectiveManager.addObjectiveEntity(objectiveContainer);
               }
             }
           }

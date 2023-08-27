@@ -6,6 +6,7 @@ import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { Objective } from "src/app/game/model/Objective";
 import { Subscription } from "rxjs";
+import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 
 @Component({
   selector: 'ghs-actions',
@@ -15,7 +16,7 @@ import { Subscription } from "rxjs";
 export class ActionsComponent implements OnInit, OnDestroy {
 
   @Input() monster: Monster | undefined;
-  @Input() objective: Objective | undefined;
+  @Input() objective: Objective | ObjectiveContainer | undefined;
   @Input() actions!: Action[];
   @Input() relative: boolean = false;
   @Input() inline: boolean = false;

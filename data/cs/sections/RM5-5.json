@@ -8,8 +8,12 @@
   "rewards": {
     "collectiveGold": 40,
     "chooseItem": [
-      "30-gh",
-      "36-gh"
+      [
+        "30-gh"
+      ],
+      [
+        "36-gh"
+      ]
     ]
   }
 }

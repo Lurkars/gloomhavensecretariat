@@ -446,7 +446,8 @@ main {
   }
 
   &.character,
-  &.objective {
+  &.objective,
+  &.objective-container {
     top: initial;
     bottom: 0;
     height: calc(var(--ghs-unit) * 14);

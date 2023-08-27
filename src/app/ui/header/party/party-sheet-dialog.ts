@@ -80,6 +80,22 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       this.party.filteredBattleGoals = gameManager.game.filteredBattleGoals;
     }
 
+    if (gameManager.game.unlockedCharacters && !this.party.unlockedCharacters) {
+      this.party.unlockedCharacters = gameManager.game.unlockedCharacters;
+    }
+
+    if (gameManager.game.lootDeckEnhancements && !this.party.lootDeckEnhancements) {
+      this.party.lootDeckEnhancements = gameManager.game.lootDeckEnhancements;
+    }
+
+    if (gameManager.game.lootDeckFixed && !this.party.lootDeckFixed) {
+      this.party.lootDeckFixed = gameManager.game.lootDeckFixed;
+    }
+
+    if (gameManager.game.lootDeckSections && !this.party.lootDeckSections) {
+      this.party.lootDeckSections = gameManager.game.lootDeckSections;
+    }
+
     this.itemEdition = this.party.edition || "";
   }
 
@@ -425,10 +441,13 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   scenarioRewards(scenarioData: ScenarioData) {
+    const conclusion = this.party.conclusions.filter((value) => value.edition == scenarioData.edition).map((value) => gameManager.sectionData(scenarioData.edition).find((sectionData) => sectionData.index == value.index && sectionData.edition == value.edition && sectionData.group == value.group) as ScenarioData).find((conclusionData) => conclusionData.parent == scenarioData.index && conclusionData.group == scenarioData.group);
+
     this.dialog.open(ScenarioSummaryComponent, {
       panelClass: 'dialog',
       data: {
         scenario: new Scenario(scenarioData),
+        conclusion: conclusion,
         success: true,
         rewardsOnly: true
       }
@@ -485,7 +504,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         this.scenarioEditions.push(edition);
       }
 
-      this.conclusions[edition] = this.party.conclusions.filter((value) => value.edition == edition).map((value) => gameManager.sectionData(edition).find((sectionData) => sectionData.index == value.index && sectionData.edition == value.edition && sectionData.group == value.group) as ScenarioData);
+      this.conclusions[edition] = this.party.conclusions.filter((value) => value.edition == edition).map((value) => gameManager.sectionData(edition).find((sectionData) => sectionData.index == value.index && sectionData.edition == value.edition && sectionData.group == value.group) as ScenarioData).filter((conclusionData) => !this.party.scenarios.find((scenarioModel) => scenarioModel.edition == conclusionData.edition && scenarioModel.group == conclusionData.group && scenarioModel.index == conclusionData.parent));
     });
 
     if (this.party.reputation >= 0) {

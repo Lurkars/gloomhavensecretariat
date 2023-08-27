@@ -25,7 +25,6 @@
     {
       "name": "Ice Pillar",
       "marker": "a",
-      "count": 2,
       "actions": [
         {
           "type": "custom",
@@ -36,7 +35,6 @@
     {
       "name": "Ice Pillar",
       "marker": "b",
-      "count": 2,
       "actions": [
         {
           "type": "custom",
@@ -47,7 +45,6 @@
     {
       "name": "Ice Pillar",
       "marker": "c",
-      "count": 2,
       "actions": [
         {
           "type": "custom",

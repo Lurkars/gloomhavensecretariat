@@ -149,6 +149,7 @@
     &.empty {
       opacity: 0;
       max-width: 0;
+      height: 0;
       transform: translate(0%, 100%);
     }
 

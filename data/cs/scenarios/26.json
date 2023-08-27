@@ -21,8 +21,7 @@
     {
       "name": "Cold thermal stone",
       "health": "C+3",
-      "marker": "a",
-      "count": 2
+      "marker": "a"
     }
   ],
   "rules": [

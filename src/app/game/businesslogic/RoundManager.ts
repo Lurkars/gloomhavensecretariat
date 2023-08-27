@@ -15,6 +15,7 @@ import { MonsterEntity } from "../model/MonsterEntity";
 import { Scenario } from "../model/Scenario";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { ItemFlags } from "../model/data/ItemData";
+import { ObjectiveContainer } from "../model/ObjectiveContainer";
 
 export class RoundManager {
 
@@ -27,7 +28,7 @@ export class RoundManager {
   }
 
   drawAvailable(): boolean {
-    return this.game.figures.length > 0 && (this.game.state == GameState.next || this.game.figures.every((figure) => figure instanceof Monster || figure instanceof Objective && (figure.getInitiative() > 0 || figure.exhausted || !settingsManager.settings.initiativeRequired) || figure instanceof Character && (figure.getInitiative() > 0 || figure.exhausted || figure.absent || !settingsManager.settings.initiativeRequired)
+    return this.game.figures.length > 0 && (this.game.state == GameState.next || this.game.figures.every((figure) => figure instanceof Monster || figure instanceof Objective && (figure.getInitiative() > 0 || figure.exhausted || !settingsManager.settings.initiativeRequired) || figure instanceof ObjectiveContainer && (figure.getInitiative() > 0 || !settingsManager.settings.initiativeRequired) || figure instanceof Character && (figure.getInitiative() > 0 || figure.exhausted || figure.absent || !settingsManager.settings.initiativeRequired)
     ));
   }
 
@@ -125,7 +126,7 @@ export class RoundManager {
       }
     }
 
-    const skipObjectives = toggleFigure.active || !gameManager.characterManager.skipObjective(toggleFigure) || initial;
+    const skipObjectives = toggleFigure.active || !gameManager.objectiveManager.skipObjective(toggleFigure) || initial;
 
     if (index == -1) {
       console.error("Invalid figure");
@@ -141,7 +142,7 @@ export class RoundManager {
     }
 
     if (skipObjectives) {
-      while (figure && gameManager.characterManager.skipObjective(figure)) {
+      while (figure && gameManager.objectiveManager.skipObjective(figure)) {
         index = figures.indexOf(figure);
         this.turn(figure);
         this.afterTurn(figure);
@@ -323,7 +324,7 @@ export class RoundManager {
       }
     }
 
-    if ((figure instanceof Character || figure instanceof Objective) && !gameManager.entityManager.isAlive(figure) || figure instanceof Monster && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity))) {
+    if ((figure instanceof Character || figure instanceof Objective) && !gameManager.entityManager.isAlive(figure) || figure instanceof Monster && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity)) || figure instanceof ObjectiveContainer && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity))) {
       gameManager.roundManager.toggleFigure(figure);
     }
   }
@@ -428,6 +429,8 @@ export class RoundManager {
       } else if (figure instanceof Objective) {
         figure.health = EntityValueFunction(figure.maxHealth);
         figure.entityConditions = [];
+      } else if (figure instanceof ObjectiveContainer) {
+        figure.entities = [];
       }
     })
 

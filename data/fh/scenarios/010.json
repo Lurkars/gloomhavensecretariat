@@ -25,7 +25,6 @@
     {
       "name": "Ice Pillar",
       "health": "[(2+L)xC/2{$math.floor}]",
-      "count": 3,
       "tags": [
         "scenario-10"
       ],

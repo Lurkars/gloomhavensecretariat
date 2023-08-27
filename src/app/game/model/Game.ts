@@ -120,6 +120,7 @@ export class Game {
 
 
     if (model.objectiveContainers) {
+      this.figures = this.figures.filter((figure) => !(figure instanceof ObjectiveContainer) || model.objectiveContainers && model.objectiveContainers.some((value) => value.uuid && value.uuid == figure.uuid));
       model.objectiveContainers.forEach((value) => {
         let objectiveContainer = this.figures.find((figure) => figure instanceof ObjectiveContainer && figure.uuid == value.uuid) as ObjectiveContainer;
         if (!objectiveContainer) {

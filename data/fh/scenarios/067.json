@@ -28,8 +28,7 @@
       "escort": true,
       "health": "4x(L+1)",
       "initiative": 1,
-      "marker": "a",
-      "count": 4
+      "marker": "a"
     }
   ],
   "lootDeckConfig": {
@@ -68,7 +67,10 @@
         }
       ],
       "objectives": [
-        "1:4"
+        1,
+        1,
+        1,
+        1
       ]
     }
   ]

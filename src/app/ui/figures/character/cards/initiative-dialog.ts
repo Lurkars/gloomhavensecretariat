@@ -6,6 +6,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { Objective } from "src/app/game/model/Objective";
+import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 
 @Component({
     selector: 'ghs-character-initiative-dialog',
@@ -21,13 +22,13 @@ export class CharacterInitiativeDialogComponent {
     settingsManager: SettingsManager = settingsManager;
     GameState = GameState;
     character: Character | undefined;
-    objective: Objective | undefined;
+    objective: Objective | ObjectiveContainer | undefined;
 
 
-    constructor(@Inject(DIALOG_DATA) public figure: Character | Objective, private dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) public figure: Character | Objective | ObjectiveContainer, private dialogRef: DialogRef) {
         if (this.figure instanceof Character) {
             this.character = this.figure;
-        } else if (this.figure instanceof Objective) {
+        } else if (this.figure instanceof Objective || this.figure instanceof ObjectiveContainer) {
             this.objective = this.figure;
         }
         dialogRef.closed.subscribe({

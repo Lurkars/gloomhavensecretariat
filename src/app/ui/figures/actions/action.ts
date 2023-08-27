@@ -13,6 +13,7 @@ import { Objective } from 'src/app/game/model/Objective';
 import { valueCalc } from '../../helper/valueCalc';
 import { Subscription } from 'rxjs';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
+import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 
 export const ActionTypesIcons: ActionType[] = [ActionType.attack, ActionType.damage, ActionType.fly, ActionType.heal, ActionType.jump, ActionType.loot, ActionType.move, ActionType.range, ActionType.retaliate, ActionType.shield, ActionType.target, ActionType.teleport];
 
@@ -25,7 +26,7 @@ export class ActionComponent implements OnInit, OnDestroy {
 
   @Input() monster: Monster | undefined;
   @Input() monsterType: MonsterType | undefined;
-  @Input() objective: Objective | undefined;
+  @Input() objective: Objective | ObjectiveContainer | undefined;
   @Input('action') origAction!: Action | undefined;
   @Input() relative: boolean = false;
   @Input() inline: boolean = false;

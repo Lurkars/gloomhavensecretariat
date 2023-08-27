@@ -8,6 +8,7 @@ import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { Objective } from "../model/Objective";
+import { ObjectiveContainer } from "../model/ObjectiveContainer";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
@@ -224,7 +225,7 @@ export class ScenarioRulesManager {
         if (figure instanceof Character || figure instanceof Objective) {
           const health = EntityValueFunction(figureRule.identifier.health.replaceAll('H', '' + EntityValueFunction(figure.maxHealth)));
           return figure.health <= health;
-        } else if (figure instanceof Monster) {
+        } else if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
           return figure.entities.some((entity) => {
             if (figureRule.identifier && figureRule.identifier.health && gameManager.entityManager.isAlive(entity)) {
               const health = EntityValueFunction(figureRule.identifier.health.replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
@@ -239,7 +240,7 @@ export class ScenarioRulesManager {
       if (figureRule.identifier && figureRule.identifier.hp) {
         if (figure instanceof Character || figure instanceof Objective) {
           return eval(figureRule.identifier.hp.replaceAll('HP', '' + figure.health).replaceAll('H', '' + EntityValueFunction(figure.maxHealth)));
-        } else if (figure instanceof Monster) {
+        } else if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
           return figure.entities.some((entity) => {
             if (figureRule.identifier && figureRule.identifier.hp && gameManager.entityManager.isAlive(entity)) {
               return eval(figureRule.identifier.hp.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
@@ -253,7 +254,7 @@ export class ScenarioRulesManager {
       if (figureRule.identifier && figureRule.identifier.conditions) {
         if (figure instanceof Character || figure instanceof Objective) {
           return figureRule.identifier.conditions.every((condition) => condition.startsWith('!') && !gameManager.entityManager.hasCondition(figure, new Condition(condition.substring(1))) || !condition.startsWith('!') && gameManager.entityManager.hasCondition(figure, new Condition(condition)));
-        } else if (figure instanceof Monster) {
+        } else if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
           return figure.entities.some((entity) => {
             if (figureRule.identifier && figureRule.identifier.health && gameManager.entityManager.isAlive(entity)) {
               return figureRule.identifier.conditions && figureRule.identifier.conditions.every((condition) => condition.startsWith('!') && !gameManager.entityManager.hasCondition(entity, new Condition(condition.substring(1))) || !condition.startsWith('!') && gameManager.entityManager.hasCondition(entity, new Condition(condition)));

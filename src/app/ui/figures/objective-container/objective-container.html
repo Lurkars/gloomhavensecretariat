@@ -1,8 +1,16 @@
 <div class="objective"
   [ngClass]="{'off' : objective.off, 'escort' : objective.escort, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
-  <a class="image-container">
-    <span *ngIf="objective.marker" class="placeholder placeholder-marker"
-      [ghs-label]="'%game.mapMarker.' + objective.marker + '%'"></span>
+  <a class="image-container" [ngClass]="{'entity' : entity}">
+    <ng-container *ngIf="entity">
+      <span *ngIf="entity.marker" class="map-marker" [ngClass]="{'active-border' : objective.active}">{{entity.marker}}</span>
+      <span class="objective-marker">
+        {{entity.number}}
+      </span>
+    </ng-container>
+    <span *ngIf="marker" class="map-marker"  [ngClass]="{'active-border' : objective.active}">{{marker}}</span>
+    <span *ngIf="!marker && (!entity || !entity.marker)" class="objective-icon"  [ngClass]="{'active-border' : objective.active}">
+      <img [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+    </span>
   </a>
 
   <ghs-pointer-input class="drag-initiative"
@@ -15,25 +23,81 @@
 
   <ghs-character-initiative #initiativeElement [figure]="objective"></ghs-character-initiative>
 
+  <ng-container *ngIf="entity">
+    <ghs-highlight-conditions [entity]="entity"></ghs-highlight-conditions>
+  </ng-container>
   <div class="stats">
-    <div class="column col-1">
-      <div class="title-container">
-        <div class="title" #objectiveName>
-          <img class="icon"
-            [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
-          <span *ngIf="objective.title">
-            {{objective.title}}</span>
-          <span *ngIf="!objective.title" [ghs-label]="objective.name ? ('data.objective.' + objective.name) :
+    <ng-container *ngIf="entity">
+      <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"></div>
+      <div class="column col-1">
+        <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"></div>
+        <div class="title-container" ghs-pointer-input (singleClick)="openEntityMenu($event)">
+          <div class="title" #objectiveName>
+            <img class="icon" *ngIf="entity.marker"
+              [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+            <span *ngIf="objective.title">
+              {{objective.title}}</span>
+            <span *ngIf="!objective.title" [ghs-label]="objective.name ? ('data.objective.' + objective.name) :
           (objective.escort ? 'escort' : 'objective')"></span>
+          </div>
+        </div>
+        <div class="status-bar">
+          <div class="health" ghs-pointer-input (singleClick)="openEntityMenu($event)" (dragMove)="dragHpMove($event)"
+            (dragEnd)="dragHpEnd($event)" [relative]="true" [screenWidth]="true">
+            <img src="./assets/images/status/health.svg" />
+            <ng-container *ngIf="entity.maxHealth > 0">
+              {{(entity.health + health) >= 0 ? entity.health + health : 0}}/{{entity.maxHealth}}
+              <span *ngIf="health" class="value-overlay"
+                [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">
+                <span class="value">{{health | ghsValueSign}}</span>
+              </span>
+            </ng-container>
+            <span *ngIf="entity.maxHealth == 0">-</span>
+          </div>
+          <div class="conditions">
+            <span class="condition" *ngFor="let entityCondition of activeConditions; let index = index;">
+              <img
+                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
+                [style.z-index]="index * 10 + entityCondition.value" />
+              <ng-container *ngIf="entityCondition.types.indexOf(ConditionType.stack) != -1">
+                <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)"
+                  [style.z-index]="index * 10 + entityCondition.value - i - 1"
+                  [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
+              </ng-container>
+              <span class="value" [style.z-index]="index * 10 + entityCondition.value +1"
+                *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1 && entityCondition.types.indexOf(ConditionType.stack) == -1">{{entityCondition.value}}</span>
+              <span *ngIf="entity.immunities.indexOf(entityCondition.name) != -1"
+                class="condition immunity condition-overlay"
+                [style.z-index]="index * 10 + entityCondition.value + 2"></span>
+              <span *ngIf="entityCondition.permanent" class="condition permanent condition-overlay"
+                [style.z-index]="index * 10 + entityCondition.value + 3"></span>
+            </span>
+          </div>
         </div>
       </div>
-    </div>
+    </ng-container>
 
-    <div class="actions" *ngIf="objectiveData && objectiveData.actions">
+    <ng-container *ngIf="!entity">
+      <div class="column col-1">
+        <div class="title-container">
+          <div class="title" #objectiveName>
+            <img class="icon" *ngIf="objective.marker"
+              [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+            <span *ngIf="objective.title">
+              {{objective.title}}</span>
+            <span *ngIf="!objective.title" [ghs-label]="objective.name ? ('data.objective.' + objective.name) :
+          (objective.escort ? 'escort' : 'objective')"></span>
+          </div>
+        </div>
+      </div>
+
+    </ng-container>
+
+    <div class="actions" *ngIf="objectiveData && objectiveData.actions" (click)="openEntityMenu($event)">
       <ghs-actions [actions]="objectiveData.actions"></ghs-actions>
     </div>
 
-    <span class="spacer"></span>
+    <span class="spacer" (click)="openEntityMenu($event)"></span>
 
     <div class="add-entity">
       <a class="add-entity-button" ghs-pointer-input (singleClick)="addEntity()" [ghs-label]="'objective.addEntity'"
@@ -42,15 +106,19 @@
       </a>
     </div>
 
-    <div class="icon-container">
+    <div class="icon-container" (click)="openEntityMenu($event)">
       <img [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
     </div>
   </div>
 </div>
 
-<div class="entities-container" [ngClass]="{'empty' : nonDead == 0}">
+<div class="entities-container" [ngClass]="{'empty' : nonDead < 2}">
   <span class="spacer"></span>
-  <div class="entities">
+  <span class="entities-menu" [ngClass]="{'empty' : nonDead == 0, 'disabled' : nonDead < 2}"
+    [entityAnimation]="nonDead == 0" (click)="openEntitiesMenu($event)">
+    <img class="menu" src="./assets/images/up.svg">
+  </span>
+  <div class="entities" *ngIf="nonDead > 1">
     <ghs-standee *ngFor="let entity of objective.entities" [figure]="objective" [entity]="entity">
     </ghs-standee>
   </div>

@@ -3,6 +3,10 @@
   "edition": "fc",
   "parent": "98",
   "conclusion": true,
+  "unlocks": [
+    "102",
+    "103"
+  ],
   "rewards": {
     "globalAchievements": [
       "Knowledge is Power"

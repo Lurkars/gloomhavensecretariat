@@ -49,20 +49,17 @@
     {
       "name": "Water Pump",
       "health": 0,
-      "marker": "a",
-      "count": 2
+      "marker": "a"
     },
     {
       "name": "Water Pump",
       "health": 0,
-      "marker": "b",
-      "count": "C > 2 ? 1 : 0"
+      "marker": "b"
     },
     {
       "name": "Water Pump",
       "health": 0,
-      "marker": "c",
-      "count": "C > 3 ? 1 : 0"
+      "marker": "c"
     }
   ],
   "rules": [
@@ -270,8 +267,8 @@
       "objectives": [
         1,
         1,
-        "2:C > 2 ? 1 : 0",
-        "3:C > 3 ? 1 : 0"
+        "2:C > 2",
+        "3:C > 3"
       ]
     }
   ]

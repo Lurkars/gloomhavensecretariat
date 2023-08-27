@@ -3,10 +3,10 @@
   "name": "Lore Untold",
   "edition": "fc",
   "unlocks": [
-    "100",
-    "101",
     "98",
-    "99"
+    "99",
+    "100",
+    "101"
   ],
   "monsters": [
     "black-imp",

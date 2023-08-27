@@ -14,6 +14,7 @@ import { FeedbackDialogComponent } from "../../tools/feedback/feedback-dialog";
 import { SwUpdate } from "@angular/service-worker";
 import { UndoDialogComponent } from "./undo/dialog";
 import { Subscription } from "rxjs";
+import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 
 export enum SubMenu {
   main, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_add, objective_remove, settings, debug, server, datamanagement, about, campaign
@@ -146,11 +147,15 @@ export class MainMenuComponent implements OnInit, OnDestroy {
     });
   }
 
-  objectives(): Objective[] {
+  objectives(): (Objective | ObjectiveContainer)[] {
     return gameManager.game.figures.filter((figure) => {
-      return figure instanceof Objective;
+      return figure instanceof Objective || figure instanceof ObjectiveContainer;
     }).map((figure) => {
-      return figure as Objective;
+      if (figure instanceof Objective) {
+        return figure as Objective;
+      } else {
+        return figure as ObjectiveContainer;
+      }
     }).sort((a, b) => {
       const aName = (a.title ? a.title : settingsManager.getLabel(a.name ? 'data.objective.' + a.name : (a.escort ? 'escort' : 'objective'))).toLowerCase();
       const bName = (b.title ? b.title : settingsManager.getLabel(b.name ? 'data.objective.' + b.name : (b.escort ? 'escort' : 'objective'))).toLowerCase();
@@ -160,7 +165,19 @@ export class MainMenuComponent implements OnInit, OnDestroy {
       if (aName < bName) {
         return -1;
       }
-      return a.id - b.id;
+      if (a instanceof Objective && b instanceof Objective) {
+        return a.id - b.id;
+      }
+
+      if (a instanceof Objective && !(b instanceof Objective)) {
+        return -1;
+      }
+
+      if (b instanceof Objective && !(a instanceof Objective)) {
+        return 1;
+      }
+
+      return 0;
     });
   }
 
@@ -199,30 +216,21 @@ export class MainMenuComponent implements OnInit, OnDestroy {
     gameManager.stateManager.after();
   }
 
-  addObjective() {
-    gameManager.stateManager.before("addObjective");
-    gameManager.characterManager.addObjective();
-    this.close();
-    gameManager.stateManager.after();
-  }
-
-  addEscort() {
-    gameManager.stateManager.before("addEscort");
-    gameManager.characterManager.addObjective(new ObjectiveData("", 3, true));
-    this.close();
-    gameManager.stateManager.after();
-  }
-
-  addObjectiveContainer() {
+  addObjectiveContainer(escort: boolean = false) {
     gameManager.stateManager.before("addObjectiveContainer");
-    gameManager.objectiveManager.addObjective();
+    gameManager.objectiveManager.addObjective(new ObjectiveData("", escort ? 3 : 7, escort));
     this.close();
     gameManager.stateManager.after();
   }
 
-  removeObjective(objective: Objective) {
+  removeObjective(objective: Objective | ObjectiveContainer) {
     gameManager.stateManager.before("removeObjective", objective.title || objective.name);
-    gameManager.characterManager.removeObjective(objective);
+    if (objective instanceof Objective) {
+      gameManager.characterManager.removeObjective(objective);
+    }
+    else {
+      gameManager.objectiveManager.removeObjective(objective);
+    }
     if (this.objectives().length == 0) {
       this.close();
     }
@@ -231,7 +239,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
 
   removeAllObjectives() {
     gameManager.stateManager.before("removeAllObjectives");
-    gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Objective))
+    gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Objective) && !(figure instanceof ObjectiveContainer))
     this.close();
     gameManager.stateManager.after();
   }

@@ -16,7 +16,6 @@
     {
       "name": "Switch",
       "health": 1,
-      "count": 2,
       "marker": "a"
     }
   ],

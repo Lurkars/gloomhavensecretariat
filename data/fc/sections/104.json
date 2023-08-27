@@ -1,20 +1,19 @@
 {
-  "index": "120",
+  "index": "104",
   "edition": "fc",
   "parent": "108",
   "parentSections": [
     [
-      "101"
+      "44"
     ]
   ],
   "conclusion": true,
   "rewards": {
     "partyAchievements": [
-      "Angels of Death"
+      "Xangroth's Aid"
     ],
     "items": [
-      "155",
-      "161:2"
+      "155"
     ]
   }
 }

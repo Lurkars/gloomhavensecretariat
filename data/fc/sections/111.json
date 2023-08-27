@@ -1,19 +1,18 @@
 {
-  "index": "120",
+  "index": "111",
   "edition": "fc",
   "parent": "108",
   "parentSections": [
     [
-      "101"
+      "37"
     ]
   ],
   "conclusion": true,
   "rewards": {
     "partyAchievements": [
-      "Angels of Death"
+      "Diamara's Aid"
     ],
     "items": [
-      "155",
       "161:2"
     ]
   }

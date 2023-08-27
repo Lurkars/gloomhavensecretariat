@@ -2,10 +2,6 @@
   "index": "99",
   "name": "Aftershocks",
   "edition": "fc",
-  "unlocks": [
-    "104",
-    "105"
-  ],
   "monsters": [
     "black-imp",
     "cultist",
@@ -18,8 +14,7 @@
       "escort": true,
       "health": "2x(L+C)",
       "initiative": 50,
-      "marker": "a",
-      "count": 3
+      "marker": "a"
     }
   ],
   "rooms": [

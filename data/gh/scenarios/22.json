@@ -50,8 +50,7 @@
     {
       "name": "Altar",
       "health": "4+(CxL)",
-      "marker": "a",
-      "count": 4
+      "marker": "a"
     }
   ],
   "rooms": [

@@ -20,7 +20,6 @@
       "name": "Spring Guns",
       "health": "C+L",
       "marker": "a",
-      "count": "3",
       "actions": [
         {
           "type": "custom",

@@ -17,34 +17,29 @@
       "escort": true,
       "health": "2xL+3",
       "initiative": 50,
-      "marker": "f",
-      "count": 5
+      "marker": "f"
     },
     {
       "name": "Helper",
       "escort": true,
       "health": "2xL+3",
       "initiative": 50,
-      "marker": "g",
-      "count": "C > 2 ? 1 : 0"
+      "marker": "g"
     },
     {
       "name": "Helper",
       "escort": true,
       "health": "2xL+3",
       "initiative": 50,
-      "marker": "h",
-      "count": "C > 3 ? 1 : 0"
+      "marker": "h"
     },
     {
       "name": "Crate",
-      "health": "L+1",
-      "count": 2
+      "health": "L+1"
     },
     {
       "name": "Barrel",
-      "health": "L+1",
-      "count": 3
+      "health": "L+1"
     }
   ],
   "lootDeckConfig": {

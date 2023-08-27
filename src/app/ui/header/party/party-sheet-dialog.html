@@ -19,7 +19,7 @@
                 <option *ngFor="let p of gameManager.game.parties" [selected]="p.id == party.id"
                   [disabled]="p.id == party.id" value="{{p.id}}">
                   <span *ngIf="p.name">{{p.name}}</span>
-                  <span *ngIf="!p.name"><span [ghs-label]="'party'"></span>&nbsp;{{p.id}}</span>
+                  <span *ngIf="!p.name"><span [ghs-label]="'party.campaign'"></span>&nbsp;{{p.id}}</span>
                 </option>
               </select>
               <span class="spacer"></span>
@@ -173,7 +173,7 @@
               <option *ngFor="let p of gameManager.game.parties" [selected]="p.id == party.id"
                 [disabled]="p.id == party.id" value="{{p.id}}">
                 <span *ngIf="p.name">{{p.name}}</span>
-                <span *ngIf="!p.name"><span [ghs-label]="'party'"></span>&nbsp;{{p.id}}</span>
+                <span *ngIf="!p.name"><span [ghs-label]="'party.campaign'"></span>&nbsp;{{p.id}}</span>
               </option>
             </select>
             <img class="new-party" src="./assets/images/plus.svg" (click)="newParty()" [ghs-label]="'party.new'"
@@ -509,7 +509,8 @@
                   <span *ngIf="scenarioData.group" [ghs-label]="'data.scenario.group.' + scenarioData.group"></span>
                 </span>
                 <span class="scenario-title">
-                  <span [ghs-label]="'data.scenario.' + scenarioData.name"></span>
+                  <span *ngIf="scenarioData.named" [ghs-label]="'data.scenario.' + scenarioData.name"></span>
+                  <span *ngIf="!scenarioData.named && scenarioData.parent" [ghs-label]="'%data.scenarioNumber:' + scenarioData.parent + '%'"></span>
                 </span>
                 <span>
                   <span class="spacer"></span>

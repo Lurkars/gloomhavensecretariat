@@ -76,12 +76,12 @@
     <div class="line title span">
         <div class="hint-container">
             <label>
-                <span [ghs-label]="'campaign.partyManagement'"></span>
+                <span [ghs-label]="'campaign.campaignManagement'"></span>
             </label>
             <ng-container *ngIf="gameManager.game.scenario">
                 <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
                 <span class="hint">
-                    <span class="text" [ghs-label]="'campaign.partyManagement.hint'"></span>
+                    <span class="text" [ghs-label]="'campaign.campaignManagement.hint'"></span>
                 </span>
             </ng-container>
         </div>
@@ -91,19 +91,22 @@
             [ngClass]="{'disabled' :  gameManager.game.parties.length == 1 || gameManager.game.scenario}">
             <input type="checkbox" [checked]="gameManager.game.party == party" (change)="changeParty(party)">
             <span *ngIf="party.name">{{party.name}}</span>
-            <span *ngIf="!party.name"><span [ghs-label]="'party'"></span>&nbsp;{{party.id}}</span>
+            <span *ngIf="!party.name"><span [ghs-label]="'party.campaign'"></span>&nbsp;{{party.id}}</span>
         </label>
         <label *ngIf="gameManager.game.party == party"
             [ngClass]="{'disabled' :  gameManager.game.parties.length == 1 || gameManager.game.scenario}">
             <input type="checkbox" checked="true" disabled="disabled">
-            <input type="text" [value]="party.name" (change)="setName($event)"
-                [ghs-label]="'campaign.partyManagement.name'" [ghs-label-args]="['' + party.id]"
+            <input *ngIf="!gameManager.game.scenario" type="text" [value]="party.name" (change)="setName($event)"
+                [ghs-label]="'campaign.campaignManagement.name'" [ghs-label-args]="['' + party.id]"
                 [ghs-label-attribute]="'placeholder'">
+            <span *ngIf="gameManager.game.scenario && party.name">{{party.name}}</span>
+            <span *ngIf="gameManager.game.scenario && !party.name"><span
+                    [ghs-label]="'party.campaign'"></span>&nbsp;{{party.id}}</span>
         </label>
     </div>
 
     <div class="line span">
-        <a (click)="addParty()" [ghs-label]="'campaign.partyManagement.add'"
+        <a (click)="addParty()" [ghs-label]="'campaign.campaignManagement.add'"
             [ngClass]="{'disabled' : gameManager.game.scenario}"></a>
     </div>
 

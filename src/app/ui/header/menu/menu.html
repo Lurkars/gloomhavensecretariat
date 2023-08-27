@@ -156,21 +156,15 @@
 
   <div *ngSwitchCase="SubMenu.objective_add" class="menu-container objective-add">
     <div class="line">
-      <a (click)="addObjective();">
+      <a (click)="addObjectiveContainer()">
         <img class="icon" src="./assets/images/objective/objective.svg" />
         <span [ghs-label]="'objective.add'"></span>
       </a>
     </div>
     <div class="line">
-      <a (click)="addEscort();">
+      <a (click)="addObjectiveContainer(true)">
         <img class="icon" src="./assets/images/objective/escort.svg" />
         <span [ghs-label]="'escort.add'"></span>
-      </a>
-    </div>
-    <div class="line">
-      <a (click)="addObjectiveContainer();">
-        <img class="icon" src="./assets/images/objective/objective.svg" />
-        <span [ghs-label]="'objective.addContainer'"></span>
       </a>
     </div>
   </div>
@@ -191,7 +185,7 @@
         <span [ghs-label]="(objective.escort ? 'escort' : 'objective')"></span>
         <span *ngIf="objective.name">)</span>
         <span class="spacer"></span>
-        <span class="objective-marker">{{objective.id + 1}}</span>
+        <span class="objective-marker" *ngIf="gameManager.isObjective(objective)">{{gameManager.toObjective(objective).id + 1}}</span>
       </a>
     </div>
   </div>

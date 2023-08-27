@@ -22,7 +22,6 @@
     {
       "name": "Flaming Bladespinner",
       "initiative": "0",
-      "count": "4",
       "actions": [
         {
           "type": "custom",

@@ -107,7 +107,7 @@ export class ScenarioRewards {
   perks: number = 0;
   battleGoals: number = 0;
   items: string[] = [];
-  chooseItem: string[] = [];
+  chooseItem: string[][] = [];
   chooseLocation: string[] = [];
   itemDesigns: string[] = [];
   events: string[] = [];

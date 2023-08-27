@@ -18,13 +18,12 @@
     "lostPartyAchievements": [
       "Hunted Prey"
     ],
-    "gold": 135,
-    "prosperity": 1,
+    "experience": 12,
+    "battleGoals": 1,
     "hints": {
       "globalAchievements": [
         "(If this is the second \"A Peril Averted\" achievement gained, read section 118 on page 37)"
-      ],
-      "gold": "This money must be immediately be spend on any %game.action.move%, %game.action.range%, or %game.action.jump% enhancement"
+      ]
     }
   }
 }

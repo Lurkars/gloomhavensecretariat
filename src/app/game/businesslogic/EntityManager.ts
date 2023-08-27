@@ -6,6 +6,7 @@ import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { Objective } from "../model/Objective";
+import { ObjectiveContainer } from "../model/ObjectiveContainer";
 import { ObjectiveEntity } from "../model/ObjectiveEntity";
 import { Summon, SummonState } from "../model/Summon";
 import { gameManager } from "./GameManager";
@@ -27,6 +28,8 @@ export class EntityManager {
       }
     } else if (figure instanceof Monster) {
       entities = figure.entities.filter((entity) => this.isAlive(entity, acting) || !acting && entity.dormant);
+    } else if (figure instanceof ObjectiveContainer) {
+      entities = figure.entities.filter((entity) => this.isAlive(entity, acting) || !acting && entity.dormant);
     }
     return entities;
   }
@@ -39,6 +42,8 @@ export class EntityManager {
     } else if (figure instanceof Objective && (!alive || this.isAlive(figure, acting))) {
       entities.push(figure);
     } else if (figure instanceof Monster) {
+      entities.push(...figure.entities.filter((entity) => !alive || this.isAlive(entity, acting)));
+    } else if (figure instanceof ObjectiveContainer) {
       entities.push(...figure.entities.filter((entity) => !alive || this.isAlive(entity, acting)));
     }
     return entities;
@@ -85,7 +90,7 @@ export class EntityManager {
       if ((entity instanceof Character || entity instanceof Objective) && (!entity.off || !entity.exhausted)) {
         entity.off = true;
         entity.exhausted = true;
-      } else if ((entity instanceof MonsterEntity || entity instanceof Summon) && !entity.dead) {
+      } else if ((entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && !entity.dead) {
         entity.dead = true;
         setTimeout(() => {
           gameManager.uiChange.emit();
@@ -97,7 +102,7 @@ export class EntityManager {
       if ((entity instanceof Character || entity instanceof Objective) && entity.exhausted) {
         entity.off = false;
         entity.exhausted = false;
-      } else if ((entity instanceof MonsterEntity || entity instanceof Summon) && entity.dead) {
+      } else if ((entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && entity.dead) {
         entity.dead = false;
       }
     }
@@ -603,6 +608,8 @@ export class EntityManager {
       infos.push(prefix + ".summon", "data.character." + figure.name, "data.summon." + entity.name)
     } else if (entity instanceof Objective) {
       infos.push(prefix + ".objective", entity.title || entity.name)
+    } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
+      infos.push(prefix + ".objective", figure.title || 'data.objective.' + figure.name)
     } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
       infos.push(prefix + ".monster", "data.monster." + figure.name, "" + entity.number)
     } else if (figure instanceof Monster) {

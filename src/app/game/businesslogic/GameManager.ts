@@ -350,6 +350,8 @@ export class GameManager {
       aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
     } else if (a instanceof Objective) {
       aName = (a.title ? a.title : settingsManager.getLabel(a.name ? 'data.objective.' + a.name : (a.escort ? 'escort' : 'objective')).toLowerCase());
+    } else if (a instanceof ObjectiveContainer) {
+      aName = (a.title ? a.title : settingsManager.getLabel(a.name ? 'data.objective.' + a.name : (a.escort ? 'escort' : 'objective')).toLowerCase());
     }
 
     let bName = b.name.toLowerCase();
@@ -359,23 +361,33 @@ export class GameManager {
       bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
     } else if (b instanceof Objective) {
       bName = (b.title ? b.title : settingsManager.getLabel(b.name ? 'data.objective.' + b.name : (b.escort ? 'escort' : 'objective')).toLowerCase());
+    } else if (b instanceof ObjectiveContainer) {
+      bName = (b.title ? b.title : settingsManager.getLabel(b.name ? 'data.objective.' + b.name : (b.escort ? 'escort' : 'objective')).toLowerCase());
     }
     if (a instanceof Character && b instanceof Monster) {
       return -1;
     } else if (a instanceof Monster && b instanceof Character) {
       return 1;
-    } else if (a instanceof Character && b instanceof Objective) {
+    } else if (a instanceof Character && (b instanceof Objective || b instanceof ObjectiveContainer)) {
       return -1;
-    } else if (a instanceof Objective && b instanceof Character) {
+    } else if ((a instanceof Objective || a instanceof ObjectiveContainer) && b instanceof Character) {
       return 1;
-    } else if (a instanceof Monster && b instanceof Objective) {
+    } else if (a instanceof Monster && (b instanceof Objective || b instanceof ObjectiveContainer)) {
       return -1;
-    } else if (a instanceof Objective && b instanceof Monster) {
+    } else if ((a instanceof Objective || a instanceof ObjectiveContainer) && b instanceof Monster) {
       return 1;
     } else if (a instanceof Monster && b instanceof Monster) {
       return 0;
-    } else if (a instanceof Objective && b instanceof Objective && a.name == b.name) {
+    } else if (a instanceof Objective && b instanceof Objective && aName == bName) {
       return a.id - b.id;
+    } else if (a instanceof ObjectiveContainer && b instanceof ObjectiveContainer && aName == bName) {
+      if (a.marker && b.marker) {
+        return a.marker < b.marker ? -1 : 1;
+      } else if (a.marker) {
+        return 1;
+      } else if (b.marker) {
+        return -1;
+      }
     }
 
     return aName < bName ? -1 : 1;
@@ -498,7 +510,7 @@ export class GameManager {
   }
 
   gameplayFigure(figure: Figure) {
-    return figure instanceof Monster && this.entityManager.entitiesAll(figure, false).length > 0 || figure instanceof Character && gameManager.entityManager.isAlive(figure) || figure instanceof Objective && gameManager.entityManager.isAlive(figure);
+    return (figure instanceof Monster || figure instanceof ObjectiveContainer) && this.entityManager.entitiesAll(figure, true).length > 0 || figure instanceof Character && gameManager.entityManager.isAlive(figure) || figure instanceof Objective && gameManager.entityManager.isAlive(figure);
   }
 
   figuresByIdentifier(identifier: AdditionalIdentifier | undefined, scenarioEffect: boolean = false): Figure[] {
@@ -532,7 +544,7 @@ export class GameManager {
               }
             });
           case "objective":
-            return this.game.figures.filter((figure) => figure instanceof Objective && figure.name.match(name) && (edition != "escort" || figure.escort) && (!identifier.marker || figure.marker == identifier.marker) && (!identifier.tags || identifier.tags.length == 0 || identifier.tags.every((tag) => figure.tags && figure.tags.indexOf(tag) != -1)));
+            return this.game.figures.filter((figure) => (figure instanceof Objective && figure.name.match(name) && (edition != "escort" || figure.escort) && (!identifier.marker || figure.marker == identifier.marker) && (!identifier.tags || identifier.tags.length == 0 || identifier.tags.every((tag) => figure.tags && figure.tags.indexOf(tag) != -1))) || figure instanceof ObjectiveContainer && figure.name.match(name) && (edition != "escort" || figure.escort) && (!identifier.marker || figure.entities.some((entity) => entity.marker == identifier.marker)) && (!identifier.tags || identifier.tags.length == 0 || figure.entities.some((entity) => identifier.tags && identifier.tags.every((tag) => entity.tags.indexOf(tag) != -1))));
         }
       }
     }
@@ -543,7 +555,7 @@ export class GameManager {
   entitiesByIdentifier(identifier: AdditionalIdentifier | undefined, scenarioEffect: boolean): Entity[] {
     let figures = this.figuresByIdentifier(identifier, scenarioEffect);
     return figures.map((figure) => {
-      if (figure instanceof Monster) {
+      if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
         return figure.entities;
       } else if (figure instanceof Character || figure instanceof Objective) {
         return figure as Entity;
@@ -600,6 +612,8 @@ export class GameManager {
       return new AdditionalIdentifier(figure.name, figure.escort ? "escort" : "objective", "objective", figure.marker, figure.tags);
     } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
       return new AdditionalIdentifier(figure.name, figure.edition, "monster", entity.marker, entity.tags);
+    } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
+      return new AdditionalIdentifier(figure.name, figure.escort ? "escort" : "objective", "objective", entity.marker, entity.tags);
     }
 
     return new AdditionalIdentifier(figure.name, figure.edition, undefined, undefined, entity && entity.tags || []);
@@ -643,7 +657,7 @@ export class GameManager {
         if (!this.entityCounter(this.additionalIdentifier(figure))) {
           this.addEntityCount(figure);
         }
-      } else if (figure instanceof Monster) {
+      } else if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
         figure.entities.forEach((entity) => {
           if (this.entityManager.isAlive(entity) && !this.entityCounter(this.additionalIdentifier(figure, entity))) {
             this.addEntityCount(figure, entity);
@@ -668,6 +682,14 @@ export class GameManager {
           }
         } else if (figures.every((figure) => figure instanceof Monster)) {
           const count = figures.map((figure) => this.monsterManager.monsterEntityCountIdentifier(figure as Monster, entityCounter.identifier)).reduce((a, b) => a + b);
+          if (count + entityCounter.killed < entityCounter.total) {
+            entityCounter.killed = entityCounter.total - count
+          } else if (count + entityCounter.killed > entityCounter.total) {
+            console.warn("More killed then figures counted", entityCounter.identifier, "total: " + entityCounter.total, "killed: " + entityCounter.killed, "current: " + count);
+            entityCounter.total = count + entityCounter.killed;
+          }
+        } else if (figures.every((figure) => figure instanceof ObjectiveContainer)) {
+          const count = figures.map((figure) => this.objectiveManager.objectiveEntityCountIdentifier(figure as ObjectiveContainer, entityCounter.identifier)).reduce((a, b) => a + b);
           if (count + entityCounter.killed < entityCounter.total) {
             entityCounter.killed = entityCounter.total - count
           } else if (count + entityCounter.killed > entityCounter.total) {
@@ -740,12 +762,34 @@ export class GameManager {
     this.game.party.conditions = this.game.conditions;
     this.game.party.battleGoalEditions = this.game.battleGoalEditions;
     this.game.party.filteredBattleGoals = this.game.filteredBattleGoals;
+    this.game.party.unlockedCharacters = this.game.unlockedCharacters;
+    this.game.party.level = this.game.level;
+    this.game.party.levelCalculation = this.game.levelCalculation;
+    this.game.party.levelAdjustment = this.game.levelAdjustment
+    this.game.party.bonusAdjustment = this.game.bonusAdjustment;
+    this.game.party.ge5Player = this.game.ge5Player;
+    this.game.party.playerCount = this.game.playerCount;
+    this.game.party.solo = this.game.solo;
+    this.game.party.lootDeckEnhancements = this.game.lootDeckEnhancements;
+    this.game.party.lootDeckFixed = this.game.lootDeckFixed;
+    this.game.party.lootDeckSections = this.game.lootDeckSections;
 
     this.game.party = party;
     this.game.edition = this.game.party.edition;
     this.game.conditions = this.game.party.conditions || [];
     this.game.battleGoalEditions = this.game.party.battleGoalEditions || [];
     this.game.filteredBattleGoals = this.game.party.filteredBattleGoals || [];
+    this.game.unlockedCharacters = this.game.party.unlockedCharacters || [];
+    this.game.level = this.game.party.level || this.game.level;
+    this.game.levelCalculation = this.game.party.levelCalculation == false ? false : this.game.party.levelCalculation || this.game.levelCalculation;
+    this.game.levelAdjustment = this.game.party.levelAdjustment || this.game.levelAdjustment;
+    this.game.bonusAdjustment = this.game.party.bonusAdjustment || this.game.bonusAdjustment;
+    this.game.ge5Player = this.game.party.ge5Player == false ? false : this.game.party.ge5Player || this.game.ge5Player;
+    this.game.playerCount = this.game.party.playerCount || this.game.playerCount;
+    this.game.solo = this.game.party.solo == false ? false : this.game.party.solo || this.game.solo;
+    this.game.lootDeckEnhancements = this.game.party.lootDeckEnhancements || [];
+    this.game.lootDeckFixed = this.game.party.lootDeckFixed || [];
+    this.game.lootDeckSections = this.game.party.lootDeckSections || [];
 
     this.game.figures = this.game.figures.filter((figure) => !(figure instanceof Character));
     this.scenarioManager.setScenario(undefined);

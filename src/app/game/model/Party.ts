@@ -2,7 +2,7 @@ import { GameAttackModifierDeckModel } from "./data/AttackModifier";
 import { GameCharacterModel } from "./Character";
 import { BuildingModel } from "./data/BuildingData";
 import { CountIdentifier, Identifier } from "./data/Identifier";
-import { LootType } from "./data/Loot";
+import { Loot, LootType } from "./data/Loot";
 import { GameScenarioModel } from "./Scenario";
 import { ConditionName } from "./data/Condition";
 
@@ -33,6 +33,14 @@ export class Party {
   characters: GameCharacterModel[] = [];
   retirements: GameCharacterModel[] = [];
   unlockedItems: CountIdentifier[] = [];
+  unlockedCharacters: string[] = [];
+  level: number = 1;
+  levelCalculation: boolean = true;
+  levelAdjustment: number = 0;
+  bonusAdjustment: number = 0;
+  ge5Player: boolean = true;
+  playerCount: number = -1;
+  solo: boolean = false;
 
   weeks: number = 0;
   weekSections: Partial<Record<number, string[]>> = {};
@@ -47,5 +55,9 @@ export class Party {
   campaignStickers: string[] = [];
   townGuardDeck: GameAttackModifierDeckModel | undefined;
   buildings: BuildingModel[] = [];
+  
+  lootDeckEnhancements: Loot[] = [];
+  lootDeckFixed: LootType[] = [];
+  lootDeckSections: string[] = [];
 
 }

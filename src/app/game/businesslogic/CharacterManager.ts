@@ -15,7 +15,6 @@ import { Summon, SummonColor, SummonState } from "../model/Summon";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 import { v4 as uuidv4 } from 'uuid';
-import { Figure } from "../model/Figure";
 
 export class CharacterManager {
 
@@ -212,22 +211,6 @@ export class CharacterManager {
 
   removeObjective(objective: Objective) {
     this.game.figures.splice(this.game.figures.indexOf(objective), 1);
-  }
-
-  skipObjective(figure: Figure): boolean {
-    if (figure instanceof Objective) {
-      if (!figure.escort) {
-        if (!figure.objectiveId) {
-          return true;
-        } else {
-          const objectiveData = gameManager.objectiveDataByScenarioObjectiveIdentifier(figure.objectiveId);
-          if (!objectiveData || !objectiveData.actions || objectiveData.actions.length == 0) {
-            return true;
-          }
-        }
-      }
-    }
-    return false;
   }
 
   addXP(character: Character, value: number, levelUp: boolean = true) {

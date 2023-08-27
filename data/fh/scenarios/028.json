@@ -31,7 +31,6 @@
       "health": "2x(L+2)",
       "initiative": 99,
       "marker": "a",
-      "count": 2,
       "actions": [
         {
           "type": "move",

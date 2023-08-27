@@ -10,16 +10,6 @@
     "deep-terror",
     "living-bones"
   ],
-  "objectives": [
-    {
-      "name": "Civilian",
-      "escort": true,
-      "health": "2x(L+C)",
-      "initiative": 50,
-      "marker": "a",
-      "count": 5
-    }
-  ],
   "rooms": [
     {
       "roomNumber": 2,

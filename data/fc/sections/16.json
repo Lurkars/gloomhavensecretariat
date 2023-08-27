@@ -3,11 +3,15 @@
   "edition": "fc",
   "parent": "99",
   "conclusion": true,
+  "unlocks": [
+    "104",
+    "105"
+  ],
   "rewards": {
     "globalAchievements": [
       "Knowledge is Power"
     ],
-    "gold": 5,
+    "gold": 10,
     "prosperity": 1,
     "itemDesigns": [
       "153"

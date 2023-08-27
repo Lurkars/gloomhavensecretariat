@@ -5,20 +5,6 @@
   "unlocks": [
     "114"
   ],
-  "rewards": {
-    "partyAchievements": [
-      "Hunted Prey"
-    ],
-    "experience": 5,
-    "events": [
-      "rift:16"
-    ],
-    "hints": {
-      "events": [
-        "Instead of shuffling this event into the whole deck, shuffle it into the top 3 cards"
-      ]
-    }
-  },
   "monsters": [
     "aesther-scout",
     "black-imp",
