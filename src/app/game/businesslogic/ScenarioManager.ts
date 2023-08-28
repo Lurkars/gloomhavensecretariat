@@ -575,10 +575,6 @@ export class ScenarioManager {
         return false;
       }
 
-      if (scenarioData.initial) {
-        return true;
-      }
-
       if (this.game.party.scenarios.find((identifier) => scenarioData.index == identifier.index && scenarioData.edition == identifier.edition && scenarioData.group == identifier.group)) {
         return true;
       }
@@ -607,26 +603,45 @@ export class ScenarioManager {
       })
 
       if (!requires) {
-        requires = scenarioData.requires.some((requires) => requires.every((require) => this.game.party.scenarios.find((identifier) => identifier.index == require && identifier.group == scenarioData.group && identifier.edition == scenarioData.edition)));
+        requires = scenarioData.requires.some((requires) => requires.every((index) => {
+          let finishedScenarios = this.game.party.scenarios.filter((model) => model.index == index && (model.edition == scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).indexOf(model.edition) != -1));
+
+          if (finishedScenarios.length > 1) {
+            finishedScenarios.filter((model) => model.group == scenarioData.group);
+          }
+
+          if (finishedScenarios.length > 1) {
+            finishedScenarios.filter((model) => model.edition == scenarioData.edition);
+          }
+
+          return finishedScenarios.length > 0;
+        }));
       }
 
-      return unlocked && requires;
+      return (unlocked || scenarioData.initial) && requires;
     });
   }
 
   isBlocked(scenarioData: ScenarioData): boolean {
     let blocked = false;
-    const editionData = gameManager.editionData.find((editionData) => editionData.edition == scenarioData.edition);
-    if (editionData) {
-      this.game.party.scenarios.forEach((identifier) => {
-        const scenario = editionData.scenarios.find((value) => value.index == identifier.index && value.edition == identifier.edition && value.group == identifier.group);
-        if (scenario) {
-          if (scenario.group == scenarioData.group && scenario.blocks && scenario.blocks.indexOf(scenarioData.index) != -1) {
-            blocked = true;
+    if (scenarioData.blocks) {
+      scenarioData.blocks.forEach((index) => {
+        if (!blocked) {
+          let finishedScenarios = this.game.party.scenarios.filter((model) => model.index == index && (model.edition == scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).indexOf(model.edition) != -1));
+
+          if (finishedScenarios.length > 1) {
+            finishedScenarios.filter((model) => model.group == scenarioData.group);
           }
+
+          if (finishedScenarios.length > 1) {
+            finishedScenarios.filter((model) => model.edition == scenarioData.edition);
+          }
+
+          blocked = finishedScenarios.length > 0;
         }
       })
     }
+
     return blocked && this.game.party.campaignMode;
   }
 

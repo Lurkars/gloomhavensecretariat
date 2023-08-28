@@ -1,8 +1,12 @@
 .undo-dialog {
+    display: flex;
+    flex-direction: column;
     position: relative;
     padding: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
     font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
     min-width: calc(var(--ghs-unit) * 70);
+    height: calc(var(--ghs-unit) * 68 * var(--ghs-dialog-factor));
+    max-height: calc(var(--ghs-unit) * 68 * var(--ghs-dialog-factor));
 
 
     .working {
@@ -43,7 +47,7 @@
 
     .container {
         padding: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-        max-height: calc(var(--ghs-unit) * 76 * var(--ghs-dialog-factor));
+        max-height: 100%;
         overflow: auto;
     }
 
@@ -52,6 +56,8 @@
         flex-direction: column;
 
         .entry {
+            pointer-events: none; // until server code fixed
+            cursor: pointer;
             position: relative;
             display: flex;
             color: var(--ghs-color-white);
@@ -62,6 +68,14 @@
                 text-align: right;
                 width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
                 margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            }
+
+            &:hover {
+                filter: var(--ghs-filter-gray);
+            }
+
+            &.disabled {
+                pointer-events: none;
             }
         }
 

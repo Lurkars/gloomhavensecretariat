@@ -16,7 +16,8 @@
                 <span [ghs-label]="'state.loadMore'"></span>
             </span>
             <ng-container *ngFor="let i of redoArray;">
-                <span class="entry">
+                <span class="entry" (click)="gameManager.stateManager.fixedRedo(i+1)"
+                    [ngClass]="{'disabled' : !gameManager.stateManager.redoPermission }">
                     <span class="revision">{{getRedoRevision(i) + 1 }}.</span>
                     <span class="info text-white" *ngIf="getRedoInfo(i).length > 0"
                         [ghs-label]="'state.info.' + getRedoInfo(i)[0]"
@@ -59,7 +60,8 @@
                     <span [ghs-label]="'state.missing'" [ghs-label-args]="['' + ( getUndoRevision(i+1)
                     -  getUndoRevision(i) - 1)]"></span>
                 </span>
-                <span class="entry">
+                <span class="entry" (click)="gameManager.stateManager.fixedUndo(undoArray.length - i)"
+                    [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning)}">
                     <span class="revision">{{ getUndoRevision(i) + 1}}.</span>
                     <span class="info text-white" *ngIf="getUndoInfo(i).length > 0"
                         [ghs-label]="'state.info.' + getUndoInfo(i)[0]"
@@ -74,6 +76,8 @@
             </span>
         </div>
     </div>
+
+    <div class="spacer"></div>
 
     <div class="menu clear-menu">
         <span *ngIf="undoArray.length == 0"></span>

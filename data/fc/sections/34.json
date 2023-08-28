@@ -11,7 +11,20 @@
     {
       "name": "Altar of Blizzards",
       "health": "Cx2+L",
-      "marker": "f"
+      "marker": "f",
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "rooms": [

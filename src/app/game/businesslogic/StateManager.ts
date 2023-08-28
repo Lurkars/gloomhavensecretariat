@@ -176,6 +176,9 @@ export class StateManager {
           } else {
             gameManager.stateManager.before("serverSyncEmpty");
           }
+          if (gameManager.game.revision == 0 && gameModel.revision == 0 && !gameModel.revisionOffset) {
+            gameModel.revision = 1;
+          }
           gameManager.game.fromModel(gameModel, true);
           gameManager.stateManager.saveLocal();
           gameManager.uiChange.emit(true);
@@ -445,7 +448,7 @@ export class StateManager {
     this.addToUndo(info || []);
   }
 
-  async after(timeout: number = 1, revisionChange: number = 1, type: string = "game") {
+  async after(timeout: number = 1, revisionChange: number = 1, type: string = "game", length: number = 0) {
     this.game.revision += revisionChange;
     this.saveLocal();
     if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
@@ -460,7 +463,8 @@ export class StateManager {
         "password": settingsManager.settings.serverPassword,
         "type": type,
         "payload": this.game.toModel(),
-        "undoinfo": undoInfo
+        "undoinfo": undoInfo,
+        "undolength": length
       }
       this.ws.send(JSON.stringify(message));
     }
@@ -570,18 +574,26 @@ export class StateManager {
   }
 
   undo(sync: boolean = true) {
-    if (this.undos.length > 0) {
+    this.fixedUndo(1, sync);
+  }
+
+  fixedUndo(length: number, sync: boolean = true) {
+    if (length > 0 && length <= this.undos.length) {
       window.document.body.classList.add('working');
       this.redos.push(this.game.toModel());
       const revision = gameManager.game.revision;
-      const revisionOffset = gameManager.game.revisionOffset;
-      const gameModel: GameModel = this.undos.splice(this.undos.length - 1, 1)[0];
+      const revisionOffset = gameManager.game.revisionOffset + length - 1;
+      const undos = this.undos.splice(this.undos.length - length, length);
+      for (let i = undos.length - 1; i > 0; i--) {
+        this.redos.push(undos[i]);
+      }
+      const gameModel: GameModel = undos[0];
       this.game.fromModel(gameModel);
       this.game.revision = revision;
       this.game.revisionOffset = revisionOffset + 2;
       this.saveStorage();
       if (sync) {
-        this.after(1, 1, 'game-undo');
+        this.after(1, 1, 'game-undo', length);
       } else {
         gameManager.uiChange.emit();
       }
@@ -594,18 +606,26 @@ export class StateManager {
   }
 
   redo(sync: boolean = true) {
-    if (this.redos.length > 0) {
+    this.fixedRedo(1, sync);
+  }
+
+  fixedRedo(length: number, sync: boolean = true) {
+    if (length > 0 && length <= this.redos.length) {
       window.document.body.classList.add('working');
       this.undos.push(this.game.toModel());
       const revision = gameManager.game.revision;
-      const revisionOffset = gameManager.game.revisionOffset;
-      const gameModel: GameModel = this.redos.splice(this.redos.length - 1, 1)[0];
+      const revisionOffset = gameManager.game.revisionOffset - length + 1;
+      const redos = this.redos.splice(this.redos.length - length, length);
+      for (let i = redos.length - 1; i > 0; i--) {
+        this.undos.push(redos[i]);
+      }
+      const gameModel: GameModel = redos[0];
       this.game.fromModel(gameModel);
       this.game.revision = revision;
       this.game.revisionOffset = revisionOffset;
       this.saveStorage();
       if (sync) {
-        this.after(1, 1, 'game-redo');
+        this.after(1, 1, 'game-redo', length);
       } else {
         gameManager.uiChange.emit();
       }

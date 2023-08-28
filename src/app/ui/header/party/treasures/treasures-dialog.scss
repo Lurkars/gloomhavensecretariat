@@ -1,0 +1,156 @@
+.treasures-dialog {
+    color: var(--ghs-color-white);
+
+    .treasures {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        margin-top: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+
+        .treasure-add {
+
+            font-family: var(--ghs-font-text);
+            display: grid;
+            grid-template-columns: 0.5fr 0.2fr 2fr;
+            border-bottom: calc(var(--ghs-unit) * 0.05 * var(--ghs-dialog-factor)) solid var(--ghs-color-gray);
+            margin-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            align-items: center;
+
+            input {
+                font-family: var(--ghs-font-text);
+                width: 100%;
+                min-width: 0;
+                margin: 0;
+                text-align: right;
+            }
+
+            a {
+                font-family: var(--ghs-font-text);
+                display: flex;
+                cursor: pointer;
+
+                img {
+                    filter: var(--ghs-filter-green);
+                    width: auto;
+                    height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                }
+
+                &.disabled {
+                    pointer-events: none;
+
+                    img {
+                        filter: var(--ghs-filter-darkgray);
+                    }
+                }
+            }
+
+
+        }
+
+        .treasure-list {
+            overflow-y: auto;
+            font-size: 0.9em;
+
+            .treasure {
+                display: grid;
+                grid-template-columns: 0.3fr 0.2fr 0.2fr 2fr 0.2fr;
+                align-items: center;
+
+                >* {
+                    width: 100%;
+                }
+
+                &.edition {
+                    grid-template-columns: 0.3fr 0.2fr 0.2fr 2fr 0.2fr 1fr;
+                }
+
+                .index {
+                    font-family: var(--ghs-font-text);
+                    font-size: 0.9em;
+                    justify-self: end;
+                }
+
+                .open-item {
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+
+                .count {
+                    cursor: crosshair;
+                    font-family: var(--ghs-font-title);
+                    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                    text-align: center;
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+
+                .edition {
+                    text-align: right;
+                }
+
+                .separator {
+                    font-family: var(--ghs-font-normal);
+                    font-size: 0.9em;
+                    justify-self: start;
+                }
+
+                .checkbox {
+                    cursor: pointer;
+                    justify-self: start;
+                    position: relative;
+                    border: calc(var(--ghs-unit) * 0.05 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+                    height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+                    margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+                    .check,
+                    .close {
+                        position: absolute;
+                    }
+
+                    .check {
+                        height: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+                    }
+
+                    .close {
+                        top: 0;
+                        left: calc(var(--ghs-unit) * -0.8 * var(--ghs-dialog-factor));
+                        height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+                        filter: var(--ghs-filter-red);
+                        display: none;
+                    }
+
+                    &:hover {
+
+                        border: none;
+                        box-shadow: none;
+
+                        .check {
+                            display: none;
+                        }
+
+                        .close {
+                            display: inline-block;
+                        }
+                    }
+                }
+
+                .text {
+                    font-family: var(--ghs-font-text);
+                    font-size: 0.9em;
+                    justify-self: start;
+                    white-space: nowrap;
+                    overflow-x: auto;
+                }
+            }
+        }
+    }
+}

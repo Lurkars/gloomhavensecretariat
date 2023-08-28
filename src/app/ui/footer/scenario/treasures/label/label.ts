@@ -53,8 +53,17 @@ export class TreasureLabelComponent implements OnInit {
 
             if (this.itemCards) {
                 this.treasure.rewards.forEach((reward, index) => {
-                    if ([TreasureRewardType.item, TreasureRewardType.itemBlueprint, TreasureRewardType.itemDesign, TreasureRewardType.itemFh,].indexOf(reward.type) != -1 && typeof reward.value == 'number') {
-                        const itemData = gameManager.itemManager.getItem(reward.value, this.edition, true);
+                    if ([TreasureRewardType.item, TreasureRewardType.itemBlueprint, TreasureRewardType.itemDesign, TreasureRewardType.itemFh,].indexOf(reward.type) != -1) {
+                        const itemString = '' + reward.value;
+                        let itemEdition = this.edition;
+                        let itemId = -1
+                        if (isNaN(+itemString)) {
+                            itemId = +itemString.split('-')[0];
+                            itemEdition = itemString.split('-')[1];
+                        } else {
+                            itemId = +itemString;
+                        }
+                        const itemData = gameManager.itemManager.getItem(itemId, itemEdition, true);
                         if (itemData) {
                             this.items.push(itemData);
                         }

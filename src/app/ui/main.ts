@@ -89,7 +89,7 @@ export class MainComponent implements OnInit {
                 })
               }
             }
-            this.showBackupHint = settingsManager.settings.backupHint && !this.loading && !gameManager.game.scenario && (gameManager.game.party.scenarios.length > 0 || gameManager.game.parties.some((party) => party.scenarios.length > 0) || gameManager.game.party.casualScenarios.length > 0 || gameManager.game.parties.some((party) => party.casualScenarios.length > 0));
+            this.showBackupHint = settingsManager.settings.backupHint && !this.loading && !gameManager.game.scenario && (gameManager.game.party.scenarios.length > 0 || gameManager.game.party.casualScenarios.length > 0 || gameManager.game.parties.some((party) => party.casualScenarios.length > 0));
           }
         }
       }

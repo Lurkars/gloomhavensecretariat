@@ -1756,7 +1756,7 @@
       },
       "hideScenarioRule": "Szenario Regel nicht mehr anzeigen",
       "importCharacter": "Charakter {0} von Datei importieren",
-      "importParty": "Gruppe von Datei importieren",
+      "importParty": "Kampagne von Datei importieren",
       "loadGameFromFile": "Spiel von Datei importieren",
       "lootDeckAddEnhancement": "Beute Karte '{1} %game.loot.{0}%' verzaubern",
       "lootDeckChangeConfig": "Beute Tabelle ändern",

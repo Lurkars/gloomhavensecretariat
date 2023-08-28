@@ -1864,7 +1864,7 @@
       },
       "hideScenarioRule": "Don't show scenario rule again",
       "importCharacter": "Import character {0} from file",
-      "importParty": "Import party from file",
+      "importParty": "Import campaign from file",
       "loadGameFromFile": "Load game state from file",
       "lootDeckAddEnhancement": "Enhance Loot Card '{1} %game.loot.{0}%'",
       "lootDeckChangeConfig": "Change Loot Table",

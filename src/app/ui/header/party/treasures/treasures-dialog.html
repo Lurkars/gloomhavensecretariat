@@ -1,0 +1,34 @@
+<div class="treasures-dialog">
+    <div class="treasures">
+        <label><span [ghs-label]="'party.campaign.treasures'"></span>:</label>
+
+        <div class="treasure-add">
+            <input min="1" #treasureIndex type="number" value="" (focus)="treasureIndex.select()"
+                (keyup)="treasureIndex.classList.remove('error');treasureIndex.classList.remove('warning');"
+                (keyup.enter)="addTreasure(treasureIndex, treasureEdition.value)">
+            <a [ngClass]="{'disabled' : !treasureIndex.value || +treasureIndex.value < 1 || hasTreasure(treasureIndex.value,treasureEdition.value)}"
+                (click)="addTreasure(treasureIndex, treasureEdition.value)"><img src="./assets/images/plus.svg"></a>
+            <select #treasureEdition [disabled]="party.edition">
+                <option *ngFor="let edition of gameManager.editions()" [value]="edition"
+                    [selected]="edition == party.edition">
+                    <span [ghs-label]="'data.edition.' + edition"></span>
+                </option>
+            </select>
+        </div>
+
+        <div class="treasure-list">
+            <label class="treasure" (click)="removeTreasure(treasure)" *ngFor="let treasure of treasures()"
+                [ngClass]="{'edition' : !party.edition}">
+                <span class="index">{{treasure.name}}</span>
+                <span class="separator">:</span>
+                <span class="checkbox"><img class="check" src="./assets/images/check.svg"><img class="close"
+                        src="./assets/images/close.svg"></span>
+                <span class="text">
+                    <ghs-treasure-label [edition]="treasure.edition" [index]="+treasure.name -1"></ghs-treasure-label>
+                </span>
+                <span class="text" *ngIf="!party.edition">[<span
+                        [ghs-label]="'data.edition.' + treasure.edition"></span>]</span>
+            </label>
+        </div>
+    </div>
+</div>

@@ -22,6 +22,7 @@ import { BattleGoalSetupDialog } from "../../figures/battlegoal/setup/battlegoal
 import { ScenarioRequirementsComponent } from "./requirements/requirements";
 import { WorldMapComponent } from "./world-map/world-map";
 import { ItemDialogComponent } from "../../figures/items/dialog/item-dialog";
+import { TreasuresDialogComponent } from "./treasures/treasures-dialog";
 
 @Component({
   selector: 'ghs-party-sheet-dialog',
@@ -297,15 +298,19 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   newParty() {
     let party = new Party();
+    gameManager.stateManager.before("addParty", party.name || '%party% ' + party.id);
+    this.addParty(party);
+    gameManager.stateManager.after();
+  }
+
+  addParty(party: Party) {
     let id = 0;
     while (gameManager.game.parties.some((party) => party.id == id)) {
       id++;
     }
     party.id = id;
-    gameManager.stateManager.before("addParty", party.name || '%party% ' + party.id);
     gameManager.game.parties.push(party);
     this.changeParty(party);
-    gameManager.stateManager.after();
   }
 
   selectParty(event: any) {
@@ -353,7 +358,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   exportParty() {
     const downloadButton = document.createElement('a');
     downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.party)));
-    downloadButton.setAttribute('download', (this.party.name ? this.party.name + "_" : "") + "party-sheet.json");
+    downloadButton.setAttribute('download', (this.party.name ? this.party.name + "_" : "") + "campaign.json");
     document.body.appendChild(downloadButton);
     downloadButton.click();
     document.body.removeChild(downloadButton);
@@ -365,14 +370,19 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     try {
       const reader = new FileReader();
       reader.addEventListener('load', (event: any) => {
-        gameManager.stateManager.before("importParty");
-        gameManager.game.party = Object.assign(new Party(), JSON.parse(event.target.result));
-        if (!gameManager.game.party) {
+        const party = Object.assign(new Party(), JSON.parse(event.target.result));
+        if (!party) {
           parent.classList.add("error");
         } else {
+          gameManager.stateManager.before("importParty");
+          if (party.id == this.party.id && party.name && party.name == this.party.name) {
+            gameManager.game.party = party;
+          } else {
+            this.addParty(party);
+          }
           this.party = gameManager.game.party;
+          gameManager.stateManager.after();
         }
-        gameManager.stateManager.after();
       });
 
       reader.readAsText(event.target.files[0]);
@@ -620,6 +630,13 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       }
     }
     gameManager.stateManager.after();
+  }
+
+  treasuresDialog() {
+    this.dialog.open(TreasuresDialogComponent, {
+      panelClass: 'dialog',
+      data: this.party
+    })
   }
 
   treasures(): Identifier[] {

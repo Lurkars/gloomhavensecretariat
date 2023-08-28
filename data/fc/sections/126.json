@@ -3,9 +3,58 @@
   "name": "Training Maneuvers",
   "edition": "fc",
   "parent": "107",
+  "resetRound": "visible",
   "monsters": [
     "vermling-scout",
     "vermling-shaman"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "vermling-scout"
+          },
+          "type": "transfer",
+          "value": "vermling-scout-scenario-107"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "vermling-shaman"
+          },
+          "type": "transfer",
+          "value": "vermling-shaman-scenario-107"
+        }
+      ]
+    },
+    {
+      "round": "R == 2",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "vermling-scout-scenario-107"
+          },
+          "type": "transfer",
+          "value": "vermling-scout"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "vermling-shaman-scenario-107"
+          },
+          "type": "transfer",
+          "value": "vermling-shaman"
+        }
+      ]
+    }
   ],
   "rooms": [
     {

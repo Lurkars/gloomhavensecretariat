@@ -125,6 +125,7 @@ import { ItemComponent } from './ui/figures/items/item/item';
 import { ItemsDialogComponent } from './ui/figures/items/dialog/items-dialog';
 import { ItemsCharacterDialogComponent } from './ui/figures/items/character/items-character-dialog';
 import { ItemDialogComponent } from './ui/figures/items/dialog/item-dialog';
+import { TreasuresDialogComponent } from './ui/header/party/treasures/treasures-dialog';
 
 @Injectable()
 export class GhsErrorHandler extends ErrorHandler {
@@ -140,7 +141,7 @@ export class GhsErrorHandler extends ErrorHandler {
     AppComponent,
     MainComponent,
     HeaderComponent, ElementIconComponent, ElementComponent,
-    PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, SelectResourcesDialog, ScenarioRequirementsComponent,
+    PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, SelectResourcesDialog, ScenarioRequirementsComponent, TreasuresDialogComponent,
     MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, CampaignMenuComponent,
     FooterComponent,
     LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,

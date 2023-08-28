@@ -9,6 +9,7 @@
   "rules": [
     {
       "round": "true",
+      "always": true,
       "once": true,
       "note": "%data.section.rules.fc.66.1%",
       "sections": [

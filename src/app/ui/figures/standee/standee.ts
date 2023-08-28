@@ -91,7 +91,7 @@ export class StandeeComponent implements OnInit, OnDestroy {
       }
     }
     this.marker = this.entity.marker;
-    if (this.figure instanceof ObjectiveContainer && this.figure.entities.flatMap((entity) => entity.marker).every((marker, index,self) => self.indexOf(marker) == 0)) {
+    if (this.figure instanceof ObjectiveContainer && this.figure.entities.flatMap((entity) => entity.marker).every((marker, index, self) => self.indexOf(marker) == 0)) {
       this.marker = "";
     }
   }

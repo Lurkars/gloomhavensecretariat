@@ -521,7 +521,8 @@
     </div>
   </ng-container>
 
-  <ng-container *ngIf="gameManager.isObjectiveContainer(data.figure) && data.entity && gameManager.isObjectiveEntity(data.entity)">
+  <ng-container
+    *ngIf="gameManager.isObjectiveContainer(data.figure) && data.entity && gameManager.isObjectiveEntity(data.entity)">
     <div class="objective-container">
       <input class="title" #objectiveTitle [value]="gameManager.toObjectiveContainer(data.figure).title || ''" />
       <ng-container *ngIf="showMaxHealth()">
@@ -534,7 +535,8 @@
             EntityValueFunction(gameManager.toObjectiveContainer(data.figure).health) ||
             data.entity.health==EntityValueFunction(gameManager.toObjectiveContainer(data.figure).health) ?
             EntityValueFunction(gameManager.toObjectiveContainer(data.figure).health) + maxHp :
-            data.entity.health)}}/{{EntityValueFunction(gameManager.toObjectiveContainer(data.figure).health) + maxHp}}</span>
+            data.entity.health)}}/{{EntityValueFunction(gameManager.toObjectiveContainer(data.figure).health) +
+            maxHp}}</span>
         </span>
         <a class="button" (click)="changeMaxHealth(1)">
           <img class="ghs-svg" src="./assets/images/plus.svg">

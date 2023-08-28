@@ -206,6 +206,22 @@ export class ActionComponent implements OnInit, OnDestroy {
               sign = false;
             }
           }
+
+          if (stat.actions) {
+            stat.actions.forEach((statAction) => {
+              if (statAction.type == ActionType.attack) {
+                if (statAction.valueType == ActionValueType.add) {
+                  statValue += EntityValueFunction(statAction.value, this.level);
+                } else if (statAction.valueType == ActionValueType.subtract) {
+                  statValue -= EntityValueFunction(statAction.value, this.level);
+                  if (statValue < 0) {
+                    statValue = 0;
+                  }
+                }
+              }
+            })
+          }
+
           break;
         case ActionType.move:
           statValue = stat.movement;

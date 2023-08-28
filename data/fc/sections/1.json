@@ -11,7 +11,13 @@
     {
       "name": "Altar of Wildfire",
       "health": "C+L+1",
-      "marker": "d"
+      "marker": "d",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
     }
   ],
   "rooms": [
