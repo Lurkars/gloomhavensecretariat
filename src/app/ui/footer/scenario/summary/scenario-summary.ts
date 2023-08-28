@@ -55,7 +55,7 @@ export class ScenarioSummaryComponent {
     rewards: ScenarioRewards | undefined = undefined;
     challenges: number = 0;
     numberChallenges: number = 0;
-    calenderSectionManual: number[] = [];
+    calendarSectionManual: number[] = [];
     randomItem: ItemData | undefined;
     randomItemIndex: number = -1;
     randomItems: (ItemData | undefined)[] = [];
@@ -173,7 +173,7 @@ export class ScenarioSummaryComponent {
         finish.chooseUnlockCharacter = this.chooseUnlockCharacter;
         finish.collectiveGold = this.collectiveGold;
         finish.items = this.items;
-        finish.calenderSectionManual = this.calenderSectionManual;
+        finish.calendarSectionManual = this.calendarSectionManual;
         finish.randomItem = this.randomItem ? new Identifier('' + this.randomItem.id, this.randomItem.edition) : undefined;
         finish.randomItemIndex = this.randomItemIndex;
         finish.randomItems = this.randomItems ? this.randomItems.map((itemData) => itemData ? new Identifier('' + itemData.id, itemData.edition) : undefined) : [];
@@ -192,7 +192,7 @@ export class ScenarioSummaryComponent {
             this.chooseUnlockCharacter = finish.chooseUnlockCharacter;
             this.collectiveGold = finish.collectiveGold;
             this.items = finish.items;
-            this.calenderSectionManual = finish.calenderSectionManual;
+            this.calendarSectionManual = finish.calendarSectionManual;
             this.randomItem = finish.randomItem ? gameManager.itemManager.getItem(+finish.randomItem.name, finish.randomItem.edition, true) : undefined;
             this.randomItemIndex = finish.randomItemIndex;
             this.randomItems = finish.randomItems ? finish.randomItems.map((item) => item ? gameManager.itemManager.getItem(+item.name, item.edition, true) : undefined) : [];
@@ -275,8 +275,8 @@ export class ScenarioSummaryComponent {
                         this.chooseUnlockCharacter = this.rewards.chooseUnlockCharacter[index];
                     }
                 }
-                if (this.rewards.calenderSectionManual) {
-                    this.rewards.calenderSectionManual.forEach((section, index) => this.calenderSectionManual[index] = 0);
+                if (this.rewards.calendarSectionManual) {
+                    this.rewards.calendarSectionManual.forEach((section, index) => this.calendarSectionManual[index] = 0);
                 }
 
                 if (this.rewards.randomItemBlueprint && this.randomItemBlueprints.length < this.rewards.randomItemBlueprint) {
@@ -531,9 +531,9 @@ export class ScenarioSummaryComponent {
         gameManager.stateManager.after();
     }
 
-    changeCalenderSectionManual(event: any, index: number) {
-        gameManager.stateManager.before("finishScenario.dialog.calenderSectionManual", '' + index, event.target.value);
-        this.calenderSectionManual[index] = +event.target.value;
+    changeCalendarSectionManual(event: any, index: number) {
+        gameManager.stateManager.before("finishScenario.dialog.calendarSectionManual", '' + index, event.target.value);
+        this.calendarSectionManual[index] = +event.target.value;
         this.updateFinish();
         gameManager.stateManager.after();
     }
@@ -634,9 +634,9 @@ export class ScenarioSummaryComponent {
                 })
             }
 
-            if ((this.gainRewards || this.forceCampaign) && this.rewards && this.rewards.calenderSectionManual) {
-                this.rewards.calenderSectionManual.forEach((sectionManual, index) => {
-                    const week = gameManager.game.party.weeks + this.calenderSectionManual[index];
+            if ((this.gainRewards || this.forceCampaign) && this.rewards && this.rewards.calendarSectionManual) {
+                this.rewards.calendarSectionManual.forEach((sectionManual, index) => {
+                    const week = gameManager.game.party.weeks + this.calendarSectionManual[index];
                     if (!gameManager.game.party.weekSections[week]) {
                         gameManager.game.party.weekSections[week] = [];
                     }

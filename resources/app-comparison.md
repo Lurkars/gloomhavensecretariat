@@ -39,7 +39,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Battle Goal Deck                                                                | ✅[^1.1]   | ⛔         | ⛔        | ✅      | ⛔       |
 | Multiple Parties/Campaigns                                                      | ✅         | ⛔         | ✅        | ✅      | ⛔       |
 | Loot Deck                                                                       | ✅         | ✅         | ✅        | ✅      | ⛔       |
-| Frosthaven Outpost (Calender, Resources, Buildings, Town Guard etc.)            | ✅         | ⛔         | ⛔        | ✅      | ⛔       |
+| Frosthaven Outpost (Calendar, Resources, Buildings, Town Guard etc.)            | ✅         | ⛔         | ⛔        | ✅      | ⛔       |
 | Town Guard Deck                                                                 | ✅         | ⛔         | ⛔        | ✅      | ⛔       |
 | Item Management (automatic unlocks etc.)                                        | ✅         | ⛔         | ⛔        | ✅      | ⛔       |
 | Integrated Map (interactive)                                                    | ⛔         | ⛔         | ⛔        | ✅      | ⛔       |

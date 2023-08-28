@@ -717,7 +717,7 @@
         ".": "보물",
         "rewards": {
           "battleGoal": "{0} 획득 <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
-          "calenderSection": "%number.{1}%주 안에 %data.section:{0}% 추가",
+          "calendarSection": "%number.{1}%주 안에 %data.section:{0}% 추가",
           "campaignSticker": "캠페인 스티거 \"{0}\" 획득",
           "condition": "{0} 획득",
           "damage": "{0} 피해",
@@ -1122,7 +1122,7 @@
       ".": "보상",
       "battleGoals": "{0} 각각 <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
       "bonus": "보너스",
-      "calenderSection": {
+      "calendarSection": {
         ".": "섹션 연결",
         "add": "%number.{1}%주 안에 %data.section:{0}% 추가."
       },

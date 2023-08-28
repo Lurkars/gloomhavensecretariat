@@ -4,7 +4,7 @@
   "edition": "fh",
   "complexity": 2,
   "rewards": {
-    "calenderSectionManual": [
+    "calendarSectionManual": [
       {
         "section": "66.2",
         "hint": "Add %data.section:66.2% to the calendar in X+1 weeks, where X is the number of pylons destroyed."

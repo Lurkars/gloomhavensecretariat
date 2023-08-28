@@ -351,26 +351,26 @@
           </div>
         </div>
         <div class="reward achievements"
-          *ngIf="rewards && rewards.calenderSection && rewards.calenderSection.length > 0">
-          <label><span [ghs-label]="'scenario.rewards.calenderSection'"></span>:</label>
+          *ngIf="rewards && rewards.calendarSection && rewards.calendarSection.length > 0">
+          <label><span [ghs-label]="'scenario.rewards.calendarSection'"></span>:</label>
           <div class="list">
-            <div class="item achievement" *ngFor="let calenderSection of rewards.calenderSection; let i = index;">
-              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.calenderSection.add'"
-                [ghs-label-args]="[calenderSection.split('-')[0], calenderSection.split('-')[1]]"></span>
+            <div class="item achievement" *ngFor="let calendarSection of rewards.calendarSection; let i = index;">
+              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.calendarSection.add'"
+                [ghs-label-args]="[calendarSection.split('-')[0], calendarSection.split('-')[1]]"></span>
               <span class="placeholder text-white hint"
-                *ngIf="rewards.hints && rewards.hints.calenderSection && rewards.hints.calenderSection[i]"
-                [ghs-label]="rewards.hints.calenderSection[i]"></span>
+                *ngIf="rewards.hints && rewards.hints.calendarSection && rewards.hints.calendarSection[i]"
+                [ghs-label]="rewards.hints.calendarSection[i]"></span>
             </div>
           </div>
         </div>
         <div class="reward achievements"
-          *ngIf="rewards && rewards.calenderSectionManual && rewards.calenderSectionManual.length > 0">
-          <label><span [ghs-label]="'scenario.rewards.calenderSectionManual'"></span>:</label>
+          *ngIf="rewards && rewards.calendarSectionManual && rewards.calendarSectionManual.length > 0">
+          <label><span [ghs-label]="'scenario.rewards.calendarSectionManual'"></span>:</label>
           <div class="list">
-            <div class="item achievement" *ngFor="let calenderSection of rewards.calenderSectionManual; let i = index;">
-              <span class="placeholder text-white" [ghs-label]="calenderSection.hint"></span>
-              <input type="number" min="0" [value]="calenderSectionManual[i]"
-                (change)="changeCalenderSectionManual($event, i)">
+            <div class="item achievement" *ngFor="let calendarSection of rewards.calendarSectionManual; let i = index;">
+              <span class="placeholder text-white" [ghs-label]="calendarSection.hint"></span>
+              <input type="number" min="0" [value]="calendarSectionManual[i]"
+                (change)="changeCalendarSectionManual($event, i)">
             </div>
           </div>
         </div>

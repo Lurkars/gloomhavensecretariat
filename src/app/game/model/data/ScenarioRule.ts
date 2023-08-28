@@ -119,8 +119,8 @@ export class ScenarioRewards {
   inspiration: number | string = "";
   resources: { type: LootType, value: number | string }[] = [];
   collectiveResources: { type: LootType, value: number | string }[] = [];
-  calenderSection: string[] = [];
-  calenderSectionManual: { section: string, hint: string }[] = [];
+  calendarSection: string[] = [];
+  calendarSectionManual: { section: string, hint: string }[] = [];
   townGuardAm: AttackModifier[] = [];
   unlockCharacter: string = "";
   chooseUnlockCharacter: string[] = [];
@@ -157,7 +157,7 @@ export class ScenarioRewardHints {
   inspiration: string = "";
   resources: string[] = [];
   collectiveResources: string[] = [];
-  calenderSection: string[] = [];
+  calendarSection: string[] = [];
   townGuardAm: string[] = [];
   unlockCharacter: string = "";
   chooseUnlockCharacter: string[] = [];
