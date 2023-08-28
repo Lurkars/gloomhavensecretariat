@@ -221,7 +221,7 @@ export class LootManager {
           })
         }
         break;
-      case TreasureRewardType.calenderSection:
+      case TreasureRewardType.calendarSection:
         if (reward.value && typeof reward.value === 'string' && reward.value.split('-').length > 1) {
           const section = reward.value.split('-')[0];
           const week = gameManager.game.party.weeks + (+reward.value.split('-')[1]);

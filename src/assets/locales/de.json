@@ -614,7 +614,7 @@
         ".": "Schätze",
         "rewards": {
           "battleGoal": "erhalte {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
-          "calenderSection": "füge %data.section:{0}% in %number.{1}% Wochen hinzu",
+          "calendarSection": "füge %data.section:{0}% in %number.{1}% Wochen hinzu",
           "campaignSticker": "erhalte \"{0}\" Kampagnenbogensticker",
           "condition": "erhalte {0}",
           "damage": "erleide {0}",
@@ -1024,7 +1024,7 @@
       ".": "Belohnungen",
       "battleGoals": "jeweils {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
       "bonus": "Bonus",
-      "calenderSection": {
+      "calendarSection": {
         ".": "Verlinkte Sektionen",
         "add": "Füge %data.section:{0}% in %number.{1}% Wochen hinzu."
       },

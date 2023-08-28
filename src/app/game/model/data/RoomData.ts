@@ -72,7 +72,7 @@ export enum TreasureRewardType {
     lootCards = "lootCards",
     resource = "resource",
     campaignSticker = "campaignSticker",
-    calenderSection = "calenderSection"
+    calendarSection = "calendarSection"
 }
 
 export class TreasureReward {

@@ -171,7 +171,7 @@ export class TreasureLabelComponent implements OnInit {
                     resourceValue += ' %and% ' + (resources[resources.length - 1]);
                 }
                 return [this.labelPrefix + reward.type, resourceValue];
-            case TreasureRewardType.calenderSection:
+            case TreasureRewardType.calendarSection:
                 if (value.split('-').length > 1) {
                     return [this.labelPrefix + reward.type, value.split('-')[0], value.split('-')[1]];
                 }
