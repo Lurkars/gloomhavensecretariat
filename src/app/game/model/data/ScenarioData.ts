@@ -110,6 +110,7 @@ export class ScenarioFinish {
   chooseLocation: string | undefined;
   chooseUnlockCharacter: string | undefined;
   challenges: number = 0;
+  calenderSectionManual: number[] = [];
   calendarSectionManual: number[] = [];
   randomItem: Identifier | undefined = undefined;
   randomItemIndex: number = -1;

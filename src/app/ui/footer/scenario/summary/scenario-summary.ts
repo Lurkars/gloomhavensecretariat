@@ -192,7 +192,7 @@ export class ScenarioSummaryComponent {
             this.chooseUnlockCharacter = finish.chooseUnlockCharacter;
             this.collectiveGold = finish.collectiveGold;
             this.items = finish.items;
-            this.calendarSectionManual = finish.calendarSectionManual;
+            this.calendarSectionManual = finish.calendarSectionManual || finish.calenderSectionManual;
             this.randomItem = finish.randomItem ? gameManager.itemManager.getItem(+finish.randomItem.name, finish.randomItem.edition, true) : undefined;
             this.randomItemIndex = finish.randomItemIndex;
             this.randomItems = finish.randomItems ? finish.randomItems.map((item) => item ? gameManager.itemManager.getItem(+item.name, item.edition, true) : undefined) : [];
