@@ -17,14 +17,6 @@
   ],
   "rooms": [
     {
-      "roomNumber": 1,
-      "ref": "F1a",
-      "initial": true,
-      "rooms": [
-        2
-      ]
-    },
-    {
       "roomNumber": 2,
       "ref": "B3b",
       "initial": true,

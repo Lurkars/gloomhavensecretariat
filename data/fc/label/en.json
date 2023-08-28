@@ -45,10 +45,15 @@
         },
         "104": {
           "1": "towards portal %game.mapMarker.1%",
-          "2": "towards portal %game.mapMarker.2%"
+          "2": "towards portal %game.mapMarker.2%",
+          "3": "towards portal %game.mapMarker.3%",
+          "4": "towards portal %game.mapMarker.4%"
         },
         "105": {
           "1": "Apply if Dimensional Equilibrium Party) is incomplete"
+        },
+        "106": {
+          "1": "All characters must discard one card from their hand or lose one at random from their discard pile."
         },
         "115": {
           "1": "Remove one damage token from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{$math.floor}] hit points for each damage token removed.",

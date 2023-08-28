@@ -7,14 +7,17 @@
   "monsters": [
     "valrath-savage"
   ],
-  "rooms": [
+  "rules": [
     {
-      "roomNumber": 1,
-      "initial": true,
-      "monster": [
+      "round": "true",
+      "once": true,
+      "always": true,
+      "spawns": [
         {
-          "name": "valrath-savage",
-          "type": "elite"
+          "monster": {
+            "name": "valrath-savage",
+            "type": "elite"
+          }
         }
       ]
     }

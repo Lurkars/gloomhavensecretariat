@@ -5,6 +5,19 @@
   "unlocks": [
     "114"
   ],
+  "rewards": {
+    "globalAchievements": [
+      "A Peril Averted"
+    ],
+    "hints": {
+      "globalAchievements": [
+        "(If this is the second \"A Peril Averted\" achievement gained, read section 118 on page 37)"
+      ]
+    },
+    "items": [
+      "163"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "flame-demon",

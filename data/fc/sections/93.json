@@ -76,16 +76,11 @@
         {
           "name": "living-spirit",
           "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "player3": "normal"
+          "player4": "elite"
         },
         {
           "name": "night-demon",
-          "player2": "normal",
-          "player4": "normal"
+          "type": "elite"
         }
       ],
       "objectives": [

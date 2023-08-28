@@ -14,6 +14,21 @@
             "type": "character",
             "name": ".*"
           },
+          "type": "damage",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
           "type": "amAdd",
           "value": "curse:1"
         },

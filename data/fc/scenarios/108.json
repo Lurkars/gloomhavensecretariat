@@ -2,6 +2,13 @@
   "index": "108",
   "name": "Prologue to the End",
   "edition": "fc",
+  "requirements": [
+    {
+      "global": [
+        "Knowledge is Power:2"
+      ]
+    }
+  ],
   "monsters": [
     "city-archer",
     "city-guard",
