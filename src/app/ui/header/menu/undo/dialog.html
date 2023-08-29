@@ -4,9 +4,10 @@
     </a>
     <div class="menu">
         <a class="state undo"
-            [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning)}"
+            [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning) || undoArray.length == 0}"
             (click)="gameManager.stateManager.undo()"><span [ghs-label]="'state.undo'"></span></a>
-        <a class="state redo" [ngClass]="{'disabled' : !gameManager.stateManager.redoPermission }"
+        <span class="separator">|</span>
+        <a class="state redo" [ngClass]="{'disabled' : !gameManager.stateManager.redoPermission || redoArray.length == 0}"
             (click)="gameManager.stateManager.redo()"><span [ghs-label]="'state.redo'"></span></a>
     </div>
 
@@ -23,6 +24,10 @@
                         [ghs-label]="'state.info.' + getRedoInfo(i)[0]"
                         [ghs-label-args]="(getRedoInfo(i) | slice:1:getRedoInfo(i).length)"
                         [ghs-label-empty]="true"></span>
+                    <span class="spacer"></span>
+                    <span>{{gameManager.stateManager.redos[i].revision}} -
+                        {{gameManager.stateManager.redos[i].revisionOffset}} -
+                        {{gameManager.stateManager.redos[i].revision - gameManager.stateManager.redos[i].revisionOffset}}</span>
                 </span>
                 <span class="warning" *ngIf="i > 0 && getRedoRevision(i) - getRedoRevision(i-1) != 1">
                     <img src="./assets/images/warning.svg">
@@ -38,6 +43,10 @@
                 <span class="revision">{{gameManager.game.revision - (gameManager.game.revisionOffset || 0) +
                     1}}.</span>
                 <span class="info" [ghs-label]="'state.currentGame'"></span>
+                <span class="spacer"></span>
+                <span>{{gameManager.game.revision}} -
+                    {{gameManager.game.revisionOffset}} -
+                    {{gameManager.game.revision - gameManager.game.revisionOffset}}</span>
             </span>
             <span class="warning undo-offset" *ngIf="undoOffset && gameManager.stateManager.gameOffsetWarning"
                 (click)="gameManager.stateManager.gameOffsetWarning = false">
@@ -68,6 +77,9 @@
                         [ghs-label-args]="(getUndoInfo(i) | slice:1:getUndoInfo(i).length)"
                         [ghs-label-empty]="true"></span>
                     <span class="spacer"></span>
+                    <span>{{gameManager.stateManager.undos[i].revision}} -
+                        {{gameManager.stateManager.undos[i].revisionOffset}} -
+                        {{gameManager.stateManager.undos[i].revision - gameManager.stateManager.undos[i].revisionOffset}}</span>
                 </span>
             </ng-container>
             <span *ngIf="undoArray.length < gameManager.stateManager.undos.length" class="more" inViewport
@@ -88,7 +100,7 @@
             ==
             'clearUndos' ? '!' :
             '?'}}</a>
-
+        <span class="separator" *ngIf="undoArray.length > 0 && redoArray.length > 0">|</span>
         <a class="state" *ngIf="redoArray.length > 0"
             [ngClass]="{'disabled' : !gameManager.stateManager.redoPermission, 'confirm' : confirm == 'clearRedos'}"
             (mouseleave)="confirm = ''" (click)="clearRedos()"><span [ghs-label]="'state.clear.redos'"></span>{{confirm

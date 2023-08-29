@@ -165,6 +165,7 @@ export class StateManager {
             storageManager.addBackup(gameManager.game.toModel());
             console.warn("An older revision was loaded from server, created a backup of previous state.");
             gameManager.stateManager.saveLocal();
+            gameManager.stateManager.before("serverSyncEmpty");
           }
           const undoinfo = message.undoinfo;
           if (undoinfo) {
@@ -173,11 +174,6 @@ export class StateManager {
             } else if (gameManager.game.revision - (gameManager.game.revisionOffset || 0) < gameModel.revision - (gameModel.revisionOffset || 0)) {
               gameManager.stateManager.before("serverSync", ...undoinfo);
             }
-          } else {
-            gameManager.stateManager.before("serverSyncEmpty");
-          }
-          if (gameManager.game.revision == 0 && gameModel.revision == 0 && !gameModel.revisionOffset) {
-            gameModel.revision = 1;
           }
           gameManager.game.fromModel(gameModel, true);
           gameManager.stateManager.saveLocal();
@@ -193,14 +189,41 @@ export class StateManager {
           window.document.body.classList.add('server-sync');
           let gameUndo: GameModel = message.payload as GameModel;
 
-          const undoGame = gameManager.stateManager.undos[gameManager.stateManager.undos.length - 1];
-          if (undoGame && undoGame.revision - undoGame.revisionOffset == gameManager.game.revision - gameManager.game.revisionOffset - 1) {
-            gameManager.stateManager.undos.splice(gameManager.stateManager.undos.length - 1, 1);
+          if (message.revision != undefined) {
+            const undoRevision = message.revision || 0;
+            const undolength = message.undolength || 0;
+            let undoCount = 0;
+            let undoGame = gameManager.stateManager.undos.splice(gameManager.stateManager.undos.length - 1, 1)[0];
+            if (undoGame && undoGame.revision - (undoGame.revisionOffset || 0) > undoRevision) {
+              gameManager.stateManager.redos.push(undoGame);
+              undoCount++;
+            }
+            while (undoGame && undoGame.revision - (undoGame.revisionOffset || 0) > undoRevision) {
+              undoGame = gameManager.stateManager.undos.splice(gameManager.stateManager.undos.length - 1, 1)[0];
+              if (undoGame && undoGame.revision - (undoGame.revisionOffset || 0) > undoRevision) {
+                gameManager.stateManager.redos.push(undoGame);
+                undoCount++;
+              }
+            }
+            if (!undoGame || undoGame.revision - (undoGame.revisionOffset || 0) != undoRevision) {
+              gameManager.stateManager.undoInfos.splice(gameManager.stateManager.undos.length - gameManager.stateManager.redos.length, 0, message.undoinfo ? (message.undoinfo[0] == 'serverSync' ? message.undoinfo : ['serverSync', ...message.undoinfo]) : ['serverSync']);
+            }
+            gameManager.stateManager.redos.splice(gameManager.stateManager.redos.length - undoCount, 0, gameManager.game.toModel());
+
+            if (undolength) {
+              // TODO
+            }
+
           } else {
-            gameManager.stateManager.undoInfos.splice(gameManager.stateManager.undoInfos.length - gameManager.stateManager.redos.length, 0, message.undoinfo && ['serverSync', ...message.undoinfo] || ['serverSync']);
+            gameManager.stateManager.redos.push(gameManager.game.toModel());
+            const undoGame = gameManager.stateManager.undos[gameManager.stateManager.undos.length - 1];
+            if (undoGame && undoGame.revision - undoGame.revisionOffset == gameManager.game.revision - gameManager.game.revisionOffset - 1) {
+              gameManager.stateManager.undos.splice(gameManager.stateManager.undos.length - 1, 1);
+            } else {
+              gameManager.stateManager.undoInfos.splice(gameManager.stateManager.undoInfos.length - gameManager.stateManager.redos.length, 0, message.undoinfo ? ['serverSync', ...message.undoinfo] : ['serverSync']);
+            }
           }
 
-          gameManager.stateManager.redos.push(gameManager.game.toModel());
           gameManager.game.fromModel(gameUndo);
           gameManager.stateManager.saveLocal();
           gameManager.stateManager.saveStorage();
@@ -216,14 +239,40 @@ export class StateManager {
           window.document.body.classList.add('server-sync');
           let gameRedo: GameModel = message.payload as GameModel;
 
-          const redoGame = gameManager.stateManager.redos.length > 0 ? gameManager.stateManager.redos[gameManager.stateManager.redos.length - 1] : undefined;
-          if (redoGame && redoGame.revision - redoGame.revisionOffset == gameManager.game.revision - gameManager.game.revisionOffset + 1) {
-            gameManager.stateManager.redos.splice(gameManager.stateManager.redos.length - 1, 1);
+          if (message.revision != undefined) {
+            const redoRevision = message.revision || 0;
+            const redolength = message.undolength || 0;
+            let redoCount = 0;
+            let redoGame = gameManager.stateManager.redos.splice(gameManager.stateManager.redos.length - 1, 1)[0];
+            if (redoGame && redoGame.revision - (redoGame.revisionOffset || 0) < redoRevision) {
+              gameManager.stateManager.undos.push(redoGame);
+              redoCount++;
+            }
+            while (redoGame && redoGame.revision - (redoGame.revisionOffset || 0) < redoRevision) {
+              redoGame = gameManager.stateManager.redos.splice(gameManager.stateManager.redos.length - 1, 1)[0];
+              if (redoGame && redoGame.revision - (redoGame.revisionOffset || 0) < redoRevision) {
+                gameManager.stateManager.undos.push(redoGame);
+                redoCount++;
+              }
+            }
+            if (!redoGame || redoGame.revision - (redoGame.revisionOffset || 0) != redoRevision) {
+              gameManager.stateManager.undoInfos.splice(gameManager.stateManager.undos.length - gameManager.stateManager.redos.length, 0, message.undoinfo ? (message.undoinfo[0] == 'serverSync' ? message.undoinfo : ['serverSync', ...message.undoinfo]) : ['serverSync']);
+            }
+
+            if (redolength) {
+              // TODO
+            }
+            gameManager.stateManager.undos.splice(gameManager.stateManager.undos.length - redoCount, 0, gameManager.game.toModel());
           } else {
-            gameManager.stateManager.undoInfos.splice(gameManager.stateManager.undoInfos.length - gameManager.stateManager.redos.length, 0, message.undoinfo && ['serverSync', ...message.undoinfo] || ['serverSync']);
+            gameManager.stateManager.undos.push(gameManager.game.toModel());
+            const redoGame = gameManager.stateManager.redos.length > 0 ? gameManager.stateManager.redos[gameManager.stateManager.redos.length - 1] : undefined;
+            if (redoGame && redoGame.revision - redoGame.revisionOffset == gameManager.game.revision - gameManager.game.revisionOffset + 1) {
+              gameManager.stateManager.redos.splice(gameManager.stateManager.redos.length - 1, 1);
+            } else {
+              gameManager.stateManager.undoInfos.splice(gameManager.stateManager.undoInfos.length - gameManager.stateManager.redos.length, 0, message.undoinfo && ['serverSync', ...message.undoinfo] || ['serverSync']);
+            }
           }
 
-          gameManager.stateManager.undos.push(gameManager.game.toModel());
           gameManager.game.fromModel(gameRedo);
           gameManager.stateManager.saveLocal();
           gameManager.stateManager.saveStorage();
@@ -448,7 +497,7 @@ export class StateManager {
     this.addToUndo(info || []);
   }
 
-  async after(timeout: number = 1, revisionChange: number = 1, type: string = "game", length: number = 0) {
+  async after(timeout: number = 1, revisionChange: number = 1, type: string = "game", revision: number = 0, undolength: number = 1) {
     this.game.revision += revisionChange;
     this.saveLocal();
     if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
@@ -456,7 +505,7 @@ export class StateManager {
       let undoInfo = this.undoInfos[this.undos.length - 1];
 
       if (type == 'game-undo') {
-        undoInfo = this.undoInfos[this.undos.length];
+        undoInfo = this.undoInfos[this.undos.length + undolength - 1];
       }
 
       let message = {
@@ -464,7 +513,8 @@ export class StateManager {
         "type": type,
         "payload": this.game.toModel(),
         "undoinfo": undoInfo,
-        "undolength": length
+        "revision": revision,
+        "undolength": undolength
       }
       this.ws.send(JSON.stringify(message));
     }
@@ -577,13 +627,13 @@ export class StateManager {
     this.fixedUndo(1, sync);
   }
 
-  fixedUndo(length: number, sync: boolean = true) {
-    if (length > 0 && length <= this.undos.length) {
+  fixedUndo(undolength: number, sync: boolean = true) {
+    if (undolength > 0 && undolength <= this.undos.length) {
       window.document.body.classList.add('working');
       this.redos.push(this.game.toModel());
       const revision = gameManager.game.revision;
-      const revisionOffset = gameManager.game.revisionOffset + length - 1;
-      const undos = this.undos.splice(this.undos.length - length, length);
+      const revisionOffset = gameManager.game.revisionOffset + undolength - 1;
+      const undos = this.undos.splice(this.undos.length - undolength, undolength);
       for (let i = undos.length - 1; i > 0; i--) {
         this.redos.push(undos[i]);
       }
@@ -593,7 +643,7 @@ export class StateManager {
       this.game.revisionOffset = revisionOffset + 2;
       this.saveStorage();
       if (sync) {
-        this.after(1, 1, 'game-undo', length);
+        this.after(1, 1, 'game-undo', undos[0].revision - (undos[0].revisionOffset || 0), undolength);
       } else {
         gameManager.uiChange.emit();
       }
@@ -609,13 +659,13 @@ export class StateManager {
     this.fixedRedo(1, sync);
   }
 
-  fixedRedo(length: number, sync: boolean = true) {
-    if (length > 0 && length <= this.redos.length) {
+  fixedRedo(redolength: number, sync: boolean = true) {
+    if (redolength > 0 && redolength <= this.redos.length) {
       window.document.body.classList.add('working');
       this.undos.push(this.game.toModel());
       const revision = gameManager.game.revision;
-      const revisionOffset = gameManager.game.revisionOffset - length + 1;
-      const redos = this.redos.splice(this.redos.length - length, length);
+      const revisionOffset = gameManager.game.revisionOffset - redolength + 1;
+      const redos = this.redos.splice(this.redos.length - redolength, redolength);
       for (let i = redos.length - 1; i > 0; i--) {
         this.undos.push(redos[i]);
       }
@@ -625,7 +675,7 @@ export class StateManager {
       this.game.revisionOffset = revisionOffset;
       this.saveStorage();
       if (sync) {
-        this.after(1, 1, 'game-redo', length);
+        this.after(1, 1, 'game-redo', redos[0].revision - (redos[0].revisionOffset || 0), redolength);
       } else {
         gameManager.uiChange.emit();
       }
@@ -640,21 +690,9 @@ export class StateManager {
   }
 
   clearRedos() {
-    this.undoInfos.splice(this.undos.length + 1, this.redos.length);
+    this.undoInfos.splice(this.undos.length, this.redos.length + 1);
     this.redos = [];
     this.saveStorage();
-  }
-
-  revisionOffset(): number {
-    return (gameManager.game.revisionOffset || 0) + this.revisionOffsetUndo() + this.revisionOffsetRedo();
-  }
-
-  revisionOffsetUndo(): number {
-    return this.undos.length > 0 ? this.undos.map((model) => model.revisionOffset || 0).reduce((a, b) => a + b) : 0;
-  }
-
-  revisionOffsetRedo(): number {
-    return this.redos.length > 0 ? this.redos.map((model) => model.revisionOffset || 0).reduce((a, b) => a + b) : 0;
   }
 
   savePermissions(password: string, permissions: Permissions | undefined) {

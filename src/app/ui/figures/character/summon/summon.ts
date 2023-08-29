@@ -57,6 +57,11 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
 
   update(): void {
     this.activeConditions = gameManager.entityManager.activeConditions(this.summon, true);
+    this.summon.immunities.forEach((immunity) => {
+      if (!this.activeConditions.find((entityCondition) => entityCondition.name == immunity)) {
+        this.activeConditions.push(new EntityCondition(immunity));
+      }
+    })
   }
 
   dragHpMove(value: number) {

@@ -36,17 +36,31 @@
     <ghs-highlight-conditions [entity]="summon" [figure]="character"></ghs-highlight-conditions>
 
     <div class="conditions">
-      <span class="condition" *ngFor="let entityCondition of activeConditions; let index = index"
+      <span class="condition-container" *ngFor="let entityCondition of activeConditions; let index = index"
         [ngClass]="{'expired' : entityCondition.expired, 'center' : ((activeConditions).length % 2) == 1 && (activeConditions).length == index + 1}">
-        <img
-          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
-        <span class="value"
-          *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
+        <span class="condition">
+          <img
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
+            [style.z-index]="index * 10 + entityCondition.value" />
+          <ng-container *ngIf="entityCondition.types.indexOf(ConditionType.stack) != -1">
+            <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)"
+              [style.z-index]="index * 10 + entityCondition.value - i - 1"
+              [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
+          </ng-container>
+          <span class="value" [style.z-index]="index * 10 + entityCondition.value +1"
+            *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1 && entityCondition.types.indexOf(ConditionType.stack) == -1">{{entityCondition.value}}</span>
+          <span *ngIf="summon.immunities.indexOf(entityCondition.name) != -1"
+            class="condition immunity condition-overlay"
+            [style.z-index]="index * 10 + entityCondition.value + 2"></span>
+          <span *ngIf="entityCondition.permanent" class="condition permanent condition-overlay"
+            [style.z-index]="index * 10 + entityCondition.value + 3"></span>
+        </span>
       </span>
     </div>
     <ghs-healthbar [entity]="summon" [diff]="health"></ghs-healthbar>
   </div>
 
-  <ghs-pointer-input class="drag-hp" (singleClick)="open()" (doubleClick)="toggleActive()" (dragMove)="dragHpMove($event)"
-    (dragEnd)="dragHpEnd($event)" [relative]="true" [screenWidth]="true"></ghs-pointer-input>
+  <ghs-pointer-input class="drag-hp" (singleClick)="open()" (doubleClick)="toggleActive()"
+    (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true"
+    [screenWidth]="true"></ghs-pointer-input>
 </div>

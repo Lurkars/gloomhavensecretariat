@@ -83,14 +83,16 @@ export class MainMenuComponent implements OnInit, OnDestroy {
       this.undoInfo = undoInfos[undos.length - 1];
       this.undoOffset = (gameManager.game.revision
         - (gameManager.game.revisionOffset || 0)) - (undos[undos.length - 1].revision - (undos[undos.length - 1].revisionOffset || 0)) - 1;
-      if (this.undoInfo.length > 1 && this.undoInfo[0] == "serverSync") {
+      if (this.undoInfo && this.undoInfo.length > 1 && this.undoInfo[0] == "serverSync") {
         if (this.undoInfo[1] == "setInitiative" && this.undoInfo.length > 3) {
           this.undoInfo = ["serverSync", settingsManager.getLabel('state.info.' + this.undoInfo[1], [this.undoInfo[2], ""])];
         } else {
           this.undoInfo = ["serverSync", settingsManager.getLabel('state.info.' + this.undoInfo[1], this.undoInfo.slice(2))];
         }
-      } else if (this.undoInfo.length == 1 && this.undoInfo[0] == "serverSync") {
+      } else if (this.undoInfo && this.undoInfo.length == 1 && this.undoInfo[0] == "serverSync") {
         this.undoInfo = ["serverSync", ""]
+      } else if (!this.undoInfo) {
+        this.undoInfo = ["unknown"];
       }
     } else {
       this.undoInfo = [];
@@ -98,14 +100,16 @@ export class MainMenuComponent implements OnInit, OnDestroy {
     }
     if (redos.length > 0 && undoInfos.length > undos.length) {
       this.redoInfo = undoInfos[undos.length];
-      if (this.redoInfo.length > 1 && this.redoInfo[0] == "serverSync") {
+      if (this.redoInfo && this.redoInfo.length > 1 && this.redoInfo[0] == "serverSync") {
         if (this.redoInfo[1] == "setInitiative" && this.redoInfo.length > 3) {
           this.redoInfo = ["serverSync", settingsManager.getLabel('state.info.' + this.redoInfo[1], [this.redoInfo[2], ""])];
         } else {
           this.redoInfo = ["serverSync", settingsManager.getLabel('state.info.' + this.redoInfo[1], this.redoInfo.slice(2))];
         }
-      } else if (this.redoInfo.length == 1 && this.redoInfo[0] == "serverSync") {
+      } else if (this.redoInfo && this.redoInfo.length == 1 && this.redoInfo[0] == "serverSync") {
         this.redoInfo = ["serverSync", ""]
+      } else if (!this.redoInfo) {
+        this.redoInfo = ["unknown"];
       }
     } else {
       this.redoInfo = [];

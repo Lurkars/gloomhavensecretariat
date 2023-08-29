@@ -229,35 +229,91 @@
       grid-auto-flow: column;
       height: calc(var(--ghs-unit) * 6.5 * var(--ghs-text-factor));
 
-      .condition {
+      .condition-container {
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+        margin-left: calc(var(--ghs-unit) * -0.5 * var(--ghs-text-factor));
 
         &.expired {
           opacity: 0.6;
         }
 
-        img {
-          width: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+        .condition {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+          overflow: visible;
+
+          img {
+            width: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+            height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+            margin: 0;
+
+            &.stack {
+              margin-left: calc(var(--ghs-unit) * -2 * var(--ghs-text-factor));
+            }
+          }
+
+          &.condition-overlay {
+            position: absolute;
+            width: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+            height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 2;
+          }
+
+          .value {
+            font-family: var(--ghs-font-title);
+            font-size: calc(var(--ghs-unit) * 1.2 * var(--ghs-text-factor));
+            color: var(--ghs-color-white);
+            position: absolute;
+            top: 48%;
+            left: calc(var(--ghs-unit) * 1.3 * var(--ghs-text-factor));
+            text-shadow: none;
+            transform: translateX(-50%);
+          }
+
+          &:hover {
+            transform-origin: center center;
+            z-index: 999;
+          }
         }
 
-        .value {
-          font-family: var(--ghs-font-title);
-          font-size: calc(var(--ghs-unit) * 1.2 * var(--ghs-text-factor));
-          color: var(--ghs-color-white);
-          position: absolute;
-          top: 48%;
-          left: calc(var(--ghs-unit) * 1.3 * var(--ghs-text-factor));
-          text-shadow: none;
-          transform: translateX(-50%);
+        &:nth-child(even) {
+
+          .condition,
+          .summon {
+            &:hover {
+              transform: scale(2) translateY(-25%);
+            }
+          }
+        }
+
+        &:nth-child(odd) {
+
+          .condition,
+          .summon {
+            &:hover {
+              transform: scale(2) translateY(25%);
+            }
+          }
         }
 
         &.center {
           grid-row: span 2;
+
+          .condition,
+          .summon {
+            &:hover {
+              transform: scale(2);
+            }
+          }
         }
       }
     }

@@ -19,11 +19,17 @@
 
     .menu {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+
+        .separator {
+            color: var(--ghs-color-disabled);
+            margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        }
 
         .state {
             cursor: pointer;
             font-family: var(--ghs-font-title);
+            margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
             &.disabled {
                 pointer-events: none;
@@ -56,7 +62,6 @@
         flex-direction: column;
 
         .entry {
-            pointer-events: none; // until server code fixed
             cursor: pointer;
             position: relative;
             display: flex;
