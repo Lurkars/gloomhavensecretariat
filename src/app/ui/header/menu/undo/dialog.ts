@@ -16,6 +16,7 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
     confirm: string = "";
     undoArray: number[] = [];
     redoArray: number[] = [];
+    undoConfirm = "";
 
     constructor(public dialogRef: DialogRef) {
         this.dialogRef.overlayRef.hostElement.style.zIndex = '3000';
@@ -109,6 +110,26 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
         const redos = gameManager.stateManager.redos;
         const index = redos.length - i - 1;
         return redos[index].revision - (redos[index].revisionOffset || 0);
+    }
+
+    undo(index: number, force: boolean = false) {
+        if (!force && this.undoConfirm != 'undo-' + index) {
+            this.undoConfirm = 'undo-' + index;
+        } else {
+            gameManager.stateManager.fixedUndo(this.undoArray.length - index);
+        }
+    }
+
+    redo(index: number, force: boolean = false) {
+        if (!force && this.undoConfirm != 'redo-' + index) {
+            this.undoConfirm = 'redo-' + index;
+        } else {
+            gameManager.stateManager.fixedRedo(index + 1);
+        }
+    }
+
+    cancelConfirm() {
+        this.undoConfirm = "";
     }
 
     clearUndos() {

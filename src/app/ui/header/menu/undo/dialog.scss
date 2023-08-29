@@ -79,6 +79,10 @@
                 filter: var(--ghs-filter-gray);
             }
 
+            &.confirm {
+                filter: var(--ghs-filter-yellow);
+            }
+
             &.disabled {
                 pointer-events: none;
             }
