@@ -111,7 +111,7 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
       if (gameManager.scenarioManager.isLocked(scenarioData)) {
         this.dialog.open(ScenarioRequirementsComponent, {
           panelClass: 'dialog',
-          data: scenarioData
+          data: { scenarioData: scenarioData }
         })
       } else {
         gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));

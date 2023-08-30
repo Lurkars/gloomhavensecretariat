@@ -48,6 +48,9 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   items: (ItemData | undefined)[] = [];
   itemIdentifier: CountIdentifier[] = [];
   itemEdition: string = "";
+  partyAchievements: { label: string, value: string }[] = [];
+  globalAchievements: { label: string, value: string }[] = [];
+  campaignStickers: { label: string, value: string }[] = [];
 
   fhSheet: boolean = false;
   csSheet: boolean = false;
@@ -465,10 +468,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   scenarioRequirements(scenarioData: ScenarioData) {
-    this.dialog.open(ScenarioRequirementsComponent, {
-      panelClass: 'dialog',
-      data: scenarioData
-    })
+    if (gameManager.scenarioManager.isLocked(scenarioData)) {
+      this.dialog.open(ScenarioRequirementsComponent, {
+        panelClass: 'dialog',
+        data: { scenarioData: scenarioData, hideMenu: true }
+      })
+    }
   }
 
 
@@ -533,6 +538,13 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       this.party.townGuardDeck = this.townGuardDeck.toModel();
     }
 
+    if (campaign && campaign.campaignStickers) {
+      this.campaignStickers = campaign.campaignStickers.map((sticker) => {
+        sticker = sticker.split(':')[0];
+        return { label: settingsManager.getLabel('data.campaignSticker.' + sticker), value: sticker };
+      });
+    }
+
     this.calendarSheet = Math.floor(this.party.weeks / 81);
     this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && Object.keys(figure.progress.loot).some((type) => figure.progress.loot[type as LootType])).map((figure) => figure as Character);
 
@@ -558,8 +570,23 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
     if (gameManager.game.edition) {
       const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.game.edition);
-      if (editionData && editionData.worldMap)
-        this.worldMap = true;
+      if (editionData) {
+        if (editionData.worldMap) {
+          this.worldMap = true;
+        }
+        if (editionData.label && editionData.label[settingsManager.settings.locale] && editionData.label[settingsManager.settings.locale].partyAchievements) {
+          this.partyAchievements = Object.keys(editionData.label[settingsManager.settings.locale].partyAchievements).map((achievement) => { return { label: editionData.label[settingsManager.settings.locale].partyAchievements[achievement], value: achievement } });
+        } else if (editionData.label && editionData.label['en'] && editionData.label['en'].partyAchievements) {
+          this.partyAchievements = Object.keys(editionData.label['en'].partyAchievements).map((achievement) => { return { label: editionData.label['en'].partyAchievements[achievement], value: achievement } });
+        }
+
+
+        if (editionData.label && editionData.label[settingsManager.settings.locale] && editionData.label[settingsManager.settings.locale].globalAchievements) {
+          this.globalAchievements = Object.keys(editionData.label[settingsManager.settings.locale].globalAchievements).map((achievement) => { return { label: editionData.label[settingsManager.settings.locale].globalAchievements[achievement], value: achievement } });
+        } else if (editionData.label && editionData.label['en'] && editionData.label['en'].globalAchievements) {
+          this.globalAchievements = Object.keys(editionData.label['en'].globalAchievements).map((achievement) => { return { label: editionData.label['en'].globalAchievements[achievement], value: achievement } });
+        }
+      }
     }
 
     this.itemIdentifier = this.party.unlockedItems.filter((identifier) => !this.itemEdition || identifier.edition == this.itemEdition).sort((a, b) => {

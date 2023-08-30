@@ -1,5 +1,6 @@
 .party-sheet-dialog {
   position: relative;
+  font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
 
   .container {
     display: flex;
@@ -247,6 +248,7 @@
         }
 
         .form {
+          position: relative;
           display: flex;
           font-family: var(--ghs-font-text);
           align-items: center;
@@ -1386,7 +1388,7 @@
 
             img.ghs-svg.solo {
               filter: none;
-              height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+              height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
             }
 
             span:nth-child(2),
@@ -1398,6 +1400,7 @@
               cursor: pointer;
               display: flex;
               align-items: center;
+              margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
               img.manual {
                 height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
@@ -1405,6 +1408,7 @@
 
               img.remove {
                 filter: var(--ghs-filter-red) var(--ghs-filter-shadow);
+                height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
                 display: none;
               }
 

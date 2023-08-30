@@ -72,7 +72,7 @@
                   </div>
                 </div>
                 <div class="form">
-                  <input type="text" #partyAchievementInput (change)="addAchievement(partyAchievementInput)"
+                  <input type="text" #partyAchievementInput [autofill]="partyAchievements" [spoiler]="true"
                     [ghs-label]="'party.addPartyAchievement'" [ghs-label-attribute]="'placeholder'"
                     (keyup.enter)="addAchievement(partyAchievementInput)">
                   <a class="addScenario" [ghs-label]="'party.addPartyAchievement'" [ghs-label-attribute]="'title'"
@@ -358,8 +358,9 @@
         <div class="campaign-stickers">
           <form class="header" (submit)="addCampaignSticker(campaignSticker)">
             <label><span [ghs-label]="'party.campaign.sheet.campaignStickers'"></span></label>
-            <input type="text" #campaignSticker [ghs-label]="'party.campaign.sheet.campaignStickers'"
-              [ghs-label-attribute]="'placeholder'">
+            <input type="text" #campaignSticker [autofill]="campaignStickers"
+              [ghs-label]="'party.campaign.sheet.campaignStickers'" [ghs-label-attribute]="'placeholder'"
+              (keyup.enter)="addCampaignSticker(campaignSticker)">
             <img src="./assets/images/plus.svg" (click)="addCampaignSticker(campaignSticker)">
           </form>
           <div class="stickers">
@@ -444,7 +445,7 @@
               <span class="scenario-title"
                 [ngClass]="{'blocked' : gameManager.scenarioManager.isBlocked(scenarioData), 'locked' : !gameManager.scenarioManager.isBlocked(scenarioData) && gameManager.scenarioManager.isLocked(scenarioData)}"
                 [ghsTooltip]="gameManager.scenarioManager.isBlocked(scenarioData) ? 'scenario.blocked' : (gameManager.scenarioManager.isLocked(scenarioData) ? 'scenario.locked'  : '')"
-                [toggable]="false">
+                [toggable]="false" (click)="scenarioRequirements(scenarioData)">
                 <img
                   *ngIf="gameManager.scenarioManager.isBlocked(scenarioData) || gameManager.scenarioManager.isLocked(scenarioData)"
                   src="./assets/images/close.svg">
@@ -452,6 +453,10 @@
               </span>
               <span>
                 <span class="spacer"></span>
+                <a class="toggle-manual" [ghs-label]="'party.campaign.scenarios.removeManual'"
+                  [ghs-label-attribute]="'title'" (click)="removeManual(scenarioData)"
+                  *ngIf="isManual(scenarioData) && countFinished(scenarioData) < 1"><img class="manual"
+                    src="./assets/images/hint.svg"><img class="remove" src="./assets/images/close.svg"></a>
                 <span *ngIf="gameManager.scenarioManager.isLocked(scenarioData)"
                   (click)="scenarioRequirements(scenarioData)" class="locked" [ghsTooltip]="'scenario.locked'"><img
                     class="ghs-svg" src="./assets/images/warning.svg"></span>
@@ -468,11 +473,6 @@
                     [ghs-label-attribute]="'title'" (click)="removeSuccess(scenarioData, true)"><img class="success"
                       src="./assets/images/check.svg"><img class="remove" src="./assets/images/close.svg"></a>
                 </span>
-                <a class="toggle-manual" [ghs-label]="'party.campaign.scenarios.removeManual'"
-                  [ghs-label-attribute]="'title'" (click)="removeManual(scenarioData)"
-                  *ngIf="isManual(scenarioData) && countFinished(scenarioData) < 1"><img class="manual"
-                    src="./assets/images/hint.svg"><img class="remove" src="./assets/images/close.svg"></a>
-                <span class="spacer"></span>
                 <a class="add-success"
                   [ghs-label]="gameManager.scenarioManager.isBlocked(scenarioData) ? 'scenario.blocked' : (gameManager.scenarioManager.isLocked(scenarioData) ? 'scenario.locked' : 'party.campaign.scenarios.addSuccess')"
                   [ghs-label-attribute]="'title'" ghs-pointer-input (singleClick)="addSuccess(scenarioData)"
@@ -510,7 +510,8 @@
                 </span>
                 <span class="scenario-title">
                   <span *ngIf="scenarioData.named" [ghs-label]="'data.scenario.' + scenarioData.name"></span>
-                  <span *ngIf="!scenarioData.named && scenarioData.parent" [ghs-label]="'%data.scenarioNumber:' + scenarioData.parent + '%'"></span>
+                  <span *ngIf="!scenarioData.named && scenarioData.parent"
+                    [ghs-label]="'%data.scenarioNumber:' + scenarioData.parent + '%'"></span>
                 </span>
                 <span>
                   <span class="spacer"></span>
@@ -585,7 +586,7 @@
                 </div>
               </div>
               <div class="form">
-                <input type="text" #globalAchievementInput (change)="addGlobalAchievement(globalAchievementInput)"
+                <input type="text" #globalAchievementInput [autofill]="globalAchievements"
                   [ghs-label]="'party.addGlobalAchievement'" [ghs-label-attribute]="'placeholder'"
                   (keyup.enter)="addGlobalAchievement(globalAchievementInput)">
                 <a class="addScenario" [ghs-label]="'party.addGlobalAchievement'" [ghs-label-attribute]="'title'"

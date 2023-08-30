@@ -1,4 +1,12 @@
 import { TestBed } from '@angular/core/testing';
+
+import { BrowserModule } from '@angular/platform-browser';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DialogModule } from '@angular/cdk/dialog';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { FormsModule } from '@angular/forms';
+import { InViewportModule } from 'ng-in-viewport';
+
 import { AppComponent } from './app.component';
 import { CharacterComponent } from './ui/figures/character/character';
 import { CharacterSummonDialog } from './ui/figures/character/dialogs/summondialog';
@@ -20,6 +28,7 @@ import { ElementComponent } from './ui/header/element/element';
 import { HeaderComponent } from './ui/header/header';
 import { MainMenuComponent } from './ui/header/menu/menu';
 import { SettingsMenuComponent } from './ui/header/menu/settings/settings';
+import { CampaignMenuComponent } from './ui/header/menu/campaign/campaign';
 import { CardRevealDirective } from './ui/helper/CardReveal';
 import { GhsCeilPipe, GhsFloorPipe, GhsRangePipe, GhsScenarioSearch, GhsValueSignPipe } from './ui/helper/Pipes';
 import { MainComponent } from './ui/main';
@@ -44,6 +53,7 @@ import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-s
 import { ScenarioComponent } from './ui/footer/scenario/scenario';
 import { PartySheetComponent } from './ui/header/party/party-sheet';
 import { PartySheetDialogComponent } from './ui/header/party/party-sheet-dialog';
+import { AutofillDirective } from './ui/helper/autofill';
 import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/autoscroll';
 import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
@@ -83,40 +93,39 @@ import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackm
 import { LootApplyDialogComponent } from './ui/figures/loot/loot-apply-dialog';
 import { EntitiesMenuDialogComponent } from './ui/figures/entities-menu/entities-menu-dialog';
 import { CharacterMenuComponent } from './ui/header/menu/character/character';
+import { MonsterMenuComponent } from './ui/header/menu/monster/monster';
 import { GhsTooltipComponent, GhsTooltipDirective } from './ui/helper/tooltip/tooltip';
 import { ScenarioDialogComponent } from './ui/footer/scenario/dialog/scenario-dialog';
 import { ScenarioSummaryComponent } from './ui/footer/scenario/summary/scenario-summary';
 import { SectionDialogComponent } from './ui/footer/scenario/section/section-dialog';
 import { CharacterLootCardsDialog } from './ui/figures/character/dialogs/loot-cards';
-import { PerkLabelComponent } from './ui/figures/attackmodifier/perk/label';
 import { CharacterMoveResourcesDialog } from './ui/figures/character/sheet/move-resources';
+import { CharacterSheetComponent } from './ui/figures/character/sheet/character-sheet';
+import { PerkLabelComponent } from './ui/figures/attackmodifier/perk/label';
 import { PartyWeekDialogComponent } from './ui/header/party/week-dialog/week-dialog';
 import { CharacterItemsComponent } from './ui/figures/items/items';
+import { ItemsBrewDialog } from './ui/figures/items/brew/brew';
 import { PartyBuildingsComponent } from './ui/header/party/buildings/buildings';
 import { ScenarioTreasuresDialogComponent } from './ui/footer/scenario/treasures/treasures-dialog';
 import { TreasureLabelComponent } from './ui/footer/scenario/treasures/label/label';
 import { StatsListComponent } from './ui/footer/scenario/dialog/stats-list/stats-list';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { DragDropModule } from '@angular/cdk/drag-drop';
-import { DialogModule } from '@angular/cdk/dialog';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { PointerInputDirective } from './ui/helper/pointer-input';
-import { ScenarioConclusionComponent } from './ui/footer/scenario/scenario-conclusion/scenario-conclusion';
-import { EventEffectsDialog } from './ui/figures/character/event-effects/event-effects';
-import { CharacterSheetComponent } from './ui/figures/character/sheet/character-sheet';
 import { KeyboardShortcuts } from './ui/helper/keyboard-shortcuts';
-import { InViewportModule } from 'ng-in-viewport';
+import { ScenarioConclusionComponent } from './ui/footer/scenario/scenario-conclusion/scenario-conclusion';
 import { SelectResourcesDialog } from './ui/header/party/buildings/select-resources/select-resources';
-import { MonsterMenuComponent } from './ui/header/menu/monster/monster';
-import { CampaignMenuComponent } from './ui/header/menu/campaign/campaign';
-import { ItemsBrewDialog } from './ui/figures/items/brew/brew';
+import { EventEffectsDialog } from './ui/figures/character/event-effects/event-effects';
+import { PointerInputDirective } from './ui/helper/pointer-input';
 import { StandeeComponent } from './ui/figures/standee/standee';
-import { WorldMapComponent } from './ui/header/party/world-map/world-map';
-import { ScenarioRequirementsComponent } from './ui/header/party/requirements/requirements';
 import { BattleGoalComponent } from './ui/figures/battlegoal/battlegoal';
 import { CharacterBattleGoalsDialog } from './ui/figures/battlegoal/dialog/battlegoal-dialog';
 import { BattleGoalSetupDialog } from './ui/figures/battlegoal/setup/battlegoal-setup';
+import { ScenarioRequirementsComponent } from './ui/header/party/requirements/requirements';
+import { WorldMapComponent } from './ui/header/party/world-map/world-map';
+import { ObjectiveContainerComponent } from './ui/figures/objective-container/objective-container';
+import { ItemComponent } from './ui/figures/items/item/item';
+import { ItemsDialogComponent } from './ui/figures/items/dialog/items-dialog';
+import { ItemsCharacterDialogComponent } from './ui/figures/items/character/items-character-dialog';
+import { ItemDialogComponent } from './ui/figures/items/dialog/item-dialog';
+import { TreasuresDialogComponent } from './ui/header/party/treasures/treasures-dialog';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -125,7 +134,7 @@ describe('AppComponent', () => {
         AppComponent,
         MainComponent,
         HeaderComponent, ElementIconComponent, ElementComponent,
-        PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, SelectResourcesDialog, ScenarioRequirementsComponent,
+        PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, SelectResourcesDialog, ScenarioRequirementsComponent, TreasuresDialogComponent,
         MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, CampaignMenuComponent,
         FooterComponent,
         LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
@@ -135,8 +144,8 @@ describe('AppComponent', () => {
         ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, StatsListComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent, EventEffectsDialog,
         ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
         EntityMenuDialogComponent, EntitiesMenuDialogComponent,
-        CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
-        ObjectiveComponent,
+        CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, ItemComponent, ItemDialogComponent, ItemsDialogComponent, ItemsCharacterDialogComponent, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
+        ObjectiveComponent, ObjectiveContainerComponent,
         SummonEntityComponent, SummonSheetComponent,
         StandeeComponent,
         MonsterComponent,
@@ -147,7 +156,7 @@ describe('AppComponent', () => {
         AbilityComponent, AbiltiesDialogComponent, AbilityDialogComponent,
         ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,
         FigureErrorsComponent, FigureErrorsDialogComponent,
-        CardRevealDirective, EntityAnimationDirective, GhsLabelDirective, ValueCalcDirective, PointerInputDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
+        CardRevealDirective, EntityAnimationDirective, GhsLabelDirective, ValueCalcDirective, PointerInputDirective, AutofillDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
         GhsValueSignPipe, GhsRangePipe, GhsScenarioSearch, GhsFloorPipe, GhsCeilPipe,
         AttackModifierToolComponent, TreasuresToolComponent, DecksToolComponent,
         EditionEditorComponent,

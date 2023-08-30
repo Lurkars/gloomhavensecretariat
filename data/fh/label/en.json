@@ -127,6 +127,26 @@
       }
     }
   },
+  "campaignSticker": {
+    "brummix": "Brummix",
+    "bug-in-a-jar": "Bug in a Jar",
+    "charged-core": "Charged Core",
+    "coral-shard": "Coral Shard",
+    "crown-united": "Crown United",
+    "destroyer-of-the-icespeakers": "Destroyer of the Icespeakers",
+    "destroyer-of-the-snowspeakers": "Destroyer of the Snowspeakers",
+    "empty-jar": "Empty Jar",
+    "firepepper": "Firepepper",
+    "friend-of-the-fish-king": "Friend of the Fish King",
+    "friend-of-the-frostspeakers": "Friend of the Frostspeaker",
+    "friend-of-the-icespeakers": "Friend of the Icespeakers",
+    "friend-of-the-snowspeakers": "Friend of the Snowspeakers",
+    "into-the-forest": "Into the Forest",
+    "shard-seeker": "Shard Seeker",
+    "uncharged-core": "Uncharged Core",
+    "unfettered-allies": "Unfettered Allies",
+    "unfettered-deactivated": "Unfettered Deactivated"
+  },
   "battleGoals": {
     "1301": {
       ".": "Accountant",

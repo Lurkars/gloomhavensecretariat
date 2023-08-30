@@ -34,16 +34,25 @@ export class ScenarioRequirementsComponent {
     solo: string = "";
     missingRequirements: ScenarioMissingRequirements[] = [];
     all: boolean = false;
+    scenarioData: ScenarioData;
+    hideMenu: boolean = false;
+    hideAll: boolean = false;
 
-    constructor(@Inject(DIALOG_DATA) public scenarioData: ScenarioData, private dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) public data: { scenarioData: ScenarioData, hideMenu: boolean }, private dialogRef: DialogRef) {
+        this.scenarioData = data.scenarioData;
+        this.hideMenu = data.hideMenu || false;
         this.update();
     }
 
     update() {
-        this.missingRequirements = [];
+        this.missingRequirements = this.getRequirements(this.all);
         this.solo = "";
+        this.hideAll = !this.all && JSON.stringify(this.getRequirements(true)) == JSON.stringify(this.missingRequirements);
+    }
 
-        if (this.scenarioData.solo && (this.all || !gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == this.scenarioData.solo && figure.level >= 5))) {
+    getRequirements(all: boolean = false): ScenarioMissingRequirements[] {
+        let missingRequirements: ScenarioMissingRequirements[] = [];
+        if (this.scenarioData.solo && (all || !gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == this.scenarioData.solo && figure.level >= 5))) {
             this.solo = this.scenarioData.solo;
         }
 
@@ -54,7 +63,7 @@ export class ScenarioRequirementsComponent {
                 if (requirement.global) {
                     requirement.global.forEach((achievement) => {
                         if (achievement.startsWith('!')) {
-                            if (this.all || gameManager.game.party.globalAchievementsList.find((globalAchievement) => globalAchievement.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim())) {
+                            if (all || gameManager.game.party.globalAchievementsList.find((globalAchievement) => globalAchievement.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim())) {
                                 missingRequirement.globalAchievementsMissing.push(achievement.substring(1, achievement.length));
                                 add = true;
                             }
@@ -65,11 +74,11 @@ export class ScenarioRequirementsComponent {
                                     count--;
                                 }
                             })
-                            if (this.all || count > 0) {
+                            if (all || count > 0) {
                                 missingRequirement.globalAchievementsCount.push({ name: achievement.split(':')[0], count: count, required: +achievement.split(':')[1] });
                                 add = true;
                             }
-                        } else if (this.all || !gameManager.game.party.globalAchievementsList.find((globalAchievement) => globalAchievement.toLowerCase().trim() == achievement.toLowerCase().trim())) {
+                        } else if (all || !gameManager.game.party.globalAchievementsList.find((globalAchievement) => globalAchievement.toLowerCase().trim() == achievement.toLowerCase().trim())) {
                             missingRequirement.globalAchievements.push(achievement);
                             add = true;
                         }
@@ -79,7 +88,7 @@ export class ScenarioRequirementsComponent {
                 if (requirement.party) {
                     requirement.party.forEach((achievement) => {
                         if (achievement.startsWith('!')) {
-                            if (this.all || gameManager.game.party.achievementsList.find((partyAchievement) => partyAchievement.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim())) {
+                            if (all || gameManager.game.party.achievementsList.find((partyAchievement) => partyAchievement.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim())) {
                                 missingRequirement.partyAchievementsMissing.push(achievement.substring(1, achievement.length));
                                 add = true;
                             }
@@ -94,7 +103,7 @@ export class ScenarioRequirementsComponent {
                                 missingRequirement.partyAchievementsCount.push({ name: achievement.split(':')[0], count: count, required: +achievement.split(':')[1] });
                                 add = true;
                             }
-                        } else if (this.all || !gameManager.game.party.achievementsList.find((partyAchievement) => partyAchievement.toLowerCase().trim() == achievement.toLowerCase().trim())) {
+                        } else if (all || !gameManager.game.party.achievementsList.find((partyAchievement) => partyAchievement.toLowerCase().trim() == achievement.toLowerCase().trim())) {
                             missingRequirement.partyAchievements.push(achievement);
                             add = true;
                         }
@@ -104,7 +113,7 @@ export class ScenarioRequirementsComponent {
                 if (requirement.campaignSticker) {
                     requirement.campaignSticker.forEach((achievement) => {
                         if (achievement.startsWith('!')) {
-                            if (this.all || gameManager.game.party.campaignStickers.find((campaignSticker) => campaignSticker.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim())) {
+                            if (all || gameManager.game.party.campaignStickers.find((campaignSticker) => campaignSticker.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim())) {
                                 missingRequirement.campaignStickersMissing.push(achievement.substring(1, achievement.length));
                                 add = true;
                             }
@@ -119,7 +128,7 @@ export class ScenarioRequirementsComponent {
                                 missingRequirement.campaignStickersCount.push({ name: achievement.split(':')[0], count: count, required: +achievement.split(':')[1] });
                                 add = true;
                             }
-                        } else if (this.all || !gameManager.game.party.campaignStickers.find((campaignSticker) => campaignSticker.toLowerCase().trim() == achievement.toLowerCase().trim())) {
+                        } else if (all || !gameManager.game.party.campaignStickers.find((campaignSticker) => campaignSticker.toLowerCase().trim() == achievement.toLowerCase().trim())) {
                             missingRequirement.campaignStickers.push(achievement);
                             add = true;
                         }
@@ -129,17 +138,17 @@ export class ScenarioRequirementsComponent {
                 if (requirement.buildings) {
                     requirement.buildings.forEach((achievement) => {
                         if (achievement.startsWith('!')) {
-                            if (this.all || gameManager.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim() && buildingModel.level > 0)) {
+                            if (all || gameManager.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim() && buildingModel.level > 0)) {
                                 missingRequirement.buildingsMissing.push(achievement.substring(1, achievement.length));
                                 add = true;
                             }
                         } else if (achievement.indexOf(':') != -1) {
                             let level = +achievement.split(':')[1];
-                            if (this.all || !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.split(':')[0].toLowerCase().trim() && buildingModel.level >= level)) {
+                            if (all || !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.split(':')[0].toLowerCase().trim() && buildingModel.level >= level)) {
                                 missingRequirement.buildingsLevel.push({ name: achievement.split(':')[0], level: level });
                                 add = true;
                             }
-                        } else if (this.all || !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.toLowerCase().trim() && buildingModel.level > 0)) {
+                        } else if (all || !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.toLowerCase().trim() && buildingModel.level > 0)) {
                             missingRequirement.buildings.push(achievement);
                             add = true;
                         }
@@ -147,10 +156,12 @@ export class ScenarioRequirementsComponent {
                 }
 
                 if (add) {
-                    this.missingRequirements.push(missingRequirement);
+                    missingRequirements.push(missingRequirement);
                 }
             });
         }
+
+        return missingRequirements;
     }
 
     startScenario() {

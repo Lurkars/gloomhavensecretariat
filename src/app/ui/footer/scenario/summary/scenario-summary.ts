@@ -122,7 +122,7 @@ export class ScenarioSummaryComponent {
 
         gameManager.stateManager.scenarioSummary = true;
 
-        if (!gameManager.game.finish && !this.conclusionOnly) {
+        if (!gameManager.game.finish && !this.conclusionOnly && !this.rewardsOnly) {
             gameManager.stateManager.before("finishScenario.dialog", ...gameManager.scenarioManager.scenarioUndoArgs());
             this.updateFinish();
             gameManager.stateManager.after();
@@ -132,7 +132,7 @@ export class ScenarioSummaryComponent {
 
         this.dialogRef.closed.subscribe({
             next: () => {
-                if (gameManager.stateManager.scenarioSummary && !this.conclusionOnly) {
+                if (gameManager.stateManager.scenarioSummary && !this.conclusionOnly && !this.rewardsOnly) {
                     gameManager.stateManager.before("finishScenario.close", ...gameManager.scenarioManager.scenarioUndoArgs());
                     gameManager.stateManager.scenarioSummary = false;
                     gameManager.game.finish = undefined;

@@ -317,7 +317,7 @@ export class ScenarioManager {
           })
         }
 
-        if (success && (!gameManager.game.party.campaignMode || !characterProgress && !conclusionSection)) {
+        if (success && (!gameManager.game.party.campaignMode || !gainRewards && !conclusionSection)) {
           this.game.party.casualScenarios.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, scenario.custom, scenario.custom ? scenario.name : "", scenario.revealedRooms));
         }
 
