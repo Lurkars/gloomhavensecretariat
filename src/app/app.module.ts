@@ -126,6 +126,7 @@ import { ItemsDialogComponent } from './ui/figures/items/dialog/items-dialog';
 import { ItemsCharacterDialogComponent } from './ui/figures/items/character/items-character-dialog';
 import { ItemDialogComponent } from './ui/figures/items/dialog/item-dialog';
 import { TreasuresDialogComponent } from './ui/header/party/treasures/treasures-dialog';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class GhsErrorHandler extends ErrorHandler {
@@ -180,7 +181,7 @@ export class GhsErrorHandler extends ErrorHandler {
     DragDropModule,
     DialogModule,
     InViewportModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: true, registrationStrategy: 'registerImmediately' })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production, registrationStrategy: 'registerImmediately' })
   ],
   providers: [
     {

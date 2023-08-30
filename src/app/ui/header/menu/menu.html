@@ -14,9 +14,8 @@
           [ghs-label-args]="(undoInfo | slice:1:undoInfo.length)" [ghs-label-empty]="true"></span>
       </a>
 
-      <span class="undo-dialog"
-        [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission && !gameManager.stateManager.redoPermission || gameManager.stateManager.undos.length == 0 && gameManager.stateManager.redos.length == 0}"
-        (click)="openUndoDialog($event)"><img class="ghs-svg" src="./assets/images/long-rest.svg"></span>
+      <span class="undo-dialog" (click)="openUndoDialog($event)"><img class="ghs-svg"
+          src="./assets/images/long-rest.svg"></span>
 
       <a class="state redo"
         [ngClass]="{'disabled' :!gameManager.stateManager.redoPermission  || gameManager.stateManager.redos.length == 0}"
@@ -185,7 +184,8 @@
         <span [ghs-label]="(objective.escort ? 'escort' : 'objective')"></span>
         <span *ngIf="objective.name">)</span>
         <span class="spacer"></span>
-        <span class="objective-marker" *ngIf="gameManager.isObjective(objective)">{{gameManager.toObjective(objective).id + 1}}</span>
+        <span class="objective-marker"
+          *ngIf="gameManager.isObjective(objective)">{{gameManager.toObjective(objective).id + 1}}</span>
       </a>
     </div>
   </div>

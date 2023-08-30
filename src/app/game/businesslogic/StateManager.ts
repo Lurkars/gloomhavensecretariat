@@ -191,7 +191,6 @@ export class StateManager {
 
           if (message.revision != undefined) {
             const undoRevision = message.revision || 0;
-            const undolength = message.undolength || 0;
             let undoCount = 0;
             let undoGame = gameManager.stateManager.undos.splice(gameManager.stateManager.undos.length - 1, 1)[0];
             if (undoGame && undoGame.revision - (undoGame.revisionOffset || 0) > undoRevision) {
@@ -209,11 +208,6 @@ export class StateManager {
               gameManager.stateManager.undoInfos.splice(gameManager.stateManager.undos.length - gameManager.stateManager.redos.length, 0, message.undoinfo ? (message.undoinfo[0] == 'serverSync' ? message.undoinfo : ['serverSync', ...message.undoinfo]) : ['serverSync']);
             }
             gameManager.stateManager.redos.splice(gameManager.stateManager.redos.length - undoCount, 0, gameManager.game.toModel());
-
-            if (undolength) {
-              // TODO
-            }
-
           } else {
             gameManager.stateManager.redos.push(gameManager.game.toModel());
             const undoGame = gameManager.stateManager.undos[gameManager.stateManager.undos.length - 1];
@@ -241,12 +235,13 @@ export class StateManager {
 
           if (message.revision != undefined) {
             const redoRevision = message.revision || 0;
-            const redolength = message.undolength || 0;
             let redoCount = 0;
             let redoGame = gameManager.stateManager.redos.splice(gameManager.stateManager.redos.length - 1, 1)[0];
             if (redoGame && redoGame.revision - (redoGame.revisionOffset || 0) < redoRevision) {
               gameManager.stateManager.undos.push(redoGame);
               redoCount++;
+            } else if (redoGame && redoGame.revision - (redoGame.revisionOffset || 0) > redoRevision) {
+              gameManager.stateManager.redos.push(redoGame);
             }
             while (redoGame && redoGame.revision - (redoGame.revisionOffset || 0) < redoRevision) {
               redoGame = gameManager.stateManager.redos.splice(gameManager.stateManager.redos.length - 1, 1)[0];
@@ -256,11 +251,7 @@ export class StateManager {
               }
             }
             if (!redoGame || redoGame.revision - (redoGame.revisionOffset || 0) != redoRevision) {
-              gameManager.stateManager.undoInfos.splice(gameManager.stateManager.undos.length - gameManager.stateManager.redos.length, 0, message.undoinfo ? (message.undoinfo[0] == 'serverSync' ? message.undoinfo : ['serverSync', ...message.undoinfo]) : ['serverSync']);
-            }
-
-            if (redolength) {
-              // TODO
+              gameManager.stateManager.undoInfos.splice(gameManager.stateManager.undos.length + redoCount, 0, message.undoinfo ? (message.undoinfo[0] == 'serverSync' ? message.undoinfo : ['serverSync', ...message.undoinfo]) : ['serverSync']);
             }
             gameManager.stateManager.undos.splice(gameManager.stateManager.undos.length - redoCount, 0, gameManager.game.toModel());
           } else {
@@ -684,13 +675,13 @@ export class StateManager {
   }
 
   clearUndos() {
-    this.undoInfos.splice(0, this.undos.length);
+    this.undoInfos.splice(0, this.undoInfos.length - this.redos.length);
     this.undos = [];
     this.saveStorage();
   }
 
   clearRedos() {
-    this.undoInfos.splice(this.undos.length, this.redos.length + 1);
+    this.undoInfos.splice(this.undos.length, this.undoInfos.length);
     this.redos = [];
     this.saveStorage();
   }

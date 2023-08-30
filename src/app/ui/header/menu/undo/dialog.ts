@@ -137,6 +137,7 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
             this.confirm = "clearUndos";
         } else {
             this.undoArray = [];
+            this.undoOffset = 0;
             gameManager.stateManager.clearUndos();
         }
     }

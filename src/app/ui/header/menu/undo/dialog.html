@@ -26,9 +26,9 @@
                         [ghs-label-args]="(getRedoInfo(i) | slice:1:getRedoInfo(i).length)"
                         [ghs-label-empty]="true"></span>
                     <span class="spacer"></span>
-                    <span>{{gameManager.stateManager.redos[i].revision}} -
-                        {{gameManager.stateManager.redos[i].revisionOffset}} -
-                        {{gameManager.stateManager.redos[i].revision - gameManager.stateManager.redos[i].revisionOffset}}</span>
+                    <span>{{gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1].revision}} -
+                        {{gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1].revisionOffset}} -
+                        {{gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1].revision - gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1].revisionOffset}}</span>
                 </span>
                 <span class="warning" *ngIf="i > 0 && getRedoRevision(i) - getRedoRevision(i-1) != 1">
                     <img src="./assets/images/warning.svg">
