@@ -86,6 +86,10 @@
             &.disabled {
                 pointer-events: none;
             }
+
+            .debug {
+                display: none;
+            }
         }
 
         &.current {

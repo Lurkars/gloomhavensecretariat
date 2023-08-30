@@ -26,7 +26,7 @@
                         [ghs-label-args]="(getRedoInfo(i) | slice:1:getRedoInfo(i).length)"
                         [ghs-label-empty]="true"></span>
                     <span class="spacer"></span>
-                    <span>{{gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1].revision}} -
+                    <span class="debug">{{gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1].revision}} -
                         {{gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1].revisionOffset}}
                         -
                         {{gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1].revision - gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1].revisionOffset}}</span>
@@ -46,7 +46,7 @@
                     1}}.</span>
                 <span class="info" [ghs-label]="'state.currentGame'"></span>
                 <span class="spacer"></span>
-                <span>{{gameManager.game.revision}} -
+                <span class="debug">{{gameManager.game.revision}} -
                     {{gameManager.game.revisionOffset}} -
                     {{gameManager.game.revision - gameManager.game.revisionOffset}}</span>
             </span>
@@ -79,7 +79,7 @@
                         [ghs-label-args]="(getUndoInfo(i) | slice:1:getUndoInfo(i).length)"
                         [ghs-label-empty]="true"></span>
                     <span class="spacer"></span>
-                    <span>{{i}} {{gameManager.stateManager.undos[i].revision}} -
+                    <span class="debug">{{gameManager.stateManager.undos[i].revision}} -
                         {{gameManager.stateManager.undos[i].revisionOffset}} -
                         {{gameManager.stateManager.undos[i].revision - gameManager.stateManager.undos[i].revisionOffset}}</span>
                 </span>
