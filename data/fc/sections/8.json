@@ -10,8 +10,8 @@
   "rules": [
     {
       "round": "true",
-      "once": true,
       "always": true,
+      "once": true,
       "spawns": [
         {
           "monster": {

@@ -2,8 +2,7 @@ import { Character } from "../model/Character";
 import { MonsterData } from "../model/data/MonsterData";
 import { ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
 import { RoomData } from "../model/data/RoomData";
-import { ScenarioData } from "../model/data/ScenarioData";
-import { ScenarioRewards } from "../model/data/ScenarioRule";
+import { ScenarioData, ScenarioRewards } from "../model/data/ScenarioData";
 import { EntityValueFunction } from "../model/Entity";
 import { Game, GameState } from "../model/Game";
 import { CountIdentifier, Identifier } from "src/app/game/model/data/Identifier";
@@ -624,23 +623,18 @@ export class ScenarioManager {
 
   isBlocked(scenarioData: ScenarioData): boolean {
     let blocked = false;
-    if (scenarioData.blocks) {
-      scenarioData.blocks.forEach((index) => {
-        if (!blocked) {
-          let finishedScenarios = this.game.party.scenarios.filter((model) => model.index == index && (model.edition == scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).indexOf(model.edition) != -1));
 
-          if (finishedScenarios.length > 1) {
-            finishedScenarios.filter((model) => model.group == scenarioData.group);
-          }
+    let finishedScenarios = this.game.party.scenarios.filter((model) => (model.edition == scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).indexOf(model.edition) != -1)).map((scenarioModel) => gameManager.scenarioData(scenarioModel.edition).find((finishedScenario) => finishedScenario.edition == scenarioModel.edition && finishedScenario.group == scenarioModel.group && finishedScenario.index == scenarioModel.index)).filter((finishedScenario) => finishedScenario && finishedScenario.blocks && finishedScenario.blocks.indexOf(scenarioData.index) != -1).map((finishedScenario) => finishedScenario as ScenarioData);
 
-          if (finishedScenarios.length > 1) {
-            finishedScenarios.filter((model) => model.edition == scenarioData.edition);
-          }
-
-          blocked = finishedScenarios.length > 0;
-        }
-      })
+    if (finishedScenarios.length > 1) {
+      finishedScenarios.filter((model) => model.group == scenarioData.group);
     }
+
+    if (finishedScenarios.length > 1) {
+      finishedScenarios.filter((model) => model.edition == scenarioData.edition);
+    }
+
+    blocked = finishedScenarios.length > 0;
 
     return blocked && this.game.party.campaignMode;
   }

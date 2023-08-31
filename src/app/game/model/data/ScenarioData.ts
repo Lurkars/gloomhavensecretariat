@@ -1,11 +1,12 @@
 import { Editional } from "./Editional";
-import { LootDeckConfig } from "./Loot";
+import { LootDeckConfig, LootType } from "./Loot";
 import { Spoilable } from "./Spoilable";
 import { ObjectiveData } from "./ObjectiveData";
 import { RoomData } from "./RoomData";
-import { ScenarioRewards, ScenarioRule } from "./ScenarioRule";
+import { ScenarioRule } from "./ScenarioRule";
 import { GameScenarioModel } from "../Scenario";
 import { Identifier } from "./Identifier";
+import { AttackModifier } from "./AttackModifier";
 
 export class ScenarioData implements Editional, Spoilable {
 
@@ -98,6 +99,78 @@ export class ScenarioRequirement {
   puzzle: string[] | undefined;
   solo: string | undefined;
 
+}
+
+
+export class ScenarioRewards {
+
+  globalAchievements: string[] = [];
+  partyAchievements: string[] = [];
+  lostPartyAchievements: string[] = [];
+  campaignSticker: string[] = [];
+  envelopes: string[] = [];
+  gold: number = 0;
+  experience: number = 0;
+  collectiveGold: number = 0;
+  reputation: number = 0;
+  prosperity: number = 0;
+  perks: number = 0;
+  battleGoals: number = 0;
+  items: string[] = [];
+  chooseItem: string[][] = [];
+  chooseLocation: string[] = [];
+  itemDesigns: string[] = [];
+  events: string[] = [];
+  itemBlueprints: string[] = [];
+  randomItemBlueprint: number = 0;
+  randomItem: string = "";
+  randomItems: string = "";
+  morale: number | string = "";
+  inspiration: number | string = "";
+  resources: { type: LootType, value: number | string }[] = [];
+  collectiveResources: { type: LootType, value: number | string }[] = [];
+  calendarSection: string[] = [];
+  calendarSectionManual: { section: string, hint: string }[] = [];
+  townGuardAm: AttackModifier[] = [];
+  unlockCharacter: string = "";
+  chooseUnlockCharacter: string[] = [];
+  custom: string = "";
+  ignoredBonus: string[] = [];
+  hints: ScenarioRewardHints | undefined = undefined;
+
+}
+
+
+export class ScenarioRewardHints {
+  globalAchievements: string[] = [];
+  partyAchievements: string[] = [];
+  lostPartyAchievements: string[] = [];
+  campaignSticker: string[] = [];
+  envelopes: string[] = [];
+  gold: string = "";
+  experience: string = "";
+  collectiveGold: string = "";
+  reputation: string = "";
+  prosperity: string = "";
+  perks: string = "";
+  battleGoals: string = "";
+  items: string[] = [];
+  chooseItem: string[] = [];
+  chooseLocation: string[] = [];
+  itemDesigns: string[] = [];
+  events: string[] = [];
+  itemBlueprints: string[] = [];
+  randomItemBlueprint: string = "";
+  randomItem: string = "";
+  randomItems: string = "";
+  morale: string = "";
+  inspiration: string = "";
+  resources: string[] = [];
+  collectiveResources: string[] = [];
+  calendarSection: string[] = [];
+  townGuardAm: string[] = [];
+  unlockCharacter: string = "";
+  chooseUnlockCharacter: string[] = [];
 }
 
 export class ScenarioFinish {

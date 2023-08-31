@@ -1,4 +1,5 @@
-import { ScenarioFigureRule, ScenarioRewards } from "./ScenarioRule";
+import { ScenarioRewards } from "./ScenarioData";
+import { ScenarioFigureRule } from "./ScenarioRule";
 
 export class EventCard {
 

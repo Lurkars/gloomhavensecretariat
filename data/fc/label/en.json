@@ -110,6 +110,7 @@
     }
   },
   "partyAchievements": {
+    "A Strongbox": "A Strongbox",
     "Angels of Death": "Angels of Death",
     "Beauty in Freedom": "Beauty in Freedom",
     "Custodians": "Custodians",
@@ -118,6 +119,7 @@
     "Guard Detail": "Guard Detail",
     "Hunted Prey": "Hunted Prey",
     "Hunting the Hunter": "Hunting the Hunter",
+    "Opportunists": "Opportunists",
     "Xangroth's Aid": "Xangroth's Aid"
   },
   "globalAchievements": {

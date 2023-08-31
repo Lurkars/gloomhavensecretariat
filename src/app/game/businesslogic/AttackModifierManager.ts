@@ -1,5 +1,5 @@
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
-import { AttackModifier, AttackModifierDeck, AttackModifierType, defaultAttackModifier, defaultTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
+import { AttackModifier, AttackModifierDeck, AttackModifierType, additionalTownGuardAttackModifier, defaultAttackModifier, defaultTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
 import { Character } from "../model/Character";
 import { CampaignData } from "../model/data/EditionData";
 import { Figure } from "../model/Figure";
@@ -282,6 +282,7 @@ export class AttackModifierManager {
   buildTownGuardAttackModifierDeck(party: Party, campaignData: CampaignData): AttackModifierDeck {
     const defaultTownGuardDeck = defaultTownGuardAttackModifier.map((am) => am.clone());
     const attackModifierDeck = new AttackModifierDeck(defaultTownGuardDeck);
+    attackModifierDeck.attackModifiers.push(...additionalTownGuardAttackModifier);
 
     let perkId = 0;
     campaignData.townGuardPerks.forEach((townGuardPerk) => {

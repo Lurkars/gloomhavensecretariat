@@ -88,6 +88,18 @@
         <a class="icon-button" (click)="changeType()"><img class="ghs-svg" src="./assets/images/right.svg"></a>
         <a class="icon-button" (click)="newShuffle(type)"><img class="ghs-svg" src="./assets/images/shuffle.svg"></a>
       </div>
+
+      <div *ngIf="edit && townGuard" class="insert-menu">
+        <a class="icon-button" (click)="addModifier()"><img class="ghs-svg" src="./assets/images/plus.svg"></a>
+        <a class="icon-button" (click)="changeType(true)"><img class="ghs-svg" src="./assets/images/left.svg"></a>
+        <span class="attack-modifier"><ghs-attackmodifier class="drag-hidden" [attackModifier]="tgAM" [flipped]="true"
+            [newStyle]="true" [characterIcon]="characterIcon" [ally]="ally" [townGuard]="townGuard">
+          </ghs-attackmodifier>
+        </span>
+        <a class="icon-button" (click)="changeType()"><img class="ghs-svg" src="./assets/images/right.svg"></a>
+        <a class="icon-button" (click)="addModifierShuffle()"><img class="ghs-svg"
+            src="./assets/images/shuffle.svg"></a>
+      </div>
     </div>
     <div class="attack-modifiers-container" [style.maxHeight]="maxHeight">
       <div class="upcoming drop-list" cdkDropList [cdkDropListDisabled]="!edit" #upcomingList="cdkDropList"

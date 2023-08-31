@@ -16,9 +16,9 @@
   ],
   "rooms": [
     {
-      "initial": true,
       "roomNumber": 3,
       "ref": "J2b",
+      "initial": true,
       "monster": [
         {
           "name": "living-corpse",

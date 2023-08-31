@@ -84,10 +84,15 @@
     }
   },
   "partyAchievements": {
+    "Accomplished Mercenaries": "Accomplished Mercenaries",
+    "A Potion Lost": "A Potion Lost",
     "Fallen Lava": "Fallen Lava",
     "Follow the Money": "Follow the Money",
     "Frozen Warrior": "Frozen Warrior",
-    "Ooze Destroyed": "Ooze Destroyed"
+    "Inox Alliance": "Inox Alliance",
+    "Oaks Alliance": "Oaks Alliance",
+    "Ooze Destroyed": "Ooze Destroyed",
+    "Take the Money": "Take the Money"
   },
   "custom": {
     "cs": {

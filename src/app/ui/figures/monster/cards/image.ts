@@ -30,9 +30,11 @@ export class MonsterImageComponent {
   }
 
   imageDialog() {
-    this.dialog.open(MonsterImageDialogComponent, {
-      data: this.monster
-    });
+    if (!settingsManager.settings.disableArtwork) {
+      this.dialog.open(MonsterImageDialogComponent, {
+        data: this.monster
+      });
+    }
   }
 
 }

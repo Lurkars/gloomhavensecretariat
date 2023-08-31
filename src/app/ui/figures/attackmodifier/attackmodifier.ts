@@ -37,6 +37,10 @@ export class AttackModifierComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.animate = !this.disableFlip;
+    this.init();
+  }
+
+  init() {
     if (this.attackModifier) {
       this.csOak = this.attackModifier.id.startsWith('cs-oak');
       this.multipe = false;
@@ -80,6 +84,10 @@ export class AttackModifierComponent implements OnInit, OnChanges {
     const flipped = changes['flipped'];
     if (flipped && !this.disableFlip && flipped.currentValue && flipped.currentValue != flipped.previousValue) {
       this.animate = true;
+    }
+    const amChange = changes['attackModifier'];
+    if (amChange && amChange.currentValue && amChange.currentValue != amChange.previousValue) {
+      this.init();
     }
   }
 

@@ -3,16 +3,19 @@
     <img src="./assets/images/close_dialog.svg">
   </a>
   <div class="scroll-container">
-    <div class="header" [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
+    <div class="header"
+      [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
       <div class="image">
         <div class="outer-border">
           <div class="inner-border">
             <div class="image-container">
-              <img *ngIf="!monster.noThumbnail" [src]="gameManager.monsterManager.monsterThumbnail(monster)">
+              <img *ngIf="!monster.noThumbnail && !settingsManager.settings.disableArtwork"
+                [src]="gameManager.monsterManager.monsterThumbnail(monster)">
             </div>
           </div>
         </div>
-        <span class="boss" *ngIf="monster.boss || monster.tags.indexOf('boss') != -1"><img src="./assets/images/monster/enemy.png" /></span>
+        <span class="boss" *ngIf="monster.boss || monster.tags.indexOf('boss') != -1"><img
+            src="./assets/images/monster/enemy.png" /></span>
         <span class="custom" *ngIf="monster.standeeShare">*</span>
       </div>
       <div class="name"><span [ghs-label]="'data.monster.' + monster.name"></span></div>

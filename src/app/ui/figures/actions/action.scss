@@ -945,6 +945,10 @@
     .element-subactions {
       flex-direction: row;
       align-items: center;
+
+      &.action-monster-type {
+        flex-wrap: wrap;
+      }
     }
 
     .action-grid {

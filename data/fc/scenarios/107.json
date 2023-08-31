@@ -2,9 +2,6 @@
   "index": "107",
   "name": "Mechanical Genius",
   "edition": "fc",
-  "rewards": {
-    "experience": 5
-  },
   "requirements": [
     {
       "global": [
@@ -12,6 +9,9 @@
       ]
     }
   ],
+  "rewards": {
+    "experience": 5
+  },
   "rooms": [
     {
       "roomNumber": 1,

@@ -49,7 +49,7 @@ export class AttackModifier {
     if (id) {
       this.id = id;
     } else if (type == AttackModifierType.townguard) {
-      this.id =  'tg-' + valueType + value;
+      this.id = 'tg-' + valueType + value;
     } else {
       this.id = (type != AttackModifierType.plus && type != AttackModifierType.minus) ? type : (type + value);
     }
@@ -154,11 +154,12 @@ export class AttackModifierEffect {
   effects: AttackModifierEffect[];
   icon: boolean = false;
 
-  constructor(type: AttackModifierEffectType, value: string = "", hint: string = "", effects: AttackModifierEffect[] = []) {
+  constructor(type: AttackModifierEffectType, value: string = "", hint: string = "", effects: AttackModifierEffect[] = [], icon: boolean = false) {
     this.type = type;
     this.value = value;
     this.hint = hint;
     this.effects = effects;
+    this.icon = icon;
   }
 }
 
@@ -220,6 +221,27 @@ export const defaultTownGuardAttackModifier: AttackModifier[] = [
   new AttackModifier(AttackModifierType.wreck),
   // 1x success
   new AttackModifier(AttackModifierType.success)
+];
+
+export const additionalTownGuardAttackModifier: AttackModifier[] = [
+  new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default, 'fh-tg-add-plus0'),
+  new AttackModifier(AttackModifierType.townguard, 10, AttackModifierValueType.plus, 'fh-tg-add-plus10'),
+  new AttackModifier(AttackModifierType.townguard, 10, AttackModifierValueType.minus, 'fh-tg-add-minus10'),
+  new AttackModifier(AttackModifierType.townguard, 20, AttackModifierValueType.plus, 'fh-tg-add-plus20'),
+  new AttackModifier(AttackModifierType.townguard, 20, AttackModifierValueType.minus, 'fh-tg-add-minus20'),
+  new AttackModifier(AttackModifierType.wreck, 0, AttackModifierValueType.default, 'fh-tg-add-wreck'),
+  new AttackModifier(AttackModifierType.success, 0, AttackModifierValueType.default, 'fh-tg-add-success'),
+  new AttackModifier(AttackModifierType.townguard, 10, AttackModifierValueType.plus, 'fh-tg-add-plus10-soldier', [new AttackModifierEffect(AttackModifierEffectType.custom,
+    'fh-soldier', '', [], true)], true),
+  new AttackModifier(AttackModifierType.townguard, 20, AttackModifierValueType.plus, 'fh-tg-add-plus20-soldier', [new AttackModifierEffect(AttackModifierEffectType.custom,
+    'fh-soldier', '', [], true)]),
+  new AttackModifier(AttackModifierType.townguard, 30, AttackModifierValueType.plus, 'fh-tg-add-plus30-soldier', [new AttackModifierEffect(AttackModifierEffectType.custom,
+    'fh-soldier', '', [], true)]),
+  new AttackModifier(AttackModifierType.townguard, 10, AttackModifierValueType.plus, 'fh-tg-add-plus10-rolling', [], true),
+  new AttackModifier(AttackModifierType.townguard, 10, AttackModifierValueType.plus, 'fh-tg-add-plus10-advantage', [new AttackModifierEffect(AttackModifierEffectType.custom,
+    'game.custom.advantage')], true),
+  new AttackModifier(AttackModifierType.townguard, 20, AttackModifierValueType.minus, 'fh-tg-add-minus20-resource', [new AttackModifierEffect(AttackModifierEffectType.custom,
+    '+1 material resource')])
 ];
 
 export const CsOakDeckAttackModifier: AttackModifier[] = [

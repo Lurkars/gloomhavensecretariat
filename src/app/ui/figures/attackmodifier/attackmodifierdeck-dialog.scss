@@ -147,6 +147,11 @@
           width: auto;
           border-radius: 5%;
         }
+
+        ghs-attackmodifier {
+          width: calc(var(--ghs-unit) * 19.5 * var(--ghs-dialog-factor));
+          height: calc(var(--ghs-unit) * 13 * var(--ghs-dialog-factor));
+        }
       }
 
       .icon-button {

@@ -328,6 +328,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setDisableArtwork(disableArtwork: boolean) {
+    this.settings.disableArtwork = disableArtwork;
+    this.storeSettings();
+  }
+
   setDisableColumns(disableColumns: boolean) {
     this.settings.disableColumns = disableColumns;
     this.storeSettings();

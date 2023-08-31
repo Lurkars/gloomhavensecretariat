@@ -23,6 +23,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit, OnDestroy {
     treasureIndex: number = -1;
     looted: number[] = [];
     rewardResults: string[][] = [];
+    init: boolean = true;
 
     constructor(dialogRef: DialogRef) {
         if (!gameManager.game.scenario) {
@@ -52,25 +53,35 @@ export class ScenarioTreasuresDialogComponent implements OnInit, OnDestroy {
     update() {
         this.scenario = gameManager.game.scenario || gameManager.scenarioManager.createScenario();
         this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent && gameManager.entityManager.isAlive(figure)).map((figure) => figure as Character);
-        if (!this.character) {
-            this.character = this.characters.find((figure) => figure.active) || this.characters.length > 0 && this.characters[0] || undefined;
-        }
         this.treasures = gameManager.scenarioManager.getTreasures(this.scenario, gameManager.game.sections);
         this.looted = [];
+        let activeIndex = -1;
         this.treasures.forEach((treasure, index) => {
             if (this.looted.indexOf(index) == -1 &&
                 (this.characters.find((character) => gameManager.lootManager.hasTreasure(character, treasure, index)) || gameManager.game.party.treasures.find((identifier) => identifier.name == '' + treasure && identifier.edition == this.scenario.edition))) {
                 this.looted.push(index);
+            } else {
+                activeIndex = index;
             }
         })
+
+        if (this.init && this.treasures.length == this.looted.length + 1 && this.treasureIndex != activeIndex && this.looted.indexOf(activeIndex) == -1) {
+            this.treasureIndex = activeIndex;
+        }
+
+        if (!this.character && this.treasures.length != this.looted.length) {
+            this.character = this.characters.find((figure) => figure.active) || this.characters.length > 0 && this.characters[0] || undefined;
+        }
     }
 
     toggleCharacter(character: Character) {
-        if (this.character != character && this.treasureIndex != -1) {
+        if (this.character != character && this.treasures.length != this.looted.length) {
             this.character = character;
             if (this.treasureIndex != -1 && this.looted.indexOf(this.treasureIndex) != -1) {
                 this.treasureIndex = -1;
             }
+        } else {
+            this.character = undefined;
         }
     }
 
@@ -96,6 +107,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit, OnDestroy {
 
     lootTreasure() {
         if (this.treasureIndex != -1) {
+            this.init = false;
             this.rewardResults = [];
             const treasure = this.treasures[this.treasureIndex];
             if (this.character && treasure && this.character.treasures.indexOf(treasure == 'G' ? 'G-' + this.treasureIndex : treasure) == -1) {

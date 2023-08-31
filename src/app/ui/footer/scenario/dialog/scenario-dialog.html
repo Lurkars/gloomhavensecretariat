@@ -48,7 +48,7 @@
                 <div class="outer-border">
                   <div class="inner-border">
                     <div class="image-container">
-                      <img *ngIf="!monsterData.noThumbnail"
+                      <img *ngIf="!monsterData.noThumbnail || settingsManager.settings.disableArtwork"
                         [src]="gameManager.monsterManager.monsterThumbnail(monsterData)">
                     </div>
                   </div>

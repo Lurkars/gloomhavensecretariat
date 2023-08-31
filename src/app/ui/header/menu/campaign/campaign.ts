@@ -90,7 +90,8 @@ export class CampaignMenuComponent implements OnInit {
 
     openPartySheet() {
         this.dialog.open(PartySheetDialogComponent, {
-            panelClass: ['dialog-invert']
+            panelClass: ['dialog-invert'],
+            data: { partySheet: true }
         });
         this.close.emit();
     }

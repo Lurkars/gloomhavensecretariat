@@ -9,14 +9,14 @@
     "globalAchievements": [
       "A Peril Averted"
     ],
+    "items": [
+      "163"
+    ],
     "hints": {
       "globalAchievements": [
         "(If this is the second \"A Peril Averted\" achievement gained, read section 118 on page 37)"
       ]
-    },
-    "items": [
-      "163"
-    ]
+    }
   },
   "monsters": [
     "earth-demon",

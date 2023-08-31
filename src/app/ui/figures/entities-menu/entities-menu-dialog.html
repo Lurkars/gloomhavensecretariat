@@ -1,7 +1,7 @@
 <div class="entity-menu-dialog">
 
   <div class="name" *ngIf="monster">
-    <img *ngIf="!monster.noThumbnail" class="standee" [src]="gameManager.monsterManager.monsterThumbnail(monster)" />
+    <img *ngIf="!monster.noThumbnail && !settingsManager.settings.disableArtwork" class="standee" [src]="gameManager.monsterManager.monsterThumbnail(monster)" />
     <span [ghs-label]="'data.monster.' + monster.name"></span>&nbsp;
     <span class="ally" *ngIf="monster.isAlly"><span [ghs-label]="'game.ally'"></span>&nbsp;</span>
     <span class="allied" *ngIf="monster.isAllied"><span [ghs-label]="'game.allied'"></span>&nbsp;</span>

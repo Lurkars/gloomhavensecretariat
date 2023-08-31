@@ -706,7 +706,9 @@
       "lootTreasure": {
         ".": "{0} loots treasure {1}?",
         "confirm": "Confirm",
-        "looted": "{0} loots:"
+        "looted": "{0} loots:",
+        "selectCharacter": "Select Character for treasure {0}",
+        "selectTreasure": "Select treasure for {0}"
       },
       "lumber": "Lumber",
       "material_resources": "material",
@@ -888,8 +890,14 @@
   "party": {
     ".": "Party",
     "achievements": "Achievements",
-    "addGlobalAchievement": "Add Global Achievement",
-    "addPartyAchievement": "Add Party Achievement",
+    "addGlobalAchievement": {
+      ".": "Add Global Achievement",
+      "empty": "No matching Global Achievement found"
+    },
+    "addPartyAchievement": {
+      ".": "Add Party Achievement",
+      "empty": "No matching Party Achievement found"
+    },
     "campaign": {
       ".": "Campaign",
       "achievements": "Global Achievements",
@@ -957,7 +965,10 @@
             "hint": "Upgrade Building (force with double-click)"
           }
         },
-        "campaignStickers": "Campaign Stickers",
+        "campaignStickers": {
+          ".": "Campaign Stickers",
+          "empty": "No matching Campaign Sticker found"
+        },
         "defense": "Defense",
         "disable": "Go to Gloomhaven Party Sheet",
         "enable": "Go to Frosthaven Campaign Sheet",
@@ -1092,7 +1103,7 @@
       ".": "Filter Scenario",
       "noResult": "No Result"
     },
-    "filterSuccess": "Show open scenarios only",
+    "filterSuccess": "Only unfinished scenarios",
     "finish": {
       ".": "Finish Scenario",
       "failure": "Failure",
@@ -1529,6 +1540,10 @@
     "disableAnimations": {
       ".": "Disable Animations",
       "hint": "Disable all animations to increase performance"
+    },
+    "disableArtwork": {
+      ".": "Disable Artwork",
+      "hint": "Disable artwork of monsters and characters"
     },
     "disableColumns": {
       ".": "Disable column layout",

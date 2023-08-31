@@ -5,7 +5,7 @@
     <div #standee class="standee">
       <div class="background-image-container">
         <div class="background-image"
-          [style.background-image]="figure.noThumbnail ? '': 'url(' + gameManager.monsterManager.monsterThumbnail(figure) + ')'">
+          [style.background-image]="figure.noThumbnail || settingsManager.settings.disableArtwork ? '': 'url(' + gameManager.monsterManager.monsterThumbnail(figure) + ')'">
         </div>
       </div>
       <span class="number" [ngClass]="{'highlight' : entity.number < 1 && !settingsManager.settings.disableAnimations}">

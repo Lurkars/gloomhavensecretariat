@@ -72,7 +72,7 @@
                     -  getUndoRevision(i) - 1)]"></span>
                 </span>
                 <span class="entry" (click)="undo(i)" (mouseleave)="cancelConfirm()"
-                    [ngClass]="{'confirm': undoConfirm == 'undo-' + i, 'disabled' : i == undoArray.length -1 || !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning)}">
+                    [ngClass]="{'confirm': undoConfirm == 'undo-' + i, 'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning)}">
                     <span class="revision">{{ getUndoRevision(i) + 1}}.</span>
                     <span class="info text-white" *ngIf="getUndoInfo(i).length > 0"
                         [ghs-label]="'state.info.' + getUndoInfo(i)[0]"

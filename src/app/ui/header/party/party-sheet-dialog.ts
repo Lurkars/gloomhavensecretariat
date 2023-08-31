@@ -23,6 +23,7 @@ import { ScenarioRequirementsComponent } from "./requirements/requirements";
 import { WorldMapComponent } from "./world-map/world-map";
 import { ItemDialogComponent } from "../../figures/items/dialog/item-dialog";
 import { TreasuresDialogComponent } from "./treasures/treasures-dialog";
+import { AutocompleteItem } from "../../helper/autocomplete";
 
 @Component({
   selector: 'ghs-party-sheet-dialog',
@@ -40,6 +41,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   priceModifier: number = 0;
   campaign: boolean = false;
 
+  partyEdition: string = "";
   scenarioEditions: string[] = [];
   scenarios: Record<string, ScenarioData[]> = {};
   conclusions: Record<string, ScenarioData[]> = {};
@@ -48,9 +50,10 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   items: (ItemData | undefined)[] = [];
   itemIdentifier: CountIdentifier[] = [];
   itemEdition: string = "";
-  partyAchievements: { label: string, value: string }[] = [];
-  globalAchievements: { label: string, value: string }[] = [];
-  campaignStickers: { label: string, value: string }[] = [];
+  treasureEdition: string = "";
+  partyAchievements: AutocompleteItem[] = [];
+  globalAchievements: AutocompleteItem[] = [];
+  campaignStickers: AutocompleteItem[] = [];
 
   fhSheet: boolean = false;
   csSheet: boolean = false;
@@ -64,12 +67,20 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   @ViewChild('itemIndex') itemIndex!: ElementRef;
   @ViewChild('treasureIndex') treasureIndex!: ElementRef;
 
-  constructor(@Inject(DIALOG_DATA) public data: { campaign: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
+  constructor(@Inject(DIALOG_DATA) public data: { campaign: boolean, partySheet: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
     this.campaign = data && data.campaign;
     this.party = gameManager.game.party;
 
     if (gameManager.game.edition && !this.party.edition) {
       this.party.edition = gameManager.game.edition;
+    }
+
+    if (this.party.edition) {
+      this.partyEdition = this.party.edition;
+    }
+
+    if (!this.campaign && (!data || !data.partySheet) && this.partyEdition == 'jotl') {
+      this.campaign = true;
     }
 
     if (gameManager.game.conditions && !this.party.conditions) {
@@ -100,7 +111,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       this.party.lootDeckSections = gameManager.game.lootDeckSections;
     }
 
-    this.itemEdition = this.party.edition || "";
+    this.itemEdition = this.partyEdition;
+    this.treasureEdition = this.partyEdition;
   }
 
   ngOnInit(): void {
@@ -134,9 +146,6 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   toggleCampaignMode() {
     gameManager.stateManager.before(this.party.campaignMode ? "disablePartyCampaignMode" : "enablePartyCampaignMode");
     this.party.campaignMode = !this.party.campaignMode;
-    if (this.party.campaignMode) {
-      gameManager.game.edition = this.party.edition;
-    }
     gameManager.stateManager.after();
     this.update();
   }
@@ -217,6 +226,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       this.party.achievementsList.push(achievement);
       gameManager.stateManager.after();
       input.value = "";
+      this.update();
     }
   }
 
@@ -224,6 +234,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     gameManager.stateManager.before("removePartyAchievement", this.party.achievementsList[index]);
     this.party.achievementsList.splice(index, 1);
     gameManager.stateManager.after();
+    this.update();
   }
 
 
@@ -240,6 +251,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       this.party.globalAchievementsList.push(achievement);
       gameManager.stateManager.after();
       input.value = "";
+      this.update();
     }
   }
 
@@ -247,6 +259,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     gameManager.stateManager.before("removeGlobalAchievement", this.party.globalAchievementsList[index]);
     this.party.globalAchievementsList.splice(index, 1);
     gameManager.stateManager.after();
+    this.update();
   }
 
 
@@ -482,12 +495,9 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   changeEdition(event: any) {
-    this.party.edition = event.target.value != 'undefined' && event.target.value || undefined;
-    if (this.party.campaignMode) {
-      gameManager.stateManager.before("setEdition", "data.edition." + this.party.edition);
-      gameManager.game.edition = this.party.edition;
-      gameManager.stateManager.after();
-    }
+    this.partyEdition = event.target.value != 'undefined' && event.target.value || "";
+    this.itemEdition = this.partyEdition;
+    this.treasureEdition = this.partyEdition;
     this.update();
   }
 
@@ -496,7 +506,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       this.fhSheet = gameManager.fhRules();
       this.csSheet = !this.fhSheet && gameManager.editionRules('cs');
     }
-    const editions = this.party.edition && [this.party.edition] || gameManager.editions();
+    const editions = this.partyEdition && [this.partyEdition] || gameManager.editions();
     this.scenarioEditions = [];
     editions.forEach((edition) => {
       let scenarioData = gameManager.scenarioManager.scenarioData(edition).filter((scenarioData) => (!scenarioData.spoiler || settingsManager.settings.spoilers.indexOf(scenarioData.name) != -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) != -1));
@@ -538,13 +548,6 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       this.party.townGuardDeck = this.townGuardDeck.toModel();
     }
 
-    if (campaign && campaign.campaignStickers) {
-      this.campaignStickers = campaign.campaignStickers.map((sticker) => {
-        sticker = sticker.split(':')[0];
-        return { label: settingsManager.getLabel('data.campaignSticker.' + sticker), value: sticker };
-      });
-    }
-
     this.calendarSheet = Math.floor(this.party.weeks / 81);
     this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && Object.keys(figure.progress.loot).some((type) => figure.progress.loot[type as LootType])).map((figure) => figure as Character);
 
@@ -568,29 +571,36 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       this.prosperityHighlightSteps = this.prosperitySteps;
     }
 
-    if (gameManager.game.edition) {
-      const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.game.edition);
-      if (editionData) {
-        if (editionData.worldMap) {
-          this.worldMap = true;
-        }
-        if (editionData.label && editionData.label[settingsManager.settings.locale] && editionData.label[settingsManager.settings.locale].partyAchievements) {
-          this.partyAchievements = Object.keys(editionData.label[settingsManager.settings.locale].partyAchievements).map((achievement) => { return { label: editionData.label[settingsManager.settings.locale].partyAchievements[achievement], value: achievement } });
-        } else if (editionData.label && editionData.label['en'] && editionData.label['en'].partyAchievements) {
-          this.partyAchievements = Object.keys(editionData.label['en'].partyAchievements).map((achievement) => { return { label: editionData.label['en'].partyAchievements[achievement], value: achievement } });
-        }
+    this.partyAchievements = [];
+    this.globalAchievements = [];
+    this.campaignStickers = [];
+    const editionData = gameManager.editionData.find((editionData) => this.partyEdition && editionData.edition == this.partyEdition);
+    if (editionData) {
+      if (editionData.worldMap) {
+        this.worldMap = true;
+      }
+      if (editionData.label && editionData.label[settingsManager.settings.locale] && editionData.label[settingsManager.settings.locale].partyAchievements) {
+        this.partyAchievements.push(...Object.keys(editionData.label[settingsManager.settings.locale].partyAchievements).map((achievement) => new AutocompleteItem(editionData.label[settingsManager.settings.locale].partyAchievements[achievement], achievement, this.party.achievementsList.indexOf(achievement) != -1)));
+      } else if (editionData.label && editionData.label['en'] && editionData.label['en'].partyAchievements) {
+        this.partyAchievements.push(...Object.keys(editionData.label['en'].partyAchievements).map((achievement) => new AutocompleteItem(editionData.label['en'].partyAchievements[achievement], achievement, this.party.achievementsList.indexOf(achievement) != -1)));
+      }
 
+      if (editionData.label && editionData.label[settingsManager.settings.locale] && editionData.label[settingsManager.settings.locale].globalAchievements) {
+        this.globalAchievements.push(...Object.keys(editionData.label[settingsManager.settings.locale].globalAchievements).map((achievement) => new AutocompleteItem(editionData.label[settingsManager.settings.locale].globalAchievements[achievement], achievement, this.party.globalAchievementsList.indexOf(achievement) != -1)));
+      } else if (editionData.label && editionData.label['en'] && editionData.label['en'].globalAchievements) {
+        this.globalAchievements.push(...Object.keys(editionData.label['en'].globalAchievements).map((achievement) => new AutocompleteItem(editionData.label['en'].globalAchievements[achievement], achievement, this.party.globalAchievementsList.indexOf(achievement) != -1)));
+      }
 
-        if (editionData.label && editionData.label[settingsManager.settings.locale] && editionData.label[settingsManager.settings.locale].globalAchievements) {
-          this.globalAchievements = Object.keys(editionData.label[settingsManager.settings.locale].globalAchievements).map((achievement) => { return { label: editionData.label[settingsManager.settings.locale].globalAchievements[achievement], value: achievement } });
-        } else if (editionData.label && editionData.label['en'] && editionData.label['en'].globalAchievements) {
-          this.globalAchievements = Object.keys(editionData.label['en'].globalAchievements).map((achievement) => { return { label: editionData.label['en'].globalAchievements[achievement], value: achievement } });
-        }
+      if (editionData.campaign && editionData.campaign.campaignStickers) {
+        this.campaignStickers.push(...editionData.campaign.campaignStickers.map((sticker) => {
+          sticker = sticker.split(':')[0];
+          return new AutocompleteItem(settingsManager.getLabel('data.campaignSticker.' + sticker), sticker, this.party.campaignStickers.indexOf(sticker) != -1);
+        }));
       }
     }
 
     this.itemIdentifier = this.party.unlockedItems.filter((identifier) => !this.itemEdition || identifier.edition == this.itemEdition).sort((a, b) => {
-      if (!this.party.edition && a.edition != b.edition) {
+      if (!this.partyEdition && a.edition != b.edition) {
         return gameManager.editions().indexOf(a.edition) - gameManager.editions().indexOf(b.edition);
       }
 
@@ -667,8 +677,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   treasures(): Identifier[] {
-    return this.party.treasures.filter((identifier) => !this.party.edition || identifier.edition == this.party.edition).sort((a, b) => {
-      if (!this.party.edition && a.edition != b.edition) {
+    return this.party.treasures.filter((identifier) => !this.treasureEdition || identifier.edition == this.treasureEdition).sort((a, b) => {
+      if (!this.treasureEdition && a.edition != b.edition) {
         return gameManager.editions().indexOf(a.edition) - gameManager.editions().indexOf(b.edition);
       }
 
@@ -678,7 +688,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   addTreasure(indexElement: HTMLInputElement, edition: string) {
     const treasure: string = indexElement.value;
-    if (treasure && !isNaN(+treasure)) {
+    if (treasure && !isNaN(+treasure) && edition) {
       if (this.hasTreasure(treasure, edition)) {
         indexElement.classList.add('warning');
       } else {
@@ -769,7 +779,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   finishConclusion(indexElement: HTMLInputElement) {
     let index: string = indexElement.value;
     indexElement.classList.add('error');
-    const conclusion = gameManager.sectionData(this.party.edition || gameManager.currentEdition()).find((sectionData) => sectionData.index == index);
+    const conclusion = gameManager.sectionData(this.partyEdition || gameManager.currentEdition()).find((sectionData) => sectionData.index == index);
     if (conclusion) {
       const scenario = new Scenario(conclusion as ScenarioData);
       indexElement.classList.remove('error');
@@ -951,6 +961,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         this.party.campaignStickers.push(sticker);
         campaignStickerElement.value = "";
         gameManager.stateManager.after();
+        this.update();
       }
     }
   }
@@ -961,6 +972,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       gameManager.stateManager.before("removeCampaignSticker", campaignSticker);
       this.party.campaignStickers.splice(index, 1);
       gameManager.stateManager.after();
+      this.update();
     }
   }
 

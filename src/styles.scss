@@ -1372,12 +1372,12 @@ input[type="radio"] {
   &>div {
     padding: 0 0.2em;
 
-    &:hover {
+    &:hover:not(.empty) {
       color: var(--ghs-color-darkgray);
     }
   }
 
-  &.spoiler>div {
+  &>div.spoiler:not(.empty, .revealed) {
     color: transparent;
     position: relative;
 
@@ -1402,7 +1402,7 @@ input[type="radio"] {
     background: var(--ghs-color-white);
   }
 
-  &>div:hover:not(.group),
+  &>div:hover:not(.group, .empty),
   &>div.selected {
     background: var(--ghs-color-gray);
     cursor: pointer;
@@ -1425,12 +1425,12 @@ input[type="radio"] {
     &>div {
       border-bottom: 0.1em dashed var(--ghs-color-gray);
 
-      &:hover {
+      &:hover:not(.empty) {
         color: var(--ghs-color-gray);
       }
     }
 
-    &.spoiler>div {
+    &>div.spoiler:not(.empty) {
 
       &::before {
         color: var(--ghs-color-white);
@@ -1442,7 +1442,7 @@ input[type="radio"] {
     }
 
     &>div:hover:not(.group),
-    &>div.selected {
+    &>div.selected:not(.empty) {
       background: var(--ghs-color-darkgray);
     }
   }

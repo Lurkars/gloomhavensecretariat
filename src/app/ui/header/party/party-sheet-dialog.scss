@@ -1819,7 +1819,8 @@
                 justify-self: end;
               }
 
-              .item-index {
+              .item-index,
+              .treasure-index {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 justify-self: initial;
@@ -1827,6 +1828,10 @@
                 .icon {
                   height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
                   width: auto;
+                }
+
+                &.treasure-index .icon {
+                  filter: var(--ghs-filter-yellow);
                 }
               }
 

@@ -43,6 +43,7 @@ export class Settings {
   combineSummonAction: boolean = true;
   debugRightClick: boolean = false;
   disableAnimations: boolean = false;
+  disableArtwork: boolean = false;
   disableColumns: boolean = false;
   disableDragFigures: boolean = false;
   disablePinchZoom: boolean = false;

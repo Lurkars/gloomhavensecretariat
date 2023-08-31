@@ -6,11 +6,6 @@
   "unlocks": [
     "97"
   ],
-  "requires": [
-    [
-      "51"
-    ]
-  ],
   "requirements": [
     {
       "global": [

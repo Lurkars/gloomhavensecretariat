@@ -53,7 +53,7 @@ import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-s
 import { ScenarioComponent } from './ui/footer/scenario/scenario';
 import { PartySheetComponent } from './ui/header/party/party-sheet';
 import { PartySheetDialogComponent } from './ui/header/party/party-sheet-dialog';
-import { AutofillDirective } from './ui/helper/autofill';
+import { AutocompleteDirective } from './ui/helper/autocomplete';
 import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/autoscroll';
 import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
@@ -156,7 +156,7 @@ describe('AppComponent', () => {
         AbilityComponent, AbiltiesDialogComponent, AbilityDialogComponent,
         ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,
         FigureErrorsComponent, FigureErrorsDialogComponent,
-        CardRevealDirective, EntityAnimationDirective, GhsLabelDirective, ValueCalcDirective, PointerInputDirective, AutofillDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
+        CardRevealDirective, EntityAnimationDirective, GhsLabelDirective, ValueCalcDirective, PointerInputDirective, AutocompleteDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
         GhsValueSignPipe, GhsRangePipe, GhsScenarioSearch, GhsFloorPipe, GhsCeilPipe,
         AttackModifierToolComponent, TreasuresToolComponent, DecksToolComponent,
         EditionEditorComponent,

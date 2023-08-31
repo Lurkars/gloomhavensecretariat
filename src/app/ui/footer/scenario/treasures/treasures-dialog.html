@@ -4,7 +4,7 @@
 
     <div class="treasures">
         <div class="treasure" *ngFor="let treasure of treasures; let i = index;"
-            [ngClass]="{'looted': looted.indexOf(i) != -1, 'disabled' : !character, 'highlight' : i == treasureIndex}"
+            [ngClass]="{'looted': looted.indexOf(i) != -1, 'highlight' : i == treasureIndex}"
             (click)="toggleTreasure(i)">
             <span *ngIf="!('' + treasure).startsWith('G') && +treasure < 10">0</span>{{treasure}}
             <img class="overlay check" src="./assets/images/check.svg">
@@ -13,7 +13,7 @@
 
     <div class="characters">
         <div class="character" *ngFor="let char of characters" (click)="toggleCharacter(char)"
-            [ngClass]="{'selected' : character == char && treasureIndex != -1, 'disabled' : treasureIndex == -1}">
+            [ngClass]="{'selected' : character == char , 'disabled' : treasures.length == looted.length}">
             <img class="icon" [src]="char.iconUrl" />
             <span class="name">
                 {{gameManager.characterManager.characterName(char,true)}}
@@ -40,8 +40,18 @@
             *ngIf="character && treasureIndex != -1 && !gameManager.lootManager.hasTreasure(character, treasures[treasureIndex], treasureIndex)">
             <p><span [ghs-label]="'game.loot.lootTreasure'" [ghs-label-args]="[character.title || '%data.character.' + character.name + '%', '' +
                 treasures[treasureIndex]]"></span></p>
-            <div class="button" (click)="lootTreasure()"><span [ghs-label]="'game.loot.lootTreasure.confirm'"></span></div>
+            <div class="button" (click)="lootTreasure()"><span [ghs-label]="'game.loot.lootTreasure.confirm'"></span>
+            </div>
         </ng-container>
+
+        <p *ngIf="character && treasureIndex == -1"><span [ghs-label]="'game.loot.lootTreasure.selectTreasure'"
+                [ghs-label-args]="[character.title || '%data.character.' + character.name + '%']"></span>
+        </p>
+
+        <p *ngIf="!character && treasureIndex != -1"><span [ghs-label]="'game.loot.lootTreasure.selectCharacter'"
+                [ghs-label-args]="[('' + treasures[treasureIndex]).startsWith('G-') ? 'G' : (''
+                +treasures[treasureIndex]).split(':')[0]]"></span></p>
+
         <ng-container
             *ngIf="character && treasureIndex != -1 && gameManager.lootManager.hasTreasure(character, treasures[treasureIndex], treasureIndex)">
             <p><span [ghs-label]="'game.loot.lootTreasure.looted'"
@@ -51,8 +61,8 @@
                     [ghs-label]="'game.loot.treasures.rewards.goal'"></span></span>
 
             <ghs-treasure-label class="placeholder text-white" *ngIf="treasures[treasureIndex] != 'G'"
-                [edition]="scenario.edition" [index]="+treasures[treasureIndex] -1"
-                [rewardResults]="rewardResults" [itemCards]="true"></ghs-treasure-label>
+                [edition]="scenario.edition" [index]="+treasures[treasureIndex] -1" [rewardResults]="rewardResults"
+                [itemCards]="true"></ghs-treasure-label>
         </ng-container>
     </div>
 </div>

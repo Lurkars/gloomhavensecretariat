@@ -113,12 +113,10 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
     }
 
     undo(index: number, force: boolean = false) {
-        if (index != this.undoArray.length - 1) {
-            if (!force && this.undoConfirm != 'undo-' + index) {
-                this.undoConfirm = 'undo-' + index;
-            } else {
-                gameManager.stateManager.fixedUndo(this.undoArray.length - index - 1);
-            }
+        if (!force && this.undoConfirm != 'undo-' + index) {
+            this.undoConfirm = 'undo-' + index;
+        } else {
+            gameManager.stateManager.fixedUndo(this.undoArray.length - index);
         }
     }
 

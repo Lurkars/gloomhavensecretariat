@@ -62,11 +62,6 @@
                 }
             }
 
-            &.disabled {
-                cursor: not-allowed;
-                filter: grayscale(0.5);
-            }
-
             &.highlight {
                 .check {
                     display: block;

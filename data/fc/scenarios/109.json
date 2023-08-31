@@ -28,6 +28,7 @@
     {
       "round": "R == 1",
       "start": true,
+      "note": "If party achievement Diamara's Aid or Angels of Death is complete, do not apply",
       "spawns": [
         {
           "monster": {
@@ -36,12 +37,12 @@
           },
           "marker": "b"
         }
-      ],
-      "note": "If party achievement Diamara's Aid or Angels of Death is complete, do not apply"
+      ]
     },
     {
       "round": "R == 1",
       "start": true,
+      "note": "If party achievement Xangroth's Aid or Angels of Death is complete, do not apply",
       "spawns": [
         {
           "monster": {
@@ -52,12 +53,10 @@
           },
           "marker": "a"
         }
-      ],
-      "note": "If party achievement Xangroth's Aid or Angels of Death is complete, do not apply"
+      ]
     },
     {
       "round": "R == 10",
-      "start": false,
       "note": "Check Scenario Goal"
     }
   ],

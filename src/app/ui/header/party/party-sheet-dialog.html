@@ -72,9 +72,9 @@
                   </div>
                 </div>
                 <div class="form">
-                  <input type="text" #partyAchievementInput [autofill]="partyAchievements" [spoiler]="true"
-                    [ghs-label]="'party.addPartyAchievement'" [ghs-label-attribute]="'placeholder'"
-                    (keyup.enter)="addAchievement(partyAchievementInput)">
+                  <input type="text" #partyAchievementInput [autocomplete]="partyAchievements" [spoiler]="true"
+                    [emptyLabel]="'party.addPartyAchievement.empty'" [ghs-label]="'party.addPartyAchievement'"
+                    [ghs-label-attribute]="'placeholder'" (keyup.enter)="addAchievement(partyAchievementInput)">
                   <a class="addScenario" [ghs-label]="'party.addPartyAchievement'" [ghs-label-attribute]="'title'"
                     (click)="addAchievement(partyAchievementInput)"><img src="./assets/images/plus.svg"></a>
                 </div>
@@ -358,7 +358,8 @@
         <div class="campaign-stickers">
           <form class="header" (submit)="addCampaignSticker(campaignSticker)">
             <label><span [ghs-label]="'party.campaign.sheet.campaignStickers'"></span></label>
-            <input type="text" #campaignSticker [autofill]="campaignStickers"
+            <input type="text" #campaignSticker [autocomplete]="campaignStickers"
+              [emptyLabel]="'party.campaign.sheet.campaignStickers.empty'"
               [ghs-label]="'party.campaign.sheet.campaignStickers'" [ghs-label-attribute]="'placeholder'"
               (keyup.enter)="addCampaignSticker(campaignSticker)">
             <img src="./assets/images/plus.svg" (click)="addCampaignSticker(campaignSticker)">
@@ -409,9 +410,9 @@
           <label class="headline"><span [ghs-label]="'party.campaign.scenarios'"></span></label>
 
           <select (change)="changeEdition($event)">
-            <option [value]="undefined" [selected]="!party.edition"><span [ghs-label]="'edition.all'"></span>
+            <option [value]="undefined" [selected]="!partyEdition"><span [ghs-label]="'edition.all'"></span>
             </option>
-            <option *ngFor="let ed of gameManager.editions()" [selected]="ed == party.edition" [value]="ed">
+            <option *ngFor="let ed of gameManager.editions()" [selected]="ed == partyEdition" [value]="ed">
               <span [ghs-label]="'data.edition.' + ed"></span>
             </option>
           </select>
@@ -586,9 +587,9 @@
                 </div>
               </div>
               <div class="form">
-                <input type="text" #globalAchievementInput [autofill]="globalAchievements"
-                  [ghs-label]="'party.addGlobalAchievement'" [ghs-label-attribute]="'placeholder'"
-                  (keyup.enter)="addGlobalAchievement(globalAchievementInput)">
+                <input type="text" #globalAchievementInput [autocomplete]="globalAchievements"
+                  [emptyLabel]="'party.addGlobalAchievement.empty'" [ghs-label]="'party.addGlobalAchievement'"
+                  [ghs-label-attribute]="'placeholder'" (keyup.enter)="addGlobalAchievement(globalAchievementInput)">
                 <a class="addScenario" [ghs-label]="'party.addGlobalAchievement'" [ghs-label-attribute]="'title'"
                   (click)="addGlobalAchievement(globalAchievementInput)"><img src="./assets/images/plus.svg"></a>
               </div>
@@ -617,7 +618,7 @@
 
             <div class="item-list">
               <label class="item" *ngFor="let item of items; let i = index;"
-                [ngClass]="{'edition' : !party.edition || !itemEdition}">
+                [ngClass]="{'edition' : !partyEdition || !itemEdition}">
                 <ng-container *ngIf="item">
                   <span class="item-index open-item" (click)="openItem(item)">
                     <img class="icon" [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
@@ -632,7 +633,7 @@
                   <span class="count" (click)="incItemCount(item, itemIdentifier[i])">
                     {{itemIdentifier[i].count > 0 ? itemIdentifier[i].count : '-'}}
                   </span>
-                  <span class="text edition" *ngIf="!party.edition || !itemEdition">[<span
+                  <span class="text edition" *ngIf="!partyEdition || !itemEdition">[<span
                       [ghs-label]="'data.edition.' + item.edition"></span>]</span>
                 </ng-container>
               </label>
@@ -647,28 +648,33 @@
             <div class="treasure-add">
               <input min="1" #treasureIndex type="number" value="" (focus)="treasureIndex.select()"
                 (keyup)="treasureIndex.classList.remove('error');treasureIndex.classList.remove('warning');"
-                (keyup.enter)="addTreasure(treasureIndex, treasureEdition.value)">
-              <a [ngClass]="{'disabled' : !treasureIndex.value || +treasureIndex.value < 1 || hasTreasure(treasureIndex.value,treasureEdition.value)}"
-                (click)="addTreasure(treasureIndex, treasureEdition.value)"><img src="./assets/images/plus.svg"></a>
-              <select #treasureEdition [disabled]="party.edition">
+                (keyup.enter)="addTreasure(treasureIndex, treasureEdition)">
+              <a [ngClass]="{'disabled' : !treasureEdition || !treasureIndex.value || +treasureIndex.value < 1 || hasTreasure(treasureIndex.value,treasureEdition)}"
+                (click)="addTreasure(treasureIndex, treasureEdition)"><img src="./assets/images/plus.svg"></a>
+              <select [(ngModel)]="treasureEdition" (change)="update()">
+                <option value="" [selected]="!treasureEdition"><span [ghs-label]="'edition.all'"></span>
+                </option>
                 <option *ngFor="let edition of gameManager.editions()" [value]="edition"
-                  [selected]="edition == party.edition">
+                  [selected]="edition == treasureEdition">
                   <span [ghs-label]="'data.edition.' + edition"></span>
                 </option>
               </select>
             </div>
 
             <div class="treasure-list">
-              <label class="treasure" (click)="removeTreasure(treasure)" *ngFor="let treasure of treasures()"
-                [ngClass]="{'edition' : !party.edition}">
-                <span class="index">{{treasure.name}}</span>
+              <label class="treasure" *ngFor="let treasure of treasures()" [ngClass]="{'edition' : !treasureEdition}">
+                <span class="treasure-index">
+                  <img class="icon" src="./assets/images/scenario/treasure.svg">
+                  <span class="index">{{treasure.name}}</span>
+                </span>
                 <span class="separator">:</span>
-                <span class="checkbox"><img class="check" src="./assets/images/check.svg"><img class="close"
-                    src="./assets/images/close.svg"></span>
+                <span class="checkbox" (click)="removeTreasure(treasure)"><img class="check"
+                    src="./assets/images/check.svg"><img class="close" src="./assets/images/close.svg"></span>
                 <span class="text">
                   <ghs-treasure-label [edition]="treasure.edition" [index]="+treasure.name -1"></ghs-treasure-label>
                 </span>
-                <span class="text" *ngIf="!party.edition">[<span
+                <span></span>
+                <span class="text" *ngIf="!treasureEdition">[<span
                     [ghs-label]="'data.edition.' + treasure.edition"></span>]</span>
               </label>
             </div>

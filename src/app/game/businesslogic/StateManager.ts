@@ -310,6 +310,7 @@ export class StateManager {
             settings.characterAttackModifierDeckPermanent = settingsManager.settings.characterAttackModifierDeckPermanent;
             settings.debugRightClick = settingsManager.settings.debugRightClick;
             settings.disableAnimations = settingsManager.settings.disableAnimations;
+            settings.disableArtwork = settingsManager.settings.disableArtwork;
             settings.disableColumns = settingsManager.settings.disableColumns;
             settings.disableWakeLock = settingsManager.settings.disableWakeLock;
             settings.dragValues = settingsManager.settings.dragValues;

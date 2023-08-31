@@ -105,6 +105,10 @@ export class ActionsComponent implements OnInit, OnDestroy {
       return false;
     }
 
+    if (settingsManager.settings.calculate && this.actions[index - 1].type == ActionType.monsterType && this.monster && !this.monster.entities.find((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.type == this.actions[index - 1].value)) {
+      return false;
+    }
+
     if (action.type == ActionType.concatenation && action.subActions.every((subAction) => subAction.type == ActionType.card || subAction.type == ActionType.element || subAction.type == ActionType.elementHalf)) {
       return false;
     }

@@ -597,7 +597,9 @@
       "lootTreasure": {
         ".": "{0} erbeutet Schatz {1}?",
         "confirm": "Bestätigen",
-        "looted": "{0} erbeutet:"
+        "looted": "{0} erbeutet:",
+        "selectCharacter": "Charakter für Schatz {0} auswählen",
+        "selectTreasure": "Schatz für {0} auswählen"
       },
       "lumber": "Holz",
       "material_resources": "Material",
@@ -779,8 +781,14 @@
   "party": {
     ".": "Gruppe",
     "achievements": "Erfolge",
-    "addGlobalAchievement": "Globalen Erfolg hinzufügen",
-    "addPartyAchievement": "Erfolg hinzufügen",
+    "addGlobalAchievement": {
+      ".": "Globalen Erfolg hinzufügen",
+      "empty": "Keinen passenden Globaler Erfolg gefunden"
+    },
+    "addPartyAchievement": {
+      ".": "Erfolg hinzufügen",
+      "empty": "Keinen passenden Erfolg gefunden"
+    },
     "campaign": {
       ".": "Kampagne",
       "achievements": "Globale Erfolge",
@@ -848,7 +856,10 @@
             "hint": "Gebäude aufrüsten (Erzwingen mit Doppelclick)"
           }
         },
-        "campaignStickers": "Kampagnenbogensticker",
+        "campaignStickers": {
+          ".": "Kampagnenbogensticker",
+          "empty": "Keinen passenden Kampagnenbogensticker gefunden"
+        },
         "defense": "Verteidigung",
         "disable": "Zeige den Gloomhaven Gruppenbogen an",
         "enable": "Zeige den Frosthaven Kampagnenbogen an",
@@ -984,7 +995,7 @@
       ".": "Szenario filtern",
       "noResult": "Kein Ergebnis"
     },
-    "filterSuccess": "Nur offene Szenarien anzeigen",
+    "filterSuccess": "Nur nicht abgeschlossene Szenarien",
     "finish": {
       ".": "Szenario beenden",
       "failure": "Niederlage",
@@ -1421,6 +1432,10 @@
     "disableAnimations": {
       ".": "Animationen deaktivieren",
       "hint": "Alle Animationen deaktivieren um die Performance zu erhöhen"
+    },
+    "disableArtwork": {
+      ".": "Artwork deaktivieren",
+      "hint": "Artwork von Monstern und Charakteren deaktivieren"
     },
     "disableColumns": {
       ".": "Zweispaltiges Layout deaktivieren",

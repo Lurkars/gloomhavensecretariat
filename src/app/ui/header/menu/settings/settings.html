@@ -1042,6 +1042,20 @@
       </div>
     </div>
 
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.disableArtwork"
+            (change)="settingsManager.setDisableArtwork(!settingsManager.settings.disableArtwork)">
+          <span [ghs-label]="'settings.disableArtwork'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.disableArtwork.hint'"></span>
+        </span>
+      </div>
+    </div>
+
     <div class="line" *ngIf="wakeLock">
       <div class="hint-container">
         <label>

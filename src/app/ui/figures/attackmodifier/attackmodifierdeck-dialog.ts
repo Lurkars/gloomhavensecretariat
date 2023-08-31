@@ -3,7 +3,7 @@ import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, ElementRef, EventEmitter, Inject, OnInit, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/data/AttackModifier";
+import { AttackModifier, AttackModifierDeck, AttackModifierType, additionalTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { AttackModiferDeckChange } from "./attackmodifierdeck";
@@ -34,6 +34,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
 
   AttackModifierType = AttackModifierType;
   type: AttackModifierType = AttackModifierType.minus1;
+  tgAM: AttackModifier = additionalTownGuardAttackModifier[0];
   currentAttackModifier: number = -1;
   drawing: boolean = false;
 
@@ -163,6 +164,27 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     this.after.emit(new AttackModiferDeckChange(this.deck, "addCardShuffled", "game.attackModifiers.types." + type));
   }
 
+  addModifier() {
+    this.before.emit(new AttackModiferDeckChange(this.deck, "addCard", "game.attackModifiers.types." + this.tgAM.type));
+    let attackModifier = this.tgAM.clone();
+    attackModifier.revealed = true;
+    if (!this.deck.attackModifiers.find((am) => am.id == attackModifier.id)) {
+      this.deck.attackModifiers.push(attackModifier);
+    }
+    this.deck.cards.splice(this.deck.current + 1, 0, attackModifier);
+    this.after.emit(new AttackModiferDeckChange(this.deck, "addCard", "game.attackModifiers.types." + this.tgAM.type));
+  }
+
+  addModifierShuffle() {
+    this.before.emit(new AttackModiferDeckChange(this.deck, "addCard", "game.attackModifiers.types." + this.tgAM.type));
+    let attackModifier = this.tgAM.clone();
+    this.deck.cards.splice(this.deck.current + 1 + Math.random() * (this.deck.cards.length - this.deck.current), 0, attackModifier);
+    if (!this.deck.attackModifiers.find((am) => am.id == attackModifier.id)) {
+      this.deck.attackModifiers.push(attackModifier);
+    }
+    this.after.emit(new AttackModiferDeckChange(this.deck, "addCard", "game.attackModifiers.types." + this.tgAM.type));
+  }
+
   countAttackModifier(type: AttackModifierType): number {
     return this.deck.cards.filter((attackModifier) => {
       return attackModifier.type == type && !attackModifier.character;
@@ -225,17 +247,27 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   }
 
   changeType(prev: boolean = false) {
-    let index = Object.values(AttackModifierType).indexOf(this.type) + (prev ? -1 : 1);
-    if (index < 0) {
-      index = Object.values(AttackModifierType).length - 1;
-    } else if (index >= Object.values(AttackModifierType).length) {
-      index = 0;
-    }
+    if (this.townGuard) {
+      let index = additionalTownGuardAttackModifier.indexOf(this.tgAM) + (prev ? -1 : 1);
+      if (index < 0) {
+        index = additionalTownGuardAttackModifier.length - 1;
+      } else if (index >= additionalTownGuardAttackModifier.length) {
+        index = 0;
+      }
+      this.tgAM = additionalTownGuardAttackModifier[index];
+    } else {
+      let index = Object.values(AttackModifierType).indexOf(this.type) + (prev ? -1 : 1);
+      if (index < 0) {
+        index = Object.values(AttackModifierType).length - 1;
+      } else if (index >= Object.values(AttackModifierType).length) {
+        index = 0;
+      }
 
-    this.type = Object.values(AttackModifierType)[index];
+      this.type = Object.values(AttackModifierType)[index];
 
-    if ([AttackModifierType.plus, AttackModifierType.plus3, AttackModifierType.plus4, AttackModifierType.plusX, AttackModifierType.invalid, AttackModifierType.minus, AttackModifierType.minus1extra, AttackModifierType.empower, AttackModifierType.enfeeble, AttackModifierType.townguard, AttackModifierType.success, AttackModifierType.wreck].indexOf(this.type) != -1) {
-      this.changeType(prev);
+      if ([AttackModifierType.plus, AttackModifierType.plus3, AttackModifierType.plus4, AttackModifierType.plusX, AttackModifierType.invalid, AttackModifierType.minus, AttackModifierType.minus1extra, AttackModifierType.empower, AttackModifierType.enfeeble, AttackModifierType.townguard, AttackModifierType.success, AttackModifierType.wreck].indexOf(this.type) != -1) {
+        this.changeType(prev);
+      }
     }
   }
 
