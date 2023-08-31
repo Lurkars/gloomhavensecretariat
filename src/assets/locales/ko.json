@@ -1763,7 +1763,7 @@
         "objective": "{0}에게 {1} 적용",
         "summon": "{0}의 {1}에게 {2} 적용"
       },
-      "applyHightlightAction": {
+      "applyHighlightAction": {
         "condition": "{0}에게 %game.condition.{1}% 상태가 되도록 행동을 적용",
         "heal": "{0}에게 %game.action.heal% {1} 되도록 행동 적용",
         "switchType": "%game.monsterType.normal% 및 %game.monsterType.elite% 말에 대해 {0} 유형으로 전환을 적용",

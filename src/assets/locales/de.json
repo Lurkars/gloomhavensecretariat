@@ -1677,7 +1677,7 @@
         "objective": "{1} anwenden auf {0}",
         "summon": "{2} anwenden auf '{1}' von {0}"
       },
-      "applyHightlightAction": {
+      "applyHighlightAction": {
         "condition": "Aktion %game.condition.{1}% anwenden auf {0}",
         "heal": "Aktion %game.action.heal% {1} anwenden auf {0}",
         "switchType": "Tauschen von %game.monsterType.normal% und %game.monsterType.elite% Aufstellern anwenden auf {0}",

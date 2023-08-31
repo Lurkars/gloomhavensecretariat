@@ -194,7 +194,7 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
     return "";
   }
 
-  spawnHightlight(spawn: MonsterSpawnData, index: number): boolean {
+  spawnHighlight(spawn: MonsterSpawnData, index: number): boolean {
     if (this.monster) {
       const spawnMonster = gameManager.game.figures.find((figure) => figure instanceof Monster && figure.name == spawn.monster.name);
       const spawns = spawnMonster && gameManager.monsterManager.monsterEntityCountAll(spawnMonster as Monster) || 0;
@@ -205,7 +205,7 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
   }
 
   spawnSummons(event: TouchEvent | MouseEvent, spawn: MonsterSpawnData, index: number) {
-    if (this.spawnHightlight(spawn, index) || this.objective) {
+    if (this.spawnHighlight(spawn, index) || this.objective) {
       const spawnerTag = this.getTag(index, true);
       const spawners = this.spawners.filter((entity) => entity instanceof Objective || entity instanceof ObjectiveEntity || entity.tags.indexOf(spawnerTag) == -1).filter((entity, index) => settingsManager.settings.combineSummonAction || index == 0);
 

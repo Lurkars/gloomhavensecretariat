@@ -1785,7 +1785,7 @@
         "objective": "Apply {1} to {0}",
         "summon": "Apply {2} to '{1}' of {0}"
       },
-      "applyHightlightAction": {
+      "applyHighlightAction": {
         "condition": "Apply action %game.condition.{1}% to {0}",
         "heal": "Apply action %game.action.heal% {1} to {0}",
         "switchType": "Apply switching of %game.monsterType.normal% and %game.monsterType.elite% standees to {0}",
