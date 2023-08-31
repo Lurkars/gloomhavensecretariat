@@ -6,6 +6,12 @@
   "rules": [
     {
       "round": "true",
+      "start": false,
+      "always": true,
+      "note": "%data.scenario.rules.fc.106%"
+    },
+    {
+      "round": "true",
       "always": true,
       "once": true,
       "figures": [

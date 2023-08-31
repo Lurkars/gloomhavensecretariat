@@ -2,8 +2,15 @@
   "index": "107",
   "name": "Mechanical Genius",
   "edition": "fc",
-  "unlocks": [
-    "112"
+  "rewards": {
+    "experience": 5
+  },
+  "requirements": [
+    {
+      "global": [
+        "Knowledge is Power:2"
+      ]
+    }
   ],
   "rooms": [
     {

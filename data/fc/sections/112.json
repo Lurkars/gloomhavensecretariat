@@ -13,6 +13,9 @@
       "ref": "L1a",
       "initial": true,
       "marker": "f",
+      "treasures": [
+        "G"
+      ],
       "monster": [
         {
           "name": "aesther-scout",

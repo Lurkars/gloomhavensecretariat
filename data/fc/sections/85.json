@@ -1,8 +1,13 @@
 {
-  "index": "52",
-  "name": "The First Portal",
+  "index": "85",
+  "name": "The Third Portal",
   "edition": "fc",
   "parent": "104",
+  "parentSections": [
+    [
+      "79"
+    ]
+  ],
   "marker": "1",
   "objectives": [
     {
@@ -20,7 +25,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.scenario.rules.fc.104.2%",
+              "value": "%data.scenario.rules.fc.104.4%",
               "small": true
             }
           ]
@@ -30,35 +35,19 @@
   ],
   "rules": [
     {
-      "round": "R % 6 == 4",
-      "spawns": [
+      "round": "true",
+      "always": true,
+      "disableRules": [
         {
-          "monster": {
-            "name": "sun-demon",
-            "player2": "normal",
-            "player3": "elite",
-            "player4": "elite"
-          },
-          "marker": "2"
+          "edition": "fc",
+          "scenario": "104",
+          "index": -1,
+          "section": true
         }
       ]
     },
     {
-      "round": "R % 6 == 0",
-      "spawns": [
-        {
-          "monster": {
-            "name": "spitting-drake",
-            "player2": "normal",
-            "player3": "normal",
-            "player4": "elite"
-          },
-          "marker": "3"
-        }
-      ]
-    },
-    {
-      "round": "R % 6 == 2",
+      "round": "R % 2 == 0",
       "spawns": [
         {
           "monster": {
@@ -68,18 +57,6 @@
             "player4": "elite"
           },
           "marker": "4"
-        }
-      ]
-    },
-    {
-      "round": "true",
-      "always": true,
-      "disableRules": [
-        {
-          "edition": "fc",
-          "scenario": "104",
-          "index": -1,
-          "section": false
         }
       ]
     },

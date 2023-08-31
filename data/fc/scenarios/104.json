@@ -5,6 +5,21 @@
   "unlocks": [
     "111"
   ],
+  "requirements": [
+    {
+      "global": [
+        "Knowledge is Power:2"
+      ]
+    }
+  ],
+  "rewards": {
+    "partyAchievements": [
+      "Dimensional Equilibrium"
+    ],
+    "items": [
+      "48-gh"
+    ]
+  },
   "monsters": [
     "harrower-infester",
     "lurker",

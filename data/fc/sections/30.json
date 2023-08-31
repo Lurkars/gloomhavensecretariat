@@ -16,7 +16,7 @@
   ],
   "rooms": [
     {
-      "inital": true,
+      "initial": true,
       "roomNumber": 2,
       "ref": "L2a",
       "monster": [

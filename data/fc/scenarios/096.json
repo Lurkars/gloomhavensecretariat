@@ -6,6 +6,18 @@
   "unlocks": [
     "97"
   ],
+  "requires": [
+    [
+      "51"
+    ]
+  ],
+  "requirements": [
+    {
+      "global": [
+        "End of Gloom"
+      ]
+    }
+  ],
   "rewards": {
     "globalAchievements": [
       "Through the Portal"

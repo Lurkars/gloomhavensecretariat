@@ -5,6 +5,18 @@
   "unlocks": [
     "111"
   ],
+  "requirements": [
+    {
+      "global": [
+        "Knowledge is Power:2"
+      ]
+    }
+  ],
+  "rewards": {
+    "itemDesigns": [
+      "154"
+    ]
+  },
   "monsters": [
     "bandit-guard",
     "valrath-tracker"

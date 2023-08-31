@@ -2,8 +2,12 @@
   "index": "106",
   "name": "Intricate Work",
   "edition": "fc",
-  "unlocks": [
-    "112"
+  "requirements": [
+    {
+      "global": [
+        "Knowledge is Power:2"
+      ]
+    }
   ],
   "monsters": [
     "aesther-scout"

@@ -5,6 +5,13 @@
   "unlocks": [
     "110"
   ],
+  "requirements": [
+    {
+      "global": [
+        "Knowledge is Power:2"
+      ]
+    }
+  ],
   "rewards": {
     "partyAchievements": [
       "Guard Detail"

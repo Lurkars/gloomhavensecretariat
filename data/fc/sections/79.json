@@ -1,8 +1,13 @@
 {
-  "index": "52",
-  "name": "The First Portal",
+  "index": "79",
+  "name": "The Second Portal",
   "edition": "fc",
   "parent": "104",
+  "parentSections": [
+    [
+      "52"
+    ]
+  ],
   "marker": "1",
   "objectives": [
     {
@@ -20,7 +25,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.scenario.rules.fc.104.2%",
+              "value": "%data.scenario.rules.fc.104.3%",
               "small": true
             }
           ]
@@ -30,21 +35,19 @@
   ],
   "rules": [
     {
-      "round": "R % 6 == 4",
-      "spawns": [
+      "round": "true",
+      "always": true,
+      "disableRules": [
         {
-          "monster": {
-            "name": "sun-demon",
-            "player2": "normal",
-            "player3": "elite",
-            "player4": "elite"
-          },
-          "marker": "2"
+          "edition": "fc",
+          "scenario": "104",
+          "index": -1,
+          "section": true
         }
       ]
     },
     {
-      "round": "R % 6 == 0",
+      "round": "R % 4 == 2",
       "spawns": [
         {
           "monster": {
@@ -58,7 +61,7 @@
       ]
     },
     {
-      "round": "R % 6 == 2",
+      "round": "R % 4 == 0",
       "spawns": [
         {
           "monster": {
@@ -68,18 +71,6 @@
             "player4": "elite"
           },
           "marker": "4"
-        }
-      ]
-    },
-    {
-      "round": "true",
-      "always": true,
-      "disableRules": [
-        {
-          "edition": "fc",
-          "scenario": "104",
-          "index": -1,
-          "section": false
         }
       ]
     },
