@@ -24,7 +24,7 @@
             },
             {
               "type": "custom",
-              "value": "Add +1 %game.action.attack% if the target is adjecent<br>to any of the Piranha Pig's allies.",
+              "value": "Add +1 %game.action.attack% if the target is adjacent<br>to any of the Piranha Pig's allies.",
               "small": true
             }
           ]

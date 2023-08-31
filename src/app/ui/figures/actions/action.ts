@@ -506,7 +506,7 @@ export class ActionComponent implements OnInit, OnDestroy {
 
   applyHighlightAction(event: TouchEvent | MouseEvent) {
     if (this.monster && this.highlightAction() && this.action) {
-      gameManager.stateManager.before('applyHightlightAction.' + this.action.type, "data.monster." + this.monster.name, '' + this.action.value);
+      gameManager.stateManager.before('applyHighlightAction.' + this.action.type, "data.monster." + this.monster.name, '' + this.action.value);
       let after: boolean = true;
       this.monster.entities.filter((entity) => gameManager.entityManager.isAlive(entity, true)).forEach((entity) => {
         if (this.action && !entity.tags.find((tag) => tag == 'roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action?.type)) {

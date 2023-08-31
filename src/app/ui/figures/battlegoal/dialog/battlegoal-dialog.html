@@ -2,7 +2,7 @@
   <a class="close" (click)="close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'"><img
       src="./assets/images/close_dialog.svg"></a>
   <div class="scroll-container">
-    <div class="header" [ghs-label]="character.battleGoal ? 'game.battleGoals.choosen' : 'game.battleGoals.choose'"
+    <div class="header" [ghs-label]="character.battleGoal ? 'game.battleGoals.chosen' : 'game.battleGoals.choose'"
       [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"></div>
     <div class="battle-goals">
       <ghs-battlegoal *ngFor="let battleGoal of battleGoals; let index = index;" ghs-pointer-input

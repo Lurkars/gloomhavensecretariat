@@ -71,43 +71,43 @@
   },
   "items": {
     "cs-1": {
-      "1": "During your Attack ability, you may place one characer token on this card to add %game.condition.muddle% to one attack.  When there are three tokens on this card it is consumed %game.card.lost%.",
+      "1": "During your Attack ability, you may place one character token on this card to add %game.condition.muddle% to one attack.  When there are three tokens on this card it is consumed %game.card.lost%.",
       ".": "Orb of Confusion"
     },
     "cs-2": {
-      "1": "During your Move ability, you may place one characer token on this card to add +1 %game.action.move%. When there are three tokens on this card it is consumed %game.card.lost%.",
+      "1": "During your Move ability, you may place one character token on this card to add +1 %game.action.move%. When there are three tokens on this card it is consumed %game.card.lost%.",
       ".": "Orb of Momentum"
     },
     "cs-3": {
-      "1": "During your Move ability, you may place one characer token on this card to add %game.action.jump%. When there are three tokens on this card it is consumed %game.card.lost%.",
+      "1": "During your Move ability, you may place one character token on this card to add %game.action.jump%. When there are three tokens on this card it is consumed %game.card.lost%.",
       ".": "Orb of Agility"
     },
     "cs-4": {
-      "1": "During your Attack ability, you may place one characer token on this card to add +1 %game.action.attack%. When there are three tokens on this card it is consumed %game.card.lost%.",
+      "1": "During your Attack ability, you may place one character token on this card to add +1 %game.action.attack%. When there are three tokens on this card it is consumed %game.card.lost%.",
       ".": "Orb of Vigor"
     },
     "cs-5": {
-      "1": "When attacked by an adjacent enemy, you may place one characer token on this card to gain %game.action.retaliate% 1 for the attack. When there are three tokens on this card it is consumed %game.card.lost%.",
+      "1": "When attacked by an adjacent enemy, you may place one character token on this card to gain %game.action.retaliate% 1 for the attack. When there are three tokens on this card it is consumed %game.card.lost%.",
       ".": "Orb of Retribution"
     },
     "cs-6": {
-      "1": "During your Attack ability, you may place one characer token on this card to add %game.condition.poison% to one attack. When there are three tokens on this card it is consumed %game.card.lost%.",
+      "1": "During your Attack ability, you may place one character token on this card to add %game.condition.poison% to one attack. When there are three tokens on this card it is consumed %game.card.lost%.",
       ".": "Orb of Infection"
     },
     "cs-7": {
-      "1": "During your turn, you may place one characer token on this card to perform \"%game.action.heal% 1, Self\". When there are three tokens on this card it is consumed %game.card.lost%.",
+      "1": "During your turn, you may place one character token on this card to perform \"%game.action.heal% 1, Self\". When there are three tokens on this card it is consumed %game.card.lost%.",
       ".": "Orb of Vitality"
     },
     "cs-8": {
-      "1": "When damaged by an attack, you may place one characer token on this card to gain %game.action.shield% 1 for the attack. When there are three tokens on this card it is consumed %game.card.lost%.",
+      "1": "When damaged by an attack, you may place one character token on this card to gain %game.action.shield% 1 for the attack. When there are three tokens on this card it is consumed %game.card.lost%.",
       ".": "Orb of Protection"
     },
     "cs-9": {
-      "1": "During your Attack ability, you may place one characer token on this card to gain Advantage for one attack. When there are three tokens on this card it is consumed %game.card.lost%.",
+      "1": "During your Attack ability, you may place one character token on this card to gain Advantage for one attack. When there are three tokens on this card it is consumed %game.card.lost%.",
       ".": "Orb of Fortune"
     },
     "cs-10": {
-      "1": "During your Attack ability, you may place one characer token on this card to add %game.condition.curse% to one attack. When there are three tokens on this card it is consumed %game.card.lost%.",
+      "1": "During your Attack ability, you may place one character token on this card to add %game.condition.curse% to one attack. When there are three tokens on this card it is consumed %game.card.lost%.",
       ".": "Orb of Despair"
     },
     "cs-11": {
@@ -167,7 +167,7 @@
       ".": "Mantle of Purity"
     },
     "cs-25": {
-      "1": "On the next two attacks targeting you peformed by adjacent enemies, gain %game.action.retaliate% 2 for the attack.",
+      "1": "On the next two attacks targeting you performed by adjacent enemies, gain %game.action.retaliate% 2 for the attack.",
       ".": "Boneclad Shawl"
     },
     "cs-26": {
@@ -307,7 +307,7 @@
       ".": "Fireproof Helm"
     },
     "cs-72": {
-      "1": "Add +1 %game.action.range% to all your ranged abilities peformed while adjacent to an obstacle. Whenever you enter a hex with a trap, you may choose not to spring the trap.",
+      "1": "Add +1 %game.action.range% to all your ranged abilities performed while adjacent to an obstacle. Whenever you enter a hex with a trap, you may choose not to spring the trap.",
       ".": "Wooden Ladder"
     },
     "cs-73": {
@@ -359,7 +359,7 @@
       ".": "Slug Crossbow"
     },
     "cs-85": {
-      "1": "During your single-targetranged Attack ability, add +1 %game.action.attack% and turn the attack into the following:",
+      "1": "During your single-target ranged Attack ability, add +1 %game.action.attack% and turn the attack into the following:",
       ".": "Refined Slug Crossbow"
     },
     "cs-86": {

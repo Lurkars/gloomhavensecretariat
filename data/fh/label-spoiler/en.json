@@ -170,7 +170,7 @@
       ".": "Cloak of Warding"
     },
     "fh-28": {
-      "1": "During your turn add +1 %game.action.move% to all your move abilities and ignor difficult terrain.",
+      "1": "During your turn add +1 %game.action.move% to all your move abilities and ignore difficult terrain.",
       ".": "Sturdy Boots"
     },
     "fh-29": {
@@ -292,7 +292,7 @@
       ".": "Shovel"
     },
     "fh-58": {
-      "1": "During your melee attack abiluty, add +2 %game.action.attack% to one attack. After the ability, gain %game.condition.disarm%.",
+      "1": "During your melee attack ability, add +2 %game.action.attack% to one attack. After the ability, gain %game.condition.disarm%.",
       ".": "Slippery Sword"
     },
     "fh-59": {
@@ -365,7 +365,7 @@
       ".": "Rose Gauntlet"
     },
     "fh-76": {
-      "1": "During one of your summons' turns, decide how it peforms it's abilities.",
+      "1": "During one of your summons' turns, decide how it performs it's abilities.",
       ".": "Horn of Command"
     },
     "fh-77": {
@@ -382,7 +382,7 @@
       ".": "Roasted Fowl"
     },
     "fh-80": {
-      "1": "When you would suffer 4 or fewer %game.damage% from attack, negate the %game.damage% and perform %game.action.heal% X self wheee x is the amount of damage you would have suffered.",
+      "1": "When you would suffer 4 or fewer %game.damage% from attack, negate the %game.damage% and perform %game.action.heal% X self where x is the amount of damage you would have suffered.",
       ".": "Living Stone"
     },
     "fh-81": {
@@ -646,7 +646,7 @@
       ".": "Versatile Dagger"
     },
     "fh-146": {
-      "1": "Duiring your attack, add %game.action.pull% to all your ranged attacks.",
+      "1": "During your attack, add %game.action.pull% to all your ranged attacks.",
       ".": "Hooked Chain"
     },
     "fh-147": {
@@ -784,7 +784,7 @@
       ".": "Burst Boots"
     },
     "fh-180": {
-      "1": "When you loot two or more tokens at once, peform: %game.condition.bless% self.",
+      "1": "When you loot two or more tokens at once, perform: %game.condition.bless% self.",
       ".": "Boots of Greed"
     },
     "fh-181": {
@@ -792,7 +792,7 @@
       ".": "Translocation Rod"
     },
     "fh-182": {
-      "1": "Afer your melee attack , place a character token on the target. The target loses %game.action.fly%.",
+      "1": "After your melee attack , place a character token on the target. The target loses %game.action.fly%.",
       ".": "Wing Clippers"
     },
     "fh-183": {
@@ -889,7 +889,7 @@
       ".": "Harpoon"
     },
     "fh-206": {
-      "1": "During your melee attack ability, if you have not move this round, add +2 %game.action.attack% to one attack, and you may perform no move abilites this turn.",
+      "1": "During your melee attack ability, if you have not move this round, add +2 %game.action.attack% to one attack, and you may perform no move abilities this turn.",
       ".": "Giant Sword"
     },
     "fh-207": {
@@ -901,7 +901,7 @@
       ".": "Titan Nail"
     },
     "fh-209": {
-      "1": "During your melee attack ability, give advantage on one atrack.  For each master you have completed also add one following to the attack: +1 %game.action.attack%, %game.condition.wound%, or %game.condition.poison%. ",
+      "1": "During your melee attack ability, give advantage on one attack.  For each master you have completed also add one following to the attack: +1 %game.action.attack%, %game.condition.wound%, or %game.condition.poison%. ",
       ".": "Sword of Mastery"
     },
     "fh-210": {
@@ -994,7 +994,7 @@
       ".": "Examination Glass"
     },
     "fh-231": {
-      "1": "When you gain a loot token, gain 3 `hide` instead of drawning a loot card.",
+      "1": "When you gain a loot token, gain 3 `hide` instead of drawing a loot card.",
       ".": "Skinning Knife"
     },
     "fh-232": {
@@ -1018,7 +1018,7 @@
       ".": "Cracked Mirror"
     },
     "fh-237": {
-      "1": "During your turn, choose one of six directions. You and all figures withing %game.action.range:2% are forced to simultaneously move 2 hexes in the chosen directon.",
+      "1": "During your turn, choose one of six directions. You and all figures withing %game.action.range:2% are forced to simultaneously move 2 hexes in the chosen direction.",
       ".": "Mesmerizing Seashell"
     },
     "fh-238": {
@@ -1063,9 +1063,9 @@
   },
   "treasures": {
     "fh": {
-      "12": "You find the remains of Camilla and her paintings of a majestiv horned creature.",
+      "12": "You find the remains of Camilla and her paintings of a majestic horned creature.",
       "51": "Read %data.section:78.1%",
-      "54": "Treasure chest? There was no reasure chest there Maybe you should slow down on the drink",
+      "54": "Treasure chest? There was no treasure chest there Maybe you should slow down on the drink",
       "57": "What’s this? An empty chest with a lead trapdoor at the bottom You make note of the location so you can return with Gem’s help later.",
       "62": "gain Mechanical Cube blueprint %game.itemFh.82% when you find the other half of this blueprint."
     }

@@ -150,7 +150,7 @@
             "status": "Das automatische Backup ist mit dem Statuscode '{0}' fehlgeschlagen. Öffne die Console des Browsers für mehr Details.",
             "unknown": "Das automatische Backup ist aus unbekannten Gründen fehlgeschlagen. Öffne die Console des Browsers für mehr Details."
           },
-          "hint": "Instead of donwloading the automatic backup file, set an URL to upload the data to. {FILENAME} can be used as placeholder for filename.  (This requires proper CORS settings to work!)"
+          "hint": "Instead of downloading the automatic backup file, set an URL to upload the data to. {FILENAME} can be used as placeholder for filename.  (This requires proper CORS settings to work!)"
         },
         "uploadUrlAuthorization": {
           ".": "Authorization Header",
@@ -323,7 +323,7 @@
       "all": "Aktuelle Karten",
       "cancel": "Abbrechen",
       "choose": "Kampfziel für %game.characterIconColored.{0}% {1} auswählen",
-      "choosen": "Kampfziel für %game.characterIconColored.{0}% {1}",
+      "chosen": "Kampfziel für %game.characterIconColored.{0}% {1}",
       "chooseCard": "Markierte Karte auswählen",
       "drawCard": "Weitere Karte ziehen",
       "drawCards": "Neue Karten ziehen",
@@ -1677,7 +1677,7 @@
         "objective": "{1} anwenden auf {0}",
         "summon": "{2} anwenden auf '{1}' von {0}"
       },
-      "applyHightlightAction": {
+      "applyHighlightAction": {
         "condition": "Aktion %game.condition.{1}% anwenden auf {0}",
         "heal": "Aktion %game.action.heal% {1} anwenden auf {0}",
         "switchType": "Tauschen von %game.monsterType.normal% und %game.monsterType.elite% Aufstellern anwenden auf {0}",
@@ -1690,12 +1690,12 @@
         "deselect": "Kampfziel von {0} abwählen",
         "select": "Kampfziel für {0} auswählen",
         "setup": {
-          "addEdtion": "Kampfzielkarten von %data.edition.{0}% hinzufügen",
+          "addEdition": "Kampfzielkarten von %data.edition.{0}% hinzufügen",
           "filter": {
             "addCard": "Kampfziel '{1}' (%data.edition.{0}%) zu Kampfzielkarten hinzufügen",
             "removeCard": "Kampfziel '{1}' (%data.edition.{0}%) von Kampfzielkarten entfernen"
           },
-          "removeEdtion": "Kampfzielkarten von %data.edition.{0}% entfernen"
+          "removeEdition": "Kampfzielkarten von %data.edition.{0}% entfernen"
         }
       },
       "buyItem": "Gegenstand {1} (%data.edition.{2}%) für {0} kaufen",
@@ -1845,7 +1845,7 @@
       "setObjectiveInitiative": "Initiative {1} für Ziel {0}",
       "setPartyAchievements": "Gruppenerfolge",
       "setPartyDonations": "Spenden auf {0}",
-      "setPartyInspiation": "Inspiration auf {1}",
+      "setPartyInspiration": "Inspiration auf {1}",
       "setPartyLocation": "Gruppenort '{0}'",
       "setPartyMorale": "Moral auf {0}",
       "setPartyName": "Gruppenname '{0}'",

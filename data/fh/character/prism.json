@@ -155,7 +155,7 @@
           {
             "type": "specialTarget",
             "small": true,
-            "value": "adjecentEnemies"
+            "value": "adjacentEnemies"
           }
         ]
       }
