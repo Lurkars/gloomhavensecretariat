@@ -122,7 +122,7 @@
         "7": "Summon one additional %data.monster.night-demon%",
         "8": "Summon one additional %data.monster.flame-demon%",
         "9": "Summon one %data.monster.valrath-tracker%: normal for two characters, elite for three or four characters.",
-        "10": "Summon two %data.monster.black-imp%s: both normal for two characters; one normal, one elite for three chararcers; both elite for four characters.",
+        "10": "Summon two %data.monster.black-imp%s: both normal for two characters; one normal, one elite for three characters; both elite for four characters.",
         "11": "Summon one additional elite %data.monster.black-imp%",
         "12": "Target all enemies within %game.action.range%4",
         "13": "All adjacent enemies suffer %game.damage:3%.",

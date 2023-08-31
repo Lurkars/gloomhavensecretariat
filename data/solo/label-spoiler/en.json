@@ -241,10 +241,10 @@
             "1": "During your turn, perform \"%game.action.pull% 2, Self toward one enemy within %game.action.range:3%\"."
         },
         "solo-47": {
-            "1": "While %Mounted% on a summon, you can aply your %game.items.slots.small% items item effects to the summon instead."
+            "1": "While %Mounted% on a summon, you can apply your %game.items.slots.small% items item effects to the summon instead."
         },
         "solo-48": {
-            "1": "During your turn, %game.element.consume.wild% to peforme one of the following: %game.action.move% 2, %game.action.jump%, %game.element.air% | %game.action.heal% 3, Self, %game.element.light% | %game.action.attack% 2, %game.element.fire%."
+            "1": "During your turn, %game.element.consume.wild% to perform one of the following: %game.action.move% 2, %game.action.jump%, %game.element.air% | %game.action.heal% 3, Self, %game.element.light% | %game.action.attack% 2, %game.element.fire%."
         },
         "solo-50": {
             "1": "During your turn, when you %game.element.consume.wild% an element, do not move the consumed element to the Inert column."
@@ -271,7 +271,7 @@
             "1": "During your attack ability gain %game.condition.wound% to add +3 %game.action.attack% to one attack. If you kill the target perform \"%game.action.heal% 3, Self\"."
         },
         "solo-248": {
-            "1": "Duing your attack ability, move one character token on one of your persistent abilities backward one slot and add +X %game.action.attack% to one attack, where X is the nuber of active persistent abilities."
+            "1": "During your attack ability, move one character token on one of your persistent abilities backward one slot and add +X %game.action.attack% to one attack, where X is the number of active persistent abilities."
         },
         "solo-249": {
             "1": "During our turn, perform one of the two following abilities: Lose one card from your hand to gain 3 ^fh-hourglass^. ~@-2 ^fh-hourglass^ : %game.card.recover% up to two of your discarded cards@~"
@@ -299,7 +299,7 @@
             "1": "Gain 3 ^fh-shards^"
         },
         "solo-257": {
-            "1": "When you create a trap, place a character token on it.  Monsters do not treat the trap as negative. Remvoe the token when you %game.card.recover% this item."
+            "1": "When you create a trap, place a character token on it.  Monsters do not treat the trap as negative. Remove the token when you %game.card.recover% this item."
         },
         "solo-258": {
             "1": "When you suffer damage, if your hit point value is reduced to below half your maximum, perform: %game.action.heal% 7 self, %game.condition.curse% This heal is not affect by and cannot remove negative conditions."
@@ -320,7 +320,7 @@
             "4": "then flip this card over at the end of your turn."
         },
         "solo-263": {
-            "1": "Whenever you gain %game.condition.invisible% peform a teleport ability while you have %game.condition.invisible%, after the ability perform: %game.condition.muddle% %game.action.range:1%"
+            "1": "Whenever you gain %game.condition.invisible% perform a teleport ability while you have %game.condition.invisible%, after the ability perform: %game.condition.muddle% %game.action.range:1%"
         },
         "solo-264": {
             "1": "When you rest, you may keep up to three ^fh-anemone^ cards in your active area."
@@ -329,7 +329,7 @@
             "1": "During your Attack ability, add +1 %game.action.attack% to one attack. Whenever this item is refreshed, one adjacent enemy suffers 1 damage."
         },
         "solo-120": {
-            "1": "During your melee Attack abilit, gain %game.condition.chill% to add %game.condition.chill% to the attack. After the attack flip, this card.",
+            "1": "During your melee Attack ability, gain %game.condition.chill% to add %game.condition.chill% to the attack. After the attack flip, this card.",
             "2": "During your melee Attack ability, if you do not have %game.condition.wound%, gain %game.condition.wound% to add %game.condition.wound% to the attack. After the attack flip, this card."
         },
         "solo-121": {

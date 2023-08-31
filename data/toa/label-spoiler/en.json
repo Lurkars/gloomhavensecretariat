@@ -84,7 +84,7 @@
       ".": "Crystal Spike"
     },
     "toa-124": {
-      "1": "During your melee Attack ability, add %game.condition.wound% and %game.condition.muddle% to one attack.  You may consue %game.card.lost% this item instead to gain ADD %game.target%.",
+      "1": "During your melee Attack ability, add %game.condition.wound% and %game.condition.muddle% to one attack.  You may consume %game.card.lost% this item instead to gain ADD %game.target%.",
       ".": "Arcbolt Lance"
     },
     "toa-125": {

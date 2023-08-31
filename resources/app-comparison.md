@@ -125,7 +125,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 
 [^3.1]: Need to be enabled in **Data Management** Menu, afterwards added in **Battle Goals Setup**
 
-[^4]: Need seperate server component [*GHS* Server](https://github.com/Lurkars/*GHS*-server), public instance available
+[^4]: Need separate server component [*GHS* Server](https://github.com/Lurkars/*GHS*-server), public instance available
 
 [^5]: Support for English, German, French and Korean (missing translations for CS and FH)
 
