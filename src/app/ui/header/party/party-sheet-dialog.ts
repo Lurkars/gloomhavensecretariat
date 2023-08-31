@@ -10,7 +10,7 @@ import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { CountIdentifier, Identifier } from "src/app/game/model/data/Identifier";
 import { LootType } from "src/app/game/model/data/Loot";
 import { Party } from "src/app/game/model/Party";
-import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
+import { GameScenarioModel, Scenario, ScenarioCache } from "src/app/game/model/Scenario";
 import { AttackModiferDeckChange } from "../../figures/attackmodifier/attackmodifierdeck";
 import { ghsInputFullScreenCheck } from "../../helper/Static";
 import { CharacterMoveResourcesDialog } from "../../figures/character/sheet/move-resources";
@@ -43,7 +43,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   partyEdition: string = "";
   scenarioEditions: string[] = [];
-  scenarios: Record<string, ScenarioData[]> = {};
+  scenarios: Record<string, ScenarioCache[]> = {};
   conclusions: Record<string, ScenarioData[]> = {};
   characters: Character[] = [];
   worldMap: boolean = false;
@@ -177,7 +177,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     const scenarioData = gameManager.scenarioManager.scenarioData(edition, true).find((scenarioData) => scenarioData.index == index && scenarioData.group == group);
     indexElement.classList.add('error');
     groupElement.classList.add('error');
-    if (scenarioData && this.scenarios[edition].indexOf(scenarioData) == -1 && !this.party.manualScenarios.some((gameScenarioModel) => gameScenarioModel.index == scenarioData.index && gameScenarioModel.edition == scenarioData.edition && gameScenarioModel.group == scenarioData.group && !gameScenarioModel.isCustom)) {
+    if (scenarioData && !this.scenarios[edition].find((scenarioCache) => scenarioCache.edition == scenarioData.edition && scenarioCache.group == scenarioData.group && scenarioCache.index == scenarioData.index) && !this.party.manualScenarios.some((gameScenarioModel) => gameScenarioModel.index == scenarioData.index && gameScenarioModel.edition == scenarioData.edition && gameScenarioModel.group == scenarioData.group && !gameScenarioModel.isCustom)) {
       gameManager.stateManager.before("addManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
       gameManager.game.party.manualScenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []));
       gameManager.stateManager.after();
@@ -509,7 +509,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     const editions = this.partyEdition && [this.partyEdition] || gameManager.editions();
     this.scenarioEditions = [];
     editions.forEach((edition) => {
-      let scenarioData = gameManager.scenarioManager.scenarioData(edition).filter((scenarioData) => (!scenarioData.spoiler || settingsManager.settings.spoilers.indexOf(scenarioData.name) != -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) != -1));
+      let scenarioData = gameManager.scenarioManager.scenarioData(edition).filter((scenarioData) => (!scenarioData.spoiler || settingsManager.settings.spoilers.indexOf(scenarioData.name) != -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) != -1)).map((scenarioData) => new ScenarioCache(scenarioData, this.countFinished(scenarioData) > 0, gameManager.scenarioManager.isBlocked(scenarioData), gameManager.scenarioManager.isLocked(scenarioData)));;
       if (scenarioData.length > 0) {
         this.scenarios[edition] = scenarioData.sort((a, b) => {
           if (a.group && !b.group) {

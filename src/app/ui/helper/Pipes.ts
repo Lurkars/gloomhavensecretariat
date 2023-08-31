@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { ghsValueSign } from './Static';
+import { ScenarioCache } from 'src/app/game/model/Scenario';
 
 @Pipe({
   name: 'ghsValueSign'
@@ -48,7 +48,7 @@ export class GhsCeilPipe implements PipeTransform {
   name: 'ghsScenarioSearch'
 })
 export class GhsScenarioSearch implements PipeTransform {
-  transform(items: ScenarioData[], search: string): ScenarioData[] {
+  transform(items: ScenarioCache[], search: string): ScenarioCache[] {
     return items.filter((scenarioData) => {
       if (!search || search == '') {
         return true;

@@ -43,8 +43,8 @@
     </div>
     <div class="line scenarios">
       <span (click)="setScenario(scenario)" class="scenario"
-        [ngClass]="{'current' : hasScenario(scenario), 'blocked' : gameManager.scenarioManager.isBlocked(scenario) , 'locked' : gameManager.scenarioManager.isLocked(scenario)}"
-        [ghsTooltip]="'scenario.tooltip' + (gameManager.scenarioManager.isBlocked(scenario) ? '.blocked' : (gameManager.scenarioManager.isLocked(scenario) ? '.locked' : ''))"
+        [ngClass]="{'current' : hasScenario(scenario), 'blocked' : scenario.isBlocked , 'locked' : scenario.isLocked}"
+        [ghsTooltip]="'scenario.tooltip' + (scenario.isBlocked ? '.blocked' : (scenario.isLocked ? '.locked' : ''))"
         [ghs-label-args]="['data.scenario.' + scenario.name]"
         *ngFor="let scenario of scenarios(group, filterSuccess) | ghsScenarioSearch:search.value">
         <ng-container *ngIf="!scenario.solo">
@@ -62,10 +62,10 @@
         <span *ngIf="scenarioSuccess(scenario)" class="state success">
           <img src="./assets/images/check.svg" />
         </span>
-        <span *ngIf="gameManager.scenarioManager.isBlocked(scenario)" class="state blocked">
+        <span *ngIf="scenario.isBlocked" class="state blocked">
           <img src="./assets/images/close.svg" />
         </span>
-        <span *ngIf="!gameManager.scenarioManager.isBlocked(scenario) && gameManager.scenarioManager.isLocked(scenario)"
+        <span *ngIf="!scenario.isBlocked && scenario.isLocked"
           class="state locked">
           <img src="./assets/images/close.svg" />
         </span>

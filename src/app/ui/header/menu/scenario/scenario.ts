@@ -3,7 +3,7 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameState } from "src/app/game/model/Game";
-import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
+import { GameScenarioModel, Scenario, ScenarioCache } from "src/app/game/model/Scenario";
 import { Spoilable, SpoilableMock } from "src/app/game/model/data/Spoilable";
 import { ScenarioRequirementsComponent } from "../../party/requirements/requirements";
 import { Dialog } from "@angular/cdk/dialog";
@@ -26,7 +26,7 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
 
   constructor(private dialog: Dialog) { }
 
-  scenarioCache: { edition: string, group: string | undefined, filterSuccess: boolean, includeSpoiler: boolean, all: boolean, scenarios: ScenarioData[] }[] = [];
+  scenarioCache: { edition: string, group: string | undefined, filterSuccess: boolean, includeSpoiler: boolean, all: boolean, scenarios: ScenarioCache[] }[] = [];
 
   ngOnInit(): void {
     this.edition =
@@ -74,7 +74,7 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
     return groups;
   }
 
-  scenarios(group: string | undefined = undefined, filterSuccess: boolean = false, includeSpoiler: boolean = false, all: boolean = false): ScenarioData[] {
+  scenarios(group: string | undefined = undefined, filterSuccess: boolean = false, includeSpoiler: boolean = false, all: boolean = false): ScenarioCache[] {
     if (!this.edition) {
       return [];
     }
@@ -87,15 +87,15 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
 
     model = { edition: this.edition, group: group, filterSuccess: filterSuccess, includeSpoiler: includeSpoiler, all: all, scenarios: [] };
 
-    model.scenarios = gameManager.scenarioManager.scenarioData(this.edition, all).filter((scenarioData) => scenarioData.group == group && (includeSpoiler || (!scenarioData.spoiler || gameManager.game.unlockedCharacters.indexOf(scenarioData.name) != -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) != -1)) && (!filterSuccess || !this.scenarioSuccess(scenarioData) && !gameManager.scenarioManager.isBlocked(scenarioData))).sort(gameManager.scenarioManager.sortScenarios);
+    model.scenarios = gameManager.scenarioManager.scenarioData(this.edition, all).filter((scenarioData) => scenarioData.group == group && (includeSpoiler || (!scenarioData.spoiler || gameManager.game.unlockedCharacters.indexOf(scenarioData.name) != -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) != -1)) && (!filterSuccess || !this.scenarioSuccess(scenarioData) && !gameManager.scenarioManager.isBlocked(scenarioData))).sort(gameManager.scenarioManager.sortScenarios).map((scenarioData) => new ScenarioCache(scenarioData, this.scenarioSuccess(scenarioData), gameManager.scenarioManager.isBlocked(scenarioData), gameManager.scenarioManager.isLocked(scenarioData)));
 
     this.scenarioCache.push(model);
 
     return model.scenarios;
   }
 
-  scenarioSuccess(scenario: ScenarioData) {
-    return gameManager.game.party.scenarios && gameManager.game.party.scenarios.find((identifier) => scenario.index == identifier.index && scenario.edition == identifier.edition && scenario.group == identifier.group);
+  scenarioSuccess(scenario: ScenarioData): boolean {
+    return gameManager.game.party.scenarios && gameManager.game.party.scenarios.find((identifier) => scenario.index == identifier.index && scenario.edition == identifier.edition && scenario.group == identifier.group) != undefined;
   }
 
   maxScenario(group: string | undefined) {
@@ -162,7 +162,7 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
       input.value.split(',').forEach((number) => {
         const scenarioData = editionData.scenarios.find((scenarioData) => scenarioData.index == number.trim() && scenarioData.group == group);
         if (scenarioData) {
-          if (this.scenarios(group).indexOf(scenarioData) == -1) {
+          if (!this.scenarios(group).find((scenarioCache) => scenarioCache.edition == scenarioData.edition && scenarioCache.group == scenarioData.group && scenarioCache.index == scenarioData.index)) {
             gameManager.stateManager.before("addManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
             gameManager.game.party.manualScenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []));
             gameManager.stateManager.after();
@@ -170,7 +170,7 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
           numbers = numbers.filter((value) => value.trim() != number);
         } else if (editionData.scenarios.find((scenarioData) => scenarioData.index.substring(0, scenarioData.index.length - 1) == number.trim() && scenarioData.index.substring(scenarioData.index.length - 1).match(/[A-B]/) && scenarioData.group == group)) {
           editionData.scenarios.filter((scenarioData) => scenarioData.index.substring(0, scenarioData.index.length - 1) == number.trim() && scenarioData.index.substring(scenarioData.index.length - 1).match(/[A-B]/) && scenarioData.group == group).forEach((scenarioData) => {
-            if (this.scenarios(group).indexOf(scenarioData) == -1) {
+            if (!this.scenarios(group).find((scenarioCache) => scenarioCache.edition == scenarioData.edition && scenarioCache.group == scenarioData.group && scenarioCache.index == scenarioData.index)) {
               gameManager.stateManager.before("addManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
               gameManager.game.party.manualScenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []));
               gameManager.stateManager.after();

@@ -20,6 +20,21 @@ export class Scenario extends ScenarioData {
   }
 }
 
+export class ScenarioCache extends ScenarioData {
+
+  isSuccess: boolean;
+  isBlocked: boolean;
+  isLocked: boolean;
+
+  constructor(scenarioData: ScenarioData, isSuccess: boolean, isBlocked: boolean, isLocked: boolean) {
+    super(scenarioData);
+    this.isSuccess = isSuccess;
+    this.isBlocked = isBlocked;
+    this.isLocked = isLocked;
+  }
+
+}
+
 export class GameScenarioModel {
 
   index: string;
