@@ -424,7 +424,7 @@
       "all": "Current Cards",
       "cancel": "Cancel",
       "choose": "Choose Battle Goal for %game.characterIconColored.{0}% {1}",
-      "choosen": "Battle Goal for %game.characterIconColored.{0}% {1}",
+      "chosen": "Battle Goal for %game.characterIconColored.{0}% {1}",
       "chooseCard": "Choose selected Card",
       "drawCard": "Draw another card",
       "drawCards": "Redraw cards",

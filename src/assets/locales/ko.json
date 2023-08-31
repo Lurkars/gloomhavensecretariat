@@ -418,7 +418,7 @@
       "all": "현재 카드",
       "cancel": "취소",
       "choose": "%game.characterIconColored.{0}% {1}의 전투 목표 선택",
-      "choosen": "%game.characterIconColored.{0}% {1}의 전투 목표",
+      "chosen": "%game.characterIconColored.{0}% {1}의 전투 목표",
       "chooseCard": "고른 카드 중에 선택",
       "drawCard": "다른 카드 뽑기",
       "drawCards": "카드 다시 뽑기",

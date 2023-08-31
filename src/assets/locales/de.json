@@ -323,7 +323,7 @@
       "all": "Aktuelle Karten",
       "cancel": "Abbrechen",
       "choose": "Kampfziel für %game.characterIconColored.{0}% {1} auswählen",
-      "choosen": "Kampfziel für %game.characterIconColored.{0}% {1}",
+      "chosen": "Kampfziel für %game.characterIconColored.{0}% {1}",
       "chooseCard": "Markierte Karte auswählen",
       "drawCard": "Weitere Karte ziehen",
       "drawCards": "Neue Karten ziehen",

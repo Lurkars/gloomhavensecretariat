@@ -23,7 +23,7 @@
   ],
   "objectives": [
     {
-      "name": "The Choosen",
+      "name": "The Chosen",
       "health": "6+L",
       "escort": true,
       "marker": "a"
@@ -50,7 +50,7 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "The Choosen"
+            "name": "The Chosen"
           },
           "type": "remove"
         },
