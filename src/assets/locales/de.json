@@ -1690,12 +1690,12 @@
         "deselect": "Kampfziel von {0} abwählen",
         "select": "Kampfziel für {0} auswählen",
         "setup": {
-          "addEdtion": "Kampfzielkarten von %data.edition.{0}% hinzufügen",
+          "addEdition": "Kampfzielkarten von %data.edition.{0}% hinzufügen",
           "filter": {
             "addCard": "Kampfziel '{1}' (%data.edition.{0}%) zu Kampfzielkarten hinzufügen",
             "removeCard": "Kampfziel '{1}' (%data.edition.{0}%) von Kampfzielkarten entfernen"
           },
-          "removeEdtion": "Kampfzielkarten von %data.edition.{0}% entfernen"
+          "removeEdition": "Kampfzielkarten von %data.edition.{0}% entfernen"
         }
       },
       "buyItem": "Gegenstand {1} (%data.edition.{2}%) für {0} kaufen",

@@ -1798,12 +1798,12 @@
         "deselect": "Deselect current Battle Goal of {0}",
         "select": "Select Battle Goal of {0}",
         "setup": {
-          "addEdtion": "Add Battle Goal cards from edition %data.edition.{0}%",
+          "addEdition": "Add Battle Goal cards from edition %data.edition.{0}%",
           "filter": {
             "addCard": "Re-Add Battle Goal '{1}' (%data.edition.{0}%) to Battle Goal cards",
             "removeCard": "Remove Battle Goal '{1}' (%data.edition.{0}%) from Battle Goal cards"
           },
-          "removeEdtion": "Remove Battle Goal cards from edition %data.edition.{0}%"
+          "removeEdition": "Remove Battle Goal cards from edition %data.edition.{0}%"
         }
       },
       "buyItem": "Buy Item {1} (%data.edition.{2}%) for {0}",

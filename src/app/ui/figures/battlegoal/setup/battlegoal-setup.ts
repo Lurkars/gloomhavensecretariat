@@ -46,7 +46,7 @@ export class BattleGoalSetupDialog {
     if (!gameManager.editionRules(edition, false)) {
       gameManager.game.battleGoalEditions = gameManager.game.battleGoalEditions || [];
       gameManager.game.filteredBattleGoals = gameManager.game.filteredBattleGoals || [];
-      gameManager.stateManager.before("battleGoals.setup." + (gameManager.game.battleGoalEditions.indexOf(edition) == -1 ? "addEdtion" : "removeEdition"), edition);
+      gameManager.stateManager.before("battleGoals.setup." + (gameManager.game.battleGoalEditions.indexOf(edition) == -1 ? "addEdition" : "removeEdition"), edition);
       if (gameManager.game.battleGoalEditions.indexOf(edition) == -1) {
         gameManager.game.battleGoalEditions.push(edition);
       } else {

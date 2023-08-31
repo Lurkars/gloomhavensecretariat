@@ -1776,12 +1776,12 @@
         "deselect": "{0}의 현재 전투 목표 선택 해제",
         "select": "{0}의 전투 목표 선택",
         "setup": {
-          "addEdtion": "%data.edition.{0}%의 전투 목표 카드 모두 추가",
+          "addEdition": "%data.edition.{0}%의 전투 목표 카드 모두 추가",
           "filter": {
             "addCard": "전투 목표 카드로 전투 목표 '{1}' (%data.edition.{0}%) 다시 추가",
             "removeCard": "전투 목표 카드에서 전투 목표 '{1}' (%data.edition.{0}%) 제거"
           },
-          "removeEdtion": "%data.edition.{0}% 에디션의 전투 목표 카드 모두 추가"
+          "removeEdition": "%data.edition.{0}% 에디션의 전투 목표 카드 모두 추가"
         }
       },
       "buyItem": "{0}의 아이템 구매: {1} (%data.edition.{2}%)",
