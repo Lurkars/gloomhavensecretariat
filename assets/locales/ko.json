@@ -418,7 +418,7 @@
       "all": "현재 카드",
       "cancel": "취소",
       "choose": "%game.characterIconColored.{0}% {1}의 전투 목표 선택",
-      "choosen": "%game.characterIconColored.{0}% {1}의 전투 목표",
+      "chosen": "%game.characterIconColored.{0}% {1}의 전투 목표",
       "chooseCard": "고른 카드 중에 선택",
       "drawCard": "다른 카드 뽑기",
       "drawCards": "카드 다시 뽑기",
@@ -1763,7 +1763,7 @@
         "objective": "{0}에게 {1} 적용",
         "summon": "{0}의 {1}에게 {2} 적용"
       },
-      "applyHightlightAction": {
+      "applyHighlightAction": {
         "condition": "{0}에게 %game.condition.{1}% 상태가 되도록 행동을 적용",
         "heal": "{0}에게 %game.action.heal% {1} 되도록 행동 적용",
         "switchType": "%game.monsterType.normal% 및 %game.monsterType.elite% 말에 대해 {0} 유형으로 전환을 적용",
@@ -1776,12 +1776,12 @@
         "deselect": "{0}의 현재 전투 목표 선택 해제",
         "select": "{0}의 전투 목표 선택",
         "setup": {
-          "addEdtion": "%data.edition.{0}%의 전투 목표 카드 모두 추가",
+          "addEdition": "%data.edition.{0}%의 전투 목표 카드 모두 추가",
           "filter": {
             "addCard": "전투 목표 카드로 전투 목표 '{1}' (%data.edition.{0}%) 다시 추가",
             "removeCard": "전투 목표 카드에서 전투 목표 '{1}' (%data.edition.{0}%) 제거"
           },
-          "removeEdtion": "%data.edition.{0}% 에디션의 전투 목표 카드 모두 추가"
+          "removeEdition": "%data.edition.{0}% 에디션의 전투 목표 카드 모두 추가"
         }
       },
       "buyItem": "{0}의 아이템 구매: {1} (%data.edition.{2}%)",
@@ -1930,7 +1930,7 @@
       "setObjectiveInitiative": "목표 대상 {0}의 주도권 {1}",
       "setPartyAchievements": "파티 업적",
       "setPartyDonations": "{0} 기부",
-      "setPartyInspiation": "영감 {1} 설정",
+      "setPartyInspiration": "영감 {1} 설정",
       "setPartyLocation": "파티 장소 '{0}'",
       "setPartyMorale": "사기 {0} 설정",
       "setPartyName": "파티 이름 '{0}'",

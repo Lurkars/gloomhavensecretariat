@@ -148,9 +148,9 @@
           "error": {
             ".": "Warning: Automatic Backup failed",
             "status": "Automatic Backup failed with response code '{0}'. Take a look at the browser console for more details.",
-            "unknown": "Automatic Backup failed due to unknown reaseon. Please take a look at the browser console for more details."
+            "unknown": "Automatic Backup failed due to unknown reason. Please take a look at the browser console for more details."
           },
-          "hint": "Instead of donwloading the automatic backup file, set an URL to upload the data to. {FILENAME} can be used as placeholder for filename.  (This requires proper CORS settings to work!)"
+          "hint": "Instead of downloading the automatic backup file, set an URL to upload the data to. {FILENAME} can be used as placeholder for filename.  (This requires proper CORS settings to work!)"
         },
         "uploadUrlAuthorization": {
           ".": "Authorization Header",
@@ -221,9 +221,9 @@
     "action": {
       "add": "Add Action",
       "addBottom": "Add Bottom Action",
-      "addSubAction": "Add Subaction",
+      "addSubAction": "Add Sub-action",
       "remove": "Remove Action",
-      "removeSubAction": "Remove Subaction",
+      "removeSubAction": "Remove Sub-action",
       "small": "Smaller",
       "type": "Action Type",
       "value": "Action Value",
@@ -389,7 +389,7 @@
           ".": "cards"
         },
         "effects": {
-          "recoverRandomDiscard": "Recover %game.card.recover% one random card from your dicard pile",
+          "recoverRandomDiscard": "Recover %game.card.recover% one random card from your discard pile",
           "refreshItem": "Refresh an item",
           "refreshItemFh": "%game.card.recover% one item",
           "refreshSpentItem": "Refresh a spent item"
@@ -424,7 +424,7 @@
       "all": "Current Cards",
       "cancel": "Cancel",
       "choose": "Choose Battle Goal for %game.characterIconColored.{0}% {1}",
-      "choosen": "Battle Goal for %game.characterIconColored.{0}% {1}",
+      "chosen": "Battle Goal for %game.characterIconColored.{0}% {1}",
       "chooseCard": "Choose selected Card",
       "drawCard": "Draw another card",
       "drawCards": "Redraw cards",
@@ -519,7 +519,7 @@
       },
       "muddle": {
         ".": "Muddle",
-        "hint": "Muddle: Disadvantage on all atacks. Remove at end of next turn."
+        "hint": "Muddle: Disadvantage on all attacks. Remove at end of next turn."
       },
       "poison": {
         ".": "Poison",
@@ -539,7 +539,7 @@
       },
       "strengthen": {
         ".": "Strengthen",
-        "hint": "Strengthen: Advantage on all atacks. Remove at end of next turn."
+        "hint": "Strengthen: Advantage on all attacks. Remove at end of next turn."
       },
       "stun": {
         ".": "Stun",
@@ -612,7 +612,7 @@
         },
         "monsterType": {
           ".": "Missing Monster Type",
-          "hint": "Currrent Monster Type {3} not found for '%data.{0}.{1}%'! Please check monster data (Edition: %data.edition.{2}%)."
+          "hint": "Current Monster Type {3} not found for '%data.{0}.{1}%'! Please check monster data (Edition: %data.edition.{2}%)."
         },
         "stat": {
           ".": "Missing Stat",
@@ -653,7 +653,7 @@
       },
       "choose": "Select Item",
       "craft": "Craft '{0}'",
-      "effect": "If the item is equipped, it's effect is automatically applied. To equip an item, just click it's name. Equipping items is only allowed before and between scenarios. Doubleclick to force equipping.",
+      "effect": "If the item is equipped, it's effect is automatically applied. To equip an item, just click it's name. Equipping items is only allowed before and between scenarios. Double-click to force equipping.",
       "empty": "No items found",
       "filter": {
         ".": "Search...",
@@ -696,7 +696,7 @@
       "deck": "Loot Deck",
       "enhancements": {
         ".": "Enhancements",
-        "add": "Add Enhacement",
+        "add": "Add Enhancement",
         "remove": "Remove Enhancement"
       },
       "flamefruit": "Flamefruit",
@@ -704,9 +704,11 @@
       "hide": "Hide",
       "keep": "Keep on %data.character.{0}%",
       "lootTreasure": {
-        ".": "{0} loots treasue {1}?",
+        ".": "{0} loots treasure {1}?",
         "confirm": "Confirm",
-        "looted": "{0} loots:"
+        "looted": "{0} loots:",
+        "selectCharacter": "Select Character for treasure {0}",
+        "selectTreasure": "Select treasure for {0}"
       },
       "lumber": "Lumber",
       "material_resources": "material",
@@ -782,7 +784,7 @@
       "enemies": "%game.target% all enemies",
       "enemiesAdjacent": "%game.target% all adjacent enemies",
       "enemiesMovedThrough": "%game.target% all enemies moved through",
-      "enemiesMovedThroughAdjacent": "%game.target% all enemies occupying or adjecent to<br>hexes entered during the move ability",
+      "enemiesMovedThroughAdjacent": "%game.target% all enemies occupying or adjacent to<br>hexes entered during the move ability",
       "enemiesRange": "%game.target% all enemies within %game.action.range% {0}",
       "enemiesRangeExact": "%game.target% all enemies at exactly %game.action.range% {0}",
       "enemiesRangeAffect": "%game.affect% all enemies within %game.action.range% {0}",
@@ -833,7 +835,7 @@
   },
   "menu": {
     "backToMain": "Back to %menu.main%",
-    "main": "Mainmenu"
+    "main": "Main menu"
   },
   "monster": {
     ".": "Monster",
@@ -888,8 +890,14 @@
   "party": {
     ".": "Party",
     "achievements": "Achievements",
-    "addGlobalAchievement": "Add Global Achievement",
-    "addPartyAchievement": "Add Party Achievement",
+    "addGlobalAchievement": {
+      ".": "Add Global Achievement",
+      "empty": "No matching Global Achievement found"
+    },
+    "addPartyAchievement": {
+      ".": "Add Party Achievement",
+      "empty": "No matching Party Achievement found"
+    },
     "campaign": {
       ".": "Campaign",
       "achievements": "Global Achievements",
@@ -932,7 +940,7 @@
           "action": "Action",
           "build": {
             ".": "Build",
-            "hint": "Build (force with doubleclick)"
+            "hint": "Build (force with double-click)"
           },
           "costs": "Costs",
           "id": "Number",
@@ -940,12 +948,12 @@
           "name": "Name",
           "rebuild": {
             ".": "Rebuild",
-            "hint": "Rebuild (force with doubleclick)"
+            "hint": "Rebuild (force with double-click)"
           },
           "repair": {
             ".": "Repair building",
             "costs": "Any {0}",
-            "hint": "Repair building (force with doubleclick)"
+            "hint": "Repair building (force with double-click)"
           },
           "selectResources": {
             ".": "Select Resources",
@@ -954,10 +962,13 @@
           "unlock": "Unlock building",
           "upgrade": {
             ".": "Upgrade Building",
-            "hint": "Upgrade Building (force with doubleclick)"
+            "hint": "Upgrade Building (force with double-click)"
           }
         },
-        "campaignStickers": "Campaign Stickers",
+        "campaignStickers": {
+          ".": "Campaign Stickers",
+          "empty": "No matching Campaign Sticker found"
+        },
         "defense": "Defense",
         "disable": "Go to Gloomhaven Party Sheet",
         "enable": "Go to Frosthaven Campaign Sheet",
@@ -975,7 +986,7 @@
           ".": "Set Sections for week {0}",
           "addSection": "Add Section to week",
           "calc": "{0} weeks from current week",
-          "hint": "Doubleclick to set/edit sections for week",
+          "hint": "Double-click to set/edit sections for week",
           "openConclusion": "Select continuing section",
           "section": "Section"
         },
@@ -1062,7 +1073,7 @@
     "draw": "Draw",
     "hint": {
       "active": "Not all figures are done yet. End round anyway?",
-      "battleGoals": "Not all characters choosed a Battle Goal. Start round anyway?",
+      "battleGoals": "Not all characters chose a Battle Goal. Start round anyway?",
       "confirm": "Confirm",
       "confirmFailed": "Finish Scenario with failure",
       "confirmFinish": "Finish Scenario with success",
@@ -1092,17 +1103,17 @@
       ".": "Filter Scenario",
       "noResult": "No Result"
     },
-    "filterSuccess": "Show open scenarios only",
+    "filterSuccess": "Only unfinished scenarios",
     "finish": {
       ".": "Finish Scenario",
       "failure": "Failure",
-      "reset": "Neustarten",
+      "reset": "Reset",
       "success": "Success"
     },
     "locked": "Missing Requirements",
     "manual": {
       "add": "Unlock Scenarios",
-      "index": "Scenario number, commaseparated"
+      "index": "Scenario number, comma separated"
     },
     "openRoom": "Open door",
     "openRoomRef": "Open door for tile '{0}'",
@@ -1430,7 +1441,7 @@
       "hint": "Automatic scroll to next active figure"
     },
     "automaticAttackModifierFullscreen": {
-      ".": "Autom. fullscreen AM Deck",
+      ".": "Auto fullscreen AM Deck",
       "hint": "Open Attack Modifier Deck (and also Loot Deck) in fullscreen mode when on small devices."
     },
     "automaticStandees": {
@@ -1528,7 +1539,11 @@
     },
     "disableAnimations": {
       ".": "Disable Animations",
-      "hint": "Disable all animations to increase perfomance"
+      "hint": "Disable all animations to increase performance"
+    },
+    "disableArtwork": {
+      ".": "Disable Artwork",
+      "hint": "Disable artwork of monsters and characters"
     },
     "disableColumns": {
       ".": "Disable column layout",
@@ -1568,7 +1583,7 @@
     },
     "expireConditions": {
       ".": "Automatic expire conditions",
-      "hint": "Corresponding conditions will automatically removed after the figures turn, for example Strenghen will be removed after turn"
+      "hint": "Corresponding conditions will automatically removed after the figures turn, for example Strengthen will be removed after turn"
     },
     "feedback": {
       ".": "Disable Feedback Button",
@@ -1672,8 +1687,8 @@
       "hint": "Optimization of Portrait-Mode for smaller screens."
     },
     "pressDoubleClick": {
-      ".": "Long press for doubleclick (Touch)",
-      "hint": "On touchscreens, trigger doubleclick with long press instead. (Recommended to avoid ghost clicks)"
+      ".": "Long press for double-click (Touch)",
+      "hint": "On touchscreens, trigger double-click with long press instead. (Recommended to avoid ghost clicks)"
     },
     "randomStandees": {
       ".": "Random standees",
@@ -1685,7 +1700,7 @@
     },
     "scenarioRooms": {
       ".": "Scenario Rooms",
-      "hint": "Unlocking of seperate rooms in a scenario. If not set, also disables automatic adding of standees."
+      "hint": "Unlocking of separate rooms in a scenario. If not set, also disables automatic adding of standees."
     },
     "scenarioRules": {
       ".": "Scenario Rules",
@@ -1785,7 +1800,7 @@
         "objective": "Apply {1} to {0}",
         "summon": "Apply {2} to '{1}' of {0}"
       },
-      "applyHightlightAction": {
+      "applyHighlightAction": {
         "condition": "Apply action %game.condition.{1}% to {0}",
         "heal": "Apply action %game.action.heal% {1} to {0}",
         "switchType": "Apply switching of %game.monsterType.normal% and %game.monsterType.elite% standees to {0}",
@@ -1798,12 +1813,12 @@
         "deselect": "Deselect current Battle Goal of {0}",
         "select": "Select Battle Goal of {0}",
         "setup": {
-          "addEdtion": "Add Battle Goal cards from edition %data.edition.{0}%",
+          "addEdition": "Add Battle Goal cards from edition %data.edition.{0}%",
           "filter": {
-            "addCard": "Re-Add Battle Goal '{1}' (%data.edition.{0}%) to Battel Goal cards",
-            "removeCard": "Remove Battle Goal '{1}' (%data.edition.{0}%) from Battel Goal cards"
+            "addCard": "Re-Add Battle Goal '{1}' (%data.edition.{0}%) to Battle Goal cards",
+            "removeCard": "Remove Battle Goal '{1}' (%data.edition.{0}%) from Battle Goal cards"
           },
-          "removeEdtion": "Remove Battle Goal cards from edition %data.edition.{0}%"
+          "removeEdition": "Remove Battle Goal cards from edition %data.edition.{0}%"
         }
       },
       "buyItem": "Buy Item {1} (%data.edition.{2}%) for {0}",
@@ -1839,7 +1854,7 @@
       "disableAutomaticLevel": "Disable automatic level calculation",
       "disabledGe5Player": "Disable ≥ 5 player rules",
       "disabledManualPlayerCount": "Disable manual player count",
-      "disablePartyCampaignMode": "Disable campagin mode",
+      "disablePartyCampaignMode": "Disable campaign mode",
       "disableSolo": "Disable solo level calculation",
       "donate": "{0} donate to Sanctuary of the Great Oak",
       "draw": "Draw",
@@ -1847,7 +1862,7 @@
       "enableAutomaticLevel": "Enable automatic level calculation",
       "enabledGe5Player": "Enable ≥ 5 player rules",
       "enabledManualPlayerCount": "Enable manual player count",
-      "enablePartyCampaignMode": "Enable campagin mode",
+      "enablePartyCampaignMode": "Enable campaign mode",
       "enableSolo": "Enable solo level calculation",
       "endAllTurns": "End all turns",
       "entityDead": "Kill {1} standee {2} of {0}",
@@ -1953,21 +1968,21 @@
       "setObjectiveInitiative": "Initiative {1} for objective {0}",
       "setPartyAchievements": "Party achievements",
       "setPartyDonations": "Donations to {0}",
-      "setPartyInspiation": "Inspiration to {1}",
+      "setPartyInspiration": "Inspiration to {1}",
       "setPartyLocation": "Party location '{0}'",
       "setPartyMorale": "Morale to {0}",
       "setPartyName": "Party name '{0}'",
       "setPartyNotes": "Party notes",
       "setPartyProsperity": "Prosperity to {0}",
       "setPartyReputation": "Reputation to {0}",
-      "setPartyResource": "Set Forsthaven Supply {1} to {2}",
+      "setPartyResource": "Set Frosthaven Supply {1} to {2}",
       "setPartySoldiers": "Soldiers to {0}",
       "setPartyTotalDefense": "Set Total Defense to {1}",
       "setPartyTownGuardPerks": "Town Guard Perks to {0}",
       "setPartyWeeks": "Weeks to {0}",
       "setPerk": "Perk {1} to {2} for {0}",
       "setPlayer": "Set Player {1} to {0}",
-      "setPlayerNumber": "Set Playernumber {1} for {0}",
+      "setPlayerNumber": "Set Player number {1} for {0}",
       "setPQ": "Personal Quest {1} for {0} ",
       "setResource": "Set {1} {2} for {0}",
       "setRetired": "{0} retired {1}",
@@ -1983,7 +1998,7 @@
       "summonInactive": "Summon '{1}' von {0} inactive",
       "startCampaign": "Start a new {0} campaign",
       "toggleTypeAll": "Toggle all monster standee types for {0}",
-      "unequipItem": "Deoposit Item {1} (%data.edition.{2}%) for {0}",
+      "unequipItem": "Unequip Item {1} (%data.edition.{2}%) for {0}",
       "unsetAbsent": "{0} present",
       "unsetActive": "End turn of {0}",
       "unsetAlly": "{0} as enemy",
