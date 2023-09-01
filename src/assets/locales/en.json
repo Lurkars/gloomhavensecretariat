@@ -90,7 +90,7 @@
     "progress": {
       ".": "Character Sheet",
       "donate": "Donate",
-      "donations": "Donations to Sanctuary of the Great Oak",
+      "donations": "Donations to Sanctuary of the Great Oak: {0}",
       "export": "Export",
       "fh": {
         "enable": "Go to Frosthaven Character Sheet",

@@ -574,8 +574,8 @@
               <span class="placeholder text-white" [ghs-label]="rewards.custom"></span>
             </div>
 
-            <div class="item town-guard-am" *ngIf="rewards && rewards.townGuardAm && rewards.townGuardAm.length > 0">
-              <span *ngFor="let townGuardAm of rewards.townGuardAm" class="placeholder text-white"
+            <div class="item town-guard-am" *ngIf="townGuardAMs && townGuardAMs.length > 0">
+              <span *ngFor="let townGuardAm of townGuardAMs" class="placeholder text-white"
                 [ghs-label]="'scenario.rewards.townGuardAm'"
                 [ghs-label-args]="['' + townGuardAm.value, townGuardAm.valueType]"></span>
             </div>

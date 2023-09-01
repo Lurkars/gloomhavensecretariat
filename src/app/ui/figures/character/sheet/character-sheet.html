@@ -68,7 +68,9 @@
                 src="./assets/images/fh/loot.svg">:</label>
             <input [value]="character.progress.gold" type="number" min="0" (change)="setGold($event)">
             <span class="donations" *ngIf="donations">
-              <span [ghs-label]="'character.progress.donations'"></span>: {{character.progress.donations}}</span>
+              <span [ghs-label]="'character.progress.donations'"
+                [ghs-label-args]="['' + character.progress.donations]"></span>
+            </span>
             <span class="donate" *ngIf="donations">
               <span [ghs-label]="'character.progress.donate'"></span>:
               <a (click)="donate()"

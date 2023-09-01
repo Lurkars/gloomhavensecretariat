@@ -90,7 +90,7 @@
     "progress": {
       ".": "Charakterbogen",
       "donate": "Spende",
-      "donations": "Spenden an den Tempel der Großen Eiche",
+      "donations": "Spenden an den Tempel der Großen Eiche: {0}",
       "export": "Exportieren",
       "fh": {
         "enable": "Zeige den Frosthaven Charakterbogen an",

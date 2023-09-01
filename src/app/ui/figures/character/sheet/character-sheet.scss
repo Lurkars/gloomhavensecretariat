@@ -1,6 +1,7 @@
 .character-sheet {
   position: relative;
   background-color: var(--ghs-color-white);
+  font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
 
   .container {
     width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));

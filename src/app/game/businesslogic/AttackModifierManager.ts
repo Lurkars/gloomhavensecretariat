@@ -327,13 +327,14 @@ export class AttackModifierManager {
     party.scenarios.forEach((scenarioModel) => {
       const scenarioData = gameManager.scenarioManager.scenarioDataForModel(scenarioModel);
       if (scenarioData && scenarioData.rewards && scenarioData.rewards.townGuardAm) {
-        scenarioData.rewards.townGuardAm.forEach((attackModifier, index) => {
-          let am = Object.assign(new AttackModifier(attackModifier.type, attackModifier.value, attackModifier.valueType), attackModifier);
-          am.id = "scenario-reward-" + scenarioData.index + "-" + index;
-          if (!attackModifierDeck.attackModifiers.find((attackModifier) => attackModifier.id == am.id)) {
-            attackModifierDeck.attackModifiers.push(am);
-            attackModifierDeck.cards.push(am);
+        scenarioData.rewards.townGuardAm.forEach((id, index) => {
+          let am = attackModifierDeck.attackModifiers.find((attackModifier) => attackModifier.id == id);
+          if (am) {
+            attackModifierDeck.cards.push(am.clone());
+          } else {
+            console.warn("Unknown Town Guard AM:", id);
           }
+
         })
       }
     })
@@ -341,12 +342,12 @@ export class AttackModifierManager {
     party.conclusions.forEach((sectionModel) => {
       const sectionData = gameManager.scenarioManager.sectionDataForModel(sectionModel);
       if (sectionData && sectionData.rewards && sectionData.rewards.townGuardAm) {
-        sectionData.rewards.townGuardAm.forEach((attackModifier, index) => {
-          let am = Object.assign(new AttackModifier(attackModifier.type, attackModifier.value, attackModifier.valueType), attackModifier);
-          am.id = "conclusion-reward-" + sectionData.index + "-" + index;
-          if (!attackModifierDeck.attackModifiers.find((attackModifier) => attackModifier.id == am.id)) {
-            attackModifierDeck.attackModifiers.push(am);
-            attackModifierDeck.cards.push(am);
+        sectionData.rewards.townGuardAm.forEach((id, index) => {
+          let am = attackModifierDeck.attackModifiers.find((attackModifier) => attackModifier.id == id);
+          if (am) {
+            attackModifierDeck.cards.push(am.clone());
+          } else {
+            console.warn("Unknown Town Guard AM:", id);
           }
         })
       }

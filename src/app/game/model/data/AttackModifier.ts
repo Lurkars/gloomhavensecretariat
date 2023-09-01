@@ -229,6 +229,8 @@ export const additionalTownGuardAttackModifier: AttackModifier[] = [
   new AttackModifier(AttackModifierType.townguard, 10, AttackModifierValueType.minus, 'fh-tg-add-minus10'),
   new AttackModifier(AttackModifierType.townguard, 20, AttackModifierValueType.plus, 'fh-tg-add-plus20'),
   new AttackModifier(AttackModifierType.townguard, 20, AttackModifierValueType.minus, 'fh-tg-add-minus20'),
+  new AttackModifier(AttackModifierType.townguard, 30, AttackModifierValueType.plus, 'fh-tg-add-plus30'),
+  new AttackModifier(AttackModifierType.townguard, 50, AttackModifierValueType.plus, 'fh-tg-add-plus50'),
   new AttackModifier(AttackModifierType.wreck, 0, AttackModifierValueType.default, 'fh-tg-add-wreck'),
   new AttackModifier(AttackModifierType.success, 0, AttackModifierValueType.default, 'fh-tg-add-success'),
   new AttackModifier(AttackModifierType.townguard, 10, AttackModifierValueType.plus, 'fh-tg-add-plus10-soldier', [new AttackModifierEffect(AttackModifierEffectType.custom,
@@ -241,7 +243,19 @@ export const additionalTownGuardAttackModifier: AttackModifier[] = [
   new AttackModifier(AttackModifierType.townguard, 10, AttackModifierValueType.plus, 'fh-tg-add-plus10-advantage', [new AttackModifierEffect(AttackModifierEffectType.custom,
     'game.custom.advantage')], true),
   new AttackModifier(AttackModifierType.townguard, 20, AttackModifierValueType.minus, 'fh-tg-add-minus20-resource', [new AttackModifierEffect(AttackModifierEffectType.custom,
-    '+1 material resource')])
+    '+1 material resource')]),
+  new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default, 'fh-tg-add-resource-hide', [new AttackModifierEffect(AttackModifierEffectType.custom,
+    '+1%game.resource.hide%', 'Gain one Hide')]),
+  new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default, 'fh-tg-add-resource-lumber', [new AttackModifierEffect(AttackModifierEffectType.custom,
+    '+1%game.resource.lumber%', 'Gain one Lumber')]),
+  new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default, 'fh-tg-add-resource-metal', [new AttackModifierEffect(AttackModifierEffectType.custom,
+    '+1%game.resource.metal%', 'Gain one Metal')]),
+  new AttackModifier(AttackModifierType.townguard, 50, AttackModifierValueType.plus, 'fh-tg-add-plus50-algox', [new AttackModifierEffect(AttackModifierEffectType.custom,
+    'fh-algox', '', [], true)]),
+  new AttackModifier(AttackModifierType.townguard, 50, AttackModifierValueType.plus, 'fh-tg-add-plus50-unfettered', [new AttackModifierEffect(AttackModifierEffectType.custom,
+    'fh-unfettered', '', [], true)]),
+  new AttackModifier(AttackModifierType.townguard, 50, AttackModifierValueType.plus, 'fh-tg-add-plus50-lurkers', [new AttackModifierEffect(AttackModifierEffectType.custom,
+    'fh-lurkers', '', [], true)])
 ];
 
 export const CsOakDeckAttackModifier: AttackModifier[] = [
@@ -304,6 +318,27 @@ export class AttackModifierDeck {
     if (model.current != this.current) {
       this.current = model.current;
     }
+
+    // migration
+    model.cards = model.cards.map((id) => {
+      if (id == "scenario-reward-55-0") {
+        id = "fh-tg-add-plus50-algox";
+      } else if (id == "scenario-reward-56-0") {
+        id = "fh-tg-add-plus50";
+      } else if (id == "scenario-reward-57-0") {
+        id = "fh-tg-add-plus50";
+      } else if (id == "scenario-reward-58-0") {
+        id = "fh-tg-add-plus50-unfettered";
+      } else if (id == "scenario-reward-59-0") {
+        id = "fh-tg-add-plus50-unfettered";
+      } else if (id == "scenario-reward-60-0") {
+        id = "fh-tg-add-plus50-lurkers";
+      } else if (id == "conclusion-reward-50.2-0") {
+        id = "fh-tg-add-plus20";
+      }
+
+      return id;
+    })
 
     this.cards = model.cards.map((id) => this.cardById(id) || new AttackModifier(AttackModifierType.invalid));
     this.disgarded = model.disgarded || [];

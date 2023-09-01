@@ -18,11 +18,7 @@
     ],
     "unlockCharacter": "snowflake",
     "townGuardAm": [
-      {
-        "type": "townguard",
-        "valueType": "plus",
-        "value": 50
-      }
+      "fh-tg-add-plus50"
     ],
     "events": [
       "winter-outpost:WO-68"

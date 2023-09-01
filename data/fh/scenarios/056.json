@@ -11,11 +11,7 @@
     ],
     "unlockCharacter": "fist",
     "townGuardAm": [
-      {
-        "type": "townguard",
-        "valueType": "plus",
-        "value": 50
-      }
+      "fh-tg-add-plus50"
     ],
     "events": [
       "summer-outpost:SO-51"

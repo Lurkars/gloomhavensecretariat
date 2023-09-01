@@ -624,7 +624,7 @@ export class ScenarioManager {
   isBlocked(scenarioData: ScenarioData): boolean {
     let blocked = false;
 
-    let finishedScenarios = this.game.party.scenarios.filter((model) => (model.edition == scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).indexOf(model.edition) != -1)).map((scenarioModel) => gameManager.scenarioData(scenarioModel.edition).find((finishedScenario) => finishedScenario.edition == scenarioModel.edition && finishedScenario.group == scenarioModel.group && finishedScenario.index == scenarioModel.index)).filter((finishedScenario) => finishedScenario && finishedScenario.blocks && finishedScenario.blocks.indexOf(scenarioData.index) != -1).map((finishedScenario) => finishedScenario as ScenarioData);
+    let finishedScenarios = gameManager.scenarioData().filter((other) => (scenarioData.edition == other.edition || gameManager.editionExtensions(scenarioData.edition).indexOf(other.edition)) && other.group == scenarioData.group && other.blocks && other.blocks.indexOf(scenarioData.index) != -1 && this.game.party.scenarios.find((finishedScenario) => finishedScenario.edition == other.edition && finishedScenario.group == other.group && finishedScenario.index == other.index));
 
     if (finishedScenarios.length > 1) {
       finishedScenarios.filter((model) => model.group == scenarioData.group);
@@ -641,7 +641,7 @@ export class ScenarioManager {
 
   isLocked(scenarioData: ScenarioData): boolean {
     return this.game.party.campaignMode && scenarioData.requirements &&
-      scenarioData.requirements && scenarioData.requirements.every((requirement) =>
+      scenarioData.requirements.length > 0 && scenarioData.requirements.every((requirement) =>
         requirement.global && requirement.global.some((achievement) => {
           if (achievement.startsWith('!')) {
             return this.game.party.globalAchievementsList.find((globalAchievement) => globalAchievement.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim());

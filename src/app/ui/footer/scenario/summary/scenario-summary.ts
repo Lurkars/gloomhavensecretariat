@@ -14,6 +14,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { CharacterBattleGoalsDialog } from "src/app/ui/figures/battlegoal/dialog/battlegoal-dialog";
 import { BattleGoal } from "src/app/game/model/data/BattleGoal";
 import { ItemDialogComponent } from "src/app/ui/figures/items/dialog/item-dialog";
+import { AttackModifier, additionalTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
 
 
 @Component({
@@ -59,6 +60,7 @@ export class ScenarioSummaryComponent {
     randomItemIndex: number = -1;
     randomItems: (ItemData | undefined)[] = [];
     randomItemBlueprints: number[] = [];
+    townGuardAMs: AttackModifier[] = [];
 
     EntityValueFunction = EntityValueFunction;
 
@@ -204,6 +206,7 @@ export class ScenarioSummaryComponent {
         this.challenges = 0;
         this.numberChallenges = 0;
         this.rewards = undefined;
+        this.townGuardAMs = [];
         if ((gameManager.game.party.campaignMode || forceCampaign) && this.success) {
             if (this.conclusion) {
                 this.rewards = this.conclusion.rewards;
@@ -363,6 +366,10 @@ export class ScenarioSummaryComponent {
                             }
                         }
                     }
+                }
+
+                if (this.rewards.townGuardAm) {
+                    this.townGuardAMs = this.rewards.townGuardAm.map((id) => additionalTownGuardAttackModifier.find((am) => am.id == id) as AttackModifier);
                 }
             }
 

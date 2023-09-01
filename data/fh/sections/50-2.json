@@ -5,11 +5,7 @@
   "conclusion": true,
   "rewards": {
     "townGuardAm": [
-      {
-        "type": "townguard",
-        "valueType": "plus",
-        "value": 20
-      }
+      "fh-tg-add-plus20"
     ]
   }
 }

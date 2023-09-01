@@ -13,18 +13,7 @@
     ],
     "unlockCharacter": "prism",
     "townGuardAm": [
-      {
-        "type": "townguard",
-        "valueType": "plus",
-        "value": 50,
-        "effects": [
-          {
-            "type": "custom",
-            "value": "fh-unfettered",
-            "icon": true
-          }
-        ]
-      }
+      "fh-tg-add-plus50-unfettered"
     ],
     "prosperity": 2,
     "items": [

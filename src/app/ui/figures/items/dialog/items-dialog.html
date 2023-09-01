@@ -51,8 +51,8 @@
                 </div>
             </div>
             <div class="filter">
-                <input type="text" [(ngModel)]="filter" (change)="update()" (keyup)="update()"
-                    [ghs-label]="'game.items.filter'" [ghs-label-attribute]="'placeholder'">
+                <input type="text" [(ngModel)]="filter" (keyup)="update()" [ghs-label]="'game.items.filter'"
+                    [ghs-label-attribute]="'placeholder'">
                 <label *ngIf="character">
                     <input type="checkbox" [(ngModel)]="affordable" (change)="update(true)">
                     <span [ghs-label]="'game.items.filter.affordable'"></span>

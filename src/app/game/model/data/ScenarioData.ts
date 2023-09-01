@@ -6,7 +6,6 @@ import { RoomData } from "./RoomData";
 import { ScenarioRule } from "./ScenarioRule";
 import { GameScenarioModel } from "../Scenario";
 import { Identifier } from "./Identifier";
-import { AttackModifier } from "./AttackModifier";
 
 export class ScenarioData implements Editional, Spoilable {
 
@@ -131,7 +130,7 @@ export class ScenarioRewards {
   collectiveResources: { type: LootType, value: number | string }[] = [];
   calendarSection: string[] = [];
   calendarSectionManual: { section: string, hint: string }[] = [];
-  townGuardAm: AttackModifier[] = [];
+  townGuardAm: string[] = [];
   unlockCharacter: string = "";
   chooseUnlockCharacter: string[] = [];
   custom: string = "";
