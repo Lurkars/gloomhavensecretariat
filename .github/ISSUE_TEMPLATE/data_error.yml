@@ -8,6 +8,7 @@ body:
     attributes:
       label: Edition
       description: Which edition is affected?
+      placeholder: "ex. FH"
     validations:
       required: true
   - type: dropdown
