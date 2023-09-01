@@ -13,6 +13,9 @@
     {
       "roomNumber": 7,
       "initial": true,
+      "treasures": [
+        "G"
+      ],
       "monster": [
         {
           "name": "flame-demon",

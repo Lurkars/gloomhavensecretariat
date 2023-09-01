@@ -16,7 +16,6 @@ import { BattleGoal } from "src/app/game/model/data/BattleGoal";
 import { ItemDialogComponent } from "src/app/ui/figures/items/dialog/item-dialog";
 import { AttackModifier, additionalTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
 
-
 @Component({
     selector: 'ghs-scenario-summary',
     templateUrl: './scenario-summary.html',
@@ -63,6 +62,8 @@ export class ScenarioSummaryComponent {
     townGuardAMs: AttackModifier[] = [];
 
     EntityValueFunction = EntityValueFunction;
+
+    waitForClose: boolean = false;
 
     constructor(@Inject(DIALOG_DATA) data: { scenario: Scenario, success: boolean, conclusion: ScenarioData | undefined, conclusionOnly: boolean, rewardsOnly: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
 
@@ -133,7 +134,7 @@ export class ScenarioSummaryComponent {
 
         this.dialogRef.closed.subscribe({
             next: () => {
-                if (gameManager.stateManager.scenarioSummary && !this.conclusionOnly && !this.rewardsOnly) {
+                if (gameManager.stateManager.scenarioSummary && !this.conclusionOnly && !this.rewardsOnly && !this.waitForClose) {
                     gameManager.stateManager.before("finishScenario.close", ...gameManager.scenarioManager.scenarioUndoArgs());
                     gameManager.stateManager.scenarioSummary = false;
                     gameManager.game.finish = undefined;
@@ -571,7 +572,8 @@ export class ScenarioSummaryComponent {
         gameManager.stateManager.after();
     }
 
-    finish(linkedIndex: string | undefined = undefined) {
+    async finish(linkedIndex: string | undefined = undefined) {
+        this.waitForClose = true;
         const linked = gameManager.scenarioData(this.scenario.edition).find((scenarioData) => scenarioData.group == this.scenario.group && scenarioData.index == linkedIndex);
         if (this.conclusionOnly) {
             gameManager.stateManager.before("finishConclusion", ...gameManager.scenarioManager.scenarioUndoArgs(this.scenario));
@@ -655,15 +657,13 @@ export class ScenarioSummaryComponent {
         } else {
             gameManager.scenarioManager.finishScenario(gameManager.game.scenario, this.success, this.conclusion, false, linked ? new Scenario(linked) : undefined, this.characterProgress || this.forceCampaign, this.gainRewards || this.forceCampaign);
         }
-        gameManager.stateManager.after(1000);
-        this.dialogRef.close();
+        await gameManager.stateManager.after(0, settingsManager.settings.autoBackup > -1 && settingsManager.settings.autoBackupFinish && (settingsManager.settings.autoBackup == 0 || (gameManager.game.revision + gameManager.game.revisionOffset) % settingsManager.settings.autoBackup != 0));
 
-        if (settingsManager.settings.autoBackup > -1 && settingsManager.settings.autoBackupFinish && (settingsManager.settings.autoBackup == 0 || (gameManager.game.revision + gameManager.game.revisionOffset) % settingsManager.settings.autoBackup != 0)) {
-            gameManager.stateManager.autoBackup();
-        }
+        this.dialogRef.close();
     }
 
     restart() {
+        this.waitForClose = true;
         gameManager.stateManager.before("finishScenario.restart", ...gameManager.scenarioManager.scenarioUndoArgs());
         gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, true, undefined, this.characterProgress || this.forceCampaign, this.gainRewards || this.forceCampaign, true);
         gameManager.stateManager.after(1000);

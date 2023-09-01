@@ -281,17 +281,7 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   async exportDataDump() {
-    try {
-      let datadump: any = await storageManager.datadump();
-      let downloadButton = document.createElement('a');
-      downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(datadump)));
-      downloadButton.setAttribute('download', "ghs-data-dump.json");
-      document.body.appendChild(downloadButton);
-      downloadButton.click();
-      document.body.removeChild(downloadButton);
-    } catch {
-      console.warn("Could not read datadump");
-    }
+    await gameManager.stateManager.autoBackup("ghs-data-dump.json", true);
   }
 
   importDataDumpCheck() {

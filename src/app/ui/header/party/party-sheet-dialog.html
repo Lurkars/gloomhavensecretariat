@@ -64,8 +64,11 @@
 
               <div class="achievements-container">
                 <div class="list">
-                  <div class="achievement" *ngFor="let achievement of party.achievementsList; let i = index;">
-                    <span [ghs-label]="'data.partyAchievements.' + achievement"></span>
+                  <div class="achievement" *ngFor="let achievement of partyAchievementsList; let i = index;">
+                    <span *ngIf="achievement.split(':').length > 0 && achievement.split(':')[1] != '1'">
+                      {{achievement.split(':')[1]}}x&nbsp;
+                    </span>
+                    <span [ghs-label]="'data.partyAchievements.' + achievement.split(':')[0]"></span>
                     <span class="spacer"></span>
                     <span class="remove" (click)="removeAchievement(i)">
                       <img class="ghs-svg" src="./assets/images/close.svg"></span>
@@ -447,9 +450,7 @@
                 [ngClass]="{'blocked' : scenarioData.isBlocked, 'locked' : !scenarioData.isBlocked && scenarioData.isLocked}"
                 [ghsTooltip]="scenarioData.isBlocked ? 'scenario.blocked' : (scenarioData.isLocked ? 'scenario.locked'  : '')"
                 [toggable]="false" (click)="scenarioRequirements(scenarioData)">
-                <img
-                  *ngIf="scenarioData.isBlocked || scenarioData.isLocked"
-                  src="./assets/images/close.svg">
+                <img *ngIf="scenarioData.isBlocked || scenarioData.isLocked" src="./assets/images/close.svg">
                 <span [ghs-label]="'data.scenario.' + scenarioData.name"></span>
               </span>
               <span>
@@ -458,9 +459,8 @@
                   [ghs-label-attribute]="'title'" (click)="removeManual(scenarioData)"
                   *ngIf="isManual(scenarioData) && countFinished(scenarioData) < 1"><img class="manual"
                     src="./assets/images/hint.svg"><img class="remove" src="./assets/images/close.svg"></a>
-                <span *ngIf="scenarioData.isLocked"
-                  (click)="scenarioRequirements(scenarioData)" class="locked" [ghsTooltip]="'scenario.locked'"><img
-                    class="ghs-svg" src="./assets/images/warning.svg"></span>
+                <span *ngIf="scenarioData.isLocked" (click)="scenarioRequirements(scenarioData)" class="locked"
+                  [ghsTooltip]="'scenario.locked'"><img class="ghs-svg" src="./assets/images/warning.svg"></span>
                 <span *ngIf="countFinished(scenarioData)" (click)="scenarioRewards(scenarioData)" class="rewards"
                   [ghsTooltip]="'scenario.summary.rewards'"><img class="ghs-svg"
                     src="./assets/images/scenario/conclusion.svg"></span>
@@ -579,8 +579,11 @@
             <label><span [ghs-label]="'party.campaign.achievements'"></span>:</label>
             <div class="achievements-container">
               <div class="list">
-                <div class="achievement" *ngFor="let achievement of party.globalAchievementsList; let i = index;">
-                  <span [ghs-label]="'data.globalAchievements.' + achievement"></span>
+                <div class="achievement" *ngFor="let achievement of globalAchievementsList; let i = index;">
+                  <span *ngIf="achievement.split(':').length > 0 && achievement.split(':')[1] != '1'">
+                    {{achievement.split(':')[1]}}x&nbsp;
+                  </span>
+                  <span [ghs-label]="'data.globalAchievements.' + achievement.split(':')[0]"></span>
                   <span class="spacer"></span>
                   <span class="remove" (click)="removeGlobalAchievement(i)">
                     <img class="ghs-svg" src="./assets/images/close.svg"></span>

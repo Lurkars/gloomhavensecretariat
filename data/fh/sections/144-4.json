@@ -13,6 +13,9 @@
     {
       "roomNumber": 5,
       "initial": true,
+      "treasures": [
+        "G"
+      ],
       "monster": [
         {
           "name": "flame-demon",
@@ -25,9 +28,17 @@
         },
         {
           "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
         }
       ]
     }

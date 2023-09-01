@@ -40,6 +40,9 @@ export class StateManager {
   wakeLock: any = null;
   scenarioSummary: boolean = false;
 
+  storageBlocked: boolean = false;
+  autoBackupTimeout: any = null;
+
   constructor(game: Game) {
     this.game = game;
     this.lastSaveTimestamp = new Date().getTime();
@@ -113,10 +116,14 @@ export class StateManager {
     }
   }
 
-  saveStorage() {
-    storageManager.writeArray('undo', this.undos);
-    storageManager.writeArray('redo', this.redos);
-    storageManager.writeArray('undo-infos', this.undoInfos);
+  async saveStorage() {
+    if (!this.storageBlocked) {
+      this.storageBlocked = true;
+      await storageManager.writeArray('undo', this.undos);
+      await storageManager.writeArray('redo', this.redos);
+      await storageManager.writeArray('undo-infos', this.undoInfos);
+      this.storageBlocked = false;
+    }
   }
 
   buildWsUrl(protocol: string, serverUrl: string, port: number | string) {
@@ -291,7 +298,7 @@ export class StateManager {
           }
           break;
         case "requestUpdate":
-          gameManager.stateManager.after(1, 0, 'game-update');
+          gameManager.stateManager.after(1, false, 0, 'game-update');
           gameManager.stateManager.serverError = false;
           break;
         case "settings":
@@ -489,7 +496,7 @@ export class StateManager {
     this.addToUndo(info || []);
   }
 
-  async after(timeout: number = 1, revisionChange: number = 1, type: string = "game", revision: number = 0, undolength: number = 1) {
+  async after(timeout: number = 1, autoBackup: boolean = false, revisionChange: number = 1, type: string = "game", revision: number = 0, undolength: number = 1) {
     this.game.revision += revisionChange;
     this.saveLocal();
     if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
@@ -511,77 +518,94 @@ export class StateManager {
       this.ws.send(JSON.stringify(message));
     }
 
-    if (settingsManager.settings.autoBackup > 0 && (this.game.revision + this.game.revisionOffset) % settingsManager.settings.autoBackup == 0) {
-      this.autoBackup();
+    if (autoBackup || (settingsManager.settings.autoBackup > 0 && (this.game.revision + this.game.revisionOffset) % settingsManager.settings.autoBackup == 0)) {
+      await this.autoBackup();
     }
-
-    gameManager.uiChange.emit();
 
     if (timeout && !settingsManager.settings.disableAnimations) {
       setTimeout(() => {
+        this.lastAction = "update";
+        gameManager.uiChange.emit();
         window.document.body.classList.remove('working');
         window.document.body.classList.remove('server-sync');
       }, timeout);
     } else {
+      this.lastAction = "update";
+      gameManager.uiChange.emit();
       window.document.body.classList.remove('working');
       window.document.body.classList.remove('server-sync');
     }
-
-    this.lastAction = "update";
   }
 
-  async autoBackup() {
-    try {
-      let datadump: any = await storageManager.datadump();
-      const filename = "ghs-autobackup-" + new Date().toISOString() + ".json";
+  async autoBackup(filename: string = '', forceDownload: boolean = false) {
+    if (this.autoBackupTimeout) {
+      return;
+    }
 
-      if (settingsManager.settings.autoBackupUrl && settingsManager.settings.autoBackupUrl.url) {
-        try {
-          this.backupError = undefined;
-          let xhr = new XMLHttpRequest();
-          xhr.open(settingsManager.settings.autoBackupUrl.method, settingsManager.settings.autoBackupUrl.url.replaceAll('{FILENAME}', filename), true, settingsManager.settings.autoBackupUrl.username, settingsManager.settings.autoBackupUrl.password);
-
-          let data: string | FormData = JSON.stringify(datadump);
-          if (settingsManager.settings.autoBackupUrl.fileUpload) {
-            data = new FormData();
-            data.append(filename, new File([JSON.stringify(datadump)], filename, { type: "application/json" }));
-          } else {
-            xhr.setRequestHeader("Content-Type", "application/json");
-          }
-
-          if (settingsManager.settings.autoBackupUrl.authorization) {
-            xhr.setRequestHeader("Authorization", settingsManager.settings.autoBackupUrl.authorization);
-          }
-
-          xhr.send(data);
-
-          xhr.addEventListener("error", (event) => {
-            this.backupError = -1;
-            console.warn("Could not post autobackup", settingsManager.settings.autoBackupUrl, event);
-          });
-
-          xhr.addEventListener("readystatechange", (event) => {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-              if (xhr.status >= 400) {
-                this.backupError = xhr.status;
-                console.warn("Could not post autobackup", settingsManager.settings.autoBackupUrl, xhr.status, xhr.responseText);
-              }
-            }
-          });
-        } catch (error) {
-          this.backupError = -1;
-          console.warn("Could not post autobackup", settingsManager.settings.autoBackupUrl, error);
+    if (this.storageBlocked) {
+      this.autoBackupTimeout = setTimeout(() => {
+        this.autoBackupTimeout = null;
+        this.autoBackup();
+      }, 100)
+    } else {
+      window.document.body.classList.add('working');
+      window.document.body.classList.add('server-sync');
+      try {
+        let datadump: any = await storageManager.datadump();
+        if (!filename) {
+          filename = "ghs-autobackup-" + new Date().toISOString() + ".json";
         }
-      } else {
-        let downloadButton = document.createElement('a');
-        downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(datadump)));
-        downloadButton.setAttribute('download', filename);
-        document.body.appendChild(downloadButton);
-        downloadButton.click();
-        document.body.removeChild(downloadButton);
+
+        if (!forceDownload && settingsManager.settings.autoBackupUrl && settingsManager.settings.autoBackupUrl.url) {
+          try {
+            this.backupError = undefined;
+            let xhr = new XMLHttpRequest();
+            xhr.open(settingsManager.settings.autoBackupUrl.method, settingsManager.settings.autoBackupUrl.url.replaceAll('{FILENAME}', filename), true, settingsManager.settings.autoBackupUrl.username, settingsManager.settings.autoBackupUrl.password);
+
+            let data: string | FormData = JSON.stringify(datadump);
+            if (settingsManager.settings.autoBackupUrl.fileUpload) {
+              data = new FormData();
+              data.append(filename, new File([JSON.stringify(datadump)], filename, { type: "application/json" }));
+            } else {
+              xhr.setRequestHeader("Content-Type", "application/json");
+            }
+
+            if (settingsManager.settings.autoBackupUrl.authorization) {
+              xhr.setRequestHeader("Authorization", settingsManager.settings.autoBackupUrl.authorization);
+            }
+
+            xhr.send(data);
+
+            xhr.addEventListener("error", (event) => {
+              this.backupError = -1;
+              console.warn("Could not post autobackup", settingsManager.settings.autoBackupUrl, event);
+            });
+
+            xhr.addEventListener("readystatechange", (event) => {
+              if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status >= 400) {
+                  this.backupError = xhr.status;
+                  console.warn("Could not post autobackup", settingsManager.settings.autoBackupUrl, xhr.status, xhr.responseText);
+                }
+              }
+            });
+          } catch (error) {
+            this.backupError = -1;
+            console.warn("Could not post autobackup", settingsManager.settings.autoBackupUrl, error);
+          }
+        } else {
+          let downloadButton = document.createElement('a');
+          downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(datadump)));
+          downloadButton.setAttribute('download', filename);
+          document.body.appendChild(downloadButton);
+          downloadButton.click();
+          document.body.removeChild(downloadButton);
+        }
+      } catch {
+        console.warn("Could not create autobackup");
       }
-    } catch {
-      console.warn("Could not create autobackup");
+      window.document.body.classList.remove('working');
+      window.document.body.classList.remove('server-sync');
     }
   }
 
@@ -635,7 +659,7 @@ export class StateManager {
       this.game.revisionOffset = revisionOffset + 2;
       this.saveStorage();
       if (sync) {
-        this.after(1, 1, 'game-undo', undos[0].revision - (undos[0].revisionOffset || 0), undolength);
+        this.after(1, false, 1, 'game-undo', undos[0].revision - (undos[0].revisionOffset || 0), undolength);
       } else {
         gameManager.uiChange.emit();
       }
@@ -667,7 +691,7 @@ export class StateManager {
       this.game.revisionOffset = revisionOffset;
       this.saveStorage();
       if (sync) {
-        this.after(1, 1, 'game-redo', redos[0].revision - (redos[0].revisionOffset || 0), redolength);
+        this.after(1, false, 1, 'game-redo', redos[0].revision - (redos[0].revisionOffset || 0), redolength);
       } else {
         gameManager.uiChange.emit();
       }

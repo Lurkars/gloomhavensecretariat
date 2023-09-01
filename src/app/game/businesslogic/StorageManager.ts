@@ -71,7 +71,7 @@ export class StorageManager {
   read<T>(store: string, key: string): Promise<T> {
     return new Promise((resolve, reject) => {
       if (this.db) {
-        const transaction = this.db.transaction(store, "readwrite");
+        const transaction = this.db.transaction(store, "readonly");
         const objectStore = transaction.objectStore(store);
         const request = objectStore.get(key);
         request.onsuccess = (event: any) => {
@@ -130,9 +130,9 @@ export class StorageManager {
   readAll<T>(store: string): Promise<T[]> {
     return new Promise((resolve, reject) => {
       if (this.db) {
-        const transaction = this.db.transaction(store, "readwrite");
+        const transaction = this.db.transaction(store, "readonly");
         const objectStore = transaction.objectStore(store);
-        const request = objectStore.getAll()
+        const request = objectStore.getAll();
         request.onsuccess = (event: any) => {
           const objects: T[] = event.target.result;
           resolve(objects);
@@ -156,7 +156,7 @@ export class StorageManager {
   readList<T>(store: string, limit: number, offset: number, reverse: boolean = true): Promise<T[]> {
     return new Promise((resolve, reject) => {
       if (this.db) {
-        const transaction = this.db.transaction(store, "readwrite");
+        const transaction = this.db.transaction(store, "readonly");
         const objectStore = transaction.objectStore(store);
         let result: T[] = [];
 
@@ -198,7 +198,7 @@ export class StorageManager {
   }
 
   async writeArray(store: string, objects: any[]): Promise<void> {
-    return await new Promise(async (resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       if (this.db) {
         await this.clear(store).catch((e) => console.error(e));
 

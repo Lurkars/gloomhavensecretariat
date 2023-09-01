@@ -55,6 +55,9 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   globalAchievements: AutocompleteItem[] = [];
   campaignStickers: AutocompleteItem[] = [];
 
+  partyAchievementsList: string[] = [];
+  globalAchievementsList: string[] = [];
+
   fhSheet: boolean = false;
   csSheet: boolean = false;
 
@@ -232,7 +235,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   removeAchievement(index: number) {
     gameManager.stateManager.before("removePartyAchievement", this.party.achievementsList[index]);
-    this.party.achievementsList.splice(index, 1);
+    const achievement = this.party.achievementsList[index];
+    this.party.achievementsList.splice(this.party.achievementsList.lastIndexOf(achievement), 1);
     gameManager.stateManager.after();
     this.update();
   }
@@ -257,7 +261,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   removeGlobalAchievement(index: number) {
     gameManager.stateManager.before("removeGlobalAchievement", this.party.globalAchievementsList[index]);
-    this.party.globalAchievementsList.splice(index, 1);
+    const achievement = this.party.globalAchievementsList[index];
+    this.party.globalAchievementsList.splice(this.party.globalAchievementsList.lastIndexOf(achievement), 1);
     gameManager.stateManager.after();
     this.update();
   }
@@ -598,6 +603,10 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         }));
       }
     }
+
+    this.partyAchievementsList = this.party.achievementsList.map((achievement, index, self) => achievement + ':' + self.filter((other) => other == achievement).length).filter((achivement, index, self) => self.indexOf(achivement) == index);
+
+    this.globalAchievementsList = this.party.globalAchievementsList.map((achievement, index, self) => achievement + ':' + self.filter((other) => other == achievement).length).filter((achivement, index, self) => self.indexOf(achivement) == index);
 
     this.itemIdentifier = this.party.unlockedItems.filter((identifier) => !this.itemEdition || identifier.edition == this.itemEdition).sort((a, b) => {
       if (!this.partyEdition && a.edition != b.edition) {
