@@ -13,6 +13,9 @@
     "44"
   ],
   "rewards": {
+    "itemBlueprints": [
+      "67"
+    ],
     "collectiveResources": [
       {
         "type": "lumber",

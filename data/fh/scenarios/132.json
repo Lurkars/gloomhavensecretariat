@@ -6,6 +6,13 @@
   "unlocks": [
     "133"
   ],
+  "requirements": [
+    {
+      "buildings": [
+        "climbing-gear"
+      ]
+    }
+  ],
   "forcedLinks": [
     "133"
   ],

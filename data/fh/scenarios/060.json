@@ -27,6 +27,9 @@
     ],
     "experience": 30,
     "prosperity": 1,
+    "items": [
+      "224"
+    ],
     "events": [
       "summer-outpost:SO-48",
       "boat:B-17"

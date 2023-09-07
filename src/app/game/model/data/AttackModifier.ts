@@ -243,7 +243,7 @@ export const additionalTownGuardAttackModifier: AttackModifier[] = [
   new AttackModifier(AttackModifierType.townguard, 10, AttackModifierValueType.plus, 'fh-tg-add-plus10-advantage', [new AttackModifierEffect(AttackModifierEffectType.custom,
     'game.custom.advantage')], true),
   new AttackModifier(AttackModifierType.townguard, 20, AttackModifierValueType.minus, 'fh-tg-add-minus20-resource', [new AttackModifierEffect(AttackModifierEffectType.custom,
-    '+1 material resource')]),
+    '+2 material resource')]),
   new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default, 'fh-tg-add-resource-hide', [new AttackModifierEffect(AttackModifierEffectType.custom,
     '+1%game.resource.hide%', 'Gain one Hide')]),
   new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default, 'fh-tg-add-resource-lumber', [new AttackModifierEffect(AttackModifierEffectType.custom,

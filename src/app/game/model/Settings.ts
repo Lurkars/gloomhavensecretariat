@@ -87,6 +87,7 @@ export class Settings {
   showBossMonster: boolean = true;
   showFullAbilityCard: boolean = false;
   showHiddenMonster: boolean = false;
+  showOnlyUnfinishedScenarios = false;
   spoilers: string[] = [];
   standeeStats: boolean = false;
   statAnimations: boolean = false;

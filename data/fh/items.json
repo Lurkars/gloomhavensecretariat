@@ -5037,7 +5037,7 @@
     "cost": 60,
     "count": 1,
     "edition": "fh",
-    "slot": "body",
+    "slot": "onehand",
     "actions": [
       {
         "type": "custom",

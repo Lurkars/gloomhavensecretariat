@@ -22,7 +22,6 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   edition: string = "";
-  filterSuccess: boolean = false;
 
   constructor(private dialog: Dialog) { }
 

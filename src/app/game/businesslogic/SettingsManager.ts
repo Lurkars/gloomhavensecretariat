@@ -556,6 +556,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setShowOnlyUnfinishedScenarios(showOnlyUnfinishedScenarios: boolean) {
+    this.settings.showOnlyUnfinishedScenarios = showOnlyUnfinishedScenarios;
+    this.storeSettings();
+  }
+
   setTheme(theme: string) {
     this.settings.theme = theme;
     this.storeSettings();

@@ -30,7 +30,8 @@
   </div>
   <div class="line campaign">
     <label *ngIf="gameManager.game.party.campaignMode">
-      <input type="checkbox" [(ngModel)]="filterSuccess">
+      <input type="checkbox" [checked]="settingsManager.settings.showOnlyUnfinishedScenarios"
+        (change)="settingsManager.setShowOnlyUnfinishedScenarios(!settingsManager.settings.showOnlyUnfinishedScenarios)">
       <span [ghs-label]="'scenario.filterSuccess'"></span>
     </label>
     <label>
@@ -46,7 +47,7 @@
         [ngClass]="{'current' : hasScenario(scenario), 'blocked' : scenario.isBlocked , 'locked' : scenario.isLocked}"
         [ghsTooltip]="'scenario.tooltip' + (scenario.isBlocked ? '.blocked' : (scenario.isLocked ? '.locked' : ''))"
         [ghs-label-args]="['data.scenario.' + scenario.name]"
-        *ngFor="let scenario of scenarios(group, filterSuccess) | ghsScenarioSearch:search.value">
+        *ngFor="let scenario of scenarios(group, settingsManager.settings.showOnlyUnfinishedScenarios) | ghsScenarioSearch:search.value">
         <ng-container *ngIf="!scenario.solo">
           <span *ngIf="maxScenario(group) > 2 && scenario.index.length < 3">0</span><span
             *ngIf="maxScenario(group) > 1 && scenario.index.length < 2">0</span>
@@ -65,8 +66,7 @@
         <span *ngIf="scenario.isBlocked" class="state blocked">
           <img src="./assets/images/close.svg" />
         </span>
-        <span *ngIf="!scenario.isBlocked && scenario.isLocked"
-          class="state locked">
+        <span *ngIf="!scenario.isBlocked && scenario.isLocked" class="state locked">
           <img src="./assets/images/close.svg" />
         </span>
       </span>
