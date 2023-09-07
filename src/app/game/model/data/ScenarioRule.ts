@@ -11,6 +11,7 @@ export class ScenarioRule {
   requiredRules: ScenarioRuleIdentifier[] = [];
   disablingRules: ScenarioRuleIdentifier[] = [];
   note: string = "";
+  noteTop: string = "";
   rooms: number[] = [];
   sections: string[] = [];
   figures: ScenarioFigureRule[] = [];
@@ -21,10 +22,8 @@ export class ScenarioRule {
   treasures: number | string | ('G' | number)[] = [];
   finish: "won" | "lost" | undefined = undefined;
 
-  constructor(round: string, note: string = "", start: boolean = false) {
+  constructor(round: string) {
     this.round = round;
-    this.note = note;
-    this.start = start;
   }
 }
 
@@ -76,7 +75,7 @@ export class ScenarioFigureRule {
 
   identifier: ScenarioFigureRuleIdentifier | undefined = undefined;
   identifierRef: number | undefined = undefined;
-  type: "present" | "dead" | "killed" | "gainCondition" | "loseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove"| "removeEntity" | "amAdd" | "amRemove" | "setAbility" | "dormant" | "activate" = "present";
+  type: "present" | "dead" | "killed" | "gainCondition" | "loseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove" | "removeEntity" | "amAdd" | "amRemove" | "setAbility" | "drawAbility" | "discardAbilityToBottom" | "dormant" | "activate" = "present";
   value: string = "";
   scenarioEffect: boolean = false;
 

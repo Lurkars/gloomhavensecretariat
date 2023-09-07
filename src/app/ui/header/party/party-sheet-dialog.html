@@ -511,7 +511,7 @@
                 </span>
                 <span class="scenario-title">
                   <span *ngIf="scenarioData.named" [ghs-label]="'data.scenario.' + scenarioData.name"></span>
-                  <span *ngIf="!scenarioData.named && scenarioData.parent"
+                  <span *ngIf="scenarioData.parent"
                     [ghs-label]="'%data.scenarioNumber:' + scenarioData.parent + '%'"></span>
                 </span>
                 <span>

@@ -455,12 +455,13 @@ export class ScenarioManager {
     }
 
     if (scenarioData.resetRound) {
-      if (scenarioData.resetRound == "visible") {
-        this.game.roundResets.push(this.game.round + (this.game.state == GameState.draw ? 0 : -1));
+      const offset = scenarioData.resetRound.endsWith("Keep") && (this.game.state == GameState.next && this.game.round % 2 == 0 || this.game.state == GameState.draw && this.game.round % 2 == 1) ? 1 : 0;
+      if (scenarioData.resetRound == "visible" || scenarioData.resetRound == "visibleKeep") {
+        this.game.roundResets.push(this.game.round + (this.game.state == GameState.draw ? 0 : -1) - offset);
       } else {
-        this.game.roundResetsHidden.push(this.game.round + (this.game.state == GameState.draw ? 0 : -1));
+        this.game.roundResetsHidden.push(this.game.round + (this.game.state == GameState.draw ? 0 : -1) - offset);
       }
-      this.game.round = this.game.state == GameState.draw ? 0 : 1;
+      this.game.round = (this.game.state == GameState.draw ? 0 : 1) + offset;
     }
   }
 

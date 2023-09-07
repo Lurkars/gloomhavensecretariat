@@ -242,6 +242,23 @@ export class Game {
       this.party.campaignStickers = this.party.campaignStickers.filter((item) => item);
     }
 
+    // migrate randomScenarios to randomScenariosFh
+    if (this.party.manualScenarios) {
+      let removeManual: GameScenarioModel[] = [];
+      this.party.manualScenarios.forEach((model) => {
+        if (model.edition == 'fh' && !model.group && !model.custom) {
+          const conclusion = gameManager.sectionData('fh').find((sectionData) => sectionData.random && sectionData.unlocks && sectionData.unlocks.indexOf(model.index) != -1);
+          if (conclusion) {
+            if (!this.party.conclusions.find((conclusionModel) => conclusionModel.edition == conclusion.edition && conclusionModel.group == conclusion.group && conclusionModel.index == conclusion.index)) {
+              this.party.conclusions.push(new GameScenarioModel('' + conclusion.index, conclusion.edition, conclusion.group, false, "", []));
+              removeManual.push(model);
+            }
+          }
+        }
+      })
+      this.party.manualScenarios = this.party.manualScenarios.filter((model) => removeManual.indexOf(model) == -1);
+    }
+
     this.parties = [this.party];
     if (model.parties) {
       model.parties.forEach((party) => {

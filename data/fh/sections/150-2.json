@@ -14,7 +14,7 @@
   "rules": [
     {
       "round": "true",
-      "note": "Spawn one Ruined Machine for each character or Vermling Scout adjacent to a Flaming Bladespinner in any empty starting hex.",
+      "note": "one for each character or Vermling Scout adjacent to a Flaming Bladespinner in any empty starting hex.",
       "spawns": [
         {
           "monster": {

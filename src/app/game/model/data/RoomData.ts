@@ -66,6 +66,7 @@ export enum TreasureRewardType {
     randomItemBlueprint = "randomItemBlueprint",
     scenario = "scenario",
     randomScenario = "randomScenario",
+    randomScenarioFh = "randomScenarioFh",
     partyAchievement = "partyAchievement",
     event = "event",
     loot = "loot",

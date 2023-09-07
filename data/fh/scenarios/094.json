@@ -41,7 +41,7 @@
   "rules": [
     {
       "round": "true",
-      "note": "Spawn one Ruined Machine for each character adjacent to a Flaming Bladespinner in any empty starting hex.",
+      "note": "one for each character adjacent to a Flaming Bladespinner in any empty starting hex.",
       "spawns": [
         {
           "monster": {
@@ -58,7 +58,7 @@
     {
       "round": "R % 6 == 3",
       "start": true,
-      "note": "At any starting empty hex",
+      "note": "at any starting empty hex",
       "spawns": [
         {
           "monster": {
@@ -73,7 +73,7 @@
     {
       "round": "R % 6 == 0",
       "start": true,
-      "note": "At any starting empty hex",
+      "note": "at any starting empty hex",
       "spawns": [
         {
           "monster": {

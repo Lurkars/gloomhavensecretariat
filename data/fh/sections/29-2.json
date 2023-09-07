@@ -17,8 +17,8 @@
   ],
   "rules": [
     {
+      "noteTop": "The Blacksmith performs %game.action.push%1, %game.action.target% all characters, %game.action.range%5, %game.condition.muddle%",
       "round": "true",
-      "note": "The Blacksmith performs %game.action.push%1, %game.action.target% all characters, %game.action.range%5, %game.condition.muddle%",
       "figures": [
         {
           "type": "present",

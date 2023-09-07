@@ -277,8 +277,28 @@ export class LootManager {
             result.push(scenarioData.index, 'data.scenario.' + scenarioData.name);
           }
         }
+        break;
+      case TreasureRewardType.randomScenarioFh:
+        let availableSections = gameManager.sectionData(edition).filter((scenarioData) => scenarioData.conclusion && scenarioData.random && !gameManager.game.party.conclusions.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom) && !gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom));
+        if (availableSections.length > 0) {
+          let sectionData = availableSections[Math.floor(Math.random() * availableSections.length)];
+          let section: GameScenarioModel | undefined = {} = new GameScenarioModel('' + sectionData.index, sectionData.edition, sectionData.group, false, "", []);
+          while (availableSections.length > 0 && gameManager.game.party.conclusions.find((conclusion) => section && conclusion.index == section.index && conclusion.edition == section.edition && conclusion.group == section.group)) {
+            availableSections = availableSections.filter((available) => section && (available.edition != section.edition || available.index != section.edition || available.group != section.group));
+            if (availableSections.length > 0) {
+              sectionData = availableSections[Math.floor(Math.random() * availableSections.length)];
+              section = new GameScenarioModel('' + sectionData.index, sectionData.edition, sectionData.group, false, "", []);
+            } else {
+              section = undefined;
+            }
+          }
+          if (section) {
+            gameManager.game.party.conclusions.push(section);
+            result.push(sectionData.index, 'data.section.' + sectionData.name, sectionData.unlocks ? sectionData.unlocks.map((unlock) => '%game.scenarioNumber:' + unlock + '%').join(', ') : '');
+          }
+        }
 
-        if (availableScenarios.length == 0 && gameManager.fhRules()) {
+        if (availableSections.length == 0) {
           gameManager.game.party.inspiration += 1;
         }
         break;

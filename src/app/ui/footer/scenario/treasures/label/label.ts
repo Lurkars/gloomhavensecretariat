@@ -92,6 +92,7 @@ export class TreasureLabelComponent implements OnInit {
             case TreasureRewardType.experienceFh:
             case TreasureRewardType.battleGoal:
             case TreasureRewardType.randomScenario:
+            case TreasureRewardType.randomScenarioFh:
             case TreasureRewardType.randomItem:
             case TreasureRewardType.randomItemDesign:
             case TreasureRewardType.randomItemBlueprint:

@@ -16,8 +16,8 @@
   ],
   "rules": [
     {
+      "noteTop": "Replace any one metal cabinet",
       "round": "R == 2",
-      "note": "Replace any one metal cabinet",
       "spawns": [
         {
           "monster": {

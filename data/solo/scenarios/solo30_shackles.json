@@ -22,9 +22,9 @@
   },
   "rules": [
     {
+      "noteTop": "Perform %game.action.heal% DxL/2 (rounded down), self",
       "round": "R > 1 && R % 4 == 1",
       "start": true,
-      "note": "Perform %game.action.heal% DxL/2 (rounded down), self",
       "spawns": [
         {
           "monster": {
@@ -36,9 +36,9 @@
       ]
     },
     {
+      "noteTop": "Perform %game.action.heal% DxL/2 (rounded down), self",
       "round": "R % 4 == 2",
       "start": true,
-      "note": "Perform %game.action.heal% DxL/2 (rounded down), self",
       "spawns": [
         {
           "monster": {
@@ -50,9 +50,9 @@
       ]
     },
     {
+      "noteTop": "Perform %game.action.heal% DxL/2 (rounded down), self",
       "round": "R % 4 == 3",
       "start": true,
-      "note": "Perform %game.action.heal% DxL/2 (rounded down), self",
       "spawns": [
         {
           "monster": {
@@ -64,9 +64,9 @@
       ]
     },
     {
+      "noteTop": "Perform %game.action.heal% DxL/2 (rounded down), self",
       "round": "R % 4 == 0",
       "start": true,
-      "note": "Perform %game.action.heal% DxL/2 (rounded down), self",
       "spawns": [
         {
           "monster": {

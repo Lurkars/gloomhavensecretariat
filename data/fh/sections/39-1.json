@@ -19,10 +19,10 @@
       "note": "Place one debris in %game.mapMarker.d%. Any figure occupying %game.mapMarker.d% suffers trap damage and is placed in the closest empty hex."
     },
     {
+      "noteTop": "Any figure occupying %game.mapMarker.e% or %game.mapMarker.f% suffers trap damage and is placed in the closest empty hex.",
       "round": "true",
       "always": true,
       "once": true,
-      "note": "Any figure occupying %game.mapMarker.e% or %game.mapMarker.f% suffers trap damage and is placed in the closest empty hex.",
       "spawns": [
         {
           "monster": {

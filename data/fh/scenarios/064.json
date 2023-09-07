@@ -73,8 +73,8 @@
       "finish": "lost"
     },
     {
+      "noteTop": "Place up to 2 new Militia members in any empty %game.mapMarker.a%, %game.mapMarker.b%, %game.mapMarker.c% or %game.mapMarker.d%",
       "round": "true",
-      "note": "Place up to 2 new Militia members in any empty %game.mapMarker.a%, %game.mapMarker.b%, %game.mapMarker.c% or %game.mapMarker.d%",
       "objectiveSpawns": [
         {
           "objective": {
@@ -89,8 +89,8 @@
       ]
     },
     {
+      "noteTop": "Place up to 1 new Militia member in any empty %game.mapMarker.a%, %game.mapMarker.b%, %game.mapMarker.c% or %game.mapMarker.d%",
       "round": "true",
-      "note": "Place up to 1 new Militia member in any empty %game.mapMarker.a%, %game.mapMarker.b%, %game.mapMarker.c% or %game.mapMarker.d%",
       "figures": [
         {
           "identifier": {
@@ -99,7 +99,7 @@
             "name": "Militia"
           },
           "type": "present",
-          "value": "11"
+          "value": "1"
         }
       ],
       "objectiveSpawns": [

@@ -50,7 +50,7 @@
           "4": "towards portal %game.mapMarker.4%"
         },
         "105": {
-          "1": "Apply if Dimensional Equilibrium Party) is incomplete"
+          "1": "Only apply if Dimensional Equilibrium (Party) is incomplete:"
         },
         "106": {
           "1": "All characters must discard one card from their hand or lose one at random from their discard pile."
@@ -105,6 +105,10 @@
         },
         "128": {
           "1": "%game.action.teleport% %data.monster.the-husk-section-66% to %game.mapMarker.c% and remove wall section %game.mapMarker.d%"
+        },
+        "132": {
+          "1": "Immediately resolve it!",
+          "2": "After ability is resolved:"
         }
       }
     }

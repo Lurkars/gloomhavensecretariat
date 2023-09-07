@@ -1312,7 +1312,7 @@
           .scenario {
             position: relative;
             display: grid;
-            grid-template-columns: 0.1fr 0.7fr 2fr 0.3fr;
+            grid-template-columns: 0.3fr 0.7fr 2fr 0.3fr;
             text-align: left;
             width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
             max-width: 100%;
@@ -1389,6 +1389,7 @@
             img.ghs-svg.solo {
               filter: none;
               height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+              width: auto;
             }
 
             span:nth-child(2),

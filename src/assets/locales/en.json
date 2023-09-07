@@ -763,6 +763,10 @@
             ".": "Random Side Scenario",
             "result": ": {1} %data.scenarioNumber:{0}%"
           },
+          "randomScenarioFh": {
+            ".": "Random Side Scenario",
+            "result": ": Open %data.section:{0}%, unlocks {2}"
+          },
           "resource": "gain {0}",
           "scenario": "New Scenario: {1} %data.scenarioNumber:{0}%"
         }
@@ -1206,7 +1210,9 @@
         "amRemove": "{0} remove %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% from Attack Modifier deck",
         "damage": "{0} suffer %game.damage:{2}%",
         "discard": "{0} discard %number.{2}% ability cards each",
+        "discardAbilityToBottom": "Place ability on the bottom of the discard pile for {0}",
         "dormant": "{0} become dormant",
+        "drawAbility": "Draw another ability card for {0}",
         "gainCondition": "{0} gain %game.condition.{1}%",
         "heal": "{0} %game.action.heal% {2}",
         "loseCondition": "{0} lose %game.condition.{1}%",

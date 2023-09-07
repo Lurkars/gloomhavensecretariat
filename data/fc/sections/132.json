@@ -17,6 +17,48 @@
     "black-imp",
     "night-demon"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "%data.section.rules.fc.132.1%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fc",
+            "name": "the-husk.*"
+          },
+          "type": "drawAbility"
+        }
+      ]
+    },
+    {
+      "noteTop": "%data.section.rules.fc.132.2%",
+      "round": "true",
+      "always": true,
+      "once": true,
+      "requiredRules": [
+        {
+          "edition": "fc",
+          "scenario": "132",
+          "index": 0,
+          "section": true
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fc",
+            "name": "the-husk.*"
+          },
+          "type": "discardAbilityToBottom"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 6,

@@ -3,6 +3,7 @@
   "name": "Puzzle Solution",
   "edition": "fh",
   "conclusion": true,
+  "named": true,
   "unlocks": [
     "31"
   ]

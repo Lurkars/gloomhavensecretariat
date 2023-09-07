@@ -34,7 +34,16 @@
       "round": "R == 1",
       "start": true,
       "once": true,
-      "note": "Spawn one normal Piranha Pig adjacent to each character"
+      "note": "adjacent to each character",
+      "spawns": [
+        {
+          "monster": {
+            "name": "piranha-pig",
+            "type": "normal"
+          },
+          "count": "C"
+        }
+      ]
     },
     {
       "round": "R == 3 || R == 6 || R == 9",
@@ -131,23 +140,6 @@
           "name": "lurker-mindsnipper",
           "player3": "elite",
           "player4": "elite"
-        },
-        {
-          "name": "piranha-pig",
-          "type": "normal"
-        },
-        {
-          "name": "piranha-pig",
-          "type": "normal"
-        },
-        {
-          "name": "piranha-pig",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "piranha-pig",
-          "player4": "normal"
         }
       ]
     }

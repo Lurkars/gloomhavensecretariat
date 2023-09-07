@@ -63,10 +63,10 @@
       ]
     },
     {
+      "noteTop": "Spawn 6-C Algox Guards or Algox Archers at any empty starting hex",
       "round": "R == 1",
       "start": true,
       "once": true,
-      "note": "Spawn 6-C Algox Guards or Algox Archers at any empty starting hex",
       "spawns": [
         {
           "monster": {

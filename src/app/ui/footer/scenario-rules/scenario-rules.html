@@ -5,6 +5,7 @@
       <div class="hide" (click)="hideRule(ruleElement, index)"><span [ghs-label]="'scenario.rules.hide'"></span>
         <img src="./assets/images/close.svg">
       </div>
+      <p *ngIf="ruleModel.rule.noteTop" class="text-white" [ghs-label]="ruleModel.rule.noteTop"></p>
       <div class="spawns" *ngIf="spawns(ruleModel.rule).length > 0">
         <ng-container *ngFor="let spawn of spawns(ruleModel.rule); let i = index">
           <span class="and" *ngIf="i > 0" [ghs-label]="'and'"></span>
@@ -57,7 +58,6 @@
           </span>
         </ng-container>
       </div>
-      <p *ngIf="ruleModel.rule.note" class="text-white" [ghs-label]="ruleModel.rule.note"></p>
       <div class="figures" *ngIf="figureRules(ruleModel.rule).length > 0">
         <ng-container *ngFor="let figureRule of figureRules(ruleModel.rule);">
           <span class="figure">
@@ -70,6 +70,7 @@
         </ng-container>
       </div>
       <p *ngIf="ruleModel.rule.finish" class="text-white" [ghs-label]="'scenario.rules.' + ruleModel.rule.finish"></p>
+      <p *ngIf="ruleModel.rule.note" class="text-white" [ghs-label]="ruleModel.rule.note"></p>
       <div class="menu" *ngIf="apply(ruleModel.rule)">
         <a class="apply" (click)="applyRule(ruleElement, index)">
           <span [ghs-label]="'scenario.rules.apply'"></span>

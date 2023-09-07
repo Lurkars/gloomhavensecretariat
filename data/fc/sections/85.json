@@ -8,7 +8,8 @@
       "79"
     ]
   ],
-  "marker": "1",
+  "marker": "3",
+  "resetRound": "hiddenKeep",
   "objectives": [
     {
       "name": "Hail",
@@ -16,7 +17,7 @@
       "health": "6+2xL",
       "marker": "a",
       "tags": [
-        "52"
+        "85"
       ],
       "actions": [
         {
@@ -34,18 +35,6 @@
     }
   ],
   "rules": [
-    {
-      "round": "true",
-      "always": true,
-      "disableRules": [
-        {
-          "edition": "fc",
-          "scenario": "104",
-          "index": -1,
-          "section": true
-        }
-      ]
-    },
     {
       "round": "R % 2 == 0",
       "spawns": [
@@ -70,10 +59,36 @@
             "type": "objective",
             "edition": "escort",
             "name": "Hail",
-            "marker": "a"
+            "tags": [
+              "79"
+            ]
           },
           "type": "transfer",
           "value": "1"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "fc",
+          "scenario": "104",
+          "index": -1,
+          "section": false
+        },
+        {
+          "edition": "fc",
+          "scenario": "52",
+          "index": -1,
+          "section": true
+        },
+        {
+          "edition": "fc",
+          "scenario": "79",
+          "index": -1,
+          "section": true
         }
       ]
     }

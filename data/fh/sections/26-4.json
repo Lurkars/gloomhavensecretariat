@@ -1,10 +1,11 @@
 {
-  "index": "79.4",
-  "name": "Puzzle Solution",
+  "index": "26.4",
+  "name": "Random Scenario",
   "edition": "fh",
   "conclusion": true,
   "named": true,
+  "random": true,
   "unlocks": [
-    "61"
+    "111"
   ]
 }

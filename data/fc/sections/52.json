@@ -4,6 +4,7 @@
   "edition": "fc",
   "parent": "104",
   "marker": "1",
+  "resetRound": "hiddenKeep",
   "objectives": [
     {
       "name": "Hail",
@@ -30,7 +31,7 @@
   ],
   "rules": [
     {
-      "round": "R % 6 == 4",
+      "round": "R % 6 == 2",
       "spawns": [
         {
           "monster": {
@@ -44,7 +45,7 @@
       ]
     },
     {
-      "round": "R % 6 == 0",
+      "round": "R % 6 == 4",
       "spawns": [
         {
           "monster": {
@@ -58,7 +59,7 @@
       ]
     },
     {
-      "round": "R % 6 == 2",
+      "round": "R % 6 == 0",
       "spawns": [
         {
           "monster": {
@@ -74,18 +75,6 @@
     {
       "round": "true",
       "always": true,
-      "disableRules": [
-        {
-          "edition": "fc",
-          "scenario": "104",
-          "index": -1,
-          "section": false
-        }
-      ]
-    },
-    {
-      "round": "true",
-      "always": true,
       "once": true,
       "figures": [
         {
@@ -93,10 +82,24 @@
             "type": "objective",
             "edition": "escort",
             "name": "Hail",
-            "marker": "a"
+            "tags": [
+              "104"
+            ]
           },
           "type": "transfer",
           "value": "1"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "fc",
+          "scenario": "104",
+          "index": -1,
+          "section": false
         }
       ]
     }

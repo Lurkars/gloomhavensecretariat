@@ -36,7 +36,7 @@ export class ScenarioData implements Editional, Spoilable {
   parent: string | undefined;
   parentSections: string[][] = [];
   blockedSections: string[] = [];
-  resetRound: "visible" | "hidden" | undefined;
+  resetRound: "visible" | "visibleKeep" | "hidden" | "hiddenKeep" | undefined; // "Keep" suffix will reset even rounds to round 2 instead of round 1
   rewards: ScenarioRewards | undefined;
   conclusion: boolean = false;
   named: boolean = false;
