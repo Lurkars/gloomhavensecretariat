@@ -654,6 +654,10 @@
             ".": "Zufälliges Nebenszenario",
             "result": ": {1} %data.scenarioNumber:{0}%"
           },
+          "randomScenarioFh": {
+            ".": "Zufälliges Nebenszenario",
+            "result": ": Öffne %data.section:{0}%, schaltet {2} frei"
+          },
           "resource": "Erhalte {0}",
           "scenario": "Neues Szenario: {1} %data.scenarioNumber:{0}%"
         }
@@ -1098,7 +1102,9 @@
         "amRemove": "{0} entfernen %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% vom Angriffsmodifikatordeck",
         "damage": "{0} erleiden %game.damage:{2}%",
         "discard": "{0} legen jeweils %number.{2}% Fertigkeitskarten ab",
+        "discardAbilityToBottom": "Lege die aktuelle Fertigkeitskarte von {0} unter den Ablagestapel",
         "dormant": "{0} ruhend setzen",
+        "drawAbility": "Ziehe eine weitere Fertigkeitskarte für {0}",
         "gainCondition": "{0} erlangt %game.condition.{1}%",
         "heal": "{0} %game.action.heal% {2}",
         "loseCondition": "{0} verliert %game.condition.{1}%",
