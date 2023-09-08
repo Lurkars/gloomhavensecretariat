@@ -530,7 +530,7 @@ export class GameManager {
         const name = new RegExp('^' + identifier.name + '$');
         switch (type) {
           case "monster":
-            return this.game.figures.filter((figure) => figure instanceof Monster && (!edition || figure.edition == edition) && figure.name.match(name) && (!identifier.marker || figure.entities.some((entity) => entity.marker == identifier.marker)) && (!identifier.tags || identifier.tags.length == 0 || figure.entities.some((entity) => identifier.tags && identifier.tags.every((tag) => entity.tags.indexOf(tag) != -1))));
+            return this.game.figures.filter((figure) => figure instanceof Monster && (!edition || figure.edition == edition) && figure.name.match(name) && (!identifier.marker || figure.entities.some((entity) => entity.marker == identifier.marker)) && (!identifier.tags || identifier.tags.length == 0 || figure.entities.some((entity) => identifier.tags && identifier.tags.every((tag) => entity.tags && entity.tags.indexOf(tag) != -1))));
           case "character":
             return this.game.figures.filter((figure) => {
               if (figure instanceof Character && !figure.absent && (!edition || figure.edition == edition) && figure.name.match(name) && (!identifier.tags || identifier.tags.length == 0 || identifier.tags && identifier.tags.every((tag) => figure.tags && figure.tags.indexOf(tag) != -1))) {
@@ -544,7 +544,7 @@ export class GameManager {
               }
             });
           case "objective":
-            return this.game.figures.filter((figure) => (figure instanceof Objective && figure.name.match(name) && (edition != "escort" || figure.escort) && (!identifier.marker || figure.marker == identifier.marker) && (!identifier.tags || identifier.tags.length == 0 || identifier.tags.every((tag) => figure.tags && figure.tags.indexOf(tag) != -1))) || figure instanceof ObjectiveContainer && figure.name.match(name) && (edition != "escort" || figure.escort) && (!identifier.marker || figure.entities.some((entity) => entity.marker == identifier.marker)) && (!identifier.tags || identifier.tags.length == 0 || figure.entities.some((entity) => identifier.tags && identifier.tags.every((tag) => entity.tags.indexOf(tag) != -1))));
+            return this.game.figures.filter((figure) => (figure instanceof Objective && figure.name.match(name) && (edition != "escort" || figure.escort) && (!identifier.marker || figure.marker == identifier.marker) && (!identifier.tags || identifier.tags.length == 0 || identifier.tags.every((tag) => figure.tags && figure.tags.indexOf(tag) != -1))) || figure instanceof ObjectiveContainer && figure.name.match(name) && (edition != "escort" || figure.escort) && (!identifier.marker || figure.entities.some((entity) => entity.marker == identifier.marker)) && (!identifier.tags || identifier.tags.length == 0 || figure.entities.some((entity) => identifier.tags && identifier.tags.every((tag) => entity.tags && entity.tags.indexOf(tag) != -1))));
         }
       }
     }
