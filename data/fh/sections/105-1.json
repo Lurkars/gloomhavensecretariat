@@ -12,6 +12,7 @@
     {
       "name": "Moonshard",
       "escort": true,
+      "allyDeck": true,
       "health": "(L+(2xC))x2",
       "initiative": 50,
       "marker": "a",
@@ -26,6 +27,7 @@
           "subActions": [
             {
               "type": "custom",
+              "small": true,
               "value": "Attacks are unaffected by %game.action.retaliate%"
             }
           ]

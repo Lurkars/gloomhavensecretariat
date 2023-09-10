@@ -12,6 +12,7 @@
     {
       "name": "Faye",
       "escort": true,
+      "allyDeck": true,
       "health": "(Lx3)+8",
       "initiative": 11,
       "actions": [

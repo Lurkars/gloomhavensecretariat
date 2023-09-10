@@ -29,6 +29,7 @@
     {
       "name": "Militia",
       "escort": true,
+      "allyDeck": true,
       "health": "[(L/2)+2{$math.ceil}]",
       "initiative": 51,
       "actions": [
