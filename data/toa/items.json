@@ -409,20 +409,5 @@
         "small": true
       }
     ]
-  },
-  {
-    "id": 131,
-    "name": "Predator's Wristblade",
-    "cost": 50,
-    "count": 1,
-    "edition": "toa",
-    "slot": "onehand",
-    "actions": [
-      {
-        "type": "custom",
-        "value": "%data.items.toa-131.1%",
-        "small": true
-      }
-    ]
   }
 ]

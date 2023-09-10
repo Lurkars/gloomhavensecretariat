@@ -10,7 +10,7 @@ export const sortItemFile = function (dataDirectory) {
             if (fs.existsSync(itemFile) && fs.lstatSync(itemFile).isFile()) {
                 const f = fs.readFileSync(itemFile, 'utf8');
                 let items = JSON.parse(f);
-                items = items.map((itemData) => sortObjectKeys(itemData, 'id', 'name', 'cost', 'count', 'edition', 'solo', 'slot', 'spent', 'consumed', 'persistent', 'random', 'blueprint', 'minusOne', 'slots', 'slotsBack', 'unlockProsperity', 'unlockScenario', 'resources', 'resourcesAny', 'requiredItems', 'requiredBuilding', 'requiredBuildingLevel', 'actions', 'actionsBack', 'summon'));
+                items = items.map((itemData) => sortObjectKeys(itemData, 'id', 'name', 'cost', 'count', 'edition', 'solo', 'slot', 'spent', 'consumed', 'persistent', 'lost', 'round', 'random', 'blueprint', 'minusOne', 'slots', 'slotsBack', 'unlockProsperity', 'unlockScenario', 'resources', 'resourcesAny', 'requiredItems', 'requiredBuilding', 'requiredBuildingLevel', 'actions', 'actionsBack', 'summon'));
 
                 if (f != JSON.stringify(items, undefined, 2)) {
                     changedFiles.push(itemFile);

@@ -106,10 +106,6 @@
     "toa-130": {
       "1": "During your melee Attack ability, %game.element.consume.wild% to add +2 %game.action.attack% and %game.condition.muddle% to one attack.",
       ".": "Dynamic Sickle"
-    },
-    "toa-131": {
-      "1": "After you kill an enemy during your turn, gain two \"%Rage%\" ^TOA6^ cards.",
-      ".": "Predator's Wristblade"
     }
   },
   "treasures": {

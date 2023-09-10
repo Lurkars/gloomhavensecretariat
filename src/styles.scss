@@ -1209,6 +1209,13 @@ input[type="radio"] {
     }
   }
 
+  .placeholder-element-half {
+    display: inline-flex;
+    width: 1.5em;
+    height: 1.4em;
+    margin-top: -0.3em;
+  }
+
   .placeholder-item-fh {
     display: inline-flex;
     justify-content: flex-end;

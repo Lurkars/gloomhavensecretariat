@@ -30,7 +30,7 @@
           </a>
         </div>
         <div class="line" *ngFor="let characterData of (characterData[edition] || [])"
-          [ngClass]="{'disabled' : hasCharacter(characterData), 'spoiler' : characterData.spoiler}">
+          [ngClass]="{'disabled' : hasCharacter(characterData) && unlocked(characterData), 'spoiler' : characterData.spoiler}">
           <a (click)="addCharacter(characterData);" *ngIf="unlocked(characterData)">
             <img class="icon" [src]="characterData.iconUrl" />
             <span [ghs-label]="'data.character.' + characterData.name"></span>

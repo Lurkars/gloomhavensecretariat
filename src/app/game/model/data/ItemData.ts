@@ -19,6 +19,8 @@ export class ItemData implements Editional {
   spent: boolean = false;
   consumed: boolean = false;
   persistent: boolean = false;
+  loss: boolean = false;
+  round: boolean = false;
   slots: number = 0;
   slotsBack: number = 0;
   minusOne: number = 0;

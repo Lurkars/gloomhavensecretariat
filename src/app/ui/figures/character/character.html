@@ -64,7 +64,7 @@
               [relative]="true" [screenWidth]="true" (singleClick)="nextIdentity($event)">
               <img
                 [ngClass]="{'identities' : settingsManager.settings.characterIdentities &&  character.identities && character.identities.length > 1}"
-                [src]="character.identities.length == 0 || !settingsManager.settings.characterIdentities ? character.iconUrl : gameManager.characterManager.characterIdentityIcon(character)" />
+                [src]="character.identities.length == 0 || !settingsManager.settings.characterIdentities ? character.iconUrl : gameManager.characterManager.characterIdentityIcon(character.name, character.identity)" />
             </span>
             <span ghs-pointer-input (singleClick)="openEntityMenu($event)">
               {{characterTitle}}

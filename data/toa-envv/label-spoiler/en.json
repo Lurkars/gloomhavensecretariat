@@ -1,5 +1,11 @@
 {
   "character": {
     "envv": "Vanquisher"
+  },
+  "items": {
+    "toa-131": {
+      "1": "After you kill an enemy during your turn, gain two \"Rage\" %game.characterIcon.envv% cards.",
+      ".": "Predator's Wristblade"
+    }
   }
 }

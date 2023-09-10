@@ -115,6 +115,7 @@
     ]
   },
   {
+    "loss": true,
     "id": 141,
     "name": "Utility Belt",
     "cost": 50,
@@ -539,6 +540,7 @@
     ]
   },
   {
+    "loss": true,
     "id": 109,
     "name": "Auscudec of the Makers",
     "cost": 50,
@@ -590,6 +592,7 @@
     ]
   },
   {
+    "loss": true,
     "id": 249,
     "name": "Recalibration Trigger",
     "cost": 0,
@@ -603,6 +606,26 @@
         "type": "custom",
         "value": "%data.items.solo-249.1%",
         "small": true
+      },
+      {
+        "type": "boxFhSubActions",
+        "subActions": [
+          {
+            "type": "grid",
+            "subActions": [
+              {
+                "type": "custom",
+                "value": "-2 %data.action.custom.fh-hourglass%:",
+                "small": true
+              },
+              {
+                "type": "custom",
+                "value": "%data.items.solo-249.2%",
+                "small": true
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -615,15 +638,30 @@
     "solo": "banner-spear",
     "slot": "onehand",
     "consumed": true,
+    "round": true,
     "actions": [
       {
         "type": "custom",
         "value": "%data.items.solo-250.1%",
-        "small": true
-      },
-      {
-        "type": "card",
-        "value": "round"
+        "small": true,
+        "subActions": [
+          {
+            "type": "attack",
+            "value": 2,
+            "subActions": [
+              {
+                "type": "range",
+                "value": 3,
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "%data.items.solo-250.2%",
+            "small": true
+          }
+        ]
       }
     ]
   },
@@ -658,7 +696,20 @@
       {
         "type": "custom",
         "value": "%data.items.solo-252.1%",
-        "small": true
+        "small": true,
+        "subActions": [
+          {
+            "type": "heal",
+            "value": 2,
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "self",
+                "small": true
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -716,10 +767,15 @@
         "type": "custom",
         "value": "%data.items.solo-255.1%",
         "small": true
+      },
+      {
+        "type": "custom",
+        "value": "%game.elementHalf:fire|earth%"
       }
     ]
   },
   {
+    "loss": true,
     "id": 256,
     "name": "Sonorous Shard",
     "cost": 0,
@@ -733,6 +789,10 @@
         "type": "custom",
         "value": "%data.items.solo-256.1%",
         "small": true
+      },
+      {
+        "type": "custom",
+        "value": "%game.elementHalf:air|earth%"
       }
     ]
   },
@@ -767,7 +827,30 @@
       {
         "type": "custom",
         "value": "%data.items.solo-258.1%",
-        "small": true
+        "small": true,
+        "subActions": [
+          {
+            "type": "heal",
+            "value": 7,
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "self",
+                "small": true
+              },
+              {
+                "type": "condition",
+                "value": "curse",
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "%data.items.solo-258.2%",
+            "small": true
+          }
+        ]
       }
     ]
   },
@@ -884,6 +967,7 @@
     ]
   },
   {
+    "loss": true,
     "id": 264,
     "name": "Spiraled Medallion",
     "cost": 0,
@@ -897,6 +981,10 @@
         "type": "custom",
         "value": "%data.items.solo-264.1%",
         "small": true
+      },
+      {
+        "type": "custom",
+        "value": "%game.elementHalf:light|dark%"
       }
     ]
   },

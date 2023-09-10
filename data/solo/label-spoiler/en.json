@@ -274,56 +274,59 @@
             "1": "During your attack ability, move one character token on one of your persistent abilities backward one slot and add +X %game.action.attack% to one attack, where X is the number of active persistent abilities."
         },
         "solo-249": {
-            "1": "During our turn, perform one of the two following abilities: Lose one card from your hand to gain 3 ^fh-hourglass^. ~@-2 ^fh-hourglass^ : %game.card.recover% up to two of your discarded cards@~"
+            "1": "During our turn, perform one of the two following abilities: Lose one card from your hand to gain 3 %data.action.custom.fh-hourglass%.",
+            "2": "%game.card.recover% up to two of your discarded cards"
         },
         "solo-250": {
-            "1": "During your turn perform: %game.action.attack% 2 %game.action.range:3%. All your banners are treated as additionally occupying the hex of the attack target of their bonuses and that hex is treated as occupied by an ally this round. "
+            "1": "During your turn perform:",
+            "2": "All your banners are treated as additionally occupying the hex of the attack target of their bonuses and that hex is treated as occupied by an ally this round."
         },
         "solo-251": {
-            "1": "Place one ^fh-shadow^ in an adjacent hex. %game.element.dark%"
+            "1": "Place one %data.action.custom.fh-shadow% in an adjacent hex. %game.element.dark%"
         },
         "solo-252": {
-            "1": "On the next three deaths of any of your summons,"
+            "1": "On the next three deaths of any of your summons, %game.elementHalf:earth|dark% and perform:"
         },
         "solo-253": {
-            "1": "During your ranged attack ability while in ^fh-geminate-right^, gain advantage for one attack, then flip this card over.",
-            "2": "When an enemy performs an attack targeting you while you are in ^fh-geminate-left^, the attacker gains disadvantage, then flip this card over."
+            "1": "During your ranged attack ability while in %game.characterIconIdentity.geminate.0%, gain advantage for one attack, then flip this card over.",
+            "2": "When an enemy performs an attack targeting you while you are in %game.characterIconIdentity.geminate.1%, the attacker gains disadvantage, then flip this card over."
         },
         "solo-254": {
-            "1": "During your turn, activate all your ^fh-astral^ as if you just performed a ^fh-astral^ action."
+            "1": "During your turn, activate all your %data.action.custom.fh-infusion% as if you just performed a %data.action.custom.fh-infusion% action."
         },
         "solo-255": {
             "1": "During your turn, you may create either one 1-hex obstacle or hazardous terrain tile in an empty tile within %game.action.range:2%."
         },
         "solo-256": {
-            "1": "Gain 3 ^fh-shards^"
+            "1": "Gain 3 %data.action.custom.fh-resonance%"
         },
         "solo-257": {
             "1": "When you create a trap, place a character token on it.  Monsters do not treat the trap as negative. Remove the token when you %game.card.recover% this item."
         },
         "solo-258": {
-            "1": "When you suffer damage, if your hit point value is reduced to below half your maximum, perform: %game.action.heal% 7 self, %game.condition.curse% This heal is not affect by and cannot remove negative conditions."
+            "1": "When you suffer damage, if your hit point value is reduced to below half your maximum, perform:",
+            "2": "This heal is not affect by and cannot remove negative conditions."
         },
         "solo-259": {
-            "1": "During an attack ability you grant an ally, add %game.action.push% to one of their attacks, then flip this card over.",
+            "1": "During an attack ability you grant an ally, add %game.action.push% 2 to one of their attacks, then flip this card over.",
             "2": "During your attack ability you, add %game.action.pull% 2 to one attack, then flip this card over."
         },
         "solo-260": {
             "1": "During your attack ability, add %game.condition.brittle% one attack and create one 1-hex icy terrain tile in the featureless hex occupied by the target."
         },
         "solo-261": {
-            "1": "Remove all damage and negative conditions from one of your summons, then ^fh-prism^ to that summon."
+            "1": "Remove all damage and negative conditions from one of your summons, then %data.action.custom.fh-mode% to that summon."
         },
         "solo-262": {
-            "1": "During your move ability, when you have ^fh-meter-yellow^ or ^fh-meter-red^, add +1 %game.action.move%, then flip this card over at the end of your turn.",
-            "2": "During your turn when you have ^fh-meter-blue^, perform:",
+            "1": "During your move ability, when you have %game.characterIconIdentityColored.drill.1% or %game.characterIconIdentityColored.drill.2%, add +1 %game.action.move%, then flip this card over at the end of your turn.",
+            "2": "During your turn when you have %game.characterIconIdentityColored.drill.3%, perform:",
             "4": "then flip this card over at the end of your turn."
         },
         "solo-263": {
             "1": "Whenever you gain %game.condition.invisible% perform a teleport ability while you have %game.condition.invisible%, after the ability perform: %game.condition.muddle% %game.action.range:1%"
         },
         "solo-264": {
-            "1": "When you rest, you may keep up to three ^fh-anemone^ cards in your active area."
+            "1": "When you rest, you may keep up to three %data.action.custom.fh-tides% cards in your active area."
         },
         "solo-119": {
             "1": "During your Attack ability, add +1 %game.action.attack% to one attack. Whenever this item is refreshed, one adjacent enemy suffers 1 damage."

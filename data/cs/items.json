@@ -290,6 +290,7 @@
     ]
   },
   {
+    "loss": true,
     "id": 20,
     "name": "Curious Pendant",
     "cost": 60,

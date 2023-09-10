@@ -38,16 +38,13 @@ export class CharacterManager {
     return './assets/images/character/icons/' + characterData.edition + '-' + characterData.name + '.svg';
   }
 
-  characterIdentityIcon(character: Character, index: number = -1): string {
-    if (!character.identities || character.identities.length == 0) {
-      return this.characterIcon(character.name);
+  characterIdentityIcon(character: string, index: number): string {
+    const characterData = gameManager.getCharacterData(character);
+    if (!characterData.identities || characterData.identities.length == 0) {
+      return this.characterIcon(character);
     }
 
-    if (index == -1) {
-      index = character.identity || 0;
-    }
-
-    return './assets/images/character/icons/' + character.edition + '-' + character.name + '-' + character.identities[index] + '.svg';
+    return './assets/images/character/icons/' + characterData.edition + '-' + characterData.name + '-' + characterData.identities[index] + '.svg';
   }
 
   characterName(character: Character, full: boolean = false): string {

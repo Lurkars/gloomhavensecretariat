@@ -25,7 +25,7 @@
             </ng-container>
             <ng-container *ngIf="titles.length > 0 && settingsManager.settings.characterIdentities">
               <ng-container *ngFor="let i of [] | ghsRange:character.identities.length">
-                <img [src]="gameManager.characterManager.characterIdentityIcon(character, i)">
+                <img [src]="gameManager.characterManager.characterIdentityIcon(character.name, i)">
                 <input type="text" [value]="titles[i]" (change)="setTitle($event, i)">
               </ng-container>
             </ng-container>

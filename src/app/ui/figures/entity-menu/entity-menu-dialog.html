@@ -560,7 +560,7 @@
         <div class="titles-container" *ngIf="titles.length > 0 && settingsManager.settings.characterIdentities">
           <div class="title-container"
             *ngFor="let i of [] | ghsRange:gameManager.toCharacter(data.entity).identities.length">
-            <img [src]="gameManager.characterManager.characterIdentityIcon(gameManager.toCharacter(data.entity), i)">
+            <img [src]="gameManager.characterManager.characterIdentityIcon(gameManager.toCharacter(data.entity).name,gameManager.toCharacter(data.entity).identity)">
             <input class="title" type="text" [value]="titles[i]" (change)="setTitle($event, i)">
           </div>
         </div>

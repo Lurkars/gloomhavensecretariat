@@ -222,7 +222,9 @@
         .consumed,
         .spent,
         .flip,
-        .persistent {
+        .persistent,
+        .loss,
+        .round {
             position: absolute;
             top: 81%;
             left: 69%;
@@ -238,12 +240,18 @@
                 left: 71%;
             }
 
-            &.persistent {
+            &.persistent,
+            &.round {
                 left: 12.5%;
             }
 
             &.flip {
                 cursor: ew-resize;
+            }
+
+            &.loss {
+                left: 57%;
+                font-size: 1.2em;
             }
         }
 
@@ -436,7 +444,9 @@
             .consumed,
             .spent,
             .flip,
-            .persistent {
+            .persistent,
+            .loss,
+            .round {
                 top: 84%;
                 left: 73%;
 
@@ -444,8 +454,14 @@
                     left: 74%;
                 }
 
-                &.persistent {
+                &.persistent,
+                &.round {
                     left: 4%;
+                }
+
+                &.loss {
+                    left: 58.5%;
+                    font-size: 1.7em;
                 }
             }
 

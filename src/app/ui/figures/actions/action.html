@@ -67,7 +67,7 @@
         [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement(getValues(action), action.valueType == ActionValueType.minus, 1)}"
         ghs-pointer-input (singleClick)="elementAction($event, action, getValues(action)[1], 1)"
         [clickBehind]="!highlightElement(getValues(action), action.valueType == ActionValueType.minus, 1)">
-        <img [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/element/' + getValues(action) + '.svg'" />
+        <img [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/element/' + getValues(action)[1] + '.svg'" />
       </span>
       <span class="minus" *ngIf="action.valueType == ActionValueType.minus">:</span>
     </span>
@@ -277,6 +277,20 @@
   </span>
 
   <span class="action-box-container" *ngSwitchCase="ActionType.box" [ngClass]="{'small' : action.small}">
+    <span *ngIf="action.value" class="action-box-label" [ghs-label]="'' + action.value"
+      [relative]="relative || forceRelative" [style]="style"></span>
+    <span class="action-box">
+      <ng-container *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index;">
+        <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"
+          [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
+          [relative]="relative || forceRelative" [statsCalculation]="statsCalculation"
+          [index]="(actionIndex ? actionIndex + '-' : '') + index" [monsterType]="monsterType" [style]="style">
+        </ghs-action>
+      </ng-container>
+    </span>
+  </span>
+
+  <span class="action-box-fh-subactions-container" *ngSwitchCase="ActionType.boxFhSubActions" [ngClass]="{'small' : action.small}">
     <span *ngIf="action.value" class="action-box-label" [ghs-label]="'' + action.value"
       [relative]="relative || forceRelative" [style]="style"></span>
     <span class="action-box">

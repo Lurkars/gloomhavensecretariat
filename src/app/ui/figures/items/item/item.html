@@ -100,6 +100,12 @@
                 ghs-pointer-input (singleClick)="clickedPersistent.emit()" (doubleClick)="clickedPersistent.emit(true)">
                 <span class="placeholder text-white" [ghs-label]="'%game.card.persistent%'"></span>
             </div>
+            <div class="loss" *ngIf="item.loss">
+                <span class="placeholder text-white" [ghs-label]="'%game.card.loss%'"></span>
+            </div>
+            <div class="round" *ngIf="item.round">
+                <span class="placeholder text-white" [ghs-label]="'%game.card.round%'"></span>
+            </div>
             <div class="minus-one" *ngIf="item.minusOne">
                 <span class="card-icon small">
                     <img class="icon"

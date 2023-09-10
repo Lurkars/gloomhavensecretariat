@@ -62,7 +62,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
           consume = true;
         }
         const elements = value.split('|');
-        replace = '<span class="attack-modifier-effect element-half-placeholder' + (fh ? ' fh' : '') + '"><span class="element-half-container' + (consume ? ' consume' : '') + '"><span class="element-half"><img src="./assets/images/' + (fh ? 'fh/' : '') + 'element/' + elements[0] + '.svg"></span><span class="element-half"><img src="./assets/images/' + (fh ? 'fh/' : '') + 'element/' + elements[1] + '.svg"></span></span></span>';
+        replace = '<span class="attack-modifier-effect placeholder-element-half element-half-placeholder' + (fh ? ' fh' : '') + '"><span class="element-half-container' + (consume ? ' consume' : '') + '"><span class="element-half"><img src="./assets/images/' + (fh ? 'fh/' : '') + 'element/' + elements[0] + '.svg"></span><span class="element-half"><img src="./assets/images/' + (fh ? 'fh/' : '') + 'element/' + elements[1] + '.svg"></span></span></span>';
       } else if (type == "action" && split[2].startsWith('area')) {
         replace = '<span class="placeholder-area">'
         value.split('|').forEach((hexValue) => {
@@ -110,6 +110,21 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "characterIconColoredBg" && split.length == 3) {
         const characterName = split[2];
         image = '<img class="icon" src="' + gameManager.characterManager.characterIcon(characterName) + '">';
+        replace = '<span class="placeholder-character-icon-colored-bg" style="background-color:' + gameManager.characterManager.characterColor(characterName) + '">' + image + '</span>';
+      } else if (type == "characterIconIdentity" && split.length == 4) {
+        const characterName = split[2];
+        const identity = +split[3];
+        image = '<img class="icon" src="' + gameManager.characterManager.characterIdentityIcon(characterName, identity) + '">';
+        replace = '<span class="placeholder-character-icon">' + image + '</span>';
+      } else if (type == "characterIconIdentityColored" && split.length == 4) {
+        const characterName = split[2];
+        const identity = +split[3];
+        image = '<img class="icon" src="' + gameManager.characterManager.characterIdentityIcon(characterName, identity) + '">';
+        replace = '<span class="placeholder-character-icon-colored">' + image + '</span>';
+      } else if (type == "characterIconIdentityColoredBg" && split.length == 4) {
+        const characterName = split[2];
+        const identity = +split[3];
+        image = '<img class="icon" src="' + gameManager.characterManager.characterIdentityIcon(characterName, identity) + '">';
         replace = '<span class="placeholder-character-icon-colored-bg" style="background-color:' + gameManager.characterManager.characterColor(characterName) + '">' + image + '</span>';
       } else if (type == "characterToken" && split.length >= 3) {
         const characterName = split[2];
