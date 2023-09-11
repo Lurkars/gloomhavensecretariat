@@ -48,13 +48,14 @@
       padding-bottom: 0.4em;
       width: 100%;
       min-height: 7.4em;
-      font-size: calc(1.7em * var(--ghs-fontsize));
+      font-size: calc(1.7em );
       z-index: 1;
       display: flex;
       align-items: center;
       overflow: auto;
 
       ghs-actions {
+        font-size: calc(1em * var(--ghs-fontsize));
         position: relative;
         width: 100%;
         height: 100%;
