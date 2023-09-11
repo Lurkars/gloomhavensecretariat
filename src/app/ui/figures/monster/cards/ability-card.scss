@@ -77,6 +77,8 @@
 
   &.second-ability {
 
+    display: flex;
+
     ghs-ability {
       top: 0;
       width: calc(var(--ghs-unit) * 20);

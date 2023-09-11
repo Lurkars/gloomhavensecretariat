@@ -24,7 +24,7 @@
       width: 100%;
       height: 100%;
       background-image: url('~src/assets/images/monster/abilities/monster-ability-front.png');
-      background-position: top;
+      background-position: 0em -0.8em;
       background-size: 100% auto;
       background-repeat: no-repeat;
       z-index: 0;
@@ -36,7 +36,7 @@
       width: 100%;
       height: 100%;
       background-image: url('~src/assets/images/monster/abilities/monster-ability-front-repeat.png');
-      background-position: top;
+      background-position: 0em -0.8em;
       background-size: 100% auto;
       background-repeat: repeat-y;
       z-index: -1;
@@ -44,10 +44,10 @@
 
     .ability-actions {
       position: relative;
-      margin-top: 2.4em;
+      margin-top: 2em;
       padding-bottom: 0.4em;
       width: 100%;
-      min-height: 7.3em;
+      min-height: 7.4em;
       font-size: calc(1.7em * var(--ghs-fontsize));
       z-index: 1;
       display: flex;
@@ -78,7 +78,7 @@
       font-family: var(--ghs-font-title);
       font-size: 2.4em;
       filter: var(--ghs-filter-shadow);
-      top: 1.3em;
+      top: 1em;
       left: 0.5em;
       text-align: center;
       width: 1em;
@@ -144,12 +144,14 @@
       height: 100%;
 
       &.bottom-actions::before {
+        background-position: top;
         background-image: url('~src/assets/images/monster/abilities/monster-ability-front-bottom.png');
       }
 
       &.character-actions {
 
         &::before {
+          background-position: top;
           background-color: var(--ghs-ability-color);
           background-image: url('~src/assets/images/character/abilities/character-ability-front.png'), url('~src/assets/images/character/abilities/character-ability-front-blend.png');
           background-blend-mode: screen, luminosity;
