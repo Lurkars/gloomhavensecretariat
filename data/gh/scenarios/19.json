@@ -74,6 +74,7 @@
     },
     {
       "round": "true",
+      "always": true,
       "once": true,
       "requiredRooms": [
         3
@@ -99,6 +100,7 @@
     },
     {
       "round": "true",
+      "always": true,
       "once": true,
       "requiredRooms": [
         4
@@ -124,6 +126,7 @@
     },
     {
       "round": "true",
+      "always": true,
       "once": true,
       "requiredRooms": [
         5

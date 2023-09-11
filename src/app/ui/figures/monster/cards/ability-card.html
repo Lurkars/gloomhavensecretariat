@@ -1,11 +1,16 @@
 <div class="container"
-  [ngClass]="{'flipped' : flipped(), 'bottom-actions' : gameManager.monsterManager.hasBottomActions(monster), 'second-ability' : secondAbility, 'full-ability': settingsManager.settings.showFullAbilityCard, 'disabled' : !settingsManager.settings.abilities}">
-  <div *ngIf="!settingsManager.settings.showFullAbilityCard" class="hover-effect initiative"></div>
-  <div *ngIf="!settingsManager.settings.showFullAbilityCard" class="hover-effect title"></div>
-  <ghs-ability [ability]="ability" [monster]="monster" [flipped]="flipped()" [highlightElements]="settingsManager.settings.interactiveAbilities" ghs-pointer-input
+  [ngClass]="{'flipped' : flipped,  'full-ability': settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard, 'expanded-ability': settingsManager.settings.showExpandedAbilityCard && flipped, 'bottom-actions' : gameManager.monsterManager.hasBottomActions(monster), 'second-ability' : secondAbility,  'disabled' : !settingsManager.settings.abilities, 'denied' : monster && gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition] }">
+  <div
+    *ngIf="!secondAbility && !settingsManager.settings.showFullAbilityCard && !settingsManager.settings.showExpandedAbilityCard"
+    class="hover-effect initiative"></div>
+  <div
+    *ngIf="!secondAbility && !settingsManager.settings.showFullAbilityCard && !settingsManager.settings.showExpandedAbilityCard"
+    class="hover-effect title"></div>
+  <ghs-ability [ability]="ability" [monster]="monster" [flipped]="flipped"
+    [highlightElements]="settingsManager.settings.interactiveAbilities" ghs-pointer-input
     (singleClick)="openAbilities($event)" (doubleClick)="openAbility($event)"></ghs-ability>
   <ng-container *ngIf="secondAbility">
-    <ghs-ability [ability]="secondAbility" [monster]="monster" [flipped]="flipped()"
+    <ghs-ability [ability]="secondAbility" [monster]="monster" [flipped]="flipped"
       [highlightElements]="settingsManager.settings.interactiveAbilities" ghs-pointer-input
       (singleClick)="openAbilities($event)" (doubleClick)="openAbility($event,true)">
     </ghs-ability>

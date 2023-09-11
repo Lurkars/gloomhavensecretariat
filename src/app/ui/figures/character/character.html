@@ -182,6 +182,7 @@
       </div>
 
       <div class="column col-2">
+        <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"></div>
         <span class="experience" [ghs-label]="'game.experience'" [ghs-label-attribute]="'title'" ghs-pointer-input
           (dragMove)="dragXpMove($event)" (dragEnd)="dragXpEnd($event)" [relative]="true" [screenWidth]="true"
           (singleClick)="openEntityMenu($event)">
@@ -192,9 +193,9 @@
             <span class="value">{{experience | ghsValueSign}}</span>
           </span>
         </span>
-        <span class="loot" [ghs-label]="'game.loot'" [ghs-label-attribute]="'title'" ghs-pointer-input
-          (dragMove)="dragLootMove($event)" (dragEnd)="dragLootEnd($event)" [relative]="true" [screenWidth]="true"
-          (singleClick)="openEntityMenu($event)">
+        <span class="loot" *ngIf="!settingsManager.settings.alwaysLootDeck && !gameManager.fhRules()"
+          [ghs-label]="'game.loot'" [ghs-label-attribute]="'title'" ghs-pointer-input (dragMove)="dragLootMove($event)"
+          (dragEnd)="dragLootEnd($event)" [relative]="true" [screenWidth]="true" (singleClick)="openEntityMenu($event)">
           {{character.loot + loot}}
           <img src="./assets/images/status/loot.svg" />
           <span *ngIf="loot" class="value-overlay"

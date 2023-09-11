@@ -73,7 +73,7 @@ export class ConditionHighlightAnimationDirective implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
-        if (this.condition.highlight && !settingsManager.settings.activeApplyConditions) {
+        if (this.condition.highlight && (!settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions || settingsManager.settings.activeApplyConditionsExcludes.indexOf(this.condition.name) != -1)) {
           this.playAnimation();
         }
       }
@@ -94,7 +94,7 @@ export class ConditionHighlightAnimationDirective implements OnInit, OnDestroy {
     this.el.nativeElement.classList.add("animation");
     setTimeout(() => {
       this.el.nativeElement.classList.remove("animation");
-      if (this.condition.types.indexOf(ConditionType.turn) != -1 || !settingsManager.settings.activeApplyConditions) {
+      if (this.condition.types.indexOf(ConditionType.turn) != -1 || !settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions || settingsManager.settings.activeApplyConditionsExcludes.indexOf(this.condition.name) != -1) {
         this.condition.highlight = false;
         gameManager.stateManager.saveLocal();
       }

@@ -11,7 +11,8 @@
   cursor: help;
 
   ghs-ability {
-    position: absolute;
+    display: inline-block;
+    position: relative;
     top: calc(var(--ghs-unit) * -3);
     left: 0;
     width: calc(var(--ghs-unit) * 40);
@@ -80,10 +81,6 @@
       top: 0;
       width: calc(var(--ghs-unit) * 20);
       height: calc(var(--ghs-unit) * 10.75);
-
-      &:nth-of-type(2) {
-        left: 50%;
-      }
     }
 
     ghs-pointer-input {
@@ -146,6 +143,44 @@
         ghs-ability {
           height: calc(var(--ghs-unit) * 25);
         }
+      }
+    }
+  }
+
+  &.expanded-ability {
+    width: calc(var(--ghs-unit) * 37);
+    height: auto;
+    min-height: calc(var(--ghs-unit) * 24);
+
+    ghs-ability {
+      top: 0;
+      width: calc(var(--ghs-unit) * 37);
+      height: auto;
+      min-height: calc(var(--ghs-unit) * 24);
+    }
+
+    &.bottom-actions {
+      height: calc(var(--ghs-unit) * 38.2);
+
+      ghs-ability {
+        height: calc(var(--ghs-unit) * 38.2);
+      }
+
+      &.second-ability {
+
+        ghs-ability {
+          height: calc(var(--ghs-unit) * 25);
+        }
+      }
+    }
+
+    &.second-ability {
+      height: calc(var(--ghs-unit) * 25);
+
+      ghs-ability {
+        width: calc(var(--ghs-unit) * 18.5);
+        height: calc(var(--ghs-unit) * 12);
+        min-height: initial;
       }
     }
   }

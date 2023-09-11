@@ -26,7 +26,7 @@
         ghs-ability {
             display: block;
             width: calc(var(--ghs-unit) * 40);
-            height: calc(var(--ghs-unit) * 25.5);
+            min-height: calc(var(--ghs-unit) * 25.5);
 
             &.bottom-actions {
                 height: calc(var(--ghs-unit) * 54);

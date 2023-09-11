@@ -1,9 +1,11 @@
+import { ConditionName } from "./data/Condition";
 
 export class Settings {
   abilities: boolean = true;
   abilityNumbers: boolean = true;
   abilityReveal: boolean = true;
   activeApplyConditions: boolean = true;
+  activeApplyConditionsExcludes: ConditionName[] = [ConditionName.shield];
   activeStandees: boolean = true;
   activeSummons: boolean = true;
   addAllMonsters: boolean = false;
@@ -14,6 +16,7 @@ export class Settings {
   alwaysLootApplyDialog = false;
   alwaysLootDeck: boolean = false;
   applyConditions: boolean = true;
+  applyConditionsExcludes: ConditionName[] = [ConditionName.shield];
   applyLongRest: boolean = true;
   applyLoot: boolean = true;
   autoBackup: number = -1;
@@ -85,6 +88,7 @@ export class Settings {
   serverUrl: string | undefined;
   serverWss: boolean = false;
   showBossMonster: boolean = true;
+  showExpandedAbilityCard: boolean = false;
   showFullAbilityCard: boolean = false;
   showHiddenMonster: boolean = false;
   showOnlyUnfinishedScenarios = false;

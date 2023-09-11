@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
@@ -9,13 +9,14 @@ import { Dialog } from '@angular/cdk/dialog';
 import { AbiltiesDialogComponent } from '../../ability/abilities-dialog';
 import { AbilityDialogComponent } from '../../ability/ability-dialog';
 import { applyPlaceholder } from 'src/app/ui/helper/label';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ghs-monster-ability-card',
   templateUrl: './ability-card.html',
   styleUrls: ['./ability-card.scss']
 })
-export class MonsterAbilityCardComponent {
+export class MonsterAbilityCardComponent implements OnInit, OnDestroy {
 
   @Input() monster!: Monster;
   @Input() index: number = -1;
@@ -29,11 +30,29 @@ export class MonsterAbilityCardComponent {
   GameState = GameState;
   edit: boolean = false;
   cardPopup: boolean = false;
+  flipped: boolean = false;
   maxHeight: string = "";
 
   constructor(private dialog: Dialog) { }
 
-  flipped(): boolean {
+  ngOnInit(): void {
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+    this.update();
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
+  }
+
+  update() {
+    this.flipped = this.calcFlipped();
+  }
+
+  calcFlipped(): boolean {
     if (!settingsManager.settings.abilities) {
       return false;
     }
@@ -184,7 +203,7 @@ export class MonsterAbilityCardComponent {
 
   openAbility(event: any, second: boolean = false): void {
     if (settingsManager.settings.abilities) {
-      if (this.flipped()) {
+      if (this.flipped) {
         this.dialog.open(AbilityDialogComponent, {
           data: { ability: second ? this.secondAbility : this.ability, monster: this.monster }
         });

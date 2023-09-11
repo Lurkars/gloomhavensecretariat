@@ -1,10 +1,10 @@
 <div class="highlight-conditions" *ngIf="gameManager.entityManager.highlightedConditions(entity).length > 0">
   <span class="condition" [conditionHighlight]="entityCondition"
     *ngFor="let entityCondition of gameManager.entityManager.highlightedConditions(entity)"
-    [ngClass]="{'apply' : settingsManager.settings.activeApplyConditions &&  entityCondition.types.indexOf(ConditionType.apply) != -1, 'double': entityCondition.types.indexOf(ConditionType.double) != -1}">
+    [ngClass]="{'apply' : settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && settingsManager.settings.activeApplyConditionsExcludes.indexOf(entityCondition.name) == -1 && entityCondition.types.indexOf(ConditionType.apply) != -1, 'double': entityCondition.types.indexOf(ConditionType.double) != -1}">
 
     <a class="close" [conditionHighlight]="entityCondition"
-      *ngIf="settingsManager.settings.activeApplyConditions && entityCondition.types.indexOf(ConditionType.apply) != -1"
+      *ngIf="settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && settingsManager.settings.activeApplyConditionsExcludes.indexOf(entityCondition.name) == -1 && entityCondition.types.indexOf(ConditionType.apply) != -1"
       ghs-pointer-input (singleClick)="declineApplyCondition(entityCondition.name, $event)">
       <img class="ghs-svg" src="./assets/images/close_dialog.svg" />
     </a>
@@ -17,14 +17,14 @@
     </span>
 
     <a class="double" [conditionHighlight]="entityCondition"
-      *ngIf="settingsManager.settings.activeApplyConditions &&  entityCondition.types.indexOf(ConditionType.apply) != -1 && entityCondition.types.indexOf(ConditionType.double) != -1"
+      *ngIf="settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && settingsManager.settings.activeApplyConditionsExcludes.indexOf(entityCondition.name) == -1 &&  entityCondition.types.indexOf(ConditionType.apply) != -1 && entityCondition.types.indexOf(ConditionType.double) != -1"
       ghs-pointer-input (singleClick)="applyCondition(entityCondition.name, $event, true)">
       <img
         [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') +  '/attackmodifier/icons/double.png'" />
     </a>
 
     <a class="check" [conditionHighlight]="entityCondition"
-      *ngIf="settingsManager.settings.activeApplyConditions && entityCondition.types.indexOf(ConditionType.apply) != -1"
+      *ngIf="settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && settingsManager.settings.activeApplyConditionsExcludes.indexOf(entityCondition.name) == -1 && entityCondition.types.indexOf(ConditionType.apply) != -1"
       ghs-pointer-input (singleClick)="applyCondition(entityCondition.name, $event)">
       <img class="ghs-svg" src="./assets/images/check.svg" />
     </a>

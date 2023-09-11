@@ -23,6 +23,7 @@ export enum ConditionName {
   poison_x = "poison_x",
   wound_x = "wound_x",
   heal = "heal",
+  shield = "shield",
   invalid = "invalid",
 }
 
@@ -117,7 +118,7 @@ export class Condition {
       this.types.push(ConditionType.clearHeal);
     }
 
-    if ([ConditionName.poison, ConditionName.poison_x, ConditionName.ward, ConditionName.brittle, ConditionName.heal].indexOf(this.name) != -1) {
+    if ([ConditionName.poison, ConditionName.poison_x, ConditionName.ward, ConditionName.brittle, ConditionName.heal, ConditionName.shield].indexOf(this.name) != -1) {
       this.types.push(ConditionType.apply);
     }
 
@@ -141,7 +142,7 @@ export class Condition {
       this.types.push(ConditionType.expiredIndicator);
     }
 
-    if ([ConditionName.heal].indexOf(this.name) != -1) {
+    if ([ConditionName.heal, ConditionName.shield].indexOf(this.name) != -1) {
       this.types.push(ConditionType.positive);
       this.types.push(ConditionType.hidden);
       this.types.push(ConditionType.value);

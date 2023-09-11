@@ -111,17 +111,20 @@
 
     .entity {
       .standee {
+        box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.3) var(--ghs-color-white);
         animation: monster-entity-revealed 1000ms ease-in-out infinite;
       }
 
       &.elite {
         .standee {
+          box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.3) var(--ghs-color-yellow);
           animation: monster-entity-revealed-elite 1000ms ease-in-out infinite;
         }
       }
 
       &.boss {
         .standee {
+          box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.3) var(--ghs-color-red);
           animation: monster-entity-revealed-boss 1000ms ease-in-out infinite;
         }
       }
@@ -240,10 +243,10 @@
       .value-overlay {
         position: absolute;
         left: calc(var(--ghs-unit) * -1 * var(--ghs-text-factor));
-        top: calc(var(--ghs-unit) * -3 * var(--ghs-text-factor));
-        font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+        top: calc(var(--ghs-unit) * -4.5 * var(--ghs-text-factor));
+        font-size: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor) );
         width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
-        height: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
         z-index: 1000;
       }
     }
@@ -566,6 +569,7 @@
 
       .entity {
         .standee {
+          box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.3) var(--ghs-color-darkgray);
           animation: monster-entity-revealed-fh 1000ms ease-in-out infinite;
         }
 

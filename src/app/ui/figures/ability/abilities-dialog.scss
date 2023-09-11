@@ -1,6 +1,6 @@
 .abilities-dialog {
   position: relative;
-  
+
   .menu {
     display: flex;
     justify-content: space-evenly;
@@ -94,7 +94,13 @@
         flex-shrink: 0;
         flex-grow: 0;
 
+        &.expanded-ability {
+          height: auto;
+          min-height: calc(var(--ghs-unit) * 23.7 * var(--ghs-text-factor));
+        }
+
         &.bottom-actions {
+          min-height: initial;
           height: calc(var(--ghs-unit) * 49.95 * var(--ghs-text-factor));
         }
 

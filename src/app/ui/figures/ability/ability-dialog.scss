@@ -6,16 +6,18 @@
 }
 
 .ability-dialog {
+  position: relative;
   width: 100vw;
   max-width: 600px;
-  height: 64vw;
-  max-height: 384.3px;
+  min-height: 64vw;
   border-image: none;
   background: none;
   transition: transform 150ms ease-in-out;
   transform: scale(0);
+  z-index: 2;
 
   &.bottom-actions {
+    min-height: initial;
     height: 135vw;
     max-height: 810px;
   }
@@ -38,4 +40,5 @@
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1;
 }

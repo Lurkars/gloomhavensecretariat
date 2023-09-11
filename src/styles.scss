@@ -422,16 +422,20 @@ a {
 
   .card-back,
   .card-front {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
     -webkit-backface-visibility: hidden;
     /* Safari */
     backface-visibility: hidden;
     overflow: hidden;
     z-index: 1;
+
+    &.card-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
 
   .card-front {

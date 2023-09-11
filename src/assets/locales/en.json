@@ -1391,7 +1391,15 @@
     },
     "activeApplyConditions": {
       ".": "Confirm applicable conditions",
-      "hint": "Certain conditions need confirmation to be applied, for example when decreasing HP with Poison confirm to lose 1 extra HP "
+      "hint": {
+        ".": "Certain conditions need confirmation to be applied, for example when decreasing HP with Poison confirm to lose 1 extra HP ",
+        "brittle": "On suffering damage, ask to apply %game.condition.brittle% and increase damage.",
+        "heal": "No condition, but helper if %game.action.heal% should be applied when increasing hitpoints.",
+        "poison": "On suffering damage, ask to apply %game.action.attack% +1 from %game.condition.poison% (including %game.attackmodifier.double%).",
+        "poison_x": "On suffering damage, ask to apply %game.action.attack% +1 from %game.condition.poison_x% (including %game.attackmodifier.double%).",
+        "shield": "No condition, but helper if %game.action.shield% should be applied when taking damage.",
+        "ward": "On suffering damage, ask to apply %game.condition.ward% and lowering damage."
+      }
     },
     "activeStandees": {
       ".": "Active standees",
@@ -1432,7 +1440,13 @@
     },
     "applyConditions": {
       ".": "Automatic apply conditions",
-      "hint": "Corresponding conditions are automatically applied before and after turn, for example when entity has Wound it will lose 1 HP on start of it's round"
+      "hint": {
+        ".": "Corresponding conditions are automatically applied before and after turn, for example when entity has Wound it will lose 1 HP on start of it's round",
+        "bane": "Automatic apply %game.condition.bane% damage at end of turn.",
+        "regenerate": "Automatic apply %game.condition.regenerate% at start of turn.",
+        "wound": "Automatic apply %game.condition.wound% damage at end of turn.",
+        "wound_x": "Automatic apply %game.condition.wound_x% damage at end of turn."
+      }
     },
     "applyLongRest": {
       ".": "Apply Long Rest",
@@ -1712,9 +1726,13 @@
       ".": "Scenario Rules",
       "hint": "Show popup windows about special scenario rules and optional apply them"
     },
+    "showExpandedAbilityCard": {
+      ".": "Show expanded ability cards",
+      "hint": "Show all abilities on ability cards at once (automatically also show card title)."
+    },
     "showFullAbilityCard": {
-      ".": "Show full ability cards",
-      "hint": "Show full ability cards including card title."
+      ".": "Show ability card title",
+      "hint": "Show ability cards including card title."
     },
     "standees": "Standees",
     "standeeStats": {

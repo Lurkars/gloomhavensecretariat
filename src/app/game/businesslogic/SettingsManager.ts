@@ -5,6 +5,7 @@ import { gameManager } from "./GameManager";
 import { EntityValueFunction } from "../model/Entity";
 import { storageManager } from "./StorageManager";
 import { BuildingData } from "../model/data/BuildingData";
+import { ConditionName } from "../model/data/Condition";
 
 export class SettingsManager {
 
@@ -125,6 +126,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setActiveApplyConditionsExcludes(activeApplyConditionsExcludes: ConditionName[]) {
+    this.settings.activeApplyConditionsExcludes = activeApplyConditionsExcludes;
+    this.storeSettings();
+  }
+
   setActiveStandees(activeStandees: boolean) {
     this.settings.activeStandees = activeStandees;
     this.storeSettings();
@@ -172,6 +178,11 @@ export class SettingsManager {
 
   setApplyConditions(applyConditions: boolean) {
     this.settings.applyConditions = applyConditions;
+    this.storeSettings();
+  }
+
+  setApplyConditionsExcludes(applyConditionsExcludes: ConditionName[]) {
+    this.settings.applyConditionsExcludes = applyConditionsExcludes;
     this.storeSettings();
   }
 
@@ -543,6 +554,11 @@ export class SettingsManager {
 
   setShowBossMonster(showBossMonster: boolean) {
     this.settings.showBossMonster = showBossMonster;
+    this.storeSettings();
+  }
+
+  setShowExpandedAbilityCard(showExpandedAbilityCard: boolean) {
+    this.settings.showExpandedAbilityCard = showExpandedAbilityCard;
     this.storeSettings();
   }
 

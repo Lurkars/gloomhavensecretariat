@@ -324,6 +324,35 @@
       </div>
       <div class="line">
         <div class="hint-container">
+          <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
+            <input type="checkbox"
+              [checked]="settingsManager.settings.abilities && settingsManager.settings.showExpandedAbilityCard"
+              (change)="settingsManager.setShowExpandedAbilityCard(!settingsManager.settings.showExpandedAbilityCard)">
+            <span [ghs-label]="'settings.showExpandedAbilityCard'"></span>
+          </label>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <span class="hint">
+            <span class="text" [ghs-label]="'settings.showExpandedAbilityCard.hint'"></span>
+          </span>
+        </div>
+      </div>
+      <div class="line">
+        <div class="hint-container">
+          <label
+            [ngClass]="{'disabled': !settingsManager.settings.abilities || settingsManager.settings.showExpandedAbilityCard}">
+            <input type="checkbox"
+              [checked]="settingsManager.settings.abilities && (settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard)"
+              (change)="settingsManager.setShowFullAbilityCard(!settingsManager.settings.showFullAbilityCard)">
+            <span [ghs-label]="'settings.showFullAbilityCard'"></span>
+          </label>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <span class="hint">
+            <span class="text" [ghs-label]="'settings.showFullAbilityCard.hint'"></span>
+          </span>
+        </div>
+      </div>
+      <div class="line">
+        <div class="hint-container">
           <label>
             <input type="checkbox" [checked]="settingsManager.settings.hideStats"
               (change)="settingsManager.setHideStats(!settingsManager.settings.hideStats)">
@@ -345,19 +374,6 @@
           <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
           <span class="hint">
             <span class="text" [ghs-label]="'settings.addAllMonsters.hint'"></span>
-          </span>
-        </div>
-      </div>
-      <div class="line">
-        <div class="hint-container">
-          <label>
-            <input type="checkbox" [checked]="settingsManager.settings.showFullAbilityCard"
-              (change)="settingsManager.setShowFullAbilityCard(!settingsManager.settings.showFullAbilityCard)">
-            <span [ghs-label]="'settings.showFullAbilityCard'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.showFullAbilityCard.hint'"></span>
           </span>
         </div>
       </div>
@@ -521,9 +537,42 @@
         </span>
       </div>
     </div>
+
+    <div class="column">
+      <div class="line" [ngClass]="{'disabled' : !settingsManager.settings.applyConditions}">
+        <div class="condition-list">
+          <div class="hint-container" *ngFor="let condition of applyConditionsExcludes; let i = index;">
+            <div class="condition"
+              [ngClass]="{'immunity': settingsManager.settings.applyConditionsExcludes.indexOf(condition) != -1}"
+              (click)="toggleApplyConditionsExclude(condition)">
+              <img
+                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition + '.svg'" />
+            </div>
+            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+            <span class="hint" [ngClass]="{'right': i > 2}">
+              <span class="text" [ghs-label]="'settings.applyConditions.hint.' + condition "></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="column">
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.moveElements"
+            (change)="settingsManager.setMoveElements(!settingsManager.settings.moveElements)">
+          <span [ghs-label]="'settings.moveElements'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.moveElements.hint'"></span>
+        </span>
+      </div>
+    </div>
+
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.applyConditions}">
@@ -539,17 +588,23 @@
       </div>
     </div>
 
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.moveElements"
-            (change)="settingsManager.setMoveElements(!settingsManager.settings.moveElements)">
-          <span [ghs-label]="'settings.moveElements'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.moveElements.hint'"></span>
-        </span>
+    <div class="column">
+      <div class="line"
+        [ngClass]="{'disabled' : !settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions}">
+        <div class="condition-list">
+          <div class="hint-container" *ngFor="let condition of activeApplyConditionsExcludes; let i = index">
+            <div class="condition"
+              [ngClass]="{'immunity': settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition) != -1}"
+              (click)="toggleActiveApplyConditionsExclude(condition)">
+              <img
+                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition + '.svg'" />
+            </div>
+            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+            <span class="hint" [ngClass]="{'right': i > 2}">
+              <span class="text" [ghs-label]="'settings.activeApplyConditions.hint.' + condition"></span>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

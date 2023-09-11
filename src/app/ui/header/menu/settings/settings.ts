@@ -5,6 +5,7 @@ import { GameState } from "src/app/game/model/Game";
 import { SubMenu } from "../menu";
 import { StorageManager, storageManager } from "src/app/game/businesslogic/StorageManager";
 import { Platform } from "@angular/cdk/platform";
+import { Condition, ConditionName, ConditionType } from "src/app/game/model/data/Condition";
 
 @Component({
   selector: 'ghs-settings-menu',
@@ -21,12 +22,43 @@ export class SettingsMenuComponent {
   GameState = GameState;
   SubMenu = SubMenu;
   wakeLock: boolean;
+  applyConditionsExcludes: ConditionName[] = [];
+  activeApplyConditionsExcludes: ConditionName[] = [];
 
   constructor(public platform: Platform) {
     this.wakeLock = 'wakeLock' in navigator;
+
+    Object.keys(ConditionName).forEach((conditionName) => {
+      const condition = new Condition(conditionName);
+      if (condition.types.indexOf(ConditionType.turn) != -1 || condition.types.indexOf(ConditionType.afterTurn) != -1) {
+        this.applyConditionsExcludes.push(condition.name);
+      } if (condition.types.indexOf(ConditionType.apply) != -1) {
+        this.activeApplyConditionsExcludes.push(condition.name);
+      }
+    })
   }
 
   doubleClick: any = null;
+
+  toggleApplyConditionsExclude(condition: ConditionName) {
+    let index = settingsManager.settings.applyConditionsExcludes.indexOf(condition);
+    if (index == -1) {
+      settingsManager.settings.applyConditionsExcludes.push(condition);
+    } else {
+      settingsManager.settings.applyConditionsExcludes.splice(index, 1);
+    }
+    settingsManager.storeSettings();
+  }
+
+  toggleActiveApplyConditionsExclude(condition: ConditionName) {
+    let index = settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition);
+    if (index == -1) {
+      settingsManager.settings.activeApplyConditionsExcludes.push(condition);
+    } else {
+      settingsManager.settings.activeApplyConditionsExcludes.splice(index, 1);
+    }
+    settingsManager.storeSettings();
+  }
 
   zoomOut(): void {
     this.zoom(5);

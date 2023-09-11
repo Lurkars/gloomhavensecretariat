@@ -45,8 +45,8 @@
     </ng-container>
     <div class="name" *ngIf="gameManager.isMonster(data.figure)" (click)="changeMonsterEntity()"
       [ngClass]="{'change-entity': gameManager.monsterManager.monsterStandeeMax(gameManager.toMonster(data.figure)) > 1 || data.entity && gameManager.isMonsterEntity(data.entity) && gameManager.toMonsterEntity(data.entity).type != MonsterType.boss}">
-      <img *ngIf="!gameManager.toMonster(data.figure).noThumbnail && !settingsManager.settings.disableArtwork" class="standee"
-        [src]="gameManager.monsterManager.monsterThumbnail(gameManager.toMonster(data.figure))" />
+      <img *ngIf="!gameManager.toMonster(data.figure).noThumbnail && !settingsManager.settings.disableArtwork"
+        class="standee" [src]="gameManager.monsterManager.monsterThumbnail(gameManager.toMonster(data.figure))" />
       <span [ghs-label]="'data.monster.' + data.figure.name"></span>&nbsp;
       <span class="ally" *ngIf="gameManager.toMonster(data.figure).isAlly"><span
           [ghs-label]="'game.ally'"></span>&nbsp;</span>
@@ -125,22 +125,24 @@
             </ghs-pointer-input>
           </span>
 
-          <span class="item">
-            <ghs-pointer-input class="button"
-              [ngClass]="{'disabled' : gameManager.toCharacter(data.entity).loot + loot == 0}"
-              (singleClick)="changeLoot(-1)" [repeat]="true">
-              <img class="ghs-svg" src="./assets/images/minus.svg">
-            </ghs-pointer-input>
-          </span>
-          <span class="item" [ghs-label]="'game.loot'" [ghs-label-attribute]="'title'">
-            <img src="./assets/images/status/loot.svg" />
-            <span class="badge">{{loot | ghsValueSign}}</span>
-          </span>
-          <span class="item">
-            <ghs-pointer-input class="button" (singleClick)="changeLoot(1)" [repeat]="true">
-              <img class="ghs-svg" src="./assets/images/plus.svg">
-            </ghs-pointer-input>
-          </span>
+          <ng-container *ngIf="!settingsManager.settings.alwaysLootDeck && !gameManager.fhRules()">
+            <span class="item">
+              <ghs-pointer-input class="button"
+                [ngClass]="{'disabled' : gameManager.toCharacter(data.entity).loot + loot == 0}"
+                (singleClick)="changeLoot(-1)" [repeat]="true">
+                <img class="ghs-svg" src="./assets/images/minus.svg">
+              </ghs-pointer-input>
+            </span>
+            <span class="item" [ghs-label]="'game.loot'" [ghs-label-attribute]="'title'">
+              <img src="./assets/images/status/loot.svg" />
+              <span class="badge">{{loot | ghsValueSign}}</span>
+            </span>
+            <span class="item">
+              <ghs-pointer-input class="button" (singleClick)="changeLoot(1)" [repeat]="true">
+                <img class="ghs-svg" src="./assets/images/plus.svg">
+              </ghs-pointer-input>
+            </span>
+          </ng-container>
 
           <span class="item">
             <ghs-pointer-input class="button" [ngClass]="{'disabled' : characterToken == 0}"
@@ -560,7 +562,8 @@
         <div class="titles-container" *ngIf="titles.length > 0 && settingsManager.settings.characterIdentities">
           <div class="title-container"
             *ngFor="let i of [] | ghsRange:gameManager.toCharacter(data.entity).identities.length">
-            <img [src]="gameManager.characterManager.characterIdentityIcon(gameManager.toCharacter(data.entity).name,gameManager.toCharacter(data.entity).identity)">
+            <img
+              [src]="gameManager.characterManager.characterIdentityIcon(gameManager.toCharacter(data.entity).name,gameManager.toCharacter(data.entity).identity)">
             <input class="title" type="text" [value]="titles[i]" (change)="setTitle($event, i)">
           </div>
         </div>
