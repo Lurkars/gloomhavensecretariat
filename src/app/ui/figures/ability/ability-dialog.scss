@@ -8,19 +8,22 @@
 .ability-dialog {
   position: relative;
   width: 100vw;
-  max-width: 600px;
+  height: 100vh;
   border-image: none;
   background: none;
   transition: transform 150ms ease-in-out;
   transform: scale(0);
   z-index: 2;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
-  &.bottom-actions {
-    min-height: initial;
-    height: 135vw;
-    max-height: 810px;
+  &::-webkit-scrollbar {
+    display: none;
   }
-
 
   &.opened {
     transform: scale(1);
@@ -29,6 +32,25 @@
   &.closed {
     transform: scale(0);
     transition-delay: 800ms;
+  }
+
+  .ability-container {
+    overflow: visible;
+    width: 100vw;
+    max-width: 600px;
+    max-height: 100vh;
+
+    ghs-ability {
+      display: block;
+      margin: 1vh 0;
+    }
+
+    &.bottom-actions {
+      ghs-ability {
+        height: 135vw;
+        max-height: 810px;
+      }
+    }
   }
 
 }

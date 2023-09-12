@@ -795,7 +795,7 @@
 
   .special-target-value {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
   }
 
@@ -852,8 +852,7 @@
     }
 
     .action-concatenation {
-      flex-direction: column;
-      align-items: flex-start;
+      justify-content: flex-start;
     }
 
     .element-subactions,
@@ -883,7 +882,8 @@
       width: auto;
     }
 
-    .subactions {
+    .subactions,
+    .action-specialTarget {
       align-items: flex-start;
     }
   }
@@ -1211,6 +1211,11 @@
       .subactions::before {
         background-color: var(--ghs-color-darkgray);
         opacity: 0.3;
+      }
+
+      .subactions {
+        justify-content: center;
+        align-self: center;
       }
     }
 

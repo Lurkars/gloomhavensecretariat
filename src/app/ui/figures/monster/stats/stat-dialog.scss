@@ -6,18 +6,23 @@
 }
 
 .stat-dialog {
+  position: relative;
   width: 100vw;
-  max-width: 600px;
-  height: 54vw;
-  max-height: 322.5px;
+  height: 100vh;
   border-image: none;
   background: none;
   transition: transform 150ms ease-in-out;
   transform: scale(0);
+  z-index: 2;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
-  .card-container {
-    width: 100%;
-    height: 100%;
+  &::-webkit-scrollbar {
+    display: none;
   }
 
   &.opened {
@@ -29,6 +34,19 @@
     transition-delay: 800ms;
   }
 
+
+  .stat-container {
+    overflow: visible;
+    width: 100vw;
+    max-width: 600px;
+    max-height: 100vh;
+
+    .card-container {
+      width: 100%;
+      height: 100%;
+      margin: 1vh 0;
+    }
+  }
 }
 
 .close-container {
@@ -37,4 +55,5 @@
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1;
 }

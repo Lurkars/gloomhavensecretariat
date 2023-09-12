@@ -32,6 +32,7 @@ export class Settings {
   battleGoals: boolean = false;
   battleGoalsCharacter: boolean = false;
   battleGoalsFh: boolean = false;
+  battleGoalsReminder: boolean = true;
   browserNavigation: boolean = false;
   calculate: boolean = true;
   calculateStats: boolean = true;
@@ -65,7 +66,7 @@ export class Settings {
   fontsize: number = 1;
   fullscreen: boolean = false;
   hideAbsent: boolean = false;
-  hideStats: boolean = true;
+  hideStats: boolean = false;
   hints: boolean = true;
   initiativeRequired: boolean = true;
   interactiveAbilities: boolean = true;

@@ -91,7 +91,7 @@ export class HintDialogComponent {
     }
 
     battleGoals(): boolean {
-        return !this.missingInitiative() && settingsManager.settings.battleGoals && gameManager.game.scenario != undefined && gameManager.roundManager.firstRound && !gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure.battleGoal || figure.absent);
+        return !this.missingInitiative() && settingsManager.settings.battleGoals && settingsManager.settings.battleGoalsReminder && gameManager.game.scenario != undefined && gameManager.roundManager.firstRound && !gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure.battleGoal || figure.absent);
     }
 
     finish(): boolean {

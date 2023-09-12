@@ -48,7 +48,7 @@
       padding-bottom: 0.4em;
       width: 100%;
       min-height: 7.4em;
-      font-size: calc(1.7em );
+      font-size: calc(1.7em);
       z-index: 1;
       display: flex;
       align-items: center;
@@ -88,7 +88,7 @@
     .shuffle,
     .bottom-shuffle {
       position: absolute;
-      bottom: 0.5em;
+      bottom: 1em;
       right: 0.5em;
       z-index: 0;
       filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
@@ -306,7 +306,7 @@
         background-image: url('~src/assets/images/monster/abilities/monster-ability-back-botton.png');
 
         .name {
-          bottom: 25%;
+          top: 57.5%;
         }
       }
 

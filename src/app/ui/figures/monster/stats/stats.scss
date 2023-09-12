@@ -2,10 +2,7 @@
   width: 100%;
   height: 100%;
   position: relative;
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-image: url('~/src/assets/images/monster/stats/standard.png');
+  display: flex;
   border-radius: 1em;
 
   * {
@@ -16,13 +13,38 @@
     opacity: 0;
   }
 
+  &::before {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('~/src/assets/images/monster/stats/standard.png');
+    background-position: top;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    border-radius: 1em;
+    z-index: 0;
+  }
+
+  &::after {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('~/src/assets/images/monster/stats/standard_repeat.png');
+    background-position: top;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    border-radius: 1em;
+    z-index: -1;
+  }
+
   .name-container {
     position: absolute;
-    top: 2.8%;
-    right: 7.5%;
-    width: 75%;
+    top: 0.4em;
+    right: 1.8em;
+    width: 11.3em;
     display: flex;
-    align-items: center;
     font-family: var(--ghs-font-title);
     color: var(--ghs-color-white);
     font-size: 2.1em;
@@ -33,13 +55,13 @@
     z-index: 4;
     -ms-overflow-style: none;
     scrollbar-width: none;
-  
+
     &::-webkit-scrollbar {
       display: none;
     }
 
     .edition {
-      margin-left: 1.25%;
+      margin-left: 0.1em;
     }
 
     .flying {
@@ -47,7 +69,7 @@
       justify-content: center;
       align-items: center;
       width: auto;
-      margin-left: 1.25%;
+      margin-left: 0.3em;
 
       img {
         height: 1em;
@@ -58,7 +80,7 @@
 
     .catching {
       position: absolute;
-      right: 3%;
+      right: 1em;
       top: 50%;
       display: none;
       width: 1.2em;
@@ -100,10 +122,10 @@
 
   .toggle-ally {
     position: absolute;
-    top: 0.5%;
-    right: 2.5%;
-    height: 18.5%;
-    width: 6.25%;
+    top: 0.2em;
+    right: 0.8em;
+    height: 3.4em;
+    width: 2.4em;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -115,13 +137,13 @@
       height: auto;
     }
 
-    &.ally::after {
+    &.is-ally::after {
       content: ' ';
       position: absolute;
-      top: 15%;
-      left: 1%;
-      bottom: 15%;
-      right: 1%;
+      top: 0.5em;
+      left: 0.1em;
+      bottom: 0.5em;
+      right: 0.1em;
       background-color: var(--ghs-color-red);
       clip-path: polygon(10% 0, 0 10%, 40% 50%, 0 90%, 10% 100%, 50% 60%, 90% 100%, 100% 90%, 60% 50%, 100% 10%, 90% 0, 50% 40%);
     }
@@ -129,8 +151,8 @@
 
   .level {
     position: absolute;
-    top: 2.3%;
-    left: 6.25%;
+    top: 0.2em;
+    left: 0.7em;
     font-family: "ghs-title";
     font-size: 3em;
     text-shadow: var(--ghs-outline);
@@ -146,10 +168,10 @@
 
   .stats {
     position: absolute;
-    top: 27%;
-    left: 49.5%;
-    width: 26%;
-    height: 64%;
+    top: 4.8em;
+    left: 16.5em;
+    width: 8.4em;
+    height: 11.4em;
     display: grid;
     grid-template-columns: 50% 0 50%;
     grid-template-rows: repeat(3, 33%);
@@ -158,8 +180,8 @@
     transform: translateX(-50%);
 
     &.boss {
-      top: 29%;
-      left: 30%;
+      top: 5.2em;
+      left: 9.6em;
       grid-template-columns: 8em 0;
     }
 
@@ -275,24 +297,28 @@
     }
   }
 
-  &.boss {
+  &.boss::before {
     background-image: url('~/src/assets/images/monster/stats/boss.png');
   }
 
+  &.boss::after {
+    background-image: url('~/src/assets/images/monster/stats/boss_repeat.png');
+  }
+
   .extra {
-    position: absolute;
-    top: 27%;
-    width: 35%;
+    position: relative;
+    margin-top: 3em;
+    padding-bottom: 0.4em;
+    width: 7.5em;
     display: flex;
     flex-direction: column;
     font-size: 1.6em;
-    height: 74.5%;
+    min-height: 8.2em;
     z-index: 2;
-    overflow-x: unset;
-    overflow-y: auto;
+    overflow: auto;
 
     &.normal {
-      right: 64%;
+      left: 0;
       text-align: right;
 
       .condition {
@@ -305,14 +331,14 @@
     }
 
     &.elite {
-      right: 1.25%;
+      left: 5.6em;
       color: var(--ghs-color-white);
     }
 
     &.boss {
-      width: 51%;
-      height: 70%;
-      right: 1.5%;
+      width: 10.7em;
+      height: auto;
+      left: 10em;
       color: var(--ghs-color-white);
     }
 
@@ -326,6 +352,7 @@
     .specials {
       display: flex;
       align-items: baseline;
+      font-size: calc(1em * var(--ghs-fontsize));
 
       ghs-actions {
         flex-basis: 0;
@@ -345,8 +372,8 @@
 
   .immunities {
     position: absolute;
-    top: 31%;
-    left: 4%;
+    top: 5.6em;
+    left: 1.4em;
     display: grid;
     justify-items: center;
     align-items: center;
@@ -492,7 +519,7 @@
 
     &.elite {
       left: initial;
-      right: 4.5%;
+      right: 1.4em;
 
       .immunity {
 
@@ -575,84 +602,6 @@
 
     .entity-menu {
       display: none;
-    }
-  }
-
-  &.full-ability {
-    background-size: 100% 100%;
-
-    .level {
-      top: 4.1%;
-    }
-
-    .name-container {
-      top: 5%;
-    }
-
-    .toggle-ally {
-      top: 0.8%;
-    }
-
-    .stats {
-
-      .stat {
-        line-height: 1.9em;
-
-      }
-
-      .stat-icon {
-
-        &::before {
-          width: 2.2em;
-          height: 2.2em;
-        }
-
-        img {
-          height: 1.5em;
-        }
-      }
-
-      &.range {
-        .stat {
-          line-height: 1.4em;
-        }
-
-        .stat-icon {
-
-          &::before {
-            width: 1.5em;
-            height: 1.5em;
-          }
-
-          img {
-            height: 1.2em;
-          }
-        }
-      }
-    }
-
-    .extra {
-      top: 27.1%;
-      height: 72.9%;
-    }
-
-    .immunities {
-
-      grid-template-columns: repeat(5, 2.4em);
-      grid-template-rows: repeat(8, 1.4em);
-
-      &.normal {
-        left: 5%;
-      }
-
-      &.elite {
-        right: 5%;
-      }
-
-      .immunity {
-        width: 2.5em;
-        height: 2.5em;
-      }
     }
   }
 

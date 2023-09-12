@@ -31,6 +31,6 @@ export class MonsterStatsDialogComponent {
 
   openStatPopup(level: number) {
     const monster = new Monster(this.monster, level);
-    this.dialog.open(MonsterStatDialogComponent, { data: { monster: monster, forceStats: true } });
+    this.dialog.open(MonsterStatDialogComponent, { panelClass: 'fullscreen-panel', data: { monster: monster, forceStats: true } });
   }
 }

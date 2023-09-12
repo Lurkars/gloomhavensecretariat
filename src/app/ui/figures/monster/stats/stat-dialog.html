@@ -1,11 +1,15 @@
-<div class="stat-dialog" [ngClass]="{'closed' : !opened, 'opened' : opened}">
-  <div class="card-container">
-    <div class="card reverse" [ngClass]="{'flipped' : opened}">
-      <div class="card-back">
-        <ghs-monster-stats [monster]="getBackside()" [noClick]="true" [forceStats]="forceStats"></ghs-monster-stats>
-      </div>
-      <div class="card-front">
-        <ghs-monster-stats [monster]="monster" [noClick]="true" [forceStats]="forceStats"></ghs-monster-stats>
+<div class="stat-dialog" [ngClass]="{'closed' : !opened, 'opened' : opened}" (click)="close()">
+  <div class="stat-container">
+    <div class="card-container">
+      <div class="card reverse" [ngClass]="{'flipped' : opened}">
+        <div class="card-back">
+          <ghs-monster-stats [monster]="getBackside()" [noClick]="true" [disablePoup]="true"
+            [forceStats]="forceStats"></ghs-monster-stats>
+        </div>
+        <div class="card-front">
+          <ghs-monster-stats [monster]="monster" [noClick]="true" [disablePoup]="true"
+            [forceStats]="forceStats"></ghs-monster-stats>
+        </div>
       </div>
     </div>
   </div>

@@ -60,19 +60,31 @@
     &.normal,
     &.boss {
       bottom: calc(var(--ghs-unit) * 1.6);
-      left: calc(var(--ghs-unit) * 59);
+      left: calc(var(--ghs-unit) * 58.5);
     }
 
     &.elite {
       bottom: calc(var(--ghs-unit) * 1.6);
-      left: auto;
-      right: calc(var(--ghs-unit) * 1);
+      left: initial;
+      right: calc(var(--ghs-unit) * 1.5);
     }
   }
 
   &.full-ability {
     ghs-monster-ability-card {
       margin: 0 calc(var(--ghs-unit) * 1.25);
+    }
+
+    ghs-monster-numberpicker {
+  
+      &.normal,
+      &.boss {
+        left: calc(var(--ghs-unit) * 57.5);
+      }
+  
+      &.elite {
+        right: calc(var(--ghs-unit) * 2.5);
+      }
     }
   }
 

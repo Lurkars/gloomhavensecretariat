@@ -4,7 +4,7 @@
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}">
   </ghs-monster-image>
   <ghs-monster-ability-card [monster]="monster"></ghs-monster-ability-card>
-  <ghs-monster-stats [monster]="monster" [fullAbility]="settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard"
+  <ghs-monster-stats [monster]="monster"
     [ngClass]="{'full-ability': settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard}"></ghs-monster-stats>
 
   <ghs-monster-numberpicker *ngIf="!monster.boss" class="normal" [monster]="monster" [type]="MonsterType.normal"

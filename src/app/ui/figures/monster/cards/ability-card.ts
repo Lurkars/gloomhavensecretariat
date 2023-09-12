@@ -205,6 +205,7 @@ export class MonsterAbilityCardComponent implements OnInit, OnDestroy {
     if (settingsManager.settings.abilities) {
       if (this.flipped) {
         this.dialog.open(AbilityDialogComponent, {
+          panelClass: 'fullscreen-panel',
           data: { ability: second ? this.secondAbility : this.ability, monster: this.monster }
         });
       } else {

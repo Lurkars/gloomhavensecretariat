@@ -20,6 +20,7 @@ export class StatsListComponent {
 
   openAbility(ability: Ability): void {
     this.dialog.open(AbilityDialogComponent, {
+      panelClass: 'fullscreen-panel',
       data: { ability: ability, monster: this.monster, relative: true }
     });
   }
