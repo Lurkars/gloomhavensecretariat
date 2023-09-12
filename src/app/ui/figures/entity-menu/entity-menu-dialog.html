@@ -90,11 +90,13 @@
       <ng-container
         *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal)">
         <span class="item">
-          <ghs-pointer-input class="button" (singleClick)="changeHealth(-1)" [repeat]="true">
+          <ghs-pointer-input class="button" [ngClass]="{'disabled' : data.entity.health + health == 0}"
+           (singleClick)="changeHealth(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </ghs-pointer-input>
         </span>
         <span class="item" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'">
+          <span class="badge badge-left">{{data.entity.health + health}}</span>
           <img src="./assets/images/status/health.svg" />
           <span class="badge health-count"
             [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
@@ -116,8 +118,10 @@
             </ghs-pointer-input>
           </span>
           <span class="item" [ghs-label]="'game.experience'" [ghs-label-attribute]="'title'">
+            <span class="badge badge-left">{{gameManager.toCharacter(data.entity).experience + experience}}</span>
             <img src="./assets/images/status/experience.svg" />
-            <span class="badge">{{experience | ghsValueSign}}</span>
+            <span class="badge"
+                  [ngClass]="{'negative-value' : experience < 0, 'positive-value' : experience > 0}">{{experience | ghsValueSign}}</span>
           </span>
           <span class="item">
             <ghs-pointer-input class="button" (singleClick)="changeExperience(1)" [repeat]="true">
@@ -125,6 +129,7 @@
             </ghs-pointer-input>
           </span>
 
+          <!-- TODO: What is this used for? Not in character or monster dialog! If used, should augment this too? -->
           <ng-container *ngIf="!settingsManager.settings.alwaysLootDeck && !gameManager.fhRules()">
             <span class="item">
               <ghs-pointer-input class="button"
@@ -144,6 +149,8 @@
             </span>
           </ng-container>
 
+          <!-- TODO: Add total on left hand badge and make right hand badge the red/green colored offset -->
+          <!-- TODO: Why are there two sets of character tokens? -->
           <span class="item">
             <ghs-pointer-input class="button" [ngClass]="{'disabled' : characterToken == 0}"
               (singleClick)="changeCharacterToken(-1)" [repeat]="true">
@@ -160,6 +167,8 @@
             </ghs-pointer-input>
           </span>
 
+          <!-- TODO: Add total on left hand badge and make right hand badge the red/green colored offset -->
+          <!-- TODO: Why are there two sets of character tokens? -->
           <ng-container *ngFor="let token of gameManager.toCharacter(data.entity).tokens; let i = index;">
             <span class="item">
               <ghs-pointer-input class="button" [ngClass]="{'disabled' : characterTokenValues[i] == 0}"

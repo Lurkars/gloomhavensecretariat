@@ -207,6 +207,12 @@
     font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
     text-shadow: var(--ghs-outline);
     text-align: center;
+
+    // TODO make this nicer and/or fit more appropriately
+    &.badge-left {
+      left: 0;
+      right: auto;  // TODO horrible, horrible override of immediate parent style
+    }
   }
 
   .warning-badge {
