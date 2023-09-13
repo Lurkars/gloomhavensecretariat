@@ -72,9 +72,8 @@ export class EntityMenuDialogComponent {
   constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure, positionElement: ElementRef }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef, private dialog: Dialog, private overlay: Overlay) {
     if (data.entity instanceof Character) {
       this.conditionType = 'character';
-      this.characterToken = data.entity.token;
       for (let index = 0; index < data.entity.tokens.length; index++) {
-        this.characterTokenValues[index] = data.entity.tokenValues[index] || 0;
+        this.characterTokenValues[index] = 0;
       }
 
       if (data.entity.identities && data.entity.identities.length > 1 && settingsManager.settings.characterIdentities) {
@@ -666,23 +665,25 @@ export class EntityMenuDialogComponent {
         gameManager.stateManager.after();
       }
 
-      if (this.characterToken != this.data.entity.token) {
-        gameManager.stateManager.before("setCharacterToken", "data.character." + this.data.entity.name, '' + this.characterToken);
-        this.data.entity.token = this.characterToken;
-        if (this.data.entity.token < 0) {
-          this.data.entity.token = 0;
+      if (this.characterToken != 0) {
+        let token = this.data.entity.token + this.characterToken;
+        if (token < 0) {
+          token = 0;
         }
+        gameManager.stateManager.before("setCharacterToken", "data.character." + this.data.entity.name, '' + token);
+        this.data.entity.token = token;
         this.characterToken = 0;
         gameManager.stateManager.after();
       }
 
       for (let index = 0; index < this.data.entity.tokens.length; index++) {
-        if (this.characterTokenValues[index] != this.data.entity.tokenValues[index]) {
-          gameManager.stateManager.before("setCharacterTokenValue", "data.character." + this.data.entity.name, this.data.entity.tokens[index], '' + this.characterTokenValues[index]);
-          this.data.entity.tokenValues[index] = this.characterTokenValues[index];
-          if (this.data.entity.tokenValues[index] < 0) {
-            this.data.entity.tokenValues[index] = 0;
+        if (this.characterTokenValues[index] != 0) {
+          let tokenValue = this.data.entity.tokenValues[index] + this.characterTokenValues[index];
+          if (tokenValue < 0) {
+            tokenValue = 0;
           }
+          gameManager.stateManager.before("setCharacterTokenValue", "data.character." + this.data.entity.name, this.data.entity.tokens[index], '' + tokenValue);
+          this.data.entity.tokenValues[index] = tokenValue;
           this.characterTokenValues[index] = 0;
           gameManager.stateManager.after();
         }

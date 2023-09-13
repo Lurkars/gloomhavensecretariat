@@ -201,17 +201,22 @@
 
   .badge {
     position: absolute;
-    right: 0;
     bottom: 0;
     color: var(--ghs-color-white);
     font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
     text-shadow: var(--ghs-outline);
     text-align: center;
 
-    // TODO make this nicer and/or fit more appropriately
     &.badge-left {
       left: 0;
-      right: auto;  // TODO horrible, horrible override of immediate parent style
+    }
+
+    &.badge-right {
+      right: 0;
+    }
+
+    &.zero-value {
+      visibility: hidden;
     }
   }
 
