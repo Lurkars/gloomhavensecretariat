@@ -270,6 +270,11 @@
     },
     "attackModifiers": {
       ".": "Angriffsmodifikatordeck",
+      "additional": {
+        "apply": "Verwende Kartendeck von {0}",
+        "dialog": "Wähle das Kartendeck eines Charakters um %game.condition.{0}% anzuwenden.",
+        "select": "Charakter auswählen"
+      },
       "effects": {
         "refreshSpentItem": "Verbraucht"
       },
@@ -386,7 +391,15 @@
       },
       "dodge": {
         ".": "Ausweichen",
-        "hint": "Ausweichen: Discard or lose a card to prevent an attack, then remove."
+        "hint": "Ausweichen: Verwerfe oder verliere eine Karte um einen Angriff abzuwehren, anschließend entfernen."
+      },
+      "empower": {
+        ".": "Verstärkung",
+        "hint": "Verstärkung: Mische eine %game.attackmodifier.empower% Karte ins Angriffsmodifikatordeck."
+      },
+      "enfeeble": {
+        ".": "Schwächung",
+        "hint": "Schwächung: Mische eine %game.attackmodifier.enfeeble% Karte ins Angriffsmodifikatordeck."
       },
       "heal": {
         ".": "Heilen",
@@ -1674,31 +1687,36 @@
     },
     "currentGame": "Aktuell",
     "info": {
-      "addBless": "Segen {0}",
-      "addBlesses": "{1} Segen {0}",
       "addCampaignSticker": "Kampagnenbogensticker {0} hinzufügen",
-      "addChar": "Character {0} hinzufügen",
+      "addChar": "Charakter {0} hinzufügen",
       "addCondition": {
-        "char": "{1} {0}",
-        "monsterEntities": "{1} alle {2}{0}",
-        "monster": "{2} '{1}' of {0}",
-        "objective": "{1} {0}",
-        "summon": "{2} '{1}' of {0}"
+        "char": "%game.condition.{1}% {0}",
+        "monsterEntities": "%game.condition.{1}% alle {2}{0}",
+        "monster": "%game.condition.{2}% '{1}' von {0}",
+        "objective": "%game.condition.{1}% {0}",
+        "objectiveContainer": "%game.condition.{2}% %game.objectiveMarker.{1}% von {0}",
+        "summon": "%game.condition.{2}% '{1}' von {0}"
       },
-      "addCurse": "Fluch {0}",
-      "addCurses": "{1} Flüche {0}",
-      "addEntityBless": "Segen {0} Aufsteller {2}",
-      "addEntityBlesses": "{1} Segen {0} Aufsteller {2}",
-      "addEntityCurse": "Fluch {0} Aufsteller {2}",
-      "addEntityCurses": "{1} Flüche {0} Aufsteller {2}",
+      "addConditions": {
+        "char": "{2}x %game.condition.{1}% {0}",
+        "monsterEntities": "{3}x %game.condition.{1}% alle {2}{0}",
+        "monster": "{3}x %game.condition.{2}% '{1}' von {0}",
+        "objective": "{2}x %game.condition.{1}% {0}",
+        "objectiveContainer": "{3}x %game.condition.{2}% %game.objectiveMarker.{1}% von {0}",
+        "summon": "{3}x %game.condition.{2}% '{1}' von {0}"
+      },
       "addEntityMarker": "{2} Markierung von {0} Aufsteller {1}",
+      "addGameCondition": "%game.condition.{0}% zum aktuellen Spiel hinzufügen",
       "addGlobalAchievement": "Füge globalen Erfolg '{0}' hinzu",
       "addItem": "Gegenstand {1} (%data.edition.{2}%) für {0}",
       "addManualScenario": "Szenario #{0} {1} ({2}) freischalten",
       "addMastery": "Errungenschaft {1} für {0}",
       "addMonster": "Monster {0} hinzufügen",
       "addNextStandee": "Aufsteller {1} {0} hinzufügen",
-      "addObjective": "Ziel {0} hinzufügen",
+      "addObjective": {
+        ".": "Ziel hinzufügen",
+        "escort": "Begleiter hinzufügen"
+      },
       "addParty": "Neue Gruppe '{0}' erstellen",
       "addPartyAchievement": "Füge Gruppenerfolg '{0}' hinzu",
       "addPartyTownGuardPerkSection": "Verbesserung der Stadtwache Sektion {0}",
@@ -1710,11 +1728,12 @@
       "addSummon": "Beschwöre '{1}' von {0}",
       "addTreasure": "Schatz {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) hinzufügen",
       "applyCondition": {
-        "char": "{1} anwenden auf {0}",
-        "monsterEntities": "{1} anwenden auf alle {2}{0}",
-        "monster": "{2} anwenden auf '{1}' von {0}",
-        "objective": "{1} anwenden auf {0}",
-        "summon": "{2} anwenden auf '{1}' von {0}"
+        "char": "%game.condition.{1}% anwenden auf {0}",
+        "monsterEntities": "%game.condition.{1}% anwenden auf alle {2}{0}",
+        "monster": "%game.condition.{2}% anwenden auf '{1}' von {0}",
+        "objective": "%game.condition.{1}% anwenden auf {0}",
+        "objectiveContainer": "%game.condition.{2}% anwenden auf %game.objectiveMarker.{1}% von {0}",
+        "summon": "%game.condition.{2}% anwenden auf '{1}' von {0}"
       },
       "applyHighlightAction": {
         "condition": "Aktion %game.condition.{1}% anwenden auf {0}",
@@ -1765,6 +1784,7 @@
         "monsterEntities": "Anwenden von {1} auf alle {2}{0} abgelehnt",
         "monster": "Anwenden von {2} auf {1} von {0} abgelehnt",
         "objective": "Anwenden von {1} auf {0} abgelehnt",
+        "objectiveContainer": "Anwenden von %game.condition.{2}% auf %game.objectiveMarker.{1}% von {0} abgelehnt",
         "summon": "Anwenden von {2} auf {1} von {0} abgelehnt"
       },
       "disableAutomaticLevel": "Automatische Berechnung Level ausschalten",
@@ -1818,24 +1838,26 @@
       "removeAllChars": "Alle Charaktere entfernen",
       "removeAllMonster": "Alle Monster entfernen",
       "removeAllObjectives": "Alle Ziele entfernen",
-      "removeBless": "Segen von {0} entfernen",
-      "removeBlesses": "{1} Segen von {0} entfernen",
       "removeCampaignSticker": "Kampagnenbogensticker {0} entfernen",
       "removeChar": "Charakter {0} entfernen",
       "removeCondition": {
-        "char": "{1} von {0} entfernen",
-        "monsterEntities": "{1} von allen {2}{0} entfernen",
-        "monster": "{2} von {1} von {0} entfernen",
-        "objective": "{1} von {0} entfernen",
-        "summon": "{2} von {1} von {0} entfernen"
+        "char": "%game.condition.{1}% von {0} entfernen",
+        "monsterEntities": "%game.condition.{1}% von allen {2}{0} entfernen",
+        "monster": "%game.condition.{2}% von {1} von {0} entfernen",
+        "objective": "%game.condition.{1}% von {0} entfernen",
+        "objectiveContainer": "%game.condition.{2}% %game.objectiveMarker.{1}% von {0} entfernen",
+        "summon": "%game.condition.{2}% von {1} von {0} entfernen"
       },
-      "removeCurse": "Fluch von {0} entfernen ({1})",
-      "removeCurses": "{1} Flüche von {0} entfernen ({1})",
-      "removeEntityBless": "Segen von {0} Aufsteller {2} entfernen",
-      "removeEntityBlesses": "{1} Segen von {0} Aufsteller {2} entfernen",
-      "removeEntityCurse": "Fluch von {0} Aufsteller {2} entfernen",
-      "removeEntityCurses": "{1} Flüche von {0} Aufsteller {2} entfernen",
+      "removeConditions": {
+        "char": "{2}x %game.condition.{1}% von {0} entfernen",
+        "monsterEntities": "{3}x %game.condition.{1}% von allen {2}{0} entfernen",
+        "monster": "{3}x %game.condition.{2}% von {1} von {0} entfernen",
+        "objective": "{2}x %game.condition.{1}% von {0} entfernen",
+        "objectiveContainer": "{3}x %game.condition.{2}% %game.objectiveMarker.{1}% von {0} entfernen",
+        "summon": "{3}x %game.condition.{2}% von {1} von {0} entfernen"
+      },
       "removeEntityMarker": "Markierung {2} von {0} Aufsteller {1} entfernen",
+      "removeGameCondition": "%game.condition.{0}% vom aktuellen Spiel entfernen",
       "removeGlobalAchievement": "Entferne globalen Erfolg '{0}'",
       "removeItem": "Gegenstand {1} (%data.edition.{2}%) von {0} entfernen",
       "removeManualScenario": "Szenario #{0} {1} ({2}) von Freigeschaltenen entfernen",
@@ -1864,11 +1886,12 @@
       "setAllied": "{0} zur Fraktion zufügen",
       "setBG": "Kampfziele {1} für {0}",
       "setConditionValue": {
-        "char": "{1} auf {2} für {0}",
-        "monsterEntities": "{1} auf {2} für alle {3}{0}",
-        "monster": "{2} auf {3} für '{1}' von {0}",
-        "objective": "{1} auf {2} für {0}",
-        "summon": "{2} auf {3} für '{1}' von {0}"
+        "char": "%game.condition.{1}% auf {2} für {0}",
+        "monsterEntities": "%game.condition.{1}% auf {2} für alle {3}{0}",
+        "monster": "%game.condition.{2}% auf {3} für '{1}' von {0}",
+        "objective": "%game.condition.{1}% auf {2} für {0}",
+        "objectiveContainer": "%game.condition.{2}% auf {3} für %game.objectiveMarker.{1}% von {0}",
+        "summon": "%game.condition.{2}% auf {3} für '{1}' von {0}"
       },
       "setCustomScenario": "Benutzerdefiniertes Szenario",
       "setDrawExtraAbility": "Zusätzlich Aufdecken für {0} aktivieren",
@@ -1915,6 +1938,7 @@
       "startCampaign": "Neue {0} Kampagne starten",
       "toggleTypeAll": "Monstertypen tauschen für alle Aufsteller von {0}",
       "unequipItem": "Gegenstand {1} (%data.edition.{2}%) von {0} ablegen",
+      "unlockChar": "{0} freischalten",
       "unsetAbsent": "{0} anwesend",
       "unsetActive": "Zug beenden von {0}",
       "unsetAlly": "{0} als Gegner",
