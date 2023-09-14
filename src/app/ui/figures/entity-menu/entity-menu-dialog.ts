@@ -900,6 +900,20 @@ export class EntityMenuDialogComponent {
 
       if ((this.data.entity.health <= 0 || this.data.entity.dead) && (this.data.entity.entityConditions.length == 0 || this.data.entity.entityConditions.every((entityCondition) => !entityCondition.highlight && entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1))) {
         this.dead();
+      } else {
+        if (this.bless != 0) {
+          gameManager.stateManager.before(this.bless < 0 ? "removeBless" + (this.bless < -1 ? 'es' : '') : "addBless" + (this.bless > 1 ? 'es' : ''), "data.character." + this.data.figure.name, '' + (this.bless > 0 ? this.bless : this.bless * -1));
+          this.changeAttackModifier(AttackModifierType.bless, this.bless);
+          gameManager.stateManager.after();
+          this.bless = 0;
+        }
+
+        if (this.curse != 0) {
+          gameManager.stateManager.before(this.curse < 0 ? "removeCurse" + (this.curse < -1 ? 's' : '') : "addCurse" + (this.curse > 1 ? 's' : ''), "data.character." + this.data.figure.name, '' + (this.curse > 0 ? this.curse : this.curse * -1));
+          this.changeAttackModifier(AttackModifierType.curse, this.curse);
+          gameManager.stateManager.after();
+          this.curse = 0;
+        }
       }
     }
   }
