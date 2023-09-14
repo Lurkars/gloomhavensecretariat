@@ -94,11 +94,8 @@
               (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true" [screenWidth]="true"
               (singleClick)="openEntityMenu($event)">
               <img src="./assets/images/status/health.svg" />
-              {{(character.health + health) >= 0 ? character.health + health : 0}}/{{character.maxHealth}}
-              <span *ngIf="health" class="value-overlay"
-                [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">
-                <span class="value">{{health | ghsValueSign}}</span>
-              </span>
+              {{(character.health + health) | ghsMinZero}}/{{character.maxHealth}}
+              <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [container]="true"></span>
             </div>
             <div class="markers">
               <span class="marker" *ngFor="let marker of character.markers;">
@@ -106,7 +103,8 @@
               </span>
             </div>
             <div class="conditions">
-              <span class="condition" *ngFor="let entityCondition of activeConditions; let index = index;">
+              <span class="condition" *ngFor="let entityCondition of activeConditions; let index = index;"
+                ghs-pointer-input (doubleClick)="removeCondition(entityCondition)">
                 <img
                   [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
                   [style.z-index]="index * 10 + entityCondition.value" />
@@ -188,20 +186,14 @@
           (singleClick)="openEntityMenu($event)">
           {{character.experience + experience}}
           <img src="./assets/images/status/experience.svg" />
-          <span *ngIf="experience" class="value-overlay"
-            [ngClass]="{'negative-value' : experience < 0, 'positive-value' : experience > 0}">
-            <span class="value">{{experience | ghsValueSign}}</span>
-          </span>
+          <span class="value-overlay" [value-sign]="experience" [hideEmpty]="true" [container]="true"></span>
         </span>
         <span class="loot" *ngIf="!settingsManager.settings.alwaysLootDeck && !gameManager.fhRules()"
           [ghs-label]="'game.loot'" [ghs-label-attribute]="'title'" ghs-pointer-input (dragMove)="dragLootMove($event)"
           (dragEnd)="dragLootEnd($event)" [relative]="true" [screenWidth]="true" (singleClick)="openEntityMenu($event)">
           {{character.loot + loot}}
           <img src="./assets/images/status/loot.svg" />
-          <span *ngIf="loot" class="value-overlay"
-            [ngClass]="{'negative-value' : loot < 0, 'positive-value' : loot > 0}">
-            <span class="value">{{loot | ghsValueSign}}</span>
-          </span>
+          <span class="value-overlay" [value-sign]="loot" [hideEmpty]="true" [container]="true"></span>
         </span>
       </div>
     </ng-container>

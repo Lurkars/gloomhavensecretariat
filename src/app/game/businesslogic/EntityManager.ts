@@ -660,7 +660,7 @@ export class EntityManager {
     } else if (entity instanceof Objective) {
       infos.push(prefix + ".objective", entity.title || entity.name)
     } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
-      infos.push(prefix + ".objective", figure.title || 'data.objective.' + figure.name)
+      infos.push(prefix + ".objectiveContainer", figure.title || figure.name && 'data.objective.' + figure.name || figure.escort ? 'escort' : 'objective', "" + entity.number)
     } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
       infos.push(prefix + ".monster", "data.monster." + figure.name, "" + entity.number)
     } else if (figure instanceof Monster) {

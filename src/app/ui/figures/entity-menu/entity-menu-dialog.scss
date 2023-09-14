@@ -207,6 +207,11 @@
     text-shadow: var(--ghs-outline);
     text-align: center;
 
+    img {
+      height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+      width: auto;
+    }
+
     &.badge-left {
       left: 0;
     }
@@ -215,20 +220,25 @@
       right: 0;
     }
 
-    &.zero-value {
-      visibility: hidden;
+    &.badge-center {
+      bottom: calc(var(--ghs-unit) * -0.5 * var(--ghs-dialog-factor));
+      left: 50%;
+      transform: translateX(-50%);
     }
-  }
 
-  .warning-badge {
-    position: absolute;
-    left: 0;
-    bottom: 0;
+    &.badge-warning {
+      img {
+        filter: var(--ghs-filter-red);
+      }
+    }
 
-    img {
-      filter: var(--ghs-filter-red);
-      height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-      width: auto;
+    &.badge-character-icon {
+      bottom: calc(var(--ghs-unit) * -0.5 * var(--ghs-dialog-factor));
+      right: 40%;
+      
+      img {
+        height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+      }
     }
   }
 

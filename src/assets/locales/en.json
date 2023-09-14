@@ -371,6 +371,11 @@
     },
     "attackModifiers": {
       ".": "Attack Modifier Deck",
+      "additional": {
+        "apply": "Use deck of {0}",
+        "dialog": "Select Character's deck for applying %game.condition.{0}%",
+        "select": "Select Character"
+      },
       "effects": {
         "refreshSpentItem": "Spent"
       },
@@ -491,11 +496,11 @@
       },
       "empower": {
         ".": "Empower",
-        "hint": "Empower: Shuffle EMPOWER card into attack modifier deck."
+        "hint": "Empower: Shuffle %game.attackmodifier.empower% card into attack modifier deck."
       },
       "enfeeble": {
         ".": "Enfeeble",
-        "hint": "Enfeeble: Shuffle ENFEEBLE card into attack modifier deck."
+        "hint": "Enfeeble: Shuffle %game.attackmodifier.enfeeble% card into attack modifier deck."
       },
       "heal": {
         ".": "Heal",
@@ -1782,31 +1787,36 @@
     },
     "currentGame": "Current",
     "info": {
-      "addBless": "Bless {0}",
-      "addBlesses": "{1} Bless' {0}",
       "addCampaignSticker": "Add Campaign Sticker {0}",
       "addChar": "Add character {0}",
       "addCondition": {
-        "char": "{1} {0}",
-        "monsterEntities": "{1} all {2}{0}",
-        "monster": "{2} '{1}' of {0}",
-        "objective": "{1} {0}",
-        "summon": "{2} '{1}' of {0}"
+        "char": "%game.condition.{1}% {0}",
+        "monsterEntities": "%game.condition.{1}% all {2}{0}",
+        "monster": "%game.condition.{2}% '{1}' of {0}",
+        "objective": "%game.condition.{1}% {0}",
+        "objectiveContainer": "%game.condition.{2}% %game.objectiveMarker.{1}% of {0}",
+        "summon": "%game.condition.{2}% '{1}' of {0}"
       },
-      "addCurse": "Curse {0}",
-      "addCurses": "{1} Curses {0}",
-      "addEntityBless": "Bless {0} standee {2}",
-      "addEntityBlesses": "{3} Bless' {0} standee {2}",
-      "addEntityCurse": "Curse {0} standee {2}",
-      "addEntityCurses": "{3} Curses {0} standee {2}",
+      "addConditions": {
+        "char": "{2}x %game.condition.{1}% {0}",
+        "monsterEntities": "{3}x %game.condition.{1}% all {2}{0}",
+        "monster": "{3}x %game.condition.{2}% '{1}' of {0}",
+        "objective": "{2}x %game.condition.{1}% {0}",
+        "objectiveContainer": "{3}x %game.condition.{2}% %game.objectiveMarker.{1}% of {0}",
+        "summon": "{3}x %game.condition.{2}% '{1}' of {0}"
+      },
       "addEntityMarker": "{2} marker to {0} standee {1}",
+      "addGameCondition": "Add %game.condition.{0}% to current game",
       "addGlobalAchievement": "Add global achievement '{0}'",
       "addItem": "Add Item {1} (%data.edition.{2}%) to {0}",
       "addManualScenario": "Unlock scenario #{0} {1} ({2})",
       "addMastery": "Check mastery {1} for {0}",
       "addMonster": "Add monster {0}",
       "addNextStandee": "Add {1} {0} standee",
-      "addObjective": "Add objective {0}",
+      "addObjective": {
+        ".": "Add Objective",
+        "escort": "Add Escort"
+      },
       "addParty": "Create new party '{0}'",
       "addPartyAchievement": "Add party achievement '{0}'",
       "addPartyTownGuardPerkSection": "Add Town Guard Perk Section {0}",
@@ -1818,11 +1828,12 @@
       "addSummon": "Add summon '{1}' for {0}",
       "addTreasure": "Add treasure {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
       "applyCondition": {
-        "char": "Apply {1} to {0}",
-        "monsterEntities": "Apply {1} to all {2}{0}",
-        "monster": "Apply {2} to '{1}' of {0}",
-        "objective": "Apply {1} to {0}",
-        "summon": "Apply {2} to '{1}' of {0}"
+        "char": "Apply %game.condition.{1}% to {0}",
+        "monsterEntities": "Apply %game.condition.{1}% to all {2}{0}",
+        "monster": "Apply %game.condition.{2}% to '{1}' of {0}",
+        "objective": "Apply %game.condition.{1}% to {0}",
+        "objectiveContainer": "Apply %game.condition.{2}% to %game.objectiveMarker.{1}% of {0}",
+        "summon": "Apply %game.condition.{2}% to '{1}' of {0}"
       },
       "applyHighlightAction": {
         "condition": "Apply action %game.condition.{1}% to {0}",
@@ -1869,11 +1880,12 @@
       "characterLongRestOff": "Disable Long Rest for {0}",
       "craftItem": "Craft Item {1} (%data.edition.{2}%) for {0}",
       "declineApplyCondition": {
-        "char": "Decline apply {1} to {0}",
-        "monsterEntities": "Decline apply {1} to all {2}{0}",
-        "monster": "Decline apply {2} to '{1}' of {0}",
-        "objective": "Decline apply {1} to {0}",
-        "summon": "Decline apply {2} to '{1}' of {0}"
+        "char": "Decline apply %game.condition.{1}% to {0}",
+        "monsterEntities": "Decline apply %game.condition.{1}% to all {2}{0}",
+        "monster": "Decline apply %game.condition.{2}% to '{1}' of {0}",
+        "objective": "Decline apply %game.condition.{1}% to {0}",
+        "objectiveContainer": "Decline apply %game.condition.{2}% to %game.objectiveMarker.{1}% of {0}",
+        "summon": "Decline apply %game.condition.{2}% to '{1}' of {0}"
       },
       "disableAutomaticLevel": "Disable automatic level calculation",
       "disabledGe5Player": "Disable ≥ 5 player rules",
@@ -1926,24 +1938,26 @@
       "removeAllChars": "Remove all characters",
       "removeAllMonster": "Remove all monster",
       "removeAllObjectives": "Remove all objectives",
-      "removeBless": "Remove Bless from {0}",
-      "removeBlesses": "Remove {1} Bless' from {0}",
       "removeCampaignSticker": "Remove Campaign Sticker {0}",
       "removeChar": "Remove character {0}",
       "removeCondition": {
-        "char": "Remove {1} from {0}",
-        "monsterEntities": "Remove {1} from all {2}{0}",
-        "monster": "Remove {2} from '{1}' of {0}",
-        "objective": "Remove {1} from {0}",
-        "summon": "Remove {2} from '{1}' of {0}"
+        "char": "Remove %game.condition.{1}% from {0}",
+        "monsterEntities": "Remove %game.condition.{1}% fromm all {2}{0}",
+        "monster": "Remove %game.condition.{2}% from '{1}' of {0}",
+        "objective": "Remove %game.condition.{1}% from {0}",
+        "objectiveContainer": "Remove %game.condition.{2}% from %game.objectiveMarker.{1}% of {0}",
+        "summon": "Remove %game.condition.{2}% from '{1}' of {0}"
       },
-      "removeCurse": "Remove Curse from {0}",
-      "removeCurses": "Remove {1} Curses from {0}",
-      "removeEntityBless": "Remove Bless from {0} standee {2}",
-      "removeEntityBlesses": "Remove {3} Bless' from {0} standee {2}",
-      "removeEntityCurse": "Remove Curse from {0} standee {2}",
-      "removeEntityCurses": "Remove {3} Curses from {0} standee {2}",
+      "removeConditions": {
+        "char": "Remove {2}x %game.condition.{1}% from {0}",
+        "monsterEntities": "Remove {3}x %game.condition.{1}% from all {2}{0}",
+        "monster": "Remove {3}x %game.condition.{2}% from '{1}' of {0}",
+        "objective": "Remove {2}x %game.condition.{1}% from {0}",
+        "objectiveContainer": "Remove {3}x %game.condition.{2}% from %game.objectiveMarker.{1}% of {0}",
+        "summon": "Remove {3}x %game.condition.{2}% from '{1}' of {0}"
+      },
       "removeEntityMarker": "Remove {2} marker from {0} standee {1}",
+      "removeGameCondition": "Remove %game.condition.{0}% to current game",
       "removeGlobalAchievement": "Remove global achievement '{0}'",
       "removeItem": "Remove Item {1} (%data.edition.{2}%) from {0}",
       "removeManualScenario": "Remove scenario #{0} {1} ({2}) from unlocked",
@@ -1972,11 +1986,12 @@
       "setAllied": "{0} as allied",
       "setBG": "Set Battle Goals of {0} to {1}",
       "setConditionValue": {
-        "char": "{1} to {2} for {0}",
-        "monsterEntities": "{1} to {2} for all {3}{0}",
-        "monster": "{2} to {3} for '{1}' of {0}",
-        "objective": "{1} to {2} for {0}",
-        "summon": "{2} to {3} for '{1}' of {0}"
+        "char": "%game.condition.{1}% to {2} for {0}",
+        "monsterEntities": "%game.condition.{1}% to {2} for all {3}{0}",
+        "monster": "%game.condition.{2}% to {3} for '{1}' of {0}",
+        "objective": "%game.condition.{1}% to {2} for {0}",
+        "objectiveContainer": "%game.condition.{2}% to {3} for %game.objectiveMarker.{1}% of {0}",
+        "summon": "%game.condition.{2}% to {3} for '{1}' of {0}"
       },
       "setCustomScenario": "Set custom scenario",
       "setDrawExtraAbility": "Set draw extra for {0}",
@@ -2023,6 +2038,7 @@
       "startCampaign": "Start a new {0} campaign",
       "toggleTypeAll": "Toggle all monster standee types for {0}",
       "unequipItem": "Unequip Item {1} (%data.edition.{2}%) for {0}",
+      "unlockChar": "Unlock {0}",
       "unsetAbsent": "{0} present",
       "unsetActive": "End turn of {0}",
       "unsetAlly": "{0} as enemy",

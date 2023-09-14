@@ -31,7 +31,7 @@ import { MainMenuComponent } from './ui/header/menu/menu';
 import { SettingsMenuComponent } from './ui/header/menu/settings/settings';
 import { CampaignMenuComponent } from './ui/header/menu/campaign/campaign';
 import { CardRevealDirective } from './ui/helper/CardReveal';
-import { GhsCeilPipe, GhsFloorPipe, GhsRangePipe, GhsScenarioSearch, GhsValueSignPipe } from './ui/helper/Pipes';
+import { GhsCeilPipe, GhsFloorPipe, GhsMinZeroPipe, GhsRangePipe, GhsScenarioSearch, GhsValueSignPipe } from './ui/helper/Pipes';
 import { MainComponent } from './ui/main';
 import { SummonEntityComponent } from './ui/figures/character/summon/summon';
 import { SummonSheetComponent } from './ui/figures/character/summon/sheet/summon-sheet';
@@ -127,6 +127,8 @@ import { ItemsDialogComponent } from './ui/figures/items/dialog/items-dialog';
 import { ItemsCharacterDialogComponent } from './ui/figures/items/character/items-character-dialog';
 import { ItemDialogComponent } from './ui/figures/items/dialog/item-dialog';
 import { TreasuresDialogComponent } from './ui/header/party/treasures/treasures-dialog';
+import { ValueSignDirective } from './ui/helper/ValueSign';
+import { AdditionalAMSelectDialogComponent } from './ui/figures/entity-menu/additional-am-select/additional-am-select';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
@@ -152,7 +154,7 @@ export class GhsErrorHandler extends ErrorHandler {
     LevelComponent, LevelDialogComponent,
     ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, StatsListComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent, EventEffectsDialog,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
-    EntityMenuDialogComponent, EntitiesMenuDialogComponent,
+    EntityMenuDialogComponent, EntitiesMenuDialogComponent, AdditionalAMSelectDialogComponent,
     CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, ItemComponent, ItemDialogComponent, ItemsDialogComponent, ItemsCharacterDialogComponent, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
     ObjectiveComponent, ObjectiveContainerComponent,
     SummonEntityComponent, SummonSheetComponent,
@@ -165,8 +167,8 @@ export class GhsErrorHandler extends ErrorHandler {
     AbilityComponent, AbiltiesDialogComponent, AbilityDialogComponent,
     ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,
     FigureErrorsComponent, FigureErrorsDialogComponent,
-    CardRevealDirective, EntityAnimationDirective, GhsLabelDirective, ValueCalcDirective, PointerInputDirective, AutocompleteDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
-    GhsValueSignPipe, GhsRangePipe, GhsScenarioSearch, GhsFloorPipe, GhsCeilPipe,
+    CardRevealDirective, EntityAnimationDirective, GhsLabelDirective, ValueCalcDirective, PointerInputDirective, AutocompleteDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective, ValueSignDirective,
+    GhsValueSignPipe, GhsRangePipe, GhsScenarioSearch, GhsFloorPipe, GhsCeilPipe, GhsMinZeroPipe,
     AttackModifierToolComponent, TreasuresToolComponent, DecksToolComponent,
     EditionEditorComponent,
     EditorActionComponent, EditorActionDialogComponent,

@@ -202,7 +202,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
 
   close() {
     this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
-      gameManager.stateManager.before(entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition", "game.condition." + entityCondition.name, 'allCharacters');
+      gameManager.stateManager.before(entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition", entityCondition.name, 'allCharacters');
       this.activeCharacters.find((character) => {
         if (entityCondition.state == EntityConditionState.removed) {
           gameManager.entityManager.removeCondition(character, entityCondition, entityCondition.permanent);
@@ -215,7 +215,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
 
     this.entityConditions.forEach((condition) => {
       if (this.activeCharacters.find((character) => character.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired && entityCondition.value != condition.value))) {
-        gameManager.stateManager.before("setConditionValue", "game.condition." + condition.name, "" + condition.value, 'allCharacters');
+        gameManager.stateManager.before("setConditionValue", condition.name, "" + condition.value, 'allCharacters');
         this.activeCharacters.find((character) => {
           const entityCondition = character.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
           if (entityCondition && entityCondition.value != condition.value) {
@@ -228,7 +228,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
 
     this.immunities.forEach((immunity) => {
       if (this.newImmunities.indexOf(immunity) == -1) {
-        gameManager.stateManager.before("removeImmunity", "game.condition." + immunity, 'allCharacters');
+        gameManager.stateManager.before("removeImmunity", immunity, 'allCharacters');
         this.activeCharacters.find((character) => {
          character.immunities = character.immunities.filter((existing) => existing != immunity);
         })
@@ -238,7 +238,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
 
     this.newImmunities.forEach((immunity) => {
       if (this.immunities.indexOf(immunity) == -1) {
-        gameManager.stateManager.before("addImmunity", "game.condition." + immunity, 'allCharacters');
+        gameManager.stateManager.before("addImmunity", immunity, 'allCharacters');
         this.activeCharacters.find((character) => {
          character.immunities.push(immunity);
         })

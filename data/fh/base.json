@@ -12,7 +12,9 @@
     "ward",
     "brittle",
     "bane",
-    "impair"
+    "impair",
+    "curse",
+    "bless"
   ],
   "edition": "fh",
   "extensions": [

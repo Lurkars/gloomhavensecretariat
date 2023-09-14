@@ -384,8 +384,8 @@ export class RoundManager {
     this.game.roundResetsHidden = [];
     this.game.state = GameState.draw;
     this.game.elementBoard.forEach((element) => element.state = ElementState.inert);
-    this.game.monsterAttackModifierDeck.fromModel(new AttackModifierDeck().toModel());
-    this.game.allyAttackModifierDeck.fromModel(new AttackModifierDeck().toModel());
+    gameManager.attackModifierManager.fromModel(this.game.monsterAttackModifierDeck,new AttackModifierDeck().toModel());
+    gameManager.attackModifierManager.fromModel(this.game.allyAttackModifierDeck,new AttackModifierDeck().toModel());
     this.game.figures = this.game.figures.filter((figure) => figure instanceof Character || this.game.scenario && this.game.scenario.custom);
     this.game.entitiesCounter = [];
     this.game.lootDeck.fromModel(new LootDeck());

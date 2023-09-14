@@ -192,12 +192,12 @@ export class Game {
     }
     this.monsterAttackModifierDeck = this.monsterAttackModifierDeck || new AttackModifierDeck();
     if (model.monsterAttackModifierDeck && model.monsterAttackModifierDeck.cards && model.monsterAttackModifierDeck.cards.length > 0) {
-      this.monsterAttackModifierDeck.fromModel(model.monsterAttackModifierDeck);
+      gameManager.attackModifierManager.fromModel(this.monsterAttackModifierDeck, model.monsterAttackModifierDeck);
     }
 
     this.allyAttackModifierDeck = this.allyAttackModifierDeck || new AttackModifierDeck();
     if (model.allyAttackModifierDeck && model.allyAttackModifierDeck.cards && model.allyAttackModifierDeck.cards.length > 0) {
-      this.allyAttackModifierDeck.fromModel(model.allyAttackModifierDeck);
+      gameManager.attackModifierManager.fromModel(this.allyAttackModifierDeck, model.allyAttackModifierDeck);
     }
 
     this.elementBoard = this.elementBoard || defaultElementBoard;

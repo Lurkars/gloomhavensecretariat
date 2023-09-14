@@ -293,7 +293,7 @@
     {
       "type": "remove",
       "count": 1,
-      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "custom": "%game.custom.perks.ignoreNegativeItem%",
       "cards": [
         {
           "count": 1,

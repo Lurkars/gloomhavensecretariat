@@ -172,11 +172,11 @@ export class EntitiesMenuDialogComponent {
   close(): void {
     this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
       if (this.monster) {
-        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.monster, entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition"), "game.condition." + entityCondition.name, this.data.type ? 'monster.' + this.data.type + ' ' : '');
+        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.monster, entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition"), entityCondition.name, this.data.type ? 'monster.' + this.data.type + ' ' : '');
       } else if (this.character) {
-        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.character, entityCondition.state == EntityConditionState.removed ? "removeConditionSummons" : "addConditionSummons"), "game.condition." + entityCondition.name);
+        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.character, entityCondition.state == EntityConditionState.removed ? "removeConditionSummons" : "addConditionSummons"), entityCondition.name);
       } else if (this.objective) {
-        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.objective, entityCondition.state == EntityConditionState.removed ? "removeConditionObjectives" : "addConditionObjectives"), "game.condition." + entityCondition.name);
+        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.objective, entityCondition.state == EntityConditionState.removed ? "removeConditionObjectives" : "addConditionObjectives"), entityCondition.name);
       }
       this.entities.forEach((entity) => {
         entityCondition.expired = entityCondition.state == EntityConditionState.new;
@@ -197,11 +197,11 @@ export class EntitiesMenuDialogComponent {
       if (this.entities.find((entity) => entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired && entityCondition.value != condition.value))) {
 
         if (this.monster) {
-          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.monster, "setConditionValue"), "game.condition." + condition.name, "" + condition.value, this.data.type ? 'monster.' + this.data.type + ' ' : '');
+          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.monster, "setConditionValue"), condition.name, "" + condition.value, this.data.type ? 'monster.' + this.data.type + ' ' : '');
         } else if (this.character) {
-          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.character, "setConditionValueSummons"), "game.condition." + condition.name, "" + condition.value);
+          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.character, "setConditionValueSummons"), condition.name, "" + condition.value);
         } else if (this.objective) {
-          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.objective, "setConditionValueObjectives"), "game.condition." + condition.name, "" + condition.value);
+          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.objective, "setConditionValueObjectives"), condition.name, "" + condition.value);
         }
 
 
@@ -218,11 +218,11 @@ export class EntitiesMenuDialogComponent {
     this.initialImmunities.forEach((immunity) => {
       if (this.entityImmunities.indexOf(immunity) == -1) {
         if (this.monster) {
-          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.monster, "removeImmunity"), "game.condition." + immunity, this.data.type ? 'monster.' + this.data.type + ' ' : '');
+          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.monster, "removeImmunity"), immunity, this.data.type ? 'monster.' + this.data.type + ' ' : '');
         } else if (this.character) {
-          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.character, "removeImmunitySummon"), "game.condition." + immunity);
+          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.character, "removeImmunitySummon"), immunity);
         } else if (this.objective) {
-          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.objective, "removeImmunityObjectives"), "game.condition." + immunity);
+          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.objective, "removeImmunityObjectives"), immunity);
         }
 
         this.entities.forEach((entity) => {
@@ -235,11 +235,11 @@ export class EntitiesMenuDialogComponent {
     this.entityImmunities.forEach((immunity) => {
       if (this.initialImmunities.indexOf(immunity) == -1) {
         if (this.monster) {
-          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.monster, "setImmunity"), "game.condition." + immunity, this.data.type ? 'monster.' + this.data.type + ' ' : '');
+          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.monster, "setImmunity"), immunity, this.data.type ? 'monster.' + this.data.type + ' ' : '');
         } else if (this.character) {
-          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.character, "setImmunitySummon"), "game.condition." + immunity);
+          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.character, "setImmunitySummon"), immunity);
         } else if (this.objective) {
-          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.objective, "setImmunityObjectives"), "game.condition." + immunity);
+          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.objective, "setImmunityObjectives"), immunity);
         }
 
         this.entities.forEach((entity) => {

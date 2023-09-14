@@ -19,6 +19,7 @@ import { MonsterNumberPickerDialog } from "../monster/dialogs/numberpicker-dialo
 import { Overlay } from "@angular/cdk/overlay";
 import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 import { ObjectiveEntity } from "src/app/game/model/ObjectiveEntity";
+import { AdditionalAMSelectDialogComponent } from "./additional-am-select/additional-am-select";
 
 @Component({
   selector: 'ghs-entity-menu-dialog',
@@ -59,6 +60,11 @@ export class EntityMenuDialogComponent {
   actionHints: Action[] = [];
 
   titles: string[] = [];
+
+  empowerChar: Character | undefined;
+  empowerChars: Character[] = [];
+  enfeebleChar: Character | undefined;
+  enfeebleChars: Character[] = [];
 
   AttackModifierType = AttackModifierType;
   SummonState = SummonState;
@@ -115,6 +121,30 @@ export class EntityMenuDialogComponent {
         }
       }
     })
+
+    this.empowerChars = gameManager.game.figures.filter((figure) => figure instanceof Character && gameManager.entityManager.isAlive(figure) && figure.additionalModifier && figure.additionalModifier.find((perk) => perk.attackModifier && perk.attackModifier.type == AttackModifierType.empower)).map((figure) => figure as Character);
+
+    this.empowerChars.forEach((char) => {
+      if (char.active) {
+        this.empowerChar = char;
+      }
+    })
+
+    if (!this.empowerChar && this.empowerChars.length == 1) {
+      this.empowerChar = this.empowerChars[0];
+    }
+
+    this.enfeebleChars = gameManager.game.figures.filter((figure) => figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent && figure.additionalModifier && figure.additionalModifier.find((perk) => perk.attackModifier && perk.attackModifier.type == AttackModifierType.enfeeble)).map((figure) => figure as Character);
+
+    this.enfeebleChars.forEach((char) => {
+      if (char.active) {
+        this.enfeebleChar = char;
+      }
+    })
+
+    if (!this.enfeebleChar && this.enfeebleChars.length == 1) {
+      this.enfeebleChar = this.enfeebleChars[0];
+    }
   }
 
   @HostListener('document:keydown', ['$event'])
@@ -212,9 +242,9 @@ export class EntityMenuDialogComponent {
     }).length;
   }
 
-  countUpcomingAttackModifier(type: AttackModifierType): number {
+  countUpcomingAttackModifier(type: AttackModifierType, idPrefix: string | undefined = undefined): number {
     return this.attackModifierDeck().cards.filter((attackModifier, index) => {
-      return attackModifier.type == type && index > this.attackModifierDeck().current;
+      return attackModifier.type == type && index > this.attackModifierDeck().current && (!idPrefix || attackModifier.id && attackModifier.id.startsWith(idPrefix));
     }).length;
   }
 
@@ -272,37 +302,75 @@ export class EntityMenuDialogComponent {
     }
   }
 
-  countAdditional(type: AttackModifierType): number {
-    if (this.data.figure instanceof Character && this.data.figure.additionalModifier.filter((card) => card.attackModifier.type == type).length > 0) {
-      return this.data.figure.additionalModifier.filter((card) => card.attackModifier.type == type).map((card) => card.count || 1).reduce((a, b) => a + b);
-    }
-    return 0;
+  countEmpower(all: boolean = false): number {
+    return this.empowerChar ? this.empowerChar.additionalModifier.filter((perk) => perk.attackModifier && perk.attackModifier.type == AttackModifierType.empower).map((perk) => perk.count).reduce((a, b) => a + b) - (all ? 0 : gameManager.attackModifierManager.countUpcomingAdditional(this.empowerChar, AttackModifierType.empower)) : -1
+  }
+
+  countEnfeeble(all: boolean = false): number {
+    return this.enfeebleChar ? this.enfeebleChar.additionalModifier.filter((perk) => perk.attackModifier && perk.attackModifier.type == AttackModifierType.enfeeble).map((perk) => perk.count).reduce((a, b) => a + b) - (all ? 0 : gameManager.attackModifierManager.countUpcomingAdditional(this.enfeebleChar, AttackModifierType.enfeeble)) : -1
+
   }
 
   changeEmpower(value: number) {
-    if (this.data.figure instanceof Character) {
+    if (this.empowerChar || value < 0) {
       this.empower += value;
       const existing = this.countUpcomingAttackModifier(AttackModifierType.empower);
-      const count_all = this.countAdditional(AttackModifierType.empower);
-      if (this.empower + existing >= count_all) {
-        this.empower = count_all - existing;
+      const count_all = this.countEmpower();
+      if (this.empower >= count_all) {
+        this.empower = count_all;
       } else if (this.empower + existing < 0) {
         this.empower = -existing;
       }
+    } else {
+      const dialog = this.dialog.open(AdditionalAMSelectDialogComponent, {
+        panelClass: 'dialog',
+        data: {
+          characters: this.empowerChars,
+          type: AttackModifierType.empower
+        }
+      })
+
+      dialog.closed.subscribe({
+        next: (index) => {
+          if (typeof index === 'number' && index != -1) {
+            this.empowerChar = this.empowerChars[index];
+          }
+        }
+      })
     }
   }
 
   changeEnfeeble(value: number) {
-    if (this.data.figure instanceof Character) {
+    if (this.enfeebleChar || value < 0) {
       this.enfeeble += value;
       const existing = this.countUpcomingAttackModifier(AttackModifierType.enfeeble);
-      const count_all = this.countAdditional(AttackModifierType.enfeeble);
-      if (this.enfeeble + existing >= count_all) {
-        this.enfeeble = count_all - existing;
+      const count_all = this.countEnfeeble();
+      if (this.enfeeble >= count_all) {
+        this.enfeeble = count_all;
       } else if (this.enfeeble + existing < 0) {
         this.enfeeble = -existing;
       }
+    } else {
+      const dialog = this.dialog.open(AdditionalAMSelectDialogComponent, {
+        panelClass: 'dialog',
+        data: {
+          characters: this.enfeebleChars,
+          type: AttackModifierType.enfeeble
+        }
+      })
+
+      dialog.closed.subscribe({
+        next: (index) => {
+          if (typeof index === 'number' && index != -1) {
+            this.enfeebleChar = this.enfeebleChars[index];
+          }
+        }
+      })
     }
+  }
+
+  hasCondition(conditionName: ConditionName) {
+    return gameManager.conditions(gameManager.game.edition).find((condition) => condition.name == conditionName) != undefined;
   }
 
   toggleExhausted() {
@@ -623,6 +691,7 @@ export class EntityMenuDialogComponent {
 
   close(): void {
     this.closeConditions();
+    this.closeAMs();
     if (this.data.entity instanceof Character) {
       this.closeCharacter();
     } else if (this.data.figure instanceof Monster) {
@@ -699,58 +768,6 @@ export class EntityMenuDialogComponent {
         gameManager.stateManager.after();
       }
 
-      if (this.bless != 0) {
-        gameManager.stateManager.before(this.bless < 0 ? "removeBless" + (this.bless < -1 ? 'es' : '') : "addBless" + (this.bless > 1 ? 'es' : ''), "data.character." + this.data.figure.name, '' + (this.bless > 0 ? this.bless : this.bless * -1));
-        this.changeAttackModifier(AttackModifierType.bless, this.bless);
-        gameManager.stateManager.after();
-        this.bless = 0;
-      }
-
-      if (this.curse != 0) {
-        gameManager.stateManager.before(this.curse < 0 ? "removeCurse" + (this.curse < -1 ? 's' : '') : "addCurse" + (this.curse > 1 ? 's' : ''), "data.character." + this.data.figure.name, '' + (this.curse > 0 ? this.curse : this.curse * -1));
-        this.changeAttackModifier(AttackModifierType.curse, this.curse);
-        gameManager.stateManager.after();
-        this.curse = 0;
-      }
-
-      if (this.empower != 0) {
-        gameManager.stateManager.before(this.empower < 0 ? "removeEmpower" + (this.empower < -1 ? 's' : '') : "addEmpower" + (this.empower > 1 ? 's' : ''), "data.character." + this.data.figure.name, '' + (this.empower > 0 ? this.empower : this.empower * -1));
-        if (this.empower > 0) {
-          const additional = gameManager.attackModifierManager.getAdditional(this.data.entity, AttackModifierType.empower);
-          for (let i = 0; i < Math.min(this.empower, additional.length); i++) {
-            gameManager.attackModifierManager.addModifier(this.data.entity.attackModifierDeck, additional[i]);
-          }
-        } else {
-          for (let i = 0; i < this.empower * -1; i++) {
-            const empower = this.data.entity.attackModifierDeck.cards.find((am, index) => index > (this.data.entity as Character).attackModifierDeck.current && am.type == AttackModifierType.empower);
-            if (empower) {
-              this.data.entity.attackModifierDeck.cards.splice(this.data.entity.attackModifierDeck.cards.indexOf(empower), 1);
-            }
-          }
-        }
-        gameManager.stateManager.after();
-        this.empower = 0;
-      }
-
-      if (this.enfeeble != 0) {
-        gameManager.stateManager.before(this.enfeeble < 0 ? "removeEnfeeble" + (this.enfeeble < -1 ? 's' : '') : "addEnfeeble" + (this.enfeeble > 1 ? 's' : ''), "data.character." + this.data.figure.name, '' + (this.enfeeble > 0 ? this.enfeeble : this.enfeeble * -1));
-        if (this.enfeeble > 0) {
-          const additional = gameManager.attackModifierManager.getAdditional(this.data.entity, AttackModifierType.enfeeble);
-          for (let i = 0; i < Math.min(this.enfeeble, additional.length); i++) {
-            gameManager.attackModifierManager.addModifier(this.data.entity.attackModifierDeck, additional[i]);
-          }
-        } else {
-          for (let i = 0; i < this.enfeeble * -1; i++) {
-            const enfeeble = this.data.entity.attackModifierDeck.cards.find((am, index) => index > (this.data.entity as Character).attackModifierDeck.current && am.type == AttackModifierType.enfeeble);
-            if (enfeeble) {
-              this.data.entity.attackModifierDeck.cards.splice(this.data.entity.attackModifierDeck.cards.indexOf(enfeeble), 1);
-            }
-          }
-        }
-        gameManager.stateManager.after();
-        this.enfeeble = 0;
-      }
-
       let title = this.data.entity.title;
 
       if (this.characterTitleInput) {
@@ -786,28 +803,6 @@ export class EntityMenuDialogComponent {
 
   closeMonster() {
     if (this.data.figure instanceof Monster) {
-      if (this.bless != 0) {
-        if (this.data.entity instanceof MonsterEntity) {
-          gameManager.stateManager.before(this.bless < 0 ? "removeEntityBless" + (this.bless < -1 ? 'es' : '') : "addEntityBless" + (this.bless > 1 ? 'es' : ''), "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, '' + (this.bless > 0 ? this.bless : this.bless * -1));
-        } else {
-          gameManager.stateManager.before(this.bless < 0 ? "removeBless" + (this.bless < -1 ? 'es' : '') : "addBless" + (this.bless > 1 ? 'es' : ''), "data.monster." + this.data.figure.name, '' + (this.bless > 0 ? this.bless : this.bless * -1));
-        }
-        this.changeAttackModifier(AttackModifierType.bless, this.bless);
-        gameManager.stateManager.after();
-        this.bless = 0;
-      }
-
-      if (this.curse != 0) {
-        if (this.data.entity instanceof MonsterEntity) {
-          gameManager.stateManager.before(this.curse < 0 ? "removeEntityCurse" + (this.curse < -1 ? 's' : '') : "addEntityCurse" + (this.curse > 1 ? 's' : ''), "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, '' + (this.curse > 0 ? this.curse : this.curse * -1));
-        } else {
-          gameManager.stateManager.before(this.curse < 0 ? "removeCurse" + (this.curse < -1 ? 's' : '') : "addCurse" + (this.curse > 1 ? 's' : ''), "data.monster." + this.data.figure.name, '' + (this.curse > 0 ? this.curse : this.curse * -1));
-        }
-        this.changeAttackModifier(AttackModifierType.curse, this.curse);
-        gameManager.stateManager.after();
-        this.curse = 0;
-      }
-
       if (this.data.entity instanceof MonsterEntity) {
         if (this.maxHp) {
           gameManager.stateManager.before("changeEntityMaxHp", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, ghsValueSign(this.maxHp));
@@ -1038,6 +1033,66 @@ export class EntityMenuDialogComponent {
     }
   }
 
+  closeAMs() {
+    if (this.bless != 0) {
+      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, this.bless < 0 ? "removeCondition" + (this.bless < -1 ? 's' : '') : "addCondition" + (this.bless > 1 ? 's' : '')), AttackModifierType.bless, '' + (this.bless > 0 ? this.bless : this.bless * -1));
+      this.changeAttackModifier(AttackModifierType.bless, this.bless);
+      gameManager.stateManager.after();
+      this.bless = 0;
+    }
+
+    if (this.curse != 0) {
+      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, this.curse < 0 ? "removeCondition" + (this.curse < -1 ? 's' : '') : "addCondition" + (this.curse > 1 ? 's' : '')), AttackModifierType.curse, '' + (this.curse > 0 ? this.curse : this.curse * -1));
+      this.changeAttackModifier(AttackModifierType.curse, this.curse);
+      gameManager.stateManager.after();
+      this.curse = 0;
+    }
+
+    if (this.empower != 0) {
+      if (this.empowerChar || this.empower < 0) {
+        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, this.empower < 0 ? "removeCondition" + (this.empower < -1 ? 's' : '') : "addCondition" + (this.empower > 1 ? 's' : '')), AttackModifierType.empower, '' + (this.empower > 0 ? this.empower : this.empower * -1));
+        if (this.empowerChar && this.empower > 0) {
+          const additional = gameManager.attackModifierManager.getAdditional(this.empowerChar, AttackModifierType.empower);
+          for (let i = 0; i < Math.min(this.empower, additional.length); i++) {
+            gameManager.attackModifierManager.addModifier(this.attackModifierDeck(), additional[i]);
+          }
+        } else {
+          for (let i = 0; i < this.empower * -1; i++) {
+            const empower = this.attackModifierDeck().cards.find((am, index) => index > this.attackModifierDeck().current && am.type == AttackModifierType.empower);
+            if (empower) {
+              this.attackModifierDeck().cards.splice(this.attackModifierDeck().cards.indexOf(empower), 1);
+            }
+          }
+        }
+        gameManager.stateManager.after();
+        this.empower = 0;
+      } else {
+        console.log("DIALOG");
+      }
+    }
+
+    if (this.enfeeble != 0) {
+      if (this.enfeebleChar || this.enfeeble < 0) {
+        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, this.enfeeble < 0 ? "removeCondition" + (this.enfeeble < -1 ? 's' : '') : "addCondition" + (this.enfeeble > 1 ? 's' : '')), AttackModifierType.enfeeble, '' + (this.enfeeble > 0 ? this.enfeeble : this.enfeeble * -1));
+        if (this.enfeebleChar && this.enfeeble > 0) {
+          const additional = gameManager.attackModifierManager.getAdditional(this.enfeebleChar, AttackModifierType.enfeeble);
+          for (let i = 0; i < Math.min(this.enfeeble, additional.length); i++) {
+            gameManager.attackModifierManager.addModifier(this.attackModifierDeck(), additional[i]);
+          }
+        } else {
+          for (let i = 0; i < this.enfeeble * -1; i++) {
+            const enfeeble = this.attackModifierDeck().cards.find((am, index) => index > this.attackModifierDeck().current && am.type == AttackModifierType.enfeeble);
+            if (enfeeble) {
+              this.attackModifierDeck().cards.splice(this.attackModifierDeck().cards.indexOf(enfeeble), 1);
+            }
+          }
+        }
+        gameManager.stateManager.after();
+        this.enfeeble = 0;
+      }
+    }
+  }
+
   closeConditions() {
     if (this.data.entity) {
       this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
@@ -1048,7 +1103,7 @@ export class EntityMenuDialogComponent {
           }
 
           entityCondition.expired = entityCondition.state == EntityConditionState.new;
-          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition"), "game.condition." + entityCondition.name, this.data.entity instanceof MonsterEntity ? 'monster.' + this.data.entity.type + ' ' : '');
+          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition"), entityCondition.name, this.data.entity instanceof MonsterEntity ? 'monster.' + this.data.entity.type + ' ' : '');
           if (entityCondition.state == EntityConditionState.removed) {
             gameManager.entityManager.removeCondition(this.data.entity, entityCondition, entityCondition.permanent);
           } else {
@@ -1062,7 +1117,7 @@ export class EntityMenuDialogComponent {
         if (this.data.entity) {
           const entityCondition = this.data.entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
           if (entityCondition && entityCondition.value != condition.value) {
-            gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, "setConditionValue"), "game.condition." + condition.name, "" + condition.value, this.data.entity instanceof MonsterEntity ? 'monster.' + (this.data.entity as MonsterEntity).type + ' ' : '');
+            gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, "setConditionValue"), condition.name, "" + condition.value, this.data.entity instanceof MonsterEntity ? 'monster.' + (this.data.entity as MonsterEntity).type + ' ' : '');
             entityCondition.value = condition.value;
             gameManager.stateManager.after();
           }

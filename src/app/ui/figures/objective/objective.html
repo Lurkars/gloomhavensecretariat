@@ -47,11 +47,8 @@
           (dragEnd)="dragHpEnd($event)" [relative]="true" [screenWidth]="true">
           <img src="./assets/images/status/health.svg" />
           <ng-container *ngIf="maxHealth() > 0">
-            {{(objective.health + health) >= 0 ? objective.health + health : 0}}/{{maxHealth()}}
-            <span *ngIf="health" class="value-overlay"
-              [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">
-              <span class="value">{{health | ghsValueSign}}</span>
-            </span>
+            {{(objective.health + health) | ghsMinZero}}/{{maxHealth()}}
+            <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [container]="true"></span>
           </ng-container>
           <span *ngIf="maxHealth() == 0">-</span>
         </div>

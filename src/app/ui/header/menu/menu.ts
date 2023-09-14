@@ -221,7 +221,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
   }
 
   addObjectiveContainer(escort: boolean = false) {
-    gameManager.stateManager.before("addObjectiveContainer");
+    gameManager.stateManager.before("addObjective" + (escort ? '.escort' : ''));
     gameManager.objectiveManager.addObjective(new ObjectiveData("", escort ? 3 : 7, escort));
     this.close();
     gameManager.stateManager.after();

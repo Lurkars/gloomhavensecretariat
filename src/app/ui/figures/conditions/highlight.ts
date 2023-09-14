@@ -24,7 +24,7 @@ export class HighlightConditionsComponent {
 
   applyCondition(name: ConditionName, event: any, double: boolean = false) {
     event.stopPropagation();
-    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "applyCondition"), "game.condition." + name);
+    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "applyCondition"), name);
     gameManager.entityManager.applyCondition(this.entity, this.figure, name);
     if (double) {
       gameManager.entityManager.applyCondition(this.entity, this.figure, name);
@@ -35,7 +35,7 @@ export class HighlightConditionsComponent {
 
   declineApplyCondition(name: ConditionName, event: any) {
     event.stopPropagation();
-    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "declineApplyCondition"), "game.condition." + name);
+    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "declineApplyCondition"), name);
     gameManager.entityManager.declineApplyCondition(this.entity, this.figure, name)
     this.after();
   }

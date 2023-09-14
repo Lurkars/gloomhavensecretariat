@@ -127,7 +127,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         }
 
         if (this.townGuardDeck && this.party.townGuardDeck) {
-          this.townGuardDeck.fromModel(this.party.townGuardDeck);
+          gameManager.attackModifierManager.fromModel(this.townGuardDeck, this.party.townGuardDeck);
         }
       }
     })
@@ -546,7 +546,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     const campaign = gameManager.campaignData();
     this.townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.party, campaign);
     if (this.party.townGuardDeck) {
-      this.townGuardDeck.fromModel(this.party.townGuardDeck);
+      gameManager.attackModifierManager.fromModel(this.townGuardDeck, this.party.townGuardDeck);
     } else {
       gameManager.attackModifierManager.shuffleModifiers(this.townGuardDeck);
       this.townGuardDeck.active = false;

@@ -46,7 +46,8 @@ export enum ConditionType {
   negative = "negative",
   double = "double",
   expiredIndicator = "expiredIndicator",
-  hidden = "hidden"
+  hidden = "hidden",
+  amDeck = "amDeck",
 }
 
 export type FigureCondition = { name: ConditionName, level: number | undefined };
@@ -148,7 +149,12 @@ export class Condition {
       this.types.push(ConditionType.value);
     }
 
-    if ([ConditionName.bless, ConditionName.curse, ConditionName.empower, ConditionName.enfeeble, ConditionName.invalid].indexOf(this.name) != -1) {
+    if ([ConditionName.bless, ConditionName.curse, ConditionName.empower, ConditionName.enfeeble].indexOf(this.name) != -1) {
+      this.types.push(ConditionType.hidden);
+      this.types.push(ConditionType.amDeck);
+    }
+
+    if ([ConditionName.invalid].indexOf(this.name) != -1) {
       this.types.push(ConditionType.hidden);
     }
 

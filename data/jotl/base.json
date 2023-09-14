@@ -6,7 +6,9 @@
     "wound",
     "muddle",
     "poison",
-    "strengthen"
+    "strengthen",
+    "curse",
+    "bless"
   ],
   "edition": "jotl",
   "logoUrl": "./assets/images/logos/jotl.png"

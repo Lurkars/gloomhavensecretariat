@@ -290,59 +290,11 @@ export class AttackModifierDeck {
   constructor(attackModifiers: AttackModifier[] | undefined = undefined) {
     this.attackModifiers = attackModifiers ? JSON.parse(JSON.stringify(attackModifiers.filter((am, index, self) => self.indexOf(am) == index))) : JSON.parse(JSON.stringify(defaultAttackModifier));
     this.current = -1;
-    this.cards = attackModifiers ? JSON.parse(JSON.stringify(attackModifiers)) : defaultAttackModifierCards.map((id) => this.cardById(id) || new AttackModifier(AttackModifierType.invalid));
-  }
-
-  cardById(id: string): AttackModifier | undefined {
-    let attackModifier = this.attackModifiers.find((attackModifier) => attackModifier.id == id);
-    if (!attackModifier) {
-      attackModifier = defaultAttackModifier.find((attackModifier) => attackModifier.id == id);
-      if (!attackModifier) {
-        attackModifier = CsOakDeckAttackModifier.find((attackModifier) => attackModifier.id == id);
-      }
-      if (!attackModifier) {
-        attackModifier = defaultTownGuardAttackModifier.find((attackModifier) => attackModifier.id == id);
-      }
-      if (!attackModifier) {
-        return undefined;
-      }
-    }
-    return JSON.parse(JSON.stringify(attackModifier));
+    this.cards = attackModifiers ? JSON.parse(JSON.stringify(attackModifiers)) : defaultAttackModifierCards.map((id) => defaultAttackModifier.find((attackModifier) => attackModifier.id == id) || new AttackModifier(AttackModifierType.invalid, 0, AttackModifierValueType.default, id));
   }
 
   toModel(): GameAttackModifierDeckModel {
     return new GameAttackModifierDeckModel(this.current, this.cards.map((attackModifier) => attackModifier && attackModifier.id), this.disgarded, this.active);
-  }
-
-  fromModel(model: GameAttackModifierDeckModel) {
-    if (model.current != this.current) {
-      this.current = model.current;
-    }
-
-    // migration
-    model.cards = model.cards.map((id) => {
-      if (id == "scenario-reward-55-0") {
-        id = "fh-tg-add-plus50-algox";
-      } else if (id == "scenario-reward-56-0") {
-        id = "fh-tg-add-plus50";
-      } else if (id == "scenario-reward-57-0") {
-        id = "fh-tg-add-plus50";
-      } else if (id == "scenario-reward-58-0") {
-        id = "fh-tg-add-plus50-unfettered";
-      } else if (id == "scenario-reward-59-0") {
-        id = "fh-tg-add-plus50-unfettered";
-      } else if (id == "scenario-reward-60-0") {
-        id = "fh-tg-add-plus50-lurkers";
-      } else if (id == "conclusion-reward-50.2-0") {
-        id = "fh-tg-add-plus20";
-      }
-
-      return id;
-    })
-
-    this.cards = model.cards.map((id) => this.cardById(id) || new AttackModifier(AttackModifierType.invalid));
-    this.disgarded = model.disgarded || [];
-    this.active = model.active;
   }
 
   merge(attackModifierDeck: AttackModifierDeck) {

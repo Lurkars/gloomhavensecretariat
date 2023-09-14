@@ -103,13 +103,6 @@ export class StateManager {
       this.undos = await storageManager.readAll<GameModel>('undo');
       this.redos = await storageManager.readAll<GameModel>('redo');
       this.undoInfos = await storageManager.readAll<string[]>('undo-infos');
-
-      /*
-      this.undos = await storageManager.readList<GameModel>('undo', 10, 0);
-      this.redos = await storageManager.readList<GameModel>('redo', 10, 0);
-      this.undoInfos = await storageManager.readList<string[]>('undo-infos', this.undos.length + this.redos.length, 0);
-      */
-
       this.updatePermissions();
     } catch {
       this.updatePermissions();

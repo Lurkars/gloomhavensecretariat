@@ -1,0 +1,25 @@
+<a class="close" (click)="dialogRef.close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'">
+    <img src="./assets/images/close_dialog.svg">
+</a>
+
+<p><span [ghs-label]="'game.attackModifiers.additional.dialog'" [ghs-label-args]="[type]"></span></p>
+
+<div class="characters">
+    <div class="character" *ngFor="let character of characters; let i = index" (click)="toggleSelect(i)"
+        [ngClass]="{'selected' : selected == i}">
+        <img class="icon" [src]="character.iconUrl" />
+        <span class="name">
+            {{gameManager.characterManager.characterName(character,true)}}
+        </span>
+    </div>
+</div>
+
+<div class="menu">
+    <a (click)="dialogRef.close()" class="cancel">
+        <span [ghs-label]="'cancel'"></span>
+    </a>
+    <a (click)="select()" class="select" [ngClass]="{'disabled' : selected == -1}"><span
+            [ghs-label]="selected == -1 ? 'game.attackModifiers.additional.select' : 'game.attackModifiers.additional.apply'"
+            [ghs-label-args]="selected != -1 ? [characters[selected].title || '%data.character.' + characters[selected].name + '%'] : []"></span>
+    </a>
+</div>

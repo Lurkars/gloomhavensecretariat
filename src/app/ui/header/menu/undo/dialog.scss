@@ -76,7 +76,7 @@
             }
 
             &:hover {
-                filter: var(--ghs-filter-gray);
+                filter: brightness(0.5);
             }
 
             &.confirm {

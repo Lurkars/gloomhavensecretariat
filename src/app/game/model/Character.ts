@@ -174,7 +174,7 @@ export class Character extends CharacterData implements Entity, Figure {
 
     let attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this);
     if (model.attackModifierDeck) {
-      attackModifierDeck.fromModel(model.attackModifierDeck);
+      gameManager.attackModifierManager.fromModel(attackModifierDeck, model.attackModifierDeck);
     }
     this.mergeAttackModifierDeck(attackModifierDeck);
     if (model.attackModifierDeckVisible) {

@@ -14,7 +14,10 @@
     "ward",
     "rupture",
     "poison_x",
-    "wound_x"
+    "wound_x",
+    "curse",
+    "bless",
+    "empower"
   ],
   "edition": "cs",
   "extensions": [

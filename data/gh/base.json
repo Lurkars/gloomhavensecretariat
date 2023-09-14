@@ -7,7 +7,9 @@
     "muddle",
     "poison",
     "invisible",
-    "strengthen"
+    "strengthen",
+    "curse",
+    "bless"
   ],
   "edition": "gh",
   "worldMap": {

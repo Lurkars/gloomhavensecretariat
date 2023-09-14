@@ -1,5 +1,5 @@
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
-import { AttackModifier, AttackModifierDeck, AttackModifierType, additionalTownGuardAttackModifier, defaultAttackModifier, defaultTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
+import { AttackModifier, AttackModifierDeck, AttackModifierType, AttackModifierValueType, CsOakDeckAttackModifier, GameAttackModifierDeckModel, additionalTownGuardAttackModifier, defaultAttackModifier, defaultTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
 import { Character } from "../model/Character";
 import { CampaignData } from "../model/data/EditionData";
 import { Figure } from "../model/Figure";
@@ -75,9 +75,9 @@ export class AttackModifierManager {
       character.additionalModifier.forEach((card, index) => {
         if (card.attackModifier && card.attackModifier.type == type) {
           let am = Object.assign(new AttackModifier(card.attackModifier.type, card.attackModifier.value, card.attackModifier.valueType), card.attackModifier);
-          am.id = "additional" + index;
+          am.id = "additional-" + character.name + index;
           am.character = true;
-          const existing: number = all ? 0 : character.attackModifierDeck.cards.filter((other) => other.id == am.id).length;
+          const existing: number = all ? 0 : this.countUpcomingAdditional(character, type);
           for (let i = 0; i < card.count - existing; i++) {
             additional.push(JSON.parse(JSON.stringify(am)));
           }
@@ -85,6 +85,47 @@ export class AttackModifierManager {
       })
     }
     return additional;
+  }
+
+  getAllAdditional(): AttackModifier[] {
+    let additional: AttackModifier[] = [];
+
+    gameManager.charactersData().forEach((character) => {
+      if (character.additionalModifier.find((perk) => perk.attackModifier)) {
+        character.additionalModifier.forEach((card, index) => {
+          if (card.attackModifier) {
+            let am = Object.assign(new AttackModifier(card.attackModifier.type, card.attackModifier.value, card.attackModifier.valueType), card.attackModifier);
+            am.id = "additional-" + character.name + index;
+            am.character = true;
+            for (let i = 0; i < card.count; i++) {
+              additional.push(JSON.parse(JSON.stringify(am)));
+            }
+          }
+        })
+      }
+    })
+    return additional;
+  }
+
+  countUpcomingAdditional(character: Character, type: AttackModifierType) {
+    let count = 0;
+    if (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied))) {
+      count += gameManager.game.allyAttackModifierDeck.cards.filter((attackModifier, index) => {
+        return index > gameManager.game.allyAttackModifierDeck.current && attackModifier.type == type && attackModifier.id && attackModifier.id.startsWith("additional-" + character.name);
+      }).length;
+    }
+
+    count += gameManager.game.monsterAttackModifierDeck.cards.filter((attackModifier, index) => {
+      return index > gameManager.game.monsterAttackModifierDeck.current && attackModifier.type == type && attackModifier.id && attackModifier.id.startsWith("additional-" + character.name);
+    }).length;
+
+    gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => (figure as Character)).forEach((figure) => {
+      count += figure.attackModifierDeck.cards.filter((attackModifier, index) => {
+        return index > figure.attackModifierDeck.current && attackModifier.type == type && attackModifier.id && attackModifier.id.startsWith("additional-" + character.name);
+      }).length;
+    });
+
+    return count;
   }
 
   countExtraMinus1(): number {
@@ -199,15 +240,6 @@ export class AttackModifierManager {
         })
       }
     })
-
-    if (character.additionalModifier) {
-      character.additionalModifier.forEach((card, index) => {
-        let am = Object.assign(new AttackModifier(card.attackModifier.type, card.attackModifier.value, card.attackModifier.valueType), card.attackModifier);
-        am.id = "additional" + index;
-        am.character = true;
-        attackModifierDeck.attackModifiers.push(am);
-      })
-    }
 
     if (character.progress && character.progress.perks) {
       character.progress.perks.forEach((checked, index) => {
@@ -432,6 +464,57 @@ export class AttackModifierManager {
         }
       }
     })
+  }
+
+  cardById(attackModifierDeck: AttackModifierDeck, id: string): AttackModifier | undefined {
+    let attackModifier = attackModifierDeck.attackModifiers.find((attackModifier) => attackModifier.id == id);
+    if (!attackModifier) {
+      attackModifier = defaultAttackModifier.find((attackModifier) => attackModifier.id == id);
+      if (!attackModifier) {
+        attackModifier = CsOakDeckAttackModifier.find((attackModifier) => attackModifier.id == id);
+      }
+      if (!attackModifier) {
+        attackModifier = this.getAllAdditional().find((attackModifier) => attackModifier.id == id);
+      }
+      if (!attackModifier) {
+        attackModifier = defaultTownGuardAttackModifier.find((attackModifier) => attackModifier.id == id);
+      }
+      if (!attackModifier) {
+        return undefined;
+      }
+    }
+    return JSON.parse(JSON.stringify(attackModifier));
+  }
+
+  fromModel(attackModifierDeck: AttackModifierDeck, model: GameAttackModifierDeckModel) {
+    if (model.current != attackModifierDeck.current) {
+      attackModifierDeck.current = model.current;
+    }
+
+    // migration
+    model.cards = model.cards.map((id) => {
+      if (id == "scenario-reward-55-0") {
+        id = "fh-tg-add-plus50-algox";
+      } else if (id == "scenario-reward-56-0") {
+        id = "fh-tg-add-plus50";
+      } else if (id == "scenario-reward-57-0") {
+        id = "fh-tg-add-plus50";
+      } else if (id == "scenario-reward-58-0") {
+        id = "fh-tg-add-plus50-unfettered";
+      } else if (id == "scenario-reward-59-0") {
+        id = "fh-tg-add-plus50-unfettered";
+      } else if (id == "scenario-reward-60-0") {
+        id = "fh-tg-add-plus50-lurkers";
+      } else if (id == "conclusion-reward-50.2-0") {
+        id = "fh-tg-add-plus20";
+      }
+
+      return id;
+    })
+
+    attackModifierDeck.cards = model.cards.map((id) => this.cardById(attackModifierDeck, id) || new AttackModifier(AttackModifierType.invalid, 0, AttackModifierValueType.default, id));
+    attackModifierDeck.disgarded = model.disgarded || [];
+    attackModifierDeck.active = model.active;
   }
 
 }

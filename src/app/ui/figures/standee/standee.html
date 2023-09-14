@@ -12,13 +12,8 @@
         <span class="value">{{entity.number < 0 ? '?' : entity.number}}</span>
       </span>
       <span class="health" [ghs-label]="'game.health'"
-        [ghs-label-attribute]="'title'">{{EntityValueFunction(entity.maxHealth) > 0 ?
-          ((entity.health + health) >= 0 ? entity.health + health : 0) :
-          '-'}}
-        <span class="value-overlay" [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}"
-          *ngIf="health"><span class="value">{{health |
-              ghsValueSign}}</span>
-        </span>
+        [ghs-label-attribute]="'title'">{{EntityValueFunction(entity.maxHealth) > 0 ? ((entity.health + health) | ghsMinZero) : '-'}}
+        <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [container]="true"></span>
       </span>
     </div>
 
@@ -51,7 +46,7 @@
     <div class="conditions">
       <span class="condition-container" *ngFor="let entityCondition of activeConditions; let index = index;"
         [ngClass]="{'center' : entity.summon == SummonState.false && ((activeConditions).length % 2) == 1 && (activeConditions).length == index + 1, 'expired' : entityCondition.expired}">
-        <span class="condition">
+        <span class="condition" ghs-pointer-input (doubleClick)="removeCondition(entityCondition)">
           <img
             [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
             [style.z-index]="index * 10 + entityCondition.value" />

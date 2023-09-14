@@ -55,14 +55,6 @@
                 }
             }
 
-            &.disabled {
-                pointer-events: none;
-
-                img {
-                    opacity: 0.7;
-                }
-            }
-
             &.disabled::after {
                 border: calc(var(--ghs-unit) / 4) var(--ghs-color-darkgray) solid;
                 border-radius: 100%;
@@ -80,6 +72,19 @@
 
             &.active:hover::after {
                 border: calc(var(--ghs-unit) / 5) var(--ghs-color-red) solid;
+            }
+
+            &.disabled {
+                pointer-events: initial;
+                cursor: initial;
+
+                img {
+                    opacity: 0.7;
+                }
+
+                &:hover::after {
+                    border: calc(var(--ghs-unit) / 4) var(--ghs-color-darkgray) solid;
+                }
             }
         }
     }

@@ -95,7 +95,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     this.before.emit(new AttackModiferDeckChange(this.deck, "restoreDefault"));
     if (this.character) {
       this.character.mergeAttackModifierDeck(gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character));
-      this.deck.fromModel(this.character.attackModifierDeck.toModel());
+      gameManager.attackModifierManager.fromModel(this.deck, this.character.attackModifierDeck.toModel())
     } else if (this.townGuard) {
       this.deck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(gameManager.game.party, gameManager.campaignData());
     } else {

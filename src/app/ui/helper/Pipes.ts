@@ -45,6 +45,16 @@ export class GhsCeilPipe implements PipeTransform {
 }
 
 @Pipe({
+  name: 'ghsMinZero'
+})
+export class GhsMinZeroPipe implements PipeTransform {
+  transform(number: number): number {
+    return number < 0 ? 0 : number;
+  }
+}
+
+
+@Pipe({
   name: 'ghsScenarioSearch'
 })
 export class GhsScenarioSearch implements PipeTransform {

@@ -276,14 +276,6 @@ export class CharacterComponent implements OnInit, OnDestroy {
   }
 
   openEntityMenu(event: any): void {
-    /*
-    const summon = this.character.summons.find((summon) => summon.active);
-    if (summon) {
-      gameManager.stateManager.before("summonInactive", "data.character." + this.character.name, "data.summon." + summon.name);
-      summon.active = false;
-      gameManager.stateManager.after();
-    } else {
-    */
     this.dialog.open(EntityMenuDialogComponent, {
       panelClass: 'dialog',
       data: {
@@ -292,7 +284,6 @@ export class CharacterComponent implements OnInit, OnDestroy {
       },
       positionStrategy: this.overlay.position().flexibleConnectedTo(this.characterName).withPositions(ghsDefaultDialogPositions())
     });
-    // }
   }
 
   openEntitiesMenu(event: any) {
@@ -318,6 +309,12 @@ export class CharacterComponent implements OnInit, OnDestroy {
       panelClass: ['dialog-invert'],
       data: this.character
     });
+  }
+
+  removeCondition(entityCondition: EntityCondition) {
+    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.character, this.character, "removeCondition"), entityCondition.name);
+    gameManager.entityManager.removeCondition(this.character, entityCondition, entityCondition.permanent);
+    gameManager.stateManager.after();
   }
 
   openBattleGoals(): void {

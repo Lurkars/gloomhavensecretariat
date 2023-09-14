@@ -43,6 +43,7 @@ export class AttackModifierComponent implements OnInit, OnChanges {
   init() {
     if (this.attackModifier) {
       this.csOak = this.attackModifier.id.startsWith('cs-oak');
+      this.newStyle = this.newStyle || this.attackModifier.type == AttackModifierType.empower || this.attackModifier.type == AttackModifierType.enfeeble;
       this.multipe = false;
       this.wildElement = false;
       this.mixedElement = undefined;

@@ -20,11 +20,9 @@
           <span *ngIf="summon.number > 0">{{summon.number}}</span></span>
       </span>
 
-      <span class="health">{{(summon.health + health) >= 0 ? summon.health + health : 0}}
-        <span class="value-overlay" [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}"
-          *ngIf="health"><span class="value">{{health |
-            ghsValueSign}}</span>
-        </span></span>
+      <span class="health">{{(summon.health + health) | ghsMinZero}}
+        <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [container]="true"></span>
+      </span>
     </div>
 
     <div class="markers">

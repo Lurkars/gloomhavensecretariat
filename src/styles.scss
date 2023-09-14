@@ -337,6 +337,10 @@ a {
   color: var(--ghs-color-red) !important;
 }
 
+.hide-zero-value {
+  display: none !important;
+}
+
 .value-overlay {
   position: relative;
   margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));

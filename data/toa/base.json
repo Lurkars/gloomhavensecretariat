@@ -16,7 +16,11 @@
     "poison_x",
     "wound_x",
     "brittle",
-    "dodge"
+    "dodge",
+    "curse",
+    "bless",
+    "empower",
+    "enfeeble"
   ],
   "edition": "toa",
   "extensions": [

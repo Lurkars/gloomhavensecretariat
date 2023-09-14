@@ -654,7 +654,10 @@
       "addManualScenario": "Débloquer scénario #{0} {1} ({2})",
       "addMonster": "Ajouter monstre {0}",
       "addNextStandee": "Ajouter {1} {0} silhouette",
-      "addObjective": "Ajouter objectif {0}",
+      "addObjective": {
+        ".": "Ajouter objectif",
+        "escort": "Ajouter escorte"
+      },
       "addParty": "Créer une nouvelle compagnie '{0}'",
       "addRandomStandee": "Ajouter {1} {0} silhouette aléatoire {2}",
       "addSection": "Ajouter section #{0} {1} ({2})",

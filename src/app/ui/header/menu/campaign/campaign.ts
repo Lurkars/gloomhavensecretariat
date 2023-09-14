@@ -25,6 +25,7 @@ export class CampaignMenuComponent implements OnInit {
     settingsManager: SettingsManager = settingsManager;
     GameState = GameState;
     conditions: Condition[] = [];
+    amConditions: Condition[] = [];
     editionConditions: ConditionName[] = [];
     characters: Character[] = [];
 
@@ -48,6 +49,7 @@ export class CampaignMenuComponent implements OnInit {
         });
 
         this.conditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => condition.types.indexOf(ConditionType.hidden) == -1);
+        this.amConditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => condition.types.indexOf(ConditionType.amDeck) != -1);
         this.editionConditions = gameManager.conditions(gameManager.game.edition, true).map((condition) => condition.name);
     }
 
@@ -71,13 +73,15 @@ export class CampaignMenuComponent implements OnInit {
     }
 
     toggleCondition(condition: ConditionName) {
-        gameManager.stateManager.before(gameManager.game.conditions.indexOf(condition) == -1 ? 'addGameCondition' : 'removeGameCondition', condition);
-        if (gameManager.game.conditions.indexOf(condition) == -1) {
-            gameManager.game.conditions.push(condition);
-        } else {
-            gameManager.game.conditions = gameManager.game.conditions.filter((conditionName) => condition != conditionName);
+        if (this.editionConditions.indexOf(condition) == -1) {
+            gameManager.stateManager.before(gameManager.game.conditions.indexOf(condition) == -1 ? 'addGameCondition' : 'removeGameCondition', condition);
+            if (gameManager.game.conditions.indexOf(condition) == -1) {
+                gameManager.game.conditions.push(condition);
+            } else {
+                gameManager.game.conditions = gameManager.game.conditions.filter((conditionName) => condition != conditionName);
+            }
+            gameManager.stateManager.after();
         }
-        gameManager.stateManager.after();
     }
 
     openCharacterSheet(character: Character) {
@@ -145,9 +149,9 @@ export class CampaignMenuComponent implements OnInit {
 
     setName(event: any) {
         if (gameManager.game.party.name != event.target.value) {
-          gameManager.stateManager.before("setPartyName", event.target.value);
-          gameManager.game.party.name = event.target.value;
-          gameManager.stateManager.after();
+            gameManager.stateManager.before("setPartyName", event.target.value);
+            gameManager.game.party.name = event.target.value;
+            gameManager.stateManager.after();
         }
-      }
+    }
 }
