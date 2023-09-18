@@ -10,6 +10,7 @@ import { MonsterEditorComponent } from './ui/tools/editor/monster/monster';
 import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackmodifier-standalone';
 import { LootDeckStandaloneComponent } from './ui/tools/standalone/loot-deck-standalone';
 import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
+import { EventCardsToolComponent } from './ui/tools/events/event-cards-tool';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'editor/character', component: CharacterEditorComponent },
   { path: 'tools/attackmodifier', component: AttackModifierToolComponent },
   { path: 'tools/decks', component: DecksToolComponent },
+  { path: 'tools/events', component: EventCardsToolComponent },
   { path: 'tools/treasures', component: TreasuresToolComponent },
   { path: 'loot', component: LootDeckStandaloneComponent },
   { path: 'am', component: AttackModifierStandaloneComponent },

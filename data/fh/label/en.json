@@ -294,7 +294,7 @@
     },
     "1337": {
       ".": "Sleeper",
-      "text": "Have on or more cards in your hand each time you rest."
+      "text": "Have one or more cards in your hand each time you rest."
     },
     "1338": {
       ".": "Sluggard",
@@ -338,7 +338,7 @@
     },
     "1348": {
       ".": "Dawdler",
-      "text": "Never us your lowest initiative played card as your initiative card."
+      "text": "Never use your lowest initiative played card as your initiative card."
     },
     "1349": {
       ".": "Duelist",

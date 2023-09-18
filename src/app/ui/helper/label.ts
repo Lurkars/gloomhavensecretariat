@@ -174,7 +174,9 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         replace = '<span class="placeholder-section">' + image + value + '</span>';
       } else if (type == "checkmark") {
         replace = '<span class="placeholder-checkmark"><img src="./assets/images/check.svg" class="icon ghs-svg"></span>';
-      } else if (type == "townGuardAm" && split.length == 3 && value) {
+      } else if (type == "itemSlot"  && value) {
+        replace = '<span class="placeholder-items-slot"><img src="./assets/images/items/slot/' +  value + '.svg" class="icon ghs-svg"></span>';
+      }else if (type == "townGuardAm" && split.length == 3 && value) {
         const valueType = split[2];
         let valueSign = "";
         if (valueType == AttackModifierValueType.plus) {

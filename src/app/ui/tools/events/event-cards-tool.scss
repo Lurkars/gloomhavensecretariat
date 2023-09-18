@@ -1,0 +1,23 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  ghs-header {
+    z-index: 2;
+  }
+}
+
+.events {
+  display: flex;
+  overflow: auto;
+
+  ghs-event-card {
+    width: 400px;
+    min-width: 400px;
+    height: 600px;
+    min-height: 600px;
+    margin: 10px;
+  }
+}

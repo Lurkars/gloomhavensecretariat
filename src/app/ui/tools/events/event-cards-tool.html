@@ -1,0 +1,34 @@
+<div class="container">
+  <ghs-header [standalone]="true"></ghs-header>
+
+  <div class="menu">
+    <label>
+      <span [ghs-label]="'settings.edition'"></span>
+      <select [(ngModel)]="edition" (change)="update(); updateQueryParams()">
+        <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">
+          <span [ghs-label]="'data.edition.' + edition"></span>
+        </option>
+      </select>
+    </label>
+    <label>
+      <span [ghs-label]="'game.events.type'"></span>
+      <select [(ngModel)]="type" (change)="update(); updateQueryParams()">
+        <option *ngFor="let type of ['city', 'road']" [value]="type">
+          <span [ghs-label]="'game.events.type.' + type"></span>
+        </option>
+      </select>
+    </label>
+    <label>
+      <span [ghs-label]="'game.events.select'"></span>
+      <select [(ngModel)]="selected" (change)="updateQueryParams()">
+        <option [value]="-1">none</option>
+        <option [value]="0">0</option>
+        <option [value]="1">1</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="events">
+    <ghs-event-card [event]="event" *ngFor="let event of events" [select]="selected"></ghs-event-card>
+  </div>
+</div>

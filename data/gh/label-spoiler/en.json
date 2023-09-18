@@ -586,6 +586,97 @@
       ".": "Resonant Crystal"
     }
   },
+  "events": {
+    "gh": {
+      "city": {
+        "0": {
+          "text": "",
+          "options": {
+            "1": {
+              "choice": "",
+              "outcome": "",
+              "effects": {
+                "1": {
+                  "1": ""
+                }
+              }
+            },
+            "2": {
+              "choice": "",
+              "outcome": "",
+              "effects": {
+                "1": {
+                  "1": ""
+                }
+              }
+            }
+          }
+        },
+        "1": {
+          "text": "You decide to unwind at the Sleeping Lion, but just as you are starting to relax, a bear of a man crashes into your table, scattering your drinks across the floor.<br><br>Towering over him is a massive Inox. \"What did you say about my horns?\" the Inox shouts.<br><br>The man stands up and brushes shards of glass from his tunic. \"I said the sight of them makes me want to vomit!\"<br><br>The Inox roars and charges headlong into the man, crashing through more tables in the process. At this, the entire tavern erupts into violence. After all, when a man is deep into his drink, the last thing you want to do is knock that drink over.",
+          "options": {
+            "1": {
+              "choice": "Join the fray! These insults will not go unanswered!",
+              "outcome": "Nothing like busting some drunken skulls to lift one's spirits. It turns out to be a great way to unwind. Unfortunately, the proprietor of the Sleeping Lion doesn't exactly see it that way, and he sullenly asks for compensation for the damage you caused."
+            },
+            "2": {
+              "choice": "Do your best to stop the fighting. This is a respectable establishment.",
+              "outcome": "After restraining the enraged Inox and offering to replace the drinks of a few of the more belligerent patrons, you calm the place down a bit. Some of the non-human patrons are understandably on edge, but the proprietor thanks you for your efforts and reimburses you for the drinks."
+            }
+          }
+        },
+        "2": {
+          "text": "As the daylight fades, you find yourselves wandering through a half-crowded market street, browsing wares.<br><br>\"Hey! Over here!\" You turn in the direction of the voice to see a filthy Vermling gesturing from a dark alley. \"Yeah, you grim-looking chaps. I have something you might be interested in.\"<br><br>The Vermling holds out a piece of metal covered in sludge. \"Found this in the sewer. Writing on it I don't understand, but I know it's valuable. You can have it for ten gold!\"",
+          "options": {
+            "1": {
+              "choice": "Pay for the thing. You never know.",
+              "effects": {
+                "1": {
+                  "1": "You hand over the gold and take hold of the piece of garbage. Amidst troubling brown smears you see a lot of meaningless scratches likely made by rats and bugs. Oh well. Sometimes the long shot doesn't pay off.",
+                  "2": "\"Bah! You don't have enough. Come back when you do!\""
+                }
+              }
+            },
+            "2": {
+              "choice": "Refuse to pay. Never trust a Vermling.",
+              "outcome": "You laugh and gesture the Vermling away. You can recognize a low-life swindler when you see one. And that piece of garbage was just...foul."
+            }
+          }
+        },
+        "3": {
+          "text": "As the daylight fades, you find yourselves wandering through a half-crowded market street, browsing wares.<br><br>\"Hey! Over here!\" You turn in the direction a of the voice to see a filthy Vermling gesturing from a dark alley \"Yeah, you grim-looking chaps. I have something you might be interested in.\"<br><br>The Vermling holds out a piece of metal covered in sludge. Found this in the sewer. Writing on it I don't understand, but I know its valuable. You can have it for ten gold!\"",
+          "options": {
+            "1": {
+              "choice": "Pay for the thing. You never know.",
+              "effects": {
+                "1": {
+                  "1": "You hand over the gold and take hold of the metal. You wipe off the grime and slop to discover a foreign contraption made of large gears and many moving parts. If you can figure out what it is, this device might actually be of some worth.",
+                  "2": "\"Bah! You don't have enough. Come back when you do!\""
+                }
+              }
+            },
+            "2": {
+              "choice": "Refuse to pay. Never trust a Vermling.",
+              "outcome": "You laugh and gesture the Vermling away. You can recognize a low-life swindler when you see one. And that piece of garbage was just..foul."
+            }
+          }
+        },
+        "4": {
+          "text": "Having recently returned from your latest adventure, you are approached by a ratty-looking boy in tears.<br><br>\"Please, sirs, could you please help me with my cat? He went over there, and I'm afraid.\" The boy points a dirty finger at a decrepit, abandoned building. \"I don't know what else to do.\"",
+          "options": {
+            "1": {
+              "choice": "Find a cat? You have more important things to do.",
+              "outcome": "You shake your head and direct the boy to go find his mother. With any luck she will knock some sense into him so that he stops troubling strangers with such trivial matters."
+            },
+            "2": {
+              "choice": "Reassure the boy and go find the cat.",
+              "outcome": "You approach the foreboding house full of heroic bravado. There's certainly nothing otherworldly about the structure, but its fallen beams and piles of rubble do make it difficult to look around. By the time you find the cat hiding under a burned-out bed frame, you are utterly exhausted. At least the boy is ecstatic his cat has been found."
+            }
+          }
+        }
+      }
+    }
+  },
   "treasures": {
     "gh": {
       "75": "Cryptogram Found (See scenario book page 121)"

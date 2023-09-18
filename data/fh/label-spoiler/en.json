@@ -142,7 +142,7 @@
       ".": "Well Strung Bow"
     },
     "fh-21": {
-      "1": "While you are adjacent to tree or more enemies, gain %game.action.shield:1%.",
+      "1": "While you are adjacent to three or more enemies, gain %game.action.shield:1%.",
       ".": "Chain Hood"
     },
     "fh-22": {

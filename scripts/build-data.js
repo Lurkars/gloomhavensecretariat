@@ -68,6 +68,7 @@ for (edition_path of edition_dirs) {
   edition_data['decks'] = load_subfolder(edition_path, 'deck', []);
   edition_data['scenarios'] = load_file(edition_path, 'scenarios.json', []);
   edition_data['battleGoals'] = load_file(edition_path, 'battle-goals.json', []);
+  edition_data['events'] = load_file(edition_path, 'events.json', []);
   edition_data['campaign'] = load_file(edition_path, 'campaign.json', undefined);
 
   if (edition_data['campaign']) {

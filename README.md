@@ -18,7 +18,7 @@ Multiple clients are supported by a server component [Gloomhaven Secretariat Ser
 
 Since *GHS* is a web application, no installation is required and it runs in any modern browser, even on mobile devices, but it can also be [installed](#install) for offline use.
 
-*Gloomhaven Secretariat is open-source software built with [Angular](https://angular.io/) and is open for the community to actively [contribute](#contributing) ideas, suggestions and of course feedback and bug fixes.
+*Gloomhaven Secretariat* is open-source software built with [Angular](https://angular.io/) and is open for the community to actively [contribute](#contributing) ideas, suggestions and of course feedback and bug fixes.
 
 A basic user guide is available [online](https://help.gloomhaven-secretariat.de).
 
@@ -43,9 +43,9 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - **Character Attack Modifier Deck** including Perks & CS Oak Cards
   - **Elements** automatic update status
   - **Monster Stats**
-  - **Monster Standees** automatically adds stats for scenario rooms/sections and special rules (room/section data WIP)
+  - **Monster Standees** automatically adds standees for scenario rooms/sections and special rules
   - **Monster Modifier Deck** Adding **Blessings** and **Curses**, auto-shuffling
-  - **Monster Ability Cards** auto-shuffling, calculated values (separate for normal and elite)
+  - **Monster Ability Cards** auto-shuffling, calculated values (separate for normal and elite), add stats values
   - **Character Summons**
   - **Scenarios** and **Sections** with automatic level calculation, displays and applies special rules, and applies scenario results to character progression
   - **Party Sheet**
@@ -90,10 +90,9 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
       > To add Envelope X (or V for ToA), enable it under *Data Management*, then enter the full name in the *Character Filter* (not case sensitive).
     </details>
 
-### Short term plans
+### Planned next
 
-- Validate all existing data
-- Address all issues
+- Support for event cards (draw, manage, apply rewards)
 
 ### Long term plans
 

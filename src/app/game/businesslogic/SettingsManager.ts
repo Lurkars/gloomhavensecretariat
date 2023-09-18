@@ -687,6 +687,7 @@ export class SettingsManager {
           value.items = value.items || [];
           value.conditions = value.conditions || [];
           value.battleGoals = value.battleGoals || [];
+          value.events = value.events || [];
           value.label = value.label || {};
           value.labelSpoiler = value.labelSpoiler || {};
           value.url = url;
@@ -709,6 +710,16 @@ export class SettingsManager {
               battleGoal.cardId = battleGoal.edition + "-" + (index + 1);
             }
             return battleGoal;
+          })
+
+          value.events.map((event, index) => {
+            if (!event.edition) {
+              event.edition = value.edition;
+            }
+            if (!event.cardId) {
+              event.cardId = (index + 1);
+            }
+            return event;
           })
 
           gameManager.editionData.push(value);

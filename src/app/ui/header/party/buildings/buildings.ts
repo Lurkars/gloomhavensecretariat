@@ -175,7 +175,7 @@ export class PartyBuildingsComponent implements OnInit {
 
   rebuild(building: Building, force: boolean = false) {
     if (building.model.state == 'wrecked') {
-      if (this.upgradeable(building)) {
+      if (this.upgradeable(building) || force) {
         if (force) {
           gameManager.stateManager.before("rebuildBuilding", "data.buildings." + building.model.name);
           building.model.state = 'normal';
