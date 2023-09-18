@@ -602,6 +602,51 @@
       }
     },
     "enemy": "Enemy",
+    "events": {
+      "conditions": {
+        "otherwise": "Otherwise:",
+        "payCollectiveGold": "Pay {0} Collective gold:",
+        "reputationGT": "Reputation > {0}:",
+        "reputationLT": "Reputation < {0}:"
+      },
+      "option": {
+        ".": "Option {0}:",
+        "1": "A",
+        "2": "B",
+        "3": "C"
+      },
+      "rewards": {
+        "additionalGold": "Gain {0} additional gold each.",
+        "event": "Add %game.events.type.{0}% Event {1} to the deck.",
+        "collectiveGold": "Gain {0} collective gold.",
+        "collectiveItem": "Gain {2} collective \"%data.items.{1}-{0}%\" (Item {0}).",
+        "consumeCollectiveItem": "Consume {0} collective %game.itemSlot:{1}% item.",
+        "consumeItem": "Consume {0} %game.itemSlot:{1}% item each.",
+        "discard": "Discard {0} cards each.",
+        "experience": "Gain {0} experience each.",
+        "globalAchievement": "Global Achievement: \"{0}\".",
+        "gold": "Gain {0} gold each.",
+        "itemDesign": "Gain \"%data.items.{1}-{0}%\" design (Item {0}).",
+        "loseBattleGoal": "Lose {0} %game.checkmark% each.",
+        "loseCollectiveGold": "Lose {0} collective gold.",
+        "loseGold": "Lose {0} gold each.",
+        "loseReputation": "Lose {0} reputation.",
+        "noEffect": "No effect.",
+        "outcome": "Read outome %game.events.option.{0}%.",
+        "randomItemDesign": "Gain Random Item Design.",
+        "reputation": "Gain {0} reputation.",
+        "partyAchievement": "Party Achievement: \"{0}\".",
+        "prosperity": "Gain {0} prosperity.",
+        "scenario": "Unlock \"{1}\" %game.scenarioNumber:{0}%.",
+        "scenarioCondition": "All start scenario with %game.condition.{0}%.",
+        "scenarioDamage": "All start scenario with {0} damage.",
+        "scenarioSingleMinus1": "One starts scenario with %game.attackModifier.minus1% x{0}."
+      },
+      "type": {
+        "city": "City",
+        "road": "Road"
+      }
+    },
     "exhausted": "Exhausted",
     "experience": "Experience",
     "figure": {

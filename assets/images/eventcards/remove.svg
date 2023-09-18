@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="87.530258mm"
+   height="71.786369mm"
+   viewBox="0 0 87.530258 71.786369"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="remove.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.69664703"
+     inkscape:cx="160.05236"
+     inkscape:cy="320.82244"
+     inkscape:window-width="1850"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath854">
+      <path
+         d="M 0,0 H 300 V 300 H 0 Z"
+         id="path852" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-62.633956,-63.602827)">
+    <g
+       id="g856"
+       transform="matrix(0.35277777,0,0,-0.35277777,102.40758,119.7738)"
+       style="fill:#000000">
+      <path
+         d="m 0,0 16.366,37.749 -27.735,29.77 13.232,30.278 -33.453,7.884 -2.415,18.168 -72.373,-29.255 c -5.211,-2.106 -7.728,-8.038 -5.622,-13.25 l 48.199,-119.241 c 2.107,-5.212 8.039,-7.729 13.251,-5.623 l 71.352,29.107 0.144,6.616 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path858" />
+    </g>
+    <g
+       id="g860"
+       transform="matrix(0.35277777,0,0,-0.35277777,147.53245,114.375)"
+       style="fill:#000000">
+      <path
+         d="m 0,0 c 5.417,1.503 8.59,7.111 7.087,12.528 l -34.384,123.934 c -1.503,5.416 -7.112,8.589 -12.528,7.086 l -66.009,-18.313 -11.82,-20.605 15.266,-24.172 -17.81,-25.699 22.9,-32.569 -22.9,-34.095 13.087,-17.812 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path862" />
+    </g>
+  </g>
+</svg>
