@@ -606,6 +606,7 @@
       "conditions": {
         "otherwise": "Otherwise:",
         "payCollectiveGold": "Pay {0} Collective gold:",
+        "payCollectiveGoldConditional": "Pay {0} ({1}) or {2} ({3}) Collective gold:",
         "reputationGT": "Reputation > {0}:",
         "reputationLT": "Reputation < {0}:"
       },
@@ -1048,7 +1049,11 @@
       },
       "townGuard": "Town Guard",
       "townGuardDeck": "Town Guard Deck",
-      "treasures": "Treasures"
+      "treasures": {
+        ".": "Treasures",
+        "applySelect": "Apply Selection",
+        "batchSelect": "Multiselect"
+      }
     },
     "campaignMode": "Campaign Mode",
     "change": "Change party",
@@ -1512,7 +1517,7 @@
     },
     "automaticAttackModifierFullscreen": {
       ".": "Auto fullscreen AM Deck",
-      "hint": "Open Attack Modifier Deck (and also Loot Deck) in fullscreen mode when on small devices."
+      "hint": "Open Attack Modifier Deck (and also Loot Deck) in fullscreen mode when on small devices. (Disabled without Portrait-Mode Optimization)"
     },
     "automaticStandees": {
       ".": "Automatic Standees",
@@ -1577,6 +1582,14 @@
     "characterAttackModifierDeckPermanent": {
       ".": "Permanent Character AM Deck",
       "hint": "Display Attack Modifier Deck permanent under Character."
+    },
+    "characterAttackModifierDeckPermanentActive": {
+      ".": "Auto. active AM Deck",
+      "hint": "Automatically toggle permanent AM Deck for active Character."
+    },
+    "characterCompact": {
+      ".": "Compact Character Boards",
+      "hint": "Display narrow character board. (currently not supported on modern theme)"
     },
     "characterHandSize": {
       ".": "Display hand size and level",
@@ -1872,6 +1885,7 @@
       "addStandee": "Add {1} {0} standee {2}",
       "addSummon": "Add summon '{1}' for {0}",
       "addTreasure": "Add treasure {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
+      "addTreasures": "Add treasure {1} (%data.edition.{0}%)",
       "applyCondition": {
         "char": "Apply %game.condition.{1}% to {0}",
         "monsterEntities": "Apply %game.condition.{1}% to all {2}{0}",
@@ -2017,6 +2031,7 @@
       "removeResource": "-{2} {1} of {0}",
       "removeScenarioRule": "Remove scenario rule",
       "removeTreasure": "Remove treasure {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
+      "removeTreasures": "Remove treasures {1} (%data.edition.{0}%)",
       "removeCharTreasure": "Remove treasure {1} for {2}",
       "reorder": "Reorder figures",
       "reorderAbilities": "Reorder abilities of {0}",
