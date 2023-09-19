@@ -901,7 +901,11 @@
       },
       "townGuard": "Stadtwache",
       "townGuardDeck": "Stadtwachendeck",
-      "treasures": "Schätze"
+      "treasures": {
+        ".": "Schätze",
+        "applySelect": "Auswahl anwenden",
+        "batchSelect": "Mehrere gleichzeitig auswählen"
+      }
     },
     "campaignMode": "Kampagnenmodus",
     "change": "Gruppe wechseln",
@@ -1366,7 +1370,7 @@
     },
     "automaticAttackModifierFullscreen": {
       ".": "Autom. Vollbild AM-Deck",
-      "hint": "Angrifssmodifikatordeck (und Beute Deck) auf kleinen Bildschirmen automatisch in Vollansicht öffnen"
+      "hint": "Angrifssmodifikatordeck (und Beute Deck) auf kleinen Bildschirmen automatisch in Vollansicht öffnen. (Deaktiviert ohne Portraitmodus Optimierungen)"
     },
     "automaticStandees": {
       ".": "Automatische Aufsteller",
@@ -1431,6 +1435,14 @@
     "characterAttackModifierDeckPermanent": {
       ".": "Charakter AM-Deck dauerhaft",
       "hint": "Angriffsmodifikatordeck dauerthaft unterhalb des Charakters anzeigen."
+    },
+    "characterAttackModifierDeckPermanentActive": {
+      ".": "Auto. aktives AM-Deck",
+      "hint": "Automatisch das dauerhafter AM-Deck des aktiven Charakters umschalten."
+    },
+    "characterCompact": {
+      ".": "Kompaktes Charakterboard",
+      "hint": "Zeige eine schmaleres Charakterboard an. (Aktuell keine Unterstützung für das Moderne Thema)"
     },
     "characterHandSize": {
       ".": "Handkartenanzahl und Stufe anzeigen",

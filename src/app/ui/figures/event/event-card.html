@@ -31,10 +31,9 @@
                                 [ngClass]="{'selected-effect' : selectedEffect == effectIndex}">
                                 <div *ngIf="effect.rule" class="rule">TODO: {{effect.rule}}</div>
                                 <div *ngIf="effect.text" class="text">
-                                    <span *ngIf="effect.condition" class="condition"
-                                        [ghs-label]="'game.events.conditions.' +  effect.condition.type"
-                                        [ghs-label-args]="effect.condition.value ? ['' + effect.condition.value] : []">
-                                    </span>
+                                    <ghs-event-condition-label *ngIf="effect.condition" class="condition"
+                                        [condition]="effect.condition">
+                                    </ghs-event-condition-label>
                                     <span
                                         [ghs-label]="label + '.options.' + (i+1) + '.effects.' + (i +1)+ '.' + (effectIndex + 1)"></span>
                                 </div>
@@ -43,7 +42,8 @@
                                         <span class="reward"
                                             [ngClass]="{'selected-reward': i == selected && effectIndex == selectedEffect && getRewardSelection(effectIndex, rewardIndex).index == index}"
                                             (click)="selectReward(effectIndex,rewardIndex, index)">
-                                            <ghs-event-reward-label [reward]="reward" [edition]="event.edition"></ghs-event-reward-label>
+                                            <ghs-event-reward-label [reward]="reward"
+                                                [edition]="event.edition"></ghs-event-reward-label>
                                         </span>
                                         <span class="separator" *ngIf="rewards.length > 1 && index < rewards.length -1"
                                             [ghs-label]="'or'"></span>

@@ -48,13 +48,15 @@ export class StateManager {
     this.lastSaveTimestamp = new Date().getTime();
   }
 
-  async init() {
+  async init(tool: boolean = false) {
     try {
       const gameModel = await storageManager.readGameModel();
       gameModel.server = false;
       this.game.fromModel(gameModel);
     } catch {
-      storageManager.writeGameModel(this.game.toModel());
+      if (!tool) {
+        storageManager.writeGameModel(this.game.toModel());
+      }
     }
 
     this.updateBlocked = false;
@@ -308,6 +310,8 @@ export class StateManager {
             settings.backupHint = settingsManager.settings.backupHint;
             settings.browserNavigation = settingsManager.settings.browserNavigation;
             settings.characterAttackModifierDeckPermanent = settingsManager.settings.characterAttackModifierDeckPermanent;
+            settings.characterAttackModifierDeckPermanentActive = settingsManager.settings.characterAttackModifierDeckPermanentActive;
+            settings.characterCompact = settingsManager.settings.characterCompact;
             settings.debugRightClick = settingsManager.settings.debugRightClick;
             settings.disableAnimations = settingsManager.settings.disableAnimations;
             settings.disableArtwork = settingsManager.settings.disableArtwork;

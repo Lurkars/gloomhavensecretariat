@@ -18,7 +18,7 @@ export class LootDeckStandaloneComponent implements OnInit {
 
     async ngOnInit() {
         await settingsManager.init(!environment.production);
-        gameManager.stateManager.init();
+        gameManager.stateManager.init(true);
         gameManager.uiChange.emit();
         if (gameManager.game.state != GameState.next) {
             gameManager.roundManager.nextGameState(true);

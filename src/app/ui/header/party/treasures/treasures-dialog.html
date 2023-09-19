@@ -1,34 +1,46 @@
 <div class="treasures-dialog">
-    <div class="treasures">
-        <label><span [ghs-label]="'party.campaign.treasures'"></span>:</label>
+    <a class="close" (click)="close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'">
+        <img src="./assets/images/close_dialog.svg">
+    </a>
 
-        <div class="treasure-add">
-            <input min="1" #treasureIndex type="number" value="" (focus)="treasureIndex.select()"
-                (keyup)="treasureIndex.classList.remove('error');treasureIndex.classList.remove('warning');"
-                (keyup.enter)="addTreasure(treasureIndex, treasureEdition.value)">
-            <a [ngClass]="{'disabled' : !treasureIndex.value || +treasureIndex.value < 1 || hasTreasure(treasureIndex.value,treasureEdition.value)}"
-                (click)="addTreasure(treasureIndex, treasureEdition.value)"><img src="./assets/images/plus.svg"></a>
-            <select #treasureEdition [disabled]="party.edition">
-                <option *ngFor="let edition of gameManager.editions()" [value]="edition"
-                    [selected]="edition == party.edition">
-                    <span [ghs-label]="'data.edition.' + edition"></span>
-                </option>
-            </select>
+    <div class="header">
+        <div class="title">
+            <img class="icon" src="./assets/images/scenario/treasure.svg">
+            <span [ghs-label]="'party.campaign.treasures'"></span>
         </div>
+        <label>
+            <input type="checkbox" [(ngModel)]="select" (change)="update()">
+            <span [ghs-label]="'party.campaign.treasures.batchSelect'"></span>
+        </label>
+    </div>
 
-        <div class="treasure-list">
-            <label class="treasure" (click)="removeTreasure(treasure)" *ngFor="let treasure of treasures()"
-                [ngClass]="{'edition' : !party.edition}">
-                <span class="index">{{treasure.name}}</span>
-                <span class="separator">:</span>
-                <span class="checkbox"><img class="check" src="./assets/images/check.svg"><img class="close"
-                        src="./assets/images/close.svg"></span>
-                <span class="text">
-                    <ghs-treasure-label [edition]="treasure.edition" [index]="+treasure.name -1"></ghs-treasure-label>
-                </span>
-                <span class="text" *ngIf="!party.edition">[<span
-                        [ghs-label]="'data.edition.' + treasure.edition"></span>]</span>
-            </label>
+    <div class="scenarios">
+        <div class="scenario" *ngFor="let scenario of scenarios">
+            <div class="title">
+                <span class="text-white" [ghs-label]="'%data.scenarioNumber:' + scenario.index + '%'"></span>
+                <span class="text-white" [ghs-label]="'data.scenario.' + scenario.name"></span>
+            </div>
+            <div class="treasures">
+                <div class="hint-container" *ngFor="let treasure of treasures[scenario.index];">
+                    <div class="treasure hint-trigger"
+                        [ngClass]="{'looted': looted.indexOf(treasure) != -1, 'highlight' : selected.indexOf(treasure) != -1}"
+                        (click)="toggleTreasure(treasure)">
+                        <span *ngIf="treasure < 10">0</span>{{treasure}}
+                        <img class="overlay check" src="./assets/images/check.svg">
+                        <img class="overlay uncheck" src="./assets/images/close.svg">
+                    </div>
+                    <span class="hint center" *ngIf="looted.indexOf(treasure) != -1">
+                        <ghs-treasure-label class="text placeholder text-white" [edition]="scenario.edition"
+                            [index]="treasure"></ghs-treasure-label>
+                    </span>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div class="buttons">
+        <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
+        <a class="apply" *ngIf="select" [ngClass]="{'disabled' : selected.length == 0}" (click)="apply()"><span
+                [ghs-label]="'party.campaign.treasures.applySelect'"></span></a>
     </div>
 </div>

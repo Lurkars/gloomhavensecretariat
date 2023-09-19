@@ -79,6 +79,12 @@ export class CharacterComponent implements OnInit, OnDestroy {
         this.activeConditions.push(new EntityCondition(immunity));
       }
     })
+
+    if (settingsManager.settings.characterAttackModifierDeckPermanent && settingsManager.settings.characterAttackModifierDeckPermanentActive && gameManager.game.state == GameState.next) {
+      if (this.character.active) {
+        this.character.attackModifierDeck.active = true;
+      }
+    }
   }
 
   beforeAttackModifierDeck(change: AttackModiferDeckChange) {
@@ -351,7 +357,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
 
   toggleAttackModifierDeckVisible() {
-    if (this.character.attackModifierDeckVisible) {
+    if (this.character.attackModifierDeckVisible && (!settingsManager.settings.characterAttackModifierDeckPermanent || !settingsManager.settings.characterAttackModifierDeckPermanentActive || !this.character.active)) {
       this.character.attackModifierDeck.active = false;
       this.character.attackModifierDeckVisible = false;
     } else if (settingsManager.settings.characterAttackModifierDeckPermanent) {

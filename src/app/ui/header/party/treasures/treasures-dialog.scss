@@ -1,156 +1,154 @@
 .treasures-dialog {
     color: var(--ghs-color-white);
+    min-width: 25vw;
 
-    .treasures {
-        height: auto;
+    .header {
         display: flex;
-        flex-direction: column;
-        margin-top: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        justify-content: center;
+        align-items: center;
 
-        .treasure-add {
+        .title {
+            font-family: var(--ghs-font-title);
+            font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-yellow);
 
-            font-family: var(--ghs-font-text);
-            display: grid;
-            grid-template-columns: 0.5fr 0.2fr 2fr;
-            border-bottom: calc(var(--ghs-unit) * 0.05 * var(--ghs-dialog-factor)) solid var(--ghs-color-gray);
-            margin-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-            align-items: center;
-
-            input {
-                font-family: var(--ghs-font-text);
-                width: 100%;
-                min-width: 0;
-                margin: 0;
-                text-align: right;
+            .icon {
+                height: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+                width: auto;
+                margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+                filter: var(--ghs-filter-yellow);
             }
-
-            a {
-                font-family: var(--ghs-font-text);
-                display: flex;
-                cursor: pointer;
-
-                img {
-                    filter: var(--ghs-filter-green);
-                    width: auto;
-                    height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-                }
-
-                &.disabled {
-                    pointer-events: none;
-
-                    img {
-                        filter: var(--ghs-filter-darkgray);
-                    }
-                }
-            }
-
-
         }
 
-        .treasure-list {
-            overflow-y: auto;
-            font-size: 0.9em;
+        label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: var(--ghs-color-white);
+            margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        }
+    }
+
+    .scenarios {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        max-height: 70vh;
+
+        .scenario {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+        }
+
+
+        .treasures {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
 
             .treasure {
-                display: grid;
-                grid-template-columns: 0.3fr 0.2fr 0.2fr 2fr 0.2fr;
-                align-items: center;
+                cursor: pointer;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                background-image: url('~src/assets/images/scenario/treasure.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                color: var(--ghs-color-black);
+                width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+                height: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
+                margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+                transition: translate 500ms ease-in-out;
 
-                >* {
-                    width: 100%;
-                }
+                .overlay {
+                    display: none;
+                    position: absolute;
+                    top: 30%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    height: 50%;
+                    width: auto;
 
-                &.edition {
-                    grid-template-columns: 0.3fr 0.2fr 0.2fr 2fr 0.2fr 1fr;
-                }
+                    &.check {
+                        filter: var(--ghs-filter-green);
+                    }
 
-                .index {
-                    font-family: var(--ghs-font-text);
-                    font-size: 0.9em;
-                    justify-self: end;
-                }
-
-                .open-item {
-                    cursor: pointer;
-
-                    &:hover {
-                        opacity: 0.7;
+                    &.uncheck {
+                        filter: var(--ghs-filter-red);
                     }
                 }
 
-                .count {
-                    cursor: crosshair;
-                    font-family: var(--ghs-font-title);
-                    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-                    text-align: center;
-
-                    &:hover {
-                        opacity: 0.7;
-                    }
+                &:hover {
+                    opacity: 0.8;
+                    transform: scale(1.1);
                 }
 
-                .edition {
-                    text-align: right;
-                }
-
-                .separator {
-                    font-family: var(--ghs-font-normal);
-                    font-size: 0.9em;
-                    justify-self: start;
-                }
-
-                .checkbox {
-                    cursor: pointer;
-                    justify-self: start;
-                    position: relative;
-                    border: calc(var(--ghs-unit) * 0.05 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    width: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
-                    height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
-                    margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-
-                    .check,
-                    .close {
-                        position: absolute;
-                    }
+                &.looted {
+                    cursor: initial;
+                    opacity: 0.4;
 
                     .check {
-                        height: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+                        display: block;
+                    }
+                }
+
+                &.highlight {
+                    .check {
+                        display: block;
                     }
 
-                    .close {
-                        top: 0;
-                        left: calc(var(--ghs-unit) * -0.8 * var(--ghs-dialog-factor));
-                        height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
-                        filter: var(--ghs-filter-red);
-                        display: none;
-                    }
-
-                    &:hover {
-
-                        border: none;
-                        box-shadow: none;
-
+                    &.looted {
                         .check {
                             display: none;
                         }
 
-                        .close {
-                            display: inline-block;
+                        .uncheck {
+                            display: block;
                         }
                     }
                 }
-
-                .text {
-                    font-family: var(--ghs-font-text);
-                    font-size: 0.9em;
-                    justify-self: start;
-                    white-space: nowrap;
-                    overflow-x: auto;
-                }
             }
+        }
+
+    }
+
+    .buttons {
+        display: flex;
+        margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        font-family: var(--ghs-font-title);
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        justify-content: space-evenly;
+        align-items: center;
+
+        a {
+            cursor: pointer;
+            min-width: 33%;
+            display: flex;
+            justify-content: center;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+
+        .cancel {
+            color: var(--ghs-color-red);
+        }
+
+        .apply {
+            color: var(--ghs-color-green);
+        }
+
+        .disabled {
+            pointer-events: none;
+            color: var(--ghs-color-gray);
         }
     }
 }

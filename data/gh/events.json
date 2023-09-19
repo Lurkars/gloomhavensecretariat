@@ -391,8 +391,8 @@
                 "effects": [
                     {
                         "condition": {
-                            "type": "payCollectiveGold",
-                            "value": 20
+                            "type": "payCollectiveGoldConditional",
+                            "value": "20-reputationLT:10|15-reputationGT:9"
                         },
                         "text": true,
                         "rewards": [
@@ -436,6 +436,54 @@
                             [
                                 {
                                     "type": "noEffect"
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "city",
+        "cardId": 9,
+        "options": [
+            {
+                "outcome": true,
+                "remove": true,
+                "effects": [
+                    {
+                        "rewards": [
+                            [
+                                {
+                                    "type": "gold",
+                                    "value": 10
+                                }
+                            ],
+                            [
+                                {
+                                    "type": "additionalGold",
+                                    "value": 5,
+                                    "condition": {
+                                        "type": "reputationLT",
+                                        "value": -9
+                                    }
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            },
+            {
+                "outcome": true,
+                "remove": true,
+                "effects": [
+                    {
+                        "rewards": [
+                            [
+                                {
+                                    "type": "prosperity",
+                                    "value": 1
                                 }
                             ]
                         ]

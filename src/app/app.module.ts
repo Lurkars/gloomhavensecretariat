@@ -131,7 +131,8 @@ import { TreasuresDialogComponent } from './ui/header/party/treasures/treasures-
 import { ValueSignDirective } from './ui/helper/ValueSign';
 import { AdditionalAMSelectDialogComponent } from './ui/figures/entity-menu/additional-am-select/additional-am-select';
 import { EventCardComponent } from './ui/figures/event/event-card'
-import { EventRewardLabelComponent } from './ui/figures/event/label/label';
+import { EventConditionLabelComponent } from './ui/figures/event/label/condition-label';
+import { EventRewardLabelComponent } from './ui/figures/event/label/reward-label';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
@@ -159,7 +160,7 @@ export class GhsErrorHandler extends ErrorHandler {
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
     EntityMenuDialogComponent, EntitiesMenuDialogComponent, AdditionalAMSelectDialogComponent,
     CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, ItemComponent, ItemDialogComponent, ItemsDialogComponent, ItemsCharacterDialogComponent, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
-    EventCardComponent, EventRewardLabelComponent,
+    EventCardComponent, EventConditionLabelComponent, EventRewardLabelComponent,
     ObjectiveComponent, ObjectiveContainerComponent,
     SummonEntityComponent, SummonSheetComponent,
     StandeeComponent,

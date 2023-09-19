@@ -1066,8 +1066,6 @@ export class EntityMenuDialogComponent {
         }
         gameManager.stateManager.after();
         this.empower = 0;
-      } else {
-        console.log("DIALOG");
       }
     }
 

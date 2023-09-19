@@ -909,6 +909,19 @@
         </span>
       </div>
     </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.disableDragFigures"
+            (change)="settingsManager.setDisableDragFigures(!settingsManager.settings.disableDragFigures)">
+          <span [ghs-label]="'settings.disableDragFigures'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.disableDragFigures.hint'"></span>
+        </span>
+      </div>
+    </div>
   </div>
 
   <div class="column">
@@ -928,6 +941,21 @@
     </div>
     <div class="line">
       <div class="hint-container">
+        <label
+          [ngClass]="{'disabled' : !settingsManager.settings.characterAttackModifierDeck || !settingsManager.settings.characterAttackModifierDeckPermanent}">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierDeckPermanent && settingsManager.settings.characterAttackModifierDeckPermanentActive"
+            (change)="settingsManager.setCharacterAttackModifierDeckPermanentActive(!settingsManager.settings.characterAttackModifierDeckPermanentActive)">
+          <span [ghs-label]="'settings.characterAttackModifierDeckPermanentActive'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.characterAttackModifierDeckPermanentActive.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
         <label [ngClass]="{'disabled':  !settingsManager.settings.portraitMode}">
           <input type="checkbox"
             [checked]="settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode"
@@ -937,19 +965,6 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text" [ghs-label]="'settings.automaticAttackModifierFullscreen.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.disableDragFigures"
-            (change)="settingsManager.setDisableDragFigures(!settingsManager.settings.disableDragFigures)">
-          <span [ghs-label]="'settings.disableDragFigures'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.disableDragFigures.hint'"></span>
         </span>
       </div>
     </div>
@@ -1015,6 +1030,18 @@
         </span>
       </div>
     </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.portraitMode" (change)="togglePortraitMode()">
+          <span [ghs-label]="'settings.portraitMode'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.portraitMode.hint'"></span>
+        </span>
+      </div>
+    </div>
   </div>
 
   <div class="column">
@@ -1054,18 +1081,6 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text" [ghs-label]="'settings.backupHint.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.portraitMode" (change)="togglePortraitMode()">
-          <span [ghs-label]="'settings.portraitMode'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.portraitMode.hint'"></span>
         </span>
       </div>
     </div>
@@ -1126,7 +1141,7 @@
     </div>
   </div>
 
-  <div class="line ">
+  <div class="line">
     <div class="hint-container">
       <label (click)="resetBarsize($event)"><span [ghs-label]="'settings.barsize'"></span>
         <input type="range" min="0.1" step="0.1" max="2" [value]="settingsManager.settings.barsize"
@@ -1139,7 +1154,7 @@
     </div>
   </div>
 
-  <div class="line ">
+  <div class="line">
     <div class="hint-container">
       <label (click)="resetFontsize($event)"><span [ghs-label]="'settings.fontsize'"></span>
         <input type="range" min="0.1" step="0.1" max="2" [value]="settingsManager.settings.fontsize"
@@ -1205,6 +1220,21 @@
           (change)="settingsManager.setTheme(theme)">
         <span [ghs-label]="'settings.theme.' + theme"></span>
       </label>
+    </div>
+
+    <div class="line separator">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : settingsManager.settings.theme  == 'modern'}">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.theme  != 'modern' && settingsManager.settings.characterCompact"
+            (change)="settingsManager.setCharacterCompact(!settingsManager.settings.characterCompact)">
+          <span [ghs-label]="'settings.characterCompact'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.characterCompact.hint'"></span>
+        </span>
+      </div>
     </div>
   </div>
 

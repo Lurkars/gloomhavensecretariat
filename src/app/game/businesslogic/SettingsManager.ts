@@ -299,6 +299,16 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setCharacterAttackModifierDeckPermanentActive(characterAttackModifierDeckPermanentActive: boolean) {
+    this.settings.characterAttackModifierDeckPermanentActive = characterAttackModifierDeckPermanentActive;
+    this.storeSettings();
+  }
+
+  setCharacterCompact(characterCompact: boolean) {
+    this.settings.characterCompact = characterCompact;
+    this.storeSettings();
+  }
+
   setCharacterHandSize(characterHandSize: boolean) {
     this.settings.characterHandSize = characterHandSize;
     this.storeSettings();

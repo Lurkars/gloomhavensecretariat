@@ -207,7 +207,7 @@ export class Game {
     }
 
     this.solo = model.solo;
-    this.party = model.party ? Object.assign(new Party(), model.party) : new Party();
+    this.party = model.party ? JSON.parse(JSON.stringify(model.party)) : new Party();
 
     // migration
     if (this.party.achievementsList) {

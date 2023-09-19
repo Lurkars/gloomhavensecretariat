@@ -681,7 +681,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   treasuresDialog() {
     this.dialog.open(TreasuresDialogComponent, {
       panelClass: 'dialog',
-      data: this.party
+      data: { party: this.party, edition: this.treasureEdition }
     })
   }
 

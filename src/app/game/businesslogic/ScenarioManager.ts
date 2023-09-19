@@ -5,7 +5,7 @@ import { RoomData } from "../model/data/RoomData";
 import { ScenarioData, ScenarioRewards } from "../model/data/ScenarioData";
 import { EntityValueFunction } from "../model/Entity";
 import { Game, GameState } from "../model/Game";
-import { CountIdentifier, Identifier } from "src/app/game/model/data/Identifier";
+import { CountIdentifier } from "src/app/game/model/data/Identifier";
 import { LootDeckConfig } from "../model/data/Loot";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
@@ -76,14 +76,6 @@ export class ScenarioManager {
                   gameManager.lootManager.addCharacterLoot(figure, this.game.lootDeck.cards[index]);
                 })
               }
-            }
-
-            if (figure.treasures) {
-              figure.treasures.forEach((treasure) => {
-                if (typeof treasure === 'number') {
-                  gameManager.game.party.treasures.push(new Identifier('' + treasure, scenario.edition));
-                }
-              })
             }
           }
         })
@@ -704,16 +696,18 @@ export class ScenarioManager {
       scenarioData.solo && !this.game.figures.find((figure) => figure instanceof Character && figure.name == scenarioData.solo && figure.level >= 5) || false;
   }
 
+  getSections(scenario: ScenarioData): ScenarioData[] {
+    return gameManager.sectionData().filter((sectionData) => sectionData.edition == scenario.edition && sectionData.parent == scenario.index && sectionData.group == scenario.group)
+  }
+
   availableSections(includeConclusions: boolean = false): ScenarioData[] {
     if (!this.game.scenario) {
       return [];
     }
 
-    return gameManager.sectionData().filter((sectionData) =>
-      // match parent
-      this.game.scenario && sectionData.edition == this.game.scenario.edition && sectionData.parent == this.game.scenario.index && sectionData.group == this.game.scenario.group
+    return this.getSections(this.game.scenario).filter((sectionData) =>
       // filter conclusion
-      && (!sectionData.conclusion || includeConclusions)
+      (!sectionData.conclusion || includeConclusions)
       // filter already active
       && !this.game.sections.find((active) => active.edition == sectionData.edition && active.index == sectionData.index && active.parent == sectionData.parent)
       // match parent sections
@@ -750,6 +744,29 @@ export class ScenarioManager {
     if (unlooted) {
       treasures = treasures.filter((treasure) => !gameManager.game.party.treasures.find((identifier) => identifier.name == '' + treasure && identifier.edition == scenario.edition));
     }
+
+    return treasures;
+  }
+
+  getAllTreasures(scenario: ScenarioData): ('G' | number)[] {
+    let treasures: ('G' | number)[] = [];
+    if (scenario.rooms) {
+      scenario.rooms.forEach((room) => {
+        if (room.treasures) {
+          treasures.push(...room.treasures);
+        }
+      })
+    }
+
+    this.getSections(scenario).forEach((section) => {
+      if (section.rooms) {
+        section.rooms.forEach((room) => {
+          if (room.treasures) {
+            treasures.push(...room.treasures);
+          }
+        })
+      }
+    })
 
     return treasures;
   }

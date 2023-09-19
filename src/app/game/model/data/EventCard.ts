@@ -58,6 +58,7 @@ export enum EventRewardType {
 export enum EventConditionType {
     otherwise = "otherwise",
     payCollectiveGold = "payCollectiveGold",
+    payCollectiveGoldConditional = "payCollectiveGoldConditional",
     reputationGT = "reputationGT",
     reputationLT = "reputationLT"
 }

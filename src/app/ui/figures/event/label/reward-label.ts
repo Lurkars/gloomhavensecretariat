@@ -1,14 +1,14 @@
 import { Dialog } from "@angular/cdk/dialog";
 import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { EventConditionType, EventReward, EventRewardType } from "src/app/game/model/data/EventCard";
+import { EventReward, EventRewardType } from "src/app/game/model/data/EventCard";
 import { ItemData } from "src/app/game/model/data/ItemData";
 import { ItemDialogComponent } from "src/app/ui/figures/items/dialog/item-dialog";
 
 @Component({
     selector: 'ghs-event-reward-label',
-    templateUrl: './label.html',
-    styleUrls: ['./label.scss'],
+    templateUrl: './reward-label.html',
+    styleUrls: ['./reward-label.scss'],
     encapsulation: ViewEncapsulation.None
 })
 export class EventRewardLabelComponent implements OnInit {
@@ -19,17 +19,14 @@ export class EventRewardLabelComponent implements OnInit {
     @Input() edition!: string;
     @Input() itemCards: boolean = false;
 
-    conditionLabel: string[] = [];
     rewardLabel: string[] = [];
     items: ItemData[] = [];
 
-    conditionPrefix = 'game.events.conditions.';
     rewardPrefix = 'game.events.rewards.';
 
     constructor(private dialog: Dialog) { }
 
     ngOnInit() {
-        this.conditionLabel = this.calcConditionLabel();
         this.rewardLabel = this.calcRewardLabel();
         if (this.itemCards && [EventRewardType.collectiveItem, EventRewardType.itemDesign].indexOf(this.reward.type) != -1) {
             const itemString = ('' + this.reward.value).split(':')[0];
@@ -46,21 +43,6 @@ export class EventRewardLabelComponent implements OnInit {
                 this.items.push(itemData);
             }
         }
-    }
-
-    calcConditionLabel(): string[] {
-        if (this.reward.condition) {
-            const value = '' + (this.reward.condition.value || '');
-            switch (this.reward.condition.type) {
-                case EventConditionType.otherwise:
-                case EventConditionType.payCollectiveGold:
-                case EventConditionType.reputationGT:
-                case EventConditionType.reputationLT:
-                    return [this.conditionPrefix + this.reward.condition.type, value];
-            }
-        }
-
-        return [];
     }
 
     calcRewardLabel(): string[] {

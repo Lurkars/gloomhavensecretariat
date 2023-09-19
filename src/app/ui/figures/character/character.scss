@@ -367,7 +367,7 @@
       }
 
       .value-overlay {
-        font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor) );
+        font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
         width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
         height: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
         z-index: 1000;
@@ -713,6 +713,74 @@
     }
   }
 
+  &.compact {
+    height: calc(var(--ghs-unit) * 10.25);
+    background-image: url('~/src/assets/images/character/char-mat_compact.png');
+
+    ghs-character-image,
+    .initiative {
+      display: none;
+    }
+
+    .drag-initiative {
+      position: absolute;
+      top: calc(var(--ghs-unit) * 2.5);
+      left: calc(var(--ghs-unit) * 6.5);
+      width: calc(var(--ghs-unit) * 5);
+      height: calc(var(--ghs-unit) * 5);
+    }
+
+    .attack-modifierdeck-container ghs-attackmodifier-deck {
+      top: calc(var(--ghs-unit) * 1 / var(--ghs-text-factor));
+      left: calc(var(--ghs-unit) * 13);
+      width: calc(var(--ghs-unit) * 30 * var(--ghs-text-factor));
+      height: calc(var(--ghs-unit) * 8 * var(--ghs-text-factor));
+    }
+
+    .stats {
+
+      margin-left: calc(var(--ghs-unit) * 7);
+
+      .column {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
+        .title {
+
+          .icon {
+            margin-top: calc(var(--ghs-unit) * 0.5);
+            margin-left: calc(var(--ghs-unit) * -0.5);
+
+            img {
+              height: calc(var(--ghs-unit) * 4.5);
+            }
+          }
+        }
+
+        &.col-2 {
+          width: calc(var(--ghs-unit) * 12);
+          margin-right: calc(var(--ghs-unit) * 7);
+        }
+
+        .experience {
+          margin-bottom: 0;
+          margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+        }
+
+        .loot {
+          margin-top: 0;
+          margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+        }
+      }
+    }
+
+    .character-sheet-button {
+      display: none;
+    }
+
+  }
+
   &.modern {
     height: calc(var(--ghs-unit) * 16);
     border-top-left-radius: calc(var(--ghs-unit) * 13);
@@ -753,6 +821,7 @@
           .icon {
             height: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
             filter: grayscale(1) brightness(0.3);
+            margin-top: calc(var(--ghs-unit) * -1 * var(--ghs-text-factor));
             margin-left: calc(var(--ghs-unit) * -0.5);
           }
         }

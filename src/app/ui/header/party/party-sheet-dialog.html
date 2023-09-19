@@ -630,9 +630,7 @@
                   <span class="separator">:</span>
                   <span class="checkbox" (click)="removeItem(item)"><img class="check"
                       src="./assets/images/check.svg"><img class="close" src="./assets/images/close.svg"></span>
-                  <span class="text open-item" (click)="openItem(item)">
-                    {{item.name}}
-                  </span>
+                  <span class="text open-item" (click)="openItem(item)" [ghs-label]="'data.items.' + item.edition + '-' + item.id"></span>
                   <span class="count" (click)="incItemCount(item, itemIdentifier[i])">
                     {{itemIdentifier[i].count > 0 ? itemIdentifier[i].count : '-'}}
                   </span>
@@ -646,7 +644,9 @@
 
         <div class="row">
           <div class="treasures">
-            <label><span [ghs-label]="'party.campaign.treasures'"></span>:</label>
+            <label class="treasures-title" (click)="treasuresDialog()">
+              <img class="icon" src="./assets/images/scenario/treasure.svg"><span
+                [ghs-label]="'party.campaign.treasures'"></span>:</label>
 
             <div class="treasure-add">
               <input min="1" #treasureIndex type="number" value="" (focus)="treasureIndex.select()"

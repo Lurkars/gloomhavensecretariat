@@ -39,6 +39,8 @@ export class Settings {
   calculateShieldStats: boolean = true;
   characterAttackModifierDeck: boolean = true;
   characterAttackModifierDeckPermanent: boolean = false;
+  characterAttackModifierDeckPermanentActive: boolean = false;
+  characterCompact: boolean = false;
   characterHandSize: boolean = false;
   characterIdentities: boolean = true;
   characterIdentityHint: boolean = true;

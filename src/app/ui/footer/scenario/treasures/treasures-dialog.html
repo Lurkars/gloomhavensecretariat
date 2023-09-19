@@ -27,7 +27,7 @@
                     </div>
                     <span class="hint center">
                         <ghs-treasure-label class="text placeholder text-white"
-                            *ngIf="!('' + treasure).startsWith('G-')" [edition]="scenario.edition" [index]="+(''
+                            *ngIf="!('' + treasure).startsWith('G-')" [edition]="edition" [index]="+(''
                     +treasure).split(':')[0] -1"
                             [rewardResults]="rewardsFromString('' + treasure)"></ghs-treasure-label></span>
                 </div>
@@ -61,7 +61,7 @@
                     [ghs-label]="'game.loot.treasures.rewards.goal'"></span></span>
 
             <ghs-treasure-label class="placeholder text-white" *ngIf="treasures[treasureIndex] != 'G'"
-                [edition]="scenario.edition" [index]="+treasures[treasureIndex] -1" [rewardResults]="rewardResults"
+                [edition]="edition" [index]="+treasures[treasureIndex] -1" [rewardResults]="rewardResults"
                 [itemCards]="true"></ghs-treasure-label>
         </ng-container>
     </div>
