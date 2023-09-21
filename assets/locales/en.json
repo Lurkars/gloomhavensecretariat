@@ -1527,6 +1527,10 @@
       ".": "Automatic Standees Dialogs",
       "hint": "Automatically open standee number dialogs for all new standees."
     },
+    "automaticTheme": {
+      ".": "Automatic Theme",
+      "hint": "Adjust Theme and Frosthaven Style automatically on edition change. Also adjust Theme when toggling Frosthaven Style.<br>(Theme adjustment disabled on Modern Theme)"
+    },
     "automaticUnlocking": {
       ".": "Automatic Character Unlock",
       "hint": "Automatically unlock characters from scenario rewards."

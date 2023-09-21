@@ -1380,6 +1380,10 @@
       ".": "Automatische Aufsteller Dialoge",
       "hint": "Öffne automatische Auswahl-Dialoge zur Nummerauswahl für alle neuen Aufsteller."
     },
+    "automaticTheme": {
+      ".": "Thema automatisch anpassen",
+      "hint": "Passt das Thema/den Frosthaven Stil automatisch der ausgewählten Edition. Beim Umschalten des Frosthaven Stil wird auch das Theme automatisch angepasst.<br>(Thema wird beim modernen Theme nicht automatisch umgeschaltet!)"
+    },
     "automaticUnlocking": {
       ".": "Automatische Charakter Freischaltung",
       "hint": "Automatisches Charaktere durch Szenario Belohnungen freischalten."
