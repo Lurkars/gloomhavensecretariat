@@ -234,6 +234,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setAutomaticTheme(automaticTheme: boolean) {
+    this.settings.automaticTheme = automaticTheme;
+    this.storeSettings();
+  }
+
   setAutomaticUnlocking(automaticUnlocking: boolean) {
     this.settings.automaticUnlocking = automaticUnlocking;
     this.storeSettings();
@@ -431,10 +436,12 @@ export class SettingsManager {
 
   setFhStyle(fhStyle: boolean) {
     this.settings.fhStyle = fhStyle;
-    if (this.settings.fhStyle && this.settings.theme == 'default') {
-      this.settings.theme = 'fh';
-    } else if (!this.settings.fhStyle && this.settings.theme == 'fh') {
-      this.settings.theme = 'default';
+    if (this.settings.automaticTheme) {
+      if (this.settings.fhStyle && this.settings.theme == 'default') {
+        this.settings.theme = 'fh';
+      } else if (!this.settings.fhStyle && this.settings.theme == 'fh') {
+        this.settings.theme = 'default';
+      }
     }
     this.storeSettings();
   }
@@ -446,6 +453,11 @@ export class SettingsManager {
 
   setFullscreen(fullscreen: boolean) {
     this.settings.fullscreen = fullscreen;
+    this.storeSettings();
+  }
+
+  setGlobalFontsize(globalFontsize: number) {
+    this.settings.globalFontsize = globalFontsize;
     this.storeSettings();
   }
 

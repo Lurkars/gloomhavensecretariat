@@ -163,6 +163,10 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
     }
   }
 
+  dragHpCancel(value: number) {
+    this.health = 0;
+  }
+
   openEntityMenu(event: any): void {
     this.dialog.open(EntityMenuDialogComponent, {
       panelClass: 'dialog', data: {

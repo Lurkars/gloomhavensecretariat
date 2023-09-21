@@ -306,6 +306,7 @@ export class StateManager {
             settings.autoBackupFinish = settingsManager.settings.autoBackupFinish;
             settings.autoBackupUrl = settingsManager.settings.autoBackupUrl;
             settings.autoscroll = settingsManager.settings.autoscroll;
+            settings.automaticTheme = settingsManager.settings.automaticTheme;
             settings.barsize = settingsManager.settings.barsize;
             settings.backupHint = settingsManager.settings.backupHint;
             settings.browserNavigation = settingsManager.settings.browserNavigation;
@@ -320,6 +321,7 @@ export class StateManager {
             settings.dragValues = settingsManager.settings.dragValues;
             settings.fhStyle = settingsManager.settings.fhStyle;
             settings.fontsize = settingsManager.settings.fontsize;
+            settings.globalFontsize = settingsManager.settings.globalFontsize;
             settings.fullscreen = settingsManager.settings.fullscreen;
             settings.portraitMode = settingsManager.settings.portraitMode;
             settings.pressDoubleClick = settingsManager.settings.pressDoubleClick;

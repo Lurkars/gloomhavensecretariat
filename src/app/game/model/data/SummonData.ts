@@ -16,6 +16,8 @@ export class SummonData {
   special: boolean;
   count: number;
   thumbnail: boolean;
+  thumbnailUrl: string | undefined;
+  noThumbnail: boolean = false;
 
   constructor(name: string, cardId: string, edition: string, health: number | string,
     attack: number | string,
@@ -27,7 +29,9 @@ export class SummonData {
     level: number | undefined = undefined,
     special: boolean = false,
     count: number = 1,
-    thumbnail: boolean = false) {
+    thumbnail: boolean = false,
+    thumbnailUrl: string | undefined = undefined,
+    noThumbnail: boolean = false) {
     this.name = name;
     this.cardId = cardId;
     this.edition = edition;
@@ -42,6 +46,9 @@ export class SummonData {
     this.special = special;
     this.count = count;
     this.thumbnail = thumbnail;
+    this.thumbnail = thumbnail;
+    this.thumbnailUrl = thumbnailUrl;
+    this.noThumbnail = noThumbnail;
   }
 
 }

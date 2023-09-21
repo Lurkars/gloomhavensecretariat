@@ -231,6 +231,7 @@ export class PointerInputDirective implements OnInit, OnDestroy {
   @Input() onRelease: boolean = false;
   @Output('dragMove') dragMove = new EventEmitter<number>();
   @Output('dragEnd') dragEnd = new EventEmitter<number>();
+  @Output('dragCancel') dragCancel = new EventEmitter<number>();
 
   @Output('singleClick') singleClick: EventEmitter<any> = new EventEmitter<any>();
   @Output('doubleClick') doubleClick: EventEmitter<any> = new EventEmitter<any>();
@@ -386,6 +387,8 @@ export class PointerInputDirective implements OnInit, OnDestroy {
       clearTimeout(this.timeout);
       this.timeout = null;
     }
+    
+    this.dragCancel.emit(this.value);
 
     this.repeats = -1;
     this.clicks = 0;

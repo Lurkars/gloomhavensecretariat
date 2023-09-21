@@ -131,6 +131,30 @@ export class SettingsMenuComponent {
     }
   }
 
+  updateGlobalFontsize(event: any) {
+    document.body.style.setProperty('--ghs-global-fontsize', event.target.value + '');
+  }
+
+  setGlobalFontsize(event: any): void {
+    settingsManager.setGlobalFontsize(event.target.value);
+    document.body.style.setProperty('--ghs-global-fontsize', settingsManager.settings.globalFontsize + '');
+  }
+
+  resetGlobalFontsize(event: any) {
+    if (this.doubleClick) {
+      clearTimeout(this.doubleClick);
+      this.doubleClick = null;
+      settingsManager.setGlobalFontsize(1);
+      document.body.style.setProperty('--ghs-global-fontsize', settingsManager.settings.globalFontsize + '');
+    } else {
+      this.doubleClick = setTimeout(() => {
+        if (this.doubleClick) {
+          this.doubleClick = null;
+        }
+      }, 200)
+    }
+  }
+
   setTheme(event: any) {
     settingsManager.setTheme(event.target.value);
   }

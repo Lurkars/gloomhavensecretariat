@@ -1,5 +1,4 @@
-<div class="card-container ability"
-  [ngClass]="{'fh' : settingsManager.settings.fhStyle}"
+<div class="card-container ability" [ngClass]="{'fh' : settingsManager.settings.fhStyle, 'expand' : flipped || ability && ability.revealed}"
   [style.--ghs-ability-color]="character && character.color">
   <div class="card" [ngClass]="{'flipped' : flipped || ability && ability.revealed}" card-reveal
     (change)="onChange($event)" [disabled]="!reveal || !ability" #card
@@ -41,8 +40,7 @@
           <span *ngIf="character && ability.cardId < 10">0</span>
           <span>{{ability.cardId}}</span>
         </span>
-        <span class="logo" *ngIf="character"><img
-            [src]="character.iconUrl" /></span>
+        <span class="logo" *ngIf="character"><img [src]="character.iconUrl" /></span>
         <span *ngIf="ability.lost" class="lost">
           <img src="./assets/images/action/card/lost.svg">
           <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">

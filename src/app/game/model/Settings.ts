@@ -25,6 +25,7 @@ export class Settings {
   automaticAttackModifierFullscreen: boolean = true;
   automaticStandees: boolean = true;
   automaticStandeesDialog: boolean = false;
+  automaticTheme: boolean = true;
   automaticUnlocking: boolean = true;
   autoscroll: boolean = true;
   barsize: number = 1;
@@ -66,6 +67,7 @@ export class Settings {
   fhGhItems: boolean = false;
   fhStyle: boolean = false;
   fontsize: number = 1;
+  globalFontsize: number = 1;
   fullscreen: boolean = false;
   hideAbsent: boolean = false;
   hideStats: boolean = false;

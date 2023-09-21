@@ -61,7 +61,8 @@
         <span class="title-bar">
           <span class="title" #characterName>
             <span class="icon" ghs-pointer-input (dragMove)="dragTokenMove($event)" (dragEnd)="dragTokenEnd($event)"
-              [relative]="true" [screenWidth]="true" (singleClick)="nextIdentity($event)">
+              (dragCancel)="dragCancel($event)" [relative]="true" [screenWidth]="true"
+              (singleClick)="nextIdentity($event)">
               <img
                 [ngClass]="{'identities' : settingsManager.settings.characterIdentities &&  character.identities && character.identities.length > 1}"
                 [src]="character.identities.length == 0 || !settingsManager.settings.characterIdentities ? character.iconUrl : gameManager.characterManager.characterIdentityIcon(character.name, character.identity)" />
@@ -78,8 +79,8 @@
           <span class="token-container">
             <span class="token" *ngIf="(character.token + (character.primaryToken < 0 ? token : 0)) > 0"
               [ghs-label]="'%data.characterToken.' + character.name + '%'" ghs-pointer-input
-              (dragMove)="dragTokenMove($event)" (dragEnd)="dragTokenEnd($event)" [relative]="true" [screenWidth]="true"
-              (singleClick)="nextIdentity($event)">></span>
+              (dragMove)="dragTokenMove($event)" (dragEnd)="dragTokenEnd($event)" (dragCancel)="dragCancel($event)"
+              [relative]="true" [screenWidth]="true" (singleClick)="nextIdentity($event)">></span>
             <span class="token value" *ngIf="(character.token + (character.primaryToken < 0 ? token : 0)) > 1">
               <span>x{{character.token + (character.primaryToken < 0 ? token : 0)}}</span>
               </span>
@@ -95,8 +96,8 @@
           </span>
           <div class="status-bar">
             <div class="health" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'" ghs-pointer-input
-              (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true" [screenWidth]="true"
-              (singleClick)="openEntityMenu($event)">
+              (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" (dragCancel)="dragCancel($event)"
+              [relative]="true" [screenWidth]="true" (singleClick)="openEntityMenu($event)">
               <img src="./assets/images/status/health.svg" />
               {{(character.health + health) | ghsMinZero}}/{{character.maxHealth}}
               <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [container]="true"></span>
@@ -186,15 +187,16 @@
       <div class="column col-2">
         <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"></div>
         <span class="experience" [ghs-label]="'game.experience'" [ghs-label-attribute]="'title'" ghs-pointer-input
-          (dragMove)="dragXpMove($event)" (dragEnd)="dragXpEnd($event)" [relative]="true" [screenWidth]="true"
-          (singleClick)="openEntityMenu($event)">
+          (dragMove)="dragXpMove($event)" (dragEnd)="dragXpEnd($event)" (dragCancel)="dragCancel($event)"
+          [relative]="true" [screenWidth]="true" (singleClick)="openEntityMenu($event)">
           {{character.experience + experience}}
           <img src="./assets/images/status/experience.svg" />
           <span class="value-overlay" [value-sign]="experience" [hideEmpty]="true" [container]="true"></span>
         </span>
         <span class="loot" *ngIf="!settingsManager.settings.alwaysLootDeck && !gameManager.fhRules()"
           [ghs-label]="'game.loot'" [ghs-label-attribute]="'title'" ghs-pointer-input (dragMove)="dragLootMove($event)"
-          (dragEnd)="dragLootEnd($event)" [relative]="true" [screenWidth]="true" (singleClick)="openEntityMenu($event)">
+          (dragEnd)="dragLootEnd($event)" (dragCancel)="dragCancel($event)" [relative]="true" [screenWidth]="true"
+          (singleClick)="openEntityMenu($event)">
           {{character.loot + loot}}
           <img src="./assets/images/status/loot.svg" />
           <span class="value-overlay" [value-sign]="loot" [hideEmpty]="true" [container]="true"></span>

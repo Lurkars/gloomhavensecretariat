@@ -212,14 +212,19 @@
     ghs-character-initiative,
     .title,
     .conditions,
+    .attack-modifier-button,
     .loot-cards-button,
     .experience,
     .loot,
-    .attack-modifier-button,
+    .battlegoals-button,
+    .items-button,
     .icon-container,
+    .summon-dialog,
     .stats .column,
-    .hand-size {
-      filter: grayscale(15%);
+    .hand-size,
+    .character-level,
+    .character-sheet-button {
+      filter: grayscale(0.15);
       opacity: 0.5;
     }
   }
@@ -683,8 +688,14 @@
     .experience,
     .loot,
     .icon-container,
+    .attack-modifier-button,
+    .loot-cards-button,
     .character-sheet-button,
+    .battlegoals-button,
+    .items-button,
+    .summon-dialog,
     .hand-size,
+    .character-level,
     &::before {
       filter: grayscale(1) !important;
     }
@@ -737,6 +748,17 @@
       height: calc(var(--ghs-unit) * 8 * var(--ghs-text-factor));
     }
 
+    .loot-cards {
+      top: calc(var(--ghs-unit) * 0.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
+      left: calc(var(--ghs-unit) * 8);
+
+      .loot-card {
+        position: relative;
+        width: calc(var(--ghs-unit) * (9 * 2 / 3) * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 9 * var(--ghs-text-factor));
+      }
+    }
+
     .stats {
 
       margin-left: calc(var(--ghs-unit) * 7);
@@ -773,6 +795,16 @@
           margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
         }
       }
+    }
+
+    .hand-size {
+      top: calc(var(--ghs-unit) * 2.7);
+      right: calc(var(--ghs-unit) * 1.2);
+    }
+
+    .character-level {
+      top: calc(var(--ghs-unit) * 6.3);
+      right: calc(var(--ghs-unit) * 1);
     }
 
     .character-sheet-button {

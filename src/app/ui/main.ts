@@ -151,6 +151,7 @@ export class MainComponent implements OnInit {
     document.body.style.setProperty('--ghs-factor', settingsManager.settings.zoom + '');
     document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
     document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
+    document.body.style.setProperty('--ghs-global-fontsize', settingsManager.settings.globalFontsize + '');
 
     const figure = this.figures.find((figure) => figure instanceof Character && figure.fullview);
     if (figure) {
@@ -232,10 +233,12 @@ export class MainComponent implements OnInit {
   startCampaign(edition: string) {
     gameManager.stateManager.before("startCampaign", 'data.edition.' + edition);
     gameManager.game.edition = edition;
-    if (edition == 'fh') {
-      settingsManager.setFhStyle(true);
-    } else {
-      settingsManager.setFhStyle(false);
+    if (settingsManager.settings.automaticTheme) {
+      if (edition == 'fh') {
+        settingsManager.setFhStyle(true);
+      } else {
+        settingsManager.setFhStyle(false);
+      }
     }
     gameManager.game.party.campaignMode = true;
     gameManager.stateManager.after();

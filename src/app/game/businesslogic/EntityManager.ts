@@ -87,7 +87,7 @@ export class EntityManager {
       entity.health = 0;
     }
 
-    if (entity.health == 0 && !entity.entityConditions.find((condition) => condition.highlight && condition.types.indexOf(ConditionType.apply) != -1)) {
+    if (entity.health == 0 && !entity.entityConditions.find((condition) => settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && condition.highlight && condition.types.indexOf(ConditionType.apply) != -1 && settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) == -1)) {
       if ((entity instanceof Character || entity instanceof Objective) && (!entity.off || !entity.exhausted)) {
         entity.off = true;
         entity.exhausted = true;
@@ -198,7 +198,7 @@ export class EntityManager {
             }
           })
 
-          if (shield.value) {
+          if (shield.value && (entity.health + value + shield.value) > 0) {
             shield.expired = false;
             shield.highlight = true;
           }

@@ -6,9 +6,11 @@
       <div class="sheet">
         <ghs-summon-sheet *ngIf="summon.active" [summon]="summon"></ghs-summon-sheet>
 
-        <div class="background-image-container" *ngIf="summon.thumbnail">
+        <div class="background-image-container"
+          *ngIf="!settingsManager.settings.disableArtwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)">
           <div class="background-image"
-            [style.background-image]="'url(./assets/images/summons/thumbnail/' + summon.thumbnail + '.png)'"></div>
+            [style.background-image]="summon.thumbnailUrl ? 'url(' +  summon.thumbnailUrl + ')' : 'url(./assets/images/summons/thumbnail/' + summon.thumbnail + '.png)'">
+          </div>
         </div>
       </div>
 
@@ -59,6 +61,6 @@
   </div>
 
   <ghs-pointer-input class="drag-hp" (singleClick)="open()" (doubleClick)="toggleActive()"
-    (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true"
+    (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" (dragCancel)="dragHpCancel($event)" [relative]="true"
     [screenWidth]="true"></ghs-pointer-input>
 </div>

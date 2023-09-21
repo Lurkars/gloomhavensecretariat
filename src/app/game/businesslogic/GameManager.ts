@@ -760,6 +760,14 @@ export class GameManager {
   }
 
   changeParty(party: Party) {
+    if (settingsManager.settings.automaticTheme) {
+      if (this.game.edition != 'fh' && party.edition == 'fh') {
+        settingsManager.setFhStyle(true);
+      } else if (this.game.edition == 'fh' && party.edition != 'fh') {
+        settingsManager.setFhStyle(false);
+      }
+    }
+
     this.game.party.characters = this.game.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel()));
     this.game.party.edition = this.game.edition;
     this.game.party.conditions = this.game.conditions;

@@ -281,6 +281,13 @@ export class CharacterComponent implements OnInit, OnDestroy {
     }
   }
 
+  dragCancel(value: number) {
+    this.health = 0;
+    this.experience = 0;
+    this.loot = 0;
+    this.token = 0;
+  }
+
   openEntityMenu(event: any): void {
     this.dialog.open(EntityMenuDialogComponent, {
       panelClass: 'dialog',

@@ -107,16 +107,15 @@
             <span *ngIf="party.name">{{party.name}}</span>
             <span *ngIf="!party.name"><span [ghs-label]="'party.campaign'"></span>&nbsp;{{party.id}}</span>
         </label>
-        <label *ngIf="gameManager.game.party == party"
-            [ngClass]="{'disabled' :  gameManager.game.parties.length == 1 || gameManager.game.scenario}">
+        <label *ngIf="gameManager.game.party == party">
             <input type="checkbox" checked="true" disabled="disabled">
-            <input *ngIf="!gameManager.game.scenario" type="text" [value]="party.name" (change)="setName($event)"
+            <input type="text" [value]="party.name" (change)="setName($event)"
                 [ghs-label]="'campaign.campaignManagement.name'" [ghs-label-args]="['' + party.id]"
                 [ghs-label-attribute]="'placeholder'">
-            <span *ngIf="gameManager.game.scenario && party.name">{{party.name}}</span>
-            <span *ngIf="gameManager.game.scenario && !party.name"><span
-                    [ghs-label]="'party.campaign'"></span>&nbsp;{{party.id}}</span>
         </label>
+        <span class="spacer"></span>
+        <a class="remove" (click)="removeParty(party)" (mouseleave)="cancelRemoveParty()"
+            [ngClass]="{'disabled' :  gameManager.game.parties.length == 1 || gameManager.game.scenario, 'confirm': confirmPartyDelete == party.id}"></a>
     </div>
 
     <div class="line span">

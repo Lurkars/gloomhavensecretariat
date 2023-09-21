@@ -79,9 +79,12 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
         this.dead();
       }
       this.health = 0;
-      this.health = 0;
       gameManager.stateManager.after();
     }
+  }
+
+  dragHpCancel(value: number) {
+    this.health = 0;
   }
 
   dead() {

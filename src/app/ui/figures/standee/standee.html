@@ -75,7 +75,7 @@
     <ghs-healthbar [entity]="entity" [diff]="health"></ghs-healthbar>
   </div>
 
-  <ghs-pointer-input class="drag-hp" (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)"
+  <ghs-pointer-input class="drag-hp" (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" (dragCancel)="dragHpCancel($event)"
     (singleClick)="openEntityMenu($event)" (doubleClick)="doubleClick($event)" [relative]="true" [screenWidth]="true">
   </ghs-pointer-input>
 </div>

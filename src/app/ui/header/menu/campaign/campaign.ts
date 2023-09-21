@@ -28,6 +28,7 @@ export class CampaignMenuComponent implements OnInit {
     amConditions: Condition[] = [];
     editionConditions: ConditionName[] = [];
     characters: Character[] = [];
+    confirmPartyDelete: number = -1;
 
     constructor(private dialog: Dialog) { }
 
@@ -55,10 +56,12 @@ export class CampaignMenuComponent implements OnInit {
 
     setEdition(edition: string | undefined = undefined) {
         gameManager.stateManager.before("setEdition", "data.edition." + edition);
-        if (edition == 'fh') {
-            settingsManager.setFhStyle(true);
-        } else {
-            settingsManager.setFhStyle(false);
+        if (settingsManager.settings.automaticTheme) {
+            if (edition == 'fh') {
+                settingsManager.setFhStyle(true);
+            } else {
+                settingsManager.setFhStyle(false);
+            }
         }
         gameManager.game.edition = edition;
         gameManager.game.party.edition = edition;
@@ -135,7 +138,7 @@ export class CampaignMenuComponent implements OnInit {
         party.id = id;
         gameManager.stateManager.before("addParty", party.name || '%party% ' + party.id);
         gameManager.game.parties.push(party);
-        this.changeParty(party);
+        gameManager.changeParty(party);
         this.update();
         gameManager.stateManager.after();
     }
@@ -145,6 +148,27 @@ export class CampaignMenuComponent implements OnInit {
         gameManager.changeParty(party);
         this.update();
         gameManager.stateManager.after();
+    }
+
+    removeParty(party: Party) {
+        if (gameManager.game.parties.length > 1) {
+            if (this.confirmPartyDelete != party.id) {
+                this.confirmPartyDelete = party.id;
+            } else {
+                gameManager.stateManager.before("removeParty", party.name || '%party% ' + party.id);
+                gameManager.game.parties.splice(gameManager.game.parties.indexOf(party), 1);
+                if (gameManager.game.party.id == party.id) {
+                    gameManager.changeParty(gameManager.game.parties[0]);
+                }
+                this.update();
+                gameManager.stateManager.after();
+                this.cancelRemoveParty();
+            }
+        }
+    }
+
+    cancelRemoveParty() {
+        this.confirmPartyDelete = -1;
     }
 
     setName(event: any) {

@@ -34,10 +34,11 @@
         </span>
         <label><span [ghs-label]="'data.summon.' + summonData.name"></span> <span *ngIf="showLevel(summonData)">(<span
               [ghs-label]="'character.summon.level'"></span> {{summonData.level}})</span></label>
-        <ng-container *ngIf="summonData.thumbnail">
+        <ng-container *ngIf="summonData.thumbnail && !summonData.noThumbnail || summonData.thumbnailUrl">
           <span class="spacer"></span>
           <span class="thumbnail">
-            <img [src]="'./assets/images/summons/thumbnail/' + summonData.edition + '-' + summonData.name + '.png'" />
+            <img
+              [src]="summonData.thumbnailUrl ? summonData.thumbnailUrl :  './assets/images/summons/thumbnail/' + summonData.edition + '-' + summonData.name + '.png'" />
           </span>
         </ng-container>
       </span>

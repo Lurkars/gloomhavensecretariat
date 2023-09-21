@@ -45,7 +45,7 @@
         </div>
         <div class="status-bar">
           <div class="health" ghs-pointer-input (singleClick)="openEntityMenu($event)" (dragMove)="dragHpMove($event)"
-            (dragEnd)="dragHpEnd($event)" [relative]="true" [screenWidth]="true">
+            (dragEnd)="dragHpEnd($event)" (dragCancel)="dragHpCancel($event)" [relative]="true" [screenWidth]="true">
             <img src="./assets/images/status/health.svg" />
             <ng-container *ngIf="entity.maxHealth > 0">
               {{(entity.health + health) | ghsMinZero}}/{{entity.maxHealth}}
