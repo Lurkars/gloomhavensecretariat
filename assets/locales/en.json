@@ -1583,6 +1583,10 @@
       ".": "Character Attack Modifier Deck",
       "hint": "Enable Attack Modifier Deck for Characters. To use perks the Character Sheet must be enabled."
     },
+    "characterAttackModifierDeckAnimate": {
+      ".": "Animate Character AM Deck draw",
+      "hint": "Display a draw animation if an Attack Modifier is drawn from a close Attack Modifier Deck of a character."
+    },
     "characterAttackModifierDeckPermanent": {
       ".": "Permanent Character AM Deck",
       "hint": "Display Attack Modifier Deck permanent under Character."
