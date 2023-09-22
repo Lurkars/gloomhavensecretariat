@@ -1436,6 +1436,10 @@
       ".": "Angriffsmodifikatordeck für Charaktere",
       "hint": "Angriffsmodifikatordeck für Charaktere aktivieren. Um Verbesserungen zu nutzen muss der Charakterbogen ebenfalls aktiviert sein."
     },
+    "characterAttackModifierDeckAnimate": {
+      ".": "Ziehen-Animation für Charakter Angriffsmodifikator",
+      "hint": "Zeige eine Ziehen-Animation wenn ein Angriffsmodifikator von einem geschlossenen Charakter Angriffsmodifikatordeck gezogen wird."
+    },
     "characterAttackModifierDeckPermanent": {
       ".": "Charakter AM-Deck dauerhaft",
       "hint": "Angriffsmodifikatordeck dauerthaft unterhalb des Charakters anzeigen."

@@ -929,6 +929,20 @@
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.characterAttackModifierDeck}">
           <input type="checkbox"
+            [checked]="settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierAnimate"
+            (change)="settingsManager.setCharacterAttackModifierAnimate(!settingsManager.settings.characterAttackModifierAnimate)">
+          <span [ghs-label]="'settings.characterAttackModifierAnimate'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.characterAttackModifierAnimate.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : !settingsManager.settings.characterAttackModifierDeck}">
+          <input type="checkbox"
             [checked]="settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierDeckPermanent"
             (change)="settingsManager.setCharacterAttackModifierDeckPermanent(!settingsManager.settings.characterAttackModifierDeckPermanent)">
           <span [ghs-label]="'settings.characterAttackModifierDeckPermanent'"></span>

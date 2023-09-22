@@ -73,6 +73,7 @@ import { CharacterFullViewComponent } from './ui/figures/character/fullview/full
 import { AttackModifierDeckDialogComponent } from './ui/figures/attackmodifier/attackmodifierdeck-dialog';
 import { AttackModifierDeckFullscreenComponent } from './ui/figures/attackmodifier/attackmodifierdeck-fullscreen';
 import { AttackModifierEffectsComponent } from './ui/figures/attackmodifier/attackmodifier-effects';
+import { AttackModifierDrawComponent } from './ui/figures/attackmodifier/attackmodifier-draw';
 import { AppRoutingModule } from './app-routing.module';
 import { MonsterEditorComponent } from './ui/tools/editor/monster/monster';
 import { EditorActionComponent, EditorActionDialogComponent } from './ui/tools/editor/action/action';
@@ -154,7 +155,7 @@ export class GhsErrorHandler extends ErrorHandler {
     FooterComponent,
     LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
     HintDialogComponent, ScenarioRulesComponent,
-    AttackModifierComponent, AttackModifierEffectsComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent, AttackModifierStandaloneComponent,
+    AttackModifierComponent, AttackModifierEffectsComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDrawComponent, AttackModifierDeckFullscreenComponent, AttackModifierStandaloneComponent,
     LevelComponent, LevelDialogComponent,
     ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, StatsListComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent, EventEffectsDialog,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,

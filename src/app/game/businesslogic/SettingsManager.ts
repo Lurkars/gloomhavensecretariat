@@ -299,6 +299,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setCharacterAttackModifierAnimate(characterAttackModifierAnimate: boolean) {
+    this.settings.characterAttackModifierAnimate = characterAttackModifierAnimate;
+    this.storeSettings();
+  }
+
   setCharacterAttackModifierDeckPermanent(characterAttackModifierDeckPermanent: boolean) {
     this.settings.characterAttackModifierDeckPermanent = characterAttackModifierDeckPermanent;
     this.storeSettings();

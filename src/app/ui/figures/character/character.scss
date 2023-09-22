@@ -460,6 +460,22 @@
       }
     }
 
+    .attack-modifier-draw {
+      position: relative;
+      z-index: 999;
+      width: 0;
+      height: 0;
+      top: 50%;
+      left: calc(var(--ghs-unit) * -3);
+      overflow: visible;
+
+      ghs-attackmodifier-draw {
+        position: absolute;
+        width: calc(var(--ghs-unit) * 18);
+        height: calc(var(--ghs-unit) * 12);
+      }
+    }
+
     .battlegoals-button,
     .items-button,
     .attack-modifier-button,
@@ -793,6 +809,13 @@
         .loot {
           margin-top: 0;
           margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+        }
+      }
+
+      .attack-modifier-draw {
+        ghs-attackmodifier-draw {
+          width: calc(var(--ghs-unit) * 13.5);
+          height: calc(var(--ghs-unit) * 9);
         }
       }
     }

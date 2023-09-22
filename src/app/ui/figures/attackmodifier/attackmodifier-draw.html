@@ -1,0 +1,10 @@
+<div class="attack-modifier-draw" [ngClass]="{'character' : character}">
+  <ng-container *ngFor="let attackModifier of deck.cards; let index = index;">
+    <div class="am-container"
+      *ngIf="index == current">
+      <ghs-attackmodifier class="am" [attackModifier]="attackModifier" [numeration]="numeration"
+        [characterIcon]="characterIcon"  [flipped]="index == current" [newStyle]="newStyle">
+      </ghs-attackmodifier>
+    </div>
+  </ng-container>
+</div>

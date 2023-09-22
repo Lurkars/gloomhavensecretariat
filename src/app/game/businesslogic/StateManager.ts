@@ -310,6 +310,7 @@ export class StateManager {
             settings.barsize = settingsManager.settings.barsize;
             settings.backupHint = settingsManager.settings.backupHint;
             settings.browserNavigation = settingsManager.settings.browserNavigation;
+            settings.characterAttackModifierAnimate = settingsManager.settings.characterAttackModifierAnimate;
             settings.characterAttackModifierDeckPermanent = settingsManager.settings.characterAttackModifierDeckPermanent;
             settings.characterAttackModifierDeckPermanentActive = settingsManager.settings.characterAttackModifierDeckPermanentActive;
             settings.characterCompact = settingsManager.settings.characterCompact;

@@ -160,6 +160,10 @@
         <img src="./assets/images/attackmodifier/icon.png" />
       </span>
 
+      <span class="attack-modifier-draw" *ngIf="settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierAnimate && !character.attackModifierDeckVisible">
+        <ghs-attackmodifier-draw [character]="character"></ghs-attackmodifier-draw>
+      </span>
+
       <div
         *ngIf="gameManager.game.scenario && settingsManager.settings.battleGoals && (gameManager.roundManager.firstRound || settingsManager.settings.battleGoalsCharacter || !settingsManager.settings.characterAttackModifierDeck)"
         class="battlegoals-button" ghs-pointer-input (singleClick)="openBattleGoals()" [ghs-label]="'game.battleGoals'"
