@@ -30,7 +30,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit, OnDestroy {
     constructor(@Inject(DIALOG_DATA) public data: { treasures: ('G' | number)[] | undefined, edition: string | undefined }, dialogRef: DialogRef) {
         if (!gameManager.game.scenario && (!data.treasures || !data.edition)) {
             dialogRef.close();
-        } else if (data.treasures && data.edition) {
+        } else if (data && data.treasures && data.edition) {
             this.treasures = data.treasures;
             this.edition = data.edition;
         } else if (gameManager.game.scenario) {
@@ -59,7 +59,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit, OnDestroy {
     update() {
         this.scenario = gameManager.game.scenario || gameManager.scenarioManager.createScenario();
         this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent && gameManager.entityManager.isAlive(figure)).map((figure) => figure as Character);
-        if (this.scenario && !this.data.treasures) {
+        if (this.scenario && (!this.data || !this.data.treasures)) {
             this.edition = this.scenario.edition;
             this.treasures = gameManager.scenarioManager.getTreasures(this.scenario, gameManager.game.sections);
         }

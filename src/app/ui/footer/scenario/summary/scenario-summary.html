@@ -244,7 +244,7 @@
             <span><span [ghs-label]="'scenario.summary.casualWarning.hintFh'"></span></span>
           </div>
           <div class="item" *ngIf="forceCampaign || gameManager.fhRules()">
-            <a (click)="characterProgress = gameManager.fhRules() && !characterProgress; updateState()"><span
+            <a (click)="characterProgress = gameManager.fhRules() ? !characterProgress : true; updateState()"><span
                 [ghs-label]="'scenario.summary.casualWarning.' + (!characterProgress && !forceCampaign
               ? 'ignore' : 'reapply')"></span></a>
           </div>

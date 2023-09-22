@@ -60,7 +60,7 @@
           [ghs-label]="'app.loading.cancel'"></span></a>
     </ng-container>
   </div>
-  <div *ngIf="!fullviewChar && !welcome" class="figures" cdkDropListGroup cdkScrollable
+  <div *ngIf="!fullviewChar && !welcome" class="figures" cdkDropListGroup
     [ngClass]="{'loot-deck' : footer.lootDeck || settingsManager.settings.alwaysLootDeck && gameManager.game.lootDeck.active , 'ally-deck' :  footer.hasAllyAttackModifierDeck, 'drag-disabled': settingsManager.settings.disableDragFigures, 'backup-hint-spacer' : showBackupHint}"
     (scroll)="onFigureScroll($event)">
     <div class="figure" *ngFor="let figure of figures; let i = index;" [figure-autoscroll]="figure"
