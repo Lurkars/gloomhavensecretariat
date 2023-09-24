@@ -229,6 +229,7 @@ export class AttackModifierManager {
           if (perk.type == PerkType.add || perk.type == PerkType.replace) {
             let am = Object.assign(new AttackModifier(card.attackModifier.type, card.attackModifier.value, card.attackModifier.valueType), card.attackModifier);
             am.id = "perk" + perkId;
+            am.shuffle = card.attackModifier.shuffle || false;
             if (!this.findByAttackModifier(defaultAttackModifier, am) || perk.type == PerkType.add || index > 0) {
               am.character = true;
             }
@@ -430,9 +431,11 @@ export class AttackModifierManager {
       let am = Object.assign(new AttackModifier(attackModifier.type, attackModifier.value, attackModifier.valueType), attackModifier);
       am.id = "";
       am.revealed = false;
+      am.shuffle = attackModifier.shuffle || false;
       let clone = Object.assign(new AttackModifier(other.type, other.value, other.valueType), other);
       clone.id = "";
       clone.revealed = false;
+      clone.shuffle = other.shuffle || false;
 
       return JSON.stringify(am) == JSON.stringify(clone);
     });

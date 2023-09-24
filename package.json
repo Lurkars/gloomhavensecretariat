@@ -1,6 +1,6 @@
 {
   "name": "gloomhavensecretariat",
-  "version": "0.77.5",
+  "version": "0.77.6",
   "license": "AGPL3",
   "description": "Gloomhaven Secretariat is a Gloomhaven Companion app.",
   "homepage": "https://gloomhaven-secretariat.de",
@@ -98,7 +98,7 @@
     "@angular/compiler-cli": "^16.2.6",
     "@types/dom-screen-wake-lock": "1.0.1",
     "@types/jasmine": "~4.3.6",
-    "@types/leaflet": "^1.9.4",
+    "@types/leaflet": "^1.9.6",
     "@types/uuid": "^9.0.4",
     "electron": "^26.2.2",
     "electron-builder": "^24.6.4",
