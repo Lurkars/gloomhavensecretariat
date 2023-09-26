@@ -31,6 +31,8 @@ export class StateManager {
   connectionTries: number = 0;
   gameOffsetWarning: boolean = true;
   standeeDialogCanceled: boolean = false;
+  keyboardSelecting: boolean = false;
+  keyboardSelect: number = -1;
 
   undoPermission: boolean = false;
   redoPermission: boolean = false;

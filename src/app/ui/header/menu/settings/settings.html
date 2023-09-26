@@ -988,13 +988,13 @@
 
   <div class="column">
     <div class="line ">
-      <a (click)="zoomOut()">
+      <a ghs-pointer-input (singleClick)="zoomOut()" (doubleClick)="zoomOut(true)">
         <span [ghs-label]="'settings.zoom.out'"></span>
       </a>
     </div>
 
     <div class="line">
-      <a (click)="zoomIn()">
+      <a ghs-pointer-input (singleClick)="zoomIn()" (doubleClick)="zoomIn(true)">
         <span [ghs-label]="'settings.zoom.in'"></span>
       </a>
     </div>

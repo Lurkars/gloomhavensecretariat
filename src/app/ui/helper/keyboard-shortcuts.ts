@@ -12,9 +12,10 @@ import { SummonState } from 'src/app/game/model/Summon';
 import { LootApplyDialogComponent } from '../figures/loot/loot-apply-dialog';
 import { LootType } from 'src/app/game/model/data/Loot';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { EntityMenuDialogComponent } from '../figures/entity-menu/entity-menu-dialog';
 
 
-export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent";
+export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select";
 
 @Directive({
     selector: '[ghs-keyboard-shortcuts]'
@@ -29,10 +30,27 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
     dialogOpen: boolean = false;
     keydown: any;
     keyup: any;
+    timeout: any;
 
     constructor(private dialog: Dialog) {
         this.dialog.afterOpened.subscribe({ next: () => this.dialogOpen = true });
         this.dialog.afterAllClosed.subscribe({ next: () => this.dialogOpen = false });
+    }
+
+    applySelect() {
+        const entities = gameManager.entityManager.getIndexedEntities();
+        if (gameManager.stateManager.keyboardSelect > 0 && gameManager.stateManager.keyboardSelect <= entities.length) {
+            this.dialog.open(EntityMenuDialogComponent, {
+                panelClass: 'dialog',
+                data: {
+                    entity: entities[gameManager.stateManager.keyboardSelect - 1].entity,
+                    figure: entities[gameManager.stateManager.keyboardSelect - 1].figure,
+                    entityIndexKey: true
+                }
+            })
+            gameManager.stateManager.keyboardSelecting = false;
+        }
+        gameManager.stateManager.keyboardSelect = -1;
     }
 
     ngOnInit(): void {
@@ -42,7 +60,35 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
 
         this.keydown = window.addEventListener('keydown', (event: KeyboardEvent) => {
             if (!event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
-                if ((!this.dialogOpen || this.allowed.indexOf('undo') != -1) && event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'z') {
+                if (gameManager.stateManager.keyboardSelecting) {
+                    if (event.key === 'Escape' || event.key === 's') {
+                        gameManager.stateManager.keyboardSelect = -1;
+                        gameManager.stateManager.keyboardSelecting = false;
+                    } else if (event.key === 'Enter') {
+                        this.applySelect();
+                    } else if (event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
+                        const entities = gameManager.entityManager.getIndexedEntities();
+                        const keyNumber = +event.key;
+                        if (this.timeout) {
+                            clearTimeout(this.timeout);
+                            this.timeout = undefined;
+
+                            const combined: number = gameManager.stateManager.keyboardSelect * 10 + keyNumber;
+                            gameManager.stateManager.keyboardSelect = combined;
+                            this.applySelect();
+                        } else if (keyNumber * 10 < entities.length) {
+                            gameManager.stateManager.keyboardSelect = keyNumber;
+                            this.timeout = setTimeout(() => {
+                                this.applySelect();
+                            }, 1000);
+                        } else {
+                            gameManager.stateManager.keyboardSelect = keyNumber;
+                            this.applySelect();
+                        }
+                    }
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else if ((!this.dialogOpen || this.allowed.indexOf('undo') != -1) && event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'z') {
                     gameManager.stateManager.undo();
                     event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('undo') != -1) && event.ctrlKey && !event.shiftKey && event.key === 'y' || event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'z') {
@@ -145,6 +191,8 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                 } else if ((!this.dialogOpen || this.allowed.indexOf('absent') != -1) && !event.ctrlKey && !event.shiftKey && gameManager.game.state == GameState.next && event.key === 'h') {
                     settingsManager.setHideAbsent(!settingsManager.settings.hideAbsent);
                     event.preventDefault();
+                } else if ((!this.dialogOpen || this.allowed.indexOf('select') != -1) && !event.ctrlKey && !event.shiftKey && event.key === 's') {
+                    gameManager.stateManager.keyboardSelecting = true;
                 }
             }
         })
@@ -153,7 +201,9 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
             if (this.zoomInterval && (event.key === 'ArrowUp' || event.key === '+' || event.key === 'ArrowDown' || event.key === '-')) {
                 clearInterval(this.zoomInterval);
                 this.zoomInterval = null;
-                settingsManager.setZoom(this.currentZoom);
+                if (settingsManager.settings.zoom != this.currentZoom) {
+                    settingsManager.setZoom(this.currentZoom);
+                }
                 event.preventDefault();
             }
         })
@@ -167,6 +217,11 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
     zoom(value: number) {
         this.currentZoom += value;
         document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
+        const maxWidth = +window.getComputedStyle(document.body).getPropertyValue('min-width').replace('px', '');
+        if (value < 0 && maxWidth >= window.innerWidth) {
+            this.currentZoom -= value;
+            document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
+        }
     }
 
     toggleEntity(reverse: boolean) {

@@ -1,5 +1,13 @@
 .entity-menu-dialog {
 
+  position: relative;
+
+  ghs-entity-index-key {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
   .name {
     display: flex;
     flex-wrap: wrap;
@@ -235,7 +243,7 @@
     &.badge-character-icon {
       bottom: calc(var(--ghs-unit) * -0.5 * var(--ghs-dialog-factor));
       right: 40%;
-      
+
       img {
         height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       }

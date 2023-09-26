@@ -60,27 +60,36 @@ export class SettingsMenuComponent {
     settingsManager.storeSettings();
   }
 
-  zoomOut(): void {
-    this.zoom(5);
+  zoomOut(force: boolean = false): void {
+    this.zoom(5, force);
   }
 
-  zoomIn(): void {
-    this.zoom(-5);
+  zoomIn(force: boolean = false): void {
+    this.zoom(-5, force);
   }
 
-  zoom(value: number) {
+  zoom(value: number, force: boolean) {
     let factor: number = +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor');
     factor += value;
-    this.setZoom(factor);
+    this.setZoom(factor, value, force);
   }
 
-  setZoom(zoom: number) {
-    document.body.style.setProperty('--ghs-factor', zoom + '');
-    settingsManager.setZoom(zoom);
+  setZoom(zoom: number, value: number, force: boolean) {
+    if (settingsManager.settings.zoom != zoom) {
+      document.body.style.setProperty('--ghs-factor', zoom + '');
+      if (!force) {
+        const maxWidth = +window.getComputedStyle(document.body).getPropertyValue('min-width').replace('px', '');
+        if (value < 0 && maxWidth >= window.innerWidth) {
+          zoom -= value;
+          document.body.style.setProperty('--ghs-factor', zoom + '');
+        }
+      }
+      settingsManager.setZoom(zoom);
+    }
   }
 
   resetZoom(): void {
-    this.setZoom(100);
+    this.setZoom(100, 0, true);
   }
 
   updateBarsize(event: any) {

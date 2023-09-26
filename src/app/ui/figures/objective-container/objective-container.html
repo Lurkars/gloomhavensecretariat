@@ -41,6 +41,7 @@
               {{objective.title}}</span>
             <span *ngIf="!objective.title" [ghs-label]="objective.name ? ('data.objective.' + objective.name) :
           (objective.escort ? 'escort' : 'objective')"></span>
+          <ghs-entity-index-key [entity]="entity"></ghs-entity-index-key>
           </div>
         </div>
         <div class="status-bar">

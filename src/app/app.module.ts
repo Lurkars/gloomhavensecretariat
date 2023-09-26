@@ -135,6 +135,7 @@ import { EventCardComponent } from './ui/figures/event/event-card'
 import { EventConditionLabelComponent } from './ui/figures/event/label/condition-label';
 import { EventRewardLabelComponent } from './ui/figures/event/label/reward-label';
 import { environment } from 'src/environments/environment';
+import { EntityIndexKeyComponent } from './ui/figures/standee/entity-index-key/entity-index-key';
 
 @Injectable()
 export class GhsErrorHandler extends ErrorHandler {
@@ -172,7 +173,7 @@ export class GhsErrorHandler extends ErrorHandler {
     MonsterNumberPicker, MonsterNumberPickerDialog, MonsterImageDialogComponent,
     AbilityComponent, AbiltiesDialogComponent, AbilityDialogComponent,
     ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,
-    FigureErrorsComponent, FigureErrorsDialogComponent,
+    FigureErrorsComponent, FigureErrorsDialogComponent, EntityIndexKeyComponent,
     CardRevealDirective, EntityAnimationDirective, GhsLabelDirective, ValueCalcDirective, PointerInputDirective, AutocompleteDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective, ValueSignDirective,
     GhsValueSignPipe, GhsRangePipe, GhsScenarioSearch, GhsFloorPipe, GhsCeilPipe, GhsMinZeroPipe,
     AttackModifierToolComponent, EventCardsToolComponent, TreasuresToolComponent, DecksToolComponent,

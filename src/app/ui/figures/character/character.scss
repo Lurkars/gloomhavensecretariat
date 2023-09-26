@@ -304,6 +304,10 @@
       display: flex;
       align-items: center;
       z-index: 2;
+
+      ghs-entity-index-key {
+        margin-left: calc(var(--ghs-unit) * 1);
+      }
     }
 
     .title {

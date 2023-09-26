@@ -98,6 +98,10 @@
       display: flex;
       align-items: center;
       overflow: visible;
+
+      ghs-entity-index-key {
+        margin-left: calc(var(--ghs-unit) * 1);
+      }
     }
 
     .title {
@@ -298,6 +302,7 @@
 }
 
 .entities-container {
+  position: relative;
   z-index: 2;
   display: flex;
   transition: max-height 1000ms ease-out;

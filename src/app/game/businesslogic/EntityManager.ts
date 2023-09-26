@@ -50,6 +50,40 @@ export class EntityManager {
     return entities;
   }
 
+  getIndexedEntities(): { entity: Entity, figure: Figure }[] {
+    let result: { entity: Entity, figure: Figure }[] = [];
+    this.game.figures.forEach((figure) => {
+      if (figure instanceof Character) {
+        result.push({ entity: figure, figure: figure });
+        figure.summons.forEach((summon) => {
+          result.push({ entity: summon, figure: figure });
+        })
+      } else if (figure instanceof Monster) {
+        figure.entities.forEach((monsterEntity) => {
+          result.push({ entity: monsterEntity, figure: figure });
+        })
+      } else if (figure instanceof ObjectiveContainer) {
+        figure.entities.forEach((objectiveEntity) => {
+          result.push({ entity: objectiveEntity, figure: figure });
+        })
+      }
+    })
+
+    return result;
+  }
+
+  getIndexForEntity(entity: Entity): number {
+    let index = -1;
+    this.getIndexedEntities().forEach((value, i) => {
+      if (value.entity == entity) {
+        index = i;
+        return;
+      }
+    })
+
+    return index;
+  }
+
   isAlive(entity: Entity, acting: boolean = false): boolean {
     if ((entity.health <= 0 && EntityValueFunction(entity.maxHealth) > 0) && !entity.entityConditions.find((condition) => condition.highlight && condition.types.indexOf(ConditionType.apply) != -1) || acting && entity.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.stun && entityCondition.state != EntityConditionState.new && entityCondition.lastState != EntityConditionState.new && entityCondition.state != EntityConditionState.removed)) {
       return false;

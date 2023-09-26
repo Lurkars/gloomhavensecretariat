@@ -1,4 +1,8 @@
 <div class="entity-menu-dialog">
+
+  <ghs-entity-index-key *ngIf="data.entityIndexKey && data.entity" [entity]="data.entity"
+    [show]="true"></ghs-entity-index-key>
+
   <div class="name">
     <ng-container *ngIf="data.entity && gameManager.isCharacter(data.figure) && gameManager.isCharacter(data.entity)">
       <span class="spacer"></span>

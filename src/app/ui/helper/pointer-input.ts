@@ -156,6 +156,11 @@ export class PointerInputService {
   zoom(value: number) {
     this.currentZoom += value;
     document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
+    const maxWidth = +window.getComputedStyle(document.body).getPropertyValue('min-width').replace('px', '');
+    if (value < 0 && maxWidth >= window.innerWidth) {
+      this.currentZoom -= value;
+      document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
+    }
   }
 
   touchmove(event: TouchEvent) {
@@ -172,7 +177,7 @@ export class PointerInputService {
 
   touchend(event: TouchEvent) {
     if (!settingsManager.settings.disablePinchZoom) {
-      if (event.touches.length < 2 && this.zoomDiff > -1) {
+      if (event.touches.length < 2 && this.zoomDiff > -1 && settingsManager.settings.zoom != this.currentZoom) {
         this.zoomDiff = -1;
         settingsManager.setZoom(this.currentZoom);
       }
@@ -383,11 +388,12 @@ export class PointerInputDirective implements OnInit, OnDestroy {
   }
 
   cancel() {
+    this.down = false;
     if (this.timeout) {
       clearTimeout(this.timeout);
       this.timeout = null;
     }
-    
+
     this.dragCancel.emit(this.value);
 
     this.repeats = -1;

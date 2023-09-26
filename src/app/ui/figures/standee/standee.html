@@ -73,9 +73,11 @@
       </span>
     </div>
     <ghs-healthbar [entity]="entity" [diff]="health"></ghs-healthbar>
+    <ghs-entity-index-key [entity]="entity"></ghs-entity-index-key>
   </div>
 
-  <ghs-pointer-input class="drag-hp" (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" (dragCancel)="dragHpCancel($event)"
-    (singleClick)="openEntityMenu($event)" (doubleClick)="doubleClick($event)" [relative]="true" [screenWidth]="true">
+  <ghs-pointer-input class="drag-hp" (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)"
+    (dragCancel)="dragHpCancel($event)" (singleClick)="openEntityMenu($event)" (doubleClick)="doubleClick($event)"
+    [relative]="true" [screenWidth]="true">
   </ghs-pointer-input>
 </div>

@@ -73,6 +73,8 @@ body {
   --ghs-barsize: 1;
   --ghs-fontsize: 1;
   --ghs-unit: calc(var(--ghs-width) / var(--ghs-factor));
+  --ghs-max-width: calc(var(--ghs-unit) * 99.9);
+  min-width: var(--ghs-max-width);
   --form-background: transparent;
   --ghs-color-black: #000;
   --ghs-color-white: #fff;
