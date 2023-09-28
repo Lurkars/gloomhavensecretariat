@@ -1814,6 +1814,7 @@
       ".": "Stat Animation",
       "hint": "Enable animation to highlight stats as %game.action.shield% or %game.action.retaliate%."
     },
+    "synced": "These settings are synchronised with the server!",
     "theme": {
       ".": "Theme",
       "default": "Default",
