@@ -19,19 +19,19 @@
         </label>
     </div>
 
-    <div class="line title span">
+    <div class="line title span" *ngIf="settingsManager.settings.partySheet || settingsManager.settings.characterItems">
         <label><span [ghs-label]="'campaign'"></span></label>
     </div>
 
-    <div class="line span">
+    <div class="line span" *ngIf="settingsManager.settings.partySheet">
         <a (click)="openPartySheet()" [ghs-label]="'campaign.party'"></a>
     </div>
 
-    <div class="line span">
+    <div class="line span" *ngIf="settingsManager.settings.partySheet">
         <a (click)="openCampaignSheet()" [ghs-label]="'campaign.sheet'"></a>
     </div>
 
-    <div class="line span">
+    <div class="line span" *ngIf="settingsManager.settings.characterItems">
         <a (click)="openItems()" [ghs-label]="'campaign.items'"></a>
     </div>
 
@@ -39,21 +39,23 @@
         <a (click)="openBattleGoalsSetup()" [ghs-label]="'campaign.battleGoals'"></a>
     </div>
 
-    <div class="line title span" *ngIf="characters.length > 0">
+    <div class="line title span" *ngIf="characters.length > 0 && settingsManager.settings.characterSheet">
         <label><span [ghs-label]="'campaign.character'"></span></label>
     </div>
 
-    <div class="line" *ngFor="let character of characters">
-        <a (click)="openCharacterSheet(character);">
-            <img class="icon" [src]="character.iconUrl" />
-            <span>{{gameManager.characterManager.characterName(character, true)}}</span>
-            <span class="edition" *ngIf="gameManager.getEdition(character)">&nbsp;
-                <span>[</span>
-                <span [ghs-label]="'data.edition.' + gameManager.getEdition(character)"></span>
-                <span>]</span>
-            </span>
-        </a>
-    </div>
+    <ng-container *ngIf="settingsManager.settings.characterSheet">
+        <div class="line" *ngFor="let character of characters">
+            <a (click)="openCharacterSheet(character);">
+                <img class="icon" [src]="character.iconUrl" />
+                <span>{{gameManager.characterManager.characterName(character, true)}}</span>
+                <span class="edition" *ngIf="gameManager.getEdition(character)">&nbsp;
+                    <span>[</span>
+                    <span [ghs-label]="'data.edition.' + gameManager.getEdition(character)"></span>
+                    <span>]</span>
+                </span>
+            </a>
+        </div>
+    </ng-container>
 
     <div class="line title span">
         <label><span [ghs-label]="'edition.conditions'"></span></label>

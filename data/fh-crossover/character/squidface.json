@@ -203,7 +203,7 @@
     },
     {
       "type": "custom",
-      "custom": "<b>Xorn's Boom:</b> Once each scenario, during your turn, cause each enemy that has %game.condition.poison% to duffer %game.damage:1% and gain %game.condition.muddle% and each ally who has %game.condition.poison% to suffer %game.damage:1% to gain %game.condition.strengthen%",
+      "custom": "<b>Xorn's Boon:</b> Once each scenario, during your turn, cause each enemy that has %game.condition.poison% to duffer %game.damage:1% and gain %game.condition.muddle% and each ally who has %game.condition.poison% to suffer %game.damage:1% to gain %game.condition.strengthen%",
       "count": 2,
       "combined": true
     }

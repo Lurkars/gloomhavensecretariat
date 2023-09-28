@@ -24,6 +24,7 @@ export class SettingsMenuComponent {
   wakeLock: boolean;
   applyConditionsExcludes: ConditionName[] = [];
   activeApplyConditionsExcludes: ConditionName[] = [];
+  WebSocket = WebSocket;
 
   constructor(public platform: Platform) {
     this.wakeLock = 'wakeLock' in navigator;
@@ -193,13 +194,17 @@ export class SettingsMenuComponent {
     settingsManager.settings.activeStandees = false;
     settingsManager.settings.activeSummons = false;
     settingsManager.settings.applyConditions = false;
+    settingsManager.settings.applyLongRest = false;
     settingsManager.settings.allyAttackModifierDeck = false;
+    settingsManager.settings.automaticUnlocking = false;
     settingsManager.settings.automaticStandees = false;
     settingsManager.settings.autoscroll = false;
+    settingsManager.settings.battleGoals = false;
     settingsManager.settings.calculate = true;
     settingsManager.settings.calculateStats = false;
     settingsManager.settings.characterAttackModifierDeck = false;
     settingsManager.settings.characterIdentities = false;
+    settingsManager.settings.characterItems = false;
     settingsManager.settings.characterHandSize = false;
     settingsManager.settings.characterSheet = false;
     settingsManager.settings.disabledTurnConfirmation = true;
@@ -218,6 +223,7 @@ export class SettingsMenuComponent {
     settingsManager.settings.partySheet = false;
     settingsManager.settings.randomStandees = false;
     settingsManager.settings.scenarioRooms = false;
+    settingsManager.settings.standeeStats = false;
     settingsManager.settings.theme = 'default';
     settingsManager.storeSettings();
   }

@@ -1,8 +1,16 @@
-<div class="menu-container two-column settings">
+<div class="menu-container two-column settings"
+  [ngClass]="{'connected' : gameManager.stateManager.wsState() == WebSocket.OPEN}">
 
   <!-- GAMEPLAY -->
   <div class="line title span">
     <label><span [ghs-label]="'settings.gameplay'"></span></label>
+    <div class="hint-container">
+      <img *ngIf="settingsManager.settings.serverSettings" src="./assets/images/sync-settings.svg"
+        class="hint-trigger ghs-svg sync-settings">
+      <span class="hint">
+        <span class="text" [ghs-label]="'settings.synced'"></span>
+      </span>
+    </div>
   </div>
 
   <div class="column">
@@ -69,6 +77,13 @@
   <!-- CHARACTER -->
   <div class="line title span">
     <label><span [ghs-label]="'settings.character'"></span></label>
+    <div class="hint-container">
+      <img *ngIf="settingsManager.settings.serverSettings" src="./assets/images/sync-settings.svg"
+        class="hint-trigger ghs-svg sync-settings">
+      <span class="hint">
+        <span class="text" [ghs-label]="'settings.synced'"></span>
+      </span>
+    </div>
   </div>
 
   <div class="column">
@@ -203,6 +218,13 @@
   <!-- MONSTERS -->
   <div class="line title span">
     <label><span [ghs-label]="'settings.monsters'"></span></label>
+    <div class="hint-container">
+      <img *ngIf="settingsManager.settings.serverSettings" src="./assets/images/sync-settings.svg"
+        class="hint-trigger ghs-svg sync-settings">
+      <span class="hint">
+        <span class="text" [ghs-label]="'settings.synced'"></span>
+      </span>
+    </div>
   </div>
 
   <ng-container *ngIf="settingsManager.settings.monsters">
@@ -377,25 +399,19 @@
           </span>
         </div>
       </div>
-      <div class="line">
-        <div class="hint-container">
-          <label>
-            <input type="checkbox" [checked]="settingsManager.settings.statAnimations"
-              (change)="settingsManager.setStatAnimations(!settingsManager.settings.statAnimations)">
-            <span [ghs-label]="'settings.statAnimations'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.statAnimations.hint'"></span>
-          </span>
-        </div>
-      </div>
     </div>
   </ng-container>
 
   <!-- STANDEES -->
   <div class="line title span">
     <label><span [ghs-label]="'settings.standees'"></span></label>
+    <div class="hint-container">
+      <img *ngIf="settingsManager.settings.serverSettings" src="./assets/images/sync-settings.svg"
+        class="hint-trigger ghs-svg sync-settings">
+      <span class="hint">
+        <span class="text" [ghs-label]="'settings.synced'"></span>
+      </span>
+    </div>
   </div>
 
   <div class="column">
@@ -508,6 +524,13 @@
   <!-- CONDITION/ELEMENTS -->
   <div class="line title span">
     <label><span [ghs-label]="'settings.conditions'"></span></label>
+    <div class="hint-container">
+      <img *ngIf="settingsManager.settings.serverSettings" src="./assets/images/sync-settings.svg"
+        class="hint-trigger ghs-svg sync-settings">
+      <span class="hint">
+        <span class="text" [ghs-label]="'settings.synced'"></span>
+      </span>
+    </div>
   </div>
 
   <div class="column">
@@ -614,6 +637,13 @@
   <!-- FROSTHAVEN -->
   <div class="line title span">
     <label><span [ghs-label]="'settings.fhRules'"></span></label>
+    <div class="hint-container">
+      <img *ngIf="settingsManager.settings.serverSettings" src="./assets/images/sync-settings.svg"
+        class="hint-trigger ghs-svg sync-settings">
+      <span class="hint">
+        <span class="text" [ghs-label]="'settings.synced'"></span>
+      </span>
+    </div>
   </div>
 
   <div class="column">
@@ -721,8 +751,9 @@
 
     <div class="line">
       <div class="hint-container">
-        <label [ngClass]="{'disabled' : !gameManager.fhRules()}">
-          <input type="checkbox" [checked]="settingsManager.settings.fhGhItems"
+        <label [ngClass]="{'disabled' : !settingsManager.settings.characterItems || !gameManager.fhRules()}">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.characterItems && settingsManager.settings.fhGhItems"
             (change)="settingsManager.setFhGhItems(!settingsManager.settings.fhGhItems)">
           <span [ghs-label]="'settings.fhGhItems'"></span>
         </label>
@@ -739,6 +770,13 @@
   <!-- ADDITIONAL -->
   <div class="line title span">
     <label><span [ghs-label]="'settings.additional'"></span></label>
+    <div class="hint-container">
+      <img *ngIf="settingsManager.settings.serverSettings" src="./assets/images/sync-settings.svg"
+        class="hint-trigger ghs-svg sync-settings">
+      <span class="hint">
+        <span class="text" [ghs-label]="'settings.synced'"></span>
+      </span>
+    </div>
   </div>
 
   <div class="column">
@@ -1101,6 +1139,19 @@
     <div class="line">
       <div class="hint-container">
         <label>
+          <input type="checkbox" [checked]="settingsManager.settings.statAnimations"
+            (change)="settingsManager.setStatAnimations(!settingsManager.settings.statAnimations)">
+          <span [ghs-label]="'settings.statAnimations'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.statAnimations.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
           <input type="checkbox" [checked]="settingsManager.settings.disableColumns"
             (change)="settingsManager.setDisableColumns(!settingsManager.settings.disableColumns)">
           <span [ghs-label]="'settings.disableColumns'"></span>
@@ -1212,6 +1263,13 @@
   <div class="column">
     <div class="line title">
       <label><span [ghs-label]="'settings.locale'"></span></label>
+      <div class="hint-container">
+        <img *ngIf="settingsManager.settings.serverSettings" src="./assets/images/sync-settings.svg"
+          class="hint-trigger ghs-svg sync-settings">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.synced'"></span>
+        </span>
+      </div>
     </div>
 
     <div class="line" *ngFor="let locale of settingsManager.locales">

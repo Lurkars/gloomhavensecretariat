@@ -426,7 +426,7 @@ export class AttackModifierManager {
     return count;
   }
 
-  findByAttackModifier(attackModifiers: AttackModifier[], attackModifier: AttackModifier): AttackModifier | undefined {
+  findByAttackModifier(attackModifiers: AttackModifier[], attackModifier: AttackModifier, ignoreCharacter: boolean = false): AttackModifier | undefined {
     return attackModifiers.find((other) => {
       let am = Object.assign(new AttackModifier(attackModifier.type, attackModifier.value, attackModifier.valueType), attackModifier);
       am.id = "";
@@ -436,6 +436,9 @@ export class AttackModifierManager {
       clone.id = "";
       clone.revealed = false;
       clone.shuffle = other.shuffle || false;
+      if (ignoreCharacter && clone.character) {
+        clone.character = false;
+      }
 
       return JSON.stringify(am) == JSON.stringify(clone);
     });
@@ -458,12 +461,23 @@ export class AttackModifierManager {
   removeCards(attackModifierDeck: AttackModifierDeck, cards: PerkCard[]) {
     cards.forEach((card) => {
       for (let cardCount = 0; cardCount < card.count; cardCount++) {
-        const toReplace = this.findByAttackModifier(attackModifierDeck.cards, card.attackModifier);
-        if (toReplace) {
-          const replaceIndex = attackModifierDeck.cards.indexOf(toReplace);
+        let removed: boolean = false;
+        let toRemove = this.findByAttackModifier(attackModifierDeck.cards, card.attackModifier);
+        if (toRemove) {
+          const replaceIndex = attackModifierDeck.cards.indexOf(toRemove);
           attackModifierDeck.cards.splice(replaceIndex, 1);
-        } else {
-          console.warn("Did not found AM to replace: ", card.attackModifier, attackModifierDeck);
+          removed = true;
+        } else if (!card.attackModifier.id && !card.attackModifier.character) {
+          toRemove = this.findByAttackModifier(attackModifierDeck.cards, card.attackModifier, true);
+          if (toRemove) {
+            const replaceIndex = attackModifierDeck.cards.indexOf(toRemove);
+            attackModifierDeck.cards.splice(replaceIndex, 1);
+            removed = true;
+          }
+        }
+
+        if (!removed) {
+          console.warn("Did not found AM to remove: ", card.attackModifier, attackModifierDeck);
         }
       }
     })

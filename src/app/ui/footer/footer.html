@@ -46,7 +46,7 @@
 
   <div class="deck loot-deck"
     [ngClass]="{'collapsed' : !gameManager.game.lootDeck.active, 'initial' : gameManager.game.lootDeck.active && gameManager.game.lootDeck.current < 0,'partial' : gameManager.game.lootDeck.active &&  gameManager.game.lootDeck.current == 0, 'full' : gameManager.game.lootDeck.active && gameManager.game.lootDeck.current > 0}"
-    *ngIf="lootDeck || settingsManager.settings.alwaysLootDeck || gameManager.fhRules()">
+    *ngIf="settingsManager.settings.lootDeck && (lootDeck || settingsManager.settings.alwaysLootDeck || gameManager.fhRules())">
     <ghs-loot-deck [deck]="gameManager.game.lootDeck" (before)="beforeLootDeck($event)" (after)="afterLootDeck($event)"
       [bottom]="true"></ghs-loot-deck>
 

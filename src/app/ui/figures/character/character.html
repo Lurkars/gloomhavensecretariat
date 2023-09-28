@@ -199,7 +199,8 @@
           <img src="./assets/images/status/experience.svg" />
           <span class="value-overlay" [value-sign]="experience" [hideEmpty]="true" [container]="true"></span>
         </span>
-        <span class="loot" *ngIf="!settingsManager.settings.alwaysLootDeck && !gameManager.fhRules()"
+        <span class="loot"
+          *ngIf="!settingsManager.settings.lootDeck || !settingsManager.settings.alwaysLootDeck && !gameManager.fhRules()"
           [ghs-label]="'game.loot'" [ghs-label-attribute]="'title'" ghs-pointer-input (dragMove)="dragLootMove($event)"
           (dragEnd)="dragLootEnd($event)" (dragCancel)="dragCancel($event)" [relative]="true" [screenWidth]="true"
           (singleClick)="openEntityMenu($event)">

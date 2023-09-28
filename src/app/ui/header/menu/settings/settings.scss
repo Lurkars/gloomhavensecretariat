@@ -58,3 +58,21 @@
         filter: grayscale(0.6);
     }
 }
+
+.menu-container {
+    .line .ghs-svg {
+        &.sync-settings {
+            height: 2em;
+            width: auto;
+            filter: var(--ghs-filter-disabled) var(--ghs-filter-outline-thin-black);
+        }
+    }
+
+    &.connected {
+        .line .ghs-svg {
+            &.sync-settings {
+                filter: var(--ghs-filter-green) var(--ghs-filter-outline-thin-black);
+            }
+        }
+    }
+}

@@ -320,12 +320,15 @@ export class StateManager {
             settings.disableAnimations = settingsManager.settings.disableAnimations;
             settings.disableArtwork = settingsManager.settings.disableArtwork;
             settings.disableColumns = settingsManager.settings.disableColumns;
+            settings.disableDragFigures = settingsManager.settings.disableDragFigures;
+            settings.disablePinchZoom = settingsManager.settings.disablePinchZoom;
             settings.disableWakeLock = settingsManager.settings.disableWakeLock;
             settings.dragValues = settingsManager.settings.dragValues;
             settings.fhStyle = settingsManager.settings.fhStyle;
             settings.fontsize = settingsManager.settings.fontsize;
             settings.globalFontsize = settingsManager.settings.globalFontsize;
             settings.fullscreen = settingsManager.settings.fullscreen;
+            settings.hints = settingsManager.settings.hints;
             settings.portraitMode = settingsManager.settings.portraitMode;
             settings.pressDoubleClick = settingsManager.settings.pressDoubleClick;
             settings.serverAutoconnect = settingsManager.settings.serverAutoconnect;
@@ -339,6 +342,7 @@ export class StateManager {
             settings.showOnlyUnfinishedScenarios = settingsManager.settings.showOnlyUnfinishedScenarios;
             settings.statAnimations = settingsManager.settings.statAnimations;
             settings.theme = settingsManager.settings.theme;
+            settings.tooltips = settingsManager.settings.tooltips;
             settings.zoom = settingsManager.settings.zoom;
 
             settingsManager.setSettings(Object.assign(new Settings(), settings));

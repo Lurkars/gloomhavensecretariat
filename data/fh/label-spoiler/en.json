@@ -341,7 +341,7 @@
       ".": "Feathered Cloak"
     },
     "fh-70": {
-      "1": "When you suffer %game.damage% from %game.action,retaliate%, reduce the %game.damage% to 1. If it already 1, reduce it to 0 instead.",
+      "1": "When you suffer %game.damage% from %game.action.retaliate%, reduce the %game.damage% to 1. If it already 1, reduce it to 0 instead.",
       ".": "Aesther Robe"
     },
     "fh-71": {

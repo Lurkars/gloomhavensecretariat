@@ -363,7 +363,7 @@
             "effects": [
               {
                 "type": "element",
-                "value": "air"
+                "value": "earth"
               }
             ]
           }
@@ -388,7 +388,7 @@
             "effects": [
               {
                 "type": "element",
-                "value": "earth"
+                "value": "air"
               }
             ]
           }

@@ -9,6 +9,7 @@ import { Subscription } from "rxjs";
 import { Dialog } from "@angular/cdk/dialog";
 import { ItemsBrewDialog } from "./brew/brew";
 import { ItemsDialogComponent } from "./dialog/items-dialog";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 
 @Component({
@@ -28,6 +29,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
     herbs: LootType[] = [LootType.rockroot, LootType.snowthistle, LootType.axenut, LootType.flamefruit, LootType.corpsecap, LootType.arrowvine];
 
     gameManager: GameManager = gameManager;
+    settingsManager: SettingsManager = settingsManager;
     GameState = GameState;
 
     constructor(private dialog: Dialog) { }
@@ -306,5 +308,13 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
             gameManager.itemManager.toggleEquippedItem(itemData, this.character, force)
             gameManager.stateManager.after();
         }
+    }
+
+    setItemNotes(event: any) {
+      if (this.character.progress.itemNotes != event.target.value) {
+        gameManager.stateManager.before("setItems", "data.character." + this.character.name, event.target.value);
+        this.character.progress.itemNotes = event.target.value;
+        gameManager.stateManager.after();
+      }
     }
 }
