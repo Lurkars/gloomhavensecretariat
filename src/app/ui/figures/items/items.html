@@ -1,51 +1,44 @@
 <div class="items">
     <label><span [ghs-label]="'game.items'"></span>:</label>
-    <ng-container *ngIf="settingsManager.settings.characterItems">
-        <div class="item-list">
-            <div class="item-entry" *ngFor="let item of items; let index = index;">
-                <span class="icon">
-                    <img *ngIf="item.slot" [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
-                    <span *ngIf="!item.slot" class="item placeholder"
-                        [ghs-label]="'%game.itemFh.' + item.id + '%'"></span>
-                </span>
-                <span class="id">{{item.id}}.</span>
-                <span class="name"
-                    [ngClass]="{'disabled' : gameManager.game.state != GameState.draw || gameManager.game.round > 0}"
-                    ghs-pointer-input (singleClick)="toggleEquippedItem(item)"
-                    (doubleClick)="toggleEquippedItem(item,true)">
-                    <span>{{item.name}}</span>
-                    <span *ngIf="item.edition != itemEdition">&nbsp;(<span [ghs-label]="'data.edition.' +
+    <div class="item-list">
+        <div class="item-entry" *ngFor="let item of items; let index = index;">
+            <span class="icon">
+                <img *ngIf="item.slot" [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
+                <span *ngIf="!item.slot" class="item placeholder" [ghs-label]="'%game.itemFh.' + item.id + '%'"></span>
+            </span>
+            <span class="id">{{item.id}}.</span>
+            <span class="name"
+                [ngClass]="{'disabled' : gameManager.game.state != GameState.draw || gameManager.game.round > 0}"
+                ghs-pointer-input (singleClick)="toggleEquippedItem(item)"
+                (doubleClick)="toggleEquippedItem(item,true)">
+                <span>{{item.name}}</span>
+                <span *ngIf="item.edition != itemEdition">&nbsp;(<span [ghs-label]="'data.edition.' +
                     item.edition"></span>)</span>
-                </span>
-                <span class="spacer"></span>
-                <span class="equipped" *ngIf="isEquipped(item)">
-                    <img src="./assets/images/check.svg">
-                </span>
-                <div class="effect hint-container" *ngIf="gameManager.characterManager.itemEffect(item)">
-                    <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" [ghsTooltip]="'game.items.effect'"
-                        [hint]="true">
-                </div>
-                <span class="minus-one" *ngIf="isEquipped(item) && item.minusOne"
-                    [ngClass]="{'ignore' : gameManager.characterManager.ignoreNegativeItemEffects(character)}">
-                    <img src="./assets/images/action/card/minus1.svg">
-                    x{{item.minusOne}}
-                </span>
-                <a class="button loot" (click)="sellItem(item)"><img src="./assets/images/loot.svg">
-                    {{gameManager.itemManager.itemSellValue(item)}}
-                </a>
-                <a class="button remove" (click)="removeItem(item)"><img src="./assets/images/close.svg"></a>
+            </span>
+            <span class="spacer"></span>
+            <span class="equipped" *ngIf="isEquipped(item)">
+                <img src="./assets/images/check.svg">
+            </span>
+            <div class="effect hint-container" *ngIf="gameManager.characterManager.itemEffect(item)">
+                <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" [ghsTooltip]="'game.items.effect'"
+                    [hint]="true">
             </div>
+            <span class="minus-one" *ngIf="isEquipped(item) && item.minusOne"
+                [ngClass]="{'ignore' : gameManager.characterManager.ignoreNegativeItemEffects(character)}">
+                <img src="./assets/images/action/card/minus1.svg">
+                x{{item.minusOne}}
+            </span>
+            <a class="button loot" (click)="sellItem(item)"><img src="./assets/images/loot.svg">
+                {{gameManager.itemManager.itemSellValue(item)}}
+            </a>
+            <a class="button remove" (click)="removeItem(item)"><img src="./assets/images/close.svg"></a>
         </div>
-        <div class="item-form">
-            <a class="shop" (click)="itemDialog()"><img src="./assets/images/items/item.svg"><span
-                    [ghs-label]="'game.items.character.shop'"></span></a>
+    </div>
+    <div class="item-form">
+        <a class="shop" (click)="itemDialog()"><img src="./assets/images/items/item.svg"><span
+                [ghs-label]="'game.items.character.shop'"></span></a>
 
-            <a *ngIf="brewing" (click)="brewDialog()"><img src="./assets/images/fh/brewing.svg"><span
-                    [ghs-label]="'game.items.brewing'"></span></a>
-        </div>
-    </ng-container>
-
-    <textarea *ngIf="!settingsManager.settings.characterItems" [value]="character.progress.itemNotes"
-        (change)="setItemNotes($event)" [ghs-label]="'game.items'"
-        [ghs-label-attribute]="'placeholder'"></textarea>
+        <a *ngIf="brewing" (click)="brewDialog()"><img src="./assets/images/fh/brewing.svg"><span
+                [ghs-label]="'game.items.brewing'"></span></a>
+    </div>
 </div>
