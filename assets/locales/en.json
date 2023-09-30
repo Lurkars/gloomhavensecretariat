@@ -1319,6 +1319,7 @@
       "spoiler": "Spoiler",
       "stats": "Monster Stats"
     },
+    "showAllSections": "Show all Sections",
     "summary": {
       ".": "Scenario Summary",
       "alreadyWarning": {
