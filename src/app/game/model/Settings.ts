@@ -94,6 +94,7 @@ export class Settings {
   serverUrl: string | undefined;
   serverWss: boolean = false;
   showBossMonster: boolean = true;
+  showAllSections = false;
   showExpandedAbilityCard: boolean = false;
   showFullAbilityCard: boolean = false;
   showHiddenMonster: boolean = false;

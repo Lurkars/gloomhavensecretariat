@@ -1,0 +1,39 @@
+{
+  "index": "622",
+  "group": "randomMonsterCard",
+  "name": "Arid",
+  "edition": "fc",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "valrath-savage",
+          "type": "normal"
+        },
+        {
+          "name": "valrath-savage",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "valrath-savage",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "type": "elite"
+        },
+        {
+          "name": "valrath-tracker",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

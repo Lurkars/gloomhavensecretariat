@@ -1,0 +1,40 @@
+{
+  "index": "901",
+  "group": "randomMonsterCard",
+  "name": "Deomesticated",
+  "edition": "fh",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "abael-herder",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "abael-herder",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "abael-scout",
+          "type": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "type": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

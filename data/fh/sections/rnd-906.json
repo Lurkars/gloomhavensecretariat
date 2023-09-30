@@ -1,0 +1,48 @@
+{
+  "index": "906",
+  "group": "randomMonsterCard",
+  "name": "Rusted",
+  "edition": "fh",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "fire",
+          "state": "new"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "flaming-bladespinner",
+          "type": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "steel-automaton",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

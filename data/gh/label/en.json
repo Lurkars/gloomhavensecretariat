@@ -78,6 +78,9 @@
     },
     "ability": {},
     "scenario": {
+        "group": {
+            "randomMonsterCard": "Random Monster Cards"
+        },
         "rules": {
             "gh": {
                 "19": {

@@ -1,0 +1,63 @@
+{
+  "index": "907",
+  "group": "randomMonsterCard",
+  "name": "Unsettling",
+  "edition": "fh",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "dark",
+          "state": "new"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "chaos-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

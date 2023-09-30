@@ -1,0 +1,59 @@
+{
+  "index": "911",
+  "group": "randomMonsterCard",
+  "name": "Grave",
+  "edition": "fh",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "dark",
+          "state": "new"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

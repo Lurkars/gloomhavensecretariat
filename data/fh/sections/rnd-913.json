@@ -1,0 +1,53 @@
+{
+  "index": "913",
+  "group": "randomMonsterCard",
+  "name": "Scorching",
+  "edition": "fh",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "fire",
+          "state": "new"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "flame-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "type": "normal"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "flaming-bladespinner",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

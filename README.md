@@ -43,7 +43,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - **Character Attack Modifier Deck** including Perks & CS Oak Cards
   - **Elements** automatic update status
   - **Monster Stats**
-  - **Monster Standees** automatically adds standees for scenario rooms/sections and special rules
+  - **Monster Standees** automatically adds standees for scenario rooms/sections, special rules and random monster cards
   - **Monster Modifier Deck** Adding **Blessings** and **Curses**, auto-shuffling
   - **Monster Ability Cards** auto-shuffling, calculated values (separate for normal and elite), add stats values
   - **Character Summons**

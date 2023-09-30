@@ -1,0 +1,60 @@
+{
+  "index": "896",
+  "group": "randomMonsterCard",
+  "name": "Swarming",
+  "edition": "fh",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "dark",
+          "state": "new"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "forest-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "shrike-fiend",
+          "type": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

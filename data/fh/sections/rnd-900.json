@@ -1,0 +1,57 @@
+{
+  "index": "900",
+  "group": "randomMonsterCard",
+  "name": "Decayed",
+  "edition": "fh",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "ice",
+          "state": "new"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-corpse",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

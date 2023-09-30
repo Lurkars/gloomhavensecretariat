@@ -1,0 +1,52 @@
+{
+  "index": "914",
+  "group": "randomMonsterCard",
+  "name": "Swift",
+  "edition": "fh",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "air",
+          "state": "new"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "algox-scout",
+          "type": "elite"
+        },
+        {
+          "name": "algox-scout",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

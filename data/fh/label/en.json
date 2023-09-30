@@ -114,7 +114,11 @@
   },
   "deck": {},
   "ability": {},
-  "scenario": {},
+  "scenario": {
+    "group": {
+      "randomMonsterCard": "Random Monster Cards"
+    }
+  },
   "section": {
     "rules": {
       "fh": {

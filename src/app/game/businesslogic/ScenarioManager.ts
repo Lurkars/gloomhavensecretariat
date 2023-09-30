@@ -700,7 +700,7 @@ export class ScenarioManager {
     return gameManager.sectionData().filter((sectionData) => sectionData.edition == scenario.edition && sectionData.parent == scenario.index && sectionData.group == scenario.group)
   }
 
-  availableSections(includeConclusions: boolean = false): ScenarioData[] {
+  availableSections(includeConclusions: boolean = false, includeActive: boolean = false): ScenarioData[] {
     if (!this.game.scenario) {
       return [];
     }
@@ -709,7 +709,7 @@ export class ScenarioManager {
       // filter conclusion
       (!sectionData.conclusion || includeConclusions)
       // filter already active
-      && !this.game.sections.find((active) => active.edition == sectionData.edition && active.index == sectionData.index && active.parent == sectionData.parent)
+      && (includeActive || !this.game.sections.find((active) => active.edition == sectionData.edition && active.index == sectionData.index && active.parent == sectionData.parent))
       // match parent sections
       && (!sectionData.parentSections || sectionData.parentSections.some((parentSections) => parentSections.every((parentSection) => this.game.sections.find((active) => active.index == parentSection))))
       // filter blocked

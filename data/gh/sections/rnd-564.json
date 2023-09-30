@@ -1,0 +1,46 @@
+{
+  "index": "564",
+  "group": "randomMonsterCard",
+  "name": "Tribal",
+  "edition": "gh",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "inox-archer",
+          "type": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-shaman",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-shaman",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "index": "891",
+  "group": "randomMonsterCard",
+  "name": "Smashing",
+  "edition": "fh",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "earth",
+          "state": "new"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "algox-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "player3": "normal"
+        },
+        {
+          "name": "algox-icespeaker",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-icespeaker",
+          "player2": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

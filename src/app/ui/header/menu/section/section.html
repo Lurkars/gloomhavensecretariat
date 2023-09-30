@@ -6,11 +6,21 @@
     </label>
   </div>
 
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.showAllSections"
+        (change)="settingsManager.setShowAllSections(!settingsManager.settings.showAllSections)">
+      <span [ghs-label]="'scenario.showAllSections'"></span>
+    </label>
+  </div>
+
   <ng-container *ngFor="let group of groups()">
-    <div *ngIf="group" class="line title"><label [ghs-label]="'data.scenario.group.' + group"></label></div>
-    <div class="line sections">
+    <div *ngIf="group && sections(group).length > 0" class="line title"><label
+        [ghs-label]="'data.scenario.group.' + group"></label></div>
+    <div class="line sections" *ngIf="sections(group).length > 0">
       <span *ngFor="let section of sections(group)" class="section"
-        [ngClass]="{'disabled' : hasSection(section), 'available': section.parent && gameManager.game.scenario &&  section.parent == gameManager.game.scenario.index && section.group == gameManager.game.scenario.group && section.edition == gameManager.game.scenario.edition}"
+        [ngClass]="{'disabled' : section.isLocked , 'available': settingsManager.settings.showAllSections && section.parent && gameManager.game.scenario && section.parent == gameManager.game.scenario.index && section.group == gameManager.game.scenario.group && section.edition == gameManager.game.scenario.edition}"
+        [ghsTooltip]="'scenario.tooltip'" [ghs-label-args]="['data.section.' + section.name]"
         (click)="addSection(section)">
         <span *ngIf="maxSection() > 2 && section.index.length < 3">0</span>
         <span *ngIf="maxSection() > 1 && section.index.length < 2">0</span>
@@ -18,4 +28,8 @@
       </span>
     </div>
   </ng-container>
+
+  <div class="line disabled" *ngIf="noResults()">
+    <label><span [ghs-label]="'monster.filter.noResult'"></span></label>
+  </div>
 </div>

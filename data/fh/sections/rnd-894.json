@@ -1,0 +1,45 @@
+{
+  "index": "894",
+  "group": "randomMonsterCard",
+  "name": "Feral",
+  "edition": "fh",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "hound",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "polar-bear",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "type": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

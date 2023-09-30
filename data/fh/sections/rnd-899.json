@@ -1,0 +1,56 @@
+{
+  "index": "899",
+  "group": "randomMonsterCard",
+  "name": "Sapping",
+  "edition": "fh",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "ice",
+          "state": "new"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "index": "893",
+  "group": "randomMonsterCard",
+  "name": "Territorial",
+  "edition": "fh",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "algox-priest",
+          "type": "normal"
+        },
+        {
+          "name": "algox-priest",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-priest",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-scout",
+          "type": "elite"
+        },
+        {
+          "name": "algox-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-scout",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

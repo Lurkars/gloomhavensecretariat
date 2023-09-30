@@ -1,0 +1,59 @@
+{
+  "index": "554",
+  "group": "randomMonsterCard",
+  "name": "Mangy",
+  "edition": "gh",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "cave-bear",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,20 +1,50 @@
-import { Component } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameState } from "src/app/game/model/Game";
+import { ScenarioCache } from "src/app/game/model/Scenario";
 
 @Component({
   selector: 'ghs-section-menu',
   templateUrl: 'section.html',
   styleUrls: ['../menu.scss', 'section.scss']
 })
-export class SectionMenuComponent {
+export class SectionMenuComponent implements OnInit, OnDestroy {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
-  edition: string = gameManager.currentEdition();
+  edition: string = "";
+
+  sectionCache: { edition: string, group: string | undefined, all: boolean, sections: ScenarioCache[] }[] = [];
+
+
+  ngOnInit(): void {
+    this.edition =
+      // edition of current scenario
+      gameManager.game.scenario && !gameManager.game.scenario.custom && gameManager.game.scenario.edition ||
+      // edition of last scenario
+      !gameManager.game.edition && (!gameManager.game.scenario || !gameManager.game.scenario.custom) && gameManager.game.party.scenarios.length > 0 && gameManager.game.party.scenarios[gameManager.game.party.scenarios.length - 1].edition ||
+      // set edition or first
+      gameManager.currentEdition();
+
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+      next: () => {
+        this.sectionCache = [];
+      }
+    })
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
+  }
+
 
   editions(): string[] {
     return gameManager.editionData.filter((editionData) => editionData.sections && editionData.sections.filter((sectionData) => sectionData.edition == editionData.edition && settingsManager.settings.editions.indexOf(sectionData.edition) != -1).length > 0).map((editionData) => editionData.edition);
@@ -28,11 +58,28 @@ export class SectionMenuComponent {
     return gameManager.sectionData().filter((sectionData) => sectionData.edition == this.edition).map((sectionData) => sectionData.group).filter((value, index, self) => self.indexOf(value) === index);
   }
 
-  sections(group: string | undefined = undefined): ScenarioData[] {
+  sections(group: string | undefined = undefined): ScenarioCache[] {
     if (!this.edition) {
       return [];
     }
-    return gameManager.sectionData().filter((sectionData) => sectionData.edition == this.edition && sectionData.group == group && !sectionData.conclusion).sort(gameManager.scenarioManager.sortScenarios);
+    let model = this.sectionCache.find((model) => model.edition == this.edition && model.group == group && model.all == settingsManager.settings.showAllSections);
+
+    if (model) {
+      return model.sections;
+    }
+
+    model = { edition: this.edition, group: group, all: settingsManager.settings.showAllSections, sections: [] };
+
+
+    model.sections = gameManager.sectionData().filter((sectionData) => (settingsManager.settings.showAllSections || !sectionData.parent && (!gameManager.game.scenario || gameManager.game.scenario.custom) || gameManager.game.scenario && gameManager.scenarioManager.availableSections(false, true).indexOf(sectionData) != -1) && sectionData.edition == this.edition && sectionData.group == group && !sectionData.conclusion).sort(gameManager.scenarioManager.sortScenarios).map((sectionData) => new ScenarioCache(sectionData, false, false, this.hasSection(sectionData)))
+
+    this.sectionCache.push(model);
+
+    return model.sections;
+  }
+
+  noResults(): boolean {
+    return this.sectionCache.filter((model) => model.edition == this.edition).every((model) => model.sections.length == 0);
   }
 
   maxSection() {

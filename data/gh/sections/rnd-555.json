@@ -1,0 +1,43 @@
+{
+  "index": "555",
+  "group": "randomMonsterCard",
+  "name": "Drowned",
+  "edition": "gh",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "elite"
+        },
+        {
+          "name": "lurker",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

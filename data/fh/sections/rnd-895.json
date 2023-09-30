@@ -1,0 +1,53 @@
+{
+  "index": "895",
+  "group": "randomMonsterCard",
+  "name": "Tamed",
+  "edition": "fh",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-priest",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-priest",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

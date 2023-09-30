@@ -1,0 +1,58 @@
+{
+  "index": "898",
+  "group": "randomMonsterCard",
+  "name": "Bleak",
+  "edition": "fh",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "ice",
+          "state": "new"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-doom",
+          "type": "elite"
+        },
+        {
+          "name": "living-doom",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

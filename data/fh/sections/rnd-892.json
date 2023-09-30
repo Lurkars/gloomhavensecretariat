@@ -1,0 +1,54 @@
+{
+  "index": "892",
+  "group": "randomMonsterCard",
+  "name": "Stormy",
+  "edition": "fh",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "air",
+          "state": "new"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "algox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player3": "normal"
+        },
+        {
+          "name": "algox-snowspeaker",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-snowspeaker",
+          "player2": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

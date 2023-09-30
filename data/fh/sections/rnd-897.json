@@ -1,0 +1,62 @@
+{
+  "index": "897",
+  "group": "randomMonsterCard",
+  "name": "Traitorous",
+  "edition": "fh",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "light",
+          "state": "new"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "chaos-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

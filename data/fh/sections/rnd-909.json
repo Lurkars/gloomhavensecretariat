@@ -1,0 +1,55 @@
+{
+  "index": "909",
+  "group": "randomMonsterCard",
+  "name": "Segmented",
+  "edition": "fh",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "earth",
+          "state": "new"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "burrowing-blade",
+          "type": "normal"
+        },
+        {
+          "name": "burrowing-blade",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "burrowing-blade",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

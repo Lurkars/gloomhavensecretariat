@@ -1,0 +1,44 @@
+{
+  "index": "905",
+  "group": "randomMonsterCard",
+  "name": "Reinforced",
+  "edition": "fh",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "robotic-boltshooter",
+          "type": "normal"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player4": "normal"
+        },
+        {
+          "name": "steel-automaton",
+          "type": "normal"
+        },
+        {
+          "name": "steel-automaton",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

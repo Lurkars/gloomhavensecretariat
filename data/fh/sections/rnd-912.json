@@ -1,0 +1,57 @@
+{
+  "index": "912",
+  "group": "randomMonsterCard",
+  "name": "Luminous",
+  "edition": "fh",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "light",
+          "state": "new"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "lurker-wavethrower",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

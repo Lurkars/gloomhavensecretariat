@@ -1,0 +1,63 @@
+{
+  "index": "910",
+  "group": "randomMonsterCard",
+  "name": "Dirty",
+  "edition": "fh",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "earth",
+          "state": "new"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

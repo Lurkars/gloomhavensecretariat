@@ -1,0 +1,40 @@
+{
+  "index": "623",
+  "group": "randomMonsterCard",
+  "name": "Ethereal",
+  "edition": "fc",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "aesther-ashblade",
+          "type": "elite"
+        },
+        {
+          "name": "aesther-ashblade",
+          "player4": "normal"
+        },
+        {
+          "name": "aesther-scout",
+          "type": "normal"
+        },
+        {
+          "name": "aesther-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "aesther-scout",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "index": "559",
+  "group": "randomMonsterCard",
+  "name": "Fortified",
+  "edition": "gh",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

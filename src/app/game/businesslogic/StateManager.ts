@@ -337,6 +337,7 @@ export class StateManager {
             settings.serverSettings = settingsManager.settings.serverSettings;
             settings.serverUrl = settingsManager.settings.serverUrl;
             settings.serverWss = settingsManager.settings.serverWss;
+            settings.showAllSections = settingsManager.settings.showAllSections;
             settings.showBossMonster = settingsManager.settings.showBossMonster;
             settings.showHiddenMonster = settingsManager.settings.showHiddenMonster;
             settings.showOnlyUnfinishedScenarios = settingsManager.settings.showOnlyUnfinishedScenarios;

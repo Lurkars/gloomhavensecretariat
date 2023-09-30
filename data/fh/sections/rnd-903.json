@@ -1,0 +1,51 @@
+{
+  "index": "903",
+  "group": "randomMonsterCard",
+  "name": "Daunting",
+  "edition": "fh",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "earth",
+          "state": "new"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "lurker-clawcrusher",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-clawcrusher",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

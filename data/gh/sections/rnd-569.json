@@ -1,0 +1,38 @@
+{
+  "index": "569",
+  "group": "randomMonsterCard",
+  "name": "Unstable",
+  "edition": "gh",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

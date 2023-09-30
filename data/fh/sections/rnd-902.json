@@ -1,0 +1,58 @@
+{
+  "index": "902",
+  "group": "randomMonsterCard",
+  "name": "Trashing",
+  "edition": "fh",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "elements": [
+        {
+          "type": "ice",
+          "state": "new"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "lurker-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-wavethrower",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

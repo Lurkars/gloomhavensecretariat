@@ -1,0 +1,39 @@
+{
+  "index": "566",
+  "group": "randomMonsterCard",
+  "name": "Archaic",
+  "edition": "gh",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [],
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "stone-golem",
+          "type": "elite"
+        },
+        {
+          "name": "stone-golem",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}
