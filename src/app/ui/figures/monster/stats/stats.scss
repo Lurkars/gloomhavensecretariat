@@ -186,18 +186,31 @@
     }
 
     .stat {
+      position: relative;
       font-size: 2.4em;
       line-height: 1.7em;
       padding-top: 0;
       width: 100%;
+      display: flex;
+
+      .value {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
 
       &.normal,
       &.boss {
-        position: relative;
         justify-self: end;
-        text-align: right;
+        justify-content: flex-end;
         filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-white));
         padding-right: 0.8em;
+
+        .value {
+          text-align: right;
+        }
 
         &.bordered::before {
           content: ' ';
@@ -212,7 +225,6 @@
 
       &.elite {
         justify-self: start;
-        text-align: left;
         color: var(--ghs-color-white);
         filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-black));
         padding-left: 0.8em;
