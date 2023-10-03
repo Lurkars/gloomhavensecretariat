@@ -887,7 +887,10 @@
         "soldierLevel": "Lvl",
         "soldiers": "Soldaten",
         "summer": "Sommer",
-        "supply": "Versorgung von Frosthaven",
+        "supply": {
+          ".": "Versorgung von Frosthaven",
+          "total": "Insgesamt"
+        },
         "totalDefense": "Gesamte Verteidigung",
         "townGuardPerks": "Verbesserungen Stadtwache",
         "weekSections": {
