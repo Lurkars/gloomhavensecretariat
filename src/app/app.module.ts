@@ -134,8 +134,9 @@ import { AdditionalAMSelectDialogComponent } from './ui/figures/entity-menu/addi
 import { EventCardComponent } from './ui/figures/event/event-card'
 import { EventConditionLabelComponent } from './ui/figures/event/label/condition-label';
 import { EventRewardLabelComponent } from './ui/figures/event/label/reward-label';
-import { environment } from 'src/environments/environment';
 import { EntityIndexKeyComponent } from './ui/figures/standee/entity-index-key/entity-index-key';
+import { PartyResourcesDialogComponent } from './ui/header/party/resources/resources';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class GhsErrorHandler extends ErrorHandler {
@@ -151,7 +152,7 @@ export class GhsErrorHandler extends ErrorHandler {
     AppComponent,
     MainComponent,
     HeaderComponent, ElementIconComponent, ElementComponent,
-    PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, SelectResourcesDialog, ScenarioRequirementsComponent, TreasuresDialogComponent,
+    PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, SelectResourcesDialog, ScenarioRequirementsComponent, TreasuresDialogComponent, PartyResourcesDialogComponent,
     MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, CampaignMenuComponent,
     FooterComponent,
     LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,

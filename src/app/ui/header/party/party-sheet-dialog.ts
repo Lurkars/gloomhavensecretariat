@@ -24,6 +24,7 @@ import { WorldMapComponent } from "./world-map/world-map";
 import { ItemDialogComponent } from "../../figures/items/dialog/item-dialog";
 import { TreasuresDialogComponent } from "./treasures/treasures-dialog";
 import { AutocompleteItem } from "../../helper/autocomplete";
+import { PartyResourcesDialogComponent } from "./resources/resources";
 
 @Component({
   selector: 'ghs-party-sheet-dialog',
@@ -81,6 +82,9 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     if (this.party.edition) {
       this.partyEdition = this.party.edition;
     }
+
+    this.party.casualScenarios = this.party.casualScenarios || [];
+    this.party.scenarios = this.party.scenarios || [];
 
     if (!this.campaign && (!data || !data.partySheet) && this.partyEdition == 'jotl') {
       this.campaign = true;
@@ -872,6 +876,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       panelClass: 'dialog',
       data: character
     }).closed.subscribe({ next: () => this.update() });
+  }
+
+  openResources() {
+    this.dialog.open(PartyResourcesDialogComponent, {
+      panelClass: ['dialog-invert'],
+    });
   }
 
   setInspiration(event: any) {

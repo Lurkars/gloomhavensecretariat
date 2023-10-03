@@ -195,7 +195,7 @@
 
         <div class="resources">
           <div class="header">
-            <label><span [ghs-label]="'party.campaign.sheet.supply'"></span>:</label>
+            <label (click)="openResources()"><span [ghs-label]="'party.campaign.sheet.supply'"></span>:</label>
             <span class="spacer"></span>
             <div class="move-resources" *ngIf="characters.length > 0">
               <span class="label"><span [ghs-label]="'character.progress.resources.move'"></span>:</span>

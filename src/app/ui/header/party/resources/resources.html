@@ -1,0 +1,35 @@
+<div class="resources-dialog">
+    <a class="close" (click)="close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'">
+        <img src="./assets/images/close_dialog.svg">
+    </a>
+    <div class="table" [style.--ghs-resource-columns]="3 + characters.length">
+        <span class="head-col first"></span>
+        <span class="first">
+            <span [ghs-label]="'party.campaign.sheet.supply'"></span>
+        </span>
+        <span class="first" *ngFor="let character of characters; let index = index;">
+            <img class="icon character-icon" [src]="character.iconUrl" />
+            <span class="name">
+                {{gameManager.characterManager.characterName(character,true)}}
+            </span>
+        </span>
+        <span class="first">
+            <span [ghs-label]="'party.campaign.sheet.supply.total'"></span>
+        </span>
+
+        <ng-container *ngFor="let lootType of lootColumns; let i = index">
+            <span class="head-col">
+                <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + lootType + '.svg'">
+            </span>
+            <span>
+                <span class="loot">{{(gameManager.game.party.loot[lootType] || '-')}}</span>
+            </span>
+            <span *ngFor="let character of characters; let index = index;">
+                <span class="loot">{{(character.progress.loot[lootType] || '-')}}</span>
+            </span>
+            <span>
+                <span class="loot" [ngClass]="{'total' : total[lootType]}">{{(total[lootType] || '-')}}</span>
+            </span>
+        </ng-container>
+    </div>
+</div>

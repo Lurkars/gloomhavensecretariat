@@ -1034,7 +1034,10 @@
         "soldierLevel": "Lvl",
         "soldiers": "Soldiers",
         "summer": "Summer",
-        "supply": "Frosthaven Supply",
+        "supply": {
+          ".": "Frosthaven Supply",
+          "total": "Total"
+        },
         "totalDefense": "Total Defense",
         "townGuardPerks": "Town Guard Perks",
         "weekSections": {
