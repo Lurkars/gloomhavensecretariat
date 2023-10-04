@@ -52,6 +52,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   loot: number = 0;
   maxHp: number = 0;
   token: number = 0;
+  amAnimationDrawing: boolean = false;
 
   summonCount: number = 0;
   activeConditions: EntityCondition[] = [];

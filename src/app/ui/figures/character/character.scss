@@ -475,6 +475,11 @@
 
       ghs-attackmodifier-draw {
         position: absolute;
+        width: 0;
+        height: 0;
+      }
+
+      &.drawing ghs-attackmodifier-draw {
         width: calc(var(--ghs-unit) * 18);
         height: calc(var(--ghs-unit) * 12);
       }

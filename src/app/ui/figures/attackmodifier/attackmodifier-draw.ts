@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 export class AttackModifierDrawComponent implements OnInit, OnDestroy, OnChanges {
 
   @Input('character') character!: Character;
+  @Output('drawing') drawingEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() initTimeout: number = 1500;
 
   gameManager: GameManager = gameManager;
@@ -96,15 +97,18 @@ export class AttackModifierDrawComponent implements OnInit, OnDestroy, OnChanges
       }
       this.queue = 0;
       this.drawing = false;
+      this.drawingEmitter.emit(false);
       this.current = this.deck.current;
     }
   }
 
   drawQueue() {
     this.drawing = true;
+    this.drawingEmitter.emit(true);
     this.element.nativeElement.getElementsByClassName('attack-modifier-draw')[0].classList.add('drawing');
     this.queueTimeout = setTimeout(() => {
       this.drawing = false;
+      this.drawingEmitter.emit(false);
       this.queueTimeout = null;
       if (this.queue > 0) {
         this.queue--;

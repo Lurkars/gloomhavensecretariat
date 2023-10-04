@@ -161,9 +161,10 @@
         <img src="./assets/images/attackmodifier/icon.png" />
       </span>
 
-      <span class="attack-modifier-draw"
+      <span class="attack-modifier-draw" [ngClass]="{'drawing': amAnimationDrawing}"
         *ngIf="settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierAnimate && !character.attackModifierDeckVisible && (!settingsManager.settings.characterAttackModifierDeckPermanentActive || !character.active)">
-        <ghs-attackmodifier-draw [character]="character"></ghs-attackmodifier-draw>
+        <ghs-attackmodifier-draw [character]="character"
+          (drawing)="amAnimationDrawing = $event"></ghs-attackmodifier-draw>
       </span>
 
       <div
