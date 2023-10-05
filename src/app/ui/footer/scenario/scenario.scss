@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100%;
   margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-barsize));
   margin-bottom: calc(var(--ghs-unit) * -1 * var(--ghs-barsize));
   color: var(--ghs-color-gray);
@@ -76,10 +77,10 @@
     align-items: center;
     flex-wrap: wrap;
     font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-barsize) * var(--ghs-text-factor));
-    line-height: calc(var(--ghs-unit) * 2.2 * var(--ghs-barsize)* var(--ghs-text-factor));
+    line-height: calc(var(--ghs-unit) * 2.2 * var(--ghs-barsize) * var(--ghs-text-factor));
     color: var(--ghs-color-gray);
     text-shadow: var(--ghs-outline-thin);
-    max-height: calc(var(--ghs-unit) * 3 * var(--ghs-barsize));
+    max-height: calc(var(--ghs-unit) * 3 * var(--ghs-barsize) * var(--ghs-text-factor));
     overflow: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;

@@ -261,13 +261,18 @@ footer {
   .level-container {
     position: relative;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
     max-width: calc(100% - (var(--ghs-unit) * 15 * var(--ghs-text-factor) * var(--ghs-barsize)) - (var(--ghs-unit) * 38 * var(--ghs-text-factor) * var(--ghs-barsize)));
 
+    ghs-scenario {
+      height: 100%;
+    }
+
     ghs-level {
+      height: 100%;
+      margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor) * var(--ghs-barsize));
       margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
 
@@ -295,7 +300,6 @@ footer.compact {
   }
 
   .level-container {
-    flex-direction: row;
     --ghs-text-factor: 1.6;
     max-width: initial;
     flex-grow: 1;
