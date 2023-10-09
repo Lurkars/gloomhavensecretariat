@@ -6,7 +6,7 @@ import { ScenarioData, ScenarioRewards } from "../model/data/ScenarioData";
 import { EntityValueFunction } from "../model/Entity";
 import { Game, GameState } from "../model/Game";
 import { CountIdentifier } from "src/app/game/model/data/Identifier";
-import { LootDeckConfig } from "../model/data/Loot";
+import { LootDeckConfig, LootType, fullLootDeck } from "../model/data/Loot";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { MonsterType } from "../model/data/MonsterType";
@@ -253,6 +253,16 @@ export class ScenarioManager {
 
           if (settingsManager.settings.automaticUnlocking && rewards.unlockCharacter && this.game.unlockedCharacters.indexOf(rewards.unlockCharacter) == -1) {
             this.game.unlockedCharacters.push(rewards.unlockCharacter);
+          }
+
+          if (rewards.lootDeckCards) {
+            rewards.lootDeckCards.forEach((lootDeckCard) => {
+              const loot = fullLootDeck.find((loot) => loot.cardId == lootDeckCard);
+              if (loot && (loot.type != LootType.special1 && loot.type != LootType.special2 || gameManager.game.lootDeckFixed.indexOf(loot.type) == -1)) {
+                gameManager.game.lootDeckFixed.push(loot.type);
+              }
+
+            })
           }
         }
 

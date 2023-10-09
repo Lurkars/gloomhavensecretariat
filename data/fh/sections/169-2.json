@@ -1,0 +1,10 @@
+{
+  "index": "169.2",
+  "name": "Sled Build",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "prosperity": 1,
+    "custom": "Place \"Sled\" campaign sticker on the town map at location B. You may now play scenarios with the %game.fhIcon:sled% requirement."
+  }
+}

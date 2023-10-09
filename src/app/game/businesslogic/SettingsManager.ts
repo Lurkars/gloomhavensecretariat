@@ -176,6 +176,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setApplyBuildingRewards(applyBuildingRewards: boolean) {
+    this.settings.applyBuildingRewards = applyBuildingRewards;
+    this.storeSettings();
+  }
+
   setApplyConditions(applyConditions: boolean) {
     this.settings.applyConditions = applyConditions;
     this.storeSettings();
@@ -193,6 +198,11 @@ export class SettingsManager {
 
   setApplyLoot(applyLoot: boolean) {
     this.settings.applyLoot = applyLoot;
+    this.storeSettings();
+  }
+
+  setApplyRetirement(applyRetirement: boolean) {
+    this.settings.applyRetirement = applyRetirement;
     this.storeSettings();
   }
 

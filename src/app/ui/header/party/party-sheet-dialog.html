@@ -528,9 +528,9 @@
                 src="./assets/images/fh/puzzle.svg">
               <input #unlockConclusionIndex [ghs-label]="'party.campaign.scenarios.index'"
                 [ghs-label-attribute]="'placeholder'" (keyup)="unlockConclusionIndex.classList.remove('error');"
-                (keyup.enter)="finishConclusion(unlockConclusionIndex)">
+                (keyup.enter)="selectFinishConclusion(unlockConclusionIndex)">
               <a class="addScenario" [ghs-label]="'party.campaign.scenarios.addConclusion'"
-                [ghs-label-attribute]="'title'" (click)="finishConclusion(unlockConclusionIndex)">
+                [ghs-label-attribute]="'title'" (click)="selectFinishConclusion(unlockConclusionIndex)">
                 <span [ghs-label]="'party.campaign.scenarios.addConclusion'"></span>&nbsp;<img
                   src="./assets/images/plus.svg"></a>
             </div>
@@ -624,7 +624,7 @@
                 [ngClass]="{'edition' : !partyEdition || !itemEdition}">
                 <ng-container *ngIf="item">
                   <span class="item-index open-item" (click)="openItem(item)">
-                    <img class="icon" [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
+                    <img class="icon" [src]="item.slot ? './assets/images/items/slots/' + item.slot +'.svg' : ''">
                     <span class="index">{{item.id}}</span>
                   </span>
                   <span class="separator">:</span>

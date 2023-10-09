@@ -1,0 +1,19 @@
+{
+  "index": "164.2",
+  "name": "If %game.fhIcon:trait% EDUCATED",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "190.3"
+    ]
+  ],
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "events": [
+      "summer-outpost:SO-58",
+      "winter-road:WR-45",
+      "summer-road:SR-47"
+    ]
+  }
+}

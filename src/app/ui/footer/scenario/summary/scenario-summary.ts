@@ -391,7 +391,7 @@ export class ScenarioSummaryComponent {
 
     hasRewards(): boolean {
         const rewards = this.rewards;
-        if (rewards && (rewards.envelopes || rewards.gold || rewards.experience || rewards.collectiveGold || rewards.resources || rewards.collectiveResources || rewards.reputation || rewards.prosperity || rewards.inspiration || rewards.morale || rewards.perks || rewards.battleGoals || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.itemBlueprints || rewards.randomItemBlueprint || rewards.events || rewards.chooseUnlockCharacter || rewards.unlockCharacter || rewards.custom || rewards.townGuardAm)) {
+        if (rewards && (rewards.envelopes || rewards.gold || rewards.experience || rewards.collectiveGold || rewards.resources || rewards.collectiveResources || rewards.reputation || rewards.prosperity || rewards.inspiration || rewards.morale || rewards.perks || rewards.battleGoals || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.itemBlueprints || rewards.randomItemBlueprint || rewards.randomItemBlueprints || rewards.events || rewards.chooseUnlockCharacter || rewards.unlockCharacter || rewards.custom || rewards.lootDeckCards || rewards.townGuardAm)) {
             return true;
         }
         return false;
@@ -604,6 +604,12 @@ export class ScenarioSummaryComponent {
                         character.progress.gold += this.collectiveGold[index];
                     }
 
+                    this.rewardItems.forEach((item, itemIndex) => {
+                        if (this.items.every((items) => items.indexOf(itemIndex) == -1)) {
+                            this.items[index].push(itemIndex);
+                        }
+                    })
+
                     if (this.items[index] && this.items[index].length > 0) {
                         this.items[index].forEach((itemIndex) => {
                             const item = this.rewardItems[itemIndex]
@@ -646,11 +652,13 @@ export class ScenarioSummaryComponent {
 
             if ((this.gainRewards || this.forceCampaign) && this.rewards && this.rewards.calendarSectionManual) {
                 this.rewards.calendarSectionManual.forEach((sectionManual, index) => {
-                    const week = gameManager.game.party.weeks + this.calendarSectionManual[index];
-                    if (!gameManager.game.party.weekSections[week]) {
-                        gameManager.game.party.weekSections[week] = [];
+                    if (this.calendarSectionManual[index] >= 0) {
+                        const week = gameManager.game.party.weeks + this.calendarSectionManual[index];
+                        if (!gameManager.game.party.weekSections[week]) {
+                            gameManager.game.party.weekSections[week] = [];
+                        }
+                        gameManager.game.party.weekSections[week]?.push(sectionManual.section);
                     }
-                    gameManager.game.party.weekSections[week]?.push(sectionManual.section);
                 })
             }
         }

@@ -5,7 +5,12 @@ import { Party } from "src/app/game/model/Party";
 import { BuildingCosts, BuildingData, BuildingModel } from "src/app/game/model/data/BuildingData";
 import { LootType } from "src/app/game/model/data/Loot";
 import { Character } from "src/app/game/model/Character";
-import { SelectResourceResult, SelectResourcesDialog } from "./select-resources/select-resources";
+import { SelectResourceResult, BuildingUpgradeDialog } from "./upgrade-dialog/upgrade-dialog";
+import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { Scenario } from "src/app/game/model/Scenario";
+import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/scenario-summary";
+import { ScenarioData } from "src/app/game/model/data/ScenarioData";
+import { ScenarioConclusionComponent } from "src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion";
 
 export type Building = { model: BuildingModel, data: BuildingData };
 
@@ -40,6 +45,9 @@ export class PartyBuildingsComponent implements OnInit {
     campaign.buildings.filter((buildingData) => this.initialBuilding(buildingData)).forEach((buildingData) => {
       if (!this.party.buildings.find((model) => buildingData.name == model.name)) {
         this.party.buildings.push(new BuildingModel(buildingData.name, 1));
+        if (buildingData.rewards[0]) {
+          gameManager.buildingsManager.applyRewards(buildingData.rewards[0]);
+        }
       }
     })
 
@@ -102,6 +110,10 @@ export class PartyBuildingsComponent implements OnInit {
 
   upgradeable(building: Building): boolean {
 
+    if (building.data.manualUpgrades >= building.model.level) {
+      return true;
+    }
+
     let costs: BuildingCosts = building.model.level ? building.data.upgrades[building.model.level - 1] : building.data.costs;
     if (building.model.level && !building.data.repair) {
       return false;
@@ -146,25 +158,31 @@ export class PartyBuildingsComponent implements OnInit {
 
   upgrade(building: Building, force: boolean = false) {
     if (building.model.level < building.data.upgrades.length + 1 || building.model.level < building.data.manualUpgrades + 1) {
-      if (force) {
-        gameManager.stateManager.before(building.model.level ? "upgradeBuilding" : "buildBuilding", "data.buildings." + building.model.name, '' + (building.model.level + 1));
-        building.model.level++;
-        gameManager.stateManager.after();
-      } else if (this.upgradeable(building)) {
+      if (this.upgradeable(building) || force) {
         const costs = building.model.level ? building.data.upgrades[building.model.level - 1] : building.data.costs;
-        this.dialog.open(SelectResourcesDialog, {
+        this.dialog.open(BuildingUpgradeDialog, {
           panelClass: ['dialog'],
           data: {
             costs: costs,
-            building: building.data,
-            action: building.model.level > 0 ? 'upgrade' : 'build'
+            building: building,
+            action: building.model.level > 0 ? 'upgrade' : 'build',
+            force: force
           }
         }).closed.subscribe({
           next: (result) => {
-            if (result instanceof SelectResourceResult) {
+            if (force && result == true || result instanceof SelectResourceResult) {
               gameManager.stateManager.before(building.model.level ? "upgradeBuilding" : "buildBuilding", "data.buildings." + building.model.name, '' + (building.model.level + 1));
-              this.applySelectResources(result);
+              if (!force && result instanceof SelectResourceResult) {
+                this.applySelectResources(result);
+              }
               building.model.level++;
+              if (settingsManager.settings.applyBuildingRewards && building.data.rewards && building.data.rewards[building.model.level - 1]) {
+                const rewards = building.data.rewards[building.model.level - 1];
+                gameManager.buildingsManager.applyRewards(rewards);
+                if (rewards.section) {
+                  this.openConclusion(rewards.section);
+                }
+              }
               gameManager.stateManager.after();
             }
           }
@@ -173,32 +191,72 @@ export class PartyBuildingsComponent implements OnInit {
     }
   }
 
+  openConclusion(index: string) {
+    const conclusion = gameManager.sectionData(gameManager.currentEdition()).find((sectionData) => sectionData.index == index);
+    if (conclusion) {
+      const scenario = new Scenario(conclusion as ScenarioData);
+      if (this.hasConclusions(scenario.index)) {
+        this.openConclusions(scenario.index);
+      } else {
+        this.dialog.open(ScenarioSummaryComponent, {
+          panelClass: 'dialog',
+          data: {
+            scenario: scenario,
+            conclusionOnly: true
+          }
+        })
+      }
+    }
+  }
+
+  hasConclusions(section: string): boolean {
+    const conclusions = gameManager.sectionData(gameManager.game.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(section) != -1));
+    return conclusions.length > 0 && conclusions.every((conclusion) => !gameManager.game.party.conclusions.find((model) => model.edition == conclusion.edition && model.index == conclusion.index && model.group == conclusion.group));
+  }
+
+  openConclusions(section: string) {
+    let conclusions: ScenarioData[] = gameManager.sectionData(gameManager.game.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(section) != -1)).map((conclusion) => {
+      return conclusion;
+    });
+
+    if (conclusions.length > 0) {
+      this.dialog.open(ScenarioConclusionComponent, {
+        panelClass: ['dialog'],
+        data: { conclusions: conclusions, parent: gameManager.sectionData(gameManager.game.edition).find((sectionData) => sectionData.index == section && !sectionData.group) }
+      }).closed.subscribe({
+        next: (conclusion) => {
+          if (conclusion) {
+            const scenario = new Scenario(conclusion as ScenarioData);
+            this.openConclusion(scenario.index);
+          }
+        }
+      });
+    }
+  }
+
   rebuild(building: Building, force: boolean = false) {
     if (building.model.state == 'wrecked') {
       if (this.upgradeable(building) || force) {
-        if (force) {
-          gameManager.stateManager.before("rebuildBuilding", "data.buildings." + building.model.name);
-          building.model.state = 'normal';
-          gameManager.stateManager.after();
-        } else {
-          this.dialog.open(SelectResourcesDialog, {
-            panelClass: ['dialog'],
-            data: {
-              costs: building.data.rebuild[building.model.level - 1],
-              building: building.data,
-              action: 'rebuild'
-            }
-          }).closed.subscribe({
-            next: (result) => {
-              if (result instanceof SelectResourceResult) {
-                gameManager.stateManager.before("rebuildBuilding", "data.buildings." + building.model.name);
+        this.dialog.open(BuildingUpgradeDialog, {
+          panelClass: ['dialog'],
+          data: {
+            costs: building.data.rebuild[building.model.level - 1],
+            building: building,
+            action: 'rebuild',
+            force: force
+          }
+        }).closed.subscribe({
+          next: (result) => {
+            if (force && result == true || result instanceof SelectResourceResult) {
+              gameManager.stateManager.before("rebuildBuilding", "data.buildings." + building.model.name);
+              if (!force && result instanceof SelectResourceResult) {
                 this.applySelectResources(result);
-                building.model.state = 'normal';
-                gameManager.stateManager.after();
               }
+              building.model.state = 'normal';
+              gameManager.stateManager.after();
             }
-          })
-        }
+          }
+        })
       }
     }
   }
@@ -206,29 +264,41 @@ export class PartyBuildingsComponent implements OnInit {
   repair(building: Building, force: boolean = false) {
     if (building.model.state == 'damaged') {
       if (this.upgradeable(building) || force) {
-        if (!force) {
-          this.dialog.open(SelectResourcesDialog, {
-            panelClass: ['dialog'],
-            data: {
-              repair: building.data.repair && building.data.repair[building.model.level - 1],
-              building: building.data,
-              action: 'repair'
-            }
-          }).closed.subscribe({
-            next: (result) => {
-              if (result instanceof SelectResourceResult) {
-                gameManager.stateManager.before("repairBuilding", "data.buildings." + building.data.name);
+        this.dialog.open(BuildingUpgradeDialog, {
+          panelClass: ['dialog'],
+          data: {
+            repair: building.data.repair && building.data.repair[building.model.level - 1],
+            building: building,
+            action: 'repair',
+            force: force
+          }
+        }).closed.subscribe({
+          next: (result) => {
+            if (force && result == true || result instanceof SelectResourceResult) {
+              gameManager.stateManager.before("repairBuilding", "data.buildings." + building.data.name);
+              if (!force && result instanceof SelectResourceResult) {
                 this.applySelectResources(result);
-                building.model.state = 'normal';
-                gameManager.stateManager.after();
               }
+              building.model.state = 'normal';
+              gameManager.stateManager.after();
             }
-          })
-        } else {
-          gameManager.stateManager.before("repairBuilding", "data.buildings." + building.model.name);
-          building.model.state = 'normal';
-          gameManager.stateManager.after();
-        }
+          }
+        })
+      }
+    }
+  }
+
+  rewardsDialog(building: Building) {
+    if (building.data.rewards && building.data.rewards[building.model.level - 1]) {
+      const rewards = building.data.rewards[building.model.level - 1];
+      if (rewards.defense || rewards.items || rewards.loseMorale || rewards.plots || rewards.prosperity || rewards.section || rewards.soldiers) {
+        this.dialog.open(BuildingUpgradeDialog, {
+          panelClass: ['dialog'],
+          data: {
+            building: building,
+            action: 'rewards'
+          }
+        })
       }
     }
   }

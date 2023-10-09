@@ -19,6 +19,7 @@ import { MonsterStatsComponent } from './ui/figures/monster/stats/stats';
 import { MonsterNumberPicker } from './ui/figures/monster/dialogs/numberpicker';
 import { MonsterNumberPickerDialog } from './ui/figures/monster/dialogs/numberpicker-dialog';
 import { MonsterComponent } from './ui/figures/monster/monster';
+import { gameManager } from './game/businesslogic/GameManager';
 import { UndoDialogComponent } from './ui/header/menu/undo/dialog';
 import { FooterComponent } from './ui/footer/footer';
 import { LevelComponent } from './ui/footer/level/level';
@@ -58,6 +59,7 @@ import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/auto
 import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
 import { AttackModifierToolComponent } from './ui/tools/attackmodifier/attackmodifier-tool';
+import { EventCardsToolComponent } from './ui/tools/events/event-cards-tool';
 import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
 import { TextShrinkDirective } from './ui/helper/textshrink';
 import { EntityMenuDialogComponent } from './ui/figures/entity-menu/entity-menu-dialog';
@@ -71,6 +73,7 @@ import { CharacterFullViewComponent } from './ui/figures/character/fullview/full
 import { AttackModifierDeckDialogComponent } from './ui/figures/attackmodifier/attackmodifierdeck-dialog';
 import { AttackModifierDeckFullscreenComponent } from './ui/figures/attackmodifier/attackmodifierdeck-fullscreen';
 import { AttackModifierEffectsComponent } from './ui/figures/attackmodifier/attackmodifier-effects';
+import { AttackModifierDrawComponent } from './ui/figures/attackmodifier/attackmodifier-draw';
 import { AppRoutingModule } from './app-routing.module';
 import { MonsterEditorComponent } from './ui/tools/editor/monster/monster';
 import { EditorActionComponent, EditorActionDialogComponent } from './ui/tools/editor/action/action';
@@ -100,6 +103,7 @@ import { ScenarioSummaryComponent } from './ui/footer/scenario/summary/scenario-
 import { SectionDialogComponent } from './ui/footer/scenario/section/section-dialog';
 import { CharacterLootCardsDialog } from './ui/figures/character/dialogs/loot-cards';
 import { CharacterMoveResourcesDialog } from './ui/figures/character/sheet/move-resources';
+import { CharacterRetirementDialog } from './ui/figures/character/sheet/retirement-dialog';
 import { CharacterSheetComponent } from './ui/figures/character/sheet/character-sheet';
 import { PerkLabelComponent } from './ui/figures/attackmodifier/perk/label';
 import { PartyWeekDialogComponent } from './ui/header/party/week-dialog/week-dialog';
@@ -111,7 +115,7 @@ import { TreasureLabelComponent } from './ui/footer/scenario/treasures/label/lab
 import { StatsListComponent } from './ui/footer/scenario/dialog/stats-list/stats-list';
 import { KeyboardShortcuts } from './ui/helper/keyboard-shortcuts';
 import { ScenarioConclusionComponent } from './ui/footer/scenario/scenario-conclusion/scenario-conclusion';
-import { SelectResourcesDialog } from './ui/header/party/buildings/select-resources/select-resources';
+import { BuildingUpgradeDialog } from './ui/header/party/buildings/upgrade-dialog/upgrade-dialog';
 import { EventEffectsDialog } from './ui/figures/character/event-effects/event-effects';
 import { PointerInputDirective } from './ui/helper/pointer-input';
 import { StandeeComponent } from './ui/figures/standee/standee';
@@ -128,6 +132,11 @@ import { ItemDialogComponent } from './ui/figures/items/dialog/item-dialog';
 import { TreasuresDialogComponent } from './ui/header/party/treasures/treasures-dialog';
 import { ValueSignDirective } from './ui/helper/ValueSign';
 import { AdditionalAMSelectDialogComponent } from './ui/figures/entity-menu/additional-am-select/additional-am-select';
+import { EventCardComponent } from './ui/figures/event/event-card'
+import { EventConditionLabelComponent } from './ui/figures/event/label/condition-label';
+import { EventRewardLabelComponent } from './ui/figures/event/label/reward-label';
+import { EntityIndexKeyComponent } from './ui/figures/standee/entity-index-key/entity-index-key';
+import { PartyResourcesDialogComponent } from './ui/header/party/resources/resources';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -136,17 +145,18 @@ describe('AppComponent', () => {
         AppComponent,
         MainComponent,
         HeaderComponent, ElementIconComponent, ElementComponent,
-        PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, SelectResourcesDialog, ScenarioRequirementsComponent, TreasuresDialogComponent,
+        PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, BuildingUpgradeDialog, ScenarioRequirementsComponent, TreasuresDialogComponent, PartyResourcesDialogComponent,
         MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, CampaignMenuComponent,
         FooterComponent,
         LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
         HintDialogComponent, ScenarioRulesComponent,
-        AttackModifierComponent, AttackModifierEffectsComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent, AttackModifierStandaloneComponent,
+        AttackModifierComponent, AttackModifierEffectsComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDrawComponent, AttackModifierDeckFullscreenComponent, AttackModifierStandaloneComponent,
         LevelComponent, LevelDialogComponent,
         ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, StatsListComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent, EventEffectsDialog,
         ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
         EntityMenuDialogComponent, EntitiesMenuDialogComponent, AdditionalAMSelectDialogComponent,
-        CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, ItemComponent, ItemDialogComponent, ItemsDialogComponent, ItemsCharacterDialogComponent, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
+        CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterRetirementDialog, ItemComponent, ItemDialogComponent, ItemsDialogComponent, ItemsCharacterDialogComponent, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
+        EventCardComponent, EventConditionLabelComponent, EventRewardLabelComponent,
         ObjectiveComponent, ObjectiveContainerComponent,
         SummonEntityComponent, SummonSheetComponent,
         StandeeComponent,
@@ -157,10 +167,10 @@ describe('AppComponent', () => {
         MonsterNumberPicker, MonsterNumberPickerDialog, MonsterImageDialogComponent,
         AbilityComponent, AbiltiesDialogComponent, AbilityDialogComponent,
         ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,
-        FigureErrorsComponent, FigureErrorsDialogComponent,
+        FigureErrorsComponent, FigureErrorsDialogComponent, EntityIndexKeyComponent,
         CardRevealDirective, EntityAnimationDirective, GhsLabelDirective, ValueCalcDirective, PointerInputDirective, AutocompleteDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective, ValueSignDirective,
         GhsValueSignPipe, GhsRangePipe, GhsScenarioSearch, GhsFloorPipe, GhsCeilPipe, GhsMinZeroPipe,
-        AttackModifierToolComponent, TreasuresToolComponent, DecksToolComponent,
+        AttackModifierToolComponent, EventCardsToolComponent, TreasuresToolComponent, DecksToolComponent,
         EditionEditorComponent,
         EditorActionComponent, EditorActionDialogComponent,
         DeckEditorComponent, CharacterEditorComponent, MonsterEditorComponent,

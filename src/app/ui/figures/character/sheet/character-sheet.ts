@@ -9,6 +9,7 @@ import { LootType } from "src/app/game/model/data/Loot";
 import { PerkType } from "src/app/game/model/data/Perks";
 import { ghsInputFullScreenCheck, ghsValueSign } from "src/app/ui/helper/Static";
 import { CharacterMoveResourcesDialog } from "./move-resources";
+import { CharacterRetirementDialog } from "./retirement-dialog";
 
 
 @Component({
@@ -145,13 +146,30 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
 
     if (this.retired != this.character.progress.retired) {
-      gameManager.stateManager.before("setRetired", "data.character." + this.character.name, "" + !this.character.progress.retired);
-      this.character.progress.retired = this.retired;
-      if (this.retired && gameManager.game.party.campaignMode) {
-        gameManager.game.party.retirements.push(this.character.toModel());
-        gameManager.characterManager.removeCharacter(this.character);
+      if (settingsManager.settings.applyRetirement && gameManager.game.party.campaignMode && this.retired) {
+        this.dialog.open(CharacterRetirementDialog, {
+          panelClass: 'dialog',
+          data: this.character
+        }).closed.subscribe({
+          next: (result) => {
+            if (result) {
+              gameManager.stateManager.before("setRetired", "data.character." + this.character.name);
+              this.character.progress.retired = this.retired;
+              gameManager.game.party.retirements.push(this.character.toModel());
+              gameManager.characterManager.removeCharacter(this.character, true);
+              gameManager.stateManager.after();
+            }
+          }
+        });
+      } else {
+        gameManager.stateManager.before(this.character.progress.retired ? "setRetired" : "unsetRetired", "data.character." + this.character.name);
+        this.character.progress.retired = this.retired;
+        if (this.retired && gameManager.game.party.campaignMode) {
+          gameManager.game.party.retirements.push(this.character.toModel());
+          gameManager.characterManager.removeCharacter(this.character);
+        }
+        gameManager.stateManager.after();
       }
-      gameManager.stateManager.after();
     }
   }
 

@@ -1,0 +1,13 @@
+{
+  "index": "189.1",
+  "name": "Town Hall Built",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "summer-outpost:SO-59",
+      "summer-outpost:SO-62",
+      "summer-road:SR-38"
+    ]
+  }
+}

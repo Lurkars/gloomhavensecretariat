@@ -303,7 +303,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   reactivateCharacter(characterModel: GameCharacterModel) {
-    gameManager.stateManager.before("setRetired", "data.character." + characterModel.name, "" + false);
+    gameManager.stateManager.before("unsetRetired", "data.character." + characterModel.name);
     let character = new Character(gameManager.getCharacterData(characterModel.name, characterModel.edition), characterModel.level);
     character.fromModel(characterModel);
     character.progress.retired = false;
@@ -752,13 +752,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   hasConclusions(section: string): boolean {
-    const conclusions = gameManager.sectionData(gameManager.game.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.length == 1 && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(section) != -1));
+    const conclusions = gameManager.sectionData(gameManager.game.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(section) != -1));
     return conclusions.length > 0 && conclusions.every((conclusion) => !gameManager.game.party.conclusions.find((model) => model.edition == conclusion.edition && model.index == conclusion.index && model.group == conclusion.group));
   }
 
-  openConclusions(section: string, week: number) {
-    let conclusions: ScenarioData[] = gameManager.sectionData(gameManager.game.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.length == 1 && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(section) != -1)).map((conclusion) => {
-      conclusion.name = "";
+  openConclusions(section: string, week: number = -1) {
+    let conclusions: ScenarioData[] = gameManager.sectionData(gameManager.game.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(section) != -1)).map((conclusion) => {
       return conclusion;
     });
 
@@ -770,40 +769,55 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         next: (conclusion) => {
           if (conclusion) {
             const scenario = new Scenario(conclusion as ScenarioData);
-            gameManager.stateManager.before("finishConclusion", ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
-            gameManager.scenarioManager.finishScenario(scenario, true, scenario, false, undefined, false, gameManager.game.party.campaignMode, true);
-            this.party.weekSections[week] = this.party.weekSections[week] || [];
-            this.party.weekSections[week]?.push(scenario.index);
-            gameManager.stateManager.after();
+            if (week != -1) {
+              gameManager.stateManager.before("finishConclusion", ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
+              gameManager.scenarioManager.finishScenario(scenario, true, scenario, false, undefined, false, gameManager.game.party.campaignMode, true);
+              this.party.weekSections[week] = this.party.weekSections[week] || [];
+              this.party.weekSections[week]?.push(scenario.index);
+              gameManager.stateManager.after();
 
-            this.dialog.open(ScenarioSummaryComponent, {
-              panelClass: 'dialog',
-              data: {
-                scenario: scenario,
-                conclusionOnly: true
-              }
-            })
+              this.dialog.open(ScenarioSummaryComponent, {
+                panelClass: 'dialog',
+                data: {
+                  scenario: scenario,
+                  conclusionOnly: true
+                }
+              })
+            } else {
+              this.finishConclusion(scenario.index);
+            }
           }
         }
       });
     }
   }
 
-  finishConclusion(indexElement: HTMLInputElement) {
+  selectFinishConclusion(indexElement: HTMLInputElement) {
     let index: string = indexElement.value;
     indexElement.classList.add('error');
     const conclusion = gameManager.sectionData(this.partyEdition || gameManager.currentEdition()).find((sectionData) => sectionData.index == index);
     if (conclusion) {
-      const scenario = new Scenario(conclusion as ScenarioData);
       indexElement.classList.remove('error');
       indexElement.value = "";
-      this.dialog.open(ScenarioSummaryComponent, {
-        panelClass: 'dialog',
-        data: {
-          scenario: scenario,
-          conclusionOnly: true
-        }
-      }).closed.subscribe({ next: () => this.update() })
+      this.finishConclusion(index);
+    }
+  }
+
+  finishConclusion(index: string) {
+    const conclusion = gameManager.sectionData(this.partyEdition || gameManager.currentEdition()).find((sectionData) => sectionData.index == index);
+    if (conclusion) {
+      const scenario = new Scenario(conclusion as ScenarioData);
+      if (this.hasConclusions(scenario.index)) {
+        this.openConclusions(scenario.index);
+      } else {
+        this.dialog.open(ScenarioSummaryComponent, {
+          panelClass: 'dialog',
+          data: {
+            scenario: scenario,
+            conclusionOnly: true
+          }
+        }).closed.subscribe({ next: () => this.update() })
+      }
     }
   }
 

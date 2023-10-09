@@ -1,0 +1,15 @@
+{
+  "index": "113.1",
+  "name": "Tavern Upgaded",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "removeEvents": [
+      "winter-outpost:WO-79",
+      "summer-road:SR-50"
+    ],
+    "items": [
+      "245"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "index": "160.2",
+  "name": "Tavern Built",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "lootDeckCards": [
+      1418
+    ],
+    "events": [
+      "winter-outpost:WO-79",
+      "summer-road:SR-50"
+    ],
+    "hints": {
+      "lootDeckCards": [
+        "When drawn, read any one section number depicted."
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "index": "153.2",
+  "name": "If %game.fhIcon:trait% AESTHER",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "178.2"
+    ]
+  ],
+  "conclusion": true,
+  "named": true
+}

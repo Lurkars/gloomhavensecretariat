@@ -22,8 +22,9 @@
                 <span [ghs-label]="'data.buildings.' + building.model.name"></span>
             </span>
             <span class="id"><span *ngIf="building.data.id">({{building.data.id}})</span></span>
-            <span class="level" ghs-pointer-input (doubleClick)="downgrade(building)">{{building.model.level ||
-                '-'}}</span>
+            <span class="level" ghs-pointer-input (singleClick)="rewardsDialog(building)"
+                (doubleClick)="downgrade(building)" [ghsTooltip]="'party.campaign.sheet.buildings.level.hint'"
+                [originY]="'bottom'">{{building.model.level || '-'}}</span>
             <span class="costs" [ngClass]="{'disabled' : !upgradeable(building)}">
                 <ng-container *ngIf="!building.model.level">
                     <span class="cost"><img src="./assets/images/fh/buildings/prosperity.svg">
@@ -90,8 +91,9 @@
                 </span>
                 <span *ngIf="building.model.state == 'wrecked'" [ngClass]="{'disabled' : !upgradeable(building)}"
                     class="button upgrade" ghs-pointer-input (singleClick)="rebuild(building)"
-                    (doubleClick)="rebuild(building, true)" [ghsTooltip]="('party.campaign.sheet.buildings.rebuild.hint')"
-                    [originX]="'end'" [originY]="'bottom'" [overlayX]="'end'">
+                    (doubleClick)="rebuild(building, true)"
+                    [ghsTooltip]="('party.campaign.sheet.buildings.rebuild.hint')" [originX]="'end'"
+                    [originY]="'bottom'" [overlayX]="'end'">
                     <span [ghs-label]="'party.campaign.sheet.buildings.rebuild'"></span>
                     <img src="./assets/images/fh/buildings/rebuild.svg">
                 </span>

@@ -1,115 +1,336 @@
 [
     {
-        "id": "35",
-        "name": "alchemist",
+        "id": "05",
+        "name": "mining-camp",
         "costs": {
-            "prosperity": 0,
-            "lumber": 0,
-            "metal": 0,
-            "hide": 0,
-            "gold": 0
+            "prosperity": 1,
+            "lumber": 4,
+            "metal": 2,
+            "hide": 1,
+            "gold": 10
         },
         "upgrades": [
             {
-                "prosperity": 1,
+                "prosperity": 3,
+                "lumber": 6,
+                "metal": 3,
+                "hide": 2
+            },
+            {
+                "prosperity": 5,
+                "lumber": 8,
+                "metal": 5,
+                "hide": 2
+            },
+            {
+                "prosperity": 7,
+                "lumber": 10,
+                "metal": 6,
+                "hide": 3
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 1,
+                "metal": 2,
+                "hide": 0
+            },
+            {
+                "lumber": 1,
+                "metal": 2,
+                "hide": 1
+            },
+            {
                 "lumber": 2,
                 "metal": 2,
                 "hide": 1
             },
             {
-                "prosperity": 4,
-                "lumber": 4,
-                "metal": 4,
+                "lumber": 2,
+                "metal": 2,
+                "hide": 1
+            }
+        ],
+        "rewards": [
+            {
+                "prosperity": 1
+            },
+            {
+                "prosperity": 1,
+                "section": "49.2"
+            },
+            {
+                "prosperity": 1
+            },
+            {
+                "prosperity": 1
+            }
+        ],
+        "prosperityUnlock": true
+    },
+    {
+        "id": "12",
+        "name": "hunting-lodge",
+        "costs": {
+            "prosperity": 1,
+            "lumber": 4,
+            "metal": 1,
+            "hide": 2,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 3,
+                "lumber": 6,
+                "metal": 2,
+                "hide": 3
+            },
+            {
+                "prosperity": 5,
+                "lumber": 8,
+                "metal": 2,
+                "hide": 5
+            },
+            {
+                "prosperity": 7,
+                "lumber": 10,
+                "metal": 3,
+                "hide": 6
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 0,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 2
+            },
+            {
+                "lumber": 2,
+                "metal": 1,
                 "hide": 2
             }
         ],
-        "repair": [
-            2,
-            2,
-            3
-        ],
-        "rebuild": [
+        "rewards": [
             {
-                "lumber": 1,
-                "metal": 1,
-                "hide": 0
+                "prosperity": 1,
+                "section": "172.3"
             },
             {
-                "lumber": 1,
-                "metal": 1,
-                "hide": 1
+                "prosperity": 1
             },
             {
-                "lumber": 3,
-                "metal": 1,
-                "hide": 1
+                "prosperity": 1,
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 1
             }
-        ]
+        ],
+        "prosperityUnlock": true
     },
     {
-        "id": "98",
-        "name": "barracks",
+        "id": "17",
+        "name": "logging-camp",
         "costs": {
-            "prosperity": 0,
-            "lumber": 0,
-            "metal": 0,
-            "hide": 0,
-            "gold": 0
-        },
-        "upgrades": [],
-        "manualUpgrades": 3,
-        "repair": [
-            2,
-            2,
-            3,
-            3
-        ],
-        "rebuild": [
-            {
-                "lumber": 1,
-                "metal": 1,
-                "hide": 0
-            },
-            {
-                "lumber": 1,
-                "metal": 2,
-                "hide": 1
-            },
-            {
-                "lumber": 1,
-                "metal": 2,
-                "hide": 1
-            },
-            {
-                "lumber": 1,
-                "metal": 3,
-                "hide": 1
-            }
-        ]
-    },
-    {
-        "id": "85",
-        "name": "carpenter",
-        "costs": {
-            "prosperity": 2,
-            "lumber": 4,
+            "prosperity": 1,
+            "lumber": 2,
             "metal": 3,
             "hide": 2,
             "gold": 10
         },
         "upgrades": [
             {
+                "prosperity": 3,
+                "lumber": 4,
+                "metal": 5,
+                "hide": 2
+            },
+            {
                 "prosperity": 5,
                 "lumber": 6,
-                "metal": 5,
-                "hide": 4
+                "metal": 6,
+                "hide": 3
+            },
+            {
+                "prosperity": 7,
+                "lumber": 8,
+                "metal": 8,
+                "hide": 3
             }
         ],
         "repair": [
             2,
-            3
+            3,
+            3,
+            4
         ],
         "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 0
+            },
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 1
+            }
+        ],
+        "rewards": [
+            {
+                "prosperity": 1
+            },
+            {
+                "prosperity": 1
+            },
+            {
+                "prosperity": 1,
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 1
+            }
+        ],
+        "prosperityUnlock": true
+    },
+    {
+        "id": "21",
+        "name": "inn",
+        "costs": {
+            "prosperity": 2,
+            "lumber": 4,
+            "metal": 4,
+            "hide": 4,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 4,
+                "lumber": 5,
+                "metal": 5,
+                "hide": 5
+            },
+            {
+                "prosperity": 5,
+                "lumber": 6,
+                "metal": 6,
+                "hide": 6
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 2
+            },
+            {
+                "lumber": 3,
+                "metal": 2,
+                "hide": 2
+            }
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "151.2"
+            },
+            {
+                "prosperity": 1
+            },
+            {
+                "prosperity": 1
+            }
+        ]
+    },
+    {
+        "id": "24",
+        "name": "garden",
+        "costs": {
+            "prosperity": 1,
+            "lumber": 3,
+            "metal": 0,
+            "hide": 0,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 2,
+                "lumber": 4,
+                "metal": 2,
+                "hide": 2
+            },
+            {
+                "prosperity": 5,
+                "lumber": 3,
+                "metal": 3,
+                "hide": 3
+            },
+            {
+                "prosperity": 7,
+                "lumber": 6,
+                "metal": 3,
+                "hide": 3
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 0,
+                "hide": 0
+            },
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 0
+            },
             {
                 "lumber": 2,
                 "metal": 1,
@@ -117,8 +338,26 @@
             },
             {
                 "lumber": 3,
-                "metal": 2,
-                "hide": 2
+                "metal": 1,
+                "hide": 1
+            }
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "78.4"
+            },
+            {
+                "prosperity": 1,
+                "plots": 1
+            },
+            {
+                "prosperity": 1,
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 1,
+                "plots": 1
             }
         ]
     },
@@ -239,778 +478,101 @@
                 "metal": 2,
                 "hide": 2
             }
-        ]
-    },
-    {
-        "id": "44",
-        "name": "enhancer",
-        "costs": {
-            "prosperity": 1,
-            "lumber": 3,
-            "metal": 4,
-            "hide": 0,
-            "gold": 10
-        },
-        "upgrades": [
-            {
-                "prosperity": 3,
-                "lumber": 4,
-                "metal": 5,
-                "hide": 0
-            },
-            {
-                "prosperity": 5,
-                "lumber": 4,
-                "metal": 4,
-                "hide": 4
-            },
-            {
-                "prosperity": 7,
-                "lumber": 5,
-                "metal": 6,
-                "hide": 6
-            }
         ],
-        "repair": [
-            2,
-            3,
-            3,
-            4
-        ],
-        "rebuild": [
+        "rewards": [
             {
-                "lumber": 2,
-                "metal": 2,
-                "hide": 0
+                "items": "1-10"
             },
             {
-                "lumber": 3,
-                "metal": 2,
-                "hide": 0
+                "prosperity": 1,
+                "items": "11-15"
             },
             {
-                "lumber": 3,
-                "metal": 2,
-                "hide": 1
+                "prosperity": 1,
+                "items": "16-20"
             },
             {
-                "lumber": 3,
-                "metal": 2,
-                "hide": 2
+                "prosperity": 1,
+                "items": "21-25"
+            },
+            {
+                "prosperity": 1,
+                "items": "26-30"
+            },
+            {
+                "prosperity": 1,
+                "items": "31-35"
+            },
+            {
+                "prosperity": 1,
+                "items": "36-40",
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 1,
+                "items": "41-45",
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 1,
+                "items": "46-50"
             }
         ]
     },
     {
-        "id": "24",
-        "name": "garden",
+        "id": "35",
+        "name": "alchemist",
         "costs": {
-            "prosperity": 1,
-            "lumber": 3,
+            "prosperity": 0,
+            "lumber": 0,
             "metal": 0,
             "hide": 0,
-            "gold": 10
+            "gold": 0
         },
         "upgrades": [
             {
-                "prosperity": 2,
-                "lumber": 4,
-                "metal": 2,
-                "hide": 2
-            },
-            {
-                "prosperity": 5,
-                "lumber": 3,
-                "metal": 3,
-                "hide": 3
-            },
-            {
-                "prosperity": 7,
-                "lumber": 6,
-                "metal": 3,
-                "hide": 3
-            }
-        ],
-        "repair": [
-            2,
-            3,
-            3,
-            4
-        ],
-        "rebuild": [
-            {
-                "lumber": 2,
-                "metal": 0,
-                "hide": 0
-            },
-            {
-                "lumber": 2,
-                "metal": 1,
-                "hide": 0
-            },
-            {
-                "lumber": 2,
-                "metal": 1,
-                "hide": 1
-            },
-            {
-                "lumber": 3,
-                "metal": 1,
-                "hide": 1
-            }
-        ]
-    },
-    {
-        "id": "81",
-        "name": "hall-of-revelry",
-        "costs": {
-            "prosperity": 5,
-            "lumber": 6,
-            "metal": 6,
-            "hide": 6,
-            "gold": 10
-        },
-        "upgrades": [],
-        "manualUpgrades": 1,
-        "repair": [
-            3,
-            4
-        ],
-        "rebuild": [
-            {
-                "lumber": 2,
-                "metal": 2,
-                "hide": 2
-            },
-            {
-                "lumber": 2,
-                "metal": 2,
-                "hide": 2
-            }
-        ]
-    },
-    {
-        "id": "72",
-        "name": "hide-depot",
-        "costs": {
-            "prosperity": 3,
-            "lumber": 2,
-            "metal": 2,
-            "hide": 6,
-            "gold": 10
-        },
-        "upgrades": [
-            {
-                "prosperity": 7,
-                "lumber": 5,
-                "metal": 5,
-                "hide": 5
-            }
-        ],
-        "repair": [
-            3,
-            4
-        ],
-        "rebuild": [
-            {
-                "lumber": 1,
-                "metal": 1,
-                "hide": 2
-            },
-            {
-                "lumber": 1,
-                "metal": 1,
-                "hide": 3
-            }
-        ]
-    },
-    {
-        "id": "12",
-        "name": "hunting-lodge",
-        "costs": {
-            "prosperity": 1,
-            "lumber": 4,
-            "metal": 1,
-            "hide": 2,
-            "gold": 10
-        },
-        "upgrades": [
-            {
-                "prosperity": 3,
-                "lumber": 6,
-                "metal": 2,
-                "hide": 3
-            },
-            {
-                "prosperity": 5,
-                "lumber": 8,
-                "metal": 2,
-                "hide": 5
-            },
-            {
-                "prosperity": 7,
-                "lumber": 10,
-                "metal": 3,
-                "hide": 6
-            }
-        ],
-        "repair": [
-            2,
-            3,
-            3,
-            4
-        ],
-        "rebuild": [
-            {
-                "lumber": 2,
-                "metal": 0,
-                "hide": 1
-            },
-            {
-                "lumber": 2,
-                "metal": 1,
-                "hide": 1
-            },
-            {
-                "lumber": 2,
-                "metal": 1,
-                "hide": 2
-            },
-            {
-                "lumber": 2,
-                "metal": 1,
-                "hide": 2
-            }
-        ],
-        "prosperityUnlock": true
-    },
-    {
-        "id": "21",
-        "name": "inn",
-        "costs": {
-            "prosperity": 2,
-            "lumber": 4,
-            "metal": 4,
-            "hide": 4,
-            "gold": 10
-        },
-        "upgrades": [
-            {
-                "prosperity": 4,
-                "lumber": 5,
-                "metal": 5,
-                "hide": 5
-            },
-            {
-                "prosperity": 5,
-                "lumber": 6,
-                "metal": 6,
-                "hide": 6
-            }
-        ],
-        "repair": [
-            2,
-            3,
-            4
-        ],
-        "rebuild": [
-            {
+                "prosperity": 1,
                 "lumber": 2,
                 "metal": 2,
                 "hide": 1
             },
-            {
-                "lumber": 2,
-                "metal": 2,
-                "hide": 2
-            },
-            {
-                "lumber": 3,
-                "metal": 2,
-                "hide": 2
-            }
-        ]
-    },
-    {
-        "id": "39",
-        "name": "jeweler",
-        "costs": {
-            "prosperity": 4,
-            "lumber": 3,
-            "metal": 2,
-            "hide": 4,
-            "gold": 10
-        },
-        "upgrades": [
-            {
-                "prosperity": 6,
-                "lumber": 3,
-                "metal": 6,
-                "hide": 3
-            },
-            {
-                "prosperity": 8,
-                "lumber": 2,
-                "metal": 10,
-                "hide": 3
-            }
-        ],
-        "repair": [
-            2,
-            3,
-            4
-        ],
-        "rebuild": [
-            {
-                "lumber": 1,
-                "metal": 2,
-                "hide": 1
-            },
-            {
-                "lumber": 1,
-                "metal": 3,
-                "hide": 1
-            },
-            {
-                "lumber": 1,
-                "metal": 4,
-                "hide": 1
-            }
-        ]
-    },
-    {
-        "id": "83",
-        "name": "library",
-        "costs": {
-            "prosperity": 2,
-            "lumber": 3,
-            "metal": 2,
-            "hide": 0,
-            "gold": 10
-        },
-        "upgrades": [
             {
                 "prosperity": 4,
                 "lumber": 4,
                 "metal": 4,
-                "hide": 1
-            },
-            {
-                "prosperity": 6,
-                "lumber": 2,
-                "metal": 5,
-                "hide": 5
+                "hide": 2
             }
         ],
         "repair": [
             2,
-            3,
-            4
-        ],
-        "rebuild": [
-            {
-                "lumber": 2,
-                "metal": 1,
-                "hide": 0
-            },
-            {
-                "lumber": 2,
-                "metal": 2,
-                "hide": 0
-            },
-            {
-                "lumber": 2,
-                "metal": 2,
-                "hide": 2
-            }
-        ]
-    },
-    {
-        "id": "17",
-        "name": "logging-camp",
-        "costs": {
-            "prosperity": 1,
-            "lumber": 2,
-            "metal": 3,
-            "hide": 2,
-            "gold": 10
-        },
-        "upgrades": [
-            {
-                "prosperity": 3,
-                "lumber": 4,
-                "metal": 5,
-                "hide": 2
-            },
-            {
-                "prosperity": 5,
-                "lumber": 6,
-                "metal": 6,
-                "hide": 3
-            },
-            {
-                "prosperity": 7,
-                "lumber": 8,
-                "metal": 8,
-                "hide": 3
-            }
-        ],
-        "repair": [
             2,
-            3,
-            3,
-            4
-        ],
-        "rebuild": [
-            {
-                "lumber": 2,
-                "metal": 1,
-                "hide": 0
-            },
-            {
-                "lumber": 2,
-                "metal": 1,
-                "hide": 1
-            },
-            {
-                "lumber": 2,
-                "metal": 2,
-                "hide": 1
-            },
-            {
-                "lumber": 2,
-                "metal": 2,
-                "hide": 1
-            }
-        ],
-        "prosperityUnlock": true
-    },
-    {
-        "id": "67",
-        "name": "lumber-depot",
-        "costs": {
-            "prosperity": 3,
-            "lumber": 6,
-            "metal": 2,
-            "hide": 2,
-            "gold": 10
-        },
-        "upgrades": [
-            {
-                "prosperity": 7,
-                "lumber": 5,
-                "metal": 5,
-                "hide": 5
-            }
-        ],
-        "repair": [
-            3,
-            4
-        ],
-        "rebuild": [
-            {
-                "lumber": 2,
-                "metal": 1,
-                "hide": 1
-            },
-            {
-                "lumber": 3,
-                "metal": 1,
-                "hide": 1
-            }
-        ]
-    },
-    {
-        "id": "65",
-        "name": "metal-depot",
-        "costs": {
-            "prosperity": 3,
-            "lumber": 2,
-            "metal": 6,
-            "hide": 2,
-            "gold": 10
-        },
-        "upgrades": [
-            {
-                "prosperity": 7,
-                "lumber": 5,
-                "metal": 5,
-                "hide": 5
-            }
-        ],
-        "repair": [
-            3,
-            4
+            3
         ],
         "rebuild": [
             {
                 "lumber": 1,
-                "metal": 2,
-                "hide": 1
-            },
-            {
-                "lumber": 1,
-                "metal": 3,
-                "hide": 1
-            }
-        ]
-    },
-    {
-        "id": "05",
-        "name": "mining-camp",
-        "costs": {
-            "prosperity": 1,
-            "lumber": 4,
-            "metal": 2,
-            "hide": 1,
-            "gold": 10
-        },
-        "upgrades": [
-            {
-                "prosperity": 3,
-                "lumber": 6,
-                "metal": 3,
-                "hide": 2
-            },
-            {
-                "prosperity": 5,
-                "lumber": 8,
-                "metal": 5,
-                "hide": 2
-            },
-            {
-                "prosperity": 7,
-                "lumber": 10,
-                "metal": 6,
-                "hide": 3
-            }
-        ],
-        "repair": [
-            2,
-            3,
-            3,
-            4
-        ],
-        "rebuild": [
-            {
-                "lumber": 1,
-                "metal": 2,
+                "metal": 1,
                 "hide": 0
             },
             {
                 "lumber": 1,
-                "metal": 2,
-                "hide": 1
-            },
-            {
-                "lumber": 2,
-                "metal": 2,
-                "hide": 1
-            },
-            {
-                "lumber": 2,
-                "metal": 2,
-                "hide": 1
-            }
-        ],
-        "prosperityUnlock": true
-    },
-    {
-        "id": "88",
-        "name": "stables",
-        "costs": {
-            "prosperity": 2,
-            "lumber": 6,
-            "metal": 2,
-            "hide": 2,
-            "gold": 10
-        },
-        "upgrades": [
-            {
-                "prosperity": 4,
-                "lumber": 4,
-                "metal": 5,
-                "hide": 5
-            },
-            {
-                "prosperity": 6,
-                "lumber": 6,
-                "metal": 7,
-                "hide": 6
-            },
-            {
-                "prosperity": 8,
-                "lumber": 8,
-                "metal": 8,
-                "hide": 8
-            }
-        ],
-        "repair": [
-            2,
-            3,
-            3,
-            4
-        ],
-        "rebuild": [
-            {
-                "lumber": 3,
-                "metal": 1,
-                "hide": 0
-            },
-            {
-                "lumber": 3,
                 "metal": 1,
                 "hide": 1
             },
             {
                 "lumber": 3,
-                "metal": 2,
-                "hide": 2
-            },
-            {
-                "lumber": 3,
-                "metal": 3,
-                "hide": 3
-            }
-        ]
-    },
-    {
-        "id": "74",
-        "name": "tavern",
-        "costs": {
-            "prosperity": 2,
-            "lumber": 2,
-            "metal": 2,
-            "hide": 1,
-            "gold": 10
-        },
-        "upgrades": [
-            {
-                "prosperity": 4,
-                "lumber": 4,
-                "metal": 3,
-                "hide": 2
-            },
-            {
-                "prosperity": 6,
-                "lumber": 6,
-                "metal": 4,
-                "hide": 2
-            }
-        ],
-        "repair": [
-            2,
-            3,
-            4
-        ],
-        "rebuild": [
-            {
-                "lumber": 2,
-                "metal": 1,
-                "hide": 0
-            },
-            {
-                "lumber": 2,
-                "metal": 2,
-                "hide": 0
-            },
-            {
-                "lumber": 2,
-                "metal": 2,
-                "hide": 2
-            }
-        ]
-    },
-    {
-        "id": "42",
-        "name": "temple",
-        "costs": {
-            "prosperity": 1,
-            "lumber": 4,
-            "metal": 2,
-            "hide": 2,
-            "gold": 10
-        },
-        "upgrades": [
-            {
-                "prosperity": 4,
-                "lumber": 3,
-                "metal": 6,
-                "hide": 3
-            },
-            {
-                "prosperity": 7,
-                "lumber": 4,
-                "metal": 10,
-                "hide": 4
-            }
-        ],
-        "repair": [
-            2,
-            3,
-            4
-        ],
-        "rebuild": [
-            {
-                "lumber": 2,
                 "metal": 1,
                 "hide": 1
-            },
-            {
-                "lumber": 2,
-                "metal": 2,
-                "hide": 1
-            },
-            {
-                "lumber": 3,
-                "metal": 2,
-                "hide": 1
-            }
-        ]
-    },
-    {
-        "id": "90",
-        "name": "town-hall",
-        "costs": {
-            "prosperity": 2,
-            "lumber": 2,
-            "metal": 2,
-            "hide": 1,
-            "gold": 10
-        },
-        "upgrades": [
-            {
-                "prosperity": 4,
-                "lumber": 3,
-                "metal": 3,
-                "hide": 3
-            },
-            {
-                "prosperity": 6,
-                "lumber": 4,
-                "metal": 5,
-                "hide": 4
             }
         ],
-        "repair": [
-            2,
-            3,
-            4
-        ],
-        "rebuild": [
+        "rewards": [
+            {},
             {
-                "lumber": 2,
-                "metal": 2,
-                "hide": 0
+                "prosperity": 1
             },
             {
-                "lumber": 2,
-                "metal": 2,
-                "hide": 1
-            },
-            {
-                "lumber": 2,
-                "metal": 2,
-                "hide": 2
+                "prosperity": 1,
+                "section": "183.5"
             }
         ]
     },
@@ -1071,60 +633,517 @@
                 "metal": 2,
                 "hide": 1
             }
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "25.2"
+            },
+            {
+                "prosperity": 1,
+                "section": "12.4"
+            },
+            {
+                "prosperity": 1,
+                "section": "38.3",
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 1,
+                "section": "196.2"
+            }
         ]
     },
     {
-        "name": "wall-j",
+        "id": "39",
+        "name": "jeweler",
+        "costs": {
+            "prosperity": 4,
+            "lumber": 3,
+            "metal": 2,
+            "hide": 4,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 6,
+                "lumber": 3,
+                "metal": 6,
+                "hide": 3
+            },
+            {
+                "prosperity": 8,
+                "lumber": 2,
+                "metal": 10,
+                "hide": 3
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 1,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 1,
+                "metal": 3,
+                "hide": 1
+            },
+            {
+                "lumber": 1,
+                "metal": 4,
+                "hide": 1
+            }
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "31.3"
+            },
+            {
+                "prosperity": 1,
+                "items": "160-163",
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 1,
+                "items": "164-167"
+            }
+        ]
+    },
+    {
+        "id": "42",
+        "name": "temple",
         "costs": {
             "prosperity": 1,
             "lumber": 4,
-            "gold": 10
-        },
-        "prosperityUnlock": true
-    },
-    {
-        "name": "wall-k",
-        "costs": {
-            "prosperity": 2,
-            "lumber": 3,
             "metal": 2,
             "hide": 2,
             "gold": 10
         },
-        "prosperityUnlock": true
+        "upgrades": [
+            {
+                "prosperity": 4,
+                "lumber": 3,
+                "metal": 6,
+                "hide": 3
+            },
+            {
+                "prosperity": 7,
+                "lumber": 4,
+                "metal": 10,
+                "hide": 4
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 3,
+                "metal": 2,
+                "hide": 1
+            }
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "192.5"
+            },
+            {
+                "prosperity": 3,
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 5
+            }
+        ]
     },
     {
-        "name": "wall-l",
+        "id": "44",
+        "name": "enhancer",
+        "costs": {
+            "prosperity": 1,
+            "lumber": 3,
+            "metal": 4,
+            "hide": 0,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 3,
+                "lumber": 4,
+                "metal": 5,
+                "hide": 0
+            },
+            {
+                "prosperity": 5,
+                "lumber": 4,
+                "metal": 4,
+                "hide": 4
+            },
+            {
+                "prosperity": 7,
+                "lumber": 5,
+                "metal": 6,
+                "hide": 6
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 0
+            },
+            {
+                "lumber": 3,
+                "metal": 2,
+                "hide": 0
+            },
+            {
+                "lumber": 3,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 3,
+                "metal": 2,
+                "hide": 2
+            }
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "193.1"
+            },
+            {
+                "prosperity": 1,
+                "section": "157.2"
+            },
+            {
+                "prosperity": 1,
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 1,
+                "section": "56.3"
+            }
+        ]
+    },
+    {
+        "id": "65",
+        "name": "metal-depot",
         "costs": {
             "prosperity": 3,
-            "lumber": 5,
+            "lumber": 2,
+            "metal": 6,
+            "hide": 2,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 7,
+                "lumber": 5,
+                "metal": 5,
+                "hide": 5
+            }
+        ],
+        "repair": [
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 1,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 1,
+                "metal": 3,
+                "hide": 1
+            }
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "193.4"
+            },
+            {
+                "prosperity": 2
+            }
+        ]
+    },
+    {
+        "id": "67",
+        "name": "lumber-depot",
+        "costs": {
+            "prosperity": 3,
+            "lumber": 6,
+            "metal": 2,
+            "hide": 2,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 7,
+                "lumber": 5,
+                "metal": 5,
+                "hide": 5
+            }
+        ],
+        "repair": [
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 3,
+                "metal": 1,
+                "hide": 1
+            }
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "144.3"
+            },
+            {
+                "prosperity": 2
+            }
+        ]
+    },
+    {
+        "id": "72",
+        "name": "hide-depot",
+        "costs": {
+            "prosperity": 3,
+            "lumber": 2,
+            "metal": 2,
+            "hide": 6,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 7,
+                "lumber": 5,
+                "metal": 5,
+                "hide": 5
+            }
+        ],
+        "repair": [
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 1,
+                "metal": 1,
+                "hide": 2
+            },
+            {
+                "lumber": 1,
+                "metal": 1,
+                "hide": 3
+            }
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "173.1"
+            },
+            {
+                "prosperity": 2
+            }
+        ]
+    },
+    {
+        "id": "74",
+        "name": "tavern",
+        "costs": {
+            "prosperity": 2,
+            "lumber": 2,
             "metal": 2,
             "hide": 1,
             "gold": 10
         },
-        "prosperityUnlock": true
+        "upgrades": [
+            {
+                "prosperity": 4,
+                "lumber": 4,
+                "metal": 3,
+                "hide": 2
+            },
+            {
+                "prosperity": 6,
+                "lumber": 6,
+                "metal": 4,
+                "hide": 2
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 0
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 0
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 2
+            }
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "160.2"
+            },
+            {
+                "prosperity": 1,
+                "section": "35.3"
+            },
+            {
+                "prosperity": 1,
+                "section": "113.1"
+            }
+        ]
     },
     {
-        "name": "wall-m",
+        "id": "81",
+        "name": "hall-of-revelry",
         "costs": {
-            "prosperity": 4,
-            "lumber": 4,
-            "metal": 3,
-            "hide": 3,
-            "gold": 10
-        },
-        "prosperityUnlock": true
-    },
-    {
-        "name": "wall-n",
-        "costs": {
-            "prosperity": 6,
+            "prosperity": 5,
             "lumber": 6,
-            "metal": 3,
-            "hide": 2,
+            "metal": 6,
+            "hide": 6,
             "gold": 10
         },
-        "prosperityUnlock": true
+        "upgrades": [],
+        "manualUpgrades": 1,
+        "repair": [
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 2
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 2
+            }
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "178.2"
+            },
+            {
+                "prosperity": 1
+            }
+        ]
+    },
+    {
+        "id": "83",
+        "name": "library",
+        "costs": {
+            "prosperity": 2,
+            "lumber": 3,
+            "metal": 2,
+            "hide": 0,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 4,
+                "lumber": 4,
+                "metal": 4,
+                "hide": 1
+            },
+            {
+                "prosperity": 6,
+                "lumber": 2,
+                "metal": 5,
+                "hide": 5
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 0
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 0
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 2
+            }
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "190.3"
+            },
+            {
+                "prosperity": 1,
+                "section": "116.3"
+            },
+            {
+                "prosperity": 1,
+                "section": "89.2"
+            }
+        ]
     },
     {
         "id": "84",
@@ -1158,6 +1177,11 @@
             "gold": 0
         },
         "requires": "workshop",
+        "rewards": [
+            {
+                "section": "139.2"
+            }
+        ],
         "prosperityUnlock": true
     },
     {
@@ -1170,6 +1194,11 @@
             "gold": 0
         },
         "requires": "workshop",
+        "rewards": [
+            {
+                "section": "169.2"
+            }
+        ],
         "prosperityUnlock": true
     },
     {
@@ -1182,6 +1211,325 @@
             "gold": 0
         },
         "requires": "workshop",
+        "rewards": [
+            {
+                "section": "161.1"
+            }
+        ],
+        "prosperityUnlock": true
+    },
+    {
+        "id": "85",
+        "name": "carpenter",
+        "costs": {
+            "prosperity": 2,
+            "lumber": 4,
+            "metal": 3,
+            "hide": 2,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 5,
+                "lumber": 6,
+                "metal": 5,
+                "hide": 4
+            }
+        ],
+        "repair": [
+            2,
+            3
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 3,
+                "metal": 2,
+                "hide": 2
+            }
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "7.3"
+            },
+            {
+                "prosperity": 1
+            }
+        ]
+    },
+    {
+        "id": "88",
+        "name": "stables",
+        "costs": {
+            "prosperity": 2,
+            "lumber": 6,
+            "metal": 2,
+            "hide": 2,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 4,
+                "lumber": 4,
+                "metal": 5,
+                "hide": 5
+            },
+            {
+                "prosperity": 6,
+                "lumber": 6,
+                "metal": 7,
+                "hide": 6
+            },
+            {
+                "prosperity": 8,
+                "lumber": 8,
+                "metal": 8,
+                "hide": 8
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 3,
+                "metal": 1,
+                "hide": 0
+            },
+            {
+                "lumber": 3,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 3,
+                "metal": 2,
+                "hide": 2
+            },
+            {
+                "lumber": 3,
+                "metal": 3,
+                "hide": 3
+            }
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "3.1"
+            },
+            {
+                "prosperity": 1
+            },
+            {
+                "prosperity": 1,
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 1
+            }
+        ]
+    },
+    {
+        "id": "90",
+        "name": "town-hall",
+        "costs": {
+            "prosperity": 2,
+            "lumber": 2,
+            "metal": 2,
+            "hide": 1,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 4,
+                "lumber": 3,
+                "metal": 3,
+                "hide": 3
+            },
+            {
+                "prosperity": 6,
+                "lumber": 4,
+                "metal": 5,
+                "hide": 4
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 0
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 2
+            }
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "189.1"
+            },
+            {
+                "prosperity": 1
+            },
+            {
+                "prosperity": 1
+            }
+        ]
+    },
+    {
+        "id": "98",
+        "name": "barracks",
+        "costs": {
+            "prosperity": 0,
+            "lumber": 0,
+            "metal": 0,
+            "hide": 0,
+            "gold": 0
+        },
+        "upgrades": [],
+        "manualUpgrades": 3,
+        "repair": [
+            2,
+            2,
+            3,
+            3
+        ],
+        "rebuild": [
+            {
+                "lumber": 1,
+                "metal": 1,
+                "hide": 0
+            },
+            {
+                "lumber": 1,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 1,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 1,
+                "metal": 3,
+                "hide": 1
+            }
+        ],
+        "rewards": [
+            {
+                "soldiers": 4
+            },
+            {
+                "prosperity": 1,
+                "soldiers": 2
+            },
+            {
+                "prosperity": 1,
+                "soldiers": 2
+            },
+            {
+                "prosperity": 1,
+                "soldiers": 2
+            }
+        ]
+    },
+    {
+        "name": "wall-j",
+        "costs": {
+            "prosperity": 1,
+            "lumber": 4,
+            "gold": 10
+        },
+        "rewards": [
+            {
+                "defense": 5
+            }
+        ],
+        "prosperityUnlock": true
+    },
+    {
+        "name": "wall-k",
+        "costs": {
+            "prosperity": 2,
+            "lumber": 3,
+            "metal": 2,
+            "hide": 2,
+            "gold": 10
+        },
+        "rewards": [
+            {
+                "defense": 5
+            }
+        ],
+        "prosperityUnlock": true
+    },
+    {
+        "name": "wall-l",
+        "costs": {
+            "prosperity": 3,
+            "lumber": 5,
+            "metal": 2,
+            "hide": 1,
+            "gold": 10
+        },
+        "rewards": [
+            {
+                "defense": 5
+            }
+        ],
+        "prosperityUnlock": true
+    },
+    {
+        "name": "wall-m",
+        "costs": {
+            "prosperity": 4,
+            "lumber": 4,
+            "metal": 3,
+            "hide": 3,
+            "gold": 10
+        },
+        "rewards": [
+            {
+                "defense": 5
+            }
+        ],
+        "prosperityUnlock": true
+    },
+    {
+        "name": "wall-n",
+        "costs": {
+            "prosperity": 6,
+            "lumber": 6,
+            "metal": 3,
+            "hide": 2,
+            "gold": 10
+        },
+        "rewards": [
+            {
+                "defense": 5
+            }
+        ],
         "prosperityUnlock": true
     }
 ]

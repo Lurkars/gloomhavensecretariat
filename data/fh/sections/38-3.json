@@ -1,0 +1,11 @@
+{
+  "index": "38.3",
+  "name": "Trading Post Upgraded",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "itemBlueprints": [
+      "138-146"
+    ]
+  }
+}

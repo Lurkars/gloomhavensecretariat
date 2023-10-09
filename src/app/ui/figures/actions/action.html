@@ -96,7 +96,8 @@
           <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster"
             [relative]="relative" [inline]="inline" [right]="right" [hexSize]="hexSize"
             [highlightElements]="highlightElements" [statsCalculation]="statsCalculation"
-            [index]="(actionIndex ? actionIndex + '-' : '') + index" [monsterType]="getMonsterType('' + action.value)" [style]="style">
+            [index]="(actionIndex ? actionIndex + '-' : '') + index" [monsterType]="getMonsterType('' + action.value)"
+            [style]="style">
           </ghs-action>
         </ng-container>
       </div>
@@ -290,7 +291,8 @@
     </span>
   </span>
 
-  <span class="action-box-fh-subactions-container" *ngSwitchCase="ActionType.boxFhSubActions" [ngClass]="{'small' : action.small}">
+  <span class="action-box-fh-subactions-container" *ngSwitchCase="ActionType.boxFhSubActions"
+    [ngClass]="{'small' : action.small}">
     <span *ngIf="action.value" class="action-box-label" [ghs-label]="'' + action.value"
       [relative]="relative || forceRelative" [style]="style"></span>
     <span class="action-box">
@@ -346,9 +348,9 @@
     </ghs-actions>
   </span>
 
-  <span class="action-default" [ngClass]="'action-' + action.type" *ngSwitchDefault>
-    <span class="main-action" [ngClass]="{'small' : action.small, 'highlight-text' : highlightAction()}"
-      ghs-pointer-input (singleClick)="applyHighlightAction($event)" [clickBehind]="!highlightAction()">
+  <span class="action-default" [ngClass]="'action-' + action.type" *ngSwitchDefault ghs-pointer-input
+    (singleClick)="applyHighlightAction($event)" [clickBehind]="!highlightAction()">
+    <span class="main-action" [ngClass]="{'small' : action.small, 'highlight-text' : highlightAction()}">
       <ng-container *ngIf=" action.valueType != ActionValueType.add && action.valueType != ActionValueType.subtract">
         <span class="type"><span [ghs-label]="'game.action.' + action.type" [style]="style"></span></span>
 

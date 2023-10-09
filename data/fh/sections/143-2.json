@@ -1,0 +1,21 @@
+{
+  "index": "143.2",
+  "name": "Otherwise",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "190.3"
+    ]
+  ],
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "calendarSection": [
+      "152.3-2"
+    ],
+    "events": [
+      "winter-road:WR-45",
+      "summer-road:SR-47"
+    ]
+  }
+}

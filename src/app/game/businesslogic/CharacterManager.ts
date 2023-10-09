@@ -133,8 +133,12 @@ export class CharacterManager {
     }
   }
 
-  removeCharacter(character: Character) {
+  removeCharacter(character: Character, retirement: boolean = false) {
     this.game.figures.splice(this.game.figures.indexOf(character), 1);
+
+    if (retirement && settingsManager.settings.applyRetirement) {
+      gameManager.game.party.prosperity += gameManager.fhRules() ? 2 : 1;
+    }
 
     if (character.marker) {
       // remove marker

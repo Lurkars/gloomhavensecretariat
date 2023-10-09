@@ -1,0 +1,12 @@
+{
+  "index": "7.3",
+  "name": "Carpenter Built",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "summer-outpost:SO-53",
+      "summer-outpost:SO-60"
+    ]
+  }
+}

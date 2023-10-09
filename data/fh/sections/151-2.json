@@ -1,0 +1,12 @@
+{
+  "index": "151.2",
+  "name": "Inn Built",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "winter-outpost:WO-71",
+      "summer-outpost:SO-55"
+    ]
+  }
+}

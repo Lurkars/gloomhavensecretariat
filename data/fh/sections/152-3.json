@@ -1,0 +1,11 @@
+{
+  "index": "152.3",
+  "name": "Library Lesson",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "summer-outpost:SO-58"
+    ]
+  }
+}

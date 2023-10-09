@@ -174,9 +174,9 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         replace = '<span class="placeholder-section">' + image + value + '</span>';
       } else if (type == "checkmark") {
         replace = '<span class="placeholder-checkmark"><img src="./assets/images/check.svg" class="icon ghs-svg"></span>';
-      } else if (type == "itemSlot"  && value) {
-        replace = '<span class="placeholder-items-slot"><img src="./assets/images/items/slot/' +  value + '.svg" class="icon ghs-svg"></span>';
-      }else if (type == "townGuardAm" && split.length == 3 && value) {
+      } else if (type == "itemSlot" && value) {
+        replace = '<span class="placeholder-items-slot"><img src="./assets/images/items/slot/' + value + '.svg" class="icon ghs-svg"></span>';
+      } else if (type == "townGuardAm" && split.length == 3 && value) {
         const valueType = split[2];
         let valueSign = "";
         if (valueType == AttackModifierValueType.plus) {
@@ -187,6 +187,9 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
           valueSign = "x";
         }
         replace = '<span class="placeholder-town-guard-am ' + split[2] + '">' + valueSign + value + '</span>';
+      } else if (type == "fhIcon" && value) {
+        image = '<img src="./assets/images/fh/icons/' + value + '.svg" class="icon ghs-svg">';
+        replace = '<span class="placeholder-fh-icon">' + image + '</span>';
       } else {
         let labelArgs = label.split(':').splice(1).map((arg) =>
           applyPlaceholder(settingsManager.getLabel(arg), placeholder, relative));

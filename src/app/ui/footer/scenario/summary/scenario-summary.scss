@@ -21,6 +21,10 @@
       color: var(--ghs-color-gray);
       font-family: var(--ghs-font-normal);
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+
+      .ghs-svg {
+        filter: var(--ghs-filter-gray);
+      }
     }
   }
 

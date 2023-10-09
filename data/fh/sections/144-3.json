@@ -1,0 +1,12 @@
+{
+  "index": "144.3",
+  "name": "Lumber Depot Built",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "summer-road:SR-39",
+      "summer-road:SR-44"
+    ]
+  }
+}

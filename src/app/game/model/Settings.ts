@@ -15,10 +15,12 @@ export class Settings {
   alwaysHazardousTerrain: boolean = false;
   alwaysLootApplyDialog = false;
   alwaysLootDeck: boolean = false;
+  applyBuildingRewards: boolean = true;
   applyConditions: boolean = true;
   applyConditionsExcludes: ConditionName[] = [ConditionName.shield];
   applyLongRest: boolean = true;
   applyLoot: boolean = true;
+  applyRetirement: boolean = true;
   autoBackup: number = -1;
   autoBackupFinish: boolean = false;
   autoBackupUrl: { url: string, method: string, fileUpload: boolean, username: string | undefined, password: string | undefined, authorization: string | undefined } | undefined;

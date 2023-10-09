@@ -39,6 +39,7 @@ import { ObjectiveEntity } from "../model/ObjectiveEntity";
 import { ItemManager } from "./ItemManager";
 import { Party } from "../model/Party";
 import { EventCardManager } from "./EventCardManager";
+import { BuildingsManager } from "./BuildingsManager";
 
 
 export class GameManager {
@@ -59,6 +60,7 @@ export class GameManager {
   itemManager: ItemManager;
   battleGoalManager: BattleGoalManager;
   eventCardManager: EventCardManager;
+  buildingsManager: BuildingsManager;
 
   uiChange = new EventEmitter<boolean>();
 
@@ -77,6 +79,7 @@ export class GameManager {
     this.lootManager = new LootManager(this.game);
     this.battleGoalManager = new BattleGoalManager(this.game);
     this.eventCardManager = new EventCardManager(this.game);
+    this.buildingsManager = new BuildingsManager(this.game);
     this.uiChange.subscribe({
       next: () => {
         this.checkEntitiesKilled();

@@ -141,19 +141,17 @@
         </span>
       </div>
     </div>
-
     <div class="line">
       <div class="hint-container">
-        <label
-          [ngClass]="{'disabled' : !settingsManager.settings.battleGoals || !settingsManager.settings.characterAttackModifierDeck}">
+        <label [ngClass]="{'disabled' : !settingsManager.settings.characterSheet }">
           <input type="checkbox"
-            [checked]="settingsManager.settings.battleGoals && (settingsManager.settings.battleGoalsCharacter || !settingsManager.settings.characterAttackModifierDeck)"
-            (change)="settingsManager.setBattleGoalsCharacter(!settingsManager.settings.battleGoalsCharacter)">
-          <span [ghs-label]="'settings.battleGoalsCharacter'"></span>
+            [checked]="settingsManager.settings.characterSheet && settingsManager.settings.applyRetirement"
+            (change)="settingsManager.setApplyRetirement(!settingsManager.settings.applyRetirement)">
+          <span [ghs-label]="'settings.applyRetirement'"></span>
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
-          <span class="text" [ghs-label]="'settings.battleGoalsCharacter.hint'"></span>
+          <span class="text" [ghs-label]="'settings.applyRetirement.hint'"></span>
         </span>
       </div>
     </div>
@@ -197,6 +195,21 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text" [ghs-label]="'settings.characterIdentityHint.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label
+          [ngClass]="{'disabled' : !settingsManager.settings.battleGoals || !settingsManager.settings.characterAttackModifierDeck}">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.battleGoals && (settingsManager.settings.battleGoalsCharacter || !settingsManager.settings.characterAttackModifierDeck)"
+            (change)="settingsManager.setBattleGoalsCharacter(!settingsManager.settings.battleGoalsCharacter)">
+          <span [ghs-label]="'settings.battleGoalsCharacter'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.battleGoalsCharacter.hint'"></span>
         </span>
       </div>
     </div>
@@ -691,6 +704,20 @@
 
     <div class="line">
       <div class="hint-container">
+        <label [ngClass]="{'disabled' : !gameManager.fhRules()}">
+          <input type="checkbox" [checked]="settingsManager.settings.applyBuildingRewards && gameManager.fhRules()"
+            (change)="settingsManager.setApplyBuildingRewards(!settingsManager.settings.applyBuildingRewards)">
+          <span [ghs-label]="'settings.applyBuildingRewards'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.applyBuildingRewards.hint'"></span>
+        </span>
+      </div>
+    </div>
+
+    <div class="line">
+      <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.battleGoals || gameManager.fhRules()}">
           <input type="checkbox"
             [checked]="settingsManager.settings.battleGoals && (gameManager.fhRules() || settingsManager.settings.battleGoalsFh)"
@@ -751,9 +778,10 @@
 
     <div class="line">
       <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.characterItems || !gameManager.fhRules()}">
+        <label
+          [ngClass]="{'disabled' : !settingsManager.settings.characterItems && !settingsManager.settings.characterSheet || !gameManager.fhRules()}">
           <input type="checkbox"
-            [checked]="settingsManager.settings.characterItems && settingsManager.settings.fhGhItems"
+            [checked]="(settingsManager.settings.characterItems || settingsManager.settings.characterSheet) && settingsManager.settings.fhGhItems"
             (change)="settingsManager.setFhGhItems(!settingsManager.settings.fhGhItems)">
           <span [ghs-label]="'settings.fhGhItems'"></span>
         </label>

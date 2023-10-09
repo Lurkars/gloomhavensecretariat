@@ -1,0 +1,9 @@
+{
+  "index": "172.3",
+  "name": "Hunting Lodge Upgraded",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "unlockCharacter": "trap"
+  }
+}

@@ -7,7 +7,18 @@ export class BuildingData {
     repair: number[] | undefined = undefined;
     rebuild: BuildingCosts[] = [];
     requires: string = "";
+    rewards: BuildingRewards[] = [];
     prosperityUnlock: boolean = false;
+}
+
+export class BuildingRewards {
+    prosperity: number = 0;
+    loseMorale: number = 0;
+    section: string = "";
+    items: string = "";
+    soldiers: number = 0;
+    plots: number = 0;
+    defense: number = 0;
 }
 
 export type BuildingCostType = "prosperity" | "lumber" | "metal" | "hide" | "gold";

@@ -45,18 +45,29 @@ export class ItemManager {
             }
         }
 
-        if (settingsManager.settings.fhGhItems && gameManager.fhRules() && itemData.edition == 'gh') {
-            const tradingPost = this.game.party.buildings && this.game.party.buildings.find((buildingModel) => buildingModel.name == "trading-post");
-            if (tradingPost) {
-                if (tradingPost.level >= 2 && [21, 37, 53, 93, 94, 106, 115].indexOf(itemData.id) != -1) {
-                    return true;
-                } else if (tradingPost.level >= 3 && [46, 83, 84, 85, 86, 87, 88, 102, 110, 111, 120, 121, 122, 123, 126, 128].indexOf(itemData.id) != -1) {
-                    return true;
-                } else if (tradingPost.level >= 4 && [17, 35, 47, 51, 62, 74, 77, 78, 79, 80, 81, 82, 117, 118, 119, 127, 129, 131].indexOf(itemData.id) != -1) {
-                    return true;
+        if (settingsManager.settings.fhGhItems && gameManager.fhRules()) {
+            if (itemData.edition == 'gh') {
+                const tradingPost = this.game.party.buildings && this.game.party.buildings.find((buildingModel) => buildingModel.name == "trading-post");
+                if (tradingPost) {
+                    if (tradingPost.level >= 2 && [21, 37, 53, 93, 94, 106, 115].indexOf(itemData.id) != -1) {
+                        return true;
+                    } else if (tradingPost.level >= 3 && [46, 83, 84, 85, 86, 87, 88, 102, 110, 111, 120, 121, 122, 123, 126, 128].indexOf(itemData.id) != -1) {
+                        return true;
+                    } else if (tradingPost.level >= 4 && [17, 35, 47, 51, 62, 74, 77, 78, 79, 80, 81, 82, 117, 118, 119, 127, 129, 131].indexOf(itemData.id) != -1) {
+                        return true;
+                    }
+                }
+                return [10, 25, 72, 105, 109, 116].indexOf(itemData.id) != -1;
+            } else if (itemData.edition == 'fc') {
+                let fcItems = [];
+                if (this.game.party.scenarios.find((model) => model.edition == 'fh' && model.index == "82" && !model.group)) {
+                    fcItems.push(153, 159, 161);
+                }
+
+                if (this.game.party.buildings && this.game.party.buildings.find((buildingModel) => buildingModel.name == "enhancer" && buildingModel.level == 4)) {
+                    fcItems.push(154, 155, 157, 163);
                 }
             }
-            return [10, 25, 72, 105, 109, 116].indexOf(itemData.id) != -1;
         }
 
         return false;

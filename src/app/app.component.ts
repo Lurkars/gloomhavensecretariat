@@ -46,6 +46,14 @@ export class AppComponent implements OnInit {
     } else {
       document.body.classList.remove('portrait-mode');
     }
+
+    if (!this.isAppDevMode() && !settingsManager.settings.debugRightClick) {
+      if (!document.body.classList.contains('disable-context-menu-touch')) {
+        document.body.classList.add('disable-context-menu-touch')
+      }
+    } else if (document.body.classList.contains('disable-context-menu-touch')) {
+      document.body.classList.remove('disable-context-menu-touch');
+    }
   }
 
   applyAnimations() {

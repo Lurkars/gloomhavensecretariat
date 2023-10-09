@@ -120,8 +120,10 @@ export class ScenarioRewards {
   chooseLocation: string[] = [];
   itemDesigns: string[] = [];
   events: string[] = [];
+  removeEvents: string[] = [];
   itemBlueprints: string[] = [];
   randomItemBlueprint: number = 0;
+  randomItemBlueprints: string = "";
   randomItem: string = "";
   randomItems: string = "";
   morale: number | string = "";
@@ -129,7 +131,9 @@ export class ScenarioRewards {
   resources: { type: LootType, value: number | string }[] = [];
   collectiveResources: { type: LootType, value: number | string }[] = [];
   calendarSection: string[] = [];
+  calendarSectionConditional: string[] = [];
   calendarSectionManual: { section: string, hint: string }[] = [];
+  lootDeckCards: number[] = [];
   townGuardAm: string[] = [];
   unlockCharacter: string = "";
   chooseUnlockCharacter: string[] = [];
@@ -158,6 +162,7 @@ export class ScenarioRewardHints {
   chooseLocation: string[] = [];
   itemDesigns: string[] = [];
   events: string[] = [];
+  removeEvents: string[] = [];
   itemBlueprints: string[] = [];
   randomItemBlueprint: string = "";
   randomItem: string = "";
@@ -167,6 +172,8 @@ export class ScenarioRewardHints {
   resources: string[] = [];
   collectiveResources: string[] = [];
   calendarSection: string[] = [];
+  calendarSectionConditional: string[] = [];
+  lootDeckCards: string[] = [];
   townGuardAm: string[] = [];
   unlockCharacter: string = "";
   chooseUnlockCharacter: string[] = [];
@@ -182,6 +189,7 @@ export class ScenarioFinish {
   chooseLocation: string | undefined;
   chooseUnlockCharacter: string | undefined;
   challenges: number = 0;
+  calendarSectionConditional: boolean[] = [];
   calenderSectionManual: number[] = []; // migration
   calendarSectionManual: number[] = [];
   randomItem: Identifier | undefined = undefined;

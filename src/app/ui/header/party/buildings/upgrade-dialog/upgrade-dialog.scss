@@ -46,6 +46,45 @@
                     filter: var(--ghs-filter-white);
                 }
             }
+
+            &.force .cost {
+                color: var(--ghs-color-gray);
+                text-shadow: none;
+                opacity: 0.5;
+
+                img {
+                    filter: var(--ghs-filter-gray);
+                }
+            }
+        }
+
+        .lose-morale {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
+            color: #000;
+            text-shadow: none;
+            padding: 0.1em 1em;
+            margin-top: 0.5em;
+            background: radial-gradient(ellipse at center, #98c2c0 0%, #4B9490 75%);
+            clip-path: polygon(100% 0%, 93% 50%, 100% 100%, 0 100%, 7% 50%, 0 0%);
+        }
+
+        .rewards {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-width: calc(var(--ghs-unit) * 35 * var(--ghs-dialog-factor));
+            margin-top: 0.5em;
+            padding-top: 0.5em;
+            font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+            border-top: 0.1em solid var(--ghs-color-gray);
+
+            .active {
+                cursor: pointer;
+            }
         }
     }
 
@@ -211,6 +250,10 @@
                 .ghs-svg {
                     filter: var(--ghs-filter-gray) !important;
                 }
+            }
+
+            &:hover {
+                opacity: 0.7;
             }
         }
     }

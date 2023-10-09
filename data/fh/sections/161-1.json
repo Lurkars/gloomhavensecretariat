@@ -1,0 +1,10 @@
+{
+  "index": "161.1",
+  "name": "Climbing Gear Build",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "prosperity": 1,
+    "custom": "Place \"Climbing Gear\" campaign sticker on the town map at location C. You may now play scenarios with the %game.fhIcon:climbing-gear% requirement."
+  }
+}

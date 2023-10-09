@@ -28,7 +28,8 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "self"
+                  "value": "self",
+                  "small": true
                 }
               ],
               "small": true

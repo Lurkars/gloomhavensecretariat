@@ -1,0 +1,21 @@
+<div class="move-resources-dialog">
+    <label class="title">
+        <span [ghs-label]="'character.progress.retirement'"></span>
+        <span class="name">
+            <img class="icon character-icon" [src]="character.iconUrl" />
+            <span class="character-title">{{gameManager.characterManager.characterName(character,true)}}</span>
+        </span>
+    </label>
+
+    <div class="rewards">
+        <span [ghs-label]="'character.progress.retirement.prosperity'"
+            [ghs-label-args]="[gameManager.fhRules() ? '2' : '1']"></span>
+    </div>
+
+    <p class="wip" [ghs-label]="'character.progress.retirement.wip'"></p>
+
+    <div class="menu">
+        <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
+        <a class="apply" (click)="apply()"><span [ghs-label]="'character.progress.retirement.apply'"></span></a>
+    </div>
+</div>

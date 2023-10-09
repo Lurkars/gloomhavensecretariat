@@ -365,11 +365,11 @@
         </div>
         <div class="reward achievements"
           *ngIf="rewards && rewards.calendarSectionManual && rewards.calendarSectionManual.length > 0">
-          <label><span [ghs-label]="'scenario.rewards.calendarSectionManual'"></span>:</label>
+          <label><span [ghs-label]="'scenario.rewards.calendarSection'"></span>:</label>
           <div class="list">
             <div class="item achievement" *ngFor="let calendarSection of rewards.calendarSectionManual; let i = index;">
               <span class="placeholder text-white" [ghs-label]="calendarSection.hint"></span>
-              <input type="number" min="0" [value]="calendarSectionManual[i]"
+              <input type="number" min="-1" [value]="calendarSectionManual[i] || -1"
                 (change)="changeCalendarSectionManual($event, i)">
             </div>
           </div>
@@ -519,7 +519,7 @@
 
             <div class="item item-blueprints" *ngFor="let item of (rewards.itemBlueprints || []); let i = index;">
               <span *ngIf="item.indexOf('-') != -1" class="placeholder text-white"
-                [ghs-label]="'scenario.rewards.itemBlueprintRange'" [ghs-label-args]="[item]"></span>
+                [ghs-label]="'scenario.rewards.itemBlueprintRange'" [ghs-label-args]="item.split('-')"></span>
               <span *ngIf="item.indexOf('-') == -1" class="placeholder text-white"
                 [ghs-label]="'scenario.rewards.itemBlueprint'"
                 [ghs-label-args]="[item, gameManager.itemManager.getItem(+item,scenario.edition || '', true)?.name || '']"
@@ -527,6 +527,12 @@
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.itemBlueprints && rewards.hints.itemBlueprints[i]"
                 [ghs-label]="rewards.hints.itemBlueprints[i]"></span>
+            </div>
+
+            <div class="item item-blueprints" *ngIf="rewards.randomItemBlueprints">
+              <span *ngIf="rewards.randomItemBlueprints.indexOf('-') != -1" class="placeholder text-white"
+                [ghs-label]="'scenario.rewards.randomItemBlueprints'"
+                [ghs-label-args]="rewards.randomItemBlueprints.split('-')"></span>
             </div>
 
             <div class="item item-blueprints" *ngFor="let itemId of randomItemBlueprints; let i = index;">
@@ -547,6 +553,14 @@
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.events && rewards.hints.events[i]"
                 [ghs-label]="rewards.hints.events[i]"></span>
+            </div>
+
+            <div class="item events" *ngFor="let event of (rewards.removeEvents || []); let i = index;">
+              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.removeEvent.' + event.split(':')[0]"
+                [ghs-label-args]="[event.split(':')[1]]"></span>
+              <span class="placeholder text-white hint"
+                *ngIf="rewards.hints && rewards.hints.removeEvents && rewards.hints.removeEvents[i]"
+                [ghs-label]="rewards.hints.removeEvents[i]"></span>
             </div>
 
             <div class="list-inline unlock-character"
@@ -572,6 +586,15 @@
 
             <div class="item custom" *ngIf="rewards.custom">
               <span class="placeholder text-white" [ghs-label]="rewards.custom"></span>
+            </div>
+
+            <div class="item loot-deck-cards"
+              *ngFor="let lootDeckCard of (rewards.lootDeckCards || []); let i = index;">
+              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.lootDeckCard'"
+                [ghs-label-args]="['' + lootDeckCard]"></span>
+              <span class="placeholder text-white hint"
+                *ngIf="rewards.hints && rewards.hints.lootDeckCards && rewards.hints.lootDeckCards[i]"
+                [ghs-label]="rewards.hints.lootDeckCards[i]"></span>
             </div>
 
             <div class="item town-guard-am" *ngIf="townGuardAMs && townGuardAMs.length > 0">

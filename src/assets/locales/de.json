@@ -114,6 +114,12 @@
         "apply": "Ressourcen verschieben"
       },
       "retired": "Ruhestand",
+      "retirement": {
+        ".": "Ruhestand für Charakter",
+        "apply": "Anwenden",
+        "prosperity": "+{0} Wohlstand",
+        "wip": "%wip%!<br>Aktuell wird nur der Wohlstand angepasst, bis die Funktionen zur Persönlichen Quest entwickelt sind."
+      },
       "retirements": "Ruhestände",
       "title": "{1} {0}",
       "xp": "XP"
@@ -557,7 +563,7 @@
       },
       "choose": "Gegenstand auswählen",
       "craft": "'{0}' anertigen",
-      "effect": "Falls der Gegenstand angelegt ist, wird der Effekt automatisch angewendet. Um einen Gegenstand anzulegen, einfach auf den Namen klicken. Anlegen von Gegenständen ist nur vor oder zwischen Scenarien möglich. Durch Doppelclick kann das Anlegen erzwungen werden.",
+      "effect": "Falls der Gegenstand angelegt ist, wird der Effekt automatisch angewendet. Um einen Gegenstand anzulegen, einfach auf den Namen klicken. Anlegen von Gegenständen ist nur vor oder zwischen Scenarien möglich. Durch Doppelklick kann das Anlegen erzwungen werden.",
       "empty": "Keine Gegenstände gefunden",
       "filter": {
         ".": "Suchen...",
@@ -848,20 +854,37 @@
           "action": "Aktion",
           "build": {
             ".": "Aufbauen",
-            "hint": "Aufbauen (Erzwingen mit Doppelclick)"
+            "action": "Aufbauen",
+            "hint": "Aufbauen (Erzwingen mit Doppelklick)"
           },
           "costs": "Kosten",
           "id": "Nummer",
-          "level": "Stufe",
+          "level": {
+            ".": "Stufe",
+            "hint": "Boni anzeigen (Stufe abrüsten mit Doppelklick)"
+          },
           "name": "Name",
           "rebuild": {
             ".": "Wiederaufbauen",
-            "hint": "Wiederaufbauen (Erzwingen mit Doppelclick)"
+            "action": "Wiederaufbauen",
+            "hint": "Wiederaufbauen (Erzwingen mit Doppelklick)"
           },
           "repair": {
             ".": "Gebäude reparieren",
+            "action": "Gebäude reparieren",
             "costs": "{0} beliebige",
-            "hint": "Gebäude reparieren (Erzwingen mit Doppelclick)"
+            "hint": "Gebäude reparieren (Erzwingen mit Doppelklick)"
+          },
+          "rewards": {
+            "action": "Stufe {0}",
+            "defense": "+{0} Verteidigung",
+            "items": "Füge %game.itemFh.{0}% bis %game.itemFh.{1}% zum Gegenstandsladen hinzu",
+            "loseMorale": "-{0} Moral",
+            "plot": "+{0} Beet",
+            "plots": "+{0} Beete",
+            "prosperity": "+{0} Wohlstand",
+            "section": "%data.section:{0}%",
+            "soldiers": "+{0} Soldaten"
           },
           "selectResources": {
             ".": "Ressourcen auswählen",
@@ -870,7 +893,8 @@
           "unlock": "Gebäude freischalten",
           "upgrade": {
             ".": "Gebäude aufrüsten",
-            "hint": "Gebäude aufrüsten (Erzwingen mit Doppelclick)"
+            "action": "Gebäude auf Stufe {0} aufrüsten",
+            "hint": "Gebäude aufrüsten (Erzwingen mit Doppelklick)"
           }
         },
         "campaignStickers": {
@@ -1092,6 +1116,7 @@
       "itemDesignRange": "Füge Gegenstände {0} hinzu",
       "location": "Neuer Ort",
       "locations": "Neue Orte",
+      "lootDeckCard": "Füge Beutekarte {0} in jedem Szenario zusätzlich zum vorgegebenen Beutekarten Deck hinzu.",
       "lostPartyAchievements": "Verlorene Gruppenerfolge",
       "morale": "{0} Moral",
       "partyAchievements": "Gruppenerfolge",
@@ -1099,6 +1124,16 @@
       "prosperity": "{0} Wohlstand",
       "randomItems": "Jeder Charakter erhält ein zufälliges Item ({0}-{1})",
       "randomItemBlueprint": "Erhalte einen zufälligen Gegenstandsplan:",
+      "removeEvent": {
+        "boat": "Entferne Ereignis {0} vom Bootdeck",
+        "city": "Entferne Start-Ereignis {0} vom Deck",
+        "rift": "Entferne Rift-Ereignis {0} vom Deck",
+        "road": "Entferne Weg-Ereignis {0} vom Deck",
+        "summer-outpost": "Entferne Ereignis {0} vom Sommer-Außenpostendeck",
+        "summer-road": "Entferne Ereignis {0} vom Sommer-Wegdeck",
+        "winter-outpost": "Entferne Ereignis {0} vom Winter-Außenpostendeck",
+        "winter-road": "Entferne Ereignis {0} vom Winter-Wegdeck"
+      },
       "reputation": "{0} Ansehen",
       "resources": "Erhalte jeweils {1} %game.resource.{0}%",
       "resourcesLose": "Verliere jeweils {1} %game.resource.{0}%",
@@ -1164,7 +1199,11 @@
       "confirm": "Bestätigen",
       "conclusion": {
         ".": "Szenario beenden mit {0}",
-        "continue": "Fortfahren mit {0}",
+        "continue": {
+          ".": "Fortfahren mit {0}",
+          "named": "Fortfahren mit {1} {0}"
+        },
+        "named": "Szenario beenden mit {1} {0}",
         "select": "Abschluss auswählen:"
       }
     },
@@ -1350,6 +1389,10 @@
       ".": "Immer Beute Deck verwenden",
       "hint": "Beute Deck für jeden Szenario aktivieren (Für Frosthaven automatisch immer aktiviert)"
     },
+    "applyBuildingRewards": {
+      ".": "Gebäude Boni anwenden",
+      "hint": "Wenn ein Gebäude gebaut oder aufgerüstet wird, füge die entsprechenden Boni hinzu und öffne den Dialog für die Sektion falls vorhanden."
+    },
     "applyConditions": {
       ".": "Zustände automatisch anweden",
       "hint": {
@@ -1367,6 +1410,10 @@
     "applyLoot": {
       ".": "Beute Charakter zuweisen",
       "hint": "Automatisch Beute dem aktiven/ausgewählten Charakter zuweisen nachdem eine Beute Karte gezogen wurde"
+    },
+    "applyRetirement": {
+      ".": "Ruhestand Boni anwenden",
+      "hint": "Öffne den Ruhestand Boni Dialog wenn ein Charakter in den Ruhestand versetzt wird. Um einen Charakter in den Ruhestand zu versetzen, setze einen Haken für die Persönliche Quest auf dem Charakterbogen."
     },
     "autoscroll": {
       ".": "Automatisch Scrollen",
@@ -1469,7 +1516,7 @@
       "hint": "Zeigt die aktive Form hinter dem Charakternamen."
     },
     "characterItems": {
-      ".": "Character Gegenstände",
+      ".": "Charakter Gegenstände",
       "hint": "Zustände von Gegenständen während eines Szenarios verwalten."
     },
     "characterSheet": {
@@ -1540,7 +1587,7 @@
     },
     "fhGhItems": {
       ".": "Gegenstände aus Gloomhaven",
-      "hint": "Fügt die Gegenstände aus Gloomhaven zu den verfügbaren Gegenständen gemäß den Regeln hinzu."
+      "hint": "Fügt die Gegenstände aus Gloomhaven und Forgotten Circles zu den verfügbaren Gegenständen gemäß den Regeln hinzu. (Nur bei aktivierten Charakterbögen oder Charakter Gegenständen)"
     },
     "fhRules": "Frosthaven Regeln",
     "fhStyle": {
@@ -1636,8 +1683,8 @@
       "hint": "Optimierung des Portraitmodus für kleine Displays."
     },
     "pressDoubleClick": {
-      ".": "Lange Drücken für Doppelclick (Touch)",
-      "hint": "Löse Doppelclick-Aktionen auf Touch-Screens stattdessen durch langes Gedrückthalten auf. (Empfohlen um Geisterklicks zu vermeiden)"
+      ".": "Lange Drücken für Doppelklick (Touch)",
+      "hint": "Löse Doppelklick-Aktionen auf Touch-Screens stattdessen durch langes Gedrückthalten auf. (Empfohlen um Geisterklicks zu vermeiden)"
     },
     "randomStandees": {
       ".": "Zufällige Aufsteller",
@@ -1949,7 +1996,7 @@
       "setPlayerNumber": "Spielernummer {1} für {0}",
       "setPQ": "Persönliche Quest {1} für {0}",
       "setResource": "{1} {2} für {0}",
-      "setRetired": "{0} erschöpft {1}",
+      "setRetired": "{0} in Ruhestand",
       "setRetirements": "Ruhestände auf {1} für {0}",
       "setScenario": "Szenario #{0} {1} ({2})",
       "setScenarioLevel": "Szenario Level {0}",
@@ -1973,6 +2020,7 @@
       "unsetEntityActive": "Aufsteller {1} von {0} inaktiv",
       "unsetExhausted": "{0} nicht erschöpft",
       "unsetObjectiveExhausted": "Ziel {0} nicht erschöpft",
+      "unsetRetired": "{0} zurück aus dem Ruhestand",
       "unsetTitle": "Titel '{1}' von {0} entfernen",
       "updateAttackModifierDeck": {
         "addBless": "Segen zu {0} AM Deck zufügen",

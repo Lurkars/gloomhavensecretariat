@@ -1,6 +1,5 @@
 .move-resources-dialog {
-    margin-bottom: 5%;
-    padding: 2em;
+    padding: 0.5em;
 
     .ghs-svg {
         height: 1em;
@@ -110,6 +109,10 @@
 
             &.apply {
                 color: var(--ghs-color-green);
+            }
+
+            &:hover {
+                opacity: 0.7;
             }
         }
     }

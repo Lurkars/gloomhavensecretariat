@@ -1,0 +1,12 @@
+{
+  "index": "192.5",
+  "name": "Temple Built",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "winter-outpost:WO-73",
+      "summer-road:SR-43"
+    ]
+  }
+}

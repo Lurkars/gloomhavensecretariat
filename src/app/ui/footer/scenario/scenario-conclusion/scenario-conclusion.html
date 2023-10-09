@@ -7,8 +7,8 @@
 
     <div class="conclusions">
         <span class="placeholder text-white conclusion" *ngFor="let sectionData of data.conclusions"
-            [ghs-label]="'scenario.section.conclusion' + (data.parent.conclusion ? '.continue' :  '')"
-            [ghs-label-args]="[sectionData.name ? 'data.section.' + sectionData.name : '%data.section:' + sectionData.index + '%']"
+            [ghs-label]="'scenario.section.conclusion' + (data.parent.conclusion ? '.continue' :  '') + (sectionData.named ? '.named' : '')"
+            [ghs-label-args]="['%data.section:' + sectionData.index + '%', sectionData.named ? 'data.section.' + sectionData.name : '']"
             (click)="dialogRef.close(sectionData)">
         </span>
     </div>

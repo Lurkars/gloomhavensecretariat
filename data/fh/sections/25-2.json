@@ -1,0 +1,13 @@
+{
+  "index": "25.2",
+  "name": "Trading Post Built",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "winter-outpost:WO-80",
+      "summer-outpost:SO-61",
+      "winter-road:WR-41"
+    ]
+  }
+}
