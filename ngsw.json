@@ -1,8 +1,8 @@
 {
   "configVersion": 1,
-  "timestamp": 1696882992969,
+  "timestamp": 1696886188809,
   "appData": {
-    "version": "0.78.0"
+    "version": "0.78.1"
   },
   "index": "gloomhavensecretariat/index.html",
   "assetGroups": [
@@ -16,7 +16,7 @@
       "urls": [
         "gloomhavensecretariat/favicon.ico",
         "gloomhavensecretariat/index.html",
-        "gloomhavensecretariat/main.d83fba2af7c0a9ec.js",
+        "gloomhavensecretariat/main.32a72842b6775618.js",
         "gloomhavensecretariat/manifest.webmanifest",
         "gloomhavensecretariat/polyfills.bed2a72d06ede870.js",
         "gloomhavensecretariat/runtime.c63e010387befb5b.js",
@@ -1236,7 +1236,7 @@
     "gloomhavensecretariat/assets/data/cs.json": "e9e322327248464f38926448435d2de757d8cf91",
     "gloomhavensecretariat/assets/data/fc.json": "d237bbc77b7e232016b563c49d7e0368908af51b",
     "gloomhavensecretariat/assets/data/fh-crossover.json": "9590fc51639eb2ba1ce9605721f179c0eceed081",
-    "gloomhavensecretariat/assets/data/fh.json": "6e8a56fe6008884af705d1483587c94e292decd7",
+    "gloomhavensecretariat/assets/data/fh.json": "f336f06ca307dee630d5f1f2298228d6b711a5d2",
     "gloomhavensecretariat/assets/data/gh-envx.json": "12ca97c9bb858dc40d2477dc412571c07ef020c8",
     "gloomhavensecretariat/assets/data/gh.json": "28b0cdb273c48a8efda89192af63559480ca9f0f",
     "gloomhavensecretariat/assets/data/jotl.json": "cf019c1c8f982d5d4111bc5df368f8e4ecadee0c",
@@ -2338,7 +2338,7 @@
     "gloomhavensecretariat/icon.5a11343c46ebf913.png": "53e79fd7b007e043eefe1e474f511ff2654a8ae1",
     "gloomhavensecretariat/immune.3638b2264dfc0cf4.svg": "683fda2b898292506e4a8f0984c5057c0e877509",
     "gloomhavensecretariat/immunity.5d026de2db8a1d8f.svg": "ad20fc18e93269c79312170674c6008615438f9b",
-    "gloomhavensecretariat/index.html": "0968db8d7e726c0597e8c1bbadaad619f287fc49",
+    "gloomhavensecretariat/index.html": "2787c36f9fc9b366e7524b83d924ae2cfc63bc94",
     "gloomhavensecretariat/initiative.a7663b57012bb669.svg": "85c1e0fe11ba2111c2dc55370ff84796c86eb556",
     "gloomhavensecretariat/item-back-fh.e293bb7bd25a2ea5.png": "6887a5deedb532c38ab40bde42a8b2c01121ca5f",
     "gloomhavensecretariat/item-back.64e65973760cc390.png": "c9b8b1dfdaa7264392fd262ee851d478024decc3",
@@ -2358,7 +2358,7 @@
     "gloomhavensecretariat/layers.ef6db8722c2c3f9a.png": "c9e7528e491a39232ba24a2706c6c739d6fb0f06",
     "gloomhavensecretariat/level.38e1f58a07dc5898.svg": "004f02ea9f24d4ecbfef70b7d0c9cbd5e731827e",
     "gloomhavensecretariat/loot-back.b3962872f80142fe.png": "a10c9bcc106f820ba1ce8e9a9a9cc47fdbc734d1",
-    "gloomhavensecretariat/main.d83fba2af7c0a9ec.js": "dea6783b6237b4a0dd06150419f43526aaf4fc45",
+    "gloomhavensecretariat/main.32a72842b6775618.js": "7acbef8d193bd8389977e322f5d856b1687c71b8",
     "gloomhavensecretariat/majallab.00c7b4c865792c45.ttf": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48",
     "gloomhavensecretariat/majallab.3bc19f63b5b1d474.svg": "68458a0f79e0e45258f0948d48f2a65c125b4322",
     "gloomhavensecretariat/majallab.4ef31693f35ab4df.woff": "5f4a605494c5e4adbe49e3b23bfdcf1f7f8a92b6",
