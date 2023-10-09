@@ -114,6 +114,12 @@
         "apply": "Move Resources"
       },
       "retired": "Retired",
+      "retirement" : {
+        "." : "Retire Character",
+        "apply": "Apply",
+        "prosperity": "+{0} prosperity",
+        "wip": "%wip%!<br>Currently only prosperity is applied until personal quest feature is developed."
+      },
       "retirements": "Retirements",
       "title": "{1} {0}",
       "xp": "XP"
@@ -995,20 +1001,37 @@
           "action": "Action",
           "build": {
             ".": "Build",
+            "action": "Build",
             "hint": "Build (force with double-click)"
           },
           "costs": "Costs",
           "id": "Number",
-          "level": "Level",
+          "level": {
+            ".": "Level",
+            "hint": "Show bonuses (downgrade level with double-click)"
+          },
           "name": "Name",
           "rebuild": {
             ".": "Rebuild",
+            "action": "Rebuild",
             "hint": "Rebuild (force with double-click)"
           },
           "repair": {
             ".": "Repair building",
+            "action": "Repair building",
             "costs": "Any {0}",
             "hint": "Repair building (force with double-click)"
+          },
+          "rewards": {
+            "action": "Level {0}",
+            "defense": "+{0} defense",
+            "items": "Add %game.itemFh.{0}% to %game.itemFh.{1}% to the item supply",
+            "loseMorale": "-{0} morale",
+            "plot": "+{0} plot",
+            "plots": "+{0} plots",
+            "prosperity": "+{0} prosperity",
+            "section": "%data.section:{0}%",
+            "soldiers": "+{0} soldiers"
           },
           "selectResources": {
             ".": "Select Resources",
@@ -1017,6 +1040,7 @@
           "unlock": "Unlock building",
           "upgrade": {
             ".": "Upgrade Building",
+            "action": "Upgrade Building to level {0}",
             "hint": "Upgrade Building (force with double-click)"
           }
         },
@@ -1233,11 +1257,13 @@
       "item": "\"{1}\" (Item {0})",
       "items": "{2} \"{1}\" (Item {0})",
       "itemBlueprint": "Gain \"{1}\" %game.itemFh.{0}% blueprint",
+      "itemBlueprintRange": "Add items %game.itemFh.{0}% to %game.itemFh.{1}% to the available item supply.",
       "itemDesign": "\"{1}\" design (Item {0})",
       "itemDesignEdition": "\"{1}\" design (Item {0} %data.edition.{2}%)",
       "itemDesignRange": "Add Item designs {0}",
       "location": "New Location",
       "locations": "New Locations",
+      "lootDeckCard": "Add loot card {0} to every scenario loot deck in addition to the normal loot distribution.",
       "lostPartyAchievements": "Lost Party Achievements",
       "morale": "{0} morale",
       "partyAchievements": "Party Achievements",
@@ -1246,6 +1272,17 @@
       "reputation": "{0} reputation",
       "randomItems": "Each character gains one random item ({0}-{1})",
       "randomItemBlueprint": "Gain one random item blueprint:",
+      "randomItemBlueprints": "Add items %game.itemFh.{0}% to %game.itemFh.{1}% to the random item blueprint deck.",
+      "removeEvent": {
+        "boat": "Remove event {0} from the boat deck",
+        "city": "Remove City Event {0} from the deck",
+        "rift": "Remove Rift Event {0} from the deck",
+        "road": "Remove Road Event {0} from the deck",
+        "summer-outpost": "Remove event {0} from the summer outpost deck",
+        "summer-road": "Remove event {0} from the summer road deck",
+        "winter-outpost": "Remove event {0} from the winter outpost deck",
+        "winter-road": "Remove event {0} from the winter road deck"
+      },
       "resources": "Gain {1} %game.resource.{0}% each",
       "resourcesLose": "Lose {1} %game.resource.{0}% each",
       "townGuardAm": "Add one %game.townGuardAm.{1}:{0}% card to the town guard deck.",
@@ -1310,7 +1347,11 @@
       "confirm": "Confirm",
       "conclusion": {
         ".": "Finish scenario with {0}",
-        "continue": "Continue with {0}",
+        "continue": {
+          ".": "Continue with {0}",
+          "named": "Continue with {1} {0}"
+        },
+        "named": "Finish scenario with {1} {0}",
         "select": "Select conclusion:"
       }
     },
@@ -1497,6 +1538,10 @@
       ".": "Always use Loot Deck",
       "hint": "Show Loot Deck for every scenario (Automatic enabled when playing Frosthaven)"
     },
+    "applyBuildingRewards": {
+      ".": "Apply Building Bonuses",
+      "hint": "On building or upgrading a building, apply the corresponding bonuses and open section dialog if present."
+    },
     "applyConditions": {
       ".": "Automatic apply conditions",
       "hint": {
@@ -1514,6 +1559,10 @@
     "applyLoot": {
       ".": "Apply Loot to Character",
       "hint": "Automatically add Loot after card drawn to active/chosen character"
+    },
+    "applyRetirement": {
+      ".": "Apply Retirement Bonuses",
+      "hint": "On retirement, open dialog to apply retirement bonuses. Retirement is performed by checking the personal quest on the character sheet."
     },
     "autoscroll": {
       ".": "Autoscroll",
@@ -1686,7 +1735,7 @@
     },
     "fhGhItems": {
       ".": "Add Gloomhaven Items",
-      "hint": "Add Items from Gloomhaven to available supply as stated out in the rules."
+      "hint": "Add Items from Gloomhaven and Forgotten Circles to available supply as stated out in the rules. (Only on enabled character sheets or character items)"
     },
     "fhRules": "Frosthaven Rules",
     "fhStyle": {
@@ -2097,7 +2146,7 @@
       "setPlayerNumber": "Set Player number {1} for {0}",
       "setPQ": "Personal Quest {1} for {0} ",
       "setResource": "Set {1} {2} for {0}",
-      "setRetired": "{0} retired {1}",
+      "setRetired": "{0} retired",
       "setRetirements": "Retirements {1} for {0}",
       "setScenario": "Scenario #{0} {1} ({2})",
       "setScenarioLevel": "Scenario level {0}",
@@ -2121,6 +2170,7 @@
       "unsetEntityActive": "Set standee {1} of {0} inactive",
       "unsetExhausted": "{0} not exhausted",
       "unsetObjectiveExhausted": "Objective {0} not exhausted",
+      "unsetRetired": "Revoke {0}'s retirement",
       "unsetTitle": "Remove title '{1}' from {0}",
       "updateAttackModifierDeck": {
         "addBless": "Add Bless to {0} AM deck",
