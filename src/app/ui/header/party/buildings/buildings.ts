@@ -110,7 +110,7 @@ export class PartyBuildingsComponent implements OnInit {
 
   upgradeable(building: Building): boolean {
 
-    if (building.data.manualUpgrades >= building.model.level) {
+    if (building.data.manualUpgrades > 0 && building.data.manualUpgrades >= building.model.level) {
       return true;
     }
 
@@ -146,6 +146,9 @@ export class PartyBuildingsComponent implements OnInit {
       } else if ((costs.gold || 0) > gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => (figure as Character).progress.gold).reduce((a, b) => a + b)) {
         return false;
       }
+
+      console.log(building);
+
       return true;
     }
 

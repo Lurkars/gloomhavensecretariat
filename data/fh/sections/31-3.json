@@ -3,6 +3,7 @@
   "name": "Jeweler Built",
   "edition": "fh",
   "conclusion": true,
+  "named": true,
   "rewards": {
     "itemBlueprints": [
       "156-159"

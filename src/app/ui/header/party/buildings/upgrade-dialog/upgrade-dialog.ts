@@ -100,21 +100,26 @@ export class BuildingUpgradeDialog implements OnInit {
         this.paid += value;
     }
 
-    sectionRewards() {
-        if (this.rewardsOnly && this.rewards && this.rewards.section) {
-            const conclusion = gameManager.sectionData(gameManager.currentEdition()).find((sectionData) => this.rewards && this.rewards.section && sectionData.index == this.rewards.section);
-            if (conclusion) {
-                const scenario = new Scenario(conclusion as ScenarioData);
-                this.close();
-                this.dialog.open(ScenarioSummaryComponent, {
-                    panelClass: 'dialog',
-                    data: {
-                        scenario: scenario,
-                        success: true,
-                        conclusionOnly: true,
-                        rewardsOnly: true
-                    }
-                })
+    sectionRewards(index: string) {
+        if (this.rewardsOnly) {
+            const conclusions = gameManager.sectionData(gameManager.game.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(index) != -1));
+            if (conclusions.length == 0) {
+                const conclusion = gameManager.sectionData(gameManager.currentEdition()).find((sectionData) => sectionData.index == index);
+                if (conclusion) {
+                    const scenario = new Scenario(conclusion as ScenarioData);
+                    this.close();
+                    this.dialog.open(ScenarioSummaryComponent, {
+                        panelClass: 'dialog',
+                        data: {
+                            scenario: scenario,
+                            success: true,
+                            conclusionOnly: true,
+                            rewardsOnly: gameManager.game.party.conclusions.find((model) => model.edition == conclusion.edition && model.index == conclusion.index && model.group == conclusion.group) != undefined
+                        }
+                    })
+                }
+            } else {
+                // TODO recursion conclusions
             }
         }
     }

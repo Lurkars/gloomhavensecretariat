@@ -3,6 +3,7 @@
   "name": "Town Hall Built",
   "edition": "fh",
   "conclusion": true,
+  "named": true,
   "rewards": {
     "events": [
       "summer-outpost:SO-59",

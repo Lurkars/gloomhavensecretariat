@@ -54,7 +54,7 @@
                 [ghs-label]="'party.campaign.sheet.buildings.rewards.items'"
                 [ghs-label-args]="rewards.items.split('-')"></span>
 
-            <span class="text-white section" *ngIf="rewards.section" (click)="sectionRewards()"
+            <span class="text-white section" *ngIf="rewards.section" (click)="sectionRewards(rewards.section)"
                 [ngClass]="{'active' : rewardsOnly}" [ghs-label]="'party.campaign.sheet.buildings.rewards.section'"
                 [ghs-label-args]="[rewards.section]"></span>
         </div>

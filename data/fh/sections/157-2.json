@@ -3,6 +3,7 @@
   "name": "Enhancer Upgraded",
   "edition": "fh",
   "conclusion": true,
+  "named": true,
   "rewards": {
     "unlockCharacter": "shackles"
   }

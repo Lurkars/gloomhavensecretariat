@@ -3,6 +3,7 @@
   "name": "Enhancer Built",
   "edition": "fh",
   "conclusion": true,
+  "named": true,
   "rewards": {
     "calendarSectionManual": [
       {

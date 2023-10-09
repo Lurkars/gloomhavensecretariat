@@ -3,6 +3,7 @@
   "name": "Trading Post Upgraded",
   "edition": "fh",
   "conclusion": true,
+  "named": true,
   "rewards": {
     "itemBlueprints": [
       "129-137"

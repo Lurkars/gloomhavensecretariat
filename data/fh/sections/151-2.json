@@ -3,6 +3,7 @@
   "name": "Inn Built",
   "edition": "fh",
   "conclusion": true,
+  "named": true,
   "rewards": {
     "events": [
       "winter-outpost:WO-71",

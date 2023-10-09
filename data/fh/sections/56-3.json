@@ -3,6 +3,7 @@
   "name": "Enhancer Upgraded",
   "edition": "fh",
   "conclusion": true,
+  "named": true,
   "rewards": {
     "custom": "Manual (%wip%):Add any of the following items you have unlocked from <i>Forgotten Circles</i> to the available item supply:<br>154, 155, 157, and 163."
   }

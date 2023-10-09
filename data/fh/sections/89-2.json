@@ -3,6 +3,7 @@
   "name": "Library Upgraded",
   "edition": "fh",
   "conclusion": true,
+  "named": true,
   "rewards": {
     "events": [
       "winter-road:WR-47",

@@ -3,6 +3,7 @@
   "name": "Carpenter Built",
   "edition": "fh",
   "conclusion": true,
+  "named": true,
   "rewards": {
     "events": [
       "summer-outpost:SO-53",

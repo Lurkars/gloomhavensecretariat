@@ -3,6 +3,7 @@
   "name": "Library Upgraded",
   "edition": "fh",
   "conclusion": true,
+  "named": true,
   "unlocks": [
     "134"
   ],

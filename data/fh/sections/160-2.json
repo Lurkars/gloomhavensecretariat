@@ -3,6 +3,7 @@
   "name": "Tavern Built",
   "edition": "fh",
   "conclusion": true,
+  "named": true,
   "rewards": {
     "lootDeckCards": [
       1418

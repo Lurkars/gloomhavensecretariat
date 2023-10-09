@@ -3,6 +3,7 @@
   "name": "Alchemist Upgraded",
   "edition": "fh",
   "conclusion": true,
+  "named": true,
   "rewards": {
     "randomItemBlueprints": "59-65"
   }

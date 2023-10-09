@@ -3,6 +3,7 @@
   "name": "Lumber Depot Built",
   "edition": "fh",
   "conclusion": true,
+  "named": true,
   "rewards": {
     "events": [
       "summer-road:SR-39",

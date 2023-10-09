@@ -3,6 +3,7 @@
   "name": "Stables Built",
   "edition": "fh",
   "conclusion": true,
+  "named": true,
   "rewards": {
     "items": [
       "247"

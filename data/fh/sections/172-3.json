@@ -3,6 +3,7 @@
   "name": "Hunting Lodge Upgraded",
   "edition": "fh",
   "conclusion": true,
+  "named": true,
   "rewards": {
     "unlockCharacter": "trap"
   }
