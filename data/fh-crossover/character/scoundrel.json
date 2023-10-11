@@ -6,6 +6,11 @@
   "thumbnail": "gh-scoundrel",
   "edition": "fh-crossover",
   "handSize": 9,
+  "traits": [
+    "chaotic",
+    "nimble",
+    "resourceful"
+  ],
   "color": "#9ecf5f",
   "stats": [
     {

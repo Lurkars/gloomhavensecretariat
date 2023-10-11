@@ -5,6 +5,11 @@
   "thumbnail": "gh-envx",
   "edition": "fh-crossover",
   "handSize": 11,
+  "traits": [
+    "armored",
+    "intimidating",
+    "nimble"
+  ],
   "color": "#cb9070",
   "spoiler": true,
   "locked": true,

@@ -77,7 +77,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
         this.brewing = 0;
 
         if (gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings) {
-            const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist');
+            const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist' && buildingModel.state != 'wrecked');
             if (alchemist && alchemist.level) {
                 this.brewing = alchemist.level < 3 ? 2 : 3;
             }
@@ -311,10 +311,10 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
     }
 
     setItemNotes(event: any) {
-      if (this.character.progress.itemNotes != event.target.value) {
-        gameManager.stateManager.before("setItems", "data.character." + this.character.name, event.target.value);
-        this.character.progress.itemNotes = event.target.value;
-        gameManager.stateManager.after();
-      }
+        if (this.character.progress.itemNotes != event.target.value) {
+            gameManager.stateManager.before("setItems", "data.character." + this.character.name, event.target.value);
+            this.character.progress.itemNotes = event.target.value;
+            gameManager.stateManager.after();
+        }
     }
 }

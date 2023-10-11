@@ -3,6 +3,11 @@
   "characterClass": "aesther",
   "edition": "fh",
   "handSize": 10,
+  "traits": [
+    "chaotic",
+    "intimidating",
+    "outcast"
+  ],
   "color": "#7476a7",
   "spoiler": true,
   "stats": [

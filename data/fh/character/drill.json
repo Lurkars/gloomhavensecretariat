@@ -9,6 +9,11 @@
     "low"
   ],
   "handSize": 9,
+  "traits": [
+    "armored",
+    "resourceful",
+    "strong"
+  ],
   "color": "#ad8f68",
   "spoiler": true,
   "stats": [

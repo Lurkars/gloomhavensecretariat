@@ -6,6 +6,11 @@
   "thumbnail": "jotl-voidwarden",
   "edition": "fh-crossover",
   "handSize": 11,
+  "traits": [
+    "arcane",
+    "educated",
+    "outcast"
+  ],
   "color": "#e8e9e9",
   "stats": [
     {

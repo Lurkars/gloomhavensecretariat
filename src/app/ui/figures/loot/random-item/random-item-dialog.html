@@ -1,0 +1,21 @@
+<div class="random-item-dialog"
+  [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
+  <a class="close" (click)="close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'"><img
+      src="./assets/images/close_dialog.svg"></a>
+
+
+  <div class="scroll-container">
+    <span class="title" [ghs-label]="'game.loot.random_item.draw'"
+      [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"></span>
+
+    <div class="item" [ngClass]="{'autosell' : autoSell}">
+      <ghs-item [item]="item" [flipped]="true" [editionLabel]="gameManager.currentEdition()"
+        (click)="openDialog()"></ghs-item>
+    </div>
+
+    <div class="menu">
+      <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
+      <a class="apply" (click)="apply()"><span [ghs-label]="'game.loot.random_item.apply'"></span></a>
+    </div>
+  </div>
+</div>

@@ -33,7 +33,7 @@ export class ItemsBrewDialog implements OnInit, OnDestroy {
     constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef, private dialog: Dialog) {
         this.brewing = 0;
         if (gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings) {
-            const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist');
+            const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist' && buildingModel.state != 'wrecked');
             if (alchemist && alchemist.level) {
                 this.brewing = alchemist.level < 3 ? 2 : 3;
             }
@@ -170,7 +170,7 @@ export class ItemsBrewDialog implements OnInit, OnDestroy {
 
     openItemDialog() {
         this.dialog.open(ItemDialogComponent, {
-            data: this.brewed || this.item
+            data: { item: this.brewed || this.item }
         })
     }
 

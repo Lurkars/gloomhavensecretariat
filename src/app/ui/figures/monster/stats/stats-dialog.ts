@@ -28,6 +28,18 @@ export class MonsterStatsDialogComponent {
     monster.errors = this.monster.errors;
     return monster;
   }
+  
+  toggleAlly() {
+    gameManager.stateManager.before(this.monster.isAlly ? "unsetAlly" : "setAlly", "data.monster." + this.monster.name);
+    this.monster.isAlly = !this.monster.isAlly;
+    gameManager.stateManager.after();
+  }
+
+  toggleallied() {
+    gameManager.stateManager.before(this.monster.isAllied ? "unsetallied" : "setallied", "data.monster." + this.monster.name);
+    this.monster.isAllied = !this.monster.isAllied;
+    gameManager.stateManager.after();
+  }
 
   openStatPopup(level: number) {
     const monster = new Monster(this.monster, level);

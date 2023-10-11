@@ -1,5 +1,7 @@
 import { Game } from "../model/Game";
 import { BuildingRewards } from "../model/data/BuildingData";
+import { ScenarioData } from "../model/data/ScenarioData";
+import { gameManager } from "./GameManager";
 
 export class BuildingsManager {
   game: Game;
@@ -40,6 +42,27 @@ export class BuildingsManager {
           this.game.party.soldiers = limit;
         }
       }
+    }
+  }
+
+  rewardSection(section: ScenarioData): ScenarioData | undefined {
+    if (gameManager.game.party.conclusions.find((model) => model.edition == section.edition && model.index == section.index && model.group == section.group)) {
+      return section;
+    }
+
+    const conclusions = gameManager.sectionData(section.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(section.index) != -1));
+
+    if (conclusions.length == 0) {
+      return undefined;
+    } else {
+      let result: ScenarioData | undefined;
+      conclusions.forEach((conclusion) => {
+        if (!result) {
+          result = this.rewardSection(conclusion);
+        }
+      })
+
+      return result;
     }
   }
 }

@@ -10,6 +10,9 @@ import { LootApplyDialogComponent } from "./loot-apply-dialog";
 import { LootDeckDialogComponent } from "./loot-deck-dialog";
 import { LootDeckFullscreenComponent } from "./loot-deck-fullscreen";
 import { Subscription } from "rxjs";
+import { LootRandomItemDialogComponent } from "./random-item/random-item-dialog";
+import { ItemData } from "src/app/game/model/data/ItemData";
+import { AdditionalIdentifier, Identifier } from "src/app/game/model/data/Identifier";
 
 export class LootDeckChange {
 
@@ -180,8 +183,36 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                             const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == name);
                             if (character instanceof Character) {
                                 gameManager.stateManager.before(loot.type == LootType.random_item ? "lootRandomItem" : "addResource", "data.character." + character.name, "game.loot." + loot.type, this.lootManager.getValue(loot) + '');
-                                gameManager.lootManager.applyLoot(loot, character, this.current);
+                                const result = gameManager.lootManager.applyLoot(loot, character, this.current);
                                 gameManager.stateManager.after();
+                                if (result) {
+                                    this.dialog.open(LootRandomItemDialogComponent, {
+                                        panelClass: 'dialog',
+                                        data: { item: result, loot: this.deck.cards[this.current], index: this.current, character: character }
+                                    }).closed.subscribe({
+                                        next: (result) => {
+                                            if (result) {
+                                                const item = result as ItemData;
+                                                gameManager.stateManager.before("selectRandomItemLoot");
+                                                let itemIdentifier: Identifier = new Identifier('' + item.id, item.edition);
+                                                gameManager.itemManager.addItemCount(item);
+                                                if (character.lootCards.indexOf(this.current) == -1) {
+                                                    character.lootCards.push(this.current);
+                                                    character.lootCards.sort((a, b) => a - b);
+                                                }
+                                                if (character.progress.items.find((existing) => existing.name == '' + item.id && existing.edition == item.edition) != undefined) {
+                                                    character.progress.gold += gameManager.itemManager.itemSellValue(item);
+                                                } else {
+                                                    character.progress.items.push(itemIdentifier);
+                                                    character.progress.equippedItems.push(new AdditionalIdentifier(itemIdentifier.name, itemIdentifier.edition, undefined, "loot-random-item"));
+                                                }
+                                                gameManager.stateManager.after();
+                                            } else {
+                                                character.lootCards = character.lootCards.filter((index) => index != this.current);
+                                            }
+                                        }
+                                    })
+                                }
                             }
                         }
                     }
@@ -196,11 +227,41 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
             this.openFullscreen(event);
         } else if (!this.disabled && this.deck.cards.length > 0) {
             if (!this.drawTimeout && this.deck.current < (this.deck.cards.length - (this.queue == 0 ? 0 : 1))) {
+                const activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active);
                 this.drawTimeout = setTimeout(() => {
                     this.before.emit(new LootDeckChange(this.deck, 'lootDeckDraw'));
-                    const activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active);
                     if (!settingsManager.settings.alwaysLootApplyDialog && activeCharacter instanceof Character) {
-                        gameManager.lootManager.drawCard(this.deck, activeCharacter);
+                        const result = gameManager.lootManager.drawCard(this.deck, activeCharacter);
+                        if (result) {
+                            setTimeout(() => {
+                                this.dialog.open(LootRandomItemDialogComponent, {
+                                    panelClass: 'dialog',
+                                    data: { item: result, loot: this.deck.cards[this.current], index: this.current, character: activeCharacter }
+                                }).closed.subscribe({
+                                    next: (result) => {
+                                        if (result) {
+                                            const item = result as ItemData;
+                                            gameManager.stateManager.before("selectRandomItemLoot");
+                                            let itemIdentifier: Identifier = new Identifier('' + item.id, item.edition);
+                                            gameManager.itemManager.addItemCount(item);
+                                            if (activeCharacter.lootCards.indexOf(this.current) == -1) {
+                                                activeCharacter.lootCards.push(this.current);
+                                                activeCharacter.lootCards.sort((a, b) => a - b);
+                                            }
+                                            if (activeCharacter.progress.items.find((existing) => existing.name == '' + item.id && existing.edition == item.edition) != undefined) {
+                                                activeCharacter.progress.gold += gameManager.itemManager.itemSellValue(item);
+                                            } else {
+                                                activeCharacter.progress.items.push(itemIdentifier);
+                                                activeCharacter.progress.equippedItems.push(new AdditionalIdentifier(itemIdentifier.name, itemIdentifier.edition, undefined, "loot-random-item"));
+                                            }
+                                            gameManager.stateManager.after();
+                                        } else {
+                                            activeCharacter.lootCards = activeCharacter.lootCards.filter((index) => index != this.current);
+                                        }
+                                    }
+                                })
+                            }, settingsManager.settings.disableAnimations ? 0 : (this.vertical ? 1050 : 1850))
+                        }
                     } else {
                         gameManager.lootManager.drawCard(this.deck, undefined);
                     }

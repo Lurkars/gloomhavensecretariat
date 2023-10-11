@@ -91,7 +91,21 @@
                 }
             }
 
+            .loot-random-item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
+                left: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
+                width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+                height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
 
+                img {
+                    height: 100%;
+                    width: auto;
+                }
+            }
 
             .button-equip {
                 z-index: 1;

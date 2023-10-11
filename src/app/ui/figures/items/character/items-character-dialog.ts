@@ -51,6 +51,10 @@ export class ItemsCharacterDialogComponent {
         return this.character.progress.equippedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition);
     }
 
+    isLootRandomItem(itemData: ItemData) {
+        return this.character.progress.equippedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition && identifier.marker == "loot-random-item");
+    }
+
     toggleEquippedItem(itemData: ItemData, force: boolean = false) {
         if ((this.setup || force) && this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition) != undefined) {
             gameManager.stateManager.before(gameManager.itemManager.isEquipped(itemData, this.character) ? 'unequipItem' : 'equipItem', "data.character." + this.character.name, '' + itemData.id, itemData.edition)

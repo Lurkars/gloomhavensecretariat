@@ -53,6 +53,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   maxHp: number = 0;
   token: number = 0;
   amAnimationDrawing: boolean = false;
+  compact: boolean = false;
 
   summonCount: number = 0;
   activeConditions: EntityCondition[] = [];
@@ -86,6 +87,8 @@ export class CharacterComponent implements OnInit, OnDestroy {
         this.character.attackModifierDeck.active = true;
       }
     }
+
+    this.compact = settingsManager.settings.characterCompact && settingsManager.settings.theme != 'modern';
   }
 
   beforeAttackModifierDeck(change: AttackModiferDeckChange) {

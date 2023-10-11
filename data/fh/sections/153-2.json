@@ -1,6 +1,6 @@
 {
   "index": "153.2",
-  "name": "Hall of Revelry Built: If %game.fhIcon:trait% AESTHER",
+  "name": "Hall of Revelry Built: If %game.trait:aesther%",
   "edition": "fh",
   "parentSections": [
     [

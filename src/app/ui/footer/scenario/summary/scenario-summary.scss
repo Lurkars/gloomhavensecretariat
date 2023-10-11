@@ -18,13 +18,10 @@
 
     .name {
       text-align: center;
-      color: var(--ghs-color-gray);
+      color: var(--ghs-color-black);
       font-family: var(--ghs-font-normal);
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
-
-      .ghs-svg {
-        filter: var(--ghs-filter-gray);
-      }
+      filter: var(--ghs-filter-gray);
     }
   }
 

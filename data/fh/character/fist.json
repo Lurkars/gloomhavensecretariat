@@ -3,6 +3,11 @@
   "characterClass": "algox",
   "edition": "fh",
   "handSize": 8,
+  "traits": [
+    "intimidating",
+    "persuasive",
+    "strong"
+  ],
   "color": "#88abc6",
   "spoiler": true,
   "stats": [

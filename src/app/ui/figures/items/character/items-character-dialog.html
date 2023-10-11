@@ -39,6 +39,11 @@
                         (clickedSlotBack)="toggleFlagCount($event,itemData,ItemFlags.slotBack)"
                         [ngClass]="{'filtered' : !equipped(itemData) || gameManager.game.state == GameState.draw, 
                     'unavailable': countFlag(itemData, ItemFlags.consumed) > 0, 'owned': countFlag(itemData, ItemFlags.persistent) > 0 }"></ghs-item>
+
+                    <span class="loot-random-item" *ngIf="isLootRandomItem(itemData)">
+                        <img src="./assets/images/fh/loot-token.png">
+                    </span>
+
                     <a class="button-equip disabled" [ngClass]="{'equipped' : equipped(itemData)}" ghs-pointer-input
                         (doubleClick)="toggleEquippedItem(itemData, true)">
                         <img class="ghs-svg" src="./assets/images/check.svg"></a>

@@ -6,6 +6,11 @@
   "thumbnail": "gh-tinkerer",
   "edition": "fh-crossover",
   "handSize": 12,
+  "traits": [
+    "educated",
+    "nimble",
+    "resourceful"
+  ],
   "color": "#d1c3a2",
   "stats": [
     {

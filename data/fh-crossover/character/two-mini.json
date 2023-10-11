@@ -6,6 +6,11 @@
   "thumbnail": "gh-two-mini",
   "edition": "fh-crossover",
   "handSize": 10,
+  "traits": [
+    "armored",
+    "outcast",
+    "strong"
+  ],
   "color": "#b4765a",
   "spoiler": true,
   "stats": [

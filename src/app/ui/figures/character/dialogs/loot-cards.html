@@ -8,7 +8,8 @@
                     [ghs-label]="(sorted ? 'character.lootCards.drawn' : 'character.lootCards.sort')"></span></a>
         </div>
         <div class="loot-cards" *ngIf="character.lootCards">
-            <div class="loot-container" *ngFor="let loot of lootCards">
+            <div class="loot-container" *ngFor="let loot of lootCards"
+                (click)="randomItem(loot) && randomItemDialog(loot)" [ngClass]="{'random-item': randomItem(loot)}">
                 <ghs-loot [loot]="loot" [flipped]="true" [disableFlip]="true"></ghs-loot>
             </div>
         </div>

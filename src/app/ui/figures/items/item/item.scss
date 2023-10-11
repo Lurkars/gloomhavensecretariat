@@ -507,6 +507,16 @@
 
         .back {
             background-image: url('~src/assets/images/fh/items/item-back-fh.png');
+
+            .id {
+                transform: rotate(-90deg);
+                top: 24%;
+                left: -6%;
+                color: var(--ghs-color-black);
+                filter: none;
+                font-family: "ghs-title-fh";
+                font-size: 1em;
+            }
         }
 
 

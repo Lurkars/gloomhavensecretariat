@@ -43,7 +43,7 @@ export class LootManager {
     character.lootCards = character.lootCards || [];
     if (loot.type == LootType.money || loot.type == LootType.special1 || loot.type == LootType.special2) {
       character.loot += this.getValue(loot);
-    } else if (loot.type == LootType.random_item && this.game.scenario && this.game.party.campaignMode) {
+    } else if (loot.type == LootType.random_item && this.game.scenario && this.game.party.campaignMode && settingsManager.settings.applyLootRandomItem) {
       let availableItems = gameManager.itemManager.getItems(this.game.scenario.edition, true).filter((itemData) => itemData.random && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition));
 
       if (availableItems.length > 0) {
@@ -59,12 +59,6 @@ export class LootManager {
           }
         }
         if (item) {
-          gameManager.itemManager.addItemCount(itemData);
-          if (character.progress.items.find((existing) => item && existing.name == item.name && existing.edition == item.edition)) {
-            character.progress.gold += gameManager.itemManager.itemSellValue(itemData);
-          } else {
-            character.progress.items.push(item);
-          }
           result = itemData;
         }
       }

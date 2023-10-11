@@ -6,6 +6,11 @@
     "mode"
   ],
   "handSize": 11,
+  "traits": [
+    "armored",
+    "educated",
+    "resourceful"
+  ],
   "color": "#d7ad47",
   "spoiler": true,
   "stats": [

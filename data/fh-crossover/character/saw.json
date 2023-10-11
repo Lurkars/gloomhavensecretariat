@@ -6,6 +6,11 @@
   "thumbnail": "gh-saw",
   "edition": "fh-crossover",
   "handSize": 10,
+  "traits": [
+    "educated",
+    "persuasive",
+    "resourceful"
+  ],
   "color": "#d5ca9c",
   "spoiler": true,
   "stats": [

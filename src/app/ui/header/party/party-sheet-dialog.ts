@@ -665,7 +665,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   openItem(item: ItemData) {
     this.dialog.open(ItemDialogComponent, {
-      data: item
+      data: { item: item }
     })
   }
 

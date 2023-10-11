@@ -6,6 +6,11 @@
   "thumbnail": "gh-lightning",
   "edition": "fh-crossover",
   "handSize": 10,
+  "traits": [
+    "chaotic",
+    "intimidating",
+    "strong"
+  ],
   "color": "#f07c4e",
   "spoiler": true,
   "stats": [

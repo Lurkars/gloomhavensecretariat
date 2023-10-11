@@ -44,6 +44,10 @@
             flex-shrink: 0;
             flex-grow: 0;
 
+            &.random-item {
+                cursor: pointer;
+            }
+
             ghs-loot {
                 position: absolute;
                 display: flex;

@@ -88,6 +88,7 @@ import { ScenarioRulesComponent } from './ui/footer/scenario-rules/scenario-rule
 import { FeedbackToolComponent } from './ui/tools/feedback/feedback';
 import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';
 import { LootDeckComponent } from './ui/figures/loot/loot-deck';
+import { LootRandomItemDialogComponent } from './ui/figures/loot/random-item/random-item-dialog';
 import { LootDeckFullscreenComponent } from './ui/figures/loot/loot-deck-fullscreen';
 import { LootComponent } from './ui/figures/loot/loot';
 import { LootDeckDialogComponent } from './ui/figures/loot/loot-deck-dialog';
@@ -156,7 +157,7 @@ export class GhsErrorHandler extends ErrorHandler {
     PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, BuildingUpgradeDialog, ScenarioRequirementsComponent, TreasuresDialogComponent, PartyResourcesDialogComponent,
     MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, CampaignMenuComponent,
     FooterComponent,
-    LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
+    LootComponent, LootDeckComponent, LootRandomItemDialogComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
     HintDialogComponent, ScenarioRulesComponent,
     AttackModifierComponent, AttackModifierEffectsComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDrawComponent, AttackModifierDeckFullscreenComponent, AttackModifierStandaloneComponent,
     LevelComponent, LevelDialogComponent,

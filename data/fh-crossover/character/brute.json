@@ -6,6 +6,11 @@
   "thumbnail": "gh-brute",
   "edition": "fh-crossover",
   "handSize": 10,
+  "traits": [
+    "armored",
+    "intimidating",
+    "strong"
+  ],
   "color": "#35acd5",
   "stats": [
     {

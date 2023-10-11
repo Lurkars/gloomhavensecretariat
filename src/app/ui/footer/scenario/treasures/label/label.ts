@@ -193,7 +193,7 @@ export class TreasureLabelComponent implements OnInit {
 
     openItemDialog(itemData: ItemData) {
         this.dialog.open(ItemDialogComponent, {
-            data: itemData
+            data: { item: itemData }
         })
     }
 

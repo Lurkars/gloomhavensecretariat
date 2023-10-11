@@ -4248,7 +4248,32 @@
       {
         "type": "custom",
         "value": "%data.items.fh-189.1%",
-        "small": true
+        "small": true,
+        "subActions": [
+          {
+            "type": "concatenation",
+            "subActions": [
+              {
+                "type": "element",
+                "value": "dark:wild",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "condition",
+                    "value": "invisible",
+                    "subActions": [
+                      {
+                        "type": "specialTarget",
+                        "value": "self",
+                        "small": true
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
     ]
   },

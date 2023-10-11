@@ -47,7 +47,7 @@ export class ItemManager {
 
         if (settingsManager.settings.fhGhItems && gameManager.fhRules()) {
             if (itemData.edition == 'gh') {
-                const tradingPost = this.game.party.buildings && this.game.party.buildings.find((buildingModel) => buildingModel.name == "trading-post");
+                const tradingPost = this.game.party.buildings && this.game.party.buildings.find((buildingModel) => buildingModel.name == "trading-post" && buildingModel.state != 'wrecked');
                 if (tradingPost) {
                     if (tradingPost.level >= 2 && [21, 37, 53, 93, 94, 106, 115].indexOf(itemData.id) != -1) {
                         return true;
@@ -64,7 +64,7 @@ export class ItemManager {
                     fcItems.push(153, 159, 161);
                 }
 
-                if (this.game.party.buildings && this.game.party.buildings.find((buildingModel) => buildingModel.name == "enhancer" && buildingModel.level == 4)) {
+                if (this.game.party.buildings && this.game.party.buildings.find((buildingModel) => buildingModel.name == "enhancer" && buildingModel.level == 4 && buildingModel.state != 'wrecked')) {
                     fcItems.push(154, 155, 157, 163);
                 }
             }
@@ -105,7 +105,7 @@ export class ItemManager {
     }
 
     canBuy(item: ItemData, character: Character, cost: number = 0): boolean {
-        if (gameManager.game.party.campaignMode && gameManager.fhRules() && character.tags.indexOf('new-character') == -1 && (!this.game.party.buildings || !this.game.party.buildings.find((buildingModel) => buildingModel.name == "trading-post" && buildingModel.level >= 1))) {
+        if (gameManager.game.party.campaignMode && gameManager.fhRules() && character.tags.indexOf('new-character') == -1 && (!this.game.party.buildings || !this.game.party.buildings.find((buildingModel) => buildingModel.name == "trading-post" && buildingModel.level >= 1 && buildingModel.state != 'wrecked'))) {
             return false;
         }
 

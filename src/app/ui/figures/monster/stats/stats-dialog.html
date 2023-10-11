@@ -7,6 +7,14 @@
     <span class="allied" *ngIf="monster.isAllied"><span [ghs-label]="'game.allied'"></span></span>
     <span class="edition" *ngIf="getEdition()">[<span [ghs-label]="'data.edition.' + getEdition()"></span>]</span>
   </span>
+
+  <div class="menu">
+    <a class="toggle-ally" [ghs-label]="'monster.toggleAlly.' + (monster.isAlly ? 'off' : 'on')"
+      (click)="toggleAlly()"></a>
+    <a class="toggle-allied" [ghs-label]="'monster.toggleAllied.' + (monster.isAllied ? 'off' : 'on')"
+      (click)="toggleallied()"></a>
+  </div>
+
   <div class="stats-container">
     <div class="stats" *ngFor="let level of levels" ghs-pointer-input (singleClick)="dialogRef.close()"
       (doubleClick)="openStatPopup(level)">

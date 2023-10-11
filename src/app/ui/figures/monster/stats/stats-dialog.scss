@@ -15,6 +15,24 @@
     width: 100%;
   }
 
+  .menu {
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    a {
+      cursor: pointer;
+      font-family: var(--ghs-font-text);
+      color: var(--ghs-color-white);
+      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+
+      .ally {
+        text-decoration: line-through;
+      }
+    }
+  }
+
   .stats-container {
     text-align: initial;
     display: flex;

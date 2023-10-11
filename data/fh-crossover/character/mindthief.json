@@ -6,6 +6,11 @@
   "thumbnail": "gh-mindthief",
   "edition": "fh-crossover",
   "handSize": 10,
+  "traits": [
+    "arcane",
+    "outcast",
+    "persuasive"
+  ],
   "color": "#6279a5",
   "stats": [
     {

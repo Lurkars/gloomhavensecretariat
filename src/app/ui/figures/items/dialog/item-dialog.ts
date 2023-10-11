@@ -13,8 +13,11 @@ export class ItemDialogComponent implements OnInit {
   opened: boolean = false;
 
   gameManager: GameManager = gameManager;
+  item: ItemData;
 
-  constructor(@Inject(DIALOG_DATA) public item: ItemData, private dialogRef: DialogRef) { }
+  constructor(@Inject(DIALOG_DATA) public data: { item: ItemData }, private dialogRef: DialogRef) {
+    this.item = data.item;
+  }
 
   ngOnInit(): void {
     this.opened = true;

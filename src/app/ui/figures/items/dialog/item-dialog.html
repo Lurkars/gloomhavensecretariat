@@ -1,4 +1,4 @@
 <div class="item-dialog" [ngClass]="{'closed' : !opened, 'opened' : opened}" (click)="close()">
-  <ghs-item [item]="item" [flipped]="opened"></ghs-item>
+  <ghs-item [item]="item" [flipped]="opened" [editionLabel]="gameManager.currentEdition()"></ghs-item>
 </div>
 <div class="close-container" (click)="close()"></div>

@@ -5,6 +5,11 @@
   "thumbnail": "gh-triangles",
   "edition": "fh-crossover",
   "handSize": 10,
+  "traits": [
+    "arcane",
+    "educated",
+    "intimidating"
+  ],
   "color": "#dcdcdc",
   "spoiler": true,
   "stats": [

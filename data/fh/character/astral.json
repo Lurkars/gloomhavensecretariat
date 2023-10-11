@@ -3,6 +3,11 @@
   "characterClass": "orchid",
   "edition": "fh",
   "handSize": 11,
+  "traits": [
+    "arcane",
+    "educated",
+    "strong"
+  ],
   "color": "#6fb54e",
   "spoiler": true,
   "stats": [

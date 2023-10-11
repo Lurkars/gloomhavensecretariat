@@ -6,6 +6,11 @@
   "thumbnail": "gh-three-spears",
   "edition": "fh-crossover",
   "handSize": 9,
+  "traits": [
+    "armored",
+    "resourceful",
+    "strong"
+  ],
   "color": "#ad9477",
   "spoiler": true,
   "stats": [

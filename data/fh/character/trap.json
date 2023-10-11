@@ -3,6 +3,11 @@
   "characterClass": "vermling",
   "edition": "fh",
   "handSize": 9,
+  "traits": [
+    "nimble",
+    "outcast",
+    "resourceful"
+  ],
   "color": "#ddb586",
   "spoiler": true,
   "stats": [

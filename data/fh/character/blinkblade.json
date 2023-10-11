@@ -11,6 +11,11 @@
   ],
   "primaryToken": 0,
   "handSize": 10,
+  "traits": [
+    "educated",
+    "nimble",
+    "resourceful"
+  ],
   "color": "#01b0db",
   "stats": [
     {

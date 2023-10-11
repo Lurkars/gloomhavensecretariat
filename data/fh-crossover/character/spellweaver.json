@@ -6,6 +6,11 @@
   "thumbnail": "gh-spellweaver",
   "edition": "fh-crossover",
   "handSize": 8,
+  "traits": [
+    "arcane",
+    "educated",
+    "resourceful"
+  ],
   "color": "#b28ac2",
   "stats": [
     {

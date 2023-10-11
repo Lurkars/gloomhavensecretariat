@@ -6,6 +6,11 @@
   "thumbnail": "jotl-hatchet",
   "edition": "fh-crossover",
   "handSize": 10,
+  "traits": [
+    "intimidating",
+    "resourceful",
+    "strong"
+  ],
   "color": "#7bbbd6",
   "marker": true,
   "stats": [

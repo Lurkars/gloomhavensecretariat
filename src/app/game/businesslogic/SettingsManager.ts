@@ -201,6 +201,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setApplyLootRandomItem(applyLootRandomItem: boolean) {
+    this.settings.applyLootRandomItem = applyLootRandomItem;
+    this.storeSettings();
+  }
+
   setApplyRetirement(applyRetirement: boolean) {
     this.settings.applyRetirement = applyRetirement;
     this.storeSettings();
@@ -351,6 +356,11 @@ export class SettingsManager {
 
   setCharacterSheet(characterSheet: boolean) {
     this.settings.characterSheet = characterSheet;
+    this.storeSettings();
+  }
+
+  setCharacterTraits(characterTraits: boolean) {
+    this.settings.characterTraits = characterTraits;
     this.storeSettings();
   }
 

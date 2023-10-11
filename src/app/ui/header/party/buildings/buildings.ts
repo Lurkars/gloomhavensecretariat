@@ -147,8 +147,6 @@ export class PartyBuildingsComponent implements OnInit {
         return false;
       }
 
-      console.log(building);
-
       return true;
     }
 
@@ -359,10 +357,29 @@ export class PartyBuildingsComponent implements OnInit {
       if (!this.initialBuilding(building.data) && (building.model.level == 0 || force)) {
         gameManager.stateManager.before("removeBuilding", "data.buildings." + building.model.name);
         this.party.buildings.splice(index, 1);
+        if (this.party.campaignMode && building.data.rewards && building.data.rewards[0] && building.data.rewards[0].section) {
+          const section = gameManager.sectionData(gameManager.currentEdition()).find((sectionData) => sectionData.index == building.data.rewards[0].section);
+          if (section) {
+            const conclusion = gameManager.buildingsManager.rewardSection(section);
+            if (conclusion) {
+              this.party.conclusions = this.party.conclusions.filter((model) => model.edition != conclusion.edition || model.group != conclusion.group || model.index != conclusion.index);
+            }
+          }
+        }
+
         gameManager.stateManager.after();
       } else if (!this.initialBuilding(building.data) || building.model.level > 1) {
         gameManager.stateManager.before("downgradeBuilding", building.model.name, '' + (building.model.level - 1));
         building.model.level--;
+        if (this.party.campaignMode && building.data.rewards && building.data.rewards[building.model.level] && building.data.rewards[building.model.level].section) {
+          const section = gameManager.sectionData(gameManager.currentEdition()).find((sectionData) => sectionData.index == building.data.rewards[building.model.level].section);
+          if (section) {
+            const conclusion = gameManager.buildingsManager.rewardSection(section);
+            if (conclusion) {
+              this.party.conclusions = this.party.conclusions.filter((model) => model.edition != conclusion.edition || model.group != conclusion.group || model.index != conclusion.index);
+            }
+          }
+        }
         gameManager.stateManager.after();
       }
       this.updateBuildings();

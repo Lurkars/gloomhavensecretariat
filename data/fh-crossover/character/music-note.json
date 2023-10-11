@@ -6,6 +6,11 @@
   "thumbnail": "gh-music-note",
   "edition": "fh-crossover",
   "handSize": 9,
+  "traits": [
+    "educated",
+    "night",
+    "persuasive"
+  ],
   "color": "#db6e8d",
   "spoiler": true,
   "stats": [

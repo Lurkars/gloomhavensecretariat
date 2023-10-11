@@ -6,6 +6,11 @@
   "thumbnail": "jotl-red-guard",
   "edition": "fh-crossover",
   "handSize": 10,
+  "traits": [
+    "armored",
+    "outcast",
+    "persuasive"
+  ],
   "color": "#d8585d",
   "stats": [
     {

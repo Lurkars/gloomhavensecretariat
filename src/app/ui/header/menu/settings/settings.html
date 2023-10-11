@@ -155,9 +155,6 @@
         </span>
       </div>
     </div>
-  </div>
-
-  <div class="column">
     <div class="line">
       <div class="hint-container">
         <label>
@@ -171,6 +168,9 @@
         </span>
       </div>
     </div>
+  </div>
+
+  <div class="column">
     <div class="line">
       <div class="hint-container">
         <label>
@@ -223,6 +223,19 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text" [ghs-label]="'settings.characterHandSize.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.characterTraits"
+            (change)="settingsManager.setCharacterTraits(!settingsManager.settings.characterTraits)">
+          <span [ghs-label]="'settings.characterTraits'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.characterTraits.hint'"></span>
         </span>
       </div>
     </div>
@@ -677,6 +690,20 @@
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.lootDeck || !settingsManager.settings.applyLoot}">
           <input type="checkbox"
+            [checked]="settingsManager.settings.lootDeck && settingsManager.settings.applyLoot && settingsManager.settings.applyLootRandomItem"
+            (change)="settingsManager.setApplyLootRandomItem(!settingsManager.settings.applyLootRandomItem)">
+          <span [ghs-label]="'settings.applyLootRandomItem'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.applyLootRandomItem.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : !settingsManager.settings.lootDeck || !settingsManager.settings.applyLoot}">
+          <input type="checkbox"
             [checked]="settingsManager.settings.alwaysLootApplyDialog && settingsManager.settings.lootDeck && settingsManager.settings.applyLoot"
             (change)="settingsManager.setAlwaysLootApplyDialog(!settingsManager.settings.alwaysLootApplyDialog)">
           <span [ghs-label]="'settings.alwaysLootApplyDialog'"></span>
@@ -715,7 +742,9 @@
         </span>
       </div>
     </div>
+  </div>
 
+  <div class="column">
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.battleGoals || gameManager.fhRules()}">
@@ -730,9 +759,6 @@
         </span>
       </div>
     </div>
-  </div>
-
-  <div class="column">
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.allyAttackModifierDeck}">
@@ -993,6 +1019,20 @@
   <div class="column">
     <div class="line">
       <div class="hint-container">
+        <label [ngClass]="{'disabled':  !settingsManager.settings.portraitMode}">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode"
+            (change)="settingsManager.setAutomaticAttackModifierFullscreen(!settingsManager.settings.automaticAttackModifierFullscreen)">
+          <span [ghs-label]="'settings.automaticAttackModifierFullscreen'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.automaticAttackModifierFullscreen.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.characterAttackModifierDeck}">
           <input type="checkbox"
             [checked]="settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierAnimate"
@@ -1031,20 +1071,6 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text" [ghs-label]="'settings.characterAttackModifierDeckPermanentActive.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled':  !settingsManager.settings.portraitMode}">
-          <input type="checkbox"
-            [checked]="settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode"
-            (change)="settingsManager.setAutomaticAttackModifierFullscreen(!settingsManager.settings.automaticAttackModifierFullscreen)">
-          <span [ghs-label]="'settings.automaticAttackModifierFullscreen'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.automaticAttackModifierFullscreen.hint'"></span>
         </span>
       </div>
     </div>

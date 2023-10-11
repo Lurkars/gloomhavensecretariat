@@ -938,6 +938,23 @@ input[type="radio"] {
 
 }
 
+.monster-allied-off {
+  color: var(--ghs-color-red);
+  text-decoration: line-through;
+}
+
+.monster-allied-on {
+  color: var(--ghs-color-red);
+}
+
+.monster-ally-on {
+  color: var(--ghs-color-blue);
+}
+
+.monster-ally-off {
+  color: var(--ghs-color-red);
+}
+
 .hint-container {
   position: relative;
   display: flex;
@@ -1259,8 +1276,19 @@ input[type="radio"] {
     }
   }
 
-  .placeholder-section, .placeholder-fh-icon {
+  .placeholder-section,
+  .placeholder-fh-icon {
     display: inline-block;
+
+    .icon {
+      margin-top: -0.2em;
+      vertical-align: middle;
+    }
+  }
+
+  .placeholder-trait {
+    display: inline-block;
+    text-transform: uppercase;
 
     .icon {
       margin-top: -0.2em;

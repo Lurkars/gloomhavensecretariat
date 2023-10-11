@@ -3,6 +3,11 @@
   "characterClass": "lurker",
   "edition": "fh",
   "handSize": 12,
+  "traits": [
+    "armored",
+    "chaotic",
+    "strong"
+  ],
   "color": "#4c988b",
   "spoiler": true,
   "stats": [

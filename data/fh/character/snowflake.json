@@ -3,6 +3,11 @@
   "characterClass": "algox",
   "edition": "fh",
   "handSize": 11,
+  "traits": [
+    "chaotic",
+    "nimble",
+    "persuasive"
+  ],
   "color": "#83b5be",
   "spoiler": true,
   "stats": [

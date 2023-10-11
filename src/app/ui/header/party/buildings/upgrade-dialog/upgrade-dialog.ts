@@ -9,6 +9,7 @@ import { Building } from "../buildings";
 import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/scenario-summary";
 import { Scenario } from "src/app/game/model/Scenario";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
+import { ScenarioConclusionComponent } from "src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion";
 
 export class SelectResourceResult {
     characters: Character[];
@@ -34,28 +35,33 @@ export class BuildingUpgradeDialog implements OnInit {
     building: Building;
     action: 'build' | 'upgrade' | 'repait' | 'rebuild' | 'rewards';
     costs: BuildingCosts;
+    requiredResources: number;
+    paidResources: number = 0;
     repair: number;
     force: boolean;
     characters: Character[] = [];
     characterSpent: BuildingCosts[] = [];
     fhSupportSpent: BuildingCosts = { "gold": 0, "hide": 0, "lumber": 0, "metal": 0, "prosperity": 0 };
     spent: BuildingCosts = { "gold": 0, "hide": 0, "lumber": 0, "metal": 0, "prosperity": 0 };
-    paid: number = 0;
     rewards: BuildingRewards | undefined;
     rewardsOnly: boolean;
+    discount: boolean;
 
     constructor(@Inject(DIALOG_DATA) public data: { costs: BuildingCosts | undefined, repair: number, building: Building, action: 'build' | 'upgrade' | 'repait' | 'rebuild' | 'rewards', force: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
         this.repair = data.repair || 0;
+        this.requiredResources = this.repair;
         this.building = data.building;
         this.action = data.action;
         this.force = data.force || false;
         this.rewardsOnly = this.action == 'rewards';
+        this.discount = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == "carpenter" && buildingModel.level > 0 && buildingModel.state != 'wrecked') != undefined && !this.repair;
         if (!this.repair) {
             this.costs = data.costs || { gold: 0, hide: 0, lumber: 0, metal: 0, prosperity: 0 };
             this.costs.gold = this.costs.gold || 0;
             this.costs.hide = this.costs.hide || 0;
             this.costs.lumber = this.costs.lumber || 0;
             this.costs.metal = this.costs.metal || 0;
+            this.requiredResources = this.costs.hide + this.costs.lumber + this.costs.metal;
 
             this.fhSupportSpent.hide = this.costs.hide;
             if (this.fhSupportSpent.hide > (gameManager.game.party.loot[LootType.hide] || 0)) {
@@ -97,29 +103,41 @@ export class BuildingUpgradeDialog implements OnInit {
     changeValue(type: BuildingCostType, spent: BuildingCosts, value: number) {
         spent[type] += value;
         this.spent[type] += value;
-        this.paid += value;
+        if (type != 'gold' && type != 'prosperity') {
+            this.paidResources += value;
+        }
     }
 
-    sectionRewards(index: string) {
-        if (this.rewardsOnly) {
-            const conclusions = gameManager.sectionData(gameManager.game.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(index) != -1));
-            if (conclusions.length == 0) {
-                const conclusion = gameManager.sectionData(gameManager.currentEdition()).find((sectionData) => sectionData.index == index);
-                if (conclusion) {
-                    const scenario = new Scenario(conclusion as ScenarioData);
-                    this.close();
-                    this.dialog.open(ScenarioSummaryComponent, {
-                        panelClass: 'dialog',
-                        data: {
-                            scenario: scenario,
-                            success: true,
-                            conclusionOnly: true,
-                            rewardsOnly: gameManager.game.party.conclusions.find((model) => model.edition == conclusion.edition && model.index == conclusion.index && model.group == conclusion.group) != undefined
+    sectionRewards(index: string, edition: string = "") {
+        const section = gameManager.sectionData(edition || gameManager.currentEdition()).find((sectionData) => sectionData.index == index);
+        if (this.rewardsOnly && section) {
+            const conclusion = gameManager.buildingsManager.rewardSection(section);
+            const conclusions = gameManager.sectionData(section.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(section.index) != -1));
+
+            if (conclusion || conclusions.length == 0) {
+                const scenario = new Scenario(conclusion || section);
+                this.close();
+                this.dialog.open(ScenarioSummaryComponent, {
+                    panelClass: 'dialog',
+                    data: {
+                        scenario: scenario,
+                        success: true,
+                        conclusionOnly: true,
+                        rewardsOnly: conclusion != undefined
+                    }
+                })
+            } else if (conclusions.length > 0) {
+                this.dialog.open(ScenarioConclusionComponent, {
+                    panelClass: ['dialog'],
+                    data: { conclusions: conclusions, parent: section }
+                }).closed.subscribe({
+                    next: (result) => {
+                        if (result) {
+                            const conclusionResult = result as ScenarioData;
+                            this.sectionRewards(conclusionResult.index, conclusionResult.edition);
                         }
-                    })
-                }
-            } else {
-                // TODO recursion conclusions
+                    }
+                });
             }
         }
     }
@@ -127,7 +145,7 @@ export class BuildingUpgradeDialog implements OnInit {
     confirm() {
         if (this.force) {
             this.dialogRef.close(true);
-        } else if (!this.repair && this.costs.gold == this.spent.gold && this.costs.hide == this.spent.hide && this.costs.lumber == this.spent.lumber && this.costs.metal == this.spent.metal || this.repair && this.paid == this.repair) {
+        } else if (this.paidResources == this.requiredResources - (this.discount ? 1 : 0) && (!this.costs.gold || this.costs.gold == this.spent.gold)) {
             this.dialogRef.close(new SelectResourceResult(this.characters, this.characterSpent, this.fhSupportSpent));
         }
     }

@@ -3,6 +3,11 @@
   "characterClass": "aesther",
   "edition": "fh",
   "handSize": 12,
+  "traits": [
+    "arcane",
+    "educated",
+    "intimidating"
+  ],
   "color": "#49a967",
   "stats": [
     {

@@ -6,6 +6,11 @@
     "trophy"
   ],
   "handSize": 10,
+  "traits": [
+    "armored",
+    "intimidating",
+    "nimble"
+  ],
   "color": "#987bab",
   "spoiler": true,
   "stats": [

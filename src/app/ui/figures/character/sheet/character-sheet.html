@@ -142,7 +142,15 @@
         </div>
 
         <div *ngIf="fhSheet" class="row notes">
-          <label><span [ghs-label]="'character.progress.notes'"></span>:</label>
+          <label><span [ghs-label]="'character.progress.notes'"></span>: 
+            <div class="traits" *ngIf="character.traits.length > 0">
+              <span class="icon"><img class="ghs-svg" src="./assets/images/fh/character/traits/trait.svg"></span>
+              <ng-container *ngFor="let trait of character.traits; let i = index;">
+                <span class="trait" [ghs-label]="'data.character.traits.' + trait"></span>
+                <span class="divider" *ngIf="i < character.traits.length - 1">-</span>
+              </ng-container>
+            </div>
+          </label>
           <textarea [value]="character.progress.notes" (change)="setNotes($event)"
             [ghs-label]="'character.progress.notes'" [ghs-label-attribute]="'placeholder'"></textarea>
         </div>

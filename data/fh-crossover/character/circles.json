@@ -6,6 +6,11 @@
   "thumbnail": "gh-circles",
   "edition": "fh-crossover",
   "handSize": 9,
+  "traits": [
+    "arcane",
+    "chaotic",
+    "resourceful"
+  ],
   "color": "#e570b3",
   "spoiler": true,
   "stats": [

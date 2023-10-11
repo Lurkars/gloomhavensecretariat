@@ -20,6 +20,7 @@ export class Settings {
   applyConditionsExcludes: ConditionName[] = [ConditionName.shield];
   applyLongRest: boolean = true;
   applyLoot: boolean = true;
+  applyLootRandomItem: boolean = true;
   applyRetirement: boolean = true;
   autoBackup: number = -1;
   autoBackupFinish: boolean = false;
@@ -50,6 +51,7 @@ export class Settings {
   characterIdentityHint: boolean = true;
   characterItems: boolean = false;
   characterSheet: boolean = true;
+  characterTraits: boolean = false;
   combineSummonAction: boolean = true;
   debugRightClick: boolean = false;
   disableAnimations: boolean = false;

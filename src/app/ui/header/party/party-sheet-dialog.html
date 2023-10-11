@@ -516,6 +516,9 @@
                 </span>
                 <span>
                   <span class="spacer"></span>
+                  <span (click)="scenarioRewards(scenarioData)" class="rewards"
+                    [ghsTooltip]="'scenario.summary.rewards'"><img class="ghs-svg"
+                      src="./assets/images/scenario/conclusion.svg"></span>
                   <a class="toggle-success" [ghs-label]="'party.campaign.scenarios.removeSuccess'"
                     [ghs-label-attribute]="'title'" (click)="removeConclusion(scenarioData.index, edition)"><img
                       class="success" src="./assets/images/check.svg"><img class="remove"
@@ -630,7 +633,8 @@
                   <span class="separator">:</span>
                   <span class="checkbox" (click)="removeItem(item)"><img class="check"
                       src="./assets/images/check.svg"><img class="close" src="./assets/images/close.svg"></span>
-                  <span class="text open-item" (click)="openItem(item)" [ghs-label]="'data.items.' + item.edition + '-' + item.id"></span>
+                  <span class="text open-item" (click)="openItem(item)"
+                    [ghs-label]="'data.items.' + item.edition + '-' + item.id"></span>
                   <span class="count" (click)="incItemCount(item, itemIdentifier[i])">
                     {{itemIdentifier[i].count > 0 ? itemIdentifier[i].count : '-'}}
                   </span>

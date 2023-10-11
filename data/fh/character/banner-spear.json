@@ -4,6 +4,11 @@
   "gender": "f",
   "edition": "fh",
   "handSize": 10,
+  "traits": [
+    "armored",
+    "persuasive",
+    "resourceful"
+  ],
   "color": "#edbc47",
   "stats": [
     {

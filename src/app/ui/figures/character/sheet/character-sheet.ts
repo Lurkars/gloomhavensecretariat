@@ -86,7 +86,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
         this.character.progress.loot[lootType] = this.character.progress.loot[lootType] || 0;
       }
 
-      if (gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'temple' && buildingModel.level > 0 && buildingModel.state == 'normal')) {
+      if (gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'temple' && buildingModel.level > 0 && buildingModel.state != 'wrecked')) {
         this.donations = true;
       }
     }

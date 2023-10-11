@@ -6,6 +6,11 @@
   "thumbnail": "gh-sun",
   "edition": "fh-crossover",
   "handSize": 11,
+  "traits": [
+    "armored",
+    "nimble",
+    "persuasive"
+  ],
   "color": "#fce434",
   "spoiler": true,
   "stats": [

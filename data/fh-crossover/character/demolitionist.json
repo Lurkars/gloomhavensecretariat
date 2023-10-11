@@ -6,6 +6,11 @@
   "thumbnail": "jotl-demolitionist",
   "edition": "fh-crossover",
   "handSize": 9,
+  "traits": [
+    "chaotic",
+    "nimble",
+    "strong"
+  ],
   "color": "#e5a26f",
   "stats": [
     {

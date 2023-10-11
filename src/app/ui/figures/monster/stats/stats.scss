@@ -82,7 +82,6 @@
       position: absolute;
       right: 1em;
       top: 50%;
-      display: none;
       width: 1.2em;
       height: auto;
       filter: var(--ghs-filter-white);
@@ -100,7 +99,6 @@
       }
 
       .catching {
-        display: block;
         filter: var(--ghs-filter-gray);
       }
     }

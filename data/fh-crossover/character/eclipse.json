@@ -6,6 +6,11 @@
   "thumbnail": "gh-eclipse",
   "edition": "fh-crossover",
   "handSize": 9,
+  "traits": [
+    "chaotic",
+    "intimidating",
+    "nimble"
+  ],
   "color": "#7440d4",
   "spoiler": true,
   "stats": [

@@ -9,8 +9,6 @@ import { Objective } from 'src/app/game/model/Objective';
 import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
 import { FooterComponent } from '../footer/footer';
 import { SummonState } from 'src/app/game/model/Summon';
-import { LootApplyDialogComponent } from '../figures/loot/loot-apply-dialog';
-import { LootType } from 'src/app/game/model/data/Loot';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { EntityMenuDialogComponent } from '../figures/entity-menu/entity-menu-dialog';
 
@@ -149,33 +147,16 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     gameManager.game.lootDeck.active = true;
                     const activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active);
                     if (!settingsManager.settings.alwaysLootApplyDialog && activeCharacter instanceof Character) {
-                        gameManager.lootManager.drawCard(gameManager.game.lootDeck, activeCharacter);
+                        const result = gameManager.lootManager.drawCard(gameManager.game.lootDeck, activeCharacter);
+                        if (result) {
+                            // TODO item loot dialog
+                            console.log("keyboard", result);
+                        }
                     } else {
                         gameManager.lootManager.drawCard(gameManager.game.lootDeck, undefined);
-                        if (settingsManager.settings.applyLoot) {
-                            setTimeout(() => {
-                                const loot = gameManager.game.lootDeck.cards[gameManager.game.lootDeck.current];
-                                const dialog = this.dialog.open(LootApplyDialogComponent, {
-                                    panelClass: 'dialog',
-                                    data: { loot: loot }
-                                });
-
-                                dialog.closed.subscribe({
-                                    next: (name) => {
-                                        if (name) {
-                                            const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == name);
-                                            if (character instanceof Character) {
-                                                gameManager.stateManager.before(loot.type == LootType.random_item ? "lootRandomItem" : "addResource", "data.character." + character.name, "game.loot." + loot.type, gameManager.lootManager.getValue(loot) + '');
-                                                gameManager.lootManager.applyLoot(loot, character, gameManager.game.lootDeck.current);
-                                                gameManager.stateManager.after();
-                                            }
-                                        }
-                                    }
-                                })
-                            }, settingsManager.settings.disableAnimations ? 0 : 1850);
-                        }
                     }
                     gameManager.stateManager.after();
+
                     event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('active') != -1) && !event.ctrlKey && gameManager.game.state == GameState.next && event.key === 'Tab') {
                     this.toggleEntity(event.shiftKey);

@@ -7,6 +7,11 @@
   ],
   "primaryToken": 0,
   "handSize": 10,
+  "traits": [
+    "educated",
+    "outcast",
+    "persuasive"
+  ],
   "color": "#c0d7e9",
   "spoiler": true,
   "stats": [

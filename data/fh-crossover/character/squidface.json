@@ -5,6 +5,11 @@
   "thumbnail": "gh-squidface",
   "edition": "fh-crossover",
   "handSize": 11,
+  "traits": [
+    "arcane",
+    "intimidating",
+    "outcast"
+  ],
   "color": "#72e0be",
   "spoiler": true,
   "stats": [

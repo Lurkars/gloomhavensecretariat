@@ -110,6 +110,14 @@ export class CharacterManager {
         character.number++;
       }
 
+      if (this.game.party.retirements) {
+        this.game.party.retirements.forEach((retirementModel) => {
+          if (retirementModel.number == character.number) {
+            character.progress.retirements++;
+          }
+        })
+      }
+
       if (character.progress.gold == 0) {
         if (gameManager.fhRules()) {
           character.progress.gold = 10 * gameManager.prosperityLevel() + 20;

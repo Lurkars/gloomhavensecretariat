@@ -5,6 +5,11 @@
   "thumbnail": "gh-cragheart",
   "edition": "fh-crossover",
   "handSize": 11,
+  "traits": [
+    "armored",
+    "outcast",
+    "strong"
+  ],
   "color": "#828b3b",
   "stats": [
     {

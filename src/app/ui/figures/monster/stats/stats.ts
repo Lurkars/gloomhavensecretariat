@@ -34,6 +34,7 @@ export class MonsterStatsComponent implements OnInit {
   statOverview: boolean = false;
   highlightActions: ActionType[] = [ActionType.shield, ActionType.retaliate];
   edition: string = "";
+  catching: boolean = false;
 
   @ViewChild('levelButton', { read: ElementRef }) levelButton!: ElementRef;
 
@@ -46,6 +47,7 @@ export class MonsterStatsComponent implements OnInit {
       this.highlightActions = [];
     }
     this.edition = gameManager.getEdition(this.monster);
+    this.catching = this.monster.catching && gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'stables' && buildingModel.level > 0 && buildingModel.state != 'wrecked') != undefined;
     gameManager.uiChange.subscribe({
       next: () => {
         if (!settingsManager.settings.statAnimations) {
@@ -54,6 +56,7 @@ export class MonsterStatsComponent implements OnInit {
           this.highlightActions = [ActionType.shield, ActionType.retaliate];
         }
         this.edition = gameManager.getEdition(this.monster);
+        this.catching = this.monster.catching && gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'stables' && buildingModel.level > 0 && buildingModel.state != 'wrecked') != undefined;
       }
     })
   }
@@ -90,17 +93,6 @@ export class MonsterStatsComponent implements OnInit {
       gameManager.stateManager.after();
     }
   }
-  toggleAlly() {
-    gameManager.stateManager.before(this.monster.isAlly ? "unsetAlly" : "setAlly", "data.monster." + this.monster.name);
-    this.monster.isAlly = !this.monster.isAlly;
-    gameManager.stateManager.after();
-  }
-
-  toggleallied() {
-    gameManager.stateManager.before(this.monster.isAllied ? "unsetallied" : "setallied", "data.monster." + this.monster.name);
-    this.monster.isAllied = !this.monster.isAllied;
-    gameManager.stateManager.after();
-  }
 
   openLevelDialog() {
     const levelDialog = this.dialog.open(MonsterLevelDialogComponent, {
@@ -127,7 +119,7 @@ export class MonsterStatsComponent implements OnInit {
 
   openStatPopup() {
     if (!this.noClick && !this.disablePoup) {
-      this.dialog.open(MonsterStatDialogComponent, { panelClass: 'fullscreen-panel',data: { monster: this.monster, forceStats: this.forceStats } });
+      this.dialog.open(MonsterStatDialogComponent, { panelClass: 'fullscreen-panel', data: { monster: this.monster, forceStats: this.forceStats } });
     }
   }
 

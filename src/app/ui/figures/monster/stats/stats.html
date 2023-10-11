@@ -19,11 +19,10 @@
     <span *ngIf="monster.flying" class="flying"><img
         [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
     <span class="edition" *ngIf="edition">[<span [ghs-label]="'data.edition.' + edition"></span>]</span>
-    <span class="catching" *ngIf="monster.catching"><img class="ghs-svg" src="./assets/images/fh/catching.svg"></span>
+    <span  *ngIf="catching" class="catching"><img class="ghs-svg" src="./assets/images/fh/catching.svg"></span>
   </div>
 
-  <span class="toggle-ally" [ngClass]="{'is-ally' : monster.isAlly, 'is-allied' : monster.isAllied}" ghs-pointer-input
-    (singleClick)="toggleAlly()" (doubleClick)="toggleallied()"><img src="./assets/images/monster/enemy.png" /></span>
+  <span class="toggle-ally" [ngClass]="{'is-ally' : monster.isAlly, 'is-allied' : monster.isAllied}"><img src="./assets/images/monster/enemy.png" /></span>
 
   <div class="stats boss" *ngIf="monster.boss"
     [ngClass]="{'hidden' : hideStats(MonsterType.boss), 'range' : hideStats(MonsterType.boss) || statsForType(MonsterType.boss).range}">

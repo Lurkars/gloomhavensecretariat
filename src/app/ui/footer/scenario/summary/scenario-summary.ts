@@ -377,7 +377,7 @@ export class ScenarioSummaryComponent {
             }
 
             if (gameManager.fhRules()) {
-                const townHall = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'town-hall' && buildingModel.state == 'normal');
+                const townHall = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'town-hall' && buildingModel.state != 'wrecked');
                 if (townHall) {
                     if (townHall.level == 1 || townHall.level == 2) {
                         this.numberChallenges = 1;
@@ -528,7 +528,7 @@ export class ScenarioSummaryComponent {
     openItemDialog(itemData: ItemData | undefined) {
         if (itemData) {
             this.dialog.open(ItemDialogComponent, {
-                data: itemData
+                data: { item: itemData }
             })
         }
     }

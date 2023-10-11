@@ -5,6 +5,11 @@
   "thumbnail": "fc-diviner",
   "edition": "fh-crossover",
   "handSize": 9,
+  "traits": [
+    "arcane",
+    "outcast",
+    "resourceful"
+  ],
   "color": "#c8e3ea",
   "stats": [
     {

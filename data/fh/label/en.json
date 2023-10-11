@@ -13,6 +13,19 @@
       ".": "Geminate",
       "melee": "Melee",
       "range": "Range"
+    },
+    "traits": {
+      "arcane": "Arcane",
+      "armored": "Armored",
+      "chaotic": "Chaotic",
+      "educated": "Educated",
+      "intimidating": "Intimidating",
+      "night": "Night",
+      "nimble": "Nimble",
+      "outcast": "Outcast",
+      "persuasive": "Persuasive",
+      "resourceful": "Resourceful",
+      "strong": "Strong"
     }
   },
   "edition": {

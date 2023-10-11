@@ -6,6 +6,11 @@
   "thumbnail": "gh-angry-face",
   "edition": "fh-crossover",
   "handSize": 12,
+  "traits": [
+    "chaotic",
+    "intimidating",
+    "nimble"
+  ],
   "color": "#5bc5dc",
   "spoiler": true,
   "marker": true,

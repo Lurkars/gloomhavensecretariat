@@ -126,6 +126,7 @@
     },
     "remove": "Charakter entfernen",
     "removeAll": "Alle entfernen",
+    "traits": "Eigenschaften",
     "unlock": {
       ".": "Freischalten?",
       "confirm": "Freischalten!"
@@ -624,7 +625,11 @@
       "material_resources": "Material",
       "metal": "Metall",
       "money": "Geld",
-      "random_item": "Zufälliger Gegenstand",
+      "random_item": {
+        ".": "Zufälliger Gegenstand",
+        "apply": "Auswählen und Anlegen",
+        "draw": "Zufälliger Gegenstand für %game.characterIconColored.{0}% {1}"
+      },
       "remove": "Von %data.character.{0}% entfernen",
       "rockroot": "Steinwurzel",
       "snowthistle": "Schneedistel",
@@ -779,7 +784,15 @@
     },
     "setStandees": "{1} %game.monsterType.{0}% Aufsteller festlegen",
     "showBoss": "Boss Monster anzeigen",
-    "showHidden": "Ausgeblendete Monster anzeigen"
+    "showHidden": "Ausgeblendete Monster anzeigen",
+    "toggleAllied": {
+      "off": "<span class=\"monster-allied-off\">Verbündet</span> ausschalten",
+      "on": "<span class=\"monster-allied-on\">Verbündet</span> anschalten"
+    },
+    "toggleAlly": {
+      "off": "Wechsel zurück zu <span class=\"monster-ally-off\">Gegner</span>",
+      "on": "Wechsel zu <span class=\"monster-ally-on\">Verbündeter</span>"
+    }
   },
   "number": {
     "0": "null",
@@ -858,6 +871,7 @@
             "hint": "Aufbauen (Erzwingen mit Doppelklick)"
           },
           "costs": "Kosten",
+          "discount": "-1 Material",
           "id": "Nummer",
           "level": {
             ".": "Stufe",
@@ -1411,6 +1425,10 @@
       ".": "Beute Charakter zuweisen",
       "hint": "Automatisch Beute dem aktiven/ausgewählten Charakter zuweisen nachdem eine Beute Karte gezogen wurde"
     },
+    "applyLootRandomItem": {
+      ".": "Zufälliger Gegenstand bei Beute",
+      "hint": "Automatisch einen zufälligen Gegenstand auswählen und anlegen für den aktiven/ausgewählten Charakter nachdem eine Zufälliger Gegenstand Beute Karte gezogen wurde"
+    },
     "applyRetirement": {
       ".": "Ruhestand Boni anwenden",
       "hint": "Öffne den Ruhestand Boni Dialog wenn ein Charakter in den Ruhestand versetzt wird. Um einen Charakter in den Ruhestand zu versetzen, setze einen Haken für die Persönliche Quest auf dem Charakterbogen."
@@ -1487,7 +1505,7 @@
       ".": "Angriffsmodifikatordeck für Charaktere",
       "hint": "Angriffsmodifikatordeck für Charaktere aktivieren. Um Verbesserungen zu nutzen muss der Charakterbogen ebenfalls aktiviert sein."
     },
-    "characterAttackModifierDeckAnimate": {
+    "characterAttackModifierAnimate": {
       ".": "Ziehen-Animation für Charakter Angriffsmodifikator",
       "hint": "Zeige eine Ziehen-Animation wenn ein Angriffsmodifikator von einem geschlossenen Charakter Angriffsmodifikatordeck gezogen wird."
     },
@@ -1522,6 +1540,10 @@
     "characterSheet": {
       ".": "Charakterbogen",
       "hint": "Aktiviert den Charakterbogen. Dieser kann mit Klick auf das große Charaktersymbol auf der rechten Seite geöffnet werden."
+    },
+    "characterTraits": {
+      ".": "Eigenschaften anzeigen",
+      "hint": "Zeige die Eigenschaften auf dem Charakterboard an."
     },
     "combineSummonAction": {
       ".": "Beschwörung Aktion kombinieren",

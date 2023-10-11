@@ -1,6 +1,6 @@
 {
   "index": "164.2",
-  "name": "Library Built: If %game.fhIcon:trait% EDUCATED",
+  "name": "Library Built: If %game.trait:educated%",
   "edition": "fh",
   "parentSections": [
     [

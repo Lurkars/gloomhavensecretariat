@@ -7,6 +7,11 @@
   ],
   "primaryToken": 0,
   "handSize": 11,
+  "traits": [
+    "arcane",
+    "outcast",
+    "persuasive"
+  ],
   "color": "#8c97a9",
   "stats": [
     {

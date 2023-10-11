@@ -3,6 +3,11 @@
   "characterClass": "inox",
   "edition": "fh",
   "handSize": 12,
+  "traits": [
+    "outcast",
+    "resourceful",
+    "strong"
+  ],
   "color": "#a28b7c",
   "stats": [
     {
