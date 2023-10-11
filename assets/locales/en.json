@@ -114,8 +114,8 @@
         "apply": "Move Resources"
       },
       "retired": "Retired",
-      "retirement" : {
-        "." : "Retire Character",
+      "retirement": {
+        ".": "Retire Character",
         "apply": "Apply",
         "prosperity": "+{0} prosperity",
         "wip": "%wip%!<br>Currently only prosperity is applied until personal quest feature is developed."
@@ -126,6 +126,7 @@
     },
     "remove": "Remove Character",
     "removeAll": "Remove All",
+    "traits": "Traits",
     "unlock": {
       ".": "Unlock?",
       "confirm": "Unlock!"
@@ -771,7 +772,11 @@
       "material_resources": "material",
       "metal": "Metal",
       "money": "Money",
-      "random_item": "Random Item",
+      "random_item": {
+        ".": "Random Item",
+        "apply": "Select and Equip",
+        "draw": "Random Item for %game.characterIconColored.{0}% {1}"
+      },
       "remove": "Remove from %data.character.{0}%",
       "rockroot": "Rockroot",
       "snowthistle": "Snowthistle",
@@ -926,7 +931,15 @@
     },
     "setStandees": "Setup {1} %game.monsterType.{0}% standees",
     "showBoss": "Show Boss Monster",
-    "showHidden": "Show Hidden Monster"
+    "showHidden": "Show Hidden Monster",
+    "toggleAllied": {
+      "off": "Turn <span class=\"monster-allied-off\">Allied</span> off",
+      "on": "Turn <span class=\"monster-allied-on\">Allied</span> on"
+    },
+    "toggleAlly": {
+      "off": "Switch back to <span class=\"monster-ally-off\">Enemy</span>",
+      "on": "Switch to <span class=\"monster-ally-on\">Ally</span>"
+    }
   },
   "number": {
     "0": "zero",
@@ -1005,6 +1018,7 @@
             "hint": "Build (force with double-click)"
           },
           "costs": "Costs",
+          "discount": "-1 material resource",
           "id": "Number",
           "level": {
             ".": "Level",
@@ -1560,6 +1574,10 @@
       ".": "Apply Loot to Character",
       "hint": "Automatically add Loot after card drawn to active/chosen character"
     },
+    "applyLootRandomItem": {
+      ".": "Draw Random Item on Loot",
+      "hint": "Automatically draw and equip a new random item on random item loot to active/chosen character"
+    },
     "applyRetirement": {
       ".": "Apply Retirement Bonuses",
       "hint": "On retirement, open dialog to apply retirement bonuses. Retirement is performed by checking the personal quest on the character sheet."
@@ -1636,9 +1654,9 @@
       ".": "Character Attack Modifier Deck",
       "hint": "Enable Attack Modifier Deck for Characters. To use perks the Character Sheet must be enabled."
     },
-    "characterAttackModifierDeckAnimate": {
+    "characterAttackModifierAnimate": {
       ".": "Animate Character AM Deck draw",
-      "hint": "Display a draw animation if an Attack Modifier is drawn from a close Attack Modifier Deck of a character."
+      "hint": "Display a draw animation if an Attack Modifier is drawn from a closed Attack Modifier Deck of a character."
     },
     "characterAttackModifierDeckPermanent": {
       ".": "Permanent Character AM Deck",
@@ -1671,6 +1689,10 @@
     "characterSheet": {
       ".": "Character Sheet",
       "hint": "Enable the Character Sheet. To open it, click on the big character icon on the right side."
+    },
+    "characterTraits": {
+      ".": "Display traits",
+      "hint": "Display the traits the character's board."
     },
     "combineSummonAction": {
       ".": "Combine Summon Action",
