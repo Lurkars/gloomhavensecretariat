@@ -68,7 +68,9 @@
         *ngIf="(costs.gold || costs.hide || costs.lumber || costs.metal) && !force && !rewardsOnly">
         <span class="head-col"
             [ngClass]="{'first' : !repair, 'costs' : repair, 'some' : paidResources, 'full' : (requiredResources - (discount ? 1 : 0) <= paidResources)}">
-            <span *ngIf="repair" class="costs"><span class="current">{{paidResources || '-'}}</span>/{{repair || '-'}}</span>
+            <span *ngIf="repair" class="costs">
+                <span class="current">{{paidResources || '-'}}</span>/{{repair || '-'}}
+            </span>
             <span *ngIf="!repair" [ghs-label]="'party.campaign.sheet.buildings.costs'"></span>
         </span>
         <span class="first"><span [ghs-label]="'party.campaign.sheet.supply'"></span></span>
@@ -240,7 +242,7 @@
     <div class="menu">
         <a class="cancel" (click)="close()"><span [ghs-label]="rewardsOnly ? 'close' : 'cancel'"></span></a>
         <a class="apply" *ngIf="!rewardsOnly"
-            [ngClass]="{'disabled' : !force && ((requiredResources - (discount ? 1 : 0) > paidResources) || (costs.gold && costs.gold > spent.gold))}"
+            [ngClass]="{'disabled' : !force && ((requiredResources - (discount ? 1 : 0) > paidResources) || (costs.gold && costs.gold > spent.gold || false))}"
             (click)="confirm()"><span [ghs-label]="'party.campaign.sheet.buildings.selectResources.confirm'"></span></a>
     </div>
 </div>

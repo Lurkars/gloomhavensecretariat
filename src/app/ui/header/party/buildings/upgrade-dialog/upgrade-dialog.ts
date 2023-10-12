@@ -67,17 +67,20 @@ export class BuildingUpgradeDialog implements OnInit {
             if (this.fhSupportSpent.hide > (gameManager.game.party.loot[LootType.hide] || 0)) {
                 this.fhSupportSpent.hide = (gameManager.game.party.loot[LootType.hide] || 0);
             }
-            this.spent[LootType.hide] = this.fhSupportSpent.hide;
+            this.spent[LootType.hide] = this.fhSupportSpent.hide; 
+            this.paidResources += this.fhSupportSpent.hide;
             this.fhSupportSpent.lumber = this.costs.lumber;
             if (this.fhSupportSpent.lumber > (gameManager.game.party.loot[LootType.lumber] || 0)) {
                 this.fhSupportSpent.lumber = (gameManager.game.party.loot[LootType.lumber] || 0);
             }
             this.spent[LootType.lumber] = this.fhSupportSpent.lumber;
+            this.paidResources += this.fhSupportSpent.lumber;
             this.fhSupportSpent.metal = this.costs.metal;
             if (this.fhSupportSpent.metal > (gameManager.game.party.loot[LootType.metal] || 0)) {
                 this.fhSupportSpent.metal = (gameManager.game.party.loot[LootType.metal] || 0);
             }
             this.spent[LootType.metal] = this.fhSupportSpent.metal;
+            this.paidResources += this.fhSupportSpent.metal;
 
             if ((this.action == 'build' || this.action == 'upgrade') && this.building.data.rewards && this.building.data.rewards[this.building.model.level]) {
                 this.rewards = this.building.data.rewards[this.building.model.level];
