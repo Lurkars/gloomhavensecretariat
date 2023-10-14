@@ -117,6 +117,8 @@
       "retirement": {
         ".": "Retire Character",
         "apply": "Apply",
+        "conclusion": "Open Section %data.section:{0}%",
+        "moveSupply": "Move resources to Frosthaven supply",
         "prosperity": "+{0} prosperity",
         "wip": "%wip%!<br>Currently only prosperity is applied until personal quest feature is developed."
       },
@@ -707,7 +709,10 @@
       "buy": "Buy '{0}' for {1} gold",
       "character": {
         ".": "Itemcards for %game.characterIconColored.{0}% {1}",
-        "shop": "Itemshop"
+        "empty": "No Items",
+        "shop": "Itemshop",
+        "toggleEquipped": "Only equipped items",
+        "toggleSorted": "Sort items"
       },
       "choose": "Select Item",
       "craft": "Craft '{0}'",
@@ -952,6 +957,18 @@
     "7": "seven",
     "8": "eight",
     "9": "nine"
+  },
+  "numbered": {
+    "1": "first",
+    "2": "second",
+    "3": "third",
+    "4": "fourth",
+    "5": "fifth",
+    "6": "sixth",
+    "7": "seventh",
+    "8": "eighth ",
+    "9": "ninth",
+    "10": "tenth"
   },
   "objective": {
     ".": "Objective",
@@ -1245,7 +1262,10 @@
       "bonus": "Bonus",
       "calendarSection": {
         ".": "Section Links",
-        "add": "Add %data.section:{0}% in %number.{1}% weeks."
+        "add": {
+          ".": "Add %data.section:{0}% in %number.{1}% weeks.",
+          "next": "Add %data.section:{0}% to the calendar in the %numbered.{1}% week of next %party.campaign.sheet.{2}%."
+        }
       },
       "campaignSticker": "Campaign Sticker",
       "chooseItem": "Choose to gain one of the following",
@@ -1685,6 +1705,14 @@
     "characterItems": {
       ".": "Character Items",
       "hint": "Allows to manage state of items during a scenario."
+    },
+    "characterItemsPermanent": {
+      ".": "Permanent Character Items",
+      "hint": "Display Items permanent under Character."
+    },
+    "characterItemsPermanentActive": {
+      ".": "Auto. active Items",
+      "hint": "Automatically toggle permanent Items for active Character."
     },
     "characterSheet": {
       ".": "Character Sheet",

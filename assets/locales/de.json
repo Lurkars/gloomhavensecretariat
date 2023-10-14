@@ -117,6 +117,8 @@
       "retirement": {
         ".": "Ruhestand für Charakter",
         "apply": "Anwenden",
+        "conclusion": "Öffne Sektion %data.section:{0}%",
+        "moveSupply": "Ressourcen zur Frosthaven Versorgung verschieben",
         "prosperity": "+{0} Wohlstand",
         "wip": "%wip%!<br>Aktuell wird nur der Wohlstand angepasst, bis die Funktionen zur Persönlichen Quest entwickelt sind."
       },
@@ -560,7 +562,10 @@
       "buy": "'{0}' für {1} Gold kaufen",
       "character": {
         ".": "Gegenstandskarten für %game.characterIconColored.{0}% {1}",
-        "shop": "Gegenstandsladen"
+        "empty": "Keine Gegenstände",
+        "shop": "Gegenstandsladen",
+        "toggleEquipped": "Nur angelegte Gegenstände",
+        "toggleSorted": "Gegenstände sortieren"
       },
       "choose": "Gegenstand auswählen",
       "craft": "'{0}' anertigen",
@@ -805,6 +810,18 @@
     "7": "sieben",
     "8": "acht",
     "9": "neun"
+  },
+  "numbered": {
+    "1": "ersten",
+    "2": "zweiten",
+    "3": "dritten",
+    "4": "vierten",
+    "5": "fünften",
+    "6": "sechsten",
+    "7": "siebten",
+    "8": "achten",
+    "9": "neunten",
+    "10": "zehnten"
   },
   "objective": {
     ".": "Zielobjekte",
@@ -1099,7 +1116,10 @@
       "bonus": "Bonus",
       "calendarSection": {
         ".": "Verlinkte Sektionen",
-        "add": "Füge %data.section:{0}% in %number.{1}% Wochen hinzu."
+        "add": {
+          ".": "Füge %data.section:{0}% in %number.{1}% Wochen hinzu.",
+          "next": "Füge %data.section:{0}% in der %numbered.{1}% Woche vom nächsten %party.campaign.sheet.{2}% hinzu."
+        }
       },
       "campaignSticker": "Kampagnenbogensticker",
       "chooseItem": "Wähle eines der folgenden aus",
@@ -1536,6 +1556,14 @@
     "characterItems": {
       ".": "Charakter Gegenstände",
       "hint": "Zustände von Gegenständen während eines Szenarios verwalten."
+    },
+    "characterItemsPermanent": {
+      ".": "Charakter Gegenstände dauerhaft",
+      "hint": "Gegenstände dauerthaft unterhalb des Charakters anzeigen."
+    },
+    "characterItemsPermanentActive": {
+      ".": "Auto. aktive Gegenstände",
+      "hint": "Automatisch die dauerhaften Gegenstände des aktiven Charakters umschalten."
     },
     "characterSheet": {
       ".": "Charakterbogen",
