@@ -32,10 +32,10 @@ export class GhsTooltipComponent {
     @Input() hint: boolean = false;
 }
 
-@Directive({ selector: '[ghsTooltip]' })
+@Directive({ selector: '[ghs-tooltip]' })
 export class GhsTooltipDirective implements OnInit, OnDestroy {
 
-    @Input('ghsTooltip') value = '';
+    @Input('ghs-tooltip') value = '';
     @Input('ghs-label-args') args: string[] = [];
     @Input('ghs-label-args-replace') argLabel: boolean = true;
     @Input('style') style: 'gh' | 'fh' | false = false;

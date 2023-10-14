@@ -1,0 +1,9 @@
+{
+  "index": "177.4",
+  "name": "Care Package from %game.characterIconColored.snowflake%",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "morale": 3
+  }
+}

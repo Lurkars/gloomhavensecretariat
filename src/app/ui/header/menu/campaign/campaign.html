@@ -64,7 +64,7 @@
         <div class="conditions">
             <span class="item" *ngFor="let condition of conditions">
                 <span class="condition" (click)="toggleCondition(condition.name)"
-                    [ghsTooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'"
+                    [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'"
                     [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'"
                     [ngClass]="{'disabled' : editionConditions.indexOf(condition.name) != -1, 'active' : editionConditions.indexOf(condition.name) == -1 && gameManager.game.conditions.indexOf(condition.name) != -1 }">
                     <img
@@ -78,7 +78,7 @@
         <div class="conditions">
             <span class="item" *ngFor="let condition of amConditions">
                 <span class="condition" (click)="toggleCondition(condition.name)"
-                    [ghsTooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'"
+                    [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'"
                     [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'"
                     [ngClass]="{'disabled' : editionConditions.indexOf(condition.name) != -1, 'active' : editionConditions.indexOf(condition.name) == -1 && gameManager.game.conditions.indexOf(condition.name) != -1 }">
                     <img

@@ -36,7 +36,7 @@
     <ng-container *ngIf="settingsManager.settings.scenarioRooms">
       <span *ngFor="let roomData of gameManager.scenarioManager.closedRooms();" class="section room available"
         (click)="openRoom(roomData, $event)"
-        [ghsTooltip]="(roomData.marker ? 'scenario.openRoomMarker' : 'scenario.openRoom') + (roomData.ref ? 'Ref': '')"
+        [ghs-tooltip]="(roomData.marker ? 'scenario.openRoomMarker' : 'scenario.openRoom') + (roomData.ref ? 'Ref': '')"
         [ghs-label-args]="[roomData.ref || '', roomData.marker || '']" [originX]="'center'" [overlayY]="'center'"
         [originY]="'top'" [overlayY]="'bottom'">
         <img class="ghs-svg" src="./assets/images/scenario/door.svg">

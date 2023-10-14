@@ -445,8 +445,6 @@ main {
   &.character,
   &.objective,
   &.objective-container {
-    top: initial;
-    bottom: 0;
     height: calc(var(--ghs-unit) * 14);
 
     &.character.permanent-am {

@@ -321,6 +321,9 @@
       white-space: nowrap;
 
       .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin-left: calc(var(--ghs-unit) * -1.1);
         margin-right: calc(var(--ghs-unit) * 0.5);
 

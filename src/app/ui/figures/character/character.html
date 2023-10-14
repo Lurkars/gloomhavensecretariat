@@ -182,7 +182,7 @@
       </div>
 
       <div *ngIf="settingsManager.settings.characterItems" class="items-button" ghs-pointer-input
-        (singleClick)="openItems()" [ghs-label]="'game.items'" [ghs-label-attribute]="'title'">
+        (singleClick)="openItems()" (doubleClick)="openItems(true)" [ghs-label]="'game.items'" [ghs-label-attribute]="'title'">
         <img
           [src]="settingsManager.settings.fhStyle ? './assets/images/fh/items/item-back-fh.png' : './assets/images/items/item-back.png'" />
       </div>
@@ -248,6 +248,12 @@
   </div>
 
   <ghs-figure-errors [figure]="character"></ghs-figure-errors>
+</div>
+
+<div
+  *ngIf="settingsManager.settings.characterItems && (settingsManager.settings.characterItemsPermanent && character.itemsVisible || settingsManager.settings.characterItemsPermanentActive && character.active && character.progress.items.length > 0)"
+  class="items-container-permanent">
+  <ghs-character-item-list [character]="character"></ghs-character-item-list>
 </div>
 
 <div

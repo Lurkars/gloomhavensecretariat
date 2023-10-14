@@ -1,4 +1,8 @@
-<div class="item-dialog" [ngClass]="{'closed' : !opened, 'opened' : opened}" (click)="close()">
-  <ghs-item [item]="item" [flipped]="opened" [editionLabel]="gameManager.currentEdition()"></ghs-item>
+<div class="item-dialog" [ngClass]="{'closed' : !opened, 'opened' : opened}" (click)="!character && close()">
+  <ghs-item *ngIf="!character" [item]="item" [flipped]="opened"
+    [editionLabel]="gameManager.currentEdition()"></ghs-item>
+  <ghs-character-item *ngIf="character" [character]="character" [item]="item" [setup]="setup"></ghs-character-item>
 </div>
-<div class="close-container" (click)="close()"></div>
+<div class="close-container" *ngIf="!character" (click)="close()"></div>
+<a class="close" *ngIf="character" (click)="close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'"><img
+    src="./assets/images/close_dialog.svg"></a>

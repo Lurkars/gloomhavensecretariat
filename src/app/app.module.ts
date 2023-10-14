@@ -53,7 +53,7 @@ import { ValueCalcDirective } from './ui/helper/valueCalc';
 import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-sheet-dialog';
 import { ScenarioComponent } from './ui/footer/scenario/scenario';
 import { PartySheetComponent } from './ui/header/party/party-sheet';
-import { PartySheetDialogComponent } from './ui/header/party/party-sheet-dialog';
+import { PartySheetDialogComponent } from './ui/figures/party/party-sheet-dialog';
 import { AutocompleteDirective } from './ui/helper/autocomplete';
 import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/autoscroll';
 import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
@@ -107,37 +107,39 @@ import { CharacterMoveResourcesDialog } from './ui/figures/character/sheet/move-
 import { CharacterRetirementDialog } from './ui/figures/character/sheet/retirement-dialog';
 import { CharacterSheetComponent } from './ui/figures/character/sheet/character-sheet';
 import { PerkLabelComponent } from './ui/figures/attackmodifier/perk/label';
-import { PartyWeekDialogComponent } from './ui/header/party/week-dialog/week-dialog';
+import { PartyWeekDialogComponent } from './ui/figures/party/week-dialog/week-dialog';
 import { CharacterItemsComponent } from './ui/figures/items/items';
 import { ItemsBrewDialog } from './ui/figures/items/brew/brew';
-import { PartyBuildingsComponent } from './ui/header/party/buildings/buildings';
+import { PartyBuildingsComponent } from './ui/figures/party/buildings/buildings';
 import { ScenarioTreasuresDialogComponent } from './ui/footer/scenario/treasures/treasures-dialog';
 import { TreasureLabelComponent } from './ui/footer/scenario/treasures/label/label';
 import { StatsListComponent } from './ui/footer/scenario/dialog/stats-list/stats-list';
 import { KeyboardShortcuts } from './ui/helper/keyboard-shortcuts';
 import { ScenarioConclusionComponent } from './ui/footer/scenario/scenario-conclusion/scenario-conclusion';
-import { BuildingUpgradeDialog } from './ui/header/party/buildings/upgrade-dialog/upgrade-dialog';
+import { BuildingUpgradeDialog } from './ui/figures/party/buildings/upgrade-dialog/upgrade-dialog';
 import { EventEffectsDialog } from './ui/figures/character/event-effects/event-effects';
 import { PointerInputDirective } from './ui/helper/pointer-input';
 import { StandeeComponent } from './ui/figures/standee/standee';
 import { BattleGoalComponent } from './ui/figures/battlegoal/battlegoal';
 import { CharacterBattleGoalsDialog } from './ui/figures/battlegoal/dialog/battlegoal-dialog';
 import { BattleGoalSetupDialog } from './ui/figures/battlegoal/setup/battlegoal-setup';
-import { ScenarioRequirementsComponent } from './ui/header/party/requirements/requirements';
-import { WorldMapComponent } from './ui/header/party/world-map/world-map';
+import { ScenarioRequirementsComponent } from './ui/figures/party/requirements/requirements';
+import { WorldMapComponent } from './ui/figures/party/world-map/world-map';
 import { ObjectiveContainerComponent } from './ui/figures/objective-container/objective-container';
 import { ItemComponent } from './ui/figures/items/item/item';
 import { ItemsDialogComponent } from './ui/figures/items/dialog/items-dialog';
 import { ItemsCharacterDialogComponent } from './ui/figures/items/character/items-character-dialog';
 import { ItemDialogComponent } from './ui/figures/items/dialog/item-dialog';
-import { TreasuresDialogComponent } from './ui/header/party/treasures/treasures-dialog';
+import { TreasuresDialogComponent } from './ui/figures/party/treasures/treasures-dialog';
 import { ValueSignDirective } from './ui/helper/ValueSign';
 import { AdditionalAMSelectDialogComponent } from './ui/figures/entity-menu/additional-am-select/additional-am-select';
 import { EventCardComponent } from './ui/figures/event/event-card'
 import { EventConditionLabelComponent } from './ui/figures/event/label/condition-label';
 import { EventRewardLabelComponent } from './ui/figures/event/label/reward-label';
 import { EntityIndexKeyComponent } from './ui/figures/standee/entity-index-key/entity-index-key';
-import { PartyResourcesDialogComponent } from './ui/header/party/resources/resources';
+import { PartyResourcesDialogComponent } from './ui/figures/party/resources/resources';
+import { CharacterItemComponent } from './ui/figures/items/character/item-character';
+import { CharacterItemListComponent } from './ui/figures/character/item-list/item-list';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
@@ -164,7 +166,7 @@ export class GhsErrorHandler extends ErrorHandler {
     ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, StatsListComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent, EventEffectsDialog,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
     EntityMenuDialogComponent, EntitiesMenuDialogComponent, AdditionalAMSelectDialogComponent,
-    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterRetirementDialog, ItemComponent, ItemDialogComponent, ItemsDialogComponent, ItemsCharacterDialogComponent, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
+    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterItemComponent, CharacterItemListComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterRetirementDialog, ItemComponent, ItemDialogComponent, ItemsDialogComponent, ItemsCharacterDialogComponent, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
     EventCardComponent, EventConditionLabelComponent, EventRewardLabelComponent,
     ObjectiveComponent, ObjectiveContainerComponent,
     SummonEntityComponent, SummonSheetComponent,

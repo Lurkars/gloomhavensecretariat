@@ -3,7 +3,7 @@
     <span class="title">
       <span
         [ghs-label]="conclusionOnly ? 'scenario.conclusion' : (rewardsOnly ? 'scenario.summary.rewards' : 'scenario.summary')"></span>
-      <span class="name">#{{scenario.index}} <span [ghs-label]="'data.scenario.' + scenario.name"></span></span>
+      <span class="name">#{{scenario.index}} <span class="text-white" [ghs-label]="'data.scenario.' + scenario.name"></span></span>
     </span>
     <span *ngIf="success && !conclusionOnly && !rewardsOnly" class="success"><span
         [ghs-label]="'scenario.finish.success'"></span></span>
@@ -355,8 +355,9 @@
           <label><span [ghs-label]="'scenario.rewards.calendarSection'"></span>:</label>
           <div class="list">
             <div class="item achievement" *ngFor="let calendarSection of rewards.calendarSection; let i = index;">
-              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.calendarSection.add'"
-                [ghs-label-args]="[calendarSection.split('-')[0], calendarSection.split('-')[1]]"></span>
+              <span class="placeholder text-white"
+                [ghs-label]="'scenario.rewards.calendarSection.add' + (calendarSection.split('-')[1].split(':').length > 1 ? '.next' : '')"
+                [ghs-label-args]="[calendarSection.split('-')[0], calendarSection.split('-')[1].split(':').length > 1 ? calendarSection.split('-')[1].split(':')[1] : calendarSection.split('-')[1], calendarSection.split('-')[1].split(':').length > 1 ? calendarSection.split('-')[1].split(':')[0] : '']"></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.calendarSection && rewards.hints.calendarSection[i]"
                 [ghs-label]="rewards.hints.calendarSection[i]"></span>

@@ -354,6 +354,16 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setCharacterItemsPermanent(characterItemsPermanent: boolean) {
+    this.settings.characterItemsPermanent = characterItemsPermanent;
+    this.storeSettings();
+  }
+
+  setCharacterItemsPermanentActive(characterItemsPermanentActive: boolean) {
+    this.settings.characterItemsPermanentActive = characterItemsPermanentActive;
+    this.storeSettings();
+  }
+
   setCharacterSheet(characterSheet: boolean) {
     this.settings.characterSheet = characterSheet;
     this.storeSettings();

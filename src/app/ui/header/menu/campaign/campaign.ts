@@ -4,7 +4,7 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/character-sheet-dialog";
-import { PartySheetDialogComponent } from "../../party/party-sheet-dialog";
+import { PartySheetDialogComponent } from "src/app/ui/figures/party/party-sheet-dialog";
 import { BattleGoalSetupDialog } from "src/app/ui/figures/battlegoal/setup/battlegoal-setup";
 import { ItemsDialogComponent } from "src/app/ui/figures/items/dialog/items-dialog";
 import { GameState } from "src/app/game/model/Game";

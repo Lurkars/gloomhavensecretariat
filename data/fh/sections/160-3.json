@@ -1,0 +1,12 @@
+{
+  "retirement": "geminate",
+  "index": "160.3",
+  "name": "%game.characterIconColored.geminate% Retires",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "calendarSection": [
+      "193.2-4"
+    ]
+  }
+}

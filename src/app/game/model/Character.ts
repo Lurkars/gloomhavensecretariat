@@ -27,6 +27,7 @@ export class Character extends CharacterData implements Entity, Figure {
   initiativeVisible: boolean = false;
   attackModifierDeckVisible: boolean = false;
   lootCardsVisible: boolean = false;
+  itemsVisible: boolean = false;
   fullview: boolean = false;
   attackModifierDeck: AttackModifierDeck;
 
@@ -98,7 +99,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   toModel(): GameCharacterModel {
-    return new GameCharacterModel(this.name, this.edition, this.marker, this.title, this.initiative, this.experience, this.loot, this.lootCards || [], this.treasures && this.treasures.map((treasure) => '' + treasure) || [], this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || [], this.identity, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.lootCardsVisible, this.number, this.attackModifierDeck.toModel(), this.donations, this.token, this.tokenValues, this.absent, this.longRest, this.battleGoals, this.battleGoal);
+    return new GameCharacterModel(this.name, this.edition, this.marker, this.title, this.initiative, this.experience, this.loot, this.lootCards || [], this.treasures && this.treasures.map((treasure) => '' + treasure) || [], this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || [], this.identity, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.lootCardsVisible, this.itemsVisible, this.number, this.attackModifierDeck.toModel(), this.donations, this.token, this.tokenValues, this.absent, this.longRest, this.battleGoals, this.battleGoal);
   }
 
   fromModel(model: GameCharacterModel) {
@@ -183,6 +184,9 @@ export class Character extends CharacterData implements Entity, Figure {
     if (model.lootCardsVisible) {
       this.lootCardsVisible = true;
     }
+    if (model.itemsVisible) {
+      this.itemsVisible = true;
+    }
 
     this.donations = model.donations || 0;
     this.token = model.token || 0;
@@ -254,6 +258,7 @@ export class GameCharacterModel {
   initiativeVisible: boolean;
   attackModifierDeckVisible: boolean;
   lootCardsVisible: boolean;
+  itemsVisible: boolean;
   number: number;
   attackModifierDeck: GameAttackModifierDeckModel;
   donations: number;
@@ -289,6 +294,7 @@ export class GameCharacterModel {
     initiativeVisible: boolean,
     attackModifierDeckVisible: boolean,
     lootCardsVisible: boolean,
+    itemsVisible: boolean,
     number: number,
     attackModifierDeck: GameAttackModifierDeckModel,
     donations: number,
@@ -323,6 +329,7 @@ export class GameCharacterModel {
     this.initiativeVisible = initiativeVisible;
     this.attackModifierDeckVisible = attackModifierDeckVisible;
     this.lootCardsVisible = lootCardsVisible;
+    this.itemsVisible = itemsVisible;
     this.number = number;
     this.attackModifierDeck = attackModifierDeck;
     this.donations = donations;

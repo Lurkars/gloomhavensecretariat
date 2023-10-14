@@ -57,6 +57,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   summonCount: number = 0;
   activeConditions: EntityCondition[] = [];
+
   constructor(private dialog: Dialog, private overlay: Overlay) { }
 
   ngOnInit(): void {
@@ -341,8 +342,12 @@ export class CharacterComponent implements OnInit, OnDestroy {
     });
   }
 
-  openItems(): void {
-    if (this.character.progress.items.length == 0) {
+  openItems(force: boolean = false): void {
+    if (settingsManager.settings.characterItemsPermanent && !force) {
+      this.character.itemsVisible = !this.character.itemsVisible;
+      gameManager.stateManager.saveLocal();
+      gameManager.uiChange.emit();
+    } else if (this.character.progress.items.length == 0) {
       this.dialog.open(ItemsDialogComponent, {
         panelClass: ['dialog'],
         data: { edition: gameManager.game.edition, select: this.character, affordable: true }

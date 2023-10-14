@@ -45,7 +45,7 @@
     <div class="line scenarios">
       <span (click)="setScenario(scenario)" class="scenario"
         [ngClass]="{'current' : hasScenario(scenario), 'blocked' : scenario.isBlocked , 'locked' : scenario.isLocked}"
-        [ghsTooltip]="'scenario.tooltip' + (scenario.isBlocked ? '.blocked' : (scenario.isLocked ? '.locked' : ''))"
+        [ghs-tooltip]="'scenario.tooltip' + (scenario.isBlocked ? '.blocked' : (scenario.isLocked ? '.locked' : ''))"
         [ghs-label-args]="['data.scenario.' + scenario.name]"
         *ngFor="let scenario of scenarios(group, settingsManager.settings.showOnlyUnfinishedScenarios) | ghsScenarioSearch:search.value">
         <ng-container *ngIf="!scenario.solo">

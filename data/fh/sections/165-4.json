@@ -1,0 +1,9 @@
+{
+  "index": "165.4",
+  "name": "Letter from %game.characterIconColored.drill%",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "custom": "See Section Book"
+  }
+}

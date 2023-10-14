@@ -534,10 +534,26 @@
 
             &.summer {
               margin-left: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+
+              &.highlight {
+                color: var(--ghs-color-yellow);
+
+                img {
+                  filter: var(--ghs-filter-yellow);
+                }
+              }
             }
 
             &.winter {
               margin-right: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+
+              &.highlight {
+                color: var(--ghs-color-blue);
+
+                img {
+                  filter: var(--ghs-filter-blue);
+                }
+              }
             }
           }
         }

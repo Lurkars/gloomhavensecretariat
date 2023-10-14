@@ -5,7 +5,7 @@ import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameState } from "src/app/game/model/Game";
 import { GameScenarioModel, Scenario, ScenarioCache } from "src/app/game/model/Scenario";
 import { Spoilable, SpoilableMock } from "src/app/game/model/data/Spoilable";
-import { ScenarioRequirementsComponent } from "../../party/requirements/requirements";
+import { ScenarioRequirementsComponent } from "src/app/ui/figures/party/requirements/requirements";
 import { Dialog } from "@angular/cdk/dialog";
 import { Subscription } from "rxjs";
 

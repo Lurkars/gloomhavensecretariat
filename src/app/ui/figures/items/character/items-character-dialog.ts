@@ -51,79 +51,12 @@ export class ItemsCharacterDialogComponent {
         return this.character.progress.equippedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition);
     }
 
-    isLootRandomItem(itemData: ItemData) {
-        return this.character.progress.equippedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition && identifier.marker == "loot-random-item");
-    }
-
-    toggleEquippedItem(itemData: ItemData, force: boolean = false) {
-        if ((this.setup || force) && this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition) != undefined) {
-            gameManager.stateManager.before(gameManager.itemManager.isEquipped(itemData, this.character) ? 'unequipItem' : 'equipItem', "data.character." + this.character.name, '' + itemData.id, itemData.edition)
-            gameManager.itemManager.toggleEquippedItem(itemData, this.character, force)
-            gameManager.stateManager.after();
-        }
-    }
-
     countFlag(itemData: ItemData, flag: string): number {
         const equipped = this.equipped(itemData);
         if (equipped) {
             return equipped.tags && equipped.tags.filter((tag) => tag == flag).length || 0;
         }
         return 0;
-    }
-
-    toggleFlag(force: boolean, itemData: ItemData, flag: string) {
-        if (!this.setup && gameManager.game.state == GameState.next || force) {
-            const equipped = this.equipped(itemData);
-            if (equipped) {
-                equipped.tags = equipped.tags || [];
-                gameManager.stateManager.before(equipped.tags.indexOf(flag) == -1 ? 'characterItemApply.' + flag : 'characterItemUnapply.' + flag, "data.character." + this.character.name, '' + itemData.id, itemData.edition)
-                if (equipped.tags.indexOf(flag) == -1) {
-                    equipped.tags.push(flag);
-                } else {
-                    equipped.tags = equipped.tags.filter((tag) => tag != flag);
-                    if (flag == ItemFlags.spent) {
-                        equipped.tags = equipped.tags.filter((tag) => tag != ItemFlags.slot && tag != ItemFlags.slotBack);
-                    }
-                }
-                gameManager.stateManager.after();
-            }
-        }
-    }
-
-    toggleFlagCount(index: number, itemData: ItemData, flag: string) {
-        if (!this.setup && gameManager.game.state == GameState.next) {
-            const equipped = this.equipped(itemData);
-            if (equipped) {
-                equipped.tags = equipped.tags || [];
-                const count = this.countFlag(itemData, flag);
-                gameManager.stateManager.before(count <= index ? 'characterItemApply.' + flag : 'characterItemUnapply.' + flag, "data.character." + this.character.name, '' + itemData.id, itemData.edition);
-                if (count <= index) {
-                    for (let i = count; i <= index; i++) {
-                        equipped.tags.push(flag);
-                    }
-                    if (flag == ItemFlags.slot && this.countFlag(itemData, flag) == itemData.slots) {
-                        if (itemData.spent && !this.countFlag(itemData, ItemFlags.spent)) {
-                            this.toggleFlag(true, itemData, ItemFlags.spent);
-                        } else if (itemData.consumed && !this.countFlag(itemData, ItemFlags.consumed)) {
-                            this.toggleFlag(true, itemData, ItemFlags.consumed);
-                        }
-                    }
-                } else {
-                    for (let i = index; i < count; i++) {
-                        equipped.tags.splice(equipped.tags.indexOf(flag), 1);
-                    }
-                }
-                gameManager.stateManager.after();
-            }
-        }
-    }
-
-    slotsMarked(itemData: ItemData, flag: string): string[] {
-        let marked: string[] = [];
-        for (let i = 0; i < this.countFlag(itemData, flag); i++) {
-            marked.push(this.character.name);
-        }
-        return marked
     }
 
     openShop() {

@@ -38,6 +38,7 @@ export class ScenarioData implements Editional, Spoilable {
   blockedSections: string[] = [];
   resetRound: "visible" | "visibleKeep" | "hidden" | "hiddenKeep" | undefined; // "Keep" suffix will reset even rounds to round 2 instead of round 1
   rewards: ScenarioRewards | undefined;
+  retirement: string = "";
   conclusion: boolean = false;
   named: boolean = false;
   hideIndex: boolean = false;
@@ -79,6 +80,7 @@ export class ScenarioData implements Editional, Spoilable {
       this.blockedSections = scenarioData.blockedSections;
       this.resetRound = scenarioData.resetRound;
       this.rewards = scenarioData.rewards;
+      this.retirement = scenarioData.retirement;
       this.conclusion = scenarioData.conclusion;
       this.edition = scenarioData.edition;
       this.spoiler = scenarioData.spoiler;

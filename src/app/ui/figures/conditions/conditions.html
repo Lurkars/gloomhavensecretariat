@@ -2,7 +2,7 @@
   <div class="condition-container negative">
     <a class="item" *ngFor="let condition of standardNegative">
       <span class="condition" (click)="toggleCondition(condition)"
-        [ghsTooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
+        [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
         [originY]="'top'" [overlayY]="'bottom'"
         [ngClass]="{'active' : !immunityEnabled && hasCondition(condition) || immunityEnabled && immunities.indexOf(condition.name) != -1, 'disabled': !hasCondition(condition) && !immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
         <img
@@ -14,7 +14,7 @@
       <img (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
         src="./assets/images/left.svg" />
       <span class="condition" (click)="toggleCondition(condition)"
-        [ghsTooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
+        [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
         [originY]="'top'" [overlayY]="'bottom'"
         [ngClass]="{'active' : !immunityEnabled && hasCondition(condition) || immunityEnabled && immunities.indexOf(condition.name) != -1, 'disabled': !hasCondition(condition) && !immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
         <img
@@ -28,7 +28,7 @@
       <img (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
         src="./assets/images/left.svg" />
       <span class="condition" (click)="toggleCondition(condition)"
-        [ghsTooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
+        [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
         [originY]="'top'" [overlayY]="'bottom'"
         [ngClass]="{'active' : !immunityEnabled && hasCondition(condition) || immunityEnabled && immunities.indexOf(condition.name) != -1, 'disabled': !hasCondition(condition) && !immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
         <img
@@ -43,7 +43,7 @@
   <div class="condition-container positive">
     <a class="item" *ngFor="let condition of standardPositive">
       <span class="condition" (click)="toggleCondition(condition)"
-        [ghsTooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
+        [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
         [originY]="'top'" [overlayY]="'bottom'"
         [ngClass]="{'active' : !immunityEnabled && hasCondition(condition) || immunityEnabled && immunities.indexOf(condition.name) != -1, 'disabled': !hasCondition(condition) && !immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
         <img
@@ -55,7 +55,7 @@
       <img (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
         src="./assets/images/left.svg" />
       <span class="condition" (click)="toggleCondition(condition)"
-        [ghsTooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
+        [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
         [originY]="'top'" [overlayY]="'bottom'"
         [ngClass]="{'active' : !immunityEnabled && hasCondition(condition) || immunityEnabled && immunities.indexOf(condition.name) != -1, 'disabled': !hasCondition(condition) && !immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
         <img
@@ -69,7 +69,7 @@
       <img (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
         src="./assets/images/left.svg" />
       <span class="condition" (click)="toggleCondition(condition)"
-        [ghsTooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
+        [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
         [originY]="'top'" [overlayY]="'bottom'"
         [ngClass]="{'active' : !immunityEnabled && hasCondition(condition) || immunityEnabled && immunities.indexOf(condition.name) != -1, 'disabled': !hasCondition(condition) && !immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name), 'immunity' : isImmune(condition.name)}">
         <img

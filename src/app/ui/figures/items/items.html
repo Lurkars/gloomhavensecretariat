@@ -20,7 +20,7 @@
                 <img src="./assets/images/check.svg">
             </span>
             <div class="effect hint-container" *ngIf="gameManager.characterManager.itemEffect(item)">
-                <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" [ghsTooltip]="'game.items.effect'"
+                <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" [ghs-tooltip]="'game.items.effect'"
                     [hint]="true">
             </div>
             <span class="minus-one" *ngIf="isEquipped(item) && item.minusOne"

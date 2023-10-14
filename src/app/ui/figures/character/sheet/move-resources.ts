@@ -14,12 +14,21 @@ import { LootType } from "src/app/game/model/data/Loot";
 export class CharacterMoveResourcesDialog implements OnInit {
 
     gameManager: GameManager = gameManager;
+    character: Character;
     lootTypes: LootType[] = Object.values(LootType);
     LootType = LootType;
 
+
     loot: Partial<Record<LootType, number>> = {};
 
-    constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef) { }
+    constructor(@Inject(DIALOG_DATA) public data: { character: Character, all: boolean }, private dialogRef: DialogRef) {
+        this.character = data.character;
+        if (data.all) {
+            this.lootTypes.forEach((type) => {
+                this.loot[type] = this.character.progress.loot[type] || 0;
+            })
+        }
+    }
 
     ngOnInit(): void {
         if (!this.character.progress) {

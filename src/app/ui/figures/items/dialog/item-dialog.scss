@@ -15,7 +15,7 @@
   transition: transform 150ms ease-in-out;
   transform: scale(0);
 
-  ghs-item {
+  ghs-item, ghs-character-item {
     width: 100%;
     height: auto;
   }

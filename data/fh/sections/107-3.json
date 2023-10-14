@@ -1,0 +1,12 @@
+{
+  "retirement": "snowflake",
+  "index": "107.3",
+  "name": "%game.characterIconColored.snowflake% Retires",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "calendarSection": [
+      "177.4-summer:9"
+    ]
+  }
+}

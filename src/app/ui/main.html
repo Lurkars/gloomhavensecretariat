@@ -108,7 +108,7 @@
   </div>
   <div class="dialog backup-hint" *ngIf="showBackupHint">
     <h2 [ghs-label]="'datamanagement.backup'"></h2>
-    <p [ghs-label]="'datamanagement.backup.download.hint'" [ghsTooltip]="'datamanagement.backup.download.hint.text'"
+    <p [ghs-label]="'datamanagement.backup.download.hint'" [ghs-tooltip]="'datamanagement.backup.download.hint.text'"
       [originY]="'top'" [overlayY]="'bottom'">
     </p>
     <a (click)="exportDataDump()">

@@ -46,7 +46,7 @@
             color: var(--ghs-color-yellow);
         }
 
-        .item {
+        ghs-character-item {
             position: relative;
             margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
             width: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
@@ -56,102 +56,6 @@
             &.spent {
                 transform: rotate(90deg);
                 margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 7.25 * var(--ghs-dialog-factor));
-            }
-
-            ghs-item {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                border: calc(var(--ghs-unit) * 0.35 * var(--ghs-dialog-factor)) solid transparent;
-                border-radius: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-                overflow: hidden;
-
-                &.disabled {
-                    cursor: initial;
-                    opacity: 0.5;
-                }
-
-                &.unavailable {
-                    cursor: not-allowed;
-                    border-color: var(--ghs-color-darkgray);
-                    filter: grayscale(0.7);
-
-                }
-
-                &.filtered {
-                    cursor: initial;
-                    border-color: var(--ghs-color-red);
-
-                }
-
-                &.selected {
-                    cursor: pointer;
-                    border-color: var(--ghs-color-green);
-                }
-            }
-
-            .loot-random-item {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                position: absolute;
-                top: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
-                left: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
-                width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-                height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-
-                img {
-                    height: 100%;
-                    width: auto;
-                }
-            }
-
-            .button-equip {
-                z-index: 1;
-                position: absolute;
-                display: flex;
-                cursor: pointer;
-                bottom: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-                left: calc(var(--ghs-unit) * 11.8 * var(--ghs-dialog-factor));
-                justify-content: center;
-                align-items: center;
-                width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-                height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-                opacity: 0.6;
-
-                &.disabled {
-                    cursor: initial;
-                }
-
-                .ghs-svg {
-                    width: 100%;
-                    height: auto;
-                    filter: var(--ghs-filter-white);
-                }
-
-                &.equipped {
-                    opacity: 1;
-
-                    .ghs-svg {
-                        filter: var(--ghs-filter-green);
-                    }
-                }
-
-                &:hover:not(.disabled) {
-                    opacity: 0.6;
-
-                    .ghs-svg {
-                        filter: var(--ghs-filter-green);
-                    }
-
-                    &.equipped {
-
-                        .ghs-svg {
-                            filter: var(--ghs-filter-red);
-                        }
-                    }
-                }
             }
         }
 

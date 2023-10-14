@@ -1,0 +1,12 @@
+{
+  "retirement": "fist",
+  "index": "120.3",
+  "name": "%game.characterIconColored.fist% Retires",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "calendarSection": [
+      "185.4-10"
+    ]
+  }
+}

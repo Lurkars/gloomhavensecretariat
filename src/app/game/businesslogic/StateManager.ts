@@ -315,6 +315,11 @@ export class StateManager {
             settings.characterAttackModifierAnimate = settingsManager.settings.characterAttackModifierAnimate;
             settings.characterAttackModifierDeckPermanent = settingsManager.settings.characterAttackModifierDeckPermanent;
             settings.characterAttackModifierDeckPermanentActive = settingsManager.settings.characterAttackModifierDeckPermanentActive;
+            settings.characterItemsPermanent = settingsManager.settings.characterItemsPermanent;
+            settings.characterItemsPermanentActive = settingsManager.settings.characterItemsPermanentActive;
+            settings.characterItemsPermanentEquipped = settingsManager.settings.characterItemsPermanentEquipped;
+            settings.characterItemsPermanentSorted = settingsManager.settings.characterItemsPermanentSorted;
+            settings.characterItemsPermanentZoom = settingsManager.settings.characterItemsPermanentZoom;
             settings.characterCompact = settingsManager.settings.characterCompact;
             settings.debugRightClick = settingsManager.settings.debugRightClick;
             settings.disableAnimations = settingsManager.settings.disableAnimations;

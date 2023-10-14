@@ -18,10 +18,9 @@
 
     .name {
       text-align: center;
-      color: var(--ghs-color-black);
+      color: var(--ghs-color-white);
       font-family: var(--ghs-font-normal);
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
-      filter: var(--ghs-filter-gray);
     }
   }
 

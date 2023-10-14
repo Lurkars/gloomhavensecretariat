@@ -15,40 +15,8 @@
         </div>
 
         <div class="item-list" *ngIf="items.length > 0">
-            <ng-container *ngFor="let itemData of items">
-                <div class="item" *ngIf="setup">
-                    <ghs-item [item]="itemData" [flipped]="true" ghs-pointer-input
-                        [count]="gameManager.itemManager.assigned(itemData)"
-                        [editionLabel]="gameManager.currentEdition()"
-                        [ngClass]="{'selected': equipped(itemData) && true || false}"></ghs-item>
-                    <a class="button-equip" [ngClass]="{'equipped' : equipped(itemData)}" ghs-pointer-input
-                        (singleClick)="toggleEquippedItem(itemData)" (doubleClick)="toggleEquippedItem(itemData, true)">
-                        <img class="ghs-svg" src="./assets/images/check.svg"></a>
-                </div>
-                <div class="item" *ngIf="!setup" [ngClass]="{'spent' : countFlag(itemData, ItemFlags.spent)}">
-                    <ghs-item [item]="itemData" [count]="gameManager.itemManager.assigned(itemData)"
-                        [flipped]="true && !countFlag(itemData,ItemFlags.flipped)"
-                        [slotsMarked]="slotsMarked(itemData, ItemFlags.slot)"
-                        [slotsBackMarked]="slotsMarked(itemData, ItemFlags.slotBack)"
-                        [editionLabel]="gameManager.currentEdition()"
-                        (clickedConsumed)="toggleFlag($event,itemData,ItemFlags.consumed)"
-                        (clickedFlip)="toggleFlag($event,itemData,ItemFlags.flipped)"
-                        (clickedSpent)="toggleFlag($event,itemData,ItemFlags.spent)"
-                        (clickedPersistent)="toggleFlag($event,itemData,ItemFlags.persistent)"
-                        (clickedSlot)="toggleFlagCount($event,itemData,ItemFlags.slot)"
-                        (clickedSlotBack)="toggleFlagCount($event,itemData,ItemFlags.slotBack)"
-                        [ngClass]="{'filtered' : !equipped(itemData) || gameManager.game.state == GameState.draw, 
-                    'unavailable': countFlag(itemData, ItemFlags.consumed) > 0, 'owned': countFlag(itemData, ItemFlags.persistent) > 0 }"></ghs-item>
-
-                    <span class="loot-random-item" *ngIf="isLootRandomItem(itemData)">
-                        <img src="./assets/images/fh/loot-token.png">
-                    </span>
-
-                    <a class="button-equip disabled" [ngClass]="{'equipped' : equipped(itemData)}" ghs-pointer-input
-                        (doubleClick)="toggleEquippedItem(itemData, true)">
-                        <img class="ghs-svg" src="./assets/images/check.svg"></a>
-                </div>
-            </ng-container>
+            <ghs-character-item *ngFor="let itemData of items" [character]="character" [item]="itemData" [setup]="setup"
+                [ngClass]="{'spent' : !setup && countFlag(itemData,ItemFlags.spent)}"></ghs-character-item>
         </div>
     </div>
 </div>

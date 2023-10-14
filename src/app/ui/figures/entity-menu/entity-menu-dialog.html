@@ -206,7 +206,7 @@
         <span class="item">
           <span
             class="badge badge-left bless-count">{{countUpcomingAttackModifier(AttackModifierType.bless) + bless}}</span>
-          <span class="condition" [ghsTooltip]="'game.condition.bless.hint'" [originX]="'center'" [overlayX]="'center'"
+          <span class="condition" [ghs-tooltip]="'game.condition.bless.hint'" [originX]="'center'" [overlayX]="'center'"
             [originY]="'top'" [overlayY]="'bottom'" [ngClass]="{'immunity disabled' : isImmune(ConditionName.bless)}">
             <img src="./assets/images/status/bless.svg" />
           </span>
@@ -234,7 +234,7 @@
         <span class="item">
           <span
             class="badge badge-left curse-count">{{countUpcomingAttackModifier(AttackModifierType.curse) + curse}}</span>
-          <span class="condition" [ghsTooltip]="'game.condition.curse.hint'" [originX]="'center'" [overlayX]="'center'"
+          <span class="condition" [ghs-tooltip]="'game.condition.curse.hint'" [originX]="'center'" [overlayX]="'center'"
             [originY]="'top'" [overlayY]="'bottom'" [ngClass]="{'immunity disabled' : isImmune(ConditionName.curse)}">
             <img src="./assets/images/status/curse.svg" />
           </span>
@@ -260,7 +260,7 @@
               <img class="ghs-svg" src="./assets/images/minus.svg">
             </ghs-pointer-input>
           </span>
-          <span class="item" [ghsTooltip]="'game.condition.empower.hint'" [originX]="'center'" [overlayX]="'center'"
+          <span class="item" [ghs-tooltip]="'game.condition.empower.hint'" [originX]="'center'" [overlayX]="'center'"
             [originY]="'top'" [overlayY]="'bottom'">
             <span
               class="badge badge-left empower-count">{{countUpcomingAttackModifier(AttackModifierType.empower) + empower}}</span>
@@ -291,7 +291,7 @@
               <img class="ghs-svg" src="./assets/images/minus.svg">
             </ghs-pointer-input>
           </span>
-          <span class="item" [ghsTooltip]="'game.condition.enfeeble.hint'" [originX]="'center'" [overlayX]="'center'"
+          <span class="item" [ghs-tooltip]="'game.condition.enfeeble.hint'" [originX]="'center'" [overlayX]="'center'"
             [originY]="'top'" [overlayY]="'bottom'">
             <span
               class="badge badge-left enfeeble-count">{{countUpcomingAttackModifier(AttackModifierType.enfeeble) + enfeeble}}</span>

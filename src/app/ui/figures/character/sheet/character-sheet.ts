@@ -375,7 +375,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   moveResources() {
     this.dialog.open(CharacterMoveResourcesDialog, {
       panelClass: 'dialog',
-      data: this.character
+      data: { character: this.character }
     });
   }
 

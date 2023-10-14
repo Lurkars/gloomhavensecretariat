@@ -241,11 +241,21 @@ export class ScenarioManager {
               rewards.calendarSection.forEach((calendarSection) => {
                 if (calendarSection.split('-').length > 1) {
                   const section = calendarSection.split('-')[0];
-                  const week = gameManager.game.party.weeks + (+calendarSection.split('-')[1]);
-                  if (!gameManager.game.party.weekSections[week]) {
-                    gameManager.game.party.weekSections[week] = [];
+                  let week = -1;
+                  if (!isNaN(+calendarSection.split('-')[1])) {
+                    week = gameManager.game.party.weeks + (+calendarSection.split('-')[1]);
+                  } else if (calendarSection.split('-')[1].length > 1) {
+                    const season = calendarSection.split('-')[1].split(':')[0];
+                    const seasonWeek = +calendarSection.split('-')[1].split(':')[1];
+                    week = Math.max(gameManager.game.party.weeks - 1, 0) - (Math.max(gameManager.game.party.weeks - 1, 0) % 20) + (season == 'summer' ? 20 : 10) + seasonWeek;
                   }
-                  gameManager.game.party.weekSections[week]?.push(section);
+
+                  if (week != -1) {
+                    if (!gameManager.game.party.weekSections[week]) {
+                      gameManager.game.party.weekSections[week] = [];
+                    }
+                    gameManager.game.party.weekSections[week]?.push(section);
+                  }
                 }
               })
             }

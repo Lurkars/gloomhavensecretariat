@@ -50,6 +50,11 @@ export class Settings {
   characterIdentities: boolean = true;
   characterIdentityHint: boolean = true;
   characterItems: boolean = false;
+  characterItemsPermanent: boolean = false;
+  characterItemsPermanentActive: boolean = false;
+  characterItemsPermanentEquipped: boolean = true;
+  characterItemsPermanentSorted: boolean = true;
+  characterItemsPermanentZoom: number = 1;
   characterSheet: boolean = true;
   characterTraits: boolean = false;
   combineSummonAction: boolean = true;

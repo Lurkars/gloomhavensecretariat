@@ -1,0 +1,12 @@
+{
+  "index": "185.4",
+  "name": "Letter from %game.characterIconColored.fist%",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "collectiveResources": {
+      "type": "axenut",
+      "value": 3
+    }
+  }
+}

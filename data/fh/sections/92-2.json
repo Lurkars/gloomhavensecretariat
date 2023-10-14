@@ -1,0 +1,12 @@
+{
+  "retirement": "astral",
+  "index": "92.2",
+  "name": "%game.characterIconColored.astral% Retires",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "calendarSection": [
+      "42.2-6"
+    ]
+  }
+}

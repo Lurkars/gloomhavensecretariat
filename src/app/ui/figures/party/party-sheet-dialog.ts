@@ -67,6 +67,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   townGuardDeck: AttackModifierDeck | undefined;
 
   calendarSheet: number = 0;
+  summer: boolean = false;
 
   @ViewChild('itemIndex') itemIndex!: ElementRef;
   @ViewChild('treasureIndex') treasureIndex!: ElementRef;
@@ -557,7 +558,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       this.party.townGuardDeck = this.townGuardDeck.toModel();
     }
 
-    this.calendarSheet = Math.floor(this.party.weeks / 81);
+    this.calendarSheet = Math.floor(Math.max(this.party.weeks - 1, 0) / 80);
     this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && Object.keys(figure.progress.loot).some((type) => figure.progress.loot[type as LootType])).map((figure) => figure as Character);
 
     if (this.fhSheet) {
@@ -621,6 +622,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     });
 
     this.items = this.itemIdentifier.map((identifier) => gameManager.itemManager.getItem(+identifier.name, identifier.edition, true));
+    this.summer = Math.max(this.party.weeks - 1, 0) % 20 < 10;
   }
 
   characterIcon(name: string): string {
@@ -792,20 +794,24 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     }
   }
 
-  selectFinishConclusion(indexElement: HTMLInputElement) {
+  selectFinishConclusion(indexElement: HTMLInputElement, force: boolean = false) {
     let index: string = indexElement.value;
     indexElement.classList.add('error');
     const conclusion = gameManager.sectionData(this.partyEdition || gameManager.currentEdition()).find((sectionData) => sectionData.index == index);
     if (conclusion) {
       indexElement.classList.remove('error');
-      indexElement.value = "";
-      this.finishConclusion(index);
+      if ((force || !this.party.conclusions.find((value) => value.edition == conclusion.edition && value.group == conclusion.group && value.index == conclusion.index))) {
+        indexElement.value = "";
+        this.finishConclusion(index, force);
+      } else {
+        indexElement.classList.add('warning');
+      }
     }
   }
 
-  finishConclusion(index: string) {
+  finishConclusion(index: string, force: boolean = false) {
     const conclusion = gameManager.sectionData(this.partyEdition || gameManager.currentEdition()).find((sectionData) => sectionData.index == index);
-    if (conclusion) {
+    if (conclusion && (force || !this.party.conclusions.find((value) => value.edition == conclusion.edition && value.group == conclusion.group && value.index == conclusion.index))) {
       const scenario = new Scenario(conclusion as ScenarioData);
       if (this.hasConclusions(scenario.index)) {
         this.openConclusions(scenario.index);
@@ -888,7 +894,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   moveResources(character: Character) {
     this.dialog.open(CharacterMoveResourcesDialog, {
       panelClass: 'dialog',
-      data: character
+      data: { character: character }
     }).closed.subscribe({ next: () => this.update() });
   }
 

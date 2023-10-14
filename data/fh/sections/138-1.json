@@ -1,0 +1,9 @@
+{
+  "index": "138.1",
+  "name": "%game.characterIconColored.drifter% Returns",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "randomItemBlueprint": 1
+  }
+}

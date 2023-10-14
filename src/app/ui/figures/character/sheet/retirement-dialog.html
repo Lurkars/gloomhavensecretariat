@@ -12,6 +12,15 @@
             [ghs-label-args]="[gameManager.fhRules() ? '2' : '1']"></span>
     </div>
 
+    <div class="conclusion" *ngIf="conclusion">
+        <a (click)="openConclusion()"><span class="text-white" [ghs-label]="'character.progress.retirement.conclusion'"
+                [ghs-label-args]="[conclusion.index]"></span></a>
+    </div>
+
+    <div class="additional">
+        <a (click)="moveResources()"><span [ghs-label]="'character.progress.retirement.moveSupply'"></span></a>
+    </div>
+
     <p class="wip" [ghs-label]="'character.progress.retirement.wip'"></p>
 
     <div class="menu">

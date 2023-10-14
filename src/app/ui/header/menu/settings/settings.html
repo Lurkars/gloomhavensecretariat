@@ -1014,9 +1014,6 @@
         </span>
       </div>
     </div>
-  </div>
-
-  <div class="column">
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled':  !settingsManager.settings.portraitMode}">
@@ -1031,6 +1028,9 @@
         </span>
       </div>
     </div>
+  </div>
+
+  <div class="column">
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.characterAttackModifierDeck}">
@@ -1071,6 +1071,35 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text" [ghs-label]="'settings.characterAttackModifierDeckPermanentActive.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : !settingsManager.settings.characterItems}">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.characterItems && settingsManager.settings.characterItemsPermanent"
+            (change)="settingsManager.setCharacterItemsPermanent(!settingsManager.settings.characterItemsPermanent)">
+          <span [ghs-label]="'settings.characterItemsPermanent'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.characterItemsPermanent.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label
+          [ngClass]="{'disabled' : !settingsManager.settings.characterItems || !settingsManager.settings.characterItemsPermanent}">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.characterItems && settingsManager.settings.characterItemsPermanent && settingsManager.settings.characterItemsPermanentActive"
+            (change)="settingsManager.setCharacterItemsPermanentActive(!settingsManager.settings.characterItemsPermanentActive)">
+          <span [ghs-label]="'settings.characterItemsPermanentActive'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.characterItemsPermanentActive.hint'"></span>
         </span>
       </div>
     </div>

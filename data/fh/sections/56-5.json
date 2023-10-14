@@ -1,0 +1,12 @@
+{
+  "retirement": "trap",
+  "index": "56.5",
+  "name": "%game.characterIconColored.trap% Retires",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "calendarSection": [
+      "169.1-6"
+    ]
+  }
+}
