@@ -321,6 +321,59 @@
       }
     }
 
+    .personal-quest {
+
+      .personal-quest-card {
+        display: flex;
+        align-items: center;
+
+        .card-id {
+          margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        }
+
+        .name {
+          font-family: var(--ghs-font-title);
+        }
+      }
+
+      .requirements {
+        display: flex;
+        flex-direction: column;
+        margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        border-top: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
+
+        .requirement {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+
+          &.disabled {
+            pointer-events: none;
+            opacity: 0.7;
+          }
+
+          .counter {
+            display: flex;
+            align-items: center;
+
+            .checkbox {
+              margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            }
+
+            input[type="number"] {
+              margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+              width: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
+              min-width: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
+            }
+          }
+        }
+      }
+
+      .rewards {
+        margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+      }
+    }
+
     .notes {
       display: flex;
       flex-direction: column;

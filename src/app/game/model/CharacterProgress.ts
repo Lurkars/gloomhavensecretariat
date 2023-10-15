@@ -10,6 +10,7 @@ export class CharacterProgress {
   items: Identifier[] = [];
   equippedItems: AdditionalIdentifier[] = [];
   personalQuest: number = 0;
+  personalQuestProgress: number[] = [];
   battleGoals: number = 0;
   notes: string = "";
   retired: boolean = false;

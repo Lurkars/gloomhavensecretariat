@@ -107,7 +107,12 @@
         ".": "Perks",
         "extra": "Extra Perks"
       },
-      "personalQuest": "Personal Quest",
+      "personalQuest": {
+        ".": "Personal Quest",
+        "counter": "Counter",
+        "openEnvelope": "Reward: Open Envelope {0}",
+        "unlockCharacter": "Reward: Open Box %game.characterIcon.{0}%"
+      },
       "resources": {
         ".": "Resources",
         "move": "Move to Frosthaven Supply",
@@ -118,9 +123,10 @@
         ".": "Retire Character",
         "apply": "Apply",
         "conclusion": "Open Section %data.section:{0}%",
+        "openEnvelope": "Open Envelope {0}",
         "moveSupply": "Move resources to Frosthaven supply",
         "prosperity": "+{0} prosperity",
-        "wip": "%wip%!<br>Currently only prosperity is applied until personal quest feature is developed."
+        "unlockCharacter": "Open Box %game.characterIcon.{0}%"
       },
       "retirements": "Retirements",
       "title": "{1} {0}",

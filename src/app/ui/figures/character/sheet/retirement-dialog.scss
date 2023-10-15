@@ -61,10 +61,10 @@
         justify-content: center;
         align-items: center;
         min-width: calc(var(--ghs-unit) * 35 * var(--ghs-dialog-factor));
-        margin-top: 0.5em;
-        padding-top: 0.5em;
+        margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        padding-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
         font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-        border-top: 0.1em solid var(--ghs-color-gray);
+        border-top: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-gray);
 
         .active {
             cursor: pointer;
@@ -89,12 +89,24 @@
         }
     }
 
+    .personal-quest {
+        font-family: var(--ghs-font-text);
+        font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
     .additional {
         font-family: var(--ghs-font-text);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        padding-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        border-top: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-gray);
 
         a {
             cursor: pointer;

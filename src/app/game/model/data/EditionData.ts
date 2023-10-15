@@ -8,6 +8,7 @@ import { Perk } from "./Perks";
 import { BuildingData } from "./BuildingData";
 import { BattleGoal } from "./BattleGoal";
 import { EventCard } from "./EventCard";
+import { PersonalQuest } from "./PersonalQuest";
 
 export const GH_PROSPERITY_STEPS = [3, 8, 14, 21, 29, 38, 49, 63];
 export const FH_PROSPERITY_STEPS = [5, 14, 26, 41, 59, 80, 104, 131];
@@ -25,6 +26,7 @@ export class EditionData implements Editional {
   conditions: string[] = [];
   battleGoals: BattleGoal[] = [];
   events: EventCard[] = [];
+  personalQuests: PersonalQuest[] = [];
   worldMap: { width: number, height: number } | undefined;
   label: any = {};
   labelSpoiler: any = {};
@@ -46,6 +48,7 @@ export class EditionData implements Editional {
     conditions: string[] | undefined = undefined,
     battleGoals: BattleGoal[] = [],
     events: EventCard[] = [],
+    personalQuests: PersonalQuest[] = [],
     additional: boolean = false,
     extensions: string[] = []) {
     this.edition = edition;
@@ -60,6 +63,7 @@ export class EditionData implements Editional {
     }
     this.battleGoals = battleGoals;
     this.events = events;
+    this.personalQuests = personalQuests;
     this.additional = additional;
     this.extensions = extensions;
   }

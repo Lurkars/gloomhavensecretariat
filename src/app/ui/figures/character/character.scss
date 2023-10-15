@@ -324,11 +324,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        height: calc(var(--ghs-unit) * 5.5);
         margin-left: calc(var(--ghs-unit) * -1.1);
         margin-right: calc(var(--ghs-unit) * 0.5);
 
         img {
-          height: calc(var(--ghs-unit) * 5.5);
+          height: 100%;
           width: auto;
         }
       }
@@ -970,13 +971,12 @@
 
 
       .title-bar {
-        margin-top: calc(var(--ghs-unit) * -2.5 / var(--ghs-text-factor));
+        margin-top: calc(var(--ghs-unit) * -2.7 / var(--ghs-text-factor));
 
         .title {
           .icon {
-            height: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
+            height: calc(var(--ghs-unit) * 4.5);
             filter: grayscale(1) brightness(0.3);
-            margin-top: calc(var(--ghs-unit) * -1 * var(--ghs-text-factor));
             margin-left: calc(var(--ghs-unit) * -0.5);
           }
         }

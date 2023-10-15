@@ -147,11 +147,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     gameManager.game.lootDeck.active = true;
                     const activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active);
                     if (!settingsManager.settings.alwaysLootApplyDialog && activeCharacter instanceof Character) {
-                        const result = gameManager.lootManager.drawCard(gameManager.game.lootDeck, activeCharacter);
-                        if (result) {
-                            // TODO item loot dialog
-                            console.log("keyboard", result);
-                        }
+                        gameManager.lootManager.drawCard(gameManager.game.lootDeck, activeCharacter);
                     } else {
                         gameManager.lootManager.drawCard(gameManager.game.lootDeck, undefined);
                     }

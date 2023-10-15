@@ -268,6 +268,32 @@
             "text": "Take only short rests during the scenario."
         }
     },
+    "personalQuest": {
+        "510": "Seeker of Xorn",
+        "511": "Merchant Class",
+        "512": "Greed Is Gold",
+        "513": "Finding the Cure",
+        "514": "A Study of Anatomy",
+        "515": "Law Bringer",
+        "516": "Pounds of Flesh",
+        "517": "Trophy Hunt",
+        "518": "Eternal Wanderer",
+        "519": "Battle Legend",
+        "520": "Implement of Light",
+        "521": "Take Back the Trees",
+        "522": "The Thin Places",
+        "523": "Aberrant Slayer",
+        "524": "Fearless Stand",
+        "525": "Piety in All Things",
+        "526": "Vengeance",
+        "527": "Zealot of the Blood Good",
+        "528": "Goliath Toppler",
+        "529": "The Fall of Man",
+        "530": "Augmented Abilities",
+        "531": "Elemental Samples",
+        "532": "A Helping Hand",
+        "533": "The Perfect Poison"
+    },
     "custom": {
         "gh": {
             "ancient-artillery": {

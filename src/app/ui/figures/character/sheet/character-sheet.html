@@ -142,7 +142,7 @@
         </div>
 
         <div *ngIf="fhSheet" class="row notes">
-          <label><span [ghs-label]="'character.progress.notes'"></span>: 
+          <label><span [ghs-label]="'character.progress.notes'"></span>:
             <div class="traits" *ngIf="character.traits.length > 0">
               <span class="icon"><img class="ghs-svg" src="./assets/images/fh/character/traits/trait.svg"></span>
               <ng-container *ngFor="let trait of character.traits; let i = index;">
@@ -238,9 +238,48 @@
           </div>
           <div class="personal-quest">
             <label><span [ghs-label]="'character.progress.personalQuest'"></span>:</label>
-            <span class="retired checkbox" [ngClass]="{'checked' : retired}" (click)="toggleRetired()"
-              [ghs-label]="'character.progress.retired'" [ghs-label-attribute]="'title'"></span>
-            <input [value]="character.progress.personalQuest" type="number" min="0" (change)="setPersonalQuest($event)">
+            <div class="personal-quest-card">
+              <input class="card-id" [value]="character.progress.personalQuest" type="number" min="0"
+                (change)="setPersonalQuest($event)">
+
+              <span *ngIf="!personalQuest" class="retired checkbox" [ngClass]="{'checked' : retired}"
+                (click)="toggleRetired()" [ghs-label]="'character.progress.retired'"
+                [ghs-label-attribute]="'title'"></span>
+              <span *ngIf="personalQuest" class="name"
+                [ghs-label]="'data.personalQuest.' + personalQuest.cardId"></span>
+            </div>
+
+            <div class="requirements" *ngIf="personalQuest">
+              <div class="requirement" *ngFor="let requirement of personalQuest.requirements; let i = index;"
+                [ngClass]="{'disabled' : requirement.requires && (!character.progress.personalQuestProgress[requirement.requires - 1] ||character.progress.personalQuestProgress[requirement.requires - 1] < personalQuest.requirements[requirement.requires -1].counter)}">
+                <span class="requirement-name">{{requirement.name}}:<span
+                    *ngIf="requirement.counter > 1">&nbsp;{{character.progress.personalQuestProgress[i] ||
+                    0}}/{{requirement.counter}}</span>
+                </span>
+                <span class="counter">
+                  <ng-container *ngIf="requirement.counter < 10">
+                    <span *ngFor="let counter of []| ghsRange:requirement.counter" class="checkbox"
+                      [ngClass]="{'checked' : character.progress.personalQuestProgress[i] > counter}"
+                      (click)="setPersonalQuestProgress(i,counter+1)"
+                      [ghs-label]="'character.progress.personalQuest.counter'" [ghs-label-attribute]="'title'"></span>
+                  </ng-container>
+                  <input *ngIf="requirement.counter > 9" [value]="character.progress.personalQuestProgress[i]"
+                    type="number" min="0" [max]="requirement.counter" (change)="setPersonalQuestProgress(i, $event)">
+                </span>
+              </div>
+            </div>
+
+            <div class="rewards" *ngIf="personalQuest">
+              <div class="reward" *ngIf="personalQuest.unlockCharacter"
+                [ghs-label]="'character.progress.personalQuest.unlockCharacter'"
+                [ghs-label-args]="[personalQuest.unlockCharacter]">
+              </div>
+              <div class="reward" *ngIf="personalQuest.openEnvelope"
+                [ghs-label]="'character.progress.personalQuest.openEnvelope'"
+                [ghs-label-args]="[personalQuest.openEnvelope]">
+              </div>
+            </div>
+
           </div>
           <div class="retirements">
             <label><span [ghs-label]="'character.progress.retirements'"></span>:</label>

@@ -15,6 +15,7 @@ import { Summon, SummonColor, SummonState } from "../model/Summon";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 import { v4 as uuidv4 } from 'uuid';
+import { PersonalQuest } from "../model/data/PersonalQuest";
 
 export class CharacterManager {
 
@@ -389,4 +390,7 @@ export class CharacterManager {
     })
   }
 
+  personalQuestByCard(edition: string, cardId: number): PersonalQuest | undefined {
+    return gameManager.editionData.filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(editionData.edition).indexOf(edition) != -1).flatMap((editionData) => editionData.personalQuests).find((pq) => pq.cardId == cardId);
+  }
 }

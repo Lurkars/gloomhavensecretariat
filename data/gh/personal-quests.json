@@ -1,0 +1,336 @@
+[
+    {
+        "cardId": 510,
+        "requirements": [
+            {
+                "name": "\"Crypt\" Scenarios",
+                "counter": 3
+            },
+            {
+                "name": "Follow \"Noxious Cellar\" (Scenario 52) to a conclusion",
+                "counter": 1,
+                "requires": 1
+            }
+        ],
+        "unlockCharacter": "squidface"
+    },
+    {
+        "cardId": 511,
+        "requirements": [
+            {
+                "name": "%game.items.slots.head% items",
+                "counter": 2
+            },
+            {
+                "name": "%game.items.slots.body% items",
+                "counter": 2
+            },
+            {
+                "name": "%game.items.slots.legs% items",
+                "counter": 2
+            },
+            {
+                "name": "%game.items.slots.onehand% or %game.items.slots.twohand% items",
+                "counter": 3
+            },
+            {
+                "name": "%game.items.slots.legs% small",
+                "counter": 4
+            }
+        ],
+        "unlockCharacter": "three-spears"
+    },
+    {
+        "cardId": 512,
+        "requirements": [
+            {
+                "name": "Gold",
+                "counter": 200
+            }
+        ],
+        "unlockCharacter": "three-spears"
+    },
+    {
+        "cardId": 513,
+        "requirements": [
+            {
+                "name": "Forest Imps killed",
+                "counter": 8
+            },
+            {
+                "name": "Follow \"Forgotten Grove\" (Scenario 59) to a conclusion",
+                "counter": 1,
+                "requires": 1
+            }
+        ],
+        "openEnvelope": "X"
+    },
+    {
+        "cardId": 514,
+        "requirements": [
+            {
+                "name": "Exhausted Party Members",
+                "counter": 15
+            }
+        ],
+        "unlockCharacter": "saw"
+    },
+    {
+        "cardId": 515,
+        "requirements": [
+            {
+                "name": "Bandits or Cultists killed",
+                "counter": 20
+            }
+        ],
+        "unlockCharacter": "sun"
+    },
+    {
+        "cardId": 516,
+        "requirements": [
+            {
+                "name": "Vermlings killed",
+                "counter": 15
+            }
+        ],
+        "unlockCharacter": "lightning"
+    },
+    {
+        "cardId": 517,
+        "requirements": [
+            {
+                "name": "Different types of monsters killed",
+                "counter": 20
+            }
+        ],
+        "unlockCharacter": "two-mini"
+    },
+    {
+        "cardId": 518,
+        "requirements": [
+            {
+                "name": "Different scenarios completed",
+                "counter": 15
+            }
+        ],
+        "unlockCharacter": "circles"
+    },
+    {
+        "cardId": 519,
+        "requirements": [
+            {
+                "name": "Earned %game.checkmark% from completed battle goals",
+                "counter": 15
+            }
+        ],
+        "unlockCharacter": "music-note"
+    },
+    {
+        "cardId": 520,
+        "requirements": [
+            {
+                "name": "Skullbane Axe",
+                "counter": 1
+            },
+            {
+                "name": "Living Bones, Living Corpses, or Living Spirits killed with Skullbane Axe",
+                "counter": 7,
+                "requires": 1
+            }
+        ],
+        "unlockCharacter": "sun"
+    },
+    {
+        "cardId": 521,
+        "requirements": [
+            {
+                "name": "Completed scenarios in Dagger Forest",
+                "counter": 3
+            },
+            {
+                "name": "Follow \"Foggy Thicket\" (Scenario 55) to a conclusion",
+                "counter": 1,
+                "requires": 1
+            }
+        ],
+        "unlockCharacter": "angry-face"
+    },
+    {
+        "cardId": 522,
+        "requirements": [
+            {
+                "name": "Completed side sceanrios (scenario number > 51)",
+                "counter": 6
+            }
+        ],
+        "unlockCharacter": "eclipse"
+    },
+    {
+        "cardId": 523,
+        "requirements": [
+            {
+                "name": "Flame Demon killed",
+                "counter": 1
+            },
+            {
+                "name": "Frost Demon killed",
+                "counter": 1
+            },
+            {
+                "name": "Wind Demon killed",
+                "counter": 1
+            },
+            {
+                "name": "Earth Demon killed",
+                "counter": 1
+            },
+            {
+                "name": "Night Demon killed",
+                "counter": 1
+            },
+            {
+                "name": "Sun Demon killed",
+                "counter": 1
+            }
+        ],
+        "unlockCharacter": "triangles"
+    },
+    {
+        "cardId": 524,
+        "requirements": [
+            {
+                "name": "Elite monsters killed",
+                "counter": 20
+            }
+        ],
+        "unlockCharacter": "two-mini"
+    },
+    {
+        "cardId": 525,
+        "requirements": [
+            {
+                "name": "Gold donated to the Sanctuary of the Great Oak",
+                "counter": 120
+            }
+        ],
+        "unlockCharacter": "saw"
+    },
+    {
+        "cardId": 526,
+        "requirements": [
+            {
+                "name": "Completed scenarios in Gloomhaven",
+                "counter": 4
+            },
+            {
+                "name": "Follow \"Investigation\" (Scenario 57) to a conclusion",
+                "counter": 1,
+                "requires": 1
+            }
+        ],
+        "openEnvelope": "X"
+    },
+    {
+        "cardId": 527,
+        "requirements": [
+            {
+                "name": "Exhausted",
+                "counter": 12
+            }
+        ],
+        "unlockCharacter": "lightning"
+    },
+    {
+        "cardId": 528,
+        "requirements": [
+            {
+                "name": "Completed boss sceanrios",
+                "counter": 4
+            }
+        ],
+        "unlockCharacter": "angry-face"
+    },
+    {
+        "cardId": 529,
+        "requirements": [
+            {
+                "name": "Completed scenarios in Lingering Swarm",
+                "counter": 2
+            },
+            {
+                "name": "Follow \"Fading Lighthouse\" (Scenario 61) to a conclusion",
+                "counter": 1,
+                "requires": 1
+            }
+        ],
+        "unlockCharacter": "eclipse"
+    },
+    {
+        "cardId": 530,
+        "requirements": [
+            {
+                "name": "Enhancements",
+                "counter": 4
+            }
+        ],
+        "unlockCharacter": "circles"
+    },
+    {
+        "cardId": 531,
+        "requirements": [
+            {
+                "name": "Completed scenario in Gloomhaven",
+                "counter": 1
+            },
+            {
+                "name": "Completed scenario in Dagger Forest",
+                "counter": 1
+            },
+            {
+                "name": "Completed scenario in Lingering Swamp",
+                "counter": 1
+            },
+            {
+                "name": "Completed scenario in Watcher Mountains",
+                "counter": 1
+            },
+            {
+                "name": "Completed scenario in Copperneck Mountains",
+                "counter": 1
+            },
+            {
+                "name": "Completed scenario in Misty Sea",
+                "counter": 1
+            }
+        ],
+        "unlockCharacter": "triangles"
+    },
+    {
+        "cardId": 532,
+        "requirements": [
+            {
+                "name": "Personal quests achieved",
+                "counter": 2
+            }
+        ],
+        "unlockCharacter": "music-note"
+    },
+    {
+        "cardId": 533,
+        "requirements": [
+            {
+                "name": "Oozes killed",
+                "counter": 3
+            },
+            {
+                "name": "Lurkers killed",
+                "counter": 3
+            },
+            {
+                "name": "Spitting Drakes killed",
+                "counter": 3
+            }
+        ],
+        "unlockCharacter": "squidface"
+    }
+]

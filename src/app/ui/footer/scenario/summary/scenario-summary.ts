@@ -675,7 +675,7 @@ export class ScenarioSummaryComponent {
     restart() {
         this.waitForClose = true;
         gameManager.stateManager.before("finishScenario.restart", ...gameManager.scenarioManager.scenarioUndoArgs());
-        gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, true, undefined, this.characterProgress || this.forceCampaign, this.gainRewards || this.forceCampaign, true);
+        gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, true, undefined, this.characterProgress || this.forceCampaign, this.gainRewards || this.forceCampaign, false);
         gameManager.stateManager.after(1000);
         this.dialogRef.close();
     }

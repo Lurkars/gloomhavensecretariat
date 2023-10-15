@@ -10,6 +10,7 @@ import { PerkType } from "src/app/game/model/data/Perks";
 import { ghsInputFullScreenCheck, ghsValueSign } from "src/app/ui/helper/Static";
 import { CharacterMoveResourcesDialog } from "./move-resources";
 import { CharacterRetirementDialog } from "./retirement-dialog";
+import { PersonalQuest } from "src/app/game/model/data/PersonalQuest";
 
 
 @Component({
@@ -34,6 +35,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   availablePerks: number = 0;
   perksWip: boolean = true;
   retired: boolean = false;
+  personalQuest: PersonalQuest | undefined;
 
   goldTimeout: any = null;
   xpTimeout: any = null;
@@ -98,6 +100,13 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.extraPerks + this.character.progress.retirements + this.character.progress.masteries.length;
 
     this.perksWip = this.character.perks.length == 0 || this.character.perks.map((perk) => perk.count).reduce((a, b) => a + b) != (this.character.edition == 'fh' ? 18 : 15);
+
+    if (this.character.progress.personalQuest) {
+      this.personalQuest = gameManager.characterManager.personalQuestByCard(gameManager.currentEdition(), this.character.progress.personalQuest);
+      if (!this.character.progress.personalQuestProgress) {
+        this.character.progress.personalQuestProgress = [];
+      }
+    }
 
     gameManager.uiChange.subscribe({
       next: () => {
@@ -275,7 +284,33 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     if (!isNaN(+event.target.value) && this.character.progress.personalQuest != +event.target.value) {
       gameManager.stateManager.before("setPQ", "data.character." + this.character.name, event.target.value);
       this.character.progress.personalQuest = +event.target.value;
+      this.personalQuest = gameManager.characterManager.personalQuestByCard(gameManager.currentEdition(), this.character.progress.personalQuest);
       gameManager.stateManager.after();
+    }
+  }
+
+  setPersonalQuestProgress(index: number, input: number | any) {
+    if (!this.character.progress.personalQuestProgress[index]) {
+      this.character.progress.personalQuestProgress[index] = 0;
+    }
+
+    let value: number = 0;
+    if (typeof input === 'number') {
+      value = input;
+    } else {
+      value = +input.target.value;
+    }
+
+    if (this.character.progress.personalQuestProgress[index] == value) {
+      value--;
+    }
+
+    gameManager.stateManager.before("setPQProgress", "data.character." + this.character.name, '' + index, '' + value);
+    this.character.progress.personalQuestProgress[index] = value;
+    gameManager.stateManager.after();
+
+    if (this.personalQuest) {
+      this.retired = this.personalQuest.requirements.every((requirement, i) => this.character.progress.personalQuestProgress[i] >= requirement.counter);
     }
   }
 

@@ -750,6 +750,7 @@ export class SettingsManager {
           value.conditions = value.conditions || [];
           value.battleGoals = value.battleGoals || [];
           value.events = value.events || [];
+          value.personalQuests = value.personalQuests || [];
           value.label = value.label || {};
           value.labelSpoiler = value.labelSpoiler || {};
           value.url = url;
@@ -782,6 +783,16 @@ export class SettingsManager {
               event.cardId = (index + 1);
             }
             return event;
+          })
+
+          value.personalQuests.map((personalQuest, index) => {
+            if (!personalQuest.edition) {
+              personalQuest.edition = value.edition;
+            }
+            if (!personalQuest.cardId) {
+              personalQuest.cardId = (index + 1);
+            }
+            return personalQuest;
           })
 
           gameManager.editionData.push(value);
@@ -875,6 +886,9 @@ export class SettingsManager {
     }
     if (!this.label.data.battleGoals) {
       this.label.data.battleGoals = {};
+    }
+    if (!this.label.data.personalQuest) {
+      this.label.data.personalQuest = {};
     }
     if (!this.label.data.items) {
       this.label.data.items = {};
