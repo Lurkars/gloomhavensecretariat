@@ -107,7 +107,12 @@
         ".": "Verbesserungen",
         "extra": "Extra Verbesserungen"
       },
-      "personalQuest": "Persönliche Quest",
+      "personalQuest": {
+        ".": "Persönliche Quest",
+        "counter": "Zähler",
+        "openEnvelope": "Belohnung: Umschlag {0} öffnen",
+        "unlockCharacter": "Belohnung: Schachtel %game.characterIcon.{0}% öffnen"
+      },
       "resources": {
         ".": "Ressourcen",
         "move": "Zur Frosthaven Versorgung verschieben",
@@ -119,8 +124,9 @@
         "apply": "Anwenden",
         "conclusion": "Öffne Sektion %data.section:{0}%",
         "moveSupply": "Ressourcen zur Frosthaven Versorgung verschieben",
+        "openEnvelope": "Umschlag {0} öffnen",
         "prosperity": "+{0} Wohlstand",
-        "wip": "%wip%!<br>Aktuell wird nur der Wohlstand angepasst, bis die Funktionen zur Persönlichen Quest entwickelt sind."
+        "unlockCharacter": "Schachtel %game.characterIcon.{0}% öffnen"
       },
       "retirements": "Ruhestände",
       "title": "{1} {0}",
