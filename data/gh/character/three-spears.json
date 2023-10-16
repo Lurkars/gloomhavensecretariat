@@ -4,6 +4,8 @@
   "gender": "m",
   "edition": "gh",
   "handSize": 9,
+  "unlockEvent": "32",
+  "retireEvent": "49",
   "color": "#ad9477",
   "spoiler": true,
   "stats": [

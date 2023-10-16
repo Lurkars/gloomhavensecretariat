@@ -390,7 +390,7 @@ export class CharacterManager {
     })
   }
 
-  personalQuestByCard(edition: string, cardId: number): PersonalQuest | undefined {
-    return gameManager.editionData.filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(editionData.edition).indexOf(edition) != -1).flatMap((editionData) => editionData.personalQuests).find((pq) => pq.cardId == cardId);
+  personalQuestByCard(edition: string, cardId: string): PersonalQuest | undefined {
+    return gameManager.editionData.filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).indexOf(editionData.edition) != -1).flatMap((editionData) => editionData.personalQuests).find((pq) => pq.cardId == cardId || pq.altId == cardId || pq.altId == '0' + cardId);
   }
 }

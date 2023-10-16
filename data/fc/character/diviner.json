@@ -3,6 +3,8 @@
   "characterClass": "aesther",
   "edition": "fc",
   "handSize": 9,
+  "unlockEvent": "82",
+  "retireEvent": "83",
   "color": "#c8e3ea",
   "stats": [
     {

@@ -22,7 +22,7 @@ export class ObjectiveContainer implements Figure {
   edition: string = "";
   health: number | string = 7;
   initiative: number = 99;
-  type: string = 'objective.container';
+  type: string = 'objectiveContainer';
 
   objectiveId: ScenarioObjectiveIdentifier | undefined;
 

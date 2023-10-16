@@ -94,6 +94,36 @@
     "Ooze Destroyed": "Ooze Destroyed",
     "Take the Money": "Take the Money"
   },
+  "personalQuest": {
+    "330": "Protect and Serve",
+    "331": "Weapon Specialist",
+    "332": "Experimentation",
+    "333": "Thrill Seeker",
+    "334": "Trap Setter",
+    "335": "Bandit Banisher",
+    "336": "Creatures in the Night",
+    "337": "Experienced Leader",
+    "338": "Adrenaline Spike",
+    "339": "Mutual Support",
+    "340": "Thy be Blessed",
+    "341": "Spiritual Gains",
+    "342": "The Path of Agony",
+    "343": "Cruel Dominion",
+    "344": "Natural Selection",
+    "345": "Predator and Prey",
+    "346": "An Adder Divides",
+    "347": "Field Research",
+    "348": "Conjurers Hand",
+    "349": "No Rest for the Wicked",
+    "350": "Health First",
+    "351": "Limitless Searching",
+    "AA1": "At All Costs",
+    "AA2": "The Weight of Failure",
+    "QA1": "Ingenious Inventor",
+    "QA2": "Scrap Diver",
+    "RM1": "Brutal Enforcer",
+    "RM2": "Apex Predator"
+  },
   "custom": {
     "cs": {
       "blood-ooze": {

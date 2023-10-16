@@ -321,6 +321,7 @@ export class StateManager {
             settings.characterItemsPermanentSorted = settingsManager.settings.characterItemsPermanentSorted;
             settings.characterItemsPermanentZoom = settingsManager.settings.characterItemsPermanentZoom;
             settings.characterCompact = settingsManager.settings.characterCompact;
+            settings.characterSheetCompact = settingsManager.settings.characterSheetCompact;
             settings.debugRightClick = settingsManager.settings.debugRightClick;
             settings.disableAnimations = settingsManager.settings.disableAnimations;
             settings.disableArtwork = settingsManager.settings.disableArtwork;

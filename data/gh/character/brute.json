@@ -4,6 +4,7 @@
   "gender": "m",
   "edition": "gh",
   "handSize": 10,
+  "retireEvent": "42",
   "color": "#35acd5",
   "stats": [
     {

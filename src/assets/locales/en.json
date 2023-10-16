@@ -110,8 +110,8 @@
       "personalQuest": {
         ".": "Personal Quest",
         "counter": "Counter",
-        "openEnvelope": "Reward: Open Envelope {0}",
-        "unlockCharacter": "Reward: Open Box %game.characterIcon.{0}%"
+        "openEnvelope": "Open Envelope {0}",
+        "unlockCharacter": "Open Box %game.characterIcon.{0}%"
       },
       "resources": {
         ".": "Resources",
@@ -123,10 +123,9 @@
         ".": "Retire Character",
         "apply": "Apply",
         "conclusion": "Open Section %data.section:{0}%",
-        "openEnvelope": "Open Envelope {0}",
+        "events": "Add City Event {0} and Road Event {0} to the deck",
         "moveSupply": "Move resources to Frosthaven supply",
-        "prosperity": "+{0} prosperity",
-        "unlockCharacter": "Open Box %game.characterIcon.{0}%"
+        "prosperity": "+{0} prosperity"
       },
       "retirements": "Retirements",
       "title": "{1} {0}",
@@ -1724,6 +1723,10 @@
       ".": "Character Sheet",
       "hint": "Enable the Character Sheet. To open it, click on the big character icon on the right side."
     },
+    "characterSheetCompact": {
+      ".": "Compact Character Sheets (%wip%)",
+      "hint": "Show more compact character sheets not using the original character sheet layout."
+    },
     "characterTraits": {
       ".": "Display traits",
       "hint": "Display the traits the character's board."
@@ -1991,6 +1994,7 @@
       "addNextStandee": "Add {1} {0} standee",
       "addObjective": {
         ".": "Add Objective",
+        "entity": "Add %game.objectiveMarker.{0}% to {1}",
         "escort": "Add Escort"
       },
       "addParty": "Create new party '{0}'",
@@ -2043,9 +2047,11 @@
       "changeMaxHP": "Max. HP {1} for {0}",
       "changeMonsterHP": "HP {1} for all {2}{0}",
       "changeMonsterType": "Change type from {0} standee {2} from {1} to %monster.{3}%",
+      "changeObjectiveEntityHP": "HP {2} for %game.objectiveMarker.{1}% of {0}",
+      "changeObjectiveEntityNumber": "Change marker from %game.objectiveMarker.{1}% to %game.objectiveMarker.{2}% for {0}",
       "changeObjectiveHP": "HP {1} for objective {0}",
       "changeObjectiveId": "ID '{1}' for {0}",
-      "changeObjectiveMaxHP": "Max. HP {1} for objective {0}",
+      "changeObjectiveMaxHp": "Max. HP {1} for objective {0}",
       "changeParty": "Change party to '{0}'",
       "changeSummonAttack": "Attack {2} for summon '{1}' of {0}",
       "changeSummonHp": "HP {2} for summon '{1}' of {0}",
@@ -2105,10 +2111,13 @@
       "lootDeckShuffle": "Shuffle Loot deck",
       "lootCharTreasure": "{2} loots treasure {0}",
       "moveResource": "Move {2} {1} from {0} to Frosthaven Supply",
+      "monsterChangeEntityHp": "HP {2} for standee {1} of %data.monster.{0}%",
       "monsterConsumeElement": "{0} consume {1}",
       "monsterDead": "Kill all {1}{0}",
       "monsterInfuseElement": "{0} infuse {1}",
       "nextRound": "Next Round",
+      "objectiveContainerChangeEntityHp": "HP {2} for %game.objectiveMarker.{1}% of {0}",
+      "objectiveEntityDead": "Kill %game.objectiveMarker.{1}% of {0}",
       "openRoom": "Open door for tile '{2}' in #{0} {1}",
       "openRoomMarker": "Open door %game.mapMarker.{3}% for tile '{2}' in #{0} {1}",
       "removeAbility": "Remove ability {1} from {0}",
@@ -2201,6 +2210,7 @@
       "setPlayer": "Set Player {1} to {0}",
       "setPlayerNumber": "Set Player number {1} for {0}",
       "setPQ": "Personal Quest {1} for {0} ",
+      "setPQProgress": "Set Personal Quest counter {1} to {2} for {0}",
       "setResource": "Set {1} {2} for {0}",
       "setRetired": "{0} retired",
       "setRetirements": "Retirements {1} for {0}",

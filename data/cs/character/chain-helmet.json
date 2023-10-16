@@ -3,6 +3,8 @@
   "characterClass": "inox",
   "edition": "cs",
   "handSize": 10,
+  "unlockEvent": "43",
+  "retireEvent": "44",
   "color": "#ce6d2f",
   "spoiler": true,
   "stats": [

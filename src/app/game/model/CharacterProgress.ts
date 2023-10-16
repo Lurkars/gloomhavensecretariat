@@ -9,7 +9,7 @@ export class CharacterProgress {
   itemNotes: string = "";
   items: Identifier[] = [];
   equippedItems: AdditionalIdentifier[] = [];
-  personalQuest: number = 0;
+  personalQuest: string = "";
   personalQuestProgress: number[] = [];
   battleGoals: number = 0;
   notes: string = "";

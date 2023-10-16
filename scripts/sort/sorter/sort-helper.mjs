@@ -1,5 +1,10 @@
 export const sortObjectKeys = function (object, ...keys) {
     return Object.keys(object).sort((a, b) => {
+        if (keys.indexOf(a) != -1 && keys.indexOf(b) == -1) {
+            return -1;
+        } else if (keys.indexOf(a) == -1 && keys.indexOf(b) != -1) {
+            return 1;
+        }
         return keys.indexOf(a) - keys.indexOf(b);
     }).reduce((r, k) => (r[k] = object[k], r), {});
 }

@@ -107,7 +107,14 @@ export class StandeeComponent implements OnInit, OnDestroy {
 
   dragHpEnd(value: number) {
     if (this.health != 0 && EntityValueFunction(this.entity.maxHealth) > 0 && (!(this.figure instanceof Monster) || !this.figure.immortal)) {
-      gameManager.stateManager.before(this.figure.type + "ChangeEntityHp", this.figure.name, "" + this.entity.number, "" + this.health, this.additionalType());
+      let name = this.figure.name;
+      if (!name && this.figure instanceof ObjectiveContainer) {
+        name = this.figure.title;
+        if (!name) {
+          name = this.figure.escort ? '%escort%' : '%objective%';
+        }
+      }
+      gameManager.stateManager.before(this.figure.type + "ChangeEntityHp", name, "" + this.entity.number, "" + this.health, this.additionalType());
       gameManager.entityManager.changeHealth(this.entity, this.figure, this.health);
 
       if (this.figure instanceof Monster && this.figure.entities.every((monsterEntity) => monsterEntity.dead)) {

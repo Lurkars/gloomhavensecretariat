@@ -186,8 +186,27 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
   }
 
   addEntity() {
-    gameManager.stateManager.before('addObjectiveEntity');
-    gameManager.objectiveManager.addObjectiveEntity(this.objective);
+    const objectiveCount = this.objective.entities.filter((entity) => gameManager.entityManager.isAlive(entity)).length;
+    let number = objectiveCount % 12;
+    if (this.objective.entities.find((objectiveEntity) => objectiveEntity.number == number)) {
+      number = objectiveCount % 12;
+      if (objectiveCount < 12) {
+        while (this.objective.entities.find((objectiveEntity) => objectiveEntity.number - 1 == number)) {
+          number++;
+        }
+      }
+    }
+
+    let name = this.objective.name;
+    if (!name) {
+      name = this.objective.title;
+      if (!name) {
+        name = this.objective.escort ? '%escort%' : '%objective%';
+      }
+    }
+
+    gameManager.stateManager.before('addObjective.entity', '' + (number + 1), name);
+    gameManager.objectiveManager.addObjectiveEntity(this.objective, number);
     gameManager.stateManager.after();
   }
 

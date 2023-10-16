@@ -1,0 +1,93 @@
+[
+    {
+        "cardId": "641",
+        "requirements": [
+            {
+                "name": "Money tokes looted in scenarios with Living Bons, Living Corpses, or Living Spritits",
+                "counter": 15
+            },
+            {
+                "name": "Follow \"Ternion Tomb\" (Scenario 67) to a conclusion",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ],
+        "unlockCharacter": "three-eyes"
+    },
+    {
+        "cardId": "642",
+        "requirements": [
+            {
+                "name": "Enemies killed with \"Battle Standard\" (Item 115) by allies with abilities granted by you",
+                "counter": 12
+            }
+        ],
+        "unlockCharacter": "three-eyes"
+    },
+    {
+        "cardId": "643",
+        "requirements": [
+            {
+                "name": "Option A choosed on an event",
+                "counter": 8
+            },
+            {
+                "name": "Option B choosed on an event",
+                "counter": 8
+            }
+        ],
+        "unlockCharacter": "ice-meteor"
+    },
+    {
+        "cardId": "644",
+        "requirements": [
+            {
+                "name": "Enemies killed while they're adjacent to one or more of their allies",
+                "counter": 13
+            }
+        ],
+        "unlockCharacter": "ice-meteor"
+    },
+    {
+        "cardId": "645",
+        "requirements": [
+            {
+                "name": "Enemies with initiative at least 20 slower than yours killed",
+                "counter": 20
+            }
+        ],
+        "unlockCharacter": "lightning-ball"
+    },
+    {
+        "cardId": "646",
+        "requirements": [
+            {
+                "name": "Different scenarios where twice performed a loot action adjacent to an enemy",
+                "counter": 10
+            }
+        ],
+        "unlockCharacter": "lightning-ball"
+    },
+    {
+        "cardId": "647",
+        "requirements": [
+            {
+                "name": "Scenarios completed used at least one Bush, Tree, or Thorns overlay",
+                "counter": 4
+            }
+        ],
+        "unlockCharacter": "spiked-ring"
+    },
+    {
+        "cardId": "648",
+        "requirements": [
+            {
+                "name": "Long rests perfomred while an enemy is in the same room",
+                "counter": 13
+            }
+        ],
+        "unlockCharacter": "spiked-ring"
+    }
+]

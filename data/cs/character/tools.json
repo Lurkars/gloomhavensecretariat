@@ -3,6 +3,8 @@
   "characterClass": "quatryl",
   "edition": "cs",
   "handSize": 9,
+  "unlockEvent": "QA1",
+  "retireEvent": "QA2",
   "color": "#79bcda",
   "spoiler": true,
   "stats": [

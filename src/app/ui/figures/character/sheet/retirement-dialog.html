@@ -1,4 +1,4 @@
-<div class="move-resources-dialog">
+<div class="retirement-dialog">
     <label class="title">
         <span [ghs-label]="'character.progress.retirement'"></span>
         <span class="name">
@@ -12,6 +12,10 @@
             [ghs-label-args]="[gameManager.fhRules() ? '2' : '1']"></span>
     </div>
 
+    <div class="event text-white" *ngIf="character.retireEvent" [ghs-label]="'character.progress.retirement.events'"
+        [ghs-label-args]="[character.retireEvent]">
+    </div>
+
     <div class="conclusion" *ngIf="conclusion">
         <a (click)="openConclusion()"><span class="text-white" [ghs-label]="'character.progress.retirement.conclusion'"
                 [ghs-label-args]="[conclusion.index]"></span></a>
@@ -19,11 +23,11 @@
 
     <div class="personal-quest" *ngIf="personalQuest">
         <div class="text-white" *ngIf="personalQuest.unlockCharacter"
-            [ghs-label]="'character.progress.retirement.unlockCharacter'"
+            [ghs-label]="'character.progress.personalQuest.unlockCharacter'"
             [ghs-label-args]="[personalQuest.unlockCharacter]">
         </div>
         <div class="text-white" *ngIf="personalQuest.openEnvelope"
-            [ghs-label]="'character.progress.retirement.openEnvelope'"
+            [ghs-label]="'character.progress.personalQuest.openEnvelope'"
             [ghs-label-args]="[personalQuest.openEnvelope]">
         </div>
     </div>
@@ -31,8 +35,6 @@
     <div class="additional" *ngIf="gameManager.fhRules()">
         <a (click)="moveResources()"><span [ghs-label]="'character.progress.retirement.moveSupply'"></span></a>
     </div>
-
-    <p class="wip" [ghs-label]="'wip'"></p>
 
     <div class="menu">
         <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>

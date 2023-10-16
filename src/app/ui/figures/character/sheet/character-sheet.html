@@ -1,4 +1,5 @@
-<div class="light character-sheet" [ngClass]="{'cs-sheet' : csSheet, 'fh-sheet' : fhSheet}">
+<div class="light character-sheet"
+  [ngClass]="{'cs-sheet' : csSheet, 'fh-sheet' : fhSheet, 'compact': settingsManager.settings.characterSheetCompact}">
   <div class="container"
     [ngClass]="{'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]}">
     <div class="columns">
@@ -239,32 +240,37 @@
           <div class="personal-quest">
             <label><span [ghs-label]="'character.progress.personalQuest'"></span>:</label>
             <div class="personal-quest-card">
-              <input class="card-id" [value]="character.progress.personalQuest" type="number" min="0"
+              <input class="card-id" [value]="character.progress.personalQuest" type="text"
                 (change)="setPersonalQuest($event)">
 
               <span *ngIf="!personalQuest" class="retired checkbox" [ngClass]="{'checked' : retired}"
                 (click)="toggleRetired()" [ghs-label]="'character.progress.retired'"
                 [ghs-label-attribute]="'title'"></span>
-              <span *ngIf="personalQuest" class="name"
-                [ghs-label]="'data.personalQuest.' + personalQuest.cardId"></span>
+              <span *ngIf="personalQuest" class="personal-quest-name">
+                <span [ghs-label]="'data.personalQuest.' + personalQuest.cardId"></span>
+                <span *ngIf="personalQuest.altId">&nbsp;({{personalQuest.altId}})</span>
+              </span>
             </div>
 
             <div class="requirements" *ngIf="personalQuest">
               <div class="requirement" *ngFor="let requirement of personalQuest.requirements; let i = index;"
-                [ngClass]="{'disabled' : requirement.requires && (!character.progress.personalQuestProgress[requirement.requires - 1] ||character.progress.personalQuestProgress[requirement.requires - 1] < personalQuest.requirements[requirement.requires -1].counter)}">
-                <span class="requirement-name">{{requirement.name}}:<span
-                    *ngIf="requirement.counter > 1">&nbsp;{{character.progress.personalQuestProgress[i] ||
-                    0}}/{{requirement.counter}}</span>
+                [ngClass]="{'disabled' : requirement.requires && requirement.requires.length > 0 && !personalQuestRequirementUnlocked(i)}">
+                <span class="requirement-name">
+                  <span [ghs-label]="requirement.name"></span>:<span
+                    *ngIf="EntityValueFunction(requirement.counter) > 1">&nbsp;{{character.progress.personalQuestProgress[i]
+                    ||
+                    0}}/{{EntityValueFunction(requirement.counter)}}</span>
                 </span>
                 <span class="counter">
-                  <ng-container *ngIf="requirement.counter < 10">
-                    <span *ngFor="let counter of []| ghsRange:requirement.counter" class="checkbox"
+                  <ng-container *ngIf="EntityValueFunction(requirement.counter) < 11">
+                    <span *ngFor="let counter of []| ghsRange:EntityValueFunction(requirement.counter)" class="checkbox"
                       [ngClass]="{'checked' : character.progress.personalQuestProgress[i] > counter}"
                       (click)="setPersonalQuestProgress(i,counter+1)"
                       [ghs-label]="'character.progress.personalQuest.counter'" [ghs-label-attribute]="'title'"></span>
                   </ng-container>
-                  <input *ngIf="requirement.counter > 9" [value]="character.progress.personalQuestProgress[i]"
-                    type="number" min="0" [max]="requirement.counter" (change)="setPersonalQuestProgress(i, $event)">
+                  <input *ngIf="EntityValueFunction(requirement.counter) > 10"
+                    [value]="character.progress.personalQuestProgress[i]" type="number" min="0"
+                    [max]="EntityValueFunction(requirement.counter)" (change)="setPersonalQuestProgress(i, $event)">
                 </span>
               </div>
             </div>
@@ -303,7 +309,7 @@
               <img src="./assets/images/import.svg"><span [ghs-label]="'character.progress.import'"></span>
             </label>
           </div>
-          <span class="toggle-fh-sheet" (click)="fhSheet = !fhSheet">
+          <span class="toggle-fh-sheet" (click)="toggleFhSheet()">
             <span [ghs-label]="'character.progress.fh.' + (fhSheet ? 'disable': 'enable')"></span>
           </span>
         </div>

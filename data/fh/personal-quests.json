@@ -1,0 +1,310 @@
+[
+    {
+        "cardId": "581",
+        "altId": "01",
+        "requirements": [
+            {
+                "name": "Different types of herbs looted",
+                "counter": 5
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 24<br>(alt: %game.fhIcon:envelope% 42)"
+    },
+    {
+        "cardId": "582",
+        "altId": "02",
+        "requirements": [
+            {
+                "name": "Lumber cards looted",
+                "counter": 8
+            },
+            {
+                "name": "Follow \"Sacred Soil\" %game.scenarioNumber:69% to a conclusion",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 24<br>(alt: %game.fhIcon:envelope% 42)"
+    },
+    {
+        "cardId": "583",
+        "altId": "03",
+        "requirements": [
+            {
+                "name": "%game.items.slots.head% items",
+                "counter": 3
+            },
+            {
+                "name": "%game.items.slots.body% items",
+                "counter": 3
+            },
+            {
+                "name": "%game.items.slots.legs% items",
+                "counter": 3
+            },
+            {
+                "name": "%game.items.slots.onehand% or %game.items.slots.twohand% items",
+                "counter": 3
+            },
+            {
+                "name": "%game.items.slots.small% items",
+                "counter": 4
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 37<br>(alt: %game.fhIcon:envelope% 74)"
+    },
+    {
+        "cardId": "584",
+        "altId": "04",
+        "requirements": [
+            {
+                "name": "Gold",
+                "counter": "80+20xP"
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 37<br>(alt: %game.fhIcon:envelope% 74)"
+    },
+    {
+        "cardId": "585",
+        "altId": "05",
+        "requirements": [
+            {
+                "name": "Buildings constructed or upgraded",
+                "counter": 12
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 85<br>(alt: %game.fhIcon:envelope% 21)"
+    },
+    {
+        "cardId": "586",
+        "altId": "06",
+        "requirements": [
+            {
+                "name": "Person's name read in different outpost phases",
+                "counter": 8
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 85<br>(alt: %game.fhIcon:envelope% 21)"
+    },
+    {
+        "cardId": "587",
+        "altId": "07",
+        "requirements": [
+            {
+                "name": "Follow \"A Strong Foundation\" %game.scenarioNumber:65% to a conclusion",
+                "counter": 1
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 44<br>(alt: %game.fhIcon:envelope% 88)"
+    },
+    {
+        "cardId": "588",
+        "altId": "08",
+        "requirements": [
+            {
+                "name": "Algox Guards killed",
+                "counter": 2
+            },
+            {
+                "name": "Lurker Clawcrushers killed",
+                "counter": 2
+            },
+            {
+                "name": "Robotic Boltshooters killed",
+                "counter": 2
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 44<br>(alt: %game.fhIcon:envelope% 88)"
+    },
+    {
+        "cardId": "589",
+        "altId": "09",
+        "requirements": [
+            {
+                "name": "Experience gained from ability cards",
+                "counter": 150
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 90<br>(alt: %game.fhIcon:envelope% 83)"
+    },
+    {
+        "cardId": "590",
+        "altId": "10",
+        "requirements": [
+            {
+                "name": "Scenarios completed with %game.fhIcon:boat%, %game.fhIcon:climbing-gear%, or %game.fhIcon:sled% requirement ",
+                "counter": 5
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 90<br>(alt: %game.fhIcon:envelope% 83)"
+    },
+    {
+        "cardId": "505",
+        "altId": "11",
+        "requirements": [
+            {
+                "name": "Items craftable with own items costs",
+                "counter": 15
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 39<br>(alt: %game.fhIcon:envelope% 72)"
+    },
+    {
+        "cardId": "509",
+        "altId": "12",
+        "requirements": [
+            {
+                "name": "Follow \"Invasion of the Docks\" %game.scenarioNumber:71% to a conclusion",
+                "counter": 1
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 90<br>(alt: %game.fhIcon:envelope% 42)"
+    },
+    {
+        "cardId": "514",
+        "altId": "13",
+        "requirements": [
+            {
+                "name": "Imps killed",
+                "counter": 15
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 44<br>(alt: %game.fhIcon:envelope% 74)"
+    },
+    {
+        "cardId": "519",
+        "altId": "14",
+        "requirements": [
+            {
+                "name": "Completed scenario in Whitefire Wood",
+                "counter": 1
+            },
+            {
+                "name": "Completed scenario in Copperneck Mountains",
+                "counter": 1
+            },
+            {
+                "name": "Completed scenario in Radiant Forest",
+                "counter": 1
+            },
+            {
+                "name": "Completed scenario in Crystal Fields",
+                "counter": 1
+            },
+            {
+                "name": "Completed scenario in Biting Sea",
+                "counter": 1
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 37<br>(alt: %game.fhIcon:envelope% 72)"
+    },
+    {
+        "cardId": "523",
+        "altId": "15",
+        "requirements": [
+            {
+                "name": "Gold donated to the Temple of the Great Oak",
+                "counter": 70
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 65<br>(alt: %game.fhIcon:envelope% 85)"
+    },
+    {
+        "cardId": "527",
+        "altId": "16",
+        "requirements": [
+            {
+                "name": "Enhancements purchased",
+                "counter": 5
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 85<br>(alt: %game.fhIcon:envelope% 88)"
+    },
+    {
+        "cardId": "538",
+        "altId": "17",
+        "requirements": [
+            {
+                "name": "Earned %game.checkmark% from completed battle goals",
+                "counter": 16
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 81<br>(alt: %game.fhIcon:envelope% 67)"
+    },
+    {
+        "cardId": "542",
+        "altId": "18",
+        "requirements": [
+            {
+                "name": "Side scenarios (numbered 65 or higher) completed",
+                "counter": 8
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 44<br>(alt: %game.fhIcon:envelope% 67)"
+    },
+    {
+        "cardId": "545",
+        "altId": "19",
+        "requirements": [
+            {
+                "name": "Gain Abyss Axe blueprint %game.itemFh.39%",
+                "counter": 1
+            },
+            {
+                "name": "Frozen Corpses, Ice Wraiths, and/or Living Dooms killed with it",
+                "counter": 10,
+                "requires": [
+                    1
+                ]
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 81<br>(alt: %game.fhIcon:envelope% 67)"
+    },
+    {
+        "cardId": "549",
+        "altId": "20",
+        "requirements": [
+            {
+                "name": "Ruined Machines killed",
+                "counter": 15
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 24<br>(alt: %game.fhIcon:envelope% 21)"
+    },
+    {
+        "cardId": "552",
+        "altId": "21",
+        "requirements": [
+            {
+                "name": "Enemies captured",
+                "counter": 8
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 39<br>(alt: %game.fhIcon:envelope% 72)"
+    },
+    {
+        "cardId": "557",
+        "altId": "22",
+        "requirements": [
+            {
+                "name": "Challenges completed",
+                "counter": 12
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% 37<br>(alt: %game.fhIcon:envelope% 83)"
+    },
+    {
+        "cardId": "543",
+        "altId": "23",
+        "spoiler": true,
+        "requirements": [
+            {
+                "name": "Allies exhausted during scenarios you otherwise complete",
+                "counter": 10
+            }
+        ],
+        "openEnvelope": "%game.fhIcon:envelope% A"
+    }
+]

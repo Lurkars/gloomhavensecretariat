@@ -369,6 +369,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setCharacterSheetCompact(characterSheetCompact: boolean) {
+    this.settings.characterSheetCompact = characterSheetCompact;
+    this.storeSettings();
+  }
+
   setCharacterTraits(characterTraits: boolean) {
     this.settings.characterTraits = characterTraits;
     this.storeSettings();
@@ -790,7 +795,7 @@ export class SettingsManager {
               personalQuest.edition = value.edition;
             }
             if (!personalQuest.cardId) {
-              personalQuest.cardId = (index + 1);
+              personalQuest.cardId = value.edition + '-' + (index + 1);
             }
             return personalQuest;
           })

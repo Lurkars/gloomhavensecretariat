@@ -1,7 +1,9 @@
 import { Editional } from "./Editional";
 
 export class PersonalQuest implements Editional {
-    cardId: number = -1;
+    cardId: string = "";
+    altId: string = "";
+    spoiler: boolean = false;
     requirements: PersonalQuestRequirement[] = [];
     unlockCharacter: string = "";
     openEnvelope: string = "";
@@ -14,7 +16,7 @@ export class PersonalQuest implements Editional {
 export class PersonalQuestRequirement {
 
     name: string = "";
-    counter: number = 1;
-    requires: number = -1;
+    counter: number | string = 1;
+    requires: number[] = [];
 
 }

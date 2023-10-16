@@ -3,6 +3,8 @@
   "characterClass": "savvas",
   "edition": "cs",
   "handSize": 10,
+  "unlockEvent": "55",
+  "retireEvent": "56",
   "color": "#a04aa5",
   "spoiler": true,
   "stats": [

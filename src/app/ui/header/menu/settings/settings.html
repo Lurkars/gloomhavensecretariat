@@ -1028,6 +1028,20 @@
         </span>
       </div>
     </div>
+    <div class="line">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : !settingsManager.settings.characterSheet }">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.characterSheet && settingsManager.settings.characterSheetCompact"
+            (change)="settingsManager.setCharacterSheetCompact(!settingsManager.settings.characterSheetCompact)">
+          <span [ghs-label]="'settings.characterSheetCompact'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.characterSheetCompact.hint'"></span>
+        </span>
+      </div>
+    </div>
   </div>
 
   <div class="column">

@@ -437,5 +437,30 @@
     "wall-m": "Wall M",
     "wall-n": "Wall N",
     "workshop": "Workshop"
+  },
+  "personalQuest": {
+    "581": "The Study of Plants",
+    "582": "Searching for the Oak",
+    "583": "Merchant Class",
+    "584": "Greed is Good",
+    "585": "Build, not Destroy",
+    "586": "Team Building",
+    "587": "Aesther Outpost",
+    "588": "Dangerous Game",
+    "589": "Life Lessons",
+    "590": "Explore the Reaches",
+    "505": "Refined Tastes",
+    "509": "Threat from the Deep",
+    "513": "End the Trickery",
+    "519": "Eternal Wanderer",
+    "523": "Continued Prosperity",
+    "527": "Prepared for the Worst",
+    "538": "Battle Legend",
+    "542": "Let Them Be",
+    "545": "Quiet the Dead Places",
+    "549": "Return to Simplicity",
+    "552": "The Study of Life",
+    "557": "The Greatest Challenge",
+    "543": "The Choosen One"
   }
 }

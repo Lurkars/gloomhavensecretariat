@@ -1,0 +1,370 @@
+[
+    {
+        "cardId": "330",
+        "requirements": [
+            {
+                "name": "Inox killed",
+                "counter": 10
+            },
+            {
+                "name": "Follow \"Siege Tower\" (Scenario 33) to a conclusion",
+                "counter": 1,
+                "requires": 1
+            }
+        ],
+        "unlockCharacter": "target"
+    },
+    {
+        "cardId": "331",
+        "requirements": [
+            {
+                "name": "%game.items.slots.onehand% or %game.items.slots.twohand% items consumed",
+                "counter": 15
+            }
+        ],
+        "unlockCharacter": "target"
+    },
+    {
+        "cardId": "332",
+        "requirements": [
+            {
+                "name": "Lost cards played",
+                "counter": 30
+            }
+        ],
+        "unlockCharacter": "flask"
+    },
+    {
+        "cardId": "333",
+        "requirements": [
+            {
+                "name": "Rooms revealed",
+                "counter": 20
+            }
+        ],
+        "unlockCharacter": "flask"
+    },
+    {
+        "cardId": "334",
+        "requirements": [
+            {
+                "name": "Traps disarmed or sprung",
+                "counter": 15
+            }
+        ],
+        "unlockCharacter": "chain-helmet"
+    },
+    {
+        "cardId": "335",
+        "requirements": [
+            {
+                "name": "Guards or Archers killed",
+                "counter": 10
+            },
+            {
+                "name": "Follow \"Prison Riot\" (Scenario 35) to a conclusion",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ],
+        "unlockCharacter": "chain-helmet"
+    },
+    {
+        "cardId": "336",
+        "requirements": [
+            {
+                "name": "Oozes, Forest Imps or Black Imps killed",
+                "counter": 20
+            }
+        ],
+        "unlockCharacter": "tusks"
+    },
+    {
+        "cardId": "337",
+        "requirements": [
+            {
+                "name": "Scenarios completed with ≥ 12 experience",
+                "counter": 12
+            }
+        ],
+        "unlockCharacter": "tusks"
+    },
+    {
+        "cardId": "338",
+        "requirements": [
+            {
+                "name": "Enemies killed and money token looted",
+                "counter": 15
+            }
+        ],
+        "unlockCharacter": "ladder-axe"
+    },
+    {
+        "cardId": "339",
+        "requirements": [
+            {
+                "name": "Enemies killed adjacent to allies",
+                "counter": 15
+            }
+        ],
+        "unlockCharacter": "ladder-axe"
+    },
+    {
+        "cardId": "340",
+        "requirements": [
+            {
+                "name": "%game.attackmodifier.bless% drawn",
+                "counter": 12
+            }
+        ],
+        "unlockCharacter": "sprig"
+    },
+    {
+        "cardId": "341",
+        "requirements": [
+            {
+                "name": "Gold spend on enhancements",
+                "counter": 200
+            }
+        ],
+        "unlockCharacter": "sprig"
+    },
+    {
+        "cardId": "342",
+        "requirements": [
+            {
+                "name": "Allies became exhausted during their turn",
+                "counter": 13
+            }
+        ],
+        "unlockCharacter": "vortex"
+    },
+    {
+        "cardId": "343",
+        "requirements": [
+            {
+                "name": "Scenaries completed where enemy killed with negative condition",
+                "counter": 10
+            }
+        ],
+        "unlockCharacter": "vortex"
+    },
+    {
+        "cardId": "344",
+        "requirements": [
+            {
+                "name": "%game.element.fire% generated",
+                "counter": 2
+            },
+            {
+                "name": "%game.element.ice% generated",
+                "counter": 2
+            },
+            {
+                "name": "%game.element.light% generated",
+                "counter": 2
+            },
+            {
+                "name": "%game.element.dark% generated",
+                "counter": 2
+            },
+            {
+                "name": "Follow \"Burning Stones\" (Scenario 37) to a conclusion",
+                "counter": 1,
+                "requires": [
+                    1,
+                    2,
+                    3,
+                    4
+                ]
+            }
+        ],
+        "unlockCharacter": "crescent-sun"
+    },
+    {
+        "cardId": "345",
+        "requirements": [
+            {
+                "name": "Two or more enemies killed in same turn",
+                "counter": 15
+            }
+        ],
+        "unlockCharacter": "crescent-sun"
+    },
+    {
+        "cardId": "346",
+        "requirements": [
+            {
+                "name": "Difficult terrain occupied in different scenarios",
+                "counter": 6
+            },
+            {
+                "name": "Follow \"Festering Mire\" (Scenario 39) to a conclusion",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ],
+        "unlockCharacter": "leaf"
+    },
+    {
+        "cardId": "347",
+        "requirements": [
+            {
+                "name": "Different types of monsters poisoned",
+                "counter": 20
+            }
+        ],
+        "unlockCharacter": "leaf"
+    },
+    {
+        "cardId": "348",
+        "requirements": [
+            {
+                "name": "Summoned monsters killed",
+                "counter": 10
+            }
+        ],
+        "unlockCharacter": "skull"
+    },
+    {
+        "cardId": "349",
+        "requirements": [
+            {
+                "name": "Scenarios completed with one type of rest (long or short)",
+                "counter": 10
+            }
+        ],
+        "unlockCharacter": "skull"
+    },
+    {
+        "cardId": "350",
+        "requirements": [
+            {
+                "name": "Scenarios completed with full health",
+                "counter": 7
+            }
+        ],
+        "unlockCharacter": "galaxy"
+    },
+    {
+        "cardId": "351",
+        "requirements": [
+            {
+                "name": "Money tokens looted",
+                "counter": 30
+            }
+        ],
+        "unlockCharacter": "galaxy"
+    },
+    {
+        "cardId": "AA1",
+        "requirements": [
+            {
+                "name": "Scenarios with negating damage by loosing a card while adjacent to ally",
+                "counter": 8
+            },
+            {
+                "name": "Follow \"The Riches of the Steelsilk\" (Scenario AA1) to a conclusion",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ],
+        "unlockCharacter": "beetle"
+    },
+    {
+        "cardId": "AA2",
+        "requirements": [
+            {
+                "name": "Scenarios completed without exhausting and 2 or less HP",
+                "counter": 8
+            },
+            {
+                "name": "Follow \"Malign Echoes\" (Scenario AA2) to a conclusion",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ],
+        "unlockCharacter": "beetle"
+    },
+    {
+        "cardId": "QA1",
+        "requirements": [
+            {
+                "name": "Enemies killed with Power Modulator (Item QA-01)",
+                "counter": 8
+            },
+            {
+                "name": "Follow \"Capstone Test\" (Scenario QA1) to a conclusion",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ],
+        "unlockCharacter": "tools"
+    },
+    {
+        "cardId": "QA2",
+        "requirements": [
+            {
+                "name": "Two or more money tokens looted in single action",
+                "counter": 8
+            },
+            {
+                "name": "Treasure tiles looted",
+                "counter": 2
+            },
+            {
+                "name": "Follow \"Mother Lode\" (Scenario QA2) to a conclusion",
+                "counter": 1,
+                "requires": [
+                    1,
+                    2
+                ]
+            }
+        ],
+        "unlockCharacter": "tools"
+    },
+    {
+        "cardId": "RM1",
+        "requirements": [
+            {
+                "name": "Enemies with %game.condition.wound% or %game.condition.rupture% applied",
+                "counter": 13
+            },
+            {
+                "name": "Follow \"Mind Your Manners\" (Scenario RM1) to a conclusion",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ],
+        "unlockCharacter": "bleeding-claw"
+    },
+    {
+        "cardId": "RM2",
+        "requirements": [
+            {
+                "name": "Rounds where enemy died during or after perform %game.card.lost% action",
+                "counter": 20
+            },
+            {
+                "name": "Follow \"Ruined Colony\" (Scenario RM3) to a conclusion",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
+            }
+        ],
+        "unlockCharacter": "bleeding-claw"
+    }
+]

@@ -110,8 +110,8 @@
       "personalQuest": {
         ".": "Persönliche Quest",
         "counter": "Zähler",
-        "openEnvelope": "Belohnung: Umschlag {0} öffnen",
-        "unlockCharacter": "Belohnung: Schachtel %game.characterIcon.{0}% öffnen"
+        "openEnvelope": "Umschlag {0} öffnen",
+        "unlockCharacter": "Schachtel %game.characterIcon.{0}% öffnen"
       },
       "resources": {
         ".": "Ressourcen",
@@ -123,10 +123,9 @@
         ".": "Ruhestand für Charakter",
         "apply": "Anwenden",
         "conclusion": "Öffne Sektion %data.section:{0}%",
+        "events": "Füge Stadt-Ereignis {0} als auch Weg-Ereignis {0} zum Deck hinzu",
         "moveSupply": "Ressourcen zur Frosthaven Versorgung verschieben",
-        "openEnvelope": "Umschlag {0} öffnen",
-        "prosperity": "+{0} Wohlstand",
-        "unlockCharacter": "Schachtel %game.characterIcon.{0}% öffnen"
+        "prosperity": "+{0} Wohlstand"
       },
       "retirements": "Ruhestände",
       "title": "{1} {0}",
@@ -1572,8 +1571,12 @@
       "hint": "Automatisch die dauerhaften Gegenstände des aktiven Charakters umschalten."
     },
     "characterSheet": {
-      ".": "Charakterbogen",
-      "hint": "Aktiviert den Charakterbogen. Dieser kann mit Klick auf das große Charaktersymbol auf der rechten Seite geöffnet werden."
+      ".": "Charakterbögen",
+      "hint": "Aktiviert die Charakterbögen. Diese können mit einem Klick auf das große Charaktersymbol auf der rechten Seite geöffnet werden."
+    },
+    "characterSheetCompact": {
+      ".": "Kompakte Charakterbögen (%wip%)",
+      "hint": "Zeige kompaktere Charakterbögen mit anderem Layout als die original Charakterbögen."
     },
     "characterTraits": {
       ".": "Eigenschaften anzeigen",
@@ -1843,6 +1846,7 @@
       "addNextStandee": "Aufsteller {1} {0} hinzufügen",
       "addObjective": {
         ".": "Ziel hinzufügen",
+        "entity": "%game.objectiveMarker.{0}% zu {1} hinzufügen",
         "escort": "Begleiter hinzufügen"
       },
       "addParty": "Neue Gruppe '{0}' erstellen",
@@ -1894,9 +1898,11 @@
       "changeMaxHP": "Max. TP {1} für {0}",
       "changeMonsterHP": "TP {1} für alle {2}{0}",
       "changeMonsterType": "Ändere Typ von {0} Aufsteller {2} {1} auf %monster.{3}%",
+      "changeObjectiveEntityHP": "TP {2} für %game.objectiveMarker.{1}% von {0}",
+      "changeObjectiveEntityNumber": "Ändere Marker von %game.objectiveMarker.{1}% auf %game.objectiveMarker.{2}% für {0}",
       "changeObjectiveHP": "TP {1} für Ziel {0}",
       "changeObjectiveId": "ID '{1}' für {0} ",
-      "changeObjectiveMaxHP": "Max. TP {1} für Ziel {0}",
+      "changeObjectiveMaxHp": "Max. TP {1} für Ziel {0}",
       "changeParty": "Wechsel zu Gruppe '{0}'",
       "changeSummonAttack": "Angriff {2} für Beschwörung '{1}' von {0}",
       "changeSummonHp": "TP {2} für Beschwörung '{1}' von {0}",
@@ -1956,10 +1962,13 @@
       "lootDeckShuffle": "Beute Deck mischen",
       "lootCharTreasure": "{2} erbeutet Schatz {0}",
       "moveResource": "{2} {1} von {0} zur Frosthaven Versorgung hinzufügen",
+      "monsterChangeEntityHp": "TP {2} für Aufsteller {1} von %data.monster.{0}%",
       "monsterConsumeElement": "{0} verbraucht {1}",
       "monsterDead": "Töte alle {1}{0}",
       "monsterInfuseElement": "{0} reichert {1} an",
       "nextRound": "Nächste Runde",
+      "objectiveContainerChangeEntityHp": "TP {2} für %game.objectiveMarker.{1}% von {0}",
+      "objectiveEntityDead": "Töte %game.objectiveMarker.{1}% von {0}",
       "openRoom": "Öffne Raum für Kachel '{2}' in #{0} {1}",
       "openRoomMarker": "Öffne Raum %game.mapMarker.{3}% für Kachel '{2}' in #{0} {1}",
       "removeAbility": "Fertigkeit {1} von {0} entfernen",
@@ -2051,6 +2060,7 @@
       "setPlayer": "Spieler {1} auf {0}",
       "setPlayerNumber": "Spielernummer {1} für {0}",
       "setPQ": "Persönliche Quest {1} für {0}",
+      "setPQProgress": "Setzte Persönlichen Quest Zähler {1} auf {2} für {0}",
       "setResource": "{1} {2} für {0}",
       "setRetired": "{0} in Ruhestand",
       "setRetirements": "Ruhestände auf {1} für {0}",

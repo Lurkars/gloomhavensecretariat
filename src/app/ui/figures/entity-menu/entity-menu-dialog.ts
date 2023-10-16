@@ -556,7 +556,14 @@ export class EntityMenuDialogComponent {
       gameManager.characterManager.removeObjective(this.data.entity);
       gameManager.stateManager.after();
     } else if (this.data.figure instanceof ObjectiveContainer && this.data.entity instanceof ObjectiveEntity) {
-      gameManager.stateManager.before("objectiveEntityDead", this.data.figure.title || this.data.figure.name, "" + this.data.entity.number);
+      let name = this.data.figure.name;
+      if (!name) {
+        name = this.data.figure.title;
+        if (!name) {
+          name = this.data.figure.escort ? '%escort%' : '%objective%';
+        }
+      }
+      gameManager.stateManager.before("objectiveEntityDead", name, "" + this.data.entity.number);
       this.data.entity.dead = true;
 
       if (this.data.figure.entities.every((entity) => entity.dead)) {

@@ -3,6 +3,8 @@
   "characterClass": "human",
   "edition": "cs",
   "handSize": 11,
+  "unlockEvent": "41",
+  "retireEvent": "42",
   "color": "#ddde8b",
   "spoiler": true,
   "marker": true,

@@ -43,7 +43,7 @@ export class Character extends CharacterData implements Entity, Figure {
   level: number;
   off: boolean = false;
   active: boolean = false;
-  type: string = 'objective';
+  type: string = 'character';
 
   // from entity
   health: number;

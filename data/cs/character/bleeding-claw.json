@@ -3,6 +3,8 @@
   "characterClass": "vermling",
   "edition": "cs",
   "handSize": 11,
+  "unlockEvent": "RM1",
+  "retireEvent": "RM2",
   "color": "#c12729",
   "spoiler": true,
   "stats": [

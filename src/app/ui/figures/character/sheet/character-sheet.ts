@@ -11,6 +11,7 @@ import { ghsInputFullScreenCheck, ghsValueSign } from "src/app/ui/helper/Static"
 import { CharacterMoveResourcesDialog } from "./move-resources";
 import { CharacterRetirementDialog } from "./retirement-dialog";
 import { PersonalQuest } from "src/app/game/model/data/PersonalQuest";
+import { EntityValueFunction } from "src/app/game/model/Entity";
 
 
 @Component({
@@ -29,6 +30,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   ghsInputFullScreenCheck = ghsInputFullScreenCheck;
+  EntityValueFunction = EntityValueFunction;
   GameState = GameState;
   PerkType = PerkType;
   LootType = LootType;
@@ -72,7 +74,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     this.character.progress.perks = this.character.progress.perks || [];
 
     this.fhSheet = gameManager.fhRules();
-    this.csSheet = !this.fhSheet && gameManager.editionRules('cs');
+    this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).indexOf('cs') != -1);
 
     this.donations = !this.fhSheet;
 
@@ -116,6 +118,10 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
           if (!this.character.progress.perks[i]) {
             this.character.progress.perks[i] = 0;
           }
+        }
+
+        if (this.personalQuest) {
+          this.retired = this.personalQuest.requirements.every((requirement, i) => this.character.progress.personalQuestProgress[i] >= EntityValueFunction(requirement.counter));
         }
       }
     })
@@ -281,10 +287,14 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   setPersonalQuest(event: any) {
-    if (!isNaN(+event.target.value) && this.character.progress.personalQuest != +event.target.value) {
+    if (this.character.progress.personalQuest != event.target.value) {
       gameManager.stateManager.before("setPQ", "data.character." + this.character.name, event.target.value);
-      this.character.progress.personalQuest = +event.target.value;
+      this.character.progress.personalQuest = event.target.value;
+      this.character.progress.personalQuestProgress = [];
       this.personalQuest = gameManager.characterManager.personalQuestByCard(gameManager.currentEdition(), this.character.progress.personalQuest);
+      if (this.personalQuest && this.character.progress.personalQuest != this.personalQuest.cardId) {
+        this.character.progress.personalQuest = this.personalQuest.cardId;
+      }
       gameManager.stateManager.after();
     }
   }
@@ -305,13 +315,13 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       value--;
     }
 
-    gameManager.stateManager.before("setPQProgress", "data.character." + this.character.name, '' + index, '' + value);
+    gameManager.stateManager.before("setPQProgress", "data.character." + this.character.name, '' + (index + 1), '' + value);
     this.character.progress.personalQuestProgress[index] = value;
     gameManager.stateManager.after();
+  }
 
-    if (this.personalQuest) {
-      this.retired = this.personalQuest.requirements.every((requirement, i) => this.character.progress.personalQuestProgress[i] >= requirement.counter);
-    }
+  personalQuestRequirementUnlocked(index: number): boolean {
+    return this.personalQuest != undefined && this.personalQuest.requirements[index] != undefined && this.personalQuest.requirements[index].requires && this.personalQuest.requirements[index].requires.every((requireIndex) => this.personalQuest && this.character.progress.personalQuestProgress[requireIndex - 1] >= EntityValueFunction(this.personalQuest.requirements[requireIndex - 1].counter));
   }
 
   setExtraPerks(event: any) {
@@ -444,5 +454,10 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       console.warn(e);
       parent.classList.add("error");
     }
+  }
+
+  toggleFhSheet() {
+    this.fhSheet = !this.fhSheet;
+    this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).indexOf('cs') != -1);
   }
 }

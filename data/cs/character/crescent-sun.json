@@ -3,6 +3,8 @@
   "characterClass": "lurker",
   "edition": "cs",
   "handSize": 11,
+  "unlockEvent": "45",
+  "retireEvent": "46",
   "color": "#bf9eca",
   "spoiler": true,
   "stats": [

@@ -3,6 +3,8 @@
   "characterClass": "orchid",
   "edition": "toa",
   "handSize": 11,
+  "unlockEvent": "67",
+  "retireEvent": "68",
   "color": "#ffd04f",
   "spoiler": true,
   "stats": [

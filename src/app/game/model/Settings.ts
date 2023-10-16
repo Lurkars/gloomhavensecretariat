@@ -56,6 +56,7 @@ export class Settings {
   characterItemsPermanentSorted: boolean = true;
   characterItemsPermanentZoom: number = 1;
   characterSheet: boolean = true;
+  characterSheetCompact: boolean = false;
   characterTraits: boolean = false;
   combineSummonAction: boolean = true;
   debugRightClick: boolean = false;

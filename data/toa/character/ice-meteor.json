@@ -4,6 +4,8 @@
   "gender": "m",
   "edition": "toa",
   "handSize": 10,
+  "unlockEvent": "65",
+  "retireEvent": "66",
   "color": "#a6e9ff",
   "spoiler": true,
   "stats": [

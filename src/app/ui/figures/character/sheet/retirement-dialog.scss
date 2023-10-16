@@ -1,4 +1,4 @@
-.move-resources-dialog {
+.retirement-dialog {
     padding: 0.5em;
     color: var(--ghs-color-white);
 
@@ -49,12 +49,6 @@
         }
     }
 
-    .wip {
-        text-align: center;
-        font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-        color: var(--ghs-color-yellow);
-    }
-
     .rewards {
         display: flex;
         flex-direction: column;
@@ -69,6 +63,15 @@
         .active {
             cursor: pointer;
         }
+    }
+
+    .event {
+        font-family: var(--ghs-font-normal);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5em;
     }
 
     .conclusion {
@@ -96,6 +99,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        text-align: center;
     }
 
     .additional {

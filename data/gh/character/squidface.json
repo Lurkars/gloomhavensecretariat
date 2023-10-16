@@ -3,6 +3,8 @@
   "characterClass": "harrower",
   "edition": "gh",
   "handSize": 11,
+  "unlockEvent": "35",
+  "retireEvent": "52",
   "color": "#72e0be",
   "spoiler": true,
   "stats": [

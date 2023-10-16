@@ -30,5 +30,15 @@
   },
   "deck": {
     "scavenger": "Scavenger"
+  },
+  "personalQuest": {
+    "641": "Grave Robber",
+    "642": "Stand as One",
+    "643": "False Dichotomies",
+    "644": "Shared Suffering",
+    "645": "Speed is King",
+    "646": "Resourceful",
+    "647": "Close to Nature",
+    "648": "In Good Time"
   }
 }

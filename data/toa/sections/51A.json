@@ -1,0 +1,10 @@
+{
+  "index": "51.A",
+  "name": "Inevitable (%game.characterIconColored.gemstone% Retires)",
+  "edition": "toa",
+  "conclusion": true,
+  "rewards": {
+    "custom": "To view your reward, visit <a href=\"https://www.thecrimsonscales.com/reveal\" target=\"_blank\">thecrimsonscales.com/reveal</a><br>Password: ashes"
+  },
+  "retirement": "gemstone"
+}

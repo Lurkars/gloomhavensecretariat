@@ -3,6 +3,8 @@
   "characterClass": "valrath",
   "edition": "cs",
   "handSize": 10,
+  "unlockEvent": "51",
+  "retireEvent": "52",
   "color": "#cd2127",
   "spoiler": true,
   "stats": [
