@@ -10,9 +10,23 @@
   ],
   "rules": [
     {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "stone-golem",
+            "type": "elite"
+          },
+          "marker": "A"
+        }
+      ],
       "treasures": [
         2
-      ],
+      ]
+    },
+    {
       "round": "true",
       "always": true,
       "once": true,
@@ -24,12 +38,12 @@
           },
           "marker": "A"
         }
-      ]
-    },
-    {
+      ],
       "treasures": [
         6
-      ],
+      ]
+    },
+    {
       "round": "true",
       "always": true,
       "once": true,
@@ -41,12 +55,12 @@
           },
           "marker": "A"
         }
-      ]
-    },
-    {
+      ],
       "treasures": [
         7
-      ],
+      ]
+    },
+    {
       "round": "true",
       "always": true,
       "once": true,
@@ -58,27 +72,12 @@
           },
           "marker": "A"
         }
-      ]
-    },
-    {
+      ],
       "treasures": [
         13
-      ],
-      "round": "true",
-      "always": true,
-      "once": true,
-      "spawns": [
-        {
-          "monster": {
-            "name": "stone-golem",
-            "type": "elite"
-          },
-          "marker": "A"
-        }
       ]
     },
     {
-      "treasures": "C",
       "round": "true",
       "always": true,
       "once": true,
@@ -101,7 +100,8 @@
           },
           "marker": "B"
         }
-      ]
+      ],
+      "treasures": "C"
     }
   ],
   "rooms": [

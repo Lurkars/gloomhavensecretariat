@@ -8,14 +8,14 @@
     "59"
   ],
   "rewards": {
+    "experience": 10,
     "chooseLocation": [
       "58",
       "59"
     ],
     "itemBlueprints": [
       "74"
-    ],
-    "experience": 10
+    ]
   },
   "monsters": [
     "ancient-artillery",

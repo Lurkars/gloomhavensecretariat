@@ -5,6 +5,9 @@
   "parent": "116",
   "conclusion": true,
   "rewards": {
+    "experience": 10,
+    "prosperity": 1,
+    "custom": "Gain any 2 material resources each",
     "morale": 3,
     "collectiveResources": [
       {
@@ -20,9 +23,6 @@
         "value": 1
       }
     ],
-    "randomItemBlueprint": 1,
-    "experience": 10,
-    "prosperity": 1,
-    "custom": "Gain any 2 material resources each"
+    "randomItemBlueprint": 1
   }
 }

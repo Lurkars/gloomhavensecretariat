@@ -17,8 +17,8 @@
     "53"
   ],
   "rewards": {
-    "inspiration": 1,
-    "experience": 5
+    "experience": 5,
+    "inspiration": 1
   },
   "monsters": [
     "deep-terror"

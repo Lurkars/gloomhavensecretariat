@@ -8,10 +8,10 @@
     "134"
   ],
   "rewards": {
-    "unlockCharacter": "astral",
     "events": [
       "winter-road:WR-46",
       "summer-road:SR-48"
-    ]
+    ],
+    "unlockCharacter": "astral"
   }
 }

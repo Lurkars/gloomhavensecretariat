@@ -130,6 +130,19 @@ export class MainComponent implements OnInit {
     window.addEventListener('appinstalled', () => {
       gameManager.stateManager.installPrompt = null;
     });
+
+    dialog.afterOpened.subscribe({
+      next: (dialogRef: DialogRef) => {
+        let closeIcon = document.createElement('img');
+        closeIcon.src = './assets/images/close_dialog.svg';
+        let closeElement = document.createElement('a');
+        closeElement.classList.add('dialog-close-button');
+        closeElement.appendChild(closeIcon);
+        closeElement.addEventListener('click', () => dialogRef.close());
+        closeElement.title = settingsManager.getLabel('close');
+        dialogRef.overlayRef.hostElement.appendChild(closeElement);
+      }
+    })
   }
 
   onFigureScroll(event: any) {

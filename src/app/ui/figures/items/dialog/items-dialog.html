@@ -1,7 +1,5 @@
 <div class="items-dialog"
     [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
-    <a class="close" (click)="close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'"><img
-            src="./assets/images/close_dialog.svg"></a>
     <div class="scroll-container">
         <div class="header">
             <span class="title" *ngIf="!character" [ghs-label]="'game.items.shop'"></span>

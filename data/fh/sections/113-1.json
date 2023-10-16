@@ -4,12 +4,12 @@
   "edition": "fh",
   "conclusion": true,
   "rewards": {
+    "items": [
+      "245"
+    ],
     "removeEvents": [
       "winter-outpost:WO-79",
       "summer-road:SR-50"
-    ],
-    "items": [
-      "245"
     ]
   }
 }

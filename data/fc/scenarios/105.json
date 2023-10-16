@@ -38,7 +38,6 @@
       ]
     },
     {
-      "noteTop": "%data.scenario.rules.fc.105.1%",
       "round": "R == 1",
       "start": true,
       "figures": [
@@ -51,7 +50,8 @@
           "type": "transfer",
           "value": "bandit-guard:+1"
         }
-      ]
+      ],
+      "noteTop": "%data.scenario.rules.fc.105.1%"
     }
   ],
   "rooms": [

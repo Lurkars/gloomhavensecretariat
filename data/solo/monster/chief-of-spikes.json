@@ -1,5 +1,4 @@
 {
-  "standeeSahre": "algox-icespeaker",
   "name": "chief-of-spikes",
   "edition": "fh",
   "deck": "algox-icespeaker",
@@ -212,5 +211,6 @@
         "brittle"
       ]
     }
-  ]
+  ],
+  "standeeSahre": "algox-icespeaker"
 }

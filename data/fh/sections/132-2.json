@@ -16,7 +16,6 @@
   ],
   "rules": [
     {
-      "noteTop": "Replace any one metal cabinet",
       "round": "R == 2",
       "spawns": [
         {
@@ -25,7 +24,8 @@
             "type": "normal"
           }
         }
-      ]
+      ],
+      "noteTop": "Replace any one metal cabinet"
     },
     {
       "round": "R == 4",

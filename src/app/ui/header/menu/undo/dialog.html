@@ -1,7 +1,4 @@
 <div class="undo-dialog">
-    <a class="close" (click)="dialogRef.close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'">
-        <img src="./assets/images/close_dialog.svg">
-    </a>
     <div class="menu">
         <a class="state undo"
             [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning) || undoArray.length == 0}"

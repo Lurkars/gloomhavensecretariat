@@ -1,5 +1,4 @@
 {
-  "retirement": "coral",
   "index": "54.2",
   "name": "%game.characterIconColored.coral% Retires",
   "edition": "fh",
@@ -8,5 +7,6 @@
     "events": [
       "boat:B-15"
     ]
-  }
+  },
+  "retirement": "coral"
 }

@@ -11,6 +11,9 @@
     }
   ],
   "rewards": {
+    "events": [
+      "winter-outpost:WO-68"
+    ],
     "morale": 1,
     "inspiration": 1,
     "campaignSticker": [
@@ -19,9 +22,6 @@
     "unlockCharacter": "snowflake",
     "townGuardAm": [
       "fh-tg-add-plus50"
-    ],
-    "events": [
-      "winter-outpost:WO-68"
     ]
   },
   "monsters": [

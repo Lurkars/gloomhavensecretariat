@@ -11,10 +11,10 @@
     }
   ],
   "rewards": {
+    "custom": "Trade all numbered and lettered tokens in for loot cards",
     "itemBlueprints": [
       "66"
-    ],
-    "custom": "Trade all numbered and lettered tokens in for loot cards"
+    ]
   },
   "monsters": [
     "frozen-corpse",

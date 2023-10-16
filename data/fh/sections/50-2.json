@@ -1,5 +1,4 @@
 {
-  "retirement": "banner-spear",
   "index": "50.2",
   "name": "%game.characterIconColored.banner-spear% Retires",
   "edition": "fh",
@@ -8,5 +7,6 @@
     "townGuardAm": [
       "fh-tg-add-plus20"
     ]
-  }
+  },
+  "retirement": "banner-spear"
 }

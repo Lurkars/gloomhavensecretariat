@@ -4,8 +4,8 @@
   "edition": "fh",
   "complexity": 2,
   "rewards": {
-    "morale": 1,
-    "gold": 10
+    "gold": 10,
+    "morale": 1
   },
   "monsters": [
     "ice-wraith"

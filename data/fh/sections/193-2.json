@@ -4,13 +4,13 @@
   "edition": "fh",
   "conclusion": true,
   "rewards": {
-    "campaignSticker": [
-      "Into the Forest"
-    ],
     "hints": {
       "campaignSticker": [
         "if not already gained"
       ]
-    }
+    },
+    "campaignSticker": [
+      "Into the Forest"
+    ]
   }
 }

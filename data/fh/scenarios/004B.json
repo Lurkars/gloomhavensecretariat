@@ -4,11 +4,11 @@
   "edition": "fh",
   "complexity": 2,
   "rewards": {
+    "prosperity": 1,
     "morale": 1,
     "calendarSection": [
       "156.1-4"
-    ],
-    "prosperity": 1
+    ]
   },
   "monsters": [
     "algox-archer",

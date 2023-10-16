@@ -10,12 +10,12 @@
   "conclusion": true,
   "named": true,
   "rewards": {
-    "calendarSection": [
-      "152.3-2"
-    ],
     "events": [
       "winter-road:WR-45",
       "summer-road:SR-47"
+    ],
+    "calendarSection": [
+      "152.3-2"
     ]
   }
 }

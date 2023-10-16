@@ -18,9 +18,6 @@
   ],
   "rules": [
     {
-      "treasures": [
-        "G"
-      ],
       "round": "true",
       "always": true,
       "once": true,
@@ -55,6 +52,9 @@
           "marker": "d",
           "count": "2"
         }
+      ],
+      "treasures": [
+        "G"
       ]
     }
   ],

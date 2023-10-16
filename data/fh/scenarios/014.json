@@ -14,6 +14,9 @@
     }
   ],
   "rewards": {
+    "events": [
+      "winter-outpost:WO-81"
+    ],
     "campaignSticker": [
       "Coral Shard",
       "Shard Seeker"
@@ -21,9 +24,6 @@
     "chooseUnlockCharacter": [
       "coral",
       "kelp"
-    ],
-    "events": [
-      "winter-outpost:WO-81"
     ]
   },
   "monsters": [

@@ -5,6 +5,8 @@
   "parent": "116",
   "conclusion": true,
   "rewards": {
+    "experience": 10,
+    "custom": "Gain any 2 material resources each",
     "morale": 1,
     "collectiveResources": [
       {
@@ -19,8 +21,6 @@
         "type": "hide",
         "value": 1
       }
-    ],
-    "experience": 10,
-    "custom": "Gain any 2 material resources each"
+    ]
   }
 }

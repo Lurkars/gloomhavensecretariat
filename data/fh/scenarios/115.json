@@ -4,13 +4,13 @@
   "edition": "fh",
   "complexity": 2,
   "rewards": {
+    "experience": 15,
     "calendarSectionManual": [
       {
         "section": "66.2",
         "hint": "Add %data.section:66.2% to the calendar in X+1 weeks, where X is the number of pylons destroyed."
       }
-    ],
-    "experience": 15
+    ]
   },
   "monsters": [
     "algox-guard",

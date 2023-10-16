@@ -5,8 +5,8 @@
   "parent": "130",
   "conclusion": true,
   "rewards": {
-    "morale": -3,
     "prosperity": 1,
-    "custom": "Gain 10 collective gold for each token carried"
+    "custom": "Gain 10 collective gold for each token carried",
+    "morale": -3
   }
 }

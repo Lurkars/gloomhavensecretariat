@@ -5,12 +5,12 @@
   "conclusion": true,
   "named": true,
   "rewards": {
-    "itemBlueprints": [
-      "156-159"
-    ],
     "events": [
       "winter-outpost:WO-77",
       "summer-road:SR-37"
+    ],
+    "itemBlueprints": [
+      "156-159"
     ]
   }
 }

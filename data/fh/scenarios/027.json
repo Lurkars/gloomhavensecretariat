@@ -11,11 +11,11 @@
     }
   ],
   "rewards": {
+    "experience": 10,
+    "battleGoals": 1,
     "campaignSticker": [
       "Coral Shard"
-    ],
-    "experience": 10,
-    "battleGoals": 1
+    ]
   },
   "monsters": [
     "deep-terror",

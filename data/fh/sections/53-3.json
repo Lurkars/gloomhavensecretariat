@@ -1,5 +1,4 @@
 {
-  "retirement": "deathwalker",
   "index": "53.3",
   "name": "%game.characterIconColored.deathwalker% Retires",
   "edition": "fh",
@@ -8,5 +7,6 @@
     "calendarSection": [
       "176.4-summer:2"
     ]
-  }
+  },
+  "retirement": "deathwalker"
 }

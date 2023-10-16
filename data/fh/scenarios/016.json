@@ -12,9 +12,9 @@
     "26"
   ],
   "rewards": {
-    "inspiration": 1,
     "experience": 5,
-    "custom": "Place map overlay sticker Y on map in location Y (C10)"
+    "custom": "Place map overlay sticker Y on map in location Y (C10)",
+    "inspiration": 1
   },
   "monsters": [
     "ancient-artillery",

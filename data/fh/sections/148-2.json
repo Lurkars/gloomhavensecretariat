@@ -1,5 +1,4 @@
 {
-  "retirement": "prism",
   "index": "148.2",
   "name": "%game.characterIconColored.prism% Retires",
   "edition": "fh",
@@ -8,5 +7,6 @@
     "events": [
       "winter-road:WR-48"
     ]
-  }
+  },
+  "retirement": "prism"
 }

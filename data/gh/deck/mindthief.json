@@ -1,5 +1,4 @@
 {
-  "cardId": 150,
   "name": "mindthief",
   "edition": "gh",
   "character": true,
@@ -1255,7 +1254,6 @@
       ]
     },
     {
-      "revealed": true,
       "name": "Dark Frenzy",
       "cardId": 168,
       "level": 6,
@@ -1343,7 +1341,8 @@
             }
           ]
         }
-      ]
+      ],
+      "revealed": true
     },
     {
       "name": "Vicious Blood",
@@ -1781,5 +1780,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cardId": 150
 }

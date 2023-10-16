@@ -7,8 +7,8 @@
     "6"
   ],
   "rewards": {
-    "randomItems": "1-10",
-    "custom": "Each character gains one random \"Orb\" item (1-10)"
+    "custom": "Each character gains one random \"Orb\" item (1-10)",
+    "randomItems": "1-10"
   },
   "monsters": [
     "blood-ooze",

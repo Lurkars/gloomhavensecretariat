@@ -4,13 +4,13 @@
   "edition": "fh",
   "complexity": 2,
   "rewards": {
+    "gold": 10,
     "collectiveResources": [
       {
         "type": "hide",
         "value": 4
       }
-    ],
-    "gold": 10
+    ]
   },
   "monsters": [
     "hound",

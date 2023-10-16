@@ -5,9 +5,6 @@
   "conclusion": true,
   "named": true,
   "rewards": {
-    "lootDeckCards": [
-      1418
-    ],
     "events": [
       "winter-outpost:WO-79",
       "summer-road:SR-50"
@@ -16,6 +13,9 @@
       "lootDeckCards": [
         "When drawn, read any one section number depicted."
       ]
-    }
+    },
+    "lootDeckCards": [
+      1418
+    ]
   }
 }

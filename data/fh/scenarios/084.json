@@ -4,11 +4,11 @@
   "edition": "fh",
   "complexity": 3,
   "rewards": {
-    "campaignSticker": [
-      "Brummix"
-    ],
     "items": [
       "234"
+    ],
+    "campaignSticker": [
+      "Brummix"
     ]
   },
   "monsters": [

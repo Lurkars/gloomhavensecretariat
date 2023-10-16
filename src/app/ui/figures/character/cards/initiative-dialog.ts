@@ -104,4 +104,8 @@ export class CharacterInitiativeDialogComponent {
         }
     }
 
+    close() {
+        this.dialogRef.close();
+    }
+
 }

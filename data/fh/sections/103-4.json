@@ -1,5 +1,4 @@
 {
-  "retirement": "drill",
   "index": "103.4",
   "name": "%game.characterIconColored.drill% Retires",
   "edition": "fh",
@@ -8,5 +7,6 @@
     "calendarSection": [
       "165.4-10"
     ]
-  }
+  },
+  "retirement": "drill"
 }

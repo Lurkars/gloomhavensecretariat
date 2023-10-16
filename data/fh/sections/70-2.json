@@ -1,5 +1,4 @@
 {
-  "retirement": "boneshaper",
   "index": "70.2",
   "name": "%game.characterIconColored.boneshaper% Retires",
   "edition": "fh",
@@ -8,5 +7,6 @@
     "calendarSection": [
       "89.3-6"
     ]
-  }
+  },
+  "retirement": "boneshaper"
 }

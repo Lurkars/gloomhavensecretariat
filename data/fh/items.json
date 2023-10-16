@@ -1940,7 +1940,6 @@
     ]
   },
   {
-    "loss": true,
     "id": 84,
     "name": "Stamina Potion",
     "count": 2,
@@ -1959,7 +1958,8 @@
         "value": "%data.items.fh-84.1%",
         "small": true
       }
-    ]
+    ],
+    "loss": true
   },
   {
     "id": 85,
@@ -2290,7 +2290,6 @@
     ]
   },
   {
-    "loss": true,
     "id": 100,
     "name": "Major Stamina Potion",
     "count": 2,
@@ -2310,7 +2309,8 @@
         "value": "%data.items.fh-100.1%",
         "small": true
       }
-    ]
+    ],
+    "loss": true
   },
   {
     "id": 101,

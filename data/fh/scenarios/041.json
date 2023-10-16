@@ -11,6 +11,8 @@
     }
   ],
   "rewards": {
+    "gold": 15,
+    "custom": "Read %data.section:36.7% now",
     "campaignSticker": [
       "Coral Shard"
     ],
@@ -19,9 +21,7 @@
         "type": "axenut",
         "value": 2
       }
-    ],
-    "gold": 15,
-    "custom": "Read %data.section:36.7% now"
+    ]
   },
   "monsters": [
     "deep-terror",

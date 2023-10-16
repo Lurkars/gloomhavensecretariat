@@ -7,6 +7,14 @@
     "59"
   ],
   "rewards": {
+    "items": [
+      "246"
+    ],
+    "events": [
+      "winter-outpost:WO-64",
+      "winter-outpost:WO-65"
+    ],
+    "custom": "Remove all %game.action.custom.fh-unfettered% events from all outpost event decks",
     "morale": 1,
     "collectiveResources": [
       {
@@ -28,15 +36,7 @@
     "unlockCharacter": "prism",
     "townGuardAm": [
       "fh-tg-add-plus50-unfettered"
-    ],
-    "items": [
-      "246"
-    ],
-    "events": [
-      "winter-outpost:WO-64",
-      "winter-outpost:WO-65"
-    ],
-    "custom": "Remove all %game.action.custom.fh-unfettered% events from all outpost event decks"
+    ]
   },
   "monsters": [
     "flaming-bladespinner",

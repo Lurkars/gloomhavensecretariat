@@ -35,7 +35,6 @@
       ]
     },
     {
-      "noteTop": "%data.section.rules.fc.132.2%",
       "round": "true",
       "always": true,
       "once": true,
@@ -56,7 +55,8 @@
           },
           "type": "discardAbilityToBottom"
         }
-      ]
+      ],
+      "noteTop": "%data.section.rules.fc.132.2%"
     }
   ],
   "rooms": [

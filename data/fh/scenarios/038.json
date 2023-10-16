@@ -8,9 +8,9 @@
     "46"
   ],
   "rewards": {
-    "inspiration": 1,
     "experience": 10,
-    "battleGoals": 1
+    "battleGoals": 1,
+    "inspiration": 1
   },
   "monsters": [
     "hound",

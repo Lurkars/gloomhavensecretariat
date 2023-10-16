@@ -8,10 +8,10 @@
     "14"
   ],
   "rewards": {
+    "experience": 10,
     "campaignSticker": [
       "Coral Shard"
-    ],
-    "experience": 10
+    ]
   },
   "monsters": [
     "lurker-clawcrusher",

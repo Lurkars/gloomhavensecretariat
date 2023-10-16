@@ -17,13 +17,13 @@
     "57"
   ],
   "rewards": {
+    "experience": 10,
     "collectiveResources": [
       {
         "type": "metal",
         "value": 2
       }
-    ],
-    "experience": 10
+    ]
   },
   "monsters": [
     "abael-scout",

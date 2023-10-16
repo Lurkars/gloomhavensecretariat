@@ -9,8 +9,8 @@
     "38"
   ],
   "rewards": {
-    "randomItem": "94-100",
-    "custom": "Gain one random \"Stone\" item (94-100)"
+    "custom": "Gain one random \"Stone\" item (94-100)",
+    "randomItem": "94-100"
   },
   "monsters": [
     "flame-demon",

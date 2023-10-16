@@ -1,5 +1,4 @@
 {
-  "retirement": "shackles",
   "index": "179.6",
   "name": "%game.characterIconColored.shackles% Retires",
   "edition": "fh",
@@ -8,5 +7,6 @@
     "events": [
       "winter-road:WR-32"
     ]
-  }
+  },
+  "retirement": "shackles"
 }

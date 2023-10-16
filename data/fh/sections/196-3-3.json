@@ -5,12 +5,12 @@
   "parent": "128",
   "conclusion": true,
   "rewards": {
+    "items": [
+      "215"
+    ],
     "calendarSection": [
       "100.3-3"
     ],
-    "morale": 3,
-    "items": [
-      "215"
-    ]
+    "morale": 3
   }
 }

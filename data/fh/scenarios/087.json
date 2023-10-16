@@ -10,8 +10,8 @@
     "88"
   ],
   "rewards": {
-    "inspiration": 1,
-    "custom": "Or 2 inspiration if both brothers survived"
+    "custom": "Or 2 inspiration if both brothers survived",
+    "inspiration": 1
   },
   "monsters": [
     "algox-archer",

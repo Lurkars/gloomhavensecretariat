@@ -7,14 +7,6 @@
     "58"
   ],
   "rewards": {
-    "morale": 2,
-    "campaignSticker": [
-      "Unfettered Allies"
-    ],
-    "unlockCharacter": "prism",
-    "townGuardAm": [
-      "fh-tg-add-plus50-unfettered"
-    ],
     "prosperity": 2,
     "items": [
       "246"
@@ -23,7 +15,15 @@
       "summer-outpost:SO-49",
       "winter-outpost:WO-63"
     ],
-    "custom": "Remove all %game.action.custom.fh-unfettered% events from all outpost event decks"
+    "custom": "Remove all %game.action.custom.fh-unfettered% events from all outpost event decks",
+    "morale": 2,
+    "campaignSticker": [
+      "Unfettered Allies"
+    ],
+    "unlockCharacter": "prism",
+    "townGuardAm": [
+      "fh-tg-add-plus50-unfettered"
+    ]
   },
   "monsters": [
     "flaming-bladespinner",

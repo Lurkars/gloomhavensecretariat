@@ -1,5 +1,4 @@
 {
-  "retirement": "kelp",
   "index": "99.3",
   "name": "%game.characterIconColored.kelp% Retires",
   "edition": "fh",
@@ -8,5 +7,6 @@
     "events": [
       "summer-outpost:SO-65"
     ]
-  }
+  },
+  "retirement": "kelp"
 }

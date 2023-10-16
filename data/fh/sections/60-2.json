@@ -1,5 +1,4 @@
 {
-  "retirement": "blinkblade",
   "index": "60.2",
   "name": "%game.characterIconColored.blinkblade% Retires",
   "edition": "fh",
@@ -8,5 +7,6 @@
     "events": [
       "summer-outpost:SO-64"
     ]
-  }
+  },
+  "retirement": "blinkblade"
 }

@@ -10,13 +10,13 @@
     "56"
   ],
   "rewards": {
+    "gold": 10,
     "collectiveResources": [
       {
         "type": "lumber",
         "value": 2
       }
-    ],
-    "gold": 10
+    ]
   },
   "monsters": [
     "algox-icespeaker",

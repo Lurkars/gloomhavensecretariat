@@ -14,8 +14,8 @@
     }
   ],
   "rewards": {
-    "morale": 1,
-    "experience": 10
+    "experience": 10,
+    "morale": 1
   },
   "monsters": [
     "burrowing-blade",

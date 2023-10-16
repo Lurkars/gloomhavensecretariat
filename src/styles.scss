@@ -747,24 +747,27 @@ ghs-pointer-input {
 
 }
 
-.dialog,
-.dialog-invert,
-.fullscreen-panel {
-  .close {
-    position: fixed;
-    top: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
-    right: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
-    z-index: 999;
-    filter: var(--ghs-filter-red) brightness(0.6) var(--ghs-filter-shadow);
-    cursor: pointer;
+.dialog-close-button {
+  position: fixed;
+  top: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+  right: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+  z-index: 999;
+  filter: var(--ghs-filter-outline-black);
+  cursor: pointer;
+  pointer-events: initial;
+  z-index: 5000;
+
+  img {
+    filter: var(--ghs-filter-red);
+    width: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+    height: auto;
+  }
+
+  &:hover {
+    filter: none;
 
     img {
-      width: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
-      height: auto;
-    }
-
-    &:hover {
-      filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+      filter: var(--ghs-filter-gray);
     }
   }
 }

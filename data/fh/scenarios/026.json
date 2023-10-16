@@ -7,10 +7,10 @@
     "25"
   ],
   "rewards": {
+    "experience": 10,
     "calendarSection": [
       "169.3-4"
-    ],
-    "experience": 10
+    ]
   },
   "monsters": [
     "ancient-artillery",

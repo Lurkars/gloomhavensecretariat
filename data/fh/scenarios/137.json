@@ -4,10 +4,10 @@
   "edition": "fh",
   "complexity": 1,
   "rewards": {
-    "morale": 3,
     "gold": 30,
     "prosperity": 2,
-    "custom": "Add one +1 sticker to a money loot card (the card gives one extra money token when resolved)"
+    "custom": "Add one +1 sticker to a money loot card (the card gives one extra money token when resolved)",
+    "morale": 3
   },
   "monsters": [
     "forest-imp",

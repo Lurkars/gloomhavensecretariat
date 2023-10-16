@@ -33,15 +33,6 @@
       ]
     },
     {
-      "disablingRules": [
-        {
-          "edition": "gh",
-          "scenario": "15",
-          "group": "solo",
-          "index": -1,
-          "section": false
-        }
-      ],
       "round": "true",
       "always": true,
       "figures": [
@@ -52,6 +43,15 @@
             "hp": "HP == H"
           },
           "type": "removeEntity"
+        }
+      ],
+      "disablingRules": [
+        {
+          "edition": "gh",
+          "scenario": "15",
+          "group": "solo",
+          "index": -1,
+          "section": false
         }
       ]
     },

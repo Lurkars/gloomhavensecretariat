@@ -1,5 +1,4 @@
 {
-  "retirement": "geminate",
   "index": "160.3",
   "name": "%game.characterIconColored.geminate% Retires",
   "edition": "fh",
@@ -8,5 +7,6 @@
     "calendarSection": [
       "193.2-4"
     ]
-  }
+  },
+  "retirement": "geminate"
 }

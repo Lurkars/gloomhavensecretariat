@@ -7,8 +7,8 @@
     "48"
   ],
   "rewards": {
-    "inspiration": -1,
-    "custom": "Gain 2 additional loot cards each"
+    "custom": "Gain 2 additional loot cards each",
+    "inspiration": -1
   },
   "monsters": [
     "algox-guard",

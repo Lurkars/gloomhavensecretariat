@@ -5,15 +5,15 @@
   "conclusion": true,
   "named": true,
   "rewards": {
+    "events": [
+      "summer-outpost:SO-63",
+      "winter-road:WR-44"
+    ],
     "calendarSectionManual": [
       {
         "section": "118.3",
         "hint": "If you have completed <b><i>Forgotten Circles</i></b>, add %data.section:118.3% to the calendar in three weeks."
       }
-    ],
-    "events": [
-      "summer-outpost:SO-63",
-      "winter-road:WR-44"
     ]
   }
 }

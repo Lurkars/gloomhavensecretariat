@@ -17,8 +17,8 @@
     "97"
   ],
   "rewards": {
-    "morale": 1,
-    "experience": 5
+    "experience": 5,
+    "morale": 1
   },
   "monsters": [
     "ancient-artillery",

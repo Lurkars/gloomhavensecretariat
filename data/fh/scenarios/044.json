@@ -8,14 +8,14 @@
     "59"
   ],
   "rewards": {
+    "gold": 5,
     "chooseLocation": [
       "58",
       "59"
     ],
     "itemBlueprints": [
       "73"
-    ],
-    "gold": 5
+    ]
   },
   "monsters": [
     "flaming-bladespinner"

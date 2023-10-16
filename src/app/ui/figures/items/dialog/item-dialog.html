@@ -4,5 +4,3 @@
   <ghs-character-item *ngIf="character" [character]="character" [item]="item" [setup]="setup"></ghs-character-item>
 </div>
 <div class="close-container" *ngIf="!character" (click)="close()"></div>
-<a class="close" *ngIf="character" (click)="close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'"><img
-    src="./assets/images/close_dialog.svg"></a>

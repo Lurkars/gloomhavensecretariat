@@ -1,5 +1,4 @@
 {
-  "retirement": "meteor",
   "index": "51.3",
   "name": "%game.characterIconColored.meteor% Retires",
   "edition": "fh",
@@ -8,5 +7,6 @@
     "calendarSection": [
       "174.2-summer:5"
     ]
-  }
+  },
+  "retirement": "meteor"
 }

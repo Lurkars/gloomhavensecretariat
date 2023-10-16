@@ -5,16 +5,16 @@
   "parent": "127",
   "conclusion": true,
   "rewards": {
+    "collectiveGold": 10,
+    "prosperity": 1,
+    "items": [
+      "195"
+    ],
     "collectiveResources": [
       {
         "type": "lumber",
         "value": 2
       }
-    ],
-    "collectiveGold": 10,
-    "prosperity": 1,
-    "items": [
-      "195"
     ]
   }
 }

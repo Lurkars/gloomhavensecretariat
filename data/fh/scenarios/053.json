@@ -14,10 +14,10 @@
     }
   ],
   "rewards": {
+    "battleGoals": 2,
     "campaignSticker": [
       "Coral Shard"
-    ],
-    "battleGoals": 2
+    ]
   },
   "monsters": [
     "lurker-clawcrusher",

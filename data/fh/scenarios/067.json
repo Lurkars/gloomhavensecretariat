@@ -10,8 +10,8 @@
     "68"
   ],
   "rewards": {
-    "morale": 1,
-    "prosperity": 1
+    "prosperity": 1,
+    "morale": 1
   },
   "monsters": [
     "chaos-demon",

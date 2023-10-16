@@ -12,14 +12,14 @@
     }
   ],
   "rewards": {
+    "events": [
+      "winter-road:WR-49"
+    ],
     "collectiveResources": [
       {
         "type": "snowthistle",
         "value": 2
       }
-    ],
-    "events": [
-      "winter-road:WR-49"
     ]
   },
   "monsters": [

@@ -1,7 +1,4 @@
 <div class="light party-sheet-dialog">
-  <a class="close" (click)="close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'">
-    <img src="./assets/images/close_dialog.svg">
-  </a>
   <div class="scroll-container"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
     <div class="container" [ngClass]="{'fh-container' : !campaign && fhSheet, 'campaign-container' : campaign}">

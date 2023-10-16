@@ -1,5 +1,4 @@
 {
-  "standeeEdition": "gh",
   "name": "tomb-protector",
   "edition": "cs",
   "deck": "stone-golem",
@@ -107,5 +106,6 @@
         }
       ]
     }
-  ]
+  ],
+  "standeeEdition": "gh"
 }

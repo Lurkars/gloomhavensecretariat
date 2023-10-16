@@ -988,7 +988,6 @@
       "initiative": 82,
       "actions": [
         {
-          "valuType": "plus",
           "type": "attack",
           "value": 0,
           "subActions": [
@@ -1025,7 +1024,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "valuType": "plus"
         }
       ],
       "bottomActions": [

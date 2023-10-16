@@ -4,6 +4,12 @@
   "edition": "fh",
   "complexity": 2,
   "rewards": {
+    "prosperity": 2,
+    "events": [
+      "winter-outpost:WO-66",
+      "winter-outpost:WO-67"
+    ],
+    "custom": "Remove all %game.action.custom.fh-algox% events from all outpost event decks",
     "morale": 2,
     "campaignSticker": [
       "Friend of the Frostspeakers"
@@ -14,13 +20,7 @@
     ],
     "townGuardAm": [
       "fh-tg-add-plus50-algox"
-    ],
-    "prosperity": 2,
-    "events": [
-      "winter-outpost:WO-66",
-      "winter-outpost:WO-67"
-    ],
-    "custom": "Remove all %game.action.custom.fh-algox% events from all outpost event decks"
+    ]
   },
   "monsters": [
     "algox-archer",

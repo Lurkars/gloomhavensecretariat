@@ -1,10 +1,10 @@
 {
-  "retirement": "shards",
   "index": "132.1",
   "name": "%game.characterIconColored.shards% Retires",
   "edition": "fh",
   "conclusion": true,
   "rewards": {
     "inspiration": 4
-  }
+  },
+  "retirement": "shards"
 }

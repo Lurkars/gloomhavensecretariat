@@ -7,14 +7,14 @@
     "136"
   ],
   "rewards": {
-    "morale": 1,
-    "lootDeckCards": [
-      1419
-    ],
     "hints": {
       "lootDeckCards": [
         "When drawn, read any one section number depicted."
       ]
-    }
+    },
+    "morale": 1,
+    "lootDeckCards": [
+      1419
+    ]
   }
 }

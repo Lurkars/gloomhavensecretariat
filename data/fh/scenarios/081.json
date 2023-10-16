@@ -5,10 +5,10 @@
   "complexity": 3,
   "allyDeck": true,
   "rewards": {
+    "prosperity": 1,
     "itemBlueprints": [
       "70"
-    ],
-    "prosperity": 1
+    ]
   },
   "monsters": [
     "aesther-ashblade",

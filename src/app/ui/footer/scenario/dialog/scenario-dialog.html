@@ -1,8 +1,5 @@
 <div class="scenario-popup"
   [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
-  <a class="close" (click)="dialogRef.close()" [ghs-label]="'close'" [ghs-label-attribute]="'title'">
-    <img src="./assets/images/close_dialog.svg">
-  </a>
   <div class="scroll-container">
     <div class="title">
       <span *ngIf="scenario.index" class="index">#{{scenario.index}}</span>

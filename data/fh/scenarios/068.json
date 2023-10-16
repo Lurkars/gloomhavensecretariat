@@ -4,10 +4,10 @@
   "edition": "fh",
   "complexity": 2,
   "rewards": {
+    "custom": "\"Aesther Outpost\" quest complete",
     "calendarSection": [
       "133.1-1"
-    ],
-    "custom": "\"Aesther Outpost\" quest complete"
+    ]
   },
   "monsters": [
     "chaos-demon",

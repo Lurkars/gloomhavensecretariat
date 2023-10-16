@@ -15,7 +15,6 @@
   ],
   "rules": [
     {
-      "noteTop": "Any figure occupying %game.mapMarker.b% suffers trap damage and is placed in the closest empty hex.",
       "round": "true",
       "always": true,
       "once": true,
@@ -29,7 +28,8 @@
           },
           "marker": "b"
         }
-      ]
+      ],
+      "noteTop": "Any figure occupying %game.mapMarker.b% suffers trap damage and is placed in the closest empty hex."
     },
     {
       "round": "true",

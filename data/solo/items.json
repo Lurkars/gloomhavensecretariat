@@ -115,7 +115,6 @@
     ]
   },
   {
-    "loss": true,
     "id": 141,
     "name": "Utility Belt",
     "cost": 50,
@@ -130,7 +129,8 @@
         "value": "%data.items.solo-141.1%",
         "small": true
       }
-    ]
+    ],
+    "loss": true
   },
   {
     "id": 142,
@@ -540,7 +540,6 @@
     ]
   },
   {
-    "loss": true,
     "id": 109,
     "name": "Auscudec of the Makers",
     "cost": 50,
@@ -555,7 +554,8 @@
         "value": "%data.items.solo-109.1%",
         "small": true
       }
-    ]
+    ],
+    "loss": true
   },
   {
     "id": 114,
@@ -592,7 +592,6 @@
     ]
   },
   {
-    "loss": true,
     "id": 249,
     "name": "Recalibration Trigger",
     "cost": 0,
@@ -627,7 +626,8 @@
           }
         ]
       }
-    ]
+    ],
+    "loss": true
   },
   {
     "id": 250,
@@ -775,7 +775,6 @@
     ]
   },
   {
-    "loss": true,
     "id": 256,
     "name": "Sonorous Shard",
     "cost": 0,
@@ -794,7 +793,8 @@
         "type": "custom",
         "value": "%game.elementHalf:air|earth%"
       }
-    ]
+    ],
+    "loss": true
   },
   {
     "id": 257,
@@ -967,7 +967,6 @@
     ]
   },
   {
-    "loss": true,
     "id": 264,
     "name": "Spiraled Medallion",
     "cost": 0,
@@ -986,7 +985,8 @@
         "type": "custom",
         "value": "%game.elementHalf:light|dark%"
       }
-    ]
+    ],
+    "loss": true
   },
   {
     "id": 119,

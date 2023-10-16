@@ -4,12 +4,12 @@
   "edition": "fh",
   "complexity": 3,
   "rewards": {
-    "morale": 2,
-    "inspiration": 1,
     "prosperity": 2,
     "items": [
       "220"
-    ]
+    ],
+    "morale": 2,
+    "inspiration": 1
   },
   "monsters": [
     "earth-demon",
