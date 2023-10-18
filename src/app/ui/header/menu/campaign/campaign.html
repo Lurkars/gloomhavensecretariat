@@ -19,7 +19,8 @@
         </label>
     </div>
 
-    <div class="line title span" *ngIf="settingsManager.settings.partySheet || settingsManager.settings.characterSheet || settingsManager.settings.characterItems">
+    <div class="line title span"
+        *ngIf="settingsManager.settings.partySheet || settingsManager.settings.characterSheet || settingsManager.settings.characterItems">
         <label><span [ghs-label]="'campaign'"></span></label>
     </div>
 
@@ -29,6 +30,10 @@
 
     <div class="line span" *ngIf="settingsManager.settings.partySheet">
         <a (click)="openCampaignSheet()" [ghs-label]="'campaign.sheet'"></a>
+    </div>
+
+    <div class="line" *ngIf="worldMap">
+        <a (click)="openMap()" [ghs-label]="'campaign.map'"></a>
     </div>
 
     <div class="line span" *ngIf="settingsManager.settings.characterSheet || settingsManager.settings.characterItems">

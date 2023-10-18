@@ -1,6 +1,12 @@
 {
   "index": "1",
   "name": "A Town in Flames",
+  "coordinates": {
+    "x": 960,
+    "y": 1872,
+    "width": 165,
+    "height": 95
+  },
   "edition": "fh",
   "complexity": 1,
   "initial": true,

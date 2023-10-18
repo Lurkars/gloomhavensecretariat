@@ -124,26 +124,63 @@ export class PartyBuildingsComponent implements OnInit {
       return (this.partyResource(LootType.lumber) + this.partyResource(LootType.metal) + this.partyResource(LootType.hide)) > totalCosts;
     }
 
+    let discount = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == "carpenter" && buildingModel.level > 0 && buildingModel.state != 'wrecked') != undefined;
+
     if (building.model.state == 'wrecked') {
       costs = building.data.rebuild[building.model.level - 1];
       if (costs.lumber > this.partyResource(LootType.lumber)) {
-        return false;
-      } else if (costs.metal > this.partyResource(LootType.metal)) {
-        return false;
-      } else if (costs.hide > this.partyResource(LootType.hide)) {
-        return false;
+        if (discount && costs.lumber == this.partyResource(LootType.lumber) + 1) {
+          discount = false;
+        } else {
+          return false;
+        }
+      }
+
+      if (costs.metal > this.partyResource(LootType.metal)) {
+        if (discount && costs.metal == this.partyResource(LootType.metal) + 1) {
+          discount = false;
+        } else {
+          return false;
+        }
+      }
+      if (costs.hide > this.partyResource(LootType.hide)) {
+        if (discount && costs.hide == this.partyResource(LootType.hide) + 1) {
+          discount = false;
+        } else {
+          return false;
+        }
       }
       return true;
     } else if (building.model.level < building.data.upgrades.length + 1) {
       if (costs.prosperity && costs.prosperity > gameManager.prosperityLevel()) {
         return false;
-      } else if ((costs.lumber || 0) > this.partyResource(LootType.lumber)) {
-        return false;
-      } else if ((costs.metal || 0) > this.partyResource(LootType.metal)) {
-        return false;
-      } else if ((costs.hide || 0) > this.partyResource(LootType.hide)) {
-        return false;
-      } else if ((costs.gold || 0) > gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => (figure as Character).progress.gold).reduce((a, b) => a + b)) {
+      }
+
+      if ((costs.lumber || 0) > this.partyResource(LootType.lumber)) {
+        if (discount && costs.lumber == this.partyResource(LootType.lumber) + 1) {
+          discount = false;
+        } else {
+          return false;
+        }
+      }
+
+      if ((costs.metal || 0) > this.partyResource(LootType.metal)) {
+        if (discount && costs.metal == this.partyResource(LootType.metal) + 1) {
+          discount = false;
+        } else {
+          return false;
+        }
+      }
+
+      if ((costs.hide || 0) > this.partyResource(LootType.hide)) {
+        if (discount && costs.hide == this.partyResource(LootType.hide) + 1) {
+          discount = false;
+        } else {
+          return false;
+        }
+      }
+
+      if ((costs.gold || 0) > gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => (figure as Character).progress.gold).reduce((a, b) => a + b)) {
         return false;
       }
 

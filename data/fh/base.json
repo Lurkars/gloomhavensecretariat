@@ -17,6 +17,10 @@
     "bless"
   ],
   "edition": "fh",
+  "worldMap": {
+    "width": 2500,
+    "height": 3179
+  },
   "extensions": [
     "fh-crossover"
   ],

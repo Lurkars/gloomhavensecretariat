@@ -10,6 +10,7 @@ import { ItemsDialogComponent } from "src/app/ui/figures/items/dialog/items-dial
 import { GameState } from "src/app/game/model/Game";
 import { Condition, ConditionName, ConditionType } from "src/app/game/model/data/Condition";
 import { Party } from "src/app/game/model/Party";
+import { WorldMapComponent } from "src/app/ui/figures/party/world-map/world-map";
 
 
 @Component({
@@ -29,6 +30,7 @@ export class CampaignMenuComponent implements OnInit {
     editionConditions: ConditionName[] = [];
     characters: Character[] = [];
     confirmPartyDelete: number = -1;
+    worldMap: boolean = false;
 
     constructor(private dialog: Dialog) { }
 
@@ -52,6 +54,12 @@ export class CampaignMenuComponent implements OnInit {
         this.conditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => condition.types.indexOf(ConditionType.hidden) == -1);
         this.amConditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => condition.types.indexOf(ConditionType.amDeck) != -1);
         this.editionConditions = gameManager.conditions(gameManager.game.edition, true).map((condition) => condition.name);
+        const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.game.edition);
+        if (editionData) {
+            if (editionData.worldMap) {
+                this.worldMap = true;
+            }
+        }
     }
 
     setEdition(edition: string | undefined = undefined) {
@@ -108,6 +116,15 @@ export class CampaignMenuComponent implements OnInit {
             panelClass: ['dialog-invert'],
             data: { campaign: true }
         });
+        this.close.emit();
+    }
+
+    openMap() {
+        this.dialog.open(WorldMapComponent, {
+            backdropClass: 'fullscreen-backdrop',
+            panelClass: 'fullscreen-panel',
+            data: gameManager.game.edition
+        })
         this.close.emit();
     }
 

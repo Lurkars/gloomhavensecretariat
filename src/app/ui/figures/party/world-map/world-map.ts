@@ -38,9 +38,11 @@ export class WorldMapComponent implements AfterViewInit {
             }
         }
 
-        this.dialogRef.closed.subscribe({next:() => {
-            settingsManager.settings.disablePinchZoom = disablePinchZoom;
-        }})
+        this.dialogRef.closed.subscribe({
+            next: () => {
+                settingsManager.settings.disablePinchZoom = disablePinchZoom;
+            }
+        })
     }
 
     ngAfterViewInit(): void {
@@ -65,7 +67,11 @@ export class WorldMapComponent implements AfterViewInit {
                 }
 
                 if (scenarioData.coordinates) {
-                    let overlay = L.imageOverlay('./assets/images/world-map/' + this.edition + '/scenarios/' + scenarioData.edition + '-' + scenarioData.index + '.png', [[height - scenarioData.coordinates.y, scenarioData.coordinates.x], [height - scenarioData.coordinates.y - scenarioData.coordinates.height, scenarioData.coordinates.x + scenarioData.coordinates.width]], { interactive: true }).addTo(map);
+                    let imageIndex = scenarioData.index;
+                    while (imageIndex.length < 3) {
+                        imageIndex = '0' + imageIndex;
+                    }
+                    let overlay = L.imageOverlay('./assets/images/world-map/' + this.edition + '/scenarios/' + scenarioData.edition + '-' + imageIndex + '.png', [[height - scenarioData.coordinates.y, scenarioData.coordinates.x], [height - scenarioData.coordinates.y - scenarioData.coordinates.height, scenarioData.coordinates.x + scenarioData.coordinates.width]], { interactive: true }).addTo(map);
 
                     overlay.getElement()?.classList.add('scenario');
                     if (gameManager.game.party.scenarios.find((model) => model.edition == scenarioData.edition && model.index == scenarioData.index && model.group == scenarioData.group)) {
