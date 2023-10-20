@@ -251,7 +251,7 @@
 </div>
 
 <div
-  *ngIf="settingsManager.settings.characterItems && (settingsManager.settings.characterItemsPermanent && character.itemsVisible || settingsManager.settings.characterItemsPermanentActive && character.active && character.progress.items.length > 0)"
+  *ngIf="settingsManager.settings.characterItems && settingsManager.settings.characterItemsPermanent && (character.itemsVisible || settingsManager.settings.characterItemsPermanentActive && character.active && character.progress.items.length > 0)"
   class="items-container-permanent">
   <ghs-character-item-list [character]="character"></ghs-character-item-list>
 </div>

@@ -6,6 +6,10 @@ export class BuildingData {
     manualUpgrades: number = 0;
     repair: number[] | undefined = undefined;
     rebuild: BuildingCosts[] = [];
+    effectNormal: string[] = [];
+    effectWrecked: string[] = [];
+    interactionsAvailable: string[] = [];
+    interactionsUnavailable: string[] = [];
     requires: string = "";
     rewards: BuildingRewards[] = [];
     prosperityUnlock: boolean = false;

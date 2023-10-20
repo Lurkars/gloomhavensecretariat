@@ -407,36 +407,96 @@
     }
   },
   "buildings": {
-    "alchemist": "Alchemist",
-    "barracks": "Barracks",
-    "boat": "Boat",
-    "carpenter": "Carpenter",
-    "climbing-gear": "Climbing Gear",
-    "craftsman": "Craftsman",
-    "enhancer": "Enhancer",
-    "garden": "Garden",
-    "hall-of-revelry": "Hall of Revelry",
-    "hide-depot": "Hide Depot",
-    "hunting-lodge": "Hunting Lodge",
-    "inn": "Inn",
-    "jeweler": "Jeweler",
-    "library": "Library",
-    "logging-camp": "Logging Camp",
-    "lumber-depot": "Lumber Depot",
-    "metal-depot": "Metal Depot",
-    "mining-camp": "Mining Camp",
-    "sled": "Sled",
-    "stables": "Stables",
-    "tavern": "Tavern",
-    "temple": "Temple of the Great Oak",
-    "town-hall": "Town Hall",
-    "trading-post": "Trading Post",
-    "wall-j": "Wall J",
-    "wall-k": "Wall K",
-    "wall-l": "Wall L",
-    "wall-m": "Wall M",
-    "wall-n": "Wall N",
-    "workshop": "Workshop"
+    "alchemist": {
+      ".": "Alchemist"
+    },
+    "barracks": {
+      ".": "Barracks"
+    },
+    "boat": {
+      ".": "Boat"
+    },
+    "carpenter": {
+      ".": "Carpenter"
+    },
+    "climbing-gear": {
+      ".": "Climbing Gear"
+    },
+    "craftsman": {
+      ".": "Craftsman"
+    },
+    "enhancer": {
+      ".": "Enhancer"
+    },
+    "garden": {
+      ".": "Garden"
+    },
+    "hall-of-revelry": {
+      ".": "Hall of Revelry"
+    },
+    "hide-depot": {
+      ".": "Hide Depot"
+    },
+    "hunting-lodge": {
+      ".": "Hunting Lodge"
+    },
+    "inn": {
+      ".": "Inn"
+    },
+    "jeweler": {
+      ".": "Jeweler"
+    },
+    "library": {
+      ".": "Library"
+    },
+    "logging-camp": {
+      ".": "Logging Camp"
+    },
+    "lumber-depot": {
+      ".": "Lumber Depot"
+    },
+    "metal-depot": {
+      ".": "Metal Depot"
+    },
+    "mining-camp": {
+      ".": "Mining Camp"
+    },
+    "sled": {
+      ".": "Sled"
+    },
+    "stables": {
+      ".": "Stables"
+    },
+    "tavern": {
+      ".": "Tavern"
+    },
+    "temple": {
+      ".": "Temple of the Great Oak"
+    },
+    "town-hall": {
+      ".": "Town Hall"
+    },
+    "trading-post": {
+      ".": "Trading Post"
+    },
+    "wall-j": {
+      ".": "Wall J"
+    },
+    "wall-k": {
+      ".": "Wall K"
+    },
+    "wall-l": {
+      ".": "Wall L"
+    },
+    "wall-m": {
+      ".": "Wall M"
+    },
+    "wall-n": {
+      ".": "Wall N"
+    },
+    "workshop": {
+      ".": "Workshop"
+    }
   },
   "personalQuest": {
     "581": "The Study of Plants",

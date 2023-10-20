@@ -57,6 +57,12 @@
                 "hide": 1
             }
         ],
+        "effectsNormal": [
+            "Collectively buy up to 1 %game.resource.metal% for 2 gold",
+            "Collectively buy up to 2 %game.resource.metal% for 2 gold",
+            "Collectively buy up to 3 %game.resource.metal% for 2 gold",
+            "Collectively buy up to 4 %game.resource.metal% for 2 gold"
+        ],
         "rewards": [
             {
                 "prosperity": 1
@@ -131,6 +137,12 @@
                 "metal": 1,
                 "hide": 2
             }
+        ],
+        "effectsNormal": [
+            "Collectively buy up to 1 %game.resource.hide% for 2 gold",
+            "Collectively buy up to 2 %game.resource.hide% for 2 gold",
+            "Collectively buy up to 3 %game.resource.hide% for 2 gold",
+            "Collectively buy up to 4 %game.resource.hide% for 2 gold"
         ],
         "rewards": [
             {
@@ -208,6 +220,12 @@
                 "hide": 1
             }
         ],
+        "effectsNormal": [
+            "Collectively buy up to 1 %game.resource.lumber% for 2 gold",
+            "Collectively buy up to 2 %game.resource.lumber% for 2 gold",
+            "Collectively buy up to 3 %game.resource.lumber% for 2 gold",
+            "Collectively buy up to 4 %game.resource.lumber% for 2 gold"
+        ],
         "rewards": [
             {
                 "prosperity": 1
@@ -270,6 +288,11 @@
                 "metal": 2,
                 "hide": 2
             }
+        ],
+        "effectsNormal": [
+            "Collectively buy up to 1 material resource for 2 gold",
+            "Collectively buy up to 2 different material resource for 2 gold each",
+            "Collectively buy up to 3 different material resource for 2 gold each"
         ],
         "rewards": [
             {
@@ -341,6 +364,12 @@
                 "metal": 1,
                 "hide": 1
             }
+        ],
+        "effectsNormal": [
+            "Plant herbs, rotate this card 180°, then stop - Gain 1 herb from each planted plot, then rotate this card 180° then stop",
+            "Plant herbs, rotate this card 180°, then stop - Gain 1 herb from each planted plot, then rotate this card 180° then stop",
+            "Gain 1 collective herb from each planted plot, then plant herbs",
+            "Gain 1 collective herb from each planted plot, then plant herbs"
         ],
         "rewards": [
             {
@@ -479,6 +508,39 @@
                 "hide": 2
             }
         ],
+        "effectWrecked": [
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items"
+        ],
+        "interactionsAvailable": [
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items"
+        ],
+        "interactionsUnavailable": [
+            "Lose 1 collective %game.resource.hide%",
+            "Lose 1 collective %game.resource.hide%",
+            "Lose 1 collective %game.resource.hide%",
+            "Lose 2 collective %game.resource.hide%",
+            "Lose 2 collective %game.resource.hide%",
+            "Lose 2 collective %game.resource.hide%",
+            "Lose 3 collective %game.resource.hide%",
+            "Lose 3 collective %game.resource.hide%",
+            "Lose 3 collective %game.resource.hide%"
+        ],
         "rewards": [
             {
                 "items": "1-10"
@@ -565,6 +627,21 @@
                 "hide": 1
             }
         ],
+        "effectWrecked": [
+            "Characters cannot use potions",
+            "Characters cannot use potions",
+            "Characters cannot use potions"
+        ],
+        "interactionsAvailable": [
+            "Brew 2-herb potions",
+            "Brew and distill 2-herb potions",
+            "Brew and distill 2- and 3-herb potions"
+        ],
+        "interactionsUnavailable": [
+            "Brew potions",
+            "Brew and distill potions",
+            "Brew and distill potions"
+        ],
         "rewards": [
             {},
             {
@@ -634,6 +711,24 @@
                 "hide": 1
             }
         ],
+        "effectWrecked": [
+            "Lose 5 collective gold",
+            "Lose 10 collective gold",
+            "Lose 15 collective gold",
+            "Lose 20 collective gold"
+        ],
+        "interactionsAvailable": [
+            "Buy up to one item",
+            "Buy up to two items",
+            "Buy up to three items",
+            "Buy up to four items"
+        ],
+        "interactionsUnavailable": [
+            "Buy items",
+            "Buy items",
+            "Buy items",
+            "Buy items"
+        ],
         "rewards": [
             {
                 "prosperity": 1,
@@ -700,6 +795,11 @@
                 "hide": 1
             }
         ],
+        "effectWrecked": [
+            "Damage any one building",
+            "Damage any one building",
+            "Damage any one building"
+        ],
         "rewards": [
             {
                 "prosperity": 1,
@@ -761,6 +861,16 @@
                 "metal": 2,
                 "hide": 1
             }
+        ],
+        "effectsNormal": [
+            "Each character may lose 5 gold to start the next scenario with %game.condition.bless%x2",
+            "Each character may lose 5 gold to start the next scenario with %game.condition.bless%x2",
+            "Each character may lose 5 gold to start the next scenario with %game.condition.bless%x2"
+        ],
+        "effectWrecked": [
+            "Each character starts the next scenario with %game.condition.curse%",
+            "Each character starts the next scenario with %game.condition.curse%",
+            "Each character starts the next scenario with %game.condition.curse%"
         ],
         "rewards": [
             {
@@ -834,6 +944,29 @@
                 "hide": 2
             }
         ],
+        "effectsNormal": [
+            "",
+            "Reduce all enhancement costs by 10 gold",
+            "Reduce all enhancement costs by 10 gold and level penalties by 10 gold per level",
+            "Reduce all enhancement costs by 10 gold, level penalties by 10 gold per level, and repeat penalties by 25 gold per enhancement"
+        ],
+        "effectWrecked": [
+            "Each character starts the next scenario with %game.condition.disarm%",
+            "Each character starts the next scenario with %game.condition.disarm%",
+            "Each character starts the next scenario with %game.condition.disarm%"
+        ],
+        "interactionsAvailable": [
+            "Buy enhancements",
+            "Buy enhancements",
+            "Buy enhancements",
+            "Buy enhancements"
+        ],
+        "interactionsUnavailable": [
+            "Buy enhancements",
+            "Buy enhancements",
+            "Buy enhancements",
+            "Buy enhancements"
+        ],
         "rewards": [
             {
                 "prosperity": 1,
@@ -887,6 +1020,14 @@
                 "hide": 1
             }
         ],
+        "effectsNormal": [
+            "Collectively sell up to 1 %game.resource.metal% for 5 gold",
+            "Collectively sell up to 2 %game.resource.metal% for 5 gold each"
+        ],
+        "effectWrecked": [
+            "Lose 2 collective %game.resource.metal%",
+            "Lose 2 collective %game.resource.metal%"
+        ],
         "rewards": [
             {
                 "prosperity": 1,
@@ -931,6 +1072,14 @@
                 "hide": 1
             }
         ],
+        "effectsNormal": [
+            "Collectively sell up to 1 %game.resource.lumber% for 5 gold",
+            "Collectively sell up to 2 %game.resource.lumber% for 5 gold each"
+        ],
+        "effectWrecked": [
+            "Lose 2 collective %game.resource.lumber%",
+            "Lose 2 collective %game.resource.lumber%"
+        ],
         "rewards": [
             {
                 "prosperity": 1,
@@ -974,6 +1123,14 @@
                 "metal": 1,
                 "hide": 3
             }
+        ],
+        "effectsNormal": [
+            "Collectively sell up to 1 %game.resource.hide% for 5 gold",
+            "Collectively sell up to 2 %game.resource.hide% for 5 gold each"
+        ],
+        "effectWrecked": [
+            "Lose 2 collective %game.resource.hide%",
+            "Lose 2 collective %game.resource.hide%"
         ],
         "rewards": [
             {
@@ -1031,6 +1188,11 @@
                 "hide": 2
             }
         ],
+        "effectWrecked": [
+            "Lose 1 morale",
+            "Lose 1 morale",
+            "Lose 1 morale"
+        ],
         "rewards": [
             {
                 "prosperity": 1,
@@ -1073,6 +1235,14 @@
                 "metal": 2,
                 "hide": 2
             }
+        ],
+        "effectsNormal": [
+            "When the trials deck is complete, read %data.section:187.1",
+            "Access to Tholos' Favors"
+        ],
+        "effectWrecked": [
+            "Lose 1 morale",
+            "Lose 1 morale"
         ],
         "rewards": [
             {
@@ -1130,6 +1300,11 @@
                 "hide": 2
             }
         ],
+        "effectWrecked": [
+            "Lose 1 inspiration",
+            "Lose 1 inspiration",
+            "Lose 1 inspiration"
+        ],
         "rewards": [
             {
                 "prosperity": 1,
@@ -1158,6 +1333,9 @@
         "upgrades": [],
         "repair": [
             2
+        ],
+        "effectWrecked": [
+            "Lose 1 collective %game.resource.lumber%"
         ],
         "rebuild": [
             {
@@ -1252,6 +1430,14 @@
                 "hide": 2
             }
         ],
+        "effectsNormal": [
+            "Reduce all construction costs by 1 material resource",
+            "Reduce all construction costs by 1 material resource and the extra construction cost by 1 morale"
+        ],
+        "effectWrecked": [
+            "Lose any 1 collective resource",
+            "Lose any 1 collective resource"
+        ],
         "rewards": [
             {
                 "prosperity": 1,
@@ -1320,6 +1506,18 @@
                 "hide": 3
             }
         ],
+        "effectsNormal": [
+            "Bring one pet into each scenario.<br><i>Capacity:</i> 4",
+            "Bring one pet into each scenario.<br><i>Capacity:</i> 8",
+            "Bring two pets into each scenario.<br><i>Capacity:</i> 8",
+            "Bring two pets into each scenario.<br><i>Capacity:</i> 12"
+        ],
+        "effectWrecked": [
+            "Characters cannot use pets",
+            "Characters cannot use pets",
+            "Characters cannot use pets",
+            "Characters cannot use pets"
+        ],
         "rewards": [
             {
                 "prosperity": 1,
@@ -1383,6 +1581,16 @@
                 "hide": 2
             }
         ],
+        "effectsNormal": [
+            "Draw one challenge and keep up to one. When the challenge deck is complete, read %data.section:190.1%",
+            "Draw two challenges and keep up to one. When the challenge deck is complete, read %data.section:190.1%",
+            "Draw three challenges and keep up to two. When the challenge deck is complete, read %data.section:190.1%"
+        ],
+        "effectWrecked": [
+            "Cannot complete challenges",
+            "Cannot complete challenges",
+            "Cannot complete challenges"
+        ],
         "rewards": [
             {
                 "prosperity": 1,
@@ -1435,6 +1643,18 @@
                 "metal": 3,
                 "hide": 1
             }
+        ],
+        "effectsNormal": [
+            "Collectively train up to 1 soldier for 3 gold and 1 material resource<br><br><i>Capacity:</i> 4<br><i>Effect:</i> advantage and -5 %game.action.attack%",
+            "Collectively train up to 1 soldier for 3 gold and 1 material resource<br><br><i>Capacity:</i> 6<br><i>Effect:</i> advantage and -15 %game.action.attack%",
+            "Collectively train up to 2 soldiers for 3 gold and 1 material resource<br><br><i>Capacity:</i> 8<br><i>Effect:</i> advantage and -25 %game.action.attack%",
+            "Collectively train up to 2 soldiers for 3 gold and 1 material resource<br><br><i>Capacity:</i> 10<br><i>Effect:</i> advantage and -35 %game.action.attack%"
+        ],
+        "effectWrecked": [
+            "Disadvantage on all attack event resolutions.<br>Cannot use soldiers.",
+            "Disadvantage on all attack event resolutions.<br>Cannot use soldiers.",
+            "Disadvantage on all attack event resolutions.<br>Cannot use soldiers.",
+            "Disadvantage on all attack event resolutions.<br>Cannot use soldiers."
         ],
         "rewards": [
             {
