@@ -1225,7 +1225,7 @@
     "name": "Restful Slippers",
     "count": 2,
     "edition": "fh",
-    "slot": "head",
+    "slot": "legs",
     "spent": true,
     "blueprint": true,
     "resources": {
