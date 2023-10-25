@@ -263,7 +263,7 @@
 
         <div class="total-defense">
           <label><span [ghs-label]="'party.campaign.sheet.totalDefense'"></span>:</label>
-          <input type="number" [value]="party.defense || 0" (change)="setTotalDefense($event)"
+          <input type="number" [value]="((party.defense || 0) + moraleDefense)" (change)="setTotalDefense($event)"
             [ghs-label]="'party.campaign.sheet.totalDefense'" [ghs-label-attribute]="'placeholder'">
         </div>
 
@@ -308,12 +308,12 @@
               {{gameManager.campaignData().highMorale || ''}}
               <img *ngIf="party.morale > 19" src="./assets/images/checkmark.svg">
             </span>
-            <span class="value" [ngClass]="{'highlight' : party.morale > 13}">+15</span>
-            <span class="value" [ngClass]="{'highlight' : party.morale < 14 && party.morale > 10}">+10</span>
-            <span class="value" [ngClass]="{'highlight' : party.morale < 11 && party.morale > 7}">+5</span>
-            <span class="value" [ngClass]="{'highlight' : party.morale < 8 && party.morale > 4}">0</span>
-            <span class="value" [ngClass]="{'highlight' : party.morale < 5 && party.morale > 2}">-5</span>
-            <span class="value" [ngClass]="{'highlight' : party.morale < 3}">-10</span>
+            <span class="value" [ngClass]="{'highlight' : moraleDefense == 15}">+15</span>
+            <span class="value" [ngClass]="{'highlight' : moraleDefense == 10}">+10</span>
+            <span class="value" [ngClass]="{'highlight' : moraleDefense == 5}">+5</span>
+            <span class="value" [ngClass]="{'highlight' : moraleDefense == 0}">0</span>
+            <span class="value" [ngClass]="{'highlight' : moraleDefense == -5}">-5</span>
+            <span class="value" [ngClass]="{'highlight' : moraleDefense == -10}">-10</span>
             <span class="section" [ngClass]="{'highlight' : party.morale < 1}"><img
                 src="./assets/images/fh/party/section.svg">
               {{gameManager.campaignData().lowMorale || ''}}

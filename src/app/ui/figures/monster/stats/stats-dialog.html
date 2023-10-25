@@ -13,8 +13,7 @@
   </div>
 
   <div class="stats-container">
-    <div class="stats" *ngFor="let level of levels" ghs-pointer-input (singleClick)="dialogRef.close()"
-      (doubleClick)="openStatPopup(level)">
+    <div class="stats" *ngFor="let level of levels">
       <ghs-monster-stats [monster]="getMonsterForLevel(level)" [forceStats]="true" [noClick]="true">
       </ghs-monster-stats>
     </div>

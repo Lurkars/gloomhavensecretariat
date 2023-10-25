@@ -40,6 +40,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   prosperitySteps = GH_PROSPERITY_STEPS;
   prosperityHighlightSteps = GH_PROSPERITY_STEPS;
   priceModifier: number = 0;
+  moraleDefense: number = 0;
   campaign: boolean = false;
 
   partyEdition: string = "";
@@ -548,6 +549,20 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       this.priceModifier = Math.floor((this.party.reputation + 2) / 4) * -1;
     }
 
+    if (this.party.morale < 3) {
+      this.moraleDefense = -10;
+    } else if (this.party.morale < 5) {
+      this.moraleDefense = -5;
+    } else if (this.party.morale < 8) {
+      this.moraleDefense = 0;
+    } else if (this.party.morale < 11) {
+      this.moraleDefense = 5;
+    } else if (this.party.morale < 14) {
+      this.moraleDefense = 10;
+    } else {
+      this.moraleDefense = 15;
+    }
+
     const campaign = gameManager.campaignData();
     this.townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.party, campaign);
     if (this.party.townGuardDeck) {
@@ -913,10 +928,13 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   setTotalDefense(event: any) {
-    if (!isNaN(+event.target.value) && this.party.defense != +event.target.value) {
-      gameManager.stateManager.before("setPartyTotalDefense", this.party.name, event.target.value);
-      this.party.defense = +event.target.value;
-      gameManager.stateManager.after();
+    if (!isNaN(+event.target.value)) {
+      const value = +event.target.value - this.moraleDefense;
+      if (this.party.defense != value) {
+        gameManager.stateManager.before("setPartyTotalDefense", this.party.name, '' + value);
+        this.party.defense = value;
+        gameManager.stateManager.after();
+      }
     }
   }
 
@@ -944,6 +962,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     gameManager.stateManager.before("setPartyMorale", "" + value);
     this.party.morale = value;
     gameManager.stateManager.after();
+    this.update();
   }
 
   setTownGuardPerks(value: number) {

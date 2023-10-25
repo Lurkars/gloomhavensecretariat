@@ -12,6 +12,10 @@
     background-size: contain;
     padding-left: calc(var(--ghs-unit) * 1.2 * var(--ghs-dialog-factor));
 
+    .compact-separator {
+      display: none;
+    }
+
     .columns {
       display: flex;
 
@@ -40,6 +44,7 @@
       align-items: center;
       font-family: var(--ghs-font-title);
       font-size: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
+      white-space: nowrap;
 
       img {
         width: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
@@ -799,6 +804,12 @@
       background-image: none;
       width: initial;
       max-width: calc(var(--ghs-unit) * 50 * var(--ghs-dialog-factor));
+
+      .compact-separator {
+        display: block;
+        width: 100%;
+        margin: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor)) 0;
+      }
 
       label.headline {
         justify-content: flex-start;

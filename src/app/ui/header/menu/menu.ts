@@ -286,14 +286,10 @@ export class MainMenuComponent implements OnInit, OnDestroy {
     }
   }
 
-  clearAndRefresh() {
+  async clearAndRefresh() {
     if ('caches' in window) {
-      caches.keys()
-        .then(function (keyList) {
-          return Promise.all(keyList.map(function (key) {
-            return caches.delete(key);
-          }));
-        })
+      const keyList = await caches.keys();
+      await Promise.all(keyList.map(async (key) => await caches.delete(key)));
     }
     window.location.reload()
   }

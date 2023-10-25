@@ -81,7 +81,7 @@
           </div>
         </div>
 
-
+        <hr class="compact-separator" *ngIf="fhSheet">
         <div class="row resources" *ngIf="fhSheet">
           <label><span [ghs-label]="'character.progress.resources'"></span>:</label>
 
@@ -139,9 +139,9 @@
               </div>
             </div>
           </div>
-
         </div>
 
+        <hr class="compact-separator">
         <div *ngIf="fhSheet" class="row notes">
           <label><span [ghs-label]="'character.progress.notes'"></span>:
             <div class="traits" *ngIf="character.traits.length > 0">
@@ -158,6 +158,7 @@
 
         <ghs-character-items *ngIf="!fhSheet" class="row" [character]="character"></ghs-character-items>
 
+        <hr class="compact-separator" *ngIf="fhSheet">
         <div class="row masteries" *ngIf="fhSheet">
           <label><span [ghs-label]="'character.progress.masteries'"></span>:</label>
           <div class="masteries-list">
@@ -174,6 +175,7 @@
       </div>
 
       <div class="column column-right">
+        <hr class="compact-separator" *ngIf="!fhSheet">
         <div class="row perks">
           <label *ngIf="!fhSheet" class="headline"><span [ghs-label]="'game.attackModifiers.perks'"></span></label>
           <div class="list">
@@ -209,12 +211,14 @@
             </ng-container>
           </div>
         </div>
+        <hr class="compact-separator" *ngIf="fhSheet">
       </div>
 
     </div>
 
     <div class="additional">
-      <label class="headline"><span [ghs-label]="'character.progress.notes'"></span></label>
+      <hr class="compact-separator">
+      <label class="headline" *ngIf="!settingsManager.settings.characterSheetCompact || !fhSheet"><span [ghs-label]="'character.progress.notes'"></span></label>
       <div class="columns">
         <div class="column column-left">
           <textarea *ngIf="!fhSheet" [value]="character.progress.notes" (change)="setNotes($event)"
@@ -297,6 +301,7 @@
             <input [value]="character.progress.extraPerks" type="number" min="0" (change)="setExtraPerks($event)"
               (keyup)="setExtraPerks($event)">
           </div>
+          <hr class="compact-separator">
           <div class="import-export">
             <label class="export" (click)="exportCharacter()" [ghs-label]="'character.progress.export'"
               [ghs-label-attribute]="'title'">
