@@ -6,6 +6,7 @@ import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
 import { ScenarioConclusionComponent } from "../scenario/scenario-conclusion/scenario-conclusion";
+import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 
 @Component({
     selector: 'ghs-hint-dialog',
@@ -83,7 +84,7 @@ export class HintDialogComponent {
     }
 
     missingInitiative(): boolean {
-        return gameManager.game.figures.some((figure) => figure instanceof Character && settingsManager.settings.initiativeRequired && figure.initiative < 1 && gameManager.entityManager.isAlive(figure) && !figure.absent);
+        return gameManager.game.figures.some((figure) => settingsManager.settings.initiativeRequired && (figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent || figure instanceof ObjectiveContainer) && figure.getInitiative() < 1);
     }
 
     active(): boolean {

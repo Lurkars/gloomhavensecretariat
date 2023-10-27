@@ -1207,7 +1207,7 @@
       "empty": "Please add monsters and characters before round.",
       "failed": "All characters seems exhausted. Do you want to restart the scenario?",
       "finish": "There are no monsters left. Did you successfully finish the scenario?",
-      "missingInitiative": "Players initiative must be set. Select initiative by clicking on character portrait."
+      "missingInitiative": "Initiative must be set for all figures!."
     },
     "next": "Next Round"
   },

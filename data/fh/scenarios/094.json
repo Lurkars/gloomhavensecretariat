@@ -15,13 +15,12 @@
   },
   "monsters": [
     "ancient-artillery",
-    "flaming-bladespinner",
     "ruined-machine"
   ],
   "objectives": [
     {
       "name": "Flaming Bladespinner",
-      "initiative": "0",
+      "initiative": "1",
       "actions": [
         {
           "type": "custom",
