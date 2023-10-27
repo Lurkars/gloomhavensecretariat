@@ -1061,7 +1061,7 @@
       "empty": "Vor der Runde bitte Charaktere und Monster hinzufügen.",
       "failed": "Alle Charaktere scheinen erschöpft. Das Szenario von vorne beginnen?",
       "finish": "Es sind keine Monster mehr übriges. Das Szenario erfolgreich beenden?",
-      "missingInitiative": "Die Initiative muss gesetzt sein. Zum Festlegen der Initiative auf das Charakter-Portrait klicken."
+      "missingInitiative": "Die Initiative für alle Figuren muss gesetzt sein!"
     },
     "next": "Nächste Runde"
   },
