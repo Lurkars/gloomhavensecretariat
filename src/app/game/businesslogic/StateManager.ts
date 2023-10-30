@@ -367,7 +367,7 @@ export class StateManager {
           gameManager.stateManager.serverError = false;
           break;
         case "error":
-          console.warn("[GHS] Error: " + message.message);
+          console.warn("[GHS] Error: ", message);
           if (message.message.startsWith("Permission(s) missing") || message.message.startsWith("invalid revision")) {
             if (gameManager.stateManager.lastAction == "redo" || gameManager.stateManager.lastAction == "update") {
               gameManager.stateManager.undo(false);
