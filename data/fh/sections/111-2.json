@@ -27,7 +27,7 @@
   ],
   "rules": [
     {
-      "round": "R % 2 == 0",
+      "round": "R % 2 == 1",
       "start": true,
       "spawns": [
         {
@@ -60,7 +60,7 @@
       ]
     },
     {
-      "round": "R % 2 == 1",
+      "round": "R % 2 == 0",
       "start": true,
       "spawns": [
         {

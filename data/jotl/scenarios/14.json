@@ -16,6 +16,7 @@
   "rules": [
     {
       "round": "R > 1",
+      "start": true,
       "note": "%data.scenario.rules.jotl.14.1%",
       "spawns": [
         {
