@@ -133,6 +133,10 @@ export class MainComponent implements OnInit {
 
     dialog.afterOpened.subscribe({
       next: (dialogRef: DialogRef) => {
+        if (dialogRef.overlayRef.backdropElement && dialog.openDialogs.length > 1) {
+          dialogRef.overlayRef.backdropElement.style.opacity = '0';
+        }
+
         let closeIcon = document.createElement('img');
         closeIcon.src = './assets/images/close_dialog.svg';
         let closeElement = document.createElement('a');

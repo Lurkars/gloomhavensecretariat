@@ -159,6 +159,9 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
         this.queueTimeout = setTimeout(() => {
             this.drawing = false;
             this.queueTimeout = null;
+            const currentIndex = this.current;
+            const loot = this.deck.cards[currentIndex];
+
             if (this.queue > 0) {
                 this.queue--;
                 this.current++;
@@ -170,7 +173,6 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                 }
             }
 
-            const loot = this.deck.cards[this.current];
             if (!fromServer && loot && appliableLootTypes.indexOf(loot.type) != null && settingsManager.settings.applyLoot && !this.standalone && gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.gameplayFigure(figure)) && (!gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) || settingsManager.settings.alwaysLootApplyDialog)) {
                 const dialog = this.dialog.open(LootApplyDialogComponent, {
                     panelClass: 'dialog',
@@ -183,12 +185,12 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                             const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == name);
                             if (character instanceof Character) {
                                 gameManager.stateManager.before(loot.type == LootType.random_item ? "lootRandomItem" : "addResource", "data.character." + character.name, "game.loot." + loot.type, this.lootManager.getValue(loot) + '');
-                                const result = gameManager.lootManager.applyLoot(loot, character, this.current);
+                                const result = gameManager.lootManager.applyLoot(loot, character, currentIndex);
                                 gameManager.stateManager.after();
                                 if (result) {
                                     this.dialog.open(LootRandomItemDialogComponent, {
                                         panelClass: 'dialog',
-                                        data: { item: result, loot: this.deck.cards[this.current], index: this.current, character: character }
+                                        data: { item: result, loot: this.deck.cards[currentIndex], index: currentIndex, character: character }
                                     }).closed.subscribe({
                                         next: (result) => {
                                             if (result) {
@@ -196,8 +198,8 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                                                 gameManager.stateManager.before("selectRandomItemLoot");
                                                 let itemIdentifier: Identifier = new Identifier('' + item.id, item.edition);
                                                 gameManager.itemManager.addItemCount(item);
-                                                if (character.lootCards.indexOf(this.current) == -1) {
-                                                    character.lootCards.push(this.current);
+                                                if (character.lootCards.indexOf(currentIndex) == -1) {
+                                                    character.lootCards.push(currentIndex);
                                                     character.lootCards.sort((a, b) => a - b);
                                                 }
                                                 if (character.progress.items.find((existing) => existing.name == '' + item.id && existing.edition == item.edition) != undefined) {
@@ -208,7 +210,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                                                 }
                                                 gameManager.stateManager.after();
                                             } else {
-                                                character.lootCards = character.lootCards.filter((index) => index != this.current);
+                                                character.lootCards = character.lootCards.filter((index) => index != currentIndex);
                                             }
                                         }
                                     })
