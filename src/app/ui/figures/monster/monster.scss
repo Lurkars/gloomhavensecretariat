@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   width: calc(var(--ghs-unit) * 98);
+  z-index: 1;
 
   ghs-monster-ability-card,
   ghs-monster-stats,
@@ -108,12 +109,13 @@
 }
 
 .entities-container {
-  z-index: 2;
+  position: relative;
   display: flex;
   transition: max-height 1000ms ease-out;
   max-height: 100%;
   max-width: calc(var(--ghs-unit) * 96);
   margin-top: calc(var(--ghs-unit) * 0.25 * var(--ghs-text-factor));
+  z-index: 2;
 
   &.empty {
     max-height: 0;

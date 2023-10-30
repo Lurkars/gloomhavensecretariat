@@ -15,6 +15,8 @@
 <div class="character" [style.--ghs-character-color]="character.color"
   [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'absent' : character.absent, 'dimmed' : settingsManager.settings.characterAttackModifierDeck && character.attackModifierDeckVisible && !settingsManager.settings.characterAttackModifierDeckPermanent || settingsManager.settings.lootDeck && settingsManager.settings.applyLoot && character.lootCardsVisible, 'compact': compact, 'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern', 'active-border' : character.active && (settingsManager.settings.theme == 'modern' || compact) }">
 
+  <ghs-entity-index-key [entity]="character"></ghs-entity-index-key>
+
   <ghs-character-image [character]="character"></ghs-character-image>
 
   <ng-container *ngIf="!character.absent">
@@ -94,7 +96,6 @@
                     + (character.primaryToken == i ? token : 0)}}</span></span>
               </ng-container>
             </span>
-            <ghs-entity-index-key [entity]="character"></ghs-entity-index-key>
           </span>
           <div class="status-bar">
             <div class="health" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'" ghs-pointer-input

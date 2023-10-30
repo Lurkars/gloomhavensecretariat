@@ -153,21 +153,27 @@ export class EntityMenuDialogComponent {
       if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowRight') {
         this.changeHealth(1);
         event.preventDefault();
+        event.stopPropagation();
       } else if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowLeft') {
         this.changeHealth(-1);
         event.preventDefault();
+        event.stopPropagation();
       } else if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowUp') {
         this.changeMaxHealth(1);
         event.preventDefault();
+        event.stopPropagation();
       } else if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowDown') {
         this.changeMaxHealth(-1);
         event.preventDefault();
+        event.stopPropagation();
       } else if (!event.ctrlKey && event.key.toLowerCase() === 'b') {
         this.changeBless(event.shiftKey ? -1 : 1);
         event.preventDefault();
+        event.stopPropagation();
       } else if (!event.ctrlKey && event.key.toLowerCase() === 'c') {
         this.changeCurse(event.shiftKey ? -1 : 1);
         event.preventDefault();
+        event.stopPropagation();
       } else if (!event.ctrlKey && !event.shiftKey && (event.key.toLowerCase() === 'k' || event.key.toLowerCase() === 'd')) {
         if (this.data.entity instanceof Character) {
           this.toggleExhausted();
@@ -183,8 +189,8 @@ export class EntityMenuDialogComponent {
   changeHealth(value: number) {
     this.health += value;
     if (this.data.entity) {
-      if (this.data.entity.health + this.health > EntityValueFunction(this.data.entity.maxHealth)) {
-        this.health = EntityValueFunction(this.data.entity.maxHealth) - this.data.entity.health;
+      if (this.data.entity.health + this.health > EntityValueFunction(this.data.entity.maxHealth) + this.maxHp) {
+        this.health = EntityValueFunction(this.data.entity.maxHealth) + this.maxHp - this.data.entity.health;
       }
     }
   }

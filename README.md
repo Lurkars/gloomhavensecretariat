@@ -75,6 +75,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - PWA for installation on all devices!
   - Synchronise state (+ settings) with [GHS Server](https://github.com/Lurkars/ghs-server)
   - Manage permissions for different clients with [GHS Server](https://github.com/Lurkars/ghs-server)
+  - [Keyboard Shortcuts](./resources/keyboard-shortctus.md)
   - Load custom JSON edition data for custom content!
   - Edit monster attack modifier and monster ability decks (support for Diviner class mechanics): reveal cards, remove cards, rearrange cards
   - Support for Frosthaven loot deck (including enhancements) and town guard deck
