@@ -153,20 +153,20 @@ export class ItemManager {
         if (itemData.cost) {
             return Math.floor(itemData.cost / 2);
         } else {
-            let costs = 0;
+            let gold = 0;
             if (itemData.resources) {
                 Object.keys(itemData.resources).forEach(key => {
                     const lootType = key as LootType;
-                    costs += (itemData.resources[lootType] || 0) * 2;
+                    gold += (itemData.resources[lootType] || 0) * 2;
                 });
-
-                if (itemData.requiredItems) {
-                    itemData.requiredItems.forEach(() => {
-                        costs += 2;
-                    })
-                }
             }
-            return costs;
+
+            if (itemData.requiredItems) {
+                itemData.requiredItems.forEach(() => {
+                    gold += 2;
+                })
+            }
+            return gold;
         }
     }
 
