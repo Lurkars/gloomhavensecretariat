@@ -117,7 +117,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Tree A"
+            "name": "Tree",
+            "marker": "a"
           },
           "type": "present"
         }
@@ -141,7 +142,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Tree B"
+            "name": "Tree",
+            "marker": "b"
           },
           "type": "present"
         }
@@ -165,7 +167,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Tree C"
+            "name": "Tree",
+            "marker": "c"
           },
           "type": "present"
         }
