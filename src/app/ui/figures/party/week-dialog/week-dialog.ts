@@ -46,11 +46,14 @@ export class PartyWeekDialogComponent {
         const conclusion = gameManager.sectionData(gameManager.currentEdition()).find((sectionData) => sectionData.index == index && sectionData.conclusion);
         if (conclusion) {
             const scenario = new Scenario(conclusion as ScenarioData);
+            const solved = this.isSolved(index);
             this.dialog.open(ScenarioSummaryComponent, {
                 panelClass: 'dialog',
                 data: {
                     scenario: scenario,
-                    conclusionOnly: true
+                    conclusionOnly: true,
+                    rewardsOnly: solved,
+                    success: solved
                 }
             })
         }

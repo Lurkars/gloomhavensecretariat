@@ -4,9 +4,11 @@
   "edition": "fh",
   "conclusion": true,
   "rewards": {
-    "collectiveResources": {
-      "type": "axenut",
-      "value": 3
-    }
+    "collectiveResources": [
+      {
+        "type": "axenut",
+        "value": 3
+      }
+    ]
   }
 }
