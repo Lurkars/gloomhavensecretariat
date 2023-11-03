@@ -31,8 +31,12 @@ export class ItemsDialogComponent {
     all: boolean = false;
     affordable: boolean = false;
     sorted: boolean = false;
+    itemSlots: (ItemSlot | "undefined")[] = [];
+    itemSlotUndefined: boolean = false;
     unlocks: ItemData[] = [];
     campaignMode: boolean = false;
+
+    ItemSlot: ItemSlot[] = Object.values(ItemSlot);
 
     constructor(@Inject(DIALOG_DATA) public data: { edition: string | undefined, select: Character | undefined, affordable: boolean }, private dialogRef: DialogRef) {
         this.selected = undefined;
@@ -104,6 +108,16 @@ export class ItemsDialogComponent {
 
         this.items = this.items.filter((itemData) => !this.filter || (ghsTextSearch(itemData.name, this.filter) || ghsTextSearch('' + (itemData.id < 100 ? '0' : '') + (itemData.id < 10 ? '0' : '') + itemData.id, this.filter)));
 
+        this.itemSlotUndefined = this.items.find((itemData) => !itemData.slot) != undefined;
+
+        if (!this.itemSlotUndefined) {
+            this.itemSlots = this.itemSlots.filter((value) => value != 'undefined');
+        }
+
+        if (this.itemSlots.length > 0) {
+            this.items = this.items.filter((itemData) => itemData.slot && this.itemSlots.indexOf(itemData.slot) != -1 || !itemData.slot && this.itemSlots.indexOf("undefined") != -1);
+        }
+
         if (this.campaignMode && this.edition && !this.all && !this.affordable) {
             this.unlocks = gameManager.itemManager.getItems(this.edition, true).filter((itemData) => ('' + itemData.id == this.filter || '0' + itemData.id == this.filter || '00' + itemData.id == this.filter) && !this.items.find((item) => item.id == itemData.id && item.edition == itemData.edition));
         }
@@ -158,6 +172,19 @@ export class ItemsDialogComponent {
                 }
             })
         }
+    }
+
+    toggleItemSlotFilter(slot: ItemSlot | "undefined", add: boolean = false) {
+        if (this.itemSlots.indexOf(slot) == -1) {
+            if (add) {
+                this.itemSlots.push(slot);
+            } else {
+                this.itemSlots = [slot];
+            }
+        } else {
+            this.itemSlots = this.itemSlots.filter((value) => value != slot);
+        }
+        this.update(true);
     }
 
     select(itemData: ItemData, force: boolean = false) {

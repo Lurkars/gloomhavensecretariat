@@ -59,6 +59,27 @@
             align-items: center;
             z-index: 1;
 
+            .slots {
+                display: flex;
+                flex-wrap: wrap;
+                margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+                label {
+                    margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+                    .ghs-svg {
+                        height: 1.2em;
+                        width: auto;
+                        filter: var(--ghs-filter-darkgray);
+                    }
+
+                    &.selected .ghs-svg {
+                        filter: var(--ghs-filter-gray);
+                    }
+
+                }
+            }
+
             input[type="text"] {
                 max-width: 100%;
                 min-width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));

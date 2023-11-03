@@ -196,7 +196,7 @@ export class Character extends CharacterData implements Entity, Figure {
     })
     this.absent = model.absent;
     this.longRest = model.longRest;
-    this.battleGoals = model.battleGoals || 0;
+    this.battleGoals = model.battleGoals || [];
     this.battleGoal = model.battleGoal;
   }
 
