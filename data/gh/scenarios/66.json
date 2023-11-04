@@ -143,43 +143,10 @@
     },
     {
       "roomNumber": 5,
-      "ref": "C2b",
-      "marker": "h",
-      "rooms": [
-        6
-      ],
-      "monster": [
-        {
-          "name": "ancient-artillery",
-          "player2": "elite",
-          "player3": "elite"
-        },
-        {
-          "name": "ancient-artillery",
-          "player4": "normal"
-        },
-        {
-          "name": "ancient-artillery",
-          "player4": "elite"
-        },
-        {
-          "name": "living-spirit",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "living-spirit",
-          "player3": "normal",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 6,
       "ref": "D2a",
       "marker": "g",
       "rooms": [
+        6,
         7
       ],
       "monster": [
@@ -211,6 +178,37 @@
         },
         {
           "name": "stone-golem",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 6,
+      "ref": "C2b",
+      "marker": "h",
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "elite",
+          "player3": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
           "player4": "normal"
         }
       ]

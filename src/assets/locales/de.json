@@ -881,6 +881,7 @@
         "name": "Name",
         "removeManual": "Von Freigeschaltenen entfernen",
         "removeSuccess": "Von Erfolgreichen entfernen",
+        "removeSuccessCasual": "Von abgeschlossenen Gelegentheits-Scenarien entfernen",
         "unlock": "Szenario freischalten"
       },
       "sheet": {
