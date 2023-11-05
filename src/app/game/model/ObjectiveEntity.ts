@@ -10,10 +10,6 @@ export class ObjectiveEntity implements Entity {
   dormant: boolean = false;
   revealed: boolean = false;
 
-  // workaround
-  type: "" = "";
-  summon: "" = "";
-
   // from entity
   active: boolean = false;
   off: boolean = false;

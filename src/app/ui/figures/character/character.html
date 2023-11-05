@@ -183,7 +183,8 @@
       </div>
 
       <div *ngIf="settingsManager.settings.characterItems" class="items-button" ghs-pointer-input
-        (singleClick)="openItems()" (doubleClick)="openItems(true)" [ghs-label]="'game.items'" [ghs-label-attribute]="'title'">
+        (singleClick)="openItems()" (doubleClick)="openItems(true)" [ghs-label]="'game.items'"
+        [ghs-label-attribute]="'title'">
         <img
           [src]="settingsManager.settings.fhStyle ? './assets/images/fh/items/item-back-fh.png' : './assets/images/items/item-back.png'" />
       </div>

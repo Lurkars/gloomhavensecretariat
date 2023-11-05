@@ -163,4 +163,9 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
     }
   }
 
+  removeCondition(entityCondition: EntityCondition) {
+    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.summon, this.character, "removeCondition"), entityCondition.name);
+    gameManager.entityManager.removeCondition(this.summon, entityCondition, entityCondition.permanent);
+    gameManager.stateManager.after();
+  }
 }

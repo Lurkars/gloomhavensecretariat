@@ -38,7 +38,7 @@
     <div class="conditions">
       <span class="condition-container" *ngFor="let entityCondition of activeConditions; let index = index"
         [ngClass]="{'expired' : entityCondition.expired, 'center' : ((activeConditions).length % 2) == 1 && (activeConditions).length == index + 1}">
-        <span class="condition">
+        <span class="condition" ghs-pointer-input (doubleClick)="removeCondition(entityCondition)">
           <img
             [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
             [style.z-index]="index * 10 + entityCondition.value" />

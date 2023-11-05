@@ -16,6 +16,7 @@ import { Subscription } from 'rxjs';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ActionHint } from 'src/app/game/model/data/Action';
+import { Character } from 'src/app/game/model/Character';
 
 @Component({
   selector: 'ghs-standee',
@@ -28,8 +29,8 @@ export class StandeeComponent implements OnInit, OnDestroy {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
-  @Input() figure!: Monster | ObjectiveContainer;
-  @Input() entity!: MonsterEntity | ObjectiveEntity;
+  @Input() figure!: Monster | Character | ObjectiveContainer;
+  @Input() entity!: MonsterEntity | Summon | ObjectiveEntity;
   Conditions = Condition;
   AttackModifierType = AttackModifierType;
   SummonState = SummonState;
@@ -90,7 +91,7 @@ export class StandeeComponent implements OnInit, OnDestroy {
         }
       }
     }
-    this.marker = this.entity.marker;
+    this.marker = (this.entity instanceof MonsterEntity || this.entity instanceof ObjectiveEntity) ? this.entity.marker : "";
     if (this.figure instanceof ObjectiveContainer && this.figure.entities.flatMap((entity) => entity.marker).every((marker, index, self) => self.indexOf(marker) == 0)) {
       this.marker = "";
     }
