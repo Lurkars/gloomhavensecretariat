@@ -1028,6 +1028,7 @@
         "name": "Name",
         "removeManual": "Remove from Unlocked",
         "removeSuccess": "Remove from successful",
+        "removeSuccessCasual": "Remove from completed casual scenarios",
         "unlock": "Unlock Scenario"
       },
       "sheet": {
