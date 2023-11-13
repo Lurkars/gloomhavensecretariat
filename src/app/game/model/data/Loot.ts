@@ -50,10 +50,9 @@ export class Loot {
     enhancements: number = 0;
     cardId: number;
 
-    // migration
     value: string | undefined;
 
-    constructor(type: LootType, cardId: number, value4P: number, value3P: number = -1, value2P: number = -1,) {
+    constructor(type: LootType, cardId: number, value4P: number, value3P: number = -1, value2P: number = -1, value: string | undefined = undefined) {
         this.type = type;
         this.cardId = cardId;
         this.value4P = value4P;
@@ -65,6 +64,8 @@ export class Loot {
         if (value2P != -1) {
             this.value2P = value2P;
         }
+
+        this.value = value;
     }
 }
 
@@ -135,8 +136,8 @@ export const fullLootDeck: Loot[] = [
     // 1x random item
     new Loot(LootType.random_item, 1417, 1),
     // 2 special
-    new Loot(LootType.special1, 1418, 1),
-    new Loot(LootType.special2, 1419, 1)
+    new Loot(LootType.special1, 1418, 1, -1, -1, "43.4|133.4|177.3|165.3|168.1|130.4|174.5|106.3|13.2|16.2"),
+    new Loot(LootType.special2, 1419, 1, -1, -1, "36.4|29.1|188.2|182.3|85.1|11.1|128.5|153.4|193.5|9.3")
 ];
 
 export type LootDeckConfig = Partial<Record<LootType, number>>;
@@ -150,30 +151,6 @@ export class LootDeck {
     fromModel(model: LootDeck) {
         this.current = model.current;
         this.cards = model.cards;
-
-        // migration
-        this.cards.forEach((loot, index, self) => {
-            if (loot.value) {
-                if (!isNaN(+loot.value)) {
-                    loot.value4P = +loot.value;
-                    loot.value3P = +loot.value;
-                    loot.value2P = +loot.value;
-                } else if (loot.value == "%game.loot.player.3-4% +1/%game.loot.player.2% +2") {
-                    loot.value4P = 1;
-                    loot.value3P = 1;
-                    loot.value2P = 2;
-                } else if (loot.value == "%game.loot.player.4% +1/%game.loot.player.2-3% +2") {
-                    loot.value4P = 1;
-                    loot.value3P = 2;
-                    loot.value2P = 2;
-                } else {
-                    console.warn("Cannot migrate loot: " + loot.value);
-                }
-
-                loot.value = undefined;
-            }
-        })
-
         lootCardIdMigration(this.cards);
 
         this.active = model.active;

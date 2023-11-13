@@ -3,16 +3,19 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/cor
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
-import { Loot, LootType } from "src/app/game/model/data/Loot";
+import { Loot, LootType, fullLootDeck } from "src/app/game/model/data/Loot";
 import { LootApplyDialogComponent } from "./loot-apply-dialog";
 import { LootRandomItemDialogComponent } from "./random-item/random-item-dialog";
 import { AdditionalIdentifier, Identifier } from "src/app/game/model/data/Identifier";
 import { ItemData } from "src/app/game/model/data/ItemData";
+import { ScenarioSummaryComponent } from "../../footer/scenario/summary/scenario-summary";
+import { GameScenarioModel } from "src/app/game/model/Scenario";
+import { EntityValueFunction } from "src/app/game/model/Entity";
 
 @Component({
     selector: 'ghs-loot',
-    templateUrl: './loot.html',
-    styleUrls: ['./loot.scss']
+    templateUrl: './loot-card.html',
+    styleUrls: ['./loot-card.scss']
 })
 export class LootComponent implements OnInit, OnChanges {
 
@@ -33,11 +36,15 @@ export class LootComponent implements OnInit, OnChanges {
 
     revealed: boolean = false;
     animate: boolean = false;
+    sections: string[] = [];
 
     constructor(private dialog: Dialog) { }
 
     ngOnInit(): void {
         this.animate = !this.disableFlip;
+        if ((this.loot.type == LootType.special1 || this.loot.type == LootType.special2) && this.loot.value) {
+            this.sections = this.loot.value.split('|');
+        }
     }
 
     onChange(revealed: boolean) {
@@ -49,6 +56,72 @@ export class LootComponent implements OnInit, OnChanges {
         if (flipped && !this.disableFlip && flipped.currentValue && flipped.currentValue != flipped.previousValue) {
             this.animate = true;
         }
+        if ((this.loot.type == LootType.special1 || this.loot.type == LootType.special2) && this.loot.value) {
+            this.sections = this.loot.value.split('|');
+        }
+    }
+
+    hasSection(section: string): boolean {
+        return gameManager.game.party.conclusions.find((model) => model.edition == gameManager.currentEdition() && model.index == section) != undefined;
+    }
+
+    toggleSection(event: TouchEvent | MouseEvent, section: string, force: boolean = false) {
+        if (this.hasSection(section)) {
+            if (force) {
+                gameManager.stateManager.before("unsetLootCardSection", section);
+                gameManager.game.party.conclusions = gameManager.game.party.conclusions.filter((model) => model.edition != gameManager.currentEdition() || model.index != section);
+                gameManager.stateManager.after();
+            }
+        } else {
+            const conclusion = gameManager.sectionData(gameManager.currentEdition()).find((sectionData) => sectionData.index == section && sectionData.conclusion);
+            if (conclusion && !force) {
+                this.dialog.open(ScenarioSummaryComponent, {
+                    panelClass: 'dialog',
+                    data: {
+                        scenario: conclusion,
+                        conclusionOnly: true
+                    }
+                }).closed.subscribe({
+                    next: () => {
+                        if (this.hasSection(section)) {
+                            gameManager.stateManager.before("setLootCardSection", section);
+                            gameManager.game.lootDeckSections.push(section);
+                            if (this.character && conclusion.rewards) {
+                                const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == this.character);
+                                if (character instanceof Character) {
+                                    if (conclusion.rewards.lootingGold) {
+                                        character.progress.gold += EntityValueFunction(conclusion.rewards.lootingGold);
+                                    }
+                                    if (conclusion.rewards.items) {
+                                        conclusion.rewards.items.forEach((item) => {
+                                            if (!character.progress.items.find((value) => value.edition == gameManager.currentEdition() && value.name == item)) {
+                                                character.progress.items.push(new Identifier(item, gameManager.currentEdition()));
+                                            }
+                                        })
+                                    }
+                                }
+                            }
+                            if (conclusion.rewards && conclusion.rewards.removeLootDeckCards) {
+                                conclusion.rewards.removeLootDeckCards.forEach((lootDeckCard) => {
+                                    const loot = fullLootDeck.find((loot) => loot.cardId == lootDeckCard);
+                                    if (loot && gameManager.game.lootDeckFixed.indexOf(loot.type) != -1) {
+                                        gameManager.game.lootDeckFixed.splice(gameManager.game.lootDeckFixed.indexOf(loot.type), 1);
+                                    }
+                                })
+                            }
+                            gameManager.stateManager.after();
+                        }
+                    }
+                })
+            } else {
+                gameManager.stateManager.before("setLootCardSection", section);
+                gameManager.game.lootDeckSections.push(section);
+                gameManager.game.party.conclusions.push(new GameScenarioModel(section, gameManager.currentEdition()));
+                gameManager.stateManager.after();
+            }
+        }
+        event.stopPropagation();
+        event.preventDefault();
     }
 
     changeCharacter(event: any) {

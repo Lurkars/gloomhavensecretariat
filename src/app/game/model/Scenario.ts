@@ -46,7 +46,7 @@ export class GameScenarioModel {
 
   constructor(index: string,
     edition: string,
-    group: string | undefined,
+    group: string | undefined = undefined,
     isCustom: boolean = false,
     custom: string = '',
     revealedRooms: number[] | undefined = undefined) {

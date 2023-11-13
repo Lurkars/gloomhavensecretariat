@@ -6,7 +6,7 @@
     "melee",
     "range"
   ],
-  "handSize": 7,
+  "handSize": "7|7",
   "traits": [
     "arcane",
     "chaotic",

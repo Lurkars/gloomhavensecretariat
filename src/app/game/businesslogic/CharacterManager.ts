@@ -226,12 +226,18 @@ export class CharacterManager {
   addXP(character: Character, value: number, levelUp: boolean = true) {
     character.progress.experience += value;
     if (levelUp) {
-      this.xpMap.forEach((value, index) => {
-        if (character.progress.experience >= value && (index < this.xpMap.length - 1 && character.progress.experience < this.xpMap[index + 1] || index == this.xpMap.length - 1)) {
-          this.setLevel(character, index + 1);
-        }
-      })
+      this.setLevel(character, this.levelForXp(character.progress.experience));
     }
+  }
+
+  levelForXp(xp: number) {
+    let level: number = 0;
+    this.xpMap.forEach((value, index) => {
+      if (xp >= value) {
+        level = index + 1;
+      }
+    });
+    return level;
   }
 
   setLevel(character: Character, level: number) {

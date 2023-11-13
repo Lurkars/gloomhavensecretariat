@@ -136,9 +136,11 @@ export class ScenarioRewards {
   calendarSectionConditional: string[] = [];
   calendarSectionManual: { section: string, hint: string }[] = [];
   lootDeckCards: number[] = [];
+  removeLootDeckCards: number[] = [];
   townGuardAm: string[] = [];
   unlockCharacter: string = "";
   chooseUnlockCharacter: string[] = [];
+  lootingGold: number | string | undefined = undefined;
   custom: string = "";
   ignoredBonus: string[] = [];
   hints: ScenarioRewardHints | undefined = undefined;
@@ -176,6 +178,7 @@ export class ScenarioRewardHints {
   calendarSection: string[] = [];
   calendarSectionConditional: string[] = [];
   lootDeckCards: string[] = [];
+  removeLootDeckCards: string[] = [];
   townGuardAm: string[] = [];
   unlockCharacter: string = "";
   chooseUnlockCharacter: string[] = [];

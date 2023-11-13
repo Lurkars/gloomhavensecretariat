@@ -281,13 +281,13 @@ export class ScenarioManager {
         }
 
         if (conclusionSection && !this.game.party.conclusions.find((conclusion) => conclusion.index == conclusionSection.index && conclusion.edition == conclusionSection.edition && conclusion.group == conclusionSection.group)) {
-          this.game.party.conclusions.push(new GameScenarioModel(conclusionSection.index, conclusionSection.edition, conclusionSection.group, false, "", []));
+          this.game.party.conclusions.push(new GameScenarioModel(conclusionSection.index, conclusionSection.edition, conclusionSection.group));
         }
 
         if (gameManager.game.party.campaignMode && gainRewards) {
           if (scenario.conclusion) {
             if (!this.game.party.conclusions.find((conclusion) => conclusion.index == scenario.index && conclusion.edition == scenario.edition && conclusion.group == scenario.group)) {
-              this.game.party.conclusions.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, false, "", []));
+              this.game.party.conclusions.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group));
             }
           } else {
             this.game.party.scenarios.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, scenario.custom, scenario.custom ? scenario.name : "", scenario.revealedRooms));

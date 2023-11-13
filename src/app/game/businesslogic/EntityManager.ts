@@ -315,10 +315,8 @@ export class EntityManager {
     }
 
     if (!active && entityCondition.types.indexOf(ConditionType.expire) != -1) {
-      entityCondition.lastState = entityCondition.state;
       entityCondition.state = EntityConditionState.expire;
     } else if (active && entityCondition.types.indexOf(ConditionType.turn) != -1) {
-      entityCondition.lastState = entityCondition.state;
       entityCondition.state = EntityConditionState.turn;
     } else if (active && entityCondition.types.indexOf(ConditionType.afterTurn) != -1) {
       entityCondition.state = EntityConditionState.new;
@@ -557,6 +555,13 @@ export class EntityManager {
       } else if (entityCondition.state == EntityConditionState.new && entityCondition.lastState != EntityConditionState.new) {
         entityCondition.lastState = entityCondition.state;
         entityCondition.state = EntityConditionState.normal;
+      }
+    })
+
+    entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.expire) != -1 && !entityCondition.permanent).forEach((entityCondition) => {
+      if (entityCondition.state == EntityConditionState.expire && entityCondition.lastState == EntityConditionState.new) {
+        entityCondition.lastState = EntityConditionState.normal;
+        entityCondition.state = EntityConditionState.turn;
       }
     })
   }

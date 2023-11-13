@@ -188,7 +188,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     groupElement.classList.add('error');
     if (scenarioData && !this.scenarios[edition].find((scenarioCache) => scenarioCache.edition == scenarioData.edition && scenarioCache.group == scenarioData.group && scenarioCache.index == scenarioData.index) && !this.party.manualScenarios.some((gameScenarioModel) => gameScenarioModel.index == scenarioData.index && gameScenarioModel.edition == scenarioData.edition && gameScenarioModel.group == scenarioData.group && !gameScenarioModel.isCustom)) {
       gameManager.stateManager.before("addManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
-      gameManager.game.party.manualScenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []));
+      gameManager.game.party.manualScenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group));
       gameManager.stateManager.after();
       indexElement.classList.remove('error');
       indexElement.value = "";
@@ -477,7 +477,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     this.update();
   }
 
-  scenarioRewards(scenarioData: ScenarioData) {
+  scenarioRewards(scenarioData: ScenarioData, conclusionOnly: boolean = false) {
     const conclusion = this.party.conclusions.filter((value) => value.edition == scenarioData.edition).map((value) => gameManager.sectionData(scenarioData.edition).find((sectionData) => sectionData.index == value.index && sectionData.edition == value.edition && sectionData.group == value.group) as ScenarioData).find((conclusionData) => conclusionData.parent == scenarioData.index && conclusionData.group == scenarioData.group);
 
     this.dialog.open(ScenarioSummaryComponent, {
@@ -486,7 +486,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         scenario: new Scenario(scenarioData),
         conclusion: conclusion,
         success: true,
-        rewardsOnly: true
+        rewardsOnly: true,
+        conclusionOnly: conclusionOnly
       }
     })
   }

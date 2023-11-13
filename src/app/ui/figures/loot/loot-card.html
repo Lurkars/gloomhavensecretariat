@@ -4,7 +4,7 @@
         <div class="card-back back">
             <span class="revealed"><span [ghs-label]="'game.cards.confirmReveal'"></span></span>
         </div>
-        <div class="card-front front"
+        <div class="card-front front" [ngClass]="loot.type"
             [style.background-image]="'url(./assets/images/fh/loot/loot-' + loot.type +  (loot.type == LootType.money ? gameManager.lootManager.getValue(loot, false) : '') + '.png)'">
             <span class="header"
                 *ngIf="loot.type != LootType.money && loot.type != LootType.special1 && loot.type != LootType.special2">
@@ -49,6 +49,12 @@
             <span class="enhancements">
                 <img class="icon" src="./assets/images/fh/loot/plus1.svg"
                     *ngFor="let i of [] | ghsRange:loot.enhancements">
+            </span>
+            <span class="sections" *ngIf="sections.length > 0">
+                <span class="section" *ngFor="let section of sections" ghs-pointer-input
+                    (singleClick)="toggleSection($event, section)" (doubleClick)="toggleSection($event, section, true)">
+                    <span class="checkbox" [ngClass]="{'checked' : hasSection(section)} "></span>
+                </span>
             </span>
             <span class="card-id">
                 {{loot.cardId}} *

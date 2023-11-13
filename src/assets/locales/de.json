@@ -1175,6 +1175,7 @@
         "winter-outpost": "Entferne Ereignis {0} vom Winter-Außenpostendeck",
         "winter-road": "Entferne Ereignis {0} vom Winter-Wegdeck"
       },
+      "removeLootDeckCard": "Entferne Beutekarte {0} aus dem Spiel. Füge diese Karte anschließend in keinem Szenario mehr zum Beutekarten Deck hinzu.",
       "reputation": "{0} Ansehen",
       "resources": "Erhalte jeweils {1} %game.resource.{0}%",
       "resourcesLose": "Verliere jeweils {1} %game.resource.{0}%",
@@ -1287,10 +1288,12 @@
       "gold": "Gold",
       "forcedLinks": "%scenario.summary.links% (erzwungen)",
       "item": "Gegenstand \"{0}\"",
+      "levelUp": "Auf Level {1} gestiegen",
       "link": "Weiter mit #{0}",
       "links": "Weiter mit einem verlinktem Szenario",
       "loot": "Beute",
       "name": "%character%",
+      "perksUp": "Neue Verbesserung erhalten",
       "randomItem": "Zufälliger Gegenstand",
       "randomItems": "Zufällige Gegenstände",
       "rewards": {

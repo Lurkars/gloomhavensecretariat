@@ -60,6 +60,8 @@ export class ScenarioSummaryComponent {
     randomItems: (ItemData | undefined)[] = [];
     randomItemBlueprints: number[] = [];
     townGuardAMs: AttackModifier[] = [];
+    levelUp: boolean[] = [];
+    perksUp: boolean[] = [];
 
     EntityValueFunction = EntityValueFunction;
 
@@ -183,6 +185,7 @@ export class ScenarioSummaryComponent {
         finish.randomItems = this.randomItems ? this.randomItems.map((itemData) => itemData ? new Identifier('' + itemData.id, itemData.edition) : undefined) : [];
         finish.randomItemBlueprints = this.randomItemBlueprints;
         gameManager.game.finish = finish;
+        this.updateState();
     }
 
     loadFinish() {
@@ -201,6 +204,7 @@ export class ScenarioSummaryComponent {
             this.randomItemIndex = finish.randomItemIndex;
             this.randomItems = finish.randomItems ? finish.randomItems.map((item) => item ? gameManager.itemManager.getItem(+item.name, item.edition, true) : undefined) : [];
             this.randomItemBlueprints = finish.randomItemBlueprints;
+            this.updateState();
         }
     }
 
@@ -387,11 +391,24 @@ export class ScenarioSummaryComponent {
                 }
             }
         }
+
+        this.characters.forEach((character, index) => {
+            const newXP = character.progress.experience + this.challenges * 2 + character.experience + (this.success && this.rewards &&
+                this.rewards.experience ?
+                this.rewards.experience : 0) + ((this.success && (!this.rewards || !this.rewards.ignoredBonus ||
+                    this.rewards.ignoredBonus.indexOf('experience') == -1) ? gameManager.levelManager.experience() : 0));
+            this.levelUp[index] = gameManager.characterManager.levelForXp(newXP) > gameManager.characterManager.levelForXp(character.progress.experience);
+
+            const currentPerks = Math.floor(character.progress.battleGoals / 3);
+            const newPerks = Math.floor((character.progress.battleGoals
+                + this.battleGoals[index]) / 3);
+            this.perksUp[index] = newPerks > currentPerks;
+        })
     }
 
     hasRewards(): boolean {
         const rewards = this.rewards;
-        if (rewards && (rewards.envelopes || rewards.gold || rewards.experience || rewards.collectiveGold || rewards.resources || rewards.collectiveResources || rewards.reputation || rewards.prosperity || rewards.inspiration || rewards.morale || rewards.perks || rewards.battleGoals || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.itemBlueprints || rewards.randomItemBlueprint || rewards.randomItemBlueprints || rewards.events || rewards.chooseUnlockCharacter || rewards.unlockCharacter || rewards.custom || rewards.lootDeckCards || rewards.townGuardAm)) {
+        if (rewards && (rewards.envelopes || rewards.gold || rewards.experience || rewards.collectiveGold || rewards.resources || rewards.collectiveResources || rewards.reputation || rewards.prosperity || rewards.inspiration || rewards.morale || rewards.perks || rewards.battleGoals || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.itemBlueprints || rewards.randomItemBlueprint || rewards.randomItemBlueprints || rewards.events || rewards.chooseUnlockCharacter || rewards.unlockCharacter || rewards.custom || rewards.lootDeckCards || rewards.removeLootDeckCards || rewards.townGuardAm)) {
             return true;
         }
         return false;

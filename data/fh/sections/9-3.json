@@ -1,0 +1,11 @@
+{
+  "index": "9.3",
+  "name": "Old Coin",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "custom": "The looting character gains X gold, where X is how much gold one money token is worth at L+1 (= [2 + [(L+1)/2{$math.floor}]] gold).",
+    "lootingGold": "2 + Math.floor((L+1)/2)"
+  }
+}

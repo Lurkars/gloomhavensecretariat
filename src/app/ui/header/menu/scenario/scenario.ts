@@ -163,7 +163,7 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
         if (scenarioData) {
           if (!this.scenarios(group).find((scenarioCache) => scenarioCache.edition == scenarioData.edition && scenarioCache.group == scenarioData.group && scenarioCache.index == scenarioData.index)) {
             gameManager.stateManager.before("addManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
-            gameManager.game.party.manualScenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []));
+            gameManager.game.party.manualScenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group));
             gameManager.stateManager.after();
           }
           numbers = numbers.filter((value) => value.trim() != number);
@@ -171,7 +171,7 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
           editionData.scenarios.filter((scenarioData) => scenarioData.index.substring(0, scenarioData.index.length - 1) == number.trim() && scenarioData.index.substring(scenarioData.index.length - 1).match(/[A-B]/) && scenarioData.group == group).forEach((scenarioData) => {
             if (!this.scenarios(group).find((scenarioCache) => scenarioCache.edition == scenarioData.edition && scenarioCache.group == scenarioData.group && scenarioCache.index == scenarioData.index)) {
               gameManager.stateManager.before("addManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
-              gameManager.game.party.manualScenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []));
+              gameManager.game.party.manualScenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group));
               gameManager.stateManager.after();
             }
           })

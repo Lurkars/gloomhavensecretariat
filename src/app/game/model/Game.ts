@@ -250,7 +250,7 @@ export class Game {
           const conclusion = gameManager.sectionData('fh').find((sectionData) => sectionData.random && sectionData.unlocks && sectionData.unlocks.indexOf(model.index) != -1);
           if (conclusion) {
             if (!this.party.conclusions.find((conclusionModel) => conclusionModel.edition == conclusion.edition && conclusionModel.group == conclusion.group && conclusionModel.index == conclusion.index)) {
-              this.party.conclusions.push(new GameScenarioModel('' + conclusion.index, conclusion.edition, conclusion.group, false, "", []));
+              this.party.conclusions.push(new GameScenarioModel('' + conclusion.index, conclusion.edition, conclusion.group));
               removeManual.push(model);
             }
           }

@@ -82,6 +82,16 @@
             }
         }
 
+        &.special1,
+        &.special2 {
+            .character {
+                left: initial;
+                right: 0;
+                width: 60%;
+                justify-content: flex-start;
+            }
+        }
+
         .enhancements {
             position: absolute;
             display: flex;
@@ -99,6 +109,62 @@
                 width: 20%;
                 height: auto;
                 margin: 5%;
+            }
+        }
+
+        .sections {
+            display: flex;
+            flex-direction: column;
+            font-size: 1em;
+            position: absolute;
+            top: 1em;
+            left: 0.4em;
+            z-index: 2;
+
+            .section {
+                cursor: pointer;
+                position: relative;
+                width: 4em;
+                height: 0.9em;
+                margin-bottom: 0.8em;
+
+                .checkbox {
+                    display: inline-block;
+                    position: relative;
+                    width: 0.9em;
+                    height: 0.9em;
+                    color: var(--ghs-color-black);
+                    border: 0.2em solid var(--ghs-color-black);
+                    background-color: var(--ghs-color-white);
+                    margin: 0 !important;
+
+                    &::before {
+                        position: absolute;
+                        left: 5%;
+                        top: -35%;
+                        content: " ";
+                        width: 130%;
+                        height: 130%;
+                        transform: scale(0);
+                        transform-origin: bottom left;
+                        transition: 120ms transform ease-in-out;
+                        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+                        color: var(--ghs-color-gray);
+                        background-color: var(--ghs-color-gray);
+                    }
+
+                    &.checked::before {
+                        transform: scale(1);
+                        color: var(--ghs-color-black);
+                        background-color: var(--ghs-color-black);
+                    }
+                }
+
+                &:hover .checkbox::before {
+                    transform: scale(1);
+                    color: var(--ghs-color-gray);
+                    background-color: var(--ghs-color-gray);
+                }
             }
         }
 
@@ -134,6 +200,15 @@
                 background-position: center center;
                 background-repeat: no-repeat;
             }
+        }
+
+
+        .bg-click {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
         }
     }
 

@@ -1,0 +1,18 @@
+{
+  "index": "128.5",
+  "name": "Old Coin",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "items": [
+      "245"
+    ],
+    "calendarSection": [
+      "185.2-1"
+    ],
+    "removeLootDeckCards": [
+      1419
+    ]
+  }
+}

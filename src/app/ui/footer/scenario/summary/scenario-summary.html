@@ -3,7 +3,8 @@
     <span class="title">
       <span
         [ghs-label]="conclusionOnly ? 'scenario.conclusion' : (rewardsOnly ? 'scenario.summary.rewards' : 'scenario.summary')"></span>
-      <span class="name">#{{scenario.index}} <span class="text-white" [ghs-label]="'data.scenario.' + scenario.name"></span></span>
+      <span class="name">#{{scenario.index}} <span class="text-white"
+          [ghs-label]="'data.scenario.' + scenario.name"></span></span>
     </span>
     <span *ngIf="success && !conclusionOnly && !rewardsOnly" class="success"><span
         [ghs-label]="'scenario.finish.success'"></span></span>
@@ -61,7 +62,7 @@
       <span class="head-col">
         <span *ngIf="!totalGold" [ghs-label]="'scenario.summary.gold'"></span>
         <ng-container *ngIf="totalGold">
-          <img class="ghs-svg" [src]="'./assets/images/fh/loot/money.svg'">
+          <img class="ghs-svg" src="./assets/images/fh/loot/money.svg">
           {{lootedGold}}/{{totalGold}}
         </ng-container>
       </span>
@@ -141,6 +142,11 @@
           rewards.experience ?
           rewards.experience : 0) + ((success && (!rewards || !rewards.ignoredBonus ||
           rewards.ignoredBonus.indexOf('experience') == -1) ? gameManager.levelManager.experience() : 0))}})
+
+          <span class="level-up" *ngIf="levelUp[index]" [ghs-tooltip]="'scenario.summary.levelUp'"
+            [ghs-label-args]="['' + character.level,'' + (character.level + 1)]">
+            <img class="ghs-svg" src="./assets/images/arrow-up.svg">
+          </span>
         </span>
         <span *ngIf="character.absent">
           <span class="xp">/</span>
@@ -215,6 +221,10 @@
                 [checked]="!character.absent && battleGoals[index] > 0" (change)="toggleBattleGoal($event, index, 1)">
               <input type="checkbox" *ngIf="!character.absent && battleGoals[index] > 0"
                 [checked]="battleGoals[index] > 1" (change)="toggleBattleGoal($event, index, 2)">
+            </span>
+
+            <span class="level-up" *ngIf="perksUp[index]" [ghs-tooltip]="'scenario.summary.perksUp'">
+              <img class="ghs-svg" src="./assets/images/arrow-up.svg">
             </span>
           </span>
         </span>
@@ -596,6 +606,15 @@
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.lootDeckCards && rewards.hints.lootDeckCards[i]"
                 [ghs-label]="rewards.hints.lootDeckCards[i]"></span>
+            </div>
+
+            <div class="item loot-deck-cards"
+              *ngFor="let lootDeckCard of (rewards.removeLootDeckCards || []); let i = index;">
+              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.removeLootDeckCard'"
+                [ghs-label-args]="['' + lootDeckCard]"></span>
+              <span class="placeholder text-white hint"
+                *ngIf="rewards.hints && rewards.hints.removeLootDeckCards && rewards.hints.removeLootDeckCards[i]"
+                [ghs-label]="rewards.hints.removeLootDeckCards[i]"></span>
             </div>
 
             <div class="item town-guard-am" *ngIf="townGuardAMs && townGuardAMs.length > 0">

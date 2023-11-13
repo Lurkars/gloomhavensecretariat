@@ -38,7 +38,7 @@ export class CharacterData implements Editional, Spoilable {
   identities: string[] = [];
   tokens: string[] = [];
   primaryToken: number = -1;
-  handSize: number = 0;
+  handSize: number | string = 0;
   unlockEvent: string = "";
   retireEvent: string = "";
   traits: string[] = [];

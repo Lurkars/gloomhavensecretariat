@@ -105,7 +105,26 @@
       }
     }
 
+    .level-up {
+      position: absolute;
+      right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+      height: 100%;
+      margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: var(--ghs-font-normal);
+      font-size: 0.7em;
+
+      .ghs-svg {
+        height: 1em;
+        width: auto;
+        margin-left: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
+      }
+    }
+
     &>span {
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;

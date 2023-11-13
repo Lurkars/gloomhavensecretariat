@@ -153,11 +153,11 @@
                 "prosperity": 1
             },
             {
-                "prosperity": 1,
-                "loseMorale": 1
+                "prosperity": 1
             },
             {
-                "prosperity": 1
+                "prosperity": 1,
+                "loseMorale": 1
             }
         ],
         "prosperityUnlock": true
@@ -234,11 +234,11 @@
                 "prosperity": 1
             },
             {
-                "prosperity": 1,
-                "loseMorale": 1
+                "prosperity": 1
             },
             {
-                "prosperity": 1
+                "prosperity": 1,
+                "loseMorale": 1
             }
         ],
         "prosperityUnlock": true
@@ -381,11 +381,11 @@
                 "plots": 1
             },
             {
-                "prosperity": 1,
-                "loseMorale": 1
+                "prosperity": 1
             },
             {
                 "prosperity": 1,
+                "loseMorale": 1,
                 "plots": 1
             }
         ]
@@ -567,8 +567,7 @@
             },
             {
                 "prosperity": 1,
-                "items": "36-40",
-                "loseMorale": 1
+                "items": "36-40"
             },
             {
                 "prosperity": 1,
@@ -577,7 +576,8 @@
             },
             {
                 "prosperity": 1,
-                "items": "46-50"
+                "items": "46-50",
+                "loseMorale": 1
             }
         ]
     },
@@ -807,12 +807,12 @@
             },
             {
                 "prosperity": 1,
-                "items": "160-163",
-                "loseMorale": 1
+                "items": "160-163"
             },
             {
                 "prosperity": 1,
-                "items": "164-167"
+                "items": "164-167",
+                "loseMorale": 1
             }
         ]
     },
@@ -878,11 +878,11 @@
                 "section": "192.5"
             },
             {
-                "prosperity": 3,
-                "loseMorale": 1
+                "prosperity": 3
             },
             {
-                "prosperity": 5
+                "prosperity": 5,
+                "loseMorale": 1
             }
         ]
     },
@@ -977,10 +977,10 @@
                 "section": "157.2"
             },
             {
-                "prosperity": 1,
-                "loseMorale": 1
+                "prosperity": 1
             },
             {
+                "loseMorale": 1,
                 "prosperity": 1,
                 "section": "56.3"
             }
@@ -1527,11 +1527,11 @@
                 "prosperity": 1
             },
             {
-                "prosperity": 1,
-                "loseMorale": 1
+                "prosperity": 1
             },
             {
-                "prosperity": 1
+                "prosperity": 1,
+                "loseMorale": 1
             }
         ]
     },

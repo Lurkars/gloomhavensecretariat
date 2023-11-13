@@ -246,7 +246,7 @@ export class LootManager {
         break;
       case TreasureRewardType.scenario:
         if (reward.value) {
-          const scenario = new GameScenarioModel('' + reward.value, edition, undefined, false, "", []);
+          const scenario = new GameScenarioModel('' + reward.value, edition);
           if (!gameManager.game.party.manualScenarios.find((scenarioModel) => scenarioModel.index == scenario.index && scenarioModel.edition == scenario.edition && scenarioModel.group == scenario.group && !scenarioModel.custom) && !gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == scenario.index && scenarioModel.edition == scenario.edition && scenarioModel.group == scenario.group && !scenarioModel.custom)) {
             gameManager.game.party.manualScenarios.push(scenario);
           }
@@ -256,12 +256,12 @@ export class LootManager {
         let availableScenarios = gameManager.scenarioData(edition).filter((scenarioData) => scenarioData.random && !gameManager.game.party.manualScenarios.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom) && !gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom));
         if (availableScenarios.length > 0) {
           let scenarioData = availableScenarios[Math.floor(Math.random() * availableScenarios.length)];
-          let scenario: GameScenarioModel | undefined = {} = new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []);
+          let scenario: GameScenarioModel | undefined = {} = new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group);
           while (availableScenarios.length > 0 && gameManager.game.party.manualScenarios.find((manual) => scenario && manual.index == scenario.index && manual.edition == scenario.edition && manual.group == scenario.group)) {
             availableScenarios = availableScenarios.filter((available) => scenario && (available.edition != scenario.edition || available.index != scenario.edition || available.group != scenario.group));
             if (availableScenarios.length > 0) {
               scenarioData = availableScenarios[Math.floor(Math.random() * availableScenarios.length)];
-              scenario = new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []);
+              scenario = new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group);
             } else {
               scenario = undefined;
             }
@@ -276,12 +276,12 @@ export class LootManager {
         let availableSections = gameManager.sectionData(edition).filter((scenarioData) => scenarioData.conclusion && scenarioData.random && !gameManager.game.party.conclusions.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom) && !gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom));
         if (availableSections.length > 0) {
           let sectionData = availableSections[Math.floor(Math.random() * availableSections.length)];
-          let section: GameScenarioModel | undefined = {} = new GameScenarioModel('' + sectionData.index, sectionData.edition, sectionData.group, false, "", []);
+          let section: GameScenarioModel | undefined = {} = new GameScenarioModel('' + sectionData.index, sectionData.edition, sectionData.group);
           while (availableSections.length > 0 && gameManager.game.party.conclusions.find((conclusion) => section && conclusion.index == section.index && conclusion.edition == section.edition && conclusion.group == section.group)) {
             availableSections = availableSections.filter((available) => section && (available.edition != section.edition || available.index != section.edition || available.group != section.group));
             if (availableSections.length > 0) {
               sectionData = availableSections[Math.floor(Math.random() * availableSections.length)];
-              section = new GameScenarioModel('' + sectionData.index, sectionData.edition, sectionData.group, false, "", []);
+              section = new GameScenarioModel('' + sectionData.index, sectionData.edition, sectionData.group);
             } else {
               section = undefined;
             }
@@ -390,7 +390,7 @@ export class LootManager {
       } else if (count > 0) {
         const loot: Loot = availableTypes[0];
         deck.cards.push(loot);
-        if (this.game.lootDeckFixed.indexOf(loot.type) == -1) {
+        if (this.game.lootDeckFixed.indexOf(loot.type) == -1 && (type != LootType.special2 || !this.game.party.conclusions.find((value) => value.edition == 'fh' && value.index == '128.5')) && (type != LootType.special1 || !this.game.party.conclusions.find((value) => value.edition == 'fh' && value.index == '133.4'))) {
           this.game.lootDeckFixed.push(loot.type);
         }
       } else {

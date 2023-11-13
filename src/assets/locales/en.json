@@ -1324,6 +1324,7 @@
         "winter-outpost": "Remove event {0} from the winter outpost deck",
         "winter-road": "Remove event {0} from the winter road deck"
       },
+      "removeLootDeckCard": "Remove loot card {0} from the game. No longer add it to any scenario's loot deck.",
       "resources": "Gain {1} %game.resource.{0}% each",
       "resourcesLose": "Lose {1} %game.resource.{0}% each",
       "townGuardAm": "Add one %game.townGuardAm.{1}:{0}% card to the town guard deck.",
@@ -1435,10 +1436,12 @@
       "gold": "Gold",
       "forcedLinks": "%scenario.summary.links% (forced)",
       "item": "Item \"{0}\"",
+      "levelUp": "Up to Level {1}",
       "link": "Continue with #{0}",
       "links": "Continue with a linked scenario",
       "loot": "Loot",
       "name": "%character%",
+      "perksUp": "Gain new perk",
       "randomItem": "Random Item",
       "randomItems": "Random Items",
       "rewards": {

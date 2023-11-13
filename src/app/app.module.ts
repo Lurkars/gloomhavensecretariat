@@ -90,7 +90,7 @@ import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';
 import { LootDeckComponent } from './ui/figures/loot/loot-deck';
 import { LootRandomItemDialogComponent } from './ui/figures/loot/random-item/random-item-dialog';
 import { LootDeckFullscreenComponent } from './ui/figures/loot/loot-deck-fullscreen';
-import { LootComponent } from './ui/figures/loot/loot';
+import { LootComponent } from './ui/figures/loot/loot-card';
 import { LootDeckDialogComponent } from './ui/figures/loot/loot-deck-dialog';
 import { LootDeckStandaloneComponent } from './ui/tools/standalone/loot-deck-standalone';
 import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackmodifier-standalone';
