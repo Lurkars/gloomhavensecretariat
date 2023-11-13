@@ -91,7 +91,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   openMenu(event: any, menu: SubMenu | undefined = undefined) {
     this.dialog.open(MainMenuComponent, {
       panelClass: 'dialog',
-      data: { subMenu: menu != undefined && menu | SubMenu.main, standalone: this.standalone },
+      data: { subMenu: menu != undefined ? menu : SubMenu.main, standalone: this.standalone },
       maxWidth: '90vw',
       positionStrategy: this.overlay.position().flexibleConnectedTo(this.mainMenuButton).withPositions([
         new ConnectionPositionPair(
