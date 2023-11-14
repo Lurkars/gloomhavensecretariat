@@ -1443,6 +1443,7 @@
       "name": "%character%",
       "perksUp": "Gain new perk",
       "randomItem": "Random Item",
+      "randomItemLooted": "Random Item Looted",
       "randomItems": "Random Items",
       "rewards": {
         ".": "Scenario Rewards",

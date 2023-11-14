@@ -1295,6 +1295,7 @@
       "name": "%character%",
       "perksUp": "Neue Verbesserung erhalten",
       "randomItem": "Zufälliger Gegenstand",
+      "randomItemLooted": "Zufälligen Gegenstand erbeutet",
       "randomItems": "Zufällige Gegenstände",
       "rewards": {
         "experience": "EP Belohnung",
