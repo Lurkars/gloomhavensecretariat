@@ -33,6 +33,10 @@
         {
           "name": "robotic-boltshooter",
           "type": "normal"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "type": "normal"
         }
       ]
     }
