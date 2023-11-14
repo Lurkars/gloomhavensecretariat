@@ -58,6 +58,7 @@ export class EntityMenuDialogComponent {
   entityConditions: EntityCondition[] = [];
   entityImmunities: ConditionName[] = [];
   actionHints: Action[] = [];
+  specialTags: string[] = [];
 
   titles: string[] = [];
 
@@ -112,6 +113,14 @@ export class EntityMenuDialogComponent {
 
     if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
       this.actionHints = gameManager.monsterManager.calcActionHints(this.data.figure, this.data.entity).map((actionHint) => new Action(actionHint.type, actionHint.value, ActionValueType.fixed, actionHint.range ? [new Action(ActionType.range, actionHint.range, ActionValueType.fixed, [], true)] : []));
+    }
+
+    if (this.data.figure instanceof Character && this.data.entity instanceof Character && this.data.figure.specialTags) {
+      this.data.figure.specialTags.forEach((specialTag) => {
+        if (this.data.entity instanceof Character && this.data.entity.tags.indexOf(specialTag) != -1) {
+          this.specialTags.push(specialTag);
+        }
+      })
     }
 
     this.dialogRef.closed.subscribe({
@@ -696,7 +705,13 @@ export class EntityMenuDialogComponent {
     }
   }
 
-
+  toggleSpecialTag(specialTag: string) {
+    if (this.specialTags.indexOf(specialTag) == -1) {
+      this.specialTags.push(specialTag);
+    } else {
+      this.specialTags.splice(this.specialTags.indexOf(specialTag), 1);
+    }
+  }
 
   setTitle(event: any, index: number) {
     this.titles[index] = event.target.value;
@@ -781,6 +796,21 @@ export class EntityMenuDialogComponent {
         gameManager.stateManager.after();
       }
 
+      const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => this.data.figure instanceof Character && this.data.figure.specialTags && this.data.figure.specialTags.indexOf(specialTag) != -1 && this.specialTags.indexOf(specialTag) == -1);
+
+      if (specialTagsToTemove.length) {
+        gameManager.stateManager.before("removeSpecialTags", "data.character." + this.data.entity.name, specialTagsToTemove.toString());
+        this.data.entity.tags = this.data.entity.tags.filter((specialTag) => specialTagsToTemove.indexOf(specialTag) == -1);
+        gameManager.stateManager.after();
+      }
+
+      const specialTagsToAdd = this.specialTags.filter((specialTag) => this.data.entity && this.data.entity.tags.indexOf(specialTag) == -1);
+
+      if (specialTagsToAdd.length) {
+        gameManager.stateManager.before("addSpecialTags", "data.character." + this.data.entity.name, specialTagsToAdd.toString());
+        this.data.entity.tags.push(...specialTagsToAdd);
+        gameManager.stateManager.after();
+      }
       let title = this.data.entity.title;
 
       if (this.characterTitleInput) {

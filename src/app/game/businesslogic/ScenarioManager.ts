@@ -791,10 +791,14 @@ export class ScenarioManager {
     return treasures;
   }
 
-  getMonsters(scenarioData: ScenarioData): MonsterData[] {
+  getMonsters(scenarioData: ScenarioData, custom: boolean = false): MonsterData[] {
     let monsters: MonsterData[] = [];
-    monsters.push(...this.getScenarioMonster(scenarioData, true));
-    monsters.push(...this.getRuleMonster(scenarioData, true));
+    if (custom) {
+      monsters.push(...gameManager.game.figures.filter((figure) => figure instanceof Monster).map((figure) => new MonsterData(figure as Monster)));
+    } else {
+      monsters.push(...this.getScenarioMonster(scenarioData, true));
+      monsters.push(...this.getRuleMonster(scenarioData, true));
+    }
     monsters.push(...gameManager.monsterManager.getSpawnMonsters(monsters));
     return monsters;
   }

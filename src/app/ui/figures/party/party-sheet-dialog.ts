@@ -423,6 +423,10 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     return (casual ? this.party.casualScenarios : this.party.scenarios).filter((value) => scenarioData.index == value.index && scenarioData.edition == value.edition && scenarioData.group == value.group).length;
   }
 
+  hasRandomItemLooted(scenarioData: ScenarioData): boolean {
+    return gameManager.game.party.randomItemLooted.find((model) => model.edition == scenarioData.edition && model.group == scenarioData.group && model.index == scenarioData.index) != undefined;
+  }
+
   isManual(scenarioData: ScenarioData): boolean {
     return this.party.manualScenarios.find((value) => scenarioData.index == value.index && scenarioData.edition == value.edition && scenarioData.group == value.group) != undefined;
   }

@@ -247,6 +247,13 @@
         <span class="divider" *ngIf="i == character.traits.length - 1"></span>
       </ng-container>
     </div>
+
+    <div class="special-tags" *ngIf="character.specialTags">
+      <ng-container *ngFor="let specialTag of character.specialTags">
+        <span *ngIf="character.tags.indexOf(specialTag) != -1" class="special-tag"
+          [ghs-label]="'data.character.' + character.name + '.' + specialTag"></span>
+      </ng-container>
+    </div>
   </div>
 
   <ghs-figure-errors [figure]="character"></ghs-figure-errors>

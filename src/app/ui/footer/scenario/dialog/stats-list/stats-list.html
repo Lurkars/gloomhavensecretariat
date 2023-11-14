@@ -8,6 +8,10 @@
             <div class="image-container">
               <img *ngIf="!monster.noThumbnail && !settingsManager.settings.disableArtwork"
                 [src]="gameManager.monsterManager.monsterThumbnail(monster)">
+              <span *ngIf="monster.noThumbnail || settingsManager.settings.disableArtwork" class="letter">
+                <span
+                  *ngFor="let namePart of (settingsManager.getLabel('data.monster.' + monster.name).split(' '))">{{namePart[0]}}</span>
+              </span>
             </div>
           </div>
         </div>

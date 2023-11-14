@@ -1,0 +1,124 @@
+{
+  "name": "black-cat",
+  "noArtwork": true,
+  "edition": "r100kc",
+  "count": 10,
+  "baseStat": {
+    "type": "normal",
+    "actions": [
+      {
+        "type": "jump",
+        "value": ""
+      }
+    ],
+    "immunities": [
+      "curse"
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 1,
+      "movement": 3,
+      "attack": 1
+    },
+    {
+      "level": 1,
+      "health": 2,
+      "movement": 3,
+      "attack": 1
+    },
+    {
+      "level": 2,
+      "health": 2,
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "level": 3,
+      "health": 3,
+      "movement": 4,
+      "attack": 2
+    },
+    {
+      "level": 4,
+      "health": 3,
+      "movement": 4,
+      "attack": 2
+    },
+    {
+      "level": 5,
+      "health": 3,
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "level": 6,
+      "health": 4,
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "level": 7,
+      "health": 6,
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 4,
+      "movement": 4,
+      "attack": 1
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 5,
+      "movement": 4,
+      "attack": 2
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 5,
+      "movement": 4,
+      "attack": 2
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 6,
+      "movement": 5,
+      "attack": 2
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 6,
+      "movement": 5,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 7,
+      "movement": 5,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 8,
+      "movement": 5,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 10,
+      "movement": 5,
+      "attack": 5
+    }
+  ]
+}

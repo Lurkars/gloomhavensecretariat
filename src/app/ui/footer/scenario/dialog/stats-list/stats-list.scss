@@ -46,12 +46,18 @@
             align-items: center;
             width: calc(var(--ghs-unit) * 9 * 0.866025 * var(--ghs-dialog-factor));
             height: calc(var(--ghs-unit) * 9 * var(--ghs-dialog-factor));
-            background-color: var(--ghs-color-red);
+            background-color: var(--ghs-color-darkgray);
             clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
 
             img {
               width: calc(var(--ghs-unit) * 9 * var(--ghs-dialog-factor));
               height: auto;
+            }
+
+            .letter {
+              font-size: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+              color: var(--ghs-color-white);
+              font-family: var(--ghs-font-title);
             }
           }
         }
@@ -117,15 +123,12 @@
       width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
       min-height: calc(var(--ghs-unit) * 21.5 * var(--ghs-dialog-factor));
       margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-    }
 
-    ghs-monster-stats {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      transform-origin: top left;
+      ghs-monster-stats {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
     }
 
 
@@ -133,7 +136,7 @@
       cursor: pointer !important;
       position: relative;
       width: calc(var(--ghs-unit) * 33.55 * var(--ghs-dialog-factor));
-      height: calc(var(--ghs-unit) * 21.5 * var(--ghs-dialog-factor));
+      min-height: calc(var(--ghs-unit) * 21.5 * var(--ghs-dialog-factor));
       margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
       flex-shrink: 0;
       flex-grow: 0;
@@ -145,7 +148,7 @@
       ghs-ability {
         pointer-events: none;
         width: 100%;
-        height: 100%;
+        height: auto;
       }
     }
 

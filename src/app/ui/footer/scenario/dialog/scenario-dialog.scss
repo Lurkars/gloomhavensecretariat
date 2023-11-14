@@ -98,6 +98,41 @@
         font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
         margin: 0 calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
 
+        .checkbox {
+          cursor: initial;
+          display: inline-block;
+          position: relative;
+          width: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+          height: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+          color: var(--ghs-color-black);
+          border: calc(var(--ghs-unit) * 0.4 * var(--ghs-text-factor)) solid var(--ghs-color-black);
+          background-color: var(--ghs-color-white);
+          margin: 0;
+          margin-top:  calc(var(--ghs-unit) * 0.2 * var(--ghs-text-factor));
+          margin-right:  calc(var(--ghs-unit) * -0.2 * var(--ghs-text-factor));
+
+          &::before {
+            position: absolute;
+            left: 0;
+            top: -56%;
+            content: " ";
+            width: 150%;
+            height: 160%;
+            transform: scale(0);
+            transform-origin: bottom left;
+            transition: 120ms transform ease-in-out;
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+            color: var(--ghs-color-gray);
+            background-color: var(--ghs-color-gray);
+          }
+
+          &.checked::before {
+            transform: scale(1);
+            color: var(--ghs-color-black);
+            background-color: var(--ghs-color-black);
+          }
+        }
+
         .sign {
           font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-text-factor));
         }
@@ -158,12 +193,18 @@
                 align-items: center;
                 width: calc(var(--ghs-unit) * 9 * 0.866025 * var(--ghs-dialog-factor));
                 height: calc(var(--ghs-unit) * 9 * var(--ghs-dialog-factor));
-                background-color: var(--ghs-color-red);
+                background-color: var(--ghs-color-darkgray);
                 clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
 
                 img {
                   width: calc(var(--ghs-unit) * 9 * var(--ghs-dialog-factor));
                   height: auto;
+                }
+
+                .letter {
+                  font-size: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+                  color: var(--ghs-color-white);
+                  font-family: var(--ghs-font-title);
                 }
               }
             }

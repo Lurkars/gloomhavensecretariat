@@ -40,6 +40,12 @@
       top: calc(var(--ghs-unit) * -4);
     }
 
+    &.fh {
+      ghs-ability {
+        top: calc(var(--ghs-unit) * -3.5);
+      }
+    }
+
     .hover-effect {
       content: ' ';
       display: block;
@@ -126,6 +132,12 @@
       height: calc(var(--ghs-unit) * 24);
     }
 
+    &.fh {
+      ghs-ability {
+        top: 0;
+      }
+    }
+
 
     &.second-ability {
 
@@ -159,6 +171,12 @@
       width: calc(var(--ghs-unit) * 37);
       height: auto;
       min-height: calc(var(--ghs-unit) * 24);
+    }
+
+    &.fh {
+      ghs-ability {
+        top: 0;
+      }
     }
 
     &.bottom-actions {

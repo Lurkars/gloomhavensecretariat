@@ -458,6 +458,9 @@
                     src="./assets/images/hint.svg"><img class="remove" src="./assets/images/close.svg"></a>
                 <span *ngIf="scenarioData.isLocked" (click)="scenarioRequirements(scenarioData)" class="locked"
                   [ghs-tooltip]="'scenario.locked'"><img class="ghs-svg" src="./assets/images/warning.svg"></span>
+                  <span *ngIf="hasRandomItemLooted(scenarioData)" class="rewards"
+                  [ghs-tooltip]="'scenario.summary.randomItemLooted'"><img class="ghs-svg"
+                    src="./assets/images/fh/loot/random_item.svg"></span>
                 <span *ngIf="countFinished(scenarioData)" (click)="scenarioRewards(scenarioData)" class="rewards"
                   [ghs-tooltip]="'scenario.summary.rewards'"><img class="ghs-svg"
                     src="./assets/images/scenario/conclusion.svg"></span>

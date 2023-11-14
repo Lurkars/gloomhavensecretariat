@@ -1,5 +1,4 @@
 import { CharacterStat } from "./CharacterStat";
-import { FigureCondition } from "./Condition";
 import { Editional } from "./Editional";
 import { FigureError } from "./FigureError";
 import { Perk, PerkCard } from "./Perks";
@@ -43,7 +42,7 @@ export class CharacterData implements Editional, Spoilable {
   retireEvent: string = "";
   traits: string[] = [];
   availableSummons: SummonData[] = [];
-  conditions: FigureCondition[] = [];
+  specialTags: string[] = [];
 
   icon: string = '';
   iconUrl: string = '';
@@ -90,7 +89,6 @@ export class CharacterData implements Editional, Spoilable {
       this.retireEvent = characterData.retireEvent || "";
       this.traits = characterData.traits || [];
       this.availableSummons = characterData.availableSummons || [];
-      this.conditions = characterData.conditions || [];
       this.edition = characterData.edition || "";
       this.icon = characterData.icon || characterData.edition + '-' + characterData.name;
       this.iconUrl = characterData.iconUrl || './assets/images/character/icons/' + this.icon + '.svg';
@@ -100,6 +98,7 @@ export class CharacterData implements Editional, Spoilable {
       this.color = characterData.color || "#00000";
       this.marker = characterData.marker || false;
       this.spoiler = characterData.spoiler || false;
+      this.specialTags = characterData.specialTags || [];
       this.locked = characterData.locked || false;
       this.deck = characterData.deck || "";
       this.perks = characterData.perks || [];

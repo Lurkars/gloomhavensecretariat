@@ -218,12 +218,6 @@ export class GameManager {
     let conditions: ConditionName[] = [];
 
     if (figure instanceof Character) {
-      figure.conditions.forEach((figureCondition) => {
-        if (!figureCondition.level || figureCondition.level <= figure.level) {
-          conditions.push(figureCondition.name);
-        }
-      })
-
       if (figure.summons) {
         figure.summons.forEach((summon) => {
           if (summon.action) {

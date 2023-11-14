@@ -1,0 +1,249 @@
+{
+  "name": "black-cat",
+  "edition": "r100kc",
+  "abilities": [
+    {
+      "name": "Lazy Apathy",
+      "initiative": 5,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Focus the nearest unoccupied obstacle.<br>Until start of next turn, the Black Cat can occupy the hex. Afterwards move to the next empty hex.<br><br>If no obstacle is present, focus an empty hex farthest away from all characters.",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "invisible",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Agigated Recklessness",
+      "initiative": 7,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(1,0,target)|(1,1,target)|(0,1,active)|(1,2,target)"
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "area",
+                  "value": "(1,0,target)|(1,1,active)|(2,0,target)|(2,1,target)|(1,2,target)|(2,2,target)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rapid Scratch",
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rouse the Pack",
+      "initiative": 23,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "push",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.action.target% all adjacent Black Cats",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "pull",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.action.target% all Black Cats in %game.action.range% 2",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scrape into Dark",
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "name": "Phantom Kiss",
+      "initiative": 31,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "name": "Black Fondness",
+      "initiative": 43,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "minus"
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "Self and all adjacent Black Cats",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Down to Shadow",
+      "initiative": 79,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "invisible",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

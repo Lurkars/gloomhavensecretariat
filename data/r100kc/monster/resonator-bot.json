@@ -1,0 +1,347 @@
+{
+  "name": "resonator-bot",
+  "noThumbnail": true,
+  "noArtwork": true,
+  "edition": "r100kc",
+  "count": 6,
+  "baseStat": {
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 3,
+      "movement": 2,
+      "attack": 1,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:2%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": 3,
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:2%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 4,
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:2%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 5,
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:3%"
+            }
+          ]
+        }
+      ],
+      "immunities": [
+        "wound"
+      ]
+    },
+    {
+      "level": 4,
+      "health": 7,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:3%"
+            }
+          ]
+        }
+      ],
+      "immunities": [
+        "wound"
+      ]
+    },
+    {
+      "level": 5,
+      "health": 10,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:3%"
+            }
+          ]
+        }
+      ],
+      "immunities": [
+        "wound"
+      ]
+    },
+    {
+      "level": 6,
+      "health": 11,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:4%"
+            }
+          ]
+        }
+      ],
+      "immunities": [
+        "wound"
+      ]
+    },
+    {
+      "level": 7,
+      "health": 15,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:4%"
+            }
+          ]
+        }
+      ],
+      "immunities": [
+        "wound",
+        "muddle"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 5,
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:3%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 6,
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:3%"
+            }
+          ]
+        }
+      ],
+      "immunities": [
+        "wound"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 8,
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:3%"
+            }
+          ]
+        }
+      ],
+      "immunities": [
+        "wound"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 9,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:3%"
+            }
+          ]
+        }
+      ],
+      "immunities": [
+        "wound"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 11,
+      "movement": 4,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:4%"
+            }
+          ]
+        }
+      ],
+      "immunities": [
+        "wound"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 14,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:4%"
+            }
+          ]
+        }
+      ],
+      "immunities": [
+        "wound"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 17,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:4%"
+            }
+          ]
+        }
+      ],
+      "immunities": [
+        "wound",
+        "muddle"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 21,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:4%"
+            }
+          ]
+        }
+      ],
+      "immunities": [
+        "wound",
+        "muddle"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,270 @@
+{
+  "name": "resonator-bot",
+  "edition": "r100kc",
+  "abilities": [
+    {
+      "name": "Magnetic Force",
+      "initiative": 8,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "Focus on the Resonator Bot<br>farthes away within %game.action.range:4%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "pull",
+              "value": "2",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sonic Boom",
+      "initiative": 13,
+      "actions": [
+        {
+          "type": "push",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "Focus on the Resonator Bot<br>farthes away ",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": "0",
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "jump",
+                  "value": "",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Resonance Transfer",
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "X",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Where X is half the current %game.action.shield%<br>value of this monster, rounded down.",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tremor Waves",
+      "initiative": 33,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            },
+            {
+              "type": "pierce",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Twin Echo-Beam",
+      "initiative": 39,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "pierce",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Resonance Transfer",
+      "initiative": 48,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "X",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Where X is half the current %game.action.shield%<br>value of this monster, rounded down.",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Feet-Sweep Blast",
+      "initiative": 56,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "%game.condition.stun% 1 Resonator Bot without<br>%game.condition.stun% and within %game.action.range:3% to perform:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "1",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "area",
+                  "value": "(0,0,active)|(1,0,target)|(2,0,target)|(3,0,target)"
+                },
+                {
+                  "type": "condition",
+                  "value": "immobilize",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tri-Pulse",
+      "initiative": 87,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "%game.condition.stun% 2 Resonator Bots without<br>%game.condition.stun% and within %game.action.range:3% to perform:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "2",
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "stun",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

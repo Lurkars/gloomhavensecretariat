@@ -28,6 +28,7 @@ export class ScenarioDialogComponent {
 
     monsters: MonsterData[] = [];
     lootConfig: { type: LootType, value: number }[] = [];
+    lootRandomItem: boolean = false;
     setup: boolean = false;
     hasSpoiler: boolean = false;
     spoiler: boolean = false;
@@ -40,6 +41,9 @@ export class ScenarioDialogComponent {
                 const lootType: LootType = value as LootType;
                 if (scenario.lootDeckConfig[lootType]) {
                     this.lootConfig.push({ type: lootType, value: scenario.lootDeckConfig[lootType] || 0 });
+                    if (lootType == LootType.random_item && gameManager.game.party.randomItemLooted.find((model) => model.edition == scenario.edition && model.group == scenario.group && model.index == scenario.index)) {
+                        this.lootRandomItem = true;
+                    }
                 }
             }
         }
@@ -48,7 +52,7 @@ export class ScenarioDialogComponent {
     updateMonster() {
         this.monsters = [];
         this.hasSpoiler = false;
-        gameManager.scenarioManager.getMonsters(this.scenario).forEach((monster) => {
+        gameManager.scenarioManager.getMonsters(this.scenario, this.scenario.custom).forEach((monster) => {
             if (this.spoiler || !monster.standeeShare || gameManager.scenarioManager.openRooms().find((room) => room.initial && room.monster.find((standee) => standee.name.split(':')[0] == monster.name)) || gameManager.game.figures.some((figure) => figure instanceof Monster && figure.name == monster.name && figure.edition == monster.edition)) {
                 if (this.monsters.indexOf(monster) == -1) {
                     monster.tags = [];

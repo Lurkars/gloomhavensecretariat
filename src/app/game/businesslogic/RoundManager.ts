@@ -205,6 +205,12 @@ export class RoundManager {
           gameManager.entityManager.restoreConditions(entity);
         }
       })
+
+      if (figure instanceof Character) {
+        if (figure.tags.indexOf('song_active') != -1) {
+          figure.experience -= 1;
+        }
+      }
     } else if (figure instanceof Monster && !figure.entities.find((entity) => entity.active)) {
       figure.entities.forEach((monsterEntity) => {
         monsterEntity.active = figure.active;
@@ -310,6 +316,12 @@ export class RoundManager {
       }
     }
 
+    if (figure instanceof Character) {
+      if (figure.tags.indexOf('song_active') != -1) {
+        figure.experience += 1;
+      }
+    }
+
     if (figure instanceof Character && settingsManager.settings.applyLongRest && figure.longRest && (skipSummons || !figure.summons.some((summon) => summon.active))) {
       if (figure.health < figure.maxHealth || figure.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.clearHeal) != -1 && !entityCondition.permanent)) {
         let heal = 2;
@@ -412,7 +424,7 @@ export class RoundManager {
           figure.progress.gold = 0;
         }
 
-        figure.tags = figure.tags.filter((tag) => tag != 'new-character');
+        figure.tags = figure.tags.filter((tag) => tag != 'new-character' && figure.specialTags.indexOf(tag) == -1);
 
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));
 

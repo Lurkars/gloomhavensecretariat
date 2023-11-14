@@ -684,7 +684,7 @@ export class MonsterManager {
   }
 
   hasBottomActions(monster: Monster): boolean {
-    return gameManager.abilities(monster).every((ability) => gameManager.hasBottomAbility(ability));
+    return gameManager.abilities(monster).length > 0 && gameManager.abilities(monster).every((ability) => gameManager.hasBottomAbility(ability));
   }
 
   calcActionHints(monster: Monster, entity: MonsterEntity): ActionHint[] {
@@ -715,7 +715,7 @@ export class MonsterManager {
 
   calcActionHint(monster: Monster, entity: MonsterEntity, type: ActionType, actions: Action[], actionHints: ActionHint[], parentIndex: number = 0) {
     actions.forEach((action, index) => {
-      if (action.type == type) {
+      if (action.type == type && action.value != 'X') {
         let actionHint: ActionHint = { type: type, value: EntityValueFunction(action.value), range: 0 };
         if (action.subActions && action.subActions.length > 0) {
           let rangeSubAction = action.subActions.find((subAction) => subAction.type == ActionType.range && (!subAction.valueType || subAction.valueType == ActionValueType.fixed));
