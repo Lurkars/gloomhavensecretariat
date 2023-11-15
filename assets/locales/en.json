@@ -1744,7 +1744,8 @@
     "conditions": "Conditions/Elements",
     "debug": {
       ".": "Debug Settings/Tools",
-      "rightClick": "Always enable Right-Click"
+      "rightClick": "Always enable Right-Click",
+      "logServerMessages": "Log Server Messages"
     },
     "disableAnimations": {
       ".": "Disable Animations",

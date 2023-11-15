@@ -582,7 +582,8 @@
     "calculateStats": "Ajouter les valeurs des stats aux capacités",
     "debug": {
       ".": "Paramètres de debug/instruments",
-      "rightClick": "Toujour activer le clic droit"
+      "rightClick": "Toujour activer le clic droit",
+      "logServerMessages": "Messages du serveur de journalisation"
     },
     "disableAnimations": "Désactiver les animations",
     "disableColumns": "Désactiver affichage en colonnes",
