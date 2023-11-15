@@ -1596,7 +1596,8 @@
     "debug": {
       ".": "Debug Einstellung/Werkzeuge",
       "hint": "",
-      "rightClick": "Rechtsklick immer erlauben"
+      "rightClick": "Rechtsklick immer erlauben",
+      "logServerMessages": "Servermeldungen protokollieren"
     },
     "disableAnimations": {
       ".": "Animationen deaktivieren",

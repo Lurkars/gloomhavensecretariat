@@ -86,6 +86,7 @@ export class Settings {
   initiativeRequired: boolean = true;
   interactiveAbilities: boolean = true;
   locale: string = "en";
+  logServerMessages: boolean = false;
   lootDeck: boolean = true;
   maxUndo: number = 100;
   portraitMode: boolean = true;

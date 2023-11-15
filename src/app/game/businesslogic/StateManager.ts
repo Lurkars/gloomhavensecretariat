@@ -139,11 +139,13 @@ export class StateManager {
       this.disconnect();
       this.connectionTries++;
       const protocol = settingsManager.settings.serverWss ? "wss://" : "ws://";
-      this.ws = new WebSocket(this.buildWsUrl(protocol, settingsManager.settings.serverUrl, settingsManager.settings.serverPort));
+      const url = this.buildWsUrl(protocol, settingsManager.settings.serverUrl, settingsManager.settings.serverPort);
+      if (settingsManager.settings.logServerMessages) console.log('WS preparing ' + url);
+      this.ws = new WebSocket(url);
       this.ws.onmessage = this.onMessage;
       this.ws.onopen = this.onOpen;
       this.ws.onclose = this.onClose;
-      this.ws.onerror = this.onError
+      this.ws.onerror = this.onError;
     }
   }
 
@@ -151,6 +153,7 @@ export class StateManager {
     this.permissions = undefined;
     this.updatePermissions();
     if (this.ws && this.ws.readyState != WebSocket.CLOSED) {
+      if (settingsManager.settings.logServerMessages) console.log(`WS closing`);
       this.ws.close();
     }
   }
@@ -159,6 +162,7 @@ export class StateManager {
     try {
       const message: any = JSON.parse(ev.data);
       gameManager.stateManager.updateBlocked = false;
+      if (settingsManager.settings.logServerMessages) console.log('WS received ' + message.type, ev);
       switch (message.type) {
         case "game":
           window.document.body.classList.add('working');
@@ -335,6 +339,7 @@ export class StateManager {
             settings.globalFontsize = settingsManager.settings.globalFontsize;
             settings.fullscreen = settingsManager.settings.fullscreen;
             settings.hints = settingsManager.settings.hints;
+            settings.logServerMessages = settingsManager.settings.logServerMessages;
             settings.portraitMode = settingsManager.settings.portraitMode;
             settings.pressDoubleClick = settingsManager.settings.pressDoubleClick;
             settings.serverAutoconnect = settingsManager.settings.serverAutoconnect;
@@ -394,6 +399,7 @@ export class StateManager {
   }
 
   onOpen(ev: Event) {
+    if (settingsManager.settings.logServerMessages) console.log('WS opened', ev);
     const ws = ev.target as WebSocket;
     if (ws && ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
       gameManager.stateManager.connectionTries = 0;
@@ -404,6 +410,7 @@ export class StateManager {
         "type": "request-game",
         "payload": gameManager.game.toModel(),
       }
+      if (settingsManager.settings.logServerMessages) console.log('WS sending request-game');
       ws.send(JSON.stringify(message));
 
       if (settingsManager.settings.serverSettings) {
@@ -411,6 +418,7 @@ export class StateManager {
           "password": settingsManager.settings.serverPassword,
           "type": "request-settings"
         }
+        if (settingsManager.settings.logServerMessages) console.log('WS sending request-settings');
         ws.send(JSON.stringify(message));
       }
 
@@ -419,6 +427,7 @@ export class StateManager {
   }
 
   onClose(ev: Event) {
+    if (settingsManager.settings.logServerMessages) console.log('WS closed', ev);
     gameManager.game.server = false;
     gameManager.stateManager.updateBlocked = true;
     gameManager.stateManager.permissions = new Permissions();
@@ -427,6 +436,7 @@ export class StateManager {
   }
 
   onError(ev: Event) {
+    if (settingsManager.settings.logServerMessages) console.log('WS error', ev);
     gameManager.game.server = false;
     gameManager.stateManager.updateBlocked = true;
     gameManager.stateManager.permissions = new Permissions();
@@ -447,6 +457,7 @@ export class StateManager {
         "password": settingsManager.settings.serverPassword,
         "type": "request-settings"
       }
+      if (settingsManager.settings.logServerMessages) console.log('WS sending request-settings');
       this.ws.send(JSON.stringify(message));
     }
   }
@@ -482,6 +493,7 @@ export class StateManager {
         "type": "settings",
         "payload": settingsManager.settings
       }
+      if (settingsManager.settings.logServerMessages) console.log('WS sending settings');
       this.ws.send(JSON.stringify(message));
     }
   }
@@ -529,6 +541,7 @@ export class StateManager {
         "revision": revision,
         "undolength": undolength
       }
+      if (settingsManager.settings.logServerMessages) console.log('WS sending ' + type);
       this.ws.send(JSON.stringify(message));
     }
 
@@ -735,6 +748,7 @@ export class StateManager {
           "password": password
         }
       }
+      if (settingsManager.settings.logServerMessages) console.log(`WS sending permissions`);
       this.ws.send(JSON.stringify(message));
     }
   }
