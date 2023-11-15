@@ -1,0 +1,15 @@
+{
+  "character": {
+    "brute": "Brute",
+    "cragheart": "Cœur de Roche",
+    "demolitionist": "Artificier",
+    "diviner": "Devineresse",
+    "hatchet": "Lanceur de hache",
+    "mindthief": "Perce-Esprit",
+    "red-guard": "Garde Rouge",
+    "scoundrel": "Crapule",
+    "spellweaver": "Tisse-Sort",
+    "tinkerer": "Bricoleur",
+    "voidwarden": "Gardienne du Néant"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "character": {
+    "brute": "Barbar",
+    "cragheart": "Felsenherz",
+    "demolitionist": "Sprengmeisterin",
+    "diviner": "Prophetin",
+    "hatchet": "Axtwerfer",
+    "mindthief": "Gedankendiebin",
+    "red-guard": "Rotgardist",
+    "scoundrel": "Schürkin",
+    "spellweaver": "Spruchweberin",
+    "tinkerer": "Tüftler",
+    "voidwarden": "Leerehüterin"
+  },
+  "edition": {
+    "fh-crossover": "Frosthaven Crossover Charaktere"
+  }
+}

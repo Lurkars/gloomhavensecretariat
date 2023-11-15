@@ -1,4 +1,17 @@
 {
+  "character": {
+    "brute": "Brute",
+    "cragheart": "Cragheart",
+    "demolitionist": "Demolitionist",
+    "diviner": "Diviner",
+    "hatchet": "Hatchet",
+    "mindthief": "Mindthief",
+    "red-guard": "Red Guard",
+    "scoundrel": "Scoundrel",
+    "spellweaver": "Spellweaver",
+    "tinkerer": "Tinkerer",
+    "voidwarden": "Voidwarden"
+  },
   "edition": {
     "fh-crossover": "Frosthaven Crossover Characters"
   }

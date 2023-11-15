@@ -2,19 +2,18 @@
   "character": {
     "angry-face": "Doomstalker",
     "circles": "Summoner",
-    "demolitionist": "Demolitionist",
     "eclipse": "Nightshroud",
     "envx": "Bladeswarm",
-    "hatchet": "Hatchet",
     "lightning": "Berserker",
-    "music-note": "Soothsinger",
-    "red-guard": "Red Guard",
+    "music-note": {
+      ".": "Soothsinger",
+      "song_active": "%game.characterIconColored.music-note% Song Active"
+    },
     "saw": "Sawbones",
     "squidface": "Plagueherald",
     "sun": "Sunkeeper",
     "three-spears": "Quartermaster",
     "triangles": "Elementalist",
-    "two-mini": "Beast Tyrant",
-    "voidwarden": "Voidwarden"
+    "two-mini": "Beast Tyrant"
   }
 }

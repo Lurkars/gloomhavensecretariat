@@ -24,6 +24,7 @@ export class CharacterMenuComponent implements OnInit {
   characterData: Record<string, CharacterData[]> = {};
 
   ngOnInit(): void {
+    this.characterLevel = gameManager.prosperityLevel();
     this.update();
   }
 
