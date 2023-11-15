@@ -532,6 +532,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setLogServerMessages(logServerMessages: boolean) {
+    this.settings.logServerMessages = logServerMessages;
+    this.storeSettings();
+  }
+
   setLootDeck(lootDeck: boolean) {
     this.settings.lootDeck = lootDeck;
     this.storeSettings();

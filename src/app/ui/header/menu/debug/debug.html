@@ -34,6 +34,13 @@
   <div class="line">
     <a (click)="settingsManager.validateEditionData()"><span [ghs-label]="'tools.validateEditionData'"></span></a>
   </div>
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.logServerMessages"
+             (change)="settingsManager.setLogServerMessages(!settingsManager.settings.logServerMessages)">
+      <span [ghs-label]="'settings.debug.logServerMessages'"></span>
+    </label>
+  </div>
   <div class="separator"></div>
   <div class="line">
     <a [routerLink]="'/'"><span [ghs-label]="'tools.backToGhs'"></span></a>

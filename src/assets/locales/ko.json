@@ -1508,7 +1508,8 @@
     "conditions": "상태/원소",
     "debug": {
       ".": "디버그 설정/도구",
-      "rightClick": "항상 오른쪽 클릭 활성화"
+      "rightClick": "항상 오른쪽 클릭 활성화",
+      "logServerMessages": "로그 서버 메시지"
     },
     "disableAnimations": {
       ".": "애니메이션 효과 비활성화",
