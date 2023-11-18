@@ -1,0 +1,663 @@
+{
+  "name": "beast-rider",
+  "edition": "ir",
+  "deck": "boss",
+  "boss": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "immobilize",
+      "wound",
+      "disarm",
+      "push",
+      "pull",
+      "stun"
+    ],
+    "special": [
+      [
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "vermling-scout",
+                "player2": "normal",
+                "player4": "elite"
+              },
+              "count": 2
+            },
+            {
+              "monster": {
+                "name": "vermling-scout",
+                "player3": "normal"
+              }
+            },
+            {
+              "monster": {
+                "name": "vermling-scout",
+                "player3": "elite"
+              }
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "wound",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemies",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        }
+      ],
+      [
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "vermling-scout",
+                "player2": "normal",
+                "player4": "elite"
+              },
+              "count": 2
+            },
+            {
+              "monster": {
+                "name": "vermling-scout",
+                "player3": "normal"
+              }
+            },
+            {
+              "monster": {
+                "name": "vermling-scout",
+                "player3": "elite"
+              }
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "All enemies suffer %game.damage:1%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "13xC",
+      "movement": 2,
+      "attack": 3
+    },
+    {
+      "level": 1,
+      "health": "16xC",
+      "movement": 2,
+      "attack": 3
+    },
+    {
+      "level": 2,
+      "health": "17xC",
+      "movement": 2,
+      "attack": 4,
+      "special": [
+        [
+          {
+            "type": "summon",
+            "value": "monsterStandee",
+            "valueObject": [
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player2": "normal",
+                  "player4": "elite"
+                },
+                "count": 2
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "normal"
+                }
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "elite"
+                }
+              }
+            ]
+          },
+          {
+            "type": "condition",
+            "value": "wound",
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "enemies",
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire"
+          }
+        ],
+        [
+          {
+            "type": "summon",
+            "value": "monsterStandee",
+            "valueObject": [
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player2": "normal",
+                  "player4": "elite"
+                },
+                "count": 2
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "normal"
+                }
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "elite"
+                }
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire",
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "custom",
+                "value": "All enemies suffer %game.damage:2%",
+                "small": true
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 3,
+      "health": "19xC",
+      "movement": 3,
+      "attack": 4,
+      "special": [
+        [
+          {
+            "type": "summon",
+            "value": "monsterStandee",
+            "valueObject": [
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player2": "normal",
+                  "player4": "elite"
+                },
+                "count": 2
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "normal"
+                }
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "elite"
+                }
+              }
+            ]
+          },
+          {
+            "type": "condition",
+            "value": "wound",
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "enemies",
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire"
+          }
+        ],
+        [
+          {
+            "type": "summon",
+            "value": "monsterStandee",
+            "valueObject": [
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player2": "normal",
+                  "player4": "elite"
+                },
+                "count": 2
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "normal"
+                }
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "elite"
+                }
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire",
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "custom",
+                "value": "All enemies suffer %game.damage:3%",
+                "small": true
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 4,
+      "health": "20xC",
+      "movement": 3,
+      "attack": 5,
+      "special": [
+        [
+          {
+            "type": "summon",
+            "value": "monsterStandee",
+            "valueObject": [
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player2": "normal",
+                  "player4": "elite"
+                },
+                "count": 2
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "normal"
+                }
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "elite"
+                }
+              }
+            ]
+          },
+          {
+            "type": "condition",
+            "value": "wound",
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "enemies",
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire"
+          }
+        ],
+        [
+          {
+            "type": "summon",
+            "value": "monsterStandee",
+            "valueObject": [
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player2": "normal",
+                  "player4": "elite"
+                },
+                "count": 2
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "normal"
+                }
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "elite"
+                }
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire",
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "custom",
+                "value": "All enemies suffer %game.damage:4%",
+                "small": true
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 5,
+      "health": "22xC",
+      "movement": 3,
+      "attack": 5,
+      "special": [
+        [
+          {
+            "type": "summon",
+            "value": "monsterStandee",
+            "valueObject": [
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player2": "normal",
+                  "player4": "elite"
+                },
+                "count": 2
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "normal"
+                }
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "elite"
+                }
+              }
+            ]
+          },
+          {
+            "type": "condition",
+            "value": "wound",
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "enemies",
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire"
+          }
+        ],
+        [
+          {
+            "type": "summon",
+            "value": "monsterStandee",
+            "valueObject": [
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player2": "normal",
+                  "player4": "elite"
+                },
+                "count": 2
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "normal"
+                }
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "elite"
+                }
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire",
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "custom",
+                "value": "All enemies suffer %game.damage:5%",
+                "small": true
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 6,
+      "health": "23xC",
+      "movement": 4,
+      "attack": 5,
+      "special": [
+        [
+          {
+            "type": "summon",
+            "value": "monsterStandee",
+            "valueObject": [
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player2": "normal",
+                  "player4": "elite"
+                },
+                "count": 2
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "normal"
+                }
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "elite"
+                }
+              }
+            ]
+          },
+          {
+            "type": "condition",
+            "value": "wound",
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "enemies",
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire"
+          }
+        ],
+        [
+          {
+            "type": "summon",
+            "value": "monsterStandee",
+            "valueObject": [
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player2": "normal",
+                  "player4": "elite"
+                },
+                "count": 2
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "normal"
+                }
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "elite"
+                }
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire",
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "custom",
+                "value": "All enemies suffer %game.damage:6%",
+                "small": true
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 7,
+      "health": "25xC",
+      "movement": 4,
+      "attack": 6,
+      "special": [
+        [
+          {
+            "type": "summon",
+            "value": "monsterStandee",
+            "valueObject": [
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player2": "normal",
+                  "player4": "elite"
+                },
+                "count": 2
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "normal"
+                }
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "elite"
+                }
+              }
+            ]
+          },
+          {
+            "type": "condition",
+            "value": "wound",
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "enemies",
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire"
+          }
+        ],
+        [
+          {
+            "type": "summon",
+            "value": "monsterStandee",
+            "valueObject": [
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player2": "normal",
+                  "player4": "elite"
+                },
+                "count": 2
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "normal"
+                }
+              },
+              {
+                "monster": {
+                  "name": "vermling-scout",
+                  "player3": "elite"
+                }
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire",
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "custom",
+                "value": "All enemies suffer %game.damage:7%",
+                "small": true
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  ]
+}

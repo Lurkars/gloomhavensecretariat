@@ -53,7 +53,7 @@ export class CharacterSummonDialog {
   }
 
   showLevel(summonData: SummonData): boolean {
-    return this.summonData().some((other) => other.name == summonData.name && other.cardId != summonData.cardId);
+    return this.summonData().some((other) => other.name == summonData.name && other.cardId != summonData.cardId && summonData.level != other.level);
   }
 
   summonData(): SummonData[] {

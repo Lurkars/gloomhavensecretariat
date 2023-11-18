@@ -20,6 +20,7 @@ import { Overlay } from "@angular/cdk/overlay";
 import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 import { ObjectiveEntity } from "src/app/game/model/ObjectiveEntity";
 import { AdditionalAMSelectDialogComponent } from "./additional-am-select/additional-am-select";
+import { CharacterSpecialAction } from "src/app/game/model/data/CharacterStat";
 
 @Component({
   selector: 'ghs-entity-menu-dialog',
@@ -115,10 +116,10 @@ export class EntityMenuDialogComponent {
       this.actionHints = gameManager.monsterManager.calcActionHints(this.data.figure, this.data.entity).map((actionHint) => new Action(actionHint.type, actionHint.value, ActionValueType.fixed, actionHint.range ? [new Action(ActionType.range, actionHint.range, ActionValueType.fixed, [], true)] : []));
     }
 
-    if (this.data.figure instanceof Character && this.data.entity instanceof Character && this.data.figure.specialTags) {
-      this.data.figure.specialTags.forEach((specialTag) => {
-        if (this.data.entity instanceof Character && this.data.entity.tags.indexOf(specialTag) != -1) {
-          this.specialTags.push(specialTag);
+    if (this.data.figure instanceof Character && this.data.entity instanceof Character && this.data.figure.specialActions) {
+      this.data.figure.specialActions.forEach((specialAction) => {
+        if (this.data.entity instanceof Character && this.data.entity.tags.indexOf(specialAction.name) != -1) {
+          this.specialTags.push(specialAction.name);
         }
       })
     }
@@ -705,11 +706,13 @@ export class EntityMenuDialogComponent {
     }
   }
 
-  toggleSpecialTag(specialTag: string) {
-    if (this.specialTags.indexOf(specialTag) == -1) {
-      this.specialTags.push(specialTag);
-    } else {
-      this.specialTags.splice(this.specialTags.indexOf(specialTag), 1);
+  applySpecialAction(specialAction: CharacterSpecialAction) {
+    if (!specialAction.noTag) {
+      if (this.specialTags.indexOf(specialAction.name) == -1) {
+        this.specialTags.push(specialAction.name);
+      } else {
+        this.specialTags.splice(this.specialTags.indexOf(specialAction.name), 1);
+      }
     }
   }
 
@@ -796,7 +799,7 @@ export class EntityMenuDialogComponent {
         gameManager.stateManager.after();
       }
 
-      const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => this.data.figure instanceof Character && this.data.figure.specialTags && this.data.figure.specialTags.indexOf(specialTag) != -1 && this.specialTags.indexOf(specialTag) == -1);
+      const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => this.data.figure instanceof Character && this.data.figure.specialActions && this.data.figure.specialActions.find((specialAction) => specialAction.name == specialTag) != undefined && this.specialTags.indexOf(specialTag) == -1);
 
       if (specialTagsToTemove.length) {
         gameManager.stateManager.before("removeSpecialTags", "data.character." + this.data.entity.name, specialTagsToTemove.toString());

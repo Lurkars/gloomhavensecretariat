@@ -18,7 +18,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 - ❔ `missing information`
 
 | Tracking                                                                        | *GHS*     | *XHA*     | *FOC*    | *GHFS* | *GHH*   |
-| :------------------------------------------------------------------------------ | :-------- | :-------- | :------- | :----- | :------ |
+|:--------------------------------------------------------------------------------|:----------|:----------|:---------|:-------|:--------|
 | Track all figures (Character, Monster + Standees, Summons, Objectives, Escorts) | ✅         | ✅         | ✅        | ✅      | ✅       |
 | Track basic data (HP, Conditions)                                               | ✅         | ✅         | ✅        | ✅      | ✅       |
 | Track Initiative (incl. sorting)                                                | ✅         | ✅         | ✅        | ✅      | ✅       |
@@ -54,9 +54,10 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Frosthaven                                                                      | ✅         | ✅         | ✅        | ✅      | ⛔       |
 | The Crimson Scales                                                              | ✅[^2.1]   | ✅         | ⛔        | ✅      | ⛔       |
 | Solo Scenarios (for supported Editions)                                         | ✅❗        | ✅         | ⛔        | ✅      | ⛔       |
-| Seeker Of Xorn                                                                  | ✅[^3]     | ✅         | ⛔        | ✅      | ⛔       |
-| Blood and Sand                                                                  | ✅[^3]     | ⛔         | ⛔        | ⛔      | ⛔       |
 | Trail Of Ashes                                                                  | ✅❗[^16.1] | ✅         | ⛔        | ⛔      | ⛔       |
+| Seeker Of Xorn                                                                  | ✅[^3]     | ✅         | ⛔        | ✅      | ⛔       |
+| Ice Rift                                                                        | ✅[^3]     | ⛔         | ⛔        | ⛔      | ⛔       |
+| Blood and Sand                                                                  | ✅[^3]     | ⛔         | ⛔        | ⛔      | ⛔       |
 | supports Envelope X                                                             | ✅[^3]     | ✅         | ⛔        | ✅      | ✅       |
 | supports Frosthaven Crossover Characters                                        | ✅[^3]     | ⛔[^19]    | ⛔[^19]   | ✅      | ⛔[^19]  |
 | support Satire's Extended Battle Goals                                          | ✅[^3.1]   | ⛔         | ⛔        | ✅      | ⛔       |

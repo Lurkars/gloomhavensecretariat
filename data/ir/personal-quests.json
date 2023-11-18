@@ -1,0 +1,86 @@
+[
+    {
+        "cardId": "LF1",
+        "requirements": [
+            {
+                "name": "Killing blow dealed to enemies before they took turn",
+                "counter": 10
+            }
+        ],
+        "unlockCharacter": "light-fist"
+    },
+    {
+        "cardId": "LF2",
+        "requirements": [
+            {
+                "name": "Scenarios with Sun or Night Demons completed",
+                "counter": 5
+            }
+        ],
+        "unlockCharacter": "light-fist"
+    },
+    {
+        "cardId": "A1",
+        "requirements": [
+            {
+                "name": "Became poisoned",
+                "counter": 10
+            }
+        ],
+        "unlockCharacter": "antlers"
+    },
+    {
+        "cardId": "A2",
+        "requirements": [
+            {
+                "name": "Witnessed creatures being summoned by enemies",
+                "counter": 15
+            }
+        ],
+        "unlockCharacter": "antlers"
+    },
+    {
+        "cardId": "D1",
+        "requirements": [
+            {
+                "name": "Frost Demons killed",
+                "counter": 5
+            },
+            {
+                "name": "Flame Demons killed",
+                "counter": 5
+            }
+        ],
+        "unlockCharacter": "dynamite"
+    },
+    {
+        "cardId": "D2",
+        "requirements": [
+            {
+                "name": "Traps sprung or disarmed",
+                "counter": 10
+            }
+        ],
+        "unlockCharacter": "dynamite"
+    },
+    {
+        "cardId": "B1",
+        "requirements": [
+            {
+                "name": "Correctly guessed battle goal completions",
+                "counter": 6
+            }
+        ],
+        "unlockCharacter": "bars"
+    },
+    {
+        "cardId": "B2",
+        "requirements": [
+            {
+                "name": "Scenarios on hard difficulty completed",
+                "counter": 4
+            }
+        ],
+        "unlockCharacter": "bars"
+    }
+]

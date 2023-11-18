@@ -1,0 +1,116 @@
+{
+  "name": "savvas-bookkeeper",
+  "edition": "ir",
+  "deck": "boss",
+  "boss": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "wound",
+      "poison",
+      "disarm",
+      "stun",
+      "immobilize",
+      "curse",
+      "muddle"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "Remove a treasure<br>All enemies adjacent to that treasure suffer %game.damage:[L+1]%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "If there are no more treasures to remove, perform:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "special",
+              "value": 2
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "[2+(L/4){$math.floor}]",
+              "small": true
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "10xC",
+      "movement": 3,
+      "attack": 3,
+      "range": 5
+    },
+    {
+      "level": 1,
+      "health": "12xC",
+      "movement": 3,
+      "attack": 3,
+      "range": 5
+    },
+    {
+      "level": 2,
+      "health": "13xC",
+      "movement": 3,
+      "attack": 4,
+      "range": 5
+    },
+    {
+      "level": 3,
+      "health": "15xC",
+      "movement": 3,
+      "attack": 4,
+      "range": 5
+    },
+    {
+      "level": 4,
+      "health": "18xC",
+      "movement": 4,
+      "attack": 4,
+      "range": 6
+    },
+    {
+      "level": 5,
+      "health": "21xC",
+      "movement": 4,
+      "attack": 4,
+      "range": 6
+    },
+    {
+      "level": 6,
+      "health": "22xC",
+      "movement": 4,
+      "attack": 5,
+      "range": 6
+    },
+    {
+      "level": 7,
+      "health": "25xC",
+      "movement": 4,
+      "attack": 5,
+      "range": 6
+    }
+  ]
+}

@@ -424,7 +424,7 @@ export class RoundManager {
           figure.progress.gold = 0;
         }
 
-        figure.tags = figure.tags.filter((tag) => tag != 'new-character' && figure.specialTags.indexOf(tag) == -1);
+        figure.tags = figure.tags.filter((tag) => tag != 'new-character' && !figure.specialActions.find((specialAction) => specialAction.name == tag));
 
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));
 

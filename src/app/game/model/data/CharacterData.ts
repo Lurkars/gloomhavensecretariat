@@ -1,4 +1,4 @@
-import { CharacterStat } from "./CharacterStat";
+import { CharacterSpecialAction, CharacterStat } from "./CharacterStat";
 import { Editional } from "./Editional";
 import { FigureError } from "./FigureError";
 import { Perk, PerkCard } from "./Perks";
@@ -42,7 +42,7 @@ export class CharacterData implements Editional, Spoilable {
   retireEvent: string = "";
   traits: string[] = [];
   availableSummons: SummonData[] = [];
-  specialTags: string[] = [];
+  specialActions: CharacterSpecialAction[] = [];
 
   icon: string = '';
   iconUrl: string = '';
@@ -98,7 +98,7 @@ export class CharacterData implements Editional, Spoilable {
       this.color = characterData.color || "#00000";
       this.marker = characterData.marker || false;
       this.spoiler = characterData.spoiler || false;
-      this.specialTags = characterData.specialTags || [];
+      this.specialActions = characterData.specialActions || [];
       this.locked = characterData.locked || false;
       this.deck = characterData.deck || "";
       this.perks = characterData.perks || [];

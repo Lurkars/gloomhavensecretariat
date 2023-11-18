@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 37.75 36.517146"
+   version="1.1"
+   id="svg15"
+   sodipodi:docname="ir-bars.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   width="37.75"
+   height="36.517147"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview17"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="3.574353"
+     inkscape:cx="-19.164307"
+     inkscape:cy="-2.0982818"
+     inkscape:window-width="1850"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg15"
+     fit-margin-left="3"
+     lock-margins="true"
+     fit-margin-top="3"
+     fit-margin-right="3"
+     fit-margin-bottom="3" />
+  <defs
+     id="defs7">
+    <style
+       id="style2">.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}</style>
+    <clipPath
+       id="clip-path"
+       transform="translate(0 0)">
+      <rect
+         class="cls-1"
+         width="31.75"
+         height="30.530001"
+         id="rect4"
+         x="0"
+         y="0" />
+    </clipPath>
+  </defs>
+  <path
+     style="fill:#cc99ff;stroke-width:0.149232;fill-opacity:1"
+     d="m 7.0037804,24.95054 v -6.790056 h 2.8354077 2.8354069 v 6.790056 6.790055 H 9.8391881 7.0037804 Z M 15.659235,18.160484 V 4.580373 h 2.835408 2.835407 v 13.580111 13.580111 h -2.835407 -2.835408 z m 8.605712,13.480623 c -0.05472,-0.05472 -0.09949,-4.621217 -0.09949,-10.147776 V 11.445045 h 2.835408 2.835407 V 21.59282 31.740595 h -2.735919 c -1.504757,0 -2.78069,-0.04477 -2.835407,-0.09949 z"
+     id="path1102" />
+</svg>

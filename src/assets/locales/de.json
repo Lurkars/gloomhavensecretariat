@@ -134,6 +134,9 @@
     },
     "remove": "Charakter entfernen",
     "removeAll": "Alle entfernen",
+    "summon": {
+      "level": "(Level {0})"
+    },
     "traits": "Eigenschaften",
     "unlock": {
       ".": "Freischalten?",

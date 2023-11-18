@@ -429,13 +429,13 @@
     font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
   }
 
-  .special-tags {
+  .special-actions {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 
-    .special-tag {
+    .special-action {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -460,7 +460,7 @@
         margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
       }
 
-      &.active {
+      &.active-tag {
         opacity: 1;
         filter: none;
 

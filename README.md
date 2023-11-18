@@ -80,10 +80,10 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Edit monster attack modifier and monster ability decks (support for Diviner class mechanics): reveal cards, remove cards, rearrange cards
   - Support for Frosthaven loot deck (including enhancements) and town guard deck
   - Monster data editor (https://gloomhaven-secretariat.de/editor/monster)
-  - Includes Solo scenarios
-  - Includes [Blood and Sand](https://boardgamegeek.com/thread/2613617/blood-and-sand-gloomhaven-campaign-set-red-desert) campaign: can be enabled in *Data Management* (Thanks to [/u/Calm_Construction131](https://www.reddit.com/user/Calm_Construction131) for contribution)
-  - Includes the [Seeker of Xorn](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under *Data Management*.
+  - Includes Solo scenarios- Includes the [Seeker of Xorn](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under *Data Management*.
   - Includes the [Satire's Extended Battle Goals](https://boardgamegeek.com/thread/2184131/satires-extended-battle-goals): can be enabled under *Data Management*.
+  - Includes [Ice Rift](https://boardgamegeek.com/thread/2341619/custom-campaign-ice-rift): can be enabled under *Data Management*.
+  - Includes [Blood and Sand](https://boardgamegeek.com/thread/2613617/blood-and-sand-gloomhaven-campaign-set-red-desert) campaign: can be enabled in *Data Management* (Thanks to [/u/Calm_Construction131](https://www.reddit.com/user/Calm_Construction131) for contribution)
   - Manage multiple campaigns
   - <details>
       <summary>SPOILER WARNING: Envelope X (and V)</summary>

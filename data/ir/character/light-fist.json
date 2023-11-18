@@ -1,0 +1,292 @@
+{
+  "name": "light-fist",
+  "characterClass": "savvas",
+  "edition": "ir",
+  "handSize": "9",
+  "color": "#ffffff",
+  "spoiler": true,
+  "stats": [
+    {
+      "level": 1,
+      "health": 10
+    },
+    {
+      "level": 2,
+      "health": 12
+    },
+    {
+      "level": 3,
+      "health": 14
+    },
+    {
+      "level": 4,
+      "health": 16
+    },
+    {
+      "level": 5,
+      "health": 18
+    },
+    {
+      "level": 6,
+      "health": 20
+    },
+    {
+      "level": 7,
+      "health": 22
+    },
+    {
+      "level": 8,
+      "health": 24
+    },
+    {
+      "level": 9,
+      "health": 26
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "night-elemental",
+      "cardId": "shimmering-moon",
+      "level": 1,
+      "health": "L+2",
+      "attack": 2,
+      "movement": 3,
+      "action": {
+        "type": "custom",
+        "value": "Attackers gain disadvantage"
+      }
+    },
+    {
+      "name": "sun-elemental",
+      "cardId": "blinding-sun",
+      "level": 1,
+      "health": "L+1",
+      "attack": 2,
+      "movement": 2,
+      "action": {
+        "type": "shield",
+        "value": 1
+      },
+      "additionalAction": {
+        "type": "custom",
+        "value": "Advantage"
+      }
+    },
+    {
+      "name": "night-fury",
+      "cardId": "eclipsing-moon",
+      "level": 3,
+      "health": "L+3",
+      "attack": "2 %game.element.dark%",
+      "movement": 4,
+      "action": {
+        "type": "custom",
+        "value": "Attackers gain disadvantage"
+      }
+    },
+    {
+      "name": "sun-fury",
+      "cardId": "gift-of-the-sun",
+      "level": 6,
+      "health": "L+3",
+      "attack": "2 %game.element.light%",
+      "movement": 3,
+      "action": {
+        "type": "shield",
+        "value": 1
+      },
+      "additionalAction": {
+        "type": "custom",
+        "value": "Advantage"
+      }
+    }
+  ],
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "bless",
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "element",
+                "value": "dark"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "element",
+                "value": "light"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "shield",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "elementConsume",
+                "value": "wild",
+                "effects": [
+                  {
+                    "type": "element",
+                    "value": "wild"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "heal",
+                "value": 2,
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "custom": "%game.custom.perks.ignoreNegativeItem%",
+      "count": 1
+    },
+    {
+      "type": "custom",
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "count": 1
+    }
+  ],
+  "additionalModifier": []
+}

@@ -1,0 +1,20 @@
+{
+  "edition": {
+    "ir": "Ice Rift <%wip%(!)>"
+  },
+  "monster": {
+    "beast-rider": "Beast Rider",
+    "frost-wurm": "Frost Wurm",
+    "savvas-bookkeeper": "Savvas Bookkeeper"
+  },
+  "personalQuest": {
+    "A1": "Addictive Intoxication",
+    "A2": "The origin of the species",
+    "B1": "I see the future",
+    "B2": "Against the odds",
+    "D1": "Essential fuel",
+    "D2": "The cog and the wheel",
+    "LF1": "Now you see me...",
+    "LF2": "Chroma flux"
+  }
+}

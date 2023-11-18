@@ -1,0 +1,477 @@
+{
+  "name": "antlers",
+  "characterClass": "orchid",
+  "edition": "ir",
+  "handSize": 10,
+  "color": "#d7c36e",
+  "spoiler": true,
+  "stats": [
+    {
+      "level": 1,
+      "health": 6
+    },
+    {
+      "level": 2,
+      "health": 7
+    },
+    {
+      "level": 3,
+      "health": 8
+    },
+    {
+      "level": 4,
+      "health": 9
+    },
+    {
+      "level": 5,
+      "health": 10
+    },
+    {
+      "level": 6,
+      "health": 11
+    },
+    {
+      "level": 7,
+      "health": 12
+    },
+    {
+      "level": 8,
+      "health": 13
+    },
+    {
+      "level": 9,
+      "health": 14
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "snow-owl",
+      "cardId": "prying-eyes-1",
+      "level": 1,
+      "health": 4,
+      "attack": 2,
+      "movement": 3,
+      "action": {
+        "type": "fly",
+        "value": ""
+      }
+    },
+    {
+      "name": "festering-asp",
+      "cardId": "plaque-spreader-1",
+      "level": 1,
+      "health": 1,
+      "attack": 3,
+      "movement": 2,
+      "action": {
+        "type": "grid",
+        "value": "1",
+        "subActions": [
+          {
+            "type": "custom",
+            "small": true,
+            "value": "%game.custom.ondeath%"
+          },
+          {
+            "type": "condition",
+            "value": "poison",
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "enemiesAdjacent"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "meadow-fox",
+      "cardId": "distress-call-1",
+      "level": 1,
+      "health": 2,
+      "attack": 1,
+      "movement": 2
+    },
+    {
+      "name": "timber-stag",
+      "cardId": "wild-stampede-1",
+      "level": 1,
+      "health": 5,
+      "attack": 2,
+      "movement": 2,
+      "action": {
+        "type": "push",
+        "value": 1
+      }
+    },
+    {
+      "name": "screeching-hawk",
+      "cardId": "terror-from-above-1",
+      "level": 2,
+      "health": 3,
+      "attack": 2,
+      "movement": 2,
+      "count": 2,
+      "action": {
+        "type": "fly",
+        "value": ""
+      },
+      "additionalAction": {
+        "type": "pierce",
+        "value": 2
+      }
+    },
+    {
+      "name": "iceshard-owl",
+      "cardId": "prying-eyes-2",
+      "level": 3,
+      "health": 5,
+      "attack": 3,
+      "movement": 3,
+      "action": {
+        "type": "fly",
+        "value": ""
+      },
+      "additionalAction": {
+        "type": "condition",
+        "value": "muddle"
+      }
+    },
+    {
+      "name": "spitting-asp",
+      "cardId": "plaque-spreader-2",
+      "level": 3,
+      "health": 4,
+      "attack": 2,
+      "movement": 2,
+      "range": 2,
+      "action": {
+        "type": "condition",
+        "value": "poison"
+      }
+    },
+    {
+      "name": "gold-fur-stag",
+      "cardId": "wild-stampede-2",
+      "level": 3,
+      "health": 6,
+      "attack": 2,
+      "movement": 3,
+      "action": {
+        "type": "push",
+        "value": 1
+      },
+      "additionalAction": {
+        "type": "condition",
+        "value": "immobilize"
+      }
+    },
+    {
+      "name": "prairie-fox",
+      "cardId": "distress-call-2",
+      "level": 3,
+      "health": 3,
+      "attack": 2,
+      "movement": 3
+    },
+    {
+      "name": "burrowing-raven",
+      "cardId": "raven-instinct-1",
+      "level": 5,
+      "health": 3,
+      "attack": 2,
+      "movement": 3,
+      "action": {
+        "type": "fly",
+        "value": ""
+      }
+    },
+    {
+      "name": "blizzard-owl",
+      "cardId": "prying-eyes-3",
+      "level": 6,
+      "health": 7,
+      "attack": 3,
+      "movement": 3,
+      "action": {
+        "type": "fly",
+        "value": ""
+      },
+      "additionalAction": {
+        "type": "condition",
+        "value": "muddle"
+      }
+    },
+    {
+      "name": "stinging-hawk",
+      "cardId": "terror-from-above-2",
+      "level": 6,
+      "health": 4,
+      "attack": 2,
+      "movement": 3,
+      "count": 2,
+      "action": {
+        "type": "fly",
+        "value": ""
+      },
+      "additionalAction": {
+        "type": "pierce",
+        "value": 2
+      }
+    },
+    {
+      "name": "raging-stag",
+      "cardId": "wild-stampede-3",
+      "level": 6,
+      "health": 8,
+      "attack": 3,
+      "movement": 3,
+      "action": {
+        "type": "push",
+        "value": 1
+      },
+      "additionalAction": {
+        "type": "condition",
+        "value": "immobilize"
+      }
+    },
+    {
+      "name": "pickpocket-raven",
+      "cardId": "raven-instinct-2",
+      "level": 6,
+      "health": 5,
+      "attack": 3,
+      "movement": 3,
+      "action": {
+        "type": "fly",
+        "value": ""
+      }
+    },
+    {
+      "name": "dragonclaw-hawk",
+      "cardId": "terror-from-above-3",
+      "level": 8,
+      "health": 4,
+      "attack": 3,
+      "movement": 3,
+      "count": 3,
+      "action": {
+        "type": "fly",
+        "value": ""
+      },
+      "additionalAction": {
+        "type": "pierce",
+        "value": 2
+      }
+    },
+    {
+      "name": "two-headed-asp",
+      "cardId": "plaque-spreader-3",
+      "level": 8,
+      "health": 5,
+      "attack": 2,
+      "movement": 2,
+      "range": 4,
+      "action": {
+        "type": "condition",
+        "value": "poison"
+      },
+      "additionalAction": {
+        "type": "condition",
+        "value": "muddle"
+      }
+    },
+    {
+      "name": "swindling-raven",
+      "cardId": "raven-instinct-3",
+      "level": 8,
+      "health": 6,
+      "attack": 3,
+      "movement": 4,
+      "action": {
+        "type": "fly",
+        "value": ""
+      }
+    },
+    {
+      "name": "tundra-fox",
+      "cardId": "distress-call-3",
+      "level": 8,
+      "health": 4,
+      "attack": 3,
+      "movement": 4,
+      "action": {
+        "type": "jump",
+        "value": ""
+      }
+    }
+  ],
+  "perks": [
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "element",
+                "value": "earth"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "element",
+                "value": "dark"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "poison"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "poison"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 3,
+      "custom": "Add one of the available evolved summon cards to your card pool"
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "stun"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "disarm"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "additionalModifier": []
+}

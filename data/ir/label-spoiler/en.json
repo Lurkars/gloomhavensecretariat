@@ -1,0 +1,32 @@
+{
+  "character": {
+    "antlers": "Wildspeaker",
+    "bars": "Statistician",
+    "dynamite": "Specialist",
+    "light-fist": "Lightbender"
+  },
+  "summon": {
+    "blizzard-owl": "Blizzard Owl",
+    "burrowing-raven": "Burrowing Raven",
+    "dragonclaw-hawk": "Dragonclaw Hawk",
+    "festering-asp": "Festering Asp",
+    "gold-fur-stag": "Gold-Fur Stag",
+    "iceshard-owl": "Iceshard Owl",
+    "meadow-fox": "Meadow Fox",
+    "night-elemental": "Night Elemental",
+    "night-fury": "Night Fury",
+    "pickpocket-raven": "Pickpocket Raven",
+    "prairie-fox": "Prairie Fox",
+    "queen-of-hearts": "Queen of Hearts",
+    "raging-stag": "Raging Stag",
+    "screeching-hawk": "Screeching Hawk",
+    "snow-owl": "Snow Owl",
+    "spitting-asp": "Spitting Asp",
+    "stinging-hawk": "Stingin Hawk",
+    "sun-elemental": "Sun Elemental",
+    "swindling-raven": "Swindling Raven",
+    "timber-stag": "Timber Stag",
+    "tundra-fox": "Tundra Fox",
+    "two-headed-asp": "Two-Headed Asp"
+  }
+}

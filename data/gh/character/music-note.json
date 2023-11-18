@@ -8,9 +8,6 @@
   "retireEvent": "54",
   "color": "#db6e8d",
   "spoiler": true,
-  "specialTags": [
-    "song_active"
-  ],
   "stats": [
     {
       "level": 1,
@@ -291,6 +288,11 @@
           }
         }
       ]
+    }
+  ],
+  "specialActions": [
+    {
+      "name": "song_active"
     }
   ]
 }

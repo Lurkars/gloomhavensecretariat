@@ -523,12 +523,15 @@
   </div>
 
   <div
-    *ngIf="data.entity && gameManager.isCharacter(data.entity) && gameManager.isCharacter(data.figure) && gameManager.toCharacter(data.figure).specialTags && gameManager.toCharacter(data.figure).specialTags.length > 0"
-    class="special-tags">
-    <span class="special-tag" *ngFor="let specialTag of gameManager.toCharacter(data.figure).specialTags"
-      [ngClass]="{'active' : specialTags.indexOf(specialTag) != -1}" (click)="toggleSpecialTag(specialTag)">
-      <span [ghs-label]="'data.character.' + data.figure.name + '.' + specialTag"></span>
-    </span>
+    *ngIf="data.entity && gameManager.isCharacter(data.entity) && gameManager.isCharacter(data.figure) && gameManager.toCharacter(data.figure).specialActions && gameManager.toCharacter(data.figure).specialActions.length > 0"
+    class="special-actions">
+    <ng-container *ngFor="let specialAction of gameManager.toCharacter(data.figure).specialActions">
+      <span *ngIf="!specialAction.level || specialAction.level <= data.figure.level" class="special-action"
+        [ngClass]="{'active-tag' : specialTags.indexOf(specialAction.name) != -1}"
+        (click)="applySpecialAction(specialAction)">
+        <span [ghs-label]="'data.character.' + data.figure.name + '.' + specialAction.name"></span>
+      </span>
+    </ng-container>
   </div>
 
   <ng-container *ngIf="data.entity && gameManager.isObjective(data.entity)">

@@ -184,10 +184,14 @@
 
       label {
         cursor: pointer;
-        margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        margin: 0 calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
         font-family: var(--ghs-font-title);
         font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
         color: var(--ghs-color-gray);
+
+        .level-hint {
+          margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        }
       }
 
       &:hover {
