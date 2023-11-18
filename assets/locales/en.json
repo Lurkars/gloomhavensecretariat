@@ -134,6 +134,9 @@
     },
     "remove": "Remove Character",
     "removeAll": "Remove All",
+    "summon": {
+      "level": "(Level {0})"
+    },
     "traits": "Traits",
     "unlock": {
       ".": "Unlock?",
