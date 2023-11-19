@@ -60,15 +60,12 @@ export class CharacterMenuComponent implements OnInit {
         if (this.unlocked(a) && this.newUnlocks.indexOf(a.name) == -1 && this.unlocked(b) && this.newUnlocks.indexOf(a.name) != -1) {
           return -1;
         }
+        if (!this.unlocked(a) && !this.unlocked(b)) {
+          return b.name > a.name ? -1 : 1;
+        }
       }
 
-      if (aName > bName) {
-        return 1;
-      }
-      if (aName < bName) {
-        return -1;
-      }
-      return 0;
+      return bName > aName ? -1 : 1;
     });
   }
 

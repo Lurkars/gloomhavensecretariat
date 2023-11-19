@@ -577,6 +577,12 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setRemoveUnusedMonster(removeUnusedMonster: boolean) {
+    this.settings.removeUnusedMonster = removeUnusedMonster;
+    this.storeSettings();
+  }
+
+
   setScenarioNumberInput(scenarioNumberInput: boolean) {
     this.settings.scenarioNumberInput = scenarioNumberInput;
     this.storeSettings();
@@ -839,20 +845,20 @@ export class SettingsManager {
       this.label.data = {};
     }
 
-    // default label
-    if (this.settings.locale != this.defaultLocale && value.label && value.label[this.defaultLocale]) {
-      this.label.data = this.merge(this.label.data, false, value.label[this.defaultLocale]);
-      if (value.labelSpoiler && value.labelSpoiler[this.defaultLocale]) {
-        this.label.data = this.merge(this.label.data, false, value.labelSpoiler[this.defaultLocale]);
-      }
-    }
-
     if (value.label && value.label[this.settings.locale]) {
       this.label.data = this.merge(this.label.data, true, value.label[this.settings.locale]);
     }
 
     if (value.labelSpoiler && value.labelSpoiler[this.settings.locale]) {
       this.label.data = this.merge(this.label.data, true, value.labelSpoiler[this.settings.locale]);
+    }
+
+    // default label
+    if (this.settings.locale != this.defaultLocale && value.label && value.label[this.defaultLocale]) {
+      this.label.data = this.merge(this.label.data, false, value.label[this.defaultLocale]);
+      if (value.labelSpoiler && value.labelSpoiler[this.defaultLocale]) {
+        this.label.data = this.merge(this.label.data, false, value.labelSpoiler[this.defaultLocale]);
+      }
     }
 
     if (!this.label.data.edition) {
@@ -937,17 +943,17 @@ export class SettingsManager {
     const result = target;
 
     if (this.isObject(result)) {
-      const len: number = sources.length;
-
-      for (let i = 0; i < len; i += 1) {
+      for (let i = 0; i < sources.length; i += 1) {
         const elm: any = sources[i];
 
         if (this.isObject(elm)) {
           for (const key in elm) {
             if (elm.hasOwnProperty(key)) {
               if (this.isObject(elm[key])) {
-                if (!result[key] || !this.isObject(result[key])) {
+                if (!result[key]) {
                   result[key] = {};
+                } else if (!this.isObject(result[key])) {
+                  result[key] = { '.': result[key] };
                 }
                 this.merge(result[key], overwrite, elm[key]);
               } else {
@@ -1033,6 +1039,19 @@ export class SettingsManager {
   }
 
   async updateLocale(locale: string) {
+    this.label = {};
+
+    await fetch('./assets/locales/' + locale + '.json')
+      .then(response => {
+        return response.json();
+      }).then(data => {
+        this.label = this.merge(this.label, true, data);
+      })
+      .catch((error: Error) => {
+        console.error("Invalid locale: " + locale, error);
+        return;
+      });
+
     // default label
     if (locale != this.defaultLocale) {
       await fetch('./assets/locales/' + this.defaultLocale + '.json')
@@ -1046,17 +1065,6 @@ export class SettingsManager {
           return;
         });
     }
-
-    await fetch('./assets/locales/' + locale + '.json')
-      .then(response => {
-        return response.json();
-      }).then(data => {
-        this.label = this.merge(this.label, true, data);
-      })
-      .catch((error: Error) => {
-        console.error("Invalid locale: " + locale, error);
-        return;
-      });
 
     this.label.data = {};
     for (let editionData of gameManager.editionData) {

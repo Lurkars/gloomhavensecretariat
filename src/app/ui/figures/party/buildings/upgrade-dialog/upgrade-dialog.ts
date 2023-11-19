@@ -63,25 +63,38 @@ export class BuildingUpgradeDialog implements OnInit {
             this.costs.metal = this.costs.metal || 0;
             this.requiredResources = this.costs.hide + this.costs.lumber + this.costs.metal;
 
-            this.fhSupportSpent.hide = this.costs.hide;
-            if (this.fhSupportSpent.hide > (gameManager.game.party.loot[LootType.hide] || 0)) {
-                this.fhSupportSpent.hide = (gameManager.game.party.loot[LootType.hide] || 0);
-            }
-            this.spent[LootType.hide] = this.fhSupportSpent.hide; 
-            this.paidResources += this.fhSupportSpent.hide;
-            this.fhSupportSpent.lumber = this.costs.lumber;
+            let discountFree = this.discount;
+
+            // lumber
+            this.fhSupportSpent.lumber = this.costs.lumber - (discountFree ? 1 : 0);
+            discountFree = false;
             if (this.fhSupportSpent.lumber > (gameManager.game.party.loot[LootType.lumber] || 0)) {
                 this.fhSupportSpent.lumber = (gameManager.game.party.loot[LootType.lumber] || 0);
+                discountFree = this.discount;
             }
             this.spent[LootType.lumber] = this.fhSupportSpent.lumber;
             this.paidResources += this.fhSupportSpent.lumber;
-            this.fhSupportSpent.metal = this.costs.metal;
+
+            // metal
+            this.fhSupportSpent.metal = this.costs.metal - (discountFree ? 1 : 0);
+            discountFree = false;
             if (this.fhSupportSpent.metal > (gameManager.game.party.loot[LootType.metal] || 0)) {
                 this.fhSupportSpent.metal = (gameManager.game.party.loot[LootType.metal] || 0);
+                discountFree = this.discount;
             }
             this.spent[LootType.metal] = this.fhSupportSpent.metal;
             this.paidResources += this.fhSupportSpent.metal;
 
+            // hide
+            this.fhSupportSpent.hide = this.costs.hide - (discountFree ? 1 : 0);
+            discountFree = false;
+            if (this.fhSupportSpent.hide > (gameManager.game.party.loot[LootType.hide] || 0)) {
+                this.fhSupportSpent.hide = (gameManager.game.party.loot[LootType.hide] || 0);
+                discountFree = this.discount;
+            }
+            this.spent[LootType.hide] = this.fhSupportSpent.hide;
+            this.paidResources += this.fhSupportSpent.hide;
+           
             if ((this.action == 'build' || this.action == 'upgrade') && this.building.data.rewards && this.building.data.rewards[this.building.model.level]) {
                 this.rewards = this.building.data.rewards[this.building.model.level];
             } else if (this.action == 'rewards' && this.building.data.rewards && this.building.data.rewards[this.building.model.level - 1]) {
@@ -148,7 +161,7 @@ export class BuildingUpgradeDialog implements OnInit {
     confirm() {
         if (this.force) {
             this.dialogRef.close(true);
-        } else if (this.paidResources == this.requiredResources - (this.discount ? 1 : 0) && (!this.costs.gold || this.costs.gold == this.spent.gold)) {
+        } else if (this.paidResources >= this.requiredResources - (this.discount ? 1 : 0) && (!this.costs.gold || this.costs.gold == this.spent.gold)) {
             this.dialogRef.close(new SelectResourceResult(this.characters, this.characterSpent, this.fhSupportSpent));
         }
     }

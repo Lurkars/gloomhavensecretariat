@@ -1907,6 +1907,10 @@
       ".": "Random standees",
       "hint": "Add standees with an unused random number"
     },
+    "removeUnusedMonster": {
+      ".": "Remove unused",
+      "hint": "Automatically remove all unused monsters at end of round."
+    },
     "scenarioNumberInput": {
       ".": "Scenario Number Input",
       "hint": ""
@@ -1976,6 +1980,7 @@
     },
     "currentGame": "Current",
     "info": {
+      "addBuilding": "Unlock building {0}",
       "addCampaignSticker": "Add Campaign Sticker {0}",
       "addChar": "Add character {0}",
       "addCondition": {
@@ -2047,6 +2052,7 @@
           "removeEdition": "Remove Battle Goal cards from edition %data.edition.{0}%"
         }
       },
+      "buildBuilding": "Build {0}",
       "buyItem": "Buy Item {1} (%data.edition.{2}%) for {0}",
       "cancelScenario": "Cancel Scenario #{0} {1} ({2})",
       "changeCustomScenario": "Name '{0}' for custom scenario",
@@ -2096,6 +2102,7 @@
       "endAllTurns": "End all turns",
       "entityDead": "Kill {1} standee {2} of {0}",
       "equipItem": "Equip Item {1} (%data.edition.{2}%) for {0}",
+      "finishConclusion": "Finish conclusion #{0} {1} ({2})",
       "finishScenario": {
         "battleGoal": "Set Battle Goal checkmarks for %data.character.{0}% to {1}",
         "close": "Close Scenario Summary",
@@ -2269,7 +2276,8 @@
       "updateGlobalAchievements": "Global achievement to {0}",
       "updateLevelAdjustment": "Level adjustment {0}",
       "updateManualPlayerCount": "Set manual player count to {0}",
-      "updatePartyAchievements": "Party achievement to {0}"
+      "updatePartyAchievements": "Party achievement to {0}",
+      "upgradeBuilding": "Upgrade building {0} to level {1}"
     },
     "loadMore": "Show more",
     "missing": "Missing states: {0}",

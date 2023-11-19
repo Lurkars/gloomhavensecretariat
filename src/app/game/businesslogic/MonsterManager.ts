@@ -521,6 +521,7 @@ export class MonsterManager {
   }
 
   next() {
+    let removeMonster: Monster[] = [];
     this.game.figures.forEach((figure) => {
       if (figure instanceof Monster) {
         const ability = this.getAbility(figure);
@@ -555,9 +556,16 @@ export class MonsterManager {
           })
         })
 
-
         figure.off = figure.entities.length == 0;
+
+        if (figure.off && settingsManager.settings.removeUnusedMonster) {
+          removeMonster.push(figure);
+        }
       }
+    })
+
+    removeMonster.forEach((monster) => {
+      this.removeMonster(monster);
     })
   }
 

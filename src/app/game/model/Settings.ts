@@ -95,6 +95,7 @@ export class Settings {
   partySheet: boolean = true;
   pressDoubleClick: boolean = true;
   randomStandees: boolean = false;
+  removeUnusedMonster: boolean = false;
   scenarioNumberInput: boolean = false;
   scenarioRooms: boolean = true;
   scenarioRules: boolean = true;

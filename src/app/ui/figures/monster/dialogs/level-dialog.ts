@@ -30,7 +30,7 @@ export class MonsterLevelDialogComponent {
   }
 
   toggleallied() {
-    gameManager.stateManager.before(this.monster.isAllied ? "unsetallied" : "setallied", "data.monster." + this.monster.name);
+    gameManager.stateManager.before(this.monster.isAllied ? "unsetAllied" : "setAllied", "data.monster." + this.monster.name);
     this.monster.isAllied = !this.monster.isAllied;
     gameManager.stateManager.after();
   }

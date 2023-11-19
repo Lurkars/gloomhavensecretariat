@@ -314,20 +314,6 @@
         <div class="hint-container">
           <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
             <input type="checkbox"
-              [checked]="settingsManager.settings.abilities && settingsManager.settings.interactiveAbilities"
-              (change)="settingsManager.setInteractiveAbilities(!settingsManager.settings.interactiveAbilities)">
-            <span [ghs-label]="'settings.interactiveAbilities'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.interactiveAbilities.hint'"></span>
-          </span>
-        </div>
-      </div>
-      <div class="line">
-        <div class="hint-container">
-          <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
-            <input type="checkbox"
               [checked]="settingsManager.settings.abilities && settingsManager.settings.abilityReveal"
               (change)="settingsManager.setAbilityReveal(!settingsManager.settings.abilityReveal)">
             <span [ghs-label]="'settings.abilityReveal'"></span>
@@ -338,9 +324,49 @@
           </span>
         </div>
       </div>
+      <div class="line">
+        <div class="hint-container">
+          <label>
+            <input type="checkbox" [checked]="settingsManager.settings.removeUnusedMonster"
+              (change)="settingsManager.setRemoveUnusedMonster(!settingsManager.settings.removeUnusedMonster)">
+            <span [ghs-label]="'settings.removeUnusedMonster'"></span>
+          </label>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <span class="hint">
+            <span class="text" [ghs-label]="'settings.removeUnusedMonster.hint'"></span>
+          </span>
+        </div>
+      </div>
+      <div class="line">
+        <div class="hint-container">
+          <label>
+            <input type="checkbox" [checked]="settingsManager.settings.addAllMonsters"
+              (change)="settingsManager.setAddAllMonsters(!settingsManager.settings.addAllMonsters)">
+            <span [ghs-label]="'settings.addAllMonsters'"></span>
+          </label>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <span class="hint">
+            <span class="text" [ghs-label]="'settings.addAllMonsters.hint'"></span>
+          </span>
+        </div>
+      </div>
     </div>
 
     <div class="column">
+      <div class="line">
+        <div class="hint-container">
+          <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
+            <input type="checkbox"
+              [checked]="settingsManager.settings.abilities && settingsManager.settings.interactiveAbilities"
+              (change)="settingsManager.setInteractiveAbilities(!settingsManager.settings.interactiveAbilities)">
+            <span [ghs-label]="'settings.interactiveAbilities'"></span>
+          </label>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <span class="hint">
+            <span class="text" [ghs-label]="'settings.interactiveAbilities.hint'"></span>
+          </span>
+        </div>
+      </div>
       <div class="line">
         <div class="hint-container">
           <label
@@ -409,19 +435,6 @@
           <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
           <span class="hint">
             <span class="text" [ghs-label]="'settings.hideStats.hint'"></span>
-          </span>
-        </div>
-      </div>
-      <div class="line">
-        <div class="hint-container">
-          <label>
-            <input type="checkbox" [checked]="settingsManager.settings.addAllMonsters"
-              (change)="settingsManager.setAddAllMonsters(!settingsManager.settings.addAllMonsters)">
-            <span [ghs-label]="'settings.addAllMonsters'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.addAllMonsters.hint'"></span>
           </span>
         </div>
       </div>
