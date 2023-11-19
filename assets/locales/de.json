@@ -1759,6 +1759,10 @@
       ".": "Zufällige Aufsteller",
       "hint": "Aufsteller mit zufälliger, nicht vergebener Nummer setzen"
     },
+    "removeUnusedMonster": {
+      ".": "Nicht genutze Monster entfernen",
+      "hint": "Entferne automatische alle nicht genutzen Monster am Ende der Runde"
+    },
     "scenarioNumberInput": {
       ".": "Numerische Szenario Eingabe",
       "hint": ""
@@ -1828,6 +1832,7 @@
     },
     "currentGame": "Aktuell",
     "info": {
+      "addBuilding": "Gebäude {0} freischalten",
       "addCampaignSticker": "Kampagnenbogensticker {0} hinzufügen",
       "addChar": "Charakter {0} hinzufügen",
       "addCondition": {
@@ -1898,6 +1903,7 @@
           "removeEdition": "Kampfzielkarten von %data.edition.{0}% entfernen"
         }
       },
+      "buildBuilding": "{0} gebaut",
       "buyItem": "Gegenstand {1} (%data.edition.{2}%) für {0} kaufen",
       "cancelScenario": "Szenario #{0} {1} ({2}) abbrechen",
       "changeCustomScenario": "Namen '{0}' fpr benutzerdefiniertes Szenario",
@@ -1947,6 +1953,7 @@
       "endAllTurns": "Alle Züge beenden",
       "entityDead": "Töte {1} Aufsteller {2} von {0}",
       "equipItem": "Gegenstand {1} (%data.edition.{2}%) von {0} anlegen",
+      "finishConclusion": "Sektion #{0} {1} ({2}) abschließen",
       "finishScenario": {
         "battleGoal": "Kampfziele Harken für %data.character.{0}% auf {1} setzen",
         "close": "Szenario Zusammenfassung schließen",
@@ -2119,7 +2126,8 @@
       "updateGlobalAchievements": "Globalen Erfolg auf {0}",
       "updateLevelAdjustment": "Anpassung Szenariostufe {0}",
       "updateManualPlayerCount": "Manuelle Charakter Anzahl auf {0}",
-      "updatePartyAchievements": "Gruppenerfolg auf {0}"
+      "updatePartyAchievements": "Gruppenerfolg auf {0}",
+      "upgradeBuilding": "Gebäude {0} auf Level {1} aufrüsten"
     },
     "loadMore": "Mehr anzeigen",
     "missing": "Fehlende Zustände: {0}",
