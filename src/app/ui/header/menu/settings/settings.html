@@ -912,6 +912,19 @@
         </span>
       </div>
     </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.summons"
+            (change)="settingsManager.setSummons(!settingsManager.settings.summons)">
+          <span [ghs-label]="'settings.summons'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.summons.hint'"></span>
+        </span>
+      </div>
+    </div>
   </div>
 
   <div class="column">
@@ -964,6 +977,19 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text" [ghs-label]="'settings.monsters.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.monsterAttackModifierDeck"
+            (change)="settingsManager.setMonsterAttackModifierDeck(!settingsManager.settings.monsterAttackModifierDeck)">
+          <span [ghs-label]="'settings.monsterAttackModifierDeck'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.monsterAttackModifierDeck.hint'"></span>
         </span>
       </div>
     </div>
@@ -1430,6 +1456,48 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text" [ghs-label]="'settings.characterCompact.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox"
+            [checked]="settingsManager.settings.hideCharacterHP"
+            (change)="settingsManager.setHideCharacterHP(!settingsManager.settings.hideCharacterHP)">
+          <span [ghs-label]="'settings.hideCharacterHP'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.hideCharacterHP.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox"
+            [checked]="settingsManager.settings.hideCharacterLoot"
+            (change)="settingsManager.setHideCharacterLoot(!settingsManager.settings.hideCharacterLoot)">
+          <span [ghs-label]="'settings.hideCharacterLoot'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.hideCharacterLoot.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox"
+            [checked]="settingsManager.settings.hideCharacterXP"
+            (change)="settingsManager.setHideCharacterXP(!settingsManager.settings.hideCharacterXP)">
+          <span [ghs-label]="'settings.hideCharacterXP'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.hideCharacterXP.hint'"></span>
         </span>
       </div>
     </div>

@@ -103,7 +103,8 @@ footer {
     z-index: 1;
   }
 
-  .monster-deck {
+  .monster-deck,
+  .ally-deck.no-monster-deck {
     position: fixed;
     right: 0;
     width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
@@ -287,12 +288,13 @@ footer.compact {
     display: none;
   }
 
-  .monster-deck {
-    bottom: calc(var(--ghs-unit) * 12.5 * var(--ghs-text-factor) * var(--ghs-barsize));
-  }
-
   .ally-deck {
     bottom: calc(var(--ghs-unit) * 26 * var(--ghs-text-factor) * var(--ghs-barsize));
+  }
+
+  .monster-deck,
+  .ally-deck.no-monster-deck {
+    bottom: calc(var(--ghs-unit) * 12.5 * var(--ghs-text-factor) * var(--ghs-barsize));
   }
 
   ghs-scenario-rules {

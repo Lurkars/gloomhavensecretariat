@@ -338,6 +338,9 @@ export class StateManager {
             settings.fontsize = settingsManager.settings.fontsize;
             settings.globalFontsize = settingsManager.settings.globalFontsize;
             settings.fullscreen = settingsManager.settings.fullscreen;
+            settings.hideCharacterHP = settingsManager.settings.hideCharacterHP;
+            settings.hideCharacterLoot = settingsManager.settings.hideCharacterLoot;
+            settings.hideCharacterXP = settingsManager.settings.hideCharacterXP;
             settings.hints = settingsManager.settings.hints;
             settings.logServerMessages = settingsManager.settings.logServerMessages;
             settings.portraitMode = settingsManager.settings.portraitMode;

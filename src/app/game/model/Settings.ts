@@ -81,6 +81,9 @@ export class Settings {
   globalFontsize: number = 1;
   fullscreen: boolean = false;
   hideAbsent: boolean = false;
+  hideCharacterHP: boolean = false;
+  hideCharacterLoot: boolean = false;
+  hideCharacterXP: boolean = false;
   hideStats: boolean = false;
   hints: boolean = true;
   initiativeRequired: boolean = true;
@@ -91,6 +94,7 @@ export class Settings {
   maxUndo: number = 100;
   portraitMode: boolean = true;
   monsters: boolean = true;
+  monsterAttackModifierDeck : boolean = true;
   moveElements: boolean = true;
   partySheet: boolean = true;
   pressDoubleClick: boolean = true;
@@ -114,6 +118,7 @@ export class Settings {
   spoilers: string[] = [];
   standeeStats: boolean = false;
   statAnimations: boolean = false;
+  summons: boolean = true;
   theme: string = "";
   tooltips: boolean = true;
   treasuresLoot: boolean = true;

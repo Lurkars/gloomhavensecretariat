@@ -506,6 +506,21 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setHideCharacterHP(hideCharacterHP: boolean) {
+    this.settings.hideCharacterHP = hideCharacterHP;
+    this.storeSettings();
+  }
+
+  setHideCharacterLoot(hideCharacterLoot: boolean) {
+    this.settings.hideCharacterLoot = hideCharacterLoot;
+    this.storeSettings();
+  }
+
+  setHideCharacterXP(hideCharacterXP: boolean) {
+    this.settings.hideCharacterXP = hideCharacterXP;
+    this.storeSettings();
+  }
+
   setHideStats(hideStats: boolean) {
     this.settings.hideStats = hideStats;
     this.storeSettings();
@@ -552,6 +567,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setMonsterAttackModifierDeck(monsterAttackModifierDeck: boolean) {
+    this.settings.monsterAttackModifierDeck = monsterAttackModifierDeck;
+    this.storeSettings();
+  }
+
   setMoveElements(moveElements: boolean) {
     this.settings.moveElements = moveElements;
     this.storeSettings();
@@ -581,7 +601,6 @@ export class SettingsManager {
     this.settings.removeUnusedMonster = removeUnusedMonster;
     this.storeSettings();
   }
-
 
   setScenarioNumberInput(scenarioNumberInput: boolean) {
     this.settings.scenarioNumberInput = scenarioNumberInput;
@@ -652,6 +671,11 @@ export class SettingsManager {
 
   setShowOnlyUnfinishedScenarios(showOnlyUnfinishedScenarios: boolean) {
     this.settings.showOnlyUnfinishedScenarios = showOnlyUnfinishedScenarios;
+    this.storeSettings();
+  }
+
+  setSummons(summons: boolean) {
+    this.settings.summons = summons;
     this.storeSettings();
   }
 

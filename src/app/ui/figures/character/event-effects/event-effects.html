@@ -31,44 +31,44 @@
         <span class="badge"
           [ngClass]="{'negative-value' : minHealth() < 0, 'positive-value' : maxHealth() > 0}">{{(minHealth() < 0 ?
             minHealth() : maxHealth()) | ghsValueSign}}</span>
-      </span>
-      <span class="item">
-        <ghs-pointer-input class="button" (singleClick)="changeHealth(1)" [repeat]="true">
-          <img class="ghs-svg" src="./assets/images/plus.svg">
-        </ghs-pointer-input>
-      </span>
+        </span>
+        <span class="item">
+          <ghs-pointer-input class="button" (singleClick)="changeHealth(1)" [repeat]="true">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </ghs-pointer-input>
+        </span>
 
-      <span class="item">
-        <ghs-pointer-input class="button" (singleClick)="changeBless(-1)" [repeat]="true">
-          <img class="ghs-svg" src="./assets/images/minus.svg">
-        </ghs-pointer-input>
-      </span>
-      <span class="item" [ghs-label]="'game.bless'" [ghs-label-attribute]="'title'">
-        <img src="./assets/images/status/bless.svg" />
-        <span class="badge" [ngClass]="{'negative-value' : bless < 0, 'positive-value' : bless > 0}">{{bless |
+        <span class="item">
+          <ghs-pointer-input class="button" (singleClick)="changeBless(-1)" [repeat]="true">
+            <img class="ghs-svg" src="./assets/images/minus.svg">
+          </ghs-pointer-input>
+        </span>
+        <span class="item" [ghs-label]="'game.bless'" [ghs-label-attribute]="'title'">
+          <img src="./assets/images/status/bless.svg" />
+          <span class="badge" [ngClass]="{'negative-value' : bless < 0, 'positive-value' : bless > 0}">{{bless |
             ghsValueSign}}</span>
-      </span>
-      <span class="item">
-        <ghs-pointer-input class="button" (singleClick)="changeBless(1)" [repeat]="true">
-          <img class="ghs-svg" src="./assets/images/plus.svg">
-        </ghs-pointer-input>
-      </span>
+        </span>
+        <span class="item">
+          <ghs-pointer-input class="button" (singleClick)="changeBless(1)" [repeat]="true">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </ghs-pointer-input>
+        </span>
 
-      <span class="item">
-        <ghs-pointer-input class="button" (singleClick)="changeCurse(-1)" [repeat]="true">
-          <img class="ghs-svg" src="./assets/images/minus.svg">
-        </ghs-pointer-input>
-      </span>
-      <span class="item" [ghs-label]="'game.curse'" [ghs-label-attribute]="'title'">
-        <img src="./assets/images/status/curse.svg" />
-        <span class="badge" [ngClass]="{'negative-value' : curse < 0, 'positive-value' : curse > 0}">{{curse |
+        <span class="item">
+          <ghs-pointer-input class="button" (singleClick)="changeCurse(-1)" [repeat]="true">
+            <img class="ghs-svg" src="./assets/images/minus.svg">
+          </ghs-pointer-input>
+        </span>
+        <span class="item" [ghs-label]="'game.curse'" [ghs-label-attribute]="'title'">
+          <img src="./assets/images/status/curse.svg" />
+          <span class="badge" [ngClass]="{'negative-value' : curse < 0, 'positive-value' : curse > 0}">{{curse |
             ghsValueSign}}</span>
-      </span>
-      <span class="item">
-        <ghs-pointer-input class="button" (singleClick)="changeCurse(1)" [repeat]="true">
-          <img class="ghs-svg" src="./assets/images/plus.svg">
-        </ghs-pointer-input>
-      </span>
+        </span>
+        <span class="item">
+          <ghs-pointer-input class="button" (singleClick)="changeCurse(1)" [repeat]="true">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </ghs-pointer-input>
+        </span>
     </div>
 
     <ghs-conditions [entities]="activeCharacters" [entityConditions]="entityConditions" [immunities]="newImmunities"
@@ -87,46 +87,151 @@
         <span class="badge"
           [ngClass]="{'negative-value' : minExperience() < 0, 'positive-value' : maxExperience() > 0}">{{(minExperience()
           < 0 ? minExperience() : maxExperience()) | ghsValueSign}}</span>
-      </span>
-      <span class="item">
-        <ghs-pointer-input class="button" (singleClick)="changeExperience(1)" [repeat]="true">
-          <img class="ghs-svg" src="./assets/images/plus.svg">
-        </ghs-pointer-input>
-      </span>
+        </span>
+        <span class="item">
+          <ghs-pointer-input class="button" (singleClick)="changeExperience(1)" [repeat]="true">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </ghs-pointer-input>
+        </span>
 
-      <span class="item">
-        <ghs-pointer-input class="button" (singleClick)="changeGold(-1)" [repeat]="true">
-          <img class="ghs-svg" src="./assets/images/minus.svg">
-        </ghs-pointer-input>
-      </span>
-      <span class="item" [ghs-label]="'game.character.progress.gold'" [ghs-label-attribute]="'title'">
-        <img class="gold" src="./assets/images/loot.svg" />
-        <span class="badge"
-          [ngClass]="{'negative-value' : minGold() < 0, 'positive-value' : maxGold() > 0}">{{(minGold() < 0 ?
+        <span class="item">
+          <ghs-pointer-input class="button" (singleClick)="changeGold(-1)" [repeat]="true">
+            <img class="ghs-svg" src="./assets/images/minus.svg">
+          </ghs-pointer-input>
+        </span>
+        <span class="item" [ghs-label]="'game.character.progress.gold'" [ghs-label-attribute]="'title'">
+          <img class="ghs-svg" [ngClass]="{'gold' : !gameManager.fhRules()}"
+            [src]="'./assets/images/' + (gameManager.fhRules() ?'fh/'  :'') +'loot.svg' " />
+          <span class="badge"
+            [ngClass]="{'negative-value' : minGold() < 0, 'positive-value' : maxGold() > 0}">{{(minGold() < 0 ?
               minGold() : maxGold()) | ghsValueSign}}</span>
+          </span>
+          <span class="item">
+            <ghs-pointer-input class="button" (singleClick)="changeGold(1)" [repeat]="true">
+              <img class="ghs-svg" src="./assets/images/plus.svg">
+            </ghs-pointer-input>
+          </span>
+
+          <span class="item">
+            <ghs-pointer-input class="button" (singleClick)="changeBattleGoals(-1)" [repeat]="true">
+              <img class="ghs-svg" src="./assets/images/minus.svg">
+            </ghs-pointer-input>
+          </span>
+          <span class="item" [ghs-label]="'game.character.progress.battleGoals'" [ghs-label-attribute]="'title'">
+            <input type="checkbox" disabled="true" checked="true">
+            <span class="badge"
+              [ngClass]="{'negative-value' : minBattleGoals() < 0, 'positive-value' : maxBattleGoals() > 0}">{{(minBattleGoals()
+              < 0 ? minBattleGoals() : maxBattleGoals()) | ghsValueSign}}</span>
+            </span>
+            <span class="item">
+              <ghs-pointer-input class="button" (singleClick)="changeBattleGoals(1)" [repeat]="true">
+                <img class="ghs-svg" src="./assets/images/plus.svg">
+              </ghs-pointer-input>
+            </span>
+
+            <ng-container *ngFor="let type of lootColumns">
+              <span class="item">
+                <ghs-pointer-input class="button" (singleClick)="changeLoot(type, -1)" [repeat]="true">
+                  <img class="ghs-svg" src="./assets/images/minus.svg">
+                </ghs-pointer-input>
+              </span>
+              <span class="item" [ghs-label]="'game.loot.' + type" [ghs-label-attribute]="'title'">
+                <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + type + '.svg'">
+                <span class="badge"
+                  [ngClass]="{'negative-value' : minLoot(type) < 0, 'positive-value' : maxLoot(type) > 0}">{{(minLoot(type)
+                  < 0 ? minLoot(type) : maxLoot(type)) | ghsValueSign}}</span>
+                </span>
+                <span class="item">
+                  <ghs-pointer-input class="button" (singleClick)="changeLoot(type, 1)" [repeat]="true">
+                    <img class="ghs-svg" src="./assets/images/plus.svg">
+                  </ghs-pointer-input>
+                </span>
+
+            </ng-container>
+    </div>
+
+    <div class="entity-container campaign"
+      *ngIf="gameManager.roundManager.firstRound && settingsManager.settings.partySheet">
+      <span class="progress"><span [ghs-label]="'scenario.eventEffects.campaign'"></span></span>
+      <span class="item">
+        <ghs-pointer-input class="button" (singleClick)="changeProsperity(-1)" [repeat]="true">
+          <img class="ghs-svg" src="./assets/images/minus.svg">
+        </ghs-pointer-input>
+      </span>
+      <span class="item" [ghs-label]="'party.prosperity'" [ghs-label-attribute]="'title'">
+        <img *ngIf="gameManager.fhRules()" class="ghs-svg" src="./assets/images/fh/prosperity.svg" />
+        <span [ghs-label]="'party.prosperity'"></span>
+        <span class="badge"
+          [ngClass]="{'negative-value' : prosperity < 0, 'positive-value' : prosperity > 0}">{{prosperity |
+          ghsValueSign}}</span>
       </span>
       <span class="item">
-        <ghs-pointer-input class="button" (singleClick)="changeGold(1)" [repeat]="true">
+        <ghs-pointer-input class="button" (singleClick)="changeProsperity(1)" [repeat]="true">
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </ghs-pointer-input>
       </span>
 
-      <span class="item">
-        <ghs-pointer-input class="button" (singleClick)="changeBattleGoals(-1)" [repeat]="true">
-          <img class="ghs-svg" src="./assets/images/minus.svg">
-        </ghs-pointer-input>
-      </span>
-      <span class="item" [ghs-label]="'game.character.progress.battleGoals'" [ghs-label-attribute]="'title'">
-        <input type="checkbox" disabled="true" checked="true">
-        <span class="badge"
-          [ngClass]="{'negative-value' : minBattleGoals() < 0, 'positive-value' : maxBattleGoals() > 0}">{{(minBattleGoals()
-              < 0 ? minBattleGoals() : maxBattleGoals()) | ghsValueSign}}</span>
-      </span>
-      <span class="item">
-        <ghs-pointer-input class="button" (singleClick)="changeBattleGoals(1)" [repeat]="true">
-          <img class="ghs-svg" src="./assets/images/plus.svg">
-        </ghs-pointer-input>
-      </span>
+      <ng-container *ngIf="!gameManager.fhRules()">
+        <span class="item">
+          <ghs-pointer-input class="button" (singleClick)="changeReputation(-1)" [repeat]="true"
+            [ngClass]="{'disabled' : gameManager.game.party.reputation + reputation <= -20}">
+            <img class="ghs-svg" src="./assets/images/minus.svg">
+          </ghs-pointer-input>
+        </span>
+        <span class="item" [ghs-label]="'party.reputation'" [ghs-label-attribute]="'title'">
+          <span [ghs-label]="'party.reputation'"></span>
+          <span class="badge"
+            [ngClass]="{'negative-value' : reputation < 0, 'positive-value' : reputation > 0}">{{reputation |
+            ghsValueSign}}</span>
+        </span>
+        <span class="item">
+          <ghs-pointer-input class="button" (singleClick)="changeReputation(1)" [repeat]="true"
+            [ngClass]="{'disabled' : gameManager.game.party.reputation + reputation >= 20}">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </ghs-pointer-input>
+        </span>
+      </ng-container>
+
+      <ng-container *ngIf="gameManager.fhRules()">
+        <span class="item">
+          <ghs-pointer-input class="button" (singleClick)="changeMorale(-1)" [repeat]="true"
+            [ngClass]="{'disabled' : gameManager.game.party.morale + morale <=0}">
+            <img class="ghs-svg" src="./assets/images/minus.svg">
+          </ghs-pointer-input>
+        </span>
+        <span class="item" [ghs-label]="'party.morale'" [ghs-label-attribute]="'title'">
+          <span [ghs-label]="'party.morale'"></span>
+          <span class="badge" [ngClass]="{'negative-value' : morale < 0, 'positive-value' : morale > 0}">{{morale |
+            ghsValueSign}}</span>
+        </span>
+        <span class="item">
+          <ghs-pointer-input class="button" (singleClick)="changeMorale(1)" [repeat]="true"
+            [ngClass]="{'disabled' : gameManager.game.party.morale + morale >= 20}">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </ghs-pointer-input>
+        </span>
+      </ng-container>
+
+      <ng-container *ngIf="gameManager.fhRules()">
+        <span class="item">
+          <ghs-pointer-input class="button" (singleClick)="changeInspiration(-1)" [repeat]="true"
+            [ngClass]="{'disabled' : gameManager.game.party.inspiration + inspiration <=0}">
+            <img class="ghs-svg" src="./assets/images/minus.svg">
+          </ghs-pointer-input>
+        </span>
+        <span class="item" [ghs-label]="'party.inspiration'" [ghs-label-attribute]="'title'">
+          <span [ghs-label]="'party.inspiration'"></span>
+          <span class="badge"
+            [ngClass]="{'negative-value' : inspiration < 0, 'positive-value' : inspiration > 0}">{{inspiration |
+            ghsValueSign}}</span>
+        </span>
+        <span class="item">
+          <ghs-pointer-input class="button" (singleClick)="changeInspiration(1)" [repeat]="true"
+            [ngClass]="{'disabled' : gameManager.game.party.inspiration + inspiration >= 20}">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </ghs-pointer-input>
+        </span>
+      </ng-container>
     </div>
   </div>
 </div>

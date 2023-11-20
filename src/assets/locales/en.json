@@ -1092,8 +1092,6 @@
         "defense": "Defense",
         "disable": "Go to Gloomhaven Party Sheet",
         "enable": "Go to Frosthaven Campaign Sheet",
-        "inspiration": "Inspiration",
-        "morale": "Morale",
         "name": "Party Name",
         "nextWeek": "Next week (new calendar)",
         "soldierLevel": "Lvl",
@@ -1127,7 +1125,9 @@
     "change": "Change party",
     "export": "Export",
     "import": "Import",
+    "inspiration": "Inspiration",
     "location": "Location",
+    "morale": "Morale",
     "name": "Name",
     "new": {
       ".": "Create new Campaign",
@@ -1223,6 +1223,7 @@
     "custom": "Custom",
     "eventEffects": {
       ".": "Event Effects",
+      "campaign": "Affects campaign",
       "hint": "Apply to all selected characters",
       "progress": "Affects character progress"
     },
@@ -1835,6 +1836,18 @@
       ".": "Hide absent figures",
       "hint": "Absent figures are not shown in list"
     },
+    "hideCharacterHP": {
+      ".": "Hide Character HP",
+      "hint": "Do not display hit points on character board"
+    },
+    "hideCharacterLoot": {
+      ".": "Hide Character Loot",
+      "hint": "Do not display loot on character board"
+    },
+    "hideCharacterXP": {
+      ".": "Hide Character XP",
+      "hint": "Do not display experience on character board"
+    },
     "hideStats": {
       ".": "Hide stats",
       "hint": "Hide stats of not spawned monster"
@@ -1882,6 +1895,10 @@
     "monsters": {
       ".": "Monsters",
       "hint": "If disabled no monsters are shown."
+    },
+    "monsterAttackModifierDeck": {
+      ".": "Attack Modifier Deck for monsters",
+      "hint": "Enable the Attack Modifier Deck for monsters"
     },
     "moveElements": {
       ".": "Automatic update element state",
@@ -1939,6 +1956,10 @@
     "statAnimations": {
       ".": "Stat Animation",
       "hint": "Enable animation to highlight stats as %game.action.shield% or %game.action.retaliate%."
+    },
+    "summons": {
+      ".": "Character Summons",
+      "hint": "Enable character summons"
     },
     "synced": "These settings are synchronised with the server!",
     "theme": {

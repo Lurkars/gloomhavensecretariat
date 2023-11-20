@@ -7,6 +7,8 @@ import { ConditionName, EntityCondition, EntityConditionState } from 'src/app/ga
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { ghsValueSign } from 'src/app/ui/helper/Static';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { LootType } from 'src/app/game/model/data/Loot';
 
 @Component({
   selector: 'ghs-event-effects',
@@ -16,6 +18,7 @@ import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/Atta
 export class EventEffectsDialog implements OnInit, OnDestroy {
 
   gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
 
   characters: Character[] = [];
   activeCharacters: Character[] = [];
@@ -28,6 +31,12 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
   battleGoals: number[] = [];
   bless: number = 0;
   curse: number = 0;
+  prosperity: number = 0;
+  reputation: number = 0;
+  morale: number = 0;
+  inspiration: number = 0;
+  loot: Partial<Record<LootType, number>>[] = [];
+  lootColumns: LootType[] = [];
 
   constructor(@Inject(DIALOG_DATA) public menu: boolean = false, public dialogRef: DialogRef) { }
 
@@ -63,6 +72,8 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
         }
       })
     })
+
+    this.lootColumns = gameManager.fhRules() ? [LootType.lumber, LootType.metal, LootType.hide, LootType.arrowvine, LootType.axenut, LootType.corpsecap, LootType.flamefruit, LootType.rockroot, LootType.snowthistle] : [];
   }
 
   toggleCharacter(character: Character) {
@@ -200,6 +211,64 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     this.entityConditions = entityConditions;
   }
 
+  changeProsperity(value: number) {
+    this.prosperity += value;
+    if (gameManager.game.party.prosperity + this.prosperity < 0) {
+      this.prosperity = -gameManager.game.party.prosperity;
+    }
+  }
+
+  changeReputation(value: number) {
+    this.reputation += value;
+    if (gameManager.game.party.reputation + this.reputation < -20) {
+      this.reputation = -gameManager.game.party.reputation - 20;
+    } else if (gameManager.game.party.reputation + this.reputation > 20) {
+      this.reputation = -gameManager.game.party.reputation + 20;
+    }
+  }
+
+  changeMorale(value: number) {
+    this.morale += value;
+    if (gameManager.game.party.morale + this.morale < 0) {
+      this.morale = -gameManager.game.party.morale;
+    } else if (gameManager.game.party.morale + this.morale > 20) {
+      this.morale = -gameManager.game.party.morale + 20;
+    }
+  }
+
+  changeInspiration(value: number) {
+    this.inspiration += value;
+    if (gameManager.game.party.inspiration + this.inspiration < 0) {
+      this.inspiration = -gameManager.game.party.inspiration;
+    }
+  }
+
+  changeLoot(type: LootType, value: number) {
+    this.activeCharacters.forEach((character, i) => {
+      this.loot[i] = this.loot[i] || {};
+      this.loot[i][type] = (this.loot[i][type] || 0) + value;
+      if ((character.progress.loot[type] || 0) + (this.loot[i][type] || 0) < 0) {
+        this.loot[i][type] = - (character.progress.loot[type] || 0);
+      }
+    });
+  }
+
+  minLoot(type: LootType): number {
+    if (this.loot.length == 0) {
+      this.loot[0] = {};
+      this.loot[0][type] = 0;
+    }
+    return this.loot.map((loot) => loot[type] || 0).reduce((a, b) => Math.min(a, b));
+  }
+
+  maxLoot(type: LootType): number {
+    if (this.loot.length == 0) {
+      this.loot[0] = {};
+      this.loot[0][type] = 0;
+    }
+    return this.loot.map((loot) => loot[type] || 0).reduce((a, b) => Math.max(a, b));
+  }
+
   close() {
     this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
       gameManager.stateManager.before(entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition", entityCondition.name, 'allCharacters');
@@ -230,7 +299,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
       if (this.newImmunities.indexOf(immunity) == -1) {
         gameManager.stateManager.before("removeImmunity", immunity, 'allCharacters');
         this.activeCharacters.find((character) => {
-         character.immunities = character.immunities.filter((existing) => existing != immunity);
+          character.immunities = character.immunities.filter((existing) => existing != immunity);
         })
         gameManager.stateManager.after();
       }
@@ -240,7 +309,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
       if (this.immunities.indexOf(immunity) == -1) {
         gameManager.stateManager.before("addImmunity", immunity, 'allCharacters');
         this.activeCharacters.find((character) => {
-         character.immunities.push(immunity);
+          character.immunities.push(immunity);
         })
         gameManager.stateManager.after();
       }
@@ -343,5 +412,42 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
       }
       gameManager.stateManager.after();
     }
+
+    if (this.prosperity != 0) {
+      gameManager.stateManager.before("prosperity", ghsValueSign(this.prosperity));
+      gameManager.game.party.prosperity += this.prosperity;
+      gameManager.stateManager.after();
+    }
+
+    if (this.reputation != 0) {
+      gameManager.stateManager.before("reputation", ghsValueSign(this.reputation));
+      gameManager.game.party.reputation += this.reputation;
+      gameManager.stateManager.after();
+    }
+
+    if (this.morale != 0) {
+      gameManager.stateManager.before("morale", ghsValueSign(this.morale));
+      gameManager.game.party.morale += this.morale;
+      gameManager.stateManager.after();
+    }
+
+    if (this.inspiration != 0) {
+      gameManager.stateManager.before("inspiration", ghsValueSign(this.inspiration));
+      gameManager.game.party.inspiration += this.inspiration;
+      gameManager.stateManager.after();
+    }
+
+    this.lootColumns.forEach((type) => {
+      if (this.minLoot(type) != 0 || this.maxLoot(type) != 0) {
+        gameManager.stateManager.before("changeCharacterResource", type, ghsValueSign(this.minLoot(type) != 0 ? this.minLoot(type) : this.maxLoot(type)));
+        this.activeCharacters.forEach((character, i) => {
+          if (this.loot[i] && this.loot[i][type]) {
+            character.progress.loot[type] = (character.progress.loot[type] || 0) + (this.loot[i][type] || 0);
+            this.loot[i][type] = 0;
+          }
+        })
+        gameManager.stateManager.after();
+      }
+    })
   }
 }

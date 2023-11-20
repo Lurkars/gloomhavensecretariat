@@ -78,6 +78,7 @@
 
   .container {
     display: flex;
+    max-height: calc(90vh - var(--ghs-unit) * 25 * var(--ghs-dialog-factor));
   }
 
   .entity-container {
@@ -153,6 +154,26 @@
       font-family: var(--ghs-font-text);
       font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
       color: var(--ghs-color-white);
+    }
+
+    &.campaign {
+      grid-template-columns: repeat(3, auto);
+
+      span.item {
+        color: var(--ghs-color-white);
+        font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        width: auto;
+        padding: 0 calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      }
+
+      .action {
+        display: flex;
+        justify-content: center;
+        grid-column: span 3;
+        font-family: var(--ghs-font-title);
+        font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        color: var(--ghs-color-white);
+      }
     }
   }
 }

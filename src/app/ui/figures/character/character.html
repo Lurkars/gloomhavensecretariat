@@ -1,4 +1,4 @@
-<div class="summons-container" *ngIf="!character.absent"
+<div class="summons-container" *ngIf="!character.absent && settingsManager.settings.summons"
   [ngClass]="{'empty' : summonCount == 0, 'off' : character.off || character.exhausted || character.health <= 0 }">
   <span class="spacer"></span>
   <span class="entities-menu" [ngClass]="{'empty' : summonCount == 0, 'disabled' : summonCount < 2}"
@@ -98,10 +98,10 @@
             </span>
           </span>
           <div class="status-bar">
-            <div class="health" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'" ghs-pointer-input
-              (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" (dragCancel)="dragCancel($event)"
-              [relative]="true" [screenWidth]="true" (singleClick)="openEntityMenu($event)"
-              (doubleClick)="compact && openCharacterSheet()">
+            <div class="health" *ngIf="!settingsManager.settings.hideCharacterHP" [ghs-label]="'game.health'"
+              [ghs-label-attribute]="'title'" ghs-pointer-input (dragMove)="dragHpMove($event)"
+              (dragEnd)="dragHpEnd($event)" (dragCancel)="dragCancel($event)" [relative]="true" [screenWidth]="true"
+              (singleClick)="openEntityMenu($event)" (doubleClick)="compact && openCharacterSheet()">
               <img src="./assets/images/status/health.svg" />
               {{(character.health + health) | ghsMinZero}}/{{character.maxHealth}}
               <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [container]="true"></span>
@@ -154,7 +154,7 @@
         (doubleClick)="compact && openCharacterSheet()"></span>
 
       <div class="loot-cards-button"
-        *ngIf="settingsManager.settings.lootDeck && character.lootCards && character.lootCards.length > 0"
+        *ngIf="settingsManager.settings.lootDeck && character.lootCards && character.lootCards.length > 0 && !settingsManager.settings.hideCharacterLoot"
         ghs-pointer-input (singleClick)="toggleLootCardsVisible()" [ngClass]="{'disabled': character.lootCardsVisible}">
         <img src="./assets/images/fh/loot-token.png" />
         <span class="badge">{{character.lootCards.length}}</span>
@@ -189,7 +189,7 @@
           [src]="settingsManager.settings.fhStyle ? './assets/images/fh/items/item-back-fh.png' : './assets/images/items/item-back.png'" />
       </div>
 
-      <div class="summon-dialog">
+      <div class="summon-dialog" *ngIf="settingsManager.settings.summons">
         <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"
           (doubleClick)="compact && openCharacterSheet()"></div>
         <a #summonButton class="summon-dialog-button" ghs-pointer-input (singleClick)="openSummonDialog($event)"
@@ -201,16 +201,16 @@
       <div class="column col-2">
         <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"
           (doubleClick)="compact && openCharacterSheet()"></div>
-        <span class="experience" [ghs-label]="'game.experience'" [ghs-label-attribute]="'title'" ghs-pointer-input
-          (dragMove)="dragXpMove($event)" (dragEnd)="dragXpEnd($event)" (dragCancel)="dragCancel($event)"
-          [relative]="true" [screenWidth]="true" (singleClick)="openEntityMenu($event)"
-          (doubleClick)="compact && openCharacterSheet()">
+        <span class="experience" *ngIf="!settingsManager.settings.hideCharacterXP" [ghs-label]="'game.experience'"
+          [ghs-label-attribute]="'title'" ghs-pointer-input (dragMove)="dragXpMove($event)"
+          (dragEnd)="dragXpEnd($event)" (dragCancel)="dragCancel($event)" [relative]="true" [screenWidth]="true"
+          (singleClick)="openEntityMenu($event)" (doubleClick)="compact && openCharacterSheet()">
           {{character.experience + experience}}
           <img src="./assets/images/status/experience.svg" />
           <span class="value-overlay" [value-sign]="experience" [hideEmpty]="true" [container]="true"></span>
         </span>
         <span class="loot"
-          *ngIf="!settingsManager.settings.lootDeck || !settingsManager.settings.alwaysLootDeck && !gameManager.fhRules()"
+          *ngIf="(!settingsManager.settings.lootDeck || !settingsManager.settings.alwaysLootDeck && !gameManager.fhRules()) && !settingsManager.settings.hideCharacterLoot"
           [ghs-label]="'game.loot'" [ghs-label-attribute]="'title'" ghs-pointer-input (dragMove)="dragLootMove($event)"
           (dragEnd)="dragLootEnd($event)" (dragCancel)="dragCancel($event)" [relative]="true" [screenWidth]="true"
           (singleClick)="openEntityMenu($event)" (doubleClick)="compact && openCharacterSheet()">

@@ -953,8 +953,6 @@
         "defense": "수비",
         "disable": "글룸헤이븐 파티 기록지로 이동",
         "enable": "프로스트헤이븐 캠페인 기록지로 이동",
-        "inspiration": "영감",
-        "morale": "사기",
         "name": "파티 이름",
         "nextWeek": "다음 주 (새 달력)",
         "soldierLevel": "레벨",
@@ -981,7 +979,9 @@
     "change": "파티 변경",
     "export": "내보내기",
     "import": "가져오기",
+    "inspiration": "영감",
     "location": "장소",
+    "morale": "사기",
     "name": "이름",
     "new": {
       ".": "새로운 파티 생성",
