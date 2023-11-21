@@ -1078,6 +1078,17 @@
     "eventEffects": {
       ".": "Ereigniseffekte",
       "campaign": "Betrifft Kampagne",
+      "drawRandomItem": {
+        ".": "Zufälliges Gegenstanddesign ziehen",
+        "apply": "Anwenden",
+        "blueprint": "zufälligen Gegenstandsplan ziehen"
+      },
+      "drawRandomScenario": {
+        ".": "Zufälliges Szenario ziehen",
+        "apply": "Anwenden",
+        "scenario": "{1} %data.scenarioNumber:{0}%",
+        "section": "Öffne %data.section:{0}%, schaltet {2} frei"
+      },
       "hint": "Auf alle ausgewählten Charaktere anwenden",
       "progress": "Betrifft Charakter Progression"
     },
@@ -1974,6 +1985,28 @@
       "endAllTurns": "Alle Züge beenden",
       "entityDead": "Töte {1} Aufsteller {2} von {0}",
       "equipItem": "Gegenstand {1} (%data.edition.{2}%) von {0} anlegen",
+      "eventEffect": {
+        "drawRandomItem": "Ziehe zufälliges Gegenstanddesign {0} \"{2}\" (%data.edition.{1}%)",
+        "drawRandomItemBlueprint": "Ziehe zufälligen Gegenstandsplan {0} \"{2}\" (%data.edition.{1}%)",
+        "drawRandomScenario": "Ziehe zufälliges Szenario {2} %data.scenarioNumber:{0}%",
+        "drawRandomScenarioSection": "Ziehe zufällige Sektion %data.section:{0}%, schalte {3} frei",
+        "addCondition": "%game.condition.{0}% für {1}",
+        "addImmunity": "%game.immunity.{0}% für {1}",
+        "changeCharacterBattleGoals": "{0} %game.checkmark% für {1}",
+        "changeCharacterBless": "{0} %game.condition.bless% für {1}",
+        "changeCharacterCurse": "{0} %game.condition.curse% für {1}",
+        "changeCharacterGold": "{0} Gold für {1}",
+        "changeCharacterHP": "{0} AP für {1}",
+        "changeCharacterResource": "{1} %game.resource.{0}% für {2}",
+        "changeCharacterXP": "{0} EP für {1}",
+        "inspiration": "{0} Inspiration",
+        "morale": "{0} Moral",
+        "removeCondition": "Entferne %game.condition.{0}% von {1}",
+        "removeImmunity": "Entferne %game.immunity.{0}% von {1}",
+        "reputation": "{0} Ansehen",
+        "prosperity": "{0} Wohlstand",
+        "setConditionValue": "%game.condition.{0}% auf {1} für {2}"
+      },
       "finishConclusion": "Sektion #{0} {1} ({2}) abschließen",
       "finishScenario": {
         "battleGoal": "Kampfziele Harken für %data.character.{0}% auf {1} setzen",
