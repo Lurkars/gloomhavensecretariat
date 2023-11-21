@@ -1,6 +1,6 @@
 {
   "edition": {
-    "ir": "Ice Rift <%wip%(!)>"
+    "ir": "Ice Rift &lt;%wip%(!)&gt;"
   },
   "monster": {
     "beast-rider": "Beast Rider",

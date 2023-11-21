@@ -195,7 +195,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                                         next: (result) => {
                                             if (result) {
                                                 const item = result as ItemData;
-                                                gameManager.stateManager.before("selectRandomItemLoot");
+                                                gameManager.stateManager.before("lootRandomItem", '' + item.id, item.edition, item.name, gameManager.characterManager.characterName(character));
                                                 let itemIdentifier: Identifier = new Identifier('' + item.id, item.edition);
                                                 gameManager.itemManager.addItemCount(item);
                                                 if (character.lootCards.indexOf(currentIndex) == -1) {
@@ -243,7 +243,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                                     next: (result) => {
                                         if (result) {
                                             const item = result as ItemData;
-                                            gameManager.stateManager.before("selectRandomItemLoot");
+                                            gameManager.stateManager.before("lootRandomItem", '' + item.id, item.edition, item.name, gameManager.characterManager.characterName(activeCharacter));
                                             let itemIdentifier: Identifier = new Identifier('' + item.id, item.edition);
                                             gameManager.itemManager.addItemCount(item);
                                             if (activeCharacter.lootCards.indexOf(this.current) == -1) {
