@@ -118,6 +118,8 @@ import { KeyboardShortcuts } from './ui/helper/keyboard-shortcuts';
 import { ScenarioConclusionComponent } from './ui/footer/scenario/scenario-conclusion/scenario-conclusion';
 import { BuildingUpgradeDialog } from './ui/figures/party/buildings/upgrade-dialog/upgrade-dialog';
 import { EventEffectsDialog } from './ui/figures/character/event-effects/event-effects';
+import { EventRandomItemDialogComponent } from './ui/figures/character/event-effects/random-item/random-item-dialog';
+import { EventRandomScenarioDialogComponent } from './ui/figures/character/event-effects/random-scenario/random-scenario-dialog';
 import { PointerInputDirective } from './ui/helper/pointer-input';
 import { StandeeComponent } from './ui/figures/standee/standee';
 import { BattleGoalComponent } from './ui/figures/battlegoal/battlegoal';
@@ -163,7 +165,7 @@ export class GhsErrorHandler extends ErrorHandler {
     HintDialogComponent, ScenarioRulesComponent,
     AttackModifierComponent, AttackModifierEffectsComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDrawComponent, AttackModifierDeckFullscreenComponent, AttackModifierStandaloneComponent,
     LevelComponent, LevelDialogComponent,
-    ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, StatsListComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent, EventEffectsDialog,
+    ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, StatsListComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent, EventEffectsDialog, EventRandomItemDialogComponent, EventRandomScenarioDialogComponent,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
     EntityMenuDialogComponent, EntitiesMenuDialogComponent, AdditionalAMSelectDialogComponent,
     CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterItemComponent, CharacterItemListComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterRetirementDialog, ItemComponent, ItemDialogComponent, ItemsDialogComponent, ItemsCharacterDialogComponent, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,

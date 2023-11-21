@@ -108,6 +108,10 @@
             color: var(--ghs-color-white);
             font-size: 1.5em;
             filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
+
+            .text {
+              text-align: center;
+            }
         }
     }
 

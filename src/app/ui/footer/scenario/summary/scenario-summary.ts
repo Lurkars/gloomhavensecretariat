@@ -289,21 +289,9 @@ export class ScenarioSummaryComponent {
                 }
 
                 if (this.rewards.randomItemBlueprint && this.randomItemBlueprints.length < this.rewards.randomItemBlueprint) {
-
-                    let availableItems = gameManager.itemManager.getItems(this.scenario.edition, true).filter((itemData) => itemData.blueprint && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition) && (!itemData.requiredBuilding || gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel)));
-
                     for (let i = this.randomItemBlueprints.length; i < this.rewards.randomItemBlueprint; i++) {
-                        let itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
+                        let itemData = gameManager.itemManager.drawRandomItem(this.scenario.edition, true);
                         let item: Identifier | undefined = itemData ? new Identifier('' + itemData.id, itemData.edition) : undefined;
-                        while (availableItems.length > 0 && gameManager.game.party.unlockedItems.find((unlocked) => item && unlocked.name == item.name && unlocked.edition == item.edition)) {
-                            availableItems = availableItems.filter((available) => item && (available.id + '' != item.name || available.edition != item.edition));
-                            if (availableItems.length > 0) {
-                                itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
-                                item = new Identifier('' + itemData.id, itemData.edition);
-                            } else {
-                                item = undefined;
-                            }
-                        }
                         this.randomItemBlueprints.push(item ? (+item.name) : -1);
                     }
                 }
@@ -313,23 +301,8 @@ export class ScenarioSummaryComponent {
                         const from = +this.rewards.randomItem.split('-')[0];
                         const to = +this.rewards.randomItem.split('-')[1];
                         const itemEdition = this.rewards.randomItem.split('-').length > 2 ? this.rewards.randomItem.split('-')[2] : this.scenario.edition;
-
-                        let availableItems = gameManager.itemManager.getItems(this.scenario.edition, true).filter((itemData) => itemData.id >= from && itemData.id <= to && itemData.edition == itemEdition);
-
-
-                        let itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
-                        let item: Identifier | undefined = itemData ? new Identifier('' + itemData.id, itemData.edition) : undefined;
-                        while (availableItems.length > 0 && this.characters.flatMap((character) => character.progress.items).filter((owned) => item && owned.name == item.name && owned.edition == item.edition).length >= itemData.count) {
-                            availableItems = availableItems.filter((available) => item && (available.id + '' != item.name || available.edition != item.edition));
-                            if (availableItems.length > 0) {
-                                itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
-                                item = new Identifier('' + itemData.id, itemData.edition);
-                            } else {
-                                item = undefined;
-                            }
-                        }
-
-                        if (item && itemData) {
+                        let itemData = gameManager.itemManager.drawRandomItem(itemEdition, false, from, to);
+                        if (itemData) {
                             this.randomItem = itemData;
                         }
                     }
@@ -340,36 +313,16 @@ export class ScenarioSummaryComponent {
                         const from = +this.rewards.randomItems.split('-')[0];
                         const to = +this.rewards.randomItems.split('-')[1];
                         const itemEdition = this.rewards.randomItems.split('-').length > 2 ? this.rewards.randomItems.split('-')[2] : this.scenario.edition;
-
-                        let availableItems = gameManager.itemManager.getItems(this.scenario.edition, true).filter((itemData) => itemData.id >= from && itemData.id <= to && itemData.edition == itemEdition);
-
                         for (let i = this.randomItems.length; i < this.characters.length; i++) {
                             const character = this.characters[i];
                             if (character.absent) {
                                 this.randomItems.push(undefined);
                             } else {
-                                let itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
-                                let item: Identifier | undefined = itemData ? new Identifier('' + itemData.id, itemData.edition) : undefined;
-                                while (availableItems.length > 0 && this.characters.flatMap((character) => character.progress.items).filter((owned) => item && owned.name == item.name && owned.edition == item.edition).length >= itemData.count) {
-                                    availableItems = availableItems.filter((available) => item && (available.id + '' != item.name || available.edition != item.edition));
-                                    if (availableItems.length > 0) {
-                                        itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
-                                        item = new Identifier('' + itemData.id, itemData.edition);
-                                    } else {
-                                        item = undefined;
-                                    }
+                                let itemData = gameManager.itemManager.drawRandomItem(itemEdition, false, from, to);
+                                if (character.progress.items.find((owned) => itemData && owned.name == itemData.id + '' && owned.edition == itemData.edition)) {
+                                    itemData = undefined;
                                 }
-
-                                while (availableItems.find((available) => !character.progress.items.find((owned) => owned.name == available.id + '' && owned.edition == available.edition)) && character.progress.items.find((owned) => item && owned.name == item.name + '' && owned.edition == item.edition)) {
-                                    itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
-                                    item = new Identifier('' + itemData.id, itemData.edition);
-                                }
-
-                                if (character.progress.items.find((owned) => item && owned.name == item.name + '' && owned.edition == item.edition)) {
-                                    item = undefined;
-                                }
-
-                                this.randomItems.push(item && itemData ? itemData : undefined);
+                                this.randomItems.push(itemData ? itemData : undefined);
                             }
                         }
                     }

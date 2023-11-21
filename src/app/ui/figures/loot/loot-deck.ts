@@ -190,7 +190,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                                 if (result) {
                                     this.dialog.open(LootRandomItemDialogComponent, {
                                         panelClass: 'dialog',
-                                        data: { item: result, loot: this.deck.cards[currentIndex], index: currentIndex, character: character }
+                                        data: { item: result, character: character }
                                     }).closed.subscribe({
                                         next: (result) => {
                                             if (result) {
@@ -238,7 +238,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                             setTimeout(() => {
                                 this.dialog.open(LootRandomItemDialogComponent, {
                                     panelClass: 'dialog',
-                                    data: { item: result, loot: this.deck.cards[this.current], index: this.current, character: activeCharacter }
+                                    data: { item: result, character: activeCharacter }
                                 }).closed.subscribe({
                                     next: (result) => {
                                         if (result) {

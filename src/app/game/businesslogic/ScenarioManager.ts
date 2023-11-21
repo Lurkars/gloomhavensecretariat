@@ -888,6 +888,24 @@ export class ScenarioManager {
     return this.game.scenario.rooms.filter((roomData) => this.game.scenario && this.game.scenario.revealedRooms.indexOf(roomData.roomNumber) == -1 && this.openRooms(true).some((openRoomData) => openRoomData.rooms && openRoomData.rooms.indexOf(roomData.roomNumber) != -1));
   }
 
+  drawRandomScenario(edition: string): ScenarioData | undefined {
+    let availableScenarios = gameManager.scenarioData(edition).filter((scenarioData) => scenarioData.random && !gameManager.game.party.manualScenarios.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom) && !gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom));
+    let scenarioData: ScenarioData | undefined = undefined;
+    if (availableScenarios.length > 0) {
+      scenarioData = availableScenarios[Math.floor(Math.random() * availableScenarios.length)];
+    }
+    return scenarioData;
+  }
+
+  drawRandomScenarioSection(edition: string): ScenarioData | undefined {
+    let availableSections = gameManager.sectionData(edition).filter((scenarioData) => scenarioData.conclusion && scenarioData.random && !gameManager.game.party.conclusions.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom) && !gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom));
+    let scenarioData: ScenarioData | undefined = undefined;
+    if (availableSections.length > 0) {
+      scenarioData = availableSections[Math.floor(Math.random() * availableSections.length)];
+    }
+    return scenarioData;
+  }
+
   scenarioUndoArgs(scenario: Scenario | undefined = undefined): string[] {
     scenario = scenario || gameManager.game.scenario;
     if (!scenario) {

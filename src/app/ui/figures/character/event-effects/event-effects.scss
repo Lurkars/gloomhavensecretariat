@@ -167,12 +167,20 @@
       }
 
       .action {
+        cursor: pointer;
         display: flex;
         justify-content: center;
+        align-items: center;
         grid-column: span 3;
         font-family: var(--ghs-font-title);
         font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-        color: var(--ghs-color-white);
+        color: var(--ghs-color-gray);
+        height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+        margin: 0 calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+        &:hover {
+          opacity: 0.7;
+        }
       }
     }
   }

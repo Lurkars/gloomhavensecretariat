@@ -386,6 +386,14 @@ export class EntityMenuDialogComponent {
   }
 
   hasCondition(conditionName: ConditionName) {
+    if (conditionName == ConditionName.empower) {
+      return this.empowerChars.length > 0;
+    }
+    
+    if (conditionName == ConditionName.enfeeble) {
+      return this.enfeebleChars.length > 0;
+    }
+
     return gameManager.conditions(gameManager.game.edition).find((condition) => condition.name == conditionName) != undefined;
   }
 

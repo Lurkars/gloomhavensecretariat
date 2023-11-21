@@ -1,6 +1,6 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
-import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { DIALOG_DATA, Dialog, DialogRef } from '@angular/cdk/dialog';
 import { Character } from 'src/app/game/model/Character';
 import { Subscription } from 'rxjs';
 import { ConditionName, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
@@ -9,6 +9,12 @@ import { ghsValueSign } from 'src/app/ui/helper/Static';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { LootType } from 'src/app/game/model/data/Loot';
+import { EventRandomItemDialogComponent } from './random-item/random-item-dialog';
+import { ItemData } from 'src/app/game/model/data/ItemData';
+import { CountIdentifier } from 'src/app/game/model/data/Identifier';
+import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
+import { GameScenarioModel } from 'src/app/game/model/Scenario';
+import { EventRandomScenarioDialogComponent } from './random-scenario/random-scenario-dialog';
 
 @Component({
   selector: 'ghs-event-effects',
@@ -38,7 +44,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
   loot: Partial<Record<LootType, number>>[] = [];
   lootColumns: LootType[] = [];
 
-  constructor(@Inject(DIALOG_DATA) public menu: boolean = false, public dialogRef: DialogRef) { }
+  constructor(@Inject(DIALOG_DATA) public menu: boolean = false, public dialogRef: DialogRef, public dialog: Dialog) { }
 
   ngOnInit(): void {
     this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
@@ -269,9 +275,66 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     return this.loot.map((loot) => loot[type] || 0).reduce((a, b) => Math.max(a, b));
   }
 
+  drawRandomItem(blueprint: boolean = false) {
+    let itemData = gameManager.itemManager.drawRandomItem(gameManager.currentEdition(), blueprint);
+    if (itemData) {
+      this.dialog.open(EventRandomItemDialogComponent, {
+        panelClass: 'dialog',
+        data: { item: itemData, blueprint: blueprint }
+      }).closed.subscribe({
+        next: (result) => {
+          if (result) {
+            const itemData = result as ItemData;
+            gameManager.stateManager.before("eventEffect.drawRandomItem" + (blueprint ? 'Blueprint' : ''), '' + itemData.id, itemData.edition, itemData.name);
+            gameManager.game.party.unlockedItems.push(new CountIdentifier('' + itemData.id, itemData.edition));
+            gameManager.stateManager.after();
+          }
+        }
+      });
+    } else if (blueprint) {
+      this.inspiration++;
+    }
+  }
+
+  drawRandomScenario(section: boolean = false) {
+    let scenarioData = section ? gameManager.scenarioManager.drawRandomScenarioSection(gameManager.currentEdition()) : gameManager.scenarioManager.drawRandomScenario(gameManager.currentEdition());
+    if (scenarioData) {
+      this.dialog.open(EventRandomScenarioDialogComponent, {
+        panelClass: 'dialog',
+        data: { scenario: scenarioData, section: section }
+      }).closed.subscribe({
+        next: (result) => {
+          if (result) {
+            const scenarioData = result as ScenarioData;
+            if (section) {
+              const unlocks = scenarioData.unlocks ? scenarioData.unlocks.map((unlock) => '%game.scenarioNumber:' + unlock + '%').join(', ') : '';
+              gameManager.stateManager.before("eventEffect.drawRandomScenarioSection", '' + scenarioData.index, scenarioData.edition, scenarioData.name, unlocks);
+              gameManager.game.party.conclusions.push(new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group));
+              if (scenarioData.unlocks) {
+                scenarioData.unlocks.forEach((unlock) => {
+                  gameManager.game.party.manualScenarios.push(new GameScenarioModel(unlock, scenarioData.edition));
+                })
+              }
+              gameManager.stateManager.after();
+            } else {
+              gameManager.stateManager.before("eventEffect.drawRandomScenario", '' + scenarioData.index, scenarioData.edition, scenarioData.name);
+              gameManager.game.party.manualScenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group));
+              gameManager.stateManager.after();
+            }
+          }
+        }
+      });
+    } else if (section) {
+      this.inspiration++;
+    }
+  }
+
   close() {
+
+    const characterIcons = this.activeCharacters.map((character) => '%game.characterIconColored.' + character.name + '%').join(',');
+
     this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
-      gameManager.stateManager.before(entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition", entityCondition.name, 'allCharacters');
+      gameManager.stateManager.before(entityCondition.state == EntityConditionState.removed ? "eventEffect.removeCondition" : "eventEffect.addCondition", entityCondition.name, characterIcons);
       this.activeCharacters.find((character) => {
         if (entityCondition.state == EntityConditionState.removed) {
           gameManager.entityManager.removeCondition(character, entityCondition, entityCondition.permanent);
@@ -284,7 +347,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
 
     this.entityConditions.forEach((condition) => {
       if (this.activeCharacters.find((character) => character.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired && entityCondition.value != condition.value))) {
-        gameManager.stateManager.before("setConditionValue", condition.name, "" + condition.value, 'allCharacters');
+        gameManager.stateManager.before("eventEffect.setConditionValue", condition.name, "" + condition.value, characterIcons);
         this.activeCharacters.find((character) => {
           const entityCondition = character.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
           if (entityCondition && entityCondition.value != condition.value) {
@@ -297,7 +360,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
 
     this.immunities.forEach((immunity) => {
       if (this.newImmunities.indexOf(immunity) == -1) {
-        gameManager.stateManager.before("removeImmunity", immunity, 'allCharacters');
+        gameManager.stateManager.before("eventEffect.removeImmunity", immunity, characterIcons);
         this.activeCharacters.find((character) => {
           character.immunities = character.immunities.filter((existing) => existing != immunity);
         })
@@ -307,7 +370,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
 
     this.newImmunities.forEach((immunity) => {
       if (this.immunities.indexOf(immunity) == -1) {
-        gameManager.stateManager.before("addImmunity", immunity, 'allCharacters');
+        gameManager.stateManager.before("eventEffect.addImmunity", immunity, characterIcons);
         this.activeCharacters.find((character) => {
           character.immunities.push(immunity);
         })
@@ -316,7 +379,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     })
 
     if (this.minHealth() != 0 || this.maxHealth() != 0) {
-      gameManager.stateManager.before("changeCharacterHP", ghsValueSign(this.minHealth() != 0 ? this.minHealth() : this.maxHealth()));
+      gameManager.stateManager.before("eventEffect.changeCharacterHP", ghsValueSign(this.minHealth() != 0 ? this.minHealth() : this.maxHealth()), characterIcons);
       this.activeCharacters.forEach((character, i) => {
         if (this.health[i] && this.health[i] != 0) {
           gameManager.entityManager.changeHealth(character, character, this.health[i]);
@@ -331,7 +394,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     }
 
     if (this.minExperience() != 0 || this.maxExperience() != 0) {
-      gameManager.stateManager.before("changeCharacterXP", ghsValueSign(this.minExperience() != 0 ? this.minExperience() : this.maxExperience()));
+      gameManager.stateManager.before("eventEffect.changeCharacterXP", ghsValueSign(this.minExperience() != 0 ? this.minExperience() : this.maxExperience()), characterIcons);
       this.activeCharacters.forEach((character, i) => {
         if (this.experience[i] && this.experience[i] != 0) {
           character.progress.experience += this.experience[i];
@@ -342,7 +405,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     }
 
     if (this.minGold() != 0 || this.maxGold() != 0) {
-      gameManager.stateManager.before("changeCharacterGold", ghsValueSign(this.minGold() != 0 ? this.minGold() : this.maxGold()));
+      gameManager.stateManager.before("eventEffect.changeCharacterGold", ghsValueSign(this.minGold() != 0 ? this.minGold() : this.maxGold()), characterIcons);
       this.activeCharacters.forEach((character, i) => {
         if (this.gold[i] && this.gold[i] != 0) {
           character.progress.gold += this.gold[i];
@@ -353,7 +416,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     }
 
     if (this.minBattleGoals() != 0 || this.maxBattleGoals() != 0) {
-      gameManager.stateManager.before("changeCharacterBattleGoals", ghsValueSign(this.minBattleGoals() != 0 ? this.minBattleGoals() : this.maxBattleGoals()));
+      gameManager.stateManager.before("eventEffect.changeCharacterBattleGoals", ghsValueSign(this.minBattleGoals() != 0 ? this.minBattleGoals() : this.maxBattleGoals()), characterIcons);
       this.activeCharacters.forEach((character, i) => {
         if (this.battleGoals[i] && this.battleGoals[i] != 0) {
           character.progress.battleGoals += this.battleGoals[i];
@@ -364,7 +427,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     }
 
     if (this.bless != 0) {
-      gameManager.stateManager.before("changeCharacterBless", ghsValueSign(this.bless));
+      gameManager.stateManager.before("eventEffect.changeCharacterBless", ghsValueSign(this.bless), characterIcons);
       let count = Math.abs(this.bless);
       let index = 0;
 
@@ -389,7 +452,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     }
 
     if (this.curse != 0) {
-      gameManager.stateManager.before("changeCharacterCurse", ghsValueSign(this.curse));
+      gameManager.stateManager.before("eventEffect.changeCharacterCurse", ghsValueSign(this.curse), characterIcons);
       let count = Math.abs(this.curse);
       let index = 0;
 
@@ -414,32 +477,32 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     }
 
     if (this.prosperity != 0) {
-      gameManager.stateManager.before("prosperity", ghsValueSign(this.prosperity));
+      gameManager.stateManager.before("eventEffect.prosperity", ghsValueSign(this.prosperity));
       gameManager.game.party.prosperity += this.prosperity;
       gameManager.stateManager.after();
     }
 
     if (this.reputation != 0) {
-      gameManager.stateManager.before("reputation", ghsValueSign(this.reputation));
+      gameManager.stateManager.before("eventEffect.reputation", ghsValueSign(this.reputation));
       gameManager.game.party.reputation += this.reputation;
       gameManager.stateManager.after();
     }
 
     if (this.morale != 0) {
-      gameManager.stateManager.before("morale", ghsValueSign(this.morale));
+      gameManager.stateManager.before("eventEffect.morale", ghsValueSign(this.morale));
       gameManager.game.party.morale += this.morale;
       gameManager.stateManager.after();
     }
 
     if (this.inspiration != 0) {
-      gameManager.stateManager.before("inspiration", ghsValueSign(this.inspiration));
+      gameManager.stateManager.before("eventEffect.inspiration", ghsValueSign(this.inspiration));
       gameManager.game.party.inspiration += this.inspiration;
       gameManager.stateManager.after();
     }
 
     this.lootColumns.forEach((type) => {
       if (this.minLoot(type) != 0 || this.maxLoot(type) != 0) {
-        gameManager.stateManager.before("changeCharacterResource", type, ghsValueSign(this.minLoot(type) != 0 ? this.minLoot(type) : this.maxLoot(type)));
+        gameManager.stateManager.before("eventEffect.changeCharacterResource", type, ghsValueSign(this.minLoot(type) != 0 ? this.minLoot(type) : this.maxLoot(type)), characterIcons);
         this.activeCharacters.forEach((character, i) => {
           if (this.loot[i] && this.loot[i][type]) {
             character.progress.loot[type] = (character.progress.loot[type] || 0) + (this.loot[i][type] || 0);

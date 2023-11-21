@@ -44,25 +44,8 @@ export class LootManager {
     if (loot.type == LootType.money || loot.type == LootType.special1 || loot.type == LootType.special2) {
       character.loot += this.getValue(loot);
     } else if (loot.type == LootType.random_item && this.game.scenario && this.game.party.campaignMode && settingsManager.settings.applyLootRandomItem) {
-      let availableItems = gameManager.itemManager.getItems(this.game.scenario.edition, true).filter((itemData) => itemData.random && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition));
-
-      if (availableItems.length > 0) {
-        let itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
-        let item: Identifier | undefined = new Identifier('' + itemData.id, itemData.edition);
-        while (availableItems.length > 0 && gameManager.game.party.unlockedItems.find((unlocked) => item && unlocked.name == item.name && unlocked.edition == item.edition)) {
-          availableItems = availableItems.filter((available) => item && (available.id + '' != item.name || available.edition != item.edition));
-          if (availableItems.length > 0) {
-            itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
-            item = new Identifier('' + itemData.id, itemData.edition);
-          } else {
-            item = undefined;
-          }
-        }
-        if (item) {
-          result = itemData;
-        }
-      }
-      if (availableItems.length == 0) {
+      result = gameManager.itemManager.drawRandomItem(this.game.scenario.edition);
+      if (!result) {
         character.loot += 3;
       }
     }
@@ -253,82 +236,40 @@ export class LootManager {
         }
         break;
       case TreasureRewardType.randomScenario:
-        let availableScenarios = gameManager.scenarioData(edition).filter((scenarioData) => scenarioData.random && !gameManager.game.party.manualScenarios.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom) && !gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom));
-        if (availableScenarios.length > 0) {
-          let scenarioData = availableScenarios[Math.floor(Math.random() * availableScenarios.length)];
-          let scenario: GameScenarioModel | undefined = {} = new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group);
-          while (availableScenarios.length > 0 && gameManager.game.party.manualScenarios.find((manual) => scenario && manual.index == scenario.index && manual.edition == scenario.edition && manual.group == scenario.group)) {
-            availableScenarios = availableScenarios.filter((available) => scenario && (available.edition != scenario.edition || available.index != scenario.edition || available.group != scenario.group));
-            if (availableScenarios.length > 0) {
-              scenarioData = availableScenarios[Math.floor(Math.random() * availableScenarios.length)];
-              scenario = new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group);
-            } else {
-              scenario = undefined;
-            }
-          }
-          if (scenario) {
-            gameManager.game.party.manualScenarios.push(scenario);
-            result.push(scenarioData.index, 'data.scenario.' + scenarioData.name);
-          }
+        let scenarioData = gameManager.scenarioManager.drawRandomScenario(edition);
+        if (scenarioData) {
+          gameManager.game.party.manualScenarios.push(new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group));
+          result.push(scenarioData.index, 'data.scenario.' + scenarioData.name);
         }
         break;
       case TreasureRewardType.randomScenarioFh:
-        let availableSections = gameManager.sectionData(edition).filter((scenarioData) => scenarioData.conclusion && scenarioData.random && !gameManager.game.party.conclusions.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom) && !gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom));
-        if (availableSections.length > 0) {
-          let sectionData = availableSections[Math.floor(Math.random() * availableSections.length)];
-          let section: GameScenarioModel | undefined = {} = new GameScenarioModel('' + sectionData.index, sectionData.edition, sectionData.group);
-          while (availableSections.length > 0 && gameManager.game.party.conclusions.find((conclusion) => section && conclusion.index == section.index && conclusion.edition == section.edition && conclusion.group == section.group)) {
-            availableSections = availableSections.filter((available) => section && (available.edition != section.edition || available.index != section.edition || available.group != section.group));
-            if (availableSections.length > 0) {
-              sectionData = availableSections[Math.floor(Math.random() * availableSections.length)];
-              section = new GameScenarioModel('' + sectionData.index, sectionData.edition, sectionData.group);
-            } else {
-              section = undefined;
-            }
-          }
-          if (section) {
-            gameManager.game.party.conclusions.push(section);
-            result.push(sectionData.index, 'data.section.' + sectionData.name, sectionData.unlocks ? sectionData.unlocks.map((unlock) => '%game.scenarioNumber:' + unlock + '%').join(', ') : '');
-          }
+        let sectionData = gameManager.scenarioManager.drawRandomScenarioSection(edition);
+        if (sectionData) {
+          gameManager.game.party.conclusions.push(new GameScenarioModel('' + sectionData.index, sectionData.edition, sectionData.group));
+          result.push(sectionData.index, 'data.section.' + sectionData.name, sectionData.unlocks ? sectionData.unlocks.map((unlock) => '%game.scenarioNumber:' + unlock + '%').join(', ') : '');
         }
 
-        if (availableSections.length == 0) {
-          gameManager.game.party.inspiration += 1;
-        }
         break;
       case TreasureRewardType.randomItem:
       case TreasureRewardType.randomItemDesign:
       case TreasureRewardType.randomItemBlueprint:
-        let availableItems = gameManager.itemManager.getItems(edition, true).filter((itemData) => (reward.type == TreasureRewardType.randomItem || reward.type == TreasureRewardType.randomItemDesign && itemData.random || reward.type == TreasureRewardType.randomItemBlueprint && itemData.blueprint && (!itemData.requiredBuilding || gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel))) && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition));
+        let from = -1;
+        let to = -1;
         if (typeof reward.value === 'string' && reward.value.indexOf('-') != -1) {
-          const from = + reward.value.split('-')[0];
-          const to = + reward.value.split('-')[1];
-          availableItems = availableItems.filter((itemData) => itemData.id >= from && itemData.id <= to);
+          from = + reward.value.split('-')[0];
+          to = + reward.value.split('-')[1];
         }
 
-        if (availableItems.length > 0) {
-          let itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
-          let item: CountIdentifier | undefined = new CountIdentifier('' + itemData.id, itemData.edition);
-          while (availableItems.length > 0 && gameManager.game.party.unlockedItems.find((unlocked) => item && unlocked.name == item.name && unlocked.edition == item.edition)) {
-            availableItems = availableItems.filter((available) => item && (available.id + '' != item.name || available.edition != item.edition));
-            if (availableItems.length > 0) {
-              itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
-              item = new CountIdentifier('' + itemData.id, itemData.edition);
-            } else {
-              item = undefined;
-            }
-          }
-          if (item) {
-            if (reward.type == TreasureRewardType.randomItem) {
-              character.progress.items.push(item);
-            } else {
-              gameManager.game.party.unlockedItems.push(item);
-            }
-            result.push('' + itemData.id, 'data.items.' + itemData.name, itemData.edition);
-          }
-        }
+        let itemData: ItemData | undefined = gameManager.itemManager.drawRandomItem(edition, reward.type == TreasureRewardType.randomItemBlueprint, from, to);
 
-        if (availableItems.length == 0 && reward.type == TreasureRewardType.randomItemBlueprint) {
+        if (itemData) {
+          if (reward.type == TreasureRewardType.randomItem) {
+            character.progress.items.push(new Identifier('' + itemData.id, itemData.edition));
+          } else {
+            gameManager.game.party.unlockedItems.push(new CountIdentifier('' + itemData.id, itemData.edition));
+          }
+          result.push('' + itemData.id, 'data.items.' + itemData.name, itemData.edition);
+        } else {
           gameManager.game.party.inspiration += 1;
         }
         break;

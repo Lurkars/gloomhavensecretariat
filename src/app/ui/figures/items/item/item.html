@@ -5,7 +5,7 @@
         [disabled]="!reveal || item.actionsBack && item.actionsBack.length > 0 || false"
         (change)="emitRevealed($event)">
         <div class="card-back back" *ngIf="!item.actionsBack || item.actionsBack.length == 0">
-            <span class="revealed"><span [ghs-label]="'game.cards.confirmReveal'"></span></span>
+            <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
             <div class="id">
                 <span *ngIf="edition" class="edition">{{edition}}&nbsp;</span><span *ngIf="item.id < 100">0</span><span
                     *ngIf="item.id < 10">0</span><span>{{item.id}}</span>

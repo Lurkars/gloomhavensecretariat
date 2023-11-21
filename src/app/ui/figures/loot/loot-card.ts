@@ -174,7 +174,7 @@ export class LootComponent implements OnInit, OnChanges {
                                     if (result) {
                                         this.dialog.open(LootRandomItemDialogComponent, {
                                             panelClass: 'dialog',
-                                            data: { item: result, loot: this.loot, index: this.index, character: character }
+                                            data: { item: result, character: character }
                                         }).closed.subscribe({
                                             next: (result) => {
                                                 if (result) {

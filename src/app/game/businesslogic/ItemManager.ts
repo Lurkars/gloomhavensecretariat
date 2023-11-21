@@ -375,4 +375,20 @@ export class ItemManager {
 
     }
 
+    drawRandomItem(edition: string, blueprint: boolean = false, from: number = -1, to: number = -1): ItemData | undefined {
+        let availableItems = this.getItems(edition, true).filter((itemData) =>
+            (!blueprint && itemData.random ||
+                (blueprint && itemData.blueprint &&
+                    (!itemData.requiredBuilding ||
+                        gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel)))) &&
+            (from == -1 || itemData.id >= from) &&
+            (to == -1 || itemData.id <= to) &&
+            !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition));
+        let item: ItemData | undefined = undefined;
+        if (availableItems.length > 0) {
+            item = availableItems[Math.floor(Math.random() * availableItems.length)];
+        }
+        return item;
+    }
+
 }

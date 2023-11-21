@@ -6,7 +6,7 @@
     <div class=" card-back ability-back"
       [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0 && !character, 'character-actions' : character}">
       <div class="touch"></div>
-      <span class="revealed"><span [ghs-label]="'game.cards.confirmReveal'"></span></span>
+      <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
       <span class="name" *ngIf="monster"><span [ghs-label]="'data.monster.' + monster.name"></span></span>
       <span class="name" *ngIf="character"><span [ghs-label]="'data.character.' + character.name"></span></span>
       <span class="logo" *ngIf="character"><img [src]="character.iconUrl" /></span>

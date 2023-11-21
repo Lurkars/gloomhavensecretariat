@@ -653,6 +653,7 @@ a {
     height: 100%;
     background-image: url('~src/assets/images/condition/immunity.svg');
     background-size: cover;
+    background-repeat: no-repeat;
     z-index: 2;
   }
 }
@@ -1042,6 +1043,7 @@ input[type="radio"] {
   .placeholder-action,
   .placeholder-condition,
   .placeholder-initiative {
+    position: relative;
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
@@ -1049,6 +1051,15 @@ input[type="radio"] {
 
   .placeholder-condition {
     text-transform: uppercase;
+
+    .condition-icon {
+      position: relative;
+      margin: 0 0.1em;
+
+      .icon {
+        margin: 0;
+      }
+    }
   }
 
   .placeholder-initiative {
@@ -1619,6 +1630,12 @@ input[type="radio"] {
     }
   }
 
+  .placeholder-condition {
+    .condition-icon.immunity {
+      margin-right: 0.3em;
+    }
+  }
+
   .immunity::before {
     top: 50%;
     left: initial;
@@ -1626,6 +1643,7 @@ input[type="radio"] {
     width: 45%;
     height: 45%;
     background-image: url('~src/assets/images/fh/condition/immune.svg');
+    background-size: contain;
     transform: translateY(-50%);
   }
 

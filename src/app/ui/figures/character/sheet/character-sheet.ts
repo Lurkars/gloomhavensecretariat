@@ -396,6 +396,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
     if (!disabled || force) {
       gameManager.stateManager.before("setPerk", "data.character." + this.character.name, "" + index, "" + value);
+      const lowerShacklesHP = this.character.name == 'shackles' && this.character.edition == 'fh' && index == 11 && this.character.progress.perks[index] == 2;
       if (this.character.progress.perks[index] && this.character.progress.perks[index] == value) {
         this.character.progress.perks[index]--;
       } else {
@@ -407,7 +408,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       if (this.character.name == 'shackles' && this.character.edition == 'fh' && index == 11) {
         if (this.character.progress.perks[index] == 2) {
           this.character.maxHealth += 5;
-        } else {
+        } else if (lowerShacklesHP) {
           this.character.maxHealth -= 5;
         }
         this.character.health = this.character.maxHealth;

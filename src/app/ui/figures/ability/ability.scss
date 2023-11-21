@@ -337,6 +337,10 @@
       font-size: 2.3em;
       filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
       z-index: 2;
+
+      .text {
+        text-align: center;
+      }
     }
   }
 

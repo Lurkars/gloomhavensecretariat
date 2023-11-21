@@ -65,6 +65,7 @@
             cursor: pointer;
             position: relative;
             display: flex;
+            align-items: flex-end;
             color: var(--ghs-color-white);
 
             .revision {

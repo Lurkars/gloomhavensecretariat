@@ -2,7 +2,7 @@
   <div class="card" [ngClass]="{'flipped' : flipped || attackModifier.revealed, 'no-animations' : !animate}" card-reveal
     (change)="onChange($event)" [disabled]="!reveal" #card [style.fontSize]="card.offsetWidth * 0.08 + 'px'">
     <div class="card-back back">
-      <span class="revealed"><span [ghs-label]="'game.cards.confirmReveal'"></span></span>
+      <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
     </div>
     <div class="card-front front">
       <ng-container *ngIf="!townGuard">

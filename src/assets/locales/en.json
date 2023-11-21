@@ -1224,6 +1224,17 @@
     "eventEffects": {
       ".": "Event Effects",
       "campaign": "Affects campaign",
+      "drawRandomItem": {
+        ".": "Draw Random Item Design",
+        "apply": "Apply",
+        "blueprint": "Draw Random Item Blueprint"
+      },
+      "drawRandomScenario": {
+        ".": "Draw Random Scenario",
+        "apply": "Apply",
+        "scenario": "{1} %data.scenarioNumber:{0}%",
+        "section": "Open %data.section:{0}%, unlocks {2}"
+      },
       "hint": "Apply to all selected characters",
       "progress": "Affects character progress"
     },
@@ -2123,6 +2134,28 @@
       "endAllTurns": "End all turns",
       "entityDead": "Kill {1} standee {2} of {0}",
       "equipItem": "Equip Item {1} (%data.edition.{2}%) for {0}",
+      "eventEffect": {
+        "drawRandomItem": "Draw Random Item Design {0} \"{2}\" (%data.edition.{1}%)",
+        "drawRandomItemBlueprint": "Draw Random Item Blueprint {0} \"{2}\" (%data.edition.{1}%)",
+        "drawRandomScenario": "Draw Random Scenario {2} %data.scenarioNumber:{0}%",
+        "drawRandomScenarioSection": "Draw Random Scenario Section %data.section:{0}%, unlock {3}",
+        "addCondition": "%game.condition.{0}% to {1}",
+        "addImmunity": "%game.immunity.{0}% to {1}",
+        "changeCharacterBattleGoals": "{0} %game.checkmark% for {1}",
+        "changeCharacterBless": "{0} %game.condition.bless% for {1}",
+        "changeCharacterCurse": "{0} %game.condition.curse% for {1}",
+        "changeCharacterGold": "{0} Gold for {1}",
+        "changeCharacterHP": "{0} HP for {1}",
+        "changeCharacterResource": "{1} %game.resource.{0}% for {2}",
+        "changeCharacterXP": "{0} XP for {1}",
+        "inspiration": "{0} Inspiration",
+        "morale": "{0} Morale",
+        "removeCondition": "Remove %game.condition.{0}% from {1}",
+        "removeImmunity": "Remove %game.immunity.{0}% from {1}",
+        "reputation": "{0} Reputation",
+        "prosperity": "{0} Prosperity",
+        "setConditionValue": "%game.condition.{0}% to {1} for {2}"
+      },
       "finishConclusion": "Finish conclusion #{0} {1} ({2})",
       "finishScenario": {
         "battleGoal": "Set Battle Goal checkmarks for %data.character.{0}% to {1}",

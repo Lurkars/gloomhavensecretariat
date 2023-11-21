@@ -40,7 +40,13 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         if (value) {
           image += '<span class="value">' + value + '</span>';
         }
-        replace = '<span class="placeholder-condition">' + (fh ? '&nbsp;' : settingsManager.getLabel(label, [''])) + image + '</span>';
+        replace = '<span class="placeholder-condition">' + (fh ? '&nbsp;' : settingsManager.getLabel('game.condition.' + split[2])) + image + '</span>';
+      } else if (type == "immunity") {
+        image = '<span class="condition-icon immunity"><img  src="./assets/images/' + (fh ? 'fh/' : '') + 'condition/' + split[2] + '.svg" class="icon"></span>';
+        if (value) {
+          image += '<span class="value">' + value + '</span>';
+        }
+        replace = '<span class="placeholder-condition">' + (fh ? '&nbsp;' : settingsManager.getLabel('game.condition.' + split[2])) + image + '</span>';
       } else if (type == "action" && split.length == 3 && !split[2].startsWith('specialTarget') && !split[2].startsWith('summon') && !split[2].startsWith('area')) {
         split.splice(0, 1);
         const ghsSvg = ActionTypesIcons.indexOf(split[split.length - 1] as ActionType) != -1;

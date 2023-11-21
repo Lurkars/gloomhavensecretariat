@@ -1,0 +1,17 @@
+<div class="random-scenario-dialog"
+  [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
+  <div class="scroll-container">
+    <span class="title" [ghs-label]="'scenario.eventEffects.drawRandomScenario'"></span>
+
+    <div class="scenario">
+      <span class="text-white" [ghs-label]="'scenario.eventEffects.drawRandomScenario.' + (section ? 'section' : 'scenario')"
+        [ghs-label-args]="[scenario.index, 'data.' + (section ? 'section.' : 'scenario.') + scenario.name, unlocks]"></span>
+    </div>
+
+    <div class="menu">
+      <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
+      <a class="apply" (click)="apply()"><span
+          [ghs-label]="'scenario.eventEffects.drawRandomScenario.apply'"></span></a>
+    </div>
+  </div>
+</div>
