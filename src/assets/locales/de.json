@@ -1358,6 +1358,7 @@
       "location": "Standort",
       "status": "Statusseite",
       "privacy": "Datenschutzerklärung",
+      "version": "Serverversion",
       "website": "Website"
     },
     "list": {

@@ -53,6 +53,12 @@
 
         <label><span [ghs-label]="'server.info.location'"></span></label>
         <p>{{publicServer[selectedServerIndex].location}}</p>
+
+        <ng-container
+          *ngIf="gameManager.stateManager.serverVersion && gameManager.stateManager.wsState() == WebSocket.OPEN">
+          <label><span [ghs-label]="'server.info.version'"></span></label>
+          <p>{{gameManager.stateManager.serverVersion}}</p>
+        </ng-container>
       </div>
 
       <div class="line"
@@ -112,6 +118,13 @@
           </div>
         </div>
       </div>
+
+      <div class="server-info"
+        *ngIf="selectedServerIndex == -1 && gameManager.stateManager.serverVersion && gameManager.stateManager.wsState() == WebSocket.OPEN">
+        <label><span [ghs-label]="'server.info.version'"></span></label>
+        <p>{{gameManager.stateManager.serverVersion}}</p>
+      </div>
+      
       <div class="columns">
         <div class="column">
           <div class="line">

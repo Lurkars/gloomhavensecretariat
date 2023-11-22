@@ -41,6 +41,7 @@ export class StateManager {
 
   wakeLock: any = null;
   scenarioSummary: boolean = false;
+  serverVersion: string = "";
 
   storageBlocked: boolean = false;
   autoBackupTimeout: any = null;
@@ -162,6 +163,11 @@ export class StateManager {
     try {
       const message: any = JSON.parse(ev.data);
       gameManager.stateManager.updateBlocked = false;
+
+      if (message.serverVersion) {
+        gameManager.stateManager.serverVersion = message.serverVersion;
+      }
+
       if (settingsManager.settings.logServerMessages) console.debug('WS received ' + message.type, ev);
       switch (message.type) {
         case "game":
@@ -439,6 +445,7 @@ export class StateManager {
     if (settingsManager.settings.logServerMessages) console.debug('WS closed', ev);
     gameManager.game.server = false;
     gameManager.stateManager.updateBlocked = true;
+    gameManager.stateManager.serverVersion = "";
     gameManager.stateManager.permissions = new Permissions();
     gameManager.stateManager.updatePermissions();
     gameManager.uiChange.emit();
@@ -448,6 +455,7 @@ export class StateManager {
     if (settingsManager.settings.logServerMessages) console.debug('WS error', ev);
     gameManager.game.server = false;
     gameManager.stateManager.updateBlocked = true;
+    gameManager.stateManager.serverVersion = "";
     gameManager.stateManager.permissions = new Permissions();
     gameManager.stateManager.updatePermissions();
     gameManager.uiChange.emit();
