@@ -73,7 +73,7 @@ export class MainComponent implements OnInit {
             this.fullviewChar = undefined;
             this.welcome = false;
             this.calcColumns();
-            if (settingsManager.settings.automaticStandeesDialog && settingsManager.settings.automaticStandees && !settingsManager.settings.disableStandees && !settingsManager.settings.randomStandees && settingsManager.settings.scenarioRooms) {
+            if (settingsManager.settings.automaticStandeesDialog && settingsManager.settings.automaticStandees && settingsManager.settings.standees && !settingsManager.settings.randomStandees && settingsManager.settings.scenarioRooms) {
               if (this.standeeDialog && gameManager.stateManager.lastAction == 'undo') {
                 this.standeeDialog.close();
               }
@@ -204,7 +204,7 @@ export class MainComponent implements OnInit {
       }
     });
 
-    if (!settingsManager.settings.disableWakeLock && "wakeLock" in navigator) {
+    if (settingsManager.settings.wakeLock && "wakeLock" in navigator) {
       gameManager.stateManager.wakeLock = await navigator.wakeLock.request("screen");
 
       document.addEventListener("visibilitychange", async () => {
@@ -221,7 +221,7 @@ export class MainComponent implements OnInit {
   }
 
   touchmove(event: TouchEvent) {
-    if (!settingsManager.settings.disablePinchZoom) {
+    if (settingsManager.settings.pinchZoom) {
       if (event.touches.length === 2) {
         const curDiff = Math.abs(event.touches[0].clientX - event.touches[1].clientX);
         if (this.zoomDiff > 0) {
@@ -238,7 +238,7 @@ export class MainComponent implements OnInit {
   }
 
   touchend(event: TouchEvent) {
-    if (!settingsManager.settings.disablePinchZoom) {
+    if (settingsManager.settings.pinchZoom) {
       if (event.touches.length < 2 && this.zoomDiff > -1) {
         this.zoomDiff = -1;
         settingsManager.setZoom(this.currentZoom);
@@ -262,7 +262,7 @@ export class MainComponent implements OnInit {
   }
 
   calcColumns(scrollTo: HTMLElement | undefined = undefined, skipAnimation: boolean = false): void {
-    if (settingsManager.settings.disableColumns) {
+    if (!settingsManager.settings.columns) {
       this.columns = 1;
       this.columnSize = 99;
       setTimeout(() => {
@@ -414,7 +414,7 @@ export class MainComponent implements OnInit {
           if (scrollTo) {
             setTimeout(() => {
               scrollTo.scrollIntoView({
-                behavior: settingsManager.settings.disableAnimations ? 'auto' : 'smooth',
+                behavior: !settingsManager.settings.animations ? 'auto' : 'smooth',
                 block: (index == this.lastScroll || index == this.lastScrollColumn) ? 'end' : 'center',
                 inline: 'center'
               });
@@ -422,11 +422,11 @@ export class MainComponent implements OnInit {
               if (skipAnimation) {
                 containerElement.classList.remove('no-animations');
               }
-            }, settingsManager.settings.disableAnimations || skipAnimation ? 0 : 250);
+            }, !settingsManager.settings.animations || skipAnimation ? 0 : 250);
           } else if (skipAnimation) {
             setTimeout(() => {
               containerElement.classList.remove('no-animations');
-            }, settingsManager.settings.disableAnimations ? 0 : 250)
+            }, !settingsManager.settings.animations ? 0 : 250)
           }
         }
       }

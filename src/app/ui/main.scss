@@ -447,16 +447,8 @@ main {
   &.objective-container {
     height: calc(var(--ghs-unit) * 14);
 
-    &.character.permanent-am {
-      height: calc(var(--ghs-unit) * 26);
-    }
-
     &.character.compact {
       height: calc(var(--ghs-unit) * 10.25);
-
-      &.character.permanent-am {
-        height: calc(var(--ghs-unit) * 22.25);
-      }
     }
   }
 

@@ -164,7 +164,7 @@ export class PointerInputService {
   }
 
   touchmove(event: TouchEvent) {
-    if (!settingsManager.settings.disablePinchZoom) {
+    if (settingsManager.settings.pinchZoom) {
       if (event.touches.length === 2) {
         const curDiff = Math.abs(event.touches[0].clientX - event.touches[1].clientX);
         if (this.zoomDiff > 0) {
@@ -176,7 +176,7 @@ export class PointerInputService {
   }
 
   touchend(event: TouchEvent) {
-    if (!settingsManager.settings.disablePinchZoom) {
+    if (settingsManager.settings.pinchZoom) {
       if (event.touches.length < 2 && this.zoomDiff > -1 && settingsManager.settings.zoom != this.currentZoom) {
         this.zoomDiff = -1;
         settingsManager.setZoom(this.currentZoom);

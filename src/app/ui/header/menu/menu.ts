@@ -153,8 +153,8 @@ export class MainMenuComponent implements OnInit, OnDestroy {
     }).map((figure) => {
       return figure as Character;
     }).sort((a, b) => {
-      const aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
-      const bName = b.title.toLowerCase() || settingsManager.getLabel('data.character.' + b.name).toLowerCase();
+      const aName = gameManager.characterManager.characterName(a).toLowerCase();
+      const bName = gameManager.characterManager.characterName(b).toLowerCase();
       if (aName > bName) {
         return 1;
       }
@@ -219,7 +219,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
 
 
   removeCharacter(character: Character) {
-    gameManager.stateManager.before("removeChar", "data.character." + character.name);
+    gameManager.stateManager.before("removeChar", gameManager.characterManager.characterName(character));
     gameManager.characterManager.removeCharacter(character);
     if (this.characters().length == 0) {
       this.close();

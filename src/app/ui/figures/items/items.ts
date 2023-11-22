@@ -193,7 +193,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
 
     addItem(item: ItemData | undefined, force: boolean = false) {
         if (item && (this.canAdd(item) || force)) {
-            gameManager.stateManager.before("addItem", "data.character." + this.character.name, item.id + "", item.edition);
+            gameManager.stateManager.before("addItem", gameManager.characterManager.characterName(this.character), item.id + "", item.edition);
             this.character.progress.items.push(new Identifier(item.id + "", item.edition));
             this.items.push(item);
             this.items.sort((a, b) => a.id - b.id);
@@ -204,7 +204,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
 
     buyItem(item: ItemData | undefined) {
         if (item && this.canBuy(item)) {
-            gameManager.stateManager.before("buyItem", "data.character." + this.character.name, item.id + "", item.edition);
+            gameManager.stateManager.before("buyItem", gameManager.characterManager.characterName(this.character), item.id + "", item.edition);
             this.character.progress.gold -= (item.cost + gameManager.itemManager.pricerModifier());
             this.character.progress.items.push(new Identifier(item.id + "", item.edition));
             this.items.push(item);
@@ -259,7 +259,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
 
     craftItem(item: ItemData | undefined) {
         if (item && this.canCraft(item)) {
-            gameManager.stateManager.before("craftItem", "data.character." + this.character.name, item.id + "", item.edition);
+            gameManager.stateManager.before("craftItem", gameManager.characterManager.characterName(this.character), item.id + "", item.edition);
             this.craftItemResources(item);
             this.character.progress.items.push(new Identifier(item.id + "", item.edition));
             this.items.push(item);
@@ -274,7 +274,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
         const item = this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition);
         if (item) {
             const index = this.character.progress.items.indexOf(item)
-            gameManager.stateManager.before("removeItem", "data.character." + this.character.name, this.character.progress.items[index].name, this.character.progress.items[index].edition);
+            gameManager.stateManager.before("removeItem", gameManager.characterManager.characterName(this.character), this.character.progress.items[index].name, this.character.progress.items[index].edition);
             this.character.progress.items.splice(index, 1);
             this.character.progress.equippedItems = this.character.progress.equippedItems.filter((identifier) => identifier.name != '' + itemData.id || identifier.edition != itemData.edition);
             this.items.splice(index, 1);
@@ -287,7 +287,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
         const item = this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition);
         if (item && gameManager.itemManager.itemSellValue(itemData)) {
             const index = this.character.progress.items.indexOf(item)
-            gameManager.stateManager.before("sellItem", "data.character." + this.character.name, this.character.progress.items[index].name, this.character.progress.items[index].edition);
+            gameManager.stateManager.before("sellItem", gameManager.characterManager.characterName(this.character), this.character.progress.items[index].name, this.character.progress.items[index].edition);
             this.character.progress.gold += gameManager.itemManager.itemSellValue(itemData);
             this.character.progress.items.splice(index, 1);
             this.character.progress.equippedItems = this.character.progress.equippedItems.filter((identifier) => identifier.name != '' + itemData.id || identifier.edition != itemData.edition);
@@ -304,7 +304,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
     toggleEquippedItem(itemData: ItemData, force: boolean = false) {
         const disabled = gameManager.game.state != GameState.draw || gameManager.game.round > 0;
         if ((!disabled || force) && this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition) != undefined) {
-            gameManager.stateManager.before(gameManager.itemManager.isEquipped(itemData, this.character) ? 'unequipItem' : 'equipItem', "data.character." + this.character.name, '' + itemData.id, itemData.edition)
+            gameManager.stateManager.before(gameManager.itemManager.isEquipped(itemData, this.character) ? 'unequipItem' : 'equipItem', gameManager.characterManager.characterName(this.character), '' + itemData.id, itemData.edition)
             gameManager.itemManager.toggleEquippedItem(itemData, this.character, force)
             gameManager.stateManager.after();
         }
@@ -312,7 +312,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
 
     setItemNotes(event: any) {
         if (this.character.progress.itemNotes != event.target.value) {
-            gameManager.stateManager.before("setItems", "data.character." + this.character.name, event.target.value);
+            gameManager.stateManager.before("setItems", gameManager.characterManager.characterName(this.character), event.target.value);
             this.character.progress.itemNotes = event.target.value;
             gameManager.stateManager.after();
         }

@@ -313,7 +313,7 @@ export class GameManager {
 
   sortFigures(figure: Figure | undefined = undefined) {
     this.game.figures.sort((a, b) => {
-      if (settingsManager.settings.disableSortFigures) {
+      if (!settingsManager.settings.sortFigures) {
         return 0;
       }
 
@@ -345,7 +345,7 @@ export class GameManager {
 
     let aName = a.name.toLowerCase();
     if (a instanceof Character) {
-      aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
+      aName = gameManager.characterManager.characterName(a).toLowerCase();
     } else if (a instanceof Monster) {
       aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
     } else if (a instanceof Objective) {
@@ -356,7 +356,7 @@ export class GameManager {
 
     let bName = b.name.toLowerCase();
     if (b instanceof Character) {
-      bName = b.title.toLowerCase() || settingsManager.getLabel('data.character.' + b.name).toLowerCase();
+      bName = gameManager.characterManager.characterName(b).toLowerCase();
     } else if (b instanceof Monster) {
       bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
     } else if (b instanceof Objective) {

@@ -3,7 +3,7 @@
       [ghs-label]="(isSpawn ? 'game.action.spawn' : 'game.action.summon')" [style]="style"></span>&nbsp;</span>
   <ng-container *ngFor="let spawn of monsters; let i = index;">
     <span
-      [ngClass]="{'spawn-highlight' : spawnHighlight(spawn,i) && !settingsManager.settings.disableAnimations, 'spawn-objective-highlight' : this.objective}"
+      [ngClass]="{'spawn-highlight' : spawnHighlight(spawn,i) && settingsManager.settings.animations, 'spawn-objective-highlight' : this.objective}"
       *ngIf="spawn.monster.type" ghs-pointer-input (singleClick)="spawnSummons($event, spawn, i)"
       [clickBehind]="!spawnHighlight(spawn,i)">
       <span *ngIf="spawn.monster.type != MonsterType.boss"

@@ -90,6 +90,44 @@ export class SettingsManager {
       }
     }
 
+    // migration
+    if (settings.disableAnimations) {
+      settings.animations = false;
+      settings.disableAnimations = false;
+    }
+    if (settings.disableArtwork) {
+      settings.artwork = false;
+      settings.disableArtwork = false;
+    }
+    if (settings.disableColumns) {
+      settings.columns = false;
+      settings.disableColumns = false;
+    }
+    if (settings.disableDragFigures) {
+      settings.dragFigures = false;
+      settings.disableDragFigures = false;
+    }
+    if (settings.disablePinchZoom) {
+      settings.pinchZoom = false;
+      settings.disablePinchZoom = false;
+    }
+    if (settings.disabledTurnConfirmation) {
+      settings.turnConfirmation = false;
+      settings.disabledTurnConfirmation = false;
+    }
+    if (settings.disableSortFigures) {
+      settings.sortFigures = false;
+      settings.disableSortFigures = false;
+    }
+    if (settings.disableStandees) {
+      settings.standees = false;
+      settings.disableStandees = false;
+    }
+    if (settings.disableWakeLock) {
+      settings.wakeLock = false;
+      settings.disableWakeLock = false;
+    }
+
     this.sortSpoilers();
   }
 
@@ -437,6 +475,49 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setAnimations(animations: boolean) {
+    this.settings.animations = animations;
+    this.storeSettings();
+  }
+
+  setArtwork(artwork: boolean) {
+    this.settings.artwork = artwork;
+    this.storeSettings();
+  }
+
+  setColumns(columns: boolean) {
+    this.settings.columns = columns;
+    this.storeSettings();
+  }
+
+  setDragFigures(dragFigures: boolean) {
+    this.settings.dragFigures = dragFigures;
+    this.storeSettings();
+  }
+
+  setPinchZoom(pinchZoom: boolean) {
+    this.settings.pinchZoom = pinchZoom;
+    this.storeSettings();
+  }
+
+  setTurnConfirmation(turnConfirmation: boolean) {
+    this.settings.turnConfirmation = turnConfirmation;
+    this.storeSettings();
+  }
+
+  setSortFigures(sortFigures: boolean) {
+    this.settings.sortFigures = sortFigures;
+    if (sortFigures) {
+      gameManager.sortFigures();
+    }
+    this.storeSettings();
+  }
+
+  setStandees(standees: boolean) {
+    this.settings.standees = standees;
+    this.storeSettings();
+  }
+
   setStatAnimations(statAnimations: boolean) {
     this.settings.statAnimations = statAnimations;
     this.storeSettings();
@@ -449,6 +530,18 @@ export class SettingsManager {
         gameManager.stateManager.wakeLock = null;
       });
     } else if (!disableWakeLock && !gameManager.stateManager.wakeLock && "wakeLock" in navigator) {
+      gameManager.stateManager.wakeLock = await navigator.wakeLock.request("screen");
+    }
+    this.storeSettings();
+  }
+
+  async setWakeLock(wakeLock: boolean) {
+    this.settings.wakeLock = wakeLock;
+    if (!wakeLock && gameManager.stateManager.wakeLock) {
+      gameManager.stateManager.wakeLock.release().then(() => {
+        gameManager.stateManager.wakeLock = null;
+      });
+    } else if (wakeLock && !gameManager.stateManager.wakeLock && "wakeLock" in navigator) {
       gameManager.stateManager.wakeLock = await navigator.wakeLock.request("screen");
     }
     this.storeSettings();
@@ -607,6 +700,16 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setScenarioRewards(scenarioRewards: boolean) {
+    this.settings.scenarioRewards = scenarioRewards;
+    this.storeSettings();
+  }
+
+  setScenarioRewardsItems(scenarioRewardsItems: boolean) {
+    this.settings.scenarioRewardsItems = scenarioRewardsItems;
+    this.storeSettings();
+  }
+
   setScenarioRooms(scenarioRooms: boolean) {
     this.settings.scenarioRooms = scenarioRooms;
     this.storeSettings();
@@ -691,6 +794,16 @@ export class SettingsManager {
 
   setTreasuresLoot(treasuresLoot: boolean) {
     this.settings.treasuresLoot = treasuresLoot;
+    this.storeSettings();
+  }
+
+  setTreasuresLootItem(treasuresLootItem: boolean) {
+    this.settings.treasuresLootItem = treasuresLootItem;
+    this.storeSettings();
+  }
+
+  setTreasuresLootScenario(treasuresLootScenario: boolean) {
+    this.settings.treasuresLootScenario = treasuresLootScenario;
     this.storeSettings();
   }
 

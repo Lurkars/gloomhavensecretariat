@@ -307,6 +307,8 @@ export class StateManager {
           if (settingsManager.settings.serverSettings) {
             let settings: Settings = message.payload as Settings;
             // keep local
+            settings.animations = settingsManager.settings.animations;
+            settings.artwork = settingsManager.settings.artwork;
             settings.automaticAttackModifierFullscreen = settingsManager.settings.automaticAttackModifierFullscreen;
             settings.autoBackup = settingsManager.settings.autoBackup;
             settings.autoBackupFinish = settingsManager.settings.autoBackupFinish;
@@ -326,6 +328,7 @@ export class StateManager {
             settings.characterItemsPermanentZoom = settingsManager.settings.characterItemsPermanentZoom;
             settings.characterCompact = settingsManager.settings.characterCompact;
             settings.characterSheetCompact = settingsManager.settings.characterSheetCompact;
+            settings.columns = settingsManager.settings.columns;
             settings.debugRightClick = settingsManager.settings.debugRightClick;
             settings.disableAnimations = settingsManager.settings.disableAnimations;
             settings.disableArtwork = settingsManager.settings.disableArtwork;
@@ -333,6 +336,7 @@ export class StateManager {
             settings.disableDragFigures = settingsManager.settings.disableDragFigures;
             settings.disablePinchZoom = settingsManager.settings.disablePinchZoom;
             settings.disableWakeLock = settingsManager.settings.disableWakeLock;
+            settings.dragFigures = settingsManager.settings.dragFigures;
             settings.dragValues = settingsManager.settings.dragValues;
             settings.fhStyle = settingsManager.settings.fhStyle;
             settings.fontsize = settingsManager.settings.fontsize;
@@ -343,6 +347,7 @@ export class StateManager {
             settings.hideCharacterXP = settingsManager.settings.hideCharacterXP;
             settings.hints = settingsManager.settings.hints;
             settings.logServerMessages = settingsManager.settings.logServerMessages;
+            settings.pinchZoom = settingsManager.settings.pinchZoom;
             settings.portraitMode = settingsManager.settings.portraitMode;
             settings.pressDoubleClick = settingsManager.settings.pressDoubleClick;
             settings.serverAutoconnect = settingsManager.settings.serverAutoconnect;
@@ -358,6 +363,7 @@ export class StateManager {
             settings.statAnimations = settingsManager.settings.statAnimations;
             settings.theme = settingsManager.settings.theme;
             settings.tooltips = settingsManager.settings.tooltips;
+            settings.wakeLock = settingsManager.settings.wakeLock;
             settings.zoom = settingsManager.settings.zoom;
 
             settingsManager.setSettings(Object.assign(new Settings(), settings));
@@ -552,7 +558,7 @@ export class StateManager {
       await this.autoBackup();
     }
 
-    if (timeout && !settingsManager.settings.disableAnimations) {
+    if (timeout && settingsManager.settings.animations) {
       setTimeout(() => {
         this.lastAction = "update";
         gameManager.uiChange.emit();

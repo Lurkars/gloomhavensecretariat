@@ -109,7 +109,7 @@ export class CharacterItemListComponent implements OnInit, OnDestroy {
         }
         settingsManager.storeSettings();
 
-        if (!settingsManager.settings.disableAnimations) {
+        if (settingsManager.settings.animations) {
             setTimeout(() => { gameManager.uiChange.emit() }, 500);
         }
     }
@@ -118,7 +118,7 @@ export class CharacterItemListComponent implements OnInit, OnDestroy {
         settingsManager.settings.characterItemsPermanentZoom = 1;
         settingsManager.storeSettings();
 
-        if (!settingsManager.settings.disableAnimations) {
+        if (settingsManager.settings.animations) {
             setTimeout(() => { gameManager.uiChange.emit() }, 500);
         }
     }

@@ -53,7 +53,7 @@ export class HighlightConditionsComponent {
           }
         }
         gameManager.stateManager.after();
-      }, settingsManager.settings.disableAnimations ? 0 : 1500);
+      }, !settingsManager.settings.animations ? 0 : 1500);
     } else {
       gameManager.stateManager.after();
     }
@@ -98,7 +98,7 @@ export class ConditionHighlightAnimationDirective implements OnInit, OnDestroy {
         this.condition.highlight = false;
         gameManager.stateManager.saveLocal();
       }
-    }, settingsManager.settings.disableAnimations ? 0 : 1100);
+    }, !settingsManager.settings.animations ? 0 : 1100);
   }
 
 }

@@ -89,8 +89,8 @@ export class ScenarioSummaryComponent {
             } else if (a.absent && !b.absent) {
                 return 1;
             }
-            const aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
-            const bName = b.title.toLowerCase() || settingsManager.getLabel('data.character.' + b.name).toLowerCase();
+            const aName = gameManager.characterManager.characterName(a).toLowerCase();
+            const bName = gameManager.characterManager.characterName(b).toLowerCase();
             if (aName > bName) {
                 return 1;
             }
@@ -232,7 +232,7 @@ export class ScenarioSummaryComponent {
                 }
             }
 
-            if (this.rewards) {
+            if (settingsManager.settings.scenarioRewards && this.rewards) {
                 if (this.rewards.collectiveGold) {
                     this.characters.forEach((char, index) => this.collectiveGold[index] = 0);
                 }
@@ -288,7 +288,7 @@ export class ScenarioSummaryComponent {
                     this.rewards.calendarSectionManual.forEach((section, index) => this.calendarSectionManual[index] = 0);
                 }
 
-                if (this.rewards.randomItemBlueprint && this.randomItemBlueprints.length < this.rewards.randomItemBlueprint) {
+                if (settingsManager.settings.scenarioRewardsItems && this.rewards.randomItemBlueprint && this.randomItemBlueprints.length < this.rewards.randomItemBlueprint) {
                     for (let i = this.randomItemBlueprints.length; i < this.rewards.randomItemBlueprint; i++) {
                         let itemData = gameManager.itemManager.drawRandomItem(this.scenario.edition, true);
                         let item: Identifier | undefined = itemData ? new Identifier('' + itemData.id, itemData.edition) : undefined;
@@ -296,7 +296,7 @@ export class ScenarioSummaryComponent {
                     }
                 }
 
-                if (this.rewards.randomItem) {
+                if (settingsManager.settings.scenarioRewardsItems && this.rewards.randomItem) {
                     if (!this.randomItem) {
                         const from = +this.rewards.randomItem.split('-')[0];
                         const to = +this.rewards.randomItem.split('-')[1];
@@ -308,7 +308,7 @@ export class ScenarioSummaryComponent {
                     }
                 }
 
-                if (this.rewards.randomItems) {
+                if (settingsManager.settings.scenarioRewardsItems && this.rewards.randomItems) {
                     if (this.randomItems.length < this.characters.length && this.rewards.randomItems.split('-').length > 1) {
                         const from = +this.rewards.randomItems.split('-')[0];
                         const to = +this.rewards.randomItems.split('-')[1];
@@ -539,7 +539,7 @@ export class ScenarioSummaryComponent {
     }
 
     toggleAbsent(character: Character): void {
-        gameManager.stateManager.before(character.absent ? "unsetAbsent" : "setAbsent", "data.character." + character.name);
+        gameManager.stateManager.before(character.absent ? "unsetAbsent" : "setAbsent", gameManager.characterManager.characterName(character));
         character.absent = !character.absent;
         gameManager.stateManager.after();
     }
@@ -553,10 +553,10 @@ export class ScenarioSummaryComponent {
             gameManager.stateManager.before(this.success && linked ? "finishScenario.linked" : ("finishScenario." + (this.success ? "success" : "failure")), ...gameManager.scenarioManager.scenarioUndoArgs(), linkedIndex ? linkedIndex : '');
         }
 
-        if (this.success) {
+        if (settingsManager.settings.scenarioRewards && this.success) {
             gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character).sort((a, b) => {
-                const aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
-                const bName = b.title.toLowerCase() || settingsManager.getLabel('data.character.' + b.name).toLowerCase();
+                const aName = gameManager.characterManager.characterName(a).toLowerCase();
+                const bName = gameManager.characterManager.characterName(b).toLowerCase();
                 if (aName > bName) {
                     return 1;
                 }
@@ -633,9 +633,9 @@ export class ScenarioSummaryComponent {
             }
         }
         if (this.conclusionOnly) {
-            gameManager.scenarioManager.finishScenario(this.scenario, true, this.conclusion, false, undefined, this.characterProgress || this.forceCampaign, this.gainRewards || this.forceCampaign, true);
+            gameManager.scenarioManager.finishScenario(this.scenario, true, this.conclusion, false, undefined, settingsManager.settings.scenarioRewards && (this.characterProgress || this.forceCampaign), this.gainRewards || this.forceCampaign, true);
         } else {
-            gameManager.scenarioManager.finishScenario(gameManager.game.scenario, this.success, this.conclusion, false, linked ? new Scenario(linked) : undefined, this.characterProgress || this.forceCampaign, this.gainRewards || this.forceCampaign);
+            gameManager.scenarioManager.finishScenario(gameManager.game.scenario, this.success, this.conclusion, false, linked ? new Scenario(linked) : undefined, settingsManager.settings.scenarioRewards && (this.characterProgress || this.forceCampaign), this.gainRewards || this.forceCampaign);
         }
         await gameManager.stateManager.after(0, settingsManager.settings.autoBackup > -1 && settingsManager.settings.autoBackupFinish && (settingsManager.settings.autoBackup == 0 || (gameManager.game.revision + gameManager.game.revisionOffset) % settingsManager.settings.autoBackup != 0));
 
@@ -645,7 +645,7 @@ export class ScenarioSummaryComponent {
     restart() {
         this.waitForClose = true;
         gameManager.stateManager.before("finishScenario.restart", ...gameManager.scenarioManager.scenarioUndoArgs());
-        gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, true, undefined, this.characterProgress || this.forceCampaign, this.gainRewards || this.forceCampaign, false);
+        gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, true, undefined, settingsManager.settings.scenarioRewards && (this.characterProgress || this.forceCampaign), this.gainRewards || this.forceCampaign, false);
         gameManager.stateManager.after(1000);
         this.dialogRef.close();
     }

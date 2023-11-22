@@ -106,7 +106,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
         this.current = this.deck.current;
         this.drawTimeout = null;
         this.init = true;
-      }, settingsManager.settings.disableAnimations ? 0 : this.initTimeout)
+      }, !settingsManager.settings.animations ? 0 : this.initTimeout)
     }
 
     this.uiChangeSubscription = gameManager.uiChange.subscribe({
@@ -218,7 +218,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
           this.queue = 0;
         }
       }
-    }, settingsManager.settings.disableAnimations ? 0 : (this.vertical ? 1050 : 1850));
+    }, !settingsManager.settings.animations ? 0 : (this.vertical ? 1050 : 1850));
   }
 
   draw(event: any) {
@@ -231,7 +231,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
           gameManager.attackModifierManager.drawModifier(this.deck);
           this.after.emit(new AttackModiferDeckChange(this.deck, "draw"));
           this.drawTimeout = null;
-        }, settingsManager.settings.disableAnimations ? 0 : 150)
+        }, !settingsManager.settings.animations ? 0 : 150)
       }
     } else {
       this.dialog.open(AttackModifierDeckDialogComponent, {

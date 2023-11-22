@@ -107,16 +107,16 @@ export class FooterComponent implements OnInit {
   async nextState() {
     gameManager.stateManager.before(gameManager.game.state == GameState.next ? "nextRound" : "draw");
     if (gameManager.game.state == GameState.next) {
-      if (settingsManager.settings.disabledTurnConfirmation) {
+      if (settingsManager.settings.turnConfirmation) {
+        const activeFigure = gameManager.game.figures.find((figure) => figure.active && !figure.off);
+        if (!this.activeHint() && activeFigure) {
+          gameManager.roundManager.afterTurn(activeFigure);
+        }
+      } else {
         let lastActive = gameManager.game.figures.find((figure) => gameManager.gameplayFigure(figure) && !figure.off);
         while (lastActive) {
           gameManager.roundManager.toggleFigure(lastActive);
           lastActive = gameManager.game.figures.find((figure) => gameManager.gameplayFigure(figure) && !figure.off);
-        }
-      } else {
-        const activeFigure = gameManager.game.figures.find((figure) => figure.active && !figure.off);
-        if (!this.activeHint() && activeFigure) {
-          gameManager.roundManager.afterTurn(activeFigure);
         }
       }
     }
@@ -233,7 +233,7 @@ export class FooterComponent implements OnInit {
   }
 
   activeHint(): boolean {
-    return (this.active() && !settingsManager.settings.disabledTurnConfirmation && (settingsManager.settings.expireConditions || settingsManager.settings.applyConditions));
+    return (this.active() && settingsManager.settings.turnConfirmation && (settingsManager.settings.expireConditions || settingsManager.settings.applyConditions));
   }
 
   finish(): boolean {

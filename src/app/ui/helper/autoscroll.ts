@@ -17,7 +17,7 @@ export class AutoscrollDirective implements OnChanges {
     if (changes['active'] && changes['active'].currentValue && changes['active'].currentValue != changes['active'].previousValue) {
       setTimeout(() => {
         this.el.nativeElement.scrollIntoView({
-          behavior: settingsManager.settings.disableAnimations ? 'auto' : 'smooth',
+          behavior: !settingsManager.settings.animations ? 'auto' : 'smooth',
           block: 'center',
           inline: 'center'
         });
@@ -46,13 +46,13 @@ export class FigureAutoscrollDirective implements OnInit, OnDestroy {
         setTimeout(() => {
           if (settingsManager.settings.autoscroll && !this.active && this.figure.active) {
             this.el.nativeElement.scrollIntoView({
-              behavior: settingsManager.settings.disableAnimations ? 'auto' : 'smooth',
+              behavior: !settingsManager.settings.animations ? 'auto' : 'smooth',
               block: this.block,
               inline: this.inline
             });
           }
           this.active = this.figure.active;
-        }, settingsManager.settings.disableAnimations ? 5 : 300);
+        }, !settingsManager.settings.animations ? 5 : 300);
       }
     })
   }

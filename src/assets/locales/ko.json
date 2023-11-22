@@ -1160,7 +1160,7 @@
       "perks": "각 특혜 {0}개 획득",
       "prosperity": "번영도 {0}",
       "reputation": "평판 {0}",
-      "randomItemBlueprint": "무작위 아이템 설계도 하나 획득:",
+      "randomItemBlueprint": "무작위 아이템 설계도 하나 획득",
       "resources": "각 %game.resource.{0}% {1}개 획득",
       "resourcesLose": "각 %game.resource.{0}% {1}개 상실",
       "townGuardAm": "%game.townGuardAm.{1}:{0}% 카드 하나를 마을 경비병 덱에 추가.",

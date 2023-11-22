@@ -129,7 +129,7 @@ export class EntityManager {
         entity.dead = true;
         setTimeout(() => {
           gameManager.uiChange.emit();
-        }, settingsManager.settings.disableAnimations ? 0 : 1500);
+        }, !settingsManager.settings.animations ? 0 : 1500);
       }
     }
 
@@ -696,9 +696,9 @@ export class EntityManager {
   undoInfos(entity: Entity | undefined, figure: Figure, prefix: string): string[] {
     let infos: string[] = [];
     if (entity instanceof Character && figure instanceof Character) {
-      infos.push(prefix + ".char", "data.character." + entity.name)
+      infos.push(prefix + ".char", gameManager.characterManager.characterName(entity))
     } else if (entity instanceof Summon && figure instanceof Character) {
-      infos.push(prefix + ".summon", "data.character." + figure.name, "data.summon." + entity.name)
+      infos.push(prefix + ".summon",  gameManager.characterManager.characterName(figure), "data.summon." + entity.name)
     } else if (entity instanceof Objective) {
       infos.push(prefix + ".objective", entity.title || entity.name)
     } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {

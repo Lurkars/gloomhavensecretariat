@@ -93,7 +93,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   }
 
   beforeAttackModifierDeck(change: AttackModiferDeckChange) {
-    gameManager.stateManager.before("updateAttackModifierDeck." + change.type, "data.character." + this.character.name, ...change.values);
+    gameManager.stateManager.before("updateAttackModifierDeck." + change.type, gameManager.characterManager.characterName(this.character), ...change.values);
   }
 
   afterAttackModifierDeck(change: AttackModiferDeckChange) {
@@ -149,7 +149,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
     if (this.character.initiative != this.initiative) {
       this.character.initiative = this.initiative;
-      gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + value);
+      gameManager.stateManager.before("setInitiative", gameManager.characterManager.characterName(this.character), "" + value);
       this.character.initiative = value;
       this.character.longRest = false;
       if (value == 99) {
@@ -171,9 +171,9 @@ export class CharacterComponent implements OnInit, OnDestroy {
       if (gameManager.game.state == GameState.next && !this.character.exhausted && (!settingsManager.settings.initiativeRequired || this.character.initiative > 0)) {
         const activeSummon = this.character.summons.find((summon) => summon.active);
         if (settingsManager.settings.activeSummons && this.character.active && activeSummon) {
-          gameManager.stateManager.before("summonInactive", "data.character." + this.character.name, "data.summon." + activeSummon.name);
+          gameManager.stateManager.before("summonInactive", gameManager.characterManager.characterName(this.character), "data.summon." + activeSummon.name);
         } else {
-          gameManager.stateManager.before(this.character.active ? "unsetActive" : "setActive", "data.character." + this.character.name);
+          gameManager.stateManager.before(this.character.active ? "unsetActive" : "setActive", gameManager.characterManager.characterName(this.character));
         }
         gameManager.roundManager.toggleFigure(this.character);
         gameManager.stateManager.after();
@@ -185,7 +185,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   nextIdentity(event: any): void {
     if (settingsManager.settings.characterIdentities && this.character.identities && this.character.identities.length > 1) {
-      gameManager.stateManager.before("nextIdentity", "data.character." + this.character.name);
+      gameManager.stateManager.before("nextIdentity", gameManager.characterManager.characterName(this.character));
       this.character.identity++;
       if (this.character.identity >= this.character.identities.length) {
         this.character.identity = 0;
@@ -222,7 +222,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   dragHpEnd(value: number) {
     if (this.health != 0) {
-      gameManager.stateManager.before("changeHP", "data.character." + this.character.name, ghsValueSign(this.health));
+      gameManager.stateManager.before("changeHP", gameManager.characterManager.characterName(this.character), ghsValueSign(this.health));
       gameManager.entityManager.changeHealth(this.character, this.character, this.health);
       this.health = 0;
       gameManager.stateManager.after();
@@ -238,7 +238,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   dragXpEnd(value: number) {
     if (this.experience != 0) {
-      gameManager.stateManager.before("changeXP", "data.character." + this.character.name, ghsValueSign(this.experience));
+      gameManager.stateManager.before("changeXP", gameManager.characterManager.characterName(this.character), ghsValueSign(this.experience));
       this.character.experience += this.experience;
       this.experience = 0;
       gameManager.stateManager.after();
@@ -257,12 +257,12 @@ export class CharacterComponent implements OnInit, OnDestroy {
   dragTokenEnd(value: number) {
     if (this.token != 0) {
       if (this.character.primaryToken < 0) {
-        gameManager.stateManager.before("setCharacterToken", "data.character." + this.character.name, '' + (this.character.token + this.token));
+        gameManager.stateManager.before("setCharacterToken", gameManager.characterManager.characterName(this.character), '' + (this.character.token + this.token));
         this.character.token += this.token;
         this.token = 0;
         gameManager.stateManager.after();
       } else {
-        gameManager.stateManager.before("setCharacterTokenValue", "data.character." + this.character.name, this.character.tokens[this.character.primaryToken], '' + (this.character.token + this.token));
+        gameManager.stateManager.before("setCharacterTokenValue", gameManager.characterManager.characterName(this.character), this.character.tokens[this.character.primaryToken], '' + (this.character.token + this.token));
         this.character.tokenValues[this.character.primaryToken] += this.token;
         this.token = 0;
         gameManager.stateManager.after();
@@ -279,7 +279,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   dragLootEnd(value: number) {
     if (this.loot != 0) {
-      gameManager.stateManager.before("changeLoot", "data.character." + this.character.name, ghsValueSign(this.loot));
+      gameManager.stateManager.before("changeLoot", gameManager.characterManager.characterName(this.character), ghsValueSign(this.loot));
       this.character.loot += this.loot;
       this.loot = 0;
       gameManager.stateManager.after();

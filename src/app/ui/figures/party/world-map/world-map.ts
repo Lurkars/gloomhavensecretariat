@@ -28,8 +28,8 @@ export class WorldMapComponent implements AfterViewInit {
     zooming: boolean = false;
 
     constructor(@Inject(DIALOG_DATA) public edition: string, public dialogRef: DialogRef) {
-        const disablePinchZoom = settingsManager.settings.disablePinchZoom;
-        settingsManager.settings.disablePinchZoom = true;
+        const pinchZoom = settingsManager.settings.pinchZoom;
+        settingsManager.settings.pinchZoom = false;
         const editionData = gameManager.editionData.find((editionData) => editionData.edition == this.edition);
         if (editionData) {
             this.worldMap = editionData.worldMap;
@@ -40,7 +40,7 @@ export class WorldMapComponent implements AfterViewInit {
 
         this.dialogRef.closed.subscribe({
             next: () => {
-                settingsManager.settings.disablePinchZoom = disablePinchZoom;
+                settingsManager.settings.pinchZoom = pinchZoom;
             }
         })
     }

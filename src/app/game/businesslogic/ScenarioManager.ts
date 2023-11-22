@@ -85,7 +85,7 @@ export class ScenarioManager {
         if (rewards && gainRewards) {
           if (!internal && settingsManager.settings.characterSheet) {
             this.game.figures.forEach((figure) => {
-              if (rewards && figure instanceof Character && !figure.absent) {
+              if (rewards && figure instanceof Character && !figure.absent && settingsManager.settings.scenarioRewards) {
                 if (rewards.experience) {
                   gameManager.characterManager.addXP(figure, rewards.experience, !restart && !linkedScenario);
                 }
@@ -506,7 +506,7 @@ export class ScenarioManager {
           const drawExtra = scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.drawExtra && gameManager.game.scenario.drawExtra.indexOf(monsterName) != -1 || false;
           const monster = gameManager.monsterManager.addMonsterByName(monsterStandeeData.name, scenarioData.edition);
           if (monster) {
-            if (!settingsManager.settings.disableStandees || !monster.entities.find((entity) => entity.type == type)) {
+            if (settingsManager.settings.standees || !monster.entities.find((entity) => entity.type == type)) {
               const entity = gameManager.monsterManager.spawnMonsterEntity(monster, type, isAlly, isAllied, drawExtra);
               if (entity) {
                 if (monsterStandeeData.marker) {

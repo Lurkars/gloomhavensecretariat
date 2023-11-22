@@ -1179,7 +1179,7 @@
       "perks": "Jeweils {0} Verbesserungen",
       "prosperity": "{0} Wohlstand",
       "randomItems": "Jeder Charakter erhält ein zufälliges Item ({0}-{1})",
-      "randomItemBlueprint": "Erhalte einen zufälligen Gegenstandsplan:",
+      "randomItemBlueprint": "Erhalte einen zufälligen Gegenstandsplan",
       "removeEvent": {
         "boat": "Entferne Ereignis {0} vom Bootdeck",
         "city": "Entferne Start-Ereignis {0} vom Deck",
@@ -1449,6 +1449,10 @@
       ".": "Immer Beute Deck verwenden",
       "hint": "Beute Deck für jeden Szenario aktivieren (Für Frosthaven automatisch immer aktiviert)"
     },
+    "animations": {
+      ".": "Animationen",
+      "hint": "Alle Animationen deaktivieren um die Performance zu erhöhen"
+    },
     "applyBuildingRewards": {
       ".": "Gebäude Boni anwenden",
       "hint": "Wenn ein Gebäude gebaut oder aufgerüstet wird, füge die entsprechenden Boni hinzu und öffne den Dialog für die Sektion falls vorhanden."
@@ -1478,6 +1482,10 @@
     "applyRetirement": {
       ".": "Ruhestand Boni anwenden",
       "hint": "Öffne den Ruhestand Boni Dialog wenn ein Charakter in den Ruhestand versetzt wird. Um einen Charakter in den Ruhestand zu versetzen, setze einen Haken für die Persönliche Quest auf dem Charakterbogen."
+    },
+    "artwork": {
+      ".": "Artwork",
+      "hint": "Artwork von Monstern und Charakteren anzeigen"
     },
     "autoscroll": {
       ".": "Automatisch Scrollen",
@@ -1603,6 +1611,10 @@
       ".": "Eigenschaften anzeigen",
       "hint": "Zeige die Eigenschaften auf dem Charakterboard an."
     },
+    "columns": {
+      ".": "Zweispaltiges Layout",
+      "hint": "Zweispaltige Layout anzeigen falls Zoom und Platz ausreichend sind"
+    },
     "combineSummonAction": {
       ".": "Beschwörung Aktion kombinieren",
       "hint": "Führe die Beschwörung Aktion für alle Aufsteller gleichzeitig aus."
@@ -1649,6 +1661,10 @@
     "disableWakeLock": {
       ".": "Display immer an deaktivieren",
       "hint": "Deaktiviert Display immer an bei unterstützen Geräten. Die Funktion hält das Display immer eingeschaltet, dies kann zu höherem Energieverbrauch auf Mobilgeräten führen."
+    },
+    "dragFigures": {
+      ".": "Drag'n'Drop für Figurenliste",
+      "hint": "Drag'n'Drop für die Figurenliste. Achtung, falls deaktiviert und keine Initiative gesetzt werden muss ist ein manuelles Verschieben der Figuren nicht mehr möglich."
     },
     "dragValues": {
       ".": "Initiative/TP/XP/Beute ziehen",
@@ -1771,6 +1787,10 @@
       ".": "Gruppenbogen",
       "hint": "Gruppen- und Kampagnen-Bogen aktivieren. Der Kamapgnenbogen befindet sich auf der <i>Rückseite</i> des Gruppenbogens."
     },
+    "pinchZoom": {
+      ".": "Gesten-Zooming",
+      "hint": "Zoomen durch Touch-Gesten."
+    },
     "playerCount": {
       ".": "Manuelle Charakter Anzahl",
       "hint": ""
@@ -1795,6 +1815,14 @@
       ".": "Numerische Szenario Eingabe",
       "hint": ""
     },
+    "scenarioRewards": {
+      ".": "Belohnungen von Szenario anwenden",
+      "hint": "Wendet nach dem Beenden eines Szenarios automatisch die Belohnungen an: Gold, EP etc. zu entsprechendenen Charakteren, ein zufälliges Nebenszenario oder einen zuälligen Gegenstand ziehen etc."
+    },
+    "scenarioRewardsItems": {
+      ".": "Zufälligen Gegenstand für Szenario ziehen",
+      "hint": "Automatisch einen zufälligen Gegenstand für Szenario Belohnung ziehen"
+    },
     "scenarioRooms": {
       ".": "Szenario Räume",
       "hint": "Freischalten einzelner Räume in einem Szenario. Wenn nicht ausgewählt, ist auch das automatische Hinzufügen von Aufstellern deaktiviert."
@@ -1811,7 +1839,14 @@
       ".": "Titel von Fertigkeitskarten anzeigen",
       "hint": "Zeigt die Fertigkeitskarten inklusive Titel an."
     },
-    "standees": "Aufsteller",
+    "sortFigures": {
+      ".": "Figuren sortieren",
+      "hint": "Automatische Sortieren der Figuren. Falls deaktiviert, muss die Reihenfolge manuell über Drag'n'Drop festgelegt werden."
+    },
+    "standees": {
+      ".": "Aufsteller",
+      "hint": "Zeige alle Aufsteller an. Falls deaktiviert, wird auch das freischalten von Räumen und das automatische Hinzufügen von Aufstellern deaktiviert."
+    },
     "standeeStats": {
       ".": "Schild und Vergeltung auf Aufsteller",
       "hint": "Zeige aktuelle Werte von %game.action.shield% und %game.action.retaliate% neben jedem Aufsteller an."
@@ -1843,6 +1878,22 @@
     "treasuresLoot": {
       ".": "Belohnungen aus Schatz anwenden",
       "hint": "Wendet nach dem öffnen eines Schatzes automatisch die Belohnungen an: Gold, EP etc. zum entsprechenden Charakter, ein zufälliges Nebenszenario oder einen zuälligen Gegenstand ziehen etc."
+    },
+    "treasuresLootItem": {
+      ".": "Zufälligen Gegenstand für Schatz ziehen",
+      "hint": "Automatisch einen zufälligen Gegenstand für Schatz Belohnung ziehen"
+    },
+    "treasuresLootScenario": {
+      ".": "Zufälliges Szenario für Schatz ziehen",
+      "hint": "Automatisch ein zufälliges Szenario für Schatz Belohnung ziehen"
+    },
+    "turnConfirmation": {
+      ".": "Runden/Zug Bestätigung",
+      "hint": "Zeigt eine Errinnerung nach dem Klick auf \"%round.next%\" bevor alle Figuren am Zug waren. Falls deaktiviert und %settings.expireConditions% oder %settings.applyConditions% aktiviert sind werden diese automatisch auf jede Figur angewendet."
+    },
+    "wakeLock": {
+      ".": "Display immer an",
+      "hint": "Display immer an bei unterstützen Geräten. Die Funktion hält das Display immer eingeschaltet, dies kann zu höherem Energieverbrauch auf Mobilgeräten führen."
     },
     "zoom": {
       ".": "Zoom",

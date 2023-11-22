@@ -15,6 +15,7 @@ export class Settings {
   alwaysHazardousTerrain: boolean = false;
   alwaysLootApplyDialog = false;
   alwaysLootDeck: boolean = false;
+  animations: boolean = true;
   applyBuildingRewards: boolean = true;
   applyConditions: boolean = true;
   applyConditionsExcludes: ConditionName[] = [ConditionName.shield];
@@ -22,6 +23,7 @@ export class Settings {
   applyLoot: boolean = true;
   applyLootRandomItem: boolean = true;
   applyRetirement: boolean = true;
+  artwork: boolean = true;
   autoBackup: number = -1;
   autoBackupFinish: boolean = false;
   autoBackupUrl: { url: string, method: string, fileUpload: boolean, username: string | undefined, password: string | undefined, authorization: string | undefined } | undefined;
@@ -58,6 +60,7 @@ export class Settings {
   characterSheet: boolean = true;
   characterSheetCompact: boolean = false;
   characterTraits: boolean = false;
+  columns: boolean = true;
   combineSummonAction: boolean = true;
   debugRightClick: boolean = false;
   disableAnimations: boolean = false;
@@ -69,6 +72,7 @@ export class Settings {
   disableSortFigures: boolean = false;
   disableStandees: boolean = false;
   disableWakeLock: boolean = false;
+  dragFigures: boolean = true;
   dragValues: boolean = true;
   editionDataUrls: string[] = [];
   editions: string[] = [];
@@ -97,10 +101,13 @@ export class Settings {
   monsterAttackModifierDeck : boolean = true;
   moveElements: boolean = true;
   partySheet: boolean = true;
+  pinchZoom: boolean = true;
   pressDoubleClick: boolean = true;
   randomStandees: boolean = false;
   removeUnusedMonster: boolean = false;
   scenarioNumberInput: boolean = false;
+  scenarioRewards: boolean = true;
+  scenarioRewardsItems: boolean = true;
   scenarioRooms: boolean = true;
   scenarioRules: boolean = true;
   serverAutoconnect: boolean = true;
@@ -115,13 +122,19 @@ export class Settings {
   showFullAbilityCard: boolean = false;
   showHiddenMonster: boolean = false;
   showOnlyUnfinishedScenarios = false;
+  sortFigures: boolean = true;
   spoilers: string[] = [];
+  standees: boolean = true;
   standeeStats: boolean = false;
   statAnimations: boolean = false;
   summons: boolean = true;
   theme: string = "";
   tooltips: boolean = true;
-  treasuresLoot: boolean = true;
   treasures: boolean = true;
+  treasuresLoot: boolean = true;
+  treasuresLootItem: boolean = true;
+  treasuresLootScenario: boolean = true;
+  turnConfirmation: boolean = true;
+  wakeLock: boolean = true;
   zoom: number = 100;
 }

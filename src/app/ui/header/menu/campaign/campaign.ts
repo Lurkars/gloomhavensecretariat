@@ -40,8 +40,8 @@ export class CampaignMenuComponent implements OnInit {
 
     update() {
         this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character).sort((a, b) => {
-            const aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
-            const bName = b.title.toLowerCase() || settingsManager.getLabel('data.character.' + b.name).toLowerCase();
+            const aName = gameManager.characterManager.characterName(a).toLowerCase();
+            const bName = gameManager.characterManager.characterName(b).toLowerCase();
             if (aName > bName) {
                 return 1;
             }

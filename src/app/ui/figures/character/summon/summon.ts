@@ -42,7 +42,7 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
     if (this.summon.init) {
       setTimeout(() => {
         this.open();
-      }, settingsManager.settings.disableAnimations ? 0 : 500)
+      }, !settingsManager.settings.animations ? 0 : 500)
     }
     this.update();
   }
@@ -73,7 +73,7 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
 
   dragHpEnd(value: number) {
     if (this.health != 0) {
-      gameManager.stateManager.before("changeSummonHp", "data.character." + this.character.name, "data.summon." + this.summon.name, ghsValueSign(this.health));
+      gameManager.stateManager.before("changeSummonHp", gameManager.characterManager.characterName(this.character), "data.summon." + this.summon.name, ghsValueSign(this.health));
       gameManager.entityManager.changeHealth(this.summon, this.character, this.health);
       if (this.summon.health <= 0 || this.summon.dead && this.health >= 0 && this.summon.health > 0) {
         this.dead();
@@ -88,14 +88,14 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
   }
 
   dead() {
-    gameManager.stateManager.before("summonDead", "data.character." + this.character.name, "data.summon." + this.summon.name);
+    gameManager.stateManager.before("summonDead", gameManager.characterManager.characterName(this.character), "data.summon." + this.summon.name);
     this.summon.dead = true;
 
     if (gameManager.game.state == GameState.draw || this.summon.entityConditions.length == 0 || this.summon.entityConditions.every((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
       setTimeout(() => {
         gameManager.characterManager.removeSummon(this.character, this.summon);
         gameManager.stateManager.after();
-      }, settingsManager.settings.disableAnimations ? 0 : 1500);
+      }, !settingsManager.settings.animations ? 0 : 1500);
     }
 
     gameManager.stateManager.after();
@@ -141,7 +141,7 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
 
   toggleActive() {
     if (this.summon.active) {
-      gameManager.stateManager.before("summonInactive", "data.character." + this.character.name, "data.summon." + this.summon.name);
+      gameManager.stateManager.before("summonInactive", gameManager.characterManager.characterName(this.character), "data.summon." + this.summon.name);
       if (settingsManager.settings.activeSummons && this.character.active) {
         gameManager.roundManager.toggleFigure(this.character);
       } else {
@@ -149,7 +149,7 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
       }
       gameManager.stateManager.after();
     } else {
-      gameManager.stateManager.before("summonActive", "data.character." + this.character.name, "data.summon." + this.summon.name);
+      gameManager.stateManager.before("summonActive", gameManager.characterManager.characterName(this.character), "data.summon." + this.summon.name);
       const activeSummon = this.character.summons.find((summon) => summon.active);
       if (settingsManager.settings.activeSummons && this.character.active && gameManager.entityManager.isAlive(this.summon, true) && (!activeSummon || this.character.summons.indexOf(activeSummon) < this.character.summons.indexOf(this.summon))) {
         while (!this.summon.active) {

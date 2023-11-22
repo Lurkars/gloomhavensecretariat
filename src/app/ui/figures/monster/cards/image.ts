@@ -30,7 +30,7 @@ export class MonsterImageComponent {
   }
 
   imageDialog() {
-    if (!settingsManager.settings.disableArtwork && (!this.monster.noArtwork || !this.monster.noThumbnail)) {
+    if (settingsManager.settings.artwork && (!this.monster.noArtwork || !this.monster.noThumbnail)) {
       this.dialog.open(MonsterImageDialogComponent, {
         data: this.monster
       });

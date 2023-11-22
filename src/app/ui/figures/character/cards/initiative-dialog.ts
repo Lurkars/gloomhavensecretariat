@@ -59,7 +59,7 @@ export class CharacterInitiativeDialogComponent {
 
     updateInitiative(initiative: number) {
         if (this.figure.initiative != initiative) {
-            gameManager.stateManager.before("setInitiative", (this.character ? "data.character." : "data.objective.") + this.figure.name, "" + (initiative > 0 && initiative < 100 ? initiative : 0));
+            gameManager.stateManager.before("setInitiative", (this.character ? gameManager.characterManager.characterName(this.character) : "data.objective." + this.figure.name), "" + (initiative > 0 && initiative < 100 ? initiative : 0));
             if (initiative > 0 && initiative < 100) {
                 this.setInitiative(initiative);
             } else if (gameManager.game.state == GameState.draw) {
@@ -84,11 +84,11 @@ export class CharacterInitiativeDialogComponent {
     longRest() {
         if (this.character) {
             if (this.character.longRest && this.character.initiative == 99) {
-                gameManager.stateManager.before("setInitiative", "data.character." + this.figure.name, "" + 99);
+                gameManager.stateManager.before("setInitiative", gameManager.characterManager.characterName(this.character), "" + 99);
                 this.character.longRest = false;
                 gameManager.stateManager.after();
             } else {
-                gameManager.stateManager.before("characterLongRest", "data.character." + this.character.name);
+                gameManager.stateManager.before("characterLongRest", gameManager.characterManager.characterName(this.character));
                 if (this.character.initiative == 99) {
                     this.character.longRest = true;
                 } else {

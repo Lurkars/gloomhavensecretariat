@@ -627,7 +627,7 @@ export class ScenarioRulesComponent {
                     }
                     gameManager.game.scenarioRules.splice(index, 1)[0];
                     gameManager.stateManager.after();
-                }, settingsManager.settings.disableAnimations ? 0 : 100)
+                }, !settingsManager.settings.animations ? 0 : 100)
             }
         }
     }
@@ -640,7 +640,7 @@ export class ScenarioRulesComponent {
             const ruleModel = gameManager.game.scenarioRules.splice(index, 1)[0];
             gameManager.game.disgardedScenarioRules.push(ruleModel.identifier);
             gameManager.stateManager.after();
-        }, settingsManager.settings.disableAnimations ? 0 : 100)
+        }, !settingsManager.settings.animations ? 0 : 100)
     }
 
     close(element: HTMLElement, index: number) {
@@ -652,6 +652,6 @@ export class ScenarioRulesComponent {
                 gameManager.game.disgardedScenarioRules.push(ruleModel.identifier);
             }
             gameManager.stateManager.after();
-        }, settingsManager.settings.disableAnimations ? 0 : 100)
+        }, !settingsManager.settings.animations ? 0 : 100)
     }
 }

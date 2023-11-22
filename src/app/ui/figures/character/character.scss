@@ -551,6 +551,8 @@
       font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
       filter: var(--ghs-filter-shadow);
       width: calc(var(--ghs-unit) * 8.5);
+      margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      margin-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
 
       img {
         height: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
@@ -559,12 +561,10 @@
 
       &.experience {
         color: var(--ghs-color-blue);
-        margin-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
       }
 
       &.loot {
         color: var(--ghs-color-yellow);
-        margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
       }
     }
 
@@ -919,13 +919,11 @@
         }
 
         .experience {
-          margin-bottom: 0;
           margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
           width: calc(var(--ghs-unit) * 6);
         }
 
         .loot {
-          margin-top: 0;
           margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
           width: calc(var(--ghs-unit) * 6);
         }
@@ -1019,6 +1017,7 @@
 
       .status-bar {
         margin-top: calc(var(--ghs-unit) * 3.5);
+        min-height: calc(var(--ghs-unit) * 5);
       }
 
       .battlegoals-button,
@@ -1029,7 +1028,11 @@
       }
 
       .summon-dialog-button {
-        margin-top: calc(var(--ghs-unit) * 6);
+        margin-top: calc(var(--ghs-unit) * 5);
+      }
+
+      .col-2 {
+        padding-top: calc(var(--ghs-unit) * 5);
       }
 
       .hand-size {

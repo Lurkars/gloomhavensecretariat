@@ -69,7 +69,7 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
 
   drawCards() {
     if (gameManager.battleGoalManager.getBattleGoals().length > (gameManager.fhRules() || settingsManager.settings.battleGoalsFh ? 2 : 1)) {
-      gameManager.stateManager.before("battleGoals.drawCards", "data.character." + this.character.name);
+      gameManager.stateManager.before("battleGoals.drawCards", gameManager.characterManager.characterName(this.character));
       this.character.battleGoals = [];
       this.character.battleGoal = false;
       gameManager.battleGoalManager.drawBattleGoal(this.character);
@@ -91,7 +91,7 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
   }
 
   drawCard() {
-    gameManager.stateManager.before("battleGoals.drawCard", "data.character." + this.character.name);
+    gameManager.stateManager.before("battleGoals.drawCard", gameManager.characterManager.characterName(this.character));
     gameManager.battleGoalManager.drawBattleGoal(this.character);
     gameManager.stateManager.after();
 
@@ -130,7 +130,7 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
 
   accept() {
     if (this.selected != -1 && !this.character.battleGoal || this.selected != 0 && this.character.battleGoal) {
-      gameManager.stateManager.before("battleGoals." + (this.selected != -1 ? 'select' : 'deselect'), "data.character." + this.character.name);
+      gameManager.stateManager.before("battleGoals." + (this.selected != -1 ? 'select' : 'deselect'), gameManager.characterManager.characterName(this.character));
       if (this.selected != -1) {
         this.character.battleGoal = true;
         moveItemInArray(this.character.battleGoals, this.selected, 0);

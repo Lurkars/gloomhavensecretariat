@@ -21,7 +21,7 @@ export class EventRandomScenarioDialogComponent {
     this.scenario = data.scenario;
     this.section = data.section;
     if (this.section) {
-      this.unlocks = this.scenario.unlocks ? this.scenario.unlocks.map((unlock) => '%game.scenarioNumber:' + unlock + '%').join(', ') : ''
+      this.unlocks = this.scenario.unlocks ? this.scenario.unlocks.map((unlock) => '%data.scenarioNumber:' + unlock + '%').join(', ') : ''
     }
   }
 

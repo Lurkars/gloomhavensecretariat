@@ -3,30 +3,6 @@
   "edition": "fh",
   "abilities": [
     {
-      "name": "Friendish Charge",
-      "cardId": 785,
-      "initiative": 73,
-      "actions": [
-        {
-          "type": "move",
-          "value": 2,
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "push",
-              "value": 2,
-              "small": true
-            }
-          ]
-        }
-      ]
-    },
-    {
       "name": "Darken the Skies",
       "cardId": 810,
       "initiative": 27,
@@ -79,6 +55,30 @@
             {
               "type": "range",
               "value": 5,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fiendish Charge",
+      "cardId": 812,
+      "initiative": 73,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
               "small": true
             }
           ]

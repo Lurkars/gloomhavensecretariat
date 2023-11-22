@@ -19,12 +19,12 @@ export class EntityAnimationDirective implements OnChanges {
           this.el.nativeElement.classList.add("entity-dead");
           setTimeout(() => {
             this.el.nativeElement.classList.remove("entity-dead");
-          }, settingsManager.settings.disableAnimations ? 0 : 1500);
+          }, !settingsManager.settings.animations ? 0 : 1500);
         } else if (!change.currentValue) {
           this.el.nativeElement.classList.add("entity-alive");
           setTimeout(() => {
             this.el.nativeElement.classList.remove("entity-alive");
-          }, settingsManager.settings.disableAnimations ? 0 : 1500);
+          }, !settingsManager.settings.animations ? 0 : 1500);
         }
       }
     }

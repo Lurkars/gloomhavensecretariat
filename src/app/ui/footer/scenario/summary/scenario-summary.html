@@ -546,16 +546,18 @@
                 [ghs-label-args]="rewards.randomItemBlueprints.split('-')"></span>
             </div>
 
-            <div class="item item-blueprints" *ngFor="let itemId of randomItemBlueprints; let i = index;">
+            <div class="item item-blueprints" *ngIf="rewards.randomItemBlueprint">
               <span class="placeholder text-white" [ghs-label]="'scenario.rewards.randomItemBlueprint'"></span>
-              <span *ngIf="itemId > 0" class="placeholder text-white" [ghs-label]="'scenario.rewards.itemBlueprint'"
-                [ghs-label-args]="['' + itemId, gameManager.itemManager.getItem(itemId,scenario.edition || '', true)?.name || '']"
-                (click)="openItemDialog(gameManager.itemManager.getItem(itemId,scenario.edition || '', true))"></span>
-              <span *ngIf="itemId == -1"> <span [ghs-label]="'scenario.rewards.inspiration'"
-                  [ghs-label-args]="['+1']"></span>
-              </span>
-              <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.randomItemBlueprint"
-                [ghs-label]="rewards.hints.randomItemBlueprint"></span>
+              <ng-container *ngFor="let itemId of randomItemBlueprints; let i = index;">
+                <span *ngIf="itemId > 0" class="placeholder text-white" [ghs-label]="'scenario.rewards.itemBlueprint'"
+                  [ghs-label-args]="['' + itemId, gameManager.itemManager.getItem(itemId,scenario.edition || '', true)?.name || '']"
+                  (click)="openItemDialog(gameManager.itemManager.getItem(itemId,scenario.edition || '', true))"></span>
+                <span *ngIf="itemId == -1"> <span [ghs-label]="'scenario.rewards.inspiration'"
+                    [ghs-label-args]="['+1']"></span>
+                </span>
+                <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.randomItemBlueprint"
+                  [ghs-label]="rewards.hints.randomItemBlueprint"></span>
+              </ng-container>
             </div>
 
             <div class="item events" *ngFor="let event of (rewards.events || []); let i = index;">

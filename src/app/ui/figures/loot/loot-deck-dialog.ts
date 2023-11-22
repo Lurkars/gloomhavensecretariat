@@ -51,7 +51,7 @@ export class LootDeckDialogComponent implements OnInit {
     this.currentConfig();
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
-    }, settingsManager.settings.disableAnimations ? 0 : 250);
+    }, !settingsManager.settings.animations ? 0 : 250);
     if (this.deck.cards.length == 0) {
       this.edit = true;
       this.configuration = true;

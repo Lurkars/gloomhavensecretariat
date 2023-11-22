@@ -5,9 +5,9 @@
     [ghs-label-attribute]="'title'">{{monster.level}}
   </div>
 
-  <div *ngIf="settingsManager.settings.disableStandees && hideStats(MonsterType.normal)" class="filter-stats normal">
+  <div *ngIf="!settingsManager.settings.standees && hideStats(MonsterType.normal)" class="filter-stats normal">
   </div>
-  <div *ngIf="settingsManager.settings.disableStandees && hideStats(MonsterType.elite)" class="filter-stats elite">
+  <div *ngIf="!settingsManager.settings.standees && hideStats(MonsterType.elite)" class="filter-stats elite">
   </div>
 
   <div class="name-container" ghs-pointer-input (singleClick)="openStatsPopup()" (doubleClick)="openStatPopup()">
@@ -58,7 +58,7 @@
     </ng-container>
   </div>
 
-  <ghs-pointer-input *ngIf="settingsManager.settings.disableStandees && gameManager.gameplayFigure(monster)"
+  <ghs-pointer-input *ngIf="!settingsManager.settings.standees && gameManager.gameplayFigure(monster)"
     class="entity-menu" [ngClass]="{'boss' : monster.boss}" (singleClick)="openEntityMenu($event)">
   </ghs-pointer-input>
 

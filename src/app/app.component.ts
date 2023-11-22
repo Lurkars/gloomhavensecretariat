@@ -57,7 +57,7 @@ export class AppComponent implements OnInit {
   }
 
   applyAnimations() {
-    if (settingsManager.settings.disableAnimations) {
+    if (!settingsManager.settings.animations) {
       document.body.classList.add('no-animations');
     } else {
       document.body.classList.remove('no-animations');

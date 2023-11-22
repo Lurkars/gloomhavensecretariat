@@ -47,9 +47,9 @@
                 <div class="outer-border">
                   <div class="inner-border">
                     <div class="image-container">
-                      <img *ngIf="!monsterData.noThumbnail && !settingsManager.settings.disableArtwork"
+                      <img *ngIf="!monsterData.noThumbnail && settingsManager.settings.artwork"
                         [src]="gameManager.monsterManager.monsterThumbnail(monsterData)">
-                      <span *ngIf="monsterData.noThumbnail || settingsManager.settings.disableArtwork" class="letter">
+                      <span *ngIf="monsterData.noThumbnail || !settingsManager.settings.artwork" class="letter">
                         <span
                           *ngFor="let namePart of (settingsManager.getLabel('data.monster.' + monsterData.name).split(' '))">{{namePart[0]}}</span>
                       </span>

@@ -54,7 +54,7 @@ export class MonsterNumberPicker implements OnInit, OnDestroy {
   }
 
   open(): void {
-    if (settingsManager.settings.disableStandees) {
+    if (!settingsManager.settings.standees) {
       if (this.hasEntity()) {
         this.monster.entities = this.monster.entities.filter((monsterEntity) => settingsManager.settings.hideStats && monsterEntity.type != this.type);
       } else {

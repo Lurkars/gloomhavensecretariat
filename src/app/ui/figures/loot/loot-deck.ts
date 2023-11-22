@@ -80,7 +80,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                 this.current = this.deck.current;
                 this.drawTimeout = null;
                 this.init = true;
-            }, settingsManager.settings.disableAnimations ? 0 : this.initTimeout)
+            }, !settingsManager.settings.animations ? 0 : this.initTimeout)
         }
 
         this.uiChangeSubscription = gameManager.uiChange.subscribe({
@@ -184,7 +184,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                         if (name) {
                             const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == name);
                             if (character instanceof Character) {
-                                gameManager.stateManager.before(loot.type == LootType.random_item ? "lootRandomItem" : "addResource", "data.character." + character.name, "game.loot." + loot.type, this.lootManager.getValue(loot) + '');
+                                gameManager.stateManager.before(loot.type == LootType.random_item ? "lootRandomItem" : "addResource", gameManager.characterManager.characterName(character), "game.loot." + loot.type, this.lootManager.getValue(loot) + '');
                                 const result = gameManager.lootManager.applyLoot(loot, character, currentIndex);
                                 gameManager.stateManager.after();
                                 if (result) {
@@ -221,7 +221,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                 })
             }
 
-        }, settingsManager.settings.disableAnimations ? 0 : (this.vertical ? 1050 : 1850));
+        }, !settingsManager.settings.animations ? 0 : (this.vertical ? 1050 : 1850));
     }
 
     draw(event: any) {
@@ -262,14 +262,14 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                                         }
                                     }
                                 })
-                            }, settingsManager.settings.disableAnimations ? 0 : (this.vertical ? 1050 : 1850))
+                            }, !settingsManager.settings.animations ? 0 : (this.vertical ? 1050 : 1850))
                         }
                     } else {
                         gameManager.lootManager.drawCard(this.deck, undefined);
                     }
                     this.after.emit(new LootDeckChange(this.deck, 'lootDeckDraw'));
                     this.drawTimeout = null;
-                }, settingsManager.settings.disableAnimations ? 0 : 150)
+                }, !settingsManager.settings.animations ? 0 : 150)
             }
         } else {
             this.dialog.open(LootDeckDialogComponent, {

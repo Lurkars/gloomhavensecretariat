@@ -542,7 +542,7 @@ export class ActionComponent implements OnInit, OnDestroy {
                   }
                 }
                 gameManager.stateManager.after();
-              }, settingsManager.settings.disableAnimations ? 0 : 1500);
+              }, !settingsManager.settings.animations ? 0 : 1500);
             }
           }
         }

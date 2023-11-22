@@ -226,7 +226,7 @@ export class ItemsDialogComponent {
 
     addItem(itemData: ItemData, force: boolean = false) {
         if (this.character && (gameManager.itemManager.canAdd(itemData, this.character) || force)) {
-            gameManager.stateManager.before("addItem", "data.character." + this.character.name, itemData.id + "", itemData.edition);
+            gameManager.stateManager.before("addItem", gameManager.characterManager.characterName(this.character), itemData.id + "", itemData.edition);
             gameManager.itemManager.addItem(itemData, this.character);
             gameManager.stateManager.after();
             this.update();
@@ -235,7 +235,7 @@ export class ItemsDialogComponent {
 
     buyItem(itemData: ItemData) {
         if (this.character && gameManager.itemManager.canBuy(itemData, this.character)) {
-            gameManager.stateManager.before("buyItem", "data.character." + this.character.name, itemData.id + "", itemData.edition);
+            gameManager.stateManager.before("buyItem", gameManager.characterManager.characterName(this.character), itemData.id + "", itemData.edition);
             gameManager.itemManager.buyItem(itemData, this.character);
             gameManager.stateManager.after();
             this.update();
@@ -245,7 +245,7 @@ export class ItemsDialogComponent {
 
     craftItem(itemData: ItemData) {
         if (this.character && gameManager.itemManager.canCraft(itemData, this.character)) {
-            gameManager.stateManager.before("craftItem", "data.character." + this.character.name, itemData.id + "", itemData.edition);
+            gameManager.stateManager.before("craftItem", gameManager.characterManager.characterName(this.character), itemData.id + "", itemData.edition);
             gameManager.itemManager.craftItem(itemData, this.character);
             gameManager.stateManager.after();
             this.update();
@@ -257,7 +257,7 @@ export class ItemsDialogComponent {
         const item = this.character && this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition);
         if (item && this.character) {
             const index = this.character.progress.items.indexOf(item)
-            gameManager.stateManager.before("removeItem", "data.character." + this.character.name, this.character.progress.items[index].name, this.character.progress.items[index].edition);
+            gameManager.stateManager.before("removeItem", gameManager.characterManager.characterName(this.character), this.character.progress.items[index].name, this.character.progress.items[index].edition);
             gameManager.itemManager.removeItem(itemData, this.character);
             gameManager.stateManager.after();
             this.update();
@@ -268,7 +268,7 @@ export class ItemsDialogComponent {
         const item = this.character && this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition);
         if (this.character && item && gameManager.itemManager.itemSellValue(itemData)) {
             const index = this.character.progress.items.indexOf(item)
-            gameManager.stateManager.before("sellItem", "data.character." + this.character.name, this.character.progress.items[index].name, this.character.progress.items[index].edition);
+            gameManager.stateManager.before("sellItem", gameManager.characterManager.characterName(this.character), this.character.progress.items[index].name, this.character.progress.items[index].edition);
             gameManager.itemManager.sellItem(itemData, this.character)
             gameManager.stateManager.after();
             this.update();
@@ -280,7 +280,7 @@ export class ItemsDialogComponent {
         if (this.character && (!disabled || force)) {
             let equippedItems: ItemData[] = this.character.progress.equippedItems.map((identifier) => this.items.find((itemData) => identifier.name == '' + itemData.id && itemData.edition == identifier.edition)).filter((itemData) => itemData).map((itemData) => itemData as ItemData);
             const equipIndex = equippedItems.indexOf(itemData);
-            gameManager.stateManager.before(equipIndex != -1 ? 'unequipItem' : 'equipItem', "data.character." + this.character.name, itemData.name, itemData.edition)
+            gameManager.stateManager.before(equipIndex != -1 ? 'unequipItem' : 'equipItem', gameManager.characterManager.characterName(this.character), itemData.name, itemData.edition)
             gameManager.itemManager.toggleEquippedItem(itemData, this.character, force)
             gameManager.stateManager.after();
         }

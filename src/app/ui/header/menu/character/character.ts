@@ -24,7 +24,7 @@ export class CharacterMenuComponent implements OnInit {
   characterData: Record<string, CharacterData[]> = {};
 
   ngOnInit(): void {
-    this.characterLevel = gameManager.prosperityLevel();
+    this.characterLevel = gameManager.fhRules() ? Math.ceil(gameManager.prosperityLevel() / 2) : gameManager.prosperityLevel();
     this.update();
   }
 

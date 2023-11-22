@@ -125,7 +125,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     } else if (activeFigure instanceof Character) {
                         if (settingsManager.settings.characterAttackModifierDeck) {
                             if (activeFigure.attackModifierDeckVisible) {
-                                gameManager.stateManager.before("updateAttackModifierDeck.draw", "data.character." + activeFigure.name);
+                                gameManager.stateManager.before("updateAttackModifierDeck.draw", gameManager.characterManager.characterName(activeFigure));
                                 deck = activeFigure.attackModifierDeck;
                             } else {
                                 activeFigure.attackModifierDeckVisible = true;
@@ -224,9 +224,9 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
             if (activeFigure instanceof Character) {
                 const activeSummon = activeFigure.summons.find((summon) => summon.active);
                 if (settingsManager.settings.activeSummons && activeFigure.active && activeSummon) {
-                    gameManager.stateManager.before("summonInactive", "data.character." + activeFigure.name, "data.summon." + activeSummon.name);
+                    gameManager.stateManager.before("summonInactive", gameManager.characterManager.characterName(activeFigure), "data.summon." + activeSummon.name);
                 } else {
-                    gameManager.stateManager.before(activeFigure.active ? "unsetActive" : "setActive", "data.character." + activeFigure.name);
+                    gameManager.stateManager.before(activeFigure.active ? "unsetActive" : "setActive", gameManager.characterManager.characterName(activeFigure));
                 }
                 gameManager.roundManager.toggleFigure(activeFigure);
                 gameManager.stateManager.after();

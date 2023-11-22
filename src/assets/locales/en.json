@@ -656,7 +656,7 @@
         "reputation": "Gain {0} reputation.",
         "partyAchievement": "Party Achievement: \"{0}\".",
         "prosperity": "Gain {0} prosperity.",
-        "scenario": "Unlock \"{1}\" %game.scenarioNumber:{0}%.",
+        "scenario": "Unlock \"{1}\" %data.scenarioNumber:{0}%.",
         "scenarioCondition": "All start scenario with %game.condition.{0}%.",
         "scenarioDamage": "All start scenario with {0} damage.",
         "scenarioSingleMinus1": "One starts scenario with %game.attackModifier.minus1% x{0}."
@@ -1327,7 +1327,7 @@
       "prosperity": "{0} prosperity",
       "reputation": "{0} reputation",
       "randomItems": "Each character gains one random item ({0}-{1})",
-      "randomItemBlueprint": "Gain one random item blueprint:",
+      "randomItemBlueprint": "Gain one random item blueprint",
       "randomItemBlueprints": "Add items %game.itemFh.{0}% to %game.itemFh.{1}% to the random item blueprint deck.",
       "removeEvent": {
         "boat": "Remove event {0} from the boat deck",
@@ -1598,6 +1598,10 @@
       ".": "Always use Loot Deck",
       "hint": "Show Loot Deck for every scenario (Automatic enabled when playing Frosthaven)"
     },
+    "animations": {
+      ".": "Animations",
+      "hint": "Disable all animations to increase performance"
+    },
     "applyBuildingRewards": {
       ".": "Apply Building Bonuses",
       "hint": "On building or upgrading a building, apply the corresponding bonuses and open section dialog if present."
@@ -1627,6 +1631,10 @@
     "applyRetirement": {
       ".": "Apply Retirement Bonuses",
       "hint": "On retirement, open dialog to apply retirement bonuses. Retirement is performed by checking the personal quest on the character sheet."
+    },
+    "artwork": {
+      ".": "Artwork",
+      "hint": "Artwork for monsters and characters"
     },
     "autoscroll": {
       ".": "Autoscroll",
@@ -1752,6 +1760,10 @@
       ".": "Display traits",
       "hint": "Display the traits the character's board."
     },
+    "columns": {
+      ".": "Column layout",
+      "hint": "Enable two-column layout if zoom and space fits"
+    },
     "combineSummonAction": {
       ".": "Combine Summon Action",
       "hint": "Perform Summon Action for all standees at once."
@@ -1797,6 +1809,10 @@
     "disableWakeLock": {
       ".": "Disable Wake Lock",
       "hint": "Disable Wake Lock on supported devices. Wake Lock will keep the screen on. This can drain battery on mobile."
+    },
+    "dragFigures": {
+      ".": "Drag'n'drop for figures",
+      "hint": "Drag'n'drop for the figure list. Warning, if disabled and no initiative is required, there is no way to re-order the figures manually."
     },
     "dragValues": {
       ".": "Drag Initiative/HP/XP/Loot",
@@ -1919,6 +1935,10 @@
       ".": "Party Sheet",
       "hint": "Enables Party- and Campaign Sheet. The campaign sheet is located on the <i>backside</i> of the party sheet."
     },
+    "pinchZoom": {
+      ".": "Gesture zooming",
+      "hint": "Zooming via touch gestures."
+    },
     "playerCount": {
       ".": "Manual character count",
       "hint": ""
@@ -1943,6 +1963,14 @@
       ".": "Scenario Number Input",
       "hint": ""
     },
+    "scenarioRewards": {
+      ".": "Apply Scenario Rewards",
+      "hint": "Automatically apply treasure rewards: give gold, XP etc. to characters"
+    },
+    "scenarioRewardsItems": {
+      ".": "Draw Random Item Scenario Rewards",
+      "hint": "Automatically draw a Random Item card."
+    },
     "scenarioRooms": {
       ".": "Scenario Rooms",
       "hint": "Unlocking of separate rooms in a scenario. If not set, also disables automatic adding of standees."
@@ -1959,7 +1987,14 @@
       ".": "Show ability card title",
       "hint": "Show ability cards including card title."
     },
-    "standees": "Standees",
+    "sortFigures": {
+      ".": "Sort figures",
+      "hint": "Automatically sort figures. If disabled, the order must be set manually via Drag'n'Drop."
+    },
+    "standees": {
+      ".": "Standees",
+      "hint": "Display standees. If disabled, unlocking rooms and automatic standees is also disabled."
+    },
     "standeeStats": {
       ".": "Shield and Retaliate on Standee",
       "hint": "Show current %game.action.shield% and %game.action.retaliate% value next to every standee."
@@ -1985,12 +2020,28 @@
       "hint": "Display tooltips"
     },
     "treasures": {
-      ".": "Room Treasures indicator",
+      ".": "Room treasures indicator",
       "hint": "Show available treasures for scenario when corresponding room is revealed and add dialog to open the treasure."
     },
     "treasuresLoot": {
       ".": "Apply treasure rewards",
       "hint": "Automatically apply treasure rewards: give gold, XP etc. to looting character, draw random side scenario or item design etc."
+    },
+    "treasuresLootItem": {
+      ".": "Draw Random Item treasure rewards",
+      "hint": "Automatically draw a Random Item card."
+    },
+    "treasuresLootScenario": {
+      ".": "Draw Random Scenario treasure rewards",
+      "hint": "Automatically draw a Random Scenario."
+    },
+    "turnConfirmation": {
+      ".": "Round/Turn confirmation",
+      "hint": "Show a reminder when clicking \"%round.next%\" before all figures finished their turns. If disabled and %settings.expireConditions% or %settings.applyConditions% is active it will be automatically applied for all figures."
+    },
+    "wakeLock": {
+      ".": "Wake Lock",
+      "hint": "Wake Lock on supported devices. Wake Lock will keep the screen on. This can drain battery on mobile."
     },
     "zoom": {
       ".": "Zoom",
@@ -2107,6 +2158,22 @@
       "changeSummonMove": "Movement {2} for summon '{1}' of {0}",
       "changeSummonRange": "Range {2} for summon '{1}' of {0}",
       "changeXP": "XP {1} for {0}",
+      "characterItemApply": {
+        "spent": "{0} spent item {1} \"{3}\"",
+        "consumed": "{0} consumed item {1} \"{3}\"",
+        "flipped": "{0} flipped item {1} \"{3}\"",
+        "persistend": "{0} persistend item {1} \"{3}\"",
+        "slot": "{0} marked slot on item {1} \"{3}\"",
+        "slotBack": "{0} unmarked slot on item {1} \"{3}\""
+      },
+      "characterItemUnapply": {
+        "spent": "{0} refreshed item {1} \"{3}\"",
+        "consumed": "{0} recovered item {1} \"{3}\"",
+        "flipped": "{0} flipped item {1} \"{3}\" back",
+        "persistend": "{0} unpersistend item {1} \"{3}\"",
+        "slot": "{0} unmarked slot on item {1} \"{3}\"",
+        "slotBack": "{0} marked slot on item {1} \"{3}\""
+      },
       "characterLongRest": "Set Long Rest for {0}",
       "characterLongRestOff": "Disable Long Rest for {0}",
       "craftItem": "Craft Item {1} (%data.edition.{2}%) for {0}",

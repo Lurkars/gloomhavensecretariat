@@ -32,11 +32,11 @@ export class CharacterItemComponent {
 
     toggleEquippedItem(force: boolean = false) {
         if ((this.setup || force) && this.character.progress.items.find((identifier) => identifier.name == '' + this.item.id && identifier.edition == this.item.edition) != undefined) {
-            gameManager.stateManager.before(this.equipped() ? 'unequipItem' : 'equipItem', "data.character." + this.character.name, '' + this.item.id, this.item.edition)
+            gameManager.stateManager.before(this.equipped() ? 'unequipItem' : 'equipItem', gameManager.characterManager.characterName(this.character), '' + this.item.id, this.item.edition)
             gameManager.itemManager.toggleEquippedItem(this.item, this.character, force)
             gameManager.stateManager.after();
 
-            if (!settingsManager.settings.disableAnimations) {
+            if (settingsManager.settings.animations) {
                 setTimeout(() => { gameManager.uiChange.emit() }, 500);
             }
         }
@@ -55,7 +55,7 @@ export class CharacterItemComponent {
             const equipped = this.equipped();
             if (equipped) {
                 equipped.tags = equipped.tags || [];
-                gameManager.stateManager.before(equipped.tags.indexOf(flag) == -1 ? 'characterItemApply.' + flag : 'characterItemUnapply.' + flag, "data.character." + this.character.name, '' + this.item.id, this.item.edition)
+                gameManager.stateManager.before((equipped.tags.indexOf(flag) == -1 ? 'characterItemApply.' : 'characterItemUnapply.') + flag, gameManager.characterManager.characterName(this.character), '' + this.item.id, this.item.edition, this.item.name)
                 if (equipped.tags.indexOf(flag) == -1) {
                     equipped.tags.push(flag);
                 } else {
@@ -66,7 +66,7 @@ export class CharacterItemComponent {
                 }
                 gameManager.stateManager.after();
 
-                if (!settingsManager.settings.disableAnimations) {
+                if (settingsManager.settings.animations) {
                     setTimeout(() => { gameManager.uiChange.emit() }, 500);
                 }
             }
@@ -79,16 +79,16 @@ export class CharacterItemComponent {
             if (equipped) {
                 equipped.tags = equipped.tags || [];
                 const count = this.countFlag(flag);
-                gameManager.stateManager.before(count <= index ? 'characterItemApply.' + flag : 'characterItemUnapply.' + flag, "data.character." + this.character.name, '' + this.item.id, this.item.edition);
+                gameManager.stateManager.before((count <= index ? 'characterItemApply.' : 'characterItemUnapply.') + flag, gameManager.characterManager.characterName(this.character), '' + this.item.id, this.item.edition, this.item.name);
                 if (count <= index) {
                     for (let i = count; i <= index; i++) {
                         equipped.tags.push(flag);
                     }
                     if (flag == ItemFlags.slot && this.countFlag(flag) == this.item.slots) {
                         if (this.item.spent && !this.countFlag(ItemFlags.spent)) {
-                            this.toggleFlag(true, ItemFlags.spent);
+                            equipped.tags.push(ItemFlags.spent);
                         } else if (this.item.consumed && !this.countFlag(ItemFlags.consumed)) {
-                            this.toggleFlag(true, ItemFlags.consumed);
+                            equipped.tags.push(ItemFlags.consumed);
                         }
                     }
                 } else {
@@ -98,7 +98,7 @@ export class CharacterItemComponent {
                 }
                 gameManager.stateManager.after();
 
-                if (!settingsManager.settings.disableAnimations) {
+                if (settingsManager.settings.animations) {
                     setTimeout(() => { gameManager.uiChange.emit() }, 500);
                 }
             }

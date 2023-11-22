@@ -222,8 +222,13 @@ export class SettingsMenuComponent {
     settingsManager.settings.moveElements = true;
     settingsManager.settings.partySheet = false;
     settingsManager.settings.randomStandees = false;
+    settingsManager.settings.scenarioRewards = false;
     settingsManager.settings.scenarioRooms = false;
+    settingsManager.settings.standees = true;
     settingsManager.settings.standeeStats = false;
+    settingsManager.settings.treasures = false;
+    settingsManager.settings.treasuresLoot = false;
+    settingsManager.settings.turnConfirmation = false;
     settingsManager.settings.theme = 'default';
     settingsManager.storeSettings();
   }

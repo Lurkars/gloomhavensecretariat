@@ -7,7 +7,7 @@
         <ghs-summon-sheet *ngIf="summon.active" [summon]="summon"></ghs-summon-sheet>
 
         <div class="background-image-container"
-          *ngIf="!settingsManager.settings.disableArtwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)">
+          *ngIf="settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)">
           <div class="background-image"
             [style.background-image]="summon.thumbnailUrl ? 'url(' +  summon.thumbnailUrl + ')' : 'url(./assets/images/summons/thumbnail/' + summon.thumbnail + '.png)'">
           </div>

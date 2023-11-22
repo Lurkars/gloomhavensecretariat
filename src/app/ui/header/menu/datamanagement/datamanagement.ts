@@ -93,21 +93,21 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   addUnlock(): void {
-    const character = this.unlockElement.nativeElement.value;
-    if (character) {
-      if (gameManager.game.unlockedCharacters.indexOf(character) == -1 && gameManager.charactersData(undefined).find((characterData) => characterData.spoiler && characterData.name == character)) {
-        gameManager.stateManager.before("unlockChar", "data.character." + character);
-        gameManager.game.unlockedCharacters.push(character)
+    const characterName = this.unlockElement.nativeElement.value;
+    if (characterName) {
+      if (gameManager.game.unlockedCharacters.indexOf(characterName) == -1 && gameManager.charactersData(undefined).find((characterData) => characterData.spoiler && characterData.name == characterName)) {
+        gameManager.stateManager.before("unlockChar", "data.character." + characterName);
+        gameManager.game.unlockedCharacters.push(characterName)
         gameManager.stateManager.after();
       }
       this.unlockElement.nativeElement.value = "";
     }
   }
 
-  removeUnlock(character: string): void {
-    if (character && gameManager.game.unlockedCharacters.indexOf(character) != -1) {
-      gameManager.stateManager.before("unlockChar", "data.character." + character);
-      gameManager.game.unlockedCharacters.splice(gameManager.game.unlockedCharacters.indexOf(character), 1);
+  removeUnlock(characterName: string): void {
+    if (characterName && gameManager.game.unlockedCharacters.indexOf(characterName) != -1) {
+      gameManager.stateManager.before("unlockChar", "data.character." + characterName);
+      gameManager.game.unlockedCharacters.splice(gameManager.game.unlockedCharacters.indexOf(characterName), 1);
       gameManager.stateManager.after();
     }
   }

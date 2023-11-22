@@ -104,7 +104,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit, OnDestroy {
 
     removeTreasure(character: Character, treasure: string | number) {
         if (typeof treasure === 'number') {
-            gameManager.stateManager.before('removeCharTresure', '' + treasure, this.edition, "data.character." + character.name);
+            gameManager.stateManager.before('removeCharTresure', '' + treasure, this.edition, gameManager.characterManager.characterName(character));
             this.looted.splice(this.treasures.indexOf(treasure), 1);
         } else {
             gameManager.stateManager.before('removeCharTresure', 'G', this.edition);
@@ -120,7 +120,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit, OnDestroy {
             this.rewardResults = [];
             const treasure = this.treasures[this.treasureIndex];
             if (this.character && treasure && this.character.treasures.indexOf(treasure == 'G' ? 'G-' + this.treasureIndex : treasure) == -1) {
-                gameManager.stateManager.before('lootCharTreasure', '' + treasure, this.edition, "data.character." + this.character.name);
+                gameManager.stateManager.before('lootCharTreasure', '' + treasure, this.edition, gameManager.characterManager.characterName(this.character));
                 this.looted.push(this.treasureIndex);
                 if (treasure != 'G' && settingsManager.settings.treasuresLoot) {
                     this.rewardResults = gameManager.lootManager.lootTreasure(this.character, treasure - 1, this.edition);
@@ -141,7 +141,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit, OnDestroy {
         if (treasure.split(':').length < 2) {
             return [];
         } else {
-            return treasure.split(':')[1].split('|').map((value) => value.split('+'));
+            return treasure.split(':').slice(1).join(':').split('|').map((value) => value.split('+'));
         }
     }
 }

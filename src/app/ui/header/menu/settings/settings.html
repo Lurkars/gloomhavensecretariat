@@ -62,13 +62,13 @@
         <label
           [ngClass]="{'disabled' : !settingsManager.settings.expireConditions && !settingsManager.settings.applyConditions}">
           <input type="checkbox"
-            [checked]="settingsManager.settings.disabledTurnConfirmation || (!settingsManager.settings.expireConditions && !settingsManager.settings.applyConditions)"
-            (change)="settingsManager.setDisabledTurnConfirmation(!settingsManager.settings.disabledTurnConfirmation)">
-          <span [ghs-label]="'settings.disabledTurnConfirmation'"></span>
+            [checked]="settingsManager.settings.turnConfirmation && (settingsManager.settings.expireConditions || settingsManager.settings.applyConditions)"
+            (change)="settingsManager.setTurnConfirmation(!settingsManager.settings.turnConfirmation)">
+          <span [ghs-label]="'settings.turnConfirmation'"></span>
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
-          <span class="text" [ghs-label]="'settings.disabledTurnConfirmation.hint'"></span>
+          <span class="text" [ghs-label]="'settings.turnConfirmation.hint'"></span>
         </span>
       </div>
     </div>
@@ -125,6 +125,36 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text" [ghs-label]="'settings.treasuresLoot.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label
+          [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || !settingsManager.settings.treasures  || !settingsManager.settings.treasuresLoot }">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.scenarioRooms  && settingsManager.settings.treasures && settingsManager.settings.treasuresLoot &&  settingsManager.settings.treasuresLootItem"
+            (change)="settingsManager.setTreasuresLootItem(!settingsManager.settings.treasuresLootItem)">
+          <span [ghs-label]="'settings.treasuresLootItem'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.treasuresLootItem.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label
+          [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || !settingsManager.settings.treasures  || !settingsManager.settings.treasuresLoot }">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.scenarioRooms  && settingsManager.settings.treasures && settingsManager.settings.treasuresLoot &&  settingsManager.settings.treasuresLootScenario"
+            (change)="settingsManager.setTreasuresLootScenario(!settingsManager.settings.treasuresLootScenario)">
+          <span [ghs-label]="'settings.treasuresLootScenario'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.treasuresLootScenario.hint'"></span>
         </span>
       </div>
     </div>
@@ -195,6 +225,33 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text" [ghs-label]="'settings.characterIdentityHint.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.scenarioRewards"
+            (change)="settingsManager.setScenarioRewards(!settingsManager.settings.scenarioRewards)">
+          <span [ghs-label]="'settings.scenarioRewards'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.scenarioRewards.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line" [ngClass]="{'disabled' : !settingsManager.settings.scenarioRewards }">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox"
+            [checked]="settingsManager.settings.scenarioRewards && settingsManager.settings.scenarioRewardsItems"
+            (change)="settingsManager.setScenarioRewardsItems(!settingsManager.settings.scenarioRewardsItems)">
+          <span [ghs-label]="'settings.scenarioRewardsItems'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.scenarioRewardsItems.hint'"></span>
         </span>
       </div>
     </div>
@@ -457,9 +514,8 @@
     <ng-container *ngIf="settingsManager.settings.monsters">
       <div class="line">
         <div class="hint-container">
-          <label [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
-            <input type="checkbox"
-              [checked]="settingsManager.settings.eliteFirst && !settingsManager.settings.disableStandees"
+          <label [ngClass]="{'disabled' : !settingsManager.settings.standees}">
+            <input type="checkbox" [checked]="settingsManager.settings.eliteFirst && settingsManager.settings.standees"
               (change)="settingsManager.setEliteFirst(!settingsManager.settings.eliteFirst)">
             <span [ghs-label]="'settings.eliteFirst'"></span>
           </label>
@@ -472,9 +528,9 @@
     </ng-container>
     <div class="line">
       <div class="hint-container">
-        <label [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
+        <label [ngClass]="{'disabled' : !settingsManager.settings.standees}">
           <input type="checkbox"
-            [checked]="settingsManager.settings.activeStandees && !settingsManager.settings.disableStandees"
+            [checked]="settingsManager.settings.activeStandees && settingsManager.settings.standees"
             (change)="settingsManager.setActiveStandees(!settingsManager.settings.activeStandees)">
           <span [ghs-label]="'settings.activeStandees'"></span>
         </label>
@@ -486,10 +542,9 @@
     </div>
     <div class="line">
       <div class="hint-container">
-        <label
-          [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || settingsManager.settings.disableStandees}">
+        <label [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || !settingsManager.settings.standees}">
           <input type="checkbox"
-            [checked]="settingsManager.settings.automaticStandees && !settingsManager.settings.disableStandees && settingsManager.settings.scenarioRooms"
+            [checked]="settingsManager.settings.automaticStandees && settingsManager.settings.standees && settingsManager.settings.scenarioRooms"
             (change)="settingsManager.setAutomaticStandees(!settingsManager.settings.automaticStandees)">
           <span [ghs-label]="'settings.automaticStandees'"></span>
         </label>
@@ -501,9 +556,8 @@
     </div>
     <div class="line">
       <div class="hint-container">
-        <label [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
-          <input type="checkbox"
-            [checked]="!settingsManager.settings.disableStandees && settingsManager.settings.standeeStats"
+        <label [ngClass]="{'disabled' : !settingsManager.settings.standees}">
+          <input type="checkbox" [checked]="settingsManager.settings.standees && settingsManager.settings.standeeStats"
             (change)="settingsManager.setStandeeStats(!settingsManager.settings.standeeStats)">
           <span [ghs-label]="'settings.standeeStats'"></span>
         </label>
@@ -519,9 +573,9 @@
     <div class="line">
       <div class="hint-container">
         <label
-          [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || settingsManager.settings.disableStandees || !settingsManager.settings.automaticStandees || settingsManager.settings.randomStandees}">
+          [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || !settingsManager.settings.standees || !settingsManager.settings.automaticStandees || settingsManager.settings.randomStandees}">
           <input type="checkbox"
-            [checked]="settingsManager.settings.automaticStandeesDialog && settingsManager.settings.automaticStandees && !settingsManager.settings.disableStandees  && !settingsManager.settings.randomStandees && settingsManager.settings.scenarioRooms"
+            [checked]="settingsManager.settings.automaticStandeesDialog && settingsManager.settings.automaticStandees && settingsManager.settings.standees  && !settingsManager.settings.randomStandees && settingsManager.settings.scenarioRooms"
             (change)="settingsManager.setAutomaticStandeesDialog(!settingsManager.settings.automaticStandeesDialog)">
           <span [ghs-label]="'settings.automaticStandeesDialog'"></span>
         </label>
@@ -533,9 +587,9 @@
     </div>
     <div class="line">
       <div class="hint-container">
-        <label [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
+        <label [ngClass]="{'disabled' : !settingsManager.settings.standees}">
           <input type="checkbox"
-            [checked]="settingsManager.settings.randomStandees && !settingsManager.settings.disableStandees"
+            [checked]="settingsManager.settings.randomStandees && settingsManager.settings.standees"
             (change)="settingsManager.setRandomStandees(!settingsManager.settings.randomStandees)">
           <span [ghs-label]="'settings.randomStandees'"></span>
         </label>
@@ -548,13 +602,13 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.disableStandees"
-            (change)="settingsManager.setDisableStandees(!settingsManager.settings.disableStandees)">
-          <span [ghs-label]="'settings.disableStandees'"></span>
+          <input type="checkbox" [checked]="settingsManager.settings.standees"
+            (change)="settingsManager.setStandees(!settingsManager.settings.standees)">
+          <span [ghs-label]="'settings.standees'"></span>
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
-          <span class="text" [ghs-label]="'settings.disableStandees.hint'"></span>
+          <span class="text" [ghs-label]="'settings.standees.hint'"></span>
         </span>
       </div>
     </div>
@@ -701,9 +755,10 @@
     </div>
     <div class="line">
       <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.lootDeck || !settingsManager.settings.applyLoot}">
+        <label
+          [ngClass]="{'disabled' : !settingsManager.settings.lootDeck || !settingsManager.settings.applyLoot || !settingsManager.settings.characterItems}">
           <input type="checkbox"
-            [checked]="settingsManager.settings.lootDeck && settingsManager.settings.applyLoot && settingsManager.settings.applyLootRandomItem"
+            [checked]="settingsManager.settings.lootDeck && settingsManager.settings.applyLoot && settingsManager.settings.characterItems && settingsManager.settings.applyLootRandomItem"
             (change)="settingsManager.setApplyLootRandomItem(!settingsManager.settings.applyLootRandomItem)">
           <span [ghs-label]="'settings.applyLootRandomItem'"></span>
         </label>
@@ -1043,13 +1098,13 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.disableDragFigures"
-            (change)="settingsManager.setDisableDragFigures(!settingsManager.settings.disableDragFigures)">
-          <span [ghs-label]="'settings.disableDragFigures'"></span>
+          <input type="checkbox" [checked]="settingsManager.settings.dragFigures"
+            (change)="settingsManager.setDragFigures(!settingsManager.settings.dragFigures)">
+          <span [ghs-label]="'settings.dragFigures'"></span>
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
-          <span class="text" [ghs-label]="'settings.disableDragFigures.hint'"></span>
+          <span class="text" [ghs-label]="'settings.dragFigures.hint'"></span>
         </span>
       </div>
     </div>
@@ -1182,13 +1237,13 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.disablePinchZoom"
-            (change)="settingsManager.setDisablePinchZoom(!settingsManager.settings.disablePinchZoom)">
-          <span [ghs-label]="'settings.disablePinchZoom'"></span>
+          <input type="checkbox" [checked]="settingsManager.settings.pinchZoom"
+            (change)="settingsManager.setPinchZoom(!settingsManager.settings.pinchZoom)">
+          <span [ghs-label]="'settings.pinchZoom'"></span>
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
-          <span class="text" [ghs-label]="'settings.disablePinchZoom.hint'"></span>
+          <span class="text" [ghs-label]="'settings.pinchZoom.hint'"></span>
         </span>
       </div>
     </div>
@@ -1288,13 +1343,13 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.disableColumns"
-            (change)="settingsManager.setDisableColumns(!settingsManager.settings.disableColumns)">
-          <span [ghs-label]="'settings.disableColumns'"></span>
+          <input type="checkbox" [checked]="settingsManager.settings.columns"
+            (change)="settingsManager.setColumns(!settingsManager.settings.columns)">
+          <span [ghs-label]="'settings.columns'"></span>
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
-          <span class="text" [ghs-label]="'settings.disableColumns.hint'"></span>
+          <span class="text" [ghs-label]="'settings.columns.hint'"></span>
         </span>
       </div>
     </div>
@@ -1302,13 +1357,13 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.disableAnimations"
-            (change)="settingsManager.setDisableAnimations(!settingsManager.settings.disableAnimations)">
-          <span [ghs-label]="'settings.disableAnimations'"></span>
+          <input type="checkbox" [checked]="settingsManager.settings.animations"
+            (change)="settingsManager.setAnimations(!settingsManager.settings.animations)">
+          <span [ghs-label]="'settings.animations'"></span>
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
-          <span class="text" [ghs-label]="'settings.disableAnimations.hint'"></span>
+          <span class="text" [ghs-label]="'settings.animations.hint'"></span>
         </span>
       </div>
     </div>
@@ -1316,13 +1371,13 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.disableArtwork"
-            (change)="settingsManager.setDisableArtwork(!settingsManager.settings.disableArtwork)">
-          <span [ghs-label]="'settings.disableArtwork'"></span>
+          <input type="checkbox" [checked]="settingsManager.settings.artwork"
+            (change)="settingsManager.setArtwork(!settingsManager.settings.artwork)">
+          <span [ghs-label]="'settings.artwork'"></span>
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
-          <span class="text" [ghs-label]="'settings.disableArtwork.hint'"></span>
+          <span class="text" [ghs-label]="'settings.artwork.hint'"></span>
         </span>
       </div>
     </div>
@@ -1330,13 +1385,13 @@
     <div class="line" *ngIf="wakeLock">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.disableWakeLock"
-            (change)="settingsManager.setDisableWakeLock(!settingsManager.settings.disableWakeLock)">
-          <span [ghs-label]="'settings.disableWakeLock'"></span>
+          <input type="checkbox" [checked]="settingsManager.settings.wakeLock"
+            (change)="settingsManager.setWakeLock(!settingsManager.settings.wakeLock)">
+          <span [ghs-label]="'settings.wakeLock'"></span>
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
-          <span class="text" [ghs-label]="'settings.disableWakeLock.hint'"></span>
+          <span class="text" [ghs-label]="'settings.wakeLock.hint'"></span>
         </span>
       </div>
     </div>
@@ -1462,8 +1517,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox"
-            [checked]="settingsManager.settings.hideCharacterHP"
+          <input type="checkbox" [checked]="settingsManager.settings.hideCharacterHP"
             (change)="settingsManager.setHideCharacterHP(!settingsManager.settings.hideCharacterHP)">
           <span [ghs-label]="'settings.hideCharacterHP'"></span>
         </label>
@@ -1476,8 +1530,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox"
-            [checked]="settingsManager.settings.hideCharacterLoot"
+          <input type="checkbox" [checked]="settingsManager.settings.hideCharacterLoot"
             (change)="settingsManager.setHideCharacterLoot(!settingsManager.settings.hideCharacterLoot)">
           <span [ghs-label]="'settings.hideCharacterLoot'"></span>
         </label>
@@ -1490,8 +1543,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox"
-            [checked]="settingsManager.settings.hideCharacterXP"
+          <input type="checkbox" [checked]="settingsManager.settings.hideCharacterXP"
             (change)="settingsManager.setHideCharacterXP(!settingsManager.settings.hideCharacterXP)">
           <span [ghs-label]="'settings.hideCharacterXP'"></span>
         </label>

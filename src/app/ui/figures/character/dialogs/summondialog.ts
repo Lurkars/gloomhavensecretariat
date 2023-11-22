@@ -83,7 +83,7 @@ export class CharacterSummonDialog {
   }
 
   addCustomSummon() {
-    gameManager.stateManager.before("addCustomSummon", "data.character." + this.character.name, '' + this.summonNumber, this.summonColor);
+    gameManager.stateManager.before("addCustomSummon", gameManager.characterManager.characterName(this.character), '' + this.summonNumber, this.summonColor);
     let summon: Summon = new Summon(uuidv4(), this.summonName, "", this.character.level, this.summonNumber, this.summonColor);
     summon.state = SummonState.new;
     gameManager.characterManager.addSummon(this.character, summon);
@@ -93,7 +93,7 @@ export class CharacterSummonDialog {
 
   addSummon(summonData: SummonData) {
     if (this.summonData().indexOf(summonData) != -1) {
-      gameManager.stateManager.before("addSummon", "data.character." + this.character.name, "data.summon." + summonData.name);
+      gameManager.stateManager.before("addSummon", gameManager.characterManager.characterName(this.character), "data.summon." + summonData.name);
       let summon: Summon = new Summon(uuidv4(), summonData.name, summonData.cardId, this.character.level, summonData.special ? 0 : this.summonNumber, summonData.special ? SummonColor.custom : this.summonColor, summonData);
       if (summonData.special) {
         summon.state = SummonState.true;

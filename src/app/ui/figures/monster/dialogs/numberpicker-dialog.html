@@ -3,7 +3,7 @@
     <div class="standee" *ngIf="automatic">
       <div class="background-image-container">
         <div class="background-image"
-          [style.background-image]="monster.noThumbnail  || settingsManager.settings.disableArtwork ? '' : 'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'">
+          [style.background-image]="monster.noThumbnail  || !settingsManager.settings.artwork ? '' : 'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'">
         </div>
       </div>
     </div>

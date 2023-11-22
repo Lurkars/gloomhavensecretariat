@@ -61,7 +61,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     }
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
-    }, settingsManager.settings.disableAnimations ? 0 : 250);
+    }, !settingsManager.settings.animations ? 0 : 250);
   }
 
   toggleEdit() {

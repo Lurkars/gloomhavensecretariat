@@ -85,7 +85,7 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
   setInitiative(initiative: number) {
     if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0 || initiative > 0) && initiative < 100 && initiative != this.figure.initiative) {
       if (this.character) {
-        gameManager.stateManager.before("setInitiative", "data.character." + this.figure.name, "" + initiative);
+        gameManager.stateManager.before("setInitiative", gameManager.characterManager.characterName(this.character), "" + initiative);
         this.character.initiativeVisible = true;
         this.character.longRest = false;
         if (initiative == 99) {
@@ -104,7 +104,7 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
 
   longRestOff(event: any) {
     if (this.character && this.character.longRest) {
-      gameManager.stateManager.before("characterLongRestOff", "data.character." + this.character.name);
+      gameManager.stateManager.before("characterLongRestOff", gameManager.characterManager.characterName(this.character));
       this.character.longRest = false;
       if (gameManager.game.state == GameState.next) {
         gameManager.sortFigures(this.character);
