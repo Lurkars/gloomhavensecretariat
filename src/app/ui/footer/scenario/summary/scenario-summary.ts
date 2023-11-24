@@ -210,7 +210,6 @@ export class ScenarioSummaryComponent {
 
     updateState(forceCampaign: boolean = false): void {
         this.forceCampaign = forceCampaign;
-        this.challenges = 0;
         this.numberChallenges = 0;
         this.rewards = undefined;
         this.townGuardAMs = [];

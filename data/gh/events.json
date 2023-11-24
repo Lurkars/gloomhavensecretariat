@@ -491,5 +491,62 @@
                 ]
             }
         ]
+    },
+    {
+        "type": "city",
+        "cardId": 10,
+        "options": [
+            {
+                "effects": [
+                    {
+                        "condition": {
+                            "type": "reputationGT",
+                            "value": "-5"
+                        },
+                        "text": true,
+                        "rewards": [
+                            [
+                                {
+                                    "type": "loseGold",
+                                    "value": "5"
+                                }
+                            ]
+                        ],
+                        "return": true
+                    },
+                    {
+                        "condition": {
+                            "type": "otherwise"
+                        },
+                        "text": true,
+                        "remove": true,
+                        "rewards": [
+                            [
+                                {
+                                    "type": "gold",
+                                    "value": 5
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            },
+            {
+                "outcome": true,
+                "remove": true,
+                "effects": [
+                    {
+                        "rewards": [
+                            [
+                                {
+                                    "type": "reputation",
+                                    "value": 1
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 ]
