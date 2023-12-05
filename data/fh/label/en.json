@@ -4,7 +4,8 @@
     "blinkblade": {
       ".": "Blinkblade",
       "fast": "Fast",
-      "slow": "Slow"
+      "slow": "Slow",
+      "time_tokens": "%data.characterToken.blinkblade.time% Time Tokens"
     },
     "boneshaper": "Boneshaper",
     "deathwalker": "Deathwalker",
@@ -522,5 +523,216 @@
     "552": "The Study of Life",
     "557": "The Greatest Challenge",
     "543": "The Choosen One"
+  },
+  "custom": {
+    "fh": {
+      "abael-herder": {
+        "1": "Grant the closest Piranha Pig<br>within %game.action.range:4%:",
+        "2": "Grant all Piranha Pigs within %game.action.range:3%:",
+        "3": "Piranha Pig suffers %game.damage:1%.",
+        "4": "Grant the closest<br>Piranha Pig within %game.action.range:4%:",
+        "5": "If no Piranha Pig was targeted<br>by the grant ability:",
+        "6": "where X is the number of<br>Piranha Pigs on the map."
+      },
+      "algox-icespeaker": {
+        "1": "Create one 1-hex obstacle<br>tile in an adjacent empty<br>hex closest to an enemy.",
+        "2": "All enemies adjacent to the created<br>obstacle suffer hazardous terrain damage."
+      },
+      "algox-snowspeaker": {
+        "1": "All enemies within<br>%game.action.range:3% suffer %game.damage:2%"
+      },
+      "ancient-artillery": {
+        "1": "Focus on the enemy<br>farthest away within %game.action.range:7%",
+        "2": "All enemies adjacent to<br>the target suffer %game.damage:2%."
+      },
+      "archer": {
+        "1": "Create one %game.damage:3% trap in an adjacent<br>empty hex closest to an enemy."
+      },
+      "belara": {
+        "1": "All allies and enemies adjacent<br>to the target suffer %game.damage:2%",
+        "2": "All enemies within %game.action.range:4% suffer %game.damage:2%."
+      },
+      "burrowing-blade": {
+        "1": "All adjacent enemies suffer %game.damage:2%.",
+        "2": "All enemies within %game.action.range:2% suffer %game.damage:2%."
+      },
+      "chaos-demon": {
+        "1": "%game.custom.advantage%"
+      },
+      "chaos-spark": {
+        "1": "+(2xT)",
+        "2": "where T is the number of damage tokens on the target's character mat",
+        "3": "Cannot focus on character summons."
+      },
+      "city-guard-scenario-1": {
+        "1": "Does not Perform a Turn"
+      },
+      "deep-terror": {
+        "1": "If the attack ability was performed",
+        "2": "in an empty hex adjacent to the target<br>of the attack ability"
+      },
+      "fish-king-scenario-76": {
+        "1": "The Fish King does not act"
+      },
+      "flame-demon": {
+        "1": "Create one %game.damage:4% trap in an adjacent<br>empty hex closest to an enemy",
+        "2": "%game.damage:1%",
+        "3": "All adjacent<br>enemies suffer %game.damage:2%"
+      },
+      "flaming-bladespinner": {
+        "1": "All enemies within<br>%game.action.range:2% suffer %game.damage:2%.",
+        "2": "All enemies within %game.action.range:2% suffer %game.damage:1%."
+      },
+      "frost-demon": {
+        "1": "%game.damage:1%"
+      },
+      "frozen-corpse": {
+        "1": "If the element is consumed by<br>the Frozen Corpse during the<br>move ability, it suffers %game.damage:2%."
+      },
+      "giant-piranha-pig-boss": {
+        "1": "Nothing",
+        "2": "Move all water tiles 2 hexes to the right",
+        "3": "Move all water tiles 1 hex to the right."
+      },
+      "harrower-infester": {
+        "1": "Perform \"%game.action.heal% X, self\" where X is<br>twice the number of enemies<br>targeted by the attack ability."
+      },
+      "hound": {
+        "1": "Add +2 %game.action.attack% if the target is adjacent<br>to any of the Hound's allies."
+      },
+      "laser-spires": {
+        "1": "Rotate each laser spire clockwise (if able)",
+        "2": "Rotate each laser spire counterclockwise (if able)",
+        "3": "All characters and character summons adjacent to a laser spire suffer hazardous terrain damage",
+        "4": "Emit laster, starting at %game.mapMarker.a%"
+      },
+      "living-doom": {
+        "1": "Summon X normal<br>Living Spirits",
+        "2": "<br>where X is the Living<br>Doom's current hit point value<br>divided by 5 (rounded down),<br>up to a maximum of three."
+      },
+      "lurker-clawcrusher": {
+        "1": "The target suffers %game.damage:X%, where X<br>is their %game.action.shield% value for this attack.",
+        "2": "X is double their %game.action.shield% value instead."
+      },
+      "lurker-mindsnipper": {
+        "1": "Control all targets of the attack<br>ability in initiative order:"
+      },
+      "lurker-soldier": {
+        "1": "%game.action.target% enemies within 2 hexes"
+      },
+      "lurker-wavethrower-scenario-128": {
+        "1": "Focus on the enemy<br>farthest away within %game.action.range:6%",
+        "2": "Create one 1-hex water tile<br>in an adjacent empty hex."
+      },
+      "lurker-wavethrower-scenario-131": {
+        "1": "Focus on the enemy<br>farthest away within %game.action.range:6%",
+        "2": "Create one 1-hex water tile<br>in an adjacent empty hex.",
+        "3": "to the leftmost empty hex if it is an odd round or rightmost if it is even"
+      },
+      "lurker-wavethrower": {
+        "1": "Focus on the enemy<br>farthest away within %game.action.range:6%",
+        "2": "Create one 1-hex water tile<br>in an adjacent empty hex.",
+        "3": "in an adjacent unoccupied<br>hex with a water tile."
+      },
+      "night-demon": {
+        "1": "All adjacent allies and<br>enemies suffer %game.damage:1%.",
+        "2": "%game.custom.disadvantage%"
+      },
+      "ooze": {
+        "1": "with H equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values)."
+      },
+      "piranha-pig": {
+        "1": "Add +1 %game.action.attack% if the target is adjacent<br>to any of the Piranha Pig's allies.",
+        "2": "Add +2 %game.action.attack% if the target has %game.condition.wound%.",
+        "3": "Add +1 %game.action.attack% if the target is occupying<br>a water tile.",
+        "4": "where X is the amount of<br>damage suffered by the<br>target of the attack ability."
+      },
+      "ruined-machine": {
+        "1": "If the move ability was performed,",
+        "2": "If the attack ability was performed,",
+        "3": "If the attack ability was performed,<br>all adjacent enemies suffer trap damage<br>and the Ruined Machine dies."
+      },
+      "savvas-icestorm": {
+        "1": "Grant all allies within %game.action.range:2% and self:"
+      },
+      "savvas-lavaflow": {
+        "1": "All allies and enemies adjacent<br>to the target suffer %game.damage:2%",
+        "2": "All enemies within %game.action.range:4% suffer %game.damage:2%."
+      },
+      "shrike-fiend": {
+        "1": "All enemies within %game.action.range:3% suffer %game.damage:2%."
+      },
+      "steel-automaton": {
+        "1": "All adjacent enemies suffer %game.damage:1%",
+        "2": "All adjacent enemies suffer<br>hazardous terrain damage."
+      },
+      "algox-stormcaller": {
+        "1": "Create hazardous terrain, and all enemies occupying or adjacent to hazardous terrain suffer damage."
+      },
+      "black-imp": {
+        "1": "%game.custom.disadvantage%"
+      },
+      "brother": {
+        "1": "One Brother performs:",
+        "2": "Brother %game.mapMarker.b% performs:"
+      },
+      "chaos-lieutenant": {
+        "1": "At end of round, perform:",
+        "2": "where X is (RxL)/2 (rounded down), and R is the number of Ruinied Machines currently on the map"
+      },
+      "elder-ooze": {
+        "1": "The target loses one item.",
+        "2": "All adjacent characters gain 1 slime."
+      },
+      "fish-king-scenario-77": {
+        "1": "Kill the closest Piranha Pig.<br>All adjacent enemies suffer trap damage."
+      },
+      "frozen-corpse-scenario-32": {
+        "1": "See scenario Special Rules"
+      },
+      "harbinger-of-shadow": {
+        "1": "Boss %game.mapMarker.2% does not act.",
+        "2": "Boss %game.mapMarker.1% does not act."
+      },
+      "lightning-eel": {
+        "1": "Treats water hexes as corridors and non-water hexes as obstacles"
+      },
+      "lord-of-chaos": {
+        "1": "Force all enemies to move one hex toward the closest unoccupied corridor hex."
+      },
+      "orphan": {
+        "1": "self or glowing orb"
+      },
+      "prince-of-frost": {
+        "1": "One character %game.card.recover% one lost card.",
+        "2": "One character loses one card."
+      },
+      "program-director": {
+        "1": "to an empty hex closest to focus",
+        "2": "Ally to all monsters this round",
+        "3": "Focus on closest enemy",
+        "4": "to any empty hex closest to focus"
+      },
+      "render": {
+        "1": "to farthest carving and destroy it.",
+        "2": "Destroy all adjacent carvings."
+      },
+      "seeker-of-the-abyss": {
+        "1": "All targets lose one card.",
+        "2": "Create one %game.condition.immobilize% trap in an adjacent empty hex.",
+        "3": "All allies add +1 %game.action.attack% to all their attacks this round."
+      },
+      "sun-demon": {
+        "1": "%game.custom.advantage%"
+      },
+      "tormentor": {
+        "1": "Create 1-hex hazardous terrain in all featureless hexes adjacent to target, enemies in these hexes suffer",
+        "2": "Create 1-hex icy terrain in all featureless hexes adjacent to targets of the attack"
+      },
+      "vestige-of-the-imprisoned-god": {
+        "1": "Modify terrain.",
+        "2": "All characters who did not attack suffer trap damage at end of round."
+      }
+    }
   }
 }

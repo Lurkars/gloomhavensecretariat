@@ -44,7 +44,7 @@
             },
             {
               "type": "custom",
-              "value": "The target suffers %game.damage:X%, where X<br>is their %game.action.shield% value for this attack.",
+              "value": "%data.custom.fh.lurker-clawcrusher.1%",
               "subActions": [
                 {
                   "type": "element",
@@ -53,7 +53,7 @@
                   "subActions": [
                     {
                       "type": "custom",
-                      "value": "X is double their %game.action.shield% value instead.",
+                      "value": "%data.custom.fh.lurker-clawcrusher.2%",
                       "small": true
                     }
                   ]
@@ -175,7 +175,7 @@
             },
             {
               "type": "custom",
-              "value": "The target suffers %game.damage:X%, where X<br>is their %game.action.shield% value for this attack.",
+              "value": "%data.custom.fh.lurker-clawcrusher.1%",
               "subActions": [
                 {
                   "type": "element",
@@ -184,7 +184,7 @@
                   "subActions": [
                     {
                       "type": "custom",
-                      "value": "X is double their %game.action.shield% value instead.",
+                      "value": "%data.custom.fh.lurker-clawcrusher.2%",
                       "small": true
                     }
                   ]

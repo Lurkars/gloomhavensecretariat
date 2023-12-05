@@ -103,20 +103,20 @@ export class UndoDialogComponent implements OnInit, OnDestroy {
 
     getUndoRevision(i: number): number {
         const undos = gameManager.stateManager.undos;
-        return undos[i].revision - (undos[i].revisionOffset || 0);
+        return undos[i] && undos[i].revision - (undos[i].revisionOffset || 0) || 0;
     }
 
     getRedoRevision(i: number): number {
         const redos = gameManager.stateManager.redos;
         const index = redos.length - i - 1;
-        return redos[index].revision - (redos[index].revisionOffset || 0);
+        return redos[index] && redos[index].revision - (redos[index].revisionOffset || 0) || 0;
     }
 
     undo(index: number, force: boolean = false) {
         if (!force && this.undoConfirm != 'undo-' + index) {
             this.undoConfirm = 'undo-' + index;
         } else {
-            gameManager.stateManager.fixedUndo(this.undoArray.length - index);
+            gameManager.stateManager.fixedUndo(gameManager.stateManager.undos.length - index);
         }
     }
 

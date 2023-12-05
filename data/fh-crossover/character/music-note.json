@@ -13,6 +13,12 @@
   ],
   "color": "#db6e8d",
   "spoiler": true,
+  "specialActions": [
+    {
+      "name": "song_active",
+      "expire": true
+    }
+  ],
   "stats": [
     {
       "level": 1,
@@ -303,10 +309,5 @@
   "masteries": [
     "On your first turn of the scenario and the turn after each of your rests, perform one Song action that you have not yet performed this scenario",
     "Havel all 10 monster %game.condition.curse% cards and all 10 %game.condition.bless% cards in modifier decks at the same time"
-  ],
-  "specialActions": [
-    {
-      "name": "song_active"
-    }
   ]
 }

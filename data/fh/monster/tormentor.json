@@ -48,7 +48,7 @@
         },
         {
           "type": "custom",
-          "value": "Create 1-hex hazardous terrain in all featureless hexes adjacent to target, enemies in these hexes suffer",
+          "value": "%data.custom.fh.tormentor.1%",
           "small": true,
           "subActions": [
             {
@@ -109,7 +109,7 @@
         },
         {
           "type": "custom",
-          "value": "Create 1-hex icy terrain in all featureless hexes adjacent to targets of the attack",
+          "value": "%data.custom.fh.tormentor.2%",
           "small": true
         },
         {

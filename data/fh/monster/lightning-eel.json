@@ -8,7 +8,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Treats water hexes as corridors and non-water hexes as obstacles"
+        "value": "%data.custom.fh.lightning-eel.1%"
       }
     ]
   },
@@ -70,7 +70,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Treats water hexes as corridors and non-water hexes as obstacles"
+          "value": "%data.custom.fh.lightning-eel.1%"
         }
       ]
     },
@@ -83,7 +83,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Treats water hexes as corridors and non-water hexes as obstacles"
+          "value": "%data.custom.fh.lightning-eel.1%"
         }
       ]
     },
@@ -96,7 +96,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Treats water hexes as corridors and non-water hexes as obstacles"
+          "value": "%data.custom.fh.lightning-eel.1%"
         }
       ]
     },
@@ -109,7 +109,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Treats water hexes as corridors and non-water hexes as obstacles"
+          "value": "%data.custom.fh.lightning-eel.1%"
         }
       ]
     },
@@ -122,7 +122,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Treats water hexes as corridors and non-water hexes as obstacles"
+          "value": "%data.custom.fh.lightning-eel.1%"
         }
       ]
     },
@@ -135,7 +135,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Treats water hexes as corridors and non-water hexes as obstacles"
+          "value": "%data.custom.fh.lightning-eel.1%"
         }
       ]
     },
@@ -148,7 +148,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Treats water hexes as corridors and non-water hexes as obstacles"
+          "value": "%data.custom.fh.lightning-eel.1%"
         }
       ]
     },
@@ -161,7 +161,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Treats water hexes as corridors and non-water hexes as obstacles"
+          "value": "%data.custom.fh.lightning-eel.1%"
         }
       ]
     }

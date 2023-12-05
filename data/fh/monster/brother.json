@@ -14,7 +14,7 @@
       [
         {
           "type": "custom",
-          "value": "One Brother performs:",
+          "value": "%data.custom.fh.brother.1%",
           "small": true,
           "subActions": [
             {
@@ -28,7 +28,7 @@
       [
         {
           "type": "custom",
-          "value": "Brother %game.mapMarker.b% performs:",
+          "value": "%data.custom.fh.brother.2%",
           "small": true,
           "subActions": [
             {

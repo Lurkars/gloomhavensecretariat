@@ -74,7 +74,7 @@ export class StateManager {
       }
     }
 
-    this.loadStorage();
+    await this.loadStorage();
 
     // migration
     const missingUndoInfos = this.undos.length + this.redos.length - this.undoInfos.length;
@@ -708,6 +708,8 @@ export class StateManager {
         gameManager.uiChange.emit();
       }
       this.lastAction = "undo";
+    } else {
+      console.log(undolength, this.undos.length);
     }
   }
 

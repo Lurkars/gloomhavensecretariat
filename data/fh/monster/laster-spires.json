@@ -11,13 +11,13 @@
       [
         {
           "type": "custom",
-          "value": "All characters and character summons adjacent to a laser spire suffer hazardous terrain damage"
+          "value": "%data.custom.fh.laser-spires.3%"
         }
       ],
       [
         {
           "type": "custom",
-          "value": "Emit laster, starting at %game.mapMarker.a%"
+          "value": "%data.custom.fh.laser-spires.4%"
         }
       ]
     ]

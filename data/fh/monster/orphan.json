@@ -22,7 +22,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "self or glowing orb",
+              "value": "%data.custom.fh.orphan.1%",
               "small": true
             }
           ]

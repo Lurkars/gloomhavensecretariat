@@ -132,7 +132,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.action.target% enemies within 2 hexes",
+              "value": "%data.custom.fh.lurker-soldier.1%",
               "small": true
             },
             {

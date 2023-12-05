@@ -10,7 +10,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Does not Perform a Turn"
+          "value": "%data.custom.fh.city-guard-scenario-1.1%"
         }
       ]
     }

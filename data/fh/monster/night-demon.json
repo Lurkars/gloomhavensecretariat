@@ -7,7 +7,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "%game.custom.disadvantage%"
+        "value": "%data.custom.fh.night-demon.2%"
       }
     ]
   },

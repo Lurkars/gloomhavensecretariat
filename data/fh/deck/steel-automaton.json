@@ -27,7 +27,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "All adjacent enemies suffer %game.damage:1%",
+          "value": "%data.custom.fh.steel-automaton.1%",
           "small": true
         },
         {
@@ -37,7 +37,7 @@
         },
         {
           "type": "custom",
-          "value": "All adjacent enemies suffer<br>hazardous terrain damage.",
+          "value": "%data.custom.fh.steel-automaton.2%",
           "small": true
         }
       ]

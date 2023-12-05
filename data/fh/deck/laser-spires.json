@@ -77,7 +77,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Rotate each laser spire clockwise (if able)"
+          "value": "%data.custom.fh.laser-spires.1%"
         }
       ]
     },
@@ -88,7 +88,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Rotate each laser spire counterclockwise (if able)"
+          "value": "%data.custom.fh.laser-spires.2%"
         }
       ]
     }

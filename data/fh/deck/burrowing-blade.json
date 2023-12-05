@@ -87,7 +87,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "All adjacent enemies suffer %game.damage:2%.",
+          "value": "%data.custom.fh.burrowing-blade.1%",
           "small": true
         },
         {
@@ -161,7 +161,7 @@
         },
         {
           "type": "custom",
-          "value": "All enemies within %game.action.range:2% suffer %game.damage:2%.",
+          "value": "%data.custom.fh.burrowing-blade.2%",
           "small": true
         },
         {

@@ -24,7 +24,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "to an empty hex closest to focus",
+                  "value": "%data.custom.fh.program-director.1%",
                   "small": true
                 }
               ]
@@ -47,18 +47,18 @@
       [
         {
           "type": "custom",
-          "value": "Ally to all monsters this round"
+          "value": "%data.custom.fh.program-director.2%"
         },
         {
           "type": "custom",
-          "value": "Focus on closest enemy",
+          "value": "%data.custom.fh.program-director.3%",
           "subActions": [
             {
               "type": "teleport",
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "to any empty hex closest to focus",
+                  "value": "%data.custom.fh.program-director.4%",
                   "small": true
                 }
               ]

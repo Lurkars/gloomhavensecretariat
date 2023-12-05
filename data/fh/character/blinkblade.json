@@ -3,8 +3,8 @@
   "characterClass": "quatryl",
   "edition": "fh",
   "identities": [
-    "fast",
-    "slow"
+    "slow",
+    "fast"
   ],
   "tokens": [
     "time"
@@ -17,6 +17,11 @@
     "resourceful"
   ],
   "color": "#01b0db",
+  "specialActions": [
+    {
+      "name": "time_tokens"
+    }
+  ],
   "stats": [
     {
       "level": 1,

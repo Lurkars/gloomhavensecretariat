@@ -212,11 +212,11 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Summon X normal<br>Living Spirits",
+          "value": "%data.custom.fh.living-doom.1%",
           "subActions": [
             {
               "type": "custom",
-              "value": "<br>where X is the Living<br>Doom's current hit point value<br>divided by 5 (rounded down),<br>up to a maximum of three.",
+              "value": "%data.custom.fh.living-doom.2%",
               "small": true
             }
           ]

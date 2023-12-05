@@ -14,7 +14,7 @@
         },
         {
           "type": "grant",
-          "value": "Grant the closest Piranha Pig<br>within %game.action.range:4%:",
+          "value": "%data.custom.fh.abael-herder.1%",
           "small": true,
           "subActions": [
             {
@@ -43,7 +43,7 @@
         },
         {
           "type": "grant",
-          "value": "Grant all Piranha Pigs within %game.action.range:3%:",
+          "value": "%data.custom.fh.abael-herder.2%",
           "small": true,
           "subActions": [
             {
@@ -58,7 +58,7 @@
             },
             {
               "type": "custom",
-              "value": "Piranha Pig suffers %game.damage:1%.",
+              "value": "%data.custom.fh.abael-herder.3%",
               "small": true
             }
           ]
@@ -118,7 +118,7 @@
       "actions": [
         {
           "type": "grant",
-          "value": "Grant the closest<br>Piranha Pig within %game.action.range:4%:",
+          "value": "%data.custom.fh.abael-herder.4%",
           "small": true,
           "subActions": [
             {
@@ -142,7 +142,7 @@
         },
         {
           "type": "custom",
-          "value": "If no Piranha Pig was targeted<br>by the grant ability:",
+          "value": "%data.custom.fh.abael-herder.5%",
           "small": true,
           "subActions": [
             {
@@ -216,7 +216,7 @@
             },
             {
               "type": "custom",
-              "value": "where X is the number of<br>Piranha Pigs on the map.",
+              "value": "%data.custom.fh.abael-herder.6%",
               "small": true
             }
           ]

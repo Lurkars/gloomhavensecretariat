@@ -192,7 +192,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Perform \"%game.action.heal% X, self\" where X is<br>twice the number of enemies<br>targeted by the attack ability.",
+              "value": "%data.custom.fh.harrower-infester.1%",
               "small": true
             }
           ]

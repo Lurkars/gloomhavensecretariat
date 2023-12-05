@@ -34,7 +34,7 @@
             },
             {
               "type": "custom",
-              "value": "to farthest carving and destroy it.",
+              "value": "%data.custom.fh.render.1%",
               "small": true
             }
           ]
@@ -60,7 +60,7 @@
       [
         {
           "type": "custom",
-          "value": "Destroy all adjacent carvings.",
+          "value": "%data.custom.fh.render.2%",
           "small": true
         },
         {

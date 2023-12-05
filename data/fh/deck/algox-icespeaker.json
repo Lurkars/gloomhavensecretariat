@@ -157,12 +157,12 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Create one 1-hex obstacle<br>tile in an adjacent empty<br>hex closest to an enemy.",
+          "value": "%data.custom.fh.algox-icespeaker.1%",
           "small": true
         },
         {
           "type": "custom",
-          "value": "All enemies adjacent to the created<br>obstacle suffer hazardous terrain damage.",
+          "value": "%data.custom.fh.algox-icespeaker.2%",
           "small": true
         },
         {

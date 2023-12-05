@@ -16,13 +16,13 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "+(2xT)"
+              "value": "%data.custom.fh.chaos-spark.1%"
             }
           ]
         },
         {
           "type": "custom",
-          "value": "where T is the number of damage tokens on the target's character mat",
+          "value": "%data.custom.fh.chaos-spark.2%",
           "small": true
         }
       ]

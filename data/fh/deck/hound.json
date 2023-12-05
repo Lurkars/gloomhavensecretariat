@@ -76,7 +76,7 @@
             },
             {
               "type": "custom",
-              "value": "Add +2 %game.action.attack% if the target is adjacent<br>to any of the Hound's allies.",
+              "value": "%data.custom.fh.hound.1%",
               "small": true
             }
           ]
@@ -105,7 +105,7 @@
             },
             {
               "type": "custom",
-              "value": "Add +2 %game.action.attack% if the target is adjacent<br>to any of the Hound's allies.",
+              "value": "%data.custom.fh.hound.1%",
               "small": true
             }
           ]

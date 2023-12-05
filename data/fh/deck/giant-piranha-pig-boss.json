@@ -77,7 +77,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Nothing"
+          "value": "%data.custom.fh.giant-piranha-pig-boss.1%"
         }
       ]
     },
@@ -88,7 +88,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Nothing"
+          "value": "%data.custom.fh.giant-piranha-pig-boss.1%"
         }
       ]
     }

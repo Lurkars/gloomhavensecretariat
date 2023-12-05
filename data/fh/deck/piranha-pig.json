@@ -24,7 +24,7 @@
             },
             {
               "type": "custom",
-              "value": "Add +1 %game.action.attack% if the target is adjacent<br>to any of the Piranha Pig's allies.",
+              "value": "%data.custom.fh.piranha-pig.1%",
               "small": true
             }
           ]
@@ -52,7 +52,7 @@
             },
             {
               "type": "custom",
-              "value": "Add +2 %game.action.attack% if the target has %game.condition.wound%.",
+              "value": "%data.custom.fh.piranha-pig.2%",
               "small": true
             }
           ]
@@ -80,7 +80,7 @@
             },
             {
               "type": "custom",
-              "value": "Add +1 %game.action.attack% if the target is occupying<br>a water tile.",
+              "value": "%data.custom.fh.piranha-pig.3%",
               "small": true
             }
           ]
@@ -115,7 +115,7 @@
             },
             {
               "type": "custom",
-              "value": "where X is the amount of<br>damage suffered by the<br>target of the attack ability.",
+              "value": "%data.custom.fh.piranha-pig.4%",
               "small": true
             }
           ]

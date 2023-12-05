@@ -58,7 +58,7 @@
       [
         {
           "type": "custom",
-          "value": "Create hazardous terrain, and all enemies occupying or adjacent to hazardous terrain suffer damage.",
+          "value": "%data.custom.fh.algox-stormcaller.1%",
           "small": true
         },
         {

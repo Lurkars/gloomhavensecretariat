@@ -236,12 +236,11 @@ export class ScenarioSummaryComponent {
                     this.characters.forEach((char, index) => this.collectiveGold[index] = 0);
                 }
                 if (this.rewards.items) {
-                    this.characters.forEach((char, index) => this.items[index] = []);
                     this.rewards.items.forEach((item, index) => {
                         const itemData = gameManager.itemManager.getItem(+item.split(':')[0].split('-')[0], item.split(':')[0].split('-').slice(1).join('-') || this.scenario.edition, true);
                         if (itemData) {
-                            this.rewardItems.push(itemData);
-                            this.rewardItemCount.push(item.indexOf(':') == -1 ? 1 : +item.split(':')[1]);
+                            this.rewardItems[index] = itemData;
+                            this.rewardItemCount[index] = item.indexOf(':') == -1 ? 1 : +item.split(':')[1];
 
                             // add automatically on (potential) solo scenario
                             if (this.characters.filter((char) => !char.absent).length == 1) {

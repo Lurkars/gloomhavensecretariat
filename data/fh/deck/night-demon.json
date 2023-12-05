@@ -229,7 +229,7 @@
         },
         {
           "type": "custom",
-          "value": "All adjacent allies and<br>enemies suffer %game.damage:1%."
+          "value": "%data.custom.fh.night-demon.1%"
         },
         {
           "type": "element",

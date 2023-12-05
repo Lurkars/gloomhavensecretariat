@@ -12,10 +12,12 @@ export class CharacterSpecialAction {
   name: string;
   level: number;
   noTag: boolean;
+  expire: boolean;
 
-  constructor(name: string, level: number = 0, noTag: boolean = false) {
+  constructor(name: string, level: number = 0, noTag: boolean = false, expire: boolean = false) {
     this.name = name;
     this.level = level;
     this.noTag = noTag;
+    this.expire = expire;
   }
 }

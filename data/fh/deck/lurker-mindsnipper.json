@@ -223,7 +223,7 @@
         },
         {
           "type": "grant",
-          "value": "Control all targets of the attack<br>ability in initiative order:",
+          "value": "%data.custom.fh.lurker-mindsnipper.1%",
           "small": true,
           "subActions": [
             {

@@ -33,7 +33,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "All targets lose one card.",
+              "value": "%data.custom.fh.seeker-of-the-abyss.1%",
               "small": true
             }
           ]
@@ -42,12 +42,12 @@
       [
         {
           "type": "custom",
-          "value": "Create one %game.condition.immobilize% trap in an adjacent empty hex.",
+          "value": "%data.custom.fh.seeker-of-the-abyss.2%",
           "small": true
         },
         {
           "type": "custom",
-          "value": "All allies add +1 %game.action.attack% to all their attacks this round.",
+          "value": "%data.custom.fh.seeker-of-the-abyss.3%",
           "small": true
         }
       ]

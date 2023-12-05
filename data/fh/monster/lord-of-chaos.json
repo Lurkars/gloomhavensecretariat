@@ -86,7 +86,7 @@
         },
         {
           "type": "custom",
-          "value": "Force all enemies to move one hex toward the closest unoccupied corridor hex.",
+          "value": "%data.custom.fh.lord-of-chaos.1%",
           "small": true
         }
       ]

@@ -39,7 +39,8 @@
 
       <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.loot'"></span></span>
       <span class="calc-col" *ngFor="let character of characters; let index = index;">
-        {{character.loot | ghsValueSign}}
+        <span *ngIf="!gameManager.game.lootDeck.cards.length">{{character.loot | ghsValueSign}}</span>
+        <span *ngIf="gameManager.game.lootDeck.cards.length">{{character.lootCards.length}}/{{gameManager.game.lootDeck.cards.length}}</span>
       </span>
 
       <ng-container *ngIf="success && rewards && rewards.gold">

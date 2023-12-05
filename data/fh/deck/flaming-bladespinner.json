@@ -94,7 +94,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "All enemies within<br>%game.action.range:2% suffer %game.damage:2%.",
+              "value": "%data.custom.fh.flaming-bladespinner.1%",
               "small": true
             }
           ]
@@ -150,7 +150,7 @@
         },
         {
           "type": "custom",
-          "value": "All enemies within %game.action.range:2% suffer %game.damage:1%.",
+          "value": "%data.custom.fh.flaming-bladespinner.2%",
           "small": true
         },
         {

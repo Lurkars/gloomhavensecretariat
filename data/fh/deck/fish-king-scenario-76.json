@@ -10,7 +10,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "The Fish King does not act"
+          "value": "%data.custom.fh.fish-king-scenario-76.1%"
         }
       ]
     }

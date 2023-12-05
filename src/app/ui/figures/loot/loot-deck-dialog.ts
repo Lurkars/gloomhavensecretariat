@@ -66,9 +66,11 @@ export class LootDeckDialogComponent implements OnInit {
       next: () => {
         const close = this.deck.cards.length == 0;
         let deck = new LootDeck();
-        gameManager.lootManager.apply(deck, this.lootDeckConfig);
-        if (close && deck.cards.length > 0) {
-          this.applyConfig();
+        if (!close) {
+          gameManager.lootManager.apply(deck, this.lootDeckConfig);
+          if (deck.cards.length > 0) {
+            this.applyConfig();
+          }
         }
       }
     })
@@ -112,6 +114,25 @@ export class LootDeckDialogComponent implements OnInit {
       this.configuration = true;
     }
   }
+
+  toggleSpecial(lootType: LootType) {
+    const index = gameManager.game.lootDeckFixed.indexOf(lootType);
+    const config = this.deck.cards.length != 0;
+    this.before.emit(new LootDeckChange(this.deck, 'lootDeckChangeConfig'));
+    if (index == -1) {
+      gameManager.game.lootDeckFixed.push(lootType);
+      if (config) {
+        this.lootDeckConfig[lootType] = 1;
+      }
+    } else {
+      gameManager.game.lootDeckFixed.splice(index, 1);
+      if (config) {
+        this.lootDeckConfig[lootType] = 0;
+      }
+    }
+    this.after.emit(new LootDeckChange(this.deck, 'lootDeckChangeConfig'));
+  }
+
 
   maxValue(type: LootType): number {
     return gameManager.lootManager.fullLootDeck().filter((loot) => loot.type == type).length;

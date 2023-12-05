@@ -9,12 +9,10 @@
   },
   "edition": "gh",
   "rewards": {
-    "envelopes": [
-      "%data.characterIcon.angry-face%"
-    ],
     "gold": 10,
     "reputation": 2,
-    "custom": "\"Take Back the Trees\" quest complete"
+    "custom": "\"Take Back the Trees\" quest complete",
+    "unlockCharacter": "angry-face"
   },
   "monsters": [
     "bandit-archer",

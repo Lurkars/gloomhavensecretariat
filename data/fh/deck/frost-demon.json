@@ -233,7 +233,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.damage:1%",
+              "value": "%data.custom.fh.frost-demon.1%",
               "small": true,
               "subActions": [
                 {

@@ -29,14 +29,14 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "The target loses one item.",
+              "value": "%data.custom.fh.elder-ooze.1%",
               "small": true
             }
           ]
         },
         {
           "type": "custom",
-          "value": "All adjacent characters gain 1 slime.",
+          "value": "%data.custom.fh.elder-ooze.2%",
           "small": true
         }
       ],

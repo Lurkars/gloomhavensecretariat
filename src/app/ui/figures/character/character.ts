@@ -185,11 +185,26 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   nextIdentity(event: any): void {
     if (settingsManager.settings.characterIdentities && this.character.identities && this.character.identities.length > 1) {
+
+      let timeTokens = this.character.tags.find((tag) => tag === 'time_tokens') && this.character.primaryToken == 0;
+
+      if (timeTokens && this.character.identity == 0 && this.character.tokenValues[0] == 0) {
+        return;
+      }
+
       gameManager.stateManager.before("nextIdentity", gameManager.characterManager.characterName(this.character));
       this.character.identity++;
       if (this.character.identity >= this.character.identities.length) {
         this.character.identity = 0;
       }
+      if (timeTokens) {
+        if (this.character.tokenValues[0] < 2 && this.character.identity == 0) {
+          this.character.tokenValues[0] += 1;
+        } else if (this.character.identity != 0) {
+          this.character.tokenValues[0] -= 1;
+        }
+      }
+
       gameManager.stateManager.after();
       event.preventDefault();
     } else {

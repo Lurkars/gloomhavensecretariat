@@ -15,7 +15,7 @@
       },
       {
         "type": "custom",
-        "value": "At end of round, perform:",
+        "value": "%data.custom.fh.chaos-lieutenant.1%",
         "small": true,
         "subActions": [
           {
@@ -29,7 +29,7 @@
               },
               {
                 "type": "custom",
-                "value": "where X is (RxL)/2 (rounded down), and R is the number of Ruinied Machines currently on the map",
+                "value": "%data.custom.fh.chaos-lieutenant.2%",
                 "small": true
               }
             ]

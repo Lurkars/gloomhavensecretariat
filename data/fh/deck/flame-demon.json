@@ -108,7 +108,7 @@
         },
         {
           "type": "custom",
-          "value": "Create one %game.damage:4% trap in an adjacent<br>empty hex closest to an enemy",
+          "value": "%data.custom.fh.flame-demon.1%",
           "small": true
         },
         {
@@ -185,7 +185,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.damage:1%",
+              "value": "%data.custom.fh.flame-demon.2%",
               "small": true,
               "subActions": [
                 {
@@ -212,7 +212,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "All adjacent<br>enemies suffer %game.damage:2%",
+              "value": "%data.custom.fh.flame-demon.3%",
               "small": true
             }
           ]

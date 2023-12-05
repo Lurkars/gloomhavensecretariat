@@ -8,6 +8,12 @@
   "retireEvent": "54",
   "color": "#db6e8d",
   "spoiler": true,
+  "specialActions": [
+    {
+      "name": "song_active",
+      "expire": true
+    }
+  ],
   "stats": [
     {
       "level": 1,
@@ -288,11 +294,6 @@
           }
         }
       ]
-    }
-  ],
-  "specialActions": [
-    {
-      "name": "song_active"
     }
   ]
 }

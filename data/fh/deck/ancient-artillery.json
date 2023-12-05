@@ -9,7 +9,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Focus on the enemy<br>farthest away within %game.action.range:7%",
+          "value": "%data.custom.fh.ancient-artillery.1%",
           "small": true
         },
         {
@@ -50,7 +50,7 @@
             },
             {
               "type": "custom",
-              "value": "All enemies adjacent to<br>the target suffer %game.damage:2%.",
+              "value": "%data.custom.fh.ancient-artillery.2%",
               "small": true
             }
           ]
@@ -81,7 +81,7 @@
             },
             {
               "type": "custom",
-              "value": "All enemies adjacent to<br>the target suffer %game.damage:2%.",
+              "value": "%data.custom.fh.ancient-artillery.2%",
               "small": true
             }
           ]

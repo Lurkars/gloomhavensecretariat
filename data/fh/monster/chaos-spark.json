@@ -10,7 +10,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Cannot focus on character summons."
+        "value": "%data.custom.fh.chaos-spark.3%"
       }
     ]
   },

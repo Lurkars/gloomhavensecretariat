@@ -424,7 +424,11 @@ export class RoundManager {
           figure.progress.gold = 0;
         }
 
-        figure.tags = figure.tags.filter((tag) => tag != 'new-character' && !figure.specialActions.find((specialAction) => specialAction.name == tag));
+        figure.tags = figure.tags.filter((tag) => tag != 'new-character' && !figure.specialActions.find((specialAction) => specialAction.name == tag && specialAction.expire));
+
+        if (figure.tags.find((tag) => tag === 'time_tokens') && figure.primaryToken == 0) {
+          figure.tokenValues[0] = 1;
+        }
 
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));
 

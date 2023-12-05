@@ -116,7 +116,7 @@
             },
             {
               "type": "custom",
-              "value": "All allies and enemies adjacent<br>to the target suffer %game.damage:2%",
+              "value": "%data.custom.fh.belara.1%",
               "small": true
             }
           ]
@@ -175,7 +175,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "All enemies within %game.action.range:4% suffer %game.damage:2%.",
+          "value": "%data.custom.fh.belara.2%",
           "small": true
         },
         {

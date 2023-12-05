@@ -181,7 +181,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "with H equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values).",
+              "value": "%data.custom.fh.ooze.1%",
               "small": true
             }
           ]
@@ -204,7 +204,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "with H equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values).",
+              "value": "%data.custom.fh.ooze.1%",
               "small": true
             }
           ]

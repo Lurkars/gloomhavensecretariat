@@ -12,13 +12,13 @@
       [
         {
           "type": "custom",
-          "value": "Move all water tiles 2 hexes to the right"
+          "value": "%data.custom.fh.giant-piranha-pig-boss.2%"
         }
       ],
       [
         {
           "type": "custom",
-          "value": "Move all water tiles 1 hex to the right."
+          "value": "%data.custom.fh.giant-piranha-pig-boss.3%"
         },
         {
           "type": "summon",

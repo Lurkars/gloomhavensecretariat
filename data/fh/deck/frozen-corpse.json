@@ -144,7 +144,7 @@
         },
         {
           "type": "custom",
-          "value": "If the element is consumed by<br>the Frozen Corpse during the<br>move ability, it suffers %game.damage:2%.",
+          "value": "%data.custom.fh.frozen-corpse.1%",
           "small": true
         },
         {
@@ -181,7 +181,7 @@
         },
         {
           "type": "custom",
-          "value": "If the element is consumed by<br>the Frozen Corpse during the<br>move ability, it suffers %game.damage:2%.",
+          "value": "%data.custom.fh.frozen-corpse.1%",
           "small": true
         },
         {

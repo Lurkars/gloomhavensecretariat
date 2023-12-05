@@ -9,14 +9,12 @@
   },
   "edition": "gh",
   "rewards": {
-    "envelopes": [
-      "%data.characterIcon.squidface%"
-    ],
     "events": [
       "city:59",
       "road:59"
     ],
-    "custom": "Immediately retire the Seeker of Xorn. City and Road events instead of normal retirement events for the class"
+    "custom": "Immediately retire the Seeker of Xorn. City and Road events instead of normal retirement events for the class",
+    "unlockCharacter": "squidface"
   },
   "monsters": [
     "cave-bear-scenario-54",

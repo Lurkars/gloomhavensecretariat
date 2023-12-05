@@ -50,7 +50,7 @@
         },
         {
           "type": "custom",
-          "value": "Modify terrain."
+          "value": "%data.custom.fh.vestige-of-the-imprisoned-god.1%"
         },
         {
           "type": "push",
@@ -70,7 +70,7 @@
         },
         {
           "type": "custom",
-          "value": "All characters who did not attack suffer trap damage at end of round."
+          "value": "%data.custom.fh.vestige-of-the-imprisoned-god.2%"
         }
       ]
     ]

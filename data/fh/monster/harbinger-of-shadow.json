@@ -35,7 +35,7 @@
         },
         {
           "type": "custom",
-          "value": "Boss %game.mapMarker.2% does not act.",
+          "value": "%data.custom.fh.harbinger-of-shadow.1%",
           "small": true
         }
       ],
@@ -59,7 +59,7 @@
         },
         {
           "type": "custom",
-          "value": "Boss %game.mapMarker.1% does not act.",
+          "value": "%data.custom.fh.harbinger-of-shadow.2%",
           "small": true
         }
       ]

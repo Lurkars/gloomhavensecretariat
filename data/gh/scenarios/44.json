@@ -21,10 +21,8 @@
     }
   ],
   "rewards": {
-    "envelopes": [
-      "%data.characterIcon.angry-face%"
-    ],
-    "reputation": 2
+    "reputation": 2,
+    "unlockCharacter": "angry-face"
   },
   "monsters": [
     "hound",

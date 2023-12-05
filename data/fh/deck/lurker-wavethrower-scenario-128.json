@@ -26,7 +26,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Focus on the enemy<br>farthest away within %game.action.range:6%",
+          "value": "%data.custom.fh.lurker-wavethrower-scenario-128.1%",
           "small": true
         },
         {
@@ -79,7 +79,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Create one 1-hex water tile<br>in an adjacent empty hex.",
+          "value": "%data.custom.fh.lurker-wavethrower-scenario-128.2%",
           "small": true
         },
         {
@@ -135,7 +135,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Create one 1-hex water tile<br>in an adjacent empty hex.",
+          "value": "%data.custom.fh.lurker-wavethrower-scenario-128.2%",
           "small": true
         },
         {
