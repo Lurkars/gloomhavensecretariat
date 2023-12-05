@@ -110,6 +110,26 @@
       ]
     },
     {
+      "name": "Power Shot",
+      "cardId": 758,
+      "initiative": 64,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Nothing Special",
       "cardId": 759,
       "initiative": 31,
@@ -127,26 +147,6 @@
             {
               "type": "range",
               "value": 4,
-              "small": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Power Shot",
-      "cardId": 758,
-      "initiative": 64,
-      "shuffle": true,
-      "actions": [
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "range",
-              "value": 5,
               "small": true
             }
           ]

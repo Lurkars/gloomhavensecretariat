@@ -80,6 +80,42 @@
       ]
     },
     {
+      "name": "Burning Gaze",
+      "cardId": 725,
+      "initiative": 84,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Rooted Fear",
       "cardId": 726,
       "initiative": 75,
@@ -188,42 +224,6 @@
                   "small": true
                 }
               ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Burning Gaze",
-      "cardId": 725,
-      "initiative": 84,
-      "actions": [
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "specialTarget",
-              "value": "enemiesAdjacent",
-              "small": true
-            }
-          ]
-        },
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "range",
-              "value": 4,
-              "small": true
-            },
-            {
-              "type": "condition",
-              "value": "wound",
-              "small": true
             }
           ]
         }
