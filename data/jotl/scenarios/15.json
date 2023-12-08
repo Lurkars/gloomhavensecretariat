@@ -55,7 +55,7 @@
         {
           "monster": {
             "name": "black-imp",
-            "player4": "normal"
+            "type": "normal"
           },
           "marker": "A",
           "count": "F"
@@ -80,6 +80,7 @@
         {
           "monster": {
             "name": "black-imp",
+            "player3": "normal",
             "player4": "normal"
           },
           "marker": "B",
