@@ -28,6 +28,7 @@ export class Settings {
   autoBackupFinish: boolean = false;
   autoBackupUrl: { url: string, method: string, fileUpload: boolean, username: string | undefined, password: string | undefined, authorization: string | undefined } | undefined;
   automaticAttackModifierFullscreen: boolean = true;
+  automaticPassTime: boolean = true;
   automaticStandees: boolean = true;
   automaticStandeesDialog: boolean = false;
   automaticTheme: boolean = true;

@@ -247,9 +247,11 @@ export class ScenarioSummaryComponent {
                                 const char = this.characters.find((char) => !char.absent);
                                 if (char) {
                                     if (this.items[this.characters.indexOf(char)] === undefined) {
-                                      this.items[this.characters.indexOf(char)] = [];
+                                        this.items[this.characters.indexOf(char)] = [];
                                     }
-                                    this.items[this.characters.indexOf(char)].push(index);
+                                    if (this.items[this.characters.indexOf(char)].indexOf(index) == -1) {
+                                        this.items[this.characters.indexOf(char)].push(index);
+                                    }
                                 }
                             }
                         } else {

@@ -307,7 +307,7 @@ export class ScenarioManager {
       } else {
         if (scenario && !scenario.conclusion && gameManager.fhRules() && !linkedScenario && settingsManager.settings.partySheet && !internal && gainRewards) {
 
-          if (!scenario.solo) {
+          if (settingsManager.settings.automaticPassTime && !scenario.solo) {
             this.game.party.weeks++;
           }
 
@@ -637,7 +637,7 @@ export class ScenarioManager {
   isBlocked(scenarioData: ScenarioData): boolean {
     let blocked = false;
 
-    let finishedScenarios = gameManager.scenarioData().filter((other) => (scenarioData.edition == other.edition || gameManager.editionExtensions(scenarioData.edition).indexOf(other.edition)) && other.group == scenarioData.group && other.blocks && other.blocks.indexOf(scenarioData.index) != -1 && this.game.party.scenarios.find((finishedScenario) => finishedScenario.edition == other.edition && finishedScenario.group == other.group && finishedScenario.index == other.index));
+    let finishedScenarios = gameManager.scenarioData().filter((other) => (scenarioData.edition == other.edition || gameManager.editionExtensions(scenarioData.edition).indexOf(other.edition) != -1) && other.group == scenarioData.group && other.blocks && other.blocks.indexOf(scenarioData.index) != -1 && this.game.party.scenarios.find((finishedScenario) => finishedScenario.edition == other.edition && finishedScenario.group == other.group && finishedScenario.index == other.index));
 
     if (finishedScenarios.length > 1) {
       finishedScenarios.filter((model) => model.group == scenarioData.group);

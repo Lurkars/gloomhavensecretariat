@@ -188,7 +188,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
       let timeTokens = this.character.tags.find((tag) => tag === 'time_tokens') && this.character.primaryToken == 0;
 
-      if (timeTokens && this.character.identity == 0 && this.character.tokenValues[0] == 0) {
+      if ((gameManager.game.state == GameState.next || gameManager.game.state == GameState.draw && this.character.identity == 0 && this.character.tokenValues[0] == 0) && timeTokens) {
         return;
       }
 
@@ -197,14 +197,6 @@ export class CharacterComponent implements OnInit, OnDestroy {
       if (this.character.identity >= this.character.identities.length) {
         this.character.identity = 0;
       }
-      if (timeTokens) {
-        if (this.character.tokenValues[0] < 2 && this.character.identity == 0) {
-          this.character.tokenValues[0] += 1;
-        } else if (this.character.identity != 0) {
-          this.character.tokenValues[0] -= 1;
-        }
-      }
-
       gameManager.stateManager.after();
       event.preventDefault();
     } else {
@@ -266,6 +258,8 @@ export class CharacterComponent implements OnInit, OnDestroy {
       this.token = - this.character.token;
     } else if (this.character.primaryToken >= 0 && this.character.tokenValues[this.character.primaryToken] + this.token < 0) {
       this.token = - this.character.tokenValues[this.character.primaryToken];
+    } else if (this.character.tags.find((tag) => tag === 'time_tokens') && this.character.primaryToken == 0 && this.character.tokenValues[0] + this.token > 5) {
+      this.token = 5 - this.character.tokenValues[this.character.primaryToken];
     }
   }
 
@@ -279,6 +273,11 @@ export class CharacterComponent implements OnInit, OnDestroy {
       } else {
         gameManager.stateManager.before("setCharacterTokenValue", gameManager.characterManager.characterName(this.character), this.character.tokens[this.character.primaryToken], '' + (this.character.token + this.token));
         this.character.tokenValues[this.character.primaryToken] += this.token;
+
+        if (this.character.tags.find((tag) => tag === 'time_tokens') && this.character.primaryToken == 0 && this.character.tokenValues[0] > 5) {
+          this.character.tokenValues[0] = 5;
+        }
+
         this.token = 0;
         gameManager.stateManager.after();
       }

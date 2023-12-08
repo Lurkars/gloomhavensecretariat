@@ -1496,6 +1496,10 @@
       ".": "Autom. Vollbild AM-Deck",
       "hint": "Angrifssmodifikatordeck (und Beute Deck) auf kleinen Bildschirmen automatisch in Vollansicht öffnen. (Deaktiviert ohne Portraitmodus Optimierungen)"
     },
+    "automaticPassTime": {
+      ".": "Automatisch Kalender Wochen vertreichen",
+      "hint": "Automatisch eine Kalender Woche versteichen nach Abschluss eines Szenarios. Dies fügt auch automatisch Effekte von möglichen Sektionen in der Kalendarwoche hinzu."
+    },
     "automaticStandees": {
       ".": "Automatische Aufsteller",
       "hint": "Automatisches Hinzufügen von Aufstellern."

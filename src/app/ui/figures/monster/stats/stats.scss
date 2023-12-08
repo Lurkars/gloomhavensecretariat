@@ -168,7 +168,7 @@
     position: absolute;
     top: 4.8em;
     left: 16.5em;
-    width: 8.4em;
+    width: calc(8.4em * var(--ghs-fontsize));
     height: 11.4em;
     display: grid;
     grid-template-columns: 50% 0 50%;
@@ -192,6 +192,7 @@
       display: flex;
 
       .value {
+        font-size: calc(1em * var(--ghs-fontsize));
         display: block;
         width: 100%;
         white-space: nowrap;
@@ -216,7 +217,7 @@
           bottom: 0;
           right: 0;
           height: 1px;
-          width: 100%;
+          width: calc(100% / var(--ghs-fontsize));
           background: linear-gradient(to right, transparent, var(--ghs-color-darkred));
         }
       }
@@ -233,7 +234,7 @@
           bottom: 0;
           left: 0;
           height: 1px;
-          width: 100%;
+          width: calc(100% / var(--ghs-fontsize));
           background: linear-gradient(to right, var(--ghs-color-white), transparent);
         }
       }
@@ -382,22 +383,23 @@
 
   .immunities {
     position: absolute;
-    top: 5.6em;
-    left: 1.4em;
+    top: calc(5.6em +  2.25em - 2.25em * var(--ghs-fontsize));
+    left: calc(1.4em + 1.125em - 1.125em * var(--ghs-fontsize));
     display: grid;
     justify-items: center;
     align-items: center;
-    grid-template-columns: repeat(5, 2.25em);
-    grid-template-rows: repeat(8, 1.125em);
-    column-gap: 0.4em;
-    row-gap: 0.2em;
+    grid-template-columns: repeat(5, calc(2.25em * var(--ghs-fontsize)));
+    grid-template-rows: repeat(8, calc(1.125em * var(--ghs-fontsize)));
+    column-gap: calc(0.4em * var(--ghs-fontsize));
+    row-gap: calc(0.2em * var(--ghs-fontsize));
+    z-index: 0;
 
     .immunity {
 
       position: relative;
       display: block;
-      width: 2.25em;
-      height: 2.25em;
+      width: calc(2.25em * var(--ghs-fontsize));
+      height: calc(2.25em * var(--ghs-fontsize));
 
       img {
         position: absolute;

@@ -1,19 +1,22 @@
 <div class="menu-container two-column sheets">
 
-    <div class="line span" [ngClass]="{'disabled' : !gameManager.game.edition}">
+    <div class="line span"
+        [ngClass]="{'disabled' : !gameManager.game.edition || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
         <label>
             <input type="checkbox" [checked]="!gameManager.game.edition" (change)="setEdition()">
             &lt;<span [ghs-label]="'edition.all'"></span>&gt;
         </label>
     </div>
     <div class="line" *ngFor="let edition of gameManager.editions()">
-        <label [ngClass]="{'disabled' : gameManager.game.edition == edition}">
+        <label
+            [ngClass]="{'disabled' : gameManager.game.edition == edition || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
             <input type="checkbox" [checked]="gameManager.game.edition == edition" (change)="setEdition(edition)">
             <span [ghs-label]="'data.edition.' + edition"></span>
         </label>
     </div>
     <div class="line separator ">
-        <label>
+        <label
+            [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
             <input type="checkbox" [checked]="gameManager.game.party.campaignMode" (change)="toggleCampaignMode()">
             <span [ghs-label]="'party.campaignMode'"></span>
         </label>
@@ -40,7 +43,8 @@
         <a (click)="openItems()" [ghs-label]="'campaign.items'"></a>
     </div>
 
-    <div class="line" *ngIf="settingsManager.settings.battleGoals">
+    <div class="line" *ngIf="settingsManager.settings.battleGoals"
+        [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
         <a (click)="openBattleGoalsSetup()" [ghs-label]="'campaign.battleGoals'"></a>
     </div>
 
@@ -67,7 +71,8 @@
     </div>
     <div class="line">
         <div class="conditions">
-            <span class="item" *ngFor="let condition of conditions">
+            <span class="item" *ngFor="let condition of conditions"
+                [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
                 <span class="condition" (click)="toggleCondition(condition.name)"
                     [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'"
                     [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'"
@@ -81,7 +86,8 @@
     </div>
     <div class="line">
         <div class="conditions">
-            <span class="item" *ngFor="let condition of amConditions">
+            <span class="item" *ngFor="let condition of amConditions"
+                [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
                 <span class="condition" (click)="toggleCondition(condition.name)"
                     [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'"
                     [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'"
@@ -109,7 +115,7 @@
     </div>
     <div class="line" *ngFor="let party of gameManager.game.parties">
         <label *ngIf="gameManager.game.party != party"
-            [ngClass]="{'disabled' :  gameManager.game.parties.length == 1 || gameManager.game.scenario}">
+            [ngClass]="{'disabled' :  gameManager.game.parties.length == 1 || gameManager.game.scenario || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
             <input type="checkbox" [checked]="gameManager.game.party == party" (change)="changeParty(party)">
             <span *ngIf="party.name">{{party.name}}</span>
             <span *ngIf="!party.name"><span [ghs-label]="'party.campaign'"></span>&nbsp;{{party.id}}</span>
@@ -127,7 +133,7 @@
 
     <div class="line span">
         <a (click)="addParty()" [ghs-label]="'campaign.campaignManagement.add'"
-            [ngClass]="{'disabled' : gameManager.game.scenario}"></a>
+            [ngClass]="{'disabled' : gameManager.game.scenario || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}"></a>
     </div>
 
 </div>

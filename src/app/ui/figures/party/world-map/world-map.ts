@@ -87,13 +87,15 @@ export class WorldMapComponent implements AfterViewInit {
                     overlay.setZIndex(index + 1);
 
                     overlay.on('click', () => {
-                        const scenarioData = this.scenarios[index];
-                        if (!this.success[index] && gameManager.game.party.campaignMode && !gameManager.scenarioManager.isBlocked(scenarioData)) {
-                            const scenario = new Scenario(scenarioData);
-                            gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
-                            gameManager.scenarioManager.setScenario(scenario);
-                            this.dialogRef.close();
-                            gameManager.stateManager.after();
+                        if (!gameManager.stateManager.permissions || gameManager.stateManager.permissions.scenario) {
+                            const scenarioData = this.scenarios[index];
+                            if (!this.success[index] && gameManager.game.party.campaignMode && !gameManager.scenarioManager.isBlocked(scenarioData)) {
+                                const scenario = new Scenario(scenarioData);
+                                gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
+                                gameManager.scenarioManager.setScenario(scenario);
+                                this.dialogRef.close();
+                                gameManager.stateManager.after();
+                            }
                         }
                     });
                     overlay.on('mouseover', (event) => { event.target.setZIndex(this.scenarios.length + 1); });

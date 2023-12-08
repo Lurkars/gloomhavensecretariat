@@ -277,6 +277,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setAutomaticPassTime(automaticPassTime: boolean) {
+    this.settings.automaticPassTime = automaticPassTime;
+    this.storeSettings();
+  }
+
   setAutomaticStandees(automaticStandees: boolean) {
     this.settings.automaticStandees = automaticStandees;
     this.storeSettings();

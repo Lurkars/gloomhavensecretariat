@@ -427,7 +427,7 @@ export class RoundManager {
         figure.tags = figure.tags.filter((tag) => tag != 'new-character' && !figure.specialActions.find((specialAction) => specialAction.name == tag && specialAction.expire));
 
         if (figure.tags.find((tag) => tag === 'time_tokens') && figure.primaryToken == 0) {
-          figure.tokenValues[0] = 1;
+          figure.tokenValues[0] = 0;
         }
 
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));

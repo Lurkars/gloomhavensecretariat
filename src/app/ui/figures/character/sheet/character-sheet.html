@@ -152,8 +152,10 @@
               </ng-container>
             </div>
           </label>
-          <textarea [value]="character.progress.notes" (change)="setNotes($event)"
-            [ghs-label]="'character.progress.notes'" [ghs-label-attribute]="'placeholder'"></textarea>
+          <textarea class="ignore-denied"
+            [readOnly]="!gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]"
+            [value]="character.progress.notes" (change)="setNotes($event)" [ghs-label]="'character.progress.notes'"
+            [ghs-label-attribute]="'placeholder'"></textarea>
         </div>
 
         <ghs-character-items *ngIf="!fhSheet" class="row" [character]="character"></ghs-character-items>
@@ -178,7 +180,8 @@
         <hr class="compact-separator" *ngIf="!fhSheet">
         <div class="row perks">
           <label *ngIf="!fhSheet" class="headline"><span [ghs-label]="'game.attackModifiers.perks'"></span></label>
-          <div class="list">
+          <div class="list ignore-denied"
+            [ngClass]="{'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]}">
             <div class="perk" *ngFor="let perk of character.perks; let i = index;">
               <div class="checkboxes" [ngClass]="{'combined' : perk.combined}">
                 <span class="checkbox" *ngFor="let count of []|ghsRange:perk.count"
@@ -218,10 +221,13 @@
 
     <div class="additional">
       <hr class="compact-separator">
-      <label class="headline" *ngIf="!settingsManager.settings.characterSheetCompact || !fhSheet"><span [ghs-label]="'character.progress.notes'"></span></label>
+      <label class="headline" *ngIf="!settingsManager.settings.characterSheetCompact || !fhSheet"><span
+          [ghs-label]="'character.progress.notes'"></span></label>
       <div class="columns">
         <div class="column column-left">
-          <textarea *ngIf="!fhSheet" [value]="character.progress.notes" (change)="setNotes($event)"
+          <textarea class="ignore-denied"
+            [readOnly]="!gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]"
+            *ngIf="!fhSheet" [value]="character.progress.notes" (change)="setNotes($event)"
             [ghs-label]="'character.progress.notes'" [ghs-label-attribute]="'placeholder'"></textarea>
 
 
@@ -314,7 +320,7 @@
               <img src="./assets/images/import.svg"><span [ghs-label]="'character.progress.import'"></span>
             </label>
           </div>
-          <span class="toggle-fh-sheet" (click)="toggleFhSheet()">
+          <span class="toggle-fh-sheet ignore-denied" (click)="toggleFhSheet()">
             <span [ghs-label]="'character.progress.fh.' + (fhSheet ? 'disable': 'enable')"></span>
           </span>
         </div>

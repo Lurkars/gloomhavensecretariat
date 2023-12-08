@@ -8,7 +8,7 @@
       <span [ghs-label]="'scenario.eventEffects.hint'"></span>
     </div>
 
-    <div class="characters">
+    <div class="characters" [ngClass]="{'denied' : gameManager.stateManager.permissions && (!gameManager.stateManager.permissions.characters || !gameManager.stateManager.permissions.party)}">
       <a class="character" *ngFor="let character of characters" (click)="toggleCharacter(character)"
         [ngClass]="{'inactive' : activeCharacters.indexOf(character) == -1}">
         <img class="icon" [src]="character.iconUrl">
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div class="scroll-container container">
+  <div class="scroll-container container" [ngClass]="{'denied' : gameManager.stateManager.permissions && (!gameManager.stateManager.permissions.characters || !gameManager.stateManager.permissions.party)}">
 
     <div class="entity-container" *ngIf="gameManager.game.scenario">
 

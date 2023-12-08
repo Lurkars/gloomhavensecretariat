@@ -800,6 +800,20 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !gameManager.fhRules()}">
+          <input type="checkbox" [checked]="settingsManager.settings.automaticPassTime && gameManager.fhRules()"
+            (change)="settingsManager.setAutomaticPassTime(!settingsManager.settings.automaticPassTime)">
+          <span [ghs-label]="'settings.automaticPassTime'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.automaticPassTime.hint'"></span>
+        </span>
+      </div>
+    </div>
+
+    <div class="line">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : !gameManager.fhRules()}">
           <input type="checkbox" [checked]="settingsManager.settings.applyBuildingRewards && gameManager.fhRules()"
             (change)="settingsManager.setApplyBuildingRewards(!settingsManager.settings.applyBuildingRewards)">
           <span [ghs-label]="'settings.applyBuildingRewards'"></span>
