@@ -1646,6 +1646,10 @@
       ".": "Auto fullscreen AM Deck",
       "hint": "Open Attack Modifier Deck (and also Loot Deck) in fullscreen mode when on small devices. (Disabled without Portrait-Mode Optimization)"
     },
+    "automaticPassTime": {
+      ".": "Automatic pass calendar time",
+      "hint": "Automatic pass time by adding a week to the calendar after finishing a scenario. This also automatically adds effects of calendar sections in this week."
+    },
     "automaticStandees": {
       ".": "Automatic Standees",
       "hint": "Automatic addition of standees."
