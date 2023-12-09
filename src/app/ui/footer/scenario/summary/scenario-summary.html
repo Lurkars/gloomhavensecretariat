@@ -54,7 +54,8 @@
       </ng-container>
 
       <ng-container *ngIf="success && rewards && rewards.collectiveGold">
-        <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.rewards.collectiveGold'"></span></span>
+        <span class="head-col"><span class="text-white"
+            [ghs-label]="'scenario.summary.rewards.collectiveGold'"></span></span>
         <span class="calc-col" *ngFor="let character of characters; let index = index;">
           <input type="number" min="0" [max]="collectiveGold[index] + availableCollectiveGold()"
             [value]="collectiveGold[index]" (change)="changeCollectiveGold($event, index)">
@@ -63,13 +64,13 @@
 
       <ng-container *ngIf="success && rewards && rewards.collectiveResources">
         <ng-container *ngFor="let value of rewards.collectiveResources">
-
-
-          <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.rewards.collectiveResoruce'"
+          <span class="head-col"><span class="text-white" [ghs-label]="'scenario.summary.rewards.collectiveResource'"
               [ghs-label-args]="[value.type]"></span></span>
           <span class="calc-col" *ngFor="let character of characters; let index = index;">
-            <input type="number" min="0" [max]="(collectiveResources[index][value.type] || 0) + availableCollectiveResource(value.type)"
-              [value]="(collectiveResources[index][value.type] || 0)" (change)="changeCollectiveResource($event, index, value.type)">
+            <input type="number" min="0"
+              [max]="(collectiveResources[index][value.type] || 0) + availableCollectiveResource(value.type)"
+              [value]="(collectiveResources[index][value.type] || 0)"
+              (change)="changeCollectiveResource($event, index, value.type)">
           </span>
 
         </ng-container>

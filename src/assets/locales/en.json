@@ -1463,6 +1463,8 @@
       "randomItems": "Random Items",
       "rewards": {
         ".": "Scenario Rewards",
+        "collectiveGold": "Collective %game.resource.gold%",
+        "collectiveResource": "Collective %game.resource.{0}%",
         "experience": "Reward XP",
         "gold": "Reward Gold"
       },

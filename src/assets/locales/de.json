@@ -1313,6 +1313,9 @@
       "randomItemLooted": "Zufälligen Gegenstand erbeutet",
       "randomItems": "Zufällige Gegenstände",
       "rewards": {
+        ".": "Szenario Belohnungen",
+        "collectiveGold": "gemeinschaftliches %game.resource.gold%",
+        "collectiveResource": "gemeinschaftliches %game.resource.{0}%",
         "experience": "EP Belohnung",
         "gold": "Gold Belohnung"
       },
