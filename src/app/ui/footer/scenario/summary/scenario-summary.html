@@ -40,7 +40,8 @@
       <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.loot'"></span></span>
       <span class="calc-col" *ngFor="let character of characters; let index = index;">
         <span *ngIf="!gameManager.game.lootDeck.cards.length">{{character.loot | ghsValueSign}}</span>
-        <span *ngIf="gameManager.game.lootDeck.cards.length">{{character.lootCards.length}}/{{gameManager.game.lootDeck.cards.length}}</span>
+        <span
+          *ngIf="gameManager.game.lootDeck.cards.length">{{character.lootCards.length}}/{{gameManager.game.lootDeck.cards.length}}</span>
       </span>
 
       <ng-container *ngIf="success && rewards && rewards.gold">
@@ -58,6 +59,21 @@
           <input type="number" min="0" [max]="collectiveGold[index] + availableCollectiveGold()"
             [value]="collectiveGold[index]" (change)="changeCollectiveGold($event, index)">
         </span>
+      </ng-container>
+
+      <ng-container *ngIf="success && rewards && rewards.collectiveResources">
+        <ng-container *ngFor="let value of rewards.collectiveResources">
+
+
+          <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.rewards.collectiveResoruce'"
+              [ghs-label-args]="[value.type]"></span></span>
+          <span class="calc-col" *ngFor="let character of characters; let index = index;">
+            <input type="number" min="0" [max]="(collectiveResources[index][value.type] || 0) + availableCollectiveResource(value.type)"
+              [value]="(collectiveResources[index][value.type] || 0)" (change)="changeCollectiveResource($event, index, value.type)">
+          </span>
+
+        </ng-container>
+
       </ng-container>
 
       <span class="head-col">

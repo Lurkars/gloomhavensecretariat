@@ -190,6 +190,7 @@ export class ScenarioFinish {
   success: boolean = false;
   battleGoals: number[] = [];
   collectiveGold: number[] = [];
+  collectiveResources: Partial<Record<LootType, number>>[] = [];
   items: number[][] = [];
   chooseLocation: string | undefined;
   chooseUnlockCharacter: string | undefined;

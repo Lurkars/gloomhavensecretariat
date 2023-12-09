@@ -227,16 +227,6 @@ export class ScenarioManager {
               })
             }
 
-            if (rewards.collectiveResources) {
-              rewards.collectiveResources.forEach((item) => {
-                this.game.party.loot[item.type] = (this.game.party.loot[item.type] || 0) + EntityValueFunction(item.value);
-
-                if ((this.game.party.loot[item.type] || 0) < 0) {
-                  this.game.party.loot[item.type] = 0;
-                }
-              })
-            }
-
             if (rewards.calendarSection) {
               rewards.calendarSection.forEach((calendarSection) => {
                 if (calendarSection.split('-').length > 1) {

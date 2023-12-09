@@ -41,6 +41,7 @@ export class ScenarioSummaryComponent {
     characters: Character[];
     battleGoals: number[] = [];
     collectiveGold: number[] = [];
+    collectiveResources: Partial<Record<LootType, number>>[] = [];
     lootColumns: LootType[] = [];
     lootColumnsLooted: number[] = [];
     lootColumnsTotal: number[] = [];
@@ -178,6 +179,7 @@ export class ScenarioSummaryComponent {
         finish.chooseLocation = this.chooseLocation;
         finish.chooseUnlockCharacter = this.chooseUnlockCharacter;
         finish.collectiveGold = this.collectiveGold;
+        finish.collectiveResources = this.collectiveResources;
         finish.items = this.items;
         finish.calendarSectionManual = this.calendarSectionManual;
         finish.randomItem = this.randomItem ? new Identifier('' + this.randomItem.id, this.randomItem.edition) : undefined;
@@ -198,6 +200,7 @@ export class ScenarioSummaryComponent {
             this.chooseLocation = finish.chooseLocation;
             this.chooseUnlockCharacter = finish.chooseUnlockCharacter;
             this.collectiveGold = finish.collectiveGold;
+            this.collectiveResources = finish.collectiveResources;
             this.items = finish.items;
             this.calendarSectionManual = finish.calendarSectionManual || finish.calenderSectionManual;
             this.randomItem = finish.randomItem ? gameManager.itemManager.getItem(+finish.randomItem.name, finish.randomItem.edition, true) : undefined;
@@ -233,7 +236,18 @@ export class ScenarioSummaryComponent {
 
             if (settingsManager.settings.scenarioRewards && this.rewards) {
                 if (this.rewards.collectiveGold) {
-                    this.characters.forEach((char, index) => this.collectiveGold[index] = 0);
+                    this.characters.forEach((char, index) => {
+                        if (!this.collectiveGold[index]) {
+                            this.collectiveGold[index] = 0
+                        }
+                    });
+                }
+                if (this.rewards.collectiveResources) {
+                    this.characters.forEach((char, index) => {
+                        if (!this.collectiveResources[index]) {
+                            this.collectiveResources[index] = {};
+                        }
+                    });
                 }
                 if (this.rewards.items) {
                     this.rewards.items.forEach((item, index) => {
@@ -261,13 +275,14 @@ export class ScenarioSummaryComponent {
                     })
                 }
                 if (this.rewards.chooseItem) {
-                    this.characters.forEach((char, index) => this.items[index] = []);
+                    let index = 0;
                     this.rewards.chooseItem.forEach((itemList) => {
-                        itemList.forEach((item, index) => {
+                        itemList.forEach((item) => {
                             const itemData = gameManager.itemManager.getItem(+item.split(':')[0].split('-')[0], item.split(':')[0].split('-').slice(1).join('-') || this.scenario.edition, true);
                             if (itemData) {
-                                this.rewardItems.push(itemData);
-                                this.rewardItemCount.push(item.indexOf(':') == -1 ? 1 : +item.split(':')[1]);
+                                this.rewardItems[index] = itemData;
+                                this.rewardItemCount[index] = item.indexOf(':') == -1 ? 1 : +item.split(':')[1];
+                                index++;
                             } else {
                                 console.error("Unknown Item '" + item + "' for scenario '" + this.scenario.index + " (" + this.scenario.edition + ")")
                             }
@@ -275,10 +290,10 @@ export class ScenarioSummaryComponent {
                         })
                     })
                 }
-                if (this.rewards.chooseLocation && this.rewards.chooseLocation.length > 0) {
+                if (this.rewards.chooseLocation && this.rewards.chooseLocation.length > 0 && !this.chooseLocation) {
                     this.chooseLocation = this.rewards.chooseLocation[0];
                 }
-                if (this.rewards.chooseUnlockCharacter && this.rewards.chooseUnlockCharacter.length > 0) {
+                if (this.rewards.chooseUnlockCharacter && this.rewards.chooseUnlockCharacter.length > 0 && !this.chooseUnlockCharacter) {
                     let index = 0;
                     while (index < this.rewards.chooseUnlockCharacter.length && gameManager.game.unlockedCharacters.indexOf(this.rewards.chooseUnlockCharacter[index]) != -1) {
                         index++;
@@ -288,14 +303,18 @@ export class ScenarioSummaryComponent {
                     }
                 }
                 if (this.rewards.calendarSectionManual) {
-                    this.rewards.calendarSectionManual.forEach((section, index) => this.calendarSectionManual[index] = 0);
+                    this.rewards.calendarSectionManual.forEach((section, index) => {
+                        if (!this.calendarSectionManual[index]) {
+                            this.calendarSectionManual[index] = 0;
+                        }
+                    });
                 }
 
                 if (settingsManager.settings.scenarioRewardsItems && this.rewards.randomItemBlueprint && this.randomItemBlueprints.length < this.rewards.randomItemBlueprint) {
                     for (let i = this.randomItemBlueprints.length; i < this.rewards.randomItemBlueprint; i++) {
                         let itemData = gameManager.itemManager.drawRandomItem(this.scenario.edition, true);
                         let item: Identifier | undefined = itemData ? new Identifier('' + itemData.id, itemData.edition) : undefined;
-                        this.randomItemBlueprints.push(item ? (+item.name) : -1);
+                        this.randomItemBlueprints[i] = item ? (+item.name) : -1;
                     }
                 }
 
@@ -319,13 +338,13 @@ export class ScenarioSummaryComponent {
                         for (let i = this.randomItems.length; i < this.characters.length; i++) {
                             const character = this.characters[i];
                             if (character.absent) {
-                                this.randomItems.push(undefined);
+                                this.randomItems[i] = undefined;
                             } else {
                                 let itemData = gameManager.itemManager.drawRandomItem(itemEdition, false, from, to);
                                 if (character.progress.items.find((owned) => itemData && owned.name == itemData.id + '' && owned.edition == itemData.edition)) {
                                     itemData = undefined;
                                 }
-                                this.randomItems.push(itemData ? itemData : undefined);
+                                this.randomItems[i] = itemData ? itemData : undefined;
                             }
                         }
                     }
@@ -376,6 +395,14 @@ export class ScenarioSummaryComponent {
 
     availableCollectiveGold(): number {
         return this.rewards && this.rewards.collectiveGold && this.collectiveGold.length > 0 && (this.rewards.collectiveGold - this.collectiveGold.reduce((a, b) => a + b)) || 0;
+    }
+
+    availableCollectiveResource(type: LootType): number {
+        const resource: { type: LootType, value: number | string } = this.rewards && this.rewards.collectiveResources && this.rewards.collectiveResources.find((value) => value.type == type) || { type: type, value: 0 };
+
+        const value = EntityValueFunction(resource.value);
+
+        return value > 0 && (value - this.collectiveResources.map((value) => value[type] || 0).reduce((a, b) => a + b)) || 0;
     }
 
     lootValue(character: Character, lootType: LootType): number {
@@ -513,6 +540,14 @@ export class ScenarioSummaryComponent {
         gameManager.stateManager.after();
     }
 
+    changeCollectiveResource(event: any, index: number, type: LootType) {
+        gameManager.stateManager.before("finishScenario.dialog.collectiveResource", type, '' + index, event.target.value);
+        this.collectiveResources[index] = this.collectiveResources[index] || {};
+        this.collectiveResources[index][type] = +event.target.value;
+        this.updateFinish();
+        gameManager.stateManager.after();
+    }
+
     changeCalendarSectionManual(event: any, index: number) {
         gameManager.stateManager.before("finishScenario.dialog.calendarSectionManual", '' + index, event.target.value);
         this.calendarSectionManual[index] = +event.target.value;
@@ -577,6 +612,13 @@ export class ScenarioSummaryComponent {
                         character.progress.gold += this.collectiveGold[index];
                     }
 
+                    if (this.collectiveResources[index]) {
+                        Object.keys(this.collectiveResources[index]).forEach((value) => {
+                            const lootType: LootType = value as LootType;
+                            character.progress.loot[lootType] = (character.progress.loot[lootType] || 0) + (this.collectiveResources[index][lootType] || 0);
+                        })
+                    }
+
                     this.rewardItems.forEach((item, itemIndex) => {
                         if (this.items.every((items) => items.indexOf(itemIndex) == -1)) {
                             this.items[index].push(itemIndex);
@@ -598,6 +640,15 @@ export class ScenarioSummaryComponent {
                     }
                 }
             })
+
+            if (this.rewards && this.rewards.collectiveResources) {
+                this.rewards.collectiveResources.forEach((value) => {
+                    const available = this.availableCollectiveResource(value.type);
+                    if (available) {
+                        gameManager.game.party.loot[value.type] = (gameManager.game.party.loot[value.type] || 0) + available;
+                    }
+                })
+            }
 
             if (this.chooseLocation) {
                 gameManager.game.party.manualScenarios.push(new GameScenarioModel(this.chooseLocation, this.scenario.edition, this.scenario.group));
