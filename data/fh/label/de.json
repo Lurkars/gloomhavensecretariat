@@ -1,0 +1,148 @@
+{
+    "character": {
+      "banner-spear": "Bannerspeer",
+      "blinkblade": {
+        ".": "Blitzklinge",
+        "fast": "Schnell",
+        "slow": "Langsam",
+        "time_tokens": "%data.characterToken.blinkblade.time% Time Tokens"
+      },
+      "boneshaper": "Knochenformerin",
+      "deathwalker": "Todeswandlerin",
+      "drifter": "Wanderer",
+      "geminate": {
+        ".": "Doppelseele",
+        "melee": "Nahkampf",
+        "range": "Fernkampf"
+      },
+      "traits": {
+        "arcane": "Arcane",
+        "armored": "Armored",
+        "chaotic": "Chaotic",
+        "educated": "Educated",
+        "intimidating": "Intimidating",
+        "night": "Night",
+        "nimble": "Nimble",
+        "outcast": "Outcast",
+        "persuasive": "Persuasive",
+        "resourceful": "Resourceful",
+        "strong": "Strong"
+      }
+    },
+    "edition": {
+      "fh": "Frosthaven"
+    },
+    "monster": {
+      "abael-herder": "Abael-Treiber",
+      "abael-scout": "Abael-Späher",
+      "algox-archer": "Algox-Schütze",
+      "algox-guard": "Algox-Wache",
+      "algox-icespeaker": "Algox-Eissprecher",
+      "algox-priest": "Algox-Priester",
+      "algox-scout": "Algox-Späher",
+      "algox-snowspeaker": "Algox-Schneesprecher",
+      "algox-stormcaller": "Algox-Sturmruferin",
+      "ancient-artillery": "Antike Artillerie",
+      "augmented-mindthief": "Verbesserte Gedankendiebin",
+      "belara": "Belara",
+      "black-imp": "Schwarzwicht",
+      "blacksmith": "Blacksmith",
+      "brother": "Bruder",
+      "burrowing-blade": "Klingengräber",
+      "chaos-demon": "Chaosdämon",
+      "chaos-lieutenant": "Chaosleutnant",
+      "chaos-spark": "Chaos Energiestrahl",
+      "city-guard": "Stadtwache",
+      "coral-corpse": "Korallen Leiche",
+      "deep-terror": "Tiefenschreck",
+      "earth-demon": "Erddämon",
+      "elder-ooze": "Schleimfürst",
+      "fish-king": "Fischkönig",
+      "flame-demon": "Flammendämon",
+      "flaming-bladespinner": "Flammen-Klingenschleuder",
+      "flaming-sword-of-justice": "Flamende Schwert der Gerechtigkeit",
+      "forest-imp": "Waldwicht",
+      "fracture-of-the-deep": "Tiefenbruch",
+      "frost-demon": "Frostdämon",
+      "frozen-corpse": "Gefrorene Leiche",
+      "frozen-fist": "Frostfaust",
+      "giant-piranha-pig": "Riesen Piranhaschwein",
+      "giant-piranha-pig-boss": "Extra Boss Deck #83",
+      "guard-captain": "Wachhauptmann",
+      "harbinger-of-shadow": "Vorbote der Schatten",
+      "harrower-infester": "Schwarmling-Kontagion",
+      "hateful-corpse": "Hasserfüllte Leiche",
+      "hound": "Grimmwolf",
+      "hungry-maw": "Hungrige Schlund",
+      "ice-wraith": "Eisspuk",
+      "lady-in-white": "Weiße Dame",
+      "large-vermling-scout": "Große Ratzen-Späher",
+      "laser-spires": "Lasersäulen",
+      "lightning-eel": "Blitzaal",
+      "living-bones": "Wandelndes Skelett",
+      "living-doom": "Wandelndes Schicksal",
+      "living-spirit": "Wandelnde Seele",
+      "lord-of-chaos": "Gebieter des Chaos",
+      "lurker-clawcrusher": "Pirscher-Schmetterschere",
+      "lurker-clawcrusher-scenario-60": "Gebrochener Leutnant (Schmetterschere)",
+      "lurker-conductor": "Pirscher Conductor-----",
+      "lurker-mindsnipper": "Pirscher-Geistspalter",
+      "lurker-mindsnipper-scenario-60": "Gebrochener Leutnant (Geistspalter)",
+      "lurker-soldier": "Pirscher-Soldat",
+      "lurker-wavethrower": "Pirscher-Wellenwerfer",
+      "lurker-wavethrower-scenario-60": "Gebrochener Leutnant (Wellenwerfer)",
+      "night-demon": "Nachtdämon",
+      "ooze": "Schleim",
+      "orphan": "Der Waise",
+      "piranha-pig": "Piranhaschwein",
+      "polar-bear": "Eisbär",
+      "power-core": "Energiekern",
+      "prince-of-frost": "Frostprinz",
+      "program-director": "Programmsteuerung",
+      "reluctant-ghost": "Wiederwillige Geist",
+      "render": "Reißer",
+      "rending-drake": "Reißdraken",
+      "rimeheart": "Klirrende Herz",
+      "robotic-boltshooter": "Bolzenschussroboter",
+      "ruined-machine": "Schrottmaschine",
+      "savvas-icestorm": "Savvas-Eissturm",
+      "savvas-lavaflow": "Savvas-Lavastrom",
+      "scabwit": "Krätzwitz",
+      "seeker-of-the-abyss": "Sucher der Abgrunds",
+      "shrike-fiend": "Flederbrut",
+      "snowdancer": "Schneetänzerin",
+      "snow-imp": "Schneewicht",
+      "spitting-drake": "Speidraken",
+      "steel-automaton": "Stahlapparat",
+      "sun-demon": "Sonnendämon",
+      "the-collector": "Der Sammler",
+      "the-relic": "Das Relikt",
+      "the-shimmer": "Der Schimmer",
+      "tormentor": "Peiniger",
+      "vanjal": "Vanjal",
+      "vermling-priest": "Ratzen-Priester",
+      "vermling-scout": "Ratzen-Späher",
+      "vestige-of-the-imprisoned-god": "Überrest des gefangenen Gottes",
+      "wind-demon": "Winddämon",
+      "yoglang": "Yoglang"
+    },
+    "deck": {},
+    "ability": {},
+    "scenario": {
+      "group": {
+        "randomMonsterCard": "Zufällige Monster Karten"
+      }
+    },
+    "section": {
+      "rules": {
+        "fh": {
+          "21-1": {
+            "1": "auf einem beliebigen leeren Startfeld"
+          },
+          "65-3": {
+            "1": "Öffne alle Türen %game.mapMarker.1%. Stelle alle Charaktere und Charakter-Beschworenen in Initiative-Reinfolge auf die nächsten leeren Felder auf Element 16-A und entferne dann alle Türen und das Element 13-A von der Karte."
+          }
+        }
+      }
+    }
+  }
