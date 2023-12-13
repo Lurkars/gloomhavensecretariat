@@ -36,16 +36,15 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       let replace: string = match;
       let image: string = '';
       if (type == "condition") {
-        image = '<img  src="./assets/images/' + (fh ? 'fh/' : '') + 'condition/' + split[2] + '.svg" class="icon">';
+        image = '<span class="condition-icon">';
+        image += '<img  src="./assets/images/' + (fh ? 'fh/' : '') + 'condition/' + split[2] + '.svg" class="icon">';
         if (value) {
           image += '<span class="value">' + value + '</span>';
         }
-        replace = '<span class="placeholder-condition">' + (fh ? '&nbsp;' : settingsManager.getLabel('game.condition.' + split[2])) + image + '</span>';
+        image += '</span>';
+        replace = '<span class="placeholder-condition">' + (fh ? '&nbsp;' : settingsManager.getLabel('game.condition.' + split[2], [value ? value : ''])) + image + '</span>';
       } else if (type == "immunity") {
-        image = '<span class="condition-icon immunity"><img  src="./assets/images/' + (fh ? 'fh/' : '') + 'condition/' + split[2] + '.svg" class="icon"></span>';
-        if (value) {
-          image += '<span class="value">' + value + '</span>';
-        }
+        image = '<span class="condition-icon immunity"><img  src="./assets/images/' + (fh ? 'fh/' : '') + 'condition/' + split[2] + '.svg" class="icon">' + (value ? '<span class="value">' + value + '</span>' : '') + '</span>';
         replace = '<span class="placeholder-condition">' + (fh ? '&nbsp;' : settingsManager.getLabel('game.condition.' + split[2])) + image + '</span>';
       } else if (type == "action" && split.length == 3 && !split[2].startsWith('specialTarget') && !split[2].startsWith('summon') && !split[2].startsWith('area')) {
         split.splice(0, 1);

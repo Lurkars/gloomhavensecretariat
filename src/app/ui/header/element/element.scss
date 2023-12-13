@@ -67,9 +67,10 @@ ghs-element {
         }
       }
 
-      &.new #outline {
-        display: none;
+      &.new #outline path {
+        fill: var(--ghs-color-gray) !important;
       }
+
     }
 
     &:hover .element-svg {
@@ -77,6 +78,10 @@ ghs-element {
 
       #bg {
         opacity: 1 !important;
+      }
+
+      &.new #outline path {
+        fill: var(--ghs-color-white) !important;
       }
     }
 

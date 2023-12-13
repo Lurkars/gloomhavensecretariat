@@ -659,14 +659,15 @@
         <div class="condition-list">
           <div class="hint-container" *ngFor="let condition of applyConditionsExcludes; let i = index;">
             <div class="condition"
-              [ngClass]="{'immunity': settingsManager.settings.applyConditionsExcludes.indexOf(condition) != -1}"
-              (click)="toggleApplyConditionsExclude(condition)">
+              [ngClass]="{'immunity': settingsManager.settings.applyConditionsExcludes.indexOf(condition.name) != -1}"
+              (click)="toggleApplyConditionsExclude(condition.name)">
               <img
-                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition + '.svg'" />
+                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+              <span *ngIf="condition.types.indexOf(ConditionType.value) != -1" class="value">X</span>
             </div>
             <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
             <span class="hint" [ngClass]="{'right': i > 2}">
-              <span class="text" [ghs-label]="'settings.applyConditions.hint.' + condition "></span>
+              <span class="text" [ghs-label]="'settings.applyConditions.hint.' + condition.name "></span>
             </span>
           </div>
         </div>
@@ -710,14 +711,15 @@
         <div class="condition-list">
           <div class="hint-container" *ngFor="let condition of activeApplyConditionsExcludes; let i = index">
             <div class="condition"
-              [ngClass]="{'immunity': settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition) != -1}"
-              (click)="toggleActiveApplyConditionsExclude(condition)">
+              [ngClass]="{'immunity': settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) != -1}"
+              (click)="toggleActiveApplyConditionsExclude(condition.name)">
               <img
-                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition + '.svg'" />
+                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+              <span *ngIf="condition.types.indexOf(ConditionType.value) != -1" class="value">X</span>
             </div>
             <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
             <span class="hint" [ngClass]="{'right': i > 2}">
-              <span class="text" [ghs-label]="'settings.activeApplyConditions.hint.' + condition"></span>
+              <span class="text" [ghs-label]="'settings.activeApplyConditions.hint.' + condition.name"></span>
             </span>
           </div>
         </div>

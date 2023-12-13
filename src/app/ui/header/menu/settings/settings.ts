@@ -22,19 +22,22 @@ export class SettingsMenuComponent {
   GameState = GameState;
   SubMenu = SubMenu;
   wakeLock: boolean;
-  applyConditionsExcludes: ConditionName[] = [];
-  activeApplyConditionsExcludes: ConditionName[] = [];
+  applyConditionsExcludes: Condition[] = [];
+  activeApplyConditionsExcludes: Condition[] = [];
   WebSocket = WebSocket;
+  ConditionType = ConditionType;
 
   constructor(public platform: Platform) {
     this.wakeLock = 'wakeLock' in navigator;
 
     Object.keys(ConditionName).forEach((conditionName) => {
       const condition = new Condition(conditionName);
-      if (condition.types.indexOf(ConditionType.turn) != -1 || condition.types.indexOf(ConditionType.afterTurn) != -1) {
-        this.applyConditionsExcludes.push(condition.name);
-      } if (condition.types.indexOf(ConditionType.apply) != -1) {
-        this.activeApplyConditionsExcludes.push(condition.name);
+      if (!gameManager.game.edition || gameManager.conditions(gameManager.game.edition).map((condition) => condition.name).indexOf(condition.name) != -1 || condition.types.indexOf(ConditionType.hidden) != -1) {
+        if (condition.types.indexOf(ConditionType.turn) != -1 || condition.types.indexOf(ConditionType.afterTurn) != -1) {
+          this.applyConditionsExcludes.push(condition);
+        } if (condition.types.indexOf(ConditionType.apply) != -1) {
+          this.activeApplyConditionsExcludes.push(condition);
+        }
       }
     })
   }

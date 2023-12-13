@@ -235,6 +235,9 @@ export class ActionComponent implements OnInit, OnDestroy {
         if (this.action.valueType == ActionValueType.plus) {
           return statValue + EntityValueFunction(this.action.value);
         } else if (this.action.valueType == ActionValueType.minus) {
+          if (!statValue) {
+            return "-";
+          }
           return statValue - EntityValueFunction(this.action.value);
         }
       }

@@ -1063,6 +1063,16 @@ input[type="radio"] {
       .icon {
         margin: 0;
       }
+
+      .value {
+        font-family: var(--ghs-font-title);
+        font-size: 0.6em;
+        color: var(--ghs-color-white);
+        position: absolute;
+        bottom: -0.2em;
+        left: 1.1em;
+        transform: translateX(-50%);
+      }
     }
   }
 
