@@ -1411,7 +1411,7 @@
         "brittle": "Nachfragen ob nach erhaltenden Schaden %game.condition.brittle% angewendet werden soll um den Schaden zu erhöhen.",
         "heal": "Kein Zustand, aber eine Hilfe ob %game.action.heal% angwendet werden soll wenn die Trefferpunkte erhöht werden.",
         "poison": "Nachfragen ob nach erhaltenden Schaden %game.action.attack% +1 von %game.condition.poison% angewendet werden soll (inklusive %game.attackmodifier.double%).",
-        "poison_x": "Nachfragen ob nach erhaltenden Schaden %game.action.attack% +1 von %game.condition.poison_x% angewendet werden soll (inklusive %game.attackmodifier.double%).",
+        "poison_x": "Nachfragen ob nach erhaltenden Schaden %game.action.attack% +X von %game.condition.poison_x:X% angewendet werden soll (inklusive %game.attackmodifier.double%).",
         "shield": "Kein Zustand, aber eine Hilfe ob nach erhaltenden Schaden %game.action.shield% angwendet werden soll.",
         "ward": "Nachfragen ob nach erhaltenden Schaden %game.condition.ward% angewendet werden soll um den erhaltenden Schaden zu reduzieren."
       }
@@ -1468,7 +1468,7 @@
         "bane": "Am Ende des Zuges automatisch %game.condition.bane% Schaden hinzufügen.",
         "regenerate": "Am Anfang des Zuges automatisch %game.condition.regenerate% anwenden.",
         "wound": "Am Anfang des Zuges automatisch %game.condition.wound% Schaden hinzufügen.",
-        "wound_x": "Am Anfang des Zuges automatisch %game.condition.wound_x% Schaden hinzufügen."
+        "wound_x": "Am Anfang des Zuges automatisch %game.condition.wound_x:X% Schaden hinzufügen."
       }
     },
     "applyLongRest": {

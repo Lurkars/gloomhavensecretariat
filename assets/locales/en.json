@@ -1560,7 +1560,7 @@
         "brittle": "On suffering damage, ask to apply %game.condition.brittle% and increase damage.",
         "heal": "No condition, but helper if %game.action.heal% should be applied when increasing hitpoints.",
         "poison": "On suffering damage, ask to apply %game.action.attack% +1 from %game.condition.poison% (including %game.attackmodifier.double%).",
-        "poison_x": "On suffering damage, ask to apply %game.action.attack% +1 from %game.condition.poison_x% (including %game.attackmodifier.double%).",
+        "poison_x": "On suffering damage, ask to apply %game.action.attack% +X from %game.condition.poison_x:X% (including %game.attackmodifier.double%).",
         "shield": "No condition, but helper if %game.action.shield% should be applied when taking damage.",
         "ward": "On suffering damage, ask to apply %game.condition.ward% and lowering damage."
       }
@@ -1617,7 +1617,7 @@
         "bane": "Automatic apply %game.condition.bane% damage at end of turn.",
         "regenerate": "Automatic apply %game.condition.regenerate% at start of turn.",
         "wound": "Automatic apply %game.condition.wound% damage at end of turn.",
-        "wound_x": "Automatic apply %game.condition.wound_x% damage at end of turn."
+        "wound_x": "Automatic apply %game.condition.wound_x:X% damage at end of turn."
       }
     },
     "applyLongRest": {
