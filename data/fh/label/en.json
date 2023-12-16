@@ -604,7 +604,7 @@
         "1": "Rotate each laser spire clockwise (if able)",
         "2": "Rotate each laser spire counterclockwise (if able)",
         "3": "All characters and character summons adjacent to a laser spire suffer hazardous terrain damage",
-        "4": "Emit laster, starting at %game.mapMarker.a%"
+        "4": "Emit laser, starting at %game.mapMarker.a%"
       },
       "living-doom": {
         "1": "Summon X normal<br>Living Spirits",
