@@ -708,8 +708,6 @@ export class StateManager {
         gameManager.uiChange.emit();
       }
       this.lastAction = "undo";
-    } else {
-      console.log(undolength, this.undos.length);
     }
   }
 
