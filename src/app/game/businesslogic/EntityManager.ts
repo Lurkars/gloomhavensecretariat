@@ -112,7 +112,12 @@ export class EntityManager {
   }
 
   checkHealth(entity: Entity, figure: Figure,) {
-    const maxHealth = EntityValueFunction(entity.maxHealth);
+    let maxHealth = EntityValueFunction(entity.maxHealth);
+
+    if (entity instanceof Character && entity.tags.find((tag) => tag === 'overheal')) {
+      maxHealth = Math.max(maxHealth, 26);
+    }
+
     if (entity.health > maxHealth) {
       entity.health = maxHealth;
     }

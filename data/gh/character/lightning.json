@@ -8,6 +8,12 @@
   "retireEvent": "53",
   "color": "#f07c4e",
   "spoiler": true,
+  "specialActions": [
+    {
+      "name": "overheal",
+      "expire": true
+    }
+  ],
   "stats": [
     {
       "level": 1,

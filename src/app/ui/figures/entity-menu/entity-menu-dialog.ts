@@ -76,6 +76,7 @@ export class EntityMenuDialogComponent {
   OBJECTIV_MARKERS = OBJECTIV_MARKERS;
   EntityValueFunction = EntityValueFunction;
   ghsModulo = ghsModulo;
+  Math = Math;
 
   constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure, positionElement: ElementRef, entityIndexKey: boolean }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef, private dialog: Dialog, private overlay: Overlay) {
     if (data.entity instanceof Character) {
@@ -198,9 +199,15 @@ export class EntityMenuDialogComponent {
 
   changeHealth(value: number) {
     this.health += value;
+
     if (this.data.entity) {
-      if (this.data.entity.health + this.health > EntityValueFunction(this.data.entity.maxHealth) + this.maxHp) {
-        this.health = EntityValueFunction(this.data.entity.maxHealth) + this.maxHp - this.data.entity.health;
+      let maxHealth = EntityValueFunction(this.data.entity.maxHealth);
+      if (this.data.entity instanceof Character && this.specialTags.indexOf('overheal') != -1) {
+        maxHealth = Math.max(maxHealth, 26);
+      }
+
+      if (this.data.entity.health + this.health > maxHealth + this.maxHp) {
+        this.health = maxHealth + this.maxHp - this.data.entity.health;
       }
     }
   }

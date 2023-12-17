@@ -498,7 +498,7 @@ export class ActionComponent implements OnInit, OnDestroy {
 
   highlightAction(): boolean {
     if (this.monster && this.action && ((this.action.type == ActionType.heal || this.action.type == ActionType.condition) && (this.action.subActions && this.action.subActions.length == 1 && this.action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && ('' + subAction.value).startsWith('self'))) || this.action.type == ActionType.sufferDamage || this.action.type == ActionType.switchType)) {
-      if (this.action.type == ActionType.heal && this.monster.entities.every((entity) => entity.dead || entity.health < 1 || entity.health == entity.maxHealth)) {
+      if (this.action.type == ActionType.heal && this.monster.entities.every((entity) => entity.dead || entity.health < 1 || entity.health >= entity.maxHealth)) {
         return false;
       }
 

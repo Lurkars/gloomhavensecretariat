@@ -22,6 +22,7 @@ import { CharacterBattleGoalsDialog } from '../battlegoal/dialog/battlegoal-dial
 import { ItemsCharacterDialogComponent } from '../items/character/items-character-dialog';
 import { ItemsDialogComponent } from '../items/dialog/items-dialog';
 import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
 
 @Component({
   selector: 'ghs-character',
@@ -222,8 +223,13 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   dragHpMove(value: number) {
     this.health = value;
-    if (this.character.health + this.health > this.character.maxHealth) {
-      this.health = this.character.maxHealth - this.character.health;
+    let maxHealth = EntityValueFunction(this.character.maxHealth);
+    if (this.character.tags.find((tag) => tag === 'overheal')) {
+      maxHealth = Math.max(maxHealth, 26);
+    }
+
+    if (this.character.health + this.health > maxHealth) {
+      this.health = maxHealth - this.character.health;
     }
   }
 

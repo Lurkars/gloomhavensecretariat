@@ -49,8 +49,8 @@
     </ng-container>
     <div class="name" *ngIf="gameManager.isMonster(data.figure)" (click)="changeMonsterEntity()"
       [ngClass]="{'change-entity': gameManager.monsterManager.monsterStandeeMax(gameManager.toMonster(data.figure)) > 1 || data.entity && gameManager.isMonsterEntity(data.entity) && gameManager.toMonsterEntity(data.entity).type != MonsterType.boss}">
-      <img *ngIf="!gameManager.toMonster(data.figure).noThumbnail && settingsManager.settings.artwork"
-        class="standee" [src]="gameManager.monsterManager.monsterThumbnail(gameManager.toMonster(data.figure))" />
+      <img *ngIf="!gameManager.toMonster(data.figure).noThumbnail && settingsManager.settings.artwork" class="standee"
+        [src]="gameManager.monsterManager.monsterThumbnail(gameManager.toMonster(data.figure))" />
       <span [ghs-label]="'data.monster.' + data.figure.name"></span>&nbsp;
       <span class="ally" *ngIf="gameManager.toMonster(data.figure).isAlly"><span
           [ghs-label]="'game.ally'"></span>&nbsp;</span>
@@ -105,7 +105,7 @@
         </span>
         <span class="item">
           <ghs-pointer-input class="button"
-            [ngClass]="{'disabled' : (data.entity.health + health) == (EntityValueFunction(data.entity.maxHealth) + maxHp)}"
+            [ngClass]="{'disabled' : (data.entity.health + health) == (Math.max(EntityValueFunction(data.entity.maxHealth), specialTags.indexOf('overheal') != -1 ? 26 : 0) + maxHp)}"
             (singleClick)="changeHealth(1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </ghs-pointer-input>
@@ -523,7 +523,7 @@
   </div>
 
   <div
-    *ngIf="data.entity && gameManager.isCharacter(data.entity) && gameManager.isCharacter(data.figure) && gameManager.toCharacter(data.figure).specialActions && gameManager.toCharacter(data.figure).specialActions.length > 0"
+    *ngIf="!levelDialog && data.entity && gameManager.isCharacter(data.entity) && gameManager.isCharacter(data.figure) && gameManager.toCharacter(data.figure).specialActions && gameManager.toCharacter(data.figure).specialActions.length > 0"
     class="special-actions">
     <ng-container *ngFor="let specialAction of gameManager.toCharacter(data.figure).specialActions">
       <span *ngIf="!specialAction.level || specialAction.level <= data.figure.level" class="special-action"

@@ -3,7 +3,10 @@
     "angry-face": "Doomstalker",
     "circles": "Summoner",
     "eclipse": "Nightshroud",
-    "lightning": "Berserker",
+    "lightning": {
+      ".": "Berserker",
+      "overheal": "%game.characterIconColored.lightning% Heal up to 26 HP"
+    },
     "music-note": {
       ".": "Soothsinger",
       "song_active": "%game.characterIconColored.music-note% Song Active"

@@ -95,8 +95,13 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
       this.health[i] = this.health[i] || 0;
       this.health[i] += value;
 
-      if (character.health + this.health[i] > character.maxHealth) {
-        this.health[i] = EntityValueFunction(character.maxHealth) - character.health;
+      let maxHealth = EntityValueFunction(character.maxHealth);
+      if (character.tags.find((tag) => tag === 'overheal')) {
+        maxHealth = Math.max(maxHealth, 26);
+      }
+
+      if (character.health + this.health[i] > maxHealth) {
+        this.health[i] = maxHealth - character.health;
       } else if (character.health + this.health[i] < 0) {
         this.health[i] = - character.health;
       }
