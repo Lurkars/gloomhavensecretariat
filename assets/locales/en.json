@@ -1691,6 +1691,10 @@
       ".": "Always draw 3 Battle Goals",
       "hint": "Always apply Frosthaven rules to draw three Battle Goals. (Automatic enabled when playing Frosthaven)"
     },
+    "battleGoalsReminder": {
+      ".": "Battle Goals Reminder",
+      "hint": "Show a reminder before first round if not all characters has choosen their Battle Goal."
+    },
     "bonusAdjustment": {
       ".": "Level bonuses adjustment",
       "hint": ""
