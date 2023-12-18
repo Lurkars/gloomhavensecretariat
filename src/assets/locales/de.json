@@ -1542,6 +1542,10 @@
       ".": "Immer 3 Kampfziele ziehen",
       "hint": "Immer Frosthaven Regel zum ziehen von drei Kampfzielen anwenden (Für Frosthaven automatisch immer aktiviert)"
     },
+    "battleGoalsReminder": {
+      ".": "Kampfziele Errinerung",
+      "hint": "Zeigt eine Errinnerung vor dem Start der ersten Runde falls noch nicht alle Charaktere ihr Kampfziel festgelegt haben."
+    },
     "bonusAdjustment": {
       ".": "Anpassung Boni Szenariostufe",
       "hint": ""

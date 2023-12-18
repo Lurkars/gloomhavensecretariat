@@ -257,10 +257,23 @@
     </div>
     <div class="line">
       <div class="hint-container">
-        <label
-          [ngClass]="{'disabled' : !settingsManager.settings.battleGoals || !settingsManager.settings.characterAttackModifierDeck}">
+        <label [ngClass]="{'disabled' : !settingsManager.settings.battleGoals}">
           <input type="checkbox"
-            [checked]="settingsManager.settings.battleGoals && (settingsManager.settings.battleGoalsCharacter || !settingsManager.settings.characterAttackModifierDeck)"
+            [checked]="settingsManager.settings.battleGoals && settingsManager.settings.battleGoalsReminder"
+            (change)="settingsManager.setBattleGoalsReminder(!settingsManager.settings.battleGoalsReminder)">
+          <span [ghs-label]="'settings.battleGoalsReminder'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.battleGoalsReminder.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : !settingsManager.settings.battleGoals}">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.battleGoals && settingsManager.settings.battleGoalsCharacter"
             (change)="settingsManager.setBattleGoalsCharacter(!settingsManager.settings.battleGoalsCharacter)">
           <span [ghs-label]="'settings.battleGoalsCharacter'"></span>
         </label>

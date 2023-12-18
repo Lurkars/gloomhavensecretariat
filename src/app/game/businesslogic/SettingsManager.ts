@@ -332,6 +332,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setBattleGoalsReminder(battleGoalsReminder: boolean) {
+    this.settings.battleGoalsReminder = battleGoalsReminder;
+    this.storeSettings();
+  }
+
   setBrowserNavigation(browserNavigation: boolean) {
     this.settings.browserNavigation = browserNavigation;
     this.storeSettings();
