@@ -29,6 +29,7 @@ export class LootDeckDialogComponent implements OnInit {
 
   types: LootType[] = Object.values(LootType);
   lootDeckConfig: LootDeckConfig = {};
+  startlootDeckConfig: LootDeckConfig = {};
   LootType = LootType;
   type: LootType = LootType.money;
   current: number = -1;
@@ -64,13 +65,10 @@ export class LootDeckDialogComponent implements OnInit {
 
     this.dialogRef.closed.subscribe({
       next: () => {
-        const close = this.deck.cards.length == 0;
         let deck = new LootDeck();
-        if (!close) {
+        if (JSON.stringify(this.startlootDeckConfig) != JSON.stringify(this.lootDeckConfig)) {
           gameManager.lootManager.apply(deck, this.lootDeckConfig);
-          if (deck.cards.length > 0) {
-            this.applyConfig();
-          }
+          this.applyConfig();
         }
       }
     })
@@ -147,6 +145,8 @@ export class LootDeckDialogComponent implements OnInit {
         this.lootDeckConfig[type] = undefined;
       }
     })
+
+    this.startlootDeckConfig = JSON.parse(JSON.stringify(this.lootDeckConfig));
   }
 
   applyConfig() {
