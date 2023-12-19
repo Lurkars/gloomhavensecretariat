@@ -1059,8 +1059,10 @@ input[type="radio"] {
     .condition-icon {
       position: relative;
       margin: 0 0.1em;
+      height: 1.3em;
 
       .icon {
+        display: block;
         margin: 0;
       }
 
@@ -1072,6 +1074,8 @@ input[type="radio"] {
         bottom: -0.2em;
         left: 1.1em;
         transform: translateX(-50%);
+        text-shadow: none;
+        filter: none;
       }
     }
   }

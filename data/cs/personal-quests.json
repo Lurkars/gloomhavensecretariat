@@ -9,7 +9,10 @@
             {
                 "name": "Follow \"Siege Tower\" (Scenario 33) to a conclusion",
                 "counter": 1,
-                "requires": 1
+                "autotrack": "scenario:33|34",
+                "requires": [
+                    1
+                ]
             }
         ],
         "unlockCharacter": "target"
@@ -19,7 +22,8 @@
         "requirements": [
             {
                 "name": "%game.items.slots.onehand% or %game.items.slots.twohand% items consumed",
-                "counter": 15
+                "counter": 15,
+                "autotrack": "itemConsumed:onehand|twohand"
             }
         ],
         "unlockCharacter": "target"
@@ -64,6 +68,7 @@
             {
                 "name": "Follow \"Prison Riot\" (Scenario 35) to a conclusion",
                 "counter": 1,
+                "autotrack": "scenario:35|36",
                 "requires": [
                     1
                 ]
@@ -86,7 +91,8 @@
         "requirements": [
             {
                 "name": "Scenarios completed with ≥ 12 experience",
-                "counter": 12
+                "counter": 12,
+                "autotrack": "scenarioXP"
             }
         ],
         "unlockCharacter": "tusks"
@@ -116,7 +122,8 @@
         "requirements": [
             {
                 "name": "%game.attackmodifier.bless% drawn",
-                "counter": 12
+                "counter": 12,
+                "autotrack": "blessDrawn"
             }
         ],
         "unlockCharacter": "sprig"
@@ -136,7 +143,8 @@
         "requirements": [
             {
                 "name": "Allies became exhausted during their turn",
-                "counter": 13
+                "counter": 13,
+                "autotrack": "exhaustedCharsTurn"
             }
         ],
         "unlockCharacter": "vortex"
@@ -156,23 +164,28 @@
         "requirements": [
             {
                 "name": "%game.element.fire% generated",
-                "counter": 2
+                "counter": 2,
+                "autotrack": "element:fire"
             },
             {
                 "name": "%game.element.ice% generated",
-                "counter": 2
+                "counter": 2,
+                "autotrack": "element:ice"
             },
             {
                 "name": "%game.element.light% generated",
-                "counter": 2
+                "counter": 2,
+                "autotrack": "element:light"
             },
             {
                 "name": "%game.element.dark% generated",
-                "counter": 2
+                "counter": 2,
+                "autotrack": "element:dark"
             },
             {
                 "name": "Follow \"Burning Stones\" (Scenario 37) to a conclusion",
                 "counter": 1,
+                "autotrack": "scenario:37|38",
                 "requires": [
                     1,
                     2,
@@ -203,6 +216,7 @@
             {
                 "name": "Follow \"Festering Mire\" (Scenario 39) to a conclusion",
                 "counter": 1,
+                "autotrack": "scenario:39|40",
                 "requires": [
                     1
                 ]
@@ -245,7 +259,8 @@
         "requirements": [
             {
                 "name": "Scenarios completed with full health",
-                "counter": 7
+                "counter": 7,
+                "autotrack": "completedHighHP"
             }
         ],
         "unlockCharacter": "galaxy"
@@ -255,7 +270,8 @@
         "requirements": [
             {
                 "name": "Money tokens looted",
-                "counter": 30
+                "counter": 30,
+                "autotrack": "looted:gold"
             }
         ],
         "unlockCharacter": "galaxy"
@@ -270,6 +286,7 @@
             {
                 "name": "Follow \"The Riches of the Steelsilk\" (Scenario AA1) to a conclusion",
                 "counter": 1,
+                "autotrack": "scenario:AA1",
                 "requires": [
                     1
                 ]
@@ -282,11 +299,13 @@
         "requirements": [
             {
                 "name": "Scenarios completed without exhausting and 2 or less HP",
-                "counter": 8
+                "counter": 8,
+                "autotrack": "completedLowHP"
             },
             {
                 "name": "Follow \"Malign Echoes\" (Scenario AA2) to a conclusion",
                 "counter": 1,
+                "autotrack": "scenario:AA2",
                 "requires": [
                     1
                 ]
@@ -304,6 +323,7 @@
             {
                 "name": "Follow \"Capstone Test\" (Scenario QA1) to a conclusion",
                 "counter": 1,
+                "autotrack": "scenario:QA1",
                 "requires": [
                     1
                 ]
@@ -320,11 +340,13 @@
             },
             {
                 "name": "Treasure tiles looted",
-                "counter": 2
+                "counter": 2,
+                "autotrack": "treasures"
             },
             {
                 "name": "Follow \"Mother Lode\" (Scenario QA2) to a conclusion",
                 "counter": 1,
+                "autotrack": "QA2",
                 "requires": [
                     1,
                     2
@@ -343,6 +365,7 @@
             {
                 "name": "Follow \"Mind Your Manners\" (Scenario RM1) to a conclusion",
                 "counter": 1,
+                "autotrack": "RM1",
                 "requires": [
                     1
                 ]
@@ -360,6 +383,7 @@
             {
                 "name": "Follow \"Ruined Colony\" (Scenario RM3) to a conclusion",
                 "counter": 1,
+                "autotrack": "RM3",
                 "requires": [
                     1
                 ]

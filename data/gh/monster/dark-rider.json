@@ -34,7 +34,7 @@
         },
         {
           "type": "summon",
-          "value": "forest-imp",
+          "value": "monsterStandee",
           "valueObject": [
             {
               "monster": {

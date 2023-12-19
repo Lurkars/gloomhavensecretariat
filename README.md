@@ -79,6 +79,22 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Load custom JSON edition data for custom content!
   - Edit monster attack modifier and monster ability decks (support for Diviner class mechanics): reveal cards, remove cards, rearrange cards
   - Support for Frosthaven loot deck (including enhancements) and town guard deck
+  - special ability automation for some characters
+    <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-music-note.svg" height="20px" style="filter:grayscale(1)"></summary>
+
+      > Enable song to automatically gain 1 XP at start of turn
+    </details>
+    <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-lightning.svg" height="20px" style="filter:grayscale(1)"></summary>
+
+      > Enable overhealing up to 26 HP
+    </details>
+    <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-blinkblade.svg" height="20px" style="filter:grayscale(1)"></summary>
+
+      > Automatically add/remove time tokens at start of round after defining slow/fast before
+    </details>
   - Monster data editor (https://gloomhaven-secretariat.de/editor/monster)
   - Includes Solo scenarios- Includes the [Seeker of Xorn](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under *Data Management*.
   - Includes the [Satire's Extended Battle Goals](https://boardgamegeek.com/thread/2184131/satires-extended-battle-goals): can be enabled under *Data Management*.

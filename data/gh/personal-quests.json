@@ -9,6 +9,7 @@
             {
                 "name": "Follow \"Noxious Cellar\" (Scenario 52) to a conclusion",
                 "counter": 1,
+                "autotrack": "scenario:52|53",
                 "requires": [
                     1
                 ]
@@ -21,23 +22,28 @@
         "requirements": [
             {
                 "name": "%game.items.slots.head% items",
-                "counter": 2
+                "counter": 2,
+                "autotrack": "itemType:head"
             },
             {
                 "name": "%game.items.slots.body% items",
-                "counter": 2
+                "counter": 2,
+                "autotrack": "itemType:body"
             },
             {
                 "name": "%game.items.slots.legs% items",
-                "counter": 2
+                "counter": 2,
+                "autotrack": "itemType:legs"
             },
             {
                 "name": "%game.items.slots.onehand% or %game.items.slots.twohand% items",
-                "counter": 3
+                "counter": 3,
+                "autotrack": "itemType:onehand|twohand"
             },
             {
                 "name": "%game.items.slots.small% items",
-                "counter": 4
+                "counter": 4,
+                "autotrack": "itemType:small"
             }
         ],
         "unlockCharacter": "three-spears"
@@ -47,7 +53,8 @@
         "requirements": [
             {
                 "name": "Gold",
-                "counter": 200
+                "counter": 200,
+                "autotrack": "gold"
             }
         ],
         "unlockCharacter": "three-spears"
@@ -62,6 +69,7 @@
             {
                 "name": "Follow \"Forgotten Grove\" (Scenario 59) to a conclusion",
                 "counter": 1,
+                "autotrack": "scenario:59|60",
                 "requires": [
                     1
                 ]
@@ -74,7 +82,8 @@
         "requirements": [
             {
                 "name": "Exhausted Party Members",
-                "counter": 15
+                "counter": 15,
+                "autotrack": "exhaustedChars"
             }
         ],
         "unlockCharacter": "saw"
@@ -114,7 +123,8 @@
         "requirements": [
             {
                 "name": "Different scenarios completed",
-                "counter": 15
+                "counter": 15,
+                "autotrack": "scenariosCompleted"
             }
         ],
         "unlockCharacter": "circles"
@@ -124,7 +134,8 @@
         "requirements": [
             {
                 "name": "Earned %game.checkmark% from completed battle goals",
-                "counter": 15
+                "counter": 15,
+                "autotrack": "battleGoals"
             }
         ],
         "unlockCharacter": "music-note"
@@ -134,7 +145,8 @@
         "requirements": [
             {
                 "name": "Skullbane Axe",
-                "counter": 1
+                "counter": 1,
+                "autotrack": "item:113"
             },
             {
                 "name": "Living Bones, Living Corpses, or Living Spirits killed with Skullbane Axe",
@@ -156,6 +168,7 @@
             {
                 "name": "Follow \"Foggy Thicket\" (Scenario 55) to a conclusion",
                 "counter": 1,
+                "autotrack": "scenario:55|56",
                 "requires": [
                     1
                 ]
@@ -167,8 +180,9 @@
         "cardId": "522",
         "requirements": [
             {
-                "name": "Completed side sceanrios (scenario number > 51)",
-                "counter": 6
+                "name": "Completed side scenarios (scenario number > 51)",
+                "counter": 6,
+                "autotrack": "sideScenarios"
             }
         ],
         "unlockCharacter": "eclipse"
@@ -218,7 +232,8 @@
         "requirements": [
             {
                 "name": "Gold donated to the Sanctuary of the Great Oak",
-                "counter": 120
+                "counter": 120,
+                "autotrack": "donatedGold"
             }
         ],
         "unlockCharacter": "saw"
@@ -233,6 +248,7 @@
             {
                 "name": "Follow \"Investigation\" (Scenario 57) to a conclusion",
                 "counter": 1,
+                "autotrack": "scenario:57|58",
                 "requires": [
                     1
                 ]
@@ -245,7 +261,8 @@
         "requirements": [
             {
                 "name": "Exhausted",
-                "counter": 12
+                "counter": 12,
+                "autotrack": "exhaustedSelf"
             }
         ],
         "unlockCharacter": "lightning"
@@ -255,7 +272,8 @@
         "requirements": [
             {
                 "name": "Completed boss sceanrios",
-                "counter": 4
+                "counter": 4,
+                "autotrack": "bossScenarios"
             }
         ],
         "unlockCharacter": "angry-face"
@@ -270,6 +288,7 @@
             {
                 "name": "Follow \"Fading Lighthouse\" (Scenario 61) to a conclusion",
                 "counter": 1,
+                "autotrack": "scenario:61|62",
                 "requires": [
                     1
                 ]
@@ -322,7 +341,8 @@
         "requirements": [
             {
                 "name": "Personal quests achieved",
-                "counter": 2
+                "counter": 2,
+                "autotrack": "retiredChars"
             }
         ],
         "unlockCharacter": "music-note"

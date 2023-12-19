@@ -116,7 +116,7 @@ export class ActionComponent implements OnInit, OnDestroy {
       return this.hasEntities(MonsterType.boss);
     }
 
-    return this.monster && (!this.monsterType || !type || this.monsterType == type) && this.monster.entities.some((monsterEntity) => (!type || monsterEntity.type == type) && gameManager.entityManager.isAlive(monsterEntity)) || false;
+    return this.monster && this.monsterType && this.monster.entities.length == 0 && (!type || this.monsterType == type) || this.monster && (!this.monsterType || !type) && this.monster.entities.some((monsterEntity) => (!type || monsterEntity.type == type) && gameManager.entityManager.isAlive(monsterEntity)) || false;
   }
 
   getNormalValue(): number | string {
@@ -199,6 +199,13 @@ export class ActionComponent implements OnInit, OnDestroy {
         case ActionType.attack:
           if (typeof stat.attack === "number") {
             statValue = stat.attack;
+          } else if (stat.attack.indexOf('X') != -1) {
+            if (this.action.valueType == ActionValueType.plus) {
+              return stat.attack + " +" + (settingsManager.settings.fhStyle ? '' : ' ') + this.action.value;
+            } else if (this.action.valueType == ActionValueType.minus) {
+              return stat.attack + " -" + (settingsManager.settings.fhStyle ? '' : ' ') + this.action.value;
+            }
+            sign = false;
           } else {
             try {
               statValue = EntityValueFunction(stat.attack, this.level);

@@ -105,19 +105,25 @@ export class ConditionsComponent implements OnInit {
   }
 
   isImmune(conditionName: ConditionName): boolean {
+    let immune: boolean = false;
+
     if (this.immunities) {
-      return this.immunities.indexOf(conditionName) != -1;
-    } else if (this.figure instanceof Monster) {
-      if (!(this.entity instanceof MonsterEntity)) {
-        return this.entities.every((entity) => this.figure instanceof Monster && entity instanceof MonsterEntity && gameManager.entityManager.isImmune(entity, this.figure, conditionName));
-      } else {
-        return gameManager.entityManager.isImmune(this.entity, this.figure, conditionName);
-      }
-    } else if (this.figure instanceof Character && this.entity instanceof Character) {
-      return gameManager.entityManager.isImmune(this.entity, this.figure, conditionName);
+      immune = this.immunities.indexOf(conditionName) != -1;
     }
 
-    return false;
+    if (!immune && this.figure instanceof Monster) {
+      if (!(this.entity instanceof MonsterEntity)) {
+        immune = this.entities.every((entity) => this.figure instanceof Monster && entity instanceof MonsterEntity && gameManager.entityManager.isImmune(entity, this.figure, conditionName));
+      } else {
+        immune = gameManager.entityManager.isImmune(this.entity, this.figure, conditionName);
+      }
+    }
+
+    if (!immune && this.figure instanceof Character && this.entity instanceof Character) {
+      immune = gameManager.entityManager.isImmune(this.entity, this.figure, conditionName);
+    }
+
+    return immune;
   }
 
   isPermanent(conditionName: ConditionName): boolean {

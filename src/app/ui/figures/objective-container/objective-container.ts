@@ -85,7 +85,7 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
     if ((gameManager.game.state == GameState.draw || settingsManager.settings.initiativeRequired && this.objective.initiative <= 0)) {
       this.openInitiativeDialog(event);
     } else {
-      gameManager.stateManager.before(this.objective.active ? "unsetActive" : "setActive", this.objective.title || this.objective.name);
+      gameManager.stateManager.before(this.objective.active ? "unsetActive" : "setActive", gameManager.objectiveManager.objectiveName(this.objective));
       gameManager.roundManager.toggleFigure(this.objective);
       gameManager.stateManager.after();
     }
@@ -130,7 +130,7 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
 
     if (this.objective.initiative != this.initiative) {
       this.objective.initiative = this.initiative;
-      gameManager.stateManager.before("setObjectiveInitiative", this.objective.title || this.objective.name, "" + value);
+      gameManager.stateManager.before("setObjectiveInitiative", gameManager.objectiveManager.objectiveName(this.objective), "" + value);
       this.objective.initiative = value;
       this.initiative = -1;
       if (gameManager.game.state == GameState.next) {
@@ -149,7 +149,7 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
 
   dragHpEnd(value: number) {
     if (this.health != 0 && this.entity) {
-      gameManager.stateManager.before("changeObjectiveEntityHP", this.objective.title || this.objective.name, ghsValueSign(this.health), '' + this.entity.number);
+      gameManager.stateManager.before("changeObjectiveEntityHP", gameManager.objectiveManager.objectiveName(this.objective), ghsValueSign(this.health), '' + this.entity.number);
       gameManager.entityManager.changeHealth(this.entity, this.objective, this.health);
       if (this.entity.health <= 0 && this.entity.maxHealth > 0) {
         gameManager.objectiveManager.removeObjective(this.objective)

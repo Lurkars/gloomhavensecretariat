@@ -5,7 +5,8 @@
         "requirements": [
             {
                 "name": "Different types of herbs looted",
-                "counter": 5
+                "counter": 5,
+                "autotrack": "differentHerbs"
             }
         ],
         "openEnvelope": "%game.fhIcon:envelope% 24<br>(alt: %game.fhIcon:envelope% 42)"
@@ -16,11 +17,13 @@
         "requirements": [
             {
                 "name": "Lumber cards looted",
-                "counter": 8
+                "counter": 8,
+                "autotrack": "looted:lumber"
             },
             {
                 "name": "Follow \"Sacred Soil\" %game.scenarioNumber:69% to a conclusion",
                 "counter": 1,
+                "autotrack": "scenario:69|70",
                 "requires": [
                     1
                 ]
@@ -34,23 +37,28 @@
         "requirements": [
             {
                 "name": "%game.items.slots.head% items",
-                "counter": 3
+                "counter": 3,
+                "autotrack": "itemType:head"
             },
             {
                 "name": "%game.items.slots.body% items",
-                "counter": 3
+                "counter": 3,
+                "autotrack": "itemType:body"
             },
             {
                 "name": "%game.items.slots.legs% items",
-                "counter": 3
+                "counter": 3,
+                "autotrack": "itemType:legs"
             },
             {
                 "name": "%game.items.slots.onehand% or %game.items.slots.twohand% items",
-                "counter": 3
+                "counter": 3,
+                "autotrack": "itemType:onehand|twohand"
             },
             {
                 "name": "%game.items.slots.small% items",
-                "counter": 4
+                "counter": 4,
+                "autotrack": "itemType:small"
             }
         ],
         "openEnvelope": "%game.fhIcon:envelope% 37<br>(alt: %game.fhIcon:envelope% 74)"
@@ -61,7 +69,8 @@
         "requirements": [
             {
                 "name": "Gold",
-                "counter": "80+20xP"
+                "counter": "80+20xP",
+                "autotrack": "gold"
             }
         ],
         "openEnvelope": "%game.fhIcon:envelope% 37<br>(alt: %game.fhIcon:envelope% 74)"
@@ -72,7 +81,8 @@
         "requirements": [
             {
                 "name": "Buildings constructed or upgraded",
-                "counter": 12
+                "counter": 12,
+                "autotrack": "buildings"
             }
         ],
         "openEnvelope": "%game.fhIcon:envelope% 85<br>(alt: %game.fhIcon:envelope% 21)"
@@ -94,7 +104,8 @@
         "requirements": [
             {
                 "name": "Follow \"A Strong Foundation\" %game.scenarioNumber:65% to a conclusion",
-                "counter": 1
+                "counter": 1,
+                "autotrack": "scenario:65|66"
             }
         ],
         "openEnvelope": "%game.fhIcon:envelope% 44<br>(alt: %game.fhIcon:envelope% 88)"
@@ -124,7 +135,8 @@
         "requirements": [
             {
                 "name": "Experience gained from ability cards",
-                "counter": 150
+                "counter": 150,
+                "autotrack": "abilityXP"
             }
         ],
         "openEnvelope": "%game.fhIcon:envelope% 90<br>(alt: %game.fhIcon:envelope% 83)"
@@ -135,7 +147,8 @@
         "requirements": [
             {
                 "name": "Scenarios completed with %game.fhIcon:boat%, %game.fhIcon:climbing-gear%, or %game.fhIcon:sled% requirement ",
-                "counter": 5
+                "counter": 5,
+                "autotrack": "scenarioRequirements:board|climbing-gear|sled"
             }
         ],
         "openEnvelope": "%game.fhIcon:envelope% 90<br>(alt: %game.fhIcon:envelope% 83)"
@@ -146,7 +159,8 @@
         "requirements": [
             {
                 "name": "Items craftable with own items costs",
-                "counter": 15
+                "counter": 15,
+                "autotrack": "craftableItems"
             }
         ],
         "openEnvelope": "%game.fhIcon:envelope% 39<br>(alt: %game.fhIcon:envelope% 72)"
@@ -157,7 +171,8 @@
         "requirements": [
             {
                 "name": "Follow \"Invasion of the Docks\" %game.scenarioNumber:71% to a conclusion",
-                "counter": 1
+                "counter": 1,
+                "autotrack": "scenario:71|72"
             }
         ],
         "openEnvelope": "%game.fhIcon:envelope% 90<br>(alt: %game.fhIcon:envelope% 42)"
@@ -206,7 +221,8 @@
         "requirements": [
             {
                 "name": "Gold donated to the Temple of the Great Oak",
-                "counter": 70
+                "counter": 70,
+                "autotrack": "donatedGold"
             }
         ],
         "openEnvelope": "%game.fhIcon:envelope% 65<br>(alt: %game.fhIcon:envelope% 85)"
@@ -228,7 +244,8 @@
         "requirements": [
             {
                 "name": "Earned %game.checkmark% from completed battle goals",
-                "counter": 16
+                "counter": 16,
+                "autotrack": "battleGoals"
             }
         ],
         "openEnvelope": "%game.fhIcon:envelope% 81<br>(alt: %game.fhIcon:envelope% 67)"
@@ -239,7 +256,8 @@
         "requirements": [
             {
                 "name": "Side scenarios (numbered 65 or higher) completed",
-                "counter": 8
+                "counter": 8,
+                "autotrack": "scenario:65|66"
             }
         ],
         "openEnvelope": "%game.fhIcon:envelope% 44<br>(alt: %game.fhIcon:envelope% 67)"
@@ -250,7 +268,8 @@
         "requirements": [
             {
                 "name": "Gain Abyss Axe blueprint %game.itemFh.39%",
-                "counter": 1
+                "counter": 1,
+                "autotrack": "item:39"
             },
             {
                 "name": "Frozen Corpses, Ice Wraiths, and/or Living Dooms killed with it",
@@ -302,7 +321,8 @@
         "requirements": [
             {
                 "name": "Allies exhausted during scenarios you otherwise complete",
-                "counter": 10
+                "counter": 10,
+                "autotrack": "exchaustedChars"
             }
         ],
         "openEnvelope": "%game.fhIcon:envelope% A"

@@ -711,7 +711,7 @@ export class EntityManager {
     } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
       infos.push(prefix + ".monster", "data.monster." + figure.name, "" + entity.number)
     } else if (figure instanceof Monster) {
-      infos.push(prefix + ".monsterEntities", "data.monster." + figure.name,)
+      infos.push(prefix + ".monsterEntities", "data.monster." + figure.name)
     }
 
     return infos;

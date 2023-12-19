@@ -16,6 +16,7 @@ import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 export class ActionsComponent implements OnInit, OnDestroy {
 
   @Input() monster: Monster | undefined;
+  @Input() monsterType: MonsterType | undefined;
   @Input() objective: Objective | ObjectiveContainer | undefined;
   @Input() actions!: Action[];
   @Input() relative: boolean = false;

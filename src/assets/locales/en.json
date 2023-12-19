@@ -2084,7 +2084,9 @@
         "monster": "%game.condition.{2}% '{1}' of {0}",
         "objective": "%game.condition.{1}% {0}",
         "objectiveContainer": "%game.condition.{2}% %game.objectiveMarker.{1}% of {0}",
-        "summon": "%game.condition.{2}% '{1}' of {0}"
+        "objectives": "%game.condition.{1}% all {0}",
+        "summon": "%game.condition.{2}% '{1}' of {0}",
+        "summons": "%game.condition.{1}% all {0} summons"
       },
       "addConditions": {
         "char": "{2}x %game.condition.{1}% {0}",
@@ -2092,11 +2094,23 @@
         "monster": "{3}x %game.condition.{2}% '{1}' of {0}",
         "objective": "{2}x %game.condition.{1}% {0}",
         "objectiveContainer": "{3}x %game.condition.{2}% %game.objectiveMarker.{1}% of {0}",
-        "summon": "{3}x %game.condition.{2}% '{1}' of {0}"
+        "objectives": "{2}x %game.condition.{1}% all {0}",
+        "summon": "{3}x %game.condition.{2}% '{1}' of {0}",
+        "summons": "{2}x %game.condition.{1}% all {0} summons"
       },
       "addEntityMarker": "{2} marker to {0} standee {1}",
       "addGameCondition": "Add %game.condition.{0}% to current game",
       "addGlobalAchievement": "Add global achievement '{0}'",
+      "addImmunity": {
+        "char": "%game.immunity.{1}% immunity {0}",
+        "monsterEntities": "%game.immunity.{1}% immunity all {2}{0}",
+        "monster": "%game.immunity.{2}% immunity '{1}' of {0}",
+        "objective": "%game.immunity.{1}% immunity {0}",
+        "objectiveContainer": "%game.immunity.{2}% immunity %game.objectiveMarker.{1}% of {0}",
+        "objectives": "%game.immunity.{1}% immunity all {0}",
+        "summon": "%game.immunity.{2}% immunity '{1}' of {0}",
+        "summons": "%game.immunity.{1}% immunity all {0} summons"
+      },
       "addItem": "Add Item {1} (%data.edition.{2}%) to {0}",
       "addManualScenario": "Unlock scenario #{0} {1} ({2})",
       "addMastery": "Check mastery {1} for {0}",
@@ -2163,6 +2177,7 @@
       "changeObjectiveHP": "HP {1} for objective {0}",
       "changeObjectiveId": "ID '{1}' for {0}",
       "changeObjectiveMaxHp": "Max. HP {1} for objective {0}",
+      "changeObjectivesHP": "HP {1} for all {0}",
       "changeParty": "Change party to '{0}'",
       "changeSummonAttack": "Attack {2} for summon '{1}' of {0}",
       "changeSummonHp": "HP {2} for summon '{1}' of {0}",
@@ -2283,7 +2298,9 @@
         "monster": "Remove %game.condition.{2}% from '{1}' of {0}",
         "objective": "Remove %game.condition.{1}% from {0}",
         "objectiveContainer": "Remove %game.condition.{2}% from %game.objectiveMarker.{1}% of {0}",
-        "summon": "Remove %game.condition.{2}% from '{1}' of {0}"
+        "objectives": "Remove %game.condition.{1}% from all {0}",
+        "summon": "Remove %game.condition.{2}% from '{1}' of {0}",
+        "summons": "Remove %game.condition.{1}% from all {0} summons"
       },
       "removeConditions": {
         "char": "Remove {2}x %game.condition.{1}% from {0}",
@@ -2291,11 +2308,23 @@
         "monster": "Remove {3}x %game.condition.{2}% from '{1}' of {0}",
         "objective": "Remove {2}x %game.condition.{1}% from {0}",
         "objectiveContainer": "Remove {3}x %game.condition.{2}% from %game.objectiveMarker.{1}% of {0}",
-        "summon": "Remove {3}x %game.condition.{2}% from '{1}' of {0}"
+        "objectives": "Remove {2}x %game.condition.{1}% from all {0}",
+        "summon": "Remove {3}x %game.condition.{2}% from '{1}' of {0}",
+        "summons": "Remove {2}x %game.condition.{1}% from all {0} summons"
       },
       "removeEntityMarker": "Remove {2} marker from {0} standee {1}",
       "removeGameCondition": "Remove %game.condition.{0}% to current game",
       "removeGlobalAchievement": "Remove global achievement '{0}'",
+      "removeImmunity": {
+        "char": "Remove %game.immunity.{1}% immunity from {0}",
+        "monsterEntities": "Remove %game.immunity.{1}% immunity fromm all {2}{0}",
+        "monster": "Remove %game.immunity.{2}% immunity from '{1}' of {0}",
+        "objective": "Remove %game.immunity.{1}% immunity from {0}",
+        "objectiveContainer": "Remove %game.immunity.{2}% immunity from %game.objectiveMarker.{1}% of {0}",
+        "objectives": "Remove %game.immunity.{1}% immunity from all {0}",
+        "summon": "Remove %game.immunity.{2}% immunity from '{1}' of {0}",
+        "summons": "Remove %game.immunity.{1}% immunity from all {0} summons"
+      },
       "removeItem": "Remove Item {1} (%data.edition.{2}%) from {0}",
       "removeManualScenario": "Remove scenario #{0} {1} ({2}) from unlocked",
       "removeMastery": "Uncheck mastery {1} for {0}",

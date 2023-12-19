@@ -17,6 +17,10 @@ export class ObjectiveManager {
     this.game = game;
   }
 
+  objectiveName(objective: ObjectiveContainer) {
+    return objective.title || objective.name && "data.objective." + objective.name || objective.escort ? 'escort' : 'objective';
+  }
+
   addObjective(objectiveData: ObjectiveData | undefined = undefined, name: string | undefined = undefined, objectiveId: ScenarioObjectiveIdentifier | undefined = undefined): ObjectiveContainer {
     let objectiveContainer = gameManager.game.figures.find((figure) => figure instanceof ObjectiveContainer && (!objectiveId && objectiveData && !figure.objectiveId && figure.name == objectiveData.name && figure.health == EntityValueFunction("" + objectiveData.health) && figure.escort == objectiveData.escort && figure.initiative == (objectiveData.initiative || 99) || objectiveId && figure.objectiveId && gameManager.objectiveDataByScenarioObjectiveIdentifier(objectiveId) == gameManager.objectiveDataByScenarioObjectiveIdentifier(figure.objectiveId))) as ObjectiveContainer;
 

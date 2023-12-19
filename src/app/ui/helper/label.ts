@@ -8,6 +8,7 @@ import { ActionHex } from "src/app/game/model/ActionHex";
 import { ActionTypesIcons } from "../figures/actions/action";
 import { Subscription } from "rxjs";
 import { AttackModifierValueType } from "src/app/game/model/data/AttackModifier";
+import { Condition, ConditionType } from "src/app/game/model/data/Condition";
 
 export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\,|\+|\(|\)|\||\_|\[|\]|\||\{|\}|\$|\\|\/|\%U+200B)+)\%/;
 
@@ -35,17 +36,18 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
 
       let replace: string = match;
       let image: string = '';
-      if (type == "condition") {
-        image = '<span class="condition-icon">';
-        image += '<img  src="./assets/images/' + (fh ? 'fh/' : '') + 'condition/' + split[2] + '.svg" class="icon">';
+      if (type == "condition" || type == "immunity") {
+        let condition = new Condition(split[2]);
+        image = '<span class="condition-icon' + (type == "immunity" ? ' immunity' : '') + '">';
+        image += '<img  src="./assets/images/' + (fh ? 'fh/' : '') + 'condition/' + condition.name + '.svg" class="icon">';
+        if (!value && condition.types.indexOf(ConditionType.upgrade) != -1) {
+          value = 'X';
+        }
         if (value) {
           image += '<span class="value">' + value + '</span>';
         }
         image += '</span>';
-        replace = '<span class="placeholder-condition">' + (fh ? '&nbsp;' : settingsManager.getLabel('game.condition.' + split[2], [value ? value : ''])) + image + '</span>';
-      } else if (type == "immunity") {
-        image = '<span class="condition-icon immunity"><img  src="./assets/images/' + (fh ? 'fh/' : '') + 'condition/' + split[2] + '.svg" class="icon">' + (value ? '<span class="value">' + value + '</span>' : '') + '</span>';
-        replace = '<span class="placeholder-condition">' + (fh ? '&nbsp;' : settingsManager.getLabel('game.condition.' + split[2])) + image + '</span>';
+        replace = '<span class="placeholder-condition">' + (fh ? '&nbsp;' : settingsManager.getLabel('game.condition.' + condition.name, [value ? value : ''])) + image + '</span>';
       } else if (type == "action" && split.length == 3 && !split[2].startsWith('specialTarget') && !split[2].startsWith('summon') && !split[2].startsWith('area')) {
         split.splice(0, 1);
         const ghsSvg = ActionTypesIcons.indexOf(split[split.length - 1] as ActionType) != -1;
