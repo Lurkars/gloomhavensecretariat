@@ -1936,7 +1936,9 @@
         "monster": "%game.condition.{2}% '{1}' von {0}",
         "objective": "%game.condition.{1}% {0}",
         "objectiveContainer": "%game.condition.{2}% %game.objectiveMarker.{1}% von {0}",
-        "summon": "%game.condition.{2}% '{1}' von {0}"
+        "objectives": "%game.condition.{1}% all {0}",
+        "summon": "%game.condition.{2}% '{1}' von {0}",
+        "summons": "%game.condition.{1}% alle {0} Beschwörungen"
       },
       "addConditions": {
         "char": "{2}x %game.condition.{1}% {0}",
@@ -1944,11 +1946,23 @@
         "monster": "{3}x %game.condition.{2}% '{1}' von {0}",
         "objective": "{2}x %game.condition.{1}% {0}",
         "objectiveContainer": "{3}x %game.condition.{2}% %game.objectiveMarker.{1}% von {0}",
-        "summon": "{3}x %game.condition.{2}% '{1}' von {0}"
+        "objectives": "{2}x %game.condition.{1}% alle {0}",
+        "summon": "{3}x %game.condition.{2}% '{1}' von {0}",
+        "summons": "{2}x %game.condition.{1}% alle {0} Beschwörungen"
       },
       "addEntityMarker": "{2} Markierung von {0} Aufsteller {1}",
       "addGameCondition": "%game.condition.{0}% zum aktuellen Spiel hinzufügen",
       "addGlobalAchievement": "Füge globalen Erfolg '{0}' hinzu",
+      "addImmunity": {
+        "char": "%game.immunity.{1}% Immunität {0}",
+        "monsterEntities": "%game.immunity.{1}% Immunität alle {2}{0}",
+        "monster": "%game.immunity.{2}% Immunität '{1}' von {0}",
+        "objective": "%game.immunity.{1}% Immunität {0}",
+        "objectiveContainer": "%game.immunity.{2}% Immunität %game.objectiveMarker.{1}% von {0}",
+        "objectives": "%game.immunity.{1}% Immunität alle {0}",
+        "summon": "%game.immunity.{2}% Immunität '{1}' von {0}",
+        "summons": "%game.immunity.{1}% Immunität alle {0} Beschwörungen"
+      },
       "addItem": "Gegenstand {1} (%data.edition.{2}%) für {0}",
       "addManualScenario": "Szenario #{0} {1} ({2}) freischalten",
       "addMastery": "Errungenschaft {1} für {0}",
@@ -2014,6 +2028,7 @@
       "changeObjectiveHP": "TP {1} für Ziel {0}",
       "changeObjectiveId": "ID '{1}' für {0} ",
       "changeObjectiveMaxHp": "Max. TP {1} für Ziel {0}",
+      "changeObjectivesHP": "HP {1} für alle {0}",
       "changeParty": "Wechsel zu Gruppe '{0}'",
       "changeSummonAttack": "Angriff {2} für Beschwörung '{1}' von {0}",
       "changeSummonHp": "TP {2} für Beschwörung '{1}' von {0}",
@@ -2118,7 +2133,9 @@
         "monster": "%game.condition.{2}% von {1} von {0} entfernen",
         "objective": "%game.condition.{1}% von {0} entfernen",
         "objectiveContainer": "%game.condition.{2}% %game.objectiveMarker.{1}% von {0} entfernen",
-        "summon": "%game.condition.{2}% von {1} von {0} entfernen"
+        "objectives": "%game.condition.{1}% von allen {0} entfernen",
+        "summon": "%game.condition.{2}% von '{1}' von {0} entfernen",
+        "summons": "%game.condition.{1}% von allen {0} Beschwörungen entfernen"
       },
       "removeConditions": {
         "char": "{2}x %game.condition.{1}% von {0} entfernen",
@@ -2126,11 +2143,23 @@
         "monster": "{3}x %game.condition.{2}% von {1} von {0} entfernen",
         "objective": "{2}x %game.condition.{1}% von {0} entfernen",
         "objectiveContainer": "{3}x %game.condition.{2}% %game.objectiveMarker.{1}% von {0} entfernen",
-        "summon": "{3}x %game.condition.{2}% von {1} von {0} entfernen"
+        "objectives": "{2}x game.condition.{1}% von allen {0} entfernen",
+        "summon": "{3}x %game.condition.{2}% von '{1}' von {0} entfernen",
+        "summons": "{2}x %game.condition.{1}% von allen {0} Beschwörungen entfernen"
       },
       "removeEntityMarker": "Markierung {2} von {0} Aufsteller {1} entfernen",
       "removeGameCondition": "%game.condition.{0}% vom aktuellen Spiel entfernen",
       "removeGlobalAchievement": "Entferne globalen Erfolg '{0}'",
+      "removeImmunity": {
+        "char": "%game.immunity.{1}% Immunität von {0} entfernen",
+        "monsterEntities": "%game.immunity.{1}% Immunität von allen {2}{0} entfernen",
+        "monster": "%game.immunity.{2}% Immunität von {1} von {0} entfernen",
+        "objective": "%game.immunity.{1}% Immunität von {0} entfernen",
+        "objectiveContainer": "%game.immunity.{2}% Immunität %game.objectiveMarker.{1}% von {0} entfernen",
+        "objectives": "%game.immunity.{1}% Immunität von allen {0} entfernen",
+        "summon": "%game.immunity.{2}% Immunität von {1} von {0} entfernen",
+        "summons": "%game.immunity.{1}% Immunität von allen {0} Beschwörungen entfernen"
+      },
       "removeItem": "Gegenstand {1} (%data.edition.{2}%) von {0} entfernen",
       "removeManualScenario": "Szenario #{0} {1} ({2}) von Freigeschaltenen entfernen",
       "removeMastery": "Entferne Errungenschaft {1} von {0}",
