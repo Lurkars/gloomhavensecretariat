@@ -596,7 +596,7 @@ export class ScenarioSummaryComponent {
     openCharacterSheet(character: Character): void {
         this.dialog.open(CharacterSheetDialog, {
             panelClass: ['dialog-invert'],
-            data: character
+            data: { character: character }
         });
     }
 

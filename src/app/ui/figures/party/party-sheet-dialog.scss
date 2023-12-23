@@ -1359,8 +1359,7 @@
               left: 0;
               width: 100%;
               height: 100%;
-              background-color: var(--ghs-color-gray);
-              opacity: 0.35;
+              background-color: var(--ghs-color-lightgray);
               z-index: -1;
             }
 
@@ -1542,9 +1541,13 @@
             }
 
             &.unlock {
+              position: sticky;
+              bottom: 0;
               display: flex;
               align-items: center;
               padding: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+              border-top: calc(var(--ghs-unit) * 0.05 * var(--ghs-dialog-factor)) solid var(--ghs-color-gray);
+              background-color: var(--ghs-color-white);
 
               .ghs-svg {
                 height: calc(var(--ghs-unit) * 1.4 * var(--ghs-dialog-factor));
@@ -1708,7 +1711,15 @@
             &>span {
               display: flex;
               align-items: center;
-              padding: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor))
+              padding: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
+            }
+
+            span.link {
+              cursor: pointer;
+
+              &:hover {
+                opacity: 0.7;
+              }
             }
 
             &:not(.separator) {
@@ -1826,6 +1837,7 @@
 
           .item-list,
           .treasure-list {
+            max-height: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));
             overflow-y: auto;
             font-size: 0.9em;
 

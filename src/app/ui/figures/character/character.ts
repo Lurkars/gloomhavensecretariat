@@ -345,7 +345,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   openCharacterSheet(): void {
     this.dialog.open(CharacterSheetDialog, {
       panelClass: ['dialog-invert'],
-      data: this.character
+      data: { character: this.character }
     });
   }
 

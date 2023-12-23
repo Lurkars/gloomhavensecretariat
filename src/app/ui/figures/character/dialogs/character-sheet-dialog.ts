@@ -13,7 +13,7 @@ export class CharacterSheetDialog {
 
   @ViewChild('characterSheet') characterSheet!: CharacterSheetComponent;
 
-  constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) public data: { character: Character, viewOnly: boolean }, private dialogRef: DialogRef) {
 
     this.dialogRef.closed.subscribe({
       next: () => {

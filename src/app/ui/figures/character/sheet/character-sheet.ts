@@ -23,6 +23,7 @@ import { EntityValueFunction } from "src/app/game/model/Entity";
 export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   @Input() character!: Character;
+  @Input() editable: boolean = true;
   @Input() standalone: boolean = false;
 
   @ViewChild('charactertitle', { static: false }) titleInput!: ElementRef;
@@ -160,7 +161,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     }
 
 
-    if (this.retired != this.character.progress.retired) {
+    if (this.retired != this.character.progress.retired && this.editable) {
       if (settingsManager.settings.applyRetirement && gameManager.game.party.campaignMode && this.retired) {
         this.dialog.open(CharacterRetirementDialog, {
           panelClass: 'dialog',

@@ -526,6 +526,12 @@ export class StateManager {
       }
     })
 
+    if (gameManager.game.party.retirements) {
+      gameManager.game.party.retirements.forEach((model) => {
+        this.characterPermissions[model.name + '|' + model.edition] = !this.permissions || this.permissions && (this.permissions.characters || this.permissions.character.some((value) => value.name == model.name && value.edition == model.edition));
+      })
+    }
+
     this.monsterPermissions = {};
     gameManager.game.figures.forEach((figure) => {
       if (figure instanceof Monster) {

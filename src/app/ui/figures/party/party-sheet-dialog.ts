@@ -25,6 +25,7 @@ import { ItemDialogComponent } from "../../figures/items/dialog/item-dialog";
 import { TreasuresDialogComponent } from "./treasures/treasures-dialog";
 import { AutocompleteItem } from "../../helper/autocomplete";
 import { PartyResourcesDialogComponent } from "./resources/resources";
+import { CharacterSheetDialog } from "../character/dialogs/character-sheet-dialog";
 
 @Component({
   selector: 'ghs-party-sheet-dialog',
@@ -309,9 +310,21 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     let character = new Character(gameManager.getCharacterData(characterModel.name, characterModel.edition), characterModel.level);
     character.fromModel(characterModel);
     character.progress.retired = false;
+    character.progress.personalQuestProgress = [];
     gameManager.game.figures.push(character);
     this.party.retirements.splice(this.party.retirements.indexOf(characterModel), 1);
     gameManager.stateManager.after();
+  }
+
+
+
+  openCharacterSheet(characterModel: GameCharacterModel, viewOnly: boolean = true) {
+    let character = new Character(gameManager.getCharacterData(characterModel.name, characterModel.edition), characterModel.level);
+    character.fromModel(characterModel);
+    this.dialog.open(CharacterSheetDialog, {
+      panelClass: ['dialog-invert'],
+      data: { character: character, viewOnly: viewOnly }
+    });
   }
 
   removeParty() {

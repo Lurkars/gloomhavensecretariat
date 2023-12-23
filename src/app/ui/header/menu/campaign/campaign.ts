@@ -98,7 +98,7 @@ export class CampaignMenuComponent implements OnInit {
     openCharacterSheet(character: Character) {
         this.dialog.open(CharacterSheetDialog, {
             panelClass: ['dialog-invert'],
-            data: character
+            data: { character: character }
         });
         this.close.emit();
     }

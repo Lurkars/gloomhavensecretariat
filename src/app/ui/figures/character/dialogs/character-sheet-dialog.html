@@ -1,5 +1,5 @@
 <div class="light character-sheet-dialog">
   <div class="scroll-container">
-    <ghs-character-sheet #characterSheet [character]="character"></ghs-character-sheet>
+    <ghs-character-sheet #characterSheet [character]="data.character" [editable]="!data.viewOnly"></ghs-character-sheet>
   </div>
 </div>

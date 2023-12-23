@@ -3,6 +3,10 @@
   background-color: var(--ghs-color-white);
   font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
 
+  .denied.view-only {
+    cursor: initial !important;
+  }
+
   .container {
     width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
     height: 100%;

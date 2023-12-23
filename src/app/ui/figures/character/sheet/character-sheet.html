@@ -1,7 +1,7 @@
 <div class="light character-sheet"
   [ngClass]="{'cs-sheet' : csSheet, 'fh-sheet' : fhSheet, 'compact': settingsManager.settings.characterSheetCompact}">
   <div class="container"
-    [ngClass]="{'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]}">
+    [ngClass]="{'denied' : !editable || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'view-only' : !editable}">
     <div class="columns">
       <div class="column column-left">
         <div class="row title">
@@ -181,7 +181,7 @@
         <div class="row perks">
           <label *ngIf="!fhSheet" class="headline"><span [ghs-label]="'game.attackModifiers.perks'"></span></label>
           <div class="list ignore-denied"
-            [ngClass]="{'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]}">
+            [ngClass]="{'denied' : !editable || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'view-only' : !editable}">
             <div class="perk" *ngFor="let perk of character.perks; let i = index;">
               <div class="checkboxes" [ngClass]="{'combined' : perk.combined}">
                 <span class="checkbox" *ngFor="let count of []|ghsRange:perk.count"
