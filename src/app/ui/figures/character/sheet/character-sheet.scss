@@ -293,6 +293,14 @@
               }
             }
           }
+
+          ghs-perk-label {
+            cursor: pointer;
+
+            &.disabled {
+              cursor: initial;
+            }
+          }
         }
       }
 

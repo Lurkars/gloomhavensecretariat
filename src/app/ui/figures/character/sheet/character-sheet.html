@@ -189,7 +189,8 @@
                   ghs-pointer-input (singleClick)="addPerk(i, count+1)"
                   (doubleClick)="addPerk(i, count+1, true)"></span>
               </div>
-              <ghs-perk-label [perk]="perk"></ghs-perk-label>
+              <ghs-perk-label ghs-pointer-input (singleClick)="togglePerk(i)" (doubleClick)="togglePerk(i, true)" [ngClass]="{ 'disabled' : gameManager.game.state != GameState.draw || gameManager.game.round > 0 || availablePerks == 0 && !character.progress.perks[i]}"
+                [perk]="perk"></ghs-perk-label>
             </div>
           </div>
           <div class="warning" [ghs-label]="'game.attackModifiers.perks.warning'" [ghs-label-attribute]="'title'"

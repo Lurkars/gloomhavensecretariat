@@ -392,6 +392,25 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     gameManager.stateManager.after();
   }
 
+  togglePerk(index: number, force: boolean = false) {
+    let value = this.character.progress.perks[index] + 1;
+    if (value > this.character.perks[index].count) {
+      value = 0;
+    }
+
+    if (!force && this.availablePerks == 0 && value != 0 && this.character.progress.perks[index]) {
+      value = this.character.progress.perks[index] - 1;
+    }
+
+    const disabled: boolean = gameManager.game.state != GameState.draw || gameManager.game.round > 0 || this.availablePerks == 0 && !this.character.progress.perks[index];
+
+    if (!force && disabled && value > 1) {
+      value = 0;
+    }
+
+    this.addPerk(index, value, force);
+  }
+
   addPerk(index: number, value: number, force: boolean = false) {
     const disabled: boolean = gameManager.game.state != GameState.draw || gameManager.game.round > 0 || this.character.progress.perks[index] < value && this.availablePerks < value - this.character.progress.perks[index];
 
