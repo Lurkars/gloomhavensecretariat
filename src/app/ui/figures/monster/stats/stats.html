@@ -122,13 +122,13 @@
       <div class="additional">
         <ghs-actions [actions]="statsForType(MonsterType.normal).actions" [inline]="true"
           [statsCalculation]="settingsManager.settings.calculate" [right]="true" [hexSize]="0.5"
-          [highlightActions]="highlightActions" [monster]="monster" [monsterType]="MonsterType.normal">
+          [highlightActions]="highlightActions" [monster]="monsterCopy" [monsterType]="MonsterType.normal">
         </ghs-actions>
       </div>
       <div class="specials" *ngFor="let special of (statsForType(MonsterType.normal).special); let index = index;">
         <span class="special">{{index+1}}:</span>
         <ghs-actions [actions]="special" [inline]="true" [statsCalculation]="settingsManager.settings.calculate"
-          [right]="true" [hexSize]="0.5" [monster]="monster" [monsterType]="MonsterType.normal">
+          [right]="true" [hexSize]="0.5" [monster]="monsterCopy" [monsterType]="MonsterType.normal">
         </ghs-actions>
       </div>
     </div>
@@ -145,13 +145,13 @@
       <div class="additional">
         <ghs-actions [actions]="statsForType(MonsterType.elite).actions" [inline]="true"
           [statsCalculation]="settingsManager.settings.calculate" [hexSize]="0.5" [highlightActions]="highlightActions"
-          [monster]="monster" [monsterType]="MonsterType.elite">
+          [monster]="monsterCopy" [monsterType]="MonsterType.elite">
         </ghs-actions>
       </div>
       <div class="specials" *ngFor="let special of (statsForType(MonsterType.elite).special); let index = index;">
         <span class="special">{{index+1}}:</span>
         <ghs-actions [actions]="special" [inline]="true" [statsCalculation]="settingsManager.settings.calculate"
-          [hexSize]="0.5" [monster]="monster" [monsterType]="MonsterType.elite">
+          [hexSize]="0.5" [monster]="monsterCopy" [monsterType]="MonsterType.elite">
         </ghs-actions>
       </div>
     </div>
@@ -169,13 +169,13 @@
     <div class="additional">
       <ghs-actions [actions]="statsForType(MonsterType.boss).actions" [inline]="true"
         [statsCalculation]="settingsManager.settings.calculate" [hexSize]="0.5" [highlightActions]="highlightActions"
-        [monster]="monster" [monsterType]="MonsterType.boss">
+        [monster]="monsterCopy" [monsterType]="MonsterType.boss">
       </ghs-actions>
     </div>
     <div class="specials" *ngFor="let special of (statsForType(MonsterType.boss).special); let index = index;">
       <span class="special">{{index+1}}:</span>
       <ghs-actions [actions]="special" [inline]="true" [statsCalculation]="settingsManager.settings.calculate"
-        [hexSize]="0.5" [monster]="monster" [monsterType]="MonsterType.boss">
+        [hexSize]="0.5" [monster]="monsterCopy" [monsterType]="MonsterType.boss">
       </ghs-actions>
     </div>
   </div>

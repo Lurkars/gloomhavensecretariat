@@ -35,6 +35,7 @@ export class MonsterStatsComponent implements OnInit {
   highlightActions: ActionType[] = [ActionType.shield, ActionType.retaliate];
   edition: string = "";
   catching: boolean = false;
+  monsterCopy!: Monster;
 
   @ViewChild('levelButton', { read: ElementRef }) levelButton!: ElementRef;
 
@@ -42,6 +43,7 @@ export class MonsterStatsComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.monsterCopy = new Monster(this.monster, this.monster.level);
     this.setStats();
     if (!settingsManager.settings.statAnimations) {
       this.highlightActions = [];
@@ -89,6 +91,7 @@ export class MonsterStatsComponent implements OnInit {
     if (value != this.monster.level) {
       gameManager.stateManager.before("setLevel", "data.monster." + this.monster.name, '' + value);
       gameManager.monsterManager.setLevel(this.monster, value);
+      gameManager.monsterManager.setLevel(this.monsterCopy, value);
       this.setStats();
       gameManager.stateManager.after();
     }
