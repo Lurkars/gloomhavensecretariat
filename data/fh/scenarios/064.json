@@ -525,23 +525,6 @@
         {
           "name": "guard-captain",
           "type": "elite"
-        },
-        {
-          "name": "living-doom",
-          "type": "normal"
-        },
-        {
-          "name": "living-doom",
-          "type": "normal"
-        },
-        {
-          "name": "living-doom",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-doom",
-          "player4": "normal"
         }
       ],
       "objectives": [
