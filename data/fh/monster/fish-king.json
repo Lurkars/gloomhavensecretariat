@@ -57,6 +57,11 @@
       ],
       [
         {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
           "type": "specialTarget",
           "value": "focusEnemyFarthest",
           "small": true,
