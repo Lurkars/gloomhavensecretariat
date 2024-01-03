@@ -179,7 +179,7 @@ export class ScenarioSummaryComponent {
         finish.chooseLocation = this.chooseLocation;
         finish.chooseUnlockCharacter = this.chooseUnlockCharacter;
         finish.collectiveGold = this.collectiveGold;
-        finish.collectiveResources = this.collectiveResources;
+        finish.collectiveResources = this.collectiveResources || [];
         finish.items = this.items;
         finish.calendarSectionManual = this.calendarSectionManual;
         finish.randomItem = this.randomItem ? new Identifier('' + this.randomItem.id, this.randomItem.edition) : undefined;
@@ -200,7 +200,7 @@ export class ScenarioSummaryComponent {
             this.chooseLocation = finish.chooseLocation;
             this.chooseUnlockCharacter = finish.chooseUnlockCharacter;
             this.collectiveGold = finish.collectiveGold;
-            this.collectiveResources = finish.collectiveResources;
+            this.collectiveResources = finish.collectiveResources || [];
             this.items = finish.items;
             this.calendarSectionManual = finish.calendarSectionManual || finish.calenderSectionManual;
             this.randomItem = finish.randomItem ? gameManager.itemManager.getItem(+finish.randomItem.name, finish.randomItem.edition, true) : undefined;
@@ -243,6 +243,7 @@ export class ScenarioSummaryComponent {
                     });
                 }
                 if (this.rewards.collectiveResources) {
+                    this.collectiveResources = this.collectiveResources || [];
                     this.characters.forEach((char, index) => {
                         if (!this.collectiveResources[index]) {
                             this.collectiveResources[index] = {};
@@ -402,7 +403,7 @@ export class ScenarioSummaryComponent {
 
         const value = EntityValueFunction(resource.value);
 
-        return value > 0 && (value - this.collectiveResources.map((value) => value[type] || 0).reduce((a, b) => a + b)) || 0;
+        return value > 0 && (value - (this.collectiveResources && this.collectiveResources.length > 0 ? this.collectiveResources.map((value) => value[type] || 0).reduce((a, b) => a + b)  : 0)) || 0;
     }
 
     lootValue(character: Character, lootType: LootType): number {
