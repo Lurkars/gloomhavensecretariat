@@ -254,10 +254,10 @@ export class EntityManager {
     return entity.entityConditions.filter((value) => (!value.expired || expiredIndicator && value.types.indexOf(ConditionType.expiredIndicator) != -1) && (hidden || value.types.indexOf(ConditionType.hidden) == -1));
   }
 
-  isImmune(entity: Entity, figure: Figure, conditionName: ConditionName): boolean {
+  isImmune(entity: Entity, figure: Figure, conditionName: ConditionName, ignoreManual: boolean = false): boolean {
     let immune: boolean = false;
 
-    if (entity.immunities && entity.immunities.indexOf(conditionName) != -1) {
+    if (entity.immunities && entity.immunities.indexOf(conditionName) != -1 && !ignoreManual) {
       return true;
     } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
       const stat = figure.stats.find((monsterStat) => monsterStat.level == entity.level && monsterStat.type == entity.type);
@@ -293,15 +293,15 @@ export class EntityManager {
 
     if (!immune) {
       if (conditionName == ConditionName.wound_x) {
-        return this.isImmune(entity, figure, ConditionName.wound);
+        return this.isImmune(entity, figure, ConditionName.wound, ignoreManual);
       } else if (conditionName == ConditionName.poison_x) {
-        return this.isImmune(entity, figure, ConditionName.poison);
+        return this.isImmune(entity, figure, ConditionName.poison, ignoreManual);
       } else if (conditionName == ConditionName.rupture) {
-        return this.isImmune(entity, figure, ConditionName.wound);
+        return this.isImmune(entity, figure, ConditionName.wound, ignoreManual);
       } else if (conditionName == ConditionName.infect) {
-        return this.isImmune(entity, figure, ConditionName.poison);
+        return this.isImmune(entity, figure, ConditionName.poison, ignoreManual);
       } else if (conditionName == ConditionName.chill) {
-        return this.isImmune(entity, figure, ConditionName.immobilize) || this.isImmune(entity, figure, ConditionName.muddle);
+        return this.isImmune(entity, figure, ConditionName.immobilize, ignoreManual) || this.isImmune(entity, figure, ConditionName.muddle, ignoreManual);
       }
     }
 

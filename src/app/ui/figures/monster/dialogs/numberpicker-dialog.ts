@@ -66,6 +66,7 @@ export class MonsterNumberPickerDialog implements OnInit {
             } else if (event.key === '1' && this.range.filter((number) => number >= 10).some((number) => !this.hasNumber(number))) {
                 this.timeout = setTimeout(() => {
                     this.pickNumber(1);
+                    this.timeout = undefined;
                 }, 1000);
             } else {
                 this.pickNumber(+event.key);

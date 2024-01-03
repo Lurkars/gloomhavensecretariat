@@ -4,8 +4,7 @@
   "edition": "fh",
   "complexity": 2,
   "monsters": [
-    "lightning-eel",
-    "piranha-pig"
+    "lightning-eel"
   ],
   "lootDeckConfig": {
     "money": 9,
