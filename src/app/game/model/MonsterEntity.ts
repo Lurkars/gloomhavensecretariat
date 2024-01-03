@@ -2,7 +2,7 @@ import { ConditionName, EntityCondition, GameEntityConditionModel } from "./data
 import { Entity, EntityValueFunction } from "./Entity";
 import { FigureError, FigureErrorType } from "./data/FigureError";
 import { Monster } from "./Monster";
-import { MonsterStat, MonsterStatEffect } from "./data/MonsterStat";
+import { MonsterStat } from "./data/MonsterStat";
 import { MonsterType } from "./data/MonsterType";
 import { SummonState } from "./Summon";
 
@@ -13,7 +13,6 @@ export class MonsterEntity implements Entity {
   stat: MonsterStat;
   dead: boolean = false;
   summon: SummonState = SummonState.false;
-  effect: MonsterStatEffect | undefined;
   dormant: boolean = false;
   revealed: boolean = false;
 

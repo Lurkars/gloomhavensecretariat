@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
-import { Condition, ConditionName, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
+import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
 import { Entity } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
 import { Monster } from "src/app/game/model/Monster";
@@ -29,18 +29,17 @@ export class ConditionsComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
+  ConditionType = ConditionType;
 
-  standardNegative: Condition[] = [];
-  upgradeNegative: Condition[] = [];
-  stackNegative: Condition[] = [];
-  standardPositive: Condition[] = [];
-  upgradePositive: Condition[] = [];
-  stackPositive: Condition[] = [];
+  conditions: Condition[] = [];
+  conditionSeparator: number = 0;
 
   monsterType: MonsterType | boolean = false;
 
   permanentEnabled: boolean = false;
   immunityEnabled: boolean = false;
+  timeout: any;
+  numberStore: number = 0;
 
   constructor() {
     gameManager.uiChange.subscribe({
@@ -58,40 +57,61 @@ export class ConditionsComponent implements OnInit {
         this.monsterType = types[0];
       }
     }
+  }
 
-    window.addEventListener('keydown', (event: KeyboardEvent) => {
-      if (!event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
-        if (!event.ctrlKey && !event.shiftKey && ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'].indexOf(event.key) != -1) {
-          if ((!(this.entity instanceof Objective) || this.entity.escort) && (!(this.figure instanceof ObjectiveContainer) || this.figure.escort)) {
-            let index = +event.key;
-            let condition: Condition | undefined;
-            if (index == 0) {
-              index = 9;
-            } else {
-              index--;
-            }
-            if (index < this.standardNegative.length) {
-              condition = this.standardNegative[index];
-            } else if (index < this.standardNegative.length + this.standardPositive.length) {
-              condition = this.standardPositive[index - this.standardNegative.length];
-
-            }
-            if (condition && !this.isImmune(condition.name)) {
-              this.toggleCondition(condition);
-            }
-          }
-          event.preventDefault();
-        }
+  @HostListener('document:keydown', ['$event'])
+  onKeyPress(event: KeyboardEvent) {
+    if (event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
+      const keyNumber = +event.key;
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+        const combined: number = this.numberStore * 10 + keyNumber;
+        this.numberStore = combined;
+        this.selectCondition();
+      } else if (keyNumber * 10 < this.conditions.length + 2) {
+        this.numberStore = keyNumber;
+        this.timeout = setTimeout(() => {
+          this.selectCondition();
+        }, 1000);
+      } else {
+        this.numberStore = keyNumber;
+        this.selectCondition();
       }
-    })
+
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }
+
+  selectCondition() {
+    const index = this.numberStore;
+    if ((!(this.entity instanceof Objective) || this.entity.escort) && (!(this.figure instanceof ObjectiveContainer) || this.figure.escort)) {
+      let condition: Condition | undefined;
+      if (index <= this.conditions.length) {
+        condition = this.conditions[index - 1];
+      } else if (index == this.conditions.length + 1) {
+        this.permanentEnabled = !this.permanentEnabled;
+        this.immunityEnabled = false;
+      } else if (index == this.conditions.length + 2) {
+        this.immunityEnabled = !this.immunityEnabled;
+        this.permanentEnabled = false;
+      }
+      if (condition && (!this.isImmune(condition.name) || this.immunityEnabled && !gameManager.entityManager.isImmune(this.entity, this.figure, condition.name, true))) {
+        this.toggleCondition(condition);
+      }
+    }
+    this.timeout = undefined;
+    this.numberStore = -1;
   }
 
   initializeConditions() {
-    this.standardNegative = gameManager.conditionsForTypes('standard', 'negative', this.type);
-    this.upgradeNegative = gameManager.conditionsForTypes('upgrade', 'negative', this.type);
-    this.stackNegative = gameManager.conditionsForTypes('stack', 'negative', this.type);
-    this.standardPositive = gameManager.conditionsForTypes('standard', 'positive', this.type);
-    this.upgradePositive = gameManager.conditionsForTypes('upgrade', 'positive', this.type);
+    this.conditions = [];
+    this.conditions.push(...gameManager.conditionsForTypes('standard', 'negative', this.type));
+    this.conditions.push(...gameManager.conditionsForTypes('upgrade', 'negative', this.type));
+    this.conditions.push(...gameManager.conditionsForTypes('stack', 'negative', this.type));
+    this.conditionSeparator = this.conditions.length - 1;
+    this.conditions.push(...gameManager.conditionsForTypes('standard', 'positive', this.type));
+    this.conditions.push(...gameManager.conditionsForTypes('upgrade', 'positive', this.type));
   }
 
   hasCondition(condition: Condition, permanent: boolean = false, immunity: boolean = false): boolean {
@@ -104,23 +124,23 @@ export class ConditionsComponent implements OnInit {
     }
   }
 
-  isImmune(conditionName: ConditionName): boolean {
+  isImmune(conditionName: ConditionName, ignoreManual: boolean = false): boolean {
     let immune: boolean = false;
 
-    if (this.immunities) {
+    if (this.immunities && !ignoreManual) {
       immune = this.immunities.indexOf(conditionName) != -1;
     }
 
     if (!immune && this.figure instanceof Monster) {
       if (!(this.entity instanceof MonsterEntity)) {
-        immune = this.entities.every((entity) => this.figure instanceof Monster && entity instanceof MonsterEntity && gameManager.entityManager.isImmune(entity, this.figure, conditionName));
+        immune = this.entities.every((entity) => this.figure instanceof Monster && entity instanceof MonsterEntity && gameManager.entityManager.isImmune(entity, this.figure, conditionName, true));
       } else {
-        immune = gameManager.entityManager.isImmune(this.entity, this.figure, conditionName);
+        immune = gameManager.entityManager.isImmune(this.entity, this.figure, conditionName, true);
       }
     }
 
     if (!immune && this.figure instanceof Character && this.entity instanceof Character) {
-      immune = gameManager.entityManager.isImmune(this.entity, this.figure, conditionName);
+      immune = gameManager.entityManager.isImmune(this.entity, this.figure, conditionName, true);
     }
 
     return immune;

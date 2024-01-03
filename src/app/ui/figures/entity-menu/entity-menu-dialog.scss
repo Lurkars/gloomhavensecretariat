@@ -193,6 +193,16 @@
     width: auto;
   }
 
+  .condition {
+    height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+
+    &.disabled {
+      color: var(--ghs-color-gray);
+      filter: brightness(0.5) grayscale(0.2);
+    }
+  }
+
   .max-health-container {
     position: relative;
     display: flex;
@@ -447,7 +457,7 @@
       filter: grayscale(0.5);
 
       &::after {
-        position: relative; 
+        position: relative;
         content: " ";
         width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
         height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
