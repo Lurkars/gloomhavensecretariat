@@ -94,7 +94,7 @@
       "action": {
         "type": "custom",
         "small": true,
-        "value": "Create one %game.damage:2% trap in an adjacent empty hex at end of turn."
+        "value": "%data.custom.fh.trap.1%"
       }
     }
   ],
@@ -128,7 +128,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Create one %game.action.heal% 2 trap in an empty hex adjacent to the target"
+                "value": "%data.custom.fh.trap.2%"
               }
             ]
           }
@@ -152,7 +152,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Create one %game.damage:1% trap in an empty hex adjacent to the target"
+                "value": "%data.custom.fh.trap.3%"
               }
             ]
           }
@@ -176,7 +176,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Add %game.damage:2% or %game.action.heal% 2 to a trap within %game.action.range:2% of you"
+                "value": "%data.custom.fh.trap.4%"
               }
             ]
           }
@@ -220,7 +220,7 @@
               {
                 "type": "or",
                 "value": "",
-                "note": "Add %game.action.push% 2 or %game.action.pull% 2",
+                "note": "%data.custom.fh.trap.5%",
                 "effects": [
                   {
                     "type": "push",
@@ -245,21 +245,21 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you long rest, you may create one %game.damage:1% trap in an adjacent empty hex"
+      "custom": "%data.custom.fh.trap.6%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you enter a hex with a trap, you may choose to not spring the trap"
+      "custom": "%data.custom.fh.trap.7%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "At the start of each scenario, you may create one %game.damage:2% trap in an adjacent empty hex"
+      "custom": "%data.custom.fh.trap.8%"
     }
   ],
   "masteries": [
-    "Have one %game.action.heal% trap on the map with a value of at least 20",
-    "Move enemies through seven or more traps with one ability"
+    "%data.custom.fh.trap.9%",
+    "%data.custom.fh.trap.10%"
   ]
 }

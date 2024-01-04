@@ -1069,5 +1069,114 @@
       "57": "What’s this? An empty chest with a lead trapdoor at the bottom You make note of the location so you can return with Gem’s help later.",
       "62": "gain Mechanical Cube blueprint %game.itemFh.82% when you find the other half of this blueprint."
     }
+  },
+  "custom": {
+    "fh": {
+      "astral": {
+        "1": "Move one waning element to strong",
+        "2": "+1 %game.action.attack% for each pair of active %game.action.custom.fh-infusion%",
+        "3": "Whenever you become exhausted, keep all your active bonuses in play, with your summons acting on initiative 99 each round",
+        "4": "Whenever you short rest, you may %game.element.consume.wild% to %game.card.recover% on spent %game.items.slots.onehand% or %game.items.slots.twohand% item",
+        "5": "Once each scenario, during ordering of initiative, after all ability cards have been revealed, %game.element.wild%",
+        "6": "Have five active %game.action.custom.fh-infusion% bonuses",
+        "7": "Kill at least four enemies, but never attack"
+      },
+      "coral": {
+        "1": "If you performed a %data.action.custom.fh-tides% action this round, %game.attackmodifier.plus2% instead",
+        "2": "%game.custom.perks.ignoreNegativeItemFh% and, whenever you would gain %game.condition.impair%, prevent the condition",
+        "3": "Whenever you declare a long rest during card selection, gain %game.action.shield:1% for the round",
+        "4": "Gain advantage on all your attacks performed while occupying or targeting enemies occupying water hexes",
+        "5": "Never suffer damage from attacks, and be targeted by at least five attacks",
+        "6": "At the start of each of your rests, have more active %game.action.custom.fh-tides% than cards in your discard pile"
+      },
+      "drill": {
+        "1": "%game.action.custom.fh-pressure-up% or %game.action.custom.fh-pressure-down%",
+        "2": "The target and all enemies adjacent to it suffer %game.damage:1%",
+        "3": "Whenever you long rest, you may %game.action.custom.fh-pressure-up% or %game.action.custom.fh-pressure-down%",
+        "4": "Whenever you would gain %game.condition.poison%, you may suffer %game.damage:1% to prevent the condition",
+        "5": "Once each scenario, when you would become exhausted, instead gain %game.condition.stun% and %game.condition.invisible%, lose all your cards, %game.card.recover% four lost cards, and then discard the recovered cards",
+        "6": "Never attack",
+        "7": "For four consecutive rounds, move the pressure gauge up or down three levels from where is started the round (%game.action.custom.fh-pressure-low% to %game.action.custom.fh-pressure-over%, or vice versa)"
+      },
+      "fist": {
+        "1": "Create one 1-hex icy terrain tile in a featureless hex adjacent to the target",
+        "2": "%game.custom.perks.ignoreNegativeItemFh%, and whenever you enter icy terrain with a move ability, you may ignore the effect to add +1 %game.action.move%",
+        "3": "Whenever you heal from a long rest, you may %game.elementHalf.consume:ice|earth% to add +2 %game.action.heal%",
+        "4": "Once each scenario, when you would suffer %game.damage%, you may negate the %game.damage%",
+        "5": "%game.card.recover% at least one card from your discard pile each round",
+        "6": "Enter at least ten different hexes with one move ability, then cause one enemy to suffer at least %game.damage:10% with one attack ability in the same turn"
+      },
+      "kelp": {
+        "1": "Gain 1 %game.characterToken.kelp.trophy%",
+        "2": "Gain 1 %game.action.custom.fh-trophy%",
+        "3": "Whenever you long rest, you may %game.action.loot% one adjacent hex. If you gain any loot tokens, gain 1 %game.action.custom.fh-trophy%",
+        "4": "At the start of each scenario gain 2 %game.action.custom.fh-trophy%",
+        "5": "While you have %game.condition.invisible%, gain advantage on all your attacks",
+        "6": "Perform all your attacks with advantage",
+        "7": "Infuse %game.element.dark% each round"
+      },
+      "meteor": {
+        "1": "Create one 1-hex hazardous terrain tile in a featureless hex adjacent to the target",
+        "2": "Whenever you long rest, you may destroy one adjacent obstacle to gain %game.condition.ward%",
+        "3": "Whenever you short rest, you may %game.element.consume.fire% to perform %game.condition.wound%, %game.action.target:1% enemy occupying or adjacent to hazardous terrain",
+        "4": "You and all allies are unaffected by hazardous terrain you create",
+        "5": "Create or destroy at least one obstacle or hazardous terrain tile each round",
+        "6": "Move enemies through six different hexes of hazardous terrain you created in one turn"
+      },
+      "prism": {
+        "1": "At the end of turn perform:",
+        "2": "Focus on the enemy farthest from HIVE.",
+        "3": "All adjacent allies gain %game.action.shield% 1.",
+        "4": "When attacked reduece %game.damage% by 1 for each negative condition the attacker has.",
+        "5": "Give %game.condition.wound% to all adjacent figures and self at the end of turn.",
+        "6": "After this attack ability, grant one of your summons %game.action.move:2% card",
+        "7": "After this attack ability, %game.action.custom.fh-mode%",
+        "8": "Whenever you long rest, you may do so on any initiative value, choosing your initiative after all ability cards have been revealed, and you decide how your summons perform their abilities for the round",
+        "9": "At the end of each of your short rests, you may %game.action.custom.fh-mode%",
+        "10": "Whenever you would gain %game.condition.wound%, prevent the condition",
+        "11": "%game.action.custom.fh-mode% each round",
+        "12": "%game.action.custom.fh-mode% into four different summons in one round"
+      },
+      "shackles": {
+        "1": "When attacking, ignore %game.action.retaliate%",
+        "2": "all enemeis within 2 hexes",
+        "3": "Add +1 %game.action.attack% for each negative condition you have",
+        "4": "Each round in which you long rest, you may ignore all negative conditions you have.<br>If you do, they cannot be removed that round",
+        "5": "Whenever you become exhausted, first perform %game.condition.curse%, %game.action.target% all, %game.action.range:3%",
+        "6": "Increase your maximum hit point value by 5",
+        "7": "Cause other figures to suffer a total of at least %game.damage:40% in one round",
+        "8": "Start a turn with %game.condition.wound%,%game.condition.brittle%,%game.condition.bane%,%game.condition.poison%,%game.condition.immobilize%,%game.condition.disarm%,%game.condition.stun% and %game.condition.muddle%"
+      },
+      "shards": {
+        "1": "Reveal the top card of the target's monster ability deck",
+        "2": "Gain 1 %game.characterToken.shards.resonance%",
+        "3": "Gain 1 %game.action.custom.fh-resonance%",
+        "4": "Whenever you short rest, you may %game.element.consume.air% to perform %game.condition.strengthen%, %game.action.range:3% and %game.element.consume.light% to perform %game.condition.bless%, %game.action.range:3%",
+        "5": "At the start of each scenario you may gain %game.condition.brittle% to gain 2 %game.action.custom.fh-resonance%",
+        "6": "Whenever a new room is revealed, you may reveal the top card of both the monster attack modifier deck and all allies' attack modifier decks",
+        "7": "Always have 0 %game.action.custom.fh-resonance% directly before you gain %game.action.custom.fh-resonance% at the end of each of your turns",
+        "8": "Spend 5 %game.action.custom.fh-resonance% on each of five different Wave abilities"
+      },
+      "snowflake": {
+        "1": "If this action forces the target to move, it suffers %game.damage:1%",
+        "2": "Whenever you long rest, you may %game.elementHalf:ice|air%",
+        "3": "Whenever you short rest, you may %game.element.consume.ice% to perform %game.condition.regenerate%, %game.action.range:3% and %game.element.consume.air% to perform %game.condition.ward%, %game.action.range:3%",
+        "4": "At the start of each scenario, all enemies gain %game.condition.muddle%. Whenever a new room is revealed, all enemies in the newly revealed room gain %game.condition.muddle%",
+        "5": "Cause at least one ally or enemy to move each round",
+        "6": "Ensure the first ally to suffer %game.damage% each round, directly before suffering the %game.damage%, has at least one condition you applied"
+      },
+      "trap": {
+        "1": "Create one %game.damage:2% trap in an adjacent empty hex at end of turn.",
+        "2": "Create one %game.action.heal% 2 trap in an empty hex adjacent to the target",
+        "3": "Create one %game.damage:1% trap in an empty hex adjacent to the target",
+        "4": "Add %game.damage:2% or %game.action.heal% 2 to a trap within %game.action.range:2% of you",
+        "5": "Add %game.action.push% 2 or %game.action.pull% 2",
+        "6": "Whenever you long rest, you may create one %game.damage:1% trap in an adjacent empty hex",
+        "7": "Whenever you enter a hex with a trap, you may choose to not spring the trap",
+        "8": "At the start of each scenario, you may create one %game.damage:2% trap in an adjacent empty hex",
+        "9": "Have one %game.action.heal% trap on the map with a value of at least 20",
+        "10": "Move enemies through seven or more traps with one ability"
+      }
+    }
   }
 }

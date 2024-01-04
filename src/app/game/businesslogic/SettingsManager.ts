@@ -7,6 +7,10 @@ import { BuildingData } from "../model/data/BuildingData";
 import { ConditionName } from "../model/data/Condition";
 import { debugManager } from "./DebugManager";
 
+declare global {
+  interface Window { settingsManager: SettingsManager }
+}
+
 export class SettingsManager {
 
   defaultLocale: string = 'en';
@@ -1272,3 +1276,4 @@ export class SettingsManager {
 }
 
 export const settingsManager: SettingsManager = new SettingsManager();
+window.settingsManager = settingsManager;

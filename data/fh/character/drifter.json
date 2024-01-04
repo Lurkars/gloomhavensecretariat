@@ -101,7 +101,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Move one of your character tokens backward one slot"
+                "value": "%data.custom.fh.drifter.1%"
               }
             ]
           }
@@ -243,21 +243,21 @@
       "type": "custom",
       "count": 2,
       "combined": true,
-      "custom": "Whenever you long rest, you may move one of your characters token backward one slot"
+      "custom": "%data.custom.fh.drifter.2%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "You may bring one additional %game.items.slots.onehand% item into each scenario"
+      "custom": "%data.custom.fh.drifter.3%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "At the end of each scenario you may discard up to two loot cards, except Random Item, to draw that many new loot cards"
+      "custom": "%data.custom.fh.drifter.4%"
     }
   ],
   "masteries": [
-    "End a scenario with your character tokens on the last slots of four persistent abilities",
-    "Never perform a move ability or attack with a value less then 4, and perform at least one move or attack ability each round"
+    "%data.custom.fh.drifter.5%",
+    "%data.custom.fh.drifter.6%"
   ]
 }

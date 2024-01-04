@@ -158,8 +158,8 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "On your next attack, discard this card to add +2 %game.action.attack%.<br>%game.card.persistent%",
-                "hint": "Place this card in your active area. On your next attack, discard this card to add +2 %game.action.attack%"
+                "value": "%data.custom.fh.blinkblade.1%",
+                "hint": "%data.custom.fh.blinkblade.2%"
               }
             ]
           }
@@ -195,8 +195,8 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Gain 1 %data.characterToken.blinkblade.time%",
-                "hint": "Gain 1 %data.action.custom.fh-hourglass%"
+                "value": "%data.custom.fh.blinkblade.3%",
+                "hint": "%data.custom.fh.blinkblade.4%"
               }
             ]
           }
@@ -231,21 +231,21 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you short rest, you may spend one unspent %game.card.refresh% item for no effect to %game.card.recover% a different spent item"
+      "custom": "%data.custom.fh.blinkblade.5%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "At the start of your first turn each scenario, you may perform %game.action.move% 3"
+      "custom": "%data.custom.fh.blinkblade.6%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you would gain %game.condition.immobilize%, prevent the condition"
+      "custom": "%data.custom.fh.blinkblade.7%"
     }
   ],
   "masteries": [
-    "Declare Fast for seven consecutive rounds",
-    "Never be targeted by an attack"
+    "%data.custom.fh.blinkblade.8%",
+    "%data.custom.fh.blinkblade.9%"
   ]
 }

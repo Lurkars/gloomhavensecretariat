@@ -131,7 +131,7 @@
       "health": 8,
       "action": {
         "type": "custom",
-        "value": "All adjacent allies add +2 %game.action.attack% to all their attacks.",
+        "value": "%data.custom.gh.spirit-banner.1%",
         "small": true
       }
     }

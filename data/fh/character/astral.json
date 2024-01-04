@@ -224,7 +224,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Move one waning element to strong"
+                "value": "%data.custom.fh.astral.1%"
               }
             ]
           }
@@ -243,7 +243,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "+1 %game.action.attack% for each pair of active %game.action.custom.fh-infusion%"
+                "value": "%data.custom.fh.astral.2%"
               }
             ]
           }
@@ -259,21 +259,21 @@
       "type": "custom",
       "count": 2,
       "combined": true,
-      "custom": "%game.custom.perks.ignoreNegativeItemFh%.<br>Whenever you become exhausted, keep all your active bonuses in play, with your summons acting on initiative 99 each round"
+      "custom": "%game.custom.perks.ignoreNegativeItemFh%.<br>%data.custom.fh.astral.3%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you short rest, you may %game.element.consume.wild% to %game.card.recover% on spent %game.items.slots.onehand% or %game.items.slots.twohand% item"
+      "custom": "%data.custom.fh.astral.4%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Once each scenario, during ordering of initiative, after all ability cards have been revealed, %game.element.wild%"
+      "custom": "%data.custom.fh.astral.5%"
     }
   ],
   "masteries": [
-    "Have five active %game.action.custom.fh-infusion% bonuses",
-    "Kill at least four enemies, but never attack"
+    "%data.custom.fh.astral.6%",
+    "%data.custom.fh.astral.7%"
   ]
 }

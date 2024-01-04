@@ -248,22 +248,22 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you short rest, you may remove one negative condition from one ally within %game.action.range:3%"
+      "custom": "%data.custom.fh.geminate.1%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Once each scenario, when you would give yourself a negative condition, prevent the condition"
+      "custom": "%data.custom.fh.geminate.2%"
     },
     {
       "type": "custom",
       "count": 2,
       "combined": true,
-      "custom": "Whenever you perform an action with a lost icon, you may discard one card to %game.card.recover% one card from your discard pile of equal or lower level"
+      "custom": "%data.custom.fh.geminate.3%"
     }
   ],
   "masteries": [
-    "Switch forms each round",
-    "Lose at least one ability card each round"
+    "%data.custom.fh.geminate.4%",
+    "%data.custom.fh.geminate.5%"
   ]
 }

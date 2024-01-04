@@ -74,7 +74,7 @@
       "movement": 2,
       "action": {
         "type": "custom",
-        "value": "X is half the rat's current hit point value (rounded up).",
+        "value": "%data.custom.gh.rat-king.1%",
         "small": true
       }
     }

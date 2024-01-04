@@ -54,7 +54,7 @@
       "movement": 2,
       "action": {
         "type": "custom",
-        "value": "You may perform Attack actions as if you occupy the summon's hex.",
+        "value": "%data.custom.gh.doppelganger.1%",
         "small": true
       }
     },
@@ -72,7 +72,7 @@
         "subActions": [
           {
             "type": "custom",
-            "value": "when %game.action.attack% performed",
+            "value": "%data.custom.gh.mana-sphere.1%",
             "small": true
           }
         ]

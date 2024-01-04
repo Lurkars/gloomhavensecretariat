@@ -82,7 +82,7 @@
           {
             "type": "custom",
             "small": true,
-            "value": "At the end of turn perform:"
+            "value": "%data.custom.fh.prism.1%"
           },
           {
             "type": "heal",
@@ -131,7 +131,7 @@
           {
             "type": "custom",
             "small": true,
-            "value": "Focus on the enemy farthest from HIVE."
+            "value": "%data.custom.fh.prism.2%"
           }
         ]
       }
@@ -177,7 +177,7 @@
       "action": {
         "type": "custom",
         "small": true,
-        "value": "All adjacent allies gain %game.action.shield% 1."
+        "value": "%data.custom.fh.prism.3%"
       }
     },
     {
@@ -217,7 +217,7 @@
       "action": {
         "type": "custom",
         "small": true,
-        "value": "When attacked reduece %game.damage% by 1 for each negative condition the attacker has."
+        "value": "%data.custom.fh.prism.4%"
       },
       "additionalAction": {
         "type": "condition",
@@ -235,7 +235,7 @@
       "action": {
         "type": "custom",
         "small": true,
-        "value": "Give %game.condition.wound% to all adjacent figures and self at the end of turn."
+        "value": "%data.custom.fh.prism.5%"
       }
     },
     {
@@ -268,7 +268,7 @@
           {
             "type": "custom",
             "small": true,
-            "value": "At the end of turn perform:"
+            "value": "%data.custom.fh.prism.1%"
           },
           {
             "type": "condition",
@@ -339,7 +339,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "After this attack ability, grant one of your summons %game.action.move:2% card"
+                "value": "%data.custom.fh.prism.6%"
               }
             ]
           }
@@ -363,7 +363,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "After this attack ability, %game.action.custom.fh-mode%"
+                "value": "%data.custom.fh.prism.7%"
               }
             ]
           }
@@ -454,21 +454,21 @@
       "type": "custom",
       "count": 2,
       "combined": true,
-      "custom": "Whenever you long rest, you may do so on any initiative value, choosing your initiative after all ability cards have been revealed, and you decide how your summons perform their abilities for the round"
+      "custom": "%data.custom.fh.prism.8%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "At the end of each of your short rests, you may %game.action.custom.fh-mode%"
+      "custom": "%data.custom.fh.prism.9%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you would gain %game.condition.wound%, prevent the condition"
+      "custom": "%data.custom.fh.prism.10%"
     }
   ],
   "masteries": [
-    "%game.action.custom.fh-mode% each round",
-    "%game.action.custom.fh-mode% into four different summons in one round"
+    "%data.custom.fh.prism.11%",
+    "%data.custom.fh.prism.12%"
   ]
 }

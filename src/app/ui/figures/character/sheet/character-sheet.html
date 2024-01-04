@@ -1,4 +1,4 @@
-<div class="light character-sheet"
+<div class="light character-sheet" [style.--ghs-character-color]="character.color"
   [ngClass]="{'cs-sheet' : csSheet, 'fh-sheet' : fhSheet, 'compact': settingsManager.settings.characterSheetCompact}">
   <div class="container"
     [ngClass]="{'denied' : !editable || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'view-only' : !editable}">
@@ -189,7 +189,8 @@
                   ghs-pointer-input (singleClick)="addPerk(i, count+1)"
                   (doubleClick)="addPerk(i, count+1, true)"></span>
               </div>
-              <ghs-perk-label ghs-pointer-input (singleClick)="togglePerk(i)" (doubleClick)="togglePerk(i, true)" [ngClass]="{ 'disabled' : gameManager.game.state != GameState.draw || gameManager.game.round > 0 || availablePerks == 0 && !character.progress.perks[i]}"
+              <ghs-perk-label ghs-pointer-input (singleClick)="togglePerk(i)" (doubleClick)="togglePerk(i, true)"
+                [ngClass]="{ 'disabled' : gameManager.game.state != GameState.draw || gameManager.game.round > 0 || availablePerks == 0 && !character.progress.perks[i]}"
                 [perk]="perk"></ghs-perk-label>
             </div>
           </div>
@@ -328,4 +329,6 @@
       </div>
     </div>
   </div>
+
+  <div class="gh-cards" (click)="openGhCards()"></div>
 </div>

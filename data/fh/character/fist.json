@@ -175,7 +175,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Create one 1-hex icy terrain tile in a featureless hex adjacent to the target"
+                "value": "%data.custom.fh.fist.1%"
               }
             ]
           }
@@ -222,22 +222,22 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "%game.custom.perks.ignoreNegativeItemFh%, and whenever you enter icy terrain with a move ability, you may ignore the effect to add +1 %game.action.move%"
+      "custom": "%data.custom.fh.fist.2%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you heal from a long rest, you may %game.elementHalf.consume:ice|earth% to add +2 %game.action.heal%"
+      "custom": "%data.custom.fh.fist.3%"
     },
     {
       "type": "custom",
       "count": 2,
       "combined": true,
-      "custom": "Once each scenario, when you would suffer %game.damage%, you may negate the %game.damage%"
+      "custom": "%data.custom.fh.fist.4%"
     }
   ],
   "masteries": [
-    "%game.card.recover% at least one card from your discard pile each round",
-    "Enter at least ten different hexes with one move ability, then cause one enemy to suffer at least %game.damage:10% with one attack ability in the same turn"
+    "%data.custom.fh.fist.5%",
+    "%data.custom.fh.fist.6%"
   ]
 }

@@ -220,8 +220,8 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Gain 1 %game.characterToken.kelp.trophy%",
-                "hint": "Gain 1 %game.action.custom.fh-trophy%"
+                "value": "%data.custom.fh.kelp.1%",
+                "hint": "%data.custom.fh.kelp.2%"
               }
             ]
           }
@@ -244,22 +244,22 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you long rest, you may %game.action.loot% one adjacent hex. If you gain any loot tokens, gain 1 %game.action.custom.fh-trophy%"
+      "custom": "%data.custom.fh.kelp.3%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "At the start of each scenario gain 2 %game.action.custom.fh-trophy%"
+      "custom": "%data.custom.fh.kelp.4%"
     },
     {
       "type": "custom",
       "count": 3,
       "combined": true,
-      "custom": "While you have %game.condition.invisible%, gain advantage on all your attacks"
+      "custom": "%data.custom.fh.kelp.5%"
     }
   ],
   "masteries": [
-    "Perform all your attacks with advantage",
-    "Infuse %game.element.dark% each round"
+    "%data.custom.fh.kelp.6%",
+    "%data.custom.fh.kelp.7%"
   ]
 }

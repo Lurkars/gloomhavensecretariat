@@ -12,6 +12,7 @@ import { CharacterMoveResourcesDialog } from "./move-resources";
 import { CharacterRetirementDialog } from "./retirement-dialog";
 import { PersonalQuest } from "src/app/game/model/data/PersonalQuest";
 import { EntityValueFunction } from "src/app/game/model/Entity";
+import { GhCardsDialogComponent } from "./gh-cards-dialog";
 
 
 @Component({
@@ -480,5 +481,12 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   toggleFhSheet() {
     this.fhSheet = !this.fhSheet;
     this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).indexOf('cs') != -1);
+  }
+
+  openGhCards() {
+    this.dialog.open(GhCardsDialogComponent, {
+      panelClass: 'dialog-invert',
+      data: { character: this.character }
+    });
   }
 }

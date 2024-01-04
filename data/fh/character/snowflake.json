@@ -181,7 +181,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "If this action forces the target to move, it suffers %game.damage:1%"
+                "value": "%data.custom.fh.snowflake.1%"
               }
             ]
           }
@@ -250,23 +250,23 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you long rest, you may %game.elementHalf:ice|air%"
+      "custom": "%data.custom.fh.snowflake.2%"
     },
     {
       "type": "custom",
-      "custom": "Whenever you short rest, you may %game.element.consume.ice% to perform %game.condition.regenerate%, %game.action.range:3% and %game.element.consume.air% to perform %game.condition.ward%, %game.action.range:3%",
+      "custom": "%data.custom.fh.snowflake.3%",
       "count": 2,
       "combined": true
     },
     {
       "type": "custom",
-      "custom": "At the start of each scenario, all enemies gain %game.condition.muddle%. Whenever a new room is revealed, all enemies in the newly revealed room gain %game.condition.muddle%",
+      "custom": "%data.custom.fh.snowflake.4%",
       "count": 2,
       "combined": true
     }
   ],
   "masteries": [
-    "Cause at least one ally or enemy to move each round",
-    "Ensure the first ally to suffer %game.damage% each round, directly before suffering the %game.damage%, has at least one condition you applied"
+    "%data.custom.fh.snowflake.5%",
+    "%data.custom.fh.snowflake.6%"
   ]
 }

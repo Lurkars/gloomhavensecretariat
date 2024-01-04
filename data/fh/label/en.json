@@ -732,6 +732,74 @@
       "vestige-of-the-imprisoned-god": {
         "1": "Modify terrain.",
         "2": "All characters who did not attack suffer trap damage at end of round."
+      },
+      "aa": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "10": "",
+        "11": ""
+      },
+      "banner-spear": {
+        "1": "All allies within %game.range:2% add +1 %game.action.attack% to one of their attacks each turn.",
+        "2": "At the start of their turns, grant allies withing %game.range:3%:",
+        "3": "All adjacent allies gain %game.shield% 1.",
+        "4": "Negate the first source of %game.damage% to an adjacent ally each round",
+        "5": "All enemies within %game.action.range%4 suffer %game.damage:1% at the start of their turns.",
+        "6": "Add +1 %game.action.attack% for each ally adjacent to the target",
+        "7": "At the end of each of your long rests, grant one ally within %game.action.range:3%: %game.action.move% 2",
+        "8": "Whenever you open a door with a move ability, add +3 %game.action.move%",
+        "9": "Once each scenario, during your turn, gain %game.action.shield% 2 for the round",
+        "10": "Attack at least three enemies with each of three different area of effect attack abilities",
+        "11": "Perform a Banner summon ability on your first turn, keep the banner alive and within %game.action.range:3% of you for the entire scenario"
+      },
+      "blinkblade": {
+        "1": "On your next attack, discard this card to add +2 %game.action.attack%.<br>%game.card.persistent%",
+        "2": "Place this card in your active area. On your next attack, discard this card to add +2 %game.action.attack%",
+        "3": "Gain 1 %data.characterToken.blinkblade.time%",
+        "4": "Gain 1 %data.action.custom.fh-hourglass%",
+        "5": "Whenever you short rest, you may spend one unspent %game.card.refresh% item for no effect to %game.card.recover% a different spent item",
+        "6": "At the start of your first turn each scenario, you may perform %game.action.move% 3",
+        "7": "Whenever you would gain %game.condition.immobilize%, prevent the condition",
+        "8": "Declare Fast for seven consecutive rounds",
+        "9": "Never be targeted by an attack"
+      },
+      "boneshaper": {
+        "1": "+1 %game.action.attack% for each token on this card.",
+        "2": "Kill the attacking summon to instead add %game.attackmodifier.plus4%",
+        "3": "Immediately before each of your rests, you may kill one of your summons to perform %game.condition.bless%, self",
+        "4": "Once each scenario, when any character ally would become exhausted by suffering %game.damage%, you may suffer %game.damage:2% to reduce their hit point value to 1 instead",
+        "5": "At the start of each scenario, you may play a level 1 card from your hand to perfom a summon action of the card",
+        "6": "Kill at least fifteen of your summons",
+        "7": "Play a summon action on your first turn, have the summon kill at least six enemies, and keep it alive for the entire scenario"
+      },
+      "deathwalker": {
+        "1": "Whenever you long rest, you may move one %data.action.custom.fh-shadow% up to three hexes",
+        "2": "Whenever you short rest, you may %game.element.consume.dark% to perform %game.condition.muddle%, %game.condition.curse%, %game.action.range:2% as if you were occupying a hex with a %data.action.custom.fh-shadow%",
+        "3": "While you are occupying a hex with a %data.action.custom.fh-shadow%, all attacks targeting you gain disadvantage",
+        "4": "Remove seven %data.action.custom.fh-shadow% in one round",
+        "5": "Place or remove at least one %data.action.custom.fh-shadow% each round"
+      },
+      "drifter": {
+        "1": "Move one of your character tokens backward one slot",
+        "2": "Whenever you long rest, you may move one of your characters token backward one slot",
+        "3": "You may bring one additional %game.items.slots.onehand% item into each scenario",
+        "4": "At the end of each scenario you may discard up to two loot cards, except Random Item, to draw that many new loot cards",
+        "5": "End a scenario with your character tokens on the last slots of four persistent abilities",
+        "6": "Never perform a move ability or attack with a value less then 4, and perform at least one move or attack ability each round"
+      },
+      "geminate": {
+        "1": "Whenever you short rest, you may remove one negative condition from one ally within %game.action.range:3%",
+        "2": "Once each scenario, when you would give yourself a negative condition, prevent the condition",
+        "3": "Whenever you perform an action with a lost icon, you may discard one card to %game.card.recover% one card from your discard pile of equal or lower level",
+        "4": "Switch forms each round",
+        "5": "Lose at least one ability card each round"
       }
     }
   }
