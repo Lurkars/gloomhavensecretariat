@@ -134,7 +134,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "If you performed a %data.action.custom.fh-tides% action this round, %game.attackmodifier.plus2% instead"
+                "value": "%data.custom.fh.coral.1%"
               }
             ]
           }
@@ -205,22 +205,22 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "%game.custom.perks.ignoreNegativeItemFh% and, whenever you would gain %game.condition.impair%, prevent the condition"
+      "custom": "%data.custom.fh.coral.2%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you declare a long rest during card selection, gain %game.action.shield:1% for the round"
+      "custom": "%data.custom.fh.coral.3%"
     },
     {
       "type": "custom",
       "count": 3,
       "combined": true,
-      "custom": "Gain advantage on all your attacks performed while occupying or targeting enemies occupying water hexes"
+      "custom": "%data.custom.fh.coral.4%"
     }
   ],
   "masteries": [
-    "Never suffer damage from attacks, and be targeted by at least five attacks",
-    "At the start of each of your rests, have more active %game.action.custom.fh-tides% than cards in your discard pile"
+    "%data.custom.fh.coral.5%",
+    "%data.custom.fh.coral.6%"
   ]
 }

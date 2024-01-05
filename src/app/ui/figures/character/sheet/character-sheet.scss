@@ -972,4 +972,29 @@
     width: 100%;
     font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
   }
+
+  .gh-cards {
+    display: none;
+    position: absolute;
+    top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+    left: calc(var(--ghs-unit) * 30.5 * var(--ghs-dialog-factor));
+    cursor: pointer;
+    width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+    z-index: 1;
+
+    &:after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: var(--ghs-character-color);
+      mask-image: url('~/src/assets/images/character/hand-size.svg');
+      mask-size: 100%;
+      mask-repeat: no-repeat;
+      z-index: -1;
+    }
+  }
 }

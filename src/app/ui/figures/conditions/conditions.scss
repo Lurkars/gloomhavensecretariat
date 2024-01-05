@@ -96,6 +96,16 @@
       border: calc(var(--ghs-unit) / 5) var(--ghs-color-red) solid;
     }
 
+    &.toggle {
+      justify-content: center;
+      align-items: center;
+      
+      img {
+        height: 70%;
+        width: auto;
+      }
+    }
+
   }
 
   .dec,

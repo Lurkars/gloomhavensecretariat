@@ -355,6 +355,9 @@
             },
             "the-betrayer": {
                 "1": "Mind Control"
+            },
+            "rat-king": {
+                "1": "X is half the rat's current hit point value (rounded up)."
             }
         }
     }

@@ -41,6 +41,9 @@ import { Party } from "../model/Party";
 import { EventCardManager } from "./EventCardManager";
 import { BuildingsManager } from "./BuildingsManager";
 
+declare global {
+  interface Window { gameManager:  GameManager }
+}
 
 export class GameManager {
 
@@ -811,3 +814,4 @@ export class GameManager {
 }
 
 export const gameManager: GameManager = new GameManager();
+window.gameManager = gameManager;

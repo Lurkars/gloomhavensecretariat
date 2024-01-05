@@ -144,7 +144,7 @@
       "movement": 3,
       "action": {
         "type": "custom",
-        "value": "+1 %game.action.attack% for each token on this card.",
+        "value": "%data.custom.fh.boneshaper.1%",
         "small": true
       }
     },
@@ -243,7 +243,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Kill the attacking summon to instead add %game.attackmodifier.plus4%"
+                "value": "%data.custom.fh.boneshaper.2%"
               }
             ]
           }
@@ -309,22 +309,22 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "Immediately before each of your rests, you may kill one of your summons to perform %game.condition.bless%, self"
+      "custom": "%data.custom.fh.boneshaper.3%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Once each scenario, when any character ally would become exhausted by suffering %game.damage%, you may suffer %game.damage:2% to reduce their hit point value to 1 instead"
+      "custom": "%data.custom.fh.boneshaper.4%"
     },
     {
       "type": "custom",
       "count": 2,
-      "custom": "At the start of each scenario, you may play a level 1 card from your hand to perfom a summon action of the card",
+      "custom": "%data.custom.fh.boneshaper.5%",
       "combined": true
     }
   ],
   "masteries": [
-    "Kill at least fifteen of your summons",
-    "Play a summon action on your first turn, have the summon kill at least six enemies, and keep it alive for the entire scenario"
+    "%data.custom.fh.boneshaper.6%",
+    "%data.custom.fh.boneshaper.7%"
   ]
 }

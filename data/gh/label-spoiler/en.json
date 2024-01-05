@@ -757,5 +757,27 @@
     "gh": {
       "75": "Cryptogram Found (See scenario book page 121)"
     }
+  },
+  "custom": {
+    "gh": {
+      "bat-swarm": {
+        "1": "when %game.action.attack% performed"
+      },
+      "rock-colossus": {
+        "1": "when %game.action.attack% performed"
+      },
+      "healing-sprite": {
+        "1": "at end of turn"
+      },
+      "doppelganger": {
+        "1": "You may perform Attack actions as if you occupy the summon's hex."
+      },
+      "mana-sphere": {
+        "1": "when %game.action.attack% performed"
+      },
+      "spirit-banner": {
+        "1": "All adjacent allies add +2 %game.action.attack% to all their attacks."
+      }
+    }
   }
 }

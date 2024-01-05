@@ -82,7 +82,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Reveal the top card of the target's monster ability deck"
+                "value": "%data.custom.fh.shards.1%"
               }
             ]
           }
@@ -201,8 +201,8 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Gain 1 %game.characterToken.shards.resonance%",
-                "note": "Gain 1 %game.action.custom.fh-resonance%"
+                "value": "%data.custom.fh.shards.2%",
+                "note": "%data.custom.fh.shards.3%"
               }
             ]
           }
@@ -218,21 +218,21 @@
       "type": "custom",
       "count": 2,
       "combined": true,
-      "custom": "Whenever you short rest, you may %game.element.consume.air% to perform %game.condition.strengthen%, %game.action.range:3% and %game.element.consume.light% to perform %game.condition.bless%, %game.action.range:3%"
+      "custom": "%data.custom.fh.shards.4%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "At the start of each scenario you may gain %game.condition.brittle% to gain 2 %game.action.custom.fh-resonance%"
+      "custom": "%data.custom.fh.shards.5%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever a new room is revealed, you may reveal the top card of both the monster attack modifier deck and all allies' attack modifier decks"
+      "custom": "%data.custom.fh.shards.6%"
     }
   ],
   "masteries": [
-    "Always have 0 %game.action.custom.fh-resonance% directly before you gain %game.action.custom.fh-resonance% at the end of each of your turns",
-    "Spend 5 %game.action.custom.fh-resonance% on each of five different Wave abilities"
+    "%data.custom.fh.shards.7%",
+    "%data.custom.fh.shards.8%"
   ]
 }

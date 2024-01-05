@@ -258,6 +258,8 @@ export class Game {
       })
       this.party.manualScenarios = this.party.manualScenarios.filter((model) => removeManual.indexOf(model) == -1);
     }
+    
+    this.party.players = this.party.players || [];
 
     this.parties = [this.party];
     if (model.parties) {

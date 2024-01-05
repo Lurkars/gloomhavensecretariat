@@ -68,7 +68,7 @@ export class ConditionsComponent implements OnInit {
         const combined: number = this.numberStore * 10 + keyNumber;
         this.numberStore = combined;
         this.selectCondition();
-      } else if (keyNumber * 10 < this.conditions.length + 2) {
+      } else if (keyNumber * 10 <= this.conditions.length + 2) {
         this.numberStore = keyNumber;
         this.timeout = setTimeout(() => {
           this.selectCondition();

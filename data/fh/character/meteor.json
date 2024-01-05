@@ -114,7 +114,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Create one 1-hex hazardous terrain tile in a featureless hex adjacent to the target"
+                "value": "%data.custom.fh.meteor.1%"
               }
             ]
           }
@@ -209,22 +209,22 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you long rest, you may destroy one adjacent obstacle to gain %game.condition.ward%"
+      "custom": "%data.custom.fh.meteor.2%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you short rest, you may %game.element.consume.fire% to perform %game.condition.wound%, %game.action.target:1% enemy occupying or adjacent to hazardous terrain"
+      "custom": "%data.custom.fh.meteor.3%"
     },
     {
       "type": "custom",
       "count": 3,
       "combined": true,
-      "custom": "You and all allies are unaffected by hazardous terrain you create"
+      "custom": "%data.custom.fh.meteor.4%"
     }
   ],
   "masteries": [
-    "Create or destroy at least one obstacle or hazardous terrain tile each round",
-    "Move enemies through six different hexes of hazardous terrain you created in one turn"
+    "%data.custom.fh.meteor.5%",
+    "%data.custom.fh.meteor.6%"
   ]
 }

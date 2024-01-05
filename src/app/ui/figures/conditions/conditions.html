@@ -30,12 +30,16 @@
     <div class="separator"></div>
 
     <a class="item">
-      <span class="condition permanent" [ngClass]="{'active': permanentEnabled}"
-        (click)="permanentEnabled = !permanentEnabled; immunityEnabled = false;"></span>
+      <span class="condition toggle" [ngClass]="{'active': permanentEnabled}"
+        (click)="permanentEnabled = !permanentEnabled; immunityEnabled = false;">
+        <img src="./assets/images/condition/permanent.svg" />
+      </span>
     </a>
     <a class="item">
-      <span class="condition immunity" [ngClass]="{'active': immunityEnabled}"
-        (click)="immunityEnabled = !immunityEnabled; permanentEnabled = false;"></span>
+      <span class="condition toggle" [ngClass]="{'active': immunityEnabled}"
+        (click)="immunityEnabled = !immunityEnabled; permanentEnabled = false;">
+        <img
+          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh/condition/immune.svg' : '/condition/immunity.svg')" /></span>
     </a>
   </div>
 </div>

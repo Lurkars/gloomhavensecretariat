@@ -106,6 +106,7 @@ import { CharacterLootCardsDialog } from './ui/figures/character/dialogs/loot-ca
 import { CharacterMoveResourcesDialog } from './ui/figures/character/sheet/move-resources';
 import { CharacterRetirementDialog } from './ui/figures/character/sheet/retirement-dialog';
 import { CharacterSheetComponent } from './ui/figures/character/sheet/character-sheet';
+import { GhCardsDialogComponent } from './ui/figures/character/sheet/gh-cards-dialog';
 import { PerkLabelComponent } from './ui/figures/attackmodifier/perk/label';
 import { PartyWeekDialogComponent } from './ui/figures/party/week-dialog/week-dialog';
 import { CharacterItemsComponent } from './ui/figures/items/items';
@@ -168,7 +169,7 @@ export class GhsErrorHandler extends ErrorHandler {
     ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, StatsListComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent, EventEffectsDialog, EventRandomItemDialogComponent, EventRandomScenarioDialogComponent,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
     EntityMenuDialogComponent, EntitiesMenuDialogComponent, AdditionalAMSelectDialogComponent,
-    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterItemComponent, CharacterItemListComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterRetirementDialog, ItemComponent, ItemDialogComponent, ItemsDialogComponent, ItemsCharacterDialogComponent, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
+    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterItemComponent, CharacterItemListComponent, CharacterSheetComponent, CharacterSheetDialog, GhCardsDialogComponent, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterRetirementDialog, ItemComponent, ItemDialogComponent, ItemsDialogComponent, ItemsCharacterDialogComponent, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
     EventCardComponent, EventConditionLabelComponent, EventRewardLabelComponent,
     ObjectiveComponent, ObjectiveContainerComponent,
     SummonEntityComponent, SummonSheetComponent,

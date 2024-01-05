@@ -60,7 +60,7 @@
       "action": {
         "type": "custom",
         "small": true,
-        "value": "When attacking, ignore %game.action.retaliate%"
+        "value": "%data.custom.fh.shackles.1%"
       }
     },
     {
@@ -91,7 +91,7 @@
               {
                 "type": "target",
                 "small": true,
-                "value": "all enemeis within 2 hexes"
+                "value": "%data.custom.fh.shackles.2%"
               }
             ]
           }
@@ -266,7 +266,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Add +1 %game.action.attack% for each negative condition you have"
+                "value": "%data.custom.fh.shackles.3%"
               }
             ]
           }
@@ -289,22 +289,22 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "Each round in which you long rest, you may ignore all negative conditions you have.<br>If you do, they cannot be removed that round"
+      "custom": "%data.custom.fh.shackles.4%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you become exhausted, first perform %game.condition.curse%, %game.action.target% all, %game.action.range:3%"
+      "custom": "%data.custom.fh.shackles.5%"
     },
     {
       "type": "custom",
       "count": 2,
       "combined": true,
-      "custom": "Increase your maximum hit point value by 5"
+      "custom": "%data.custom.fh.shackles.6%"
     }
   ],
   "masteries": [
-    "Cause other figures to suffer a total of at least %game.damage:40% in one round",
-    "Start a turn with %game.condition.wound%,%game.condition.brittle%,%game.condition.bane%,%game.condition.poison%,%game.condition.immobilize%,%game.condition.disarm%,%game.condition.stun% and %game.condition.muddle%"
+    "%data.custom.fh.shackles.7%",
+    "%data.custom.fh.shackles.8%"
   ]
 }

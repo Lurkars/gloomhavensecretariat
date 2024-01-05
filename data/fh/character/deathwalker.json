@@ -227,21 +227,21 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you long rest, you may move one %data.action.custom.fh-shadow% up to three hexes"
+      "custom": "%data.custom.fh.deathwalker.1%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you short rest, you may %game.element.consume.dark% to perform %game.condition.muddle%, %game.condition.curse%, %game.action.range:2% as if you were occupying a hex with a %data.action.custom.fh-shadow%"
+      "custom": "%data.custom.fh.deathwalker.2%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "While you are occupying a hex with a %data.action.custom.fh-shadow%, all attacks targeting you gain disadvantage"
+      "custom": "%data.custom.fh.deathwalker.3%"
     }
   ],
   "masteries": [
-    "Remove seven %data.action.custom.fh-shadow% in one round",
-    "Place or remove at least one %data.action.custom.fh-shadow% each round"
+    "%data.custom.fh.deathwalker.4%",
+    "%data.custom.fh.deathwalker.5%"
   ]
 }
