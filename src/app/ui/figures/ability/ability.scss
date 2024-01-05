@@ -316,9 +316,10 @@
         background-blend-mode: screen, luminosity;
 
         .name {
-          top: 3%;
+          top: 0.5em;
           bottom: initial;
           font-size: 2em;
+          transform: none;
         }
 
       }
@@ -370,6 +371,59 @@
         font-size: 2.6em;
         top: 0.8em;
       }
+
+      &.character-actions {
+
+        &::before {
+          background-color: var(--ghs-ability-color);
+          background-image: url('~src/assets/images/fh/character/abilities/character-ability-front.png'), url('~src/assets/images/fh/character/abilities/character-ability-front-blend.png');
+          background-blend-mode: screen, luminosity;
+        }
+
+        .name {
+          color: var(--ghs-color-black);
+          top: 1.25em;
+          font-size: 1.6em;
+          filter: none;
+        }
+
+        .level {
+          top: 1.1em;
+          left: 0.8em;
+          font-size: 1.6em;
+          font-family: ghs-title;
+          color: var(--ghs-color-black);
+          mask: none;
+          background-color: transparent;
+
+          .text {
+            background: none;
+            color: var(--ghs-color-black);
+            filter: none;
+          }
+        }
+
+        .initiative {
+          font-family: ghs-title;
+          font-size: 2.6em;
+          top: 6.4em;
+          left: 4.8em;
+        }
+
+        .logo {
+          top: 2.4em;
+          right: 1.4em;
+          bottom: initial;
+          left: initial;
+          filter: brightness(0);
+          width: 1.5em;
+        }
+
+        .index {
+          bottom: 1.6em;
+          left: 2.8em;
+        }
+      }
     }
 
     .ability-back {
@@ -377,6 +431,20 @@
 
       &.bottom-actions {
         background-image: url('~src/assets/images/monster/abilities/monster-ability-back-botton.png');
+      }
+
+
+      &.character-actions {
+        background-color: var(--ghs-ability-color);
+        background-image: url('~src/assets/images/fh/character/abilities/character-ability-back.png'), url('~src/assets/images/fh/character/abilities/character-ability-back-blend.png');
+        background-blend-mode: screen, luminosity;
+
+        .name {
+          color: var(--ghs-color-black);
+          top: 0.4em;
+          font-size: 2.6em;
+          filter: none;
+        }
       }
     }
   }

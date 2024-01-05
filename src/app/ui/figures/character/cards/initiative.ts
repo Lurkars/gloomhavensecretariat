@@ -45,8 +45,8 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     if (this.initiativeInput) {
       this.initiativeInput.nativeElement.addEventListener('keydown', (event: KeyboardEvent) => {
+        const tabindex = this.tabindex();
         if (event.key === 'Tab' && gameManager.game.state == GameState.draw) {
-          const tabindex = this.tabindex();
           let nextIndex = event.shiftKey ? tabindex - 1 : tabindex + 1;
           let next = document.getElementById('initiative-input-' + nextIndex);
           if (!next && tabindex > 0) {
@@ -64,6 +64,13 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
           }
           event.preventDefault();
           event.stopPropagation();
+        } else if (event.key === 'Escape') {
+          const current = document.getElementById('initiative-input-' + tabindex);
+          if (current && document.activeElement == current) {
+            current.blur();
+            event.preventDefault();
+            event.stopPropagation();
+          }
         }
       })
     }

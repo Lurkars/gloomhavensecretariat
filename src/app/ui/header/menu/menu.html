@@ -4,7 +4,7 @@
       <span class="warning" (click)="gameManager.stateManager.gameOffsetWarning = false"
         *ngIf="undoOffset && gameManager.stateManager.gameOffsetWarning"> <img src="./assets/images/warning.svg">
         <span [ghs-label]="'state.missing'" [ghs-label-args]="['' + undoOffset]"></span></span>
-      <a class="state undo"
+      <a tabclick class="state undo"
         [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning) || gameManager.stateManager.undos.length == 0}"
         (click)="gameManager.stateManager.undo()">
         <span class="undo-text">
@@ -14,10 +14,10 @@
           [ghs-label-args]="(undoInfo | slice:1:undoInfo.length)" [ghs-label-empty]="true"></span>
       </a>
 
-      <span class="undo-dialog" (click)="openUndoDialog($event)"><img class="ghs-svg"
+      <span tabclick class="undo-dialog" (click)="openUndoDialog($event)"><img class="ghs-svg"
           src="./assets/images/long-rest.svg"></span>
 
-      <a class="state redo"
+      <a tabclick class="state redo"
         [ngClass]="{'disabled' :!gameManager.stateManager.redoPermission  || gameManager.stateManager.redos.length == 0}"
         (click)="gameManager.stateManager.redo()">
         <span [ghs-label]="'state.redo'"></span>
@@ -31,61 +31,61 @@
     <ng-container *ngIf="!standalone">
       <div class="line"
         [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
-        <a (click)="setActive(SubMenu.scenario)"><span [ghs-label]="'scenario.set'"></span></a>
+        <a tabclick (click)="setActive(SubMenu.scenario)"><span [ghs-label]="'scenario.set'"></span></a>
       </div>
       <div class="line"
         [ngClass]="{'disabled' : !hasSections(), 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
-        <a (click)="setActive(SubMenu.section)"><span [ghs-label]="'section'"></span></a>
+        <a tabclick (click)="setActive(SubMenu.section)"><span [ghs-label]="'section'"></span></a>
       </div>
       <div class="line"
         [ngClass]="{'disabled' : hasAllMonster(), 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.monsters}">
-        <a (click)="setActive(SubMenu.monster_add)"><span [ghs-label]="'monster.add'"></span></a>
+        <a tabclick (click)="setActive(SubMenu.monster_add)"><span [ghs-label]="'monster.add'"></span></a>
       </div>
       <div class="line"
         [ngClass]="{'disabled' : monsters().length == 0, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.monsters}">
-        <a (click)="setActive(SubMenu.monster_remove)"><span [ghs-label]="'monster.remove'"></span></a>
+        <a tabclick (click)="setActive(SubMenu.monster_remove)"><span [ghs-label]="'monster.remove'"></span></a>
       </div>
 
       <div class="separator"></div>
 
       <div class="line"
         [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
-        <a (click)="setActive(SubMenu.character_add)"><span [ghs-label]="'character.add'"></span></a>
+        <a tabclick (click)="setActive(SubMenu.character_add)"><span [ghs-label]="'character.add'"></span></a>
       </div>
       <div class="line"
         [ngClass]="{'disabled' : characters().length == 0,'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
-        <a (click)="setActive(SubMenu.character_remove)"><span [ghs-label]="'character.remove'"></span></a>
+        <a tabclick (click)="setActive(SubMenu.character_remove)"><span [ghs-label]="'character.remove'"></span></a>
       </div>
       <div class="line"
         [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
-        <a (click)="setActive(SubMenu.objective_add)"><span [ghs-label]="'objective.add'"></span></a>
+        <a tabclick (click)="setActive(SubMenu.objective_add)"><span [ghs-label]="'objective.add'"></span></a>
       </div>
       <div class="line"
         [ngClass]="{'disabled' : objectives().length == 0, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
-        <a (click)="setActive(SubMenu.objective_remove)"><span [ghs-label]="'objective.remove'"></span></a>
+        <a tabclick (click)="setActive(SubMenu.objective_remove)"><span [ghs-label]="'objective.remove'"></span></a>
       </div>
 
       <div class="separator"></div>
 
       <div class="line span">
-        <a (click)="setActive(SubMenu.campaign)"><span [ghs-label]="'campaign'"></span></a>
+        <a tabclick (click)="setActive(SubMenu.campaign)"><span [ghs-label]="'campaign'"></span></a>
       </div>
 
       <div class="separator"></div>
     </ng-container>
 
     <div class="line">
-      <a (click)="setActive(SubMenu.settings)"><span [ghs-label]="'settings'"></span></a>
+      <a tabclick (click)="setActive(SubMenu.settings)"><span [ghs-label]="'settings'"></span></a>
     </div>
     <ng-container *ngIf="!standalone">
       <div class="line">
-        <a (click)="setActive(SubMenu.datamanagement)"><span [ghs-label]="'datamanagement'"></span></a>
+        <a tabclick (click)="setActive(SubMenu.datamanagement)"><span [ghs-label]="'datamanagement'"></span></a>
       </div>
     </ng-container>
 
     <div class="separator"></div>
     <div class="line">
-      <a (click)="setActive(SubMenu.server)" [ngSwitch]="gameManager.stateManager.wsState()">
+      <a tabclick (click)="setActive(SubMenu.server)" [ngSwitch]="gameManager.stateManager.wsState()">
         <span *ngSwitchCase="WebSocket.OPEN"><span [ghs-label]="'server.menu.connected'"></span></span>
         <span *ngSwitchCase="WebSocket.CONNECTING"><span [ghs-label]="'server.connecting'"></span></span>
         <span *ngSwitchDefault><span [ghs-label]="'server.menu.connect'"></span></span>
@@ -94,7 +94,7 @@
 
     <div class="separator"></div>
     <div class="line">
-      <a (click)="setActive(SubMenu.about)"><span [ghs-label]="'about'"></span></a>
+      <a tabclick (click)="setActive(SubMenu.about)"><span [ghs-label]="'about'"></span></a>
     </div>
     <div class="line">
       <a href="https://help.gloomhaven-secretariat.de" target="_blank"><span [ghs-label]="'help'"></span></a>
@@ -104,7 +104,7 @@
 
     <div class="line" *ngIf="standalone">
 
-      <a [routerLink]="'/'" (click)="close()"><img class="ghs-svg" src="./assets/images/left.svg">&nbsp;
+      <a tabclick [routerLink]="'/'" (click)="close()"><img class="ghs-svg" src="./assets/images/left.svg">&nbsp;
         <span [ghs-label]="'tools.backToGhs'"></span>
       </a>
     </div>
@@ -115,13 +115,13 @@
     </div>
 
     <div class="line">
-      <a (click)="feedbackDialog()"><img class="ghs-svg" src="./assets/images/hint.svg">&nbsp;
+      <a tabclick (click)="feedbackDialog()"><img class="ghs-svg" src="./assets/images/hint.svg">&nbsp;
         <span [ghs-label]="'tools.feedback'"></span>
       </a>
     </div>
 
     <div class="line separator" *ngIf="isUpdateAvailable()">
-      <a (click)="update()">&lt;<span [ghs-label]="'update'"></span>(!)&gt;</a>
+      <a tabclick (click)="update()">&lt;<span [ghs-label]="'update'"></span>(!)&gt;</a>
     </div>
   </div>
 
@@ -260,7 +260,7 @@
   </div>
 </div>
 
-<div class="back" *ngIf="active != SubMenu.main" (click)="setActive(SubMenu.main)" [ghs-label]="'menu.backToMain'"
+<div class="back" *ngIf="active != SubMenu.main" tabclick (click)="setActive(SubMenu.main)" [ghs-label]="'menu.backToMain'"
   [ghs-label-attribute]="'title'">
   <img class="ghs-svg" src="./assets/images/left.svg">
 </div>

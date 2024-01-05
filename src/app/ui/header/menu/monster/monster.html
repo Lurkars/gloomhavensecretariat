@@ -2,12 +2,12 @@
   <div class="line filter-monster-menu" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
     <input [(ngModel)]="filter" type="text" [ghs-label]="'monster.filter'" [ghs-label-attribute]="'placeholder'">
     <label [ngClass]="{'disabled' : !hasBossMonster()}">
-      <input type="checkbox" [checked]="settingsManager.settings.showBossMonster"
+      <input tabclick type="checkbox" [checked]="settingsManager.settings.showBossMonster"
         (change)="settingsManager.setShowBossMonster(!settingsManager.settings.showBossMonster)">
       <span [ghs-label]="'monster.showBoss'"></span>
     </label>
     <label [ngClass]="{'disabled' : !hasHiddenMonster()}">
-      <input type="checkbox" [checked]="settingsManager.settings.showHiddenMonster"
+      <input tabclick type="checkbox" [checked]="settingsManager.settings.showHiddenMonster"
         (change)="settingsManager.setShowHiddenMonster(!settingsManager.settings.showHiddenMonster)">
       <span [ghs-label]="'monster.showHidden'"></span>
     </label>
@@ -21,12 +21,12 @@
         </div>
         <div class="line" *ngFor="let monsterData of monsterData(edition, filter)"
           [ngClass]="{'disabled' : hasMonster(monsterData), 'spoiler' : monsterData.spoiler, 'boss' : monsterData.boss, 'hidden-monster' : monsterData.hidden}">
-          <a (click)="addMonster(monsterData);" *ngIf="isSpoiled(monsterData)">
+          <a tabclick (click)="addMonster(monsterData);" *ngIf="isSpoiled(monsterData)">
             <span class="boss-icon" *ngIf="monsterData.boss"><img src="./assets/images/monster/enemy.png" /></span>
             <span [ghs-label]="'data.monster.' + monsterData.name"></span>
             <img  class="ghs-svg hidden-icon" *ngIf="monsterData.hidden" src="./assets/images/hidden.svg" />
           </a>
-          <a (click)="settingsManager.addSpoiler(monsterData.name);" *ngIf="!isSpoiled(monsterData)">
+          <a tabclick (click)="settingsManager.addSpoiler(monsterData.name);" *ngIf="!isSpoiled(monsterData)">
             <span class="name"><span [ghs-label]="'spoiler.placeholder'"></span></span>
             <span class="add"><span [ghs-label]="'spoiler.add'"></span></span>
           </a>
@@ -40,6 +40,6 @@
     </div>
   </div>
   <div class="line" *ngIf="hasSpoilers(monsterData())">
-    <a (click)="settingsManager.addSpoilers(notSpoiled(monsterData()))"><span [ghs-label]="'spoiler.all'"></span></a>
+    <a tabclick (click)="settingsManager.addSpoilers(notSpoiled(monsterData()))"><span [ghs-label]="'spoiler.all'"></span></a>
   </div>
 </div>

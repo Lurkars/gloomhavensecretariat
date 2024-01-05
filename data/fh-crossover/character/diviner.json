@@ -338,11 +338,11 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "<b>Tip the Scales</b> Whenever you rest, you may look at the top card of one attack modifier deck, then you may %game.elementHalf.consume:dark|light% to place one card on the bottom of the deck"
+      "custom": "%data.custom.fh.diviner.1%"
     }
   ],
   "masteries": [
-    "During one round, have at least four monsters move into four different Rifts that affect those monsters",
-    "Reveal at least one card from at least one ability card deck or attack modifier deck each round"
+    "%data.custom.fh.diviner.2%",
+    "%data.custom.fh.diviner.3%"
   ]
 }

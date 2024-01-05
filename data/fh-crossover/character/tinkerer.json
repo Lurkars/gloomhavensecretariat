@@ -279,13 +279,13 @@
     },
     {
       "type": "custom",
-      "custom": "<b>Rejuvenating Vapor:</b> Whenever you long rest, you may perform \"%game.action.heal%, %game.action.range% 3\"",
+      "custom": "%data.custom.fh.tinkerer.1%",
       "count": 2,
       "combined": true
     }
   ],
   "masteries": [
-    "Heal an ally or apply a negative condition to an enemy each turn",
-    "Perform two actions with lost icons before your first rest and then only rest after having played at least two actions with lost icons since your previous rest"
+    "%data.custom.fh.tinkerer.2%",
+    "%data.custom.fh.tinkerer.3%"
   ]
 }

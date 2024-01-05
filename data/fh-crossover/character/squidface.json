@@ -208,13 +208,13 @@
     },
     {
       "type": "custom",
-      "custom": "<b>Xorn's Boon:</b> Once each scenario, during your turn, cause each enemy that has %game.condition.poison% to duffer %game.damage:1% and gain %game.condition.muddle% and each ally who has %game.condition.poison% to suffer %game.damage:1% to gain %game.condition.strengthen%",
+      "custom": "%data.custom.fh.squidface.1%",
       "count": 2,
       "combined": true
     }
   ],
   "masteries": [
-    "Kill at least five enemies with non-attack abilities",
-    "Perform three different attack abilities that target at least four enemies each"
+    "%data.custom.fh.squidface.2%",
+    "%data.custom.fh.squidface.3%"
   ]
 }

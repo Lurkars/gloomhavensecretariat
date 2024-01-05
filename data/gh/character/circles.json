@@ -129,7 +129,7 @@
         "subActions": [
           {
             "type": "custom",
-            "value": "%data.custom.gh.bat-swarm.1%",
+            "value": "%data.custom.gh.circles.1%",
             "small": true
           }
         ]
@@ -199,7 +199,7 @@
         "subActions": [
           {
             "type": "custom",
-            "value": "%data.custom.gh.rock-colossus.1%",
+            "value": "%data.custom.gh.circles.1%",
             "small": true
           }
         ]
@@ -235,7 +235,7 @@
           },
           {
             "type": "custom",
-            "value": "%data.custom.gh.healing-sprite.1%",
+            "value": "%data.custom.gh.circles.2%",
             "small": true
           }
         ]

@@ -80,7 +80,7 @@
       "movement": 2,
       "action": {
         "type": "custom",
-        "value": "X is half the rat's current hit point value (rounded up).",
+        "value": "%data.custom.fh.mindthief.1%",
         "small": true
       }
     }
@@ -299,11 +299,11 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "<b>Lying Low:</b> You are considered to be last in initiative order when determining monster focus"
+      "custom": "%data.custom.fh.mindthief.2%"
     }
   ],
   "masteries": [
-    "Trigger the on-attack effect of four different Augments thrice each",
-    "Never be targeted by an attack"
+    "%data.custom.fh.mindthief.3%",
+    "%data.custom.fh.mindthief.4%"
   ]
 }

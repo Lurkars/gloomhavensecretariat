@@ -1,6 +1,6 @@
 <ghs-header #header></ghs-header>
 <main [ngClass]="{'compact' : footer.compact, 'modern' : settingsManager.settings.theme == 'modern'}"
-  ghs-keyboard-shortcuts [footer]="footer">
+  ghs-keyboard-shortcuts [header]="header" [footer]="footer">
   <div
     *ngIf="gameManager.stateManager.updateBlocked && settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword"
     class="dialog blocked">
@@ -34,18 +34,18 @@
     <div class="choose-edition" *ngIf="!gameManager.game.edition">
       <p><span [ghs-label]="'welcome.chooseEdition'"></span></p>
       <div class="editions">
-        <div class="edition" *ngFor="let editionData of gameManager.editionsData()"
+        <a tabclick class="edition" *ngFor="let editionData of gameManager.editionsData()"
           (click)="startCampaign(editionData.edition)">
           <img *ngIf="editionData.logoUrl" [src]="editionData.logoUrl"
             [ghs-label]="'data.edition.' + editionData.edition" [ghs-label-attribute]="'title'">
           <span class="text" *ngIf="!editionData.logoUrl"><span
               [ghs-label]="'data.edition.' + editionData.edition"></span></span>
-        </div>
+          </a>
       </div>
     </div>
     <p *ngIf="!gameManager.game.edition"><span [ghs-label]="'welcome.orChooseCharacters'"></span></p>
     <p *ngIf="gameManager.game.edition"><span [ghs-label]="'welcome.chooseCharacters'"></span></p>
-    <div class="add-characters" (click)="header.openMenu($event, SubMenu.character_add)">
+    <div class="add-characters" (click)="header.openMenu(SubMenu.character_add)">
       <span [ghs-label]="'hints.addCharacters'"></span>
     </div>
 

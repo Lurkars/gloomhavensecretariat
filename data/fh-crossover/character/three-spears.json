@@ -195,13 +195,13 @@
     },
     {
       "type": "custom",
-      "custom": "<b>Well Supplied:</b> Once each scenario, during your turn, if you have a persistend Quartermaster ability card in your active area, you may recover up to four cards from your discard pile",
+      "custom": "%data.custom.fh.three-spears.1%",
       "count": 2,
       "combined": true
     }
   ],
   "masteries": [
-    "Spend, lose, or refresh one or more items on each of your turns without ever performing the top action of <i>Reinforced Steel</i>",
-    "Loot six or more loot tokens in a single turn"
+    "%data.custom.fh.three-spears.2%",
+    "%data.custom.fh.three-spears.3%"
   ]
 }

@@ -136,7 +136,7 @@
       "health": 8,
       "action": {
         "type": "custom",
-        "value": "All adjacent allies add +2 %game.action.attack% to all their attacks.",
+        "value": "%data.custom.fh.two-mini.1%",
         "small": true
       }
     }
@@ -279,13 +279,13 @@
     },
     {
       "type": "custom",
-      "custom": "<b>Bear Treat:</b> During each round in which you long rest, at initiative 99, you may skip the bear's normal turn to Command: \"%game.action.move%3; %game.action.loot%1; If the loot ability was performed: %gamae.action.heal%3, self\"",
+      "custom": "%data.custom.fh.two-mini.2%",
       "count": 2,
       "combined": true
     }
   ],
   "masteries": [
-    "Have your bear summon deal 10 or more damage in three consecutive rounds",
-    "You or your summons must apply a negative condition to at least 10 different enemies"
+    "%data.custom.fh.two-mini.3%",
+    "%data.custom.fh.two-mini.4%"
   ]
 }

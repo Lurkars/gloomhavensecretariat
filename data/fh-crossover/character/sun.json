@@ -209,13 +209,13 @@
     },
     {
       "type": "custom",
-      "custom": "<b>Shielding Light:</b> Whenever one of your heals would cause an ally's current hit point value to increase beyond their maximum hit point value, that ally gains %game.condition.ward%",
+      "custom": "%data.custom.fh.sun.1%",
       "count": 2,
       "combined": true
     }
   ],
   "masteries": [
-    "Reduce attacks targeting you by a total of 20 or more through Shield effects in a single round",
-    "%game.element.light% or %game.element.consume.light% during each of your turns"
+    "%data.custom.fh.sun.2%",
+    "%data.custom.fh.sun.3%"
   ]
 }

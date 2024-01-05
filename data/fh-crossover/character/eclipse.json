@@ -241,11 +241,11 @@
       "type": "custom",
       "count": 2,
       "combined": true,
-      "custom": "<b>Empowering Night</b> At the start of the scenario, you may discard two cards to add a card with an action containing a persistent symbol from your pool to your hand and immediately play it, performing that action"
+      "custom": "%data.custom.fh.eclipse.1%"
     }
   ],
   "masteries": [
-    "Have %game.condition.invisible% at the start or end of each of your turns",
-    "%game.element.dark% or %game.element.consume.dark% during each of your turns"
+    "%data.custom.fh.eclipse.2%",
+    "%data.custom.fh.eclipse.3%"
   ]
 }

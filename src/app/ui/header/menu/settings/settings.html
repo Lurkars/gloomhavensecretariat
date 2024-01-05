@@ -17,7 +17,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.scenarioRooms"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.scenarioRooms"
             (change)="settingsManager.setScenarioRooms(!settingsManager.settings.scenarioRooms)">
           <span [ghs-label]="'settings.scenarioRooms'"></span>
         </label>
@@ -30,7 +30,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.scenarioRules"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.scenarioRules"
             (change)="settingsManager.setScenarioRules(!settingsManager.settings.scenarioRules)">
           <span [ghs-label]="'settings.scenarioRules'"></span>
         </label>
@@ -46,7 +46,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.treasures && settingsManager.settings.scenarioRooms"
             (change)="settingsManager.setTreasures(!settingsManager.settings.treasures)">
           <span [ghs-label]="'settings.treasures'"></span>
@@ -61,7 +61,7 @@
       <div class="hint-container">
         <label
           [ngClass]="{'disabled' : !settingsManager.settings.expireConditions && !settingsManager.settings.applyConditions}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.turnConfirmation && (settingsManager.settings.expireConditions || settingsManager.settings.applyConditions)"
             (change)="settingsManager.setTurnConfirmation(!settingsManager.settings.turnConfirmation)">
           <span [ghs-label]="'settings.turnConfirmation'"></span>
@@ -90,7 +90,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.initiativeRequired"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.initiativeRequired"
             (change)="settingsManager.setInitiativeRequired(!settingsManager.settings.initiativeRequired)">
           <span [ghs-label]="'settings.initiativeRequired'"></span>
         </label>
@@ -103,7 +103,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.hideAbsent"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.hideAbsent"
             (change)="settingsManager.setHideAbsent(!settingsManager.settings.hideAbsent)">
           <span [ghs-label]="'settings.hideAbsent'"></span>
         </label>
@@ -117,7 +117,7 @@
       <div class="hint-container">
         <label
           [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || !settingsManager.settings.treasures }">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.treasuresLoot && settingsManager.settings.scenarioRooms  && settingsManager.settings.treasures"
             (change)="settingsManager.setTreasuresLoot(!settingsManager.settings.treasuresLoot)">
           <span [ghs-label]="'settings.treasuresLoot'"></span>
@@ -132,7 +132,7 @@
       <div class="hint-container">
         <label
           [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || !settingsManager.settings.treasures  || !settingsManager.settings.treasuresLoot }">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.scenarioRooms  && settingsManager.settings.treasures && settingsManager.settings.treasuresLoot &&  settingsManager.settings.treasuresLootItem"
             (change)="settingsManager.setTreasuresLootItem(!settingsManager.settings.treasuresLootItem)">
           <span [ghs-label]="'settings.treasuresLootItem'"></span>
@@ -147,7 +147,7 @@
       <div class="hint-container">
         <label
           [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || !settingsManager.settings.treasures  || !settingsManager.settings.treasuresLoot }">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.scenarioRooms  && settingsManager.settings.treasures && settingsManager.settings.treasuresLoot &&  settingsManager.settings.treasuresLootScenario"
             (change)="settingsManager.setTreasuresLootScenario(!settingsManager.settings.treasuresLootScenario)">
           <span [ghs-label]="'settings.treasuresLootScenario'"></span>
@@ -161,7 +161,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.applyLongRest"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.applyLongRest"
             (change)="settingsManager.setApplyLongRest(!settingsManager.settings.applyLongRest)">
           <span [ghs-label]="'settings.applyLongRest'"></span>
         </label>
@@ -174,7 +174,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.characterSheet }">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.characterSheet && settingsManager.settings.applyRetirement"
             (change)="settingsManager.setApplyRetirement(!settingsManager.settings.applyRetirement)">
           <span [ghs-label]="'settings.applyRetirement'"></span>
@@ -188,7 +188,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.activeSummons"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.activeSummons"
             (change)="settingsManager.setActiveSummons(!settingsManager.settings.activeSummons)">
           <span [ghs-label]="'settings.activeSummons'"></span>
         </label>
@@ -204,7 +204,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.characterIdentities"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.characterIdentities"
             (change)="settingsManager.setCharacterIdentities(!settingsManager.settings.characterIdentities)">
           <span [ghs-label]="'settings.characterIdentities'"></span>
         </label>
@@ -217,7 +217,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.characterIdentities }">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.characterIdentities && settingsManager.settings.characterIdentityHint"
             (change)="settingsManager.setCharacterIdentityHint(!settingsManager.settings.characterIdentityHint)">
           <span [ghs-label]="'settings.characterIdentityHint'"></span>
@@ -231,7 +231,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.scenarioRewards"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.scenarioRewards"
             (change)="settingsManager.setScenarioRewards(!settingsManager.settings.scenarioRewards)">
           <span [ghs-label]="'settings.scenarioRewards'"></span>
         </label>
@@ -244,7 +244,7 @@
     <div class="line" [ngClass]="{'disabled' : !settingsManager.settings.scenarioRewards }">
       <div class="hint-container">
         <label>
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.scenarioRewards && settingsManager.settings.scenarioRewardsItems"
             (change)="settingsManager.setScenarioRewardsItems(!settingsManager.settings.scenarioRewardsItems)">
           <span [ghs-label]="'settings.scenarioRewardsItems'"></span>
@@ -258,7 +258,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.battleGoals}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.battleGoals && settingsManager.settings.battleGoalsReminder"
             (change)="settingsManager.setBattleGoalsReminder(!settingsManager.settings.battleGoalsReminder)">
           <span [ghs-label]="'settings.battleGoalsReminder'"></span>
@@ -272,7 +272,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.battleGoals}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.battleGoals && settingsManager.settings.battleGoalsCharacter"
             (change)="settingsManager.setBattleGoalsCharacter(!settingsManager.settings.battleGoalsCharacter)">
           <span [ghs-label]="'settings.battleGoalsCharacter'"></span>
@@ -286,7 +286,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.characterHandSize"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.characterHandSize"
             (change)="settingsManager.setCharacterHandSize(!settingsManager.settings.characterHandSize)">
           <span [ghs-label]="'settings.characterHandSize'"></span>
         </label>
@@ -299,7 +299,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.characterTraits"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.characterTraits"
             (change)="settingsManager.setCharacterTraits(!settingsManager.settings.characterTraits)">
           <span [ghs-label]="'settings.characterTraits'"></span>
         </label>
@@ -328,7 +328,7 @@
       <div class="line">
         <div class="hint-container">
           <label>
-            <input type="checkbox" [checked]="settingsManager.settings.abilities"
+            <input tabclick type="checkbox" [checked]="settingsManager.settings.abilities"
               (change)="settingsManager.setAbilities(!settingsManager.settings.abilities)">
             <span [ghs-label]="'settings.abilities'"></span>
           </label>
@@ -341,7 +341,7 @@
       <div class="line">
         <div class="hint-container">
           <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
-            <input type="checkbox" [checked]="settingsManager.settings.abilities && settingsManager.settings.calculate"
+            <input tabclick type="checkbox" [checked]="settingsManager.settings.abilities && settingsManager.settings.calculate"
               (change)="settingsManager.setCalculate(!settingsManager.settings.calculate)">
             <span [ghs-label]="'settings.calc'"></span>
           </label>
@@ -354,7 +354,7 @@
       <div class="line">
         <div class="hint-container">
           <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
-            <input type="checkbox"
+            <input tabclick type="checkbox"
               [checked]="settingsManager.settings.abilities && settingsManager.settings.calculateStats"
               (change)="settingsManager.setCalculateStats(!settingsManager.settings.calculateStats)">
             <span [ghs-label]="'settings.calculateStats'"></span>
@@ -369,7 +369,7 @@
         <div class="hint-container">
           <label
             [ngClass]="{'disabled' : !settingsManager.settings.abilities || !settingsManager.settings.calculateStats}">
-            <input type="checkbox"
+            <input tabclick type="checkbox"
               [checked]="settingsManager.settings.abilities && settingsManager.settings.calculateStats && settingsManager.settings.calculateShieldStats"
               (change)="settingsManager.setCalculateShieldStats(!settingsManager.settings.calculateShieldStats)">
             <span [ghs-label]="'settings.calculateShieldStats'"></span>
@@ -383,7 +383,7 @@
       <div class="line">
         <div class="hint-container">
           <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
-            <input type="checkbox"
+            <input tabclick type="checkbox"
               [checked]="settingsManager.settings.abilities && settingsManager.settings.abilityReveal"
               (change)="settingsManager.setAbilityReveal(!settingsManager.settings.abilityReveal)">
             <span [ghs-label]="'settings.abilityReveal'"></span>
@@ -397,7 +397,7 @@
       <div class="line">
         <div class="hint-container">
           <label>
-            <input type="checkbox" [checked]="settingsManager.settings.removeUnusedMonster"
+            <input tabclick type="checkbox" [checked]="settingsManager.settings.removeUnusedMonster"
               (change)="settingsManager.setRemoveUnusedMonster(!settingsManager.settings.removeUnusedMonster)">
             <span [ghs-label]="'settings.removeUnusedMonster'"></span>
           </label>
@@ -410,7 +410,7 @@
       <div class="line">
         <div class="hint-container">
           <label>
-            <input type="checkbox" [checked]="settingsManager.settings.addAllMonsters"
+            <input tabclick type="checkbox" [checked]="settingsManager.settings.addAllMonsters"
               (change)="settingsManager.setAddAllMonsters(!settingsManager.settings.addAllMonsters)">
             <span [ghs-label]="'settings.addAllMonsters'"></span>
           </label>
@@ -426,7 +426,7 @@
       <div class="line">
         <div class="hint-container">
           <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
-            <input type="checkbox"
+            <input tabclick type="checkbox"
               [checked]="settingsManager.settings.abilities && settingsManager.settings.interactiveAbilities"
               (change)="settingsManager.setInteractiveAbilities(!settingsManager.settings.interactiveAbilities)">
             <span [ghs-label]="'settings.interactiveAbilities'"></span>
@@ -441,7 +441,7 @@
         <div class="hint-container">
           <label
             [ngClass]="{'disabled' : !settingsManager.settings.abilities || !settingsManager.settings.interactiveAbilities}">
-            <input type="checkbox"
+            <input tabclick type="checkbox"
               [checked]="settingsManager.settings.combineSummonAction && settingsManager.settings.abilities && settingsManager.settings.interactiveAbilities"
               (change)="settingsManager.setCombineSummonAction(!settingsManager.settings.combineSummonAction)">
             <span [ghs-label]="'settings.combineSummonAction'"></span>
@@ -455,7 +455,7 @@
       <div class="line">
         <div class="hint-container">
           <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
-            <input type="checkbox"
+            <input tabclick type="checkbox"
               [checked]="settingsManager.settings.abilities && settingsManager.settings.abilityNumbers"
               (change)="settingsManager.setAbilityNumbers(!settingsManager.settings.abilityNumbers)">
             <span [ghs-label]="'settings.abilityNumbers'"></span>
@@ -469,7 +469,7 @@
       <div class="line">
         <div class="hint-container">
           <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
-            <input type="checkbox"
+            <input tabclick type="checkbox"
               [checked]="settingsManager.settings.abilities && settingsManager.settings.showExpandedAbilityCard"
               (change)="settingsManager.setShowExpandedAbilityCard(!settingsManager.settings.showExpandedAbilityCard)">
             <span [ghs-label]="'settings.showExpandedAbilityCard'"></span>
@@ -484,7 +484,7 @@
         <div class="hint-container">
           <label
             [ngClass]="{'disabled': !settingsManager.settings.abilities || settingsManager.settings.showExpandedAbilityCard}">
-            <input type="checkbox"
+            <input tabclick type="checkbox"
               [checked]="settingsManager.settings.abilities && (settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard)"
               (change)="settingsManager.setShowFullAbilityCard(!settingsManager.settings.showFullAbilityCard)">
             <span [ghs-label]="'settings.showFullAbilityCard'"></span>
@@ -498,7 +498,7 @@
       <div class="line">
         <div class="hint-container">
           <label>
-            <input type="checkbox" [checked]="settingsManager.settings.hideStats"
+            <input tabclick type="checkbox" [checked]="settingsManager.settings.hideStats"
               (change)="settingsManager.setHideStats(!settingsManager.settings.hideStats)">
             <span [ghs-label]="'settings.hideStats'"></span>
           </label>
@@ -528,7 +528,7 @@
       <div class="line">
         <div class="hint-container">
           <label [ngClass]="{'disabled' : !settingsManager.settings.standees}">
-            <input type="checkbox" [checked]="settingsManager.settings.eliteFirst && settingsManager.settings.standees"
+            <input tabclick type="checkbox" [checked]="settingsManager.settings.eliteFirst && settingsManager.settings.standees"
               (change)="settingsManager.setEliteFirst(!settingsManager.settings.eliteFirst)">
             <span [ghs-label]="'settings.eliteFirst'"></span>
           </label>
@@ -542,7 +542,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.standees}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.activeStandees && settingsManager.settings.standees"
             (change)="settingsManager.setActiveStandees(!settingsManager.settings.activeStandees)">
           <span [ghs-label]="'settings.activeStandees'"></span>
@@ -556,7 +556,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || !settingsManager.settings.standees}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.automaticStandees && settingsManager.settings.standees && settingsManager.settings.scenarioRooms"
             (change)="settingsManager.setAutomaticStandees(!settingsManager.settings.automaticStandees)">
           <span [ghs-label]="'settings.automaticStandees'"></span>
@@ -570,7 +570,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.standees}">
-          <input type="checkbox" [checked]="settingsManager.settings.standees && settingsManager.settings.standeeStats"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.standees && settingsManager.settings.standeeStats"
             (change)="settingsManager.setStandeeStats(!settingsManager.settings.standeeStats)">
           <span [ghs-label]="'settings.standeeStats'"></span>
         </label>
@@ -587,7 +587,7 @@
       <div class="hint-container">
         <label
           [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || !settingsManager.settings.standees || !settingsManager.settings.automaticStandees || settingsManager.settings.randomStandees}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.automaticStandeesDialog && settingsManager.settings.automaticStandees && settingsManager.settings.standees  && !settingsManager.settings.randomStandees && settingsManager.settings.scenarioRooms"
             (change)="settingsManager.setAutomaticStandeesDialog(!settingsManager.settings.automaticStandeesDialog)">
           <span [ghs-label]="'settings.automaticStandeesDialog'"></span>
@@ -601,7 +601,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.standees}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.randomStandees && settingsManager.settings.standees"
             (change)="settingsManager.setRandomStandees(!settingsManager.settings.randomStandees)">
           <span [ghs-label]="'settings.randomStandees'"></span>
@@ -615,7 +615,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.standees"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.standees"
             (change)="settingsManager.setStandees(!settingsManager.settings.standees)">
           <span [ghs-label]="'settings.standees'"></span>
         </label>
@@ -643,7 +643,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.expireConditions"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.expireConditions"
             (change)="settingsManager.setExpireConditions(!settingsManager.settings.expireConditions)">
           <span [ghs-label]="'settings.expireConditions'"></span>
         </label>
@@ -656,7 +656,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.applyConditions"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.applyConditions"
             (change)="settingsManager.setApplyConditions(!settingsManager.settings.applyConditions)">
           <span [ghs-label]="'settings.applyConditions'"></span>
         </label>
@@ -671,7 +671,7 @@
       <div class="line" [ngClass]="{'disabled' : !settingsManager.settings.applyConditions}">
         <div class="condition-list">
           <div class="hint-container" *ngFor="let condition of applyConditionsExcludes; let i = index;">
-            <div class="condition"
+            <div tabclick class="condition"
               [ngClass]="{'immunity': settingsManager.settings.applyConditionsExcludes.indexOf(condition.name) != -1}"
               (click)="toggleApplyConditionsExclude(condition.name)">
               <img
@@ -692,7 +692,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.moveElements"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.moveElements"
             (change)="settingsManager.setMoveElements(!settingsManager.settings.moveElements)">
           <span [ghs-label]="'settings.moveElements'"></span>
         </label>
@@ -706,7 +706,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.applyConditions}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions"
             (change)="settingsManager.setActiveApplyConditions(!settingsManager.settings.activeApplyConditions)">
           <span [ghs-label]="'settings.activeApplyConditions'"></span>
@@ -723,7 +723,7 @@
         [ngClass]="{'disabled' : !settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions}">
         <div class="condition-list">
           <div class="hint-container" *ngFor="let condition of activeApplyConditionsExcludes; let i = index">
-            <div class="condition"
+            <div tabclick class="condition"
               [ngClass]="{'immunity': settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) != -1}"
               (click)="toggleActiveApplyConditionsExclude(condition.name)">
               <img
@@ -758,7 +758,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.lootDeck}">
-          <input type="checkbox" [checked]="settingsManager.settings.lootDeck && settingsManager.settings.applyLoot"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.lootDeck && settingsManager.settings.applyLoot"
             (change)="settingsManager.setApplyLoot(!settingsManager.settings.applyLoot)">
           <span [ghs-label]="'settings.applyLoot'"></span>
         </label>
@@ -772,7 +772,7 @@
       <div class="hint-container">
         <label
           [ngClass]="{'disabled' : !settingsManager.settings.lootDeck || !settingsManager.settings.applyLoot || !settingsManager.settings.characterItems}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.lootDeck && settingsManager.settings.applyLoot && settingsManager.settings.characterItems && settingsManager.settings.applyLootRandomItem"
             (change)="settingsManager.setApplyLootRandomItem(!settingsManager.settings.applyLootRandomItem)">
           <span [ghs-label]="'settings.applyLootRandomItem'"></span>
@@ -786,7 +786,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.lootDeck || !settingsManager.settings.applyLoot}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.alwaysLootApplyDialog && settingsManager.settings.lootDeck && settingsManager.settings.applyLoot"
             (change)="settingsManager.setAlwaysLootApplyDialog(!settingsManager.settings.alwaysLootApplyDialog)">
           <span [ghs-label]="'settings.alwaysLootApplyDialog'"></span>
@@ -800,7 +800,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.lootDeck || gameManager.fhRules()}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.lootDeck && (settingsManager.settings.alwaysLootDeck || gameManager.fhRules())"
             (change)="settingsManager.setAlwaysLootDeck(!settingsManager.settings.alwaysLootDeck)">
           <span [ghs-label]="'settings.alwaysLootDeck'"></span>
@@ -815,7 +815,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !gameManager.fhRules()}">
-          <input type="checkbox" [checked]="settingsManager.settings.automaticPassTime && gameManager.fhRules()"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.automaticPassTime && gameManager.fhRules()"
             (change)="settingsManager.setAutomaticPassTime(!settingsManager.settings.automaticPassTime)">
           <span [ghs-label]="'settings.automaticPassTime'"></span>
         </label>
@@ -829,7 +829,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !gameManager.fhRules()}">
-          <input type="checkbox" [checked]="settingsManager.settings.applyBuildingRewards && gameManager.fhRules()"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.applyBuildingRewards && gameManager.fhRules()"
             (change)="settingsManager.setApplyBuildingRewards(!settingsManager.settings.applyBuildingRewards)">
           <span [ghs-label]="'settings.applyBuildingRewards'"></span>
         </label>
@@ -845,7 +845,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.battleGoals || gameManager.fhRules()}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.battleGoals && (gameManager.fhRules() || settingsManager.settings.battleGoalsFh)"
             (change)="settingsManager.setBattleGoalsFh(!settingsManager.settings.battleGoalsFh)">
           <span [ghs-label]="'settings.battleGoalsFh'"></span>
@@ -859,7 +859,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.allyAttackModifierDeck}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.allyAttackModifierDeck && settingsManager.settings.alwaysAllyAttackModifierDeck"
             (change)="settingsManager.setAlwaysAllyAttackModifierDeck(!settingsManager.settings.alwaysAllyAttackModifierDeck)">
           <span [ghs-label]="'settings.alwaysAllyAttackModifierDeck'"></span>
@@ -874,7 +874,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : gameManager.fhRules()}">
-          <input type="checkbox" [checked]="settingsManager.settings.alwaysHazardousTerrain || gameManager.fhRules()"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.alwaysHazardousTerrain || gameManager.fhRules()"
             (change)="settingsManager.setAlwaysHazardousTerrain(!settingsManager.settings.alwaysHazardousTerrain)">
           <span [ghs-label]="'settings.alwaysHazardousTerrain'"></span>
         </label>
@@ -888,7 +888,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : gameManager.fhRules()}">
-          <input type="checkbox" [checked]="settingsManager.settings.alwaysFhSolo || gameManager.fhRules()"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.alwaysFhSolo || gameManager.fhRules()"
             (change)="settingsManager.setAlwaysFhSolo(!settingsManager.settings.alwaysFhSolo)">
           <span [ghs-label]="'settings.alwaysFhSolo'"></span>
         </label>
@@ -903,7 +903,7 @@
       <div class="hint-container">
         <label
           [ngClass]="{'disabled' : !settingsManager.settings.characterItems && !settingsManager.settings.characterSheet || !gameManager.fhRules()}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="(settingsManager.settings.characterItems || settingsManager.settings.characterSheet) && settingsManager.settings.fhGhItems"
             (change)="settingsManager.setFhGhItems(!settingsManager.settings.fhGhItems)">
           <span [ghs-label]="'settings.fhGhItems'"></span>
@@ -934,7 +934,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.characterAttackModifierDeck"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.characterAttackModifierDeck"
             (change)="settingsManager.setCharacterAttackModifierDeck(!settingsManager.settings.characterAttackModifierDeck)">
           <span [ghs-label]="'settings.characterAttackModifierDeck'"></span>
         </label>
@@ -947,7 +947,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.characterSheet"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.characterSheet"
             (change)="settingsManager.setCharacterSheet(!settingsManager.settings.characterSheet)">
           <span [ghs-label]="'settings.characterSheet'"></span>
         </label>
@@ -960,7 +960,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.automaticUnlocking"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.automaticUnlocking"
             (change)="settingsManager.setAutomaticUnlocking(!settingsManager.settings.automaticUnlocking)">
           <span [ghs-label]="'settings.automaticUnlocking'"></span>
         </label>
@@ -973,7 +973,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.characterItems"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.characterItems"
             (change)="settingsManager.setCharacterItems(!settingsManager.settings.characterItems)">
           <span [ghs-label]="'settings.characterItems'"></span>
         </label>
@@ -986,7 +986,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.battleGoals"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.battleGoals"
             (change)="settingsManager.setBattleGoals(!settingsManager.settings.battleGoals)">
           <span [ghs-label]="'settings.battleGoals'"></span>
         </label>
@@ -999,7 +999,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.summons"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.summons"
             (change)="settingsManager.setSummons(!settingsManager.settings.summons)">
           <span [ghs-label]="'settings.summons'"></span>
         </label>
@@ -1015,7 +1015,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.lootDeck"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.lootDeck"
             (change)="settingsManager.setLootDeck(!settingsManager.settings.lootDeck)">
           <span [ghs-label]="'settings.lootDeck'"></span>
         </label>
@@ -1028,7 +1028,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.allyAttackModifierDeck"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.allyAttackModifierDeck"
             (change)="settingsManager.setAllyAttackModifierDeck(!settingsManager.settings.allyAttackModifierDeck)">
           <span [ghs-label]="'settings.allyAttackModifierDeck'"></span>
         </label>
@@ -1041,7 +1041,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.partySheet"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.partySheet"
             (change)="settingsManager.setPartySheet(!settingsManager.settings.partySheet)">
           <span [ghs-label]="'settings.partySheet'"></span>
         </label>
@@ -1054,7 +1054,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.monsters"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.monsters"
             (change)="settingsManager.setMonsters(!settingsManager.settings.monsters)">
           <span [ghs-label]="'settings.monsters'"></span>
         </label>
@@ -1067,7 +1067,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.monsterAttackModifierDeck"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.monsterAttackModifierDeck"
             (change)="settingsManager.setMonsterAttackModifierDeck(!settingsManager.settings.monsterAttackModifierDeck)">
           <span [ghs-label]="'settings.monsterAttackModifierDeck'"></span>
         </label>
@@ -1088,7 +1088,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.fhStyle"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.fhStyle"
             (change)="settingsManager.setFhStyle(!settingsManager.settings.fhStyle)">
           <span [ghs-label]="'settings.fhStyle'"></span>
         </label>
@@ -1101,7 +1101,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.dragValues"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.dragValues"
             (change)="settingsManager.setDragValues(!settingsManager.settings.dragValues)">
           <span [ghs-label]="'settings.dragValues'"></span>
         </label>
@@ -1114,7 +1114,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.pressDoubleClick"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.pressDoubleClick"
             (change)="settingsManager.setPressDoubleClick(!settingsManager.settings.pressDoubleClick)">
           <span [ghs-label]="'settings.pressDoubleClick'"></span>
         </label>
@@ -1127,7 +1127,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.dragFigures"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.dragFigures"
             (change)="settingsManager.setDragFigures(!settingsManager.settings.dragFigures)">
           <span [ghs-label]="'settings.dragFigures'"></span>
         </label>
@@ -1140,7 +1140,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled':  !settingsManager.settings.portraitMode}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode"
             (change)="settingsManager.setAutomaticAttackModifierFullscreen(!settingsManager.settings.automaticAttackModifierFullscreen)">
           <span [ghs-label]="'settings.automaticAttackModifierFullscreen'"></span>
@@ -1154,7 +1154,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.characterSheet }">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.characterSheet && settingsManager.settings.characterSheetCompact"
             (change)="settingsManager.setCharacterSheetCompact(!settingsManager.settings.characterSheetCompact)">
           <span [ghs-label]="'settings.characterSheetCompact'"></span>
@@ -1171,7 +1171,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.characterAttackModifierDeck}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierAnimate"
             (change)="settingsManager.setCharacterAttackModifierAnimate(!settingsManager.settings.characterAttackModifierAnimate)">
           <span [ghs-label]="'settings.characterAttackModifierAnimate'"></span>
@@ -1185,7 +1185,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.characterAttackModifierDeck}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierDeckPermanent"
             (change)="settingsManager.setCharacterAttackModifierDeckPermanent(!settingsManager.settings.characterAttackModifierDeckPermanent)">
           <span [ghs-label]="'settings.characterAttackModifierDeckPermanent'"></span>
@@ -1200,7 +1200,7 @@
       <div class="hint-container">
         <label
           [ngClass]="{'disabled' : !settingsManager.settings.characterAttackModifierDeck || !settingsManager.settings.characterAttackModifierDeckPermanent}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierDeckPermanent && settingsManager.settings.characterAttackModifierDeckPermanentActive"
             (change)="settingsManager.setCharacterAttackModifierDeckPermanentActive(!settingsManager.settings.characterAttackModifierDeckPermanentActive)">
           <span [ghs-label]="'settings.characterAttackModifierDeckPermanentActive'"></span>
@@ -1214,7 +1214,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.characterItems}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.characterItems && settingsManager.settings.characterItemsPermanent"
             (change)="settingsManager.setCharacterItemsPermanent(!settingsManager.settings.characterItemsPermanent)">
           <span [ghs-label]="'settings.characterItemsPermanent'"></span>
@@ -1229,7 +1229,7 @@
       <div class="hint-container">
         <label
           [ngClass]="{'disabled' : !settingsManager.settings.characterItems || !settingsManager.settings.characterItemsPermanent}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.characterItems && settingsManager.settings.characterItemsPermanent && settingsManager.settings.characterItemsPermanentActive"
             (change)="settingsManager.setCharacterItemsPermanentActive(!settingsManager.settings.characterItemsPermanentActive)">
           <span [ghs-label]="'settings.characterItemsPermanentActive'"></span>
@@ -1266,7 +1266,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.pinchZoom"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.pinchZoom"
             (change)="settingsManager.setPinchZoom(!settingsManager.settings.pinchZoom)">
           <span [ghs-label]="'settings.pinchZoom'"></span>
         </label>
@@ -1280,7 +1280,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.fullscreen" (change)="fullscreen()">
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.fullscreen" (change)="fullscreen()">
           <span [ghs-label]="'settings.fullscreen'"></span>
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
@@ -1292,7 +1292,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.autoscroll"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.autoscroll"
             (change)="settingsManager.setAutoscroll(!settingsManager.settings.autoscroll)">
           <span [ghs-label]="'settings.autoscroll'"></span>
         </label>
@@ -1305,7 +1305,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.portraitMode" (change)="togglePortraitMode()">
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.portraitMode" (change)="togglePortraitMode()">
           <span [ghs-label]="'settings.portraitMode'"></span>
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
@@ -1320,7 +1320,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.hints"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.hints"
             (change)="settingsManager.setHints(!settingsManager.settings.hints)">
           <span [ghs-label]="'settings.hints'"></span>
         </label>
@@ -1333,7 +1333,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.tooltips"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.tooltips"
             (change)="settingsManager.setTooltips(!settingsManager.settings.tooltips)">
           <span [ghs-label]="'settings.tooltips'"></span>
         </label>
@@ -1346,7 +1346,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.backupHint"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.backupHint"
             (change)="settingsManager.setBackupHint(!settingsManager.settings.backupHint)">
           <span [ghs-label]="'settings.backupHint'"></span>
         </label>
@@ -1359,7 +1359,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.statAnimations"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.statAnimations"
             (change)="settingsManager.setStatAnimations(!settingsManager.settings.statAnimations)">
           <span [ghs-label]="'settings.statAnimations'"></span>
         </label>
@@ -1372,7 +1372,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.columns"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.columns"
             (change)="settingsManager.setColumns(!settingsManager.settings.columns)">
           <span [ghs-label]="'settings.columns'"></span>
         </label>
@@ -1386,7 +1386,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.animations"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.animations"
             (change)="settingsManager.setAnimations(!settingsManager.settings.animations)">
           <span [ghs-label]="'settings.animations'"></span>
         </label>
@@ -1400,7 +1400,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.artwork"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.artwork"
             (change)="settingsManager.setArtwork(!settingsManager.settings.artwork)">
           <span [ghs-label]="'settings.artwork'"></span>
         </label>
@@ -1414,7 +1414,7 @@
     <div class="line" *ngIf="wakeLock">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.wakeLock"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.wakeLock"
             (change)="settingsManager.setWakeLock(!settingsManager.settings.wakeLock)">
           <span [ghs-label]="'settings.wakeLock'"></span>
         </label>
@@ -1429,7 +1429,7 @@
   <div class="line">
     <div class="hint-container">
       <label (click)="resetBarsize($event)"><span [ghs-label]="'settings.barsize'"></span>
-        <input type="range" min="0.1" step="0.1" max="2" [value]="settingsManager.settings.barsize"
+        <input tabclick type="range" min="0.1" step="0.1" max="2" [value]="settingsManager.settings.barsize"
           (change)="setBarsize($event)" (input)="updateBarsize($event)" />
       </label>
       <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
@@ -1442,7 +1442,7 @@
   <div class="line">
     <div class="hint-container">
       <label (click)="resetFontsize($event)"><span [ghs-label]="'settings.fontsize'"></span>
-        <input type="range" min="0.1" step="0.1" max="2" [value]="settingsManager.settings.fontsize"
+        <input tabclick type="range" min="0.1" step="0.1" max="2" [value]="settingsManager.settings.fontsize"
           (change)="setFontsize($event)" (input)="updateFontsize($event)" />
       </label>
       <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
@@ -1457,7 +1457,7 @@
   <div class="line">
     <div class="hint-container warning">
       <label class="label"><span [ghs-label]="'settings.maxUndo'"></span>
-        <input type="number" #maxUndo [value]="settingsManager.settings.maxUndo" min="0"
+        <input tabclick type="number" #maxUndo [value]="settingsManager.settings.maxUndo" min="0"
           [max]="storageManager.db ? '' : 50" (keyup)="0" (change)="settingsManager.setMaxUndo(+maxUndo.value)"
           [size]="maxUndo.value.length" [ghs-label]="'settings.maxUndo'" [ghs-label-attribute]="'placeholder'"></label>
       <img *ngIf="!storageManager.db" src="./assets/images/warning.svg" class="hint-trigger ghs-svg">
@@ -1473,7 +1473,7 @@
 
   <div class="line disabled">
     <label>
-      <input type="checkbox" [checked]="settingsManager.settings.browserNavigation"
+      <input tabclick type="checkbox" [checked]="settingsManager.settings.browserNavigation"
         (change)="settingsManager.setBrowserNavigation(!settingsManager.settings.browserNavigation)">
       <span [ghs-label]="'settings.browserNavigation'"></span>
     </label>
@@ -1494,7 +1494,7 @@
 
     <div class="line" *ngFor="let locale of settingsManager.locales">
       <label [ngClass]="{'disabled' : settingsManager.settings.locale == locale}">
-        <input type="checkbox" [checked]="settingsManager.settings.locale == locale"
+        <input tabclick type="checkbox" [checked]="settingsManager.settings.locale == locale"
           (change)="settingsManager.setLocale(locale)">
         <span [ghs-label]="'settings.locale.' + locale"></span>
       </label>
@@ -1508,7 +1508,7 @@
 
     <div class="line" *ngFor="let theme of ['default', 'fh', 'modern']">
       <label [ngClass]="{'disabled' : settingsManager.settings.theme == theme}">
-        <input type="checkbox" [checked]="settingsManager.settings.theme == theme"
+        <input tabclick type="checkbox" [checked]="settingsManager.settings.theme == theme"
           (change)="settingsManager.setTheme(theme)">
         <span [ghs-label]="'settings.theme.' + theme"></span>
       </label>
@@ -1519,7 +1519,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.automaticTheme"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.automaticTheme"
             (change)="settingsManager.setAutomaticTheme(!settingsManager.settings.automaticTheme)">
           <span [ghs-label]="'settings.automaticTheme'"></span>
         </label>
@@ -1532,7 +1532,7 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : settingsManager.settings.theme  == 'modern'}">
-          <input type="checkbox"
+          <input tabclick type="checkbox"
             [checked]="settingsManager.settings.theme  != 'modern' && settingsManager.settings.characterCompact"
             (change)="settingsManager.setCharacterCompact(!settingsManager.settings.characterCompact)">
           <span [ghs-label]="'settings.characterCompact'"></span>
@@ -1546,7 +1546,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.hideCharacterHP"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.hideCharacterHP"
             (change)="settingsManager.setHideCharacterHP(!settingsManager.settings.hideCharacterHP)">
           <span [ghs-label]="'settings.hideCharacterHP'"></span>
         </label>
@@ -1559,7 +1559,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.hideCharacterLoot"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.hideCharacterLoot"
             (change)="settingsManager.setHideCharacterLoot(!settingsManager.settings.hideCharacterLoot)">
           <span [ghs-label]="'settings.hideCharacterLoot'"></span>
         </label>
@@ -1572,7 +1572,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.hideCharacterXP"
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.hideCharacterXP"
             (change)="settingsManager.setHideCharacterXP(!settingsManager.settings.hideCharacterXP)">
           <span [ghs-label]="'settings.hideCharacterXP'"></span>
         </label>
@@ -1587,13 +1587,13 @@
   <div class="separator"></div>
 
   <div class="line">
-    <a (click)="helperDefaults()">
+    <a tabclick (click)="helperDefaults()">
       <span [ghs-label]="'settings.helperDefaults'"></span>
     </a>
   </div>
 
   <div class="line">
-    <a (click)="setMenu.emit(SubMenu.debug)">
+    <a tabclick (click)="setMenu.emit(SubMenu.debug)">
       <span [ghs-label]="'settings.debug'"></span>
     </a>
   </div>

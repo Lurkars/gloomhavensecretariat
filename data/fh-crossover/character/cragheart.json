@@ -199,11 +199,11 @@
       "type": "custom",
       "count": 2,
       "combined": true,
-      "custom": "<b>Earthquakes</b> Whenever a new room is revealed, control all enemies in the newly revealed room: %game.action.move% 1, this movement must end in an empty hex"
+      "custom": "%data.custom.fh.cragheart.1%"
     }
   ],
   "masteries": [
-    "Only attack enemies adjacent to obstacles or walls",
-    "Damage or heal at least one ally each round"
+    "%data.custom.fh.cragheart.2%",
+    "%data.custom.fh.cragheart.3%"
   ]
 }

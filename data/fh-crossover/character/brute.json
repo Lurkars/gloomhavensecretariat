@@ -248,11 +248,11 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "<b>Rested and Ready:</b> Whenever you long rest, add +1 %game.action.move% to your first move ability the following round"
+      "custom": "%data.custom.fh.brute.1%"
     }
   ],
   "masteries": [
-    "Cause enemies to suffer a total of 12 or more Retaliate damage during attacks targeting you in a single round",
-    "Accross three consecutive rounds, play six different ability cards and cause enemies to suffer at least %game.damage:6% on each of your turns"
+    "%data.custom.fh.brute.2%",
+    "%data.custom.fh.brute.3%"
   ]
 }

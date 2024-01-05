@@ -1,14 +1,14 @@
 <div class="menu-container scenario">
   <div class="line editions">
     <label *ngFor="let e of (gameManager.game.edition ? [gameManager.game.edition] : editions());">
-      <input type="radio" name="radio" [value]="e" (change)="edition = e" [checked]="edition == e">
+      <input tabclick type="radio" name="radio" [value]="e" (change)="edition = e" [checked]="edition == e">
       <span [ghs-label]="'data.edition.' + e"></span>
     </label>
   </div>
 
   <div class="line">
     <label>
-      <input type="checkbox" [checked]="settingsManager.settings.showAllSections"
+      <input tabclick type="checkbox" [checked]="settingsManager.settings.showAllSections"
         (change)="settingsManager.setShowAllSections(!settingsManager.settings.showAllSections)">
       <span [ghs-label]="'scenario.showAllSections'"></span>
     </label>
@@ -18,7 +18,7 @@
     <div *ngIf="group && sections(group).length > 0" class="line title"><label
         [ghs-label]="'data.scenario.group.' + group"></label></div>
     <div class="line sections" *ngIf="sections(group).length > 0">
-      <span *ngFor="let section of sections(group)" class="section"
+      <span tabclick *ngFor="let section of sections(group)" class="section"
         [ngClass]="{'disabled' : section.isLocked , 'available': settingsManager.settings.showAllSections && section.parent && gameManager.game.scenario && section.parent == gameManager.game.scenario.index && section.group == gameManager.game.scenario.group && section.edition == gameManager.game.scenario.edition}"
         [ghs-tooltip]="'scenario.tooltip'" [ghs-label-args]="['data.section.' + section.name]"
         (click)="addSection(section)">

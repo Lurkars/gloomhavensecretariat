@@ -38,7 +38,8 @@
                 {
                   "type": "range",
                   "value": 0,
-                  "valueType": "plus"
+                  "valueType": "plus",
+                  "small": true
                 }
               ]
             },

@@ -74,7 +74,7 @@
       "movement": 2,
       "action": {
         "type": "custom",
-        "value": "%data.custom.gh.rat-king.1%",
+        "value": "%data.custom.gh.mindthief.1%",
         "small": true
       }
     }
