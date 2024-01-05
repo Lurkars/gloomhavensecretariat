@@ -1,151 +1,151 @@
 {
-  "character": {
-    "banner-spear": "Bannerspeer",
-    "blinkblade": {
-      ".": "Blitzklinge",
-      "fast": "Schnell",
-      "slow": "Langsam",
-      "time_tokens": "%data.characterToken.blinkblade.time% Time Tokens"
+    "character": {
+      "banner-spear": "Bannerspeer",
+      "blinkblade": {
+        ".": "Blitzklinge",
+        "fast": "Schnell",
+        "slow": "Langsam",
+        "time_tokens": "%data.characterToken.blinkblade.time% Time Tokens"
+      },
+      "boneshaper": "Knochenformerin",
+      "deathwalker": "Todeswandlerin",
+      "drifter": "Wanderer",
+      "geminate": {
+        ".": "Doppelseele",
+        "melee": "Nahkampf",
+        "range": "Fernkampf"
+      },
+      "traits": {
+        "arcane": "Arcane",
+        "armored": "Armored",
+        "chaotic": "Chaotic",
+        "educated": "Educated",
+        "intimidating": "Intimidating",
+        "night": "Night",
+        "nimble": "Nimble",
+        "outcast": "Outcast",
+        "persuasive": "Persuasive",
+        "resourceful": "Resourceful",
+        "strong": "Strong"
+      }
     },
-    "boneshaper": "Knochenformerin",
-    "deathwalker": "Todeswandlerin",
-    "drifter": "Wanderer",
-    "geminate": {
-      ".": "Doppelseele",
-      "melee": "Nahkampf",
-      "range": "Fernkampf"
+    "edition": {
+      "fh": "Frosthaven"
     },
-    "traits": {
-      "arcane": "Arcane",
-      "armored": "Armored",
-      "chaotic": "Chaotic",
-      "educated": "Educated",
-      "intimidating": "Intimidating",
-      "night": "Night",
-      "nimble": "Nimble",
-      "outcast": "Outcast",
-      "persuasive": "Persuasive",
-      "resourceful": "Resourceful",
-      "strong": "Strong"
-    }
-  },
-  "edition": {
-    "fh": "Frosthaven"
-  },
-  "monster": {
-    "abael-herder": "Abael-Treiber",
-    "abael-scout": "Abael-Späher",
-    "algox-archer": "Algox-Schütze",
-    "algox-guard": "Algox-Wache",
-    "algox-icespeaker": "Algox-Eissprecher",
-    "algox-priest": "Algox-Priester",
-    "algox-scout": "Algox-Späher",
-    "algox-snowspeaker": "Algox-Schneesprecher",
-    "algox-stormcaller": "Algox-Sturmruferin",
-    "ancient-artillery": "Antike Artillerie",
-    "augmented-mindthief": "Verbesserte Gedankendiebin",
-    "belara": "Belara",
-    "black-imp": "Schwarzwicht",
-    "blacksmith": "Blacksmith",
-    "brother": "Bruder",
-    "burrowing-blade": "Klingengräber",
-    "chaos-demon": "Chaosdämon",
-    "chaos-lieutenant": "Chaosleutnant",
-    "chaos-spark": "Chaos Energiestrahl",
-    "city-guard": "Stadtwache",
-    "coral-corpse": "Korallen Leiche",
-    "deep-terror": "Tiefenschreck",
-    "earth-demon": "Erddämon",
-    "elder-ooze": "Schleimfürst",
-    "fish-king": "Fischkönig",
-    "flame-demon": "Flammendämon",
-    "flaming-bladespinner": "Flammen-Klingenschleuder",
-    "flaming-sword-of-justice": "Flamendes Schwert der Gerechtigkeit",
-    "forest-imp": "Waldwicht",
-    "fracture-of-the-deep": "Tiefenbruch",
-    "frost-demon": "Frostdämon",
-    "frozen-corpse": "Gefrorene Leiche",
-    "frozen-fist": "Frostfaust",
-    "giant-piranha-pig": "Riesen Piranhaschwein",
-    "giant-piranha-pig-boss": "Extra Boss Deck #83",
-    "guard-captain": "Wachhauptmann",
-    "harbinger-of-shadow": "Vorbote der Schatten",
-    "harrower-infester": "Schwarmling-Kontagion",
-    "hateful-corpse": "Hasserfüllte Leiche",
-    "hound": "Grimmwolf",
-    "hungry-maw": "Hungrige Schlund",
-    "ice-wraith": "Eisspuk",
-    "lady-in-white": "Weiße Dame",
-    "large-vermling-scout": "Große Ratzen-Späher",
-    "laser-spires": "Lasersäulen",
-    "lightning-eel": "Blitzaal",
-    "living-bones": "Wandelndes Skelett",
-    "living-doom": "Wandelndes Schicksal",
-    "living-spirit": "Wandelnde Seele",
-    "lord-of-chaos": "Gebieter des Chaos",
-    "lurker-clawcrusher": "Pirscher-Schmetterschere",
-    "lurker-clawcrusher-scenario-60": "Gebrochener Leutnant (Schmetterschere)",
-    "lurker-conductor": "Pirscher Conductor-----",
-    "lurker-mindsnipper": "Pirscher-Geistspalter",
-    "lurker-mindsnipper-scenario-60": "Gebrochener Leutnant (Geistspalter)",
-    "lurker-soldier": "Pirscher-Soldat",
-    "lurker-wavethrower": "Pirscher-Wellenwerfer",
-    "lurker-wavethrower-scenario-60": "Gebrochener Leutnant (Wellenwerfer)",
-    "night-demon": "Nachtdämon",
-    "ooze": "Schleim",
-    "orphan": "Der Waise",
-    "piranha-pig": "Piranhaschwein",
-    "polar-bear": "Eisbär",
-    "power-core": "Energiekern",
-    "prince-of-frost": "Frostprinz",
-    "program-director": "Programmsteuerung",
-    "reluctant-ghost": "Wiederwillige Geist",
-    "render": "Reißer",
-    "rending-drake": "Reißdraken",
-    "rimeheart": "Klirrende Herz",
-    "robotic-boltshooter": "Bolzenschussroboter",
-    "ruined-machine": "Schrottmaschine",
-    "savvas-icestorm": "Savvas-Eissturm",
-    "savvas-lavaflow": "Savvas-Lavastrom",
-    "scabwit": "Krätzwitz",
-    "seeker-of-the-abyss": "Sucher der Abgrunds",
-    "shrike-fiend": "Flederbrut",
-    "snowdancer": "Schneetänzerin",
-    "snow-imp": "Schneewicht",
-    "spitting-drake": "Speidraken",
-    "steel-automaton": "Stahlapparat",
-    "sun-demon": "Sonnendämon",
-    "the-collector": "Der Sammler",
-    "the-relic": "Das Relikt",
-    "the-shimmer": "Der Schimmer",
-    "tormentor": "Peiniger",
-    "vanjal": "Vanjal",
-    "vermling-priest": "Ratzen-Priester",
-    "vermling-scout": "Ratzen-Späher",
-    "vestige-of-the-imprisoned-god": "Überreste des gefangenen Gottes",
-    "wind-demon": "Winddämon",
-    "yoglang": "Yoglang"
-  },
-  "deck": {},
-  "ability": {},
-  "scenario": {
-    "group": {
-      "randomMonsterCard": "Zufällige Monster Karten"
-    }
-  },
-  "section": {
-    "rules": {
-      "fh": {
-        "21-1": {
-          "1": "auf einem beliebigen leeren Startfeld"
-        },
-        "65-3": {
-          "1": "Öffne alle Türen %game.mapMarker.1%. Stelle alle Charaktere und Charakter-Beschworenen in Initiative-Reinfolge auf die nächsten leeren Felder auf Element 16-A und entferne dann alle Türen und das Element 13-A von der Karte."
+    "monster": {
+      "abael-herder": "Abael-Treiber",
+      "abael-scout": "Abael-Späher",
+      "algox-archer": "Algox-Schütze",
+      "algox-guard": "Algox-Wache",
+      "algox-icespeaker": "Algox-Eissprecher",
+      "algox-priest": "Algox-Priester",
+      "algox-scout": "Algox-Späher",
+      "algox-snowspeaker": "Algox-Schneesprecher",
+      "algox-stormcaller": "Algox-Sturmruferin",
+      "ancient-artillery": "Antike Artillerie",
+      "augmented-mindthief": "Verbesserte Gedankendiebin",
+      "belara": "Belara",
+      "black-imp": "Schwarzwicht",
+      "blacksmith": "Blacksmith",
+      "brother": "Bruder",
+      "burrowing-blade": "Klingengräber",
+      "chaos-demon": "Chaosdämon",
+      "chaos-lieutenant": "Chaosleutnant",
+      "chaos-spark": "Chaos Energiestrahl",
+      "city-guard": "Stadtwache",
+      "coral-corpse": "Korallen Leiche",
+      "deep-terror": "Tiefenschreck",
+      "earth-demon": "Erddämon",
+      "elder-ooze": "Schleimfürst",
+      "fish-king": "Fischkönig",
+      "flame-demon": "Flammendämon",
+      "flaming-bladespinner": "Flammen-Klingenschleuder",
+      "flaming-sword-of-justice": "Flamende Schwert der Gerechtigkeit",
+      "forest-imp": "Waldwicht",
+      "fracture-of-the-deep": "Tiefenbruch",
+      "frost-demon": "Frostdämon",
+      "frozen-corpse": "Gefrorene Leiche",
+      "frozen-fist": "Frostfaust",
+      "giant-piranha-pig": "Riesen Piranhaschwein",
+      "giant-piranha-pig-boss": "Extra Boss Deck #83",
+      "guard-captain": "Wachhauptmann",
+      "harbinger-of-shadow": "Vorbote der Schatten",
+      "harrower-infester": "Schwarmling-Kontagion",
+      "hateful-corpse": "Hasserfüllte Leiche",
+      "hound": "Grimmwolf",
+      "hungry-maw": "Hungrige Schlund",
+      "ice-wraith": "Eisspuk",
+      "lady-in-white": "Weiße Dame",
+      "large-vermling-scout": "Große Ratzen-Späher",
+      "laser-spires": "Lasersäulen",
+      "lightning-eel": "Blitzaal",
+      "living-bones": "Wandelndes Skelett",
+      "living-doom": "Wandelndes Schicksal",
+      "living-spirit": "Wandelnde Seele",
+      "lord-of-chaos": "Gebieter des Chaos",
+      "lurker-clawcrusher": "Pirscher-Schmetterschere",
+      "lurker-clawcrusher-scenario-60": "Gebrochener Leutnant (Schmetterschere)",
+      "lurker-conductor": "Pirscher Conductor-----",
+      "lurker-mindsnipper": "Pirscher-Geistspalter",
+      "lurker-mindsnipper-scenario-60": "Gebrochener Leutnant (Geistspalter)",
+      "lurker-soldier": "Pirscher-Soldat",
+      "lurker-wavethrower": "Pirscher-Wellenwerfer",
+      "lurker-wavethrower-scenario-60": "Gebrochener Leutnant (Wellenwerfer)",
+      "night-demon": "Nachtdämon",
+      "ooze": "Schleim",
+      "orphan": "Der Waise",
+      "piranha-pig": "Piranhaschwein",
+      "polar-bear": "Eisbär",
+      "power-core": "Energiekern",
+      "prince-of-frost": "Frostprinz",
+      "program-director": "Programmsteuerung",
+      "reluctant-ghost": "Wiederwillige Geist",
+      "render": "Reißer",
+      "rending-drake": "Reißdraken",
+      "rimeheart": "Klirrende Herz",
+      "robotic-boltshooter": "Bolzenschussroboter",
+      "ruined-machine": "Schrottmaschine",
+      "savvas-icestorm": "Savvas-Eissturm",
+      "savvas-lavaflow": "Savvas-Lavastrom",
+      "scabwit": "Krätzwitz",
+      "seeker-of-the-abyss": "Sucher der Abgrunds",
+      "shrike-fiend": "Flederbrut",
+      "snowdancer": "Schneetänzerin",
+      "snow-imp": "Schneewicht",
+      "spitting-drake": "Speidraken",
+      "steel-automaton": "Stahlapparat",
+      "sun-demon": "Sonnendämon",
+      "the-collector": "Der Sammler",
+      "the-relic": "Das Relikt",
+      "the-shimmer": "Der Schimmer",
+      "tormentor": "Peiniger",
+      "vanjal": "Vanjal",
+      "vermling-priest": "Ratzen-Priester",
+      "vermling-scout": "Ratzen-Späher",
+      "vestige-of-the-imprisoned-god": "Überrest des gefangenen Gottes",
+      "wind-demon": "Winddämon",
+      "yoglang": "Yoglang"
+    },
+    "deck": {},
+    "ability": {},
+    "scenario": {
+      "group": {
+        "randomMonsterCard": "Zufällige Monster Karten"
+      }
+    },
+    "section": {
+      "rules": {
+        "fh": {
+          "21-1": {
+            "1": "auf einem beliebigen leeren Startfeld"
+          },
+          "65-3": {
+            "1": "Öffne alle Türen %game.mapMarker.1%. Stelle alle Charaktere und Charakter-Beschworenen in Initiative-Reinfolge auf die nächsten leeren Felder auf Element 16-A und entferne dann alle Türen und das Element 13-A von der Karte."
+          }
         }
       }
-    }
-  },
-  "campaignSticker": {
+    },
+	"campaignSticker": {
     "brummix": "Brummix",
     "bug-in-a-jar": "Käfer im Glas",
     "charged-core": "Geladener Kern",
@@ -535,204 +535,259 @@
         "6": "X ist die Anzahl an <br>Piranhaschweinen auf der Karte."
       },
       "algox-icespeaker": {
-        "1": "Create one 1-hex obstacle<br>tile in an adjacent empty<br>hex closest to an enemy.",
-        "2": "Alle enemies adjacent to the created<br>obstacle suffer hazardous terrain damage."
+        "1": "Erstelle einen 1er-Hindernisaufleger<br>auf einem angrenzenden leeren Feld,<br>das einem Gegner am nächsten ist.",
+        "2": "Alle an das erstellte Hindernis angrenzenden Gegner<br>erleiden Schaden durch gefährliches Gelände."
       },
       "algox-snowspeaker": {
-        "1": "All Gegner in<br>%game.action.range:3% erleiden %game.damage:2%"
+        "1": "Alle Gegner in<br>%game.action.range:3% erleiden %game.damage:2%"
       },
       "ancient-artillery": {
-        "1": "Focus on the enemy<br>farthest away within %game.action.range:7%",
-        "2": "All enemies adjacent to<br>the target suffer %game.damage:2%."
+        "1": "Fokussiere den am<br>weitesten Gegner in %game.action.range:7%",
+        "2": "Alle an das Ziel angrenzenden<br>Gegner erleiden %game.damage:2%."
       },
       "archer": {
-        "1": "Create one %game.damage:3% trap in an adjacent<br>empty hex closest to an enemy."
+        "1": "Erstelle eine %game.damage:3% Falle in einem angrenzenden<br>leeren Hex-Feld zum nächsten Gegner."
       },
       "belara": {
-        "1": "All allies and enemies adjacent<br>to the target suffer %game.damage:2%",
-        "2": "All enemies within %game.action.range:4% suffer %game.damage:2%."
+        "1": "Alle Verbündete und Gegner angrenzend<br>zum Ziel erleiden %game.damage:2%",
+        "2": "Alle Gegner in %game.action.range:4% erleiden %game.damage:2%."
       },
       "burrowing-blade": {
-        "1": "All adjacent enemies suffer %game.damage:2%.",
-        "2": "All enemies within %game.action.range:2% suffer %game.damage:2%."
+        "1": "Alle angrenzenden Gegner erleiden %game.damage:2%.",
+        "2": "Alle Gegner in %game.action.range:2% erleiden %game.damage:2%."
       },
       "chaos-demon": {
         "1": "%game.custom.advantage%"
       },
       "chaos-spark": {
         "1": "+(2xT)",
-        "2": "where T is the number of damage tokens on the target's character mat",
-        "3": "Cannot focus on character summons."
+        "2": "T ist die Anzahl an Schadensmarkern auf dem Charakter",
+        "3": "Kann keine Charakter-Beschworenen fokussieren."
       },
       "city-guard-scenario-1": {
-        "1": "Does not Perform a Turn"
+        "1": "Macht keinen Zug."
       },
       "deep-terror": {
-        "1": "If the attack ability was performed",
-        "2": "in an empty hex adjacent to the target<br>of the attack ability"
+        "1": "Wenn die Angriffsfertigkeit ausgeführt wurde",
+        "2": "auf einem an das Ziel<br> der Angriffsfertigkeit angrenzenden leeren Feld."
       },
       "fish-king-scenario-76": {
-        "1": "The Fish King does not act"
+        "1": "Der Fischkönig macht keinen Zug."
       },
       "flame-demon": {
-        "1": "Create one %game.damage:4% trap in an adjacent<br>empty hex closest to an enemy",
+        "1": "Erstelle eine %game.damage:4% auf einem angrenzenden<br>leeren Feld, das einem Gegner am nächsten ist.",
         "2": "%game.damage:1%",
-        "3": "All adjacent<br>enemies suffer %game.damage:2%"
+        "3": "Alle angrenzenden<br>Gegner erleiden %game.damage:2%"
       },
       "flaming-bladespinner": {
-        "1": "All enemies within<br>%game.action.range:2% suffer %game.damage:2%.",
-        "2": "All enemies within %game.action.range:2% suffer %game.damage:1%."
+        "1": "Alle Gegner in<br>%game.action.range:2% erleiden %game.damage:2%.",
+        "2": "Alle Gegner in<br>%game.action.range:2% erleiden %game.damage:1%."
       },
       "frost-demon": {
         "1": "%game.damage:1%"
       },
       "frozen-corpse": {
-        "1": "If the element is consumed by<br>the Frozen Corpse during the<br>move ability, it suffers %game.damage:2%."
+        "1": "Hat die Gefrorene Leiche während<br>dieser Bewegung das Element<br> verbraucht, erleidet sie %game.damage:2%."
       },
       "giant-piranha-pig-boss": {
-        "1": "Nothing",
-        "2": "Move all water tiles 2 hexes to the right",
-        "3": "Move all water tiles 1 hex to the right."
+        "1": "Nichts",
+        "2": "Bewege alle Wasserfelder 2 Felder nach rechts",
+        "3": "Bewege alle Wasserfelder 1 Feld nach rechts"
       },
       "harrower-infester": {
-        "1": "Perform \"%game.action.heal% X, self\" where X is<br>twice the number of enemies<br>targeted by the attack ability."
+        "1": "Führe \"%game.action.heal% X, Selbst\"aus. X ist<br>die doppelte Anzahl der mit der<br>Angriffsfertigkeit anvisierten Gegner."
       },
       "hound": {
         "1": "Add +2 %game.action.attack% if the target is adjacent<br>to any of the Hound's allies."
       },
       "laser-spires": {
-        "1": "Rotate each laser spire clockwise (if able)",
-        "2": "Rotate each laser spire counterclockwise (if able)",
-        "3": "All characters and character summons adjacent to a laser spire suffer hazardous terrain damage",
-        "4": "Emit laser, starting at %game.mapMarker.a%"
+        "1": "Drehe jeden Laserturm im Uhrzeigersinn (wenn möglich)",
+        "2": "Drehe jeden Laserturm gegen den Uhrzeigersinn (wenn möglich)",
+        "3": "Alle charaktere und Charakter-Beschworene angrenzend zu einem Laserturm<br>erleiden gefährlichen Gelände Schaden.",
+        "4": "Laser aussenden, beginnen bei %game.mapMarker.a%"
       },
       "living-doom": {
-        "1": "Summon X normal<br>Living Spirits",
-        "2": "<br>where X is the Living<br>Doom's current hit point value<br>divided by 5 (rounded down),<br>up to a maximum of three."
+        "1": "Beschwöre X normale<br>Wandelnde Skelette",
+        "2": "<br>X ist der TP-Wert des Wandelnden Schicksals geteilt durch 5 (abgerundet), bis maximal X = 3."
       },
       "lurker-clawcrusher": {
-        "1": "The target suffers %game.damage:X%, where X<br>is their %game.action.shield% value for this attack.",
-        "2": "X is double their %game.action.shield% value instead."
+        "1": "Das Ziel erleidet %game.damage:X%, X ist der<br>%game.action.shield%Wert des Ziels bei diesem Angriff.",
+        "2": "X ist stattdessen der doppelte %game.action.shield%Wert."
       },
       "lurker-mindsnipper": {
-        "1": "Control all targets of the attack<br>ability in initiative order:"
+        "1": "Kontrolliere alle Ziele der Angriffs-<br>fertigkeit in Initiative-Reihenfolge:"
       },
       "lurker-soldier": {
-        "1": "%game.action.target% enemies within 2 hexes"
+        "1": "%game.action.target% Gegner im Umkreis von 2 Feldern,"
       },
       "lurker-wavethrower-scenario-128": {
-        "1": "Focus on the enemy<br>farthest away within %game.action.range:6%",
-        "2": "Create one 1-hex water tile<br>in an adjacent empty hex."
+        "1": "Fokussiere den am<br>weitesten entfernten Gegner in %game.action.range:6%",
+        "2": "Erstelle einen 1er-Wasseraufleger<br>auf einem angrenzenden leeren Feld."
       },
       "lurker-wavethrower-scenario-131": {
-        "1": "Focus on the enemy<br>farthest away within %game.action.range:6%",
-        "2": "Create one 1-hex water tile<br>in an adjacent empty hex.",
-        "3": "to the leftmost empty hex if it is an odd round or rightmost if it is even"
+        "1": "Fokussiere den am<br>weitesten entfernten Gegner in %game.action.range:6%",
+        "2": "Erstelle einen 1er-Wasseraufleger<br>auf einem angrenzenden leeren Feld.",
+        "3": "ganz links auf ein leeres Feld in einer ungraden Runde,<br>ansonsten ganz rechts in einer graden Runde"
       },
       "lurker-wavethrower": {
-        "1": "Focus on the enemy<br>farthest away within %game.action.range:6%",
-        "2": "Create one 1-hex water tile<br>in an adjacent empty hex.",
-        "3": "in an adjacent unoccupied<br>hex with a water tile."
+        "1": "Fokussiere den am<br>weitesten entfernten Gegner in %game.action.range:6%",
+        "2": "Erstelle einen 1er-Wasseraufleger<br>auf einem angrenzenden leeren Feld.",
+        "3": "auf einem angrenzenden unbesetzten Feld mit Wasseraufleger."
       },
       "night-demon": {
-        "1": "All adjacent allies and<br>enemies suffer %game.damage:1%.",
+        "1": "Alle angrenzenden Verbündeten und<br>Gegner erleiden %game.damage:1%.",
         "2": "%game.custom.disadvantage%"
       },
       "ooze": {
-        "1": "with H equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values)."
+        "1": "Beschwöre 1 normalen Schleim mit einem TP-Wert,<br>der dem aktuellen TP-Wert des beschwörenden Schleims entspricht<br>(maximal mit dem TP-Wert der Normalvariante)."
       },
       "piranha-pig": {
-        "1": "Add +1 %game.action.attack% if the target is adjacent<br>to any of the Piranha Pig's allies.",
-        "2": "Add +2 %game.action.attack% if the target has %game.condition.wound%.",
-        "3": "Add +1 %game.action.attack% if the target is occupying<br>a water tile.",
-        "4": "where X is the amount of<br>damage suffered by the<br>target of the attack ability."
+        "1": "Füge +1 %game.action.attack% hinzu, wenn das Ziel an einen Verbündeten<br>des Piranhaschweins angrenzt.",
+        "2": "Füge +2 %game.action.attack% hinzu, wenn das Ziel %game.condition.wound% hat.",
+        "3": "Füge +1 %game.action.attack% hinzu, wennn das Ziel ein Feld mit<br>Wasseraufleger besetzt.",
+        "4": "X ist die Menge des Schadens,<br>den das Ziel der<br>Angriffsfertigkeit erlitten hat."
       },
       "ruined-machine": {
-        "1": "If the move ability was performed,",
-        "2": "If the attack ability was performed,",
-        "3": "If the attack ability was performed,<br>all adjacent enemies suffer trap damage<br>and the Ruined Machine dies."
+        "1": "Hat die Schrottmaschine diese Bewegung ausgeführt,<br>erleidet sie ",
+        "2": "Hat die Schrottmaschine diesen Angriff ausgeführt,<br>erleidet sie ",
+        "3": "Hat die Schrottmaschine diesen Angriff ausgeführt,<br>erleiden alle angrenzenden Gegner Fallenschaden<br>und die Schrottmaschine stirbt."
       },
       "savvas-icestorm": {
         "1": "Gewähre allen Verbündeten in %game.action.range:2% und dir selbst:"
       },
       "savvas-lavaflow": {
-        "1": "All allies and enemies adjacent<br>to the target suffer %game.damage:2%",
-        "2": "All enemies within %game.action.range:4% suffer %game.damage:2%."
+        "1": "Alle an das Ziel angrenzenden Verbündeten<br>und Gegner erleiden %game.damage:2%",
+        "2": "Alle Gegner in %game.action.range:4% erleiden %game.damage:2%."
       },
       "shrike-fiend": {
-        "1": "All enemies within %game.action.range:3% suffer %game.damage:2%."
+        "1": "Alle Gegner in %game.action.range:3% erleiden %game.damage:2%."
       },
       "steel-automaton": {
-        "1": "All adjacent enemies suffer %game.damage:1%",
-        "2": "All adjacent enemies suffer<br>hazardous terrain damage."
+        "1": "Alle angrenzenden Gegner erleiden %game.damage:1%",
+        "2": "Alle angrenzenden Gegner erleiden<br>Schaden durch gefährliches Gelände."
       },
       "algox-stormcaller": {
-        "1": "Create hazardous terrain, and all enemies occupying or adjacent to hazardous terrain suffer damage."
+        "1": "Erschaffe gefährliches Gelände und alle Feinde, die gefährliches Gelände besetzen oder daran angrenzen, erleiden Schaden."
       },
       "black-imp": {
         "1": "%game.custom.disadvantage%"
       },
       "brother": {
-        "1": "One Brother performs:",
-        "2": "Brother %game.mapMarker.b% performs:"
+        "1": "Ein Bruder macht:",
+        "2": "Bruder %game.mapMarker.b% macht:"
       },
       "chaos-lieutenant": {
-        "1": "At end of round, perform:",
-        "2": "where X is (RxL)/2 (rounded down), and R is the number of Ruinied Machines currently on the map"
+        "1": "Am Ende der Runde mach:",
+        "2": "X ist (RxL)/2 (abgerundet), und R ist die Anzahl der Schrottmaschinen aktuell auf der Karte"
       },
       "elder-ooze": {
-        "1": "The target loses one item.",
-        "2": "All adjacent characters gain 1 slime."
+        "1": "Das Ziel verliert einen Gegenstandt.",
+        "2": "Alle angrenzenden erhalten 1 Schleim."
       },
       "fish-king-scenario-77": {
-        "1": "Kill the closest Piranha Pig.<br>All adjacent enemies suffer trap damage."
+        "1": "Töte das nächsten Piranhaschwein.<br>Alle angrenzenden Gegner erleiden Fallenschaden."
       },
       "frozen-corpse-scenario-32": {
-        "1": "See scenario Special Rules"
+        "1": "Siehe Szenario Sonderregeln"
       },
       "harbinger-of-shadow": {
-        "1": "Boss %game.mapMarker.2% does not act.",
-        "2": "Boss %game.mapMarker.1% does not act."
+        "1": "Boss %game.mapMarker.2% macht nichts.",
+        "2": "Boss %game.mapMarker.1% macht nichts."
       },
       "lightning-eel": {
-        "1": "Treats water hexes as corridors and non-water hexes as obstacles"
+        "1": "Behandelt Wasserfelder als Korridore und Nichtwasserfelder als Hindernisse."
       },
       "lord-of-chaos": {
-        "1": "Force all enemies to move one hex toward the closest unoccupied corridor hex."
+        "1": "Zwinge alle Feinde, sich ein Hexfeld in Richtung des nächsten unbesetzten Korridorhexfelds zu bewegen."
       },
       "orphan": {
-        "1": "self or glowing orb"
+        "1": "Selbst oder leuchtende Kugel"
       },
       "prince-of-frost": {
-        "1": "One character %game.card.recover% one lost card.",
-        "2": "One character loses one card."
+        "1": "Ein Charakter %game.card.recover% ein Verloren-Karte.",
+        "2": "Ein Charakter verliert eine Karte."
       },
       "program-director": {
-        "1": "to an empty hex closest to focus",
-        "2": "Ally to all monsters this round",
-        "3": "Focus on closest enemy",
-        "4": "to any empty hex closest to focus"
+        "1": "zu einem leeren Hexfeld, das dem Fokus am nächsten liegt",
+        "2": "Verbünde dich in dieser Runde mit allen Monstern",
+        "3": "Fokus auf den nächsten Feind",
+        "4": "zu jedem leeren Hexfeld, das dem Fokus am nächsten liegt"
       },
       "render": {
-        "1": "to farthest carving and destroy it.",
-        "2": "Destroy all adjacent carvings."
+        "1": "bis zum weitesten schnitzen und es zerstören.",
+        "2": "Zerstöre alle angrenzenden Schnitzereien."
       },
       "seeker-of-the-abyss": {
-        "1": "All targets lose one card.",
-        "2": "Create one %game.condition.immobilize% trap in an adjacent empty hex.",
-        "3": "All allies add +1 %game.action.attack% to all their attacks this round."
+        "1": "Alle Ziele verlieren eine Karte.",
+        "2": "Erstelle eine %game.condition.immobilize% Falle in einem angrenzenden freien Hex-Feld.",
+        "3": "Alle Verbündete bekommen +1 %game.action.attack% auf alle ihre Angriffe in dieser Runde."
       },
       "sun-demon": {
         "1": "%game.custom.advantage%"
       },
       "tormentor": {
-        "1": "Create 1-hex hazardous terrain in all featureless hexes adjacent to target, enemies in these hexes suffer",
-        "2": "Create 1-hex icy terrain in all featureless hexes adjacent to targets of the attack"
+        "1": "Erschaffe gefährliches 1-Hex-Gelände in allen an das Ziel angrenzenden,<br> freie Hex-Feldern. Feinde in diesen Hexfeldern leiden darunter",
+        "2": "Erschaffe 1 Hexfeld eisiges Gelände in allen freien Hex-Feldern,<br> die an die Angriffsziele angrenzen"
       },
       "vestige-of-the-imprisoned-god": {
-        "1": "Modify terrain.",
-        "2": "All characters who did not attack suffer trap damage at end of round."
+        "1": "Gelände ändern.",
+        "2": "Alle Charaktere, die nicht angegriffen haben, erleiden am Ende der Runde Fallenschaden."
+      }
+	  "banner-spear": {
+        "1": "Alle Verbündeten innerhalb von %game.range:2% addieren in jeder Runde +1 %game.action.attack% zu einem ihrer Angriffe.",
+        "2": "Gewähre zu Beginn ihres Zuges Verbündeten im Umkreis von %game.range:3%:",
+        "3": "Alle benachbarten Verbündeten erhalten %game.shield% 1.",
+        "4": "Negieren Sie in jeder Runde die erste Quelle von %game.damage% für einen benachbarten Verbündeten",
+        "5": "Alle Feinde innerhalb von %game.action.range%4 erleiden zu Beginn ihres Zuges %game.damage:1%.",
+        "6": "Addiere +1 %game.action.attack% für jeden Verbündeten neben dem Ziel",
+        "7": "Gewähre am Ende jeder deiner langen Pausen einem Verbündeten innerhalb von %game.action.range:3%: %game.action.move% 2",
+        "8": "Immer wenn du eine Tür mit einer Bewegungsfähigkeit öffnest, füge +3 %game.action.move% hinzu",
+        "9": "Einmal in jedem Szenario erhalten Sie während Ihres Zuges %game.action.shield% 2 für die Runde",
+        "10": "Greife mindestens drei Feinde mit jeweils drei unterschiedlichen Flächenangriffsfähigkeiten an",
+        "11": "Führe in deinem ersten Zug eine Bannerbeschwörungsfähigkeit aus, halte das Banner während des gesamten Szenarios am Leben und innerhalb von %game.action.range:3% von dir"
+      },
+      "blinkblade": {
+        "1": "Lege diese Karte bei deinem nächsten Angriff ab, um +2 %game.action.attack% hinzuzufügen.<br>%game.card.persistent%",
+        "2": "Lege diese Karte in deinen aktiven Bereich. Lege diese Karte bei deinem nächsten Angriff ab, um +2 %game.action.attack% hinzuzufügen.",
+        "3": "Erhalte 1 %data.characterToken.blinkblade.time%",
+        "4": "Erhalte 1 %data.action.custom.fh-hourglass%",
+        "5": "Wann immer Sie eine kurze Pause einlegen, können Sie einen nicht ausgegebenen %game.card.refresh%-Gegenstand ohne Wirkung ausgeben, um einen anderen ausgegebenen Gegenstand %game.card.recover% zu erhalten",
+        "6": "Zu Beginn Ihres ersten Zuges in jedem Szenario können Sie %game.action.move% 3 ausführen",
+        "7": "Wann immer Sie %game.condition.immobilize% erhalten würden, verhindern Sie den Zustand",
+        "8": "Erkläre für sieben aufeinanderfolgende Runden „Schnell“.",
+        "9": "Lassen Sie sich niemals zum Ziel eines Angriffs werden"
+      },
+      "boneshaper": {
+        "1": "+1 %game.action.attack% für jeden Marker auf dieser Karte.",
+        "2": "Töte die angreifende Beschwörung, um stattdessen %game.attack modifier.plus4% hinzuzufügen",
+        "3": "Unmittelbar vor jeder deiner Pausen kannst du einen deiner Beschworenen töten, um %game.condition.bless% selbst auszuführen",
+        "4": "Wenn in jedem Szenario ein Verbündeter eines Charakters durch %game.damage% erschöpft wäre, kannst du stattdessen %game.damage:2% erleiden, um seinen Trefferpunktwert auf 1 zu reduzieren",
+        "5": "Zu Beginn jedes Szenarios können Sie eine Karte der Stufe 1 aus Ihrer Hand spielen, um eine Beschwörungsaktion der Karte durchzuführen",
+        "6": "Töte mindestens fünfzehn deiner Beschworenen",
+        "7": "Führen Sie in Ihrem ersten Zug eine Beschwörungsaktion aus, lassen Sie die Beschwörung mindestens sechs Feinde töten und halten Sie sie für das gesamte Szenario am Leben"
+      },
+      "deathwalker": {
+        "1": "Wenn Sie lange ruhen, können Sie einen %data.action.custom.fh-shadow% bis zu drei Felder weit bewegen",
+        "2": "Wann immer Sie eine kurze Pause einlegen, können Sie %game.element.consume.dark% ausführen, um %game.condition.muddle%, %game.condition.curse%, %game.action.range:2% auszuführen, als ob Sie ein Feld besetzen würden mit einem %data.action.custom.fh-shadow%",
+        "3": "Während Sie ein Hexfeld mit einem %data.action.custom.fh-shadow% besetzen, erhalten alle Angriffe, die auf Sie abzielen, einen Nachteil",
+        "4": "Entferne sieben %data.action.custom.fh-shadow% in einer Runde",
+        "5": "Platzieren oder entfernen Sie in jeder Runde mindestens einen %data.action.custom.fh-shadow%"
+      },
+      "drifter": {
+        "1": "Bewegen Sie einen Ihrer Charaktermarker um einen Platz nach hinten",
+        "2": "Immer wenn Sie lange ruhen, können Sie einen Ihrer Charaktermarker um ein Feld nach hinten verschieben",
+        "3": "Sie können in jedes Szenario einen zusätzlichen %game.items.slots.onehand%-Gegenstand mitbringen",
+        "4": "Am Ende jedes Szenarios darfst du bis zu zwei Beutekarten, außer „Zufälliger Gegenstand“, abwerfen, um so viele neue Beutekarten zu ziehen",
+        "5": "Beenden Sie ein Szenario mit Ihren Charaktermarkern auf den letzten Feldern von vier dauerhaften Fähigkeiten",
+        "6": "Führe niemals eine Bewegungs- oder Angriffsfähigkeit mit einem Wert unter 4 aus und führe jede Runde mindestens eine Bewegungs- oder Angriffsfähigkeit aus"
+      },
+      "geminate": {
+        "1": "Immer wenn du dich kurz ausruhst, kannst du einen negativen Zustand von einem Verbündeten innerhalb von %game.action.range:3% entfernen.",
+        "2": "Keine Negativen Szenarioeffekte",
+        "3": "Immer wenn Sie eine Aktion mit einem Verloren-Symbol ausführen, können Sie eine Karte abwerfen, um %game.card.recover% eine Karte von Ihrem Ablagestapel gleicher oder niedrigerer Stufe zu erhalten",
+        "4": "Wechseln Sie in jeder Runde die Form",
+        "5": "Verliere jede Runde mindestens eine Fähigkeitskarte"
       }
     }
   }
-}
+  }
