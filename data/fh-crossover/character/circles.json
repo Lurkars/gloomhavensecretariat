@@ -134,7 +134,7 @@
         "subActions": [
           {
             "type": "custom",
-            "value": "when %game.action.attack% performed",
+            "value": "%data.custom.fh.circles.1%",
             "small": true
           }
         ]
@@ -204,7 +204,7 @@
         "subActions": [
           {
             "type": "custom",
-            "value": "when %game.action.attack% performed",
+            "value": "%data.custom.fh.circles.1%",
             "small": true
           }
         ]
@@ -224,7 +224,7 @@
         "subActions": [
           {
             "type": "custom",
-            "value": "Performs",
+            "value": "%data.custom.fh.circles.2%",
             "small": true
           },
           {
@@ -240,7 +240,7 @@
           },
           {
             "type": "custom",
-            "value": "at end of turn",
+            "value": "%data.custom.fh.circles.3%",
             "small": true
           }
         ]
@@ -509,13 +509,13 @@
     },
     {
       "type": "custom",
-      "custom": "<b>Phase Out:</b> Once each scenario during ordering of initiative, after all ability cards haven been revealed, all your summons gain %game.condition.invisible%",
+      "custom": "%data.custom.fh.circles.4%",
       "count": 2,
       "combined": true
     }
   ],
   "masteries": [
-    "Summon the Lava Golem on your first turn and keep it alive for the entire scenario",
-    "Perform the summon action of five different ability cards"
+    "%data.custom.fh.circles.5%",
+    "%data.custom.fh.circles.6%"
   ]
 }

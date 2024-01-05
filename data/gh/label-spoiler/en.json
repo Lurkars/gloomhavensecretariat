@@ -760,22 +760,15 @@
   },
   "custom": {
     "gh": {
-      "bat-swarm": {
-        "1": "when %game.action.attack% performed"
+      "circles": {
+        "1": "when %game.action.attack% performed",
+        "2": "at end of turn"
       },
-      "rock-colossus": {
-        "1": "when %game.action.attack% performed"
+      "triangles": {
+        "1": "You may perform Attack actions as if you occupy the summon's hex.",
+        "2": "when %game.action.attack% performed"
       },
-      "healing-sprite": {
-        "1": "at end of turn"
-      },
-      "doppelganger": {
-        "1": "You may perform Attack actions as if you occupy the summon's hex."
-      },
-      "mana-sphere": {
-        "1": "when %game.action.attack% performed"
-      },
-      "spirit-banner": {
+      "two-mini": {
         "1": "All adjacent allies add +2 %game.action.attack% to all their attacks."
       }
     }

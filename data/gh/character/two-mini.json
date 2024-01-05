@@ -131,7 +131,7 @@
       "health": 8,
       "action": {
         "type": "custom",
-        "value": "%data.custom.gh.spirit-banner.1%",
+        "value": "%data.custom.gh.two-mini.1%",
         "small": true
       }
     }

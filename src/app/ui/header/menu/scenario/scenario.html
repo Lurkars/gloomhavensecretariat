@@ -3,7 +3,7 @@
     <div class="column custom-container">
       <div class="line custom-check">
         <label>
-          <input type="checkbox" [checked]="gameManager.game.scenario && gameManager.game.scenario.custom"
+          <input tabclick type="checkbox" [checked]="gameManager.game.scenario && gameManager.game.scenario.custom"
             (change)="customScenario()">
           &lt;<span [ghs-label]="'scenario.custom'"></span>&gt;
         </label>
@@ -15,13 +15,13 @@
     </div>
     <div class="column" *ngIf="gameManager.game.scenario && !gameManager.game.scenario.custom">
       <div class="line">
-        <a (click)="resetScenario()">&lt;<span [ghs-label]="'scenario.reset'"></span>!&gt;</a>
+        <a tabclick (click)="resetScenario()">&lt;<span [ghs-label]="'scenario.reset'"></span>!&gt;</a>
       </div>
     </div>
   </div>
   <div class="line editions">
     <label *ngFor="let e of editions();">
-      <input type="radio" name="radio" [value]="e" (change)="edition = e" [checked]="edition == e">
+      <input tabclick type="radio" name="radio" [value]="e" (change)="edition = e" [checked]="edition == e">
       <span [ghs-label]="'data.edition.' + e"></span>
     </label>
   </div>
@@ -30,7 +30,7 @@
   </div>
   <div class="line campaign">
     <label *ngIf="gameManager.game.party.campaignMode">
-      <input type="checkbox" [checked]="settingsManager.settings.showOnlyUnfinishedScenarios"
+      <input tabclick type="checkbox" [checked]="settingsManager.settings.showOnlyUnfinishedScenarios"
         (change)="settingsManager.setShowOnlyUnfinishedScenarios(!settingsManager.settings.showOnlyUnfinishedScenarios)">
       <span [ghs-label]="'scenario.filterSuccess'"></span>
     </label>
@@ -43,7 +43,7 @@
     <div *ngIf="group" class="line title"><label><span [ghs-label]="'data.scenario.group.' + group"></span></label>
     </div>
     <div class="line scenarios">
-      <span (click)="setScenario(scenario)" class="scenario"
+      <span tabclick (click)="setScenario(scenario)" class="scenario"
         [ngClass]="{'current' : hasScenario(scenario), 'blocked' : scenario.isBlocked , 'locked' : scenario.isLocked}"
         [ghs-tooltip]="'scenario.tooltip' + (scenario.isBlocked ? '.blocked' : (scenario.isLocked ? '.locked' : ''))"
         [ghs-label-args]="['data.scenario.' + scenario.name]"
@@ -72,7 +72,7 @@
       </span>
     </div>
     <div class="line" *ngIf="hasSpoilers(group)">
-      <a (click)="settingsManager.addSpoilers(notSpoiled(group))"><span [ghs-label]="'spoiler.all'"></span></a>
+      <a tabclick (click)="settingsManager.addSpoilers(notSpoiled(group))"><span [ghs-label]="'spoiler.all'"></span></a>
     </div>
     <ng-container
       *ngIf="gameManager.game.party.campaignMode && scenarios(group).length < scenarios(group,false,true,true).length">
@@ -82,10 +82,10 @@
       </div>
       <div class="line">
         <span class="input-button">
-          <input #manualScenarioIndex type="text" [ghs-label]="'scenario.manual.index'"
+          <input tabclick #manualScenarioIndex type="text" [ghs-label]="'scenario.manual.index'"
             [ghs-label-attribute]="'placeholder'" (keyup)="manualScenarioIndex.classList.remove('error')"
             (keyup.enter)="manualScenario(manualScenarioIndex, group)">
-          <span class="add-button" (click)="manualScenario(manualScenarioIndex, group)"
+          <span tabclick class="add-button" (click)="manualScenario(manualScenarioIndex, group)"
             [ghs-label]="'scenario.manual.add'" [ghs-label-attribute]="'title'"
             [ngClass]="{'disabled' : !manualScenarioIndex.value || manualScenarioIndex.classList.contains('error')}">
           </span>

@@ -221,11 +221,11 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "<b>Rapid Recovery:</b> Whenever you heal from a long rest, add +1 %game.action.heal%"
+      "custom": "%data.custom.fh.lightning.1%"
     }
   ],
   "masteries": [
-    "Lose at least one hit point during each of your turns, without ever performing the bottom action of <i>Blood Pact</i>",
-    "Have exactly one hit point at the end of each of your turns"
+    "%data.custom.fh.lightning.2%",
+    "%data.custom.fh.lightning.3%"
   ]
 }

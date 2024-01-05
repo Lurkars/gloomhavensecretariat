@@ -239,11 +239,11 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "<b>Grave Defense:</b> Whenever you rest, you may %game.elementHalf.consume:ice|dark% to give %game.condition.ward% to one ally who has %game.condition.poison%"
+      "custom": "%data.custom.fh.voidwarden.1%"
     }
   ],
   "masteries": [
-    "Cause enemies to suffer 20 or more damage in a single turn with granted or commanded attacks",
-    "Give at least one ally or enemy %game.condition.poison%, %game.condition.strengthen%, %game.condition.bless%, or %game.condition.ward% each round"
+    "%data.custom.fh.voidwarden.2%",
+    "%data.custom.fh.voidwarden.3%"
   ]
 }

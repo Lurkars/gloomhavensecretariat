@@ -225,13 +225,13 @@
     },
     {
       "type": "custom",
-      "custom": "<b>Cloak of Invisibility:</b> Once each scenario, during your turn, perform \"%game.condition.invisible%, self\"",
+      "custom": "%data.custom.fh.scoundrel.1%",
       "count": 2,
       "combined": true
     }
   ],
   "masteries": [
-    "Kill at least six enemies that are adjacent to at least on of your allies",
-    "Kill at least six enemies that are adjacent to none of your allies"
+    "%data.custom.fh.scoundrel.2%",
+    "%data.custom.fh.scoundrel.3%"
   ]
 }

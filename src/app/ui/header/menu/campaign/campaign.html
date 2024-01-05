@@ -1,23 +1,25 @@
 <div class="menu-container two-column sheets">
 
-    <div class="line span"
-        [ngClass]="{'disabled' : !gameManager.game.edition || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
-        <label>
-            <input type="checkbox" [checked]="!gameManager.game.edition" (change)="setEdition()">
+    <div class="line span">
+        <label
+            [ngClass]="{'disabled' : !gameManager.game.edition || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
+            <input tabclick type="checkbox" [checked]="!gameManager.game.edition" (change)="setEdition()">
             &lt;<span [ghs-label]="'edition.all'"></span>&gt;
         </label>
     </div>
     <div class="line" *ngFor="let edition of gameManager.editions()">
         <label
             [ngClass]="{'disabled' : gameManager.game.edition == edition || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
-            <input type="checkbox" [checked]="gameManager.game.edition == edition" (change)="setEdition(edition)">
+            <input tabclick type="checkbox" [checked]="gameManager.game.edition == edition"
+                (change)="setEdition(edition)">
             <span [ghs-label]="'data.edition.' + edition"></span>
         </label>
     </div>
     <div class="line separator ">
         <label
             [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
-            <input type="checkbox" [checked]="gameManager.game.party.campaignMode" (change)="toggleCampaignMode()">
+            <input tabclick type="checkbox" [checked]="gameManager.game.party.campaignMode"
+                (change)="toggleCampaignMode()">
             <span [ghs-label]="'party.campaignMode'"></span>
         </label>
     </div>
@@ -28,24 +30,24 @@
     </div>
 
     <div class="line span" *ngIf="settingsManager.settings.partySheet">
-        <a (click)="openPartySheet()" [ghs-label]="'campaign.party'"></a>
+        <a tabclick (click)="openPartySheet()" [ghs-label]="'campaign.party'"></a>
     </div>
 
     <div class="line span" *ngIf="settingsManager.settings.partySheet">
-        <a (click)="openCampaignSheet()" [ghs-label]="'campaign.sheet'"></a>
+        <a tabclick (click)="openCampaignSheet()" [ghs-label]="'campaign.sheet'"></a>
     </div>
 
     <div class="line" *ngIf="worldMap">
-        <a (click)="openMap()" [ghs-label]="'campaign.map'"></a>
+        <a tabclick (click)="openMap()" [ghs-label]="'campaign.map'"></a>
     </div>
 
     <div class="line span" *ngIf="settingsManager.settings.characterSheet || settingsManager.settings.characterItems">
-        <a (click)="openItems()" [ghs-label]="'campaign.items'"></a>
+        <a tabclick (click)="openItems()" [ghs-label]="'campaign.items'"></a>
     </div>
 
     <div class="line" *ngIf="settingsManager.settings.battleGoals"
         [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
-        <a (click)="openBattleGoalsSetup()" [ghs-label]="'campaign.battleGoals'"></a>
+        <a tabclick (click)="openBattleGoalsSetup()" [ghs-label]="'campaign.battleGoals'"></a>
     </div>
 
     <div class="line title span" *ngIf="characters.length > 0 && settingsManager.settings.characterSheet">
@@ -54,7 +56,7 @@
 
     <ng-container *ngIf="settingsManager.settings.characterSheet">
         <div class="line" *ngFor="let character of characters">
-            <a (click)="openCharacterSheet(character);">
+            <a tabclick (click)="openCharacterSheet(character);">
                 <img class="icon" [src]="character.iconUrl" />
                 <span>{{gameManager.characterManager.characterName(character, true)}}</span>
                 <span class="edition" *ngIf="gameManager.getEdition(character)">&nbsp;
@@ -73,7 +75,7 @@
         <div class="conditions">
             <span class="item" *ngFor="let condition of conditions"
                 [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
-                <span class="condition" (click)="toggleCondition(condition.name)"
+                <span class="condition" tabclick (click)="toggleCondition(condition.name)"
                     [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'"
                     [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'"
                     [ngClass]="{'disabled' : editionConditions.indexOf(condition.name) != -1, 'active' : editionConditions.indexOf(condition.name) == -1 && gameManager.game.conditions.indexOf(condition.name) != -1 }">
@@ -88,7 +90,7 @@
         <div class="conditions">
             <span class="item" *ngFor="let condition of amConditions"
                 [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
-                <span class="condition" (click)="toggleCondition(condition.name)"
+                <span class="condition" tabclick (click)="toggleCondition(condition.name)"
                     [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'"
                     [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'"
                     [ngClass]="{'disabled' : editionConditions.indexOf(condition.name) != -1, 'active' : editionConditions.indexOf(condition.name) == -1 && gameManager.game.conditions.indexOf(condition.name) != -1 }">
@@ -116,23 +118,23 @@
     <div class="line" *ngFor="let party of gameManager.game.parties">
         <label *ngIf="gameManager.game.party != party"
             [ngClass]="{'disabled' :  gameManager.game.parties.length == 1 || gameManager.game.scenario || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
-            <input type="checkbox" [checked]="gameManager.game.party == party" (change)="changeParty(party)">
+            <input tabclick type="checkbox" [checked]="gameManager.game.party == party" (change)="changeParty(party)">
             <span *ngIf="party.name">{{party.name}}</span>
             <span *ngIf="!party.name"><span [ghs-label]="'party.campaign'"></span>&nbsp;{{party.id}}</span>
         </label>
         <label *ngIf="gameManager.game.party == party">
-            <input type="checkbox" checked="true" disabled="disabled">
+            <input tabclick type="checkbox" checked="true" disabled="disabled">
             <input type="text" [value]="party.name" (change)="setName($event)"
                 [ghs-label]="'campaign.campaignManagement.name'" [ghs-label-args]="['' + party.id]"
                 [ghs-label-attribute]="'placeholder'">
         </label>
         <span class="spacer"></span>
-        <a class="remove" (click)="removeParty(party)" (mouseleave)="cancelRemoveParty()"
+        <a class="remove" tabclick (click)="removeParty(party)" (mouseleave)="cancelRemoveParty()"
             [ngClass]="{'disabled' :  gameManager.game.parties.length == 1 || gameManager.game.scenario, 'confirm': confirmPartyDelete == party.id}"></a>
     </div>
 
     <div class="line span">
-        <a (click)="addParty()" [ghs-label]="'campaign.campaignManagement.add'"
+        <a tabclick (click)="addParty()" [ghs-label]="'campaign.campaignManagement.add'"
             [ngClass]="{'disabled' : gameManager.game.scenario || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}"></a>
     </div>
 

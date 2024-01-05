@@ -61,7 +61,7 @@
       "movement": 2,
       "action": {
         "type": "custom",
-        "value": "All adjacent allies may perform \"%game.action.move%1\" at end of turn.",
+        "value": "%data.custom.fh.envx.1%",
         "small": true
       }
     },
@@ -75,7 +75,7 @@
       "flying": "true",
       "action": {
         "type": "custom",
-        "value": "All adjacent allies and enemies suffer %game.damage:2% ad end of turn.",
+        "value": "%data.custom.fh.envx.2%",
         "small": true
       }
     },
@@ -92,7 +92,7 @@
       },
       "additionalAction": {
         "type": "custom",
-        "value": "All adjacent allies gain %game.action.shield% 1."
+        "value": "%data.custom.fh.envx.3%"
       }
     },
     {
@@ -104,7 +104,7 @@
       "movement": 3,
       "action": {
         "type": "custom",
-        "value": "X is the number of adjacent figures.",
+        "value": "%data.custom.fh.envx.4%",
         "small": true
       }
     },
@@ -118,7 +118,7 @@
       "count": 3,
       "action": {
         "type": "custom",
-        "value": "All adjacent enemies deduct -1 %game.action.attack% from all their attacks.",
+        "value": "%data.custom.fh.envx.5%",
         "small": true
       }
     },
@@ -131,7 +131,7 @@
       "count": 2,
       "action": {
         "type": "custom",
-        "value": "All adjacent summoned allies add +1 %game.action.attack% to all their attacks",
+        "value": "%data.custom.fh.envx.6%",
         "small": true
       }
     },
@@ -145,7 +145,7 @@
       "flying": true,
       "action": {
         "type": "custom",
-        "value": "Add +2 %game.action.attack% when the target is adjacent to any of your allies",
+        "value": "%data.custom.fh.envx.7%",
         "small": true
       }
     },
@@ -158,7 +158,7 @@
       "movement": 4,
       "action": {
         "type": "custom",
-        "value": "Add %game.condition.disarm% when the target is affected by a negative condition.",
+        "value": "%data.custom.fh.envx.8%",
         "small": true
       }
     }
@@ -392,11 +392,11 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "<b>Spinning Up:</b> At the start of your first turn each scenario, you may play one card from your hand to perform a persistent loss action of that card."
+      "custom": "%data.custom.fh.envx.9%"
     }
   ],
   "masteries": [
-    "Perform two different summon actions on your first turn and keep all summons from those actions alive for the entire scenario.",
-    "Perform three different non-summon persistent loss actions before your first rest."
+    "%data.custom.fh.envx.10%",
+    "%data.custom.fh.envx.11%"
   ]
 }

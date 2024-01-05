@@ -88,7 +88,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return "";
   }
 
-  openMenu(event: any, menu: SubMenu | undefined = undefined) {
+  openMenu(menu: SubMenu | undefined = undefined) {
     this.dialog.open(MainMenuComponent, {
       panelClass: 'dialog',
       data: { subMenu: menu != undefined ? menu : SubMenu.main, standalone: this.standalone },

@@ -247,11 +247,11 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "<b>Hasty Pick-up:</b> Once each scenario, during your turn, if the Favourite is in a hex on the map, you may %game.element.consume.air% to return it to it's ability card"
+      "custom": "%data.custom.fh.hatchet.1%"
     }
   ],
   "masteries": [
-    "%game.element.air% or %game.element.consume.air% during each of your turns",
-    "During each round in which there is at least one enemy on the map at the start of your turn, either place one of your tokens on an ability card of yours or on an enemy"
+    "%data.custom.fh.hatchet.2%",
+    "%data.custom.fh.hatchet.3%"
   ]
 }

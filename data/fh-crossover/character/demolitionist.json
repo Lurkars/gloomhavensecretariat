@@ -224,11 +224,11 @@
       "type": "custom",
       "count": 2,
       "combined": true,
-      "custom": "<b>Remodeling</b> Whenever you rest while adjacent to a wall or obstacle, you may place an obstalce in an empty hex within %game.action.range% 2 (of you)"
+      "custom": "%data.custom.fh.demolitionist.1%"
     }
   ],
   "masteries": [
-    "Deal 10 or more damage with each of three different attack actions",
-    "Destroy at least six obstacles. End the scenario with no obstacles on the map other than ones placed by allies"
+    "%data.custom.fh.demolitionist.2%",
+    "%data.custom.fh.demolitionist.3%"
   ]
 }

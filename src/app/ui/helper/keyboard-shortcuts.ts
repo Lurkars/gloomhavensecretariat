@@ -11,17 +11,19 @@ import { FooterComponent } from '../footer/footer';
 import { SummonState } from 'src/app/game/model/Summon';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { EntityMenuDialogComponent } from '../figures/entity-menu/entity-menu-dialog';
+import { HeaderComponent } from '../header/header';
 
 
-export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select";
+export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu";
 
 @Directive({
     selector: '[ghs-keyboard-shortcuts]'
 })
 export class KeyboardShortcuts implements OnInit, OnDestroy {
 
+    @Input() header: HeaderComponent | undefined;
     @Input() footer: FooterComponent | undefined;
-    @Input() allowed: KEYBOARD_SHORTCUT_EVENTS[] = ["undo", "zoom"];
+    @Input() allowed: KEYBOARD_SHORTCUT_EVENTS[] = ["undo", "zoom", "menu"];
     scrollTimeout: any = null;
     zoomInterval: any = null;
     currentZoom: number = 0;
@@ -31,8 +33,8 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
     timeout: any;
 
     constructor(private dialog: Dialog) {
-        this.dialog.afterOpened.subscribe({ next: () => this.dialogOpen = true });
-        this.dialog.afterAllClosed.subscribe({ next: () => this.dialogOpen = false });
+        this.dialog.afterOpened.subscribe({ next: (dialog) => { this.dialogOpen = true; } });
+        this.dialog.afterAllClosed.subscribe({ next: () => setTimeout(() => { this.dialogOpen = false; }, 250) });
     }
 
     applySelect() {
@@ -113,7 +115,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     if (!this.footer.disabled()) {
                         this.footer.next();
                     }
-                } else if ((!this.dialogOpen || this.allowed.indexOf('am') != -1) && gameManager.game.state == GameState.next && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'm') {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('am') != -1) && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && gameManager.game.state == GameState.next && event.key.toLowerCase() === 'm') {
                     const activeFigure = gameManager.game.figures.find((figure) => figure.active);
                     let deck: AttackModifierDeck | undefined = undefined;
                     if (!activeFigure || activeFigure instanceof Monster && (!activeFigure.isAlly && !activeFigure.isAllied || !gameManager.fhRules() && !settingsManager.settings.alwaysAllyAttackModifierDeck || !settingsManager.settings.allyAttackModifierDeck)) {
@@ -154,8 +156,29 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     gameManager.stateManager.after();
 
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('active') != -1) && !event.ctrlKey && gameManager.game.state == GameState.next && event.key === 'Tab') {
-                    this.toggleEntity(event.shiftKey);
+                } else if (!this.dialogOpen && !event.ctrlKey && event.key === 'Tab') {
+                    if (gameManager.game.state == GameState.next) {
+                        this.toggleEntity(event.shiftKey);
+                    } else {
+                        let focus = true;
+                        gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).forEach((char, index) => {
+                            const current = document.getElementById('initiative-input-' + index);
+                            if (document.activeElement == current) {
+                                focus = false;
+                            }
+                        })
+                        if (focus) {
+                            const current = document.getElementById('initiative-input-0');
+                            if (current) {
+                                current.focus();
+                            }
+                        }
+                        event.stopPropagation();
+                    }
+                    event.preventDefault();
+                } else if (!this.dialogOpen && !event.ctrlKey && this.header && event.key === 'Escape') {
+                    this.header.openMenu();
+                    event.stopPropagation();
                     event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('element') != -1) && !event.ctrlKey && !event.shiftKey && ['1', '2', '3', '4', '5', '6'].indexOf(event.key) != -1) {
                     const index: number = +event.key - 1;

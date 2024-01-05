@@ -320,6 +320,7 @@
                 "1": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.hound%'s allies."
             },
             "mindthief": {
+                "1": "X is half the rat's current hit point value (rounded up).",
                 "augment": "Augment %game.characterIconColoredBg.mindthief%",
                 "augments": "Augments %game.characterIconColoredBg.mindthief%"
             },
@@ -355,9 +356,6 @@
             },
             "the-betrayer": {
                 "1": "Mind Control"
-            },
-            "rat-king": {
-                "1": "X is half the rat's current hit point value (rounded up)."
             }
         }
     }

@@ -236,11 +236,11 @@
       "type": "custom",
       "count": 2,
       "combine": true,
-      "custom": "<b>Brilliant Aegis:</b> Whenever you are attacked, you may %game.element.consume.light% to gain %game.action.shield% 1 for the attack and have the attacker gain disadvantage for the attack"
+      "custom": "%data.custom.fh.red-guard.1%"
     }
   ],
   "masteries": [
-    "Kill at least five enemies during their turns",
-    "Force each enemy in the scenario to move at least one hex, forcing at least six enemies to move"
+    "%data.custom.fh.red-guard.2%",
+    "%data.custom.fh.red-guard.3%"
   ]
 }

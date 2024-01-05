@@ -59,7 +59,7 @@
       "movement": 2,
       "action": {
         "type": "custom",
-        "value": "You may perform Attack actions as if you occupy the summon's hex.",
+        "value": "%data.custom.fh.triangles.1%",
         "small": true
       }
     },
@@ -77,7 +77,7 @@
         "subActions": [
           {
             "type": "custom",
-            "value": "when %game.action.attack% performed",
+            "value": "%data.custom.fh.triangles.2%",
             "small": true
           }
         ]
@@ -290,13 +290,13 @@
     },
     {
       "type": "custom",
-      "custom": "<b>Elemental Proficiency:</b> At the start of each scenario and whenever you long rest, %game.element.wild%",
+      "custom": "%data.custom.fh.triangles.3%",
       "count": 2,
       "combined": true
     }
   ],
   "masteries": [
-    "Consume at least two different elements with each of four different attack abilities without ever performing the bottom action of <i>Formless Power of Shaping in Ether</i>",
-    "Infuse five or more elements during one of your turns, then consume five or more elements during your following turn"
+    "%data.custom.fh.triangles.4%",
+    "%data.custom.fh.triangles.5%"
   ]
 }

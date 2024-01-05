@@ -303,11 +303,11 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "<b>Marked for the Hunt:</b> At the beginning of each round in which you long rest, you may choose one ally to gain the benefits of any of your active Dooms as if the Dooms were in that ally's active area for the round"
+      "custom": "%data.custom.fh.angry-face.1%"
     }
   ],
   "masteries": [
-    "Never perform a Doom action that you have already performed in the scenario",
-    "Kill three Doomed enemies during one of your turn"
+    "%data.custom.fh.angry-face.2%",
+    "%data.custom.fh.angry-face.3%"
   ]
 }

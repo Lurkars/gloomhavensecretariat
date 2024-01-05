@@ -303,11 +303,11 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "<b>Storyteller:</b> At the end of each scenario, each character in that scenario gains 8 experience if you successfully completed your battle goal"
+      "custom": "%data.custom.fh.music-note.1%"
     }
   ],
   "masteries": [
-    "On your first turn of the scenario and the turn after each of your rests, perform one Song action that you have not yet performed this scenario",
-    "Havel all 10 monster %game.condition.curse% cards and all 10 %game.condition.bless% cards in modifier decks at the same time"
+    "%data.custom.fh.music-note.2%",
+    "%data.custom.fh.music-note.3%"
   ]
 }

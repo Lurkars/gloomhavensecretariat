@@ -252,9 +252,7 @@
         "2": "They will move to avoid being adjacent to their focus.",
         "3": "They are not moving this round.",
         "4": "This is exactly how they acted last scenario."
-      }
-    },
-    "perks": {
+      },
       "demolitionist": {
         "1": "All adjacent enemies suffer %game.damage:1%"
       }

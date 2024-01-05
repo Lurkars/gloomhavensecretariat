@@ -208,11 +208,11 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "<b>Revitalizing Medicine:</b> Whenever an ally performs the Heal ability of <i>Medical Pack</i> or <i>Large Medical Pack</i>, that character may first remove one negative condition"
+      "custom": "%data.custom.fh.saw.1%"
     }
   ],
   "masteries": [
-    "On each of your turns, give an ally an ability card, target an ally with a heal ability, grant an ally shield, or place an ability card in an ally's active area",
-    "Deal at least %game.damage:20% with a single attack ability"
+    "%data.custom.fh.saw.2%",
+    "%data.custom.fh.saw.3%"
   ]
 }

@@ -12,7 +12,7 @@ import { CharacterMoveResourcesDialog } from "./move-resources";
 import { CharacterRetirementDialog } from "./retirement-dialog";
 import { PersonalQuest } from "src/app/game/model/data/PersonalQuest";
 import { EntityValueFunction } from "src/app/game/model/Entity";
-import { GhCardsDialogComponent } from "./gh-cards-dialog";
+import { AbilityCardsDialogComponent } from "./ability-cards-dialog";
 
 
 @Component({
@@ -40,6 +40,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   perksWip: boolean = true;
   retired: boolean = false;
   personalQuest: PersonalQuest | undefined;
+  hasAbilities: boolean = false;
 
   goldTimeout: any = null;
   xpTimeout: any = null;
@@ -111,6 +112,8 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
         this.character.progress.personalQuestProgress = [];
       }
     }
+
+    this.hasAbilities = gameManager.deckData(this.character).abilities.length > 0;
 
     gameManager.uiChange.subscribe({
       next: () => {
@@ -484,8 +487,8 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   openGhCards() {
-    this.dialog.open(GhCardsDialogComponent, {
-      panelClass: 'dialog-invert',
+    this.dialog.open(AbilityCardsDialogComponent, {
+      panelClass: 'dialog',
       data: { character: this.character }
     });
   }

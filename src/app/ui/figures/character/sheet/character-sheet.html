@@ -330,5 +330,5 @@
     </div>
   </div>
 
-  <div class="gh-cards" (click)="openGhCards()"></div>
+  <div *ngIf="hasAbilities" class="gh-cards" (click)="openGhCards()"></div>
 </div>

@@ -2,14 +2,14 @@
   <div class="level-container"
     [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
     <span class="item"><img src="./assets/images/status/level.svg" /></span>
-    <span class="item" *ngFor="let level of [] | ghsRange:9"><a class="level"
+    <span tabclick class="item" *ngFor="let level of [] | ghsRange:9"><a class="level"
         [ngClass]="{'active' : level + 1 == characterLevel}" (click)="characterLevel = level+1">{{level
         +1}}</a></span>
     <div class="line search">
-      <input [(ngModel)]="filter" (change)="update()" (keyup)="update()" type="text" [ghs-label]="'character.filter'"
+      <input tabclick [(ngModel)]="filter" (change)="update()" (keyup)="update()" type="text" [ghs-label]="'character.filter'"
         [ghs-label-attribute]="'placeholder'">
       <label *ngIf="gameManager.game.edition">
-        <input type="checkbox" [checked]="allEditions" (change)="allEditions = !allEditions; update()">
+        <input tabclick type="checkbox" [checked]="allEditions" (change)="allEditions = !allEditions; update()">
         <span [ghs-label]="'character.filter.allEditions'"></span>
       </label>
     </div>
@@ -31,11 +31,11 @@
         </div>
         <div class="line" *ngFor="let characterData of (characterData[edition] || [])"
           [ngClass]="{'disabled' : hasCharacter(characterData) && unlocked(characterData), 'spoiler' : characterData.spoiler}">
-          <a (click)="addCharacter(characterData);" *ngIf="unlocked(characterData)">
+          <a tabclick (click)="addCharacter(characterData);" *ngIf="unlocked(characterData)">
             <img class="icon" [src]="characterData.iconUrl" />
             <span [ghs-label]="'data.character.' + characterData.name"></span>
           </a>
-          <a (click)="unlock(characterData)" *ngIf="!unlocked(characterData)"
+          <a tabclick (click)="unlock(characterData)" *ngIf="!unlocked(characterData)"
             [ngClass]="{'confirm' : confirm == characterData.name}" (mouseleave)="cancelConfirm()">
             <img class="icon spoiler" [src]="characterData.iconUrl" />
             <span class="name">

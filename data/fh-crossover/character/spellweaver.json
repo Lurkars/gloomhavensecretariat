@@ -339,11 +339,11 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "<b>Etheric Bound:</b> Whenever you short rest, if <i>Reviving Ether</i> is in your discard pile, first return it to your hand"
+      "custom": "%data.custom.fh.spellweaver.1%"
     }
   ],
   "masteries": [
-    "Infuse and consume all six elements",
-    "Perform four different loss actions twice each"
+    "%data.custom.fh.spellweaver.2%",
+    "%data.custom.fh.spellweaver.3%"
   ]
 }
