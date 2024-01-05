@@ -3,8 +3,30 @@ import { sortDeckFiles } from "./sort/sort-deck-files.mjs";
 import { sortItemFile } from "./sort/sort-item-file.mjs";
 import { sortMonsterFiles } from "./sort/sort-monster-files.mjs";
 import { sortScenarioFiles } from "./sort/sort-scenario-files.mjs";
+import * as fs from 'fs';
+import * as path from 'path';
+
 
 const dataDirectory = process.argv[2];
+
+export const checkJson = function (folder) {
+    fs.readdirSync(folder).forEach((file) => {
+        const filePath = path.join(folder, file);
+        if (fs.lstatSync(filePath).isDirectory()) {
+            checkJson(filePath)
+        } else if (fs.lstatSync(filePath).isFile() && filePath.endsWith('.json')) {
+            const f = fs.readFileSync(filePath, 'utf8');
+            try {
+                JSON.parse(f);
+            } catch (e) {
+                console.error("Error parsing: " + filePath);
+                throw e;
+            }
+        }
+    })
+}
+
+checkJson(path.join(dataDirectory));
 
 let changedFiles = [];
 
