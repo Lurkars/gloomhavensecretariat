@@ -198,6 +198,19 @@
         </span>
       </div>
     </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.characterShieldRetaliate"
+            (change)="settingsManager.setCharacterShieldRetaliate(!settingsManager.settings.characterShieldRetaliate)">
+          <span [ghs-label]="'settings.characterShieldRetaliate'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.characterShieldRetaliate.hint'"></span>
+        </span>
+      </div>
+    </div>
   </div>
 
   <div class="column">

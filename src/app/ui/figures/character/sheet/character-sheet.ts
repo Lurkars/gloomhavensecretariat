@@ -113,7 +113,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       }
     }
 
-    this.hasAbilities = gameManager.deckData(this.character).abilities.length > 0;
+    this.hasAbilities = gameManager.deckData(this.character, true).abilities.length > 0;
 
     gameManager.uiChange.subscribe({
       next: () => {

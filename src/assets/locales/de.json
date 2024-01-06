@@ -1619,6 +1619,10 @@
       ".": "Kompakte Charakterbögen (%wip%)",
       "hint": "Zeige kompaktere Charakterbögen mit anderem Layout als die original Charakterbögen."
     },
+    "characterShieldRetaliate": {
+      ".": "Schild und Vergeltung (%wip%)",
+      "hint": "Verwalte %game.action.shield% und %game.action.retaliate% für Charaktere."
+    },
     "characterTraits": {
       ".": "Eigenschaften anzeigen",
       "hint": "Zeige die Eigenschaften auf dem Charakterboard an."

@@ -362,6 +362,15 @@
       }
     }
 
+    .actions {
+      position: relative;
+      display: flex;
+
+      ghs-action {
+        margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      }
+    }
+
     .status-bar {
       display: flex;
       align-items: center;
@@ -417,7 +426,6 @@
         }
       }
     }
-
 
     .conditions {
       position: relative;

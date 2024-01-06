@@ -79,6 +79,10 @@
               <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" />
             </span>
           </span>
+          <span class="actions" *ngIf="settingsManager.settings.characterShieldRetaliate">
+            <ghs-action *ngIf="character.shield" [action]="character.shield" [style]="'fh'"></ghs-action>
+            <ghs-action *ngFor="let retaliate of character.retaliate" [action]="retaliate" [style]="'fh'"></ghs-action>
+          </span>
           <span class="token-container">
             <span class="token" *ngIf="(character.token + (character.primaryToken < 0 ? token : 0)) > 0"
               [ghs-label]="'%data.characterToken.' + character.name + '%'" ghs-pointer-input
@@ -111,6 +115,7 @@
                 <img src="./assets/images/character/icons/{{marker}}.svg" />
               </span>
             </div>
+
             <div class="conditions">
               <span class="condition" *ngFor="let entityCondition of activeConditions; let index = index;"
                 ghs-pointer-input (doubleClick)="removeCondition(entityCondition)">

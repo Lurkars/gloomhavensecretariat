@@ -426,6 +426,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setCharacterShieldRetaliate(characterShieldRetaliate: boolean) {
+    this.settings.characterShieldRetaliate = characterShieldRetaliate;
+    this.storeSettings();
+  }
+
   setCharacterTraits(characterTraits: boolean) {
     this.settings.characterTraits = characterTraits;
     this.storeSettings();

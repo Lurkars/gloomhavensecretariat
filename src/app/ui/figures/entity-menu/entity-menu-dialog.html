@@ -84,7 +84,7 @@
   </div>
 
   <div *ngIf="!levelDialog && (!gameManager.isCharacter(data.figure) || !gameManager.toCharacter(data.figure).absent)"
-    class="status-container">
+    class="scroll-container status-container">
     <div class="entity-container">
 
       <div class="action-hint" *ngFor="let actionHint of actionHints">
@@ -313,7 +313,6 @@
             </ghs-pointer-input>
           </span>
         </ng-container>
-
       </ng-container>
 
       <ng-container *ngIf="data.entity && gameManager.isObjective(data.entity)">
@@ -520,6 +519,52 @@
       <ghs-conditions [entityConditions]="entityConditions" [immunities]="entityImmunities" [entity]="data.entity"
         [figure]="data.figure" [type]="conditionType"></ghs-conditions>
     </ng-container>
+
+    <div class="entity-container" *ngIf="settingsManager.settings.characterShieldRetaliate && data.entity && gameManager.isCharacter(data.entity)">
+      <span class="item">
+        <ghs-pointer-input class="button" (singleClick)="changeShield(-1)"
+          [ngClass]="{'disabled' : !characterShield.value}">
+          <img class=" ghs-svg" src="./assets/images/minus.svg">
+        </ghs-pointer-input>
+      </span>
+      <span class="item">
+        <ghs-action [action]="characterShield" [style]="'fh'"></ghs-action>
+      </span>
+      <span class="item">
+        <ghs-pointer-input class="button" (singleClick)="changeShield(1)">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </ghs-pointer-input>
+      </span>
+
+      <ng-container *ngFor="let realiate of characterRetaliate; let i = index">
+        <span class="item column">
+          <ghs-pointer-input class="button" (singleClick)="changeRetaliate(i,-1,0)"
+            [ngClass]="{'disabled' : !realiate.value}">
+            <img class=" ghs-svg" src="./assets/images/minus.svg">
+          </ghs-pointer-input>
+          <ghs-pointer-input class="button small" (singleClick)="changeRetaliate(i,0,-1)"
+            [ngClass]="{'disabled' : EntityValueFunction(characterRetaliateRange[i].value) <= 1}">
+            <img class=" ghs-svg" src="./assets/images/minus.svg">
+          </ghs-pointer-input>
+        </span>
+        <span class="item column">
+          <ghs-action [action]="realiate" [style]="'fh'"></ghs-action>
+          <ghs-action [action]="characterRetaliateRange[i]" [style]="'fh'"></ghs-action>
+          <ghs-pointer-input *ngIf="i == characterRetaliate.length -1 && realiate.value" class="button add-retaliate"
+            (singleClick)="changeRetaliate(characterRetaliate.length,1,0)">
+            <img class="ghs-svg" src="./assets/images/select-arrow.svg">
+          </ghs-pointer-input>
+        </span>
+        <span class="item column">
+          <ghs-pointer-input class="button" (singleClick)="changeRetaliate(i,1, 0)">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </ghs-pointer-input>
+          <ghs-pointer-input class="button small" (singleClick)="changeRetaliate(i,0, 1)">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </ghs-pointer-input>
+        </span>
+      </ng-container>
+    </div>
   </div>
 
   <div

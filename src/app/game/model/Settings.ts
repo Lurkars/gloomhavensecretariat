@@ -60,6 +60,7 @@ export class Settings {
   characterItemsPermanentZoom: number = 1;
   characterSheet: boolean = true;
   characterSheetCompact: boolean = false;
+  characterShieldRetaliate: boolean = false;
   characterTraits: boolean = false;
   columns: boolean = true;
   combineSummonAction: boolean = true;
