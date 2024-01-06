@@ -1768,6 +1768,10 @@
       ".": "Compact Character Sheets (%wip%)",
       "hint": "Show more compact character sheets not using the original character sheet layout."
     },
+    "characterShieldRetaliate": {
+      ".": "Shield and Retaliate (%wip%)",
+      "hint": "Track %game.action.shield% and %game.action.retaliate%  values for characters."
+    },
     "characterTraits": {
       ".": "Display traits",
       "hint": "Display the traits the character's board."
