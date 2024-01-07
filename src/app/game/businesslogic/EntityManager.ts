@@ -220,7 +220,7 @@ export class EntityManager {
         }
       }
 
-      if (value < 0 && entity instanceof MonsterEntity && figure instanceof Monster) {
+      if (value < 0) {
         let shield = entity.entityConditions.find((condition) => condition.name == ConditionName.shield);
         if (!shield || shield.expired || !shield.highlight) {
           if (!shield) {
@@ -230,12 +230,18 @@ export class EntityManager {
 
           shield.value = 0;
 
-          let actionHints = gameManager.monsterManager.calcActionHints(figure, entity);
-          actionHints.forEach((actionHint) => {
-            if (shield && actionHint.type == ActionType.shield) {
-              shield.value += actionHint.value;
+          if (entity instanceof MonsterEntity && figure instanceof Monster) {
+            let actionHints = gameManager.monsterManager.calcActionHints(figure, entity);
+            actionHints.forEach((actionHint) => {
+              if (shield && actionHint.type == ActionType.shield) {
+                shield.value += actionHint.value;
+              }
+            })
+          } else if (entity instanceof Character) {
+            if (entity.shield && EntityValueFunction(entity.shield.value)) {
+              shield.value = EntityValueFunction(entity.shield.value);
             }
-          })
+          }
 
           if (shield.value && (entity.health + value + shield.value) > 0) {
             shield.expired = false;
@@ -703,7 +709,7 @@ export class EntityManager {
     if (entity instanceof Character && figure instanceof Character) {
       infos.push(prefix + ".char", gameManager.characterManager.characterName(entity))
     } else if (entity instanceof Summon && figure instanceof Character) {
-      infos.push(prefix + ".summon",  gameManager.characterManager.characterName(figure), "data.summon." + entity.name)
+      infos.push(prefix + ".summon", gameManager.characterManager.characterName(figure), "data.summon." + entity.name)
     } else if (entity instanceof Objective) {
       infos.push(prefix + ".objective", entity.title || entity.name)
     } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
