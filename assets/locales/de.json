@@ -1603,6 +1603,10 @@
       ".": "Charakter Gegenstände",
       "hint": "Zustände von Gegenständen während eines Szenarios verwalten."
     },
+    "characterItemsApply": {
+      ".": "Gegenstands Aktionen anwenden",
+      "hint": "Alles Charakter-bezognenen Aktionen wie %game.action.heal%, Zustände, Beschwörungen etc. ausführen wenn Gegenstand angwendet wird."
+    },
     "characterItemsPermanent": {
       ".": "Charakter Gegenstände dauerhaft",
       "hint": "Gegenstände dauerthaft unterhalb des Charakters anzeigen."
@@ -1620,7 +1624,7 @@
       "hint": "Zeige kompaktere Charakterbögen mit anderem Layout als die original Charakterbögen."
     },
     "characterShieldRetaliate": {
-      ".": "Schild und Vergeltung (%wip%)",
+      ".": "Schild und Vergeltung",
       "hint": "Verwalte %game.action.shield% und %game.action.retaliate% für Charaktere."
     },
     "characterTraits": {
@@ -2131,6 +2135,8 @@
       "removeAllObjectives": "Alle Ziele entfernen",
       "removeCampaignSticker": "Kampagnenbogensticker {0} entfernen",
       "removeChar": "Charakter {0} entfernen",
+      "removeCharacterRetaliate": "Entferne %game.action.retaliate% von {0}",
+      "removeCharacterShield": "Entferne %game.action.shield% von {0}",
       "removeCondition": {
         "char": "%game.condition.{1}% von {0} entfernen",
         "monsterEntities": "%game.condition.{1}% von allen {2}{0} entfernen",
@@ -2190,6 +2196,8 @@
       "setAlly": "{0} als Verbündeter",
       "setAllied": "{0} zur Fraktion zufügen",
       "setBG": "Kampfziele {1} für {0}",
+      "setCharacterRetaliate": "{1} für {0}",
+      "setCharacterShield": "%game.action.shield% {1} für {0}",
       "setConditionValue": {
         "char": "%game.condition.{1}% auf {2} für {0}",
         "monsterEntities": "%game.condition.{1}% auf {2} für alle {3}{0}",
