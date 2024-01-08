@@ -76,7 +76,7 @@ export class LootComponent implements OnInit, OnChanges {
             const conclusion = gameManager.sectionData(gameManager.currentEdition()).find((sectionData) => sectionData.index == section && sectionData.conclusion);
             if (conclusion && !force) {
                 this.dialog.open(ScenarioSummaryComponent, {
-                    panelClass: 'dialog',
+                    panelClass: ['dialog'],
                     data: {
                         scenario: conclusion,
                         conclusionOnly: true
@@ -129,7 +129,7 @@ export class LootComponent implements OnInit, OnChanges {
             event.preventDefault();
             event.stopPropagation();
             const dialog = this.dialog.open(LootApplyDialogComponent, {
-                panelClass: 'dialog',
+                panelClass: ['dialog'],
                 data: { loot: this.loot, selected: this.character, edit: this.edit }
             });
 
@@ -173,7 +173,7 @@ export class LootComponent implements OnInit, OnChanges {
                                     }
                                     if (result) {
                                         this.dialog.open(LootRandomItemDialogComponent, {
-                                            panelClass: 'dialog',
+                                            panelClass: ['dialog'],
                                             data: { item: result, character: character }
                                         }).closed.subscribe({
                                             next: (result) => {

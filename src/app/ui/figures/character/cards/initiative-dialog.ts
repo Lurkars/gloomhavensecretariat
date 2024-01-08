@@ -7,6 +7,7 @@ import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { Objective } from "src/app/game/model/Objective";
 import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
     selector: 'ghs-character-initiative-dialog',
@@ -53,7 +54,7 @@ export class CharacterInitiativeDialogComponent {
         this.value = (this.value + "" + number).substring(1, 3);
         if (this.value.indexOf("_") == -1) {
             this.updateInitiative(+this.value);
-            this.dialogRef.close();
+            ghsDialogClosingHelper(this.dialogRef);
         }
     }
 
@@ -100,12 +101,8 @@ export class CharacterInitiativeDialogComponent {
                 }
                 gameManager.stateManager.after();
             }
-            this.dialogRef.close();
+            ghsDialogClosingHelper(this.dialogRef);
         }
-    }
-
-    close() {
-        this.dialogRef.close();
     }
 
 }

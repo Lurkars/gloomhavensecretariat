@@ -284,7 +284,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     let itemData = gameManager.itemManager.drawRandomItem(gameManager.currentEdition(), blueprint);
     if (itemData) {
       this.dialog.open(EventRandomItemDialogComponent, {
-        panelClass: 'dialog',
+        panelClass: ['dialog'],
         data: { item: itemData, blueprint: blueprint }
       }).closed.subscribe({
         next: (result) => {
@@ -305,7 +305,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     let scenarioData = section ? gameManager.scenarioManager.drawRandomScenarioSection(gameManager.currentEdition()) : gameManager.scenarioManager.drawRandomScenario(gameManager.currentEdition());
     if (scenarioData) {
       this.dialog.open(EventRandomScenarioDialogComponent, {
-        panelClass: 'dialog',
+        panelClass: ['dialog'],
         data: { scenario: scenarioData, section: section }
       }).closed.subscribe({
         next: (result) => {

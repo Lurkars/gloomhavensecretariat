@@ -4,6 +4,7 @@ import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager
 import { Character } from "src/app/game/model/Character";
 import { Scenario } from "src/app/game/model/Scenario";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 
 export class ScenarioMissingRequirements {
@@ -172,6 +173,6 @@ export class ScenarioRequirementsComponent {
     }
 
     close() {
-        this.dialogRef.close();
+        ghsDialogClosingHelper(this.dialogRef);
     }
 }

@@ -93,7 +93,7 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
 
   openInitiativeDialog(event: any) {
     this.dialog.open(CharacterInitiativeDialogComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: this.objective,
       positionStrategy: this.overlay.position().flexibleConnectedTo(event.target).withPositions(ghsDefaultDialogPositions())
     });
@@ -169,7 +169,7 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
 
   openEntityMenu(event: any): void {
     this.dialog.open(EntityMenuDialogComponent, {
-      panelClass: 'dialog', data: {
+      panelClass: ['dialog'], data: {
         entity: this.objective,
         figure: this.objective
       },

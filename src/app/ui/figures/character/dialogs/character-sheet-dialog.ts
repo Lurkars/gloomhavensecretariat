@@ -21,8 +21,4 @@ export class CharacterSheetDialog {
       }
     });
   }
-
-  close() {
-    this.dialogRef.close();
-  }
 }

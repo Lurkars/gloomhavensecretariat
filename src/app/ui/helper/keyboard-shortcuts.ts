@@ -41,7 +41,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
         const entities = gameManager.entityManager.getIndexedEntities();
         if (gameManager.stateManager.keyboardSelect > 0 && gameManager.stateManager.keyboardSelect <= entities.length) {
             this.dialog.open(EntityMenuDialogComponent, {
-                panelClass: 'dialog',
+                panelClass: ['dialog'],
                 data: {
                     entity: entities[gameManager.stateManager.keyboardSelect - 1].entity,
                     figure: entities[gameManager.stateManager.keyboardSelect - 1].figure,

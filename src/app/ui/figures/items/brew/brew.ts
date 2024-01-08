@@ -8,6 +8,7 @@ import { CountIdentifier, Identifier } from "src/app/game/model/data/Identifier"
 import { ItemData } from "src/app/game/model/data/ItemData";
 import { LootType } from "src/app/game/model/data/Loot";
 import { ItemDialogComponent } from "../dialog/item-dialog";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
     selector: 'ghs-items-brew',
@@ -170,12 +171,14 @@ export class ItemsBrewDialog implements OnInit, OnDestroy {
 
     openItemDialog() {
         this.dialog.open(ItemDialogComponent, {
+            panelClass: ['fullscreen-panel'],
+            disableClose: true,
             data: { item: this.brewed || this.item }
         })
     }
 
     close() {
-        this.dialogRef.close();
+        ghsDialogClosingHelper(this.dialogRef);
     }
 
 }

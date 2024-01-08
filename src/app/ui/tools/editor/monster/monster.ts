@@ -319,7 +319,7 @@ export class MonsterEditorComponent implements OnInit {
     const stat = this.statsForType(type, level);
     stat.actions.push(action);
     const dialog = this.dialog.open(EditorActionDialogComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: { action: action, monster: this.getMonsterForLevel(level) }
     });
 
@@ -335,7 +335,7 @@ export class MonsterEditorComponent implements OnInit {
 
   editMonsterAction(type: MonsterType, action: Action, level: number) {
     const dialog = this.dialog.open(EditorActionDialogComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: { action: action, monster: this.getMonsterForLevel(level) }
     });
 
@@ -372,7 +372,7 @@ export class MonsterEditorComponent implements OnInit {
 
     stat.special[index].push(action);
     const dialog = this.dialog.open(EditorActionDialogComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: { action: action, monster: this.getMonsterForLevel(level) }
     });
 
@@ -392,7 +392,7 @@ export class MonsterEditorComponent implements OnInit {
 
   editSpecialAction(type: MonsterType, index: number, action: Action, level: number) {
     const dialog = this.dialog.open(EditorActionDialogComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: { action: action, monster: this.getMonsterForLevel(level) }
     });
 

@@ -13,7 +13,7 @@ import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { Objective, OBJECTIV_MARKERS } from "src/app/game/model/Objective";
 import { Summon, SummonState } from "src/app/game/model/Summon";
-import { ghsDefaultDialogPositions, ghsModulo, ghsValueSign } from "../../helper/Static";
+import { ghsDefaultDialogPositions, ghsDialogClosingHelper, ghsModulo, ghsValueSign } from "../../helper/Static";
 import { AttackModiferDeckChange } from "../attackmodifier/attackmodifierdeck";
 import { MonsterNumberPickerDialog } from "../monster/dialogs/numberpicker-dialog";
 import { Overlay } from "@angular/cdk/overlay";
@@ -372,7 +372,7 @@ export class EntityMenuDialogComponent {
       }
     } else {
       const dialog = this.dialog.open(AdditionalAMSelectDialogComponent, {
-        panelClass: 'dialog',
+        panelClass: ['dialog'],
         data: {
           characters: this.empowerChars,
           type: AttackModifierType.empower
@@ -401,7 +401,7 @@ export class EntityMenuDialogComponent {
       }
     } else {
       const dialog = this.dialog.open(AdditionalAMSelectDialogComponent, {
-        panelClass: 'dialog',
+        panelClass: ['dialog'],
         data: {
           characters: this.enfeebleChars,
           type: AttackModifierType.enfeeble
@@ -556,7 +556,7 @@ export class EntityMenuDialogComponent {
       if (gameManager.monsterManager.monsterStandeeMax(this.data.figure) > 1 || this.data.entity.type != MonsterType.boss) {
         this.close();
         this.dialog.open(MonsterNumberPickerDialog, {
-          panelClass: 'dialog',
+          panelClass: ['dialog'],
           data: {
             monster: this.data.figure,
             entity: this.data.entity,
@@ -564,7 +564,7 @@ export class EntityMenuDialogComponent {
           },
           positionStrategy: this.overlay.position().flexibleConnectedTo(this.data.positionElement).withPositions(ghsDefaultDialogPositions())
         })
-        this.dialogRef.close();
+        ghsDialogClosingHelper(this.dialogRef);
       }
     }
   }
@@ -884,24 +884,30 @@ export class EntityMenuDialogComponent {
         gameManager.stateManager.after();
       }
 
-      if (this.characterShield.value) {
-        if (!this.data.entity.tags.find((tag) => tag == 'character-shield:' + this.characterShield)) {
-          gameManager.stateManager.before("setCharacterShield", gameManager.characterManager.characterName(this.data.entity), '' + this.characterShield.value);
-          this.data.entity.shield = this.characterShield;
+      if (settingsManager.settings.characterShieldRetaliate) {
+        if (this.characterShield.value) {
+          if (!this.data.entity.shield || this.characterShield.value != this.data.entity.shield.value) {
+            gameManager.stateManager.before("setCharacterShield", gameManager.characterManager.characterName(this.data.entity), '' + this.characterShield.value);
+            this.data.entity.shield = this.characterShield;
+            gameManager.stateManager.after();
+          }
+        } else if (this.data.entity.shield) {
+          gameManager.stateManager.before("removeCharacterShield", gameManager.characterManager.characterName(this.data.entity));
+          this.data.entity.shield = undefined;
           gameManager.stateManager.after();
         }
-      } else if (this.data.entity.shield) {
-        gameManager.stateManager.before("removeCharacterShield", gameManager.characterManager.characterName(this.data.entity));
-        this.data.entity.shield = undefined;
-        gameManager.stateManager.after();
-      }
 
-      const retaliate = this.characterRetaliate.filter((action) => action.value).map((action, index) => new Action(ActionType.retaliate, action.value, ActionValueType.fixed, this.characterRetaliateRange[index].value != 1 ? [this.characterRetaliateRange[index]] : []));
+        const retaliate = this.characterRetaliate.filter((action) => action.value).map((action, index) => new Action(ActionType.retaliate, action.value, ActionValueType.fixed, this.characterRetaliateRange[index].value != 1 ? [this.characterRetaliateRange[index]] : []));
 
-      if (JSON.stringify(retaliate) != JSON.stringify(this.data.entity.retaliate)) {
-        gameManager.stateManager.before("changeCharacterRetaliate", gameManager.characterManager.characterName(this.data.entity));
-        this.data.entity.retaliate = retaliate;
-        gameManager.stateManager.after();
+        if (JSON.stringify(retaliate) != JSON.stringify(this.data.entity.retaliate)) {
+          if (retaliate.length > 0) {
+            gameManager.stateManager.before("setCharacterRetaliate", gameManager.characterManager.characterName(this.data.entity), retaliate.map((action) => '%game.action.retaliate% ' + EntityValueFunction(action.value) + (action.subActions && action.subActions[0] && action.subActions[0].type == ActionType.range && EntityValueFunction(action.subActions[0].value) > 1 ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value) + '' : '')).join(', '));
+          } else {
+            gameManager.stateManager.before("removeCharacterRetaliate", gameManager.characterManager.characterName(this.data.entity));
+          }
+          this.data.entity.retaliate = retaliate;
+          gameManager.stateManager.after();
+        }
       }
 
       let title = this.data.entity.title;

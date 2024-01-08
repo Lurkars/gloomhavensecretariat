@@ -99,7 +99,7 @@ export class MonsterStatsComponent implements OnInit {
 
   openLevelDialog() {
     const levelDialog = this.dialog.open(MonsterLevelDialogComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: this.monster,
       positionStrategy: this.overlay.position().flexibleConnectedTo(this.levelButton).withPositions(ghsDefaultDialogPositions())
     });
@@ -114,22 +114,33 @@ export class MonsterStatsComponent implements OnInit {
 
   openStatsPopup() {
     if (!this.noClick) {
-      this.dialog.open(MonsterStatsDialogComponent, { panelClass: 'dialog', data: this.monster });
+      this.dialog.open(MonsterStatsDialogComponent, {
+        panelClass: ['dialog'],
+        data: this.monster
+      });
     } else if (!this.disablePoup) {
-      this.dialog.open(MonsterStatDialogComponent, { panelClass: 'fullscreen-panel', data: { monster: this.monster, forceStats: this.forceStats } });
+      this.dialog.open(MonsterStatDialogComponent, {
+        panelClass: ['fullscreen-panel'],
+        disableClose: true,
+        data: { monster: this.monster, forceStats: this.forceStats }
+      });
     }
   }
 
   openStatPopup() {
     if (!this.noClick && !this.disablePoup) {
-      this.dialog.open(MonsterStatDialogComponent, { panelClass: 'fullscreen-panel', data: { monster: this.monster, forceStats: this.forceStats } });
+      this.dialog.open(MonsterStatDialogComponent, {
+        panelClass: ['fullscreen-panel'],
+        disableClose: true,
+        data: { monster: this.monster, forceStats: this.forceStats }
+      });
     }
   }
 
   openEntityMenu(event: any): void {
     if (!this.noClick) {
       this.dialog.open(EntityMenuDialogComponent, {
-        panelClass: 'dialog',
+        panelClass: ['dialog'],
         data: {
           entity: undefined,
           figure: this.monster

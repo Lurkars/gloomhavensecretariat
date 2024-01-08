@@ -45,7 +45,7 @@ export class HintDialogComponent {
 
             if (conclusions.length == 0 || !success) {
                 this.dialog.open(ScenarioSummaryComponent, {
-                    panelClass: 'dialog',
+                    panelClass: ['dialog'],
                     data: {
                         scenario: gameManager.game.scenario,
                         success: success
@@ -59,7 +59,7 @@ export class HintDialogComponent {
                     next: (conclusion) => {
                         if (conclusion) {
                             this.dialog.open(ScenarioSummaryComponent, {
-                                panelClass: 'dialog',
+                                panelClass: ['dialog'],
                                 data: {
                                     scenario: gameManager.game.scenario,
                                     conclusion: conclusion,

@@ -53,6 +53,7 @@ export class Settings {
   characterIdentities: boolean = true;
   characterIdentityHint: boolean = true;
   characterItems: boolean = false;
+  characterItemsApply: boolean = false;
   characterItemsPermanent: boolean = false;
   characterItemsPermanentActive: boolean = false;
   characterItemsPermanentEquipped: boolean = true;

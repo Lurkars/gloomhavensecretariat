@@ -7,6 +7,7 @@ import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { enhancableLootTypes, Loot, LootDeck, LootDeckConfig, LootType } from "src/app/game/model/data/Loot";
 import { LootDeckChange } from "./loot-deck";
+import { ghsDialogClosingHelper } from "../../helper/Static";
 
 @Component({
   selector: 'ghs-loot-deck-dialog',
@@ -163,7 +164,7 @@ export class LootDeckDialogComponent implements OnInit {
       this.after.emit(new LootDeckChange(this.deck, 'lootDeckChangeConfig'));
       if (this.deck.cards.length > 0) {
         if (empty) {
-          this.dialogRef.close();
+          ghsDialogClosingHelper(this.dialogRef);
         } else {
           this.toggleEdit();
         }

@@ -419,6 +419,8 @@ export class RoundManager {
         figure.token = 0;
         figure.battleGoal = false;
         figure.battleGoals = [];
+        figure.shield = undefined;
+        figure.retaliate = [];
 
         if (gameManager.fhRules() && figure.tags.indexOf('new-character') != -1) {
           figure.progress.gold = 0;

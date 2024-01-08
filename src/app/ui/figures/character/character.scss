@@ -368,6 +368,12 @@
 
       ghs-action {
         margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+
+        &:hover {
+          transform: scale(2);
+          transform-origin: center center;
+          z-index: 999;
+        }
       }
     }
 

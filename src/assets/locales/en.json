@@ -1752,6 +1752,10 @@
       ".": "Character Items",
       "hint": "Allows to manage state of items during a scenario."
     },
+    "characterItemsApply": {
+      ".": "Apply item actions",
+      "hint": "Apply all self-affecting actions like %game.action.heal%, conditions, summons etc. when using item."
+    },
     "characterItemsPermanent": {
       ".": "Permanent Character Items",
       "hint": "Display Items permanent under Character."
@@ -1769,7 +1773,7 @@
       "hint": "Show more compact character sheets not using the original character sheet layout."
     },
     "characterShieldRetaliate": {
-      ".": "Shield and Retaliate (%wip%)",
+      ".": "Shield and Retaliate",
       "hint": "Track %game.action.shield% and %game.action.retaliate%  values for characters."
     },
     "characterTraits": {
@@ -2296,6 +2300,8 @@
       "removeAllObjectives": "Remove all objectives",
       "removeCampaignSticker": "Remove Campaign Sticker {0}",
       "removeChar": "Remove character {0}",
+      "removeCharacterRetaliate": "Remove %game.action.retaliate% for {0}",
+      "removeCharacterShield": "Remove %game.action.shield% for {0}",
       "removeCondition": {
         "char": "Remove %game.condition.{1}% from {0}",
         "monsterEntities": "Remove %game.condition.{1}% fromm all {2}{0}",
@@ -2356,6 +2362,8 @@
       "setAlly": "{0} as ally",
       "setAllied": "{0} as allied",
       "setBG": "Set Battle Goals of {0} to {1}",
+      "setCharacterRetaliate": "{1} for {0}",
+      "setCharacterShield": "%game.action.shield% {1} for {0}",
       "setConditionValue": {
         "char": "%game.condition.{1}% to {2} for {0}",
         "monsterEntities": "%game.condition.{1}% to {2} for all {3}{0}",

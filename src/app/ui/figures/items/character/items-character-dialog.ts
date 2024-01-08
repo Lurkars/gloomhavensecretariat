@@ -7,6 +7,7 @@ import { GameState } from "src/app/game/model/Game";
 import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
 import { ItemData, ItemFlags, ItemSlot } from "src/app/game/model/data/ItemData";
 import { ItemsDialogComponent } from "../dialog/items-dialog";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
     selector: 'ghs-items-character-dialog',
@@ -68,6 +69,6 @@ export class ItemsCharacterDialogComponent {
     }
 
     close() {
-        this.dialogRef.close();
+        ghsDialogClosingHelper(this.dialogRef);
     }
 }

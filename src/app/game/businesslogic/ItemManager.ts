@@ -1,10 +1,15 @@
 import { Character } from "../model/Character";
+import { EntityValueFunction } from "../model/Entity";
 import { Game } from "../model/Game";
+import { Summon, SummonColor } from "../model/Summon";
+import { Condition, ConditionName, ConditionType } from "../model/data/Condition";
+import { Element, ElementState } from "../model/data/Element";
 import { AdditionalIdentifier, CountIdentifier, Identifier } from "../model/data/Identifier";
-import { ItemData, ItemSlot } from "../model/data/ItemData";
+import { ItemData, ItemEffect, ItemEffectType, ItemFlags, ItemSlot } from "../model/data/ItemData";
 import { LootClass, LootType, getLootClass } from "../model/data/Loot";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
+import { v4 as uuidv4 } from 'uuid';
 
 export class ItemManager {
 
@@ -372,7 +377,9 @@ export class ItemManager {
             character.health = character.maxHealth;
         }
 
-
+        if (equipIndex == -1 && !item.spent && !item.consumed) {
+            this.applyItemEffects(character, item);
+        }
     }
 
     drawRandomItem(edition: string, blueprint: boolean = false, from: number = -1, to: number = -1): ItemData | undefined {
@@ -389,6 +396,67 @@ export class ItemManager {
             item = availableItems[Math.floor(Math.random() * availableItems.length)];
         }
         return item;
+    }
+
+    applyItemEffects(character: Character, item: ItemData) {
+        if (item.effects) {
+            item.effects.forEach((itemEffect) => {
+                this.applyItemEffect(character, itemEffect);
+            })
+        }
+
+        if (item.summon) {
+            let summon = new Summon(uuidv4(), item.summon.name, item.summon.cardId, character.level, 1, SummonColor.blue, item.summon);
+            summon.init = false;
+            gameManager.characterManager.addSummon(character, summon);
+        }
+    }
+
+    applyItemEffect(character: Character, effect: ItemEffect) {
+        switch (effect.type) {
+            case ItemEffectType.heal:
+                const heal = EntityValueFunction(effect.value);
+                character.health += heal;
+                gameManager.entityManager.addCondition(character, new Condition(ConditionName.heal, heal), character.active || false, character.off || false);
+                gameManager.entityManager.applyCondition(character, character, ConditionName.heal, true);
+                break;
+            case ItemEffectType.damage:
+                const damage = EntityValueFunction(effect.value);
+                gameManager.entityManager.changeHealth(character, character, -damage);
+                break;
+            case ItemEffectType.condition:
+                const condition: ConditionName = ("" + effect.value).split(':')[0] as ConditionName;
+                let value: number = ("" + effect.value).split(':').length > 1 ? +("" + effect.value).split(':')[1] : 1;
+                gameManager.entityManager.addCondition(character, new Condition(condition, value), character.active || false, character.off || false);
+                break;
+            case ItemEffectType.immune:
+                const immunity: ConditionName = ("" + effect.value) as ConditionName;
+                if (character.immunities.indexOf(immunity) == -1) {
+                    character.immunities.push(immunity);
+                }
+                break;
+            case ItemEffectType.element:
+                const element: Element = ("" + effect.value) as Element;
+                if (element != Element.wild) {
+                    gameManager.game.elementBoard.forEach((elementModel) => {
+                        if (elementModel.type == element) {
+                            elementModel.state = ElementState.new;
+                        }
+                    })
+                }
+                break;
+            case ItemEffectType.refreshSpent:
+                character.progress.equippedItems.forEach((identifier) => {
+                    if (identifier.tags && identifier.tags.indexOf(ItemFlags.spent) != -1) {
+                        identifier.tags = identifier.tags.filter((tag) => tag != ItemFlags.spent);
+                    }
+                })
+                break;
+            case ItemEffectType.removeNegativeConditions:
+                const negativeConditions: ConditionName[] = gameManager.conditionsForTypes(ConditionType.negative, ConditionType.character).map((condition) => condition.name);
+                character.entityConditions = character.entityConditions.filter((entityCondition) => negativeConditions.indexOf(entityCondition.name) == -1);
+                break;
+        }
     }
 
 }

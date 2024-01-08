@@ -123,7 +123,7 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
 
   open(event: any) {
     this.dialog.open(CharacterInitiativeDialogComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: this.figure,
       positionStrategy: this.overlay.position().flexibleConnectedTo(this.elementRef).withPositions(ghsDefaultDialogPositions())
     });

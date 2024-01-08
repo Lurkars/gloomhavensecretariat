@@ -5,6 +5,7 @@ import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager
 import { Character } from "src/app/game/model/Character";
 import { CharacterProgress } from "src/app/game/model/CharacterProgress";
 import { LootType } from "src/app/game/model/data/Loot";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
     selector: 'ghs-character-move-resources',
@@ -68,10 +69,8 @@ export class CharacterMoveResourcesDialog implements OnInit {
         this.close();
     }
 
-
-
     close() {
-        this.dialogRef.close();
+        ghsDialogClosingHelper(this.dialogRef);
     }
 
 }

@@ -216,6 +216,12 @@
         "value": "%data.items.jotl-11.1%",
         "small": true
       }
+    ],
+    "effects": [
+      {
+        "type": "heal",
+        "value": 3
+      }
     ]
   },
   {
@@ -295,6 +301,12 @@
         "type": "custom",
         "value": "%data.items.jotl-15.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "heal",
+        "value": 1
       }
     ]
   },
@@ -603,6 +615,12 @@
         "type": "custom",
         "value": "%data.items.jotl-31.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "strengthen"
       }
     ]
   },

@@ -84,6 +84,12 @@
         "value": "%data.items.gh-5.1%",
         "small": true
       }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "invisible"
+      }
     ]
   },
   {
@@ -201,6 +207,12 @@
         "type": "custom",
         "value": "%data.items.gh-12.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "heal",
+        "value": 3
       }
     ]
   },
@@ -415,6 +427,12 @@
         "value": "%data.items.gh-24.1%",
         "small": true
       }
+    ],
+    "effects": [
+      {
+        "type": "heal",
+        "value": 1
+      }
     ]
   },
   {
@@ -471,6 +489,12 @@
         "value": "%data.items.gh-27.1%",
         "small": true
       }
+    ],
+    "effects": [
+      {
+        "type": "heal",
+        "value": 5
+      }
     ]
   },
   {
@@ -487,6 +511,12 @@
         "type": "custom",
         "value": "%data.items.gh-28.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "refreshSpent",
+        "value": ""
       }
     ]
   },
@@ -662,6 +692,16 @@
         "type": "custom",
         "value": "%data.items.gh-38.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "immune",
+        "value": "stun"
+      },
+      {
+        "type": "immune",
+        "value": "muddle"
       }
     ]
   },
@@ -868,6 +908,16 @@
         "value": "%data.items.gh-49.1%",
         "small": true
       }
+    ],
+    "effects": [
+      {
+        "type": "refreshSpent",
+        "value": ""
+      },
+      {
+        "type": "heal",
+        "value": 3
+      }
     ]
   },
   {
@@ -917,6 +967,16 @@
         "type": "custom",
         "value": "%data.items.gh-52.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "immune",
+        "value": "poison"
+      },
+      {
+        "type": "immune",
+        "value": "wound"
       }
     ]
   },
@@ -968,6 +1028,12 @@
         "type": "custom",
         "value": "%data.items.gh-55.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "heal",
+        "value": 7
       }
     ]
   },
@@ -1219,6 +1285,16 @@
         "value": "%data.items.gh-69.1%",
         "small": true
       }
+    ],
+    "effects": [
+      {
+        "type": "refreshSpent",
+        "value": ""
+      },
+      {
+        "type": "heal",
+        "value": 3
+      }
     ]
   },
   {
@@ -1459,6 +1535,12 @@
         "type": "element",
         "value": "ice"
       }
+    ],
+    "effects": [
+      {
+        "type": "element",
+        "value": "ice"
+      }
     ]
   },
   {
@@ -1476,6 +1558,12 @@
         "value": "%data.items.gh-84.1%",
         "small": true
       },
+      {
+        "type": "element",
+        "value": "air"
+      }
+    ],
+    "effects": [
       {
         "type": "element",
         "value": "air"
@@ -1501,6 +1589,12 @@
         "type": "element",
         "value": "fire"
       }
+    ],
+    "effects": [
+      {
+        "type": "element",
+        "value": "fire"
+      }
     ]
   },
   {
@@ -1518,6 +1612,12 @@
         "value": "%data.items.gh-86.1%",
         "small": true
       },
+      {
+        "type": "element",
+        "value": "earth"
+      }
+    ],
+    "effects": [
       {
         "type": "element",
         "value": "earth"
@@ -1543,6 +1643,12 @@
         "type": "element",
         "value": "light"
       }
+    ],
+    "effects": [
+      {
+        "type": "element",
+        "value": "light"
+      }
     ]
   },
   {
@@ -1560,6 +1666,12 @@
         "value": "%data.items.gh-88.1%",
         "small": true
       },
+      {
+        "type": "element",
+        "value": "dark"
+      }
+    ],
+    "effects": [
       {
         "type": "element",
         "value": "dark"
@@ -1597,6 +1709,12 @@
         "type": "custom",
         "value": "%data.items.gh-90.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "removeNegativeConditions",
+        "value": ""
       }
     ]
   },
@@ -1805,6 +1923,16 @@
         "type": "custom",
         "value": "%data.items.gh-103.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "immune",
+        "value": "poison"
+      },
+      {
+        "type": "immune",
+        "value": "wound"
       }
     ]
   },

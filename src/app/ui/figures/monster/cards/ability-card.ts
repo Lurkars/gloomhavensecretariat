@@ -53,7 +53,7 @@ export class MonsterAbilityCardComponent implements OnInit, OnDestroy {
   }
 
   calcFlipped(): boolean {
-    if (!settingsManager.settings.abilities) {
+    if (!settingsManager.settings.abilities || gameManager.game.state == GameState.draw) {
       return false;
     }
 
@@ -77,7 +77,7 @@ export class MonsterAbilityCardComponent implements OnInit, OnDestroy {
       this.secondAbility = gameManager.abilities(this.monster)[this.monster.abilities[this.monster.ability + (this.monster.ability < this.monster.abilities.length + 1 ? 1 : -1)]];
     }
 
-    let flipped = gameManager.roundManager.working && gameManager.game.state == GameState.draw || !gameManager.roundManager.working && gameManager.game.state == GameState.next && gameManager.gameplayFigure(this.monster);
+    let flipped = !gameManager.roundManager.working && gameManager.game.state == GameState.next && gameManager.gameplayFigure(this.monster);
 
     let reveal = settingsManager.settings.abilityReveal || this.monster.active || this.monster.off && (gameManager.game.figures.some((figure, index, self) => figure.active && index > self.indexOf(this.monster)) || gameManager.game.figures.every((figure) => !figure.active));
 
@@ -196,7 +196,7 @@ export class MonsterAbilityCardComponent implements OnInit, OnDestroy {
   openAbilities(event: any): void {
     if (settingsManager.settings.abilities && (!event.srcEvent || !event.srcEvent.defaultPrevented)) {
       this.dialog.open(AbiltiesDialogComponent, {
-        panelClass: 'dialog', data: this.monster
+        panelClass: ['dialog'], data: this.monster
       });
     }
   }
@@ -205,7 +205,8 @@ export class MonsterAbilityCardComponent implements OnInit, OnDestroy {
     if (settingsManager.settings.abilities) {
       if (this.flipped) {
         this.dialog.open(AbilityDialogComponent, {
-          panelClass: 'fullscreen-panel',
+          panelClass: ['fullscreen-panel'],
+          disableClose: true,
           data: { ability: second ? this.secondAbility : this.ability, monster: this.monster }
         });
       } else {

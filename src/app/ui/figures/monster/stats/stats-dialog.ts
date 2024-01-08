@@ -28,7 +28,7 @@ export class MonsterStatsDialogComponent {
     monster.errors = this.monster.errors;
     return monster;
   }
-  
+
   toggleAlly() {
     gameManager.stateManager.before(this.monster.isAlly ? "unsetAlly" : "setAlly", "data.monster." + this.monster.name);
     this.monster.isAlly = !this.monster.isAlly;
@@ -43,6 +43,10 @@ export class MonsterStatsDialogComponent {
 
   openStatPopup(level: number) {
     const monster = new Monster(this.monster, level);
-    this.dialog.open(MonsterStatDialogComponent, { panelClass: 'fullscreen-panel', data: { monster: monster, forceStats: true } });
+    this.dialog.open(MonsterStatDialogComponent, {
+      panelClass: ['fullscreen-panel'],
+      disableClose: true,
+      data: { monster: monster, forceStats: true }
+    });
   }
 }

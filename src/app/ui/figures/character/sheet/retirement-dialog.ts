@@ -7,6 +7,7 @@ import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/scenario-summary";
 import { PersonalQuest } from "src/app/game/model/data/PersonalQuest";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
     selector: 'ghs-character-retirement-dialog',
@@ -30,7 +31,7 @@ export class CharacterRetirementDialog {
     openConclusion() {
         if (this.conclusion) {
             this.dialog.open(ScenarioSummaryComponent, {
-                panelClass: 'dialog',
+                panelClass: ['dialog'],
                 data: {
                     scenario: this.conclusion,
                     conclusionOnly: true,
@@ -42,7 +43,7 @@ export class CharacterRetirementDialog {
 
     moveResources() {
         this.dialog.open(CharacterMoveResourcesDialog, {
-            panelClass: 'dialog',
+            panelClass: ['dialog'],
             data: { character: this.character, all: true }
         });
     }
@@ -59,7 +60,7 @@ export class CharacterRetirementDialog {
     }
 
     close() {
-        this.dialogRef.close();
+        ghsDialogClosingHelper(this.dialogRef);
     }
 
 }

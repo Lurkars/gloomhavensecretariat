@@ -168,7 +168,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     if (this.retired != this.character.progress.retired && this.editable) {
       if (settingsManager.settings.applyRetirement && gameManager.game.party.campaignMode && this.retired) {
         this.dialog.open(CharacterRetirementDialog, {
-          panelClass: 'dialog',
+          panelClass: ['dialog'],
           data: this.character
         }).closed.subscribe({
           next: (result) => {
@@ -444,7 +444,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   moveResources() {
     this.dialog.open(CharacterMoveResourcesDialog, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: { character: this.character }
     });
   }
@@ -488,7 +488,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   openGhCards() {
     this.dialog.open(AbilityCardsDialogComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: { character: this.character }
     });
   }

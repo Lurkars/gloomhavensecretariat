@@ -119,7 +119,7 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
 
   open(): void {
     const dialogRef = this.dialog.open(EntityMenuDialogComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: {
         entity: this.summon,
         figure: this.character

@@ -6,6 +6,7 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { Scenario } from "src/app/game/model/Scenario";
 import { Identifier } from "src/app/game/model/data/Identifier";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
     selector: 'ghs-scenario-treasures-dialog',
@@ -29,7 +30,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit, OnDestroy {
 
     constructor(@Inject(DIALOG_DATA) public data: { treasures: ('G' | number)[] | undefined, edition: string | undefined }, dialogRef: DialogRef) {
         if (!gameManager.game.scenario && (!data.treasures || !data.edition)) {
-            dialogRef.close();
+            ghsDialogClosingHelper(dialogRef);
         } else if (data && data.treasures && data.edition) {
             this.treasures = data.treasures;
             this.edition = data.edition;

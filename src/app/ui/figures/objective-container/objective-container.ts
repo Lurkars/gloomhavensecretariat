@@ -93,7 +93,7 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
 
   openInitiativeDialog(event: any) {
     this.dialog.open(CharacterInitiativeDialogComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: this.objective,
       positionStrategy: this.overlay.position().flexibleConnectedTo(event.target).withPositions(ghsDefaultDialogPositions())
     });
@@ -166,7 +166,7 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
   openEntityMenu(event: any): void {
     if (this.entity) {
       this.dialog.open(EntityMenuDialogComponent, {
-        panelClass: 'dialog', data: {
+        panelClass: ['dialog'], data: {
           entity: this.entity,
           figure: this.objective
         },
@@ -177,7 +177,7 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
 
   openEntitiesMenu(event: any) {
     this.dialog.open(EntitiesMenuDialogComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: {
         objective: this.objective
       },

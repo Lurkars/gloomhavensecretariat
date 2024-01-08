@@ -80,8 +80,8 @@
             </span>
           </span>
           <span class="actions" *ngIf="settingsManager.settings.characterShieldRetaliate">
-            <ghs-action *ngIf="character.shield" [action]="character.shield" [style]="'fh'"></ghs-action>
-            <ghs-action *ngFor="let retaliate of character.retaliate" [action]="retaliate" [style]="'fh'"></ghs-action>
+            <ghs-action ghs-pointer-input (doubleClick)="removeShield()" *ngIf="character.shield" [action]="character.shield" [style]="'fh'"></ghs-action>
+            <ghs-action ghs-pointer-input (doubleClick)="removeRetaliate(i)"  *ngFor="let retaliate of character.retaliate; let i = index;" [action]="retaliate" [style]="'fh'"></ghs-action>
           </span>
           <span class="token-container">
             <span class="token" *ngIf="(character.token + (character.primaryToken < 0 ? token : 0)) > 0"

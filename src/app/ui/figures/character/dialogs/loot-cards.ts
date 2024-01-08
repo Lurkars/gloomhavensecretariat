@@ -53,6 +53,8 @@ export class CharacterLootCardsDialog {
         const itemData = this.randomItem(loot);
         if (itemData) {
             this.dialog.open(ItemDialogComponent, {
+                panelClass: ['fullscreen-panel'],
+                disableClose: true,
                 data: { item: itemData }
             })
         }

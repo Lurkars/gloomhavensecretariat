@@ -10,6 +10,7 @@ import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/sce
 import { Scenario } from "src/app/game/model/Scenario";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ScenarioConclusionComponent } from "src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 export class SelectResourceResult {
     characters: Character[];
@@ -134,7 +135,7 @@ export class BuildingUpgradeDialog implements OnInit {
                 const scenario = new Scenario(conclusion || section);
                 this.close();
                 this.dialog.open(ScenarioSummaryComponent, {
-                    panelClass: 'dialog',
+                    panelClass: ['dialog'],
                     data: {
                         scenario: scenario,
                         success: true,
@@ -167,7 +168,7 @@ export class BuildingUpgradeDialog implements OnInit {
     }
 
     close() {
-        this.dialogRef.close();
+        ghsDialogClosingHelper(this.dialogRef);
     }
 
 }

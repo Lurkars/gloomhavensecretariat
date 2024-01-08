@@ -4,6 +4,7 @@ import { Component, OnInit } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { Character } from "src/app/game/model/Character";
 import { LootType } from "src/app/game/model/data/Loot";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
   selector: 'ghs-party-resources',
@@ -31,6 +32,6 @@ export class PartyResourcesDialogComponent implements OnInit {
   }
 
   close() {
-    this.dialogRef.close();
+    ghsDialogClosingHelper(this.dialogRef);
   }
 }

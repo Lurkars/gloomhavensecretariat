@@ -82,7 +82,7 @@ export class MonsterNumberPicker implements OnInit, OnDestroy {
       this.randomStandee();
     } else {
       this.dialog.open(MonsterNumberPickerDialog, {
-        panelClass: 'dialog',
+        panelClass: ['dialog'],
         data: {
           monster: this.monster,
           type: this.type,

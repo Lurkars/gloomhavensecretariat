@@ -18,7 +18,7 @@ export class SectionDialogComponent {
     addSection() {
         if (this.sectionData.conclusion) {
             this.dialog.open(ScenarioSummaryComponent, {
-                panelClass: 'dialog',
+                panelClass: ['dialog'],
                 data: {
                     scenario: gameManager.game.scenario,
                     success: true,

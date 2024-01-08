@@ -5,6 +5,7 @@ import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager
 import { Identifier } from "src/app/game/model/data/Identifier";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ScenarioTreasuresDialogComponent } from "src/app/ui/footer/scenario/treasures/treasures-dialog";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
     selector: 'ghs-treasures-dialog',
@@ -79,7 +80,7 @@ export class TreasuresDialogComponent implements OnInit, OnDestroy {
         } else if (this.looted.indexOf(index) == -1) {
             this.dialog.open(ScenarioTreasuresDialogComponent,
                 {
-                    panelClass: 'dialog',
+                    panelClass: ['dialog'],
                     data: {
                         treasures: [index],
                         edition: this.edition
@@ -113,7 +114,7 @@ export class TreasuresDialogComponent implements OnInit, OnDestroy {
     }
 
     close() {
-        this.dialogRef.close();
+        ghsDialogClosingHelper(this.dialogRef);
     }
 
 

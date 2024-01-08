@@ -304,7 +304,7 @@ export class EditorActionComponent implements OnInit {
       }
 
       const dialog = this.dialog.open(EditorActionDialogComponent, {
-        panelClass: 'dialog',
+        panelClass: ['dialog'],
         data: { action: this.summon.action }
       });
 
@@ -327,7 +327,7 @@ export class EditorActionComponent implements OnInit {
       }
 
       const dialog = this.dialog.open(EditorActionDialogComponent, {
-        panelClass: 'dialog',
+        panelClass: ['dialog'],
         data: { action: this.summon.additionalAction }
       });
 

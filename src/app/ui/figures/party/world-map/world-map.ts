@@ -5,6 +5,7 @@ import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { Scenario } from "src/app/game/model/Scenario";
 import L, { LatLngBoundsLiteral } from 'leaflet';
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
     selector: 'ghs-world-map',
@@ -93,7 +94,7 @@ export class WorldMapComponent implements AfterViewInit {
                                 const scenario = new Scenario(scenarioData);
                                 gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
                                 gameManager.scenarioManager.setScenario(scenario);
-                                this.dialogRef.close();
+                                this.close();
                                 gameManager.stateManager.after();
                             }
                         }
@@ -106,7 +107,7 @@ export class WorldMapComponent implements AfterViewInit {
     }
 
     close() {
-        this.dialogRef.close();
+        ghsDialogClosingHelper(this.dialogRef);
     }
 }
 

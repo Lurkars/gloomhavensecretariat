@@ -91,7 +91,7 @@ export class MonsterComponent implements OnInit, OnDestroy {
 
   entitiesMenu(event: any, type: MonsterType | undefined = undefined) {
     this.dialog.open(EntitiesMenuDialogComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: {
         monster: this.monster,
         type: type
