@@ -36,7 +36,7 @@ export class EventRandomItemDialogComponent {
   }
 
   apply() {
-    this.dialogRef.close(this.item);
+    ghsDialogClosingHelper(this.dialogRef, this.item);
   }
 
 }

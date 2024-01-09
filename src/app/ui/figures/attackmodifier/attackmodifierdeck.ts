@@ -251,7 +251,8 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
 
   openFullscreen(event: any) {
     this.dialog.open(AttackModifierDeckFullscreenComponent, {
-      backdropClass: 'fullscreen-backdrop',
+      panelClass: ['fullscreen-panel'],
+      backdropClass: ['fullscreen-backdrop'],
       data: {
         deck: this.deck,
         character: this.character,

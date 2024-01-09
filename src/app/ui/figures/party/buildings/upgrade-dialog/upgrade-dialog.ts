@@ -95,7 +95,7 @@ export class BuildingUpgradeDialog implements OnInit {
             }
             this.spent[LootType.hide] = this.fhSupportSpent.hide;
             this.paidResources += this.fhSupportSpent.hide;
-           
+
             if ((this.action == 'build' || this.action == 'upgrade') && this.building.data.rewards && this.building.data.rewards[this.building.model.level]) {
                 this.rewards = this.building.data.rewards[this.building.model.level];
             } else if (this.action == 'rewards' && this.building.data.rewards && this.building.data.rewards[this.building.model.level - 1]) {
@@ -113,7 +113,7 @@ export class BuildingUpgradeDialog implements OnInit {
 
     ngOnInit(): void {
         if (this.force && !settingsManager.settings.applyBuildingRewards) {
-            this.dialogRef.close(true);
+            ghsDialogClosingHelper(this.dialogRef, true);
         }
     }
 
@@ -161,9 +161,9 @@ export class BuildingUpgradeDialog implements OnInit {
 
     confirm() {
         if (this.force) {
-            this.dialogRef.close(true);
+            ghsDialogClosingHelper(this.dialogRef, true);
         } else if (this.paidResources >= this.requiredResources - (this.discount ? 1 : 0) && (!this.costs.gold || this.costs.gold == this.spent.gold)) {
-            this.dialogRef.close(new SelectResourceResult(this.characters, this.characterSpent, this.fhSupportSpent));
+            ghsDialogClosingHelper(this.dialogRef, new SelectResourceResult(this.characters, this.characterSpent, this.fhSupportSpent));
         }
     }
 

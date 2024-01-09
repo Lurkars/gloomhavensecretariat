@@ -162,8 +162,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   openMap() {
     this.dialog.open(WorldMapComponent, {
-      backdropClass: 'fullscreen-backdrop',
       panelClass: ['fullscreen-panel'],
+      backdropClass: ['fullscreen-backdrop'],
       data: this.partyEdition
     })
     this.close();

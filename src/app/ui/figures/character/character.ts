@@ -411,7 +411,8 @@ export class CharacterComponent implements OnInit, OnDestroy {
       after.subscribe({ next: (change: AttackModiferDeckChange) => this.afterAttackModifierDeck(change) });
 
       const dialog = this.dialog.open(AttackModifierDeckFullscreenComponent, {
-        backdropClass: 'fullscreen-backdrop',
+        panelClass: ['fullscreen-panel'],
+        backdropClass: ['fullscreen-backdrop'],
         data: {
           deck: this.character.attackModifierDeck,
           character: this.character,

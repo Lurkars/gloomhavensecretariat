@@ -39,7 +39,7 @@ export class LootRandomItemDialogComponent {
   }
 
   apply() {
-    this.dialogRef.close(this.item);
+    ghsDialogClosingHelper(this.dialogRef, this.item);
   }
 
 }

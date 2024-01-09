@@ -7,6 +7,8 @@
   align-items: center;
   justify-items: center;
   margin-bottom: auto;
+  margin-bottom: calc(var(--ghs-unit) / 4 * var(--ghs-dialog-factor));
+  max-height: calc(var(--ghs-unit) * 65 * var(--ghs-dialog-factor));
 
   .separator {
     grid-column: span var(--condition-columns);
@@ -99,7 +101,7 @@
     &.toggle {
       justify-content: center;
       align-items: center;
-      
+
       img {
         height: 70%;
         width: auto;

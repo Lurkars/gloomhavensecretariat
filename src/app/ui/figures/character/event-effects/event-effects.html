@@ -43,7 +43,8 @@
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </ghs-pointer-input>
         </span>
-        <span class="item" [ghs-label]="'game.bless'" [ghs-label-attribute]="'title'">
+        <span class="item" [ghs-tooltip]="'game.condition.bless.hint'" [originX]="'center'" [overlayX]="'center'"
+        [originY]="'top'" [overlayY]="'bottom'">
           <img src="./assets/images/status/bless.svg" />
           <span class="badge" [ngClass]="{'negative-value' : bless < 0, 'positive-value' : bless > 0}">{{bless |
             ghsValueSign}}</span>
@@ -59,7 +60,8 @@
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </ghs-pointer-input>
         </span>
-        <span class="item" [ghs-label]="'game.curse'" [ghs-label-attribute]="'title'">
+        <span class="item" [ghs-tooltip]="'game.condition.curse.hint'" [originX]="'center'" [overlayX]="'center'"
+        [originY]="'top'" [overlayY]="'bottom'">
           <img src="./assets/images/status/curse.svg" />
           <span class="badge" [ngClass]="{'negative-value' : curse < 0, 'positive-value' : curse > 0}">{{curse |
             ghsValueSign}}</span>
@@ -72,7 +74,7 @@
     </div>
 
     <ghs-conditions [entities]="activeCharacters" [entityConditions]="entityConditions" [immunities]="newImmunities"
-      [type]="'character'" (change)="changeConditions($event)" *ngIf="gameManager.game.scenario"></ghs-conditions>
+      [type]="'character'" (conditionChange)="changeConditions($event)" *ngIf="gameManager.game.scenario"></ghs-conditions>
 
     <div class="entity-container">
       <span class="progress"><span [ghs-label]="'scenario.eventEffects.progress'"></span></span>
@@ -99,7 +101,7 @@
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </ghs-pointer-input>
         </span>
-        <span class="item" [ghs-label]="'game.character.progress.gold'" [ghs-label-attribute]="'title'">
+        <span class="item" [ghs-label]="'character.progress.gold'" [ghs-label-attribute]="'title'">
           <img class="ghs-svg" [ngClass]="{'gold' : !gameManager.fhRules()}"
             [src]="'./assets/images/' + (gameManager.fhRules() ?'fh/'  :'') +'loot.svg' " />
           <span class="badge"
@@ -117,7 +119,7 @@
               <img class="ghs-svg" src="./assets/images/minus.svg">
             </ghs-pointer-input>
           </span>
-          <span class="item" [ghs-label]="'game.character.progress.battleGoals'" [ghs-label-attribute]="'title'">
+          <span class="item" [ghs-label]="'game.battleGoals'" [ghs-label-attribute]="'title'">
             <input type="checkbox" disabled="true" checked="true">
             <span class="badge"
               [ngClass]="{'negative-value' : minBattleGoals() < 0, 'positive-value' : maxBattleGoals() > 0}">{{(minBattleGoals()

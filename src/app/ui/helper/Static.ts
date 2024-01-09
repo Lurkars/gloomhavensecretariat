@@ -76,7 +76,7 @@ export function ghsModulo(n: number, m: number): number {
   return ((n % m) + m) % m;
 }
 
-export function ghsDialogClosingHelper(dialogRef: DialogRef) {
+export function ghsDialogClosingHelper(dialogRef: DialogRef, result: any = undefined) {
   if (settingsManager.settings.animations) {
     dialogRef.overlayRef.overlayElement.classList.add('dialog-closing');
     if (dialogRef.overlayRef.hostElement.getElementsByClassName('dialog-close-button')[0]) {
@@ -85,9 +85,9 @@ export function ghsDialogClosingHelper(dialogRef: DialogRef) {
     if (dialogRef.overlayRef.backdropElement) {
       dialogRef.overlayRef.backdropElement.classList.add('backdrop-closing');
     }
-    setTimeout(() => dialogRef.close(), 250);
+    setTimeout(() => dialogRef.close(result), 250);
   } else {
-    dialogRef.close();
+    dialogRef.close(result);
   }
 }
 

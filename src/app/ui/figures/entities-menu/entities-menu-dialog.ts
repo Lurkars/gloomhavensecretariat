@@ -7,7 +7,7 @@ import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
-import { ghsValueSign } from "../../helper/Static";
+import { ghsDialogClosingHelper, ghsValueSign } from "../../helper/Static";
 import { EntityValueFunction } from "src/app/game/model/Entity";
 import { Summon, SummonState } from "src/app/game/model/Summon";
 import { Character } from "src/app/game/model/Character";
@@ -166,7 +166,7 @@ export class EntitiesMenuDialogComponent {
       gameManager.uiChange.emit();
     }, !settingsManager.settings.animations ? 0 : 1500);
 
-    this.dialogRef.close(true);
+    ghsDialogClosingHelper(this.dialogRef, true);
   }
 
   close(): void {

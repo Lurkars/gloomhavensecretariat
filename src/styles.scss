@@ -722,15 +722,6 @@ ghs-pointer-input {
     overflow: auto;
     padding: 0 calc(var(--ghs-unit) * 1);
   }
-
-  &.fullscreen-panel {
-    max-height: 100vh;
-
-    .scroll-container {
-      max-height: 100vh;
-    }
-  }
-
 }
 
 
@@ -779,9 +770,8 @@ ghs-pointer-input {
 .dialog,
 .dialog-invert {
 
-  .cdk-dialog-container {
-    transform-origin: center center;
-    animation: dialog-open 250ms ease-in-out;
+  .cdk-dialog-container,
+  .dialog-container {
     border: calc(var(--ghs-unit) * 1) solid transparent;
     border-radius: calc(var(--ghs-unit) * 0.5);
     padding: calc(var(--ghs-unit) * 2);
@@ -794,9 +784,17 @@ ghs-pointer-input {
     border-image-width: calc(var(--ghs-unit) * 6);
   }
 
-  &.dialog-invert .cdk-dialog-container {
-    background-color: var(--ghs-color-white);
-    background-image: none;
+  &.dialog-invert {
+    .cdk-dialog-container,
+    .dialog-container {
+      background-color: var(--ghs-color-white);
+      background-image: none;
+    }
+  }
+
+  .cdk-dialog-container {
+    transform-origin: center center;
+    animation: dialog-open 250ms ease-in-out;
   }
 
   &.dialog-closing {
@@ -807,6 +805,27 @@ ghs-pointer-input {
     }
   }
 
+}
+
+.fullscreen-panel {
+  max-height: 100vh;
+
+  .cdk-dialog-container {
+    transform-origin: center center;
+    animation: dialog-open 250ms ease-in-out;
+  }
+
+  &.dialog-closing {
+    .cdk-dialog-container {
+      animation: dialog-close 250ms ease-in-out;
+      opacity: 0;
+      transform: translateY(calc(var(--ghs-unit) * 10));
+    }
+  }
+
+  .scroll-container {
+    max-height: 100vh;
+  }
 }
 
 .backdrop-closing {

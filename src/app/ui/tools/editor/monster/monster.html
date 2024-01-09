@@ -9,27 +9,28 @@
           <h2><span [ghs-label]="'editor.monster.stats'"></span></h2>
 
           <div class="base-data dialog">
-            <label><span [ghs-label]="'edition'"></span></label>
-            <input [(ngModel)]="monsterData.edition" [ghs-label]="'edition'" [ghs-label-attribute]="'placeholder'"
-              (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
+            <div class="dialog-container">
+              <label><span [ghs-label]="'edition'"></span></label>
+              <input [(ngModel)]="monsterData.edition" [ghs-label]="'edition'" [ghs-label-attribute]="'placeholder'"
+                (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
 
-            <label><span [ghs-label]="'editor.monster.stats.deck'"></span></label>
-            <input [(ngModel)]="monsterData.deck" [ghs-label]="'editor.monster.stats.deck'" [ghs-label-attribute]="'placeholder'"
-              (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
+              <label><span [ghs-label]="'editor.monster.stats.deck'"></span></label>
+              <input [(ngModel)]="monsterData.deck" [ghs-label]="'editor.monster.stats.deck'"
+                [ghs-label-attribute]="'placeholder'" (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
 
-            <label><span [ghs-label]="'editor.monster.stats.boss'"></span></label>
-            <input type="checkbox" [(ngModel)]="monsterData.boss" (change)="toggleBoss()">
+              <label><span [ghs-label]="'editor.monster.stats.boss'"></span></label>
+              <input type="checkbox" [(ngModel)]="monsterData.boss" (change)="toggleBoss()">
 
-            <label><span [ghs-label]="'editor.monster.stats.flying'"></span></label>
-            <input type="checkbox" [(ngModel)]="monsterData.flying" (change)="updateType()">
+              <label><span [ghs-label]="'editor.monster.stats.flying'"></span></label>
+              <input type="checkbox" [(ngModel)]="monsterData.flying" (change)="updateType()">
 
-            <label><span [ghs-label]="'editor.monster.stats.hidden'"></span></label>
-            <input type="checkbox" [(ngModel)]="monsterData.hidden" (change)="updateType()">
+              <label><span [ghs-label]="'editor.monster.stats.hidden'"></span></label>
+              <input type="checkbox" [(ngModel)]="monsterData.hidden" (change)="updateType()">
 
-            <label><span [ghs-label]="'editor.monster.stats.count'"></span></label>
-            <input type="number" [(ngModel)]="monsterData.count" min="1" max="10"
-              [ghs-label]="'editor.monster.count'" [ghs-label-attribute]="'placeholder'" (change)="monsterDataToJson()"
-              (keyup)="monsterDataToJson()">
+              <label><span [ghs-label]="'editor.monster.stats.count'"></span></label>
+              <input type="number" [(ngModel)]="monsterData.count" min="1" max="10" [ghs-label]="'editor.monster.count'"
+                [ghs-label-attribute]="'placeholder'" (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
+            </div>
           </div>
 
           <div class="level-select">
@@ -186,7 +187,8 @@
             <option [value]="-1">&lt;<span [ghs-label]="'editor.monster.new'"></span>&gt;</option>
             <option [value]="index" *ngFor="let md of gameManager.monstersData(edition); let index = index;"
               [selected]="md.edition == monsterData.edition && md.name == monsterData.name">
-              <span [ghs-label]="'data.monster.' + md.name"></span> (<span [ghs-label]="'data.edition.' + md.edition"></span>)
+              <span [ghs-label]="'data.monster.' + md.name"></span> (<span
+                [ghs-label]="'data.edition.' + md.edition"></span>)
               [{{md.name}}]
             </option>
           </select>

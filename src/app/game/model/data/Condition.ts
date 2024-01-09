@@ -103,7 +103,7 @@ export class Condition {
       this.types.push(ConditionType.value);
     }
 
-    if ([ConditionName.bless, ConditionName.chill, ConditionName.curse].indexOf(this.name) != -1) {
+    if ([ConditionName.chill].indexOf(this.name) != -1) {
       this.types.push(ConditionType.stack);
     }
 

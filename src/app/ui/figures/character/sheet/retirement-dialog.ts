@@ -49,7 +49,7 @@ export class CharacterRetirementDialog {
     }
 
     apply() {
-        this.dialogRef.close(true);
+        ghsDialogClosingHelper(this.dialogRef, true);
         if (this.personalQuest && this.personalQuest.unlockCharacter && settingsManager.settings.automaticUnlocking && gameManager.game.unlockedCharacters.indexOf(this.personalQuest.unlockCharacter) == -1) {
             gameManager.game.unlockedCharacters.push(this.personalQuest.unlockCharacter);
         }

@@ -630,11 +630,11 @@
               }
             }
 
-            &:hover ~::after {
+            &:hover~::after {
               display: none;
             }
 
-            &:hover ~.checked::after {
+            &:hover~.checked::after {
               display: block;
               opacity: 0.3;
             }
@@ -2125,6 +2125,11 @@
                 position: absolute;
                 left: 0;
                 top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+                z-index: 2;
+              }
+
+              .value {
+                z-index: 2;
               }
 
               img {
@@ -2133,7 +2138,7 @@
                 left: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
                 width: 100%;
                 height: 100%;
-                z-index: -1;
+                z-index: 1;
               }
             }
           }

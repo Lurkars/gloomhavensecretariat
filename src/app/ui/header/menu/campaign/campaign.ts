@@ -121,8 +121,8 @@ export class CampaignMenuComponent implements OnInit {
 
     openMap() {
         this.dialog.open(WorldMapComponent, {
-            backdropClass: 'fullscreen-backdrop',
             panelClass: ['fullscreen-panel'],
+            backdropClass: ['fullscreen-backdrop'],
             data: gameManager.game.edition
         })
         this.close.emit();

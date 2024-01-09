@@ -636,7 +636,7 @@ export class EntityMenuDialogComponent {
         }
       }, !settingsManager.settings.animations || !this.data.figure.entities.some((entity) => gameManager.entityManager.isAlive(entity)) ? 0 : 1500);
     }
-    this.dialogRef.close(true);
+    ghsDialogClosingHelper(this.dialogRef, true)
   }
 
   changeAttack(value: number) {

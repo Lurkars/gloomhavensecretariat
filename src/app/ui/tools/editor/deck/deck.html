@@ -6,17 +6,21 @@
             <div class="deck">
                 <h2><span [ghs-label]="'editor.deck'"></span></h2>
                 <div class="base-data dialog">
-                    <label><span [ghs-label]="'editor.deck.name'"></span></label>
-                    <input [(ngModel)]="deckData.name" [ghs-label]="'editor.deck.name'" [ghs-label-attribute]="'placeholder'"
-                        (change)="deckDataToJson()" (keyup)="deckDataToJson()">
+                    <div class="dialog-container">
+                        <label><span [ghs-label]="'editor.deck.name'"></span></label>
+                        <input [(ngModel)]="deckData.name" [ghs-label]="'editor.deck.name'"
+                            [ghs-label-attribute]="'placeholder'" (change)="deckDataToJson()"
+                            (keyup)="deckDataToJson()">
 
-                    <label><span [ghs-label]="'editor.deck.edition'"></span></label>
-                    <input [(ngModel)]="deckData.edition" [ghs-label]="'editor.deck.edition'"
-                        [ghs-label-attribute]="'placeholder'" (change)="deckDataToJson()" (keyup)="deckDataToJson()">
-                    <ng-container *ngIf="!character && !monster">
-                        <label><span [ghs-label]="'editor.deck.character'"></span></label>
-                        <input type="checkbox" [(ngModel)]="deckData.character" (change)="deckDataToJson()">
-                    </ng-container>
+                        <label><span [ghs-label]="'editor.deck.edition'"></span></label>
+                        <input [(ngModel)]="deckData.edition" [ghs-label]="'editor.deck.edition'"
+                            [ghs-label-attribute]="'placeholder'" (change)="deckDataToJson()"
+                            (keyup)="deckDataToJson()">
+                        <ng-container *ngIf="!character && !monster">
+                            <label><span [ghs-label]="'editor.deck.character'"></span></label>
+                            <input type="checkbox" [(ngModel)]="deckData.character" (change)="deckDataToJson()">
+                        </ng-container>
+                    </div>
                 </div>
 
                 <div class="abilities-container" *ngFor="let ability of deckData.abilities">
@@ -25,8 +29,8 @@
                             [style.--ghs-ability-color]="getCharacter() && getCharacter()?.color"
                             [ngClass]="{'bottom-actions' : deckData.character || ability.bottomActions && ability.bottomActions.length > 0, 'character-actions' : deckData.character}">
                             <input class="name" [(ngModel)]="ability.name" (change)="deckDataToJson()"
-                                [ghs-label]="ability.name || 'editor.deck.abilityName'" [ghs-label-attribute]="'placeholder'"
-                                (keyup)="deckDataToJson()">
+                                [ghs-label]="ability.name || 'editor.deck.abilityName'"
+                                [ghs-label-attribute]="'placeholder'" (keyup)="deckDataToJson()">
 
                             <span class="level">
                                 <input class="text" [ngModel]="ability.level"

@@ -11,10 +11,10 @@
 </div>
 
 <div class="menu">
-    <a (click)="dialogRef.close()" class="cancel">
+    <a (click)="close()" class="cancel">
         <span [ghs-label]="'cancel'"></span>
     </a>
-    <a (click)="select()" class="select" [ngClass]="{'disabled' : selected == -1}"><span
+    <a (click)="close(selected)" class="select" [ngClass]="{'disabled' : selected == -1}"><span
             [ghs-label]="selected == -1 ? 'game.attackModifiers.additional.select' : 'game.attackModifiers.additional.apply'"
             [ghs-label-args]="selected != -1 ? [characters[selected].title || '%data.character.' + characters[selected].name + '%'] : []"></span>
     </a>

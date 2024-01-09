@@ -7,6 +7,7 @@ import { GameState } from "src/app/game/model/Game";
 import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
 import { ScenarioConclusionComponent } from "../scenario/scenario-conclusion/scenario-conclusion";
 import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
+import { ghsDialogClosingHelper } from "../../helper/Static";
 
 @Component({
     selector: 'ghs-hint-dialog',
@@ -31,7 +32,7 @@ export class HintDialogComponent {
     }
 
     next() {
-        this.dialogRef.close(true);
+        ghsDialogClosingHelper(this.dialogRef, true);
     }
 
     finishScenario(success: boolean) {

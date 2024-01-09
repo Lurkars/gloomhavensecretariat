@@ -199,6 +199,6 @@ export class MonsterNumberPickerDialog implements OnInit {
     }
 
     close() {
-        this.dialogRef.close(true);
+        ghsDialogClosingHelper(this.dialogRef, true);
     }
 }

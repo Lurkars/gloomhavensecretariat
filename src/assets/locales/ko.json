@@ -457,39 +457,39 @@
     "condition": {
       "bane": {
         ".": "해악",
-        "hint": "해악: 다음 차례 끝에 %game.damage:10% 피해를 받고, 그런 다음 제거됨. 또한 치료될 때 제거."
+        "hint": "%game.conditionIcon.bane% 해악: 다음 차례 끝에 %game.damage:10% 피해를 받고, 그런 다음 제거됨. 또한 치료될 때 제거."
       },
       "bless": {
         ".": "축복",
-        "hint": "축복: 공격 보정 덱에 %game.attackmodifier.bless% 카드를 섞어넣음."
+        "hint": "%game.conditionIcon.bless% 축복: 공격 보정 덱에 %game.attackmodifier.bless% 카드를 섞어넣음."
       },
       "brittle": {
         ".": "취약",
-        "hint": "취약: 다음 %game.damage% 원천이 두 배가 되고, 그런 다음 제거됨. 또한 치료될 때 제거."
+        "hint": "%game.conditionIcon.brittle% 취약: 다음 %game.damage% 원천이 두 배가 되고, 그런 다음 제거됨. 또한 치료될 때 제거."
       },
       "chill": {
         ".": "Chill",
-        "hint": "Chill: Gain -1 on all move and attacks for each token. 다음 차례 끝에 하나 제거."
+        "hint": "%game.conditionIcon.bane% chill: Gain -1 on all move and attacks for each token. 다음 차례 끝에 하나 제거."
       },
       "curse": {
         ".": "저주",
-        "hint": "저주: 공격 보정 덱에 %game.attackmodifier.curse% 카드를 섞어넣음."
+        "hint": "%game.conditionIcon.curse% 저주: 공격 보정 덱에 %game.attackmodifier.curse% 카드를 섞어넣음."
       },
       "disarm": {
         ".": "무장해제",
-        "hint": "무장해제: 공격할 수 없음. 다음 차례 끝에 제거."
+        "hint": "%game.conditionIcon.disarm% 무장해제: 공격할 수 없음. 다음 차례 끝에 제거."
       },
       "dodge": {
         ".": "Dodge",
-        "hint": "Dodge: Discard or lose a card to prevent an attack, then remove."
+        "hint": "%game.conditionIcon.dodge% Dodge: Discard or lose a card to prevent an attack, then remove."
       },
       "empower": {
         ".": "Empower",
-        "hint": "Empower: 공격 보정 덱에 EMPOWER 카드를 섞어 넣음."
+        "hint": "%game.conditionIcon.empower% Empower: 공격 보정 덱에 EMPOWER 카드를 섞어 넣음."
       },
       "enfeeble": {
         ".": "Enfeeble",
-        "hint": "Enfeeble: 공격 보정 덱에 ENFEEBLE 카드를 섞어 넣음."
+        "hint": "%game.conditionIcon.enfeeble% Enfeeble: 공격 보정 덱에 ENFEEBLE 카드를 섞어 넣음."
       },
       "heal": {
         ".": "치료",
@@ -497,59 +497,59 @@
       },
       "immobilize": {
         ".": "이동불가",
-        "hint": "이동불가: 이동할 수 없음. 다음 차례 끝에 제거."
+        "hint": "%game.conditionIcon.immobilize% 이동불가: 이동할 수 없음. 다음 차례 끝에 제거."
       },
       "impair": {
         ".": "Impair",
-        "hint": "Impair: 아이템을 사용할 수 없음. 다음 차례 끝에 제거."
+        "hint": "%game.conditionIcon.impair% Impair: 아이템을 사용할 수 없음. 다음 차례 끝에 제거."
       },
       "infect": {
         ".": "Infect",
-        "hint": "Infect: 방어를 획득할 수 없음. 치료될 때 제거."
+        "hint": "%game.conditionIcon.infect% Infect: 방어를 획득할 수 없음. 치료될 때 제거."
       },
       "invisible": {
         ".": "투명",
-        "hint": "투명: 대상이 될 수 없음. 다음 차례 끝에 제거."
+        "hint": "%game.conditionIcon.invisible% 투명: 대상이 될 수 없음. 다음 차례 끝에 제거."
       },
       "muddle": {
         ".": "혼란",
-        "hint": "혼란: 모든 공격에 불이익. 다음 차례 끝에 제거."
+        "hint": "%game.conditionIcon.muddle% 혼란: 모든 공격에 불이익. 다음 차례 끝에 제거."
       },
       "poison": {
         ".": "중독",
-        "hint": "중독: 모든 공격자는 +1 %game.action.attack% 얻음. 치료를 방해함. 치료될 때 제거."
+        "hint": "%game.conditionIcon.poison% 중독: 모든 공격자는 +1 %game.action.attack% 얻음. 치료를 방해함. 치료될 때 제거."
       },
       "poison_x": {
         ".": "중독 {0}",
-        "hint": "중독 X: 모든 공격자는 +X %game.action.attack% 얻음. 치료를 방해함. 치료될 때 제거."
+        "hint": "%game.conditionIcon.poison_X:X% 중독 X: 모든 공격자는 +X %game.action.attack% 얻음. 치료를 방해함. 치료될 때 제거."
       },
       "regenerate": {
         ".": "복원",
-        "hint": "복원: 차례 시작에 %game.action.heal% 1. 피해를 받을 때 제거."
+        "hint": "%game.conditionIcon.regenerate% 복원: 차례 시작에 %game.action.heal% 1. 피해를 받을 때 제거."
       },
       "rupture": {
         ".": "Rupture",
-        "hint": "Rupture: On move suffer %game.damage:1%. 치료될 때 제거."
+        "hint": "%game.conditionIcon.rupture% Rupture: On move suffer %game.damage:1%. 치료될 때 제거."
       },
       "strengthen": {
         ".": "강화",
-        "hint": "강화: 모든 공격에 이익. 다음 차례 끝에 제거."
+        "hint": "%game.conditionIcon.strenghten% 강화: 모든 공격에 이익. 다음 차례 끝에 제거."
       },
       "stun": {
         ".": "기절",
-        "hint": "기절: 능력을 발동하거나 아이템을 격발 또는 사용할 수 없음. 다음 차례 끝에 제거."
+        "hint": "%game.conditionIcon.stun% 기절: 능력을 발동하거나 아이템을 격발 또는 사용할 수 없음. 다음 차례 끝에 제거."
       },
       "ward": {
         ".": "Ward",
-        "hint": "Ward: Halve (round down) next source of %game.damage%, then remove."
+        "hint": "%game.conditionIcon.ward% Ward: Halve (round down) next source of %game.damage%, then remove."
       },
       "wound": {
         ".": "부상",
-        "hint": "부상: 매 차례 시작에 피해 %game.damage:1%점을 받음. 치료될 때 제거."
+        "hint": "%game.conditionIcon.wound% 부상: 매 차례 시작에 피해 %game.damage:1%점을 받음. 치료될 때 제거."
       },
       "wound_x": {
         ".": "부상 {0}",
-        "hint": "부상 X: 매 차례 시작에 피해 %game.damage:X%점을 받음. 치료될 때 제거."
+        "hint": "%game.conditionIcon.wound_x:X% 부상 X: 매 차례 시작에 피해 %game.damage:X%점을 받음. 치료될 때 제거."
       }
     },
     "custom": {

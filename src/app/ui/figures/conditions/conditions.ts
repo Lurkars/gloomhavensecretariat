@@ -25,14 +25,16 @@ export class ConditionsComponent implements OnInit {
   @Input() figure!: Figure;
   @Input() type!: string;
   @Input() columns: number = 3;
-  @Output('change') onChange: EventEmitter<EntityCondition[]> = new EventEmitter<EntityCondition[]>();
+  @Input() empower: boolean = false;
+  @Input() enfeeble: boolean = false;
+  @Output('conditionChange') onChange: EventEmitter<EntityCondition[]> = new EventEmitter<EntityCondition[]>();
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   ConditionType = ConditionType;
 
   conditions: Condition[] = [];
-  conditionSeparator: number = 0;
+  conditionSeparator: number[] = [];
 
   monsterType: MonsterType | boolean = false;
 
@@ -106,12 +108,26 @@ export class ConditionsComponent implements OnInit {
 
   initializeConditions() {
     this.conditions = [];
+    this.conditionSeparator = [];
     this.conditions.push(...gameManager.conditionsForTypes('standard', 'negative', this.type));
     this.conditions.push(...gameManager.conditionsForTypes('upgrade', 'negative', this.type));
     this.conditions.push(...gameManager.conditionsForTypes('stack', 'negative', this.type));
-    this.conditionSeparator = this.conditions.length - 1;
+    this.conditionSeparator.push(this.conditions.length - 1);
     this.conditions.push(...gameManager.conditionsForTypes('standard', 'positive', this.type));
     this.conditions.push(...gameManager.conditionsForTypes('upgrade', 'positive', this.type));
+
+    if (this.immunityEnabled) {
+      this.conditionSeparator.push(this.conditions.length - 1);
+      this.conditions.push(new Condition(ConditionName.curse));
+      if (this.enfeeble) {
+        this.conditions.push(new Condition(ConditionName.enfeeble));
+      }
+      this.conditions.push(new Condition(ConditionName.bless));
+      if (this.empower) {
+        this.conditions.push(new Condition(ConditionName.empower));
+      }
+    }
+
   }
 
   hasCondition(condition: Condition, permanent: boolean = false, immunity: boolean = false): boolean {
@@ -219,6 +235,18 @@ export class ConditionsComponent implements OnInit {
 
       this.onChange.emit(this.entityConditions);
     }
+  }
+
+  togglePermanentEnabled() {
+    this.permanentEnabled = !this.permanentEnabled;
+    this.immunityEnabled = false;
+    this.initializeConditions();
+  }
+
+  toggleImmunityEnabled() {
+    this.immunityEnabled = !this.immunityEnabled;
+    this.permanentEnabled = false;
+    this.initializeConditions();
   }
 
 }

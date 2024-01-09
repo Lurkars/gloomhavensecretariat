@@ -288,7 +288,8 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
     openFullscreen(event: any) {
         if (this.fullscreen) {
             this.dialog.open(LootDeckFullscreenComponent, {
-                backdropClass: 'fullscreen-backdrop',
+                panelClass: ['fullscreen-panel'],
+                backdropClass: ['fullscreen-backdrop'],
                 data: {
                     deck: this.deck,
                     before: this.before,

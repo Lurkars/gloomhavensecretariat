@@ -480,98 +480,98 @@
     "condition": {
       "bane": {
         ".": "Fléau",
-        "hint": "Fléau : Subit %game.damage:10% à la fin du prochain tour, puis se retire. Se retire également lorsqu'il est soigné."
+        "hint": "%game.conditionIcon.bane% Fléau : Subit %game.damage:10% à la fin du prochain tour, puis se retire. Se retire également lorsqu'il est soigné."
       },
       "bless": {
         ".": "Bénir",
-        "hint": "Bénir : Mélanger la carte %game.attackmodifier.bless% dans le paquet de modificateurs d'attaque."
+        "hint": "%game.conditionIcon.bless% Bénir : Mélanger la carte %game.attackmodifier.bless% dans le paquet de modificateurs d'attaque."
       },
       "brittle": {
         ".": "Cassant",
-        "hint": "Cassant: Double la source suivante de %game.damage%, puis la supprime. Se retire également lorsqu'il est soigné."
+        "hint": "%game.conditionIcon.brittle% Cassant: Double la source suivante de %game.damage%, puis la supprime. Se retire également lorsqu'il est soigné."
       },
       "chill": {
         ".": "Découragement",
-        "hint": "Découragement: Gagnez -1 sur tous vos déplacements et attaques pour chaque jeton. Retirez-en un à la fin du prochain tour."
+        "hint": "%game.conditionIcon.chill% Découragement: Gagnez -1 sur tous vos déplacements et attaques pour chaque jeton. Retirez-en un à la fin du prochain tour."
       },
       "curse": {
         ".": "Malédiction",
-        "hint": "Malédiction: Mélanger la carte %game.attackmodifier.curse% dans le paquet de modificateurs d'attaque"
+        "hint": "%game.conditionIcon.curse% Malédiction: Mélanger la carte %game.attackmodifier.curse% dans le paquet de modificateurs d'attaque"
       },
       "disarm": {
         ".": "Désarmement",
-        "hint": "Désarmement: Ne peut pas attaquer. Retiré à la fin du tour suivant."
+        "hint": "%game.conditionIcon.disarm% Désarmement: Ne peut pas attaquer. Retiré à la fin du tour suivant."
       },
       "dodge": {
         ".": "Esquive",
-        "hint": "Esquive : Défaussez ou perdez une carte pour empêcher une attaque, puis retirez-la."
+        "hint": "%game.conditionIcon.dodge% Esquive : Défaussez ou perdez une carte pour empêcher une attaque, puis retirez-la."
       },
       "empower": {
         ".": "Renforcement",
-        "hint": "Renforcement: Mélangez la carte %game.attackmodifier.empower% dans la pioche des modificateurs d'attaque."
+        "hint": "%game.conditionIcon.empower% Renforcement: Mélangez la carte %game.attackmodifier.empower% dans la pioche des modificateurs d'attaque."
       },
       "enfeeble": {
         ".": "Affaiblir",
-        "hint": "Affaiblir: Mélangez la carte %game.attackmodifier.enfeeble% dans la pioche des modificateurs d'attaque."
+        "hint": "%game.conditionIcon.enfeeble% Affaiblir: Mélangez la carte %game.attackmodifier.enfeeble% dans la pioche des modificateurs d'attaque."
       },
       "heal": {
         ".": "Guérir"
       },
       "immobilize": {
         ".": "Immobilisation",
-        "hint": "Immobilisation: Ne peut pas se déplacer. Retirer à la fin du tour suivant."
+        "hint": "%game.conditionIcon.immobilize% Immobilisation: Ne peut pas se déplacer. Retirer à la fin du tour suivant."
       },
       "impair": {
         ".": "Affaiblir",
-        "hint": "Affaiblir: Ne peut pas utiliser d'objets. Retiré à la fin du tour suivant."
+        "hint": "%game.conditionIcon.impair% Affaiblir: Ne peut pas utiliser d'objets. Retiré à la fin du tour suivant."
       },
       "infect": {
         ".": "Infection",
-        "hint": "Infection: Ne peut pas gagner de bouclier. Retiré en cas de guérison."
+        "hint": "%game.conditionIcon.infect% Infection: Ne peut pas gagner de bouclier. Retiré en cas de guérison."
       },
       "invisible": {
         ".": "Invisible",
-        "hint": "Invisible: Ne peut être ciblé. Retiré à la fin du prochain tour."
+        "hint": "%game.conditionIcon.invisible% Invisible: Ne peut être ciblé. Retiré à la fin du prochain tour."
       },
       "muddle": {
         ".": "Confusion",
-        "hint": "Confusion: Désavantage sur toutes les attaques. Suppression à la fin du tour suivant."
+        "hint": "%game.conditionIcon.muddle% Confusion: Désavantage sur toutes les attaques. Suppression à la fin du tour suivant."
       },
       "poison": {
         ".": "Empoisonnement",
-        "hint": "Empoisonnement: Tous les attaquants gagnent +1 %game.action.attack%. Empêche la guérison. S'enlève une fois guéri."
+        "hint": "%game.conditionIcon.poison% Empoisonnement: Tous les attaquants gagnent +1 %game.action.attack%. Empêche la guérison. S'enlève une fois guéri."
       },
       "poison_x": {
         ".": "Empoisonnement {0}",
-        "hint": "Empoisonnement X: Tous les attaquants gagnent +X %game.action.attack%. Empêche la guérison. S'enlève une fois guéri."
+        "hint": "%game.conditionIcon.poison_x:X% Empoisonnement X: Tous les attaquants gagnent +X %game.action.attack%. Empêche la guérison. S'enlève une fois guéri."
       },
       "regenerate": {
         ".": "Régénération",
-        "hint": "Régénération: %game.action.heal% 1 au début du tour. Supprimer en cas de dégâts."
+        "hint": "%game.conditionIcon.regenerate% Régénération: %game.action.heal% 1 au début du tour. Supprimer en cas de dégâts."
       },
       "rupture": {
         ".": "Rupture",
-        "hint": "Rupture: A chaque déplacement, subit %game.damage:1%. Enlever en cas de guérison."
+        "hint": "%game.conditionIcon.rupture% Rupture: A chaque déplacement, subit %game.damage:1%. Enlever en cas de guérison."
       },
       "strengthen": {
         ".": "Renforcement",
-        "hint": "Renforcement: avantage pour toutes les attaques. Retirer à la fin du prochain tour."
+        "hint": "%game.conditionIcon.strengthen% Renforcement: avantage pour toutes les attaques. Retirer à la fin du prochain tour."
       },
       "stun": {
         ".": "Étourdissement",
-        "hint": "Étourdissement: Impossible d'exécuter des capacités, d'utiliser ou de déclencher des objets. Retiré à la fin du tour suivant."
+        "hint": "%game.conditionIcon.stun% Étourdissement: Impossible d'exécuter des capacités, d'utiliser ou de déclencher des objets. Retiré à la fin du tour suivant."
       },
       "ward": {
         ".": "Pavillon",
-        "hint": "Pavillon: divise par deux (arrondir à l'inférieur) la prochaine source de %game.damage%, puis la supprime."
+        "hint": "%game.conditionIcon.ward% Pavillon: divise par deux (arrondir à l'inférieur) la prochaine source de %game.damage%, puis la supprime."
       },
       "wound": {
         ".": "Blessure",
-        "hint": "Blessure: Subit %game.damage:1% au début de chaque tour. Disparaît lorsque vous êtes guéri."
+        "hint": "%game.conditionIcon.wound% Blessure: Subit %game.damage:1% au début de chaque tour. Disparaît lorsque vous êtes guéri."
       },
       "wound_x": {
         ".": "Blessure {0}",
-        "hint": "Blessure X : Subit %game.damage:X% au début de chaque tour. Disparaît lorsque vous êtes guéri."
+        "hint": "%game.conditionIcon.wound_x:X% Blessure X : Subit %game.damage:X% au début de chaque tour. Disparaît lorsque vous êtes guéri."
       }
     },
     "custom": {
