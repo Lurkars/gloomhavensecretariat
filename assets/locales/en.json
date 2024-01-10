@@ -200,6 +200,7 @@
         ".": "Download Backup file now",
         "hint": {
           ".": "Back up your game regularly to prevent data loss.",
+          "hide": "Don't show again",
           "text": "Your entire process is stored in your browser's storage. Although no browser should accidentally delete this data, there are still very few reports of such incidents. Regardless of whether these incidents are caused by errors in use, but to be on the safe side, it is a good idea to create a backup."
         },
         "onFinish": "Automatic backup after finishing a scenario"
