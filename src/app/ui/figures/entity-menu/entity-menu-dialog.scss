@@ -329,9 +329,23 @@
     }
   }
 
+  .separator {
+    grid-column: span 3;
+    width: 100%;
+    border-top: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor)) solid var(--ghs-color-darkgray);
+    margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    margin-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+  }
+
   .action-hint {
     grid-column: span 3;
     font-size: 1.5em;
+  }
+
+  .shield-overlay {
+    grid-column: span 3;
+    font-size: 1.7em;
+    height: 0.5em;
   }
 
   .exhausted,

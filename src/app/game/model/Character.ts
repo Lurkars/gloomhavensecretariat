@@ -40,7 +40,9 @@ export class Character extends CharacterData implements Entity, Figure {
   battleGoals: Identifier[] = [];
   battleGoal: boolean = false;
   shield: Action | undefined;
+  shieldPersistent: Action | undefined;
   retaliate: Action[] = [];
+  retaliatePersistent: Action[] = [];
 
   // from figure
   level: number;
@@ -102,7 +104,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   toModel(): GameCharacterModel {
-    return new GameCharacterModel(this.name, this.edition, this.marker, this.title, this.initiative, this.experience, this.loot, this.lootCards || [], this.treasures && this.treasures.map((treasure) => '' + treasure) || [], this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || [], this.identity, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.lootCardsVisible, this.itemsVisible, this.number, this.attackModifierDeck.toModel(), this.donations, this.token, this.tokenValues, this.absent, this.longRest, this.battleGoals, this.battleGoal, this.shield, this.retaliate);
+    return new GameCharacterModel(this.name, this.edition, this.marker, this.title, this.initiative, this.experience, this.loot, this.lootCards || [], this.treasures && this.treasures.map((treasure) => '' + treasure) || [], this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || [], this.identity, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.lootCardsVisible, this.itemsVisible, this.number, this.attackModifierDeck.toModel(), this.donations, this.token, this.tokenValues, this.absent, this.longRest, this.battleGoals, this.battleGoal, this.shield, this.shieldPersistent, this.retaliate, this.retaliatePersistent);
   }
 
   fromModel(model: GameCharacterModel) {
@@ -203,7 +205,9 @@ export class Character extends CharacterData implements Entity, Figure {
     this.battleGoal = model.battleGoal;
 
     this.shield = model.shield ? JSON.parse(model.shield) : undefined;
+    this.shieldPersistent = model.shieldPersistent ? JSON.parse(model.shieldPersistent) : undefined;
     this.retaliate = (model.retaliate || []).map((value) => JSON.parse(value));
+    this.retaliatePersistent = (model.retaliatePersistent || []).map((value) => JSON.parse(value));
   }
 
 
@@ -275,7 +279,9 @@ export class GameCharacterModel {
   battleGoals: Identifier[];
   battleGoal: boolean;
   shield: string;
+  shieldPersistent: string;
   retaliate: string[];
+  retaliatePersistent: string[];
 
   constructor(name: string,
     edition: string,
@@ -313,7 +319,9 @@ export class GameCharacterModel {
     battleGoals: Identifier[],
     battleGoal: boolean,
     shield: Action | undefined,
-    retaliate: Action[] = []) {
+    shieldPersistent: Action | undefined,
+    retaliate: Action[],
+    retaliatePersistent: Action[]) {
     this.name = name;
     this.edition = edition;
     this.marker = marker;
@@ -350,7 +358,9 @@ export class GameCharacterModel {
     this.battleGoals = JSON.parse(JSON.stringify(battleGoals));
     this.battleGoal = battleGoal;
     this.shield = shield ? JSON.stringify(shield) : "";
+    this.shieldPersistent = shieldPersistent ? JSON.stringify(shieldPersistent) : "";
     this.retaliate = retaliate.map((action) => JSON.stringify(action));
+    this.retaliatePersistent = retaliatePersistent.map((action) => JSON.stringify(action));
   }
 
 }
