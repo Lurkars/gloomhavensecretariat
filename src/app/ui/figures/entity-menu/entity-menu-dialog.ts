@@ -63,6 +63,7 @@ export class EntityMenuDialogComponent {
   characterShield: Action = new Action(ActionType.shield, 0);
   characterRetaliate: Action[] = [new Action(ActionType.retaliate, 0)];
   characterRetaliateRange: Action[] = [new Action(ActionType.range, 1, ActionValueType.fixed, [], true)];
+  persistentShieldRetaliate: boolean = false;
 
   titles: string[] = [];
 
@@ -131,6 +132,11 @@ export class EntityMenuDialogComponent {
     if (this.data.figure instanceof Character && this.data.entity instanceof Character) {
       if (this.data.entity.shield) {
         this.characterShield.value = this.data.entity.shield.value;
+
+        const persistentSubAction = this.data.entity.shield.subActions.find((subAction) => subAction.type == ActionType.card && subAction.value == 'persistent');
+        if (persistentSubAction) {
+          this.characterShield.subActions = [new Action(ActionType.card, "persistent", ActionValueType.fixed, [], true)];
+        }
       }
 
       this.data.entity.retaliate.forEach((retaliate, index) => {
@@ -145,9 +151,16 @@ export class EntityMenuDialogComponent {
           this.characterRetaliateRange[index].small = true;
         }
 
-        if (retaliate.subActions && retaliate.subActions.length == 1 && retaliate.subActions[0].type == ActionType.range) {
-          this.characterRetaliateRange[index].value = retaliate.subActions[0].value;
+        const rangeSubAction = retaliate.subActions.find((subAction) => subAction.type == ActionType.range);
+        if (rangeSubAction) {
+          this.characterRetaliateRange[index].value = rangeSubAction.value;
         }
+
+        const persistentSubAction = retaliate.subActions.find((subAction) => subAction.type == ActionType.card && subAction.value == 'persistent');
+        if (persistentSubAction) {
+          this.characterRetaliate[index].subActions = [new Action(ActionType.card, "persistent", ActionValueType.fixed, [], true)];
+        }
+
       })
     }
 
@@ -762,6 +775,13 @@ export class EntityMenuDialogComponent {
     if (this.characterShield.value < 0) {
       this.characterShield.value = 0;
     }
+
+    if (this.persistentShieldRetaliate && this.characterShield.value) {
+      this.characterShield.subActions = [new Action(ActionType.card, "persistent", ActionValueType.fixed, [], true)];
+    } else {
+      this.characterShield.subActions = [];
+    }
+
     gameManager.uiChange.emit();
   }
 
@@ -776,6 +796,12 @@ export class EntityMenuDialogComponent {
 
     this.characterRetaliate[index].value = EntityValueFunction(this.characterRetaliate[index].value) + value;
     this.characterRetaliateRange[index].value = EntityValueFunction(this.characterRetaliateRange[index].value) + range;
+
+    if (this.persistentShieldRetaliate && this.characterRetaliate[index].value) {
+      this.characterRetaliate[index].subActions = [new Action(ActionType.card, "persistent", ActionValueType.fixed, [], true)];
+    } else {
+      this.characterRetaliate[index].subActions = [];
+    }
 
     if (EntityValueFunction(this.characterRetaliate[index].value) <= 0 && this.characterRetaliate.length > 1) {
       this.characterRetaliate.splice(index, 1);
@@ -897,7 +923,14 @@ export class EntityMenuDialogComponent {
           gameManager.stateManager.after();
         }
 
-        const retaliate = this.characterRetaliate.filter((action) => action.value).map((action, index) => new Action(ActionType.retaliate, action.value, ActionValueType.fixed, this.characterRetaliateRange[index].value != 1 ? [this.characterRetaliateRange[index]] : []));
+        const retaliate = this.characterRetaliate.filter((action) => action.value).map((action, index) => {
+          let retaliateAction = new Action(ActionType.retaliate, action.value);
+          retaliateAction.subActions = action.subActions || [];
+          if (this.characterRetaliateRange[index] && this.characterRetaliateRange[index].value != 1) {
+            retaliateAction.subActions.unshift(this.characterRetaliateRange[index]);
+          }
+          return retaliateAction
+        });
 
         if (JSON.stringify(retaliate) != JSON.stringify(this.data.entity.retaliate)) {
           if (retaliate.length > 0) {

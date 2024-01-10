@@ -207,7 +207,8 @@
           <span class="badge badge-left bless-count">{{countUpcomingAttackModifier(AttackModifierType.bless) +
             bless}}</span>
           <span class="condition" [ghs-tooltip]="'game.condition.bless.hint'" [originX]="'center'" [overlayX]="'center'"
-            [originY]="'top'" [overlayY]="'bottom'" [ngClass]="{'immunity disabled' : isImmune(ConditionName.bless) || entityImmunities.indexOf(ConditionName.bless) != -1}">
+            [originY]="'top'" [overlayY]="'bottom'"
+            [ngClass]="{'immunity disabled' : isImmune(ConditionName.bless) || entityImmunities.indexOf(ConditionName.bless) != -1}">
             <img src="./assets/images/status/bless.svg" />
           </span>
           <span class="badge badge-right" [value-sign]="bless" [hideEmpty]="true"></span>
@@ -235,7 +236,8 @@
           <span class="badge badge-left curse-count">{{countUpcomingAttackModifier(AttackModifierType.curse) +
             curse}}</span>
           <span class="condition" [ghs-tooltip]="'game.condition.curse.hint'" [originX]="'center'" [overlayX]="'center'"
-            [originY]="'top'" [overlayY]="'bottom'" [ngClass]="{'immunity disabled' : isImmune(ConditionName.curse) || entityImmunities.indexOf(ConditionName.curse) != -1}">
+            [originY]="'top'" [overlayY]="'bottom'"
+            [ngClass]="{'immunity disabled' : isImmune(ConditionName.curse) || entityImmunities.indexOf(ConditionName.curse) != -1}">
             <img src="./assets/images/status/curse.svg" />
           </span>
           <span class="badge badge-right" [value-sign]="curse" [hideEmpty]="true"></span>
@@ -534,7 +536,7 @@
         </ghs-pointer-input>
       </span>
       <span class="item">
-        <ghs-action [action]="characterShield" [style]="'fh'"></ghs-action>
+        <ghs-action [action]="characterShield" [inline]="true" [style]="'fh'"></ghs-action>
       </span>
       <span class="item">
         <ghs-pointer-input class="button" (singleClick)="changeShield(1)">
@@ -554,8 +556,8 @@
           </ghs-pointer-input>
         </span>
         <span class="item column">
-          <ghs-action [action]="realiate" [style]="'fh'"></ghs-action>
-          <ghs-action [action]="characterRetaliateRange[i]" [style]="'fh'"></ghs-action>
+          <ghs-action [action]="realiate" [inline]="true" [style]="'fh'"></ghs-action>
+          <ghs-action [action]="characterRetaliateRange[i]" [inline]="true" [style]="'fh'"></ghs-action>
           <ghs-pointer-input *ngIf="i == characterRetaliate.length -1 && realiate.value" class="button add-retaliate"
             (singleClick)="changeRetaliate(characterRetaliate.length,1,0)">
             <img class="ghs-svg" src="./assets/images/select-arrow.svg">
@@ -570,6 +572,13 @@
           </ghs-pointer-input>
         </span>
       </ng-container>
+      <!--
+      <span class="item"></span>
+      <span class="item" [ngClass]="{'active': persistentShieldRetaliate}"
+        (click)="persistentShieldRetaliate=!persistentShieldRetaliate">
+        <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
+      </span>
+      -->
     </div>
   </div>
 

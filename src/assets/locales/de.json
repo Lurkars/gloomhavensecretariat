@@ -199,6 +199,7 @@
         ".": "Backup Datei herunterladen",
         "hint": {
           ".": "Sichere dein Spiel regelmäßig, um Datenverluste zu vermeiden.",
+          "hide": "Nicht mehr anzeigen",
           "text": "Dein gesamter Prozess wird im Speicher deines Browsers gespeichert. Obwohl kein Browser diese Daten versehentlich löschen sollte, gibt es trotzdem sehr wenige Berichte über derartige Vorfälle. Unabhängig davon dass nicht klar ist, ob diese Vorfälle durch Fehler in der Benutzung verursacht wurden, aber um auf Nummer sicher zu gehen, ist es eine gute Idee, ein Backup zu erstellen."
         },
         "onFinish": "Automatische Sicherung nach Abschluss eines Szenarios"
