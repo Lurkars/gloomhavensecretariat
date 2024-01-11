@@ -558,6 +558,28 @@
           }
         }
 
+        .calendar-lock-toggle {
+          position: absolute;
+          top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+          left: calc(var(--ghs-unit) * 0.6 * var(--ghs-dialog-factor));
+
+          a {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: calc(var(--ghs-unit) * 3.8 * var(--ghs-dialog-factor));
+            height: calc(var(--ghs-unit) * 3.8 * var(--ghs-dialog-factor));
+
+            img {
+              width: 100%;
+              height: auto;
+            }
+          }
+
+          z-index: 2;
+        }
+
         .weeks {
           position: absolute;
           top: calc(var(--ghs-unit) * 6.3 * var(--ghs-dialog-factor));
@@ -566,6 +588,7 @@
           height: calc(var(--ghs-unit) * 18.7 * var(--ghs-dialog-factor));
           display: grid;
           grid-template-columns: repeat(20, 1fr);
+          z-index: 1;
 
           .week {
             position: relative;
@@ -577,6 +600,10 @@
             flex-direction: column;
             overflow-x: hidden;
             overflow-y: auto;
+
+            &.locked {
+              cursor: initial;
+            }
 
             &.checked::after {
               content: ' ';
@@ -640,7 +667,7 @@
             }
           }
 
-          &:hover .week::after {
+          &:hover .week:not(.locked)::after {
             content: ' ';
             position: absolute;
             top: 10%;

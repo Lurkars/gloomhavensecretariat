@@ -361,6 +361,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setCalendarLocked(calendarLocked: boolean) {
+    this.settings.calendarLocked = calendarLocked;
+    this.storeSettings();
+  }
+
   setCharacterAttackModifierDeck(characterAttackModifierDeck: boolean) {
     this.settings.characterAttackModifierDeck = characterAttackModifierDeck;
     this.storeSettings();

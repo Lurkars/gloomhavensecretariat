@@ -871,6 +871,10 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   setWeek(value: number) {
+    if (settingsManager.settings.calendarLocked) {
+      return;
+    }
+
     if (this.party.weeks == value) {
       value--;
     }

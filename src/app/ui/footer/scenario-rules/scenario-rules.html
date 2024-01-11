@@ -51,7 +51,7 @@
           <ng-container *ngFor="let sectionData of sections(index); let i = index">
             <span class="and" *ngIf="i > 0">,</span>
             <span class="section">
-              <img class="ghs-svg" src="./assets/images/scenario/lock.svg">
+              <img class="ghs-svg" src="./assets/images/lock.svg">
               <span class="text-white" *ngIf="!sectionData.conclusion"
                 [ghs-label]="(sectionData.marker ? 'scenario.rules.addSectionMarker' : 'scenario.rules.addSection') + (sectionData.hideIndex ? '' : 'Index')"
                 [ghs-label-args]="[sectionData.index, 'data.section.' + sectionData.name, sectionData.marker || '']"></span>

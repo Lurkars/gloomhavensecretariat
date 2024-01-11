@@ -44,6 +44,7 @@ export class Settings {
   calculate: boolean = true;
   calculateStats: boolean = true;
   calculateShieldStats: boolean = true;
+  calendarLocked: boolean = false;
   characterAttackModifierAnimate: boolean = true;
   characterAttackModifierDeck: boolean = true;
   characterAttackModifierDeckPermanent: boolean = false;
