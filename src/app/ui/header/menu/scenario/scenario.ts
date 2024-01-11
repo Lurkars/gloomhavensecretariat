@@ -22,6 +22,8 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   edition: string = "";
+  editions: string[] = [];
+  groups: (string | undefined)[] = [];
 
   constructor(private dialog: Dialog) { }
 
@@ -36,9 +38,13 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
       // set edition or first
       gameManager.currentEdition();
 
+    this.updateGroups();
+    this.setEditions();
+
     this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
         this.scenarioCache = [];
+        this.setEditions();
       }
     })
   }
@@ -51,26 +57,27 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
     }
   }
 
-  editions(): string[] {
+  setEditions() {
     if (gameManager.game.edition) {
-      return [gameManager.game.edition, ...gameManager.editionExtensions(gameManager.game.edition)];
+      this.editions = [gameManager.game.edition, ...gameManager.editionExtensions(gameManager.game.edition)];
+    } else {
+      this.editions = gameManager.editionData.filter((editionData) => editionData.scenarios && editionData.scenarios.filter((scenarioData) => scenarioData.edition == editionData.edition && settingsManager.settings.editions.indexOf(scenarioData.edition) != -1).length > 0).map((editionData) => editionData.edition);
     }
-
-    return gameManager.editionData.filter((editionData) => editionData.scenarios && editionData.scenarios.filter((scenarioData) => scenarioData.edition == editionData.edition && settingsManager.settings.editions.indexOf(scenarioData.edition) != -1).length > 0).map((editionData) => editionData.edition);
   }
 
   setEdition(edition: string) {
     this.edition = edition;
+    this.updateGroups();
+    this.setEditions();
   }
 
-  groups(): (string | undefined)[] {
+  updateGroups() {
     if (!this.edition) {
-      return [];
+      this.groups = [];
     }
 
-    let groups = gameManager.scenarioManager.scenarioData(this.edition).map((scenarioData) => scenarioData.group).filter((value, index, self) => value && self.indexOf(value) === index).sort((a, b) => a && b && (a.toLowerCase() < b.toLowerCase() ? -1 : 1) || 0);
-    groups = [undefined, ...groups];
-    return groups;
+    this.groups = gameManager.scenarioManager.scenarioData(this.edition, true).map((scenarioData) => scenarioData.group).filter((value, index, self) => value && self.indexOf(value) === index).sort((a, b) => a && b && (a.toLowerCase() < b.toLowerCase() ? -1 : 1) || 0);
+    this.groups = [undefined, ...this.groups];
   }
 
   scenarios(group: string | undefined = undefined, filterSuccess: boolean = false, includeSpoiler: boolean = false, all: boolean = false): ScenarioCache[] {

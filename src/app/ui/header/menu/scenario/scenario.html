@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="line editions">
-    <label *ngFor="let e of editions();">
+    <label *ngFor="let e of editions;">
       <input tabclick type="radio" name="radio" [value]="e" (change)="edition = e" [checked]="edition == e">
       <span [ghs-label]="'data.edition.' + e"></span>
     </label>
@@ -39,7 +39,7 @@
       <span [ghs-label]="'party.campaignMode'"></span>
     </label>
   </div>
-  <ng-container *ngFor="let group of groups()">
+  <ng-container *ngFor="let group of groups">
     <div *ngIf="group" class="line title"><label><span [ghs-label]="'data.scenario.group.' + group"></span></label>
     </div>
     <div class="line scenarios">
