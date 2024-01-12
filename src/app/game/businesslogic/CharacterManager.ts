@@ -380,6 +380,9 @@ export class CharacterManager {
           gameManager.entityManager.addCondition(figure, new Condition(ConditionName.regenerate), figure.active, figure.off);
         }
 
+        figure.shield = undefined;
+        figure.retaliate = [];
+
       } else if (figure instanceof Objective) {
         figure.off = false;
       }

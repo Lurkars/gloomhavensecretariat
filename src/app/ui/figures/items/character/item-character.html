@@ -1,10 +1,10 @@
 <div class="item" #container [style.fontSize]="container.offsetWidth * 0.1 + 'px'">
-    <ghs-item *ngIf="setup" [item]="item" [flipped]="true" ghs-pointer-input
+    <ghs-item *ngIf="setup" [item]="item" [flipped]="flipped" ghs-pointer-input
         [count]="gameManager.itemManager.assigned(item)" [editionLabel]="gameManager.currentEdition()"
         [ngClass]="{'selected': equipped() && true || false}"></ghs-item>
 
     <ghs-item *ngIf="!setup" [item]="item" [count]="gameManager.itemManager.assigned(item)"
-        [flipped]="true && !countFlag(ItemFlags.flipped)" [slotsMarked]="slotsMarked(ItemFlags.slot)"
+        [flipped]="flipped && !countFlag(ItemFlags.flipped)" [slotsMarked]="slotsMarked(ItemFlags.slot)"
         [slotsBackMarked]="slotsMarked(ItemFlags.slotBack)" [editionLabel]="gameManager.currentEdition()"
         (clickedConsumed)="toggleFlag($event,ItemFlags.consumed)" (clickedFlip)="toggleFlag($event,ItemFlags.flipped)"
         (clickedSpent)="toggleFlag($event,ItemFlags.spent)"
@@ -18,6 +18,6 @@
     </span>
 
     <a class="button-equip" [ngClass]="{'equipped' : equipped(), 'disabled': !setup}" ghs-pointer-input
-        (singleClick)="toggleEquippedItem()" (doubleClick)="toggleEquippedItem( true)">
+        (singleClick)="toggleEquippedItem()" (doubleClick)="toggleEquippedItem(true)">
         <img class="ghs-svg" src="./assets/images/check.svg"></a>
 </div>

@@ -26,7 +26,7 @@
       </span>
     </ng-container>
     <span *ngFor="let section of gameManager.game.sections;" class="section">
-      <img class="ghs-svg" src="./assets/images/scenario/lock-open.svg">
+      <img class="ghs-svg" src="./assets/images/lock-open.svg">
       <span *ngIf="!section.hideIndex">#{{section.index}}</span>
       <span *ngIf="!gameManager.game.scenario || section.name != gameManager.game.scenario.name" class="name">
         &nbsp;<span [ghs-label]="'data.section.' + section.name"></span>
@@ -45,7 +45,7 @@
       </span>
     </ng-container>
     <span *ngFor="let section of availableSections();" class="section available" (click)="addSection(section, $event)">
-      <img *ngIf="!section.conclusion" class="ghs-svg" src="./assets/images/scenario/lock.svg">
+      <img *ngIf="!section.conclusion" class="ghs-svg" src="./assets/images/lock.svg">
       <img *ngIf="section.conclusion" class="ghs-svg" src="./assets/images/scenario/conclusion.svg">
       <span *ngIf="(!section.conclusion || !section.name) && !section.hideIndex">#{{section.index}}</span>
       <span class="marker" *ngIf="section.marker" [ghs-label]="'%game.mapMarker.' + section.marker +'%'"></span>

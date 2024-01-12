@@ -322,7 +322,7 @@ export class ScenarioRulesComponent {
                     this.sections(index).forEach((sectionData) => {
                         if (sectionData.conclusion) {
                             this.dialog.open(ScenarioSummaryComponent, {
-                                panelClass: 'dialog',
+                                panelClass: ['dialog'],
                                 data: {
                                     scenario: gameManager.game.scenario,
                                     success: true,
@@ -615,7 +615,7 @@ export class ScenarioRulesComponent {
 
                 if (rule.finish) {
                     this.dialog.open(ScenarioSummaryComponent, {
-                        panelClass: 'dialog',
+                        panelClass: ['dialog'],
                         data: { scenario: scenario, success: rule.finish == "won" }
                     })
                 }

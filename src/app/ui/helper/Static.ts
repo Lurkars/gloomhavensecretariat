@@ -1,3 +1,4 @@
+import { DialogRef } from "@angular/cdk/dialog";
 import { ConnectionPositionPair } from "@angular/cdk/overlay";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Spoilable } from "src/app/game/model/data/Spoilable";
@@ -73,6 +74,21 @@ export function ghsInputFullScreenCheckListener(event: any) {
 
 export function ghsModulo(n: number, m: number): number {
   return ((n % m) + m) % m;
+}
+
+export function ghsDialogClosingHelper(dialogRef: DialogRef, result: any = undefined) {
+  if (settingsManager.settings.animations) {
+    dialogRef.overlayRef.overlayElement.classList.add('dialog-closing');
+    if (dialogRef.overlayRef.hostElement.getElementsByClassName('dialog-close-button')[0]) {
+      dialogRef.overlayRef.hostElement.getElementsByClassName('dialog-close-button')[0].classList.add('closing');
+    }
+    if (dialogRef.overlayRef.backdropElement) {
+      dialogRef.overlayRef.backdropElement.classList.add('backdrop-closing');
+    }
+    setTimeout(() => dialogRef.close(result), 250);
+  } else {
+    dialogRef.close(result);
+  }
 }
 
 export function ghsDefaultDialogPositions(defaultDirection: 'right' | 'left' | 'center' = 'right'): ConnectionPositionPair[] {

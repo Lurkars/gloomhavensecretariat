@@ -15,6 +15,7 @@ export class CharacterItemComponent {
 
     @Input() character!: Character;
     @Input() item!: ItemData;
+    @Input() flipped: boolean = true;
     @Input() setup: boolean = false;
 
     gameManager: GameManager = gameManager;
@@ -63,6 +64,10 @@ export class CharacterItemComponent {
                     if (flag == ItemFlags.spent) {
                         equipped.tags = equipped.tags.filter((tag) => tag != ItemFlags.slot && tag != ItemFlags.slotBack);
                     }
+                }
+
+                if ((flag == ItemFlags.consumed || flag == ItemFlags.spent) && equipped.tags.indexOf(flag) != -1 && settingsManager.settings.characterItemsApply) {
+                    gameManager.itemManager.applyItemEffects(this.character, this.item);
                 }
                 gameManager.stateManager.after();
 

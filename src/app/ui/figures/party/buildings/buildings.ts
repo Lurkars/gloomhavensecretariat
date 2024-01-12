@@ -237,7 +237,7 @@ export class PartyBuildingsComponent implements OnInit {
         this.openConclusions(scenario.index);
       } else {
         this.dialog.open(ScenarioSummaryComponent, {
-          panelClass: 'dialog',
+          panelClass: ['dialog'],
           data: {
             scenario: scenario,
             conclusionOnly: true

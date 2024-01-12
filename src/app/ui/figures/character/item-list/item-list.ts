@@ -133,6 +133,7 @@ export class CharacterItemListComponent implements OnInit, OnDestroy {
     openItemDialog(item: ItemData) {
         this.dialog.open(ItemDialogComponent, {
             panelClass: ['fullscreen-panel'],
+            disableClose: true,
             data: { item: item, character: this.character, setup: this.setup }
         })
     }

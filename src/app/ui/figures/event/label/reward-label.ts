@@ -109,6 +109,8 @@ export class EventRewardLabelComponent implements OnInit {
 
     openItemDialog(itemData: ItemData) {
         this.dialog.open(ItemDialogComponent, {
+            panelClass: ['fullscreen-panel'],
+            disableClose: true,
             data: { item: itemData }
         })
     }

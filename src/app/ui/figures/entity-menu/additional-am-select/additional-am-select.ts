@@ -3,6 +3,7 @@ import { Component, Inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { Character } from "src/app/game/model/Character";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
     selector: 'ghs-additional-am-select-dialog',
@@ -29,7 +30,7 @@ export class AdditionalAMSelectDialogComponent {
         }
     }
 
-    select() {
-        this.dialogRef.close(this.selected);
+    close(result: number | undefined = undefined) {
+        ghsDialogClosingHelper(this.dialogRef, result);
     }
 }

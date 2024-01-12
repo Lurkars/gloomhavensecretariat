@@ -85,7 +85,7 @@ export class FooterComponent implements OnInit {
     if (!force && this.disabled()) {
       this.nextHint = true;
       const dialogRef = this.dialog.open(HintDialogComponent, {
-        panelClass: 'dialog',
+        panelClass: ['dialog'],
         positionStrategy: this.overlay.position().flexibleConnectedTo(this.nextButton).withPositions([new ConnectionPositionPair(
           { originX: 'end', originY: 'bottom' },
           { overlayX: 'start', overlayY: 'bottom' })]).withDefaultOffsetX(10).withDefaultOffsetY(-10)
@@ -167,7 +167,7 @@ export class FooterComponent implements OnInit {
 
       if (conclusions.length == 0 || !success) {
         this.dialog.open(ScenarioSummaryComponent, {
-          panelClass: 'dialog',
+          panelClass: ['dialog'],
           data: {
             scenario: gameManager.game.scenario,
             success: success
@@ -181,7 +181,7 @@ export class FooterComponent implements OnInit {
           next: (conclusion) => {
             if (conclusion) {
               this.dialog.open(ScenarioSummaryComponent, {
-                panelClass: 'dialog',
+                panelClass: ['dialog'],
                 data: {
                   scenario: gameManager.game.scenario,
                   conclusion: conclusion,

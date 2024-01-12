@@ -6,7 +6,7 @@ import { Character } from "src/app/game/model/Character";
 import { MonsterData } from "src/app/game/model/data/MonsterData";
 import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
-import { ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled } from "../../helper/Static";
+import { ghsDialogClosingHelper, ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled } from "../../helper/Static";
 import { Objective } from "src/app/game/model/Objective";
 import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
 import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
@@ -86,7 +86,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
   }
 
   close() {
-    this.dialogRef.close();
+    ghsDialogClosingHelper(this.dialogRef);
   }
 
   updateUndoRedo() {
@@ -132,7 +132,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
 
   openUndoDialog(event: any) {
     this.dialog.open(UndoDialogComponent, {
-      panelClass: 'dialog'
+      panelClass: ['dialog']
     })
     this.close();
     event.preventDefault();
@@ -310,7 +310,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
 
   feedbackDialog() {
     this.dialog.open(FeedbackDialogComponent, {
-      panelClass: 'dialog'
+      panelClass: ['dialog']
     })
     this.close();
   }

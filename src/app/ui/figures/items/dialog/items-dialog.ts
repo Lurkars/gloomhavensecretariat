@@ -7,7 +7,7 @@ import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { CountIdentifier } from "src/app/game/model/data/Identifier";
 import { ItemData, ItemSlot } from "src/app/game/model/data/ItemData";
-import { ghsTextSearch } from "src/app/ui/helper/Static";
+import { ghsDialogClosingHelper, ghsTextSearch } from "src/app/ui/helper/Static";
 
 @Component({
     selector: 'ghs-items-dialog',
@@ -287,6 +287,6 @@ export class ItemsDialogComponent {
     }
 
     close() {
-        this.dialogRef.close();
+        ghsDialogClosingHelper(this.dialogRef);
     }
 }

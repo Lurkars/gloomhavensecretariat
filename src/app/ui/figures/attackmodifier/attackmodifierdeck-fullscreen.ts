@@ -4,6 +4,7 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
 import { Character } from "src/app/game/model/Character";
 import { AttackModiferDeckChange } from "./attackmodifierdeck";
+import { ghsDialogClosingHelper } from "../../helper/Static";
 
 @Component({
   selector: 'ghs-attackmodifier-deck-fullscreen',
@@ -44,6 +45,10 @@ export class AttackModifierDeckFullscreenComponent {
 
   vertical(): boolean {
     return window.innerWidth < 800;
+  }
+
+  close() {
+    ghsDialogClosingHelper(this.dialogRef);
   }
 }
 

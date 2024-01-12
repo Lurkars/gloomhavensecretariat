@@ -7,6 +7,7 @@ import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 
 @Component({
@@ -149,7 +150,7 @@ export class MonsterNumberPickerDialog implements OnInit {
             }
             gameManager.stateManager.after();
             if ((this.entities ? this.monster.entities.filter((entity) => entity.number > 0).length : gameManager.entityManager.entities(this.monster).length) == EntityValueFunction(this.monster.count, this.monster.level) || !this.entity && this.entities) {
-                this.dialogRef.close();
+                ghsDialogClosingHelper(this.dialogRef);
             } else if (this.entity && this.entities && this.monster.entities.filter((entity) => entity.number > 0).length == EntityValueFunction(this.monster.count, this.monster.level) - 1) {
                 this.nextStandee();
             }
@@ -198,6 +199,6 @@ export class MonsterNumberPickerDialog implements OnInit {
     }
 
     close() {
-        this.dialogRef.close(true);
+        ghsDialogClosingHelper(this.dialogRef, true);
     }
 }

@@ -69,8 +69,8 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: calc(var(--ghs-unit) * 12 * var(--ghs-item-list-zoom));
-            height: calc(var(--ghs-unit) * 8 * var(--ghs-item-list-zoom));
+            width: 100%;
+            height: 45%;
         }
     }
 

@@ -23,6 +23,7 @@ import { ItemsCharacterDialogComponent } from '../items/character/items-characte
 import { ItemsDialogComponent } from '../items/dialog/items-dialog';
 import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
+import { Action, ActionType } from 'src/app/game/model/data/Action';
 
 @Component({
   selector: 'ghs-character',
@@ -207,7 +208,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   openInitiativeDialog(event: any) {
     this.dialog.open(CharacterInitiativeDialogComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: this.character,
       positionStrategy: this.overlay.position().flexibleConnectedTo(event.target).withPositions(ghsDefaultDialogPositions())
     });
@@ -315,7 +316,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   openEntityMenu(event: any): void {
     this.dialog.open(EntityMenuDialogComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: {
         entity: this.character,
         figure: this.character
@@ -326,7 +327,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   openEntitiesMenu(event: any) {
     this.dialog.open(EntitiesMenuDialogComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: {
         character: this.character
       },
@@ -336,7 +337,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   openSummonDialog(event: any): void {
     this.dialog.open(CharacterSummonDialog, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: this.character,
       positionStrategy: this.overlay.position().flexibleConnectedTo(this.summonButton).withPositions(ghsDefaultDialogPositions('left'))
     });
@@ -410,7 +411,8 @@ export class CharacterComponent implements OnInit, OnDestroy {
       after.subscribe({ next: (change: AttackModiferDeckChange) => this.afterAttackModifierDeck(change) });
 
       const dialog = this.dialog.open(AttackModifierDeckFullscreenComponent, {
-        backdropClass: 'fullscreen-backdrop',
+        panelClass: ['fullscreen-panel'],
+        backdropClass: ['fullscreen-backdrop'],
         data: {
           deck: this.character.attackModifierDeck,
           character: this.character,
@@ -453,9 +455,45 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   openLootDeckDialog() {
     this.dialog.open(CharacterLootCardsDialog, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: this.character
     });
+  }
+
+  removeShield() {
+    gameManager.stateManager.before("removeCharacterShield", gameManager.characterManager.characterName(this.character));
+    this.character.shield = undefined;
+    gameManager.stateManager.after();
+  }
+
+  removeShieldPersistent() {
+    gameManager.stateManager.before("removeCharacterShieldPersistent", gameManager.characterManager.characterName(this.character));
+    this.character.shieldPersistent = undefined;
+    gameManager.stateManager.after();
+  }
+
+  removeRetaliate(index: number) {
+    let retaliate: Action[] = JSON.parse(JSON.stringify(this.character.retaliate));
+    retaliate.splice(index, 1);
+    if (retaliate.length > 0) {
+      gameManager.stateManager.before("setCharacterRetaliate", gameManager.characterManager.characterName(this.character), retaliate.map((action) => '%game.action.retaliate% ' + EntityValueFunction(action.value) + (action.subActions && action.subActions[0] && action.subActions[0].type == ActionType.range && EntityValueFunction(action.subActions[0].value) > 1 ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value) + '' : '')).join(', '));
+    } else {
+      gameManager.stateManager.before("removeCharacterRetaliate", gameManager.characterManager.characterName(this.character));
+    }
+    this.character.retaliate = retaliate;
+    gameManager.stateManager.after();
+  }
+
+  removeRetaliatePersistent(index: number) {
+    let retaliatePersistent: Action[] = JSON.parse(JSON.stringify(this.character.retaliatePersistent));
+    retaliatePersistent.splice(index, 1);
+    if (retaliatePersistent.length > 0) {
+      gameManager.stateManager.before("setCharacterRetaliatePersistent", gameManager.characterManager.characterName(this.character), retaliatePersistent.map((action) => '%game.action.retaliate% ' + EntityValueFunction(action.value) + (action.subActions && action.subActions[0] && action.subActions[0].type == ActionType.range && EntityValueFunction(action.subActions[0].value) > 1 ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value) + '' : '')).join(', '));
+    } else {
+      gameManager.stateManager.before("removeCharacterRetaliatePersistent", gameManager.characterManager.characterName(this.character));
+    }
+    this.character.retaliatePersistent = retaliatePersistent;
+    gameManager.stateManager.after();
   }
 
 }

@@ -175,7 +175,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
 
             if (!fromServer && loot && appliableLootTypes.indexOf(loot.type) != null && settingsManager.settings.applyLoot && !this.standalone && gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.gameplayFigure(figure)) && (!gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) || settingsManager.settings.alwaysLootApplyDialog)) {
                 const dialog = this.dialog.open(LootApplyDialogComponent, {
-                    panelClass: 'dialog',
+                    panelClass: ['dialog'],
                     data: { loot: loot }
                 });
 
@@ -189,7 +189,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                                 gameManager.stateManager.after();
                                 if (result) {
                                     this.dialog.open(LootRandomItemDialogComponent, {
-                                        panelClass: 'dialog',
+                                        panelClass: ['dialog'],
                                         data: { item: result, character: character }
                                     }).closed.subscribe({
                                         next: (result) => {
@@ -237,7 +237,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                         if (result) {
                             setTimeout(() => {
                                 this.dialog.open(LootRandomItemDialogComponent, {
-                                    panelClass: 'dialog',
+                                    panelClass: ['dialog'],
                                     data: { item: result, character: activeCharacter }
                                 }).closed.subscribe({
                                     next: (result) => {
@@ -273,7 +273,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
             }
         } else {
             this.dialog.open(LootDeckDialogComponent, {
-                panelClass: 'dialog',
+                panelClass: ['dialog'],
                 data: {
                     deck: this.deck,
                     characters: this.characters,
@@ -288,7 +288,8 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
     openFullscreen(event: any) {
         if (this.fullscreen) {
             this.dialog.open(LootDeckFullscreenComponent, {
-                backdropClass: 'fullscreen-backdrop',
+                panelClass: ['fullscreen-panel'],
+                backdropClass: ['fullscreen-backdrop'],
                 data: {
                     deck: this.deck,
                     before: this.before,
@@ -321,7 +322,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
             this.openFullscreen(event);
         } else {
             this.dialog.open(LootDeckDialogComponent, {
-                panelClass: 'dialog',
+                panelClass: ['dialog'],
                 data: {
                     deck: this.deck,
                     characters: this.characters,

@@ -2,6 +2,6 @@
   <ghs-loot-deck [deck]="deck" [fullscreen]="false" [vertical]="vertical()" (before)="beforeLootDeck($event)"
     (after)="afterLootDeck($event)">
   </ghs-loot-deck>
-  <div class="close-container" (click)="dialogRef && dialogRef.close()"></div>
+  <div class="close-container" (click)="close()"></div>
 </div>
-<div class="close-container" (click)="dialogRef &&dialogRef.close()"></div>
+<div class="close-container" (click)="close()"></div>

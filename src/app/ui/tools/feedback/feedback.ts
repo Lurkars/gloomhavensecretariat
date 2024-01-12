@@ -15,7 +15,7 @@ export class FeedbackToolComponent {
 
     open() {
         this.dialog.open(FeedbackDialogComponent, {
-            panelClass: 'dialog'
+            panelClass: ['dialog']
         })
     }
 }

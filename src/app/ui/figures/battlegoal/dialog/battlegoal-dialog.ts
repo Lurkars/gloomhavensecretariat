@@ -7,6 +7,7 @@ import { Character } from "src/app/game/model/Character";
 import { BattleGoal } from "src/app/game/model/data/BattleGoal";
 import { BattleGoalSetupDialog } from "../setup/battlegoal-setup";
 import { Subscription } from "rxjs";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
   selector: 'ghs-character-battlegoals',
@@ -152,6 +153,6 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
   }
 
   close() {
-    this.dialogRef.close();
+    ghsDialogClosingHelper(this.dialogRef);
   }
 }

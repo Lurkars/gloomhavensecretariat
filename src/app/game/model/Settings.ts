@@ -44,6 +44,7 @@ export class Settings {
   calculate: boolean = true;
   calculateStats: boolean = true;
   calculateShieldStats: boolean = true;
+  calendarLocked: boolean = false;
   characterAttackModifierAnimate: boolean = true;
   characterAttackModifierDeck: boolean = true;
   characterAttackModifierDeckPermanent: boolean = false;
@@ -53,6 +54,7 @@ export class Settings {
   characterIdentities: boolean = true;
   characterIdentityHint: boolean = true;
   characterItems: boolean = false;
+  characterItemsApply: boolean = false;
   characterItemsPermanent: boolean = false;
   characterItemsPermanentActive: boolean = false;
   characterItemsPermanentEquipped: boolean = true;
@@ -60,6 +62,7 @@ export class Settings {
   characterItemsPermanentZoom: number = 1;
   characterSheet: boolean = true;
   characterSheetCompact: boolean = false;
+  characterShieldRetaliate: boolean = false;
   characterTraits: boolean = false;
   columns: boolean = true;
   combineSummonAction: boolean = true;

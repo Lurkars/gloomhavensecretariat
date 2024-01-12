@@ -63,6 +63,12 @@
         "value": "%data.items.fc-155.1%",
         "small": true
       }
+    ],
+    "effects": [
+      {
+        "type": "immune",
+        "value": "curse"
+      }
     ]
   },
   {
@@ -109,6 +115,12 @@
         "type": "custom",
         "value": "%data.items.fc-158.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "regenerate"
       }
     ]
   },

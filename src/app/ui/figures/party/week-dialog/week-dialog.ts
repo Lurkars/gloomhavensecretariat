@@ -48,7 +48,7 @@ export class PartyWeekDialogComponent {
             const scenario = new Scenario(conclusion as ScenarioData);
             const solved = this.isSolved(index);
             this.dialog.open(ScenarioSummaryComponent, {
-                panelClass: 'dialog',
+                panelClass: ['dialog'],
                 data: {
                     scenario: scenario,
                     conclusionOnly: true,
@@ -80,7 +80,7 @@ export class PartyWeekDialogComponent {
                         gameManager.stateManager.after();
 
                         this.dialog.open(ScenarioSummaryComponent, {
-                            panelClass: 'dialog',
+                            panelClass: ['dialog'],
                             data: {
                                 scenario: scenario,
                                 conclusionOnly: true

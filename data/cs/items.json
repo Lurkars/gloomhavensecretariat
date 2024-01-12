@@ -287,6 +287,12 @@
         "value": "%data.items.cs-19.1%",
         "small": true
       }
+    ],
+    "effects": [
+      {
+        "type": "immune",
+        "value": "immobilize"
+      }
     ]
   },
   {
@@ -447,6 +453,16 @@
         "type": "custom",
         "value": "%data.items.cs-29.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "heal",
+        "value": 5
+      },
+      {
+        "type": "condition",
+        "value": "poison"
       }
     ]
   },
@@ -759,6 +775,12 @@
         "type": "element",
         "value": "wild"
       }
+    ],
+    "effects": [
+      {
+        "type": "heal",
+        "value": 5
+      }
     ]
   },
   {
@@ -779,6 +801,12 @@
       {
         "type": "card",
         "value": "round"
+      }
+    ],
+    "effects": [
+      {
+        "type": "immune",
+        "value": "disarm"
       }
     ]
   },

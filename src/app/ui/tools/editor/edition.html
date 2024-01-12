@@ -8,30 +8,34 @@
                 <h2><span [ghs-label]="'editor.edition.base'"></span></h2>
 
                 <div class="base-data dialog">
-                    <label><span [ghs-label]="'editor.edition.edition'"></span></label>
-                    <input [(ngModel)]="editionData.edition" [ghs-label]="'editor.edition.edition'"
-                        [ghs-label-attribute]="'placeholder'" (change)="editionDataToJson()" (keyup)="editionDataToJson()">
+                    <div class="dialog-container">
+                        <label><span [ghs-label]="'editor.edition.edition'"></span></label>
+                        <input [(ngModel)]="editionData.edition" [ghs-label]="'editor.edition.edition'"
+                            [ghs-label-attribute]="'placeholder'" (change)="editionDataToJson()"
+                            (keyup)="editionDataToJson()">
 
-                    <label><span [ghs-label]="'editor.edition.extensions'"></span></label>
-                    <select [(ngModel)]="editionData.extensions" multiple (change)="editionDataToJson()">
-                        <option [value]="editionData.edition" *ngFor="let editionData of gameManager.editionData;">
-                            <span [ghs-label]="'data.edition.' + editionData.edition"></span> [{{editionData.edition}}]
-                        </option>
-                    </select>
-
-                    <label><span [ghs-label]="'editor.edition.conditions'"></span></label>
-
-                    <div class="conditions">
-                        <a (click)="toggleAllConditions(conditionSelect)">
-                            <span [ghs-label]="(editionData.conditions.length != Conditions.length ?
-                            'editor.edition.conditions.allSelected': 'editor.edition.conditions.allHint')"></span>
-                        </a>
-                        <select #conditionSelect [(ngModel)]="editionData.conditions" multiple
-                            (change)="editionDataToJson()">
-                            <option [value]="condition" *ngFor="let condition of Conditions;">
-                                <span [ghs-label]="'game.condition.' + condition" [ghs-label-args]="['X']"></span>
+                        <label><span [ghs-label]="'editor.edition.extensions'"></span></label>
+                        <select [(ngModel)]="editionData.extensions" multiple (change)="editionDataToJson()">
+                            <option [value]="editionData.edition" *ngFor="let editionData of gameManager.editionData;">
+                                <span [ghs-label]="'data.edition.' + editionData.edition"></span>
+                                [{{editionData.edition}}]
                             </option>
                         </select>
+
+                        <label><span [ghs-label]="'editor.edition.conditions'"></span></label>
+
+                        <div class="conditions">
+                            <a (click)="toggleAllConditions(conditionSelect)">
+                                <span [ghs-label]="(editionData.conditions.length != Conditions.length ?
+                            'editor.edition.conditions.allSelected': 'editor.edition.conditions.allHint')"></span>
+                            </a>
+                            <select #conditionSelect [(ngModel)]="editionData.conditions" multiple
+                                (change)="editionDataToJson()">
+                                <option [value]="condition" *ngFor="let condition of Conditions;">
+                                    <span [ghs-label]="'game.condition.' + condition" [ghs-label-args]="['X']"></span>
+                                </option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>

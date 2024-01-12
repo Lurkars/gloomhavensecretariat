@@ -90,7 +90,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   openMenu(menu: SubMenu | undefined = undefined) {
     this.dialog.open(MainMenuComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: { subMenu: menu != undefined ? menu : SubMenu.main, standalone: this.standalone },
       maxWidth: '90vw',
       positionStrategy: this.overlay.position().flexibleConnectedTo(this.mainMenuButton).withPositions([
@@ -101,7 +101,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   openEventEffects() {
-    this.dialog.open(EventEffectsDialog, { panelClass: 'dialog', data: gameManager.game.round > 0 || gameManager.game.state == GameState.next });
+    this.dialog.open(EventEffectsDialog, { panelClass: ['dialog'], data: gameManager.game.round > 0 || gameManager.game.state == GameState.next });
   }
 
 }

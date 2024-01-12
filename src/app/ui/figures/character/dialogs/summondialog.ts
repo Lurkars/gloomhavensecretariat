@@ -5,6 +5,7 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { Character } from "src/app/game/model/Character";
 import { SummonData } from "src/app/game/model/data/SummonData";
 import { Summon, SummonColor, SummonState } from "src/app/game/model/Summon";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { v4 as uuidv4 } from 'uuid';
 
 @Component({
@@ -87,7 +88,7 @@ export class CharacterSummonDialog {
     let summon: Summon = new Summon(uuidv4(), this.summonName, "", this.character.level, this.summonNumber, this.summonColor);
     summon.state = SummonState.new;
     gameManager.characterManager.addSummon(this.character, summon);
-    this.dialogRef.close();
+    ghsDialogClosingHelper(this.dialogRef);
     gameManager.stateManager.after();
   }
 
@@ -103,7 +104,7 @@ export class CharacterSummonDialog {
       summon.init = false;
       gameManager.characterManager.addSummon(this.character, summon);
       if (!summonData.count || this.character.summons.filter((summon) => summon.name == summonData.name && summon.cardId == summonData.cardId).length == summonData.count) {
-        this.dialogRef.close();
+        ghsDialogClosingHelper(this.dialogRef);
       } else {
         this.summonFilter = summonData.cardId;
         this.summonNumber++;

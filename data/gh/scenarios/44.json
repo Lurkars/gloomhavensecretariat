@@ -58,7 +58,6 @@
     },
     {
       "name": "Captive Orchid",
-      "escort": true,
       "health": "4+(2xL)",
       "marker": "a",
       "count": 9

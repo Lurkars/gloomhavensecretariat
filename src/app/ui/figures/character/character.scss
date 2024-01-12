@@ -362,6 +362,31 @@
       }
     }
 
+    .actions {
+      position: relative;
+      display: flex;
+      margin-left: calc(var(--ghs-unit) * 0.5);
+
+      .action {
+        position: relative;
+        margin-left: calc(var(--ghs-unit) * 0.5);
+
+        .shield-overlay {
+          position: absolute;
+          font-size: calc(var(--ghs-unit) * 2);
+          left: calc(var(--ghs-unit) * -0.5);
+          top: calc(var(--ghs-unit) * 1.1);
+          z-index: 1;
+        }
+
+        &:hover {
+          transform: scale(2);
+          transform-origin: center center;
+          z-index: 999;
+        }
+      }
+    }
+
     .status-bar {
       display: flex;
       align-items: center;
@@ -417,7 +442,6 @@
         }
       }
     }
-
 
     .conditions {
       position: relative;

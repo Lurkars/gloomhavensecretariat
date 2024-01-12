@@ -168,6 +168,16 @@
         "type": "element",
         "value": "dark"
       }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "invisible"
+      },
+      {
+        "type": "element",
+        "value": "dark"
+      }
     ]
   },
   {
@@ -518,6 +528,12 @@
         "type": "custom",
         "value": "%data.items.solo-57.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "immune",
+        "value": "muddle"
       }
     ]
   },

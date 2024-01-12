@@ -41,35 +41,31 @@
           </div>
         </div>
         <div class="monsters">
-          <ng-container *ngIf="!detailed">
-            <div class="monster" *ngFor="let monsterData of monsters" (click)="openStats(monsterData)">
-              <div class="image">
-                <div class="outer-border">
-                  <div class="inner-border">
-                    <div class="image-container">
-                      <img *ngIf="!monsterData.noThumbnail && settingsManager.settings.artwork"
-                        [src]="gameManager.monsterManager.monsterThumbnail(monsterData)">
-                      <span *ngIf="monsterData.noThumbnail || !settingsManager.settings.artwork" class="letter">
-                        <span
-                          *ngFor="let namePart of (settingsManager.getLabel('data.monster.' + monsterData.name).split(' '))">{{namePart[0]}}</span>
-                      </span>
-                    </div>
+          <div class="monster" *ngFor="let monsterData of monsters" (click)="openStats(monsterData)">
+            <div class="image">
+              <div class="outer-border">
+                <div class="inner-border">
+                  <div class="image-container">
+                    <img *ngIf="!monsterData.noThumbnail && settingsManager.settings.artwork"
+                      [src]="gameManager.monsterManager.monsterThumbnail(monsterData)">
+                    <span *ngIf="monsterData.noThumbnail || !settingsManager.settings.artwork" class="letter">
+                      <span
+                        *ngFor="let namePart of (settingsManager.getLabel('data.monster.' + monsterData.name).split(' '))">{{namePart[0]}}</span>
+                    </span>
                   </div>
                 </div>
-                <span class="boss" *ngIf="monsterData.boss || monsterData.tags.indexOf('boss') != -1"><img
-                    src="./assets/images/monster/enemy.png" /></span>
-                <span class="custom" *ngIf="monsterData.standeeShare">*</span>
               </div>
-              <div class="name"><span [ghs-label]="'data.monster.' + monsterData.name"></span></div>
+              <span class="boss" *ngIf="monsterData.boss || monsterData.tags.indexOf('boss') != -1"><img
+                  src="./assets/images/monster/enemy.png" /></span>
+              <span class="custom" *ngIf="monsterData.standeeShare">*</span>
             </div>
-          </ng-container>
+            <div class="name"><span [ghs-label]="'data.monster.' + monsterData.name"></span></div>
 
-          <ng-container *ngIf="detailed">
-            <div class="monster" *ngFor="let monsterData of monsters" (click)="openStats(monsterData)">
+            <ng-container *ngIf="detailed">
               <ghs-monster-stats [monster]="toMonster(monsterData)" [forceStats]="true" [noClick]="true"
                 [disablePoup]="true"></ghs-monster-stats>
-            </div>
-          </ng-container>
+            </ng-container>
+          </div>
         </div>
       </div>
     </div>
@@ -101,7 +97,7 @@
       </span>
       <span *ngFor="let section of gameManager.scenarioManager.availableSections();" class="section available"
         (click)="addSection(section)">
-        <img *ngIf="!section.conclusion" class="ghs-svg" src="./assets/images/scenario/lock.svg">
+        <img *ngIf="!section.conclusion" class="ghs-svg" src="./assets/images/lock.svg">
         <img *ngIf="section.conclusion" class="ghs-svg" src="./assets/images/scenario/conclusion.svg">
         <span *ngIf="!section.conclusion || !section.name">#{{section.index}}</span>
         <span class="marker" *ngIf="section.marker" [ghs-label]="'%game.mapMarker.' + section.marker +'%'"></span>

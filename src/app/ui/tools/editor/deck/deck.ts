@@ -250,7 +250,7 @@ export class DeckEditorComponent implements OnInit {
         }
         ability.actions.push(action);
         const dialog = this.dialog.open(EditorActionDialogComponent, {
-            panelClass: 'dialog',
+            panelClass: ['dialog'],
             data: { action: action }
         });
 
@@ -266,7 +266,7 @@ export class DeckEditorComponent implements OnInit {
 
     editAbilityAction(ability: Ability, action: Action) {
         const dialog = this.dialog.open(EditorActionDialogComponent, {
-            panelClass: 'dialog',
+            panelClass: ['dialog'],
             data: { action: action }
         });
 
@@ -292,7 +292,7 @@ export class DeckEditorComponent implements OnInit {
         }
         ability.bottomActions.push(action);
         const dialog = this.dialog.open(EditorActionDialogComponent, {
-            panelClass: 'dialog',
+            panelClass: ['dialog'],
             data: { action: action }
         });
 
@@ -308,7 +308,7 @@ export class DeckEditorComponent implements OnInit {
 
     editAbilityActionBottom(ability: Ability, action: Action) {
         const dialog = this.dialog.open(EditorActionDialogComponent, {
-            panelClass: 'dialog',
+            panelClass: ['dialog'],
             data: { action: action }
         });
 

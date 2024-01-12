@@ -137,6 +137,7 @@
     "summon": {
       "level": "(Level {0})"
     },
+    "token": "Charakter Token",
     "traits": "Eigenschaften",
     "unlock": {
       ".": "Freischalten?",
@@ -198,6 +199,7 @@
         ".": "Backup Datei herunterladen",
         "hint": {
           ".": "Sichere dein Spiel regelmäßig, um Datenverluste zu vermeiden.",
+          "hide": "Nicht mehr anzeigen",
           "text": "Dein gesamter Prozess wird im Speicher deines Browsers gespeichert. Obwohl kein Browser diese Daten versehentlich löschen sollte, gibt es trotzdem sehr wenige Berichte über derartige Vorfälle. Unabhängig davon dass nicht klar ist, ob diese Vorfälle durch Fehler in der Benutzung verursacht wurden, aber um auf Nummer sicher zu gehen, ist es eine gute Idee, ein Backup zu erstellen."
         },
         "onFinish": "Automatische Sicherung nach Abschluss eines Szenarios"
@@ -385,39 +387,39 @@
     "condition": {
       "bane": {
         ".": "Ruin",
-        "hint": "Ruin: Erleide %game.damage:10% am Ende des nächsten Zugs, then remove. Auch bei Heilung entfernt."
+        "hint": "%game.conditionIcon.bane% Ruin: Erleide %game.damage:10% am Ende des nächsten Zugs, then remove. Auch bei Heilung entfernt."
       },
       "bless": {
         ".": "Segen",
-        "hint": "Segen: Mische eine %game.attackmodifier.bless% Karte ins Angriffsmodifikatordeck"
+        "hint": "%game.conditionIcon.bless% Segen: Mische eine %game.attackmodifier.bless% Karte ins Angriffsmodifikatordeck"
       },
       "brittle": {
         ".": "Spröde",
-        "hint": "Spröde: Verdopple den nächsten %game.damage%, anschließend entfernen. Auch bei Heilung entfernt."
+        "hint": "%game.conditionIcon.brittle% Spröde: Verdopple den nächsten %game.damage%, anschließend entfernen. Auch bei Heilung entfernt."
       },
       "chill": {
         ".": "Mutlosigkeit",
-        "hint": "Mutlosigkeit: Bekomme -1 auf alle Bewegungen und Angriffe für jeden Marker. Entferne einen Marker am Ende des nächsten Zugs."
+        "hint": "%game.conditionIcon.chill% Mutlosigkeit: Bekomme -1 auf alle Bewegungen und Angriffe für jeden Marker. Entferne einen Marker am Ende des nächsten Zugs."
       },
       "curse": {
         ".": "Fluch",
-        "hint": "Fluch: Mische eine %game.attackmodifier.curse% Karte ins Angriffsmodifikatordeck"
+        "hint": "%game.conditionIcon.curse% Fluch: Mische eine %game.attackmodifier.curse% Karte ins Angriffsmodifikatordeck"
       },
       "disarm": {
         ".": "Entwaffnen",
-        "hint": "Entwaffnen: Kein Angriff möglich. Entferne am Ende des nächsten Zugs."
+        "hint": "%game.conditionIcon.disarm% Entwaffnen: Kein Angriff möglich. Entferne am Ende des nächsten Zugs."
       },
       "dodge": {
         ".": "Ausweichen",
-        "hint": "Ausweichen: Verwerfe oder verliere eine Karte um einen Angriff abzuwehren, anschließend entfernen."
+        "hint": "%game.conditionIcon.dodge% Ausweichen: Verwerfe oder verliere eine Karte um einen Angriff abzuwehren, anschließend entfernen."
       },
       "empower": {
         ".": "Verstärkung",
-        "hint": "Verstärkung: Mische eine %game.attackmodifier.empower% Karte ins Angriffsmodifikatordeck."
+        "hint": "%game.conditionIcon.empower% Verstärkung: Mische eine %game.attackmodifier.empower% Karte ins Angriffsmodifikatordeck."
       },
       "enfeeble": {
         ".": "Schwächung",
-        "hint": "Schwächung: Mische eine %game.attackmodifier.enfeeble% Karte ins Angriffsmodifikatordeck."
+        "hint": "%game.conditionIcon.enfeeble% Schwächung: Mische eine %game.attackmodifier.enfeeble% Karte ins Angriffsmodifikatordeck."
       },
       "heal": {
         ".": "Heilen",
@@ -425,59 +427,67 @@
       },
       "immobilize": {
         ".": "Lähmung",
-        "hint": "Lähmung: Keine Bewegung möglich. Entferne am Ende des nächsten Zugs."
+        "hint": "%game.conditionIcon.immobilize% Lähmung: Keine Bewegung möglich. Entferne am Ende des nächsten Zugs."
+      },
+      "immune": {
+        ".": "Immun",
+        "hint": "Immun gegen Zustand"
       },
       "impair": {
         ".": "Beschädigt",
-        "hint": "Beschädigt: Kein Verwenden von Gegenständen möglich. Entferne am Ende des nächsten Zugs."
+        "hint": "%game.conditionIcon.impair% Beschädigt: Kein Verwenden von Gegenständen möglich. Entferne am Ende des nächsten Zugs."
       },
       "infect": {
         ".": "Infektion",
-        "hint": "Infektion: Kein Schild möglich. Bei Heilung entfernen."
+        "hint": "%game.conditionIcon.infect% Infektion: Kein Schild möglich. Bei Heilung entfernen."
       },
       "invisible": {
         ".": "Unsichtbar",
-        "hint": "Unsichtbar: Kann nicht fokkusiert werden. Entferne am Ende des nächsten Zugs."
+        "hint": "%game.conditionIcon.invisible% Unsichtbar: Kann nicht fokkusiert werden. Entferne am Ende des nächsten Zugs."
       },
       "muddle": {
         ".": "Verwirrrung",
-        "hint": "Verwirrrung: Nachteil für alle Angriffe. Entferne am Ende des nächsten Zugs."
+        "hint": "%game.conditionIcon.muddle% Verwirrrung: Nachteil für alle Angriffe. Entferne am Ende des nächsten Zugs."
+      },
+      "permanent": {
+        ".": "Permanent",
+        "hint": "Permanenter Zustand"
       },
       "poison": {
         ".": "Gift",
-        "hint": "Gift: Alle Angreifer bekommen +1 %game.action.attack%. Verhindert Heilung. Bei Heilung entfernen."
+        "hint": "%game.conditionIcon.poison% Gift: Alle Angreifer bekommen +1 %game.action.attack%. Verhindert Heilung. Bei Heilung entfernen."
       },
       "poison_x": {
         ".": "Gift {0}",
-        "hint": "Gift X: Alle Angreifer bekommen +X %game.action.attack%. Verhindert Heilung. Bei Heilung entfernen."
+        "hint": "%game.conditionIcon.poison_x:X% Gift X: Alle Angreifer bekommen +X %game.action.attack%. Verhindert Heilung. Bei Heilung entfernen."
       },
       "regenerate": {
         ".": "Regeneration",
-        "hint": "Regeneration: %game.action.heal% 1 zu Beginn des Zuges. Bei Schaden entfernen."
+        "hint": "%game.conditionIcon.regenerate% Regeneration: %game.action.heal% 1 zu Beginn des Zuges. Bei Schaden entfernen."
       },
       "rupture": {
         ".": "Bruch",
-        "hint": "Bruch: Bei jeder Beweung, erleide %game.damage:1%. Bei Heilung entfernen."
+        "hint": "%game.conditionIcon.rupture% Bruch: Bei jeder Beweung, erleide %game.damage:1%. Bei Heilung entfernen."
       },
       "strengthen": {
         ".": "Stärkung",
-        "hint": "Stärkung: Vorteil für alle Angriffe. Entferne am Ende des nächsten Zugs."
+        "hint": "%game.conditionIcon.strengthen% Stärkung: Vorteil für alle Angriffe. Entferne am Ende des nächsten Zugs."
       },
       "stun": {
         ".": "Betäubung",
-        "hint": "Betäubung: Weder Fertigkeiten ausführen noch Gegenstände verwenden. Entferne am Ende des nächsten Zugs."
+        "hint": "%game.conditionIcon.stun% Betäubung: Weder Fertigkeiten ausführen noch Gegenstände verwenden. Entferne am Ende des nächsten Zugs."
       },
       "ward": {
         ".": "Schutz",
-        "hint": "Schutz: Halbiere (abgerundend) des nächsten %game.damage%, anschließend entfernen."
+        "hint": "%game.conditionIcon.ward% Schutz: Halbiere (abgerundend) des nächsten %game.damage%, anschließend entfernen."
       },
       "wound": {
         ".": "Wunde",
-        "hint": "Wunde: Erleide %game.damage:1% zu Beginn jedes Zuges. Bei Heilung entfernen."
+        "hint": "%game.conditionIcon.wound% Wunde: Erleide %game.damage:1% zu Beginn jedes Zuges. Bei Heilung entfernen."
       },
       "wound_x": {
         ".": "Wunde {0}",
-        "hint": "Wunde X: Erleide %game.damage:X% zu Beginn jedes Zuges. Bei Heilung entfernen."
+        "hint": "%game.conditionIcon.wound_x:X% Wunde X: Erleide %game.damage:X% zu Beginn jedes Zuges. Bei Heilung entfernen."
       }
     },
     "custom": {
@@ -1603,6 +1613,10 @@
       ".": "Charakter Gegenstände",
       "hint": "Zustände von Gegenständen während eines Szenarios verwalten."
     },
+    "characterItemsApply": {
+      ".": "Gegenstands Aktionen anwenden",
+      "hint": "Alles Charakter-bezognenen Aktionen wie %game.action.heal%, Zustände, Beschwörungen etc. ausführen wenn Gegenstand angwendet wird."
+    },
     "characterItemsPermanent": {
       ".": "Charakter Gegenstände dauerhaft",
       "hint": "Gegenstände dauerthaft unterhalb des Charakters anzeigen."
@@ -1618,6 +1632,10 @@
     "characterSheetCompact": {
       ".": "Kompakte Charakterbögen (%wip%)",
       "hint": "Zeige kompaktere Charakterbögen mit anderem Layout als die original Charakterbögen."
+    },
+    "characterShieldRetaliate": {
+      ".": "Schild und Vergeltung",
+      "hint": "Verwalte %game.action.shield% und %game.action.retaliate% für Charaktere."
     },
     "characterTraits": {
       ".": "Eigenschaften anzeigen",
@@ -2127,6 +2145,8 @@
       "removeAllObjectives": "Alle Ziele entfernen",
       "removeCampaignSticker": "Kampagnenbogensticker {0} entfernen",
       "removeChar": "Charakter {0} entfernen",
+      "removeCharacterRetaliate": "Entferne %game.action.retaliate% von {0}",
+      "removeCharacterShield": "Entferne %game.action.shield% von {0}",
       "removeCondition": {
         "char": "%game.condition.{1}% von {0} entfernen",
         "monsterEntities": "%game.condition.{1}% von allen {2}{0} entfernen",
@@ -2186,6 +2206,8 @@
       "setAlly": "{0} als Verbündeter",
       "setAllied": "{0} zur Fraktion zufügen",
       "setBG": "Kampfziele {1} für {0}",
+      "setCharacterRetaliate": "{1} für {0}",
+      "setCharacterShield": "%game.action.shield% {1} für {0}",
       "setConditionValue": {
         "char": "%game.condition.{1}% auf {2} für {0}",
         "monsterEntities": "%game.condition.{1}% auf {2} für alle {3}{0}",

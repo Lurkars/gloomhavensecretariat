@@ -162,7 +162,7 @@ export class StandeeComponent implements OnInit, OnDestroy {
         gameManager.stateManager.after();
       } else {
         this.dialog.open(MonsterNumberPickerDialog, {
-          panelClass: 'dialog',
+          panelClass: ['dialog'],
           data: {
             monster: this.figure,
             type: this.entity.type,
@@ -175,7 +175,7 @@ export class StandeeComponent implements OnInit, OnDestroy {
       }
     } else {
       const dialogRef = this.dialog.open(EntityMenuDialogComponent, {
-        panelClass: 'dialog',
+        panelClass: ['dialog'],
         data: {
           entity: this.entity,
           figure: this.figure,

@@ -42,7 +42,7 @@ import { EventCardManager } from "./EventCardManager";
 import { BuildingsManager } from "./BuildingsManager";
 
 declare global {
-  interface Window { gameManager:  GameManager }
+  interface Window { gameManager: GameManager }
 }
 
 export class GameManager {
@@ -396,7 +396,7 @@ export class GameManager {
     return aName < bName ? -1 : 1;
   }
 
-  deckData(figure: Monster | Character): DeckData {
+  deckData(figure: Monster | Character, ignoreError: boolean = false): DeckData {
     let deckData = this.decksData(figure.edition).find((deck) => (deck.name == figure.deck || deck.name == figure.name));
 
     // find extensions decks
@@ -411,7 +411,7 @@ export class GameManager {
 
     if (!deckData) {
       figure.errors = figure.errors || [];
-      if (!figure.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !figure.errors.find((figureError) => figureError.type == FigureErrorType.deck)) {
+      if (!ignoreError && !figure.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !figure.errors.find((figureError) => figureError.type == FigureErrorType.deck)) {
         console.error("Unknwon deck: " + figure.name + (figure.deck ? "[" + figure.deck + "]" : "") + " for " + figure.edition);
         figure.errors.push(new FigureError(FigureErrorType.deck, figure instanceof Character ? "character" : "monster", figure.name, figure.edition, figure.deck));
       }

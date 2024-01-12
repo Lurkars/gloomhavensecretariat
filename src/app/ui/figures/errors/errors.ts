@@ -21,7 +21,7 @@ export class FigureErrorsComponent implements OnInit {
   }
 
   open(event: any) {
-    this.dialog.open(FigureErrorsDialogComponent, { panelClass: 'dialog', data: this.figure });
+    this.dialog.open(FigureErrorsDialogComponent, { panelClass: ['dialog'], data: this.figure });
   }
 }
 

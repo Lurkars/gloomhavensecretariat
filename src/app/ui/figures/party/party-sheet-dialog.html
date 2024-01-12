@@ -140,11 +140,17 @@
               [ghs-label]="'party.campaign.sheet.winter'"></span><img src="./assets/images/fh/party/winter.svg"></label>
         </div>
 
+        <div class="calendar-lock-toggle">
+          <a (click)="settingsManager.setCalendarLocked(!settingsManager.settings.calendarLocked)">
+            <img [src]="'./assets/images/lock' + (settingsManager.settings.calendarLocked ? '' : '-open') + '.svg'">
+          </a>
+        </div>
+
         <div class="weeks">
           <div class="week" *ngFor="let week of [] | ghsRange:80; let index = index" ghs-pointer-input
             [ghs-tooltip]="'party.campaign.sheet.weekSections.hint'" (singleClick)="setWeek(index+1 + 80*calendarSheet)"
             (doubleClick)="setWeekSection(index+1+ 80*calendarSheet)"
-            [ngClass]="{'checked': party.weeks > index + 80*calendarSheet, 'section': sectionsForWeekFixed(week+ 80*calendarSheet).length > 0 || sectionsForWeek(week+ 80*calendarSheet).length > 0}">
+            [ngClass]="{'checked': party.weeks > index + 80*calendarSheet, 'section': sectionsForWeekFixed(week+ 80*calendarSheet).length > 0 || sectionsForWeek(week+ 80*calendarSheet).length > 0, 'locked': settingsManager.settings.calendarLocked}">
             <div class="section" *ngFor="let section of sectionsForWeekFixed(week+ 80*calendarSheet)">
               <img
                 [src]="'./assets/images/' + (hasConclusions(section) ? 'hint.svg' : (isConclusion(section) ? 'scenario/conclusion.svg'  : 'fh/party/section.svg'))">
@@ -484,7 +490,7 @@
                     src="./assets/images/check.svg"></a>
               </span>
             </div>
-            <div class="scenario unlock">
+            <div class="scenario unlock" *ngIf="scenarioEditions.length == 1">
               <input #unlockScenarioIndex [ghs-label]="'party.campaign.scenarios.index'"
                 [ghs-label-attribute]="'placeholder'"
                 (keyup)="unlockScenarioIndex.classList.remove('error'); unlockScenarioGroup.classList.remove('error');"
@@ -541,7 +547,7 @@
                   </span>
                 </div>
               </ng-container>
-              <div class="scenario unlock">
+              <div class="scenario unlock" *ngIf="scenarioEditions.length == 1">
                 <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg"> / <img class="ghs-svg"
                   src="./assets/images/fh/puzzle.svg">
                 <input #unlockConclusionIndex [ghs-label]="'party.campaign.scenarios.index'"
@@ -587,7 +593,7 @@
                 <div class="checkbox" (click)="setDonations(index+1)" [ngClass]="{'checked': party.donations > index}">
                 </div>
                 <img src="./assets/images/coin.png" />
-                +10g
+                <span class="value">+10g</span>
               </div>
             </div>
           </div>

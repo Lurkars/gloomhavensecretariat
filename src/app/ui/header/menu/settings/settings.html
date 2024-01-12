@@ -187,6 +187,36 @@
     </div>
     <div class="line">
       <div class="hint-container">
+        <label [ngClass]="{'disabled' : !settingsManager.settings.characterItems }">
+          <input tabclick type="checkbox"
+            [checked]="settingsManager.settings.characterItems && settingsManager.settings.characterItemsApply"
+            (change)="settingsManager.setCharacterItemsApply(!settingsManager.settings.characterItemsApply)">
+          <span [ghs-label]="'settings.characterItemsApply'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.characterItemsApply.hint'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.characterShieldRetaliate"
+            (change)="settingsManager.setCharacterShieldRetaliate(!settingsManager.settings.characterShieldRetaliate)">
+          <span [ghs-label]="'settings.characterShieldRetaliate'"></span>
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text" [ghs-label]="'settings.characterShieldRetaliate.hint'"></span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="line">
+      <div class="hint-container">
         <label>
           <input tabclick type="checkbox" [checked]="settingsManager.settings.activeSummons"
             (change)="settingsManager.setActiveSummons(!settingsManager.settings.activeSummons)">
@@ -198,9 +228,6 @@
         </span>
       </div>
     </div>
-  </div>
-
-  <div class="column">
     <div class="line">
       <div class="hint-container">
         <label>
@@ -341,7 +368,8 @@
       <div class="line">
         <div class="hint-container">
           <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
-            <input tabclick type="checkbox" [checked]="settingsManager.settings.abilities && settingsManager.settings.calculate"
+            <input tabclick type="checkbox"
+              [checked]="settingsManager.settings.abilities && settingsManager.settings.calculate"
               (change)="settingsManager.setCalculate(!settingsManager.settings.calculate)">
             <span [ghs-label]="'settings.calc'"></span>
           </label>
@@ -528,7 +556,8 @@
       <div class="line">
         <div class="hint-container">
           <label [ngClass]="{'disabled' : !settingsManager.settings.standees}">
-            <input tabclick type="checkbox" [checked]="settingsManager.settings.eliteFirst && settingsManager.settings.standees"
+            <input tabclick type="checkbox"
+              [checked]="settingsManager.settings.eliteFirst && settingsManager.settings.standees"
               (change)="settingsManager.setEliteFirst(!settingsManager.settings.eliteFirst)">
             <span [ghs-label]="'settings.eliteFirst'"></span>
           </label>
@@ -570,7 +599,8 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.standees}">
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.standees && settingsManager.settings.standeeStats"
+          <input tabclick type="checkbox"
+            [checked]="settingsManager.settings.standees && settingsManager.settings.standeeStats"
             (change)="settingsManager.setStandeeStats(!settingsManager.settings.standeeStats)">
           <span [ghs-label]="'settings.standeeStats'"></span>
         </label>
@@ -758,7 +788,8 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.lootDeck}">
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.lootDeck && settingsManager.settings.applyLoot"
+          <input tabclick type="checkbox"
+            [checked]="settingsManager.settings.lootDeck && settingsManager.settings.applyLoot"
             (change)="settingsManager.setApplyLoot(!settingsManager.settings.applyLoot)">
           <span [ghs-label]="'settings.applyLoot'"></span>
         </label>
@@ -815,7 +846,8 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !gameManager.fhRules()}">
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.automaticPassTime && gameManager.fhRules()"
+          <input tabclick type="checkbox"
+            [checked]="settingsManager.settings.automaticPassTime && gameManager.fhRules()"
             (change)="settingsManager.setAutomaticPassTime(!settingsManager.settings.automaticPassTime)">
           <span [ghs-label]="'settings.automaticPassTime'"></span>
         </label>
@@ -829,7 +861,8 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !gameManager.fhRules()}">
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.applyBuildingRewards && gameManager.fhRules()"
+          <input tabclick type="checkbox"
+            [checked]="settingsManager.settings.applyBuildingRewards && gameManager.fhRules()"
             (change)="settingsManager.setApplyBuildingRewards(!settingsManager.settings.applyBuildingRewards)">
           <span [ghs-label]="'settings.applyBuildingRewards'"></span>
         </label>
@@ -874,7 +907,8 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : gameManager.fhRules()}">
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.alwaysHazardousTerrain || gameManager.fhRules()"
+          <input tabclick type="checkbox"
+            [checked]="settingsManager.settings.alwaysHazardousTerrain || gameManager.fhRules()"
             (change)="settingsManager.setAlwaysHazardousTerrain(!settingsManager.settings.alwaysHazardousTerrain)">
           <span [ghs-label]="'settings.alwaysHazardousTerrain'"></span>
         </label>
@@ -1305,7 +1339,8 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.portraitMode" (change)="togglePortraitMode()">
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.portraitMode"
+            (change)="togglePortraitMode()">
           <span [ghs-label]="'settings.portraitMode'"></span>
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">

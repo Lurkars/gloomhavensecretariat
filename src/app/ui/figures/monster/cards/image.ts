@@ -4,6 +4,7 @@ import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
+import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 
 @Component({
   selector: 'ghs-monster-image',
@@ -62,7 +63,7 @@ export class MonsterImageDialogComponent {
   close() {
     this.opened = false;
     setTimeout(() => {
-      this.dialogRef.close();
+      ghsDialogClosingHelper(this.dialogRef);
     }, 400);
   }
 

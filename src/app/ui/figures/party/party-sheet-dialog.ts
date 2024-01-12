@@ -12,7 +12,7 @@ import { LootType } from "src/app/game/model/data/Loot";
 import { Party } from "src/app/game/model/Party";
 import { GameScenarioModel, Scenario, ScenarioCache } from "src/app/game/model/Scenario";
 import { AttackModiferDeckChange } from "../../figures/attackmodifier/attackmodifierdeck";
-import { ghsInputFullScreenCheck } from "../../helper/Static";
+import { ghsDialogClosingHelper, ghsInputFullScreenCheck } from "../../helper/Static";
 import { CharacterMoveResourcesDialog } from "../../figures/character/sheet/move-resources";
 import { ScenarioConclusionComponent } from "../../footer/scenario/scenario-conclusion/scenario-conclusion";
 import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
@@ -150,7 +150,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   close() {
-    this.dialogRef.close();
+    ghsDialogClosingHelper(this.dialogRef);
   }
 
   toggleCampaignMode() {
@@ -162,8 +162,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   openMap() {
     this.dialog.open(WorldMapComponent, {
-      backdropClass: 'fullscreen-backdrop',
-      panelClass: 'fullscreen-panel',
+      panelClass: ['fullscreen-panel'],
+      backdropClass: ['fullscreen-backdrop'],
       data: this.partyEdition
     })
     this.close();
@@ -498,7 +498,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     const conclusion = this.party.conclusions.filter((value) => value.edition == scenarioData.edition).map((value) => gameManager.sectionData(scenarioData.edition).find((sectionData) => sectionData.index == value.index && sectionData.edition == value.edition && sectionData.group == value.group) as ScenarioData).find((conclusionData) => conclusionData.parent == scenarioData.index && conclusionData.group == scenarioData.group);
 
     this.dialog.open(ScenarioSummaryComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: {
         scenario: new Scenario(scenarioData),
         conclusion: conclusion,
@@ -512,7 +512,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   scenarioRequirements(scenarioData: ScenarioData) {
     if (gameManager.scenarioManager.isLocked(scenarioData)) {
       this.dialog.open(ScenarioRequirementsComponent, {
-        panelClass: 'dialog',
+        panelClass: ['dialog'],
         data: { scenarioData: scenarioData, hideMenu: true }
       })
     }
@@ -700,6 +700,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   openItem(item: ItemData) {
     this.dialog.open(ItemDialogComponent, {
+      panelClass: ['fullscreen-panel'],
+      disableClose: true,
       data: { item: item }
     })
   }
@@ -719,7 +721,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   treasuresDialog() {
     this.dialog.open(TreasuresDialogComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: { party: this.party, edition: this.treasureEdition }
     })
   }
@@ -812,7 +814,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
               gameManager.stateManager.after();
 
               this.dialog.open(ScenarioSummaryComponent, {
-                panelClass: 'dialog',
+                panelClass: ['dialog'],
                 data: {
                   scenario: scenario,
                   conclusionOnly: true
@@ -850,7 +852,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         this.openConclusions(scenario.index);
       } else {
         this.dialog.open(ScenarioSummaryComponent, {
-          panelClass: 'dialog',
+          panelClass: ['dialog'],
           data: {
             scenario: scenario,
             conclusionOnly: true
@@ -869,6 +871,10 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   setWeek(value: number) {
+    if (settingsManager.settings.calendarLocked) {
+      return;
+    }
+
     if (this.party.weeks == value) {
       value--;
     }
@@ -926,7 +932,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   moveResources(character: Character) {
     this.dialog.open(CharacterMoveResourcesDialog, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       data: { character: character }
     }).closed.subscribe({ next: () => this.update() });
   }

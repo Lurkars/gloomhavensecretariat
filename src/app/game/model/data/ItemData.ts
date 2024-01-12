@@ -33,6 +33,7 @@ export class ItemData implements Editional {
   requiredItems: number[] = [];
   requiredBuilding: string = "";
   requiredBuildingLevel: number = 0;
+  effects: ItemEffect[] = [];
 }
 
 export enum ItemSlot {
@@ -45,6 +46,18 @@ export enum ItemSlot {
   small = "small"
 
 }
+
+export enum ItemEffectType {
+  condition = "condition",
+  immune = "immune",
+  heal = "heal",
+  damage = "damage",
+  element = "element",
+  refreshSpent = "refreshSpent",
+  removeNegativeConditions = "removeNegativeConditions"
+}
+
+export type ItemEffect = { type: ItemEffectType, value: number | string };
 
 export enum ItemResourceTypes {
   arrowvine = "arrowvine",

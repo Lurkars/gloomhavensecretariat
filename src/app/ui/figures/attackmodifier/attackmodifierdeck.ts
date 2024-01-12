@@ -235,7 +235,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
       }
     } else {
       this.dialog.open(AttackModifierDeckDialogComponent, {
-        panelClass: 'dialog', data: {
+        panelClass: ['dialog'], data: {
           deck: this.deck,
           character: this.character,
           ally: this.ally,
@@ -251,7 +251,8 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
 
   openFullscreen(event: any) {
     this.dialog.open(AttackModifierDeckFullscreenComponent, {
-      backdropClass: 'fullscreen-backdrop',
+      panelClass: ['fullscreen-panel'],
+      backdropClass: ['fullscreen-backdrop'],
       data: {
         deck: this.deck,
         character: this.character,
@@ -319,7 +320,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
       this.openFullscreen(event);
     } else {
       this.dialog.open(AttackModifierDeckDialogComponent, {
-        panelClass: 'dialog', data: {
+        panelClass: ['dialog'], data: {
           deck: this.deck,
           character: this.character,
           ally: this.ally,

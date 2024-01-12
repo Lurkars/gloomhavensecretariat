@@ -1,4 +1,4 @@
-<div class="entity-menu-dialog">
+<div class="entity-menu-dialog scroll-container">
 
   <ghs-entity-index-key *ngIf="data.entityIndexKey && data.entity" [entity]="data.entity"
     [show]="true"></ghs-entity-index-key>
@@ -157,7 +157,7 @@
               <img class="ghs-svg" src="./assets/images/minus.svg">
             </ghs-pointer-input>
           </span>
-          <span class="item character-token" [ghs-label]="'game.character.token'" [ghs-label-attribute]="'title'">
+          <span class="item character-token" [ghs-label]="'character.token'" [ghs-label-attribute]="'title'">
             <span class="badge badge-left">{{gameManager.toCharacter(data.entity).token + characterToken}}</span>
             <span [ghs-label]="'%data.characterToken.' + gameManager.toCharacter(data.entity).name + '%'"></span>
             <span class="badge badge-right" [value-sign]="characterToken" [hideEmpty]="true"></span>
@@ -198,7 +198,7 @@
 
         <span class="item">
           <ghs-pointer-input class="button"
-            [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) + bless == 0 || isImmune(ConditionName.bless)}"
+            [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) + bless == 0 || isImmune(ConditionName.bless) || entityImmunities.indexOf(ConditionName.bless) != -1}"
             (singleClick)="changeBless(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </ghs-pointer-input>
@@ -207,7 +207,8 @@
           <span class="badge badge-left bless-count">{{countUpcomingAttackModifier(AttackModifierType.bless) +
             bless}}</span>
           <span class="condition" [ghs-tooltip]="'game.condition.bless.hint'" [originX]="'center'" [overlayX]="'center'"
-            [originY]="'top'" [overlayY]="'bottom'" [ngClass]="{'immunity disabled' : isImmune(ConditionName.bless)}">
+            [originY]="'top'" [overlayY]="'bottom'"
+            [ngClass]="{'immunity disabled' : isImmune(ConditionName.bless) || entityImmunities.indexOf(ConditionName.bless) != -1}">
             <img src="./assets/images/status/bless.svg" />
           </span>
           <span class="badge badge-right" [value-sign]="bless" [hideEmpty]="true"></span>
@@ -218,7 +219,7 @@
         </span>
         <span class="item">
           <ghs-pointer-input class="button"
-            [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingBlesses() + bless >= 10 || isImmune(ConditionName.bless)}"
+            [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingBlesses() + bless >= 10 || isImmune(ConditionName.bless) || entityImmunities.indexOf(ConditionName.bless) != -1}"
             (singleClick)="changeBless(1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </ghs-pointer-input>
@@ -226,7 +227,7 @@
 
         <span class="item">
           <ghs-pointer-input class="button"
-            [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.curse) + curse == 0 || isImmune(ConditionName.curse)}"
+            [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.curse) + curse == 0 || isImmune(ConditionName.curse) || entityImmunities.indexOf(ConditionName.curse) != -1}"
             (singleClick)="changeCurse(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </ghs-pointer-input>
@@ -235,7 +236,8 @@
           <span class="badge badge-left curse-count">{{countUpcomingAttackModifier(AttackModifierType.curse) +
             curse}}</span>
           <span class="condition" [ghs-tooltip]="'game.condition.curse.hint'" [originX]="'center'" [overlayX]="'center'"
-            [originY]="'top'" [overlayY]="'bottom'" [ngClass]="{'immunity disabled' : isImmune(ConditionName.curse)}">
+            [originY]="'top'" [overlayY]="'bottom'"
+            [ngClass]="{'immunity disabled' : isImmune(ConditionName.curse) || entityImmunities.indexOf(ConditionName.curse) != -1}">
             <img src="./assets/images/status/curse.svg" />
           </span>
           <span class="badge badge-right" [value-sign]="curse" [hideEmpty]="true"></span>
@@ -246,25 +248,26 @@
         </span>
         <span class="item">
           <ghs-pointer-input class="button"
-            [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingCurses(gameManager.isMonster(data.figure) && !gameManager.toMonster(data.figure).isAlly && !gameManager.toMonster(data.figure).isAllied) + curse >= 10 || isImmune(ConditionName.curse)}"
+            [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingCurses(gameManager.isMonster(data.figure) && !gameManager.toMonster(data.figure).isAlly && !gameManager.toMonster(data.figure).isAllied) + curse >= 10 || isImmune(ConditionName.curse) || entityImmunities.indexOf(ConditionName.curse) != -1}"
             (singleClick)="changeCurse(1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </ghs-pointer-input>
         </span>
 
-        <ng-container *ngIf="hasCondition(ConditionName.empower) && empowerChars.length > 0">
+        <ng-container *ngIf="hasCondition(ConditionName.empower)">
           <span class="item">
             <ghs-pointer-input class="button"
-              [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.empower) + empower == 0}"
+              [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.empower) + empower == 0  || isImmune(ConditionName.empower) || entityImmunities.indexOf(ConditionName.empower) != -1}"
               (singleClick)="changeEmpower(-1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/minus.svg">
             </ghs-pointer-input>
           </span>
-          <span class="item" [ghs-tooltip]="'game.condition.empower.hint'" [originX]="'center'" [overlayX]="'center'"
-            [originY]="'top'" [overlayY]="'bottom'">
+          <span class="item">
             <span class="badge badge-left empower-count">{{countUpcomingAttackModifier(AttackModifierType.empower) +
               empower}}</span>
-            <span class="condition">
+            <span class="condition" [ghs-tooltip]="'game.condition.empower.hint'" [originX]="'center'"
+              [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'"
+              [ngClass]="{'immunity disabled' : isImmune(ConditionName.empower) || entityImmunities.indexOf(ConditionName.empower) != -1}">
               <img src="./assets/images/status/empower.svg" />
             </span>
             <span class="badge badge-right" [value-sign]="empower" [hideEmpty]="true"></span>
@@ -276,26 +279,28 @@
             </span>
           </span>
           <span class="item">
-            <ghs-pointer-input class="button" [ngClass]="{'disabled' : empowerChar && empower >= countEmpower()}"
+            <ghs-pointer-input class="button"
+              [ngClass]="{'disabled' : empowerChar && empower >= countEmpower() || isImmune(ConditionName.empower) || entityImmunities.indexOf(ConditionName.empower) != -1}"
               (singleClick)="changeEmpower(1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/plus.svg">
             </ghs-pointer-input>
           </span>
         </ng-container>
 
-        <ng-container *ngIf="hasCondition(ConditionName.enfeeble) && enfeebleChars.length > 0">
+        <ng-container *ngIf="hasCondition(ConditionName.enfeeble)">
           <span class="item">
             <ghs-pointer-input class="button"
-              [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.enfeeble) + enfeeble == 0}"
+              [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.enfeeble) + enfeeble == 0 || isImmune(ConditionName.enfeeble) || entityImmunities.indexOf(ConditionName.enfeeble) != -1}"
               (singleClick)="changeEnfeeble(-1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/minus.svg">
             </ghs-pointer-input>
           </span>
-          <span class="item" [ghs-tooltip]="'game.condition.enfeeble.hint'" [originX]="'center'" [overlayX]="'center'"
-            [originY]="'top'" [overlayY]="'bottom'">
+          <span class="item">
             <span class="badge badge-left enfeeble-count">{{countUpcomingAttackModifier(AttackModifierType.enfeeble) +
               enfeeble}}</span>
-            <span class="condition">
+            <span class="condition" [ghs-tooltip]="'game.condition.enfeeble.hint'" [originX]="'center'"
+              [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'"
+              [ngClass]="{'immunity disabled' : isImmune(ConditionName.enfeeble) || entityImmunities.indexOf(ConditionName.enfeeble) != -1}">
               <img src="./assets/images/status/enfeeble.svg" />
             </span>
             <span class="badge badge-right" [value-sign]="enfeeble" [hideEmpty]="true"></span>
@@ -307,13 +312,13 @@
             </span>
           </span>
           <span class="item">
-            <ghs-pointer-input class="button" [ngClass]="{'disabled' :  enfeebleChar && enfeeble >= countEnfeeble()}"
+            <ghs-pointer-input class="button"
+              [ngClass]="{'disabled' :  enfeebleChar && enfeeble >= countEnfeeble() || isImmune(ConditionName.enfeeble) || entityImmunities.indexOf(ConditionName.enfeeble) != -1}"
               (singleClick)="changeEnfeeble(1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/plus.svg">
             </ghs-pointer-input>
           </span>
         </ng-container>
-
       </ng-container>
 
       <ng-container *ngIf="data.entity && gameManager.isObjective(data.entity)">
@@ -518,8 +523,114 @@
     <ng-container
       *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isObjective(data.entity) || gameManager.toObjective(data.entity).escort) && (!gameManager.isObjectiveEntity(data.entity) || gameManager.isObjectiveContainer(data.figure) && gameManager.toObjectiveContainer(data.figure).escort) && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal)">
       <ghs-conditions [entityConditions]="entityConditions" [immunities]="entityImmunities" [entity]="data.entity"
-        [figure]="data.figure" [type]="conditionType"></ghs-conditions>
+        [figure]="data.figure" [type]="conditionType" [empower]="hasCondition(ConditionName.empower)"
+        [enfeeble]="hasCondition(ConditionName.enfeeble)"></ghs-conditions>
     </ng-container>
+
+    <div class="entity-container"
+      *ngIf="settingsManager.settings.characterShieldRetaliate && data.entity && gameManager.isCharacter(data.entity)">
+
+
+      <span class="shield-overlay">
+        <span class="text-white" [ghs-label]="'%game.card.round%'"></span>
+      </span>
+
+      <span class="item">
+        <ghs-pointer-input class="button" (singleClick)="changeShield(-1)"
+          [ngClass]="{'disabled' : !characterShield.value}">
+          <img class=" ghs-svg" src="./assets/images/minus.svg">
+        </ghs-pointer-input>
+      </span>
+      <span class="item">
+        <ghs-action [action]="characterShield" [style]="'fh'"></ghs-action>
+      </span>
+      <span class="item">
+        <ghs-pointer-input class="button" (singleClick)="changeShield(1)">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </ghs-pointer-input>
+      </span>
+
+      <ng-container *ngFor="let realiate of characterRetaliate; let i = index">
+        <span class="item column">
+          <ghs-pointer-input class="button" (singleClick)="changeRetaliate(i,-1,0)"
+            [ngClass]="{'disabled' : !realiate.value}">
+            <img class=" ghs-svg" src="./assets/images/minus.svg">
+          </ghs-pointer-input>
+          <ghs-pointer-input class="button small" (singleClick)="changeRetaliate(i,0,-1)"
+            [ngClass]="{'disabled' : EntityValueFunction(characterRetaliateRange[i].value) <= 1}">
+            <img class=" ghs-svg" src="./assets/images/minus.svg">
+          </ghs-pointer-input>
+        </span>
+        <span class="item column">
+          <ghs-action [action]="realiate" [style]="'fh'"></ghs-action>
+          <ghs-action [action]="characterRetaliateRange[i]" [style]="'fh'"></ghs-action>
+          <ghs-pointer-input *ngIf="i == characterRetaliate.length -1 && realiate.value" class="button add-retaliate"
+            (singleClick)="changeRetaliate(characterRetaliate.length,1,0)">
+            <img class="ghs-svg" src="./assets/images/select-arrow.svg">
+          </ghs-pointer-input>
+        </span>
+        <span class="item column">
+          <ghs-pointer-input class="button" (singleClick)="changeRetaliate(i,1, 0)">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </ghs-pointer-input>
+          <ghs-pointer-input class="button small" (singleClick)="changeRetaliate(i,0, 1)">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </ghs-pointer-input>
+        </span>
+      </ng-container>
+
+      <div class="separator"></div>
+
+      <span class="shield-overlay">
+        <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
+      </span>
+
+      <span class="item">
+        <ghs-pointer-input class="button" (singleClick)="changeShieldPersistent(-1)"
+          [ngClass]="{'disabled' : !characterShieldPersistent.value}">
+          <img class=" ghs-svg" src="./assets/images/minus.svg">
+        </ghs-pointer-input>
+      </span>
+      <span class="item">
+        <ghs-action [action]="characterShieldPersistent" [style]="'fh'"></ghs-action>
+      </span>
+      <span class="item">
+        <ghs-pointer-input class="button" (singleClick)="changeShieldPersistent(1)">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </ghs-pointer-input>
+      </span>
+
+      <ng-container *ngFor="let realiatePermanent of characterRetaliatePersistent; let i = index">
+        <span class="item column">
+          <ghs-pointer-input class="button" (singleClick)="changeRetaliatePersistent(i,-1,0)"
+            [ngClass]="{'disabled' : !realiatePermanent.value}">
+            <img class=" ghs-svg" src="./assets/images/minus.svg">
+          </ghs-pointer-input>
+          <ghs-pointer-input class="button small" (singleClick)="changeRetaliatePersistent(i,0,-1)"
+            [ngClass]="{'disabled' : EntityValueFunction(characterRetaliateRangePersistent[i].value) <= 1}">
+            <img class=" ghs-svg" src="./assets/images/minus.svg">
+          </ghs-pointer-input>
+        </span>
+        <span class="item column">
+          <ghs-action [action]="realiatePermanent" [style]="'fh'"></ghs-action>
+          <ghs-action [action]="characterRetaliateRangePersistent[i]" [style]="'fh'"></ghs-action>
+          <ghs-pointer-input *ngIf="i == characterRetaliatePersistent.length -1 && realiatePermanent.value"
+            class="button add-retaliate"
+            (singleClick)="changeRetaliatePersistent(characterRetaliatePersistent.length,1,0)">
+            <img class="ghs-svg" src="./assets/images/select-arrow.svg">
+          </ghs-pointer-input>
+        </span>
+        <span class="item column">
+          <ghs-pointer-input class="button" (singleClick)="changeRetaliatePersistent(i,1, 0)">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </ghs-pointer-input>
+          <ghs-pointer-input class="button small" (singleClick)="changeRetaliatePersistent(i,0, 1)">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </ghs-pointer-input>
+        </span>
+      </ng-container>
+
+    </div>
   </div>
 
   <div

@@ -54,7 +54,7 @@ export class LevelComponent implements OnInit, OnDestroy {
         { overlayX: 'end', overlayY: 'bottom' })];
 
     this.dialog.open(LevelDialogComponent, {
-      panelClass: 'dialog',
+      panelClass: ['dialog'],
       positionStrategy: this.overlay.position().flexibleConnectedTo(this.levelButton).withPositions(positions).withDefaultOffsetY(-10)
     });
   }

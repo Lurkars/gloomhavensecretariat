@@ -361,6 +361,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setCalendarLocked(calendarLocked: boolean) {
+    this.settings.calendarLocked = calendarLocked;
+    this.storeSettings();
+  }
+
   setCharacterAttackModifierDeck(characterAttackModifierDeck: boolean) {
     this.settings.characterAttackModifierDeck = characterAttackModifierDeck;
     this.storeSettings();
@@ -406,6 +411,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setCharacterItemsApply(characterItemsApply: boolean) {
+    this.settings.characterItemsApply = characterItemsApply;
+    this.storeSettings();
+  }
+
   setCharacterItemsPermanent(characterItemsPermanent: boolean) {
     this.settings.characterItemsPermanent = characterItemsPermanent;
     this.storeSettings();
@@ -423,6 +433,11 @@ export class SettingsManager {
 
   setCharacterSheetCompact(characterSheetCompact: boolean) {
     this.settings.characterSheetCompact = characterSheetCompact;
+    this.storeSettings();
+  }
+
+  setCharacterShieldRetaliate(characterShieldRetaliate: boolean) {
+    this.settings.characterShieldRetaliate = characterShieldRetaliate;
     this.storeSettings();
   }
 

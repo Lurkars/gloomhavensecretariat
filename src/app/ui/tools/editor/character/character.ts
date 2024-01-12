@@ -31,6 +31,8 @@ export class CharacterEditorComponent implements OnInit {
     [8, 9, 11, 12, 14, 15, 17, 18, 20],
     [10, 12, 14, 16, 18, 20, 22, 24, 26]
   ]
+  editions: string[] = [];
+  charactersData: CharacterData[] = [];
 
   constructor(private route: ActivatedRoute, private router: Router) {
     this.characterData = new CharacterData();
@@ -47,6 +49,9 @@ export class CharacterEditorComponent implements OnInit {
       this.characterDataFromJson();
     });
 
+    this.editions = gameManager.editions(true);
+    this.charactersData = gameManager.charactersData(this.edition);
+
     this.route.queryParams.subscribe({
       next: (queryParams) => {
         if (queryParams['edition']) {
@@ -54,6 +59,7 @@ export class CharacterEditorComponent implements OnInit {
           if (this.edition && gameManager.editions(true).indexOf(this.edition) == -1) {
             this.edition == undefined;
           }
+          this.charactersData = gameManager.charactersData(this.edition);
         }
 
         if (queryParams['character']) {
@@ -115,6 +121,15 @@ export class CharacterEditorComponent implements OnInit {
         this.characterError = e;
       }
     }
+  }
+
+  selectEdition(event: any) {
+    if (this.editions.indexOf(event.target.value) != -1) {
+      this.edition = event.target.value;
+    } else {
+      this.edition = undefined;
+    }
+    this.charactersData = gameManager.charactersData(this.edition);
   }
 
   loadCharacterData(event: any) {

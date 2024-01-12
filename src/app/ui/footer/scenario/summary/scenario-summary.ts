@@ -15,6 +15,7 @@ import { CharacterBattleGoalsDialog } from "src/app/ui/figures/battlegoal/dialog
 import { BattleGoal } from "src/app/game/model/data/BattleGoal";
 import { ItemDialogComponent } from "src/app/ui/figures/items/dialog/item-dialog";
 import { AttackModifier, additionalTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
     selector: 'ghs-scenario-summary',
@@ -153,7 +154,7 @@ export class ScenarioSummaryComponent {
                 if (!this.conclusionOnly) {
                     if (!gameManager.game.finish) {
                         gameManager.stateManager.scenarioSummary = false;
-                        this.dialogRef.close();
+                        this.close();
                     } else {
                         this.loadFinish();
                     }
@@ -403,7 +404,7 @@ export class ScenarioSummaryComponent {
 
         const value = EntityValueFunction(resource.value);
 
-        return value > 0 && (value - (this.collectiveResources && this.collectiveResources.length > 0 ? this.collectiveResources.map((value) => value[type] || 0).reduce((a, b) => a + b)  : 0)) || 0;
+        return value > 0 && (value - (this.collectiveResources && this.collectiveResources.length > 0 ? this.collectiveResources.map((value) => value[type] || 0).reduce((a, b) => a + b) : 0)) || 0;
     }
 
     lootValue(character: Character, lootType: LootType): number {
@@ -529,6 +530,8 @@ export class ScenarioSummaryComponent {
     openItemDialog(itemData: ItemData | undefined) {
         if (itemData) {
             this.dialog.open(ItemDialogComponent, {
+                panelClass: ['fullscreen-panel'],
+                disableClose: true,
                 data: { item: itemData }
             })
         }
@@ -718,7 +721,7 @@ export class ScenarioSummaryComponent {
         }
         await gameManager.stateManager.after(0, settingsManager.settings.autoBackup > -1 && settingsManager.settings.autoBackupFinish && (settingsManager.settings.autoBackup == 0 || (gameManager.game.revision + gameManager.game.revisionOffset) % settingsManager.settings.autoBackup != 0));
 
-        this.dialogRef.close();
+        this.close();
     }
 
     restart() {
@@ -726,11 +729,11 @@ export class ScenarioSummaryComponent {
         gameManager.stateManager.before("finishScenario.restart", ...gameManager.scenarioManager.scenarioUndoArgs());
         gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, true, undefined, settingsManager.settings.scenarioRewards && (this.characterProgress || this.forceCampaign), this.gainRewards || this.forceCampaign, false);
         gameManager.stateManager.after(1000);
-        this.dialogRef.close();
+        this.close();
     }
 
     close() {
-        this.dialogRef.close();
+        ghsDialogClosingHelper(this.dialogRef);
     }
 
     unlocked(character: string) {

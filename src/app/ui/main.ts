@@ -16,6 +16,7 @@ import { MonsterType } from '../game/model/data/MonsterType';
 import { storageManager } from '../game/businesslogic/StorageManager';
 import { PointerInputService } from './helper/pointer-input';
 import { Subscription } from 'rxjs';
+import { ghsDialogClosingHelper } from './helper/Static';
 
 @Component({
   selector: 'ghs-main',
@@ -137,14 +138,25 @@ export class MainComponent implements OnInit {
           dialogRef.overlayRef.backdropElement.style.opacity = '0';
         }
 
-        let closeIcon = document.createElement('img');
-        closeIcon.src = './assets/images/close_dialog.svg';
-        let closeElement = document.createElement('a');
-        closeElement.classList.add('dialog-close-button');
-        closeElement.appendChild(closeIcon);
-        closeElement.addEventListener('click', () => dialogRef.close());
-        closeElement.title = settingsManager.getLabel('close');
-        dialogRef.overlayRef.hostElement.appendChild(closeElement);
+        if (!dialogRef.disableClose) {
+          let closeIcon = document.createElement('img');
+          closeIcon.src = './assets/images/close_dialog.svg';
+          let closeElement = document.createElement('a');
+          closeElement.classList.add('dialog-close-button');
+          closeElement.appendChild(closeIcon);
+          closeElement.addEventListener('click', () => {
+            ghsDialogClosingHelper(dialogRef);
+          });
+          closeElement.title = settingsManager.getLabel('close');
+          dialogRef.overlayRef.hostElement.appendChild(closeElement);
+
+          if (dialogRef.overlayRef.backdropElement) {
+            dialogRef.disableClose = true;
+            dialogRef.overlayRef.backdropElement.addEventListener('click', () => {
+              ghsDialogClosingHelper(dialogRef);
+            });
+          }
+        }
       }
     })
   }
@@ -491,7 +503,7 @@ export class MainComponent implements OnInit {
           entity = monster.entities.find((entity) => entity.number < 1 && gameManager.entityManager.isAlive(entity));
         }
         this.standeeDialog = this.dialog.open(MonsterNumberPickerDialog, {
-          panelClass: 'dialog',
+          panelClass: ['dialog'],
           disableClose: true,
           data: {
             monster: monster,

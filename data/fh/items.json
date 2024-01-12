@@ -700,6 +700,12 @@
         "value": "%data.items.fh-32.1%",
         "small": true
       }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "ward"
+      }
     ]
   },
   {
@@ -821,6 +827,16 @@
         "type": "custom",
         "value": "%data.items.fh-37.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "damage",
+        "value": 3
+      },
+      {
+        "type": "condition",
+        "value": "invisible"
       }
     ]
   },
@@ -1175,6 +1191,12 @@
         "type": "custom",
         "value": "%data.items.fh-51.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "wound"
       }
     ]
   },
@@ -1852,6 +1874,12 @@
           }
         ]
       }
+    ],
+    "effects": [
+      {
+        "type": "heal",
+        "value": 3
+      }
     ]
   },
   {
@@ -1936,6 +1964,12 @@
         "type": "custom",
         "value": "%data.items.fh-83.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "heal",
+        "value": 3
       }
     ]
   },
@@ -2068,6 +2102,12 @@
         "value": "%data.items.fh-89.1%",
         "small": true
       }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "ward"
+      }
     ]
   },
   {
@@ -2089,6 +2129,12 @@
         "value": "%data.items.fh-90.1%",
         "small": true
       }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "strengthen"
+      }
     ]
   },
   {
@@ -2109,6 +2155,12 @@
         "type": "custom",
         "value": "%data.items.fh-91.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "bless"
       }
     ]
   },
@@ -2286,6 +2338,12 @@
         "type": "custom",
         "value": "%data.items.fh-99.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "heal",
+        "value": 6
       }
     ]
   },
@@ -2800,6 +2858,24 @@
           }
         ]
       }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "wound"
+      },
+      {
+        "type": "condition",
+        "value": "poison"
+      },
+      {
+        "type": "condition",
+        "value": "immobilize"
+      },
+      {
+        "type": "condition",
+        "value": "disarm"
+      }
     ]
   },
   {
@@ -2827,6 +2903,12 @@
             "small": true
           }
         ]
+      }
+    ],
+    "effects": [
+      {
+        "type": "heal",
+        "value": 1
       }
     ]
   },
@@ -3160,6 +3242,20 @@
         "type": "custom",
         "value": "%data.items.fh-138.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "immune",
+        "value": "disarm"
+      },
+      {
+        "type": "immune",
+        "value": "stun"
+      },
+      {
+        "type": "immune",
+        "value": "muddle"
       }
     ]
   },
@@ -4807,6 +4903,12 @@
             "small": true
           }
         ]
+      }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "muddle"
       }
     ]
   },

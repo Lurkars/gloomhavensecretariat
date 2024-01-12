@@ -506,7 +506,7 @@
       ".": "Wave Crest"
     },
     "gh-112": {
-      "1": "During your melee attack, add +2 %game.action.attack% and %game.condition.pierce% 2 to the entire Attack action",
+      "1": "During your melee attack, add +2 %game.action.attack% and %game.action.pierce% 2 to the entire Attack action",
       ".": "Ancient Drill"
     },
     "gh-113": {

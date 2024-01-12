@@ -3,6 +3,7 @@ import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
+import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 
 @Component({
   selector: 'ghs-event-random-scenario-dialog',
@@ -26,11 +27,11 @@ export class EventRandomScenarioDialogComponent {
   }
 
   close() {
-    this.dialogRef.close();
+    ghsDialogClosingHelper(this.dialogRef);
   }
 
   apply() {
-    this.dialogRef.close(this.scenario);
+    ghsDialogClosingHelper(this.dialogRef, this.scenario);
   }
 
 }

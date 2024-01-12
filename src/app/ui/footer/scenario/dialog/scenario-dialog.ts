@@ -15,6 +15,7 @@ import { ScenarioTreasuresDialogComponent } from "../treasures/treasures-dialog"
 import { EventEffectsDialog } from "../../../figures/character/event-effects/event-effects";
 import { ScenarioConclusionComponent } from "../scenario-conclusion/scenario-conclusion";
 import { LootType } from "src/app/game/model/data/Loot";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
     selector: 'ghs-scenario-dialog',
@@ -101,16 +102,16 @@ export class ScenarioDialogComponent {
         const monster = new Monster(monsterData, gameManager.game.level);
         monster.tags = monsterData.tags;
         gameManager.monsterManager.resetMonsterAbilities(monster);
-        this.dialog.open(StatsListComponent, { panelClass: 'dialog', data: monster });
+        this.dialog.open(StatsListComponent, { panelClass: ['dialog'], data: monster });
     }
 
     finishScenario(success: boolean) {
-        this.dialogRef.close();
+        this.close();
         const conclusions = gameManager.scenarioManager.availableSections(true).filter((sectionData) =>
             sectionData.edition == this.scenario.edition && sectionData.parent == this.scenario.index && sectionData.group == this.scenario.group && sectionData.conclusion);
         if (conclusions.length < 2 || !success) {
             this.dialog.open(ScenarioSummaryComponent, {
-                panelClass: 'dialog',
+                panelClass: ['dialog'],
                 data: {
                     scenario: this.scenario,
                     conclusion: conclusions.length == 1 ? conclusions[0] : undefined,
@@ -125,7 +126,7 @@ export class ScenarioDialogComponent {
                 next: (conclusion) => {
                     if (conclusion) {
                         this.dialog.open(ScenarioSummaryComponent, {
-                            panelClass: 'dialog',
+                            panelClass: ['dialog'],
                             data: {
                                 scenario: this.scenario,
                                 conclusion: conclusion,
@@ -139,7 +140,7 @@ export class ScenarioDialogComponent {
     }
 
     resetScenario() {
-        this.dialogRef.close();
+        this.close();
         gameManager.stateManager.before("resetScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
         gameManager.roundManager.resetScenario();
         gameManager.scenarioManager.setScenario(this.scenario)
@@ -147,7 +148,7 @@ export class ScenarioDialogComponent {
     }
 
     cancelScenario() {
-        this.dialogRef.close();
+        this.close();
         gameManager.stateManager.before("cancelScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
         gameManager.scenarioManager.setScenario(undefined);
         gameManager.stateManager.after(1000);
@@ -156,14 +157,14 @@ export class ScenarioDialogComponent {
     openTreasures(event: any) {
         this.dialog.open(ScenarioTreasuresDialogComponent,
             {
-                panelClass: 'dialog'
+                panelClass: ['dialog']
             });
 
     }
 
     openEventEffects(event: any) {
-        this.dialog.open(EventEffectsDialog, { panelClass: 'dialog' });
-        this.dialogRef.close();
+        this.dialog.open(EventEffectsDialog, { panelClass: ['dialog'] });
+        this.close();
     }
 
     openRoom(roomData: RoomData) {
@@ -182,14 +183,18 @@ export class ScenarioDialogComponent {
     addSection(sectionData: ScenarioData) {
         this.dialog.open(SectionDialogComponent,
             {
-                panelClass: 'dialog',
+                panelClass: ['dialog'],
                 data: sectionData
             }).closed.subscribe({
                 next: (added) => {
                     if (added) {
-                        this.dialogRef.close();
+                       this.close();
                     }
                 }
             });
+    }
+
+    close() {
+        ghsDialogClosingHelper(this.dialogRef);
     }
 }
