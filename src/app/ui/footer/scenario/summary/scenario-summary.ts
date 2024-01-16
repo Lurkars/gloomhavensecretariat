@@ -620,17 +620,7 @@ export class ScenarioSummaryComponent {
         }
 
         if (settingsManager.settings.scenarioRewards && this.success) {
-            gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character).sort((a, b) => {
-                const aName = gameManager.characterManager.characterName(a).toLowerCase();
-                const bName = gameManager.characterManager.characterName(b).toLowerCase();
-                if (aName > bName) {
-                    return 1;
-                }
-                if (aName < bName) {
-                    return -1;
-                }
-                return 0;
-            }).forEach((character, index) => {
+            this.characters.forEach((character, index) => {
                 if (!character.absent) {
                     if (this.battleGoals[index] > 0) {
                         character.progress.battleGoals += this.battleGoals[index];
