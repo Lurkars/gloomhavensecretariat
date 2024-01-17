@@ -15,6 +15,7 @@ import { SwUpdate } from "@angular/service-worker";
 import { UndoDialogComponent } from "./undo/dialog";
 import { Subscription } from "rxjs";
 import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
+import { KeyboardShortcutsComponent } from "./keyboard-shortcuts/keyboard-shortcuts";
 
 export enum SubMenu {
   main = "main",
@@ -310,6 +311,13 @@ export class MainMenuComponent implements OnInit, OnDestroy {
 
   feedbackDialog() {
     this.dialog.open(FeedbackDialogComponent, {
+      panelClass: ['dialog']
+    })
+    this.close();
+  }
+
+  keyboardShourtcutsDialog() {
+    this.dialog.open(KeyboardShortcutsComponent, {
       panelClass: ['dialog']
     })
     this.close();

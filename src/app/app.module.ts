@@ -49,7 +49,7 @@ import { ConditionsComponent } from './ui/figures/conditions/conditions';
 import { ConditionHighlightAnimationDirective, HighlightConditionsComponent } from './ui/figures/conditions/highlight';
 import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
 import { EntityAnimationDirective } from './ui/helper/EntityAnimation';
-import { GhsLabelDirective } from './ui/helper/label';
+import { GhsLabelDirective, GhsLabelElementDirective } from './ui/helper/label';
 import { ValueCalcDirective } from './ui/helper/valueCalc';
 import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-sheet-dialog';
 import { ScenarioComponent } from './ui/footer/scenario/scenario';
@@ -88,6 +88,7 @@ import { DeckEditorComponent } from './ui/tools/editor/deck/deck';
 import { ScenarioRulesComponent } from './ui/footer/scenario-rules/scenario-rules';
 import { FeedbackToolComponent } from './ui/tools/feedback/feedback';
 import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';
+import { KeyboardShortcutsComponent } from './ui/header/menu/keyboard-shortcuts/keyboard-shortcuts';
 import { LootDeckComponent } from './ui/figures/loot/loot-deck';
 import { LootRandomItemDialogComponent } from './ui/figures/loot/random-item/random-item-dialog';
 import { LootDeckFullscreenComponent } from './ui/figures/loot/loot-deck-fullscreen';
@@ -183,7 +184,7 @@ export class GhsErrorHandler extends ErrorHandler {
     AbilityComponent, AbiltiesDialogComponent, AbilityDialogComponent,
     ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,
     FigureErrorsComponent, FigureErrorsDialogComponent, EntityIndexKeyComponent,
-    CardRevealDirective, EntityAnimationDirective, GhsLabelDirective, ValueCalcDirective, PointerInputDirective, AutocompleteDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective, ValueSignDirective,
+    CardRevealDirective, EntityAnimationDirective, GhsLabelDirective, GhsLabelElementDirective, ValueCalcDirective, PointerInputDirective, AutocompleteDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective, ValueSignDirective,
     GhsValueSignPipe, GhsRangePipe, GhsScenarioSearch, GhsFloorPipe, GhsCeilPipe, GhsMinZeroPipe,
     AttackModifierToolComponent, EventCardsToolComponent, TreasuresToolComponent, DecksToolComponent,
     EditionEditorComponent,
@@ -191,7 +192,7 @@ export class GhsErrorHandler extends ErrorHandler {
     DeckEditorComponent, CharacterEditorComponent, MonsterEditorComponent,
     GhsTooltipComponent, GhsTooltipDirective,
     KeyboardShortcuts, TabClickDirective,
-    FeedbackToolComponent, FeedbackDialogComponent],
+    FeedbackToolComponent, FeedbackDialogComponent, KeyboardShortcutsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

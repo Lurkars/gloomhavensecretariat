@@ -1,0 +1,13 @@
+.scroll-container {
+    color: var(--ghs-color-white);
+    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+}
+
+li {
+    display: flex;
+    align-items: center;
+
+    kbd {
+        margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+    }
+}
