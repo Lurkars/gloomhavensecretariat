@@ -21,6 +21,7 @@ import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 import { ObjectiveEntity } from "src/app/game/model/ObjectiveEntity";
 import { AdditionalAMSelectDialogComponent } from "./additional-am-select/additional-am-select";
 import { CharacterSpecialAction } from "src/app/game/model/data/CharacterStat";
+import { CharacterSheetDialog } from "../character/dialogs/character-sheet-dialog";
 
 @Component({
   selector: 'ghs-entity-menu-dialog',
@@ -134,8 +135,8 @@ export class EntityMenuDialogComponent {
     if (this.data.figure instanceof Character && this.data.entity instanceof Character) {
       if (this.data.entity.shield) {
         this.characterShield.value = this.data.entity.shield.value;
-      }      
-      
+      }
+
       if (this.data.entity.shieldPersistent) {
         this.characterShieldPersistent.value = this.data.entity.shieldPersistent.value;
       }
@@ -245,6 +246,16 @@ export class EntityMenuDialogComponent {
         }
         event.preventDefault();
         event.stopPropagation();
+      } else if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 's') {
+        if (this.data.entity instanceof Character) {
+          ghsDialogClosingHelper(this.dialogRef);
+          this.dialog.open(CharacterSheetDialog, {
+            panelClass: ['dialog-invert'],
+            data: { character: this.data.entity }
+          });
+          event.preventDefault();
+          event.stopPropagation();
+        }
       }
     }
   }

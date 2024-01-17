@@ -10,6 +10,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { MainMenuComponent, SubMenu } from './menu/menu';
 import { Subscription } from 'rxjs';
 import { EventEffectsDialog } from '../figures/character/event-effects/event-effects';
+import { PartySheetComponent } from './party/party-sheet';
 
 @Component({
   selector: 'ghs-header',
@@ -20,6 +21,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   @Input() standalone: boolean = false;
   @ViewChild('mainMenuButton') mainMenuButton!: ElementRef;
+  @ViewChild('partySheet') partySheet!: PartySheetComponent;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;

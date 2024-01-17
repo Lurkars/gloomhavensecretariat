@@ -14,7 +14,7 @@ import { EntityMenuDialogComponent } from '../figures/entity-menu/entity-menu-di
 import { HeaderComponent } from '../header/header';
 
 
-export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu";
+export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario";
 
 @Directive({
     selector: '[ghs-keyboard-shortcuts]'
@@ -156,7 +156,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     gameManager.stateManager.after();
 
                     event.preventDefault();
-                } else if (!this.dialogOpen && !event.ctrlKey && event.key === 'Tab') {
+                } else if (!this.dialogOpen && !event.ctrlKey && event.key === 'Tab' && gameManager.game.figures.length > 0) {
                     if (gameManager.game.state == GameState.next) {
                         this.toggleEntity(event.shiftKey);
                     } else {
@@ -176,6 +176,18 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                         event.stopPropagation();
                     }
                     event.preventDefault();
+                } else if ((!this.dialogOpen || this.allowed.indexOf('level') != -1) && this.footer && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'd' && this.footer.ghsLevel) {
+                    this.footer.ghsLevel.open();
+                } else if ((!this.dialogOpen || this.allowed.indexOf('scenario') != -1) && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'e') {
+                    if (gameManager.game.scenario && this.header) {
+                        this.header.openEventEffects();
+                    } else if (!gameManager.game.scenario && this.footer && this.footer.ghsScenario) {
+                        this.footer.ghsScenario.open(event);
+                    }
+                } else if ((!this.dialogOpen || this.allowed.indexOf('scenario') != -1) && this.footer && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'f' && this.footer.ghsScenario && gameManager.game.scenario) {
+                    this.footer.ghsScenario.open(event);
+                } else if ((!this.dialogOpen || this.allowed.indexOf('level') != -1) && this.header && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'p' && this.header.partySheet) {
+                    this.header.partySheet.open();
                 } else if (!this.dialogOpen && !event.ctrlKey && this.header && event.key === 'Escape') {
                     this.header.openMenu();
                     event.stopPropagation();

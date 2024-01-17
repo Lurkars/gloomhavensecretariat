@@ -76,7 +76,7 @@
       <img class="ghs-svg"
         [src]="'./assets/images/event' + (gameManager.game.round > 0 || gameManager.game.state == GameState.next ? '-effects' : '') + '.svg'">
     </div>
-    <ghs-party-sheet *ngIf="settingsManager.settings.partySheet"></ghs-party-sheet>
+    <ghs-party-sheet #partySheet *ngIf="settingsManager.settings.partySheet"></ghs-party-sheet>
     <span class="spacer"></span>
     <div class="elements"
       [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.elements}">

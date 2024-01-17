@@ -3,8 +3,8 @@
 The following keyboard shortcuts are currently implemented:
 
 - `CTRL-z`: Undo
-- `CTRL-y` / `CTRL-SHIFT-Z`: Redo
-
+- `CTRL-y` | `CTRL-SHIFT-Z`: Redo
+- `ESC`: open main menu
 - `Arrow Up` or `+`: Zoom-In
 - `Arrow Down` or `-`: Zoom-Out
 - `CTRL-r`: reset zoom
@@ -15,17 +15,24 @@ The following keyboard shortcuts are currently implemented:
 - `1-6`: toggle through element state
 - `h`: toggle `Hide absent figures`
 - `s`: select figure/standee for opening menu with number key (`0-9`)
+- `d`: difficulty/level menu
+- `e`: scenario effects menu
+- `f`: (finish) scenario menu
+- `p`: open party sheet
 
-On any open menu, those shortcuts are disabled, currently shortcuts available in figure/standee menu:
+On any open charakter/standee menu, those shortcuts are disabled, currently shortcuts available in figure/standee menu:
 - `Arrow Left`: dec. current HP
 - `Arrow Right`: inc. current HP
-- number key (`0-9`): toggle condition
+- number key (`0-9`): toggle condition/condition modifier
 - `b`: inc. Bless
 - `Shift+b`: dec. Bless
 - `c`: inc. Curse
 - `Shift+c`: dec. Curse
-- `k` or `d`: kill/exhaust
+- `k` | `d`: kill/exhaust
 - `Arrow Up/Down`: inc/dec max. HP
+- `s`: open character sheet
 
-On open section menu:
-- `Enter`: confirm opening
+On open menu:
+- `Enter` | `SPACE`: confirm action / open submenu
+- `ESC`: decline action / close menu
+- `Tab`: select action
