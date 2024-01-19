@@ -47,7 +47,7 @@
     </div>
     <p *ngIf="!gameManager.game.edition"><span [ghs-label]="'welcome.orChooseCharacters'"></span></p>
     <p *ngIf="gameManager.game.edition"><span [ghs-label]="'welcome.chooseCharacters'"></span></p>
-    <div class="add-characters" (click)="header.openMenu(SubMenu.character_add)">
+    <div tabclick class="add-characters" (click)="header.openMenu(SubMenu.character_add)">
       <span [ghs-label]="'hints.addCharacters'"></span>
     </div>
 

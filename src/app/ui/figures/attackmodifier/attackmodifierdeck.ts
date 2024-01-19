@@ -96,10 +96,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
     this.current = this.deck.current;
     this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
 
-    this.deck.cards.forEach((card, index) => {
-      this.rollingIndex[index] = this.calcRollingIndex(index, this.current);
-      this.rollingIndexPrev[index] = this.calcRollingIndex(index, this.current - 1);
-    });
+    this.calcRolling();
 
     if (!this.init) {
       this.drawTimeout = setTimeout(() => {
@@ -194,10 +191,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
       this.newStyle = true;
     }
 
-    this.deck.cards.forEach((card, index) => {
-      this.rollingIndex[index] = this.calcRollingIndex(index, this.current);
-      this.rollingIndexPrev[index] = this.calcRollingIndex(index, this.current - 1);
-    });
+    this.calcRolling();
 
     this.compact = settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
   }
@@ -277,6 +271,18 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
     event.stopPropagation();
   }
 
+  calcRolling() {
+    this.deck.cards.forEach((card, index) => {
+      this.rollingIndex[index] = this.calcRollingIndex(index, this.current);
+      this.rollingIndexPrev[index] = this.calcRollingIndex(index, this.current - 1);
+    });
+
+    this.deck.cards.forEach((card, index) => {
+      if (this.current > 1 && !card.rolling && index < (this.current - 1) && this.deck.cards[index + 1].rolling && this.deck.cards[this.current - 1].rolling && (this.rollingIndex[index + 1] || index == this.current - 2)) {
+        this.rollingIndex[index] = this.rollingIndex[index + 1] + (index == this.current - 2 ? 2 : 1);
+      }
+    })
+  }
 
   calcRollingIndex(index: number, current: number): number {
     const am: AttackModifier = this.deck.cards[index];

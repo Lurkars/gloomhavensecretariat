@@ -34,8 +34,14 @@ export class ScenarioDialogComponent {
     hasSpoiler: boolean = false;
     spoiler: boolean = false;
     detailed: boolean = false;
+    openRooms: RoomData[] = [];
+    closedRooms: RoomData[] = [];
+    availableSections: ScenarioData[] = [];
 
     constructor(@Inject(DIALOG_DATA) public scenario: Scenario, public dialogRef: DialogRef, private dialog: Dialog) {
+        this.openRooms = gameManager.scenarioManager.openRooms();
+        this.closedRooms = gameManager.scenarioManager.closedRooms();
+        this.availableSections = gameManager.scenarioManager.availableSections();
         this.updateMonster();
         if (scenario.lootDeckConfig) {
             for (let value in LootType) {
@@ -180,7 +186,8 @@ export class ScenarioDialogComponent {
         this.updateMonster();
     }
 
-    addSection(sectionData: ScenarioData) {
+    addSection(event: any, sectionData: ScenarioData) {
+        console.log("open", event);
         this.dialog.open(SectionDialogComponent,
             {
                 panelClass: ['dialog'],
@@ -188,7 +195,7 @@ export class ScenarioDialogComponent {
             }).closed.subscribe({
                 next: (added) => {
                     if (added) {
-                       this.close();
+                        this.close();
                     }
                 }
             });

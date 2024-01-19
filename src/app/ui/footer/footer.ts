@@ -13,6 +13,8 @@ import { Objective } from 'src/app/game/model/Objective';
 import { ScenarioSummaryComponent } from './scenario/summary/scenario-summary';
 import { ScenarioConclusionComponent } from './scenario/scenario-conclusion/scenario-conclusion';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { LevelComponent } from './level/level';
+import { ScenarioComponent } from './scenario/scenario';
 
 @Component({
   selector: 'ghs-footer',
@@ -24,6 +26,8 @@ export class FooterComponent implements OnInit {
   @ViewChild('nextButton', { static: false }) nextButton!: ElementRef;
   @ViewChild('footer', { static: false }) footer!: ElementRef;
   @ViewChild('monsterDeck', { static: false }) monsterDeck!: ElementRef;
+  @ViewChild('ghsLevel', { static: false }) ghsLevel!: LevelComponent;
+  @ViewChild('ghsScenario', { static: false }) ghsScenario!: ScenarioComponent;
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;

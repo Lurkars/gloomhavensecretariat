@@ -76,8 +76,8 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
       this.groups = [];
     }
 
-    this.groups = gameManager.scenarioManager.scenarioData(this.edition, true).map((scenarioData) => scenarioData.group).filter((value, index, self) => value && self.indexOf(value) === index).sort((a, b) => a && b && (a.toLowerCase() < b.toLowerCase() ? -1 : 1) || 0);
-    this.groups = [undefined, ...this.groups];
+    const groups = gameManager.scenarioManager.scenarioData(this.edition, true).map((scenarioData) => scenarioData.group).filter((value, index, self) => value && self.indexOf(value) === index).sort((a, b) => a && b && (a.toLowerCase() < b.toLowerCase() ? -1 : 1) || 0);
+    this.groups = [undefined, ...groups];
   }
 
   scenarios(group: string | undefined = undefined, filterSuccess: boolean = false, includeSpoiler: boolean = false, all: boolean = false): ScenarioCache[] {

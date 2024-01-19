@@ -40,8 +40,7 @@ export class LevelComponent implements OnInit, OnDestroy {
     }
   }
 
-  open(event: any) {
-
+  open() {
     const positions = [
       new ConnectionPositionPair(
         { originX: 'center', originY: 'top' },

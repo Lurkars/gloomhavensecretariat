@@ -1546,7 +1546,7 @@
     },
     "battleGoalsCharacter": {
       ".": "Kampfziele immer anzeigen",
-      "hint": "Zeige immer das Kampfziele Menu an. Automatisch aktiviert, falls das Angriffsmodifikatordeck für Charaktere deaktiviert ist um weiterhin das Kampfziele Menu zu öffnen."
+      "hint": "Zeige immer das Kampfziele Menü an. Automatisch aktiviert, falls das Angriffsmodifikatordeck für Charaktere deaktiviert ist um weiterhin das Kampfziele Menü zu öffnen."
     },
     "battleGoalsFh": {
       ".": "Immer 3 Kampfziele ziehen",
@@ -2373,6 +2373,48 @@
         },
         "send": "Szneario senden"
       }
+    },
+    "keyboard": {
+      ".": "Tastenkürzel",
+      "Keyboard Shortcuts": "%tools.keyboard%",
+      "The following keyboard shortcuts are currently implemented:": "Die folgenden Tastaturkürzel sind derzeit implementiert:",
+      "CTRL": "STRG",
+      "undo": "Rückgängig",
+      "SHIFT": "UMSCHALT",
+      "redo": "Wiederherstellen",
+      "ESC": "ESC",
+      "open main menu": "Hauptmenü öffnen",
+      "zoom-in": "Reinzoomen",
+      "zoom-out": "Rauszoomen",
+      "reset zoom": "Zoom zurücksetzen",
+      "toggle active figure when drawn / toggle initiative input when focused input": "Aktive Figure umschalten währende der Runde / Fokus für Eingabefeld der Initivative umschalten",
+      "next round / draw": "Nächste Runde / Ziehen",
+      "draw AM card (deck depending on active figure, monster deck when not active, disabled when Draw)": "AM Karte ziehen (Kartendeck abhängig von aktiver Figure, Deck für Monster wenn keine Figure aktiv, deaktivert währen <b>Ziehen</b>)",
+      "draw from Loot Deck": "Karte aus dem Beute Deck ziehen",
+      "toggle through element state": "Elementen Status durchschalten",
+      "toggle Hide absend figures": "<i>Abwesende Figuren ausblenden<i> umschalten",
+      "select figure/standee for opening menu with number key": "Figur/Aufsteller Menü öffnen durch Auswählen mit Nummertasten",
+      "difficulty/level menu": "Schwierigkeitsgrad/Level Menü",
+      "scenario effects menu": "Ereigniseffekte Menü",
+      "(finish) scenario menu": "Szenario (beenden) Menü",
+      "open party sheet": "Gruppenbogen öffnen",
+      "On any open figure/standee menu, those shortcuts are disabled, currently shortcuts available in figure/standee menu:": "In jedem geöffneten Figure/Aufsteller-Menü sind diese Tastenkombinationen deaktiviert, derzeit verfügbare Kürzel im Figur/Aufsteller Menü:",
+      "dec. current HP": "dek. aktuelle TP",
+      "inc. current HP": "ink. aktuelle TP",
+      "toggle condition/condition modifier": "Zustände/Zustandsmodifikator umschalten",
+      "inc. Bless": "ink. Segen",
+      "dec. Bless": "dek. Segen",
+      "inc. Curse": "ink. Flüche",
+      "dec. Curse": "dek. Flüche",
+      "kill/exhaust": "Tot/Erschöpft",
+      "dec. max. HP": "dek. max. TP",
+      "inc. max HP": "ink. max. TP",
+      "open character sheet": "Charakterbogen öffnen",
+      "On open menu:": "Bei geöffnetem Menu:",
+      "SPACE": "Leertaste",
+      "confirm action / open submenu": "Aktion bestätigen / Untermenü öffnen",
+      "decline action / close menu": "Aktion ablehnen / Menü schließen",
+      "select action": "Aktion auswählen"
     },
     "validateEditionData": "Verifiziere Editionsdaten"
   },

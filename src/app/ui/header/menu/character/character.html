@@ -2,12 +2,12 @@
   <div class="level-container"
     [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
     <span class="item"><img src="./assets/images/status/level.svg" /></span>
-    <span tabclick class="item" *ngFor="let level of [] | ghsRange:9"><a class="level"
+    <span class="item" *ngFor="let level of [] | ghsRange:9"><a tabclick class="level"
         [ngClass]="{'active' : level + 1 == characterLevel}" (click)="characterLevel = level+1">{{level
         +1}}</a></span>
     <div class="line search">
-      <input tabclick [(ngModel)]="filter" (change)="update()" (keyup)="update()" type="text" [ghs-label]="'character.filter'"
-        [ghs-label-attribute]="'placeholder'">
+      <input tabclick [(ngModel)]="filter" (change)="update()" (keyup)="update()" type="text"
+        [ghs-label]="'character.filter'" [ghs-label-attribute]="'placeholder'">
       <label *ngIf="gameManager.game.edition">
         <input tabclick type="checkbox" [checked]="allEditions" (change)="allEditions = !allEditions; update()">
         <span [ghs-label]="'character.filter.allEditions'"></span>

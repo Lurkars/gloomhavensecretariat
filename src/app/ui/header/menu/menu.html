@@ -120,6 +120,11 @@
       </a>
     </div>
 
+    <div class="line">
+      <a tabclick (click)="keyboardShourtcutsDialog()" [ghs-tooltip]="'tools.keyboard'"><img class="ghs-svg" src="./assets/images/keyboard.svg">
+      </a>
+    </div>
+
     <div class="line separator" *ngIf="isUpdateAvailable()">
       <a tabclick (click)="update()">&lt;<span [ghs-label]="'update'"></span>(!)&gt;</a>
     </div>

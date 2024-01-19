@@ -2,23 +2,23 @@
   [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.level}">
   <div class="menu">
     <label *ngIf="gameManager.game.playerCount < 1">
-      <input type="checkbox" [checked]="gameManager.game.levelCalculation"
+      <input tabclick type="checkbox" [checked]="gameManager.game.levelCalculation"
         (change)="setLevelCalculation(!gameManager.game.levelCalculation)">
       <span [ghs-label]="'settings.levelCalculation'"></span>
     </label>
 
     <label *ngIf="gameManager.game.levelCalculation"><span [ghs-label]="'settings.levelAdjustment'"></span>
-      <input type="number" #levelAdjustment [value]="gameManager.game.levelAdjustment" min="-6" max="6" (keyup)="0"
-        (change)="setLevelAdjustment(+levelAdjustment.value)" [size]="levelAdjustment.value.length"
+      <input tabclick type="number" #levelAdjustment [value]="gameManager.game.levelAdjustment" min="-6" max="6"
+        (keyup)="0" (change)="setLevelAdjustment(+levelAdjustment.value)" [size]="levelAdjustment.value.length"
         [ghs-label]="'settings.levelAdjustment'" [ghs-label-attribute]="'placeholder'"></label>
 
     <label><span [ghs-label]="'settings.bonusAdjustment'"></span>
-      <input type="number" #bonusAdjustment [value]="gameManager.game.bonusAdjustment" min="-6" max="6" (keyup)="0"
-        (change)="setBonusAdjustment(+bonusAdjustment.value)" [size]="bonusAdjustment.value.length"
+      <input tabclick type="number" #bonusAdjustment [value]="gameManager.game.bonusAdjustment" min="-6" max="6"
+        (keyup)="0" (change)="setBonusAdjustment(+bonusAdjustment.value)" [size]="bonusAdjustment.value.length"
         [ghs-label]="'settings.bonusAdjustment'" [ghs-label-attribute]="'placeholder'"></label>
 
     <label *ngIf="ge5Player()">
-      <input type="checkbox" [checked]="gameManager.game.ge5Player"
+      <input tabclick type="checkbox" [checked]="gameManager.game.ge5Player"
         (change)="setGe5Player(!gameManager.game.ge5Player)">
       <span [ghs-label]="'settings.ge5Player'"></span>
     </label>
@@ -26,12 +26,16 @@
 
   <div class="level-container" [ngClass]="{'disabled' : gameManager.game.levelCalculation}">
     <span class="item"><img src="./assets/images/level.svg" /></span>
-    <span class="item" *ngFor="let level of levels;"><a class="level"
+    <span class="item" *ngFor="let level of levels;">
+      <a *ngIf="!gameManager.game.levelCalculation" tabclick class="level"
         [ngClass]="{'active' : level == gameManager.game.level, 'scenariolevel' : gameManager.game.playerCount < 1 && level == gameManager.levelManager.scenarioLevel()}"
-        (click)="setLevel(level)">{{level}}</a></span>
+        (click)="setLevel(level)">{{level}}</a>
+      <a *ngIf="gameManager.game.levelCalculation" class="level"
+        [ngClass]="{'active' : level == gameManager.game.level, 'scenariolevel' : gameManager.game.playerCount < 1 && level == gameManager.levelManager.scenarioLevel()}">{{level}}</a>
+    </span>
     <div class="solo">
       <label>
-        <input type="checkbox" [checked]="gameManager.game.solo" (change)="setSolo(!gameManager.game.solo)">
+        <input tabclick type="checkbox" [checked]="gameManager.game.solo" (change)="setSolo(!gameManager.game.solo)">
         <span [ghs-label]="'game.solo'"></span>
       </label>
     </div>
@@ -64,10 +68,10 @@
 
 
   <label class="player-count">
-    <input type="checkbox" [checked]="gameManager.game.playerCount > 0" (change)="togglePlayerCount($event)">
+    <input tabclick type="checkbox" [checked]="gameManager.game.playerCount > 0" (change)="togglePlayerCount($event)">
     <span [ghs-label]="'settings.playerCount'"></span>
-    <input *ngIf="gameManager.game.playerCount > 0" type="number" #playerCount [value]="gameManager.game.playerCount"
-      min="1" (keyup)="0" (change)="setPlayerCount(+playerCount.value)" [size]="playerCount.value.length"
-      [ghs-label]="'settings.playerCount'" [ghs-label-attribute]="'placeholder'">
+    <input tabclick *ngIf="gameManager.game.playerCount > 0" type="number" #playerCount
+      [value]="gameManager.game.playerCount" min="1" (keyup)="0" (change)="setPlayerCount(+playerCount.value)"
+      [size]="playerCount.value.length" [ghs-label]="'settings.playerCount'" [ghs-label-attribute]="'placeholder'">
   </label>
 </div>

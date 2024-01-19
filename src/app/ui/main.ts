@@ -156,6 +156,12 @@ export class MainComponent implements OnInit {
               ghsDialogClosingHelper(dialogRef);
             });
           }
+
+          dialogRef.keydownEvents.subscribe(event => {
+            if (!event.ctrlKey && !event.shiftKey && !event.altKey && event.key === "Escape") {
+              ghsDialogClosingHelper(dialogRef);
+            }
+          });
         }
       }
     })

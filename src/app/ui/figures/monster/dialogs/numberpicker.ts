@@ -50,21 +50,17 @@ export class MonsterNumberPicker implements OnInit, OnDestroy {
   }
 
   hasEntity(): boolean {
-    return this.monster.entities.filter((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && (!settingsManager.settings.hideStats || monsterEntity.type == this.type)).length > 0;
+    return this.monster.entities.find((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.type == this.type) != undefined;
   }
 
   open(): void {
     if (!settingsManager.settings.standees) {
       if (this.hasEntity()) {
-        this.monster.entities = this.monster.entities.filter((monsterEntity) => settingsManager.settings.hideStats && monsterEntity.type != this.type);
+        this.monster.entities = this.monster.entities.filter((monsterEntity) => monsterEntity.type != this.type);
       } else {
-        this.monster.entities = this.monster.entities.filter((monsterEntity) => settingsManager.settings.hideStats && monsterEntity.type != this.type);
-        if (settingsManager.settings.randomStandees) {
-          this.randomStandee();
-        } else {
-          this.nextStandee();
-        }
+        this.nextStandee();
       }
+      gameManager.uiChange.emit();
       return;
     }
 

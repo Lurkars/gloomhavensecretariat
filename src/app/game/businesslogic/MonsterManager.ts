@@ -392,6 +392,11 @@ export class MonsterManager {
         while (gameManager.monsterManager.monsterStandeeUsed(monster, number)) {
           number++;
         }
+      } else if (this.monsterStandeeCount(monster, false) == 0 && this.monsterStandeeCount(monster, true) == monsterCount - 1 && monster.entities.every((entity) => (gameManager.entityManager.isAlive(entity) || entity.dormant) && entity.type == type)) {
+        monster.entities.forEach((entity, index) => {
+          entity.number = index + 1;
+        })
+        number = monsterCount;
       }
 
       if (monster.boss) {
