@@ -3681,7 +3681,7 @@
       },
       {
         "type": "elementHalf",
-        "value": "earth|dark",
+        "value": "earth:dark",
         "valueType": "minus",
         "subActions": [
           {
@@ -3808,7 +3808,7 @@
       },
       {
         "type": "elementHalf",
-        "value": "ice|air",
+        "value": "ice:air",
         "valueType": "minus",
         "subActions": [
           {
@@ -3914,7 +3914,7 @@
       },
       {
         "type": "elementHalf",
-        "value": "fire|light",
+        "value": "fire:light",
         "valueType": "minus",
         "subActions": [
           {
