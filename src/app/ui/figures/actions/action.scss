@@ -505,56 +505,77 @@
         }
       }
 
-      .element-half {
-        position: relative;
-        width: 0.6em;
-        overflow: hidden;
-
-        img {
-          width: 200%;
-        }
-
-        &:nth-child(1) {
-          left: 0;
-          margin-right: -0.01em;
-
-          &.highlight {
-            animation: element-half-pulse 1200ms ease-in-out infinite;
-            transform-origin: center right;
-
-            &:hover {
-              transform: scale(1) !important;
-            }
-          }
-
-        }
-
-        &:nth-child(2) {
-          right: 0;
-          margin-left: -0.01em;
-
-          img {
-            transform: translateX(-50%);
-          }
-
-          &::before {
-            background-position: right;
-          }
-
-          &.highlight {
-            animation: element-half-pulse-right 1200ms ease-in-out infinite;
-            transform-origin: center left;
-
-            &:hover {
-              transform: scale(1) !important;
-            }
-          }
-        }
-
-      }
-
       .minus {
         font-size: 1.5em;
+      }
+
+      &:not(.elements-half) {
+        .element-half {
+          position: relative;
+          width: 0.6em;
+          overflow: hidden;
+
+          img {
+            width: 200%;
+          }
+
+          &:nth-child(1) {
+            left: 0;
+            margin-right: -0.01em;
+
+            &.highlight {
+              animation: element-half-pulse 1200ms ease-in-out infinite;
+              transform-origin: center right;
+
+              &:hover {
+                transform: scale(1) !important;
+              }
+            }
+
+          }
+
+          &:nth-child(2) {
+            right: 0;
+            margin-left: -0.01em;
+
+            img {
+              transform: translateX(-50%);
+            }
+
+            &::before {
+              background-position: right;
+            }
+
+            &.highlight {
+              animation: element-half-pulse-right 1200ms ease-in-out infinite;
+              transform-origin: center left;
+
+              &:hover {
+                transform: scale(1) !important;
+              }
+            }
+          }
+        }
+      }
+
+      &.elements-half {
+        width: 2.5em;
+        height: 1.25em;
+        margin-left: 0.3em;
+      }
+
+      .element-half-container {
+
+        overflow: visible;
+
+        .element-half {
+          top: -50%;
+          height: 200%;
+        }
+
+        &::after {
+          filter: var(--ghs-filter-white);
+        }
       }
     }
   }

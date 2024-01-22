@@ -56,18 +56,19 @@
       </span>
     </ng-container>
 
-    <span *ngIf="action.type == ActionType.elementHalf && getValues(action).length == 2" class="elements">
-      <span class="element element-half"
-        [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement(getValues(action), action.valueType == ActionValueType.minus, 0)}"
-        ghs-pointer-input (singleClick)="elementAction($event, action, getValues(action)[0], 0)"
-        [clickBehind]="!highlightElement(getValues(action), action.valueType == ActionValueType.minus, 0)">
-        <img [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/element/' + getValues(action)[0] + '.svg'" />
-      </span>
-      <span class="element element-half"
-        [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement(getValues(action), action.valueType == ActionValueType.minus, 1)}"
-        ghs-pointer-input (singleClick)="elementAction($event, action, getValues(action)[1], 1)"
-        [clickBehind]="!highlightElement(getValues(action), action.valueType == ActionValueType.minus, 1)">
-        <img [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/element/' + getValues(action)[1] + '.svg'" />
+    <span *ngIf="action.type == ActionType.elementHalf && getValues(action).length == 2" class="elements elements-half">
+      <span class="element-half-container"
+        [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement(getValues(action), action.valueType == ActionValueType.minus, 0)}">
+        <span class="element-half" ghs-pointer-input
+          (singleClick)="elementAction($event, action, getValues(action)[0], 0)"
+          [clickBehind]="!highlightElement(getValues(action), action.valueType == ActionValueType.minus, 0)">
+          <img [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/element/' + getValues(action)[0] + '.svg'" />
+        </span>
+        <span class="element-half" ghs-pointer-input
+          (singleClick)="elementAction($event, action, getValues(action)[1], 1)"
+          [clickBehind]="!highlightElement(getValues(action), action.valueType == ActionValueType.minus, 1)">
+          <img [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/element/' + getValues(action)[1] + '.svg'" />
+        </span>
       </span>
       <span class="minus" *ngIf="action.valueType == ActionValueType.minus">:</span>
     </span>
