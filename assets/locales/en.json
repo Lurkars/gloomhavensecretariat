@@ -2540,6 +2540,9 @@
         "send": "Send Scenario"
       }
     },
+    "keyboard": {
+      ".": "Keyboard Shortcuts"
+    },
     "validateEditionData": "Validate Edition Data"
   },
   "update": "Update - Reload",
