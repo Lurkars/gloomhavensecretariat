@@ -1,6 +1,7 @@
 import { EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
+import { Objective } from "../model/Objective";
 import { ObjectiveContainer } from "../model/ObjectiveContainer";
 import { ObjectiveEntity } from "../model/ObjectiveEntity";
 import { AdditionalIdentifier } from "../model/data/Identifier";
@@ -117,5 +118,28 @@ export class ObjectiveManager {
     }
     return false;
   }
+
+  next() {
+    this.game.figures.forEach((figure) => {
+      if (figure instanceof Objective || figure instanceof ObjectiveContainer) {
+        figure.off = false;
+      } 
+    })
+  }
+
+  draw() {
+    this.game.figures.forEach((figure) => {
+      if (figure instanceof Objective) {
+        if (gameManager.entityManager.isAlive(figure)) {
+          figure.off = false;
+        }
+      } else if (figure instanceof ObjectiveContainer) {
+        if (figure.entities.some((objectiveEntity) => gameManager.entityManager.isAlive(objectiveEntity))) {
+          figure.off = false;
+        }
+      }
+    })
+  }
+
 
 }

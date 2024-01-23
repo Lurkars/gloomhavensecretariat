@@ -45,6 +45,7 @@ export class RoundManager {
       this.game.state = GameState.draw;
       gameManager.entityManager.next();
       gameManager.characterManager.next();
+      gameManager.objectiveManager.next();
       gameManager.monsterManager.next();
       gameManager.attackModifierManager.next();
 
@@ -77,6 +78,7 @@ export class RoundManager {
       this.game.state = GameState.next;
       this.game.round++;
       gameManager.characterManager.draw();
+      gameManager.objectiveManager.draw();
       gameManager.monsterManager.draw();
 
       if (settingsManager.settings.moveElements) {
