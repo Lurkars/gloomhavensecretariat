@@ -96,7 +96,7 @@
           [ghs-label-args]="[roomData.ref, roomData.marker || '']"></span>
       </span>
       <span tabclick *ngFor="let section of availableSections" class="section available"
-        (click)="addSection($event, section)">
+        (click)="addSection(section)">
         <img *ngIf="!section.conclusion" class="ghs-svg" src="./assets/images/lock.svg">
         <img *ngIf="section.conclusion" class="ghs-svg" src="./assets/images/scenario/conclusion.svg">
         <span *ngIf="!section.conclusion || !section.name">#{{section.index}}</span>

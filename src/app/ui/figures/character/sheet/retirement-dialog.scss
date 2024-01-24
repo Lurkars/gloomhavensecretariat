@@ -119,6 +119,34 @@
         }
     }
 
+    .additional-card {
+        display: flex;
+        align-items: center;
+
+        input {
+            font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+            margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        }
+    }
+
+    .personal-quest-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .card-id {
+          text-align: right;
+          font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+          margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+          width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+          min-width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+        }
+
+        .personal-quest-name {
+          font-family: var(--ghs-font-title);
+        }
+      }
+
     .menu {
         display: flex;
         justify-content: space-between;
