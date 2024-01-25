@@ -5,56 +5,56 @@
     },
   "items": {
     "fc-152": {
-      "1": "After performing the top action of any ability card, you may immediately perform the bottom action of the same card. This item cannot be used if both actions trigger a lost card icon consumed %game.card.lost%.",
-      ".": "Ring of Duality"
+      "1": "Nachdem du die obere Aktion einer Fertigkeitskarte ausgeführt hast, darfst du sofort die untere Aktion derselben Karte ausführen. Kann nicht verwendet werden, wenn beide Aktionen das Symbol zum Verlieren%game.card.lost% der Karte zeigen.",
+      ".": "Ring der Dualität"
     },
     "fc-153": {
-      "1": "The next three times you would gain %game.condition.poison% prevent the condition.",
+      "1": "Die nächsten 3 Male, wenn du GIFT %game.condition.poison% erhalten würdest, wird es nicht angewendet.",
       ".": "Kleines Gegengift"
     },
     "fc-154": {
-      "1": "Die nächsten 5 Male, wenndu GIFT %game.condition.poison% erhalten würdest, wird es nicht angewendet.",
+      "1": "Die nächsten 5 Male, wenn du GIFT %game.condition.poison% erhalten würdest, wird es nicht angewendet.",
       ".": "Großes Gegengift"
     },
     "fc-155": {
-      "1": "You are immune to %game.condition.curse%, even if the item is spent. On the next three sources of damage from attacks targeting you gain %game.action.shield% 1.",
+      "1": "Du bist immun gegen FLUCH %game.condition.curse%, selbst wenn dieser Gegenstand abgenutzt ist. Erhalte gegen die nächsten 3 Schadensquellen bei Angriffen die dich anvisieren, Schild %game.action.shield% 1.",
       ".": "Fluchschutzrüstung"
     },
     "fc-156": {
-      "1": "During your melee attack, %game.element.consume.wild% to add +2 %game.action.attack% to a single attack.",
+      "1": "%game.element.consume.wild% während deines Nahkampfangriffs für +2 Angriff %game.action.attack% bei einem Einzelangriff.",
       ".": "Elementarschwert"
     },
     "fc-157": {
-      "1": "During your ranged attack, add +2 %game.action.attack%, %game.condition.curse%, and %game.condition.wound% to a single attack.",
+      "1": "Füge bei deinem Fernangriff einen Einzelangriff +2 Angriff %game.action.attack%, FLUCH %game.condition.curse% und WUNDE %game.condition.wound% hinzu.",
       ".": "Antiker Bogen"
     },
     "fc-158": {
-      "1": "During your movement, add +2 %game.action.move% to the movement and gain %game.condition.regenerate%.",
+      "1": "Füge deiner Bewegung +2 Bewegung %game.action.move% hinzu und erhalte REGENERATION %game.condition.regenerate%.",
       ".": "Erfrischende Beinpanzer"
     },
     "fc-159": {
-      "1": "During any one ally's movement, add +2 %game.action.move% to the movement.",
+      "1": "Füge der Bewegung eines beliebigen Verbündeten +2 Bewegung %game.action.move% hinzu.",
       ".": "Schrift der Eile"
     },
     "fc-160": {
-      "1": "When you kill a monster during your turn, gain one money token.",
+      "1": "Wenn du während deines Zugs ein Monster tötest, erhältst du einen Münzmarker.",
       ".": "Beutelschneider"
     },
     "fc-161": {
-      "1": "During your single-target melee attack action, add %game.action.range:3% to the attack.",
+      "1": "Füge während deiner Einzelziel-Nahkampfangriffsaktion Reichweite %game.action.range:3% hinzu.",
       ".": "Wurfaxt"
     },
     "fc-162": {
-      "1": "During your turn, %game.action.teleport% to any unoccupied hex within 4 hexes of you.",
+      "1": "Teleportiere %game.action.teleport% während deines Zugs auf ein beliebiges unbesetztes Feld im Umkreis von 4 Feldern um dich.",
       ".": "Riss-Apparat"
     },
     "fc-163": {
-      "1": "When you perform a long or short rest, gain %game.condition.strengthen%.",
+      "1": "Wenn du eine lange oder kurze Rast machst, erhältst du STÄRKUNG %game.condition.strengthen%.",
       ".": "Kristalldiadem"
     },
     "fc-165": {
-      "1": "You are immune to POISON and !enchantment-circle!. When damage by an attack, gain %game.action.shield% 0 !enchantment-circle! for the attack.",
-      ".": "Living Armor"
+      "1": "Du bist immun gegen GIFT und !enchantment-circle!. Wenn du durch einen Angriff Schaden erleidest, erhältst du für den Angriff Schild %game.action.shield% 0 !enchantment-circle! .",
+      ".": "Lebende Rüstung"
     }
   },
   "treasures": {
