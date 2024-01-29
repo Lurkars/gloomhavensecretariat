@@ -20,6 +20,8 @@ export class CharacterRetirementDialog {
 
     conclusion: ScenarioData | undefined;
     personalQuest: PersonalQuest | undefined;
+    additional: boolean = false;
+    additionalPQ: PersonalQuest | undefined;
 
     constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef, private dialog: Dialog) {
         this.conclusion = gameManager.sectionData(this.character.edition).find((sectionData) => sectionData.retirement == this.character.name && sectionData.conclusion);
@@ -50,13 +52,33 @@ export class CharacterRetirementDialog {
 
     apply() {
         ghsDialogClosingHelper(this.dialogRef, true);
+
+        gameManager.stateManager.before("setRetired", gameManager.characterManager.characterName(this.character));
+        this.character.progress.retired = true;
+        gameManager.game.party.retirements.push(this.character.toModel());
+        gameManager.characterManager.removeCharacter(this.character, true);
+
         if (this.personalQuest && this.personalQuest.unlockCharacter && settingsManager.settings.automaticUnlocking && gameManager.game.unlockedCharacters.indexOf(this.personalQuest.unlockCharacter) == -1) {
             gameManager.game.unlockedCharacters.push(this.personalQuest.unlockCharacter);
         }
 
+        if (this.additional) {
+            gameManager.game.party.inspiration -= 15;
+            gameManager.game.party.prosperity += 2;
+            if (this.additionalPQ && this.additionalPQ.unlockCharacter && settingsManager.settings.automaticUnlocking && gameManager.game.unlockedCharacters.indexOf(this.additionalPQ.unlockCharacter) == -1) {
+                gameManager.game.unlockedCharacters.push(this.additionalPQ.unlockCharacter);
+            }
+        }
+
+        gameManager.stateManager.after();
+
         if (this.conclusion && !gameManager.game.party.conclusions.find((value) => this.conclusion && value.edition == this.conclusion.edition && value.group == this.conclusion.group && value.index == this.conclusion.index)) {
             this.openConclusion();
         }
+    }
+
+    changeAdditionalPQ(event: any) {
+        this.additionalPQ = gameManager.characterManager.personalQuestByCard(gameManager.currentEdition(), event.target.value);
     }
 
     close() {

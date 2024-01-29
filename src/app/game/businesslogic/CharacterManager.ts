@@ -382,39 +382,32 @@ export class CharacterManager {
 
         figure.shield = undefined;
         figure.retaliate = [];
-
-      } else if (figure instanceof Objective) {
-        figure.off = false;
       }
     })
   }
 
   draw() {
-    if (this.game.round == 1) {
-      this.game.figures.forEach((figure) => {
-        if (figure instanceof Character) {
+    this.game.figures.forEach((figure) => {
+      if (figure instanceof Character) {
+        if (this.game.round == 1) {
           this.applyDonations(figure);
           figure.initiativeVisible = true;
         }
-      })
-    }
 
-    this.game.figures.forEach((figure) => {
-      if (figure instanceof Character || figure instanceof Objective) {
-        if (gameManager.entityManager.isAlive(figure) && (!(figure instanceof Character) || !figure.absent)) {
+        if (gameManager.entityManager.isAlive(figure) && !figure.absent) {
           figure.off = false;
         }
-      }
 
-      if (figure instanceof Character && figure.tags.find((tag) => tag === 'time_tokens') && figure.primaryToken == 0) {
-        if (figure.identity == 0 && figure.tokenValues[0] < 2) {
-          figure.tokenValues[0] += 1;
-        } else if (figure.identity == 1) {
-          if (figure.tokenValues[0] > 0) {
-            figure.tokenValues[0] -= 1;
-          } else {
-            figure.identity = 0;
-            figure.tokenValues[0] = 1;
+        if (figure.tags.find((tag) => tag === 'time_tokens') && figure.primaryToken == 0) {
+          if (figure.identity == 0 && figure.tokenValues[0] < 2) {
+            figure.tokenValues[0] += 1;
+          } else if (figure.identity == 1) {
+            if (figure.tokenValues[0] > 0) {
+              figure.tokenValues[0] -= 1;
+            } else {
+              figure.identity = 0;
+              figure.tokenValues[0] = 1;
+            }
           }
         }
       }

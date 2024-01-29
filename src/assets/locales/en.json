@@ -122,6 +122,11 @@
       "retired": "Retired",
       "retirement": {
         ".": "Retire Character",
+        "additionalPQ": {
+          ".": "Spend 15 inspiration for additional PQ",
+          "cancel": "Cancel additional PQ",
+          "inspiration": "-15 inspiration"
+        },
         "apply": "Apply",
         "conclusion": "Open Section %data.section:{0}%",
         "events": "Add City Event {0} and Road Event {0} to the deck",

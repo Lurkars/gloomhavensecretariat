@@ -122,6 +122,11 @@
       "retired": "Ruhestand",
       "retirement": {
         ".": "Ruhestand für Charakter",
+        "additionalPQ": {
+          ".": "15 Inspiration für zusätzliche PQ ausgeben",
+          "cancel": "Zusätzliche PQ abbrechen",
+          "inspiration": "-15 Inspiration"
+        },
         "apply": "Anwenden",
         "conclusion": "Öffne Sektion %data.section:{0}%",
         "events": "Füge Stadt-Ereignis {0} als auch Weg-Ereignis {0} zum Deck hinzu",

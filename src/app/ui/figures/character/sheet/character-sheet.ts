@@ -170,16 +170,6 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
         this.dialog.open(CharacterRetirementDialog, {
           panelClass: ['dialog'],
           data: this.character
-        }).closed.subscribe({
-          next: (result) => {
-            if (result) {
-              gameManager.stateManager.before("setRetired", gameManager.characterManager.characterName(this.character));
-              this.character.progress.retired = this.retired;
-              gameManager.game.party.retirements.push(this.character.toModel());
-              gameManager.characterManager.removeCharacter(this.character, true);
-              gameManager.stateManager.after();
-            }
-          }
         });
       } else {
         gameManager.stateManager.before(this.character.progress.retired ? "setRetired" : "unsetRetired", gameManager.characterManager.characterName(this.character));
@@ -305,8 +295,10 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   setPersonalQuestProgress(index: number, input: number | any) {
-    if (!this.character.progress.personalQuestProgress[index]) {
-      this.character.progress.personalQuestProgress[index] = 0;
+    for (let i = 0; i <= index; i++) {
+      if (!this.character.progress.personalQuestProgress[i]) {
+        this.character.progress.personalQuestProgress[i] = 0;
+      }
     }
 
     let value: number = 0;

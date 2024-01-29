@@ -186,8 +186,7 @@ export class ScenarioDialogComponent {
         this.updateMonster();
     }
 
-    addSection(event: any, sectionData: ScenarioData) {
-        console.log("open", event);
+    addSection(sectionData: ScenarioData) {
         this.dialog.open(SectionDialogComponent,
             {
                 panelClass: ['dialog'],
