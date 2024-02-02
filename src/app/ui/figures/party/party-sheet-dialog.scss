@@ -952,6 +952,8 @@
                   width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
                   height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
                   background-image: url('~src/assets/images/checkmark.svg');
+                  background-position: center center;
+                  background-repeat: no-repeat;
                   z-index: 1;
                   filter: var(--ghs-filter-red);
                 }

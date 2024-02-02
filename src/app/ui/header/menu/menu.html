@@ -121,7 +121,8 @@
     </div>
 
     <div class="line">
-      <a tabclick (click)="keyboardShourtcutsDialog()" [ghs-tooltip]="'tools.keyboard'"><img class="ghs-svg" src="./assets/images/keyboard.svg">
+      <a tabclick (click)="keyboardShourtcutsDialog()" [ghs-tooltip]="'tools.keyboard'"><img class="ghs-svg"
+          src="./assets/images/keyboard.svg">
       </a>
     </div>
 
@@ -211,6 +212,11 @@
           gameManager.getEdition(monster)"></span>]</span>
       </a>
     </div>
+    <div class="line" *ngIf="hasUnusedMonster()">
+      <a (click)="removeAllMonsters(true)">
+        &lt;<span [ghs-label]="'monster.removeUnused'"></span>&gt;
+      </a>
+    </div>
   </div>
 
   <ghs-settings-menu *ngSwitchCase="SubMenu.settings" (setMenu)="setActive($event)"></ghs-settings-menu>
@@ -265,7 +271,7 @@
   </div>
 </div>
 
-<div class="back" *ngIf="active != SubMenu.main" tabclick (click)="setActive(SubMenu.main)" [ghs-label]="'menu.backToMain'"
-  [ghs-label-attribute]="'title'">
+<div class="back" *ngIf="active != SubMenu.main" tabclick (click)="setActive(SubMenu.main)"
+  [ghs-label]="'menu.backToMain'" [ghs-label-attribute]="'title'">
   <img class="ghs-svg" src="./assets/images/left.svg">
 </div>

@@ -70,6 +70,8 @@
     "giant-piranha-pig-boss": "Extra Boss Deck #83",
     "guard-captain": "Guard Captain",
     "harbinger-of-shadow": "Harbinger of Shadow",
+    "harbinger-of-shadow-1": "Harbinger of Shadow %game.mapMarker.1%",
+    "harbinger-of-shadow-2": "Harbinger of Shadow %game.mapMarker.2%",
     "harrower-infester": "Harrower Infester",
     "hateful-corpse": "Hateful Corpse",
     "hound": "Hound",
@@ -691,8 +693,8 @@
         "1": "See scenario Special Rules"
       },
       "harbinger-of-shadow": {
-        "1": "Boss %game.mapMarker.2% does not act.",
-        "2": "Boss %game.mapMarker.1% does not act."
+        "1": "The %data.monster.harbinger-of-shadow-1% does not act.",
+        "2": "The %data.monster.harbinger-of-shadow-2% does not act."
       },
       "lightning-eel": {
         "1": "Treats water hexes as corridors and non-water hexes as obstacles"

@@ -19,7 +19,7 @@
   },
   "monsters": [
     "black-imp",
-    "harbinger-of-shadow",
+    "harbinger-of-shadow-2",
     "harrower-infester"
   ],
   "objectives": [
@@ -74,7 +74,7 @@
           "player4": "elite"
         },
         {
-          "name": "harbinger-of-shadow",
+          "name": "harbinger-of-shadow-2",
           "type": "boss",
           "marker": "2"
         },

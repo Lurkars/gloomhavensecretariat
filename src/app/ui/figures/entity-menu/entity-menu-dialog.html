@@ -369,13 +369,23 @@
             <img class="ghs-svg" src="./assets/images/right.svg">
           </ghs-pointer-input>
         </span>
+      </ng-container>
 
+      <ng-container *ngIf="data.figure && gameManager.isObjectiveContainer(data.figure)">
         <span class="item">
           <ghs-pointer-input class="button" (singleClick)="changeMarker(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/left.svg">
           </ghs-pointer-input>
         </span>
-        <span class="item">
+        <span class="item" *ngIf="!data.entity || !gameManager.isObjectiveEntity(data.entity)">
+          <span class="map-marker"
+            [ngClass]="{'empty' : !OBJECTIV_MARKERS[(marker +
+          OBJECTIV_MARKERS.indexOf(gameManager.toObjectiveContainer(data.figure).marker)) % OBJECTIV_MARKERS.length]}">{{OBJECTIV_MARKERS[(marker
+            +
+            OBJECTIV_MARKERS.indexOf(gameManager.toObjectiveContainer(data.figure).marker)) %
+            OBJECTIV_MARKERS.length]}}</span>
+        </span>
+        <span class="item" *ngIf="data.entity && gameManager.isObjectiveEntity(data.entity)">
           <span class="map-marker"
             [ngClass]="{'empty' : !OBJECTIV_MARKERS[(marker +
           OBJECTIV_MARKERS.indexOf(gameManager.toObjectiveEntity(data.entity).marker)) % OBJECTIV_MARKERS.length]}">{{OBJECTIV_MARKERS[(marker
@@ -667,11 +677,10 @@
     </div>
   </ng-container>
 
-  <ng-container
-    *ngIf="gameManager.isObjectiveContainer(data.figure) && data.entity && gameManager.isObjectiveEntity(data.entity)">
+  <ng-container *ngIf="gameManager.isObjectiveContainer(data.figure)">
     <div class="objective-container">
       <input class="title" #objectiveTitle [value]="gameManager.toObjectiveContainer(data.figure).title || ''" />
-      <ng-container *ngIf="showMaxHealth()">
+      <ng-container *ngIf="showMaxHealth()  && data.entity && gameManager.isObjectiveEntity(data.entity)">
         <a class="button" (click)="changeMaxHealth(-1)">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>

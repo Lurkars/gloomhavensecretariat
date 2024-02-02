@@ -805,6 +805,7 @@
     "normal": "Normal",
     "remove": "Monster entfernen",
     "removeAll": "Alle entfernen",
+    "removeUnused": "Nicht Genutzte entfernen",
     "selectStandees": {
       "all": "Alle Aufsteller auswählen",
       "boss": "Alle Boss Aufsteller auswählen",

@@ -37,8 +37,7 @@
         {
           "identifier": {
             "type": "monster",
-            "name": "harbinger-of-shadow",
-            "marker": "2"
+            "name": "harbinger-of-shadow-2"
           },
           "type": "setHp",
           "value": "[10x(C-1)/2{$math.floor}]"

@@ -78,6 +78,7 @@
     </ng-container>
 
     <ng-container *ngIf="!entity">
+      <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"></div>
       <div class="column col-1">
         <div class="title-container">
           <div class="title" #objectiveName>

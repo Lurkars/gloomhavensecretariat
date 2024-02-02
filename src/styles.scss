@@ -795,7 +795,7 @@ ghs-pointer-input {
 
   .cdk-dialog-container {
     transform-origin: center center;
-    animation: dialog-open 250ms ease-in-out;
+    animation: dialog-open 150ms ease-in-out;
   }
 
   &.dialog-closing {
@@ -1496,7 +1496,7 @@ input[type="radio"] {
   width: 1.2em;
   height: 1.2em;
   overflow: hidden;
-  background-color: var(--ghs-color-red);
+  background-color: #881c1f;
   color: var(--ghs-color-white);
   font-family: var(--ghs-font-title);
   font-size: 1em;
@@ -1525,6 +1525,7 @@ input[type="radio"] {
   border-style: solid;
   border-width: 0.3em;
   transition: box-shadow 100ms ease-in-out;
+  z-index: 1;
 
   &::before {
     content: ' ';
@@ -1653,14 +1654,15 @@ input[type="radio"] {
   .element-half-container {
     display: inline-flex;
     width: 100%;
-    height: 100%;
+    padding-bottom: 50%;
+    height: initial;
 
     &.consume {
       &::before {
         left: 75%;
         top: 45%;
-        width: 35%;
-        height: 70%;
+        width: 40%;
+        height: 65%;
         background-image: url('~src/assets/images/fh/element/consume.svg');
       }
     }
@@ -1678,31 +1680,30 @@ input[type="radio"] {
     }
 
     .element-half {
+      position: absolute;
       padding-bottom: 0;
       height: 100%;
       display: flex;
       align-items: center;
-      mask-size: 166% 100%;
+      mask-size: 100% 100%;
       overflow: visible;
       width: 100%;
 
       img {
         position: relative;
         top: initial;
-        height: 60%;
+        height: 120%;
       }
 
       &:nth-child(1) {
         justify-content: flex-start;
         mask-image: url('~src/assets/images/fh/element/half-mask-left.svg');
-        mask-position: 0% 0%;
       }
 
       &:nth-child(2) {
         justify-content: flex-end;
         mask-image: url('~src/assets/images/fh/element/half-mask-right.svg');
-        mask-position: 100% 0%;
-        right: 22%;
+        right: 0;
 
         img {
           transform: none;
@@ -1774,6 +1775,12 @@ input[type="radio"] {
     .cdk-dialog-container {
       border-image-source: url('~src/assets/images/fh/dialog_border_fh.png');
     }
+  }
+
+  .map-marker {
+    background-color: #367036;
+    background: radial-gradient(circle, #40823e 0%, #265229 100%);
+    text-shadow: var(--ghs-outline-thin);
   }
 }
 

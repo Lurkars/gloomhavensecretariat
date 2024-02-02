@@ -1,9 +1,10 @@
 {
-  "name": "harbinger-of-shadow",
+  "name": "harbinger-of-shadow-2",
   "edition": "fh",
   "deck": "boss",
   "boss": true,
-  "count": 2,
+  "count": 1,
+  "standeeShare": "harbinger-of-shadow",
   "baseStat": {
     "type": "boss",
     "health": "7xC",
@@ -18,21 +19,6 @@
     ],
     "special": [
       [
-        {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
-        },
-        {
-          "type": "summon",
-          "value": "black-imp",
-          "small": true
-        },
         {
           "type": "custom",
           "value": "%data.custom.fh.harbinger-of-shadow.2%",
@@ -56,11 +42,6 @@
               "small": true
             }
           ]
-        },
-        {
-          "type": "custom",
-          "value": "%data.custom.fh.harbinger-of-shadow.1%",
-          "small": true
         }
       ]
     ]

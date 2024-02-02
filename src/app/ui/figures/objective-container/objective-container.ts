@@ -164,15 +164,13 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
   }
 
   openEntityMenu(event: any): void {
-    if (this.entity) {
-      this.dialog.open(EntityMenuDialogComponent, {
-        panelClass: ['dialog'], data: {
-          entity: this.entity,
-          figure: this.objective
-        },
-        positionStrategy: this.overlay.position().flexibleConnectedTo(this.objectiveName).withPositions(ghsDefaultDialogPositions())
-      });
-    }
+    this.dialog.open(EntityMenuDialogComponent, {
+      panelClass: ['dialog'], data: {
+        entity: this.entity,
+        figure: this.objective
+      },
+      positionStrategy: this.overlay.position().flexibleConnectedTo(this.objectiveName).withPositions(ghsDefaultDialogPositions())
+    });
   }
 
   openEntitiesMenu(event: any) {
