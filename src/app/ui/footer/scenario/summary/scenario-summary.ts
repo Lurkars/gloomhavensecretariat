@@ -639,14 +639,17 @@ export class ScenarioSummaryComponent {
 
                     this.rewardItems.forEach((item, itemIndex) => {
                         if (this.items.every((items) => items.indexOf(itemIndex) == -1)) {
+                            this.items[index] = this.items[index] || [];
                             this.items[index].push(itemIndex);
                         }
                     })
 
                     if (this.items[index] && this.items[index].length > 0) {
                         this.items[index].forEach((itemIndex) => {
-                            const item = this.rewardItems[itemIndex]
-                            character.progress.items.push(new Identifier('' + item.id, item.edition));
+                            const item = this.rewardItems[itemIndex];
+                            if (settingsManager.settings.characterItems) {
+                                character.progress.items.push(new Identifier('' + item.id, item.edition));
+                            }
                             gameManager.itemManager.addItemCount(item);
                         })
                     }
