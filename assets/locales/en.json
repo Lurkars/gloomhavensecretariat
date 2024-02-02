@@ -953,6 +953,7 @@
     "normal": "Normal",
     "remove": "Remove Monster",
     "removeAll": "Remove All",
+    "removeUnused": "Remove Unused",
     "selectStandees": {
       "all": "Select all standees",
       "boss": "Select all Boss standees",

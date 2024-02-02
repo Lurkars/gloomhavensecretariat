@@ -331,10 +331,7 @@ ${error.stack}`;
       return UpdateCacheStatus.CACHED;
     }
     async getCacheNames() {
-      const [cache, metadata] = await Promise.all([
-        this.cache,
-        this.metadata
-      ]);
+      const [cache, metadata] = await Promise.all([this.cache, this.metadata]);
       return [cache.name, metadata.cacheName];
     }
     async handleFetch(req, _event) {
@@ -1032,7 +1029,7 @@ ${error.stack}`;
   };
 
   // bazel-out/k8-fastbuild-ST-2e5f3376adb5/bin/packages/service-worker/worker/src/debug.mjs
-  var SW_VERSION = "17.1.1";
+  var SW_VERSION = "17.1.2";
   var DEBUG_LOG_BUFFER_SIZE = 100;
   var DebugHandler = class {
     constructor(driver, adapter2) {
@@ -1760,7 +1757,10 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ "Content-Type": "text/plain" }
       await this.initialized;
       const clients = await this.scope.clients.matchAll();
       await Promise.all(clients.map(async (client) => {
-        client.postMessage({ type: "NO_NEW_VERSION_DETECTED", version: this.mergeHashWithAppData(manifest, hash) });
+        client.postMessage({
+          type: "NO_NEW_VERSION_DETECTED",
+          version: this.mergeHashWithAppData(manifest, hash)
+        });
       }));
     }
     async notifyClientsAboutVersionDetected(manifest, hash) {
@@ -1771,7 +1771,10 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ "Content-Type": "text/plain" }
         if (version === void 0) {
           return;
         }
-        client.postMessage({ type: "VERSION_DETECTED", version: this.mergeHashWithAppData(manifest, hash) });
+        client.postMessage({
+          type: "VERSION_DETECTED",
+          version: this.mergeHashWithAppData(manifest, hash)
+        });
       }));
     }
     async notifyClientsAboutVersionReady(manifest, hash) {
