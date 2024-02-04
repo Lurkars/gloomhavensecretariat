@@ -1891,6 +1891,10 @@
       ".": "Animation für Werte",
       "hint": "Aktiviert Animation zur Hervorhebung bestimmter Werte wie %game.action.shield% oder %game.action.retaliate%."
     },
+    "stats": {
+      ".": "Wertekarten",
+      "hint": "Zeige Wertekarten für Monster an."
+    },
     "summons": {
       ".": "Charakter Beschwörungen",
       "hint": "Aktiviert Beschwörungen von Charakteren"
