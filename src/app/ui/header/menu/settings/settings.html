@@ -526,7 +526,20 @@
       <div class="line">
         <div class="hint-container">
           <label>
-            <input tabclick type="checkbox" [checked]="settingsManager.settings.hideStats"
+            <input tabclick type="checkbox" [checked]="settingsManager.settings.stats"
+              (change)="settingsManager.setStats(!settingsManager.settings.stats)">
+            <span [ghs-label]="'settings.stats'"></span>
+          </label>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <span class="hint">
+            <span class="text" [ghs-label]="'settings.stats.hint'"></span>
+          </span>
+        </div>
+      </div>
+      <div class="line">
+        <div class="hint-container">
+          <label [ngClass]="{'disabled' : !settingsManager.settings.stats}">
+            <input tabclick type="checkbox" [checked]="settingsManager.settings.stats && settingsManager.settings.hideStats"
               (change)="settingsManager.setHideStats(!settingsManager.settings.hideStats)">
             <span [ghs-label]="'settings.hideStats'"></span>
           </label>

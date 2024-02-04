@@ -77,12 +77,12 @@
     }
 
     ghs-monster-numberpicker {
-  
+
       &.normal,
       &.boss {
         left: calc(var(--ghs-unit) * 57.5);
       }
-  
+
       &.elite {
         right: calc(var(--ghs-unit) * 2.5);
       }
@@ -103,6 +103,49 @@
       ghs-monster-stats,
       ghs-monster-image {
         filter: grayscale(0.7);
+      }
+    }
+  }
+
+  &.short {
+    width: calc(var(--ghs-unit) * 57);
+
+    &.short-stats {
+      ghs-monster-numberpicker {
+
+        &.normal,
+        &.boss {
+          left: calc(var(--ghs-unit) * 17.5);
+        }
+      }
+    }
+
+    &.short-abilities {
+      ghs-monster-numberpicker {
+        bottom: calc(var(--ghs-unit) * 0.5);
+
+        &.normal,
+        &.boss {
+          left: calc(var(--ghs-unit) * 0);
+        }
+
+        &.elite {
+          left: calc(var(--ghs-unit) * 11);
+          right: initial
+        }
+      }
+    }
+
+    &.short-stats.short-abilities {
+      width: calc(var(--ghs-unit) * 17);
+      float: left;
+
+      &+.entities-container {
+        width: calc(var(--ghs-unit) * 40);
+
+        .spacer {
+          width: auto;
+        }
       }
     }
   }
@@ -208,4 +251,8 @@ ghs-monster-numberpicker {
     pointer-events: none;
     display: none;
   }
+}
+
+.modern.short.short-stats.short-abilities+.entities-container {
+  width: auto;
 }

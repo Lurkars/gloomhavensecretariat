@@ -131,6 +131,7 @@ export class Settings {
   standees: boolean = true;
   standeeStats: boolean = false;
   statAnimations: boolean = false;
+  stats: boolean = true;
   summons: boolean = true;
   theme: string = "";
   tooltips: boolean = true;

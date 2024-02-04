@@ -2039,6 +2039,10 @@
       ".": "Stat Animation",
       "hint": "Enable animation to highlight stats as %game.action.shield% or %game.action.retaliate%."
     },
+    "stats": {
+      ".": "Stat Cards",
+      "hint": "Show stat cards for monsters."
+    },
     "summons": {
       ".": "Character Summons",
       "hint": "Enable character summons"

@@ -70,7 +70,7 @@
       (cdkDropListDropped)="drop($event)" cdkDropListAutoScrollStep="20" (cdkDropListEntered)="entered($event)"
       (cdkDropListExited)="exited($event)"
       [cdkDropListDisabled]="!settingsManager.settings.dragFigures || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters && !gameManager.stateManager.permissions.monsters"
-      [ngClass]="{'column' : columns > 1, 'column-left' : columns > 1 && i < columnSize, 'column-right' : columns > 1 && i >= columnSize, 'last' : i == columnSize - 1 || i == figures.length - 1}">
+      [ngClass]="{'last' : grid.indexOf(i+1) != -1 || i == figures.length - 1, 'short': (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern'}">
 
       <div cdkDrag #figureDrag [cdkDragStartDelay]="isTouch ? 450 : 0" [ngClass]="{'enabled' : draggingEnabled}"
         (cdkDragStarted)="startedDrag($event, figureDrag)" (cdkDragReleased)="releasedDrag($event, figureDrag)">
@@ -112,7 +112,8 @@
   </div>
   <div class="dialog backup-hint" *ngIf="showBackupHint">
     <div class="dialog-container">
-      <div class="hide" (click)="settingsManager.setBackupHint(false)"><span [ghs-label]="'datamanagement.backup.download.hint.hide'"></span>
+      <div class="hide" (click)="settingsManager.setBackupHint(false)"><span
+          [ghs-label]="'datamanagement.backup.download.hint.hide'"></span>
         <img src="./assets/images/close.svg">
       </div>
       <h2 [ghs-label]="'datamanagement.backup'"></h2>

@@ -315,21 +315,16 @@ main {
 
   .figure {
     position: absolute;
-    width: 100%;
     top: 0;
     left: 50%;
     transition: transform 250ms ease-in-out, width 100ms ease-in-out, height 250ms ease-in-out;
     transform: scale(0);
     overflow: unset;
 
-    &.column {
-      width: calc(50% - calc(var(--ghs-unit) * 2));
-    }
-
     .cdk-drag {
       position: relative;
       width: calc(var(--ghs-unit) * 98);
-      margin: calc(var(--ghs-unit) * 0.8) auto;
+      margin: calc(var(--ghs-unit) * 0.8) calc(var(--ghs-unit) * 1);
 
       :nth-child(2) {
         position: relative;
@@ -353,24 +348,16 @@ main {
       }
     }
 
-    &.column-left {
+    &.short {
       .cdk-drag {
-        margin-left: auto;
-        margin-right: calc(var(--ghs-unit) * 2);
-      }
-    }
-
-    &.column-right {
-      .cdk-drag {
-        margin-right: auto;
-        margin-left: calc(var(--ghs-unit) * 2);
+        width: calc(var(--ghs-unit) * 57);
       }
     }
   }
 
   &.ally-deck {
     .figure.last {
-      padding-bottom: calc(var(--ghs-unit) * 13.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      padding-bottom: calc(var(--ghs-unit) * 14.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
   }
 

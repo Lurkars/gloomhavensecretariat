@@ -806,6 +806,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setStats(stats: boolean) {
+    this.settings.stats = stats;
+    this.storeSettings();
+  }
+
   setSummons(summons: boolean) {
     this.settings.summons = summons;
     this.storeSettings();

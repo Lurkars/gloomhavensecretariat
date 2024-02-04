@@ -30,8 +30,7 @@ export class MainComponent implements OnInit {
   GameState = GameState;
 
   figures: Figure[] = [];
-  columnSize: number = 3;
-  columns: number = 2;
+  grid: number[] = [];
 
   SubMenu = SubMenu;
 
@@ -280,9 +279,8 @@ export class MainComponent implements OnInit {
   }
 
   calcColumns(scrollTo: HTMLElement | undefined = undefined, skipAnimation: boolean = false): void {
+    this.grid = [999];
     if (!settingsManager.settings.columns) {
-      this.columns = 1;
-      this.columnSize = 99;
       setTimeout(() => {
         const containerElement = this.element.nativeElement.getElementsByClassName('figures')[0];
         if (containerElement) {
@@ -293,89 +291,18 @@ export class MainComponent implements OnInit {
       setTimeout(() => {
         const containerElement = this.element.nativeElement.getElementsByClassName('figures')[0];
         if (containerElement) {
-          const figureElements: any[] = Array.from(containerElement.getElementsByClassName('figure'));
-          const figures = this.figures;
-
-          let figureWidth = containerElement.clientWidth;
-          if (figureElements.length > 0) {
-            figureWidth = figureElements[0].firstChild.clientWidth;
-          }
-
-          if (figureWidth < (containerElement.clientWidth / 2.06)) {
-            let height = 0;
-            let columnSize = 0;
-            const minColumn = Math.ceil(figures.length / 2);
-
-            while ((height < containerElement.clientHeight || columnSize < minColumn) && columnSize < figureElements.length) {
-              height += figureElements[columnSize].clientHeight;
-              columnSize++;
-            }
-
-            if (columnSize == figures.length && height > containerElement.clientHeight) {
-              columnSize--;
-              height -= figureElements[columnSize].clientHeight;
-            }
-
-            if (columnSize < figures.length) {
-              this.columns = 2;
-
-              if (columnSize < minColumn) {
-                columnSize = minColumn;
-              } else if (columnSize > minColumn) {
-                columnSize--;
-              }
-
-              let activeLeftHeight = this.activeFigureSize(0, columnSize, figureElements);
-              let activeRightHeight = this.activeFigureSize(columnSize, figures.length, figureElements);
-              let activeLeftHeightMinus = this.activeFigureSize(0, columnSize - 1, figureElements);
-              let activeRightHeightMinus = this.activeFigureSize(columnSize - 1, figures.length, figureElements);
-              let activeLeftHeightPlus = this.activeFigureSize(0, columnSize + 1, figureElements);
-              let activeRightHeightPlus = this.activeFigureSize(columnSize + 1, figures.length, figureElements);
-
-              let diff = activeLeftHeight > activeRightHeight ? activeLeftHeight - activeRightHeight : activeRightHeight - activeLeftHeight;
-              let diffMinus = activeLeftHeightMinus > activeRightHeightMinus ? activeLeftHeightMinus - activeRightHeightMinus : activeRightHeightMinus - activeLeftHeightMinus;
-              let diffPlus = activeLeftHeightPlus > activeRightHeightPlus ? activeLeftHeightPlus - activeRightHeightPlus : activeRightHeightPlus - activeLeftHeightPlus;
-
-              while (diff > diffMinus) {
-                columnSize--;
-                activeLeftHeight = this.activeFigureSize(0, columnSize, figureElements);
-                activeRightHeight = this.activeFigureSize(columnSize, figures.length, figureElements);
-                activeLeftHeightMinus = this.activeFigureSize(0, columnSize - 1, figureElements);
-                activeRightHeightMinus = this.activeFigureSize(columnSize - 1, figures.length, figureElements);
-                activeLeftHeightPlus = this.activeFigureSize(0, columnSize + 1, figureElements);
-                activeRightHeightPlus = this.activeFigureSize(columnSize + 1, figures.length, figureElements);
-
-                diff = activeLeftHeight > activeRightHeight ? activeLeftHeight - activeRightHeight : activeRightHeight - activeLeftHeight;
-                diffMinus = activeLeftHeightMinus > activeRightHeightMinus ? activeLeftHeightMinus - activeRightHeightMinus : activeRightHeightMinus - activeLeftHeightMinus;
-                diffPlus = activeLeftHeightPlus > activeRightHeightPlus ? activeLeftHeightPlus - activeRightHeightPlus : activeRightHeightPlus - activeLeftHeightPlus;
-              }
-
-              while (diff > diffPlus) {
-                columnSize++;
-                activeLeftHeight = this.activeFigureSize(0, columnSize, figureElements);
-                activeRightHeight = this.activeFigureSize(columnSize, figures.length, figureElements);
-                activeLeftHeightMinus = this.activeFigureSize(0, columnSize - 1, figureElements);
-                activeRightHeightMinus = this.activeFigureSize(columnSize - 1, figures.length, figureElements);
-                activeLeftHeightPlus = this.activeFigureSize(0, columnSize + 1, figureElements);
-                activeRightHeightPlus = this.activeFigureSize(columnSize + 1, figures.length, figureElements);
-
-                diff = activeLeftHeight > activeRightHeight ? activeLeftHeight - activeRightHeight : activeRightHeight - activeLeftHeight;
-                diffMinus = activeLeftHeightMinus > activeRightHeightMinus ? activeLeftHeightMinus - activeRightHeightMinus : activeRightHeightMinus - activeLeftHeightMinus;
-                diffPlus = activeLeftHeightPlus > activeRightHeightPlus ? activeLeftHeightPlus - activeRightHeightPlus : activeRightHeightPlus - activeLeftHeightPlus;
-              }
-
-              this.columnSize = columnSize;
-            } else {
-              this.columns = 1;
-              this.columnSize = 99;
-            }
-          } else {
-            this.columns = 1;
-            this.columnSize = 99;
-          }
-
           this.lastScroll = this.lastActive();
-          this.lastScrollColumn = this.columns > 1 ? this.columnSize - 1 : -1;
+          const figureElements: any[] = Array.from(containerElement.getElementsByClassName('figure'));
+          if (figureElements.length > 0) {
+            const figureWidth = figureElements[0].firstChild.clientWidth;
+            const maxColumns = Math.floor(containerElement.clientWidth / (figureWidth * 1.025));
+            if (maxColumns > 1) {
+              const activeFigureElementHeights = figureElements.slice(0, this.lastScroll + 1).map((element) => element.clientHeight);
+              const columns = this.calcColumnsHelper(activeFigureElementHeights, containerElement.clientHeight, containerElement.clientWidth, figureWidth * 1.025).filter((column) => column.length);
+              this.grid = columns.map((column, index, self) => self.map((value) => value.length).slice(0, index + 1).reduce((a, b) => a + b), 0);
+            }
+          }
+          this.lastScrollColumn = this.grid.length > 1 ? this.grid.length - 1 : -1;
 
           this.translate(scrollTo, skipAnimation);
         }
@@ -383,18 +310,68 @@ export class MainComponent implements OnInit {
     }
   }
 
-  figureSize(start: number, end: number, figureElements: any[]) {
-    return figureElements.slice(start, end).map((element) => element.firstChild.clientHeight).reduce((a: any, b: any) => a + b, 0);
+  calcColumnsHelper(elementHeights: number[], containerHeight: number, containerWidth: number, columnWidth: number): number[][] {
+    const totalHeight = elementHeights.reduce((a, b) => a + b, 0);
+    const numColumns = Math.floor(containerWidth / columnWidth);
+    const targetHeight = Math.max(totalHeight / numColumns, containerHeight);
+    let columns: number[][] = Array.from({ length: numColumns }, () => []);
+    let columnHeights: number[] = Array(numColumns).fill(0);
+
+    let distributionColumn = 0;
+    elementHeights.forEach((elementHeight) => {
+      if (columnHeights[distributionColumn] + elementHeight > targetHeight && distributionColumn < numColumns - 1) {
+        distributionColumn++;
+      }
+      columns[distributionColumn].push(elementHeight);
+      columnHeights[distributionColumn] += elementHeight;
+    })
+
+    columns = columns.filter((column) => column.length);
+    columnHeights = columnHeights.filter((height) => height);
+
+    let iterate = true;
+    let oldDiff = 0;
+    while (iterate) {
+      let maxIndex = -1;
+      let minIndex = -1;
+      let diff = 0;
+
+      for (let i = 0; i < columnHeights.length; i++) {
+        if (Math.abs(columnHeights[i] - columnHeights[i + 1]) > diff) {
+          diff = Math.abs(columnHeights[i] - columnHeights[i + 1]);
+          if (columnHeights[i] < columnHeights[i + 1]) {
+            minIndex = i;
+            maxIndex = i + 1;
+          } else {
+            minIndex = i + 1;
+            maxIndex = i;
+          }
+        }
+      }
+
+      if (diff <= oldDiff) {
+        iterate = false;
+        break;
+      }
+
+      if (minIndex != -1 && maxIndex != -1) {
+        const elementHeight = columns[maxIndex].splice(maxIndex > minIndex ? 0 : columns[maxIndex].length - 1, 1)[0];
+        columns[minIndex].push(elementHeight);
+        columnHeights[minIndex] += elementHeight;
+        columnHeights[maxIndex] -= elementHeight;
+        oldDiff = diff;
+      } else {
+        iterate = false;
+        break;
+      }
+    }
+
+    return columns;
   }
 
-  activeFigureSize(start: number, end: number, figureElements: any[]) {
-    let lastActive = this.lastActive(start, end);
-    return figureElements.slice(start, end).filter((element: any, index: number) => index <= lastActive).map((element) => element.firstChild.clientHeight).reduce((a: any, b: any) => a + b, 0);
-  }
-
-  lastActive(start: number | undefined = undefined, end: number | undefined = undefined): number {
+  lastActive(): number {
     let lastActive = -1;
-    this.figures.slice(start, end).forEach((figure, index) => {
+    this.figures.forEach((figure, index) => {
       if (index > lastActive && gameManager.gameplayFigure(figure)) {
         lastActive = index;
       }
@@ -411,22 +388,32 @@ export class MainComponent implements OnInit {
         }
 
         const figures = containerElement.getElementsByClassName('figure');
+        const columnMiddle = Math.ceil(this.grid.length / 2);
         for (let index = 0; index < figures.length; index++) {
           let start = 0;
-          let left = "-50%";
-          if (this.columns > 1) {
-            if (index < this.columnSize) {
-              left = "calc(-100% - var(--ghs-unit) * 0.5)";
-            } else {
-              left = "calc(var(--ghs-unit) * 0.5)";
-              start = this.columnSize;
+          let left = "0";
+          let column = this.grid.length - 1;
+          let factor = 0;
+          for (let c = this.grid.length; c > 0; c--) {
+            if (index < this.grid[c - 1]) {
+              column = c - 1;
             }
           }
+
+          factor = column - columnMiddle;
+          if (this.grid.length % 2 == 1) {
+            factor += 0.5;
+          }
+
+          left = "calc(100% * " + factor + ")";
+
+          start = column == 0 ? 0 : this.grid[column - 1];
 
           let height = 0;
           for (let i = start; i < index; i++) {
             height += figures[i].clientHeight;
           }
+
           figures[index].style.transform = "scale(1) translate(" + left + "," + height + "px)";
 
           if (scrollTo) {
