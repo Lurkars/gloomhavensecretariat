@@ -947,7 +947,7 @@
                 &.checked::before {
                   content: ' ';
                   position: absolute;
-                  top: calc(var(--ghs-unit) * -0.2 * var(--ghs-dialog-factor));
+                  top: 0;
                   left: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
                   width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
                   height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
