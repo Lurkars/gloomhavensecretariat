@@ -1,6 +1,6 @@
 {
   "name": "gloomhavensecretariat",
-  "version": "0.86.0",
+  "version": "0.86.1",
   "license": "AGPL3",
   "description": "Gloomhaven Secretariat is a Gloomhaven/Frosthaven Companion app.",
   "homepage": "https://gloomhaven-secretariat.de",
@@ -16,14 +16,15 @@
     "url": "https://ko-fi.com/lurkars"
   },
   "main": "main.js",
-  "watch": {
-    "prestart": {
-      "patterns": [
-        "data"
-      ],
-      "extensions": "json",
-      "runOnChangeOnly": true
-    }
+  "nodemonConfig": {
+    "execMap": {
+      "js": "node ./scripts/build-data.js"
+    },
+    "watch": [
+      "data/"
+    ],
+    "ext": "json",
+    "runOnChangeOnly": true
   },
   "scripts": {
     "prepare": "husky install",
@@ -34,7 +35,7 @@
     "postbuild": "node ./scripts/post-build.js",
     "pretest": "node ./scripts/build-data.js",
     "test": "ng test",
-    "watch": "npm-watch",
+    "watch": "nodemon",
     "electron": "npm run build -- --base-href ./ && electron .",
     "electron:build": "npm run build -- --base-href ./ && electron-builder"
   },
@@ -110,7 +111,7 @@
     "karma-coverage": "~2.2.1",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "npm-watch": "^0.11.0",
+    "nodemon": "^3.0.3",
     "typescript": "~5.3.3"
   }
 }
