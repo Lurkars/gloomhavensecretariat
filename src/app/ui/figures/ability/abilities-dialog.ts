@@ -7,7 +7,6 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { applyPlaceholder } from '../../helper/label';
-import { EntityValueFunction } from 'src/app/game/model/Entity';
 
 @Component({
   selector: 'ghs-abilities-dialog',
@@ -58,10 +57,11 @@ export class AbiltiesDialogComponent implements OnInit {
     if (abilityNumber >= 0 && this.bottomActions) {
       abilityNumber++;
     }
-    return [
-      ...this.monster.abilities.filter((value, index) => index <= abilityNumber).map((value) => gameManager.abilities(this.monster)[value]).reverse(),
-      ...this.monster.abilities.filter((value, index) => index > abilityNumber && index < gameManager.monsterManager.drawnAbilities(this.monster)).map((value) => gameManager.abilities(this.monster)[value])
-    ];
+    return this.monster.abilities.filter((value, index) => index <= abilityNumber).map((value) => gameManager.abilities(this.monster)[value]).reverse();
+  }
+
+  deletedCards(): Ability[] {
+    return gameManager.deckData(this.monster).abilities.filter((ability, index) => this.monster.abilities.indexOf(index) == -1);
   }
 
   abilityIndex(ability: Ability) {
@@ -79,7 +79,6 @@ export class AbiltiesDialogComponent implements OnInit {
     gameManager.monsterManager.drawAbility(this.monster);
     gameManager.stateManager.after();
   }
-
 
   toggleDrawExtra() {
     if (this.monster.drawExtra) {
@@ -132,16 +131,20 @@ export class AbiltiesDialogComponent implements OnInit {
 
   restoreDefault(): void {
     gameManager.stateManager.before("restoreDefaultAbilities", "data.monster." + this.monster.name);
-    const abilities = gameManager.abilities(this.monster);
-    this.monster.abilities = abilities.filter((ability) => !ability.level || isNaN(+ability.level) || EntityValueFunction(ability.level) <= this.monster.level).map((ability, index) => index);
-    this.monster.ability = -1;
+    gameManager.monsterManager.restoreDefaultAbilities(this.monster);
     gameManager.stateManager.after();
   }
 
   remove(index: number) {
-    const ability: Ability = gameManager.abilities(this.monster)[this.monster.abilities[index + this.monster.ability + 1]];
+    const ability: Ability = gameManager.abilities(this.monster)[this.monster.abilities[index]];
     gameManager.stateManager.before("removeAbility", "data.monster." + this.monster.name, this.abilityLabel(ability));
-    this.monster.abilities.splice(index + this.monster.ability + 1, 1);
+    gameManager.monsterManager.removeAbility(this.monster, index);
+    gameManager.stateManager.after();
+  }
+
+  restore(ability: Ability) {
+    gameManager.stateManager.before("restoreAbility", "data.monster." + this.monster.name, this.abilityLabel(ability));
+    gameManager.monsterManager.restoreAbility(this.monster, ability);
     gameManager.stateManager.after();
   }
 
