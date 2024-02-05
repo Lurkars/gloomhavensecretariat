@@ -133,6 +133,11 @@
   "scenario": {
     "group": {
       "randomMonsterCard": "Random Monster Cards"
+    },
+    "rules": {
+      "fh": {
+        "97": "To add monster abilities to a character's hand, open the Ability Cards menu and remove the cards from the deck. To play that card, simply add it back in the Edit menu."
+      }
     }
   },
   "section": {
