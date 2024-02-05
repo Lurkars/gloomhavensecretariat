@@ -70,7 +70,7 @@
       (cdkDropListDropped)="drop($event)" cdkDropListAutoScrollStep="20" (cdkDropListEntered)="entered($event)"
       (cdkDropListExited)="exited($event)"
       [cdkDropListDisabled]="!settingsManager.settings.dragFigures || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters && !gameManager.stateManager.permissions.monsters"
-      [ngClass]="{'last' : grid.indexOf(i+1) != -1 || i == figures.length - 1, 'short': (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern'}">
+      [ngClass]="{'last' : grid.indexOf(i+1) != -1 && grid.indexOf(i+1) != grid.length -1 || i == figures.length - 1, 'short': (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern'}">
 
       <div cdkDrag #figureDrag [cdkDragStartDelay]="isTouch ? 450 : 0" [ngClass]="{'enabled' : draggingEnabled}"
         (cdkDragStarted)="startedDrag($event, figureDrag)" (cdkDragReleased)="releasedDrag($event, figureDrag)">
