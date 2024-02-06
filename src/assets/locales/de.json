@@ -1150,6 +1150,13 @@
     "reset": "Szenario neustarten",
     "rewards": {
       ".": "Belohnungen",
+      "addWeek": {
+        ".": "Kalender",
+        "next": "Automatisch Kalender Wochen vertreichen zu Woche {0}",
+        "section": "Öffne %data.section:{0}% (automatisch angwendeted)",
+        "summer": "Neue Saison: Sommer <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
+        "winter": "Neue Saison: Winter <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
+      },
       "battleGoals": "jeweils {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
       "bonus": "Bonus",
       "calendarSection": {

@@ -359,6 +359,10 @@
           align-items: center;
           margin-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
         }
+
+        &.week-sections .week-section {
+          cursor: pointer;
+        }
       }
 
       .location .index {

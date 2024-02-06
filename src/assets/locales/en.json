@@ -1297,6 +1297,13 @@
     "reset": "Restart Scenario",
     "rewards": {
       ".": "Rewards",
+      "addWeek": {
+        ".": "Calendar",
+        "next": "Automatic pass calendar time to week {0}",
+        "section": "Open %data.section:{0}% (applied automatically)",
+        "summer": "New season: Summer <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
+        "winter": "New season: Winter <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
+      },
       "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> each",
       "bonus": "Bonus",
       "calendarSection": {

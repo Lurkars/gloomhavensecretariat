@@ -134,7 +134,7 @@ export class ScenarioSummaryComponent {
             gameManager.stateManager.before("finishScenario.dialog", ...gameManager.scenarioManager.scenarioUndoArgs());
             this.updateFinish();
             gameManager.stateManager.after();
-        } else {
+        } else if (!this.rewardsOnly) {
             this.loadFinish();
         }
 
@@ -393,6 +393,42 @@ export class ScenarioSummaryComponent {
 
     hasBonus(): boolean {
         return ((gameManager.game.party.campaignMode || this.forceCampaign) && this.success && !this.conclusionOnly && !this.scenario.solo) && (gameManager.fhRules() && gameManager.characterManager.characterCount() < 4 || this.numberChallenges > 0);
+    }
+
+    addWeek(): boolean {
+        return ((gameManager.game.party.campaignMode || this.forceCampaign) && this.success && !this.conclusionOnly && !this.scenario.solo) && !this.scenario.conclusion && !this.scenario.forcedLinks && settingsManager.settings.automaticPassTime && settingsManager.settings.partySheet;
+    }
+
+    weekSections(): ScenarioData[] {
+        let result: ScenarioData[] = [];
+        const editionData = gameManager.editionData.find((editionData) => editionData.edition == this.scenario.edition);
+        let weekSections: string[] = [];
+        if (editionData && editionData.campaign) {
+            weekSections.push(...editionData.campaign.weeks && editionData.campaign.weeks[gameManager.game.party.weeks + 1] || []);
+        }
+
+        weekSections.push(...gameManager.game.party.weekSections[gameManager.game.party.weeks + 1] || []);
+
+        weekSections.forEach((section) => {
+            const sectionData = gameManager.sectionData(this.scenario.edition).find((sectionData) => sectionData.index == section && sectionData.group == this.scenario.group && sectionData.conclusion);
+            if (sectionData) {
+                result.push(sectionData);
+            }
+        })
+
+        return result;
+    }
+
+    showWeekConclusion(sectionData: ScenarioData) {
+        const scenario = new Scenario(sectionData);
+        this.dialog.open(ScenarioSummaryComponent, {
+            panelClass: ['dialog'],
+            data: {
+                scenario: scenario,
+                conclusionOnly: true,
+                rewardsOnly: true
+            }
+        })
     }
 
     availableCollectiveGold(): number {
