@@ -1,7 +1,7 @@
 <div class="attack-modifiers-dialog">
   <div class="scroll-container">
     <div class="menu" #menu
-      [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers && (!character || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition])}">
+      [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers && (!character || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]), 'has-deleted': edit && deletedCards.length}">
       <a (click)="reveal = (reveal + 1) % 3">
         <span
           [ghs-label]="(reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ? 'game.cards.revealAll' : 'game.cards.revealAllConfirm'))"></span>
@@ -99,14 +99,14 @@
             src="./assets/images/shuffle.svg"></a>
       </div>
     </div>
-    <div class="attack-modifiers-container" [style.maxHeight]="maxHeight">
+    <div class="attack-modifiers-container" [style.maxHeight]="maxHeight"
+      [ngClass]="{'has-deleted': edit && deletedCards.length}">
       <div class="upcoming drop-list" cdkDropList [cdkDropListDisabled]="!edit" #upcomingList="cdkDropList"
         [cdkDropListConnectedTo]="disgardedList" (cdkDropListDropped)="dropUpcoming($event)"
         [cdkDropListAutoScrollStep]="20"
         [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers && (!character || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition])}">
-        <div class="empty" *ngIf="upcomingCards().length == 0"></div>
-        <div class="attack-modifier-container" *ngFor="let attackModifier of upcomingCards(); let index = index"
-          cdkDrag>
+        <div class="empty" *ngIf="upcomingCards.length == 0"></div>
+        <div class="attack-modifier-container" *ngFor="let attackModifier of upcomingCards; let index = index" cdkDrag>
           <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
             [reveal]="true" [flipped]="reveal == 2 || attackModifier.revealed" [newStyle]="newStyle"
             [characterIcon]="characterIcon" [ally]="ally" [townGuard]="townGuard">
@@ -122,13 +122,23 @@
         [cdkDropListAutoScrollStep]="20">
         <div class="empty"></div>
 
-        <div class="attack-modifier-container" *ngFor="let attackModifier of disgardedCards(); let index = index"
-          cdkDrag>
+        <div class="attack-modifier-container" *ngFor="let attackModifier of disgardedCards; let index = index" cdkDrag>
           <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
             [flipped]="true" [newStyle]="newStyle" [characterIcon]="characterIcon" [ally]="ally"
             [townGuard]="townGuard"></ghs-attackmodifier>
           <a class="button-remove" *ngIf="edit" (click)="remove(deck.current - index)">
             <img class="ghs-svg" src="./assets/images/minus.svg"></a>
+          <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
+        </div>
+      </div>
+
+      <div class="deleted" *ngIf="edit && deletedCards.length">
+        <div class="attack-modifier-container" *ngFor="let attackModifier of deletedCards; let index = index" cdkDrag>
+          <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
+            [flipped]="true" [newStyle]="newStyle" [characterIcon]="characterIcon" [ally]="ally"
+            [townGuard]="townGuard"></ghs-attackmodifier>
+          <a class="button-restore" *ngIf="edit" (click)="restore(index)">
+            <img class="ghs-svg" src="./assets/images/plus.svg"></a>
           <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
         </div>
       </div>
