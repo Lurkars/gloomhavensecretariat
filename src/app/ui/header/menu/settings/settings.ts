@@ -96,99 +96,8 @@ export class SettingsMenuComponent {
     this.setZoom(100, 0, true);
   }
 
-  updateBarsize(event: any) {
-    document.body.style.setProperty('--ghs-barsize', event.target.value + '');
-  }
-
-  setBarsize(event: any): void {
-    settingsManager.setBarsize(event.target.value);
-    document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
-  }
-
-  resetBarsize(event: any) {
-    if (this.doubleClick) {
-      clearTimeout(this.doubleClick);
-      this.doubleClick = null;
-      settingsManager.setBarsize(1);
-      document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
-    } else {
-      this.doubleClick = setTimeout(() => {
-        if (this.doubleClick) {
-          this.doubleClick = null;
-        }
-      }, 200)
-    }
-  }
-
-  updateFontsize(event: any) {
-    document.body.style.setProperty('--ghs-fontsize', event.target.value + '');
-  }
-
-  setFontsize(event: any): void {
-    settingsManager.setFontsize(event.target.value);
-    document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
-  }
-
-  resetFontsize(event: any) {
-    if (this.doubleClick) {
-      clearTimeout(this.doubleClick);
-      this.doubleClick = null;
-      settingsManager.setFontsize(1);
-      document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
-    } else {
-      this.doubleClick = setTimeout(() => {
-        if (this.doubleClick) {
-          this.doubleClick = null;
-        }
-      }, 200)
-    }
-  }
-
-  updateGlobalFontsize(event: any) {
-    document.body.style.setProperty('--ghs-global-fontsize', event.target.value + '');
-  }
-
-  setGlobalFontsize(event: any): void {
-    settingsManager.setGlobalFontsize(event.target.value);
-    document.body.style.setProperty('--ghs-global-fontsize', settingsManager.settings.globalFontsize + '');
-  }
-
-  resetGlobalFontsize(event: any) {
-    if (this.doubleClick) {
-      clearTimeout(this.doubleClick);
-      this.doubleClick = null;
-      settingsManager.setGlobalFontsize(1);
-      document.body.style.setProperty('--ghs-global-fontsize', settingsManager.settings.globalFontsize + '');
-    } else {
-      this.doubleClick = setTimeout(() => {
-        if (this.doubleClick) {
-          this.doubleClick = null;
-        }
-      }, 200)
-    }
-  }
-
   setTheme(event: any) {
-    settingsManager.setTheme(event.target.value);
-  }
-
-  fullscreen(): void {
-    settingsManager.setFullscreen(!settingsManager.settings.fullscreen);
-    if (settingsManager.settings.fullscreen) {
-      document.body.requestFullscreen();
-    } else {
-      document.exitFullscreen();
-    }
-  }
-
-  togglePortraitMode() {
-    settingsManager.setPortraitMode(!settingsManager.settings.portraitMode);
-
-    if (settingsManager.settings.portraitMode) {
-      document.body.classList.add('portrait-mode');
-    } else {
-      document.body.classList.remove('portrait-mode');
-    }
+    settingsManager.set('theme', event.target.value);
   }
 
   helperDefaults(): void {
@@ -220,19 +129,70 @@ export class SettingsMenuComponent {
     settingsManager.settings.hideStats = true;
     settingsManager.settings.hints = true;
     settingsManager.settings.initiativeRequired = true;
-    settingsManager.settings.initiativeRequired = true;
+    settingsManager.settings.interactiveAbilities = true;
     settingsManager.settings.lootDeck = false;
     settingsManager.settings.moveElements = true;
     settingsManager.settings.partySheet = false;
     settingsManager.settings.randomStandees = false;
     settingsManager.settings.scenarioRewards = false;
     settingsManager.settings.scenarioRooms = false;
+    settingsManager.settings.scenarioRules = false;
     settingsManager.settings.standees = true;
     settingsManager.settings.standeeStats = false;
     settingsManager.settings.treasures = false;
     settingsManager.settings.treasuresLoot = false;
     settingsManager.settings.turnConfirmation = false;
     settingsManager.settings.theme = 'default';
+    settingsManager.storeSettings();
+  }
+
+  xhaDefaults(): void {
+    settingsManager.settings.abilityNumbers = true;
+    settingsManager.settings.activeApplyConditions = false;
+    settingsManager.settings.activeStandees = false;
+    settingsManager.settings.activeSummons = false;
+    settingsManager.settings.applyConditions = false;
+    settingsManager.settings.applyLongRest = false;
+    settingsManager.settings.allyAttackModifierDeck = true;
+    settingsManager.settings.automaticUnlocking = false;
+    settingsManager.settings.automaticStandees = true;
+    settingsManager.settings.automaticStandeesDialog = true;
+    settingsManager.settings.autoscroll = true;
+    settingsManager.settings.battleGoals = false;
+    settingsManager.settings.calculate = true;
+    settingsManager.settings.calculateStats = true;
+    settingsManager.settings.characterAttackModifierDeck = false;
+    settingsManager.settings.characterIdentities = false;
+    settingsManager.settings.characterItems = false;
+    settingsManager.settings.characterHandSize = false;
+    settingsManager.settings.characterSheet = false;
+    settingsManager.settings.disabledTurnConfirmation = true;
+    settingsManager.settings.disableStandees = false;
+    settingsManager.settings.dragValues = true;
+    settingsManager.settings.eliteFirst = true;
+    settingsManager.settings.expireConditions = false;
+    settingsManager.settings.fhStyle = true;
+    settingsManager.settings.hideAbsent = false;
+    settingsManager.settings.hideCharacterLoot = true;
+    settingsManager.settings.hideStats = true;
+    settingsManager.settings.hints = true;
+    settingsManager.settings.initiativeRequired = true;
+    settingsManager.settings.interactiveAbilities = false;
+    settingsManager.settings.lootDeck = false;
+    settingsManager.settings.moveElements = true;
+    settingsManager.settings.partySheet = false;
+    settingsManager.settings.randomStandees = false;
+    settingsManager.settings.scenarioRewards = false;
+    settingsManager.settings.scenarioRooms = true;
+    settingsManager.settings.scenarioRules = true;
+    settingsManager.settings.showFullAbilityCard = true;
+    settingsManager.settings.standees = true;
+    settingsManager.settings.standeeStats = false;
+    settingsManager.settings.statAnimations = true;
+    settingsManager.settings.treasures = false;
+    settingsManager.settings.treasuresLoot = false;
+    settingsManager.settings.turnConfirmation = false;
+    settingsManager.settings.theme = 'fh';
     settingsManager.storeSettings();
   }
 }

@@ -278,6 +278,15 @@
         cursor: initial;
         color: var(--ghs-color-disabled);
       }
+
+      &.hide-title {
+        border-bottom: none;
+        margin-bottom: 0;
+
+        label {
+            display: none;
+        }
+    }
     }
 
     &.sticky {

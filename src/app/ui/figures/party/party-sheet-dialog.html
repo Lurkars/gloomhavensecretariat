@@ -141,7 +141,7 @@
         </div>
 
         <div class="calendar-lock-toggle">
-          <a (click)="settingsManager.setCalendarLocked(!settingsManager.settings.calendarLocked)">
+          <a (click)="settingsManager.toggle('calendarLocked')">
             <img [src]="'./assets/images/lock' + (settingsManager.settings.calendarLocked ? '' : '-open') + '.svg'">
           </a>
         </div>

@@ -201,7 +201,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     gameManager.stateManager.after();
                     event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('absent') != -1) && !event.ctrlKey && !event.shiftKey && event.key === 'h') {
-                    settingsManager.setHideAbsent(!settingsManager.settings.hideAbsent);
+                    settingsManager.toggle('hideAbsent');
                     event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('select') != -1) && !event.ctrlKey && !event.shiftKey && event.key === 's') {
                     gameManager.stateManager.keyboardSelecting = true;

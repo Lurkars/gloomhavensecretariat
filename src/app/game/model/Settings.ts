@@ -1,6 +1,9 @@
 import { ConditionName } from "./data/Condition";
 
 export class Settings {
+
+  [index: string]: any;
+
   abilities: boolean = true;
   abilityNumbers: boolean = true;
   abilityReveal: boolean = true;
@@ -64,7 +67,8 @@ export class Settings {
   characterSheetCompact: boolean = false;
   characterShieldRetaliate: boolean = false;
   characterTraits: boolean = false;
-  columns: boolean = true;
+  columns: boolean = true; 
+  columnsForce: boolean = false;
   combineSummonAction: boolean = true;
   debugRightClick: boolean = false;
   disableAnimations: boolean = false;

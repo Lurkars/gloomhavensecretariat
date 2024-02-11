@@ -762,9 +762,9 @@ export class GameManager {
   changeParty(party: Party) {
     if (settingsManager.settings.automaticTheme) {
       if (this.game.edition != 'fh' && party.edition == 'fh') {
-        settingsManager.setFhStyle(true);
+        settingsManager.set('fhStyle', true);
       } else if (this.game.edition == 'fh' && party.edition != 'fh') {
-        settingsManager.setFhStyle(false);
+        settingsManager.set('fhStyle', false);
       }
     }
 

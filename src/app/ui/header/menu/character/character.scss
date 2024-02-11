@@ -7,7 +7,7 @@
   top: 0;
   display: grid;
   grid-template-columns: repeat(5, calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor)));
-  margin: calc(var(--ghs-unit) * 0.6 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+  margin: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
   background-image: url('~src/assets/images/dialog_background.png');
   z-index: 2;
 

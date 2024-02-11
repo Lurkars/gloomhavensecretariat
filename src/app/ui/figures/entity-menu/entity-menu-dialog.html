@@ -194,7 +194,7 @@
       </ng-container>
 
       <ng-container
-        *ngIf="(gameManager.isCharacter(data.figure) && settingsManager.settings.characterAttackModifierDeck || gameManager.isMonster(data.figure)) && (!data.entity || EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal))">
+        *ngIf="(gameManager.isCharacter(data.figure) && settingsManager.settings.characterSheet && settingsManager.settings.characterAttackModifierDeck || gameManager.isMonster(data.figure)) && (!data.entity || EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal))">
 
         <span class="item">
           <ghs-pointer-input class="button"

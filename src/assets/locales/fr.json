@@ -1534,7 +1534,7 @@
         "brittle": "Si vous subissez des dégâts, demandez à appliquer %game.condition.brittle% et augmentez les dégâts.",
         "heal": "Pas de condition, mais une aide si %game.action.heal% doit être appliqué lors de l'augmentation des points de vie.",
         "poison": "Lorsqu'il subit des dégâts, il demande à appliquer %game.action.attack% +1 de %game.condition.poison% (y compris %game.attackmodifier.double%).",
-        "poison_x": "Lorsqu'il subit des dégâts, il demande à appliquer %game.action.attaque% +X de %game.condition.poison_x:X% (y compris %game.modificateur.d'attaque.double%).",
+        "poison_x": "Lorsqu'il subit des dégâts, il demande à appliquer %game.action.attack% +X de %game.condition.poison_x:X% (y compris %game.modificateur.d'attaque.double%).",
         "shield": "Pas de condition, mais une aide si %game.action.shield% doit être appliqué lorsque l'on subit des dégâts.",
         "ward": "Si vous subissez des dégâts, demandez à appliquer %game.condition.ward% et à réduire les dégâts."
       }
@@ -1675,7 +1675,7 @@
     "browserNavigation": {
       ".": "Défaire/Refaire par la navigation"
     },
-    "calc": {
+    "calculate": {
       ".": "Afficher les stats calculées",
       "hint": "Les valeurs de capacité sont calculées avec les statistiques, donc au lieu de Attaque +1 Attaque 4 est indiqué pour une valeur d'attaque de 3 dans les statistiques. "
     },
@@ -1880,7 +1880,7 @@
     },
     "maxUndo": {
       ".": "Nombre max d'actions à défaire",
-      "warning": {
+      "hint": {
         ".": "Votre navigateur ne semble pas prendre en charge IndexedDB ou votre utilisation est restreinte. Par conséquent, le nombre maximum d'annulations est limité à 50.",
         "firefox": "On Firefox you can enable IndexedDB for private mode in <a href=\"about:config\" target=\"_blank\">about:config</a> with the key <i>dom.indexedDB.privateBrowsing.enabled</i>."
       }

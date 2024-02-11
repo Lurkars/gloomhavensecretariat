@@ -549,7 +549,7 @@
       },
       "invisible": {
         ".": "Invisible",
-        "hint": "%game.conditionIcon.invisble% Invisible: Cannot be targeted. Remove at end of next turn."
+        "hint": "%game.conditionIcon.invisible% Invisible: Cannot be targeted. Remove at end of next turn."
       },
       "muddle": {
         ".": "Muddle",
@@ -1726,7 +1726,7 @@
       ".": "Undo/Redo with navigation",
       "hint": ""
     },
-    "calc": {
+    "calculate": {
       ".": "Show calculated stats",
       "hint": "Ability values are calculated with stats, so instead of Attack +1 Attack 4 is shown for an Attack value of 3 in the stats "
     },
@@ -1805,7 +1805,11 @@
     },
     "columns": {
       ".": "Column layout",
-      "hint": "Enable two-column layout if zoom and space fits"
+      "hint": "Enable column layout if zoom and space fits"
+    },
+    "columnsForce": {
+      ".": "Use all available columns",
+      "hint": "Always distribute the figures across all available columns."
     },
     "combineSummonAction": {
       ".": "Combine Summon Action",
@@ -1956,8 +1960,7 @@
     },
     "maxUndo": {
       ".": "Max. number of undos",
-      "hint": "",
-      "warning": {
+      "hint": {
         ".": "Your browser doesn't seem to support IndexedDB or you have restricted usage. Therefore the max. number of undos is limited to 50.",
         "firefox": "On Firefox you can enable IndexedDB for private mode in <a href=\"about:config\" target=\"_blank\">about:config</a> with the key <i>dom.indexedDB.privateBrowsing.enabled</i>."
       }
@@ -2090,6 +2093,7 @@
       ".": "Wake Lock",
       "hint": "Wake Lock on supported devices. Wake Lock will keep the screen on. This can drain battery on mobile."
     },
+    "xhaDefaults": "Apply X-haven Assistant settings",
     "zoom": {
       ".": "Zoom",
       "in": "Zoom in",

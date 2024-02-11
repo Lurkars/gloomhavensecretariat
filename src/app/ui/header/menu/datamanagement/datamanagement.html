@@ -66,8 +66,9 @@
           <div class="hint-container">
             <label class="label"><span [ghs-label]="'datamanagement.backup.auto.count'"></span>
               <input tabclick type="number" #autoBackup [value]="settingsManager.settings.autoBackup" min="0"
-                (keyup)="0" (change)="settingsManager.setAutoBackup(+autoBackup.value)" [size]="autoBackup.value.length"
-                [ghs-label]="'datamanagement.backup.auto.count'" [ghs-label-attribute]="'placeholder'"></label>
+                (keyup)="0" (change)="settingsManager.set('autoBackup', +autoBackup.value)"
+                [size]="autoBackup.value.length" [ghs-label]="'datamanagement.backup.auto.count'"
+                [ghs-label-attribute]="'placeholder'"></label>
             <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
             <div class="hint">
               <div class="text">
@@ -262,8 +263,8 @@
             <span class="url">{{editionData.url}}</span>
           </span>
           <span class="spacer"></span>
-          <span (click)="removeEditionDataUrl(editionData.url)"
-            [ghs-label]="'datamanagement.editionDataUrls.remove'" [ghs-label-attribute]="'title'" class="remove"></span>
+          <span (click)="removeEditionDataUrl(editionData.url)" [ghs-label]="'datamanagement.editionDataUrls.remove'"
+            [ghs-label-attribute]="'title'" class="remove"></span>
         </a>
       </div>
       <div class="spacer"></div>

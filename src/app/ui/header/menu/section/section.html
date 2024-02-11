@@ -9,7 +9,7 @@
   <div class="line">
     <label>
       <input tabclick type="checkbox" [checked]="settingsManager.settings.showAllSections"
-        (change)="settingsManager.setShowAllSections(!settingsManager.settings.showAllSections)">
+        (change)="settingsManager.toggle('showAllSections')">
       <span [ghs-label]="'scenario.showAllSections'"></span>
     </label>
   </div>

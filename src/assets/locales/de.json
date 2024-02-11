@@ -1577,7 +1577,7 @@
       ".": "Rückgängig/Wiederherstellen über Navigation",
       "hint": ""
     },
-    "calc": {
+    "calculate": {
       ".": "Zeige berechnete Werte an",
       "hint": "Fähigkeitswerte werden mit den Basiswerten zusammengerechnet, statt Angriff +1 wird z.B. Angriff 4 angezeigt bei einem Basis Angriffswert von 3"
     },
@@ -1655,8 +1655,12 @@
       "hint": "Zeige die Eigenschaften auf dem Charakterboard an."
     },
     "columns": {
-      ".": "Zweispaltiges Layout",
-      "hint": "Zweispaltige Layout anzeigen falls Zoom und Platz ausreichend sind"
+      ".": "Mehrspaltiges Layout",
+      "hint": "Mehrspaltige Layout anzeigen falls Zoom und Platz ausreichend sind"
+    },
+    "columnsForce": {
+      ".": "Alle verfügbaren Spalten nutzen",
+      "hint": "Verteile die Figuren immer auf alle verfügbaren Spalten."
     },
     "combineSummonAction": {
       ".": "Beschwörung Aktion kombinieren",
@@ -1808,8 +1812,7 @@
     },
     "maxUndo": {
       ".": "Max. Anzahl Rückgängigvorgänge",
-      "hint": "",
-      "warning": {
+      "hint": {
         ".": "Der Browser scheint IndexedDB nicht zu unterstützen oder hat fehlende Berechtigungen. Deshalb wird die max. Anzahl an Rückgängigvorgängen auf 50 limitiert.",
         "firefox": "Im Privaten Modus von Firefox kann IndexedDB in der <a href=\"about:config\" target=\"_blank\">about:config</a> unter dem Schlüssel <i>dom.indexedDB.privateBrowsing.enabled</i> aktiviert werden."
       }
@@ -1942,6 +1945,7 @@
       ".": "Display immer an",
       "hint": "Display immer an bei unterstützen Geräten. Die Funktion hält das Display immer eingeschaltet, dies kann zu höherem Energieverbrauch auf Mobilgeräten führen."
     },
+    "xhaDefaults": "X-haven Assistant Einstellungen anwenden",
     "zoom": {
       ".": "Zoom",
       "in": "Reinzoomen",

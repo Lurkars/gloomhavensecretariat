@@ -112,7 +112,7 @@
   </div>
   <div class="dialog backup-hint" *ngIf="showBackupHint">
     <div class="dialog-container">
-      <div class="hide" (click)="settingsManager.setBackupHint(false)"><span
+      <div class="hide" (click)="settingsManager.set('backupHint', false)"><span
           [ghs-label]="'datamanagement.backup.download.hint.hide'"></span>
         <img src="./assets/images/close.svg">
       </div>

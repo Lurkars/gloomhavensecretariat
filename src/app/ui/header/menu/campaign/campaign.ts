@@ -66,9 +66,9 @@ export class CampaignMenuComponent implements OnInit {
         gameManager.stateManager.before("setEdition", "data.edition." + edition);
         if (settingsManager.settings.automaticTheme) {
             if (edition == 'fh') {
-                settingsManager.setFhStyle(true);
-            } else {
-                settingsManager.setFhStyle(false);
+                settingsManager.set('fhStyle', true);
+            } else if (edition) {
+                settingsManager.set('fhStyle', false);
             }
         }
         gameManager.game.edition = edition;

@@ -269,9 +269,9 @@ export class MainComponent implements OnInit {
     gameManager.game.edition = edition;
     if (settingsManager.settings.automaticTheme) {
       if (edition == 'fh') {
-        settingsManager.setFhStyle(true);
+        settingsManager.set('fhStyle', true);
       } else {
-        settingsManager.setFhStyle(false);
+        settingsManager.set('fhStyle', false);
       }
     }
     gameManager.game.party.campaignMode = true;
@@ -313,7 +313,7 @@ export class MainComponent implements OnInit {
   calcColumnsHelper(elementHeights: number[], containerHeight: number, containerWidth: number, columnWidth: number): number[][] {
     const totalHeight = elementHeights.reduce((a, b) => a + b, 0);
     const numColumns = Math.floor(containerWidth / columnWidth);
-    const targetHeight = Math.max(totalHeight / numColumns, containerHeight);
+    const targetHeight = Math.max(totalHeight / numColumns, settingsManager.settings.columnsForce ? 0 : containerHeight);
     let columns: number[][] = Array.from({ length: numColumns }, () => []);
     let columnHeights: number[] = Array(numColumns).fill(0);
 
