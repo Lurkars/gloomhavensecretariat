@@ -336,6 +336,7 @@ export class StateManager {
             settings.characterCompact = settingsManager.settings.characterCompact;
             settings.characterSheetCompact = settingsManager.settings.characterSheetCompact;
             settings.columns = settingsManager.settings.columns;
+            settings.columnsForce = settingsManager.settings.columnsForce;
             settings.debugRightClick = settingsManager.settings.debugRightClick;
             settings.disableAnimations = settingsManager.settings.disableAnimations;
             settings.disableArtwork = settingsManager.settings.disableArtwork;
