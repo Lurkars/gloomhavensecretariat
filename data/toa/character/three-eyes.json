@@ -285,7 +285,7 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "You may ring one additional %game.items.slots.onehand% item into each scenario"
+      "custom": "You may bring one additional %game.items.slots.onehand% item into each scenario"
     },
     {
       "type": "custom",

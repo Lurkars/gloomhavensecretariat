@@ -17,8 +17,13 @@
         </span>
       </ng-container>
       <ng-container *ngSwitchCase="AttackModifierEffectType.element">
-        <img class="full"
+        <img class="full" [ngClass]="{'sub-effects' : effect.effects && effect.effects.length}"
           [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value + '.svg'" />
+
+        <div class="sub-effects" *ngIf="effect.effects && effect.effects.length">
+          <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="effect.effects"
+            [offsetWidth]="offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effects>
+        </div>
       </ng-container>
 
       <span class="element-half-container" *ngSwitchCase="AttackModifierEffectType.elementHalf">
@@ -161,10 +166,10 @@
       <ng-container *ngSwitchCase="AttackModifierEffectType.custom">
         <ng-container *ngIf="!effect.icon">
           <span *ngIf="!townGuard" class="type">{{attackModifier.value < 0 ? '-' : '+' }}{{attackModifier.value}}</span>
-          <span class="custom-value-container">
-            <span class="custom-value" [ngClass]="{'text-white' : !settingsManager.settings.fhStyle || townGuard}"
-              [ghs-label]="effect.value + ''"></span>
-          </span>
+              <span class="custom-value-container">
+                <span class="custom-value" [ngClass]="{'text-white' : !settingsManager.settings.fhStyle || townGuard}"
+                  [ghs-label]="effect.value + ''"></span>
+              </span>
         </ng-container>
         <ng-container *ngIf="effect.icon">
           <span class="effect-icon">

@@ -191,8 +191,12 @@
         filter: hue-rotate(168deg) saturate(150%);
       }
 
-      &.wound {
+      &.wound:not(.heal) {
         filter: hue-rotate(355deg) saturate(250%);
+      }
+
+      &.chill {
+        filter: hue-rotate(165deg) saturate(90%) brightness(120%);
       }
 
       &.push {
