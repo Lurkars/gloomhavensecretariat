@@ -18,12 +18,12 @@
         border-radius: 0.5em;
 
         &.city {
-            background-image: url('~src/assets/images/eventcards/city-front.png');
+            background-image: url('~/src/assets/images/eventcards/city-front.png');
             color: var(--ghs-color-white);
         }
 
         &.road {
-            background-image: url('~src/assets/images/eventcards/road-front.png');
+            background-image: url('~/src/assets/images/eventcards/road-front.png');
             color: var(--ghs-color-white);
         }
 
@@ -148,12 +148,12 @@
         border-radius: 0.5em;
 
         &.city {
-            background-image: url('~src/assets/images/eventcards/city-back.png');
+            background-image: url('~/src/assets/images/eventcards/city-back.png');
             color: var(--ghs-color-white);
         }
 
         &.road {
-            background-image: url('~src/assets/images/eventcards/road-back.png');
+            background-image: url('~/src/assets/images/eventcards/road-back.png');
             color: var(--ghs-color-white);
         }
 

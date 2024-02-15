@@ -117,7 +117,7 @@
         transform-origin: top left;
         transition: 120ms transform ease-in-out;
         z-index: 1;
-        background-image: url('~src/assets/images/checkmark.svg');
+        background-image: url('~/src/assets/images/checkmark.svg');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -139,7 +139,7 @@
         top: calc(var(--ghs-unit) * -0.5 * var(--ghs-dialog-factor));
         width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
         height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-        background-image: url('~src/assets/images/check.svg');
+        background-image: url('~/src/assets/images/check.svg');
         transform-origin: bottom left;
       }
 
@@ -372,7 +372,7 @@
                 left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
                 width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
                 height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-                background-image: url('~src/assets/images/checkmark.svg');
+                background-image: url('~/src/assets/images/checkmark.svg');
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center;
@@ -474,7 +474,7 @@
         .checkbox.checked::before {
           clip-path: none;
           background-color: transparent;
-          background-image: url('~src/assets/images/checkmark.svg');
+          background-image: url('~/src/assets/images/checkmark.svg');
           background-size: contain;
           background-repeat: no-repeat;
           background-position: center;
@@ -612,7 +612,7 @@
               left: 10%;
               width: 80%;
               height: 80%;
-              background-image: url('~src/assets/images/checkmark.svg');
+              background-image: url('~/src/assets/images/checkmark.svg');
               background-size: contain;
               background-repeat: no-repeat;
               background-position: center;
@@ -674,7 +674,7 @@
             left: 10%;
             width: 80%;
             height: 80%;
-            background-image: url('~src/assets/images/checkmark.svg');
+            background-image: url('~/src/assets/images/checkmark.svg');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -893,7 +893,7 @@
                       left: 10%;
                       width: 80%;
                       height: 80%;
-                      background-image: url('~src/assets/images/checkmark.svg');
+                      background-image: url('~/src/assets/images/checkmark.svg');
                       background-size: contain;
                       background-repeat: no-repeat;
                       background-position: center;
@@ -951,7 +951,7 @@
                   left: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
                   width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
                   height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-                  background-image: url('~src/assets/images/checkmark.svg');
+                  background-image: url('~/src/assets/images/checkmark.svg');
                   background-position: center center;
                   background-repeat: no-repeat;
                   z-index: 1;
@@ -1107,7 +1107,7 @@
                     left: calc(var(--ghs-unit) * -1.2 * var(--ghs-dialog-factor));
                     width: 80%;
                     height: 80%;
-                    background-image: url('~src/assets/images/checkmark.svg');
+                    background-image: url('~/src/assets/images/checkmark.svg');
                     background-size: contain;
                     background-repeat: no-repeat;
                     background-position: center;

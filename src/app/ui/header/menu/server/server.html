@@ -70,12 +70,12 @@
 
       <div class="line separator" [ngClass]="{'hidden' : selectedServerIndex != -1}">
         <label class="label"><span [ghs-label]="'server.url'"></span></label>
-        <input tabclick type="text" #serverUrl [value]="settingsManager.settings.serverUrl || ''" (keyup)="0"
+        <input type="text" #serverUrl [value]="settingsManager.settings.serverUrl || ''" (keyup)="0"
           (change)="setServerUrl($event)" [ghs-label]="'server.url'" [ghs-label-attribute]="'placeholder'">
       </div>
       <div class="line" [ngClass]="{'hidden' : selectedServerIndex != -1}">
         <label class="label"><span [ghs-label]="'server.port'"></span></label>
-        <input tabclick type="number" #serverPort [value]="settingsManager.settings.serverPort || ''" (keyup)="0"
+        <input type="number" #serverPort [value]="settingsManager.settings.serverPort || ''" (keyup)="0"
           (change)="setServerPort($event)" [ghs-label]="'server.port'" [ghs-label-attribute]="'placeholder'">
       </div>
       <div class="line" [ngClass]="{'separator' : selectedServerIndex != -1}">
@@ -89,7 +89,7 @@
       </div>
       <div class="line">
         <div class="hint-container">
-          <input tabclick type="text" #serverPassword [value]="settingsManager.settings.serverPassword || ''"
+          <input type="text" #serverPassword [value]="settingsManager.settings.serverPassword || ''"
             (keyup)="0" (keydown.enter)="serverFrom.submit()" (change)="setServerPassword($event)"
             [ghs-label]="'server.password'" [ghs-label-attribute]="'placeholder'">
           <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">

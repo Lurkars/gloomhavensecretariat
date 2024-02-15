@@ -8,8 +8,14 @@ export class Ability {
   shuffle: boolean;
   actions: Action[];
   lost: boolean = false;
+  round: boolean = false;
+  loss: boolean = false;
+  xp: number = 0;
   bottomActions: Action[];
   bottomLost: boolean = false;
+  bottomRound: boolean = false;
+  bottomLoss: boolean = false;
+  bottomXp: number = 0;
   bottomShuffle: boolean = false;
   hint: string | undefined;
   revealed: boolean = false;

@@ -95,7 +95,7 @@ export class CharacterData implements Editional, Spoilable {
       this.thumbnail = characterData.thumbnail || undefined;
       this.thumbnailUrl = characterData.thumbnailUrl || undefined;
       this.noThumbnail = characterData.noThumbnail;
-      this.color = characterData.color || "#00000";
+      this.color = characterData.color || "#aaaaaa";
       this.marker = characterData.marker || false;
       this.spoiler = characterData.spoiler || false;
       this.specialActions = characterData.specialActions || [];
