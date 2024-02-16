@@ -24,7 +24,7 @@ export class StateManager {
 
   lastAction: "update" | "undo" | "redo" = "update";
   updateBlocked: boolean = false;
-  serverError: boolean = false;
+  serverError: string = "";
   errorLog: any[] = [];
   backupError: number | undefined;
   permissionBackup: Permissions | undefined;
@@ -196,7 +196,7 @@ export class StateManager {
             window.document.body.classList.remove('working');
             window.document.body.classList.remove('server-sync');
           }, 1);
-          gameManager.stateManager.serverError = false;
+          gameManager.stateManager.serverError = "";
           break;
         case "game-undo":
           window.document.body.classList.add('working');
@@ -240,7 +240,7 @@ export class StateManager {
             window.document.body.classList.remove('working');
             window.document.body.classList.remove('server-sync');
           }, 1);
-          gameManager.stateManager.serverError = false;
+          gameManager.stateManager.serverError = "";
           break;
         case "game-redo":
           window.document.body.classList.add('working');
@@ -286,7 +286,7 @@ export class StateManager {
             window.document.body.classList.remove('working');
             window.document.body.classList.remove('server-sync');
           }, 1);
-          gameManager.stateManager.serverError = false;
+          gameManager.stateManager.serverError = "";
           break;
         case "game-update":
           window.document.body.classList.add('working');
@@ -301,12 +301,12 @@ export class StateManager {
               window.document.body.classList.remove('working');
               window.document.body.classList.remove('server-sync');
             }, 1);
-            gameManager.stateManager.serverError = false;
+            gameManager.stateManager.serverError = "";
           }
           break;
         case "requestUpdate":
           gameManager.stateManager.after(1, false, 0, 'game-update');
-          gameManager.stateManager.serverError = false;
+          gameManager.stateManager.serverError = "";
           break;
         case "settings":
           window.document.body.classList.add('server-sync');
@@ -380,13 +380,13 @@ export class StateManager {
               window.document.body.classList.remove('server-sync');
             }, 1);
           }
-          gameManager.stateManager.serverError = false;
+          gameManager.stateManager.serverError = "";
           break;
         case "permissions":
           gameManager.stateManager.permissions = message.payload as Permissions || undefined;
           gameManager.stateManager.permissionBackup = gameManager.stateManager.permissions && JSON.parse(JSON.stringify(gameManager.stateManager.permissions)) || undefined;
           gameManager.stateManager.updatePermissions();
-          gameManager.stateManager.serverError = false;
+          gameManager.stateManager.serverError = "";
           break;
         case "error":
           console.warn("[GHS] Error: ", message);
@@ -401,14 +401,14 @@ export class StateManager {
             console.warn("Disconnect...");
             ev.target?.close();
           }
-          gameManager.stateManager.serverError = false;
+          gameManager.stateManager.serverError = typeof message === 'string' ? message : JSON.stringify(message);
           window.document.body.classList.remove('working');
           window.document.body.classList.remove('server-sync');
           break;
       }
     } catch (e) {
       gameManager.stateManager.errorLog.push(ev.data);
-      gameManager.stateManager.serverError = true;
+      gameManager.stateManager.serverError = ev.data;
       console.error("[GHS] " + ev.data, e);
       window.document.body.classList.remove('working');
       window.document.body.classList.remove('server-sync');

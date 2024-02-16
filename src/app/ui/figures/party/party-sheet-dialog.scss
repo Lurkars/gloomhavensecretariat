@@ -2172,6 +2172,89 @@
             }
           }
         }
+
+        .envelope-b {
+          display: flex;
+          flex-direction: column;
+
+          label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            .checkbox {
+              margin-right: calc(var(--ghs-unit) * 0.5);
+            }
+          }
+
+          .lines {
+            display: flex;
+            flex-direction: column;
+          }
+
+          .line {
+            display: flex;
+
+            .item {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              margin: calc(var(--ghs-unit) * 0.5);
+              font-size: 0.8em;
+              font-family: ghs-title;
+
+              .checkpoint {
+                display: block;
+                position: relative;
+                border-radius: 100%;
+                width: calc(var(--ghs-unit) * 2.3);
+                height: calc(var(--ghs-unit) * 2.3);
+                cursor: pointer;
+
+                &::after {
+                  content: ' ';
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  border-radius: 100%;
+                  background-color: var(--ghs-color-gray);
+                  mask-image: url('~/src/assets/images/party/env-b.svg');
+                  mask-size: 100% 100%;
+                }
+
+                &.prosperity::after {
+                  background-color: var(--ghs-color-yellow);
+                  mask-image: url('~/src/assets/images/party/env-b-prosp.svg');
+                }
+
+                &::before {
+                  content: ' ';
+                  position: absolute;
+                  left: 50%;
+                  top: 50%;
+                  width: 110%;
+                  height: 110%;
+                  transform: scale(0);
+                  transform-origin: top left;
+                  transition: 120ms transform ease-in-out;
+                  z-index: 1;
+                  background-image: url('~/src/assets/images/checkmark.svg');
+                  background-size: contain;
+                  background-repeat: no-repeat;
+                  background-position: center;
+                  filter: var(--ghs-filter-red);
+                }
+
+                &.checked::before {
+                  transform: scale(1) translate(-50%, -50%);
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

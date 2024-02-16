@@ -377,10 +377,24 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
     gameManager.stateManager.before("setPartyDonations", "" + value);
     this.party.donations = value;
+    if (value < 10) {
+      this.party.envelopeB = false;
+    }
+    gameManager.stateManager.after();
+  }
+
+  toggleEnvelopeB() {
+    gameManager.stateManager.before(this.party.envelopeB ? "disableEnvelopeB" : "enableEnvelopeB");
+    this.party.envelopeB = !this.party.envelopeB;
+    if (this.party.donations > 10) {
+      this.party.donations = 10;
+    }
     gameManager.stateManager.after();
   }
 
   setProsperity(value: number) {
+    value -= (gameManager.prosperityTicks() - this.party.prosperity);
+
     if (this.party.prosperity == value) {
       value--;
     }

@@ -530,7 +530,7 @@ export class MainComponent implements OnInit {
       let datadump: any = await storageManager.datadump();
       let downloadButton = document.createElement('a');
       downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(datadump)));
-      downloadButton.setAttribute('download', "ghs-data-dump.json");
+      downloadButton.setAttribute('download', "ghs-data-dump_" + new Date().toISOString() + ".json");
       document.body.appendChild(downloadButton);
       downloadButton.click();
       document.body.removeChild(downloadButton);

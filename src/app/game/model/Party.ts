@@ -41,6 +41,7 @@ export class Party {
   ge5Player: boolean = true;
   playerCount: number = -1;
   solo: boolean = false;
+  envelopeB: boolean = false;
 
   weeks: number = 0;
   weekSections: Partial<Record<number, string[]>> = {};
