@@ -1019,6 +1019,7 @@
       ".": "Campaign",
       "achievements": "Global Achievements",
       "donations": "Donations to Sanctuary of the Great Oak",
+      "envelopeB": "Envelope B",
       "items": "Unlocked Items",
       "manage": "Global Campaign Management",
       "map": "Map",
@@ -2252,6 +2253,7 @@
         "summon": "Decline apply %game.condition.{2}% to '{1}' of {0}"
       },
       "disableAutomaticLevel": "Disable automatic level calculation",
+      "disableEnvelopeB": "Disable Envelope B",
       "disabledGe5Player": "Disable ≥ 5 player rules",
       "disabledManualPlayerCount": "Disable manual player count",
       "disablePartyCampaignMode": "Disable campaign mode",
@@ -2260,6 +2262,7 @@
       "draw": "Draw",
       "drawAbility": "Draw ability for {0}",
       "enableAutomaticLevel": "Enable automatic level calculation",
+      "enableEnvelopeB": "Open Envelope B",
       "enabledGe5Player": "Enable ≥ 5 player rules",
       "enabledManualPlayerCount": "Enable manual player count",
       "enablePartyCampaignMode": "Enable campaign mode",
