@@ -140,7 +140,7 @@
       font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
       flex-direction: row;
       justify-content: flex-end;
-      background-image: url('~src/assets/images/dialog_background.png');
+      background-image: url('~/src/assets/images/dialog_background.png');
       position: sticky;
       left: 0;
       z-index: 1;
@@ -206,7 +206,7 @@
         position: relative;
         display: flex;
         justify-content: center;
-        background-image: url('~src/assets/images/scenario/treasure.png');
+        background-image: url('~/src/assets/images/scenario/treasure.png');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -227,13 +227,13 @@
 
   &.fh {
     .table .head-col {
-      background-image: url('~src/assets/images/fh/dialog_background_fh.png');
+      background-image: url('~/src/assets/images/fh/dialog_background_fh.png');
     }
   }
 
   &.modern {
     .table .head-col {
-      background-image: url('~src/assets/images/modern/dialog_background_modern.png');
+      background-image: url('~/src/assets/images/modern/dialog_background_modern.png');
     }
   }
 }
@@ -358,6 +358,10 @@
           justify-content: center;
           align-items: center;
           margin-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        }
+
+        &.week-sections .week-section {
+          cursor: pointer;
         }
       }
 

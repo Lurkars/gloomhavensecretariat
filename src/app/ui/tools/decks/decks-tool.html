@@ -15,12 +15,12 @@
     </label>
     <label>
       <input type="checkbox" [checked]="settingsManager.settings.calculate"
-        (change)="settingsManager.setCalculate(!settingsManager.settings.calculate);update();">
+        (change)="settingsManager.toggle('calculate');update();">
       <span [ghs-label]="'settings.calc'"></span>
     </label>
     <label *ngIf="settingsManager.settings.calculate">
       <input type="checkbox" [checked]="settingsManager.settings.calculateStats"
-        (change)="settingsManager.setCalculateStats(!settingsManager.settings.calculateStats);update();">
+        (change)="settingsManager.toggle('calculateStats');update();">
       <span [ghs-label]="'settings.calcStats'"></span>
     </label>
     <label *ngIf="settingsManager.settings.calculate && !character">
@@ -37,7 +37,7 @@
     </label>
     <label>
       <input type="checkbox" [checked]="settingsManager.settings.fhStyle"
-        (change)="settingsManager.setFhStyle(!settingsManager.settings.fhStyle); gameManager.uiChange.emit()">
+        (change)="settingsManager.toggle('fhStyle'); gameManager.uiChange.emit()">
       <span [ghs-label]="'settings.fhStyle'"></span>
     </label>
   </div>
@@ -56,7 +56,8 @@
     </ng-container>
     <ng-container *ngIf="monsters.length > 0">
       <div class="deck" *ngFor="let monster of monsters; let i = index;">
-        <h2><span [ghs-label]="'data.monster.' + monster.name"></span> <small *ngIf="monster.name != deck(monster).name">
+        <h2><span [ghs-label]="'data.monster.' + monster.name"></span> <small
+            *ngIf="monster.name != deck(monster).name">
             <span [ghs-label]="'data.deck.' + deck(monster).name"></span>
           </small></h2>
         <ghs-ability *ngFor="let ability of deck(monster).abilities" [ability]="ability"

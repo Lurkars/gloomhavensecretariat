@@ -30,7 +30,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    max-height: calc(var(--ghs-unit) * 85 * var(--ghs-text-factor));
+    max-height: calc(var(--ghs-unit) * 78 * var(--ghs-text-factor));
 
     .container {
         position: relative;
@@ -43,6 +43,10 @@
         ghs-ability {
             width: 100%;
             height: 100%;
+        }
+
+        &.ability {
+            cursor: pointer;
         }
 
     }

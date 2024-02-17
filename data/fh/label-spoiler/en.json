@@ -626,7 +626,7 @@
       ".": "Mantle of Summoning"
     },
     "fh-141": {
-      "1": "When you are attacked, before drawing an attack modifier car, the attacker gains disadvantage on the attack and you gain %game.action.shield:1% for the attack.",
+      "1": "When you are attacked, before drawing an attack modifier card, the attacker gains disadvantage on the attack and you gain %game.action.shield:1% for the attack.",
       ".": "Studded Leather"
     },
     "fh-142": {

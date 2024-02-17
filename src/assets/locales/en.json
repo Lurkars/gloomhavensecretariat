@@ -549,7 +549,7 @@
       },
       "invisible": {
         ".": "Invisible",
-        "hint": "%game.conditionIcon.invisble% Invisible: Cannot be targeted. Remove at end of next turn."
+        "hint": "%game.conditionIcon.invisible% Invisible: Cannot be targeted. Remove at end of next turn."
       },
       "muddle": {
         ".": "Muddle",
@@ -953,6 +953,7 @@
     "normal": "Normal",
     "remove": "Remove Monster",
     "removeAll": "Remove All",
+    "removeUnused": "Remove Unused",
     "selectStandees": {
       "all": "Select all standees",
       "boss": "Select all Boss standees",
@@ -1018,6 +1019,7 @@
       ".": "Campaign",
       "achievements": "Global Achievements",
       "donations": "Donations to Sanctuary of the Great Oak",
+      "envelopeB": "Envelope B",
       "items": "Unlocked Items",
       "manage": "Global Campaign Management",
       "map": "Map",
@@ -1296,6 +1298,13 @@
     "reset": "Restart Scenario",
     "rewards": {
       ".": "Rewards",
+      "addWeek": {
+        ".": "Calendar",
+        "next": "Automatic pass calendar time to week {0}",
+        "section": "Open %data.section:{0}% (applied automatically)",
+        "summer": "New season: Summer <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
+        "winter": "New season: Winter <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
+      },
       "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> each",
       "bonus": "Bonus",
       "calendarSection": {
@@ -1718,7 +1727,7 @@
       ".": "Undo/Redo with navigation",
       "hint": ""
     },
-    "calc": {
+    "calculate": {
       ".": "Show calculated stats",
       "hint": "Ability values are calculated with stats, so instead of Attack +1 Attack 4 is shown for an Attack value of 3 in the stats "
     },
@@ -1797,7 +1806,11 @@
     },
     "columns": {
       ".": "Column layout",
-      "hint": "Enable two-column layout if zoom and space fits"
+      "hint": "Enable column layout if zoom and space fits"
+    },
+    "columnsForce": {
+      ".": "Use all available columns",
+      "hint": "Always distribute the figures across all available columns."
     },
     "combineSummonAction": {
       ".": "Combine Summon Action",
@@ -1948,8 +1961,7 @@
     },
     "maxUndo": {
       ".": "Max. number of undos",
-      "hint": "",
-      "warning": {
+      "hint": {
         ".": "Your browser doesn't seem to support IndexedDB or you have restricted usage. Therefore the max. number of undos is limited to 50.",
         "firefox": "On Firefox you can enable IndexedDB for private mode in <a href=\"about:config\" target=\"_blank\">about:config</a> with the key <i>dom.indexedDB.privateBrowsing.enabled</i>."
       }
@@ -2038,6 +2050,10 @@
       ".": "Stat Animation",
       "hint": "Enable animation to highlight stats as %game.action.shield% or %game.action.retaliate%."
     },
+    "stats": {
+      ".": "Stat Cards",
+      "hint": "Show stat cards for monsters."
+    },
     "summons": {
       ".": "Character Summons",
       "hint": "Enable character summons"
@@ -2078,6 +2094,7 @@
       ".": "Wake Lock",
       "hint": "Wake Lock on supported devices. Wake Lock will keep the screen on. This can drain battery on mobile."
     },
+    "xhaDefaults": "Apply X-haven Assistant settings",
     "zoom": {
       ".": "Zoom",
       "in": "Zoom in",
@@ -2236,6 +2253,7 @@
         "summon": "Decline apply %game.condition.{2}% to '{1}' of {0}"
       },
       "disableAutomaticLevel": "Disable automatic level calculation",
+      "disableEnvelopeB": "Disable Envelope B",
       "disabledGe5Player": "Disable ≥ 5 player rules",
       "disabledManualPlayerCount": "Disable manual player count",
       "disablePartyCampaignMode": "Disable campaign mode",
@@ -2244,6 +2262,7 @@
       "draw": "Draw",
       "drawAbility": "Draw ability for {0}",
       "enableAutomaticLevel": "Enable automatic level calculation",
+      "enableEnvelopeB": "Open Envelope B",
       "enabledGe5Player": "Enable ≥ 5 player rules",
       "enabledManualPlayerCount": "Enable manual player count",
       "enablePartyCampaignMode": "Enable campaign mode",

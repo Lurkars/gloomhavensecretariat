@@ -366,7 +366,11 @@ export class ItemManager {
         }
 
         character.progress.equippedItems = equippedItems.map((itemData) => new AdditionalIdentifier(itemData.id + '', itemData.edition));
-        character.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(character);
+
+        if (item.minusOne && !gameManager.characterManager.ignoreNegativeItemEffects(character)) {
+            character.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(character);
+            gameManager.attackModifierManager.shuffleModifiers(character.attackModifierDeck);
+        }
 
         if (item.id == 3 && item.edition == 'fh') {
             if (equipIndex == -1) {

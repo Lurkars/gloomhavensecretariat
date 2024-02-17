@@ -260,7 +260,8 @@ export class Game {
     }
     
     this.party.players = this.party.players || [];
-
+    this.party.casualScenarios = this.party.casualScenarios || [];
+    
     this.parties = [this.party];
     if (model.parties) {
       model.parties.forEach((party) => {

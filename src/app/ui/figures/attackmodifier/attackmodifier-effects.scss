@@ -356,7 +356,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-image: url('~src/assets/images/attackmodifier/am-front.png');
+      background-image: url('~/src/assets/images/attackmodifier/am-front.png');
       background-size: 100%;
     }
 
@@ -372,7 +372,8 @@
         &.condition,
         &.pull,
         &.push,
-        &.pierce {
+        &.pierce,
+        &.heal {
           &:nth-child(1) {
             transform: translate(-70%, -70%) scale(0.5);
           }
@@ -397,6 +398,11 @@
             &:nth-child(2) {
               transform: translate(-32.5%, -32.5%) scale(0.6);
             }
+          }
+
+          .heal-container {
+            border: none;
+            background: none;
           }
         }
       }
@@ -478,7 +484,9 @@
         }
       }
 
-      &.changeType {
+      &.changeType,
+      &.element,
+      &.elementHalf {
         top: 0;
         left: 0;
         width: 100%;
@@ -491,6 +499,26 @@
           left: -15%;
           width: 135%;
           height: 50%;
+        }
+
+        &.element img {
+          position: absolute;
+          top: 21%;
+          left: 31%;
+          width: 38%;
+
+          &.sub-effects {
+            top: 25%;
+            left: 40%;
+            width: 20%;
+          }
+        }
+
+        &.elementHalf .element-half-container {
+          position: absolute;
+          top: 21%;
+          left: 31%;
+          width: 38%;
         }
       }
 

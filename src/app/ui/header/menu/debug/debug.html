@@ -2,7 +2,7 @@
   <div class="line">
     <label>
       <input tabclick type="checkbox" [checked]="settingsManager.settings.debugRightClick"
-        (change)="settingsManager.setDebugRightClick(!settingsManager.settings.debugRightClick)">
+        (change)="settingsManager.toggle('debugRightClick')">
       <span [ghs-label]="'settings.debug.rightClick'"></span>
     </label>
   </div>
@@ -32,12 +32,13 @@
   </div>
   <div class="separator"></div>
   <div class="line">
-    <a tabclick (click)="settingsManager.validateEditionData()"><span [ghs-label]="'tools.validateEditionData'"></span></a>
+    <a tabclick (click)="settingsManager.validateEditionData()"><span
+        [ghs-label]="'tools.validateEditionData'"></span></a>
   </div>
   <div class="line">
     <label>
       <input tabclick type="checkbox" [checked]="settingsManager.settings.logServerMessages"
-             (change)="settingsManager.setLogServerMessages(!settingsManager.settings.logServerMessages)">
+        (change)="settingsManager.toggle('logServerMessages')">
       <span [ghs-label]="'settings.debug.logServerMessages'"></span>
     </label>
   </div>

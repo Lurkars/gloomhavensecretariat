@@ -603,6 +603,46 @@ export class MonsterManager {
     });
   }
 
+  removeAbility(monster: Monster, index: number) {
+    const deckData = gameManager.deckData(monster);
+    this.game.figures.filter((figure) => {
+      if (figure instanceof Monster) {
+        const otherDeckData = gameManager.deckData(figure);
+        return deckData.name == otherDeckData.name && deckData.edition == otherDeckData.edition;
+      }
+      return false;
+    }).map((figure) => figure as Monster).forEach((sameDeckMonster) => {
+      sameDeckMonster.abilities.splice(index, 1);
+    });
+  }
+
+  restoreAbility(monster: Monster, ability: Ability) {
+    const deckData = gameManager.deckData(monster);
+    this.game.figures.filter((figure) => {
+      if (figure instanceof Monster) {
+        const otherDeckData = gameManager.deckData(figure);
+        return deckData.name == otherDeckData.name && deckData.edition == otherDeckData.edition;
+      }
+      return false;
+    }).map((figure) => figure as Monster).forEach((sameDeckMonster) => {
+      sameDeckMonster.abilities.unshift(deckData.abilities.indexOf(ability));
+    });
+  }
+
+  restoreDefaultAbilities(monster: Monster) {
+    const deckData = gameManager.deckData(monster);
+    this.game.figures.filter((figure) => {
+      if (figure instanceof Monster) {
+        const otherDeckData = gameManager.deckData(figure);
+        return deckData.name == otherDeckData.name && deckData.edition == otherDeckData.edition;
+      }
+      return false;
+    }).map((figure) => figure as Monster).forEach((sameDeckMonster) => {
+      sameDeckMonster.abilities = deckData.abilities.filter((ability) => !ability.level || isNaN(+ability.level) || EntityValueFunction(ability.level) <= monster.level).map((ability, index) => index);
+      sameDeckMonster.ability = -1;
+    });
+  }
+
   shuffleAbilities(monster: Monster) {
     if (gameManager.game.state == GameState.draw || monster.entities.length == 0) {
       monster.ability = -1;
@@ -624,15 +664,22 @@ export class MonsterManager {
 
     ghsShuffleArray(monster.abilities);
 
-    this.game.figures.filter((figure) => figure instanceof Monster && this.getSameDeckMonster(figure) && this.getSameDeckMonster(figure) == monster).map((figure) => figure as Monster).forEach((figure) => {
-      figure.abilities = JSON.parse(JSON.stringify(monster.abilities));
+    const deckData = gameManager.deckData(monster);
+    this.game.figures.filter((figure) => {
+      if (figure instanceof Monster) {
+        const otherDeckData = gameManager.deckData(figure);
+        return deckData.name == otherDeckData.name && deckData.edition == otherDeckData.edition;
+      }
+      return false;
+    }).map((figure) => figure as Monster).forEach((sameDeckMonster) => {
+      sameDeckMonster.abilities = JSON.parse(JSON.stringify(monster.abilities));
       if (gameManager.game.state == GameState.draw) {
-        figure.ability = -1;
+        sameDeckMonster.ability = -1;
       } else {
-        figure.ability = monster.ability;
+        sameDeckMonster.ability = monster.ability;
 
-        if (figure.drawExtra) {
-          this.drawExtra(figure);
+        if (sameDeckMonster.drawExtra) {
+          this.drawExtra(sameDeckMonster);
         }
       }
     })

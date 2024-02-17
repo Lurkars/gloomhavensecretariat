@@ -98,7 +98,7 @@
             },
             {
               "type": "custom",
-              "value": "Create a hazardous terrain tile in<br>all hexes occupied by a the target if<br>it contains no overlay tiles.",
+              "value": "Create a hazardous terrain tile in<br>all hexes occupied by a target if<br>it contains no overlay tiles.",
               "small": true
             }
           ]

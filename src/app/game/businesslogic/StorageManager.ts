@@ -5,7 +5,12 @@ export class StorageManager {
 
   db: IDBDatabase | undefined;
 
-  init(): Promise<any> {
+  async init(): Promise<any> {
+    const persistent = await navigator.storage.persist();
+    if (!persistent) {
+      console.warn("Storage may be cleared by the UA under storage pressure.");
+    }
+
     return new Promise<any>((resolve, reject) => {
       if (window.indexedDB) {
         const request: IDBOpenDBRequest = window.indexedDB.open('ghs-db', 1);

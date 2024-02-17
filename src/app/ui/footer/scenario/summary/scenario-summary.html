@@ -663,6 +663,33 @@
           </div>
         </div>
       </div>
+
+
+      <div class="reward" *ngIf="addWeek()">
+        <label><span [ghs-label]="'scenario.rewards.addWeek'"></span>:</label>
+        <div class="list">
+          <div class="item week">
+            <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.next'"
+                [ghs-label-args]="['' + (gameManager.game.party.weeks + 1)]"></span></span>
+          </div>
+
+          <div class="item summer"
+            *ngIf="gameManager.game.party.weeks % 20 < 10 && (gameManager.game.party.weeks - 1) % 20 >= 10">
+            <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.summer'"></span></span>
+          </div>
+
+          <div class="item winter"
+            *ngIf="gameManager.game.party.weeks % 20 >= 10 && (gameManager.game.party.weeks - 1) % 20 < 10">
+            <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.winter'"></span></span>
+          </div>
+
+          <div class="item week-sections" *ngIf="weekSections().length">
+            <span *ngFor="let weekSection of weekSections()" class="week-section text-white"
+              (click)="showWeekConclusion(weekSection)" [ghs-label]="'scenario.rewards.addWeek.section'"
+              [ghs-label-args]="[weekSection.index]"></span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

@@ -1,6 +1,7 @@
 import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { Component, Inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 import { Character } from "src/app/game/model/Character";
 import { SummonData } from "src/app/game/model/data/SummonData";
@@ -61,19 +62,27 @@ export class CharacterSummonDialog {
     let summons: SummonData[] = [];
     summons.push(...this.character.availableSummons.filter((summonData) => !summonData.level || summonData.level <= this.character.level));
 
-    if (this.character.progress && this.character.progress.items) {
-      for (let itemIdentifier of this.character.progress.items) {
-        const item = gameManager.itemManager.getItem(+itemIdentifier.name, itemIdentifier.edition, true);
-        if (item && item.summon) {
-          if (!item.summon.name) {
-            item.summon.name = item.name;
+    if (settingsManager.settings.characterItems) {
+      if (this.character.progress && this.character.progress.items) {
+        for (let itemIdentifier of this.character.progress.items) {
+          const item = gameManager.itemManager.getItem(+itemIdentifier.name, itemIdentifier.edition, true);
+          if (item && item.summon) {
+            if (!item.summon.name) {
+              item.summon.name = item.name;
+            }
+            if (!item.summon.count) {
+              item.summon.count = 1;
+            }
+            summons.push(item.summon);
           }
-          if (!item.summon.count) {
-            item.summon.count = 1;
-          }
-          summons.push(item.summon);
         }
       }
+    } else {
+      gameManager.itemManager.getItems(gameManager.game.edition, true).filter((itemData) => itemData.summon).forEach((itemData) => {
+        if (itemData.summon) {
+          summons.push(itemData.summon);
+        }
+      })
     }
 
     return summons.filter((summonData) => !this.summonFilter || summonData.cardId == this.summonFilter);

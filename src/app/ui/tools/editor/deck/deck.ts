@@ -3,7 +3,7 @@ import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Ability } from "src/app/game/model/data/Ability";
 import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Action";
 import { Character } from "src/app/game/model/Character";
@@ -75,6 +75,7 @@ export class DeckEditorComponent implements OnInit {
     @Input() standalone: boolean = true;
 
     gameManager: GameManager = gameManager;
+    settingsManager: SettingsManager = settingsManager;
     ActionType = ActionType;
     ActionValueType = ActionValueType;
     encodeURIComponent = encodeURIComponent;
@@ -167,6 +168,14 @@ export class DeckEditorComponent implements OnInit {
                     ability.revealed = undefined;
 
                     if (key == 'level' && ability[key] == 0) {
+                        ability[key] = undefined;
+                    }
+
+                    if (key == 'xp' && ability[key] == 0) {
+                        ability[key] = undefined;
+                    }
+
+                    if (key == 'bottomXp' && ability[key] == 0) {
                         ability[key] = undefined;
                     }
 

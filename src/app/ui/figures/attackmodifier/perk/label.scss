@@ -88,8 +88,7 @@
 
             .element-half-container {
                 width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-                height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-                top: calc(var(--ghs-unit) * -2.5 * var(--ghs-dialog-factor));
+                height: initial;
             }
         }
 

@@ -31,7 +31,7 @@
   <div class="line campaign">
     <label *ngIf="gameManager.game.party.campaignMode">
       <input tabclick type="checkbox" [checked]="settingsManager.settings.showOnlyUnfinishedScenarios"
-        (change)="settingsManager.setShowOnlyUnfinishedScenarios(!settingsManager.settings.showOnlyUnfinishedScenarios)">
+        (change)="settingsManager.toggle('showOnlyUnfinishedScenarios')">
       <span [ghs-label]="'scenario.filterSuccess'"></span>
     </label>
     <label>

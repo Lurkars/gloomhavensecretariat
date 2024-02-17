@@ -36,8 +36,11 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   type: AttackModifierType = AttackModifierType.minus1;
   tgAM: AttackModifier = additionalTownGuardAttackModifier[0];
   currentAttackModifier: number = -1;
-  drawing: boolean = false;
 
+  drawing: boolean = false;
+  upcomingCards: AttackModifier[] = [];
+  disgardedCards: AttackModifier[] = [];
+  deletedCards: AttackModifier[] = [];
 
   constructor(@Inject(DIALOG_DATA) data: { deck: AttackModifierDeck, character: Character, ally: boolean, numeration: string, newStyle: boolean, townGuard: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }, public dialogRef: DialogRef) {
     this.deck = data.deck;
@@ -49,7 +52,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     this.before = data.before;
     this.after = data.after;
     this.dialogRef.closed.subscribe(() => {
-      this.upcomingCards().forEach((am) => am.revealed = false);
+      this.upcomingCards.forEach((am) => am.revealed = false);
     })
   };
 
@@ -62,6 +65,8 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
     }, !settingsManager.settings.animations ? 0 : 250);
+    this.update();
+    gameManager.uiChange.subscribe({ next: () => this.update() });
   }
 
   toggleEdit() {
@@ -71,24 +76,43 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     }, 0);
   }
 
-  upcomingCards(): AttackModifier[] {
-    return this.deck.cards.filter((attackModifier, index) => index > this.deck.current);
-  }
+  update() {
+    this.upcomingCards = this.deck.cards.filter((attackModifier, index) => index > this.deck.current);
+    this.disgardedCards = this.deck.cards.filter((AttackModifier, index) => index <= this.deck.current).reverse();
+    let originalDeck: AttackModifierDeck | undefined;
+    if (this.character) {
+      originalDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character);
+    } else if (this.townGuard) {
+      originalDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(gameManager.game.party, gameManager.campaignData());
+      gameManager.game.party.townGuardDeck = this.deck.toModel();
+    } else {
+      originalDeck = new AttackModifierDeck();
+    }
 
-  disgardedCards(): AttackModifier[] {
-    return this.deck.cards.filter((AttackModifier, index) => index <= this.deck.current).reverse();
+    this.deck.cards.forEach((modifier) => {
+      if (originalDeck) {
+        const card = originalDeck.cards.find((orginalCard) => orginalCard.id == modifier.id);
+        if (card) {
+          originalDeck.cards.splice(originalDeck.cards.indexOf(card), 1);
+        }
+      }
+    })
+
+    this.deletedCards = originalDeck.cards;
   }
 
   shuffle(): void {
     this.before.emit(new AttackModiferDeckChange(this.deck, "shuffle"));
     gameManager.attackModifierManager.shuffleModifiers(this.deck);
     this.after.emit(new AttackModiferDeckChange(this.deck, "shuffle"));
+    this.update();
   }
 
   removeDrawnDiscards() {
     this.before.emit(new AttackModiferDeckChange(this.deck, "removeDrawnDiscards"));
     gameManager.attackModifierManager.removeDrawnDiscards(this.deck);
     this.after.emit(new AttackModiferDeckChange(this.deck, "removeDrawnDiscards"));
+    this.update();
   }
 
   restoreDefault(): void {
@@ -98,11 +122,12 @@ export class AttackModifierDeckDialogComponent implements OnInit {
       gameManager.attackModifierManager.fromModel(this.deck, this.character.attackModifierDeck.toModel())
     } else if (this.townGuard) {
       this.deck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(gameManager.game.party, gameManager.campaignData());
+      gameManager.game.party.townGuardDeck = this.deck.toModel();
     } else {
       this.deck = new AttackModifierDeck();
-      gameManager.game.party.townGuardDeck = this.deck.toModel();
     }
     this.after.emit(new AttackModiferDeckChange(this.deck, "restoreDefault"));
+    this.update();
   }
 
   hasDrawnDiscards(): boolean {
@@ -125,6 +150,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
       this.deck.current = this.deck.current - 1;
     }
     this.after.emit(new AttackModiferDeckChange(this.deck, "reorder"));
+    this.update();
   }
 
   dropDisgarded(event: CdkDragDrop<AttackModifier[]>) {
@@ -138,6 +164,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
       this.deck.cards[offset - event.currentIndex].revealed = true;
     }
     this.after.emit(new AttackModiferDeckChange(this.deck, "reorder"));
+    this.update();
   }
 
   remove(index: number) {
@@ -148,6 +175,14 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     }
     this.deck.cards.splice(index, 1);
     this.after.emit(new AttackModiferDeckChange(this.deck, "removeCard", "" + index));
+    this.update();
+  }
+
+  restore(index: number) {
+    this.before.emit(new AttackModiferDeckChange(this.deck, "restoreCard", "" + index));
+    this.deck.cards.splice(this.deck.current + 1, 0, this.deletedCards[index]);
+    this.after.emit(new AttackModiferDeckChange(this.deck, "restoreCard", "" + index));
+    this.update();
   }
 
   newFirst(type: AttackModifierType) {
@@ -156,12 +191,14 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     attackModifier.revealed = true;
     this.deck.cards.splice(this.deck.current + 1, 0, attackModifier);
     this.after.emit(new AttackModiferDeckChange(this.deck, "addCard", "game.attackModifiers.types." + type));
+    this.update();
   }
 
   newShuffle(type: AttackModifierType) {
     this.before.emit(new AttackModiferDeckChange(this.deck, "addCardShuffled", "game.attackModifiers.types." + type));
     this.deck.cards.splice(this.deck.current + 1 + Math.random() * (this.deck.cards.length - this.deck.current), 0, new AttackModifier(type));
     this.after.emit(new AttackModiferDeckChange(this.deck, "addCardShuffled", "game.attackModifiers.types." + type));
+    this.update();
   }
 
   addModifier() {
@@ -173,6 +210,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     }
     this.deck.cards.splice(this.deck.current + 1, 0, attackModifier);
     this.after.emit(new AttackModiferDeckChange(this.deck, "addCard", "game.attackModifiers.types." + this.tgAM.type));
+    this.update();
   }
 
   addModifierShuffle() {
@@ -183,6 +221,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
       this.deck.attackModifiers.push(attackModifier);
     }
     this.after.emit(new AttackModiferDeckChange(this.deck, "addCard", "game.attackModifiers.types." + this.tgAM.type));
+    this.update();
   }
 
   countAttackModifier(type: AttackModifierType): number {
@@ -222,24 +261,28 @@ export class AttackModifierDeckDialogComponent implements OnInit {
         this.deck.cards.splice(this.deck.cards.indexOf(card), 1);
       }
     }
+    this.update();
   }
 
   changeBless(value: number) {
     this.before.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeBless" : "addBless"));
     this.changeAttackModifier(AttackModifierType.bless, value);
     this.after.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeBless" : "addBless"));
+    this.update();
   }
 
   changeCurse(value: number) {
     this.before.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeCurse" : "addCurse"));
     this.changeAttackModifier(AttackModifierType.curse, value);
     this.after.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeCurse" : "addCurse"));
+    this.update();
   }
 
   changeMinus1Extra(value: number) {
     this.before.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeMinus1" : "addMinus1"));
     this.changeAttackModifier(AttackModifierType.minus1extra, value);
     this.after.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeMinus1" : "addMinus1"));
+    this.update();
   }
 
   onChange(attackModifier: AttackModifier, revealed: boolean) {
@@ -269,7 +312,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
         this.changeType(prev);
       }
     }
+    this.update();
   }
-
 }
 

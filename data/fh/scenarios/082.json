@@ -16,6 +16,23 @@
     "frost-demon",
     "wind-demon"
   ],
+  "objectives": [
+    {
+      "name": "Location",
+      "health": "L+1",
+      "marker": "2"
+    },
+    {
+      "name": "Location",
+      "health": "L+1",
+      "marker": "3"
+    },
+    {
+      "name": "Location",
+      "health": "L+1",
+      "marker": "4"
+    }
+  ],
   "lootDeckConfig": {
     "money": 12,
     "rockroot": 1,
@@ -149,6 +166,11 @@
           "name": "wind-demon",
           "player3": "elite"
         }
+      ],
+      "objectives": [
+        "1:6",
+        "2:C < 3 ? 0 : 3",
+        "3:C < 4 ? 0 : 3"
       ]
     }
   ]

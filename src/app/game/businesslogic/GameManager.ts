@@ -592,11 +592,27 @@ export class GameManager {
     let prosperityLevel = 1;
     const prosperitySteps = this.fhRules() ? FH_PROSPERITY_STEPS : GH_PROSPERITY_STEPS;
     prosperitySteps.forEach((step) => {
-      if (this.game.party.prosperity > step) {
+      if (this.prosperityTicks() > step) {
         prosperityLevel++;
       }
     })
     return prosperityLevel;
+  }
+
+  prosperityTicks(): number {
+    let ticks = this.game.party.prosperity;
+    if (this.game.party.envelopeB && this.editionRules('gh')) {
+      ticks += 1;
+      if (this.game.party.donations > 10) {
+        ticks += Math.floor(Math.min(this.game.party.donations - 10, 30) / 5);
+      }
+
+      if (this.game.party.donations > 40) {
+        ticks += Math.floor((this.game.party.donations - 40) / 10);
+      }
+    }
+
+    return ticks;
   }
 
   fhRules(): boolean {
@@ -762,9 +778,9 @@ export class GameManager {
   changeParty(party: Party) {
     if (settingsManager.settings.automaticTheme) {
       if (this.game.edition != 'fh' && party.edition == 'fh') {
-        settingsManager.setFhStyle(true);
+        settingsManager.set('fhStyle', true);
       } else if (this.game.edition == 'fh' && party.edition != 'fh') {
-        settingsManager.setFhStyle(false);
+        settingsManager.set('fhStyle', false);
       }
     }
 

@@ -195,6 +195,9 @@
       width: calc(var(--ghs-unit) * 9.5);
       height: calc(var(--ghs-unit) * 9.5);
       border-radius: 100%;
+      background-color: var(--ghs-color-darkgray);
+      background: radial-gradient(circle, var(--ghs-color-black) 0%, var(--ghs-color-darkgray) 70%, var(--ghs-color-gray) 100%);
+
 
       img {
         height: calc(var(--ghs-unit) * 8);

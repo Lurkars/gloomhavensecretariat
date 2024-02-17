@@ -62,7 +62,7 @@
             },
             {
               "type": "specialTarget",
-              "value": "enemiesRangeAffect:3",
+              "value": "alliesRangeAffect:3",
               "small": true
             }
           ]

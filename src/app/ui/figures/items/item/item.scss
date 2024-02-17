@@ -11,7 +11,7 @@
     color: var(--ghs-color-white);
 
     .front {
-        background-image: url('~src/assets/images/items/item-front.png');
+        background-image: url('~/src/assets/images/items/item-front.png');
         background-size: 100% 100%;
         background-position: center center;
         background-repeat: no-repeat;
@@ -24,7 +24,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            mask-image: url('~src/assets/images/items/item-front-mask.png');
+            mask-image: url('~/src/assets/images/items/item-front-mask.png');
             mask-size: 100% 100%;
             mask-position: center center;
             mask-repeat: no-repeat;
@@ -337,12 +337,12 @@
         }
 
         &.card-back {
-            background-image: url('~src/assets/images/items/item-front-flipped.png') !important;
+            background-image: url('~/src/assets/images/items/item-front-flipped.png') !important;
         }
     }
 
     .back {
-        background-image: url('~src/assets/images/items/item-back.png');
+        background-image: url('~/src/assets/images/items/item-back.png');
         background-size: 100% 100%;
         background-position: center center;
         background-repeat: no-repeat;
@@ -390,21 +390,21 @@
 
     &.random {
         .front {
-            background-image: url('~src/assets/images/items/item-random-front.png');
+            background-image: url('~/src/assets/images/items/item-random-front.png');
         }
 
         .back {
-            background-image: url('~src/assets/images/items/item-random-back.png');
+            background-image: url('~/src/assets/images/items/item-random-back.png');
         }
     }
 
     &.fh {
 
         .front {
-            background-image: url('~src/assets/images/fh/items/item-front-fh.png');
+            background-image: url('~/src/assets/images/fh/items/item-front-fh.png');
 
             .artwork {
-                mask-image: url('~src/assets/images/fh/items/item-front-mask-fh.png');
+                mask-image: url('~/src/assets/images/fh/items/item-front-mask-fh.png');
             }
 
 
@@ -430,7 +430,7 @@
             .costs {
                 top: 35%;
                 left: 69.5%;
-                background-image: url('~src/assets/images/fh/items/costs.png');
+                background-image: url('~/src/assets/images/fh/items/costs.png');
                 background-size: contain;
                 background-repeat: no-repeat;
                 width: 28%;
@@ -504,12 +504,12 @@
             }
 
             &.card-back {
-                background-image: url('~src/assets/images/fh/items/item-front-fh.png') !important;
+                background-image: url('~/src/assets/images/fh/items/item-front-fh.png') !important;
             }
         }
 
         .back {
-            background-image: url('~src/assets/images/fh/items/item-back-fh.png');
+            background-image: url('~/src/assets/images/fh/items/item-back-fh.png');
 
             .id {
                 transform: rotate(-90deg);
@@ -525,21 +525,21 @@
 
         &.random {
             .front {
-                background-image: url('~src/assets/images/fh/items/item-random-front-fh.png');
+                background-image: url('~/src/assets/images/fh/items/item-random-front-fh.png');
             }
 
             .back {
-                background-image: url('~src/assets/images/fh/items/item-random-back-fh.png');
+                background-image: url('~/src/assets/images/fh/items/item-random-back-fh.png');
             }
         }
 
 
         &.craft {
             .front {
-                background-image: url('~src/assets/images/fh/items/item-craft-front-fh.png');
+                background-image: url('~/src/assets/images/fh/items/item-craft-front-fh.png');
 
                 .artwork {
-                    mask-image: url('~src/assets/images/fh/items/item-craft-front-mask-fh.png');
+                    mask-image: url('~/src/assets/images/fh/items/item-craft-front-mask-fh.png');
                 }
 
                 &.card-back {
@@ -551,7 +551,7 @@
 
             &.random {
                 .front {
-                    background-image: url('~src/assets/images/fh/items/item-craft-random-front-fh.png');
+                    background-image: url('~/src/assets/images/fh/items/item-craft-random-front-fh.png');
                 }
             }
         }

@@ -281,7 +281,7 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   async exportDataDump() {
-    await gameManager.stateManager.autoBackup("ghs-data-dump.json", true);
+    await gameManager.stateManager.autoBackup("ghs-data-dump-" + new Date().toISOString() + ".json", true);
   }
 
   importDataDumpCheck() {

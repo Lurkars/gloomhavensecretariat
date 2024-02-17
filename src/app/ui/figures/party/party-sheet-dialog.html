@@ -141,7 +141,7 @@
         </div>
 
         <div class="calendar-lock-toggle">
-          <a (click)="settingsManager.setCalendarLocked(!settingsManager.settings.calendarLocked)">
+          <a (click)="settingsManager.toggle('calendarLocked')">
             <img [src]="'./assets/images/lock' + (settingsManager.settings.calendarLocked ? '' : '-open') + '.svg'">
           </a>
         </div>
@@ -562,7 +562,7 @@
           </div>
         </div>
 
-        <div class="prosperity" [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
+        <div class="prosperity" *ngIf="gameManager.fhRules() || gameManager.editionRules('gh')" [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
           <div class="legend" (click)="setProsperity(0)">
             <div class="level"><span [ghs-label]="'party.prosperity'"></span> <img
                 *ngIf="settingsManager.settings.fhStyle" src="./assets/images/fh/prosperity.svg">:</div>
@@ -573,24 +573,24 @@
           <div class="checklist">
             <div class="tick"
               *ngFor="let check of []|ghsRange:(prosperitySteps[prosperitySteps.length-1]+1); let index = index;"
-              [autoscroll]="party.prosperity == index +1 || party.prosperity == 0 && index == 0"
+              [autoscroll]="gameManager.prosperityTicks() == index +1 || gameManager.prosperityTicks() == 0 && index == 0"
               [ngClass]="{'large' : prosperitySteps.indexOf(index) != -1}">
               <div class="level" *ngIf="prosperitySteps.indexOf(index) != -1" (click)="setProsperity(index+1)">
                 {{prosperitySteps.indexOf(index) + 2}}
               </div>
               <div class="checkbox" (click)="setProsperity(index+1)"
-                [ngClass]="{'checked': party.prosperity > index, 'highlight' : prosperityHighlightSteps.indexOf(index) != -1}">
+                [ngClass]="{'checked': gameManager.prosperityTicks() > index, 'highlight' : prosperityHighlightSteps.indexOf(index) != -1}">
               </div>
             </div>
           </div>
         </div>
 
-        <div class="row donations" *ngIf="!fhSheet">
+        <div class="row donations" *ngIf="!fhSheet && gameManager.editionRules('gh')">
           <label><span [ghs-label]="'party.campaign.donations'"></span>:</label>
           <div class="checklist">
-            <div class="tick" *ngFor="let check of []|ghsRange:10; let index = index;">
+            <div class="tick" *ngFor="let check of []|ghsRange:10;">
               <div class="donation">
-                <div class="checkbox" (click)="setDonations(index+1)" [ngClass]="{'checked': party.donations > index}">
+                <div class="checkbox" (click)="setDonations(check+1)" [ngClass]="{'checked': party.donations > check}">
                 </div>
                 <img src="./assets/images/coin.png" />
                 <span class="value">+10g</span>
@@ -599,8 +599,25 @@
           </div>
         </div>
 
+        <div class="row envelope-b" *ngIf="!fhSheet && party.donations > 9 && gameManager.editionRules('gh')">
+          <label (click)="toggleEnvelopeB()">
+            <div class="checkbox" [ngClass]="{'checked': party.envelopeB}"></div>
+            <span [ghs-label]="'party.campaign.envelopeB'"></span>
+          </label>
+
+          <div class="lines" *ngIf="party.envelopeB">
+            <div class="line" *ngFor="let line of []|ghsRange:5;">
+              <div class="item" *ngFor="let item of []|ghsRange:18;">
+                <span class="checkpoint" (click)="setDonations(10 + item + line * 18 + 1)"
+                  [ngClass]="{'checked' : party.donations > (10 + item + line * 18), 'prosperity' : (10 + item + line * 18) < 40 ? (10 + item + line * 18) % 5 == 4 : (10 + item + line * 18) % 10 == 9}"></span>
+                <span class="value">{{(11 + item + line * 18) * 10}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="row">
-          <div class="achievements" *ngIf="!fhSheet">
+          <div class="achievements" *ngIf="gameManager.editionRules('gh')">
             <label><span [ghs-label]="'party.campaign.achievements'"></span>:</label>
             <div class="achievements-container">
               <div class="list">

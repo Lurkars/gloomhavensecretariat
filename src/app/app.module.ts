@@ -30,6 +30,7 @@ import { HeaderComponent } from './ui/header/header';
 import { MainMenuComponent } from './ui/header/menu/menu';
 import { TabClickDirective } from './ui/helper/tabclick';
 import { SettingsMenuComponent } from './ui/header/menu/settings/settings';
+import { SettingMenuComponent, SettingMenuTitleComponent } from './ui/header/menu/settings/setting/setting';
 import { CampaignMenuComponent } from './ui/header/menu/campaign/campaign';
 import { CardRevealDirective } from './ui/helper/CardReveal';
 import { GhsCeilPipe, GhsFloorPipe, GhsMinZeroPipe, GhsRangePipe, GhsScenarioSearch, GhsValueSignPipe } from './ui/helper/Pipes';
@@ -162,7 +163,7 @@ export class GhsErrorHandler extends ErrorHandler {
     MainComponent,
     HeaderComponent, ElementIconComponent, ElementComponent,
     PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, BuildingUpgradeDialog, ScenarioRequirementsComponent, TreasuresDialogComponent, PartyResourcesDialogComponent,
-    MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, CampaignMenuComponent,
+    MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, SettingsMenuComponent, SettingMenuComponent, SettingMenuTitleComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, CampaignMenuComponent,
     FooterComponent,
     LootComponent, LootDeckComponent, LootRandomItemDialogComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
     HintDialogComponent, ScenarioRulesComponent,

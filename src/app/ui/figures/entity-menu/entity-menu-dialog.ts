@@ -750,7 +750,7 @@ export class EntityMenuDialogComponent {
   }
 
   changeMarker(value: number) {
-    if (this.data.entity instanceof Objective || this.data.entity instanceof ObjectiveEntity) {
+    if (this.data.entity instanceof Objective || this.data.figure instanceof ObjectiveContainer) {
       this.marker = ghsModulo(this.marker + value, OBJECTIV_MARKERS.length);
     }
   }
@@ -867,6 +867,8 @@ export class EntityMenuDialogComponent {
       this.closeObjective();
     } else if (this.data.entity instanceof ObjectiveEntity) {
       this.closeObjectiveEntity();
+    } else if (this.data.figure instanceof ObjectiveContainer) {
+      this.closeObjectiveContainer();
     }
   }
 
@@ -1259,6 +1261,35 @@ export class EntityMenuDialogComponent {
       if (newMarker != this.data.entity.marker) {
         gameManager.stateManager.before("changeObjectiveEntityMarker", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', '' + this.data.entity.number, newMarker);
         this.data.entity.marker = newMarker;
+        gameManager.stateManager.after();
+      }
+      this.marker = 0;
+
+      if (this.objectiveTitleInput) {
+        if (this.objectiveTitleInput.nativeElement.value && this.objectiveTitleInput.nativeElement.value != this.data.figure.name) {
+          if (this.data.figure.title != this.objectiveTitleInput.nativeElement.value) {
+            gameManager.stateManager.before("setTitle", this.data.figure.name, this.objectiveTitleInput.nativeElement.value);
+            this.data.figure.title = this.objectiveTitleInput.nativeElement.value;
+            gameManager.stateManager.after();
+          }
+        } else if (this.data.figure.title != "") {
+          gameManager.stateManager.before("unsetTitle", this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', this.data.figure.title);
+          this.data.figure.title = "";
+          gameManager.stateManager.after();
+        }
+      }
+    }
+  }
+
+  closeObjectiveContainer() {
+    if (this.data.figure instanceof ObjectiveContainer) {
+
+      const newMarker = OBJECTIV_MARKERS[ghsModulo(this.marker + OBJECTIV_MARKERS.indexOf(this.data.figure.marker), OBJECTIV_MARKERS.length)];
+
+      if (newMarker != this.data.figure.marker) {
+        gameManager.stateManager.before("changeObjectiveMarker", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', newMarker);
+        this.data.figure.marker = newMarker;
+        this.data.figure.entities.forEach((objectiveEntity) => objectiveEntity.marker = newMarker);
         gameManager.stateManager.after();
       }
       this.marker = 0;

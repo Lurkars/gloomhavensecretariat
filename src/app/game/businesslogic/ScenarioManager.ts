@@ -295,11 +295,9 @@ export class ScenarioManager {
       if (restart) {
         gameManager.scenarioManager.setScenario(scenario);
       } else {
-        if (scenario && !scenario.conclusion && gameManager.fhRules() && !linkedScenario && settingsManager.settings.partySheet && !internal && gainRewards) {
+        if (scenario && !scenario.conclusion && gameManager.fhRules() && !linkedScenario && settingsManager.settings.automaticPassTime && !scenario.solo && settingsManager.settings.partySheet && !internal && gainRewards) {
 
-          if (settingsManager.settings.automaticPassTime && !scenario.solo) {
-            this.game.party.weeks++;
-          }
+          this.game.party.weeks++;
 
           const editionData = gameManager.editionData.find((editionData) => editionData.edition == scenario.edition);
           let weekSections: string[] = [];
@@ -316,6 +314,7 @@ export class ScenarioManager {
               this.finishScenario(conclusion, true, conclusion, false, undefined, false, gainRewards, true);
             }
           })
+
         }
 
         if (success && (!gameManager.game.party.campaignMode || !gainRewards && !conclusionSection)) {

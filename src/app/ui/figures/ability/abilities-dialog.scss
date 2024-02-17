@@ -78,7 +78,8 @@
     max-height: 80vh;
 
     .upcoming,
-    .disgarded {
+    .disgarded,
+    .deleted {
       display: flex;
       flex-direction: column;
       overflow-y: auto;
@@ -97,6 +98,10 @@
         &.expanded-ability {
           height: auto;
           min-height: calc(var(--ghs-unit) * 23.7 * var(--ghs-text-factor));
+        }
+
+        &.drawn ghs-ability {
+          opacity: 0.5;
         }
 
         &.bottom-actions {
@@ -119,7 +124,7 @@
           transform: translate(-50%, -50%);
         }
 
-        .button-remove {
+        .button-remove, .button-restore {
           z-index: 1;
           position: absolute;
           display: flex;
@@ -139,7 +144,15 @@
           &:hover .ghs-svg {
             filter: var(--ghs-filter-red) var(--ghs-filter-shadow);
           }
+
+          &.button-restore:hover .ghs-svg {
+            filter: var(--ghs-filter-green) var(--ghs-filter-shadow);
+          }
         }
+      }
+
+      &.deleted .container ghs-ability{
+        opacity: 0.5;
       }
 
       .empty {
@@ -154,6 +167,10 @@
         border-width: calc(var(--ghs-unit) * 0.2);
         border-color: var(--ghs-color-white);
       }
+    }
+
+    &.has-deleted {
+      width: calc(var(--ghs-unit) * 120 * var(--ghs-text-factor));
     }
   }
 

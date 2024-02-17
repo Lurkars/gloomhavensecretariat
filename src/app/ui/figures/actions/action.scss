@@ -1181,6 +1181,15 @@
       align-items: center;
       padding: 0.2em;
 
+      .elements {
+        .element-half-container {
+          .element-half {
+            top: initial;
+            height: 100%;
+          }
+        }
+      }
+
       .element-subactions {
         margin-left: -0.2em;
 

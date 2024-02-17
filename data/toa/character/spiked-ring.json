@@ -152,7 +152,7 @@
               {
                 "type": "element",
                 "value": "earth",
-                "effectcs": [
+                "effects": [
                   {
                     "type": "custom",
                     "value": "if %game.element.light% is Strong or Waning"

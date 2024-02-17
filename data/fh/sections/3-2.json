@@ -4,7 +4,7 @@
   "edition": "fh",
   "parent": "56",
   "monsters": [
-    "harbinger-of-shadow"
+    "harbinger-of-shadow-1"
   ],
   "rules": [
     {
@@ -16,7 +16,7 @@
         {
           "identifier": {
             "type": "monster",
-            "name": "harbinger-of-shadow",
+            "name": "harbinger-of-shadow-1",
             "marker": "1",
             "health": "[Hx2/3{$math.floor}]"
           },
@@ -25,8 +25,7 @@
         {
           "identifier": {
             "type": "monster",
-            "name": "harbinger-of-shadow",
-            "marker": "1"
+            "name": "harbinger-of-shadow-1"
           },
           "type": "setHp",
           "value": "[Hx2/3{$math.floor}]"
@@ -42,8 +41,7 @@
         {
           "identifier": {
             "type": "monster",
-            "name": "harbinger-of-shadow",
-            "marker": "1",
+            "name": "harbinger-of-shadow-1",
             "health": "[H/3{$math.floor}]"
           },
           "type": "present"
@@ -51,8 +49,7 @@
         {
           "identifier": {
             "type": "monster",
-            "name": "harbinger-of-shadow",
-            "marker": "1"
+            "name": "harbinger-of-shadow-1"
           },
           "type": "setHp",
           "value": "[H/3{$math.floor}]"
@@ -70,7 +67,7 @@
       ],
       "monster": [
         {
-          "name": "harbinger-of-shadow",
+          "name": "harbinger-of-shadow-1",
           "type": "boss",
           "marker": "1"
         }

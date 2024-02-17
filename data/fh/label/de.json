@@ -70,6 +70,8 @@
     "giant-piranha-pig-boss": "Extra Boss Deck #83",
     "guard-captain": "Wachhauptmann",
     "harbinger-of-shadow": "Vorbote der Schatten",
+    "harbinger-of-shadow-1": "Vorbote der Schatten %game.mapMarker.1%",
+    "harbinger-of-shadow-2": "Vorbote der Schatten %game.mapMarker.2%",
     "harrower-infester": "Schwarmling-Kontagion",
     "hateful-corpse": "Hasserfüllte Leiche",
     "hound": "Grimmwolf",
@@ -691,8 +693,8 @@
         "1": "Siehe Szenario Sonderregeln"
       },
       "harbinger-of-shadow": {
-        "1": "Boss %game.mapMarker.2% macht nichts.",
-        "2": "Boss %game.mapMarker.1% macht nichts."
+        "1": "Der %data.monster.harbinger-of-shadow-1% macht nichts.",
+        "2": "Der %data.monster.harbinger-of-shadow-2% macht nichts."
       },
       "lightning-eel": {
         "1": "Behandelt Wasserfelder als Korridore und Nichtwasserfelder als Hindernisse."

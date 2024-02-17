@@ -119,6 +119,10 @@
           opacity: 0.9;
         }
       }
+
+      .objective-marker {
+        font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+      }
     }
   }
 

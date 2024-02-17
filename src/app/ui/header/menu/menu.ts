@@ -272,10 +272,10 @@ export class MainMenuComponent implements OnInit, OnDestroy {
     gameManager.stateManager.after();
   }
 
-  removeAllMonsters() {
+  removeAllMonsters(unused: boolean = false) {
     gameManager.stateManager.before("removeAllMonster");
     gameManager.game.figures = gameManager.game.figures.filter((figure) => {
-      return !(figure instanceof Monster);
+      return !(figure instanceof Monster) || unused && figure.entities.some((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity));
     })
     this.close();
     gameManager.stateManager.after();
@@ -283,6 +283,14 @@ export class MainMenuComponent implements OnInit, OnDestroy {
 
   hasAllMonster() {
     return gameManager.monstersData().every((monsterData) => gameManager.game.figures.some((figure) => figure instanceof MonsterData && figure.name == monsterData.name && figure.edition == monsterData.edition));
+  }
+
+  hasUnusedMonster() {
+    return gameManager.game.figures.find((figure) => {
+      return figure instanceof Monster && figure.entities.every((monsterEntity) => !gameManager.entityManager.isAlive(monsterEntity));
+    }) != undefined && gameManager.game.figures.find((figure) => {
+      return figure instanceof Monster && figure.entities.some((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity));
+    }) != undefined
   }
 
   isUpdateAvailable(): boolean {

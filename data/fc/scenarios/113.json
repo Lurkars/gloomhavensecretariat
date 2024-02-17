@@ -28,6 +28,11 @@
       "health": "4+(2xL)",
       "initiative": 50,
       "marker": "b"
+    },
+    {
+      "name": "Seal",
+      "health": "5xC",
+      "marker": "a"
     }
   ],
   "rooms": [

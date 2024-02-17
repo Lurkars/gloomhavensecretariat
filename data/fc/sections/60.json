@@ -7,13 +7,6 @@
     "living-corpse",
     "living-spirit"
   ],
-  "objectives": [
-    {
-      "name": "Seal",
-      "health": "5xC",
-      "marker": "a"
-    }
-  ],
   "rooms": [
     {
       "roomNumber": 3,
@@ -48,7 +41,7 @@
         }
       ],
       "objectives": [
-        1
+        2
       ]
     }
   ]

@@ -2,700 +2,115 @@
   [ngClass]="{'connected' : gameManager.stateManager.wsState() == WebSocket.OPEN}">
 
   <!-- GAMEPLAY -->
-  <div class="line title span">
-    <label><span [ghs-label]="'settings.gameplay'"></span></label>
-    <div class="hint-container">
-      <img *ngIf="settingsManager.settings.serverSettings" src="./assets/images/sync-settings.svg"
-        class="hint-trigger ghs-svg sync-settings">
-      <span class="hint">
-        <span class="text" [ghs-label]="'settings.synced'"></span>
-      </span>
-    </div>
+  <div class="line title span" ghs-setting-title-menu="gameplay" [sync]="true"></div>
+
+  <div class="column">
+    <div class="line" ghs-setting-menu="scenarioRooms"></div>
+    <div class="line" ghs-setting-menu="treasures" [disabled]="!settingsManager.settings.scenarioRooms"></div>
+    <div class="line" ghs-setting-menu="scenarioRules"></div>
+    <div class="line" ghs-setting-menu="battleGoals"></div>
   </div>
 
   <div class="column">
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.scenarioRooms"
-            (change)="settingsManager.setScenarioRooms(!settingsManager.settings.scenarioRooms)">
-          <span [ghs-label]="'settings.scenarioRooms'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.scenarioRooms.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.scenarioRules"
-            (change)="settingsManager.setScenarioRules(!settingsManager.settings.scenarioRules)">
-          <span [ghs-label]="'settings.scenarioRules'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.scenarioRules.hint'"></span>
-        </span>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.treasures && settingsManager.settings.scenarioRooms"
-            (change)="settingsManager.setTreasures(!settingsManager.settings.treasures)">
-          <span [ghs-label]="'settings.treasures'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.treasures.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label
-          [ngClass]="{'disabled' : !settingsManager.settings.expireConditions && !settingsManager.settings.applyConditions}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.turnConfirmation && (settingsManager.settings.expireConditions || settingsManager.settings.applyConditions)"
-            (change)="settingsManager.setTurnConfirmation(!settingsManager.settings.turnConfirmation)">
-          <span [ghs-label]="'settings.turnConfirmation'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.turnConfirmation.hint'"></span>
-        </span>
-      </div>
-    </div>
+    <div class="line" ghs-setting-menu="partySheet"></div>
+    <div class="line" ghs-setting-menu="characterSheet"></div>
+    <div class="line" ghs-setting-menu="characterAttackModifierDeck"
+      [disabled]="!settingsManager.settings.characterSheet"></div>
+    <div class="line" ghs-setting-menu="characterItems"></div>
   </div>
 
   <!-- CHARACTER -->
-  <div class="line title span">
-    <label><span [ghs-label]="'settings.character'"></span></label>
-    <div class="hint-container">
-      <img *ngIf="settingsManager.settings.serverSettings" src="./assets/images/sync-settings.svg"
-        class="hint-trigger ghs-svg sync-settings">
-      <span class="hint">
-        <span class="text" [ghs-label]="'settings.synced'"></span>
-      </span>
+  <div class="line title span" ghs-setting-title-menu="character" [sync]="true"></div>
+
+  <div class="column">
+    <div class="line" ghs-setting-menu="initiativeRequired"></div>
+    <div class="line" ghs-setting-menu="hideAbsent"></div>
+    <div class="line" ghs-setting-menu="treasuresLoot"
+      [disabled]="!settingsManager.settings.scenarioRooms || !settingsManager.settings.treasures"></div>
+    <div class="line" ghs-setting-menu="treasuresLootItem"
+      [disabled]="!settingsManager.settings.scenarioRooms || !settingsManager.settings.treasures || !settingsManager.settings.treasuresLoot">
     </div>
+    <div class="line" ghs-setting-menu="treasuresLootScenario"
+      [disabled]="!settingsManager.settings.scenarioRooms || !settingsManager.settings.treasures || !settingsManager.settings.treasuresLoot">
+    </div>
+    <div class="line" ghs-setting-menu="applyLongRest"></div>
+    <div class="line" ghs-setting-menu="applyRetirement" [disabled]="!settingsManager.settings.characterSheet"></div>
+    <div class="line" ghs-setting-menu="characterItemsApply" [disabled]="!settingsManager.settings.characterItems">
+    </div>
+    <div class="line" ghs-setting-menu="characterShieldRetaliate"></div>
   </div>
 
   <div class="column">
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.initiativeRequired"
-            (change)="settingsManager.setInitiativeRequired(!settingsManager.settings.initiativeRequired)">
-          <span [ghs-label]="'settings.initiativeRequired'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.initiativeRequired.hint'"></span>
-        </span>
-      </div>
+    <div class="line" ghs-setting-menu="activeSummons"></div>
+    <div class="line" ghs-setting-menu="characterIdentities"></div>
+    <div class="line" ghs-setting-menu="characterIdentityHint"
+      [disabled]="!settingsManager.settings.characterIdentities"></div>
+    <div class="line" ghs-setting-menu="scenarioRewards"></div>
+    <div class="line" ghs-setting-menu="scenarioRewardsItems" [disabled]="!settingsManager.settings.scenarioRewards">
     </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.hideAbsent"
-            (change)="settingsManager.setHideAbsent(!settingsManager.settings.hideAbsent)">
-          <span [ghs-label]="'settings.hideAbsent'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.hideAbsent.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label
-          [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || !settingsManager.settings.treasures }">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.treasuresLoot && settingsManager.settings.scenarioRooms  && settingsManager.settings.treasures"
-            (change)="settingsManager.setTreasuresLoot(!settingsManager.settings.treasuresLoot)">
-          <span [ghs-label]="'settings.treasuresLoot'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.treasuresLoot.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label
-          [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || !settingsManager.settings.treasures  || !settingsManager.settings.treasuresLoot }">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.scenarioRooms  && settingsManager.settings.treasures && settingsManager.settings.treasuresLoot &&  settingsManager.settings.treasuresLootItem"
-            (change)="settingsManager.setTreasuresLootItem(!settingsManager.settings.treasuresLootItem)">
-          <span [ghs-label]="'settings.treasuresLootItem'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.treasuresLootItem.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label
-          [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || !settingsManager.settings.treasures  || !settingsManager.settings.treasuresLoot }">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.scenarioRooms  && settingsManager.settings.treasures && settingsManager.settings.treasuresLoot &&  settingsManager.settings.treasuresLootScenario"
-            (change)="settingsManager.setTreasuresLootScenario(!settingsManager.settings.treasuresLootScenario)">
-          <span [ghs-label]="'settings.treasuresLootScenario'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.treasuresLootScenario.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.applyLongRest"
-            (change)="settingsManager.setApplyLongRest(!settingsManager.settings.applyLongRest)">
-          <span [ghs-label]="'settings.applyLongRest'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.applyLongRest.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.characterSheet }">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.characterSheet && settingsManager.settings.applyRetirement"
-            (change)="settingsManager.setApplyRetirement(!settingsManager.settings.applyRetirement)">
-          <span [ghs-label]="'settings.applyRetirement'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.applyRetirement.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.characterItems }">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.characterItems && settingsManager.settings.characterItemsApply"
-            (change)="settingsManager.setCharacterItemsApply(!settingsManager.settings.characterItemsApply)">
-          <span [ghs-label]="'settings.characterItemsApply'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.characterItemsApply.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.characterShieldRetaliate"
-            (change)="settingsManager.setCharacterShieldRetaliate(!settingsManager.settings.characterShieldRetaliate)">
-          <span [ghs-label]="'settings.characterShieldRetaliate'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.characterShieldRetaliate.hint'"></span>
-        </span>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.activeSummons"
-            (change)="settingsManager.setActiveSummons(!settingsManager.settings.activeSummons)">
-          <span [ghs-label]="'settings.activeSummons'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.activeSummons.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.characterIdentities"
-            (change)="settingsManager.setCharacterIdentities(!settingsManager.settings.characterIdentities)">
-          <span [ghs-label]="'settings.characterIdentities'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.characterIdentities.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.characterIdentities }">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.characterIdentities && settingsManager.settings.characterIdentityHint"
-            (change)="settingsManager.setCharacterIdentityHint(!settingsManager.settings.characterIdentityHint)">
-          <span [ghs-label]="'settings.characterIdentityHint'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.characterIdentityHint.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.scenarioRewards"
-            (change)="settingsManager.setScenarioRewards(!settingsManager.settings.scenarioRewards)">
-          <span [ghs-label]="'settings.scenarioRewards'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.scenarioRewards.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line" [ngClass]="{'disabled' : !settingsManager.settings.scenarioRewards }">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.scenarioRewards && settingsManager.settings.scenarioRewardsItems"
-            (change)="settingsManager.setScenarioRewardsItems(!settingsManager.settings.scenarioRewardsItems)">
-          <span [ghs-label]="'settings.scenarioRewardsItems'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.scenarioRewardsItems.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.battleGoals}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.battleGoals && settingsManager.settings.battleGoalsReminder"
-            (change)="settingsManager.setBattleGoalsReminder(!settingsManager.settings.battleGoalsReminder)">
-          <span [ghs-label]="'settings.battleGoalsReminder'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.battleGoalsReminder.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.battleGoals}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.battleGoals && settingsManager.settings.battleGoalsCharacter"
-            (change)="settingsManager.setBattleGoalsCharacter(!settingsManager.settings.battleGoalsCharacter)">
-          <span [ghs-label]="'settings.battleGoalsCharacter'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.battleGoalsCharacter.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.characterHandSize"
-            (change)="settingsManager.setCharacterHandSize(!settingsManager.settings.characterHandSize)">
-          <span [ghs-label]="'settings.characterHandSize'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.characterHandSize.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.characterTraits"
-            (change)="settingsManager.setCharacterTraits(!settingsManager.settings.characterTraits)">
-          <span [ghs-label]="'settings.characterTraits'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.characterTraits.hint'"></span>
-        </span>
-      </div>
-    </div>
+    <div class="line" ghs-setting-menu="battleGoalsReminder" [disabled]="!settingsManager.settings.battleGoals"></div>
+    <div class="line" ghs-setting-menu="battleGoalsCharacter" [disabled]="!settingsManager.settings.battleGoals"></div>
+    <div class="line" ghs-setting-menu="characterHandSize"></div>
+    <div class="line" ghs-setting-menu="characterTraits"></div>
   </div>
 
   <!-- MONSTERS -->
-  <div class="line title span">
-    <label><span [ghs-label]="'settings.monsters'"></span></label>
-    <div class="hint-container">
-      <img *ngIf="settingsManager.settings.serverSettings" src="./assets/images/sync-settings.svg"
-        class="hint-trigger ghs-svg sync-settings">
-      <span class="hint">
-        <span class="text" [ghs-label]="'settings.synced'"></span>
-      </span>
-    </div>
-  </div>
+  <div class="line title span" ghs-setting-title-menu="monsters" [sync]="true"></div>
 
   <ng-container *ngIf="settingsManager.settings.monsters">
     <div class="column">
-      <div class="line">
-        <div class="hint-container">
-          <label>
-            <input tabclick type="checkbox" [checked]="settingsManager.settings.abilities"
-              (change)="settingsManager.setAbilities(!settingsManager.settings.abilities)">
-            <span [ghs-label]="'settings.abilities'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.abilities.hint'"></span>
-          </span>
-        </div>
-      </div>
-      <div class="line">
-        <div class="hint-container">
-          <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
-            <input tabclick type="checkbox"
-              [checked]="settingsManager.settings.abilities && settingsManager.settings.calculate"
-              (change)="settingsManager.setCalculate(!settingsManager.settings.calculate)">
-            <span [ghs-label]="'settings.calc'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.calc.hint'"></span>
-          </span>
-        </div>
-      </div>
-      <div class="line">
-        <div class="hint-container">
-          <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
-            <input tabclick type="checkbox"
-              [checked]="settingsManager.settings.abilities && settingsManager.settings.calculateStats"
-              (change)="settingsManager.setCalculateStats(!settingsManager.settings.calculateStats)">
-            <span [ghs-label]="'settings.calculateStats'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.calculateStats.hint'"></span>
-          </span>
-        </div>
-      </div>
-      <div class="line">
-        <div class="hint-container">
-          <label
-            [ngClass]="{'disabled' : !settingsManager.settings.abilities || !settingsManager.settings.calculateStats}">
-            <input tabclick type="checkbox"
-              [checked]="settingsManager.settings.abilities && settingsManager.settings.calculateStats && settingsManager.settings.calculateShieldStats"
-              (change)="settingsManager.setCalculateShieldStats(!settingsManager.settings.calculateShieldStats)">
-            <span [ghs-label]="'settings.calculateShieldStats'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.calculateShieldStats.hint'"></span>
-          </span>
-        </div>
-      </div>
-      <div class="line">
-        <div class="hint-container">
-          <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
-            <input tabclick type="checkbox"
-              [checked]="settingsManager.settings.abilities && settingsManager.settings.abilityReveal"
-              (change)="settingsManager.setAbilityReveal(!settingsManager.settings.abilityReveal)">
-            <span [ghs-label]="'settings.abilityReveal'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.abilityReveal.hint'"></span>
-          </span>
-        </div>
-      </div>
-      <div class="line">
-        <div class="hint-container">
-          <label>
-            <input tabclick type="checkbox" [checked]="settingsManager.settings.removeUnusedMonster"
-              (change)="settingsManager.setRemoveUnusedMonster(!settingsManager.settings.removeUnusedMonster)">
-            <span [ghs-label]="'settings.removeUnusedMonster'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.removeUnusedMonster.hint'"></span>
-          </span>
-        </div>
-      </div>
-      <div class="line">
-        <div class="hint-container">
-          <label>
-            <input tabclick type="checkbox" [checked]="settingsManager.settings.addAllMonsters"
-              (change)="settingsManager.setAddAllMonsters(!settingsManager.settings.addAllMonsters)">
-            <span [ghs-label]="'settings.addAllMonsters'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.addAllMonsters.hint'"></span>
-          </span>
-        </div>
-      </div>
+      <div class="line" ghs-setting-menu="abilities"></div>
+      <div class="line" ghs-setting-menu="calculate" [disabled]="!settingsManager.settings.abilities"></div>
+      <div class="line" ghs-setting-menu="calculateStats" [disabled]="!settingsManager.settings.abilities"></div>
+      <div class="line" ghs-setting-menu="calculateShieldStats"
+        [disabled]="!settingsManager.settings.abilities || !settingsManager.settings.calculateStats"></div>
+      <div class="line" ghs-setting-menu="abilityReveal" [disabled]="!settingsManager.settings.abilities"></div>
+      <div class="line" ghs-setting-menu="removeUnusedMonster"></div>
+      <div class="line" ghs-setting-menu="addAllMonsters"></div>
     </div>
 
     <div class="column">
-      <div class="line">
-        <div class="hint-container">
-          <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
-            <input tabclick type="checkbox"
-              [checked]="settingsManager.settings.abilities && settingsManager.settings.interactiveAbilities"
-              (change)="settingsManager.setInteractiveAbilities(!settingsManager.settings.interactiveAbilities)">
-            <span [ghs-label]="'settings.interactiveAbilities'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.interactiveAbilities.hint'"></span>
-          </span>
-        </div>
+      <div class="line" ghs-setting-menu="interactiveAbilities" [disabled]="!settingsManager.settings.abilities"></div>
+      <div class="line" ghs-setting-menu="combineSummonAction"
+        [disabled]="!settingsManager.settings.abilities || !settingsManager.settings.interactiveAbilities"></div>
+      <div class="line" ghs-setting-menu="abilityNumbers" [disabled]="!settingsManager.settings.abilities"></div>
+      <div class="line" ghs-setting-menu="showExpandedAbilityCard" [disabled]="!settingsManager.settings.abilities">
       </div>
-      <div class="line">
-        <div class="hint-container">
-          <label
-            [ngClass]="{'disabled' : !settingsManager.settings.abilities || !settingsManager.settings.interactiveAbilities}">
-            <input tabclick type="checkbox"
-              [checked]="settingsManager.settings.combineSummonAction && settingsManager.settings.abilities && settingsManager.settings.interactiveAbilities"
-              (change)="settingsManager.setCombineSummonAction(!settingsManager.settings.combineSummonAction)">
-            <span [ghs-label]="'settings.combineSummonAction'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.combineSummonAction.hint'"></span>
-          </span>
-        </div>
-      </div>
-      <div class="line">
-        <div class="hint-container">
-          <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
-            <input tabclick type="checkbox"
-              [checked]="settingsManager.settings.abilities && settingsManager.settings.abilityNumbers"
-              (change)="settingsManager.setAbilityNumbers(!settingsManager.settings.abilityNumbers)">
-            <span [ghs-label]="'settings.abilityNumbers'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.abilityNumbers.hint'"></span>
-          </span>
-        </div>
-      </div>
-      <div class="line">
-        <div class="hint-container">
-          <label [ngClass]="{'disabled' : !settingsManager.settings.abilities}">
-            <input tabclick type="checkbox"
-              [checked]="settingsManager.settings.abilities && settingsManager.settings.showExpandedAbilityCard"
-              (change)="settingsManager.setShowExpandedAbilityCard(!settingsManager.settings.showExpandedAbilityCard)">
-            <span [ghs-label]="'settings.showExpandedAbilityCard'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.showExpandedAbilityCard.hint'"></span>
-          </span>
-        </div>
-      </div>
-      <div class="line">
-        <div class="hint-container">
-          <label
-            [ngClass]="{'disabled': !settingsManager.settings.abilities || settingsManager.settings.showExpandedAbilityCard}">
-            <input tabclick type="checkbox"
-              [checked]="settingsManager.settings.abilities && (settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard)"
-              (change)="settingsManager.setShowFullAbilityCard(!settingsManager.settings.showFullAbilityCard)">
-            <span [ghs-label]="'settings.showFullAbilityCard'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.showFullAbilityCard.hint'"></span>
-          </span>
-        </div>
-      </div>
-      <div class="line">
-        <div class="hint-container">
-          <label>
-            <input tabclick type="checkbox" [checked]="settingsManager.settings.hideStats"
-              (change)="settingsManager.setHideStats(!settingsManager.settings.hideStats)">
-            <span [ghs-label]="'settings.hideStats'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.hideStats.hint'"></span>
-          </span>
-        </div>
-      </div>
+      <div class="line" ghs-setting-menu="showFullAbilityCard"
+        [disabled]="!settingsManager.settings.abilities || settingsManager.settings.showExpandedAbilityCard"
+        [checked]="settingsManager.settings.showExpandedAbilityCard"></div>
+      <div class="line" ghs-setting-menu="stats"></div>
+      <div class="line" ghs-setting-menu="hideStats" [disabled]="!settingsManager.settings.stats"></div>
     </div>
   </ng-container>
 
   <!-- STANDEES -->
-  <div class="line title span">
-    <label><span [ghs-label]="'settings.standees'"></span></label>
-    <div class="hint-container">
-      <img *ngIf="settingsManager.settings.serverSettings" src="./assets/images/sync-settings.svg"
-        class="hint-trigger ghs-svg sync-settings">
-      <span class="hint">
-        <span class="text" [ghs-label]="'settings.synced'"></span>
-      </span>
-    </div>
-  </div>
+  <div class="line title span" ghs-setting-title-menu="standees" [sync]="true"></div>
 
   <div class="column">
     <ng-container *ngIf="settingsManager.settings.monsters">
-      <div class="line">
-        <div class="hint-container">
-          <label [ngClass]="{'disabled' : !settingsManager.settings.standees}">
-            <input tabclick type="checkbox"
-              [checked]="settingsManager.settings.eliteFirst && settingsManager.settings.standees"
-              (change)="settingsManager.setEliteFirst(!settingsManager.settings.eliteFirst)">
-            <span [ghs-label]="'settings.eliteFirst'"></span>
-          </label>
-          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-          <span class="hint">
-            <span class="text" [ghs-label]="'settings.eliteFirst.hint'"></span>
-          </span>
-        </div>
-      </div>
+      <div class="line" ghs-setting-menu="eliteFirst" [disabled]="!settingsManager.settings.standees"></div>
     </ng-container>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.standees}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.activeStandees && settingsManager.settings.standees"
-            (change)="settingsManager.setActiveStandees(!settingsManager.settings.activeStandees)">
-          <span [ghs-label]="'settings.activeStandees'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.activeStandees.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || !settingsManager.settings.standees}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.automaticStandees && settingsManager.settings.standees && settingsManager.settings.scenarioRooms"
-            (change)="settingsManager.setAutomaticStandees(!settingsManager.settings.automaticStandees)">
-          <span [ghs-label]="'settings.automaticStandees'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.automaticStandees.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.standees}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.standees && settingsManager.settings.standeeStats"
-            (change)="settingsManager.setStandeeStats(!settingsManager.settings.standeeStats)">
-          <span [ghs-label]="'settings.standeeStats'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.standeeStats.hint'"></span>
-        </span>
-      </div>
-    </div>
+    <div class="line" ghs-setting-menu="activeStandees" [disabled]="!settingsManager.settings.standees"></div>
+    <div class="line" ghs-setting-menu="automaticStandees"
+      [disabled]="!settingsManager.settings.standees || !settingsManager.settings.scenarioRooms"></div>
+    <div class="line" ghs-setting-menu="standeeStats" [disabled]="!settingsManager.settings.standees"></div>
   </div>
 
   <div class="column" *ngIf="settingsManager.settings.monsters">
-    <div class="line">
-      <div class="hint-container">
-        <label
-          [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || !settingsManager.settings.standees || !settingsManager.settings.automaticStandees || settingsManager.settings.randomStandees}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.automaticStandeesDialog && settingsManager.settings.automaticStandees && settingsManager.settings.standees  && !settingsManager.settings.randomStandees && settingsManager.settings.scenarioRooms"
-            (change)="settingsManager.setAutomaticStandeesDialog(!settingsManager.settings.automaticStandeesDialog)">
-          <span [ghs-label]="'settings.automaticStandeesDialog'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.automaticStandeesDialog.hint'"></span>
-        </span>
-      </div>
+    <div class="line" ghs-setting-menu="automaticStandeesDialog"
+      [disabled]="!settingsManager.settings.standees || !settingsManager.settings.scenarioRooms || !settingsManager.settings.automaticStandees || settingsManager.settings.randomStandees">
     </div>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.standees}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.randomStandees && settingsManager.settings.standees"
-            (change)="settingsManager.setRandomStandees(!settingsManager.settings.randomStandees)">
-          <span [ghs-label]="'settings.randomStandees'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.randomStandees.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.standees"
-            (change)="settingsManager.setStandees(!settingsManager.settings.standees)">
-          <span [ghs-label]="'settings.standees'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.standees.hint'"></span>
-        </span>
-      </div>
-    </div>
+    <div class="line" ghs-setting-menu="randomStandees" [disabled]="!settingsManager.settings.standees"></div>
+    <div class="line" ghs-setting-menu="standees"></div>
   </div>
 
   <!-- CONDITION/ELEMENTS -->
-  <div class="line title span">
-    <label><span [ghs-label]="'settings.conditions'"></span></label>
-    <div class="hint-container">
-      <img *ngIf="settingsManager.settings.serverSettings" src="./assets/images/sync-settings.svg"
-        class="hint-trigger ghs-svg sync-settings">
-      <span class="hint">
-        <span class="text" [ghs-label]="'settings.synced'"></span>
-      </span>
-    </div>
-  </div>
+  <div class="line title span" ghs-setting-title-menu="conditions" [sync]="true"></div>
 
   <div class="column">
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.expireConditions"
-            (change)="settingsManager.setExpireConditions(!settingsManager.settings.expireConditions)">
-          <span [ghs-label]="'settings.expireConditions'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.expireConditions.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.applyConditions"
-            (change)="settingsManager.setApplyConditions(!settingsManager.settings.applyConditions)">
-          <span [ghs-label]="'settings.applyConditions'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.applyConditions.hint'"></span>
-        </span>
-      </div>
-    </div>
+    <div class="line" ghs-setting-menu="expireConditions"></div>
+    <div class="line" ghs-setting-menu="applyConditions"></div>
 
     <div class="column">
       <div class="line" [ngClass]="{'disabled' : !settingsManager.settings.applyConditions}">
@@ -719,33 +134,8 @@
   </div>
 
   <div class="column">
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.moveElements"
-            (change)="settingsManager.setMoveElements(!settingsManager.settings.moveElements)">
-          <span [ghs-label]="'settings.moveElements'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.moveElements.hint'"></span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.applyConditions}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions"
-            (change)="settingsManager.setActiveApplyConditions(!settingsManager.settings.activeApplyConditions)">
-          <span [ghs-label]="'settings.activeApplyConditions'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.activeApplyConditions.hint'"></span>
-        </span>
-      </div>
+    <div class="line" ghs-setting-menu="moveElements"></div>
+    <div class="line" ghs-setting-menu="activeApplyConditions" [disabled]="!settingsManager.settings.applyConditions">
     </div>
 
     <div class="column">
@@ -773,507 +163,85 @@
   <div class="separator"></div>
 
   <!-- FROSTHAVEN -->
-  <div class="line title span">
-    <label><span [ghs-label]="'settings.fhRules'"></span></label>
-    <div class="hint-container">
-      <img *ngIf="settingsManager.settings.serverSettings" src="./assets/images/sync-settings.svg"
-        class="hint-trigger ghs-svg sync-settings">
-      <span class="hint">
-        <span class="text" [ghs-label]="'settings.synced'"></span>
-      </span>
+  <div class="line title span" ghs-setting-title-menu="fhRules" [sync]="true"></div>
+
+  <div class="column">
+    <div class="line" ghs-setting-menu="applyLoot" [disabled]="!settingsManager.settings.lootDeck"></div>
+    <div class="line" ghs-setting-menu="applyLootRandomItem"
+      [disabled]="!settingsManager.settings.lootDeck || !settingsManager.settings.applyLoot || !settingsManager.settings.characterItems">
     </div>
+    <div class="line" ghs-setting-menu="alwaysLootApplyDialog"
+      [disabled]="!settingsManager.settings.lootDeck || !settingsManager.settings.applyLoot"></div>
+    <div class="line" ghs-setting-menu="alwaysLootDeck"
+      [disabled]="!settingsManager.settings.lootDeck || gameManager.fhRules()"
+      [checked]="settingsManager.settings.lootDeck && gameManager.fhRules()">
+    </div>
+    <div class="line" ghs-setting-menu="automaticPassTime" [disabled]="!gameManager.fhRules()"></div>
+    <div class="line" ghs-setting-menu="applyBuildingRewards" [disabled]="!gameManager.fhRules()"></div>
   </div>
 
   <div class="column">
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.lootDeck}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.lootDeck && settingsManager.settings.applyLoot"
-            (change)="settingsManager.setApplyLoot(!settingsManager.settings.applyLoot)">
-          <span [ghs-label]="'settings.applyLoot'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.applyLoot.hint'"></span>
-        </span>
-      </div>
+    <div class="line" ghs-setting-menu="battleGoalsFh"
+      [disabled]="!settingsManager.settings.battleGoals || gameManager.fhRules()"
+      [checked]="settingsManager.settings.battleGoals && gameManager.fhRules()">
     </div>
-    <div class="line">
-      <div class="hint-container">
-        <label
-          [ngClass]="{'disabled' : !settingsManager.settings.lootDeck || !settingsManager.settings.applyLoot || !settingsManager.settings.characterItems}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.lootDeck && settingsManager.settings.applyLoot && settingsManager.settings.characterItems && settingsManager.settings.applyLootRandomItem"
-            (change)="settingsManager.setApplyLootRandomItem(!settingsManager.settings.applyLootRandomItem)">
-          <span [ghs-label]="'settings.applyLootRandomItem'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.applyLootRandomItem.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.lootDeck || !settingsManager.settings.applyLoot}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.alwaysLootApplyDialog && settingsManager.settings.lootDeck && settingsManager.settings.applyLoot"
-            (change)="settingsManager.setAlwaysLootApplyDialog(!settingsManager.settings.alwaysLootApplyDialog)">
-          <span [ghs-label]="'settings.alwaysLootApplyDialog'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.alwaysLootApplyDialog.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.lootDeck || gameManager.fhRules()}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.lootDeck && (settingsManager.settings.alwaysLootDeck || gameManager.fhRules())"
-            (change)="settingsManager.setAlwaysLootDeck(!settingsManager.settings.alwaysLootDeck)">
-          <span [ghs-label]="'settings.alwaysLootDeck'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.alwaysLootDeck.hint'"></span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !gameManager.fhRules()}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.automaticPassTime && gameManager.fhRules()"
-            (change)="settingsManager.setAutomaticPassTime(!settingsManager.settings.automaticPassTime)">
-          <span [ghs-label]="'settings.automaticPassTime'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.automaticPassTime.hint'"></span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !gameManager.fhRules()}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.applyBuildingRewards && gameManager.fhRules()"
-            (change)="settingsManager.setApplyBuildingRewards(!settingsManager.settings.applyBuildingRewards)">
-          <span [ghs-label]="'settings.applyBuildingRewards'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.applyBuildingRewards.hint'"></span>
-        </span>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.battleGoals || gameManager.fhRules()}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.battleGoals && (gameManager.fhRules() || settingsManager.settings.battleGoalsFh)"
-            (change)="settingsManager.setBattleGoalsFh(!settingsManager.settings.battleGoalsFh)">
-          <span [ghs-label]="'settings.battleGoalsFh'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.battleGoalsFh.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.allyAttackModifierDeck}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.allyAttackModifierDeck && settingsManager.settings.alwaysAllyAttackModifierDeck"
-            (change)="settingsManager.setAlwaysAllyAttackModifierDeck(!settingsManager.settings.alwaysAllyAttackModifierDeck)">
-          <span [ghs-label]="'settings.alwaysAllyAttackModifierDeck'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.alwaysAllyAttackModifierDeck.hint'"></span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : gameManager.fhRules()}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.alwaysHazardousTerrain || gameManager.fhRules()"
-            (change)="settingsManager.setAlwaysHazardousTerrain(!settingsManager.settings.alwaysHazardousTerrain)">
-          <span [ghs-label]="'settings.alwaysHazardousTerrain'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.alwaysHazardousTerrain.hint'"></span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : gameManager.fhRules()}">
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.alwaysFhSolo || gameManager.fhRules()"
-            (change)="settingsManager.setAlwaysFhSolo(!settingsManager.settings.alwaysFhSolo)">
-          <span [ghs-label]="'settings.alwaysFhSolo'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.alwaysFhSolo.hint'"></span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label
-          [ngClass]="{'disabled' : !settingsManager.settings.characterItems && !settingsManager.settings.characterSheet || !gameManager.fhRules()}">
-          <input tabclick type="checkbox"
-            [checked]="(settingsManager.settings.characterItems || settingsManager.settings.characterSheet) && settingsManager.settings.fhGhItems"
-            (change)="settingsManager.setFhGhItems(!settingsManager.settings.fhGhItems)">
-          <span [ghs-label]="'settings.fhGhItems'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.fhGhItems.hint'"></span>
-        </span>
-      </div>
+    <div class="line" ghs-setting-menu="alwaysAllyAttackModifierDeck"
+      [disabled]="!settingsManager.settings.allyAttackModifierDeck"></div>
+    <div class="line" ghs-setting-menu="alwaysHazardousTerrain" [disabled]="gameManager.fhRules()"
+      [checked]="gameManager.fhRules()"></div>
+    <div class="line" ghs-setting-menu="alwaysFhSolo" [disabled]="gameManager.fhRules()"
+      [checked]="gameManager.fhRules()"></div>
+    <div class="line" ghs-setting-menu="fhGhItems"
+      [disabled]="!settingsManager.settings.characterItems && !settingsManager.settings.characterSheet || !gameManager.fhRules()">
     </div>
   </div>
 
   <div class="separator"></div>
 
   <!-- ADDITIONAL -->
-  <div class="line title span">
-    <label><span [ghs-label]="'settings.additional'"></span></label>
-    <div class="hint-container">
-      <img *ngIf="settingsManager.settings.serverSettings" src="./assets/images/sync-settings.svg"
-        class="hint-trigger ghs-svg sync-settings">
-      <span class="hint">
-        <span class="text" [ghs-label]="'settings.synced'"></span>
-      </span>
-    </div>
+  <div class="line title span" ghs-setting-title-menu="additional" [sync]="true"></div>
+
+  <div class="column">
+    <div class="line" ghs-setting-menu="turnConfirmation"
+      [disabled]="!settingsManager.settings.expireConditions && !settingsManager.settings.applyConditions"></div>
+    <div class="line" ghs-setting-menu="automaticUnlocking"></div>
+    <div class="line" ghs-setting-menu="summons"></div>
+    <div class="line" ghs-setting-menu="lootDeck"></div>
   </div>
 
   <div class="column">
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.characterAttackModifierDeck"
-            (change)="settingsManager.setCharacterAttackModifierDeck(!settingsManager.settings.characterAttackModifierDeck)">
-          <span [ghs-label]="'settings.characterAttackModifierDeck'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.characterAttackModifierDeck.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.characterSheet"
-            (change)="settingsManager.setCharacterSheet(!settingsManager.settings.characterSheet)">
-          <span [ghs-label]="'settings.characterSheet'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.characterSheet.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.automaticUnlocking"
-            (change)="settingsManager.setAutomaticUnlocking(!settingsManager.settings.automaticUnlocking)">
-          <span [ghs-label]="'settings.automaticUnlocking'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.automaticUnlocking.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.characterItems"
-            (change)="settingsManager.setCharacterItems(!settingsManager.settings.characterItems)">
-          <span [ghs-label]="'settings.characterItems'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.characterItems.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.battleGoals"
-            (change)="settingsManager.setBattleGoals(!settingsManager.settings.battleGoals)">
-          <span [ghs-label]="'settings.battleGoals'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.battleGoals.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.summons"
-            (change)="settingsManager.setSummons(!settingsManager.settings.summons)">
-          <span [ghs-label]="'settings.summons'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.summons.hint'"></span>
-        </span>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.lootDeck"
-            (change)="settingsManager.setLootDeck(!settingsManager.settings.lootDeck)">
-          <span [ghs-label]="'settings.lootDeck'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.lootDeck.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.allyAttackModifierDeck"
-            (change)="settingsManager.setAllyAttackModifierDeck(!settingsManager.settings.allyAttackModifierDeck)">
-          <span [ghs-label]="'settings.allyAttackModifierDeck'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.allyAttackModifierDeck.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.partySheet"
-            (change)="settingsManager.setPartySheet(!settingsManager.settings.partySheet)">
-          <span [ghs-label]="'settings.partySheet'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.partySheet.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.monsters"
-            (change)="settingsManager.setMonsters(!settingsManager.settings.monsters)">
-          <span [ghs-label]="'settings.monsters'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.monsters.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.monsterAttackModifierDeck"
-            (change)="settingsManager.setMonsterAttackModifierDeck(!settingsManager.settings.monsterAttackModifierDeck)">
-          <span [ghs-label]="'settings.monsterAttackModifierDeck'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.monsterAttackModifierDeck.hint'"></span>
-        </span>
-      </div>
-    </div>
+    <div class="line" ghs-setting-menu="allyAttackModifierDeck"></div>
+    <div class="line" ghs-setting-menu="monsters"></div>
+    <div class="line" ghs-setting-menu="monsterAttackModifierDeck"></div>
   </div>
 
   <!-- INTERFACE -->
-  <div class="line title span">
-    <label><span [ghs-label]="'settings.interface'"></span></label>
-  </div>
+  <div class="line title span" ghs-setting-title-menu="interface"></div>
 
   <div class="column">
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.fhStyle"
-            (change)="settingsManager.setFhStyle(!settingsManager.settings.fhStyle)">
-          <span [ghs-label]="'settings.fhStyle'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.fhStyle.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.dragValues"
-            (change)="settingsManager.setDragValues(!settingsManager.settings.dragValues)">
-          <span [ghs-label]="'settings.dragValues'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.dragValues.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.pressDoubleClick"
-            (change)="settingsManager.setPressDoubleClick(!settingsManager.settings.pressDoubleClick)">
-          <span [ghs-label]="'settings.pressDoubleClick'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.pressDoubleClick.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.dragFigures"
-            (change)="settingsManager.setDragFigures(!settingsManager.settings.dragFigures)">
-          <span [ghs-label]="'settings.dragFigures'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.dragFigures.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled':  !settingsManager.settings.portraitMode}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode"
-            (change)="settingsManager.setAutomaticAttackModifierFullscreen(!settingsManager.settings.automaticAttackModifierFullscreen)">
-          <span [ghs-label]="'settings.automaticAttackModifierFullscreen'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.automaticAttackModifierFullscreen.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.characterSheet }">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.characterSheet && settingsManager.settings.characterSheetCompact"
-            (change)="settingsManager.setCharacterSheetCompact(!settingsManager.settings.characterSheetCompact)">
-          <span [ghs-label]="'settings.characterSheetCompact'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.characterSheetCompact.hint'"></span>
-        </span>
-      </div>
+    <div class="line" ghs-setting-menu="fhStyle"></div>
+    <div class="line" ghs-setting-menu="dragValues"></div>
+    <div class="line" ghs-setting-menu="pressDoubleClick"></div>
+    <div class="line" ghs-setting-menu="dragFigures"></div>
+    <div class="line" ghs-setting-menu="automaticAttackModifierFullscreen"
+      [disabled]="!settingsManager.settings.portraitMode"></div>
+    <div class="line" ghs-setting-menu="characterSheetCompact" [disabled]="!settingsManager.settings.characterSheet">
     </div>
   </div>
 
   <div class="column">
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.characterAttackModifierDeck}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierAnimate"
-            (change)="settingsManager.setCharacterAttackModifierAnimate(!settingsManager.settings.characterAttackModifierAnimate)">
-          <span [ghs-label]="'settings.characterAttackModifierAnimate'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.characterAttackModifierAnimate.hint'"></span>
-        </span>
-      </div>
+    <div class="line" ghs-setting-menu="characterAttackModifierAnimate"
+      [disabled]="!settingsManager.settings.characterSheet || !settingsManager.settings.characterAttackModifierDeck">
     </div>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.characterAttackModifierDeck}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierDeckPermanent"
-            (change)="settingsManager.setCharacterAttackModifierDeckPermanent(!settingsManager.settings.characterAttackModifierDeckPermanent)">
-          <span [ghs-label]="'settings.characterAttackModifierDeckPermanent'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.characterAttackModifierDeckPermanent.hint'"></span>
-        </span>
-      </div>
+    <div class="line" ghs-setting-menu="characterAttackModifierDeckPermanent"
+      [disabled]="!settingsManager.settings.characterSheet || !settingsManager.settings.characterAttackModifierDeck"></div>
+    <div class="line" ghs-setting-menu="characterAttackModifierDeckPermanentActive"
+      [disabled]="!settingsManager.settings.characterSheet || !settingsManager.settings.characterAttackModifierDeck || !settingsManager.settings.characterAttackModifierDeckPermanent">
     </div>
-    <div class="line">
-      <div class="hint-container">
-        <label
-          [ngClass]="{'disabled' : !settingsManager.settings.characterAttackModifierDeck || !settingsManager.settings.characterAttackModifierDeckPermanent}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierDeckPermanent && settingsManager.settings.characterAttackModifierDeckPermanentActive"
-            (change)="settingsManager.setCharacterAttackModifierDeckPermanentActive(!settingsManager.settings.characterAttackModifierDeckPermanentActive)">
-          <span [ghs-label]="'settings.characterAttackModifierDeckPermanentActive'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.characterAttackModifierDeckPermanentActive.hint'"></span>
-        </span>
-      </div>
+    <div class="line" ghs-setting-menu="characterItemsPermanent" [disabled]="!settingsManager.settings.characterItems">
     </div>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : !settingsManager.settings.characterItems}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.characterItems && settingsManager.settings.characterItemsPermanent"
-            (change)="settingsManager.setCharacterItemsPermanent(!settingsManager.settings.characterItemsPermanent)">
-          <span [ghs-label]="'settings.characterItemsPermanent'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.characterItemsPermanent.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label
-          [ngClass]="{'disabled' : !settingsManager.settings.characterItems || !settingsManager.settings.characterItemsPermanent}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.characterItems && settingsManager.settings.characterItemsPermanent && settingsManager.settings.characterItemsPermanentActive"
-            (change)="settingsManager.setCharacterItemsPermanentActive(!settingsManager.settings.characterItemsPermanentActive)">
-          <span [ghs-label]="'settings.characterItemsPermanentActive'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.characterItemsPermanentActive.hint'"></span>
-        </span>
-      </div>
-    </div>
+    <div class="line" ghs-setting-menu="characterItemsPermanentActive"
+      [disabled]="!settingsManager.settings.characterItems || !settingsManager.settings.characterItemsPermanent"></div>
   </div>
 
   <div class="separator"></div>
@@ -1297,326 +265,51 @@
       </a>
     </div>
 
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.pinchZoom"
-            (change)="settingsManager.setPinchZoom(!settingsManager.settings.pinchZoom)">
-          <span [ghs-label]="'settings.pinchZoom'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.pinchZoom.hint'"></span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.fullscreen" (change)="fullscreen()">
-          <span [ghs-label]="'settings.fullscreen'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.fullscreen.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.autoscroll"
-            (change)="settingsManager.setAutoscroll(!settingsManager.settings.autoscroll)">
-          <span [ghs-label]="'settings.autoscroll'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.autoscroll.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.portraitMode"
-            (change)="togglePortraitMode()">
-          <span [ghs-label]="'settings.portraitMode'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.portraitMode.hint'"></span>
-        </span>
-      </div>
-    </div>
+    <div class="line" ghs-setting-menu="pinchZoom"></div>
+    <div class="line" ghs-setting-menu="fullscreen"></div>
+    <div class="line" ghs-setting-menu="autoscroll"></div>
+    <div class="line" ghs-setting-menu="portraitMode"></div>
+    <div class="line" ghs-setting-menu="barsize" type="range" [min]="0.1" [max]="2"></div>
+    <div class="line" ghs-setting-menu="fontsize" type="range" [min]="0.1" [max]="2"></div>
   </div>
 
   <div class="column">
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.hints"
-            (change)="settingsManager.setHints(!settingsManager.settings.hints)">
-          <span [ghs-label]="'settings.hints'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.hints.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.tooltips"
-            (change)="settingsManager.setTooltips(!settingsManager.settings.tooltips)">
-          <span [ghs-label]="'settings.tooltips'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.tooltips.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.backupHint"
-            (change)="settingsManager.setBackupHint(!settingsManager.settings.backupHint)">
-          <span [ghs-label]="'settings.backupHint'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.backupHint.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.statAnimations"
-            (change)="settingsManager.setStatAnimations(!settingsManager.settings.statAnimations)">
-          <span [ghs-label]="'settings.statAnimations'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.statAnimations.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.columns"
-            (change)="settingsManager.setColumns(!settingsManager.settings.columns)">
-          <span [ghs-label]="'settings.columns'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.columns.hint'"></span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.animations"
-            (change)="settingsManager.setAnimations(!settingsManager.settings.animations)">
-          <span [ghs-label]="'settings.animations'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.animations.hint'"></span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.artwork"
-            (change)="settingsManager.setArtwork(!settingsManager.settings.artwork)">
-          <span [ghs-label]="'settings.artwork'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.artwork.hint'"></span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line" *ngIf="wakeLock">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.wakeLock"
-            (change)="settingsManager.setWakeLock(!settingsManager.settings.wakeLock)">
-          <span [ghs-label]="'settings.wakeLock'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.wakeLock.hint'"></span>
-        </span>
-      </div>
-    </div>
-  </div>
-
-  <div class="line">
-    <div class="hint-container">
-      <label (click)="resetBarsize($event)"><span [ghs-label]="'settings.barsize'"></span>
-        <input tabclick type="range" min="0.1" step="0.1" max="2" [value]="settingsManager.settings.barsize"
-          (change)="setBarsize($event)" (input)="updateBarsize($event)" />
-      </label>
-      <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-      <span class="hint">
-        <span class="text" [ghs-label]="'settings.barsize.hint'"></span>
-      </span>
-    </div>
-  </div>
-
-  <div class="line">
-    <div class="hint-container">
-      <label (click)="resetFontsize($event)"><span [ghs-label]="'settings.fontsize'"></span>
-        <input tabclick type="range" min="0.1" step="0.1" max="2" [value]="settingsManager.settings.fontsize"
-          (change)="setFontsize($event)" (input)="updateFontsize($event)" />
-      </label>
-      <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-      <span class="hint">
-        <span class="text" [ghs-label]="'settings.fontsize.hint'"></span>
-      </span>
-    </div>
+    <div class="line" ghs-setting-menu="hints"></div>
+    <div class="line" ghs-setting-menu="tooltips"></div>
+    <div class="line" ghs-setting-menu="backupHint"></div>
+    <div class="line" ghs-setting-menu="statAnimations"></div>
+    <div class="line" ghs-setting-menu="columns"></div>
+    <div class="line" ghs-setting-menu="columnsForce" [disabled]="!settingsManager.settings.columns"></div>
+    <div class="line" ghs-setting-menu="animations"></div>
+    <div class="line" ghs-setting-menu="artwork"></div>
+    <div *ngIf="wakeLock" class="line" ghs-setting-menu="wakeLock"></div>
   </div>
 
   <div class="separator"></div>
 
-  <div class="line">
-    <div class="hint-container warning">
-      <label class="label"><span [ghs-label]="'settings.maxUndo'"></span>
-        <input tabclick type="number" #maxUndo [value]="settingsManager.settings.maxUndo" min="0"
-          [max]="storageManager.db ? '' : 50" (keyup)="0" (change)="settingsManager.setMaxUndo(+maxUndo.value)"
-          [size]="maxUndo.value.length" [ghs-label]="'settings.maxUndo'" [ghs-label-attribute]="'placeholder'"></label>
-      <img *ngIf="!storageManager.db" src="./assets/images/warning.svg" class="hint-trigger ghs-svg">
-      <div class="hint" *ngIf="!storageManager.db">
-        <div class="text">
-          <div [ghs-label]="'settings.maxUndo.warning'"></div>
-          <br>
-          <div class="firefox" *ngIf="platform.FIREFOX" [ghs-label]="'settings.maxUndo.warning.firefox'"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="line" ghs-setting-menu="maxUndo" type="number" [min]="0" [max]="storageManager.db ? '' : 50"
+    [hint]="!storageManager.db" [additionalHint]="platform.FIREFOX ? 'settings.maxUndo.hint.firefox' : ''"></div>
 
-  <div class="line disabled">
-    <label>
-      <input tabclick type="checkbox" [checked]="settingsManager.settings.browserNavigation"
-        (change)="settingsManager.setBrowserNavigation(!settingsManager.settings.browserNavigation)">
-      <span [ghs-label]="'settings.browserNavigation'"></span>
-    </label>
-  </div>
-
+  <div class="line" ghs-setting-menu="browserNavigation" [disabled]="true" [hint]="false"></div>
 
   <div class="column">
-    <div class="line title">
-      <label><span [ghs-label]="'settings.locale'"></span></label>
-      <div class="hint-container">
-        <img *ngIf="settingsManager.settings.serverSettings" src="./assets/images/sync-settings.svg"
-          class="hint-trigger ghs-svg sync-settings">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.synced'"></span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line" *ngFor="let locale of settingsManager.locales">
-      <label [ngClass]="{'disabled' : settingsManager.settings.locale == locale}">
-        <input tabclick type="checkbox" [checked]="settingsManager.settings.locale == locale"
-          (change)="settingsManager.setLocale(locale)">
-        <span [ghs-label]="'settings.locale.' + locale"></span>
-      </label>
-    </div>
+    <div class="line title" ghs-setting-title-menu="locale" [sync]="true"></div>
+    <div ghs-setting-menu="locale" [values]="settingsManager.locales"></div>
   </div>
 
   <div class="column">
-    <div class="line title">
-      <label><span [ghs-label]="'settings.theme'"></span></label>
-    </div>
+    <div class="line title" ghs-setting-title-menu="theme"></div>
 
-    <div class="line" *ngFor="let theme of ['default', 'fh', 'modern']">
-      <label [ngClass]="{'disabled' : settingsManager.settings.theme == theme}">
-        <input tabclick type="checkbox" [checked]="settingsManager.settings.theme == theme"
-          (change)="settingsManager.setTheme(theme)">
-        <span [ghs-label]="'settings.theme.' + theme"></span>
-      </label>
-    </div>
+    <div ghs-setting-menu="theme" [values]="['default', 'fh', 'modern']"></div>
 
     <div class="separator"></div>
 
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.automaticTheme"
-            (change)="settingsManager.setAutomaticTheme(!settingsManager.settings.automaticTheme)">
-          <span [ghs-label]="'settings.automaticTheme'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.automaticTheme.hint'"></span>
-        </span>
-      </div>
+    <div class="line" ghs-setting-menu="automaticTheme"></div>
+    <div class="line" ghs-setting-menu="characterCompact" [disabled]="settingsManager.settings.theme  == 'modern'">
     </div>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : settingsManager.settings.theme  == 'modern'}">
-          <input tabclick type="checkbox"
-            [checked]="settingsManager.settings.theme  != 'modern' && settingsManager.settings.characterCompact"
-            (change)="settingsManager.setCharacterCompact(!settingsManager.settings.characterCompact)">
-          <span [ghs-label]="'settings.characterCompact'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.characterCompact.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.hideCharacterHP"
-            (change)="settingsManager.setHideCharacterHP(!settingsManager.settings.hideCharacterHP)">
-          <span [ghs-label]="'settings.hideCharacterHP'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.hideCharacterHP.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.hideCharacterLoot"
-            (change)="settingsManager.setHideCharacterLoot(!settingsManager.settings.hideCharacterLoot)">
-          <span [ghs-label]="'settings.hideCharacterLoot'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.hideCharacterLoot.hint'"></span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input tabclick type="checkbox" [checked]="settingsManager.settings.hideCharacterXP"
-            (change)="settingsManager.setHideCharacterXP(!settingsManager.settings.hideCharacterXP)">
-          <span [ghs-label]="'settings.hideCharacterXP'"></span>
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text" [ghs-label]="'settings.hideCharacterXP.hint'"></span>
-        </span>
-      </div>
-    </div>
+    <div class="line" ghs-setting-menu="hideCharacterHP"></div>
+    <div class="line" ghs-setting-menu="hideCharacterLoot"></div>
+    <div class="line" ghs-setting-menu="hideCharacterXP"></div>
   </div>
 
   <div class="separator"></div>
@@ -1626,6 +319,14 @@
       <span [ghs-label]="'settings.helperDefaults'"></span>
     </a>
   </div>
+
+  <div class="line">
+    <a tabclick (click)="xhaDefaults()">
+      <span [ghs-label]="'settings.xhaDefaults'"></span>
+    </a>
+  </div>
+
+  <div class="separator"></div>
 
   <div class="line">
     <a tabclick (click)="setMenu.emit(SubMenu.debug)">

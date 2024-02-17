@@ -19,7 +19,17 @@
       [
         {
           "type": "summon",
-          "value": "deep-terror"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "deep-terror",
+                "player2": "normal",
+                "player3": "elite",
+                "player4": "elite"
+              }
+            }
+          ]
         },
         {
           "type": "attack",
@@ -36,7 +46,17 @@
       [
         {
           "type": "summon",
-          "value": "deep-terror"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "deep-terror",
+                "player2": "normal",
+                "player3": "normal",
+                "player4": "elite"
+              }
+            }
+          ]
         },
         {
           "type": "attack",

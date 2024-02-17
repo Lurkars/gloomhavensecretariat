@@ -7,7 +7,6 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { applyPlaceholder } from '../../helper/label';
-import { EntityValueFunction } from 'src/app/game/model/Entity';
 
 @Component({
   selector: 'ghs-abilities-dialog',
@@ -25,6 +24,9 @@ export class AbiltiesDialogComponent implements OnInit {
   edit: boolean = false;
   maxHeight: string = "";
   bottomActions: boolean = false;
+  upcomingCards: Ability[] = [];
+  disgardedCards: Ability[] = [];
+  deletedCards: Ability[] = [];
 
   constructor(@Inject(DIALOG_DATA) public monster: Monster, public dialogRef: DialogRef) { }
 
@@ -36,6 +38,8 @@ export class AbiltiesDialogComponent implements OnInit {
     }, !settingsManager.settings.animations ? 0 : 250);
 
     this.bottomActions = gameManager.monsterManager.hasBottomActions(this.monster);
+    this.update();
+    gameManager.uiChange.subscribe({ next: () => this.update() });
   }
 
   toggleEdit() {
@@ -45,23 +49,14 @@ export class AbiltiesDialogComponent implements OnInit {
     }, 0);
   }
 
-  upcomingCards(): Ability[] {
+  update() {
     let abilityNumber = this.monster.ability;
     if (abilityNumber >= 0 && this.bottomActions) {
       abilityNumber++;
     }
-    return this.monster.abilities.filter((value, index) => index > abilityNumber).map((value) => gameManager.abilities(this.monster)[value]);
-  }
-
-  disgardedCards(): Ability[] {
-    let abilityNumber = this.monster.ability;
-    if (abilityNumber >= 0 && this.bottomActions) {
-      abilityNumber++;
-    }
-    return [
-      ...this.monster.abilities.filter((value, index) => index <= abilityNumber).map((value) => gameManager.abilities(this.monster)[value]).reverse(),
-      ...this.monster.abilities.filter((value, index) => index > abilityNumber && index < gameManager.monsterManager.drawnAbilities(this.monster)).map((value) => gameManager.abilities(this.monster)[value])
-    ];
+    this.upcomingCards = this.monster.abilities.filter((value, index) => index > abilityNumber).map((value) => gameManager.abilities(this.monster)[value]);
+    this.disgardedCards = this.monster.abilities.filter((value, index) => index <= abilityNumber).map((value) => gameManager.abilities(this.monster)[value]).reverse();
+    this.deletedCards = gameManager.deckData(this.monster).abilities.filter((ability, index) => this.monster.abilities.indexOf(index) == -1);
   }
 
   abilityIndex(ability: Ability) {
@@ -72,14 +67,15 @@ export class AbiltiesDialogComponent implements OnInit {
     gameManager.stateManager.before("shuffleAbilityDeck", "data.monster." + this.monster.name);
     gameManager.monsterManager.shuffleAbilities(this.monster);
     gameManager.stateManager.after();
+    this.update();
   }
 
   draw() {
     gameManager.stateManager.before("drawAbility", "data.monster." + this.monster.name);
     gameManager.monsterManager.drawAbility(this.monster);
     gameManager.stateManager.after();
+    this.update();
   }
-
 
   toggleDrawExtra() {
     if (this.monster.drawExtra) {
@@ -95,6 +91,7 @@ export class AbiltiesDialogComponent implements OnInit {
       }
       gameManager.stateManager.after();
     }
+    this.update();
   }
 
   dropUpcoming(event: CdkDragDrop<Ability[]>) {
@@ -112,6 +109,7 @@ export class AbiltiesDialogComponent implements OnInit {
       gameManager.monsterManager.applySameDeck(sameDeckMonster);
     }
     gameManager.stateManager.after();
+    this.update();
   }
 
   dropDisgarded(event: CdkDragDrop<Ability[]>) {
@@ -128,21 +126,29 @@ export class AbiltiesDialogComponent implements OnInit {
       gameManager.monsterManager.applySameDeck(sameDeckMonster);
     }
     gameManager.stateManager.after();
+    this.update();
   }
 
   restoreDefault(): void {
     gameManager.stateManager.before("restoreDefaultAbilities", "data.monster." + this.monster.name);
-    const abilities = gameManager.abilities(this.monster);
-    this.monster.abilities = abilities.filter((ability) => !ability.level || isNaN(+ability.level) || EntityValueFunction(ability.level) <= this.monster.level).map((ability, index) => index);
-    this.monster.ability = -1;
+    gameManager.monsterManager.restoreDefaultAbilities(this.monster);
     gameManager.stateManager.after();
+    this.update();
   }
 
   remove(index: number) {
-    const ability: Ability = gameManager.abilities(this.monster)[this.monster.abilities[index + this.monster.ability + 1]];
+    const ability: Ability = gameManager.abilities(this.monster)[this.monster.abilities[index]];
     gameManager.stateManager.before("removeAbility", "data.monster." + this.monster.name, this.abilityLabel(ability));
-    this.monster.abilities.splice(index + this.monster.ability + 1, 1);
+    gameManager.monsterManager.removeAbility(this.monster, index);
     gameManager.stateManager.after();
+    this.update();
+  }
+
+  restore(ability: Ability) {
+    gameManager.stateManager.before("restoreAbility", "data.monster." + this.monster.name, this.abilityLabel(ability));
+    gameManager.monsterManager.restoreAbility(this.monster, ability);
+    gameManager.stateManager.after();
+    this.update();
   }
 
   abilityLabel(ability: Ability): string {
@@ -161,5 +167,6 @@ export class AbiltiesDialogComponent implements OnInit {
 
   defaultSort() {
     this.monster.abilities = this.monster.abilities.sort((a, b) => a - b);
+    this.update();
   }
 }
