@@ -753,7 +753,7 @@
                 cursor: pointer;
 
                 img {
-                  width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+                  width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
                   height: auto;
                 }
               }
@@ -1306,7 +1306,7 @@
     }
 
     &.fh-container {
-      width: calc(var(--ghs-unit) * 120.5 * var(--ghs-dialog-factor));
+      width: calc(var(--ghs-unit) * 121.5 * var(--ghs-dialog-factor));
       overflow-x: hidden;
     }
 
