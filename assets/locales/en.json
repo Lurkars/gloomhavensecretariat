@@ -34,6 +34,7 @@
   "character": {
     ".": "Character",
     "absent": "Absent",
+    "activate": "Doubleclick to reactivate character",
     "add": "Add Character",
     "class": {
       "algox": "Algox",
@@ -77,6 +78,7 @@
       "valrath": "Valrath",
       "vermling": "Vermling"
     },
+    "deactivate": "Deactivate character",
     "filter": {
       ".": "Filter Character",
       "allEditions": "All Editions",
@@ -1064,7 +1066,9 @@
           },
           "costs": "Costs",
           "discount": "-1 material resource",
+          "effects": "Effects",
           "id": "Number",
+          "interactions": "Interactions",
           "level": {
             ".": "Level",
             "hint": "Show bonuses (downgrade level with double-click)"
@@ -1201,7 +1205,7 @@
       ".": "Party",
       "hint": "Update and change Party and Campaign progress"
     },
-    "password": {
+    "code": {
       ".": "New Game Code for Permissions"
     },
     "round": {
@@ -1545,7 +1549,7 @@
       "connect": "Connect to Server",
       "connected": "Server Connection"
     },
-    "password": {
+    "code": {
       ".": "Game Code",
       "hint": "The Game Code identifies your game. For a new game just enter a new code of your choice or generate one. Everyone with the same Code connect to the same game.<br><br>This was previously called \"Password\", but to avoid confusion it is renamed now.",
       "uuid": "Generate Code (UUID)"
@@ -2225,6 +2229,8 @@
       "changeSummonMove": "Movement {2} for summon '{1}' of {0}",
       "changeSummonRange": "Range {2} for summon '{1}' of {0}",
       "changeXP": "XP {1} for {0}",
+      "characterActivate": "Reactivate {0} for player {1}",
+      "characterDeactivate": "Deactivate {0} for player {1}",
       "characterItemApply": {
         "spent": "{0} spent item {1} \"{3}\"",
         "consumed": "{0} consumed item {1} \"{3}\"",
