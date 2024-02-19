@@ -128,6 +128,13 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         this.party.players[character.number - 1] = "";
       }
     })
+
+    this.party.availableCharacters.forEach((characterModel) => {
+      if (!this.party.players[characterModel.number - 1]) {
+        this.party.players[characterModel.number - 1] = "";
+      }
+    })
+
     this.itemEdition = this.partyEdition;
     this.treasureEdition = this.partyEdition;
   }
