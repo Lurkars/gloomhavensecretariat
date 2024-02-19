@@ -64,7 +64,7 @@ export class StateManager {
 
     this.updateBlocked = false;
 
-    if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword) {
+    if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverCode) {
       if (settingsManager.settings.serverAutoconnect) {
         this.connect();
       } else {
@@ -84,7 +84,7 @@ export class StateManager {
 
     gameManager.uiChange.subscribe({
       next: () => {
-        if (!settingsManager.settings.serverUrl || !settingsManager.settings.serverPort || !settingsManager.settings.serverPassword) {
+        if (!settingsManager.settings.serverUrl || !settingsManager.settings.serverPort || !settingsManager.settings.serverCode) {
           this.permissions = undefined;
           this.updateBlocked = false;
         }
@@ -136,7 +136,7 @@ export class StateManager {
   }
 
   connect() {
-    if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword) {
+    if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverCode) {
       this.disconnect();
       this.connectionTries++;
       const protocol = settingsManager.settings.serverWss ? "wss://" : "ws://";
@@ -359,7 +359,8 @@ export class StateManager {
             settings.portraitMode = settingsManager.settings.portraitMode;
             settings.pressDoubleClick = settingsManager.settings.pressDoubleClick;
             settings.serverAutoconnect = settingsManager.settings.serverAutoconnect;
-            settings.serverPassword = settingsManager.settings.serverPassword;
+            settings.serverCode = settingsManager.settings.serverCode || settingsManager.settings.serverPassword;
+            settings.serverPassword = undefined;
             settings.serverPort = settingsManager.settings.serverPort;
             settings.serverSettings = settingsManager.settings.serverSettings;
             settings.serverUrl = settingsManager.settings.serverUrl;
@@ -397,7 +398,7 @@ export class StateManager {
               gameManager.stateManager.redo(false);
             }
           }
-          if (message.message && message.message.startsWith("Invalid password")) {
+          if (message.message && (message.message.startsWith("Invalid password") || message.message.startsWith("Invalid game code"))) {
             console.warn("Disconnect...");
             ev.target?.close();
           }
@@ -418,12 +419,13 @@ export class StateManager {
   onOpen(ev: Event) {
     if (settingsManager.settings.logServerMessages) console.debug('WS opened', ev);
     const ws = ev.target as WebSocket;
-    if (ws && ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
+    if (ws && ws.readyState == WebSocket.OPEN && settingsManager.settings.serverCode) {
       gameManager.stateManager.connectionTries = 0;
       gameManager.stateManager.updateBlocked = false;
       gameManager.stateManager.permissions = gameManager.stateManager.permissionBackup;
       let message = {
-        "password": settingsManager.settings.serverPassword,
+        "code": settingsManager.settings.serverCode,
+        "password": settingsManager.settings.serverCode, // migration
         "type": "request-game",
         "payload": gameManager.game.toModel(),
       }
@@ -432,7 +434,8 @@ export class StateManager {
 
       if (settingsManager.settings.serverSettings) {
         let message = {
-          "password": settingsManager.settings.serverPassword,
+          "code": settingsManager.settings.serverCode,
+          "password": settingsManager.settings.serverCode, // migration
           "type": "request-settings"
         }
         if (settingsManager.settings.logServerMessages) console.debug('WS sending request-settings');
@@ -471,9 +474,10 @@ export class StateManager {
   }
 
   requestSettings() {
-    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword && settingsManager.settings.serverSettings) {
+    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverCode && settingsManager.settings.serverSettings) {
       let message = {
-        "password": settingsManager.settings.serverPassword,
+        "code": settingsManager.settings.serverCode,
+        "password": settingsManager.settings.serverCode, // migration
         "type": "request-settings"
       }
       if (settingsManager.settings.logServerMessages) console.debug('WS sending request-settings');
@@ -482,7 +486,7 @@ export class StateManager {
   }
 
   wsState(): number {
-    if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword) {
+    if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverCode) {
       return this.ws && this.ws.readyState || -1;
     } else {
       return -99;
@@ -506,9 +510,10 @@ export class StateManager {
   }
 
   saveSettings() {
-    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword && settingsManager.settings.serverSettings) {
+    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverCode && settingsManager.settings.serverSettings) {
       let message = {
-        "password": settingsManager.settings.serverPassword,
+        "code": settingsManager.settings.serverCode,
+        "password": settingsManager.settings.serverCode, // migration
         "type": "settings",
         "payload": settingsManager.settings
       }
@@ -550,7 +555,7 @@ export class StateManager {
   async after(timeout: number = 1, autoBackup: boolean = false, revisionChange: number = 1, type: string = "game", revision: number = 0, undolength: number = 1) {
     this.game.revision += revisionChange;
     this.saveLocal();
-    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
+    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverCode) {
       window.document.body.classList.add('server-sync');
       let undoInfo = this.undoInfos[this.undos.length - 1];
 
@@ -559,7 +564,8 @@ export class StateManager {
       }
 
       let message = {
-        "password": settingsManager.settings.serverPassword,
+        "code": settingsManager.settings.serverCode,
+        "password": settingsManager.settings.serverCode, // migration
         "type": type,
         "payload": this.game.toModel(),
         "undoinfo": undoInfo,
@@ -763,14 +769,16 @@ export class StateManager {
     this.saveStorage();
   }
 
-  savePermissions(password: string, permissions: Permissions | undefined) {
-    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
+  savePermissions(code: string, permissions: Permissions | undefined) {
+    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverCode) {
       let message = {
-        "password": settingsManager.settings.serverPassword,
+        "code": settingsManager.settings.serverCode,
+        "password": settingsManager.settings.serverCode, // migration
         "type": "permissions",
         "payload": {
           "permissions": permissions,
-          "password": password
+          "code": code,
+          "password": code // migration
         }
       }
       if (settingsManager.settings.logServerMessages) console.debug(`WS sending permissions`);

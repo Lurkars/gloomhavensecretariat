@@ -27,7 +27,7 @@ export class ServerMenuComponent implements OnInit {
   publicServer: ServerInfo[] = [];
   selectedServerIndex: number = -1;
 
-  password: string = '';
+  code: string = '';
 
   createPermissions: boolean = false;
 
@@ -51,9 +51,9 @@ export class ServerMenuComponent implements OnInit {
     this.updateServer();
   }
 
-  connect(url: string, port: string, password: string): void {
-    if (url && !isNaN(+port) && password) {
-      settingsManager.setServer(url, +port, password);
+  connect(url: string, port: string, code: string): void {
+    if (url && !isNaN(+port) && code) {
+      settingsManager.setServer(url, +port, code);
       gameManager.stateManager.connect();
       this.tryConnect = true;
     }
@@ -67,7 +67,7 @@ export class ServerMenuComponent implements OnInit {
   }
 
   createUUID() {
-    settingsManager.settings.serverPassword = uuidv4();
+    settingsManager.settings.serverCode = uuidv4();
   }
 
   disconnect() {
@@ -118,9 +118,9 @@ export class ServerMenuComponent implements OnInit {
     this.updateServer();
   }
 
-  setServerPassword(event: any) {
+  setServerCode(event: any) {
     this.tryConnect = false;
-    settingsManager.settings.serverPassword = event.target.value;
+    settingsManager.settings.serverCode = event.target.value;
     settingsManager.storeSettings();
     this.updateServer();
   }
@@ -179,13 +179,13 @@ export class ServerMenuComponent implements OnInit {
     }
   }
 
-  setPermissionsPassword(event: any) {
-    this.password = event.target.value;
+  setPermissionsCode(event: any) {
+    this.code = event.target.value;
   }
 
   savePermissions() {
-    gameManager.stateManager.savePermissions(this.password, this.permissions);
-    this.password = '';
+    gameManager.stateManager.savePermissions(this.code, this.permissions);
+    this.code = '';
     this.permissions = new Permissions();
   }
 }

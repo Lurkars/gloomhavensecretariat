@@ -753,8 +753,8 @@
                 cursor: pointer;
 
                 img {
-                  width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-                  height: auto;
+                  width: auto;
+                  height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
                 }
               }
             }
@@ -1656,6 +1656,19 @@
               font-size: 1em;
               line-height: 0.7em;
               margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            }
+
+            .available-characters {
+              display: flex;
+
+              .available-character {
+                cursor: pointer;
+
+                img {
+                  width: auto;
+                  height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+                }
+              }
             }
 
             .remove {

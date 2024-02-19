@@ -423,7 +423,8 @@
       .personal-quest,
       .extra-perks,
       .retirements,
-      .player-number {
+      .player-number,
+      .deactivate {
         margin-top: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
         margin-left: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
         margin-bottom: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
@@ -445,6 +446,16 @@
           flex-shrink: 0;
           margin-left: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
         }
+
+        &.deactivate label {
+          cursor: pointer;
+          font-family: var(--ghs-font-normal);
+          font-size: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
       }
     }
 
@@ -462,6 +473,10 @@
           margin: 0;
           padding: 0;
           visibility: hidden;
+        }
+
+        &:hover {
+          opacity: 0.7;
         }
       }
     }

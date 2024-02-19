@@ -1,0 +1,20 @@
+<div class="number-input-container">
+    <div class="value-container negative" *ngIf="negative">
+        <ng-container *ngFor="let value of steps">
+            <div [ngClass]="{'disabled' : min &&  model - value < min}" class="value" (click)="change(-value)">
+                {{(relative ? -value : (model - value)) | ghsValueSign}}
+            </div>
+        </ng-container>
+    </div>
+    <div class="current">
+        <span *ngIf="relative">{{model}}</span>
+        <span *ngIf="!relative">{{model | ghsValueSign}}</span>
+    </div>
+    <div class="value-container">
+        <ng-container *ngFor="let value of steps">
+            <div [ngClass]="{'disabled' : max && model + value > max}" class="value" (click)="change(value)">
+                {{(relative ? value : (model + value)) | ghsValueSign}}
+            </div>
+        </ng-container>
+    </div>
+</div>

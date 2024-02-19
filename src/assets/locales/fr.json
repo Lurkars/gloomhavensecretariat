@@ -1163,7 +1163,7 @@
       ".": "Groupe",
       "hint": "Mise à jour et modification de l'état d'avancement des groupes et des campagnes"
     },
-    "password": {
+    "code": {
       ".": "Nouveau mot de passe pour les autorisations"
     },
     "round": {
@@ -1495,7 +1495,7 @@
       "connect": "Se connecter au serveur",
       "connected": "Connecté au serveur"
     },
-    "password": {
+    "code": {
       ".": "Mot de passe",
       "hint": "Le code de jeu identifie votre jeu. Pour un nouveau jeu, il suffit de saisir un nouveau code de votre choix ou d'en générer un. Toutes les personnes ayant le même code se connectent au même jeu. <br><br>Ce code était auparavant appelé \"mot de passe\", mais pour éviter toute confusion, il a été renommé.",
       "uuid": "Générer Code (UUID)"

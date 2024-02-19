@@ -2,7 +2,7 @@
 <main [ngClass]="{'compact' : footer.compact, 'modern' : settingsManager.settings.theme == 'modern'}"
   ghs-keyboard-shortcuts [header]="header" [footer]="footer">
   <div
-    *ngIf="gameManager.stateManager.updateBlocked && settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword"
+    *ngIf="gameManager.stateManager.updateBlocked && settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverCode"
     class="dialog blocked">
     <div class="dialog-container">
       <span [ghs-label]="'server.blocked'"></span>

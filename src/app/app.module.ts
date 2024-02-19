@@ -146,6 +146,7 @@ import { EntityIndexKeyComponent } from './ui/figures/standee/entity-index-key/e
 import { PartyResourcesDialogComponent } from './ui/figures/party/resources/resources';
 import { CharacterItemComponent } from './ui/figures/items/character/item-character';
 import { CharacterItemListComponent } from './ui/figures/character/item-list/item-list';
+import { GhsNumberInput } from './ui/helper/number-input/number-input';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
@@ -192,7 +193,7 @@ export class GhsErrorHandler extends ErrorHandler {
     EditorActionComponent, EditorActionDialogComponent,
     DeckEditorComponent, CharacterEditorComponent, MonsterEditorComponent,
     GhsTooltipComponent, GhsTooltipDirective,
-    KeyboardShortcuts, TabClickDirective,
+    KeyboardShortcuts, TabClickDirective, GhsNumberInput,
     FeedbackToolComponent, FeedbackDialogComponent, KeyboardShortcutsComponent],
   imports: [
     BrowserModule,

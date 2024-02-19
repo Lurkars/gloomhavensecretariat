@@ -57,11 +57,11 @@
                 "hide": 1
             }
         ],
-        "effectsNormal": [
-            "Collectively buy up to 1 %game.resource.metal% for 2 gold",
-            "Collectively buy up to 2 %game.resource.metal% for 2 gold",
-            "Collectively buy up to 3 %game.resource.metal% for 2 gold",
-            "Collectively buy up to 4 %game.resource.metal% for 2 gold"
+        "effectNormal": [
+            "%data.buildings.mining-camp.1%",
+            "%data.buildings.mining-camp.2%",
+            "%data.buildings.mining-camp.3%",
+            "%data.buildings.mining-camp.4%"
         ],
         "rewards": [
             {
@@ -138,11 +138,11 @@
                 "hide": 2
             }
         ],
-        "effectsNormal": [
-            "Collectively buy up to 1 %game.resource.hide% for 2 gold",
-            "Collectively buy up to 2 %game.resource.hide% for 2 gold",
-            "Collectively buy up to 3 %game.resource.hide% for 2 gold",
-            "Collectively buy up to 4 %game.resource.hide% for 2 gold"
+        "effectNormal": [
+            "%data.buildings.hunting-lodge.1%",
+            "%data.buildings.hunting-lodge.2%",
+            "%data.buildings.hunting-lodge.3%",
+            "%data.buildings.hunting-lodge.4%"
         ],
         "rewards": [
             {
@@ -220,11 +220,11 @@
                 "hide": 1
             }
         ],
-        "effectsNormal": [
-            "Collectively buy up to 1 %game.resource.lumber% for 2 gold",
-            "Collectively buy up to 2 %game.resource.lumber% for 2 gold",
-            "Collectively buy up to 3 %game.resource.lumber% for 2 gold",
-            "Collectively buy up to 4 %game.resource.lumber% for 2 gold"
+        "effectNormal": [
+            "%data.buildings.logging-camp.1%",
+            "%data.buildings.logging-camp.2%",
+            "%data.buildings.logging-camp.3%",
+            "%data.buildings.logging-camp.4%"
         ],
         "rewards": [
             {
@@ -289,10 +289,10 @@
                 "hide": 2
             }
         ],
-        "effectsNormal": [
-            "Collectively buy up to 1 material resource for 2 gold",
-            "Collectively buy up to 2 different material resource for 2 gold each",
-            "Collectively buy up to 3 different material resource for 2 gold each"
+        "effectNormal": [
+            "%data.buildings.inn.1%",
+            "%data.buildings.inn.2%",
+            "%data.buildings.inn.3%"
         ],
         "rewards": [
             {
@@ -365,11 +365,11 @@
                 "hide": 1
             }
         ],
-        "effectsNormal": [
-            "Plant herbs, rotate this card 180°, then stop - Gain 1 herb from each planted plot, then rotate this card 180° then stop",
-            "Plant herbs, rotate this card 180°, then stop - Gain 1 herb from each planted plot, then rotate this card 180° then stop",
-            "Gain 1 collective herb from each planted plot, then plant herbs",
-            "Gain 1 collective herb from each planted plot, then plant herbs"
+        "effectNormal": [
+            "%data.buildings.garden.1%",
+            "%data.buildings.garden.1%",
+            "%data.buildings.garden.2%",
+            "%data.buildings.garden.2%"
         ],
         "rewards": [
             {
@@ -509,37 +509,37 @@
             }
         ],
         "effectWrecked": [
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items"
+            "%data.buildings.craftsman.1%",
+            "%data.buildings.craftsman.1%",
+            "%data.buildings.craftsman.1%",
+            "%data.buildings.craftsman.2%",
+            "%data.buildings.craftsman.2%",
+            "%data.buildings.craftsman.2%",
+            "%data.buildings.craftsman.3%",
+            "%data.buildings.craftsman.3%",
+            "%data.buildings.craftsman.3%"
         ],
         "interactionsAvailable": [
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items"
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%"
         ],
         "interactionsUnavailable": [
-            "Lose 1 collective %game.resource.hide%",
-            "Lose 1 collective %game.resource.hide%",
-            "Lose 1 collective %game.resource.hide%",
-            "Lose 2 collective %game.resource.hide%",
-            "Lose 2 collective %game.resource.hide%",
-            "Lose 2 collective %game.resource.hide%",
-            "Lose 3 collective %game.resource.hide%",
-            "Lose 3 collective %game.resource.hide%",
-            "Lose 3 collective %game.resource.hide%"
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%"
         ],
         "rewards": [
             {
@@ -628,19 +628,19 @@
             }
         ],
         "effectWrecked": [
-            "Characters cannot use potions",
-            "Characters cannot use potions",
-            "Characters cannot use potions"
+            "%data.buildings.alchemist.1%",
+            "%data.buildings.alchemist.1%",
+            "%data.buildings.alchemist.1%"
         ],
         "interactionsAvailable": [
-            "Brew 2-herb potions",
-            "Brew and distill 2-herb potions",
-            "Brew and distill 2- and 3-herb potions"
+            "%data.buildings.alchemist.2%",
+            "%data.buildings.alchemist.3%",
+            "%data.buildings.alchemist.4%"
         ],
         "interactionsUnavailable": [
-            "Brew potions",
-            "Brew and distill potions",
-            "Brew and distill potions"
+            "%data.buildings.alchemist.5%",
+            "%data.buildings.alchemist.6%",
+            "%data.buildings.alchemist.7%"
         ],
         "rewards": [
             {},
@@ -712,22 +712,22 @@
             }
         ],
         "effectWrecked": [
-            "Lose 5 collective gold",
-            "Lose 10 collective gold",
-            "Lose 15 collective gold",
-            "Lose 20 collective gold"
+            "%data.buildings.trading-post.1%",
+            "%data.buildings.trading-post.2%",
+            "%data.buildings.trading-post.3%",
+            "%data.buildings.trading-post.4%"
         ],
         "interactionsAvailable": [
-            "Buy up to one item",
-            "Buy up to two items",
-            "Buy up to three items",
-            "Buy up to four items"
+            "%data.buildings.trading-post.5%",
+            "%data.buildings.trading-post.6%",
+            "%data.buildings.trading-post.7%",
+            "%data.buildings.trading-post.8%"
         ],
         "interactionsUnavailable": [
-            "Buy items",
-            "Buy items",
-            "Buy items",
-            "Buy items"
+            "%data.buildings.trading-post.9%",
+            "%data.buildings.trading-post.9%",
+            "%data.buildings.trading-post.9%",
+            "%data.buildings.trading-post.9%"
         ],
         "rewards": [
             {
@@ -796,9 +796,9 @@
             }
         ],
         "effectWrecked": [
-            "Damage any one building",
-            "Damage any one building",
-            "Damage any one building"
+            "%data.buildings.jeweler.1%",
+            "%data.buildings.jeweler.1%",
+            "%data.buildings.jeweler.1%"
         ],
         "rewards": [
             {
@@ -862,15 +862,15 @@
                 "hide": 1
             }
         ],
-        "effectsNormal": [
-            "Each character may lose 5 gold to start the next scenario with %game.condition.bless%x2",
-            "Each character may lose 5 gold to start the next scenario with %game.condition.bless%x2",
-            "Each character may lose 5 gold to start the next scenario with %game.condition.bless%x2"
+        "effectNormal": [
+            "%data.buildings.temple.1%",
+            "%data.buildings.temple.1%",
+            "%data.buildings.temple.1%"
         ],
         "effectWrecked": [
-            "Each character starts the next scenario with %game.condition.curse%",
-            "Each character starts the next scenario with %game.condition.curse%",
-            "Each character starts the next scenario with %game.condition.curse%"
+            "%data.buildings.temple.2%",
+            "%data.buildings.temple.2%",
+            "%data.buildings.temple.2%"
         ],
         "rewards": [
             {
@@ -944,28 +944,29 @@
                 "hide": 2
             }
         ],
-        "effectsNormal": [
+        "effectNormal": [
             "",
-            "Reduce all enhancement costs by 10 gold",
-            "Reduce all enhancement costs by 10 gold and level penalties by 10 gold per level",
-            "Reduce all enhancement costs by 10 gold, level penalties by 10 gold per level, and repeat penalties by 25 gold per enhancement"
+            "%data.buildings.enhancer.1%",
+            "%data.buildings.enhancer.2%",
+            "%data.buildings.enhancer.3%"
         ],
         "effectWrecked": [
-            "Each character starts the next scenario with %game.condition.disarm%",
-            "Each character starts the next scenario with %game.condition.disarm%",
-            "Each character starts the next scenario with %game.condition.disarm%"
+            "%data.buildings.enhancer.4%",
+            "%data.buildings.enhancer.4%",
+            "%data.buildings.enhancer.4%",
+            "%data.buildings.enhancer.4%"
         ],
         "interactionsAvailable": [
-            "Buy enhancements",
-            "Buy enhancements",
-            "Buy enhancements",
-            "Buy enhancements"
+            "%data.buildings.enhancer.5%",
+            "%data.buildings.enhancer.5%",
+            "%data.buildings.enhancer.5%",
+            "%data.buildings.enhancer.5%"
         ],
         "interactionsUnavailable": [
-            "Buy enhancements",
-            "Buy enhancements",
-            "Buy enhancements",
-            "Buy enhancements"
+            "%data.buildings.enhancer.5%",
+            "%data.buildings.enhancer.5%",
+            "%data.buildings.enhancer.5%",
+            "%data.buildings.enhancer.5%"
         ],
         "rewards": [
             {
@@ -1020,13 +1021,13 @@
                 "hide": 1
             }
         ],
-        "effectsNormal": [
-            "Collectively sell up to 1 %game.resource.metal% for 5 gold",
-            "Collectively sell up to 2 %game.resource.metal% for 5 gold each"
+        "effectNormal": [
+            "%data.buildings.metal-depot.1%",
+            "%data.buildings.metal-depot.2%"
         ],
         "effectWrecked": [
-            "Lose 2 collective %game.resource.metal%",
-            "Lose 2 collective %game.resource.metal%"
+            "%data.buildings.metal-depot.3%",
+            "%data.buildings.metal-depot.3%"
         ],
         "rewards": [
             {
@@ -1072,13 +1073,13 @@
                 "hide": 1
             }
         ],
-        "effectsNormal": [
-            "Collectively sell up to 1 %game.resource.lumber% for 5 gold",
-            "Collectively sell up to 2 %game.resource.lumber% for 5 gold each"
+        "effectNormal": [
+            "%data.buildings.lumber-depot.1%",
+            "%data.buildings.lumber-depot.2%"
         ],
         "effectWrecked": [
-            "Lose 2 collective %game.resource.lumber%",
-            "Lose 2 collective %game.resource.lumber%"
+            "%data.buildings.lumber-depot.3%",
+            "%data.buildings.lumber-depot.3%"
         ],
         "rewards": [
             {
@@ -1124,13 +1125,13 @@
                 "hide": 3
             }
         ],
-        "effectsNormal": [
-            "Collectively sell up to 1 %game.resource.hide% for 5 gold",
-            "Collectively sell up to 2 %game.resource.hide% for 5 gold each"
+        "effectNormal": [
+            "%data.buildings.hide-depot.1%",
+            "%data.buildings.hide-depot.2%"
         ],
         "effectWrecked": [
-            "Lose 2 collective %game.resource.hide%",
-            "Lose 2 collective %game.resource.hide%"
+            "%data.buildings.hide-depot.3%",
+            "%data.buildings.hide-depot.3%"
         ],
         "rewards": [
             {
@@ -1189,9 +1190,9 @@
             }
         ],
         "effectWrecked": [
-            "Lose 1 morale",
-            "Lose 1 morale",
-            "Lose 1 morale"
+            "%data.buildings.tavern.1%",
+            "%data.buildings.tavern.1%",
+            "%data.buildings.tavern.1%"
         ],
         "rewards": [
             {
@@ -1236,13 +1237,13 @@
                 "hide": 2
             }
         ],
-        "effectsNormal": [
-            "When the trials deck is complete, read %data.section:187.1",
-            "Access to Tholos' Favors"
+        "effectNormal": [
+            "%data.buildings.hall-of-revelry.1%",
+            "%data.buildings.hall-of-revelry.2%"
         ],
         "effectWrecked": [
-            "Lose 1 morale",
-            "Lose 1 morale"
+            "%data.buildings.hall-of-revelry.3%",
+            "%data.buildings.hall-of-revelry.3%"
         ],
         "rewards": [
             {
@@ -1301,9 +1302,9 @@
             }
         ],
         "effectWrecked": [
-            "Lose 1 inspiration",
-            "Lose 1 inspiration",
-            "Lose 1 inspiration"
+            "%data.buildings.library.1%",
+            "%data.buildings.library.1%",
+            "%data.buildings.library.1%"
         ],
         "rewards": [
             {
@@ -1335,7 +1336,7 @@
             2
         ],
         "effectWrecked": [
-            "Lose 1 collective %game.resource.lumber%"
+            "%data.buildings.workshop.1%"
         ],
         "rebuild": [
             {
@@ -1430,13 +1431,13 @@
                 "hide": 2
             }
         ],
-        "effectsNormal": [
-            "Reduce all construction costs by 1 material resource",
-            "Reduce all construction costs by 1 material resource and the extra construction cost by 1 morale"
+        "effectNormal": [
+            "%data.buildings.carpenter.1%",
+            "%data.buildings.carpenter.2%"
         ],
         "effectWrecked": [
-            "Lose any 1 collective resource",
-            "Lose any 1 collective resource"
+            "%data.buildings.carpenter.3%",
+            "%data.buildings.carpenter.3%"
         ],
         "rewards": [
             {
@@ -1506,17 +1507,17 @@
                 "hide": 3
             }
         ],
-        "effectsNormal": [
-            "Bring one pet into each scenario.<br><i>Capacity:</i> 4",
-            "Bring one pet into each scenario.<br><i>Capacity:</i> 8",
-            "Bring two pets into each scenario.<br><i>Capacity:</i> 8",
-            "Bring two pets into each scenario.<br><i>Capacity:</i> 12"
+        "effectNormal": [
+            "%data.buildings.stables.1%",
+            "%data.buildings.stables.2%",
+            "%data.buildings.stables.3%",
+            "%data.buildings.stables.4%"
         ],
         "effectWrecked": [
-            "Characters cannot use pets",
-            "Characters cannot use pets",
-            "Characters cannot use pets",
-            "Characters cannot use pets"
+            "%data.buildings.stables.5%",
+            "%data.buildings.stables.5%",
+            "%data.buildings.stables.5%",
+            "%data.buildings.stables.5%"
         ],
         "rewards": [
             {
@@ -1581,15 +1582,15 @@
                 "hide": 2
             }
         ],
-        "effectsNormal": [
-            "Draw one challenge and keep up to one. When the challenge deck is complete, read %data.section:190.1%",
-            "Draw two challenges and keep up to one. When the challenge deck is complete, read %data.section:190.1%",
-            "Draw three challenges and keep up to two. When the challenge deck is complete, read %data.section:190.1%"
+        "effectNormal": [
+            "%data.buildings.town-hall.1%",
+            "%data.buildings.town-hall.2%",
+            "%data.buildings.town-hall.3%"
         ],
         "effectWrecked": [
-            "Cannot complete challenges",
-            "Cannot complete challenges",
-            "Cannot complete challenges"
+            "%data.buildings.town-hall.4%",
+            "%data.buildings.town-hall.4%",
+            "%data.buildings.town-hall.4%"
         ],
         "rewards": [
             {
@@ -1644,17 +1645,17 @@
                 "hide": 1
             }
         ],
-        "effectsNormal": [
-            "Collectively train up to 1 soldier for 3 gold and 1 material resource<br><br><i>Capacity:</i> 4<br><i>Effect:</i> advantage and -5 %game.action.attack%",
-            "Collectively train up to 1 soldier for 3 gold and 1 material resource<br><br><i>Capacity:</i> 6<br><i>Effect:</i> advantage and -15 %game.action.attack%",
-            "Collectively train up to 2 soldiers for 3 gold and 1 material resource<br><br><i>Capacity:</i> 8<br><i>Effect:</i> advantage and -25 %game.action.attack%",
-            "Collectively train up to 2 soldiers for 3 gold and 1 material resource<br><br><i>Capacity:</i> 10<br><i>Effect:</i> advantage and -35 %game.action.attack%"
+        "effectNormal": [
+            "%data.buildings.barracks.1%",
+            "%data.buildings.barracks.2%",
+            "%data.buildings.barracks.3%",
+            "%data.buildings.barracks.4%"
         ],
         "effectWrecked": [
-            "Disadvantage on all attack event resolutions.<br>Cannot use soldiers.",
-            "Disadvantage on all attack event resolutions.<br>Cannot use soldiers.",
-            "Disadvantage on all attack event resolutions.<br>Cannot use soldiers.",
-            "Disadvantage on all attack event resolutions.<br>Cannot use soldiers."
+            "%data.buildings.barracks.5%",
+            "%data.buildings.barracks.5%",
+            "%data.buildings.barracks.5%",
+            "%data.buildings.barracks.5%"
         ],
         "rewards": [
             {

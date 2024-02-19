@@ -562,7 +562,8 @@
           </div>
         </div>
 
-        <div class="prosperity" *ngIf="gameManager.fhRules() || gameManager.editionRules('gh')" [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
+        <div class="prosperity" *ngIf="gameManager.fhRules() || gameManager.editionRules('gh')"
+          [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
           <div class="legend" (click)="setProsperity(0)">
             <div class="level"><span [ghs-label]="'party.prosperity'"></span> <img
                 *ngIf="settingsManager.settings.fhStyle" src="./assets/images/fh/prosperity.svg">:</div>
@@ -737,6 +738,14 @@
               <div class="player" *ngFor="let player of party.players; let index = index;">
                 <span class="index">#{{index + 1}}</span>
                 <input type="text" [value]="player" (change)="changePlayer($event, index)">
+                <div class="available-characters" *ngIf="availableCharacters[index]">
+                  <a class="available-character" *ngFor="let characterModel of availableCharacters[index]"
+                    ghs-pointer-input (singleClick)="openCharacterSheet(characterModel)"
+                    (doubleClick)="activateCharacter(characterModel)" [ghs-tooltip]="'character.activate'">
+                    <img
+                      [src]="'./assets/images/character/icons/' + characterModel.edition + '-' + characterModel.name + '.svg'" />
+                  </a>
+                </div>
                 <a class="remove" (click)="removePlayer(index)"><img src="./assets/images/close.svg"></a>
               </div>
               <a class="add" (click)="party.players[party.players.length] = ''">

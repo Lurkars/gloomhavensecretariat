@@ -119,6 +119,7 @@ export class Settings {
   scenarioRooms: boolean = true;
   scenarioRules: boolean = true;
   serverAutoconnect: boolean = true;
+  serverCode: string | undefined;
   serverPassword: string | undefined;
   serverPort: number | undefined;
   serverSettings: boolean = false;

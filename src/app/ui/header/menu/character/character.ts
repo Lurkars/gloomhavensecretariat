@@ -121,6 +121,8 @@ export class CharacterMenuComponent implements OnInit {
   hasCharacter(characterData: CharacterData) {
     return gameManager.game.figures.some((figure) => {
       return figure instanceof Character && characterData.name == figure.name && characterData.edition == figure.edition;
+    }) || gameManager.game.party.availableCharacters && gameManager.game.party.availableCharacters.some((availableCharacter) => {
+      return characterData.name == availableCharacter.name && characterData.edition == availableCharacter.edition;
     })
   }
 

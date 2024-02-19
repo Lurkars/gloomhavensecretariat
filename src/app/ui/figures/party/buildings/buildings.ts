@@ -393,6 +393,7 @@ export class PartyBuildingsComponent implements OnInit {
     if (index != -1) {
       if (!this.initialBuilding(building.data) && (building.model.level == 0 || force)) {
         gameManager.stateManager.before("removeBuilding", "data.buildings." + building.model.name);
+        building.model.state = 'normal';
         this.party.buildings.splice(index, 1);
         if (this.party.campaignMode && building.data.rewards && building.data.rewards[0] && building.data.rewards[0].section) {
           const section = gameManager.sectionData(gameManager.currentEdition()).find((sectionData) => sectionData.index == building.data.rewards[0].section);
@@ -408,6 +409,9 @@ export class PartyBuildingsComponent implements OnInit {
       } else if (!this.initialBuilding(building.data) || building.model.level > 1) {
         gameManager.stateManager.before("downgradeBuilding", building.model.name, '' + (building.model.level - 1));
         building.model.level--;
+        if (building.model.level == 0) {
+          building.model.state = 'normal';
+        }
         if (this.party.campaignMode && building.data.rewards && building.data.rewards[building.model.level] && building.data.rewards[building.model.level].section) {
           const section = gameManager.sectionData(gameManager.currentEdition()).find((sectionData) => sectionData.index == building.data.rewards[building.model.level].section);
           if (section) {

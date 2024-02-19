@@ -1,6 +1,6 @@
 <div class="menu-container two-column server">
   <div class="column">
-    <form #serverFrom (ngSubmit)="connect(serverUrl.value,serverPort.value,serverPassword.value)">
+    <form #serverFrom (ngSubmit)="connect(serverUrl.value,serverPort.value,serverCode.value)">
       <div class="line">
         <label>
           <input tabclick type="checkbox" [checked]="settingsManager.settings.serverAutoconnect"
@@ -79,22 +79,22 @@
           (change)="setServerPort($event)" [ghs-label]="'server.port'" [ghs-label-attribute]="'placeholder'">
       </div>
       <div class="line" [ngClass]="{'separator' : selectedServerIndex != -1}">
-        <div class="password-container">
-          <label class="label"><span [ghs-label]="'server.password'"></span></label>
+        <div class="code-container">
+          <label class="label"><span [ghs-label]="'server.code'"></span></label>
           <span class="spacer"></span>
-          <a *ngIf="!settingsManager.settings.serverPassword" (click)="createUUID()">
-            <span [ghs-label]="'server.password.uuid'"></span>
+          <a *ngIf="!settingsManager.settings.serverCode" (click)="createUUID()">
+            <span [ghs-label]="'server.code.uuid'"></span>
           </a>
         </div>
       </div>
       <div class="line">
         <div class="hint-container">
-          <input type="text" #serverPassword [value]="settingsManager.settings.serverPassword || ''"
-            (keyup)="0" (keydown.enter)="serverFrom.submit()" (change)="setServerPassword($event)"
-            [ghs-label]="'server.password'" [ghs-label-attribute]="'placeholder'">
+          <input type="text" #serverCode [value]="settingsManager.settings.serverCode || ''"
+            (keyup)="0" (keydown.enter)="serverFrom.submit()" (change)="setServerCode($event)"
+            [ghs-label]="'server.code'" [ghs-label-attribute]="'placeholder'">
           <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
           <span class="hint">
-            <span class="text" [ghs-label]="'server.password.hint'"></span>
+            <span class="text" [ghs-label]="'server.code.hint'"></span>
           </span>
         </div>
       </div>
@@ -110,7 +110,7 @@
           </div>
         </div>
         <div class="column"
-          *ngIf="settingsManager.settings.serverWss && serverUrl.value && serverPort.value && serverPassword.value && tryConnect && gameManager.stateManager.wsState() != WebSocket.OPEN">
+          *ngIf="settingsManager.settings.serverWss && serverUrl.value && serverPort.value && serverCode.value && tryConnect && gameManager.stateManager.wsState() != WebSocket.OPEN">
           <div class="line">
             <a tabclick target="_blank"
               [href]="gameManager.stateManager.buildWsUrl('https://', serverUrl.value, serverPort.value)">
@@ -130,7 +130,7 @@
         <div class="column">
           <div class="line">
             <a tabclick (click)="reconnect()"
-              [ngClass]="{'disabled' : !serverUrl.value || !serverPort.value || !serverPassword.value}">
+              [ngClass]="{'disabled' : !serverUrl.value || !serverPort.value || !serverCode.value}">
               <span
                 [ghs-label]="(gameManager.stateManager.wsState() == WebSocket.OPEN ? 'server.reconnect' : 'server.connect')"></span>
             </a>
@@ -347,14 +347,14 @@
 
     <ng-container *ngIf="!gameManager.stateManager.permissions">
       <div class="line">
-        <label class="label"><span [ghs-label]="'permissions.password'"></span></label>
-        <input tabclick type="text" [value]="password" (keyup)="setPermissionsPassword($event)"
-          (change)="setPermissionsPassword($event)" [ghs-label]="'permissions.password'"
+        <label class="label"><span [ghs-label]="'permissions.code'"></span></label>
+        <input tabclick type="text" [value]="code" (keyup)="setPermissionsCode($event)"
+          (change)="setPermissionsCode($event)" [ghs-label]="'permissions.code'"
           [ghs-label-attribute]="'placeholder'">
       </div>
 
       <div class="line">
-        <a tabclick (click)="savePermissions()" [ngClass]="{'disabled' : !password}"><span
+        <a tabclick (click)="savePermissions()" [ngClass]="{'disabled' : !code}"><span
             [ghs-label]="'permissions.save'"></span></a>
       </div>
     </ng-container>

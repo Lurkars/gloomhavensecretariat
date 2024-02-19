@@ -1,4 +1,4 @@
-import { Dialog } from "@angular/cdk/dialog";
+import { Dialog, DialogRef } from "@angular/cdk/dialog";
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -7,7 +7,7 @@ import { CharacterProgress } from "src/app/game/model/CharacterProgress";
 import { GameState } from "src/app/game/model/Game";
 import { LootType } from "src/app/game/model/data/Loot";
 import { PerkType } from "src/app/game/model/data/Perks";
-import { ghsInputFullScreenCheck, ghsValueSign } from "src/app/ui/helper/Static";
+import { ghsDialogClosingHelper, ghsInputFullScreenCheck, ghsValueSign } from "src/app/ui/helper/Static";
 import { CharacterMoveResourcesDialog } from "./move-resources";
 import { CharacterRetirementDialog } from "./retirement-dialog";
 import { PersonalQuest } from "src/app/game/model/data/PersonalQuest";
@@ -26,6 +26,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   @Input() character!: Character;
   @Input() editable: boolean = true;
   @Input() standalone: boolean = false;
+  @Input() dialogRef: DialogRef | undefined;
 
   @ViewChild('charactertitle', { static: false }) titleInput!: ElementRef;
 
@@ -470,6 +471,17 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     } catch (e: any) {
       console.warn(e);
       parent.classList.add("error");
+    }
+  }
+
+  deactivateCharacter() {
+    gameManager.stateManager.before("characterDeactivate", gameManager.characterManager.characterName(this.character, true, true), gameManager.game.party.players[this.character.number - 1] ? gameManager.game.party.players[this.character.number - 1] : '' + this.character.number);
+    gameManager.game.party.availableCharacters = gameManager.game.party.availableCharacters || [];
+    gameManager.game.party.availableCharacters.push(this.character.toModel());
+    gameManager.characterManager.removeCharacter(this.character);
+    gameManager.stateManager.after();
+    if (this.dialogRef) {
+      ghsDialogClosingHelper(this.dialogRef);
     }
   }
 

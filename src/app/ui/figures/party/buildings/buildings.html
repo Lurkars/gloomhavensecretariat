@@ -11,6 +11,8 @@
             <span class="name"><span [ghs-label]="'party.campaign.sheet.buildings.name'"></span></span>
             <span class="id"><span [ghs-label]="'party.campaign.sheet.buildings.id'"></span></span>
             <span class="level"><span [ghs-label]="'party.campaign.sheet.buildings.level'"></span></span>
+            <span class="effects"><span [ghs-label]="'party.campaign.sheet.buildings.effects'"></span></span>
+            <span class="interactions"><span [ghs-label]="'party.campaign.sheet.buildings.interactions'"></span></span>
             <span class="costs"><span [ghs-label]="'party.campaign.sheet.buildings.costs'"></span></span>
             <span class="action"><span [ghs-label]="'party.campaign.sheet.buildings.action'"></span></span>
         </div>
@@ -25,6 +27,26 @@
             <span class="level" ghs-pointer-input (singleClick)="rewardsDialog(building)"
                 (doubleClick)="downgrade(building)" [ghs-tooltip]="'party.campaign.sheet.buildings.level.hint'"
                 [originY]="'bottom'">{{building.model.level || '-'}}</span>
+            <span class="effects">
+                <span class="effect"
+                    *ngIf="building.model.state === 'normal' && building.data.effectNormal && building.data.effectNormal[building.model.level-1]"
+                    [ghs-tooltip]="building.data.effectNormal[building.model.level-1]" [originY]="'top'"
+                    [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/normal.svg"></span>
+                <span class="effect unavailable"
+                    *ngIf="building.model.state === 'wrecked' && building.data.effectWrecked && building.data.effectWrecked[building.model.level-1]"
+                    [ghs-tooltip]="building.data.effectWrecked[building.model.level-1]" [originY]="'top'"
+                    [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/normal.svg"></span>
+            </span>
+            <span class="interactions">
+                <span class="interaction"
+                    *ngIf="building.model.state === 'normal' && building.data.interactionsAvailable && building.data.interactionsAvailable[building.model.level-1]"
+                    [ghs-tooltip]="building.data.interactionsAvailable[building.model.level-1]" [originY]="'top'"
+                    [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/interaction.svg"></span>
+                <span class="interaction unavailable"
+                    *ngIf="building.model.state === 'wrecked' && building.data.interactionsUnavailable && building.data.interactionsUnavailable[building.model.level-1]"
+                    [ghs-tooltip]="building.data.interactionsUnavailable[building.model.level-1]" [originY]="'top'"
+                    [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/interaction.svg"></span>
+            </span>
             <span class="costs" [ngClass]="{'disabled' : !upgradeable(building)}">
                 <ng-container *ngIf="!building.model.level">
                     <span class="cost"><img src="./assets/images/fh/buildings/prosperity.svg">
@@ -84,8 +106,9 @@
                 </span>
                 <span *ngIf="building.model.state == 'damaged'" [ngClass]="{'disabled' : !upgradeable(building)}"
                     class="button upgrade" ghs-pointer-input (singleClick)="repair(building)"
-                    (doubleClick)="repair(building, true)" [ghs-tooltip]="('party.campaign.sheet.buildings.repair.hint')"
-                    [originX]="'end'" [originY]="'bottom'" [overlayX]="'end'">
+                    (doubleClick)="repair(building, true)"
+                    [ghs-tooltip]="('party.campaign.sheet.buildings.repair.hint')" [originX]="'end'"
+                    [originY]="'bottom'" [overlayX]="'end'">
                     <span [ghs-label]="'party.campaign.sheet.buildings.repair'"></span>
                     <img src="./assets/images/fh/buildings/repair.svg">
                 </span>

@@ -60,6 +60,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   partyAchievementsList: string[] = [];
   globalAchievementsList: string[] = [];
+  availableCharacters: GameCharacterModel[][] = [];
 
   fhSheet: boolean = false;
   csSheet: boolean = false;
@@ -88,6 +89,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
     this.party.casualScenarios = this.party.casualScenarios || [];
     this.party.scenarios = this.party.scenarios || [];
+    this.party.availableCharacters = this.party.availableCharacters || [];
 
     if (!this.campaign && (!data || !data.partySheet) && this.partyEdition == 'jotl') {
       this.campaign = true;
@@ -121,6 +123,11 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       this.party.lootDeckSections = gameManager.game.lootDeckSections;
     }
 
+    gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character).forEach((character) => {
+      if (!this.party.players[character.number - 1]) {
+        this.party.players[character.number - 1] = "";
+      }
+    })
     this.itemEdition = this.partyEdition;
     this.treasureEdition = this.partyEdition;
   }
@@ -306,17 +313,33 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   reactivateCharacter(characterModel: GameCharacterModel) {
-    gameManager.stateManager.before("unsetRetired", "data.character." + characterModel.name);
-    let character = new Character(gameManager.getCharacterData(characterModel.name, characterModel.edition), characterModel.level);
-    character.fromModel(characterModel);
-    character.progress.retired = false;
-    character.progress.personalQuestProgress = [];
-    gameManager.game.figures.push(character);
-    this.party.retirements.splice(this.party.retirements.indexOf(characterModel), 1);
-    gameManager.stateManager.after();
+    if (!gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == characterModel.name && figure.edition == characterModel.edition) && !gameManager.game.party.availableCharacters.find((availableCharacter) => availableCharacter.name == characterModel.name && availableCharacter.edition == characterModel.edition)) {
+      gameManager.stateManager.before("unsetRetired", "data.character." + characterModel.name);
+      let character = new Character(gameManager.getCharacterData(characterModel.name, characterModel.edition), characterModel.level);
+      character.fromModel(characterModel);
+      character.progress.retired = false;
+      character.progress.personalQuestProgress = [];
+      gameManager.game.figures.push(character);
+      this.party.retirements.splice(this.party.retirements.indexOf(characterModel), 1);
+      gameManager.stateManager.after();
+    }
   }
 
-
+  activateCharacter(characterModel: GameCharacterModel) {
+    let character = new Character(gameManager.getCharacterData(characterModel.name, characterModel.edition), characterModel.level);
+    character.fromModel(characterModel);
+    gameManager.stateManager.before("characterActivate", gameManager.characterManager.characterName(character, true, true), this.party.players[characterModel.number - 1] ? this.party.players[characterModel.number - 1] : '' + characterModel.number);
+    gameManager.game.party.availableCharacters = gameManager.game.party.availableCharacters.filter((availableCharacter) => availableCharacter.name != character.name || availableCharacter.edition != character.edition || availableCharacter.number != character.number);
+    gameManager.game.figures.forEach((figure) => {
+      if (figure instanceof Character && figure.number == character.number) {
+        gameManager.game.party.availableCharacters.push(figure.toModel());
+        gameManager.characterManager.removeCharacter(figure);
+      }
+    })
+    gameManager.game.figures.push(character);
+    gameManager.stateManager.after();
+    this.update();
+  }
 
   openCharacterSheet(characterModel: GameCharacterModel, viewOnly: boolean = true) {
     let character = new Character(gameManager.getCharacterData(characterModel.name, characterModel.edition), characterModel.level);
@@ -670,6 +693,13 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
     this.items = this.itemIdentifier.map((identifier) => gameManager.itemManager.getItem(+identifier.name, identifier.edition, true));
     this.summer = Math.max(this.party.weeks - 1, 0) % 20 < 10;
+
+
+    this.availableCharacters = [];
+    this.party.availableCharacters.forEach((characterModel) => {
+      this.availableCharacters[characterModel.number - 1] = this.availableCharacters[characterModel.number - 1] || [];
+      this.availableCharacters[characterModel.number - 1].push(characterModel);
+    })
   }
 
   characterIcon(name: string): string {
