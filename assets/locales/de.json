@@ -34,7 +34,6 @@
   "character": {
     ".": "Charakter",
     "absent": "Abwesend",
-    "activate": "Doppelklick um Charakter zu re-aktivieren",
     "add": "Charakter hinzufügen",
     "class": {
       "algox": "Algox",
@@ -78,7 +77,6 @@
       "valrath": "Valrath",
       "vermling": "Ratzen"
     },
-    "deactivate": "Charakter deaktivieren",
     "filter": {
       ".": "Charaktere filtern",
       "allEditions": "Alle Editionen",
@@ -141,6 +139,8 @@
     },
     "remove": "Charakter entfernen",
     "removeAll": "Alle entfernen",
+    "replay": "Doppelklick um Charakter wieder zu spielen",
+    "setAside": "Charakter beiseitelegen",
     "summon": {
       "level": "(Level {0})"
     },
@@ -389,7 +389,10 @@
       "restore": "Standard wiederherstellen",
       "revealAll": "Alle Aufdecken?",
       "revealAllConfirm": "Alle Aufdecken!",
-      "shuffle": "Mischen"
+      "shuffle": {
+        ".": "Mischen",
+        "upcomingHint": "Doppelklick um nur nicht gezogene Karten zu mischen!"
+      }
     },
     "condition": {
       "bane": {
@@ -2024,6 +2027,7 @@
       "addRandomStandee": "Zufälliger Aufsteller {1} {0} {2} hinzufügen",
       "addResource": "+{2} {1} für {0}",
       "addSection": "Abschnitt #{0} {1} ({2}) hinzufügen",
+      "addSpecialTags": "Setze Spezialactionen {1} für {0}",
       "addStandee": "Aufsteller {1} {0} {2} hinzufügen",
       "addSummon": "Beschwöre '{1}' von {0}",
       "addTreasure": "Schatz {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) hinzufügen",
@@ -2080,10 +2084,10 @@
       "changeSummonMove": "Bewegung {2} für Beschwörung '{1}' von {0}",
       "changeSummonRange": "Reichweite {2} für Beschwörung '{1}' von {0}",
       "changeXP": "EP {1} für {0}",
-      "characterActivate": "Re-aktiviere {0} für Spieler {1}",
-      "characterDeactivate": "Deaktiviere {0} für Spieler {1}",
       "characterLongRest": "Lange Rast für {0} setzen",
       "characterLongRestOff": "Lange Rast für {0} deaktivieren",
+      "characterReplay": "{0} wieder spielen für Spieler {1}",
+      "characterSetAside": "Lege {0} beiseite für Spieler {1}",
       "craftItem": "Gegenstand {1} (%data.edition.{2}%) für {0} anfertigen",
       "declineApplyCondition": {
         "char": "Anwenden von {1} auf {0} abgelehnt",
@@ -2156,12 +2160,16 @@
       "lootDeckReorder": "Beute Deck neu anordnen",
       "lootDeckShow": "Beute Deck einblenden",
       "lootDeckShuffle": "Beute Deck mischen",
+      "lootDeckShuffleUpcoming": "Nicht gezogene Karten vom Beute Deck mischen",
       "lootRandomItem": "{3} erbeutet zuälligen Gegenstand {0} \"{2}\" (%data.edition.{1}%)",
       "moveResource": "{2} {1} von {0} zur Frosthaven Versorgung hinzufügen",
       "monsterChangeEntityHp": "TP {2} für Aufsteller {1} von %data.monster.{0}%",
       "monsterConsumeElement": "{0} verbraucht {1}",
       "monsterDead": "Töte alle {1}{0}",
       "monsterInfuseElement": "{0} reichert {1} an",
+      "monsterSetEntityActive": "Setze %game.monster.{2}% Aufsteller {1} von %data.monster.{0}% aktiv",
+      "monsterUnsetEntityActive": "Setze %game.monster.{2}% Aufsteller {1} von %data.monster.{0}% inaktiv",
+      "nextIdentity": "Setze Form von %data.character.{1}.{2}% zu %data.character.{1}.{3}% für {0}",
       "nextRound": "Nächste Runde",
       "objectiveContainerChangeEntityHp": "TP {2} für %game.objectiveMarker.{1}% von {0}",
       "objectiveEntityDead": "Töte %game.objectiveMarker.{1}% von {0}",
@@ -2174,7 +2182,9 @@
       "removeCampaignSticker": "Kampagnenbogensticker {0} entfernen",
       "removeChar": "Charakter {0} entfernen",
       "removeCharacterRetaliate": "Entferne %game.action.retaliate% von {0}",
+      "removeCharacterRetaliatePersistent": "Entferne %game.card.persistent% %game.action.retaliate% von {0}",
       "removeCharacterShield": "Entferne %game.action.shield% von {0}",
+      "removeCharacterShieldPersistent": "Entferne %game.card.persistent% %game.action.shield% von {0}",
       "removeCondition": {
         "char": "%game.condition.{1}% von {0} entfernen",
         "monsterEntities": "%game.condition.{1}% von allen {2}{0} entfernen",
@@ -2220,6 +2230,7 @@
       "removePlayer": "Entferne Spieler {1} ({0})",
       "removeResource": "-{2} {1} von {0}",
       "removeScenarioRule": "Szenario Regel ausblenden",
+      "removeSpecialTags": "Entferne Spezialactionen {1} von {0}",
       "removeTreasure": "Schatz {1} (%data.edition.{0}%) entfernen",
       "removeCharTreasure": "Entferne Schatz {1} von {2}",
       "reorder": "Figuren neu anordnen",
@@ -2235,7 +2246,10 @@
       "setAllied": "{0} zur Fraktion zufügen",
       "setBG": "Kampfziele {1} für {0}",
       "setCharacterRetaliate": "{1} für {0}",
+      "setCharacterRetaliatePersistent": "%game.card.persistent% {1} für {0}",
       "setCharacterShield": "%game.action.shield% {1} für {0}",
+      "setCharacterShieldPersistent": "%game.card.persistent% %game.action.shield% {1} für {0}",
+      "setCharacterTokenValue": "Setze Token {1} auf {2} für {0}",
       "setConditionValue": {
         "char": "%game.condition.{1}% auf {2} für {0}",
         "monsterEntities": "%game.condition.{1}% auf {2} für alle {3}{0}",
@@ -2253,7 +2267,7 @@
       "setGold": "Gold {1} für {0}",
       "setInitiative": "Initiative {1} für {0}",
       "setLevel": "Level {1} für {0}",
-      "setNotes": "Notizen {1} für {0} ",
+      "setNotes": "Notizen \"{1}\" für {0} ",
       "setObjectiveExhausted": "Ziel {0} erschöpft",
       "setObjectiveInitiative": "Initiative {1} für Ziel {0}",
       "setPartyAchievements": "Gruppenerfolge",
@@ -2316,7 +2330,8 @@
         "removeDrawnDiscards": "Entferne gezogene Abgeworfene von {0} AM Deck",
         "reorder": "{0} AM Deck anordnen ",
         "restoreDefault": "Standard {0} AM Deck wiederherstellen",
-        "shuffle": "{0} AM Deck mischen"
+        "shuffle": "{0} AM Deck mischen",
+        "shuffleUpcoming": "Nicht gezogene Karten von {0} AM Deck mischen"
       },
       "updateBonusAdjustment": "Anpassung Boni Szenariostufe {0}",
       "updateElement": "Element {0} {1}",
