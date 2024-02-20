@@ -101,10 +101,10 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     this.deletedCards = originalDeck.cards;
   }
 
-  shuffle(): void {
-    this.before.emit(new AttackModiferDeckChange(this.deck, "shuffle"));
-    gameManager.attackModifierManager.shuffleModifiers(this.deck);
-    this.after.emit(new AttackModiferDeckChange(this.deck, "shuffle"));
+  shuffle(upcoming: boolean = false): void {
+    this.before.emit(new AttackModiferDeckChange(this.deck, "shuffle" + (upcoming ? "Upcoming" : "")));
+    gameManager.attackModifierManager.shuffleModifiers(this.deck, upcoming);
+    this.after.emit(new AttackModiferDeckChange(this.deck, "shuffle" + (upcoming ? "Upcoming" : "")));
     this.update();
   }
 

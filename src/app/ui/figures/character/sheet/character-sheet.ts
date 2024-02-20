@@ -474,8 +474,8 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     }
   }
 
-  deactivateCharacter() {
-    gameManager.stateManager.before("characterDeactivate", gameManager.characterManager.characterName(this.character, true, true), gameManager.game.party.players[this.character.number - 1] ? gameManager.game.party.players[this.character.number - 1] : '' + this.character.number);
+  setAside() {
+    gameManager.stateManager.before("characterSetAside", gameManager.characterManager.characterName(this.character, true, true), gameManager.game.party.players[this.character.number - 1] ? gameManager.game.party.players[this.character.number - 1] : '' + this.character.number);
     gameManager.game.party.availableCharacters = gameManager.game.party.availableCharacters || [];
     gameManager.game.party.availableCharacters.push(this.character.toModel());
     gameManager.characterManager.removeCharacter(this.character);

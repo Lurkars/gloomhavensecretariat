@@ -6,7 +6,9 @@
         <span
           [ghs-label]="(reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ? 'game.cards.revealAll' : 'game.cards.revealAllConfirm'))"></span>
       </a>
-      <a (click)="shuffle()"><span [ghs-label]="'game.cards.shuffle'"></span></a>
+      <a ghs-pointer-input (singleClick)="shuffle()" (doubleClick)="shuffle(true)"
+        [ghs-tooltip]="'game.cards.shuffle.upcomingHint'" [overlayX]="'center'"><span
+          [ghs-label]="'game.cards.shuffle'"></span></a>
       <a *ngIf="hasDrawnDiscards()" (click)="removeDrawnDiscards()"><span
           [ghs-label]="'game.cards.removeDrawnDiscards'"></span></a>
 

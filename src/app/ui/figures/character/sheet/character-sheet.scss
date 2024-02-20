@@ -424,7 +424,7 @@
       .extra-perks,
       .retirements,
       .player-number,
-      .deactivate {
+      .set-aside {
         margin-top: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
         margin-left: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
         margin-bottom: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
@@ -447,7 +447,7 @@
           margin-left: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
         }
 
-        &.deactivate label {
+        &.set-aside label {
           cursor: pointer;
           font-family: var(--ghs-font-normal);
           font-size: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));

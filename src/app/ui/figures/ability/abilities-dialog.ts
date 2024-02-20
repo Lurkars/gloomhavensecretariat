@@ -63,9 +63,9 @@ export class AbiltiesDialogComponent implements OnInit {
     return gameManager.abilities(this.monster).indexOf(ability);
   }
 
-  shuffle() {
-    gameManager.stateManager.before("shuffleAbilityDeck", "data.monster." + this.monster.name);
-    gameManager.monsterManager.shuffleAbilities(this.monster);
+  shuffle(upcoming: boolean = false) {
+    gameManager.stateManager.before("shuffleAbilityDeck" + (upcoming ? "Upcoming" : ""), "data.monster." + this.monster.name);
+    gameManager.monsterManager.shuffleAbilities(this.monster, upcoming);
     gameManager.stateManager.after();
     this.update();
   }

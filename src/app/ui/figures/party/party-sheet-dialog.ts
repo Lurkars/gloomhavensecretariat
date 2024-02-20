@@ -332,10 +332,10 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     }
   }
 
-  activateCharacter(characterModel: GameCharacterModel) {
+  replayCharacter(characterModel: GameCharacterModel) {
     let character = new Character(gameManager.getCharacterData(characterModel.name, characterModel.edition), characterModel.level);
     character.fromModel(characterModel);
-    gameManager.stateManager.before("characterActivate", gameManager.characterManager.characterName(character, true, true), this.party.players[characterModel.number - 1] ? this.party.players[characterModel.number - 1] : '' + characterModel.number);
+    gameManager.stateManager.before("characterReplay", gameManager.characterManager.characterName(character, true, true), this.party.players[characterModel.number - 1] ? this.party.players[characterModel.number - 1] : '' + characterModel.number);
     gameManager.game.party.availableCharacters = gameManager.game.party.availableCharacters.filter((availableCharacter) => availableCharacter.name != character.name || availableCharacter.edition != character.edition || availableCharacter.number != character.number);
     gameManager.game.figures.forEach((figure) => {
       if (figure instanceof Character && figure.number == character.number) {

@@ -309,9 +309,9 @@
             <input [value]="character.progress.extraPerks" type="number" min="0" (change)="setExtraPerks($event)"
               (keyup)="setExtraPerks($event)">
           </div>
-          <div *ngIf="editable && settingsManager.settings.partySheet && !gameManager.game.scenario" class="deactivate">
-            <label (click)="deactivateCharacter()">
-              <img src="./assets/images/long-rest.svg"><span [ghs-label]="'character.deactivate'"></span>
+          <div *ngIf="editable && settingsManager.settings.partySheet && !gameManager.game.scenario" class="set-aside">
+            <label (click)="setAside()">
+              <img src="./assets/images/long-rest.svg"><span [ghs-label]="'character.setAside'"></span>
             </label>
           </div>
           <hr class="compact-separator">

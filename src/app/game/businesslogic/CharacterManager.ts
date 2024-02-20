@@ -48,10 +48,10 @@ export class CharacterManager {
     return './assets/images/character/icons/' + characterData.edition + '-' + characterData.name + '-' + characterData.identities[index] + '.svg';
   }
 
-  characterName(character: Character, full: boolean = false, icon: boolean = false): string {
+  characterName(character: Character, full: boolean = false, icon: boolean = false, identity: boolean = true): string {
     let name = settingsManager.getLabel('data.character.' + character.name);
     let hasTitle = false;
-    if (character.identities.length > 0 && settingsManager.settings.characterIdentities) {
+    if (identity && character.identities.length > 0 && settingsManager.settings.characterIdentities) {
       if (character.title && character.title.split('|')[character.identity] && character.title.split('|')[character.identity]) {
         name = character.title.split('|')[character.identity];
         hasTitle = true;

@@ -2307,7 +2307,7 @@
       "setGold": "Or {1} pour {0}",
       "setInitiative": "Initiative {1} pour {0}",
       "setLevel": "Niveau {1} pour {0}",
-      "setNotes": "Notes {1} pour {0}",
+      "setNotes": "Notes \"{1}\" pour {0}",
       "setObjectiveExhausted": "Objectif {0} épuisé",
       "setObjectiveInitiative": "Initiative {1} pour objectif {0}",
       "setPQ": "Quête Personnelle {1} pour {0} ",

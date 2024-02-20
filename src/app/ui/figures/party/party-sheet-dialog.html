@@ -198,7 +198,7 @@
 
         <div class="resources">
           <div class="header">
-            <label (click)="openResources()"><span [ghs-label]="'party.campaign.sheet.supply'"></span>:</label>
+            <label class="supply" (click)="openResources()"><span [ghs-label]="'party.campaign.sheet.supply'"></span>:</label>
             <span class="spacer"></span>
             <div class="move-resources" *ngIf="characters.length > 0">
               <span class="label"><span [ghs-label]="'character.progress.resources.move'"></span>:</span>
@@ -741,7 +741,7 @@
                 <div class="available-characters" *ngIf="availableCharacters[index]">
                   <a class="available-character" *ngFor="let characterModel of availableCharacters[index]"
                     ghs-pointer-input (singleClick)="openCharacterSheet(characterModel)"
-                    (doubleClick)="activateCharacter(characterModel)" [ghs-tooltip]="'character.activate'">
+                    (doubleClick)="replayCharacter(characterModel)" [ghs-tooltip]="'character.replay'">
                     <img
                       [src]="'./assets/images/character/icons/' + characterModel.edition + '-' + characterModel.name + '.svg'" />
                   </a>

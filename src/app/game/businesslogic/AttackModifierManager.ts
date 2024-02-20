@@ -163,7 +163,9 @@ export class AttackModifierManager {
     }
   }
 
-  shuffleModifiers(attackModifierDeck: AttackModifierDeck) {
+  shuffleModifiers(attackModifierDeck: AttackModifierDeck, onlyUpcoming: boolean = false) {
+    const current = attackModifierDeck.current;
+    let restoreCards: AttackModifier[] = onlyUpcoming && current > -1 ? attackModifierDeck.cards.splice(0, current + 1) : [];
     attackModifierDeck.cards = attackModifierDeck.cards.filter(
       (attackModifier, index) =>
         index > attackModifierDeck.current ||
@@ -173,6 +175,10 @@ export class AttackModifierManager {
 
     attackModifierDeck.current = -1;
     ghsShuffleArray(attackModifierDeck.cards);
+    if (onlyUpcoming) {
+      attackModifierDeck.current = current;
+      attackModifierDeck.cards.unshift(...restoreCards);
+    }
   }
 
   removeDrawnDiscards(attackModifierDeck: AttackModifierDeck) {

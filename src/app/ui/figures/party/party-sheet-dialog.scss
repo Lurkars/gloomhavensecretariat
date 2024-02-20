@@ -365,7 +365,8 @@
             .value {
               cursor: pointer;
 
-              &.checked::before {
+              &.checked::before,
+              &:hover::before {
                 content: ' ';
                 position: absolute;
                 top: 0;
@@ -378,6 +379,10 @@
                 background-position: center;
                 filter: var(--ghs-filter-red);
                 z-index: 1;
+              }
+
+              &:hover::before {
+                opacity: 0.5;
               }
             }
           }
@@ -738,6 +743,10 @@
             display: flex;
             align-items: center;
 
+            .supply {
+              cursor: help;
+            }
+
             .move-resources {
               display: flex;
 
@@ -944,7 +953,8 @@
                 width: 100%;
                 height: calc(var(--ghs-unit) * 1.92 * var(--ghs-dialog-factor));
 
-                &.checked::before {
+                &.checked::before,
+                &:hover::before {
                   content: ' ';
                   position: absolute;
                   top: 0;
@@ -957,6 +967,11 @@
                   z-index: 1;
                   filter: var(--ghs-filter-red);
                 }
+
+                &:hover::before {
+                  opacity: 0.5;
+                }
+
               }
             }
 
