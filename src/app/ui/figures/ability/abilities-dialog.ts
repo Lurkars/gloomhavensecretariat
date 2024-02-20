@@ -138,14 +138,14 @@ export class AbiltiesDialogComponent implements OnInit {
 
   remove(index: number) {
     const ability: Ability = gameManager.abilities(this.monster)[this.monster.abilities[index]];
-    gameManager.stateManager.before("removeAbility", "data.monster." + this.monster.name, this.abilityLabel(ability));
+    gameManager.stateManager.before("removeAbility", "data.monster." + this.monster.name, ability.name ? this.abilityLabel(ability) : '' + ability.cardId);
     gameManager.monsterManager.removeAbility(this.monster, index);
     gameManager.stateManager.after();
     this.update();
   }
 
   restore(ability: Ability) {
-    gameManager.stateManager.before("restoreAbility", "data.monster." + this.monster.name, this.abilityLabel(ability));
+    gameManager.stateManager.before("restoreAbility", "data.monster." + this.monster.name, ability.name ? this.abilityLabel(ability) : '' + ability.cardId);
     gameManager.monsterManager.restoreAbility(this.monster, ability);
     gameManager.stateManager.after();
     this.update();
