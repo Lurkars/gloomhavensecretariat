@@ -2,7 +2,7 @@
     position: relative;
     width: 100%;
     padding-top: 38%;
-    background-image: url('~/src/assets/images/character/abilities/character-ability-summon1.png');
+    background-image: url('/assets/images/character/abilities/character-ability-summon1.png');
     background-size: contain;
     background-repeat: no-repeat;
     text-shadow: none;
@@ -90,7 +90,7 @@
     }
 
     &.additional {
-        background-image: url('~/src/assets/images/character/abilities/character-ability-summon2.png');
+        background-image: url('/assets/images/character/abilities/character-ability-summon2.png');
 
         .grid .action {
             grid-row: 1 span;
@@ -98,7 +98,7 @@
     }
 
     &.item {
-        background-image: url('~/src/assets/images/items/summon-item.png');
+        background-image: url('/assets/images/items/summon-item.png');
 
         .name {
             font-size: 1em;
@@ -114,7 +114,7 @@
     }
 
     &.fh {
-        background-image: url('~/src/assets/images/fh/character/abilities/character-ability-summon1.png');
+        background-image: url('/assets/images/fh/character/abilities/character-ability-summon1.png');
 
         .grid {
             top: 38%;
@@ -127,7 +127,7 @@
         }
 
         &.action {
-            background-image: url('~/src/assets/images/fh/character/abilities/character-ability-summon2.png');
+            background-image: url('/assets/images/fh/character/abilities/character-ability-summon2.png');
 
             .grid {
                 grid-template-columns: 55% 20% 25%;
@@ -135,7 +135,7 @@
         }
 
         &.additional {
-            background-image: url('~/src/assets/images/fh/character/abilities/character-ability-summon3.png');
+            background-image: url('/assets/images/fh/character/abilities/character-ability-summon3.png');
 
             .grid {
                 grid-template-columns: 45% 20% 35%;

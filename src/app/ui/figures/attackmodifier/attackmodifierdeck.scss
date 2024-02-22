@@ -33,12 +33,12 @@
       background-position: center;
       background-size: 100% auto;
       background-repeat: no-repeat;
-      background-image: url('~/src/assets/images/attackmodifier/am-back.png');
+      background-image: url('/assets/images/attackmodifier/am-back.png');
       border-radius: 5%;
       transition: filter 2s ease-in-out;
 
       &.town-guard {
-        background-image: url('~/src/assets/images/attackmodifier/town-guard/back.png');
+        background-image: url('/assets/images/attackmodifier/town-guard/back.png');
       }
 
       &.disabled {
@@ -91,7 +91,7 @@
         background-position: center;
         background-size: 100% auto;
         background-repeat: no-repeat;
-        background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
+        background-image: url('/assets/images/attackmodifier/am-character-icon.png');
 
         &.character-icon {
           align-items: center;
@@ -125,7 +125,7 @@
       background-position: center;
       background-size: 100% auto;
       background-repeat: no-repeat;
-      background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
+      background-image: url('/assets/images/attackmodifier/am-character-icon.png');
       transition: transform 500ms ease-in-out;
       transform: scale(1.2);
 

@@ -77,18 +77,20 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
         this.brewing = 0;
 
         if (gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings) {
-            const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist' && buildingModel.state != 'wrecked');
+            const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist');
             if (alchemist && alchemist.level) {
                 this.brewing = alchemist.level < 3 ? 2 : 3;
             }
         }
     }
 
-    brewDialog() {
-        this.dialog.open(ItemsBrewDialog, {
-            panelClass: ['dialog'],
-            data: this.character
-        })
+    brewDialog(force: boolean = false) {
+        if (!gameManager.itemManager.brewingDisabled() || force) {
+            this.dialog.open(ItemsBrewDialog, {
+                panelClass: ['dialog'],
+                data: this.character
+            })
+        }
     }
 
     itemDialog() {

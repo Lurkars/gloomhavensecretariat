@@ -12,7 +12,7 @@ import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { Objective, OBJECTIV_MARKERS } from "src/app/game/model/Objective";
-import { Summon, SummonState } from "src/app/game/model/Summon";
+import { Summon, SummonColor, SummonState } from "src/app/game/model/Summon";
 import { ghsDefaultDialogPositions, ghsDialogClosingHelper, ghsModulo, ghsValueSign } from "../../helper/Static";
 import { AttackModiferDeckChange } from "../attackmodifier/attackmodifierdeck";
 import { MonsterNumberPickerDialog } from "../monster/dialogs/numberpicker-dialog";
@@ -77,6 +77,7 @@ export class EntityMenuDialogComponent {
 
   AttackModifierType = AttackModifierType;
   SummonState = SummonState;
+  SummonColor = SummonColor;
   ConditionName = ConditionName;
   ConditionType = ConditionType;
   MonsterType = MonsterType;
@@ -1100,43 +1101,44 @@ export class EntityMenuDialogComponent {
         gameManager.characterManager.addSummon(this.data.figure, this.data.entity);
         gameManager.stateManager.after();
       } else {
+
+        if (this.summonTitleInput) {
+          if (this.summonTitleInput.nativeElement.value && this.summonTitleInput.nativeElement.value != this.data.entity.name) {
+            if (this.data.entity.title != this.summonTitleInput.nativeElement.value) {
+              gameManager.stateManager.before("setTitle", this.data.entity.name, this.summonTitleInput.nativeElement.value);
+              this.data.entity.title = this.summonTitleInput.nativeElement.value;
+              gameManager.stateManager.after();
+            }
+          } else if (this.data.entity.title != "") {
+            gameManager.stateManager.before("unsetTitle", 'data.summon.' + this.data.entity.name, this.data.entity.title);
+            this.data.entity.title = "";
+            gameManager.stateManager.after();
+          }
+        }
+
         if (this.maxHp) {
-          gameManager.stateManager.before("changeSummonMaxHp", gameManager.characterManager.characterName(this.data.figure), "data.summon." + this.data.entity.name, ghsValueSign(this.maxHp));
+          gameManager.stateManager.before("changeSummonMaxHp", gameManager.characterManager.characterName(this.data.figure), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name, ghsValueSign(this.maxHp));
           this.data.entity.maxHealth += this.maxHp;
           gameManager.stateManager.after();
         }
         if (this.health != 0) {
-          gameManager.stateManager.before("changeSummonHp", gameManager.characterManager.characterName(this.data.figure), "data.summon." + this.data.entity.name, ghsValueSign(this.health));
+          gameManager.stateManager.before("changeSummonHp", gameManager.characterManager.characterName(this.data.figure), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name, ghsValueSign(this.health));
           gameManager.entityManager.changeHealth(this.data.entity, this.data.figure, this.health);
           gameManager.stateManager.after();
         }
         if (this.attack != 0 && typeof this.data.entity.attack == 'number') {
-          gameManager.stateManager.before("changeSummonAttack", gameManager.characterManager.characterName(this.data.figure), "data.summon." + this.data.entity.name, ghsValueSign(this.attack));
+          gameManager.stateManager.before("changeSummonAttack", gameManager.characterManager.characterName(this.data.figure), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name, ghsValueSign(this.attack));
           this.data.entity.attack += this.attack;
           gameManager.stateManager.after();
         }
         if (this.movement != 0) {
-          gameManager.stateManager.before("changeSummonMove", gameManager.characterManager.characterName(this.data.figure), "data.summon." + this.data.entity.name, ghsValueSign(this.movement));
+          gameManager.stateManager.before("changeSummonMove", gameManager.characterManager.characterName(this.data.figure), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name, ghsValueSign(this.movement));
           this.data.entity.movement += this.movement;
           gameManager.stateManager.after();
         }
         if (this.range != 0) {
-          gameManager.stateManager.before("changeSummonRange", gameManager.characterManager.characterName(this.data.figure), "data.summon." + this.data.entity.name, ghsValueSign(this.range));
+          gameManager.stateManager.before("changeSummonRange", gameManager.characterManager.characterName(this.data.figure), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name, ghsValueSign(this.range));
           this.data.entity.range += this.range;
-          gameManager.stateManager.after();
-        }
-      }
-
-      if (this.summonTitleInput) {
-        if (this.summonTitleInput.nativeElement.value && this.summonTitleInput.nativeElement.value != this.data.entity.name) {
-          if (this.data.entity.title != this.summonTitleInput.nativeElement.value) {
-            gameManager.stateManager.before("setTitle", this.data.entity.name, this.summonTitleInput.nativeElement.value);
-            this.data.entity.title = this.summonTitleInput.nativeElement.value;
-            gameManager.stateManager.after();
-          }
-        } else if (this.data.entity.title != "") {
-          gameManager.stateManager.before("unsetTitle", 'data.summon.' + this.data.entity.name, this.data.entity.title);
-          this.data.entity.title = "";
           gameManager.stateManager.after();
         }
       }

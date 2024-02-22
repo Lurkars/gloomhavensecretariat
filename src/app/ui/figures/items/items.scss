@@ -196,6 +196,19 @@
                 width: auto;
                 margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
             }
+
+            &:hover {
+                opacity: 0.7;
+            }
+
+            &.disabled {
+                cursor: initial;
+                opacity: 0.8;
+
+                &:hover {
+                    opacity: 0.6;
+                }
+            }
         }
     }
 }

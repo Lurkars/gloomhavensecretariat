@@ -68,13 +68,13 @@
 
     &.fh {
         .menu {
-            background-image: url('~/src/assets/images/fh/dialog_background_fh.png');
+            background-image: url('/assets/images/fh/dialog_background_fh.png');
         }
     }
 
     &.modern {
         .menu {
-            background-image: url('~/src/assets/images/modern/dialog_background_modern.png');
+            background-image: url('/assets/images/modern/dialog_background_modern.png');
         }
     }
 }

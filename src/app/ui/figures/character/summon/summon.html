@@ -15,14 +15,14 @@
       </div>
 
       <span class="image"
-        [ngClass]="{'active' : summon.state == SummonState.true, 'new' : summon.state == SummonState.new, 'center' : (summon.entityConditions.length % 2) == 0}">
-        <img src="./assets/images/summons/{{summon.color}}.png">
+        [ngClass]="{'active' : summon.state == SummonState.true, 'new' : summon.state == SummonState.new, 'center' : (summon.entityConditions.length % 2) == 0, 'fh': summon.color == SummonColor.fh}">
+        <img *ngIf="summon.color != SummonColor.fh" src="./assets/images/summons/{{summon.color}}.png">
         <span class="summon-number">
           <span *ngIf="summon.number == 0">-</span>
           <span *ngIf="summon.number > 0">{{summon.number}}</span></span>
       </span>
 
-      <span class="health">{{(summon.health + health) | ghsMinZero}}
+      <span class="health" [ngClass]="{'thumbnail': settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)}">{{(summon.health + health) | ghsMinZero}}
         <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [container]="true"></span>
       </span>
     </div>

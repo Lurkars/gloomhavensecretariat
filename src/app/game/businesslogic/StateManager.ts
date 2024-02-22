@@ -2,7 +2,7 @@ import { Character } from "../model/Character";
 import { Game, GameModel } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { Permissions } from "../model/Permissions";
-import { Settings } from "../model/Settings";
+import { Settings, localSettings } from "../model/Settings";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 import { storageManager } from "./StorageManager";
@@ -313,67 +313,13 @@ export class StateManager {
           if (settingsManager.settings.serverSettings) {
             let settings: Settings = message.payload as Settings;
             // keep local
-            settings.animations = settingsManager.settings.animations;
-            settings.artwork = settingsManager.settings.artwork;
-            settings.automaticAttackModifierFullscreen = settingsManager.settings.automaticAttackModifierFullscreen;
-            settings.autoBackup = settingsManager.settings.autoBackup;
-            settings.autoBackupFinish = settingsManager.settings.autoBackupFinish;
-            settings.autoBackupUrl = settingsManager.settings.autoBackupUrl;
-            settings.autoscroll = settingsManager.settings.autoscroll;
-            settings.automaticTheme = settingsManager.settings.automaticTheme;
-            settings.barsize = settingsManager.settings.barsize;
-            settings.backupHint = settingsManager.settings.backupHint;
-            settings.browserNavigation = settingsManager.settings.browserNavigation;
-            settings.calendarLocked = settingsManager.settings.calendarLocked;
-            settings.characterAttackModifierAnimate = settingsManager.settings.characterAttackModifierAnimate;
-            settings.characterAttackModifierDeckPermanent = settingsManager.settings.characterAttackModifierDeckPermanent;
-            settings.characterAttackModifierDeckPermanentActive = settingsManager.settings.characterAttackModifierDeckPermanentActive;
-            settings.characterItemsPermanent = settingsManager.settings.characterItemsPermanent;
-            settings.characterItemsPermanentActive = settingsManager.settings.characterItemsPermanentActive;
-            settings.characterItemsPermanentEquipped = settingsManager.settings.characterItemsPermanentEquipped;
-            settings.characterItemsPermanentSorted = settingsManager.settings.characterItemsPermanentSorted;
-            settings.characterItemsPermanentZoom = settingsManager.settings.characterItemsPermanentZoom;
-            settings.characterCompact = settingsManager.settings.characterCompact;
-            settings.characterSheetCompact = settingsManager.settings.characterSheetCompact;
-            settings.columns = settingsManager.settings.columns;
-            settings.columnsForce = settingsManager.settings.columnsForce;
-            settings.debugRightClick = settingsManager.settings.debugRightClick;
-            settings.disableAnimations = settingsManager.settings.disableAnimations;
-            settings.disableArtwork = settingsManager.settings.disableArtwork;
-            settings.disableColumns = settingsManager.settings.disableColumns;
-            settings.disableDragFigures = settingsManager.settings.disableDragFigures;
-            settings.disablePinchZoom = settingsManager.settings.disablePinchZoom;
-            settings.disableWakeLock = settingsManager.settings.disableWakeLock;
-            settings.dragFigures = settingsManager.settings.dragFigures;
-            settings.dragValues = settingsManager.settings.dragValues;
-            settings.fhStyle = settingsManager.settings.fhStyle;
-            settings.fontsize = settingsManager.settings.fontsize;
-            settings.globalFontsize = settingsManager.settings.globalFontsize;
-            settings.fullscreen = settingsManager.settings.fullscreen;
-            settings.hideCharacterHP = settingsManager.settings.hideCharacterHP;
-            settings.hideCharacterLoot = settingsManager.settings.hideCharacterLoot;
-            settings.hideCharacterXP = settingsManager.settings.hideCharacterXP;
-            settings.hints = settingsManager.settings.hints;
-            settings.logServerMessages = settingsManager.settings.logServerMessages;
-            settings.pinchZoom = settingsManager.settings.pinchZoom;
-            settings.portraitMode = settingsManager.settings.portraitMode;
-            settings.pressDoubleClick = settingsManager.settings.pressDoubleClick;
-            settings.serverAutoconnect = settingsManager.settings.serverAutoconnect;
+            localSettings.forEach((setting) => {
+              settings[setting] = settingsManager.settings[setting];
+            })
+
+            // migration
             settings.serverCode = settingsManager.settings.serverCode || settingsManager.settings.serverPassword;
             settings.serverPassword = undefined;
-            settings.serverPort = settingsManager.settings.serverPort;
-            settings.serverSettings = settingsManager.settings.serverSettings;
-            settings.serverUrl = settingsManager.settings.serverUrl;
-            settings.serverWss = settingsManager.settings.serverWss;
-            settings.showAllSections = settingsManager.settings.showAllSections;
-            settings.showBossMonster = settingsManager.settings.showBossMonster;
-            settings.showHiddenMonster = settingsManager.settings.showHiddenMonster;
-            settings.showOnlyUnfinishedScenarios = settingsManager.settings.showOnlyUnfinishedScenarios;
-            settings.statAnimations = settingsManager.settings.statAnimations;
-            settings.theme = settingsManager.settings.theme;
-            settings.tooltips = settingsManager.settings.tooltips;
-            settings.wakeLock = settingsManager.settings.wakeLock;
-            settings.zoom = settingsManager.settings.zoom;
 
             settingsManager.setSettings(Object.assign(new Settings(), settings));
             storageManager.write('settings', 'default', settingsManager.settings);

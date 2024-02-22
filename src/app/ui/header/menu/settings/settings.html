@@ -172,15 +172,16 @@
     </div>
     <div class="line" ghs-setting-menu="alwaysLootApplyDialog"
       [disabled]="!settingsManager.settings.lootDeck || !settingsManager.settings.applyLoot"></div>
+    <div class="line" ghs-setting-menu="automaticPassTime" [disabled]="!gameManager.fhRules()"></div>
+    <div class="line" ghs-setting-menu="applyBuildingRewards" [disabled]="!gameManager.fhRules()"></div>
+    <div class="line" ghs-setting-menu="unlockEnvelopeBuildings" [disabled]="!gameManager.fhRules()"></div>
+  </div>
+
+  <div class="column">
     <div class="line" ghs-setting-menu="alwaysLootDeck"
       [disabled]="!settingsManager.settings.lootDeck || gameManager.fhRules()"
       [checked]="settingsManager.settings.lootDeck && gameManager.fhRules()">
     </div>
-    <div class="line" ghs-setting-menu="automaticPassTime" [disabled]="!gameManager.fhRules()"></div>
-    <div class="line" ghs-setting-menu="applyBuildingRewards" [disabled]="!gameManager.fhRules()"></div>
-  </div>
-
-  <div class="column">
     <div class="line" ghs-setting-menu="battleGoalsFh"
       [disabled]="!settingsManager.settings.battleGoals || gameManager.fhRules()"
       [checked]="settingsManager.settings.battleGoals && gameManager.fhRules()">
@@ -234,7 +235,8 @@
       [disabled]="!settingsManager.settings.characterSheet || !settingsManager.settings.characterAttackModifierDeck">
     </div>
     <div class="line" ghs-setting-menu="characterAttackModifierDeckPermanent"
-      [disabled]="!settingsManager.settings.characterSheet || !settingsManager.settings.characterAttackModifierDeck"></div>
+      [disabled]="!settingsManager.settings.characterSheet || !settingsManager.settings.characterAttackModifierDeck">
+    </div>
     <div class="line" ghs-setting-menu="characterAttackModifierDeckPermanentActive"
       [disabled]="!settingsManager.settings.characterSheet || !settingsManager.settings.characterAttackModifierDeck || !settingsManager.settings.characterAttackModifierDeckPermanent">
     </div>

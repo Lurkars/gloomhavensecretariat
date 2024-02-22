@@ -86,7 +86,7 @@
           position: absolute;
           width: calc(var(--ghs-unit) * 4);
           height: calc(var(--ghs-unit) * 4);
-          background-image: url('~/src/assets/images/summons/minus.svg');
+          background-image: url('/assets/images/summons/minus.svg');
           background-size: cover;
           z-index: 2;
         }

@@ -4,7 +4,7 @@
 
     .filter-monster-menu {
         position: fixed;
-        background-image: url('~/src/assets/images/dialog_background.png');
+        background-image: url('/assets/images/dialog_background.png');
         z-index: 2;
         width: inherit;
         display: flex;
@@ -12,11 +12,11 @@
         align-items: flex-start;
 
         &.fh {
-            background-image: url('~/src/assets/images/fh/dialog_background_fh.png');
+            background-image: url('/assets/images/fh/dialog_background_fh.png');
         }
 
         &.modern {
-            background-image: url('~/src/assets/images/modern/dialog_background_modern.png');
+            background-image: url('/assets/images/modern/dialog_background_modern.png');
         }
 
         &+.columns .column .line.sticky,

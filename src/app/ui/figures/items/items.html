@@ -38,7 +38,8 @@
         <a class="shop" (click)="itemDialog()"><img src="./assets/images/items/item.svg"><span
                 [ghs-label]="'game.items.character.shop'"></span></a>
 
-        <a *ngIf="brewing" (click)="brewDialog()"><img src="./assets/images/fh/brewing.svg"><span
-                [ghs-label]="'game.items.brewing'"></span></a>
+        <a *ngIf="brewing" ghs-pointer-input (singleClick)="brewDialog()" (doubleClick)="brewDialog(true)"
+            [ngClass]="{'disabled': gameManager.itemManager.brewingDisabled()}"><img
+                src="./assets/images/fh/brewing.svg"><span [ghs-label]="'game.items.brewing'"></span></a>
     </div>
 </div>

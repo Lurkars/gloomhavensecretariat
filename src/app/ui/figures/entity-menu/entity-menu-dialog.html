@@ -76,8 +76,9 @@
         <span [ghs-label]="'data.summon.' + gameManager.toSummon(data.entity).name"></span>
         <span *ngIf="gameManager.toSummon(data.entity).title">)</span></span>
       <span *ngIf="!gameManager.toSummon(data.entity).name"><span [ghs-label]="'game.summon'"></span></span>
-      <span class="summon-icon">
-        <img src="./assets/images/summons/{{gameManager.toSummon(data.entity).color}}.png">
+      <span class="summon-icon" [ngClass]="{'fh': gameManager.toSummon(data.entity).color == SummonColor.fh}">
+        <img *ngIf="gameManager.toSummon(data.entity).color != SummonColor.fh"
+          src="./assets/images/summons/{{gameManager.toSummon(data.entity).color}}.png">
         <span class="summon-number">{{gameManager.toSummon(data.entity).number}}</span>
       </span>
     </ng-container>
@@ -501,9 +502,14 @@
 
         <span class="item">
           <a class="summon"
-            [ngClass]="{'active' : gameManager.toSummon(data.entity).state == SummonState.true, 'new' : gameManager.toSummon(data.entity).state == SummonState.new }"
+            [ngClass]="{'active' : gameManager.toSummon(data.entity).state == SummonState.true, 'new' : gameManager.toSummon(data.entity).state == SummonState.new, 'fh':  gameManager.toSummon(data.entity).color == SummonColor.fh }"
             (click)="toggleSummonStatus()">
-            <img src="./assets/images/summons/{{gameManager.toSummon(data.entity).color}}.png">
+            <img *ngIf="gameManager.toSummon(data.entity).color != SummonColor.fh"
+              src="./assets/images/summons/{{gameManager.toSummon(data.entity).color}}.png">
+
+            <span class="summon-number" *ngIf="gameManager.toSummon(data.entity).color == SummonColor.fh">
+              {{gameManager.toSummon(data.entity).number }}
+            </span>
           </a>
         </span>
       </ng-container>

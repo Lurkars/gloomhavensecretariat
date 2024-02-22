@@ -83,7 +83,7 @@ footer {
         background-position: center;
         background-size: 100% auto;
         background-repeat: no-repeat;
-        background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
+        background-image: url('/assets/images/attackmodifier/am-character-icon.png');
 
         img {
           height: 60%;
@@ -161,7 +161,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('~/src/assets/images/bar.jpg');
+    background-image: url('/assets/images/bar.jpg');
     background-size: 100% 105%;
     background-position: bottom right;
     background-repeat: no-repeat;
@@ -170,11 +170,11 @@ footer {
   }
 
   &.fh::before {
-    background-image: url('~/src/assets/images/fh/bar.jpg');
+    background-image: url('/assets/images/fh/bar.jpg');
   }
 
   &.modern::before {
-    background-image: url('~/src/assets/images/modern/dialog_background_modern.png');
+    background-image: url('/assets/images/modern/dialog_background_modern.png');
   }
 
   &.modern::after {

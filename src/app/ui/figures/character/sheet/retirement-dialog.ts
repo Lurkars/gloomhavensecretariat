@@ -8,6 +8,7 @@ import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/sce
 import { PersonalQuest } from "src/app/game/model/data/PersonalQuest";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
+import { BuildingData, BuildingModel } from "src/app/game/model/data/BuildingData";
 
 @Component({
     selector: 'ghs-character-retirement-dialog',
@@ -20,13 +21,19 @@ export class CharacterRetirementDialog {
 
     conclusion: ScenarioData | undefined;
     personalQuest: PersonalQuest | undefined;
+    personalQuestBuilding: BuildingData | undefined;
     additional: boolean = false;
     additionalPQ: PersonalQuest | undefined;
+    additionalPQBuilding: BuildingData | undefined;
 
     constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef, private dialog: Dialog) {
         this.conclusion = gameManager.sectionData(this.character.edition).find((sectionData) => sectionData.retirement == this.character.name && sectionData.conclusion);
         if (this.character.progress.personalQuest) {
             this.personalQuest = gameManager.characterManager.personalQuestByCard(gameManager.currentEdition(), this.character.progress.personalQuest);
+
+            if (settingsManager.settings.unlockEnvelopeBuildings && this.personalQuest && this.personalQuest.openEnvelope) {
+                this.personalQuestBuilding = this.buildingsEnvelopeHelper(this.personalQuest.openEnvelope);
+            }
         }
     }
 
@@ -70,6 +77,15 @@ export class CharacterRetirementDialog {
             }
         }
 
+        if (settingsManager.settings.unlockEnvelopeBuildings) {
+            if (this.personalQuestBuilding) {
+                gameManager.game.party.buildings.push(new BuildingModel(this.personalQuestBuilding.name, 0));
+            }
+            if (this.additionalPQBuilding) {
+                gameManager.game.party.buildings.push(new BuildingModel(this.additionalPQBuilding.name, 0));
+            }
+        }
+
         gameManager.stateManager.after();
 
         if (this.conclusion && !gameManager.game.party.conclusions.find((value) => this.conclusion && value.edition == this.conclusion.edition && value.group == this.conclusion.group && value.index == this.conclusion.index)) {
@@ -77,8 +93,26 @@ export class CharacterRetirementDialog {
         }
     }
 
+    buildingsEnvelopeHelper(envelope: string): BuildingData | undefined {
+        const buildingData = gameManager.campaignData().buildings;
+        const buildings = envelope.split(':').map((id) => buildingData.find((buildingData) => buildingData.id === id)).filter((buildingData) => buildingData).map((buildingData) => buildingData as BuildingData);
+        if (buildings.length > 0) {
+            if (!gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == buildings[0].name) && (!this.personalQuestBuilding || this.personalQuestBuilding != buildings[0])) {
+                return buildings[0];
+            } else if (buildings.length > 1 && !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == buildings[1].name)) {
+                return buildings[1];
+            }
+        }
+
+        return undefined;
+    }
+
     changeAdditionalPQ(event: any) {
         this.additionalPQ = gameManager.characterManager.personalQuestByCard(gameManager.currentEdition(), event.target.value);
+
+        if (settingsManager.settings.unlockEnvelopeBuildings && this.additionalPQ && this.additionalPQ.openEnvelope) {
+            this.additionalPQBuilding = this.buildingsEnvelopeHelper(this.additionalPQ.openEnvelope);
+        }
     }
 
     close() {

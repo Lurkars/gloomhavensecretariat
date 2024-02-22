@@ -14,7 +14,7 @@ import { EntityMenuDialogComponent } from '../figures/entity-menu/entity-menu-di
 import { HeaderComponent } from '../header/header';
 
 
-export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario";
+export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario" | "handSize" | "traits";
 
 @Directive({
     selector: '[ghs-keyboard-shortcuts]'
@@ -202,6 +202,12 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('absent') != -1) && !event.ctrlKey && !event.shiftKey && event.key === 'h') {
                     settingsManager.toggle('hideAbsent');
+                    event.preventDefault();
+                } else if ((!this.dialogOpen || this.allowed.indexOf('handSize') != -1) && !event.ctrlKey && event.shiftKey && event.key === 'H') {
+                    settingsManager.toggle('characterHandSize');
+                    event.preventDefault();
+                } else if ((!this.dialogOpen || this.allowed.indexOf('traits') != -1) && !event.ctrlKey && !event.shiftKey && event.key === 't') {
+                    settingsManager.toggle('characterTraits');
                     event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('select') != -1) && !event.ctrlKey && !event.shiftKey && event.key === 's') {
                     gameManager.stateManager.keyboardSelecting = true;

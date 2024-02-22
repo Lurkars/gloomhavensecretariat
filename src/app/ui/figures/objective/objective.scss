@@ -5,7 +5,7 @@
   width: calc(var(--ghs-unit) * 98);
   height: calc(var(--ghs-unit) * 14);
   background-color: var(--ghs-color-green);
-  background-image: url('~/src/assets/images/character/char-mat.png'), url('~/src/assets/images/character/char-mat.png');
+  background-image: url('/assets/images/character/char-mat.png'), url('/assets/images/character/char-mat.png');
   background-blend-mode: multiply, overlay;
   background-size: 100% 100%;
   display: flex;
@@ -25,7 +25,7 @@
 
   &.off {
     background-color: var(--ghs-color-gray);
-    background-image: url('~/src/assets/images/character/char-mat.png');
+    background-image: url('/assets/images/character/char-mat.png');
     background-blend-mode: multiply;
 
     .title,

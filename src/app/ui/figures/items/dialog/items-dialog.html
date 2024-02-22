@@ -47,6 +47,21 @@
                         {{character.progress.loot.snowthistle}}
                     </span>
                 </div>
+
+                <a *ngIf="brewing" class="brewing" ghs-pointer-input (singleClick)="brewDialog()" (doubleClick)="brewDialog(true)"
+                [ngClass]="{'disabled': gameManager.itemManager.brewingDisabled()}"><img
+                    src="./assets/images/fh/brewing.svg"><span [ghs-label]="'game.items.brewing'"></span></a>
+            </div>
+            <div *ngIf="gameManager.itemManager.buyingDisabled() && character && character.tags.indexOf('new-character') == -1 || gameManager.itemManager.craftingDisabled()"
+                class="shop-disabled">
+                <ng-container
+                    *ngIf="gameManager.itemManager.buyingDisabled() && character && character.tags.indexOf('new-character') == -1"
+                    class="shop-disabled">
+                    <img src="./assets/images/close.svg"> <span [ghs-label]="'game.items.shop.buyingDisabled'"></span>
+                </ng-container>
+                <ng-container *ngIf="gameManager.itemManager.craftingDisabled()" class="shop-disabled">
+                    <img src="./assets/images/close.svg"> <span [ghs-label]="'game.items.shop.craftingDisabled'"></span>
+                </ng-container>
             </div>
             <div class="filter">
                 <div class="slots">

@@ -13,6 +13,7 @@ export class BuildingData {
     requires: string = "";
     rewards: BuildingRewards[] = [];
     prosperityUnlock: boolean = false;
+    envelope: string | undefined = undefined;
 }
 
 export class BuildingRewards {

@@ -293,8 +293,8 @@
                 [ghs-label-args]="[personalQuest.unlockCharacter]">
               </div>
               <div class="reward" *ngIf="personalQuest.openEnvelope"
-                [ghs-label]="'character.progress.personalQuest.openEnvelope'"
-                [ghs-label-args]="[personalQuest.openEnvelope]">
+                [ghs-label]="'character.progress.personalQuest.openEnvelope' + (personalQuest.openEnvelope.split(':').length > 1 ? '.alt' : '')"
+                [ghs-label-args]="personalQuest.openEnvelope.split(':')">
               </div>
             </div>
 

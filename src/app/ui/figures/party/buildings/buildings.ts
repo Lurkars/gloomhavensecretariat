@@ -6,7 +6,7 @@ import { BuildingCosts, BuildingData, BuildingModel } from "src/app/game/model/d
 import { LootType } from "src/app/game/model/data/Loot";
 import { Character } from "src/app/game/model/Character";
 import { SelectResourceResult, BuildingUpgradeDialog } from "./upgrade-dialog/upgrade-dialog";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Scenario } from "src/app/game/model/Scenario";
 import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/scenario-summary";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
@@ -20,9 +20,10 @@ export type Building = { model: BuildingModel, data: BuildingData };
   styleUrls: ['./buildings.scss']
 })
 export class PartyBuildingsComponent implements OnInit {
+  @Input() party!: Party;
 
   gameManager: GameManager = gameManager;
-  @Input() party!: Party;
+  settingsManager: SettingsManager = settingsManager;
 
   buildings: Building[] = [];
 
@@ -53,7 +54,7 @@ export class PartyBuildingsComponent implements OnInit {
 
     campaign.buildings.filter((buildingData) => buildingData.prosperityUnlock && buildingData.costs.prosperity <= gameManager.prosperityLevel()).forEach((buildingData) => {
       if (!this.party.buildings.find((model) => buildingData.name == model.name)) {
-        if (!buildingData.requires || this.party.buildings.find((model) => model.name == buildingData.requires))
+        if (!buildingData.requires || this.party.buildings.find((model) => model.name == buildingData.requires && model.level))
           this.party.buildings.push(new BuildingModel(buildingData.name, 0));
       }
     })
@@ -92,6 +93,10 @@ export class PartyBuildingsComponent implements OnInit {
     return buildingData.costs.prosperity == 0 && buildingData.costs.lumber == 0 && buildingData.costs.metal == 0 && buildingData.costs.hide == 0 && buildingData.costs.gold == 0;
   }
 
+  availableBuilding(buildingData: BuildingData): boolean {
+    return buildingData.prosperityUnlock && buildingData.costs.prosperity <= gameManager.prosperityLevel() && !this.party.buildings.find((model) => buildingData.name == model.name && model.level) && (!buildingData.requires || this.party.buildings.find((model) => model.name == buildingData.requires && model.level) != undefined);
+  }
+
   unlockBuilding(buildingElement: HTMLInputElement) {
     const building = buildingElement.value;
     this.party.buildings = this.party.buildings || [];
@@ -99,7 +104,7 @@ export class PartyBuildingsComponent implements OnInit {
     if (campaign.buildings && building) {
       const buildingData = campaign.buildings.find((buildingData) => buildingData.name == building.toLowerCase().replaceAll(' ', '-') || buildingData.id == building || !isNaN(+buildingData.id) && !isNaN(+building) && +buildingData.id == +building);
       if (buildingData && !this.party.buildings.find((buildingModel) => buildingModel.name == buildingData.name)) {
-        gameManager.stateManager.before("addBuilding", "data.buildings." + buildingData.name);
+        gameManager.stateManager.before("addBuilding", buildingData.id, buildingData.name);
         this.party.buildings.push(new BuildingModel(buildingData.name, 0));
         this.updateBuildings();
         buildingElement.value = "";
@@ -209,7 +214,7 @@ export class PartyBuildingsComponent implements OnInit {
         }).closed.subscribe({
           next: (result) => {
             if (force && result == true || result instanceof SelectResourceResult) {
-              gameManager.stateManager.before(building.model.level ? "upgradeBuilding" : "buildBuilding", "data.buildings." + building.model.name, '' + (building.model.level + 1));
+              gameManager.stateManager.before(building.model.level ? "upgradeBuilding" : "buildBuilding", building.data.id, building.model.name, '' + (building.model.level + 1));
               if (!force && result instanceof SelectResourceResult) {
                 this.applySelectResources(result);
               }
@@ -286,7 +291,7 @@ export class PartyBuildingsComponent implements OnInit {
         }).closed.subscribe({
           next: (result) => {
             if (force && result == true || result instanceof SelectResourceResult) {
-              gameManager.stateManager.before("rebuildBuilding", "data.buildings." + building.model.name);
+              gameManager.stateManager.before("rebuildBuilding", building.data.id, building.model.name);
               if (!force && result instanceof SelectResourceResult) {
                 this.applySelectResources(result);
               }
@@ -313,7 +318,7 @@ export class PartyBuildingsComponent implements OnInit {
         }).closed.subscribe({
           next: (result) => {
             if (force && result == true || result instanceof SelectResourceResult) {
-              gameManager.stateManager.before("repairBuilding", "data.buildings." + building.data.name);
+              gameManager.stateManager.before("repairBuilding", building.data.id, building.data.name);
               if (!force && result instanceof SelectResourceResult) {
                 this.applySelectResources(result);
               }
@@ -372,15 +377,15 @@ export class PartyBuildingsComponent implements OnInit {
     if (building.data.repair) {
       if (building.model.level > 0) {
         if (building.model.state == 'normal') {
-          gameManager.stateManager.before("changeBuildingState", building.model.name, 'damaged');
+          gameManager.stateManager.before("changeBuildingState", building.data.id, building.model.name, 'damaged');
           building.model.state = 'damaged';
           gameManager.stateManager.after();
         } else if (building.model.state == 'damaged') {
-          gameManager.stateManager.before("changeBuildingState", building.model.name, 'wrecked');
+          gameManager.stateManager.before("changeBuildingState", building.data.id, building.model.name, 'wrecked');
           building.model.state = 'wrecked'
           gameManager.stateManager.after();
         } else if (force && building.model.state == 'wrecked') {
-          gameManager.stateManager.before("changeBuildingState", building.model.name, 'normal');
+          gameManager.stateManager.before("changeBuildingState", building.data.id, building.model.name, 'normal');
           building.model.state = 'normal';
           gameManager.stateManager.after();
         }
@@ -391,8 +396,8 @@ export class PartyBuildingsComponent implements OnInit {
   downgrade(building: Building, force: boolean = false) {
     const index = this.party.buildings.indexOf(building.model);
     if (index != -1) {
-      if (!this.initialBuilding(building.data) && (building.model.level == 0 || force)) {
-        gameManager.stateManager.before("removeBuilding", "data.buildings." + building.model.name);
+      if (!this.initialBuilding(building.data) && !this.availableBuilding(building.data) && (building.model.level == 0 || force)) {
+        gameManager.stateManager.before("removeBuilding", building.data.id, building.model.name);
         building.model.state = 'normal';
         this.party.buildings.splice(index, 1);
         if (this.party.campaignMode && building.data.rewards && building.data.rewards[0] && building.data.rewards[0].section) {
@@ -406,8 +411,8 @@ export class PartyBuildingsComponent implements OnInit {
         }
 
         gameManager.stateManager.after();
-      } else if (!this.initialBuilding(building.data) || building.model.level > 1) {
-        gameManager.stateManager.before("downgradeBuilding", building.model.name, '' + (building.model.level - 1));
+      } else if (!this.initialBuilding(building.data) && !this.availableBuilding(building.data) || building.model.level > 1) {
+        gameManager.stateManager.before("downgradeBuilding", building.data.id, building.model.name, '' + (building.model.level - 1));
         building.model.level--;
         if (building.model.level == 0) {
           building.model.state = 'normal';
