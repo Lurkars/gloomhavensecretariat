@@ -111,7 +111,10 @@
       "personalQuest": {
         ".": "개인 퀘스트",
         "counter": "Counter",
-        "openEnvelope": "봉투 {0} 열기",
+        "openEnvelope": {
+          ".": "봉투 %game.fhIcon:envelope% {0} 열기",
+          "alt": "봉투 %game.fhIcon:envelope% {0} 열기<br>(또는: %game.fhIcon:envelope% {1})"
+        },
         "unlockCharacter": "%game.characterIcon.{0}% 상자 열기"
       },
       "resources": {

@@ -107,7 +107,10 @@
       "personalQuest": {
         ".": "Quête personnelle",
         "counter": "Compteur",
-        "openEnvelope": "Ouvrir l'enveloppe {0}",
+        "openEnvelope": {
+          ".": "Ouvrir l'enveloppe %game.fhIcon:envelope% {0}",
+          "alt": "Ouvrir l'enveloppe %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})"
+        },
         "unlockCharacter": "Boîte ouverte %game.characterIcon.{0}%"
       },
       "resources": {

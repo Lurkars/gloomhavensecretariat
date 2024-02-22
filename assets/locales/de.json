@@ -111,7 +111,11 @@
       "personalQuest": {
         ".": "Persönliche Quest",
         "counter": "Zähler",
-        "openEnvelope": "Umschlag {0} öffnen",
+        "openEnvelope": {
+          ".": "Umschlag %game.fhIcon:envelope% {0} öffnen",
+          "alt": "Umschlag %game.fhIcon:envelope% {0} öffnen<br>(sonst: %game.fhIcon:envelope% {1})",
+          "building": "Schaltet Gebäude '%data.buildings.{1}%' ({0}) frei"
+        },
         "unlockCharacter": "Schachtel %game.characterIcon.{0}% öffnen"
       },
       "resources": {
@@ -584,6 +588,7 @@
         "brewed": "{2} hat {1} %game.itemFh.{0}% gebraut",
         "brewFor": "Braue für {0}",
         "brewedOther": "{2} hat {1} %game.itemFh.{0}% für {3} gebraut",
+        "disabled": "Brauen von Tränken nicht möglich, erst '%data.buildings.alchemist%' (35) wiederaufbauen",
         "item": "{1} %game.itemFh.{0}%",
         "noChar": "Jeder Charakter besitzt schon diesen Trank!",
         "selectCharacter": "Charakter auswählen für den der Trank gebraut wird:"
@@ -610,7 +615,9 @@
       "sell": "'{0}' für {1} Gold veraufen",
       "shop": {
         ".": "Gegenstandskarten",
-        "character": "Gegenstandsladen für %game.characterIconColored.{0}% {1}"
+        "buyingDisabled": "Kaufen von Items nicht möglich, erst '%data.buildings.trading-post%' (37) wiederaufbauen",
+        "character": "Gegenstandsladen für %game.characterIconColored.{0}% {1}",
+        "craftingDisabled": "Anertigen von Items nicht möglich, erst '%data.buildings.craftsman%' (34) wiederaufbauen"
       },
       "unlock": "Gegenstand freischalten",
       "unlocked": "Gegenstand freigeschaltet",
@@ -954,6 +961,11 @@
           "selectResources": {
             ".": "Ressourcen auswählen",
             "confirm": "Bestätigen"
+          },
+          "state": {
+            "damaged": "beschädigt",
+            "normal": "normal",
+            "wrecked": "zurtrümmert"
           },
           "unlock": "Gebäude freischalten",
           "upgrade": {
@@ -1949,6 +1961,10 @@
       ".": "Runden/Zug Bestätigung",
       "hint": "Zeigt eine Errinnerung nach dem Klick auf \"%round.next%\" bevor alle Figuren am Zug waren. Falls deaktiviert und %settings.expireConditions% oder %settings.applyConditions% aktiviert sind werden diese automatisch auf jede Figur angewendet."
     },
+    "unlockEnvelopeBuildings": {
+      ".": "Gebäude durch Umschläge freischalten",
+      "hint": "Automatisch Geäube durch öffnen von Umschlägen (bei Persönliche Quests) freischalten."
+    },
     "wakeLock": {
       ".": "Display immer an",
       "hint": "Display immer an bei unterstützen Geräten. Die Funktion hält das Display immer eingeschaltet, dies kann zu höherem Energieverbrauch auf Mobilgeräten führen."
@@ -1974,7 +1990,7 @@
     },
     "currentGame": "Aktuell",
     "info": {
-      "addBuilding": "Gebäude {0} freischalten",
+      "addBuilding": "Gebäude '%data.buildings.{1}%' ({0}) freischalten",
       "addCampaignSticker": "Kampagnenbogensticker {0} hinzufügen",
       "addChar": "Charakter {0} hinzufügen",
       "addCondition": {
@@ -2060,9 +2076,10 @@
           "removeEdition": "Kampfzielkarten von %data.edition.{0}% entfernen"
         }
       },
-      "buildBuilding": "{0} gebaut",
+      "buildBuilding": "'%data.buildings.{1}%' ({0}) gebaut",
       "buyItem": "Gegenstand {1} (%data.edition.{2}%) für {0} kaufen",
       "cancelScenario": "Szenario #{0} {1} ({2}) abbrechen",
+      "changeBuildingState": "Zustand von Gebäude '%data.buildings.{1}%' ({0}) zu %party.campaign.sheet.buildings.state.{2}%",
       "changeCustomScenario": "Namen '{0}' fpr benutzerdefiniertes Szenario",
       "changeEntityHp": "TP {1} für Aufsteller {2} von {0}: {3}",
       "changeEntityMaxHp": "Max. TP {1} für Aufsteller von {0}: {3}",
@@ -2103,6 +2120,7 @@
       "disablePartyCampaignMode": "Kampagnenmodus ausschalten",
       "disableSolo": "Einzelspieler Level Berechnung ausschalten",
       "donate": "{0} spendet an Tempel der Großen Eiche",
+      "downgradeBuilding": "Gebäude '%data.buildings.{1}%' ({0}) auf Level {2} herabstufen",
       "draw": "Ziehen",
       "drawAbility": "Fertigkeit für {0} ziehen",
       "enableAutomaticLevel": "Automatische Berechnung Level einschalten",
@@ -2175,16 +2193,19 @@
       "objectiveEntityDead": "Töte %game.objectiveMarker.{1}% von {0}",
       "openRoom": "Öffne Raum für Kachel '{2}' in #{0} {1}",
       "openRoomMarker": "Öffne Raum %game.mapMarker.{3}% für Kachel '{2}' in #{0} {1}",
+      "rebuildBuilding": "'%data.buildings.{1}%' ({0}) wiederaufgebaut",
       "removeAbility": "Fertigkeit \"{1}\" von {0} entfernen",
       "removeAllChars": "Alle Charaktere entfernen",
       "removeAllMonster": "Alle Monster entfernen",
       "removeAllObjectives": "Alle Ziele entfernen",
+      "removeBuilding": "Entferne Gebäude '%data.buildings.{1}%' ({0})",
       "removeCampaignSticker": "Kampagnenbogensticker {0} entfernen",
       "removeChar": "Charakter {0} entfernen",
       "removeCharacterRetaliate": "Entferne %game.action.retaliate% von {0}",
       "removeCharacterRetaliatePersistent": "Entferne %game.card.persistent% %game.action.retaliate% von {0}",
       "removeCharacterShield": "Entferne %game.action.shield% von {0}",
       "removeCharacterShieldPersistent": "Entferne %game.card.persistent% %game.action.shield% von {0}",
+      "removeCharTreasure": "Entferne Schatz {1} von {2}",
       "removeCondition": {
         "char": "%game.condition.{1}% von {0} entfernen",
         "monsterEntities": "%game.condition.{1}% von allen {2}{0} entfernen",
@@ -2232,9 +2253,9 @@
       "removeScenarioRule": "Szenario Regel ausblenden",
       "removeSpecialTags": "Entferne Spezialactionen {1} von {0}",
       "removeTreasure": "Schatz {1} (%data.edition.{0}%) entfernen",
-      "removeCharTreasure": "Entferne Schatz {1} von {2}",
       "reorder": "Figuren neu anordnen",
       "reorderAbilities": "Fertigkeitskarten von {0} neu anordnen",
+      "repairBuilding": "'%data.buildings.{1}%' ({0}) repariert",
       "resetScenario": "Szenario #{0} {1} ({2}) zurücksetzen",
       "restoreAbility": "Fertigkeit \"{1}\" für {0} wiederherstellen",
       "restoreDefaultAbilities": "Ursprüngliche Fertigkeitskarten für {0} wiederherstellen",
@@ -2343,7 +2364,7 @@
       "updateManualPlayerCount": "Manuelle Charakter Anzahl auf {0}",
       "updatePartyAchievements": "Gruppenerfolg auf {0}",
       "updateStandee": "Ändere {1} Aufsteller Nummer {2} zu {3} für {0}",
-      "upgradeBuilding": "Gebäude {0} auf Level {1} aufrüsten"
+      "upgradeBuilding": "Gebäude '%data.buildings.{1}%' ({0}) auf Level {2} aufrüsten"
     },
     "loadMore": "Mehr anzeigen",
     "missing": "Fehlende Zustände: {0}",
@@ -2440,6 +2461,8 @@
       "draw from Loot Deck": "Karte aus dem Beute Deck ziehen",
       "toggle through element state": "Elementen Status durchschalten",
       "toggle Hide absend figures": "<i>Abwesende Figuren ausblenden<i> umschalten",
+      "toggle Display hand size and level": "<i>Handkartenanzahl und Stufe anzeigen<i> umschalten",
+      "toggle Display traits": "<i>Eigenschaften anzeigen<i> umschalten",
       "select figure/standee for opening menu with number key": "Figur/Aufsteller Menü öffnen durch Auswählen mit Nummertasten",
       "difficulty/level menu": "Schwierigkeitsgrad/Level Menü",
       "scenario effects menu": "Ereigniseffekte Menü",
