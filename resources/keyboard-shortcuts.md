@@ -21,6 +21,7 @@ The following keyboard shortcuts are currently implemented:
 - <kbd>p</kbd>: open party sheet
 - <kbd>SHIFT</kbd> + <kbd>H</kbd>: toggle *Display hand size and level*
 - <kbd>t</kbd>: toggle *Display traits*
+- <kbd>?</kbd>: show keyboard shortcuts
 
 On any open figure/standee menu, those shortcuts are disabled, currently shortcuts available in figure/standee:
 - <kbd>←</kbd>: dec. current HP
