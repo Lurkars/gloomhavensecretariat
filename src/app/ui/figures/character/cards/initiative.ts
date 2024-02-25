@@ -130,7 +130,8 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
   }
 
   tabindex(): number {
-    return gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).indexOf(this.figure);
+    return gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).sort((a, b) =>
+      (a instanceof Character && b instanceof Character) ? ((a.exhausted && !b.exhausted) ? 1 : (!a.exhausted && b.exhausted) ? -1 : 0) : 0).indexOf(this.figure);
   }
 
   focusNext(event: KeyboardEvent) {
