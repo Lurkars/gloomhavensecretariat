@@ -1001,6 +1001,7 @@
         },
         "winter": "Winter"
       },
+      "totalTime": "In Szenarien gepsielt für {0} Tage, {1} Stunden, {2} Minuten und {3} Sekunden, ungefähr {4} Stunden",
       "townGuard": "Stadtwache",
       "townGuardDeck": "Stadtwachendeck",
       "treasures": {

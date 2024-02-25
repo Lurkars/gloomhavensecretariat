@@ -72,6 +72,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   calendarSheet: number = 0;
   summer: boolean = false;
 
+  time: { d: number, h: number, m: number, s: number, ht: string } = { d: 0, h: 0, m: 0, s: 0, ht: "0" };
+
   @ViewChild('itemIndex') itemIndex!: ElementRef;
   @ViewChild('treasureIndex') treasureIndex!: ElementRef;
 
@@ -707,6 +709,16 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       this.availableCharacters[characterModel.number - 1] = this.availableCharacters[characterModel.number - 1] || [];
       this.availableCharacters[characterModel.number - 1].push(characterModel);
     })
+
+    let seconds = gameManager.game.totalSeconds;
+    this.time.d = Math.floor(seconds / 86400);
+    seconds -= this.time.d * 86400;
+    this.time.h = Math.floor(seconds / 3600);
+    seconds -= this.time.h * 3600;
+    this.time.m = Math.floor(seconds / 60);
+    seconds -= this.time.m * 60;
+    this.time.s = seconds;
+    this.time.ht = (gameManager.game.totalSeconds / 3600).toFixed(1);
   }
 
   characterIcon(name: string): string {

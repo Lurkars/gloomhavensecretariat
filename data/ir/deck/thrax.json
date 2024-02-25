@@ -1,0 +1,18 @@
+{
+  "name": "thrax",
+  "edition": "ir",
+  "abilities": [
+    {
+      "name": "Nothing",
+      "cardId": 752,
+      "initiative": 99,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.ir.thrax.1%"
+        }
+      ]
+    }
+  ]
+}

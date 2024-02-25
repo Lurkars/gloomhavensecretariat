@@ -27,12 +27,12 @@
   ],
   "rules": [
     {
-      "round": "R < 10",
+      "round": "R < 10 || R > 10",
       "start": true,
       "note": "%data.scenario.rules.fc.115.1%"
     },
     {
-      "round": "R > 9",
+      "round": "R == 10",
       "start": true,
       "note": "%data.scenario.rules.fc.115.2%"
     },

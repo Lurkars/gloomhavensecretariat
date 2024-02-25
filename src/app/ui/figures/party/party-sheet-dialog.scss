@@ -1836,6 +1836,10 @@
           }
         }
 
+        .time {
+          margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        }
+
 
         .columns {
           display: grid;

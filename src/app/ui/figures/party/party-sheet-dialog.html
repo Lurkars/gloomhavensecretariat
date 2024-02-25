@@ -198,7 +198,8 @@
 
         <div class="resources">
           <div class="header">
-            <label class="supply" (click)="openResources()"><span [ghs-label]="'party.campaign.sheet.supply'"></span>:</label>
+            <label class="supply" (click)="openResources()"><span
+                [ghs-label]="'party.campaign.sheet.supply'"></span>:</label>
             <span class="spacer"></span>
             <div class="move-resources" *ngIf="characters.length > 0">
               <span class="label"><span [ghs-label]="'character.progress.resources.move'"></span>:</span>
@@ -802,6 +803,11 @@
               </span>
             </div>
           </div>
+        </div>
+
+        <div class="row time">
+          <span [ghs-label]="'party.campaign.totalTime'"
+            [ghs-label-args]="[''+ time.d,''+ time.h,''+ time.m,''+ time.s, time.ht]"></span>
         </div>
       </div>
     </div>
