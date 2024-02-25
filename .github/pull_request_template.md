@@ -1,6 +1,6 @@
 # Description
 
-Please include a summary of the changes and the related issue. If you haven't already created an issue, please [do so]((https://github.com/Lurkars/gloomhavensecretariat/issues/new/choose)) first.
+Please include a summary of the changes and the related issue. If you haven't already created an issue, please do so first.
 
 Fixes # (link to related issue here)
 
