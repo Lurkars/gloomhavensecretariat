@@ -47,18 +47,37 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
       this.initiativeInput.nativeElement.addEventListener('keydown', (event: KeyboardEvent) => {
         const tabindex = this.tabindex();
         if (event.key === 'Tab' && gameManager.game.state == GameState.draw) {
-          let nextIndex = event.shiftKey ? tabindex - 1 : tabindex + 1;
-          let next = document.getElementById('initiative-input-' + nextIndex);
-          if (!next && tabindex > 0) {
-            next = document.getElementById('initiative-input-0');
-          } else if (!next && nextIndex < 0) {
-            nextIndex = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length - 1;
-            next = document.getElementById('initiative-input-' + nextIndex);
-            while (!next && nextIndex > 0) {
-              nextIndex--;
-              next = document.getElementById('initiative-input-' + nextIndex);
-            }
+          const availableCharacters = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent) as Character[];
+          const indexedCharacters = availableCharacters.map((c, i) => ({character: c, index: i}));
+
+          // Build a list of ordered characters to test.
+          // indexedCharacters:      a b c d e f g
+          //                               ^ this element
+          // without event.shiftKey: e f g a b c d
+          // with event.shiftKey:    c b a g f e d
+          // these are reversed:     ~~~~~~~~~~~
+          // 'this' is always last:              ~
+          let orderedCharacters = [
+            ...indexedCharacters.slice(tabindex + 1), // everything after this element
+            ...indexedCharacters.slice(0, tabindex), // everything before this element
+          ];
+          // Reverse the order if we're going backwards.
+          if (event.shiftKey) { orderedCharacters.reverse(); }
+          orderedCharacters.push(indexedCharacters[tabindex]);
+
+          // Look for the first unexhausted character in the ordered list of characters.
+          let next: HTMLElement | null = null;
+          for (const {character, index} of orderedCharacters) {
+            if (character.exhausted) { continue; }
+            next = document.getElementById('initiative-input-' + index);
+            if (next) { break; }
           }
+
+          // Try the first element as a fallback if nothing was found.
+          if (!next) {
+            next = document.getElementById('initiative-input-0');
+          }
+
           if (next) {
             next.focus();
           }
