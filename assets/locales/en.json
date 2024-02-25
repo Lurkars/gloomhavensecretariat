@@ -1150,6 +1150,7 @@
         },
         "winter": "Winter"
       },
+      "totalTime": "Played in scenarios for {0} days, {1} hours, {2} minutes and {3} seconds, approx {4} hours",
       "townGuard": "Town Guard",
       "townGuardDeck": "Town Guard Deck",
       "treasures": {
