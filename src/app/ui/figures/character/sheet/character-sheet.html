@@ -236,7 +236,7 @@
           <ghs-character-items *ngIf="fhSheet" [character]="character"></ghs-character-items>
 
         </div>
-        <div class="column column-right">
+        <div class="column column-right notes">
           <div class="name">
             <span *ngIf="character.number== 0 || character.number > gameManager.game.party.players.length || !gameManager.game.party.players[character.number
                 - 1]">/</span>
@@ -293,8 +293,8 @@
                 [ghs-label-args]="[personalQuest.unlockCharacter]">
               </div>
               <div class="reward" *ngIf="personalQuest.openEnvelope"
-                [ghs-label]="'character.progress.personalQuest.openEnvelope'"
-                [ghs-label-args]="[personalQuest.openEnvelope]">
+                [ghs-label]="'character.progress.personalQuest.openEnvelope' + (personalQuest.openEnvelope.split(':').length > 1 ? '.alt' : '')"
+                [ghs-label-args]="personalQuest.openEnvelope.split(':')">
               </div>
             </div>
 
@@ -309,6 +309,11 @@
             <input [value]="character.progress.extraPerks" type="number" min="0" (change)="setExtraPerks($event)"
               (keyup)="setExtraPerks($event)">
           </div>
+          <div *ngIf="editable && settingsManager.settings.partySheet && !gameManager.game.scenario" class="set-aside">
+            <label (click)="setAside()">
+              <img src="./assets/images/long-rest.svg"><span [ghs-label]="'character.setAside'"></span>
+            </label>
+          </div>
           <hr class="compact-separator">
           <div class="import-export">
             <label class="export" (click)="exportCharacter()" [ghs-label]="'character.progress.export'"
@@ -322,6 +327,7 @@
               <img src="./assets/images/import.svg"><span [ghs-label]="'character.progress.import'"></span>
             </label>
           </div>
+
           <span class="toggle-fh-sheet ignore-denied" (click)="toggleFhSheet()">
             <span [ghs-label]="'character.progress.fh.' + (fhSheet ? 'disable': 'enable')"></span>
           </span>

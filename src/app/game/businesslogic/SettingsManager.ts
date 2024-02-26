@@ -131,6 +131,11 @@ export class SettingsManager {
       settings.disableWakeLock = false;
     }
 
+    if (settings.serverPassword) {
+      settings.serverCode = settings.serverPassword;
+      settings.serverPassword = undefined;
+    }
+
     this.sortSpoilers();
   }
 
@@ -233,10 +238,10 @@ export class SettingsManager {
     this.storeSettings();
   }
 
-  setServer(url: string, port: number, password: string): void {
+  setServer(url: string, port: number, code: string): void {
     this.settings.serverUrl = url;
     this.settings.serverPort = port;
-    this.settings.serverPassword = password;
+    this.settings.serverCode = code;
     this.storeSettings();
   }
 

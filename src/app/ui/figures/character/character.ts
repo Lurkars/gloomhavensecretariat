@@ -194,11 +194,13 @@ export class CharacterComponent implements OnInit, OnDestroy {
         return;
       }
 
-      gameManager.stateManager.before("nextIdentity", gameManager.characterManager.characterName(this.character));
-      this.character.identity++;
-      if (this.character.identity >= this.character.identities.length) {
-        this.character.identity = 0;
+      let next = this.character.identity + 1;
+      if (next >= this.character.identities.length) {
+        next = 0;
       }
+
+      gameManager.stateManager.before("nextIdentity", gameManager.characterManager.characterName(this.character, false, false, false), this.character.name, this.character.identities[this.character.identity], this.character.identities[next]);
+      this.character.identity = next;
       gameManager.stateManager.after();
       event.preventDefault();
     } else {
@@ -278,7 +280,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
         this.token = 0;
         gameManager.stateManager.after();
       } else {
-        gameManager.stateManager.before("setCharacterTokenValue", gameManager.characterManager.characterName(this.character), this.character.tokens[this.character.primaryToken], '' + (this.character.token + this.token));
+        gameManager.stateManager.before("setCharacterTokenValue", gameManager.characterManager.characterName(this.character), '%data.characterToken.' + this.character.name + '.' + this.character.tokens[this.character.primaryToken] + '%', '' + (this.character.token + this.token));
         this.character.tokenValues[this.character.primaryToken] += this.token;
 
         if (this.character.tags.find((tag) => tag === 'time_tokens') && this.character.primaryToken == 0 && this.character.tokenValues[0] > 5) {
@@ -496,4 +498,9 @@ export class CharacterComponent implements OnInit, OnDestroy {
     gameManager.stateManager.after();
   }
 
+  removeSpecialAction(specialAction: string) {
+    gameManager.stateManager.before("removeSpecialTags", gameManager.characterManager.characterName(this.character), '%data.character.' + this.character.name + '.' + specialAction + '%');
+    this.character.tags = this.character.tags.filter((specialTag) => specialTag != specialAction);
+    gameManager.stateManager.after();
+  }
 }

@@ -48,6 +48,51 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr;
             }
+
+            .brewing {
+                cursor: pointer;
+                color: var(--ghs-color-gray);
+                display: flex;
+                align-items: center;
+                font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+                img {
+                    filter: var(--ghs-filter-gray);
+                    height: 1em;
+                    width: auto;
+                    margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+                }
+
+                &:hover {
+                    opacity: 0.7;
+                }
+
+                &.disabled {
+                    cursor: initial;
+                    opacity: 0.8;
+
+                    &:hover {
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+
+        .shop-disabled {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-white);
+            margin: 0.5em;
+
+            img {
+                margin: 0 0.2em;
+                height: 1em;
+                width: auto;
+                filter: var(--ghs-filter-red);
+            }
         }
 
         .filter {
@@ -141,7 +186,7 @@
         font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
         justify-content: space-evenly;
         align-items: center;
-        background-image: url('~/src/assets/images/dialog_background.png');
+        background-image: url('/assets/images/dialog_background.png');
         z-index: 10;
 
         &.small {
@@ -340,13 +385,13 @@
 
     &.fh {
         .menu {
-            background-image: url('~/src/assets/images/fh/dialog_background_fh.png');
+            background-image: url('/assets/images/fh/dialog_background_fh.png');
         }
     }
 
     &.modern {
         .menu {
-            background-image: url('~/src/assets/images/modern/dialog_background_modern.png');
+            background-image: url('/assets/images/modern/dialog_background_modern.png');
         }
     }
 }

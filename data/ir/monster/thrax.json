@@ -1,0 +1,118 @@
+{
+  "name": "thrax",
+  "edition": "ir",
+  "hidden": true,
+  "count": 1,
+  "standeeShare": "inox-shaman",
+  "standeeShareEdition": "gh",
+  "baseStat": {
+    "type": "normal",
+    "health": "8+(Lx2)"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "movement": 1,
+      "attack": 2,
+      "range": 3
+    },
+    {
+      "level": 1,
+      "movement": 1,
+      "attack": 2,
+      "range": 3
+    },
+    {
+      "level": 2,
+      "movement": 2,
+      "attack": 2,
+      "range": 3
+    },
+    {
+      "level": 3,
+      "movement": 2,
+      "attack": 2,
+      "range": 4
+    },
+    {
+      "level": 4,
+      "movement": 2,
+      "attack": 3,
+      "range": 4
+    },
+    {
+      "level": 5,
+      "movement": 2,
+      "attack": 3,
+      "range": 4
+    },
+    {
+      "level": 6,
+      "movement": 3,
+      "attack": 3,
+      "range": 4
+    },
+    {
+      "level": 7,
+      "movement": 3,
+      "attack": 4,
+      "range": 4
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "movement": 2,
+      "attack": 3,
+      "range": 3
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "movement": 2,
+      "attack": 3,
+      "range": 3
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "movement": 3,
+      "attack": 3,
+      "range": 3
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "movement": 3,
+      "attack": 3,
+      "range": 4
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "movement": 3,
+      "attack": 4,
+      "range": 4
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "movement": 3,
+      "attack": 4,
+      "range": 4
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "movement": 4,
+      "attack": 4,
+      "range": 4
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "movement": 4,
+      "attack": 5,
+      "range": 4
+    }
+  ]
+}

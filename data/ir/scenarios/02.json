@@ -1,0 +1,221 @@
+{
+  "index": "2",
+  "name": "Unusual Customs",
+  "edition": "ir",
+  "unlocks": [
+    "3"
+  ],
+  "rewards": {
+    "gold": 10
+  },
+  "monsters": [
+    "city-archer",
+    "city-guard",
+    "hound"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        2
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "city-.*",
+            "tags": [
+              "ir2-strengthen-1"
+            ]
+          },
+          "type": "gainCondition",
+          "value": "strengthen"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        3
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "city-.*",
+            "tags": [
+              "ir2-strengthen-2"
+            ]
+          },
+          "type": "gainCondition",
+          "value": "strengthen"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "H3b",
+      "initial": true,
+      "rooms": [
+        2,
+        3
+      ],
+      "monster": [
+        {
+          "name": "city-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "B1b",
+      "marker": "1",
+      "rooms": [
+        4
+      ],
+      "treasures": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "city-archer",
+          "type": "normal",
+          "tags": [
+            "ir2-strengthen-1"
+          ]
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "normal",
+          "tags": [
+            "ir2-strengthen-1"
+          ]
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "elite",
+          "tags": [
+            "ir2-strengthen-1"
+          ]
+        },
+        {
+          "name": "hound",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "B3b",
+      "marker": "2",
+      "rooms": [
+        4
+      ],
+      "treasures": [
+        7
+      ],
+      "monster": [
+        {
+          "name": "city-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite",
+          "tags": [
+            "ir2-strengthen-2"
+          ]
+        },
+        {
+          "name": "city-guard",
+          "type": "normal",
+          "tags": [
+            "ir2-strengthen-2"
+          ]
+        },
+        {
+          "name": "city-guard",
+          "type": "normal",
+          "tags": [
+            "ir2-strengthen-2"
+          ]
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "H2b",
+      "marker": "3",
+      "monster": [
+        {
+          "name": "city-archer",
+          "player2": "elite",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -13,7 +13,7 @@
     border-radius: 0.5em;
 
     .card-front {
-        background-image: url('~/src/assets/images/battlegoals/battle-goal-front.png');
+        background-image: url('/assets/images/battlegoals/battle-goal-front.png');
         background-size: 100% 100%;
         background-position: center center;
         background-repeat: no-repeat;
@@ -90,7 +90,7 @@
     }
 
     .card-back {
-        background-image: url('~/src/assets/images/battlegoals/battle-goal-back.png');
+        background-image: url('/assets/images/battlegoals/battle-goal-back.png');
         background-size: 100% 100%;
         background-position: center center;
         background-repeat: no-repeat;
@@ -130,7 +130,7 @@
     &.fh {
 
         .card-front {
-            background-image: url('~/src/assets/images/fh/battlegoals/battle-goal-front-fh.png');
+            background-image: url('/assets/images/fh/battlegoals/battle-goal-front-fh.png');
 
             .text {
                 font-family: var(--ghs-font-normal);
@@ -151,7 +151,7 @@
         }
 
         .card-back {
-            background-image: url('~/src/assets/images/fh/battlegoals/battle-goal-back-fh.png');
+            background-image: url('/assets/images/fh/battlegoals/battle-goal-back-fh.png');
         }
     }
 

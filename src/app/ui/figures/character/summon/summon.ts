@@ -7,7 +7,7 @@ import { Character } from 'src/app/game/model/Character';
 import { ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
-import { Summon, SummonState } from 'src/app/game/model/Summon';
+import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
 import { ghsDefaultDialogPositions, ghsValueSign } from 'src/app/ui/helper/Static';
 import { EntityMenuDialogComponent } from '../../entity-menu/entity-menu-dialog';
 import { Subscription } from 'rxjs';
@@ -24,6 +24,7 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
   @Input() character!: Character;
   @Input() summon!: Summon;
   SummonState = SummonState;
+  SummonColor = SummonColor;
   ConditionType = ConditionType;
   health: number = 0;
   maxHp: number = 0;

@@ -111,7 +111,10 @@
       "personalQuest": {
         ".": "개인 퀘스트",
         "counter": "Counter",
-        "openEnvelope": "봉투 {0} 열기",
+        "openEnvelope": {
+          ".": "봉투 %game.fhIcon:envelope% {0} 열기",
+          "alt": "봉투 %game.fhIcon:envelope% {0} 열기<br>(또는: %game.fhIcon:envelope% {1})"
+        },
         "unlockCharacter": "%game.characterIcon.{0}% 상자 열기"
       },
       "resources": {
@@ -1200,7 +1203,7 @@
       ".": "파티",
       "hint": "파티와 캠페인의 진행 사항을 갱신하고 변경할 수 있음."
     },
-    "password": {
+    "code": {
       ".": "권한에 부여할 새로운 암호"
     },
     "round": {
@@ -1544,7 +1547,7 @@
       "connect": "서버에 연결하기",
       "connected": "서버 연결"
     },
-    "password": {
+    "code": {
       ".": "게임 코드",
       "hint": "게임 코드로 당신의 게임을 식별합니다. 새 게임의 경우 원하는 코드를 입력하거나 생성하기만 하면 됩니다. 같은 코드를 가진 사람은 모두 같은 게임에 접속할 수 있습니다. <br><br>이전에는 \"비밀번호\"라고 불렸지만 혼동을 피하기 위해 이제 이름이 변경되었습니다.",
       "uuid": "UUID 생성하기"

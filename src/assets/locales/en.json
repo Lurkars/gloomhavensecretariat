@@ -111,7 +111,11 @@
       "personalQuest": {
         ".": "Personal Quest",
         "counter": "Counter",
-        "openEnvelope": "Open Envelope {0}",
+        "openEnvelope": {
+          ".": "Open Envelope %game.fhIcon:envelope% {0}",
+          "alt": "Open Envelope %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})",
+          "building": "Unlocks building '%data.buildings.{1}%' ({0})"
+        },
         "unlockCharacter": "Open Box %game.characterIcon.{0}%"
       },
       "resources": {
@@ -139,6 +143,8 @@
     },
     "remove": "Remove Character",
     "removeAll": "Remove All",
+    "replay": "Doubleclick to replay character",
+    "setAside": "Set character aside",
     "summon": {
       "level": "(Level {0})"
     },
@@ -488,7 +494,10 @@
       "restore": "Restore defaults",
       "revealAll": "Reveal All?",
       "revealAllConfirm": "Reveal All!",
-      "shuffle": "Shuffle"
+      "shuffle": {
+        ".": "Shuffle",
+        "upcomingHint": "Doubleclick to shuffle only upcoming cards!"
+      }
     },
     "condition": {
       "bane": {
@@ -726,6 +735,7 @@
         "brewed": "{2} brewed {1} %game.itemFh.{0}%",
         "brewFor": "Brew for {0}",
         "brewedOther": "{2} brewed {1} %game.itemFh.{0}% for {3}",
+        "disabled": "Cannot brew potions, rebuild '%data.buildings.alchemist%' (35) first",
         "item": "{1} %game.itemFh.{0}%",
         "noChar": "Potion already owned by every character!",
         "selectCharacter": "Select Character to brew for:"
@@ -752,7 +762,9 @@
       "sell": "Sell '{0}' for {1} gold",
       "shop": {
         ".": "Itemcards",
-        "character": "Itemshop for %game.characterIconColored.{0}% {1}"
+        "buyingDisabled": "Cannot buy items, rebuild '%data.buildings.trading-post%' (37) first",
+        "character": "Itemshop for %game.characterIconColored.{0}% {1}",
+        "craftingDisabled": "Cannot craft items, rebuild '%data.buildings.craftsman%' (34) first"
       },
       "unlock": "Unlock Item",
       "unlocked": "Item unlocked",
@@ -1064,7 +1076,9 @@
           },
           "costs": "Costs",
           "discount": "-1 material resource",
+          "effects": "Effects",
           "id": "Number",
+          "interactions": "Interactions",
           "level": {
             ".": "Level",
             "hint": "Show bonuses (downgrade level with double-click)"
@@ -1095,6 +1109,11 @@
           "selectResources": {
             ".": "Select Resources",
             "confirm": "Confirm"
+          },
+          "state": {
+            "damaged": "damaged",
+            "normal": "normal",
+            "wrecked": "wrecked"
           },
           "unlock": "Unlock building",
           "upgrade": {
@@ -1131,6 +1150,7 @@
         },
         "winter": "Winter"
       },
+      "totalTime": "Played in scenarios for {0} days, {1} hours, {2} minutes and {3} seconds, approx {4} hours",
       "townGuard": "Town Guard",
       "townGuardDeck": "Town Guard Deck",
       "treasures": {
@@ -1201,7 +1221,7 @@
       ".": "Party",
       "hint": "Update and change Party and Campaign progress"
     },
-    "password": {
+    "code": {
       ".": "New Game Code for Permissions"
     },
     "round": {
@@ -1545,7 +1565,7 @@
       "connect": "Connect to Server",
       "connected": "Server Connection"
     },
-    "password": {
+    "code": {
       ".": "Game Code",
       "hint": "The Game Code identifies your game. For a new game just enter a new code of your choice or generate one. Everyone with the same Code connect to the same game.<br><br>This was previously called \"Password\", but to avoid confusion it is renamed now.",
       "uuid": "Generate Code (UUID)"
@@ -2090,6 +2110,10 @@
       ".": "Round/Turn confirmation",
       "hint": "Show a reminder when clicking \"%round.next%\" before all figures finished their turns. If disabled and %settings.expireConditions% or %settings.applyConditions% is active it will be automatically applied for all figures."
     },
+    "unlockEnvelopeBuildings": {
+      ".": "Unlock buildings from envelopes",
+      "hint": "Automatically unlock buildings by opening envelopes (from personal quest)."
+    },
     "wakeLock": {
       ".": "Wake Lock",
       "hint": "Wake Lock on supported devices. Wake Lock will keep the screen on. This can drain battery on mobile."
@@ -2115,7 +2139,7 @@
     },
     "currentGame": "Current",
     "info": {
-      "addBuilding": "Unlock building {0}",
+      "addBuilding": "Unlock building '%data.buildings.{1}%' ({0})",
       "addCampaignSticker": "Add Campaign Sticker {0}",
       "addChar": "Add character {0}",
       "addCondition": {
@@ -2168,6 +2192,7 @@
       "addRandomStandee": "Add random {1} {0} standee {2}",
       "addResource": "Add +{2} {1} for {0}",
       "addSection": "Add section #{0} {1} ({2})",
+      "addSpecialTags": "Add special actions {1} for {0}",
       "addStandee": "Add {1} {0} standee {2}",
       "addSummon": "Add summon '{1}' for {0}",
       "addTreasure": "Add treasure {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
@@ -2201,9 +2226,10 @@
           "removeEdition": "Remove Battle Goal cards from edition %data.edition.{0}%"
         }
       },
-      "buildBuilding": "Build {0}",
+      "buildBuilding": "Build '%data.buildings.{1}%' ({0})",
       "buyItem": "Buy Item {1} (%data.edition.{2}%) for {0}",
       "cancelScenario": "Cancel Scenario #{0} {1} ({2})",
+      "changeBuildingState": "State of building '%data.buildings.{1}%' ({0}) to %party.campaign.sheet.buildings.state.{2}%",
       "changeCustomScenario": "Name '{0}' for custom scenario",
       "changeEntityHp": "HP {3} for {1} standee {2} of {0}",
       "changeEntityMaxHp": "max. HP {3} for {1} standee {2} of {0}",
@@ -2243,6 +2269,8 @@
       },
       "characterLongRest": "Set Long Rest for {0}",
       "characterLongRestOff": "Disable Long Rest for {0}",
+      "characterReplay": "Play {0} again for player {1}",
+      "characterSetAside": "Set {0} aside for player {1}",
       "craftItem": "Craft Item {1} (%data.edition.{2}%) for {0}",
       "declineApplyCondition": {
         "char": "Decline apply %game.condition.{1}% to {0}",
@@ -2259,6 +2287,7 @@
       "disablePartyCampaignMode": "Disable campaign mode",
       "disableSolo": "Disable solo level calculation",
       "donate": "{0} donate to Sanctuary of the Great Oak",
+      "downgradeBuilding": "Downgrade building '%data.buildings.{1}%' ({0}) to level {2}",
       "draw": "Draw",
       "drawAbility": "Draw ability for {0}",
       "enableAutomaticLevel": "Enable automatic level calculation",
@@ -2317,25 +2346,34 @@
       "lootDeckReorder": "Reorder Loot deck",
       "lootDeckShow": "Show Loot deck",
       "lootDeckShuffle": "Shuffle Loot deck",
+      "lootDeckShuffleUpcoming": "Shuffle upcoming cards from Loot deck",
       "lootRandomItem": "{3} loots random item {0} \"{2}\" (%data.edition.{1}%)",
       "moveResource": "Move {2} {1} from {0} to Frosthaven Supply",
       "monsterChangeEntityHp": "HP {2} for standee {1} of %data.monster.{0}%",
       "monsterConsumeElement": "{0} consume {1}",
       "monsterDead": "Kill all {1}{0}",
       "monsterInfuseElement": "{0} infuse {1}",
+      "monsterSetEntityActive": "Set %game.monster.{2}% standee {1} of %data.monster.{0}% active",
+      "monsterUnsetEntityActive": "Set %game.monster.{2}% standee {1} of %data.monster.{0}% inactive",
+      "nextIdentity": "Set form of {0} from %data.character.{1}.{2}% to %data.character.{1}.{3}%",
       "nextRound": "Next Round",
       "objectiveContainerChangeEntityHp": "HP {2} for %game.objectiveMarker.{1}% of {0}",
       "objectiveEntityDead": "Kill %game.objectiveMarker.{1}% of {0}",
       "openRoom": "Open door for tile '{2}' in #{0} {1}",
       "openRoomMarker": "Open door %game.mapMarker.{3}% for tile '{2}' in #{0} {1}",
-      "removeAbility": "Remove ability {1} from {0}",
+      "rebuildBuilding": "Rebuild '%data.buildings.{1}%' ({0})",
+      "removeAbility": "Remove ability \"{1}\" from {0}",
       "removeAllChars": "Remove all characters",
       "removeAllMonster": "Remove all monster",
       "removeAllObjectives": "Remove all objectives",
+      "removeBuilding": "Remove building '%data.buildings.{1}%' ({0})",
       "removeCampaignSticker": "Remove Campaign Sticker {0}",
       "removeChar": "Remove character {0}",
       "removeCharacterRetaliate": "Remove %game.action.retaliate% for {0}",
-      "removeCharacterShield": "Remove %game.action.shield% for {0}",
+      "removeCharacterRetaliatePersistent": "Remove %game.card.persistent% %game.action.retaliate% for {0}",
+      "removeCharacterShield": "Remove  %game.action.shield% for {0}",
+      "removeCharacterShieldPersistent": "Remove %game.card.persistent% %game.action.shield% for {0}",
+      "removeCharTreasure": "Remove treasure {1} for {2}",
       "removeCondition": {
         "char": "Remove %game.condition.{1}% from {0}",
         "monsterEntities": "Remove %game.condition.{1}% fromm all {2}{0}",
@@ -2381,12 +2419,14 @@
       "removePlayer": "Remove Player {1} ({0})",
       "removeResource": "-{2} {1} of {0}",
       "removeScenarioRule": "Remove scenario rule",
+      "removeSpecialTags": "Remove special actions {1} from {0}",
       "removeTreasure": "Remove treasure {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
       "removeTreasures": "Remove treasures {1} (%data.edition.{0}%)",
-      "removeCharTreasure": "Remove treasure {1} for {2}",
       "reorder": "Reorder figures",
       "reorderAbilities": "Reorder abilities of {0}",
+      "repairBuilding": "Repair '%data.buildings.{1}%' ({0})",
       "resetScenario": "Reset scenario #{0} {1} ({2})",
+      "restoreAbility": "Restore ability \"{1}\" for {0}",
       "restoreDefaultAbilities": "Restore default abilities of {0}",
       "sellItem": "Sell Item {1} (%data.edition.{2}%) for {0}",
       "serverSync": "Server: {0}",
@@ -2397,7 +2437,10 @@
       "setAllied": "{0} as allied",
       "setBG": "Set Battle Goals of {0} to {1}",
       "setCharacterRetaliate": "{1} for {0}",
+      "setCharacterRetaliatePersistent": "%game.card.persistent% {1} for {0}",
       "setCharacterShield": "%game.action.shield% {1} for {0}",
+      "setCharacterShieldPersistent": " %game.card.persistent% %game.action.shield% {1} for {0}",
+      "setCharacterTokenValue": "Set token {1} to {2} for {0}",
       "setConditionValue": {
         "char": "%game.condition.{1}% to {2} for {0}",
         "monsterEntities": "%game.condition.{1}% to {2} for all {3}{0}",
@@ -2409,13 +2452,14 @@
       "setCustomScenario": "Set custom scenario",
       "setDrawExtraAbility": "Set draw extra for {0}",
       "setEdition": "Set edition to {0}",
+      "setEditionAll": "Select all editions",
       "setEntityActive": "Set standee {1} of {0} active",
       "setEntitySummonState": "Set summon {3} for {1} standee {2} of {0}",
       "setExhausted": "{0} exhausted",
       "setGold": "Gold {1} for {0}",
       "setInitiative": "Initiative {1} for {0}",
       "setLevel": "Level {1} for {0}",
-      "setNotes": "Notes {1} for {0}",
+      "setNotes": "Notes \"{1}\" for {0}",
       "setObjectiveExhausted": "Objective {0} exhausted",
       "setObjectiveInitiative": "Initiative {1} for objective {0}",
       "setPartyAchievements": "Party achievements",
@@ -2446,6 +2490,7 @@
       "setTitle": "Title '{1}' for {0}",
       "setXP": "XP {1} for {0}",
       "shuffleAbilityDeck": "Shuffle abilities of {0}",
+      "shuffleAbilityDeckUpcoming": "Shuffle upcoming abilities of {0}",
       "summonActive": "Summon '{1}' von {0} active",
       "summonDead": "Kill summon '{1}' of {0}",
       "summonInactive": "Summon '{1}' von {0} inactive",
@@ -2478,7 +2523,8 @@
         "removeDrawnDiscards": "Remove drawn discards from {0} AM deck",
         "reorder": "Reorder {0} AM deck",
         "restoreDefault": "Restore default {0} AM deck",
-        "shuffle": "Shuffle {0} AM deck"
+        "shuffle": "Shuffle {0} AM deck",
+        "shuffleUpcoming": "Shuffle upcoming cards of {0} AM deck"
       },
       "updateBonusAdjustment": "Bonuses adjustment {0}",
       "updateElement": "Element {0} {1}",
@@ -2486,7 +2532,8 @@
       "updateLevelAdjustment": "Level adjustment {0}",
       "updateManualPlayerCount": "Set manual player count to {0}",
       "updatePartyAchievements": "Party achievement to {0}",
-      "upgradeBuilding": "Upgrade building {0} to level {1}"
+      "updateStandee": "Change {1} standee number {2} to {3} for {0}",
+      "upgradeBuilding": "Upgrade building '%data.buildings.{1}%' ({0}) to level {2}"
     },
     "loadMore": "Show more",
     "missing": "Missing states: {0}",

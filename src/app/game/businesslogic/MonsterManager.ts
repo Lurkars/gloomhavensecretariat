@@ -643,11 +643,13 @@ export class MonsterManager {
     });
   }
 
-  shuffleAbilities(monster: Monster) {
-    if (gameManager.game.state == GameState.draw || monster.entities.length == 0) {
-      monster.ability = -1;
-    } else {
-      monster.ability = 0;
+  shuffleAbilities(monster: Monster, onlyUpcoming: boolean = false) {
+    if (!onlyUpcoming) {
+      if (gameManager.game.state == GameState.draw || monster.entities.length == 0) {
+        monster.ability = -1;
+      } else {
+        monster.ability = 0;
+      }
     }
 
     if (monster.drawExtra) {
@@ -655,23 +657,31 @@ export class MonsterManager {
       if (!sameDeckMonster) {
         console.error("Shuffle for '" + monster.name + "' (" + monster.deck + " not possible, not same deck monster found!");
         monster.drawExtra = false;
-        this.shuffleAbilities(monster);
+        this.shuffleAbilities(monster, onlyUpcoming);
         return;
       }
-      this.shuffleAbilities(sameDeckMonster);
+      this.shuffleAbilities(sameDeckMonster, onlyUpcoming);
       return;
     }
 
-    ghsShuffleArray(monster.abilities);
-
     const deckData = gameManager.deckData(monster);
-    this.game.figures.filter((figure) => {
+    const sameDeckMonsters = this.game.figures.filter((figure) => {
       if (figure instanceof Monster) {
         const otherDeckData = gameManager.deckData(figure);
         return deckData.name == otherDeckData.name && deckData.edition == otherDeckData.edition;
       }
       return false;
-    }).map((figure) => figure as Monster).forEach((sameDeckMonster) => {
+    }).map((figure) => figure as Monster)
+
+    let restoreCards: number[] = onlyUpcoming && monster.ability > -1 ? monster.abilities.splice(0, monster.ability + 1 + sameDeckMonsters.filter((monster) => monster.drawExtra).length) : [];
+
+    ghsShuffleArray(monster.abilities);
+
+    if (onlyUpcoming) {
+      monster.abilities.unshift(...restoreCards);
+    }
+
+    sameDeckMonsters.forEach((sameDeckMonster) => {
       sameDeckMonster.abilities = JSON.parse(JSON.stringify(monster.abilities));
       if (gameManager.game.state == GameState.draw) {
         sameDeckMonster.ability = -1;

@@ -102,6 +102,22 @@
         text-align: center;
     }
 
+    .envelope {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .building {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: var(--ghs-font-text);
+            font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-gray);
+        }
+    }
+
     .additional {
         font-family: var(--ghs-font-text);
         display: flex;
@@ -135,17 +151,17 @@
         align-items: center;
 
         .card-id {
-          text-align: right;
-          font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
-          margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-          width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
-          min-width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+            text-align: right;
+            font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+            margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+            min-width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
         }
 
         .personal-quest-name {
-          font-family: var(--ghs-font-title);
+            font-family: var(--ghs-font-title);
         }
-      }
+    }
 
     .menu {
         display: flex;

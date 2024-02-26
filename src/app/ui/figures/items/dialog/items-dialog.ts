@@ -1,4 +1,4 @@
-import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
+import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component, Inject } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
@@ -8,6 +8,7 @@ import { GameState } from "src/app/game/model/Game";
 import { CountIdentifier } from "src/app/game/model/data/Identifier";
 import { ItemData, ItemSlot } from "src/app/game/model/data/ItemData";
 import { ghsDialogClosingHelper, ghsTextSearch } from "src/app/ui/helper/Static";
+import { ItemsBrewDialog } from "../brew/brew";
 
 @Component({
     selector: 'ghs-items-dialog',
@@ -35,10 +36,11 @@ export class ItemsDialogComponent {
     itemSlotUndefined: boolean = false;
     unlocks: ItemData[] = [];
     campaignMode: boolean = false;
+    brewing: number = 0;
 
     ItemSlot: ItemSlot[] = Object.values(ItemSlot);
 
-    constructor(@Inject(DIALOG_DATA) public data: { edition: string | undefined, select: Character | undefined, affordable: boolean }, private dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) public data: { edition: string | undefined, select: Character | undefined, affordable: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
         this.selected = undefined;
         this.character = data.select;
         this.sorted = this.character != undefined && this.character.progress.items.length > 0;
@@ -88,6 +90,15 @@ export class ItemsDialogComponent {
             this.sorted = false;
         }
         this.update();
+    }
+
+    brewDialog(force: boolean = false) {
+        if (!gameManager.itemManager.brewingDisabled() || force) {
+            this.dialog.open(ItemsBrewDialog, {
+                panelClass: ['dialog'],
+                data: this.character
+            })
+        }
     }
 
     update(onlyAffordable: boolean = false) {
@@ -164,6 +175,8 @@ export class ItemsDialogComponent {
             })
         }
 
+        this.brewing = 0;
+
         if (this.character) {
             this.itemsMeta = [];
             this.items.forEach((itemData) => {
@@ -171,6 +184,13 @@ export class ItemsDialogComponent {
                     this.itemsMeta.push({ canAdd: gameManager.itemManager.canAdd(itemData, this.character), canBuy: gameManager.itemManager.canBuy(itemData, this.character), canCraft: gameManager.itemManager.canCraft(itemData, this.character), owned: gameManager.itemManager.owned(itemData, this.character), assigned: gameManager.itemManager.assigned(itemData), countAvailable: gameManager.itemManager.countAvailable(itemData) })
                 }
             })
+
+            if (gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings) {
+                const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist');
+                if (alchemist && alchemist.level) {
+                    this.brewing = alchemist.level < 3 ? 2 : 3;
+                }
+            }
         }
     }
 

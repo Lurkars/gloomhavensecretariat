@@ -110,14 +110,22 @@ export class ItemManager {
     }
 
     canBuy(item: ItemData, character: Character, cost: number = 0): boolean {
-        if (gameManager.game.party.campaignMode && gameManager.fhRules() && character.tags.indexOf('new-character') == -1 && (!this.game.party.buildings || !this.game.party.buildings.find((buildingModel) => buildingModel.name == "trading-post" && buildingModel.level >= 1 && buildingModel.state != 'wrecked'))) {
+        if (character.tags.indexOf('new-character') == -1 && this.buyingDisabled()) {
             return false;
         }
 
         return item.cost && (item.cost + this.pricerModifier() + cost) <= character.progress.gold && this.canAdd(item, character) || false;
     }
 
+    buyingDisabled(): boolean {
+        return gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'trading-post' && buildingModel.level > 0 && buildingModel.state == "wrecked") != undefined;
+    }
+
     canCraft(item: ItemData, character: Character, resources: Partial<Record<LootType, number>> = {}): boolean {
+        if (this.craftingDisabled()) {
+            return false;
+        }
+
         let isCraftItem = false;
         let canCraft = true;
         if (item.resources) {
@@ -152,6 +160,14 @@ export class ItemManager {
         }
 
         return canCraft && isCraftItem;
+    }
+
+    craftingDisabled(): boolean {
+        return gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'craftsman' && buildingModel.level > 0 && buildingModel.state == "wrecked") != undefined;
+    }
+
+    brewingDisabled(): boolean {
+        return gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist' && buildingModel.level > 0 && buildingModel.state == "wrecked") != undefined;
     }
 
     itemSellValue(itemData: ItemData): number {

@@ -81,7 +81,8 @@
           </span>
 
           <span class="actions" *ngIf="settingsManager.settings.characterShieldRetaliate">
-            <span class="action" *ngIf="character.shield" ghs-pointer-input (doubleClick)="removeShield()">
+            <span class="action" *ngIf="character.shield" ghs-pointer-input (singleClick)="openEntityMenu($event)"
+              (doubleClick)="removeShield()">
               <!--
               <span class="shield-overlay">
                 <span class="text-white" [ghs-label]="'%game.card.round%'"></span>
@@ -90,7 +91,7 @@
               <ghs-action [action]="character.shield" [style]="'fh'"></ghs-action>
             </span>
             <span class="action" *ngFor="let retaliate of character.retaliate; let i = index;" ghs-pointer-input
-              (doubleClick)="removeRetaliate(i)">
+              (singleClick)="openEntityMenu($event)" (doubleClick)="removeRetaliate(i)">
               <!--
               <span class="shield-overlay">
                 <span class="text-white" [ghs-label]="'%game.card.round%'"></span>
@@ -100,14 +101,14 @@
             </span>
 
             <span class="action" *ngIf="character.shieldPersistent" ghs-pointer-input
-              (doubleClick)="removeShieldPersistent()">
+              (singleClick)="openEntityMenu($event)" (doubleClick)="removeShieldPersistent()">
               <span class="shield-overlay">
                 <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
               </span>
               <ghs-action [action]="character.shieldPersistent" [style]="'fh'"></ghs-action>
             </span>
             <span class="action" *ngFor="let retaliatePersistent of character.retaliatePersistent; let i = index;"
-              ghs-pointer-input (doubleClick)="removeRetaliatePersistent(i)">
+              ghs-pointer-input (singleClick)="openEntityMenu($event)" (doubleClick)="removeRetaliatePersistent(i)">
               <span class="shield-overlay">
                 <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
               </span>
@@ -197,9 +198,9 @@
         <span class="badge">{{character.lootCards.length}}</span>
       </div>
 
-      <span *ngIf="settingsManager.settings.characterSheet && settingsManager.settings.characterAttackModifierDeck" class="attack-modifier-button"
-        ghs-pointer-input (singleClick)="toggleAttackModifierDeckVisible()" [ghs-label]="'game.attackModifiers'"
-        [ghs-label-attribute]="'title'">
+      <span *ngIf="settingsManager.settings.characterSheet && settingsManager.settings.characterAttackModifierDeck"
+        class="attack-modifier-button" ghs-pointer-input (singleClick)="toggleAttackModifierDeckVisible()"
+        [ghs-label]="'game.attackModifiers'" [ghs-label-attribute]="'title'">
         <img src="./assets/images/attackmodifier/icon.png" />
       </span>
 
@@ -288,7 +289,8 @@
     <div class="special-actions" *ngIf="character.specialActions">
       <ng-container *ngFor="let specialAction of character.specialActions">
         <span *ngIf="character.tags.indexOf(specialAction.name) != -1" class="special-tag"
-          [ghs-label]="'data.character.' + character.name + '.' + specialAction.name"></span>
+          [ghs-label]="'data.character.' + character.name + '.' + specialAction.name"  ghs-pointer-input
+          (singleClick)="openEntityMenu($event)" (doubleClick)="removeSpecialAction(specialAction.name)"></span>
       </ng-container>
     </div>
   </div>

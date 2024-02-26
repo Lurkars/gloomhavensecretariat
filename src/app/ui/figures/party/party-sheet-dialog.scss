@@ -90,7 +90,7 @@
       appearance: none;
       color: transparent;
       border: none;
-      background: transparent url('~/src/assets/images/select-arrow.svg') no-repeat right center;
+      background: transparent url('/assets/images/select-arrow.svg') no-repeat right center;
     }
 
     .checkbox {
@@ -117,7 +117,7 @@
         transform-origin: top left;
         transition: 120ms transform ease-in-out;
         z-index: 1;
-        background-image: url('~/src/assets/images/checkmark.svg');
+        background-image: url('/assets/images/checkmark.svg');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -139,7 +139,7 @@
         top: calc(var(--ghs-unit) * -0.5 * var(--ghs-dialog-factor));
         width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
         height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-        background-image: url('~/src/assets/images/check.svg');
+        background-image: url('/assets/images/check.svg');
         transform-origin: bottom left;
       }
 
@@ -287,7 +287,7 @@
       position: relative;
       width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
       height: calc(var(--ghs-unit) * 76 * var(--ghs-dialog-factor));
-      background-image: url('~/src/assets/images/party/party-sheet.svg');
+      background-image: url('/assets/images/party/party-sheet.svg');
       background-position: top center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -365,19 +365,24 @@
             .value {
               cursor: pointer;
 
-              &.checked::before {
+              &.checked::before,
+              &:hover::before {
                 content: ' ';
                 position: absolute;
                 top: 0;
                 left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
                 width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
                 height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-                background-image: url('~/src/assets/images/checkmark.svg');
+                background-image: url('/assets/images/checkmark.svg');
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center;
                 filter: var(--ghs-filter-red);
                 z-index: 1;
+              }
+
+              &:hover::before {
+                opacity: 0.5;
               }
             }
           }
@@ -469,12 +474,12 @@
       &.fh-sheet {
         width: calc(var(--ghs-unit) * 120.5 * var(--ghs-dialog-factor));
         height: calc(var(--ghs-unit) * 98.5 * var(--ghs-dialog-factor));
-        background-image: url('~/src/assets/images/fh/party/party-sheet.svg');
+        background-image: url('/assets/images/fh/party/party-sheet.svg');
 
         .checkbox.checked::before {
           clip-path: none;
           background-color: transparent;
-          background-image: url('~/src/assets/images/checkmark.svg');
+          background-image: url('/assets/images/checkmark.svg');
           background-size: contain;
           background-repeat: no-repeat;
           background-position: center;
@@ -612,7 +617,7 @@
               left: 10%;
               width: 80%;
               height: 80%;
-              background-image: url('~/src/assets/images/checkmark.svg');
+              background-image: url('/assets/images/checkmark.svg');
               background-size: contain;
               background-repeat: no-repeat;
               background-position: center;
@@ -674,7 +679,7 @@
             left: 10%;
             width: 80%;
             height: 80%;
-            background-image: url('~/src/assets/images/checkmark.svg');
+            background-image: url('/assets/images/checkmark.svg');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -738,6 +743,10 @@
             display: flex;
             align-items: center;
 
+            .supply {
+              cursor: help;
+            }
+
             .move-resources {
               display: flex;
 
@@ -753,8 +762,8 @@
                 cursor: pointer;
 
                 img {
-                  width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-                  height: auto;
+                  width: auto;
+                  height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
                 }
               }
             }
@@ -893,7 +902,7 @@
                       left: 10%;
                       width: 80%;
                       height: 80%;
-                      background-image: url('~/src/assets/images/checkmark.svg');
+                      background-image: url('/assets/images/checkmark.svg');
                       background-size: contain;
                       background-repeat: no-repeat;
                       background-position: center;
@@ -944,19 +953,25 @@
                 width: 100%;
                 height: calc(var(--ghs-unit) * 1.92 * var(--ghs-dialog-factor));
 
-                &.checked::before {
+                &.checked::before,
+                &:hover::before {
                   content: ' ';
                   position: absolute;
                   top: 0;
                   left: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
                   width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
                   height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-                  background-image: url('~/src/assets/images/checkmark.svg');
+                  background-image: url('/assets/images/checkmark.svg');
                   background-position: center center;
                   background-repeat: no-repeat;
                   z-index: 1;
                   filter: var(--ghs-filter-red);
                 }
+
+                &:hover::before {
+                  opacity: 0.5;
+                }
+
               }
             }
 
@@ -1107,7 +1122,7 @@
                     left: calc(var(--ghs-unit) * -1.2 * var(--ghs-dialog-factor));
                     width: 80%;
                     height: 80%;
-                    background-image: url('~/src/assets/images/checkmark.svg');
+                    background-image: url('/assets/images/checkmark.svg');
                     background-size: contain;
                     background-repeat: no-repeat;
                     background-position: center;
@@ -1289,7 +1304,7 @@
                 background-position: center;
                 background-size: 100% auto;
                 background-repeat: no-repeat;
-                background-image: url('~/src/assets/images/attackmodifier/town-guard/icon.png');
+                background-image: url('/assets/images/attackmodifier/town-guard/icon.png');
               }
             }
           }
@@ -1658,6 +1673,19 @@
               margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
             }
 
+            .available-characters {
+              display: flex;
+
+              .available-character {
+                cursor: pointer;
+
+                img {
+                  width: auto;
+                  height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+                }
+              }
+            }
+
             .remove {
               cursor: pointer;
               display: flex;
@@ -1806,6 +1834,10 @@
               grid-template-columns: 1fr 2fr 1.8fr 1fr 1fr 1.4fr 0.5fr;
             }
           }
+        }
+
+        .time {
+          margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
         }
 
 
@@ -2221,13 +2253,13 @@
                   bottom: 0;
                   border-radius: 100%;
                   background-color: var(--ghs-color-gray);
-                  mask-image: url('~/src/assets/images/party/env-b.svg');
+                  mask-image: url('/assets/images/party/env-b.svg');
                   mask-size: 100% 100%;
                 }
 
                 &.prosperity::after {
                   background-color: var(--ghs-color-yellow);
-                  mask-image: url('~/src/assets/images/party/env-b-prosp.svg');
+                  mask-image: url('/assets/images/party/env-b-prosp.svg');
                 }
 
                 &::before {
@@ -2241,7 +2273,7 @@
                   transform-origin: top left;
                   transition: 120ms transform ease-in-out;
                   z-index: 1;
-                  background-image: url('~/src/assets/images/checkmark.svg');
+                  background-image: url('/assets/images/checkmark.svg');
                   background-size: contain;
                   background-repeat: no-repeat;
                   background-position: center;

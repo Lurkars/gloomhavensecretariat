@@ -110,6 +110,20 @@
         opacity: 0.9;
       }
 
+      &.fh {
+        .summon-number {
+          width: calc(var(--ghs-unit) * 4.5 * var(--ghs-dialog-factor));
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: ghs-title;
+          font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+          color: var(--ghs-color-white);
+          border: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor)) solid var(--ghs-color-white);
+          border-radius: 100%;
+        }
+      }
+
     }
 
     small {
@@ -372,7 +386,7 @@
       position: absolute;
       width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
       height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-      background-image: url('~/src/assets/images/summons/minus.svg');
+      background-image: url('/assets/images/summons/minus.svg');
       background-size: cover;
     }
 
@@ -397,6 +411,36 @@
 
     &.active:hover {
       filter: grayscale(70%);
+    }
+
+    &.fh {
+
+      &.new::after,
+      &:hover::after {
+        right: calc(var(--ghs-unit) * -0.3 * var(--ghs-dialog-factor));
+        top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+        width: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
+        background-image: url('/assets/images/fh/summons/minus.svg');
+        z-index: 2;
+      }
+
+      .summon-number {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+        width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+        font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        background-color: var(--ghs-color-darkgray);
+        z-index: 1;
+        opacity: 0.9;
+        font-family: ghs-title;
+        color: var(--ghs-color-white);
+        border: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor)) solid var(--ghs-color-white);
+        border-radius: 100%;
+      }
     }
 
   }

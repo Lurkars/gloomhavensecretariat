@@ -7,15 +7,19 @@
       <span [ghs-label]="'settings.levelCalculation'"></span>
     </label>
 
-    <label *ngIf="gameManager.game.levelCalculation"><span [ghs-label]="'settings.levelAdjustment'"></span>
-      <input tabclick type="number" #levelAdjustment [value]="gameManager.game.levelAdjustment" min="-6" max="6"
-        (keyup)="0" (change)="setLevelAdjustment(+levelAdjustment.value)" [size]="levelAdjustment.value.length"
-        [ghs-label]="'settings.levelAdjustment'" [ghs-label-attribute]="'placeholder'"></label>
+    <label *ngIf="gameManager.game.levelCalculation">
+      <span [ghs-label]="'settings.levelAdjustment'"></span>
+      :&nbsp;
+      <ghs-number-input [model]="gameManager.game.levelAdjustment" (modelChange)="setLevelAdjustment($event)" [min]="-6"
+        [max]="6"></ghs-number-input>
+    </label>
 
-    <label><span [ghs-label]="'settings.bonusAdjustment'"></span>
-      <input tabclick type="number" #bonusAdjustment [value]="gameManager.game.bonusAdjustment" min="-6" max="6"
-        (keyup)="0" (change)="setBonusAdjustment(+bonusAdjustment.value)" [size]="bonusAdjustment.value.length"
-        [ghs-label]="'settings.bonusAdjustment'" [ghs-label-attribute]="'placeholder'"></label>
+    <label>
+      <span [ghs-label]="'settings.bonusAdjustment'"></span>
+      :&nbsp;
+      <ghs-number-input [model]="gameManager.game.bonusAdjustment" (modelChange)="setBonusAdjustment($event)" [min]="-6"
+        [max]="6"></ghs-number-input>
+    </label>
 
     <label *ngIf="ge5Player()">
       <input tabclick type="checkbox" [checked]="gameManager.game.ge5Player"

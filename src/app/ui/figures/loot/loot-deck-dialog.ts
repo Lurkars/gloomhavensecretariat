@@ -193,15 +193,15 @@ export class LootDeckDialogComponent implements OnInit {
     this.update();
   }
 
-  shuffle(): void {
-    this.before.emit(new LootDeckChange(this.deck, 'lootDeckShuffle'));
-    gameManager.lootManager.shuffleDeck(this.deck);
+  shuffle(upcoming: boolean = false): void {
+    this.before.emit(new LootDeckChange(this.deck, 'lootDeckShuffle' + (upcoming ? "Upcoming" : "")));
+    gameManager.lootManager.shuffleDeck(this.deck, upcoming);
     gameManager.game.figures.forEach((figure) => {
       if (figure instanceof Character) {
-        figure.lootCards = [];
+        figure.lootCards = figure.lootCards.filter((number) => number <= this.deck.current);
       }
     })
-    this.after.emit(new LootDeckChange(this.deck, 'lootDeckShuffle'));
+    this.after.emit(new LootDeckChange(this.deck, 'lootDeckShuffle' + (upcoming ? "Upcoming" : "")));
     this.update();
   }
 

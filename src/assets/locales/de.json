@@ -111,7 +111,11 @@
       "personalQuest": {
         ".": "Persönliche Quest",
         "counter": "Zähler",
-        "openEnvelope": "Umschlag {0} öffnen",
+        "openEnvelope": {
+          ".": "Umschlag %game.fhIcon:envelope% {0} öffnen",
+          "alt": "Umschlag %game.fhIcon:envelope% {0} öffnen<br>(sonst: %game.fhIcon:envelope% {1})",
+          "building": "Schaltet Gebäude '%data.buildings.{1}%' ({0}) frei"
+        },
         "unlockCharacter": "Schachtel %game.characterIcon.{0}% öffnen"
       },
       "resources": {
@@ -139,6 +143,8 @@
     },
     "remove": "Charakter entfernen",
     "removeAll": "Alle entfernen",
+    "replay": "Doppelklick um Charakter wieder zu spielen",
+    "setAside": "Charakter beiseitelegen",
     "summon": {
       "level": "(Level {0})"
     },
@@ -387,7 +393,10 @@
       "restore": "Standard wiederherstellen",
       "revealAll": "Alle Aufdecken?",
       "revealAllConfirm": "Alle Aufdecken!",
-      "shuffle": "Mischen"
+      "shuffle": {
+        ".": "Mischen",
+        "upcomingHint": "Doppelklick um nur nicht gezogene Karten zu mischen!"
+      }
     },
     "condition": {
       "bane": {
@@ -579,6 +588,7 @@
         "brewed": "{2} hat {1} %game.itemFh.{0}% gebraut",
         "brewFor": "Braue für {0}",
         "brewedOther": "{2} hat {1} %game.itemFh.{0}% für {3} gebraut",
+        "disabled": "Brauen von Tränken nicht möglich, erst '%data.buildings.alchemist%' (35) wiederaufbauen",
         "item": "{1} %game.itemFh.{0}%",
         "noChar": "Jeder Charakter besitzt schon diesen Trank!",
         "selectCharacter": "Charakter auswählen für den der Trank gebraut wird:"
@@ -605,7 +615,9 @@
       "sell": "'{0}' für {1} Gold veraufen",
       "shop": {
         ".": "Gegenstandskarten",
-        "character": "Gegenstandsladen für %game.characterIconColored.{0}% {1}"
+        "buyingDisabled": "Kaufen von Items nicht möglich, erst '%data.buildings.trading-post%' (37) wiederaufbauen",
+        "character": "Gegenstandsladen für %game.characterIconColored.{0}% {1}",
+        "craftingDisabled": "Anertigen von Items nicht möglich, erst '%data.buildings.craftsman%' (34) wiederaufbauen"
       },
       "unlock": "Gegenstand freischalten",
       "unlocked": "Gegenstand freigeschaltet",
@@ -916,7 +928,9 @@
           },
           "costs": "Kosten",
           "discount": "-1 Material",
+          "effects": "Effekte",
           "id": "Nummer",
+          "interactions": "Interaktionen",
           "level": {
             ".": "Stufe",
             "hint": "Boni anzeigen (Stufe abrüsten mit Doppelklick)"
@@ -947,6 +961,11 @@
           "selectResources": {
             ".": "Ressourcen auswählen",
             "confirm": "Bestätigen"
+          },
+          "state": {
+            "damaged": "beschädigt",
+            "normal": "normal",
+            "wrecked": "zurtrümmert"
           },
           "unlock": "Gebäude freischalten",
           "upgrade": {
@@ -982,6 +1001,7 @@
         },
         "winter": "Winter"
       },
+      "totalTime": "In Szenarien gepsielt für {0} Tage, {1} Stunden, {2} Minuten und {3} Sekunden, ungefähr {4} Stunden",
       "townGuard": "Stadtwache",
       "townGuardDeck": "Stadtwachendeck",
       "treasures": {
@@ -1052,7 +1072,7 @@
       ".": "Gruppe",
       "hint": "Gruppen- und Kampagnen-Progression bearbeiten"
     },
-    "password": {
+    "code": {
       ".": "Neuer Spielcode für Berechtigungen",
       "hint": "Der Spielcode identifiziert dein Spiel. Für ein neues Spiel, überlege dir einfach deinen eigenen Code oder generiere dir einen. Die anderen Spieler tragen dann einfach denselben Code ein um mit dem gleichen Spiel verbunden zu werden.<br><br>Vorher hieß der Spielcode \"Passwort\" und wurde umbenannt um Verwirrungen zu vermeiden.",
       "uuid": "Code generieren (UUID)"
@@ -1396,7 +1416,7 @@
       "connect": "Mit Server verbinden",
       "connected": "Server Verbindung"
     },
-    "password": {
+    "code": {
       ".": "Spielcode",
       "hint": "Der Spielcode identifiziert dein Spiel. Für ein neues Spiel, wähle einfach einen neuen Code oder generiere einen Code. Derselbe Code verbindet sich immer mit demselben Spielstand.<br><br>Vorher hieß der Spielcode \"Passwort\", zur Vermeidung von Verwirrung wurde es umbenannt.",
       "uuid": "UUID generieren"
@@ -1942,6 +1962,10 @@
       ".": "Runden/Zug Bestätigung",
       "hint": "Zeigt eine Errinnerung nach dem Klick auf \"%round.next%\" bevor alle Figuren am Zug waren. Falls deaktiviert und %settings.expireConditions% oder %settings.applyConditions% aktiviert sind werden diese automatisch auf jede Figur angewendet."
     },
+    "unlockEnvelopeBuildings": {
+      ".": "Gebäude durch Umschläge freischalten",
+      "hint": "Automatisch Geäube durch öffnen von Umschlägen (bei Persönliche Quests) freischalten."
+    },
     "wakeLock": {
       ".": "Display immer an",
       "hint": "Display immer an bei unterstützen Geräten. Die Funktion hält das Display immer eingeschaltet, dies kann zu höherem Energieverbrauch auf Mobilgeräten führen."
@@ -1967,7 +1991,7 @@
     },
     "currentGame": "Aktuell",
     "info": {
-      "addBuilding": "Gebäude {0} freischalten",
+      "addBuilding": "Gebäude '%data.buildings.{1}%' ({0}) freischalten",
       "addCampaignSticker": "Kampagnenbogensticker {0} hinzufügen",
       "addChar": "Charakter {0} hinzufügen",
       "addCondition": {
@@ -2020,6 +2044,7 @@
       "addRandomStandee": "Zufälliger Aufsteller {1} {0} {2} hinzufügen",
       "addResource": "+{2} {1} für {0}",
       "addSection": "Abschnitt #{0} {1} ({2}) hinzufügen",
+      "addSpecialTags": "Setze Spezialactionen {1} für {0}",
       "addStandee": "Aufsteller {1} {0} {2} hinzufügen",
       "addSummon": "Beschwöre '{1}' von {0}",
       "addTreasure": "Schatz {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) hinzufügen",
@@ -2052,9 +2077,10 @@
           "removeEdition": "Kampfzielkarten von %data.edition.{0}% entfernen"
         }
       },
-      "buildBuilding": "{0} gebaut",
+      "buildBuilding": "'%data.buildings.{1}%' ({0}) gebaut",
       "buyItem": "Gegenstand {1} (%data.edition.{2}%) für {0} kaufen",
       "cancelScenario": "Szenario #{0} {1} ({2}) abbrechen",
+      "changeBuildingState": "Zustand von Gebäude '%data.buildings.{1}%' ({0}) zu %party.campaign.sheet.buildings.state.{2}%",
       "changeCustomScenario": "Namen '{0}' fpr benutzerdefiniertes Szenario",
       "changeEntityHp": "TP {1} für Aufsteller {2} von {0}: {3}",
       "changeEntityMaxHp": "Max. TP {1} für Aufsteller von {0}: {3}",
@@ -2078,6 +2104,8 @@
       "changeXP": "EP {1} für {0}",
       "characterLongRest": "Lange Rast für {0} setzen",
       "characterLongRestOff": "Lange Rast für {0} deaktivieren",
+      "characterReplay": "{0} wieder spielen für Spieler {1}",
+      "characterSetAside": "Lege {0} beiseite für Spieler {1}",
       "craftItem": "Gegenstand {1} (%data.edition.{2}%) für {0} anfertigen",
       "declineApplyCondition": {
         "char": "Anwenden von {1} auf {0} abgelehnt",
@@ -2093,6 +2121,7 @@
       "disablePartyCampaignMode": "Kampagnenmodus ausschalten",
       "disableSolo": "Einzelspieler Level Berechnung ausschalten",
       "donate": "{0} spendet an Tempel der Großen Eiche",
+      "downgradeBuilding": "Gebäude '%data.buildings.{1}%' ({0}) auf Level {2} herabstufen",
       "draw": "Ziehen",
       "drawAbility": "Fertigkeit für {0} ziehen",
       "enableAutomaticLevel": "Automatische Berechnung Level einschalten",
@@ -2150,25 +2179,34 @@
       "lootDeckReorder": "Beute Deck neu anordnen",
       "lootDeckShow": "Beute Deck einblenden",
       "lootDeckShuffle": "Beute Deck mischen",
+      "lootDeckShuffleUpcoming": "Nicht gezogene Karten vom Beute Deck mischen",
       "lootRandomItem": "{3} erbeutet zuälligen Gegenstand {0} \"{2}\" (%data.edition.{1}%)",
       "moveResource": "{2} {1} von {0} zur Frosthaven Versorgung hinzufügen",
       "monsterChangeEntityHp": "TP {2} für Aufsteller {1} von %data.monster.{0}%",
       "monsterConsumeElement": "{0} verbraucht {1}",
       "monsterDead": "Töte alle {1}{0}",
       "monsterInfuseElement": "{0} reichert {1} an",
+      "monsterSetEntityActive": "Setze %game.monster.{2}% Aufsteller {1} von %data.monster.{0}% aktiv",
+      "monsterUnsetEntityActive": "Setze %game.monster.{2}% Aufsteller {1} von %data.monster.{0}% inaktiv",
+      "nextIdentity": "Setze Form von %data.character.{1}.{2}% zu %data.character.{1}.{3}% für {0}",
       "nextRound": "Nächste Runde",
       "objectiveContainerChangeEntityHp": "TP {2} für %game.objectiveMarker.{1}% von {0}",
       "objectiveEntityDead": "Töte %game.objectiveMarker.{1}% von {0}",
       "openRoom": "Öffne Raum für Kachel '{2}' in #{0} {1}",
       "openRoomMarker": "Öffne Raum %game.mapMarker.{3}% für Kachel '{2}' in #{0} {1}",
-      "removeAbility": "Fertigkeit {1} von {0} entfernen",
+      "rebuildBuilding": "'%data.buildings.{1}%' ({0}) wiederaufgebaut",
+      "removeAbility": "Fertigkeit \"{1}\" von {0} entfernen",
       "removeAllChars": "Alle Charaktere entfernen",
       "removeAllMonster": "Alle Monster entfernen",
       "removeAllObjectives": "Alle Ziele entfernen",
+      "removeBuilding": "Entferne Gebäude '%data.buildings.{1}%' ({0})",
       "removeCampaignSticker": "Kampagnenbogensticker {0} entfernen",
       "removeChar": "Charakter {0} entfernen",
       "removeCharacterRetaliate": "Entferne %game.action.retaliate% von {0}",
+      "removeCharacterRetaliatePersistent": "Entferne %game.card.persistent% %game.action.retaliate% von {0}",
       "removeCharacterShield": "Entferne %game.action.shield% von {0}",
+      "removeCharacterShieldPersistent": "Entferne %game.card.persistent% %game.action.shield% von {0}",
+      "removeCharTreasure": "Entferne Schatz {1} von {2}",
       "removeCondition": {
         "char": "%game.condition.{1}% von {0} entfernen",
         "monsterEntities": "%game.condition.{1}% von allen {2}{0} entfernen",
@@ -2214,11 +2252,13 @@
       "removePlayer": "Entferne Spieler {1} ({0})",
       "removeResource": "-{2} {1} von {0}",
       "removeScenarioRule": "Szenario Regel ausblenden",
+      "removeSpecialTags": "Entferne Spezialactionen {1} von {0}",
       "removeTreasure": "Schatz {1} (%data.edition.{0}%) entfernen",
-      "removeCharTreasure": "Entferne Schatz {1} von {2}",
       "reorder": "Figuren neu anordnen",
       "reorderAbilities": "Fertigkeitskarten von {0} neu anordnen",
+      "repairBuilding": "'%data.buildings.{1}%' ({0}) repariert",
       "resetScenario": "Szenario #{0} {1} ({2}) zurücksetzen",
+      "restoreAbility": "Fertigkeit \"{1}\" für {0} wiederherstellen",
       "restoreDefaultAbilities": "Ursprüngliche Fertigkeitskarten für {0} wiederherstellen",
       "sellItem": "Gegenstand {1} (%data.edition.{2}%) von {0} verkaufen",
       "serverSync": "Server: {0}",
@@ -2229,7 +2269,10 @@
       "setAllied": "{0} zur Fraktion zufügen",
       "setBG": "Kampfziele {1} für {0}",
       "setCharacterRetaliate": "{1} für {0}",
+      "setCharacterRetaliatePersistent": "%game.card.persistent% {1} für {0}",
       "setCharacterShield": "%game.action.shield% {1} für {0}",
+      "setCharacterShieldPersistent": "%game.card.persistent% %game.action.shield% {1} für {0}",
+      "setCharacterTokenValue": "Setze Token {1} auf {2} für {0}",
       "setConditionValue": {
         "char": "%game.condition.{1}% auf {2} für {0}",
         "monsterEntities": "%game.condition.{1}% auf {2} für alle {3}{0}",
@@ -2241,13 +2284,14 @@
       "setCustomScenario": "Benutzerdefiniertes Szenario",
       "setDrawExtraAbility": "Zusätzlich Aufdecken für {0} aktivieren",
       "setEdition": "Edition {0} setzen",
+      "setEditionAll": "Alle Editionen auswählen",
       "setEntityActive": "Aufsteller {1} von {0} aktiv",
       "setEntitySummonState": "Beschwörung {3} für {1} Aufsteller {2} von {0}",
       "setExhausted": "{0} erschöpft",
       "setGold": "Gold {1} für {0}",
       "setInitiative": "Initiative {1} für {0}",
       "setLevel": "Level {1} für {0}",
-      "setNotes": "Notizen {1} für {0} ",
+      "setNotes": "Notizen \"{1}\" für {0} ",
       "setObjectiveExhausted": "Ziel {0} erschöpft",
       "setObjectiveInitiative": "Initiative {1} für Ziel {0}",
       "setPartyAchievements": "Gruppenerfolge",
@@ -2278,6 +2322,7 @@
       "setTitle": "Titel '{1}' für {0}",
       "setXP": "EP {1} für {0}",
       "shuffleAbilityDeck": "Fertigkeiten mischen für {0}",
+      "shuffleAbilityDeckUpcoming": "Nicht gezogene Fertigkeiten mischen für {0}",
       "summonActive": "Beschwörung '{1}' von {0} aktiv",
       "summonDead": "Töte Beschwörung '{1}' von {0}",
       "summonInactive": "Beschwörung '{1}' von {0} nicht aktiv",
@@ -2310,7 +2355,8 @@
         "removeDrawnDiscards": "Entferne gezogene Abgeworfene von {0} AM Deck",
         "reorder": "{0} AM Deck anordnen ",
         "restoreDefault": "Standard {0} AM Deck wiederherstellen",
-        "shuffle": "{0} AM Deck mischen"
+        "shuffle": "{0} AM Deck mischen",
+        "shuffleUpcoming": "Nicht gezogene Karten von {0} AM Deck mischen"
       },
       "updateBonusAdjustment": "Anpassung Boni Szenariostufe {0}",
       "updateElement": "Element {0} {1}",
@@ -2318,7 +2364,8 @@
       "updateLevelAdjustment": "Anpassung Szenariostufe {0}",
       "updateManualPlayerCount": "Manuelle Charakter Anzahl auf {0}",
       "updatePartyAchievements": "Gruppenerfolg auf {0}",
-      "upgradeBuilding": "Gebäude {0} auf Level {1} aufrüsten"
+      "updateStandee": "Ändere {1} Aufsteller Nummer {2} zu {3} für {0}",
+      "upgradeBuilding": "Gebäude '%data.buildings.{1}%' ({0}) auf Level {2} aufrüsten"
     },
     "loadMore": "Mehr anzeigen",
     "missing": "Fehlende Zustände: {0}",
@@ -2415,6 +2462,8 @@
       "draw from Loot Deck": "Karte aus dem Beute Deck ziehen",
       "toggle through element state": "Elementen Status durchschalten",
       "toggle Hide absend figures": "<i>Abwesende Figuren ausblenden<i> umschalten",
+      "toggle Display hand size and level": "<i>Handkartenanzahl und Stufe anzeigen<i> umschalten",
+      "toggle Display traits": "<i>Eigenschaften anzeigen<i> umschalten",
       "select figure/standee for opening menu with number key": "Figur/Aufsteller Menü öffnen durch Auswählen mit Nummertasten",
       "difficulty/level menu": "Schwierigkeitsgrad/Level Menü",
       "scenario effects menu": "Ereigniseffekte Menü",

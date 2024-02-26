@@ -12,10 +12,8 @@
     ]
   },
   "monsters": [
-    "cave-bear",
     "earth-demon",
     "hound",
-    "inox-shaman",
     "talo",
     "vermling-scout"
   ],

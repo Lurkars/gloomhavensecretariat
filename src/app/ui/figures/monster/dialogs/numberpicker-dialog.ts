@@ -155,7 +155,7 @@ export class MonsterNumberPickerDialog implements OnInit {
                 this.nextStandee();
             }
         } else if (this.change && this.entity && this.entity.number != number) {
-            gameManager.stateManager.before("updateStandee", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + number);
+            gameManager.stateManager.before("updateStandee", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + number);
             let existing = gameManager.monsterManager.monsterStandeeUsed(this.monster, number);
             if (existing) {
                 let otherNumber = -1;

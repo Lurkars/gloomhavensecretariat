@@ -9,7 +9,7 @@
                 "autotrack": "differentHerbs"
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 24<br>(alt: %game.fhIcon:envelope% 42)"
+        "openEnvelope": "24:42"
     },
     {
         "cardId": "582",
@@ -29,7 +29,7 @@
                 ]
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 24<br>(alt: %game.fhIcon:envelope% 42)"
+        "openEnvelope": "24:42"
     },
     {
         "cardId": "583",
@@ -61,7 +61,7 @@
                 "autotrack": "itemType:small"
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 37<br>(alt: %game.fhIcon:envelope% 74)"
+        "openEnvelope": "37:74"
     },
     {
         "cardId": "584",
@@ -73,7 +73,7 @@
                 "autotrack": "gold"
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 37<br>(alt: %game.fhIcon:envelope% 74)"
+        "openEnvelope": "37:74"
     },
     {
         "cardId": "585",
@@ -85,7 +85,7 @@
                 "autotrack": "buildings"
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 85<br>(alt: %game.fhIcon:envelope% 21)"
+        "openEnvelope": "85:21"
     },
     {
         "cardId": "586",
@@ -96,7 +96,7 @@
                 "counter": 8
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 85<br>(alt: %game.fhIcon:envelope% 21)"
+        "openEnvelope": "85:21"
     },
     {
         "cardId": "587",
@@ -108,7 +108,7 @@
                 "autotrack": "scenario:65|66"
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 44<br>(alt: %game.fhIcon:envelope% 88)"
+        "openEnvelope": "44:88"
     },
     {
         "cardId": "588",
@@ -127,7 +127,7 @@
                 "counter": 2
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 44<br>(alt: %game.fhIcon:envelope% 88)"
+        "openEnvelope": "44:88"
     },
     {
         "cardId": "589",
@@ -139,7 +139,7 @@
                 "autotrack": "abilityXP"
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 90<br>(alt: %game.fhIcon:envelope% 83)"
+        "openEnvelope": "90:83"
     },
     {
         "cardId": "590",
@@ -151,7 +151,7 @@
                 "autotrack": "scenarioRequirements:board|climbing-gear|sled"
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 90<br>(alt: %game.fhIcon:envelope% 83)"
+        "openEnvelope": "90:83"
     },
     {
         "cardId": "505",
@@ -163,7 +163,7 @@
                 "autotrack": "craftableItems"
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 39<br>(alt: %game.fhIcon:envelope% 72)"
+        "openEnvelope": "39:72"
     },
     {
         "cardId": "509",
@@ -175,7 +175,7 @@
                 "autotrack": "scenario:71|72"
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 90<br>(alt: %game.fhIcon:envelope% 42)"
+        "openEnvelope": "90:42"
     },
     {
         "cardId": "514",
@@ -186,7 +186,7 @@
                 "counter": 15
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 44<br>(alt: %game.fhIcon:envelope% 74)"
+        "openEnvelope": "44:74"
     },
     {
         "cardId": "519",
@@ -213,7 +213,7 @@
                 "counter": 1
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 37<br>(alt: %game.fhIcon:envelope% 72)"
+        "openEnvelope": "37:72"
     },
     {
         "cardId": "523",
@@ -225,7 +225,7 @@
                 "autotrack": "donatedGold"
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 65<br>(alt: %game.fhIcon:envelope% 85)"
+        "openEnvelope": "65:85"
     },
     {
         "cardId": "527",
@@ -236,7 +236,7 @@
                 "counter": 5
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 85<br>(alt: %game.fhIcon:envelope% 88)"
+        "openEnvelope": "85:88"
     },
     {
         "cardId": "538",
@@ -248,7 +248,7 @@
                 "autotrack": "battleGoals"
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 81<br>(alt: %game.fhIcon:envelope% 67)"
+        "openEnvelope": "81:67"
     },
     {
         "cardId": "542",
@@ -260,7 +260,7 @@
                 "autotrack": "scenario:65|66"
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 44<br>(alt: %game.fhIcon:envelope% 67)"
+        "openEnvelope": "44:67"
     },
     {
         "cardId": "545",
@@ -279,7 +279,7 @@
                 ]
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 81<br>(alt: %game.fhIcon:envelope% 67)"
+        "openEnvelope": "81:67"
     },
     {
         "cardId": "549",
@@ -290,7 +290,7 @@
                 "counter": 15
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 24<br>(alt: %game.fhIcon:envelope% 21)"
+        "openEnvelope": "24:21"
     },
     {
         "cardId": "552",
@@ -301,7 +301,7 @@
                 "counter": 8
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 39<br>(alt: %game.fhIcon:envelope% 72)"
+        "openEnvelope": "39:72"
     },
     {
         "cardId": "557",
@@ -312,7 +312,7 @@
                 "counter": 12
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% 37<br>(alt: %game.fhIcon:envelope% 83)"
+        "openEnvelope": "37:83"
     },
     {
         "cardId": "543",
@@ -325,6 +325,6 @@
                 "autotrack": "exchaustedChars"
             }
         ],
-        "openEnvelope": "%game.fhIcon:envelope% A"
+        "openEnvelope": "A"
     }
 ]

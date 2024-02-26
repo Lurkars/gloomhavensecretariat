@@ -31,6 +31,7 @@ export class Party {
   donations: number = 0;
   players: string[] = [];
   characters: GameCharacterModel[] = [];
+  availableCharacters: GameCharacterModel[] = [];
   retirements: GameCharacterModel[] = [];
   unlockedItems: CountIdentifier[] = [];
   unlockedCharacters: string[] = [];

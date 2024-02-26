@@ -55,9 +55,15 @@ export class LootManager {
     return result;
   }
 
-  shuffleDeck(deck: LootDeck) {
+  shuffleDeck(deck: LootDeck, onlyUpcoming: boolean = false) {
+    const current = deck.current;
+    let restoreCards: Loot[] = onlyUpcoming && current > -1 ? deck.cards.splice(0, current + 1) : [];
     deck.current = -1;
     ghsShuffleArray(deck.cards);
+    if (onlyUpcoming) {
+      deck.current = current;
+      deck.cards.unshift(...restoreCards);
+    }
   }
 
   getTotal(deck: LootDeck, type: LootType): number {

@@ -2,7 +2,7 @@ import { Character } from "../model/Character";
 import { Game, GameModel } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { Permissions } from "../model/Permissions";
-import { Settings } from "../model/Settings";
+import { Settings, localSettings } from "../model/Settings";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 import { storageManager } from "./StorageManager";
@@ -64,7 +64,7 @@ export class StateManager {
 
     this.updateBlocked = false;
 
-    if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword) {
+    if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverCode) {
       if (settingsManager.settings.serverAutoconnect) {
         this.connect();
       } else {
@@ -84,7 +84,7 @@ export class StateManager {
 
     gameManager.uiChange.subscribe({
       next: () => {
-        if (!settingsManager.settings.serverUrl || !settingsManager.settings.serverPort || !settingsManager.settings.serverPassword) {
+        if (!settingsManager.settings.serverUrl || !settingsManager.settings.serverPort || !settingsManager.settings.serverCode) {
           this.permissions = undefined;
           this.updateBlocked = false;
         }
@@ -136,7 +136,7 @@ export class StateManager {
   }
 
   connect() {
-    if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword) {
+    if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverCode) {
       this.disconnect();
       this.connectionTries++;
       const protocol = settingsManager.settings.serverWss ? "wss://" : "ws://";
@@ -313,66 +313,13 @@ export class StateManager {
           if (settingsManager.settings.serverSettings) {
             let settings: Settings = message.payload as Settings;
             // keep local
-            settings.animations = settingsManager.settings.animations;
-            settings.artwork = settingsManager.settings.artwork;
-            settings.automaticAttackModifierFullscreen = settingsManager.settings.automaticAttackModifierFullscreen;
-            settings.autoBackup = settingsManager.settings.autoBackup;
-            settings.autoBackupFinish = settingsManager.settings.autoBackupFinish;
-            settings.autoBackupUrl = settingsManager.settings.autoBackupUrl;
-            settings.autoscroll = settingsManager.settings.autoscroll;
-            settings.automaticTheme = settingsManager.settings.automaticTheme;
-            settings.barsize = settingsManager.settings.barsize;
-            settings.backupHint = settingsManager.settings.backupHint;
-            settings.browserNavigation = settingsManager.settings.browserNavigation;
-            settings.calendarLocked = settingsManager.settings.calendarLocked;
-            settings.characterAttackModifierAnimate = settingsManager.settings.characterAttackModifierAnimate;
-            settings.characterAttackModifierDeckPermanent = settingsManager.settings.characterAttackModifierDeckPermanent;
-            settings.characterAttackModifierDeckPermanentActive = settingsManager.settings.characterAttackModifierDeckPermanentActive;
-            settings.characterItemsPermanent = settingsManager.settings.characterItemsPermanent;
-            settings.characterItemsPermanentActive = settingsManager.settings.characterItemsPermanentActive;
-            settings.characterItemsPermanentEquipped = settingsManager.settings.characterItemsPermanentEquipped;
-            settings.characterItemsPermanentSorted = settingsManager.settings.characterItemsPermanentSorted;
-            settings.characterItemsPermanentZoom = settingsManager.settings.characterItemsPermanentZoom;
-            settings.characterCompact = settingsManager.settings.characterCompact;
-            settings.characterSheetCompact = settingsManager.settings.characterSheetCompact;
-            settings.columns = settingsManager.settings.columns;
-            settings.columnsForce = settingsManager.settings.columnsForce;
-            settings.debugRightClick = settingsManager.settings.debugRightClick;
-            settings.disableAnimations = settingsManager.settings.disableAnimations;
-            settings.disableArtwork = settingsManager.settings.disableArtwork;
-            settings.disableColumns = settingsManager.settings.disableColumns;
-            settings.disableDragFigures = settingsManager.settings.disableDragFigures;
-            settings.disablePinchZoom = settingsManager.settings.disablePinchZoom;
-            settings.disableWakeLock = settingsManager.settings.disableWakeLock;
-            settings.dragFigures = settingsManager.settings.dragFigures;
-            settings.dragValues = settingsManager.settings.dragValues;
-            settings.fhStyle = settingsManager.settings.fhStyle;
-            settings.fontsize = settingsManager.settings.fontsize;
-            settings.globalFontsize = settingsManager.settings.globalFontsize;
-            settings.fullscreen = settingsManager.settings.fullscreen;
-            settings.hideCharacterHP = settingsManager.settings.hideCharacterHP;
-            settings.hideCharacterLoot = settingsManager.settings.hideCharacterLoot;
-            settings.hideCharacterXP = settingsManager.settings.hideCharacterXP;
-            settings.hints = settingsManager.settings.hints;
-            settings.logServerMessages = settingsManager.settings.logServerMessages;
-            settings.pinchZoom = settingsManager.settings.pinchZoom;
-            settings.portraitMode = settingsManager.settings.portraitMode;
-            settings.pressDoubleClick = settingsManager.settings.pressDoubleClick;
-            settings.serverAutoconnect = settingsManager.settings.serverAutoconnect;
-            settings.serverPassword = settingsManager.settings.serverPassword;
-            settings.serverPort = settingsManager.settings.serverPort;
-            settings.serverSettings = settingsManager.settings.serverSettings;
-            settings.serverUrl = settingsManager.settings.serverUrl;
-            settings.serverWss = settingsManager.settings.serverWss;
-            settings.showAllSections = settingsManager.settings.showAllSections;
-            settings.showBossMonster = settingsManager.settings.showBossMonster;
-            settings.showHiddenMonster = settingsManager.settings.showHiddenMonster;
-            settings.showOnlyUnfinishedScenarios = settingsManager.settings.showOnlyUnfinishedScenarios;
-            settings.statAnimations = settingsManager.settings.statAnimations;
-            settings.theme = settingsManager.settings.theme;
-            settings.tooltips = settingsManager.settings.tooltips;
-            settings.wakeLock = settingsManager.settings.wakeLock;
-            settings.zoom = settingsManager.settings.zoom;
+            localSettings.forEach((setting) => {
+              settings[setting] = settingsManager.settings[setting];
+            })
+
+            // migration
+            settings.serverCode = settingsManager.settings.serverCode || settingsManager.settings.serverPassword;
+            settings.serverPassword = undefined;
 
             settingsManager.setSettings(Object.assign(new Settings(), settings));
             storageManager.write('settings', 'default', settingsManager.settings);
@@ -397,7 +344,7 @@ export class StateManager {
               gameManager.stateManager.redo(false);
             }
           }
-          if (message.message && message.message.startsWith("Invalid password")) {
+          if (message.message && (message.message.startsWith("Invalid password") || message.message.startsWith("Invalid game code"))) {
             console.warn("Disconnect...");
             ev.target?.close();
           }
@@ -418,12 +365,13 @@ export class StateManager {
   onOpen(ev: Event) {
     if (settingsManager.settings.logServerMessages) console.debug('WS opened', ev);
     const ws = ev.target as WebSocket;
-    if (ws && ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
+    if (ws && ws.readyState == WebSocket.OPEN && settingsManager.settings.serverCode) {
       gameManager.stateManager.connectionTries = 0;
       gameManager.stateManager.updateBlocked = false;
       gameManager.stateManager.permissions = gameManager.stateManager.permissionBackup;
       let message = {
-        "password": settingsManager.settings.serverPassword,
+        "code": settingsManager.settings.serverCode,
+        "password": settingsManager.settings.serverCode, // migration
         "type": "request-game",
         "payload": gameManager.game.toModel(),
       }
@@ -432,7 +380,8 @@ export class StateManager {
 
       if (settingsManager.settings.serverSettings) {
         let message = {
-          "password": settingsManager.settings.serverPassword,
+          "code": settingsManager.settings.serverCode,
+          "password": settingsManager.settings.serverCode, // migration
           "type": "request-settings"
         }
         if (settingsManager.settings.logServerMessages) console.debug('WS sending request-settings');
@@ -471,9 +420,10 @@ export class StateManager {
   }
 
   requestSettings() {
-    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword && settingsManager.settings.serverSettings) {
+    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverCode && settingsManager.settings.serverSettings) {
       let message = {
-        "password": settingsManager.settings.serverPassword,
+        "code": settingsManager.settings.serverCode,
+        "password": settingsManager.settings.serverCode, // migration
         "type": "request-settings"
       }
       if (settingsManager.settings.logServerMessages) console.debug('WS sending request-settings');
@@ -482,7 +432,7 @@ export class StateManager {
   }
 
   wsState(): number {
-    if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword) {
+    if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverCode) {
       return this.ws && this.ws.readyState || -1;
     } else {
       return -99;
@@ -506,9 +456,10 @@ export class StateManager {
   }
 
   saveSettings() {
-    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword && settingsManager.settings.serverSettings) {
+    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverCode && settingsManager.settings.serverSettings) {
       let message = {
-        "password": settingsManager.settings.serverPassword,
+        "code": settingsManager.settings.serverCode,
+        "password": settingsManager.settings.serverCode, // migration
         "type": "settings",
         "payload": settingsManager.settings
       }
@@ -550,7 +501,7 @@ export class StateManager {
   async after(timeout: number = 1, autoBackup: boolean = false, revisionChange: number = 1, type: string = "game", revision: number = 0, undolength: number = 1) {
     this.game.revision += revisionChange;
     this.saveLocal();
-    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
+    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverCode) {
       window.document.body.classList.add('server-sync');
       let undoInfo = this.undoInfos[this.undos.length - 1];
 
@@ -559,7 +510,8 @@ export class StateManager {
       }
 
       let message = {
-        "password": settingsManager.settings.serverPassword,
+        "code": settingsManager.settings.serverCode,
+        "password": settingsManager.settings.serverCode, // migration
         "type": type,
         "payload": this.game.toModel(),
         "undoinfo": undoInfo,
@@ -763,14 +715,16 @@ export class StateManager {
     this.saveStorage();
   }
 
-  savePermissions(password: string, permissions: Permissions | undefined) {
-    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
+  savePermissions(code: string, permissions: Permissions | undefined) {
+    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverCode) {
       let message = {
-        "password": settingsManager.settings.serverPassword,
+        "code": settingsManager.settings.serverCode,
+        "password": settingsManager.settings.serverCode, // migration
         "type": "permissions",
         "payload": {
           "permissions": permissions,
-          "password": password
+          "code": code,
+          "password": code // migration
         }
       }
       if (settingsManager.settings.logServerMessages) console.debug(`WS sending permissions`);

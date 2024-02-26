@@ -198,7 +198,8 @@
 
         <div class="resources">
           <div class="header">
-            <label (click)="openResources()"><span [ghs-label]="'party.campaign.sheet.supply'"></span>:</label>
+            <label class="supply" (click)="openResources()"><span
+                [ghs-label]="'party.campaign.sheet.supply'"></span>:</label>
             <span class="spacer"></span>
             <div class="move-resources" *ngIf="characters.length > 0">
               <span class="label"><span [ghs-label]="'character.progress.resources.move'"></span>:</span>
@@ -562,7 +563,8 @@
           </div>
         </div>
 
-        <div class="prosperity" *ngIf="gameManager.fhRules() || gameManager.editionRules('gh')" [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
+        <div class="prosperity" *ngIf="gameManager.fhRules() || gameManager.editionRules('gh')"
+          [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
           <div class="legend" (click)="setProsperity(0)">
             <div class="level"><span [ghs-label]="'party.prosperity'"></span> <img
                 *ngIf="settingsManager.settings.fhStyle" src="./assets/images/fh/prosperity.svg">:</div>
@@ -734,9 +736,17 @@
             </div>
 
             <div class="row players">
-              <div class="player" *ngFor="let player of party.players; let index = index;">
+              <div class="player" *ngFor="let index of [] | ghsRange:party.players.length">
                 <span class="index">#{{index + 1}}</span>
-                <input type="text" [value]="player" (change)="changePlayer($event, index)">
+                <input type="text" [value]="party.players[index]" (change)="changePlayer($event, index)">
+                <div class="available-characters" *ngIf="availableCharacters[index]">
+                  <a class="available-character" *ngFor="let characterModel of availableCharacters[index]"
+                    ghs-pointer-input (singleClick)="openCharacterSheet(characterModel)"
+                    (doubleClick)="replayCharacter(characterModel)" [ghs-tooltip]="'character.replay'">
+                    <img
+                      [src]="'./assets/images/character/icons/' + characterModel.edition + '-' + characterModel.name + '.svg'" />
+                  </a>
+                </div>
                 <a class="remove" (click)="removePlayer(index)"><img src="./assets/images/close.svg"></a>
               </div>
               <a class="add" (click)="party.players[party.players.length] = ''">
@@ -793,6 +803,11 @@
               </span>
             </div>
           </div>
+        </div>
+
+        <div class="row time">
+          <span [ghs-label]="'party.campaign.totalTime'"
+            [ghs-label-args]="[''+ time.d,''+ time.h,''+ time.m,''+ time.s, time.ht]"></span>
         </div>
       </div>
     </div>

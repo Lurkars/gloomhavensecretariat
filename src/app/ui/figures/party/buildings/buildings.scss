@@ -58,9 +58,10 @@
     .building {
       position: relative;
       display: grid;
-      grid-template-columns: 30% 10% 10% 25% 25%;
+      grid-template-columns: 30% 5% 5% 10% 10% 20% 20%;
       align-items: center;
       margin: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor)) 0;
+      transition: 300ms;
 
       &.buildable {
         margin-top: calc(var(--ghs-unit) * 2);
@@ -100,13 +101,13 @@
 
           &.normal {
             width: 1em;
-            background-image: url('~/src/assets/images/fh/buildings/damaged.svg');
+            background-image: url('/assets/images/fh/buildings/damaged.svg');
 
           }
 
           &.damaged {
             width: 1em;
-            background-image: url('~/src/assets/images/fh/buildings/wrecked.svg');
+            background-image: url('/assets/images/fh/buildings/wrecked.svg');
           }
         }
 
@@ -143,6 +144,78 @@
 
         &.disabled {
           pointer-events: none;
+        }
+      }
+
+      .effects,
+      .interactions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+
+        .toggle {
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0.1em;
+
+          img {
+            height: 1em;
+            width: auto;
+          }
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+
+        .effect,
+        .interaction {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .text {
+            display: none;
+          }
+
+          .icon {
+            position: relative;
+            cursor: help;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+            height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+            margin: 0 calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+
+            img {
+              height: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
+              width: auto;
+            }
+
+            &.unavailable {
+              img {
+                height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                width: auto;
+              }
+
+              &::after {
+                content: ' ';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-image: url('/assets/images/fh/buildings/unavailable.png');
+                background-size: 100% 100%;
+                background-position: center center;
+                background-repeat: no-repeat;
+              }
+            }
+          }
         }
       }
 
@@ -218,7 +291,9 @@
       &.head {
         border-bottom: solid calc(var(--ghs-unit) * 0.1) var(--ghs-color-darkgray);
 
-        * {
+        .name,
+        .level,
+        .action {
           pointer-events: none;
         }
 
@@ -243,6 +318,57 @@
           opacity: 0.5;
         }
       }
+    }
+
+    &.visible-effects .building {
+      grid-template-columns: 20% 5% 5% 30% 10% 15% 15%;
+      align-items: start;
+
+      .effects {
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        .effect {
+          justify-content: flex-start;
+          align-items: flex-start;
+
+          .text {
+            display: inline-block;
+          }
+
+          .icon {
+            margin: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+          }
+        }
+      }
+    }
+
+    &.visible-interactions .building {
+      grid-template-columns: 20% 5% 5% 10% 30% 15% 15%;
+      align-items: start;
+
+      .interactions {
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        .interaction {
+          justify-content: flex-start;
+          align-items: flex-start;
+
+          .text {
+            display: inline-block;
+          }
+
+          .icon {
+            margin: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+          }
+        }
+      }
+    }
+
+    &.visible-effects.visible-interactions .building {
+      grid-template-columns: 20% 5% 5% 20% 20% 15% 15%;
+
     }
   }
 }

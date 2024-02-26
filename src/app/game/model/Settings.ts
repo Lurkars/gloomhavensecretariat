@@ -44,6 +44,8 @@ export class Settings {
   battleGoalsFh: boolean = false;
   battleGoalsReminder: boolean = true;
   browserNavigation: boolean = false;
+  buildingEffectsVisible: boolean = false;
+  buildingInteractionsVisible: boolean = false;
   calculate: boolean = true;
   calculateStats: boolean = true;
   calculateShieldStats: boolean = true;
@@ -67,7 +69,7 @@ export class Settings {
   characterSheetCompact: boolean = false;
   characterShieldRetaliate: boolean = false;
   characterTraits: boolean = false;
-  columns: boolean = true; 
+  columns: boolean = true;
   columnsForce: boolean = false;
   combineSummonAction: boolean = true;
   debugRightClick: boolean = false;
@@ -106,7 +108,7 @@ export class Settings {
   maxUndo: number = 100;
   portraitMode: boolean = true;
   monsters: boolean = true;
-  monsterAttackModifierDeck : boolean = true;
+  monsterAttackModifierDeck: boolean = true;
   moveElements: boolean = true;
   partySheet: boolean = true;
   pinchZoom: boolean = true;
@@ -119,6 +121,7 @@ export class Settings {
   scenarioRooms: boolean = true;
   scenarioRules: boolean = true;
   serverAutoconnect: boolean = true;
+  serverCode: string | undefined;
   serverPassword: string | undefined;
   serverPort: number | undefined;
   serverSettings: boolean = false;
@@ -144,6 +147,11 @@ export class Settings {
   treasuresLootItem: boolean = true;
   treasuresLootScenario: boolean = true;
   turnConfirmation: boolean = true;
+  unlockEnvelopeBuildings: boolean = true;
   wakeLock: boolean = true;
   zoom: number = 100;
 }
+
+export const localSettings: string[] = [
+  "animations", "artwork", "automaticAttackModifierFullscreen", "autoBackup", "autoBackupFinish", "autoBackupUrl", "autoscroll", "automaticTheme", "barsize", "backupHint", "browserNavigation", "buildingEffectsVisible", "buildingInteractionsVisible", "calendarLocked", "characterAttackModifierAnimate", "characterAttackModifierDeckPermanent", "characterAttackModifierDeckPermanentActive", "characterItemsPermanent", "characterItemsPermanentActive", "characterItemsPermanentEquipped", "characterItemsPermanentSorted", "characterItemsPermanentZoom", "characterCompact", "characterSheetCompact", "columns", "columnsForce", "debugRightClick", "disableAnimations", "disableArtwork", "disableColumns", "disableDragFigures", "disablePinchZoom", "disableWakeLock", "dragFigures", "dragValues", "fhStyle", "fontsize", "globalFontsize", "fullscreen", "hideCharacterHP", "hideCharacterLoot", "hideCharacterXP", "hints", "logServerMessages", "pinchZoom", "portraitMode", "pressDoubleClick", "serverAutoconnect", "serverCode", "serverPassword", "serverPort", "serverSettings", "serverUrl", "serverWss", "showAllSections", "showBossMonster", "showHiddenMonster", "showOnlyUnfinishedScenarios", "statAnimations", "theme", "tooltips", "wakeLock", "zoom"
+];

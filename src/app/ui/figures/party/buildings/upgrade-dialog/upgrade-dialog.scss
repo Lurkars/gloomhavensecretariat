@@ -120,7 +120,7 @@
             font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
             flex-direction: row;
             justify-content: flex-end;
-            background-image: url('~/src/assets/images/dialog_background.png');
+            background-image: url('/assets/images/dialog_background.png');
             position: sticky;
             left: 0;
             z-index: 1;
@@ -215,13 +215,13 @@
 
     &.fh {
         .table .head-col {
-            background-image: url('~/src/assets/images/fh/dialog_background_fh.png');
+            background-image: url('/assets/images/fh/dialog_background_fh.png');
         }
     }
 
     &.modern {
         .table .head-col {
-            background-image: url('~/src/assets/images/modern/dialog_background_modern.png');
+            background-image: url('/assets/images/modern/dialog_background_modern.png');
         }
     }
 
