@@ -320,6 +320,9 @@
         "2": "Werden sich bewegen um zu vermeiden an ihren Fokus anzugrenzen.",
         "3": "Bewegen sich diese Runde nicht.",
         "4": "Dies ist dasselbe Verhalten wie im vorherigen Szenario."
+      },
+      "demolitionist": {
+        "1": "Alle angrenzenden Gegner erleiden %game.damage:1%"
       }
     },
     "perks": {
