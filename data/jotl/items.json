@@ -61,7 +61,7 @@
   {
     "id": 4,
     "name": "Studded Leather",
-    "cost": 30,
+    "cost": 25,
     "count": 2,
     "edition": "jotl",
     "slot": "body",
@@ -141,7 +141,7 @@
   {
     "id": 8,
     "name": "Throwing Hammer",
-    "cost": 35,
+    "cost": 30,
     "count": 2,
     "edition": "jotl",
     "slot": "onehand",

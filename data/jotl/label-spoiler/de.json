@@ -9,31 +9,31 @@
             ".": "Eisenhelm"
         },
         "jotl-3": {
-            "1": "Erhalte während deines Zugs Schild %game.action.shield% 1 für den Rest der Runde.",
+            "1": "Erhalte während deines Zugs %game.action.shield% 1 für den Rest der Runde.",
             ".": "Kettenrüstung"
         },
         "jotl-4": {
-            "1": "Wenn du angegriffen wirst, erhältst du, bevor Angriffsmodifikator-Karten gezogen werden, für diesen Angriff Schild %game.action.shield% 1 und der Angreifer Nachteil.",
+            "1": "Wenn du angegriffen wirst, erhältst du, bevor Angriffsmodifikator-Karten gezogen werden, für diesen Angriff %game.action.shield% 1 und der Angreifer Nachteil.",
             ".": "Nietenrüstung"
         },
         "jotl-5": {
-            "1": "Füge einer deiner Einzelbewegungen +1 Bewegung %game.action.move% hinzu.",
+            "1": "Füge einer deiner Einzelbewegungen +1 %game.action.move% hinzu.",
             ".": "Abgewetzte Stiefel"
         },
         "jotl-6": {
-            "1": "Füge währen deiner gesamten Bewegungsaktion Springen %game.action.jump% hinzu.",
+            "1": "Füge während deiner gesamten Bewegungsaktion %game.action.jump% hinzu.",
             ".": "Flügelschuhe"
         },
         "jotl-7": {
-            "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du Schild %game.action.shield% 1 für den Angriff.",
+            "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield% 1 für den Angriff.",
             ".": "Dreieckschild"
         },
         "jotl-8": {
-            "1": "Füge bei einem Fernangriff einem Einzelangriff BETÄUBUNG %game.condition.stun% hinzu.",
+            "1": "Füge bei deinem Fernangriff einem Einzelangriff %game.condition.stun% hinzu.",
             ".": "Wurfhammer"
         },
         "jotl-9": {
-            "1": "Füge bei deinem Nahkampfangriff einem Einzelangriff GIFT %game.condition.poison% hinzu.",
+            "1": "Füge bei deinem Nahkampfangriff einem Einzelangriff %game.condition.poison% hinzu.",
             ".": "Giftdolch"
         },
         "jotl-10": {
@@ -41,7 +41,7 @@
             ".": "Eisenspeer"
         },
         "jotl-11": {
-            "1": "Wende während deines Zugs \"Heilung %game.action.heal% 3\" bei dir an.",
+            "1": "Wende während deines Zugs \"%game.action.heal% 3\" bei dir an.",
             ".": "Heiltrank"
         },
         "jotl-12": {
@@ -49,7 +49,7 @@
             ".": "Ausdauertrank"
         },
         "jotl-13": {
-            "1": "Füge bei deinem Angriff der gesamten Aktion +1 Angriff %game.action.attack% hinzu.",
+            "1": "Füge bei deinem Angriff der gesamten Aktion +1 %game.action.attack% hinzu.",
             ".": "Krafttrank"
         },
         "jotl-14": {
@@ -57,15 +57,15 @@
             ".": "Manatrank"
         },
         "jotl-15": {
-            "1": "Wende während deines Zugs \"Heilung %game.action.heal% 1\" bei dir an.",
+            "1": "Wende während deines Zugs \"%game.action.heal% 1\" bei dir an.",
             ".": "Amulett des Lebens"
         },
         "jotl-16": {
-            "1": "%game.element.consume.wild% bei deinem Angriff, um der gesamten Aktion +1 Angriff %game.action.attack% hinzuzufügen.",
+            "1": "%game.element.consume.wild% bei deinem Angriff, um der gesamten Aktion +1 %game.action.attack% hinzuzufügen.",
             ".": "Robe der Anrufung"
         },
         "jotl-17": {
-            "1": "Die untere Standardaktion einer Fertigkeitskarte gilt als \"Bewegung %game.action.move% 3\" statt \"Bewegung %game.action.move% 2\".",
+            "1": "Die untere Standardaktion einer Fertigkeitskarte gilt als \"%game.action.move% 3\" statt \"%game.action.move% 2\".",
             ".": "Bequeme Schuhe"
         },
         "jotl-18": {
@@ -73,23 +73,23 @@
             ".": "Streitaxt"
         },
         "jotl-19": {
-            "1": "Füge bei deinem Fernangriff einem Einzelangriff FLUCH %game.condition.curse% hinzu.",
+            "1": "Füge bei deinem Fernangriff einem Einzelangriff %game.condition.curse% hinzu.",
             ".": "Schwarze Kerze"
         },
         "jotl-20": {
-            "1": "Füge bei deinem Angriff einem Einzelangriff BETÄUBUNG %game.condition.stun% hinzu.",
+            "1": "Füge bei deinem Angriff einem Einzelangriff %game.condition.stun% hinzu.",
             ".": "Betäubungspulver"
         },
         "jotl-21": {
-            "1": "Füge bei deinem Fernangriff der gesamten Aktion +1 Reichweite %game.action.range% hinzu.",
+            "1": "Füge bei deinem Fernangriff der gesamten Aktion +1 %game.action.range% hinzu.",
             ".": "Falkenhelm"
         },
         "jotl-22": {
-            "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du Schild %game.action.shield% 2 für den Angriff und der Angreifer erleidet 2 Schaden.",
+            "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du%game.action.shield% 2 für den Angriff und der Angreifer erleidet 2 Schaden.",
             ".": "Klingenrüstung"
         },
         "jotl-23": {
-            "1": "Füge einer deiner Einzelbewegungen +2 Bewegung %game.action.move% hinzu.",
+            "1": "Füge einer deiner Einzelbewegungen +2 %game.action.move% hinzu.",
             ".": "Wanderstiefel"
         },
         "jotl-24": {
@@ -97,23 +97,23 @@
             ".": "Wurfbombe"
         },
         "jotl-25": {
-            "1": "Füge bei deinem Fernangriff einem Einzelangriff ZIEHEN %game.action.pull% 2 hinzu.",
+            "1": "Füge bei deinem Fernangriff einem Einzelangriff %game.action.pull% 2 hinzu.",
             ".": "Hakenkette"
         },
         "jotl-26": {
-            "1": "Wende während deines Zugs \"SEGEN %game.condition.bless%, Reichweite %game.action.range:5%\" an.",
+            "1": "Wende während deines Zugs \"%game.condition.bless%, %game.action.range:5%\" an.",
             ".": "Eichenamulett"
         },
         "jotl-27": {
-            "1": "Zwinge während deines Zugs einen Gegner in Reichweite %game.action.range:3%, nach deinem Wunsch \"Bewegung %game.action.move% 2\" anzuwenden.",
+            "1": "Zwinge während deines Zugs einen Gegner in %game.action.range:3%, nach deinem Wunsch \"%game.action.move% 2\" anzuwenden.",
             ".": "Schicksalskompass"
         },
         "jotl-28": {
             "1": "Für die Berechnung des Gegnerfokus ist dein Initiative-Wert 99.",
-            ".": "Schäbiges Schgultertuch"
+            ".": "Schäbiges Schultertuch"
         },
         "jotl-29": {
-            "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du Schild %game.action.shield% 2 für deinen Angriff.",
+            "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield% 2 für den Angriff.",
             ".": "Turmschild"
         },
         "jotl-30": {
@@ -121,27 +121,27 @@
             ".": "Ring der Eile"
         },
         "jotl-31": {
-            "1": "Erhalte während deines Zugs STÄRKUNG %game.condition.strengthen%.",
+            "1": "Erhalte während deines Zugs %game.condition.strengthen%.",
             ".": "Ring der Stärke"
         },
         "jotl-32": {
-            "1": "Wende während deines Zugs \"Heilung %game.action.heal% 3, Reichweite %game.action.range:5%\" an.",
+            "1": "Wende während deines Zugs \"%game.action.heal% 3, %game.action.range:5%\" an.",
             ".": "Ring der Erholung"
         },
         "jotl-33": {
-            "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du Schild %game.action.shield% 4 für den Angriff.",
+            "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield% 4 für den Angriff.",
             ".": "Stahlring"
         },
         "jotl-34": {
-            "1": "Füge bei deinem Angriff der gesamten Aktion WUNDE %game.condition.wound% hinzu.",
+            "1": "Füge bei deinem Angriff der gesamten Aktion %game.condition.wound% hinzu.",
             ".": "Zackenaxt"
         },
         "jotl-35": {
-            "1": "Während deines Zugs darf ein angrenzender Verbündeter \"Angriff %game.action.attack% 2\" ausführen.",
+            "1": "Während deines Zugs darf ein angrenzender Verbündeter \"%game.action.attack% 2\" ausführen.",
             ".": "Befehlsrobe"
         },
         "jotl-36": {
-            "1": "Füge einer deiner Einzelbewegungen +1 Bewegung %game.action.move% and Springen %game.action.jump% hinzu.",
+            "1": "Füge einer deiner Einzelbewegungen +1 %game.action.move% und %game.action.jump% hinzu.",
             ".": "Raketenstiefel"
         }
     }
