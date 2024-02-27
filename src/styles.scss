@@ -638,7 +638,7 @@ a {
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('/assets/images/element/consume.svg');
+      background-image: url('~src/assets/images/element/consume.svg');
       background-size: cover;
       z-index: 2;
     }
@@ -656,7 +656,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/assets/images/condition/immunity.svg');
+    background-image: url('~src/assets/images/condition/immunity.svg');
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 2;
@@ -675,7 +675,7 @@ a {
     right: initial;
     width: 72%;
     height: 55%;
-    background-image: url('/assets/images/condition/permanent.svg');
+    background-image: url('~src/assets/images/condition/permanent.svg');
     background-size: cover;
     transform: translateY(-50%);
     z-index: 2;
@@ -776,9 +776,9 @@ ghs-pointer-input {
     border-radius: calc(var(--ghs-unit) * 0.5);
     padding: calc(var(--ghs-unit) * 2);
     background-color: var(--ghs-color-black);
-    background-image: url('/assets/images/dialog_background.png');
+    background-image: url('~src/assets/images/dialog_background.png');
     background-size: cover;
-    border-image-source: url('/assets/images/dialog_border.png');
+    border-image-source: url('~src/assets/images/dialog_border.png');
     border-image-slice: calc(var(--ghs-factor) / var(--ghs-text-factor) / var(--ghs-text-factor));
     border-image-outset: calc(var(--ghs-unit) * 1);
     border-image-width: calc(var(--ghs-unit) * 6);
@@ -874,12 +874,12 @@ ghs-pointer-input {
 }
 
 .fullscreen-backdrop {
-  background-image: url('/assets/images/bg.jpg');
+  background-image: url('~src/assets/images/bg.jpg');
   background-size: cover;
 }
 
 .fh .fullscreen-backdrop {
-  background-image: url('/assets/images/fh/bg.jpg');
+  background-image: url('~src/assets/images/fh/bg.jpg');
 }
 
 .disable-animation * {
@@ -1254,7 +1254,7 @@ input[type="radio"] {
     justify-content: center;
     align-items: center;
     vertical-align: sub;
-    background-image: url('/assets/images/character/token.png');
+    background-image: url('~src/assets/images/character/token.png');
     background-size: 100%;
 
     &::before {
@@ -1394,7 +1394,7 @@ input[type="radio"] {
     line-height: 1.3em;
     padding-right: 0.1em;
     background-color: var(--ghs-color-white);
-    background-image: url('/assets/images/fh/items/fh-item.svg');
+    background-image: url('~src/assets/images/fh/items/fh-item.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -1648,7 +1648,7 @@ input[type="radio"] {
         top: 45%;
         width: 70%;
         height: 70%;
-        background-image: url('/assets/images/fh/element/consume.svg');
+        background-image: url('~src/assets/images/fh/element/consume.svg');
       }
     }
   }
@@ -1666,7 +1666,7 @@ input[type="radio"] {
         top: 45%;
         width: 40%;
         height: 65%;
-        background-image: url('/assets/images/fh/element/consume.svg');
+        background-image: url('~src/assets/images/fh/element/consume.svg');
       }
     }
 
@@ -1677,7 +1677,7 @@ input[type="radio"] {
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('/assets/images/fh/element/half-overlay.svg');
+      background-image: url('~src/assets/images/fh/element/half-overlay.svg');
       background-size: 100% 100%;
       z-index: 1;
     }
@@ -1700,12 +1700,12 @@ input[type="radio"] {
 
       &:nth-child(1) {
         justify-content: flex-start;
-        mask-image: url('/assets/images/fh/element/half-mask-left.svg');
+        mask-image: url('~src/assets/images/fh/element/half-mask-left.svg');
       }
 
       &:nth-child(2) {
         justify-content: flex-end;
-        mask-image: url('/assets/images/fh/element/half-mask-right.svg');
+        mask-image: url('~src/assets/images/fh/element/half-mask-right.svg');
         right: 0;
 
         img {
@@ -1728,7 +1728,7 @@ input[type="radio"] {
   }
 
   .placeholder .placeholder-character-token {
-    background-image: url('/assets/images/fh/character/token.png');
+    background-image: url('~src/assets/images/fh/character/token.png');
     top: 0.25em;
     height: 1.6em;
     width: 1.6em;
@@ -1763,7 +1763,7 @@ input[type="radio"] {
     right: -20%;
     width: 45%;
     height: 45%;
-    background-image: url('/assets/images/fh/condition/immune.svg');
+    background-image: url('~src/assets/images/fh/condition/immune.svg');
     background-size: contain;
     transform: translateY(-50%);
   }
@@ -1772,11 +1772,11 @@ input[type="radio"] {
   .dialog-invert {
 
     &.dialog .cdk-dialog-container {
-      background-image: url('/assets/images/fh/dialog_background_fh.png');
+      background-image: url('~src/assets/images/fh/dialog_background_fh.png');
     }
 
     .cdk-dialog-container {
-      border-image-source: url('/assets/images/fh/dialog_border_fh.png');
+      border-image-source: url('~src/assets/images/fh/dialog_border_fh.png');
     }
   }
 
@@ -1803,7 +1803,7 @@ input[type="radio"] {
     }
 
     &.dialog .cdk-dialog-container {
-      background-image: url('/assets/images/modern/dialog_background_modern.png');
+      background-image: url('~src/assets/images/modern/dialog_background_modern.png');
     }
 
     &.dialog-invert .cdk-dialog-container {

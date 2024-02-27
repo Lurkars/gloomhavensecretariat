@@ -101,13 +101,13 @@
 
           &.normal {
             width: 1em;
-            background-image: url('/assets/images/fh/buildings/damaged.svg');
+            background-image: url('~src/assets/images/fh/buildings/damaged.svg');
 
           }
 
           &.damaged {
             width: 1em;
-            background-image: url('/assets/images/fh/buildings/wrecked.svg');
+            background-image: url('~src/assets/images/fh/buildings/wrecked.svg');
           }
         }
 
@@ -209,7 +209,7 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background-image: url('/assets/images/fh/buildings/unavailable.png');
+                background-image: url('~src/assets/images/fh/buildings/unavailable.png');
                 background-size: 100% 100%;
                 background-position: center center;
                 background-repeat: no-repeat;

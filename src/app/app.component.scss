@@ -4,15 +4,15 @@
   max-width: 100vw;
   height: 100vh;
   max-height: 100vh;
-  background-image: url('/assets/images/bg.jpg');
+  background-image: url('~src/assets/images/bg.jpg');
   background-size: cover;
   overflow: auto;
 
   &.fh {
-    background-image: url('/assets/images/fh/bg.jpg');
+    background-image: url('~src/assets/images/fh/bg.jpg');
   }
 
   &.modern {
-    background-image: url('/assets/images/modern/bg.jpg');
+    background-image: url('~src/assets/images/modern/bg.jpg');
   }
 }
