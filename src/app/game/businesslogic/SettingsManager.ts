@@ -5,6 +5,10 @@ import { gameManager } from "./GameManager";
 import { storageManager } from "./StorageManager";
 import { BuildingData } from "../model/data/BuildingData";
 import { debugManager } from "./DebugManager";
+import { registerLocaleData } from "@angular/common";
+import localeDe from '@angular/common/locales/de';
+import localeFr from '@angular/common/locales/fr';
+import localeKo from '@angular/common/locales/ko';
 
 declare global {
   interface Window { settingsManager: SettingsManager }
@@ -390,6 +394,14 @@ export class SettingsManager {
             return personalQuest;
           })
 
+          if (value.campaign && value.campaign.buildings) {
+            value.campaign.buildings.forEach((buildingData) => {
+              if (!buildingData.edition) {
+                buildingData.edition = value.edition;
+              }
+            })
+          }
+
           gameManager.editionData.push(value);
           gameManager.editionData.sort((a, b) => {
             return this.settings.editionDataUrls.indexOf(a.url) - this.settings.editionDataUrls.indexOf(b.url);
@@ -649,6 +661,22 @@ export class SettingsManager {
     for (let editionData of gameManager.editionData) {
       this.loadDataLabel(editionData);
     }
+
+    switch (locale) {
+      case 'de': {
+        registerLocaleData(localeDe);
+        break;
+      }
+      case 'fr': {
+        registerLocaleData(localeFr);
+        break;
+      }
+      case 'ko': {
+        registerLocaleData(localeKo);
+        break;
+      }
+    }
+
     gameManager.uiChange.emit();
   }
 

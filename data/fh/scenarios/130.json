@@ -1,6 +1,7 @@
 {
   "index": "130",
   "name": "And Then, a Stream",
+  "errata": "scenario130",
   "edition": "fh",
   "complexity": 3,
   "monsters": [

@@ -1,6 +1,7 @@
 {
   "index": "110",
   "name": "Guardian's Temple",
+  "errata": "scenario110",
   "edition": "fh",
   "complexity": 2,
   "random": true,

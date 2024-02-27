@@ -33,7 +33,7 @@ import { SettingsMenuComponent } from './ui/header/menu/settings/settings';
 import { SettingMenuComponent, SettingMenuTitleComponent } from './ui/header/menu/settings/setting/setting';
 import { CampaignMenuComponent } from './ui/header/menu/campaign/campaign';
 import { CardRevealDirective } from './ui/helper/CardReveal';
-import { GhsCeilPipe, GhsFloorPipe, GhsMinZeroPipe, GhsRangePipe, GhsScenarioSearch, GhsValueSignPipe } from './ui/helper/Pipes';
+import { GhsCeilPipe, GhsFloorPipe, GhsMinZeroPipe, GhsDurationLabelPipe, GhsRangePipe, GhsScenarioSearch, GhsValueSignPipe } from './ui/helper/Pipes';
 import { MainComponent } from './ui/main';
 import { SummonEntityComponent } from './ui/figures/character/summon/summon';
 import { SummonSheetComponent } from './ui/figures/character/summon/sheet/summon-sheet';
@@ -146,6 +146,7 @@ import { EntityIndexKeyComponent } from './ui/figures/standee/entity-index-key/e
 import { PartyResourcesDialogComponent } from './ui/figures/party/resources/resources';
 import { CharacterItemComponent } from './ui/figures/items/character/item-character';
 import { CharacterItemListComponent } from './ui/figures/character/item-list/item-list';
+import { GameClockDialogComponent } from './ui/header/game-clock/game-clock';
 import { GhsNumberInput } from './ui/helper/number-input/number-input';
 import { environment } from 'src/environments/environment';
 
@@ -187,12 +188,12 @@ export class GhsErrorHandler extends ErrorHandler {
     ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,
     FigureErrorsComponent, FigureErrorsDialogComponent, EntityIndexKeyComponent,
     CardRevealDirective, EntityAnimationDirective, GhsLabelDirective, GhsLabelElementDirective, ValueCalcDirective, PointerInputDirective, AutocompleteDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective, ValueSignDirective,
-    GhsValueSignPipe, GhsRangePipe, GhsScenarioSearch, GhsFloorPipe, GhsCeilPipe, GhsMinZeroPipe,
+    GhsValueSignPipe, GhsRangePipe, GhsScenarioSearch, GhsFloorPipe, GhsCeilPipe, GhsMinZeroPipe, GhsDurationLabelPipe,
     AttackModifierToolComponent, EventCardsToolComponent, TreasuresToolComponent, DecksToolComponent,
     EditionEditorComponent,
     EditorActionComponent, EditorActionDialogComponent,
     DeckEditorComponent, CharacterEditorComponent, MonsterEditorComponent,
-    GhsTooltipComponent, GhsTooltipDirective,
+    GhsTooltipComponent, GhsTooltipDirective, GameClockDialogComponent,
     KeyboardShortcuts, TabClickDirective, GhsNumberInput,
     FeedbackToolComponent, FeedbackDialogComponent, KeyboardShortcutsComponent],
   imports: [

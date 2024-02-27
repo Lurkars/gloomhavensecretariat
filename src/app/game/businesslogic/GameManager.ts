@@ -7,7 +7,7 @@ import { MonsterData } from "../model/data/MonsterData";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
 import { Figure } from "../model/Figure";
-import { Game, GameState } from "../model/Game";
+import { Game, GameClockTimestamp, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { Objective } from "../model/Objective";
 import { AttackModifierManager } from "./AttackModifierManager";
@@ -825,6 +825,47 @@ export class GameManager {
       character.fromModel(value);
       this.game.figures.push(character);
     });
+  }
+
+  toggleGameClock() {
+    this.game.gameClock = this.game.gameClock || [];
+    let last: GameClockTimestamp | undefined = this.game.gameClock.length ? this.game.gameClock[0] : undefined;
+    if (last) {
+      if (!last.clockIn) {
+        console.warn("Timestamp with invalid clock:", last);
+        last.clockIn = new Date().getTime();
+      } else if (!last.clockOut) {
+        last.clockOut = new Date().getTime();
+      } else {
+        last = undefined;
+      }
+    }
+
+    if (!last) {
+      this.game.gameClock.unshift(new GameClockTimestamp(new Date().getTime()));
+    }
+    this.stateManager.saveLocal();
+  }
+
+  mergeGameClocks(gameClockA: GameClockTimestamp[], gameClockB: GameClockTimestamp[]): GameClockTimestamp[] {
+    let gameClock: GameClockTimestamp[] = [];
+
+    gameClockA.forEach((value) => {
+      const matchingValue = gameClockB.find((other) => other.clockIn <= value.clockIn && (other.clockOut && value.clockOut && other.clockOut >= value.clockOut || !other.clockOut));
+      if (matchingValue) {
+        gameClock.push(matchingValue);
+      } else {
+        gameClock.push(value);
+      }
+    })
+
+    gameClockB.forEach((value) => {
+      if (!gameClock.find(((other) => other.clockIn <= value.clockIn && (other.clockOut && value.clockOut && other.clockOut >= value.clockOut || !other.clockOut)))) {
+        gameClock.push(value);
+      }
+    })
+
+    return gameClock.sort((a, b) => b.clockIn - a.clockIn);
   }
 
 }

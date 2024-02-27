@@ -1,6 +1,7 @@
 {
   "index": "25.3",
   "name": "Haunted Vault",
+  "errata": "section25-3",
   "edition": "fh",
   "parent": "17",
   "parentSections": [

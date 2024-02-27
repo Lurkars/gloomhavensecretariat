@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { ghsValueSign } from './Static';
+import { ghsDurationLabel, ghsValueSign } from './Static';
 import { ScenarioCache } from 'src/app/game/model/Scenario';
 
 @Pipe({
@@ -50,6 +50,15 @@ export class GhsCeilPipe implements PipeTransform {
 export class GhsMinZeroPipe implements PipeTransform {
   transform(number: number): number {
     return number < 0 ? 0 : number;
+  }
+}
+
+@Pipe({
+  name: 'ghsDurationLabel'
+})
+export class GhsDurationLabelPipe implements PipeTransform {
+  transform(value: number, totalHours: boolean = false): string {
+    return ghsDurationLabel(value, totalHours);
   }
 }
 

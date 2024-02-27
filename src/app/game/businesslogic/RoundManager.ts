@@ -414,6 +414,7 @@ export class RoundManager {
         figure.treasures = [];
         figure.experience = 0;
         figure.entityConditions = [];
+        figure.immunities = [];
         figure.summons = [];
         figure.initiative = 0;
         figure.exhausted = false;

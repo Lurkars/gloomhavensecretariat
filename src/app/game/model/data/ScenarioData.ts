@@ -11,6 +11,7 @@ export class ScenarioData implements Editional, Spoilable {
 
   name: string = "";
   index: string = "";
+  errata: string = "";
   gridLocation: string | undefined = "";
   coordinates: { x: number, y: number, width: number, height: number } | undefined;
   unlocks: string[] = [];
@@ -53,6 +54,7 @@ export class ScenarioData implements Editional, Spoilable {
   constructor(scenarioData: ScenarioData | undefined = undefined) {
     if (scenarioData) {
       this.name = scenarioData.name;
+      this.errata = scenarioData.errata;
       this.index = scenarioData.index;
       this.gridLocation = scenarioData.gridLocation;
       this.unlocks = scenarioData.unlocks;

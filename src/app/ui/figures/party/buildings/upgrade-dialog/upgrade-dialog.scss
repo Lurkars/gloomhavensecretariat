@@ -85,6 +85,15 @@
             .active {
                 cursor: pointer;
             }
+
+            .errata {
+                text-align: justify;
+                max-width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
+
+                .text {
+                    font-style: italic;
+                }
+            }
         }
     }
 

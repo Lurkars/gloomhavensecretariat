@@ -131,6 +131,17 @@ export class MainComponent implements OnInit {
       gameManager.stateManager.installPrompt = null;
     });
 
+    window.addEventListener('beforeunload', async () => {
+      if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock) {
+        const lastGameClockTimestamp = gameManager.game.gameClock.length ? gameManager.game.gameClock[0] : undefined;
+        if (lastGameClockTimestamp && !lastGameClockTimestamp.clockOut) {
+          gameManager.stateManager.before('gameClock.automaticGameClockOut');
+          gameManager.toggleGameClock();
+          await gameManager.stateManager.after();
+        }
+      }
+    });
+
     dialog.afterOpened.subscribe({
       next: (dialogRef: DialogRef) => {
         if (dialogRef.overlayRef.backdropElement && dialog.openDialogs.length > 1 && !dialogRef.overlayRef.backdropElement.classList.contains('fullscreen-backdrop')) {
@@ -186,6 +197,18 @@ export class MainComponent implements OnInit {
     document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
     document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
     document.body.style.setProperty('--ghs-global-fontsize', settingsManager.settings.globalFontsize + '');
+
+    if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock) {
+      const lastGameClockTimestamp = gameManager.game.gameClock.length ? gameManager.game.gameClock[0] : undefined;
+      if (!lastGameClockTimestamp || lastGameClockTimestamp.clockOut) {
+        // 7 seconds refresh timeout
+        if (lastGameClockTimestamp && lastGameClockTimestamp.clockOut && (new Date().getTime() - lastGameClockTimestamp.clockOut) < 7000) {
+          lastGameClockTimestamp.clockOut = undefined;
+        } else {
+          gameManager.toggleGameClock();
+        }
+      }
+    }
 
     const figure = this.figures.find((figure) => figure instanceof Character && figure.fullview);
     if (figure) {

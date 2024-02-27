@@ -1,6 +1,7 @@
 {
   "index": "18",
   "name": "Crystal Fields",
+  "errata": "scenario18",
   "edition": "fh",
   "complexity": 1,
   "rewards": {

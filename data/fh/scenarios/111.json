@@ -1,6 +1,7 @@
 {
   "index": "111",
   "name": "Ice Cave",
+  "errata": "scenario111",
   "edition": "fh",
   "complexity": 3,
   "random": true,

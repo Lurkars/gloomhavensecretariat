@@ -1,0 +1,67 @@
+.game-clock-dialog {
+
+    display: flex;
+    flex-direction: column;
+
+    .title {
+        display: flex;
+        justify-content: center;
+        color: var(--ghs-color-gray);
+        font-family: var(--ghs-font-title);
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    }
+
+    .control {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--ghs-color-white);
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        padding: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor)) 0;
+        border-bottom: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-gray);
+
+        img {
+            height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+            width: auto;
+            filter: var(--ghs-filter-white);
+            margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        }
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    .timestamps {
+        display: flex;
+        flex-direction: column;
+        max-height: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
+        overflow: auto;
+        color: var(--ghs-color-gray);
+        font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+
+        .timestamp {
+            margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) 0;
+
+            &.current {
+                margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) 0;
+                padding: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) 0;
+                border-bottom: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid transparent;
+
+                &.has-more {
+                    border-color: var(--ghs-color-gray);
+                }
+            }
+        }
+
+        .more {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: var(--ghs-color-gray);
+        }
+    }
+
+}

@@ -806,8 +806,7 @@
         </div>
 
         <div class="row time">
-          <span [ghs-label]="'party.campaign.totalTime'"
-            [ghs-label-args]="[''+ time.d,''+ time.h,''+ time.m,''+ time.s, time.ht]"></span>
+          <span [ghs-label]="'party.campaign.totalTime'" [ghs-label-args]="[(gameManager.game.totalSeconds| ghsDurationLabel:true)]"></span>
         </div>
       </div>
     </div>

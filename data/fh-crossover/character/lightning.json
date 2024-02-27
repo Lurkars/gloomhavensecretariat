@@ -17,6 +17,11 @@
     {
       "name": "overheal",
       "expire": true
+    },
+    {
+      "name": "immune",
+      "level": 7,
+      "expire": true
     }
   ],
   "stats": [

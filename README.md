@@ -89,6 +89,8 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-lightning.svg" height="20px" style="filter:grayscale(1)"></summary>
 
       > Enable overhealing up to 26 HP
+      
+      > Toggle immunity for all conditions
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-blinkblade.svg" height="20px" style="filter:grayscale(1)"></summary>
@@ -101,6 +103,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Includes [Ice Rift](https://boardgamegeek.com/thread/2341619/custom-campaign-ice-rift): can be enabled under *Data Management*.
   - Includes [Blood and Sand](https://boardgamegeek.com/thread/2613617/blood-and-sand-gloomhaven-campaign-set-red-desert) campaign: can be enabled in *Data Management* (Thanks to [/u/Calm_Construction131](https://www.reddit.com/user/Calm_Construction131) for contribution)
   - Manage multiple campaigns
+  - Show errata hints (must be enabled in Settings)
   - <details>
       <summary>SPOILER WARNING: Envelope X (and V)</summary>
 

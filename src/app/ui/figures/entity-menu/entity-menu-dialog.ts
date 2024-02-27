@@ -941,6 +941,10 @@ export class EntityMenuDialogComponent {
       if (specialTagsToTemove.length) {
         gameManager.stateManager.before("removeSpecialTags", gameManager.characterManager.characterName(this.data.entity), specialTagsToTemove.map((specialTag) => '%data.character.' + this.data.figure.name + '.' + specialTag + '%').join(','));
         this.data.entity.tags = this.data.entity.tags.filter((specialTag) => specialTagsToTemove.indexOf(specialTag) == -1);
+
+        if (this.data.entity.name == 'lightning' && this.data.entity.edition == 'gh' && specialTagsToTemove.indexOf('immune') != -1) {
+          this.data.entity.immunities = [];
+        }
         gameManager.stateManager.after();
       }
 
@@ -949,6 +953,13 @@ export class EntityMenuDialogComponent {
       if (specialTagsToAdd.length) {
         gameManager.stateManager.before("addSpecialTags", gameManager.characterManager.characterName(this.data.entity), specialTagsToAdd.map((specialTag) => '%data.character.' + this.data.figure.name + '.' + specialTag + '%').join(','));
         this.data.entity.tags.push(...specialTagsToAdd);
+
+        if (this.data.entity.name == 'lightning' && this.data.entity.edition == 'gh' && specialTagsToAdd.indexOf('immune') != -1) {
+          this.data.entity.immunities = gameManager.conditionsForTypes('character', 'negative').map((condition) => condition.name);
+        }
+
+        console.log(this.data.entity.name, this.data.entity.edition, specialTagsToAdd, gameManager.conditionsForTypes('character', 'negative'));
+
         gameManager.stateManager.after();
       }
 

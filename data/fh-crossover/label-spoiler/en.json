@@ -6,6 +6,7 @@
     "envx": "Bladeswarm",
     "lightning": {
       ".": "Berserker",
+      "immune": "%game.characterIconColored.lightning% Immune to all negative conditions",
       "overheal": "%game.characterIconColored.lightning% Heal up to 26 HP"
     },
     "music-note": {

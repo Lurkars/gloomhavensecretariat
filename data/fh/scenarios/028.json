@@ -1,6 +1,7 @@
 {
   "index": "28",
   "name": "Summit Meeting",
+  "errata": "scenario28",
   "edition": "fh",
   "complexity": 3,
   "allyDeck": true,
