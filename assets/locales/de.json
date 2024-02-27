@@ -242,11 +242,31 @@
     "spoilers": "Spoiler bearbeiten",
     "unlocks": "Freischaltungen bearbeiten"
   },
+  "duration": {
+    "days": "{3} Tage, {2} Stunden, {1} Minuten und {0} Sekunden",
+    "gameClock": {
+      ".": "Game Timer",
+      "clockIn": "Spieltimer starten",
+      "clockOut": "Spieltimer pausieren",
+      "current": "Aktuell: {0}",
+      "off": "Spieltimer pausiert! Zum Starten klicken.",
+      "paused": "Spieltimer pausiert! Zum starten klicken.<br>Insgesamt: {0}",
+      "running": "Spieltimer läuft! Zum Pausieren klicken.<br>Aktuell: {1}",
+      "runningTotal": "Spieltimer läuft! Zum Pausieren klicken.<br>Aktuell: {1}<br>Insgesamt: {0}",
+      "timestamp": "Am {0} für {1}",
+      "total": "Insgesamt: {0}"
+    },
+    "hours": "{2} Stunden, {1} Minuten und {0} Sekunden",
+    "minutes": "{1} Minuten und {0} Sekunden",
+    "seconds": "{0} Sekunden",
+    "totalHours": "{0}, ungefähr {1} Stunden"
+  },
   "edition": {
     ".": "Edition auswählen",
     "all": "Alle Editionen",
     "conditions": "Verfügbare Zustände"
   },
+  "errata": "Druckfehler",
   "escort": {
     ".": "Begleiter",
     "add": "Begleiter hinzufügen"
@@ -1001,7 +1021,6 @@
         },
         "winter": "Winter"
       },
-      "totalTime": "In Szenarien gepsielt für {0} Tage, {1} Stunden, {2} Minuten und {3} Sekunden, ungefähr {4} Stunden",
       "townGuard": "Stadtwache",
       "townGuardDeck": "Stadtwachendeck",
       "treasures": {
@@ -1543,6 +1562,10 @@
       ".": "Autom. Vollbild AM-Deck",
       "hint": "Angrifssmodifikatordeck (und Beute Deck) auf kleinen Bildschirmen automatisch in Vollansicht öffnen. (Deaktiviert ohne Portraitmodus Optimierungen)"
     },
+    "automaticGameClock": {
+      ".": "Automatischer Spieltimer",
+      "hint": "Startet und pausiert den Spieltimer automatisch wenn das Fenster geöffnet oder geschlossen wird."
+    },
     "automaticPassTime": {
       ".": "Automatisch Kalender Wochen vertreichen",
       "hint": "Automatisch eine Kalender Woche versteichen nach Abschluss eines Szenarios. Dies fügt auch automatisch Effekte von möglichen Sektionen in der Kalendarwoche hinzu."
@@ -1742,6 +1765,10 @@
       ".": "Elite Aufsteller zuerst",
       "hint": "Zeige Elite Aufsteller zuerst an bei der Sortierung der Aufsteller"
     },
+    "errata": {
+      ".": "Zeige Hinweise zu Druckfehlern an",
+      "hint": "Anzeige bekannter Druckfehler für Szenarien, Abschnitte, etc. In den Daten selbst sollten alle diese Fehler behoben sein, aber mit den Hinweisen sollte es einfacher sein, die Unterschiede zum Druck zu verstehen."
+    },
     "expireConditions": {
       ".": "Automatisch Zustände löschen",
       "hint": "Entsprechende Zustände werden automatisch nach dem Zug der Figur entfernt, z.B. Stärke wird nach dem Zug entfernt."
@@ -1769,6 +1796,10 @@
     "fullscreen": {
       ".": "Vollbild",
       "hint": "In den Vollbildmodus wechseln"
+    },
+    "gameClock": {
+      ".": "Spieltimer",
+      "hint": "Spieltimer einschalten um die Spielzeit mit der App festzuhalten."
     },
     "gameplay": "Spielablauf",
     "ge5Player": {
@@ -2164,6 +2195,12 @@
         "remove": "Entferne Szenario #{0} {1} ({2}) von Erfolgreichen",
         "restart": "Gescheitertes Szenario  #{0} {1} ({2}) neustarten",
         "success": "Szenario #{0} {1} ({2}) erfolgreich"
+      },
+      "gameClock": {
+        "automaticGameClockOut": "Spietimer automatisch pausieren",
+        "clockIn": "Spieltimer starten",
+        "clockOut": "Spieltimer pausieren",
+        "merge": "Spieltimer zusammenfügen"
       },
       "hideScenarioRule": "Szenario Regel nicht mehr anzeigen",
       "importCharacter": "Charakter {0} von Datei importieren",
