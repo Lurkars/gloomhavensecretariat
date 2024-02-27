@@ -437,6 +437,10 @@ export class RoundManager {
           figure.tokenValues[0] = 1;
         }
 
+        if (figure.tags.find((tag) => tag === 'trophy_tokens') && figure.primaryToken == 0 && figure.progress.perks[10] == 1) {
+          figure.tokenValues[0] = 2;
+        }
+
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));
 
         figure.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(figure);

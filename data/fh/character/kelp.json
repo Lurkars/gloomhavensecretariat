@@ -5,6 +5,7 @@
   "tokens": [
     "trophy"
   ],
+  "primaryToken": 0,
   "handSize": 10,
   "traits": [
     "armored",
@@ -13,6 +14,11 @@
   ],
   "color": "#987bab",
   "spoiler": true,
+  "specialActions": [
+    {
+      "name": "trophy_tokens"
+    }
+  ],
   "stats": [
     {
       "level": 1,
