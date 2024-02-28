@@ -72,8 +72,8 @@
       </ng-container>
     </div>
     <span class="spacer"></span>
-    <div class="event-effects" (click)="openEventEffects()"
-      *ngIf="gameManager.game.scenario && gameManager.characterManager.characterCount() > 0">
+    <div *ngIf="gameManager.game.scenario && gameManager.characterManager.characterCount() > 0" class="event-effects"
+      (click)="openEventEffects()">
       <img class="ghs-svg"
         [src]="'./assets/images/event' + (gameManager.game.round > 0 || gameManager.game.state == GameState.next ? '-effects' : '') + '.svg'">
     </div>

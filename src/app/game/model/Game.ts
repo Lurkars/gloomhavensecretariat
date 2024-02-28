@@ -344,7 +344,9 @@ export class Game {
 
     this.server = model.server;
     this.finish = model.finish;
-    this.gameClock = gameManager.mergeGameClocks(this.gameClock, model.gameClock);
+    if (settingsManager.settings.gameClockMerge) {
+      this.gameClock = gameManager.mergeGameClocks(this.gameClock, model.gameClock);
+    }
   }
 }
 

@@ -1005,7 +1005,7 @@
       ".": "Orchid Wand"
     },
     "fh-233": {
-      "1": "During you ally's ranged attack ability, add %game.condition.muddle% %game.condition.curse% one attack.",
+      "1": "During an ally's ranged attack ability, add %game.condition.muddle% and %game.condition.curse% one attack.",
       ".": "Dead Raven"
     },
     "fh-234": {

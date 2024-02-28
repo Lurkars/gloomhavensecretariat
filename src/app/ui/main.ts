@@ -132,13 +132,14 @@ export class MainComponent implements OnInit {
     });
 
     window.addEventListener('beforeunload', async () => {
-      if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock) {
-        const lastGameClockTimestamp = gameManager.game.gameClock.length ? gameManager.game.gameClock[0] : undefined;
-        if (lastGameClockTimestamp && !lastGameClockTimestamp.clockOut) {
-          gameManager.stateManager.before('gameClock.automaticGameClockOut');
-          gameManager.toggleGameClock();
-          await gameManager.stateManager.after();
-        }
+      if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock && !gameManager.stateManager.storageBlocked) {
+        await this.automaticClockOut();
+      }
+    });
+
+    window.addEventListener('blur', async () => {
+      if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock && settingsManager.settings.automaticGameClockFocus && !gameManager.stateManager.storageBlocked) {
+        await this.automaticClockOut();
       }
     });
 
@@ -198,16 +199,9 @@ export class MainComponent implements OnInit {
     document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
     document.body.style.setProperty('--ghs-global-fontsize', settingsManager.settings.globalFontsize + '');
 
+
     if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock) {
-      const lastGameClockTimestamp = gameManager.game.gameClock.length ? gameManager.game.gameClock[0] : undefined;
-      if (!lastGameClockTimestamp || lastGameClockTimestamp.clockOut) {
-        // 7 seconds refresh timeout
-        if (lastGameClockTimestamp && lastGameClockTimestamp.clockOut && (new Date().getTime() - lastGameClockTimestamp.clockOut) < 7000) {
-          lastGameClockTimestamp.clockOut = undefined;
-        } else {
-          gameManager.toggleGameClock();
-        }
-      }
+      this.automaticClockIn();
     }
 
     const figure = this.figures.find((figure) => figure instanceof Character && figure.fullview);
@@ -242,6 +236,10 @@ export class MainComponent implements OnInit {
       if (settingsManager.settings.serverAutoconnect && gameManager.stateManager.wsState() != WebSocket.OPEN) {
         gameManager.stateManager.connect();
       }
+
+      if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock && settingsManager.settings.automaticGameClockFocus) {
+        this.automaticClockIn();
+      }
     });
 
     if (settingsManager.settings.wakeLock && "wakeLock" in navigator) {
@@ -252,6 +250,27 @@ export class MainComponent implements OnInit {
           gameManager.stateManager.wakeLock = await navigator.wakeLock.request("screen");
         }
       });
+    }
+  }
+
+  automaticClockIn() {
+    const lastGameClockTimestamp = gameManager.game.gameClock.length ? gameManager.game.gameClock[0] : undefined;
+    if (!lastGameClockTimestamp || lastGameClockTimestamp.clockOut) {
+      // 7 seconds refresh timeout
+      if (lastGameClockTimestamp && lastGameClockTimestamp.clockOut && (new Date().getTime() - lastGameClockTimestamp.clockOut) < 7000) {
+        lastGameClockTimestamp.clockOut = undefined;
+      } else {
+        gameManager.toggleGameClock();
+      }
+    }
+  }
+
+  async automaticClockOut() {
+    const lastGameClockTimestamp = gameManager.game.gameClock.length ? gameManager.game.gameClock[0] : undefined;
+    if (lastGameClockTimestamp && !lastGameClockTimestamp.clockOut) {
+      gameManager.stateManager.before('gameClock.automaticGameClockOut');
+      gameManager.toggleGameClock();
+      await gameManager.stateManager.after();
     }
   }
 

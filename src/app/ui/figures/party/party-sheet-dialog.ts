@@ -922,7 +922,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   setWeek(value: number) {
-    if (settingsManager.settings.calendarLocked) {
+    if (settingsManager.settings.calendarLocked && settingsManager.settings.calendarLocked != 'permissive' || this.party.weeks != value - 1 && this.party.weeks != value) {
       return;
     }
 

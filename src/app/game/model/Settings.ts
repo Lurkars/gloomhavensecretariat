@@ -32,6 +32,7 @@ export class Settings {
   autoBackupUrl: { url: string, method: string, fileUpload: boolean, username: string | undefined, password: string | undefined, authorization: string | undefined } | undefined;
   automaticAttackModifierFullscreen: boolean = true;
   automaticGameClock: boolean = true;
+  automaticGameClockFocus: boolean = false;
   automaticPassTime: boolean = true;
   automaticStandees: boolean = true;
   automaticStandeesDialog: boolean = false;
@@ -50,7 +51,7 @@ export class Settings {
   calculate: boolean = true;
   calculateStats: boolean = true;
   calculateShieldStats: boolean = true;
-  calendarLocked: boolean = false;
+  calendarLocked: boolean | 'permissive' = false;
   characterAttackModifierAnimate: boolean = true;
   characterAttackModifierDeck: boolean = true;
   characterAttackModifierDeckPermanent: boolean = false;
@@ -95,6 +96,7 @@ export class Settings {
   fhStyle: boolean = false;
   fontsize: number = 1;
   gameClock: boolean = false;
+  gameClockMerge: boolean = true;
   globalFontsize: number = 1;
   fullscreen: boolean = false;
   hideAbsent: boolean = false;

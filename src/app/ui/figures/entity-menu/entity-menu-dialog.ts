@@ -958,8 +958,6 @@ export class EntityMenuDialogComponent {
           this.data.entity.immunities = gameManager.conditionsForTypes('character', 'negative').map((condition) => condition.name);
         }
 
-        console.log(this.data.entity.name, this.data.entity.edition, specialTagsToAdd, gameManager.conditionsForTypes('character', 'negative'));
-
         gameManager.stateManager.after();
       }
 

@@ -348,6 +348,7 @@ export class DatamanagementMenuComponent implements OnInit {
       try {
         console.warn("clear storage");
         await storageManager.clear();
+        gameManager.stateManager.storageBlocked = true;
         console.info("Reload...");
         window.location.reload();
       } catch {

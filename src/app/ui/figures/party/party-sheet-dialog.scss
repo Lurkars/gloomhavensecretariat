@@ -154,6 +154,15 @@
       &.disabled {
         pointer-events: none;
       }
+
+      &.checked:hover::before {
+        opacity: 0.6;
+      }
+
+      &:not(.checked):hover::before {
+        transform: scale(1) translate(-50%, -50%);
+        opacity: 0.6;
+      }
     }
 
     input[type="text"] {
@@ -580,6 +589,10 @@
               width: 100%;
               height: auto;
             }
+          }
+
+          &.permissive {
+            opacity: 0.6;
           }
 
           z-index: 2;

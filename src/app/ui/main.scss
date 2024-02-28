@@ -198,13 +198,16 @@ main {
 
   .editions {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
+    max-width: calc(var(--ghs-unit) * 70 * var(--ghs-text-factor));
 
     .edition {
       cursor: pointer;
-      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      min-width: calc(var(--ghs-unit) * 30 * var(--ghs-text-factor));
+      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor)) calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+      text-align: center;
 
       .text {
         font-family: var(--ghs-font-title);

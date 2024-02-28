@@ -33,7 +33,7 @@ export class AttackModiferDeckChange {
 export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges {
 
   @Input('deck') deck!: AttackModifierDeck;
-  @Input('character') character!: Character;
+  @Input('character') character: Character | undefined;
   @Input() ally: boolean = false;
   @Input('numeration') numeration: string = "";
   @Input('bottom') bottom: boolean = false;
@@ -144,6 +144,14 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
   }
 
   update(fromServer: boolean = false) {
+    if (this.character) {
+      this.deck = this.character.attackModifierDeck;
+      this.edition = this.character.edition;
+      this.numeration = "" + this.character.number;
+      this.characterIcon = this.character.iconUrl;
+    } else {
+      this.battleGoals = false;
+    }
     this.disabled = !this.standalone && (!this.townGuard && gameManager.game.state == GameState.draw || this.townGuard && gameManager.game.scenario != undefined);
 
     if (this.character && this.deck != this.character.attackModifierDeck) {
@@ -263,12 +271,14 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
   }
 
   openBattleGoals(event: any): void {
-    this.dialog.open(CharacterBattleGoalsDialog, {
-      panelClass: ['dialog'],
-      data: { character: this.character, draw: !this.character.battleGoals || this.character.battleGoals.length == 0 }
-    });
-    event.preventDefault();
-    event.stopPropagation();
+    if (this.character) {
+      this.dialog.open(CharacterBattleGoalsDialog, {
+        panelClass: ['dialog'],
+        data: { character: this.character, draw: !this.character.battleGoals || this.character.battleGoals.length == 0 }
+      });
+      event.preventDefault();
+      event.stopPropagation();
+    }
   }
 
   calcRolling() {

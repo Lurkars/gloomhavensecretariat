@@ -25,6 +25,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   @Input() character!: Character;
   @Input() editable: boolean = true;
+  @Input() forceEdit: boolean = false;
   @Input() standalone: boolean = false;
   @Input() dialogRef: DialogRef | undefined;
 
@@ -409,7 +410,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   addPerk(index: number, value: number, force: boolean = false) {
-    const disabled: boolean = gameManager.game.state != GameState.draw || gameManager.game.round > 0 || this.character.progress.perks[index] < value && this.availablePerks < value - this.character.progress.perks[index];
+    const disabled: boolean = !this.forceEdit && (gameManager.game.state != GameState.draw || gameManager.game.round > 0) || this.character.progress.perks[index] < value && this.availablePerks < value - this.character.progress.perks[index];
 
     if (!disabled || force) {
       gameManager.stateManager.before("setPerk", gameManager.characterManager.characterName(this.character), "" + index, "" + value);

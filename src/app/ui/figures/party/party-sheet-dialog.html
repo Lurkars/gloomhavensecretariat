@@ -140,8 +140,10 @@
               [ghs-label]="'party.campaign.sheet.winter'"></span><img src="./assets/images/fh/party/winter.svg"></label>
         </div>
 
-        <div class="calendar-lock-toggle">
-          <a (click)="settingsManager.toggle('calendarLocked')">
+        <div class="calendar-lock-toggle" [ghs-tooltip]="'party.campaign.sheet.weekSections.lock'"
+          [ngClass]="{'permissive': settingsManager.settings.calendarLocked == 'permissive'}">
+          <a ghs-pointer-input (singleClick)="settingsManager.toggle('calendarLocked')"
+            (doubleClick)="settingsManager.set('calendarLocked', settingsManager.settings.calendarLocked != 'permissive' ? 'permissive': true)">
             <img [src]="'./assets/images/lock' + (settingsManager.settings.calendarLocked ? '' : '-open') + '.svg'">
           </a>
         </div>
@@ -150,7 +152,7 @@
           <div class="week" *ngFor="let week of [] | ghsRange:80; let index = index" ghs-pointer-input
             [ghs-tooltip]="'party.campaign.sheet.weekSections.hint'" (singleClick)="setWeek(index+1 + 80*calendarSheet)"
             (doubleClick)="setWeekSection(index+1+ 80*calendarSheet)"
-            [ngClass]="{'checked': party.weeks > index + 80*calendarSheet, 'section': sectionsForWeekFixed(week+ 80*calendarSheet).length > 0 || sectionsForWeek(week+ 80*calendarSheet).length > 0, 'locked': settingsManager.settings.calendarLocked}">
+            [ngClass]="{'checked': party.weeks > index + 80*calendarSheet, 'section': sectionsForWeekFixed(week+ 80*calendarSheet).length > 0 || sectionsForWeek(week+ 80*calendarSheet).length > 0, 'locked': settingsManager.settings.calendarLocked && (settingsManager.settings.calendarLocked != 'permissive' || party.weeks != index + 80*calendarSheet && party.weeks != index + 80*calendarSheet + 1)}">
             <div class="section" *ngFor="let section of sectionsForWeekFixed(week+ 80*calendarSheet)">
               <img
                 [src]="'./assets/images/' + (hasConclusions(section) ? 'hint.svg' : (isConclusion(section) ? 'scenario/conclusion.svg'  : 'fh/party/section.svg'))">
@@ -806,7 +808,8 @@
         </div>
 
         <div class="row time">
-          <span [ghs-label]="'party.campaign.totalTime'" [ghs-label-args]="[(gameManager.game.totalSeconds| ghsDurationLabel:true)]"></span>
+          <span [ghs-label]="'party.campaign.totalTime'"
+            [ghs-label-args]="[(gameManager.game.totalSeconds| ghsDurationLabel:true)]"></span>
         </div>
       </div>
     </div>

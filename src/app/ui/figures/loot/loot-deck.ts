@@ -117,7 +117,7 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
             this.initServer = false;
         }
 
-        if (!this.deck.active) {
+        if (!this.deck.active && !this.standalone) {
             if (this.queueTimeout) {
                 clearTimeout(this.queueTimeout);
                 this.queueTimeout = null;
