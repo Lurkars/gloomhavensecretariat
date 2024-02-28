@@ -1016,6 +1016,7 @@
           ".": "Sektion für Woche {0} setzen",
           "addSection": "Sektion der Woche hinzufügen",
           "calc": "{0} Wochen von der akutellen Woche",
+          "lock": "Sperrt den Kalender um unabsichtliche Änderungen zu vermeiden. Doppelklick um Änderungen um das Hinzufügen oder Entfernen von genau einer Woche zu erlauben",
           "openConclusion": "Fortführende Sektion auswählen",
           "section": "Sektion"
         },
@@ -1566,6 +1567,10 @@
       ".": "Automatischer Spieltimer",
       "hint": "Startet und pausiert den Spieltimer automatisch wenn das Fenster geöffnet oder geschlossen wird."
     },
+    "automaticGameClockFocus": {
+      ".": "Automatischer Spieltimer bei Fokus",
+      "hint": "Zusätzlich den Spieltimer automatisch starten und pausieren wenn das Fenster den Fokus verliert oder bekommt."
+    },
     "automaticPassTime": {
       ".": "Automatisch Kalender Wochen vertreichen",
       "hint": "Automatisch eine Kalender Woche versteichen nach Abschluss eines Szenarios. Dies fügt auch automatisch Effekte von möglichen Sektionen in der Kalendarwoche hinzu."
@@ -1800,6 +1805,10 @@
     "gameClock": {
       ".": "Spieltimer",
       "hint": "Spieltimer einschalten um die Spielzeit mit der App festzuhalten."
+    },
+    "gameClockMerge": {
+      ".": "Spieltimer zusammenfügen",
+      "hint": "Füge Spieltimer vom Serverspiel mit dem lokalen Spieltimer zusammen um die Gesamtspielzeit festzuhalten."
     },
     "gameplay": "Spielablauf",
     "ge5Player": {

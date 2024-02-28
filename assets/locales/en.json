@@ -1165,6 +1165,7 @@
           "addSection": "Add Section to week",
           "calc": "{0} weeks from current week",
           "hint": "Double-click to set/edit sections for week",
+          "lock": "Lock the calendar to avoid accidental edits. Doubleclick to make a permissive lock, allowing to add or remove exactly one week.",
           "openConclusion": "Select continuing section",
           "section": "Section"
         },
@@ -1716,6 +1717,10 @@
       ".": "Automatic game clock",
       "hint": "Automatically start and stop game clock when window openes or closes."
     },
+    "automaticGameClockFocus": {
+      ".": "Automatic game clock on focus",
+      "hint": "Also start and stop game clock automatically when window gain focus or loses focus."
+    },
     "automaticPassTime": {
       ".": "Automatic pass calendar time",
       "hint": "Automatic pass time by adding a week to the calendar after finishing a scenario. This also automatically adds effects of calendar sections in this week."
@@ -1949,6 +1954,10 @@
     "gameClock": {
       ".": "Game Clock",
       "hint": "Enable a game clock to track the time the app is running."
+    },
+    "gameClockMerge": {
+      ".": "Merge Game Clocks",
+      "hint": "Merge game clocks from server game with local game clock to get overall game time."
     },
     "gameplay": "Gameplay",
     "ge5Player": {
