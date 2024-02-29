@@ -3,8 +3,20 @@
         "url": "gloomhaven-secretariat.de",
         "port": 8443,
         "secure": true,
-        "description": "Public instance hosted by Lurkars",
+        "description": "Public instance hosted by Lurkars.",
         "location": "Germany",
+        "urls": {
+            "website": "https://github.com/Lurkars/ghs-server",
+            "status": "https://status.gloomhaven-secretariat.de",
+            "privacy": "https://github.com/Lurkars/ghs-server#privacy"
+        }
+    },    
+    {
+        "url": "us.gloomhaven-secretariat.de",
+        "port": 8443,
+        "secure": true,
+        "description": "Public instance hosted by Lurkars in the USA. As it is a small VPS, we'll have to check how it performs.",
+        "location": "US",
         "urls": {
             "website": "https://github.com/Lurkars/ghs-server",
             "status": "https://status.gloomhaven-secretariat.de",
