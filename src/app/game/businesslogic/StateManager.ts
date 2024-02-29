@@ -311,22 +311,27 @@ export class StateManager {
         case "settings":
           window.document.body.classList.add('server-sync');
           if (settingsManager.settings.serverSettings) {
-            let settings: Settings = message.payload as Settings;
-            // keep local
-            localSettings.forEach((setting) => {
-              settings[setting] = settingsManager.settings[setting];
-            })
+            // no settings on server, store own settings first
+            if (!message.payload) {
+              gameManager.stateManager.saveSettings();
+            } else {
+              let settings: Settings = message.payload as Settings;
+              // keep local
+              localSettings.forEach((setting) => {
+                settings[setting] = settingsManager.settings[setting];
+              })
 
-            // migration
-            settings.serverCode = settingsManager.settings.serverCode || settingsManager.settings.serverPassword;
-            settings.serverPassword = undefined;
+              // migration
+              settings.serverCode = settingsManager.settings.serverCode || settingsManager.settings.serverPassword;
+              settings.serverPassword = undefined;
 
-            settingsManager.setSettings(Object.assign(new Settings(), settings));
-            storageManager.write('settings', 'default', settingsManager.settings);
-            setTimeout(() => {
-              window.document.body.classList.remove('server-sync');
-            }, 1);
+              settingsManager.setSettings(Object.assign(new Settings(), settings));
+              storageManager.write('settings', 'default', settingsManager.settings);
+            }
           }
+          setTimeout(() => {
+            window.document.body.classList.remove('server-sync');
+          }, 1);
           gameManager.stateManager.serverError = "";
           break;
         case "permissions":
@@ -382,7 +387,8 @@ export class StateManager {
         let message = {
           "code": settingsManager.settings.serverCode,
           "password": settingsManager.settings.serverCode, // migration
-          "type": "request-settings"
+          "type": "request-settings",
+          "allow-empty": true
         }
         if (settingsManager.settings.logServerMessages) console.debug('WS sending request-settings');
         ws.send(JSON.stringify(message));
@@ -424,7 +430,8 @@ export class StateManager {
       let message = {
         "code": settingsManager.settings.serverCode,
         "password": settingsManager.settings.serverCode, // migration
-        "type": "request-settings"
+        "type": "request-settings",
+        "allow-empty": true
       }
       if (settingsManager.settings.logServerMessages) console.debug('WS sending request-settings');
       this.ws.send(JSON.stringify(message));
