@@ -118,7 +118,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 
 [^1.1]: Need to be enabled in **Settings** Menu
 
-[^1.2]: Only support monster cards fia **Add Section** Menu
+[^1.2]: Only support monster cards via **Add Section** Menu
 
 [^1.3]: Currently Gloomhaven only!
 
