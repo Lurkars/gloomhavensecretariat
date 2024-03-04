@@ -17,7 +17,15 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
     @ViewChild("mermaid") mermaidElement!: ElementRef;
 
-    flow: string[] = ["flowchart TB", "classDef success stroke:#7da82a,stroke-width:6", "classDef blocked stroke:#e2421f,stroke-width:6", "classDef locked stroke:#eca610,stroke-width:6", "linkStyle default stroke-width:5"];
+    flow: string[] = [
+        "flowchart TB",
+        "classDef default stroke-width:6;",
+        "classDef success stroke:#7da82a;",
+        "classDef blocked stroke:#e2421f;",
+        "classDef locked stroke:#eca610;",
+        "classDef success-blocked fill:#7da82a,stroke:#e2421f;",
+        "classDef success-locked fill:#7da82a,stroke:#eca610;",
+        "linkStyle default stroke-width:5"];
     flowString: string = "";
     edition: string;
     group: string | undefined;
@@ -35,9 +43,16 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 curve: "linear"
             },
             securityLevel: "loose",
+            theme: "base",
             themeVariables: {
                 fontSize: "calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor))",
-                fontFamily: 'var(--ghs-font-text)'
+                fontFamily: "var(--ghs-font-text)",
+                darkMode: true,
+                primaryColor: "#202830",
+                secondaryColor: "transparent",
+                tertiaryColor: "#52565f",
+                tertiaryBorderColor: "#202830",
+                tertiaryTextColor: "#eeeeee"
             }
         });
 
@@ -66,7 +81,20 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 this.flow.push("subgraph \"" + settingsManager.getLabel('data.custom.' + this.edition + '.flowChartGroup.' + scenarioData.flowChartGroup) + "\"");
                 subgraph = scenarioData.flowChartGroup;
             }
-            this.flow.push("\t" + scenarioData.index + "((" + (pad + scenarioData.index).slice(-pad.length) + "))");
+
+            let state = "";
+            const success = gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && scenarioModel.index == scenarioData.index) != undefined;
+
+            if (success) {
+                state += ":::success";
+            }
+            if (gameManager.scenarioManager.isBlocked(scenarioData)) {
+                state = success ? ":::success-blocked" : ":::blocked";
+            } else if (gameManager.scenarioManager.isLocked(scenarioData)) {
+                state = success ? ":::success-locked" : ":::locked";
+            }
+
+            this.flow.push("\t" + scenarioData.index + "((" + (pad + scenarioData.index).slice(-pad.length) + "))" + state);
         });
 
         if (subgraph) {
@@ -81,18 +109,14 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 if (scenarioData.unlocks) {
                     scenarioData.unlocks.forEach((index) => {
                         let arrow = " --> ";
-                        let otherClass = "";
                         const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
                         if (other) {
                             if (gameManager.scenarioManager.isBlocked(other)) {
                                 arrow = " --x ";
-                                otherClass = ":::blocked";
                             } else if (gameManager.scenarioManager.isLocked(other)) {
                                 arrow = " --o ";
-                                otherClass = ":::locked";
                             }
-
-                            this.flow.push("\t" + scenarioData.index + "((" + (pad + scenarioData.index).slice(-pad.length) + "))" + (success ? ":::success" : "") + arrow + index + "((" + (pad + other.index).slice(-pad.length) + "))" + otherClass);
+                            this.flow.push("\t" + scenarioData.index + arrow + index);
                         }
                     })
                 }
@@ -100,18 +124,15 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 if (scenarioData.links) {
                     scenarioData.links.forEach((index) => {
                         let arrow = ' -.->|🔗| ';
-                        let otherClass = "";
                         const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
                         if (other) {
                             if (gameManager.scenarioManager.isBlocked(other)) {
                                 arrow = ' -.-x|🔗| ';
-                                otherClass = ":::blocked";
                             } else if (gameManager.scenarioManager.isLocked(other)) {
                                 arrow = ' -.-o|🔗| ';
-                                otherClass = ":::locked";
                             }
 
-                            this.flow.push("\t" + scenarioData.index + "((" + (pad + scenarioData.index).slice(-pad.length) + "))" + (success ? ":::success" : "") + arrow + index + "((" + (pad + other.index).slice(-pad.length) + "))" + otherClass);
+                            this.flow.push("\t" + scenarioData.index + arrow + index);
                         }
                     })
                 }
@@ -119,18 +140,15 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 if (scenarioData.forcedLinks) {
                     scenarioData.forcedLinks.forEach((index) => {
                         let arrow = ' -.->|❗🔗| ';
-                        let otherClass = "";
                         const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
                         if (other) {
                             if (gameManager.scenarioManager.isBlocked(other)) {
                                 arrow = ' -.-x|❗🔗| ';
-                                otherClass = ":::blocked";
                             } else if (gameManager.scenarioManager.isLocked(other)) {
                                 arrow = ' -.-o|❗🔗| ';
-                                otherClass = ":::locked";
                             }
 
-                            this.flow.push("\t" + scenarioData.index + "((" + (pad + scenarioData.index).slice(-pad.length) + "))" + (success ? ":::success" : "") + arrow + index + "((" + (pad + other.index).slice(-pad.length) + "))" + otherClass);
+                            this.flow.push("\t" + scenarioData.index + arrow + index);
                         }
                     })
                 }
@@ -146,7 +164,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                             let arrow = " -.-o ";
                             const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
                             if (other) {
-                                this.flow.push("\t" + scenarioData.index + "((" + (pad + scenarioData.index).slice(-pad.length) + "))" + arrow + index + "((" + (pad + other.index).slice(-pad.length) + "))");
+                                this.flow.push("\t" + scenarioData.index + arrow + index);
                             }
                         })
                     }
