@@ -804,6 +804,7 @@
   "hints": {
     "active": "Züge durchführen",
     "active-full": "Auf die Bilder der Figuren klicken um die Züge durchzuführen",
+    "addAdditionalContent": "Weitere Inhalte hinzufügen",
     "addCharacters": "%character.add%",
     "addMonsterEntities": "Auf die \"+\" Buttons klicken um Monster zu platzieren",
     "addMonsters": "%monster.add%",
@@ -1130,6 +1131,7 @@
     ".": "Szenario",
     "blocked": "Gesperrt",
     "cancel": "Szenario abbrechen",
+    "chart": "Flussdiagramm (%wip%)",
     "conclusion": "Lösung",
     "custom": "Benutzerdefiniert",
     "eventEffects": {

@@ -952,6 +952,7 @@
   "hints": {
     "active": "Take turns",
     "active-full": "Take turns, click each figure image",
+    "addAdditionalContent": "Add additional content",
     "addCharacters": "%character.add%",
     "addMonsterEntities": "Use the \"+\" buttons to spawn monsters.",
     "addMonsters": "%monster.add%",
@@ -1278,6 +1279,7 @@
     ".": "Scenario",
     "blocked": "Blocked",
     "cancel": "Cancel Scenario",
+    "chart": "Flow Chart (%wip%)",
     "conclusion": "Conclusion",
     "custom": "Custom",
     "eventEffects": {
