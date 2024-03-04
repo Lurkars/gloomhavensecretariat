@@ -1,6 +1,7 @@
 {
   "index": "73",
   "name": "Flotsam",
+  "flowChartGroup": "personal-quests",
   "edition": "fh",
   "complexity": 2,
   "monsters": [

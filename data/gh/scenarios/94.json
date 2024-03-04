@@ -1,6 +1,7 @@
 {
   "index": "94",
   "name": "Vermling Nest",
+  "flowChartGroup": "city-events",
   "coordinates": {
     "x": 1703,
     "y": 912,

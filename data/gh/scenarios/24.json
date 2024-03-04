@@ -1,6 +1,7 @@
 {
   "index": "24",
   "name": "Echo Chamber",
+  "flowChartGroup": "voice",
   "coordinates": {
     "x": 753.5,
     "y": 345,

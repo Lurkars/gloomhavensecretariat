@@ -896,6 +896,19 @@
         "section154-1": "Map: Black Imp should be Forest Imp. (Fixed in GHS!)",
         "section197-1": "Section 197.1 has outdated descriptions and names of some cards.",
         "tavern3": "This should have a requirement to build of already having 3 coins."
+      },
+      "flowChartGroup": {
+          "intro": "Intro",
+          "algox-1": "Algox",
+          "algox-2": "Algox",
+          "algox-3": "Algox",
+          "lurker": "Lurker",
+          "unfettered": "Unfettered",
+          "puzzle-book": "Puzzle Book",
+          "personal-quests": "Personal Quests",
+          "job-postings": "Job Postings",
+          "other": "Other",
+          "random-scenarios": "Random Scenarios"
       }
     }
   }

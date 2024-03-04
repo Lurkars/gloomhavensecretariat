@@ -15,7 +15,10 @@
       "trophy_tokens": "%data.characterToken.kelp.trophy% Trophy Tokens"
     },
     "meteor": "Pyroclast",
-    "prism": "HIVE",
+    "prism": {
+      ".": "HIVE",
+      "prism_mode": "%data.characterToken.prism.mode% Mode Token"
+    },
     "shackles": "Pain Conduit",
     "shards": "Shattersong",
     "snowflake": "Snowdancer",

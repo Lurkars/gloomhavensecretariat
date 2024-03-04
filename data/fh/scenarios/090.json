@@ -1,6 +1,7 @@
 {
   "index": "90",
   "name": "Frozen Treasure",
+  "flowChartGroup": "job-postings",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

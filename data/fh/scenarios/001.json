@@ -1,6 +1,7 @@
 {
   "index": "1",
   "name": "A Town in Flames",
+  "flowChartGroup": "intro",
   "coordinates": {
     "x": 960,
     "y": 1872,

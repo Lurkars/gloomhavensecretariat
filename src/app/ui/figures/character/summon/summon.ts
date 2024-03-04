@@ -35,6 +35,7 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   activeConditions: EntityCondition[] = [];
+  specialActionsMarker: string[] = [];
 
   constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay) { }
 
@@ -61,6 +62,15 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
     this.summon.immunities.forEach((immunity) => {
       if (!this.activeConditions.find((entityCondition) => entityCondition.name == immunity)) {
         this.activeConditions.push(new EntityCondition(immunity));
+      }
+    })
+
+    this.specialActionsMarker = [];
+    this.summon.tags.forEach((tag) => {
+      if (this.character.specialActions.find((specialAction) => specialAction.name == tag && specialAction.summon)) {
+        if (tag == 'prism_mode') {
+          this.specialActionsMarker.push('mode');
+        }
       }
     })
   }

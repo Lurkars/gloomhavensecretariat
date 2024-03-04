@@ -13,6 +13,12 @@
   ],
   "color": "#d7ad47",
   "spoiler": true,
+  "specialActions": [
+    {
+      "name": "prism_mode",
+      "summon": true
+    }
+  ],
   "stats": [
     {
       "level": 1,

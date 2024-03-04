@@ -1,6 +1,7 @@
 {
   "index": "36",
   "name": "Buried Ducts",
+  "flowChartGroup": "unfettered",
   "errata": "scenario36-37",
   "edition": "fh",
   "complexity": 1,

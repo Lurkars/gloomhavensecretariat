@@ -1,6 +1,7 @@
 {
   "index": "18",
   "name": "Abandoned Sewers",
+  "flowChartGroup": "sewers",
   "coordinates": {
     "x": 2120.2999877929688,
     "y": 440,

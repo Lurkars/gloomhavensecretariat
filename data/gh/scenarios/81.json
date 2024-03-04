@@ -1,6 +1,7 @@
 {
   "index": "81",
   "name": "Temple of the Eclipse",
+  "flowChartGroup": "city-events",
   "coordinates": {
     "x": 253.0999755859375,
     "y": 524,

@@ -1,6 +1,7 @@
 {
   "index": "104",
   "name": "Ruins of the Solstice",
+  "flowChartGroup": "random-scenarios",
   "errata": "scenario104",
   "edition": "fh",
   "complexity": 2,

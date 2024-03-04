@@ -1,4 +1,4 @@
-<div class="summon-border"
+<div class="summon-border" [style.--ghs-character-color]="character.color"
   [ngClass]="{'dead' : summon.dead, 'off' : character.off, 'active' : summon.active, 'fh' : settingsManager.settings.fhStyle}"
   [entityAnimation]="summon.dead">
   <div class="summon">
@@ -15,21 +15,26 @@
       </div>
 
       <span class="image"
-        [ngClass]="{'active' : summon.state == SummonState.true, 'new' : summon.state == SummonState.new, 'center' : (summon.entityConditions.length % 2) == 0, 'fh': summon.color == SummonColor.fh}">
+        [ngClass]="{'active' : summon.state == SummonState.true, 'new' : summon.state == SummonState.new, 'center' : (summon.entityConditions.length % 2) == 0, 'fh': summon.color == SummonColor.fh, 'off': specialActionsMarker.indexOf('mode') != -1}">
         <img *ngIf="summon.color != SummonColor.fh" src="./assets/images/summons/{{summon.color}}.png">
         <span class="summon-number">
           <span *ngIf="summon.number == 0">-</span>
           <span *ngIf="summon.number > 0">{{summon.number}}</span></span>
       </span>
 
-      <span class="health" [ngClass]="{'thumbnail': settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)}">{{(summon.health + health) | ghsMinZero}}
+      <span class="health"
+        [ngClass]="{'thumbnail': settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)}">{{(summon.health
+        + health) | ghsMinZero}}
         <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [container]="true"></span>
       </span>
     </div>
 
     <div class="markers">
       <span class="marker" *ngFor="let marker of summon.markers;">
-        <img src="./assets/images/character/icons/{{marker}}.svg" />
+        <img [src]="'./assets/images/character/icons/' + marker + '.svg'" />
+      </span>
+      <span class="marker special-tag" *ngFor="let token of specialActionsMarker;">
+        <span class="token" [ghs-label]="'%data.characterToken.' + character.name + '.' + token + '%'"></span>
       </span>
     </div>
 

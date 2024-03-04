@@ -1,6 +1,7 @@
 {
   "index": "79",
   "name": "Lost Temple",
+  "flowChartGroup": "city-events",
   "coordinates": {
     "x": 1804.0999755859375,
     "y": 1537,

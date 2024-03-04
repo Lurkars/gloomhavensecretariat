@@ -1,6 +1,7 @@
 {
   "index": "100",
   "name": "Inside the Swarm",
+  "flowChartGroup": "job-postings",
   "edition": "fh",
   "complexity": 3,
   "unlocks": [

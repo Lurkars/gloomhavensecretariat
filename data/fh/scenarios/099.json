@@ -1,6 +1,7 @@
 {
   "index": "99",
   "name": "Prison Break",
+  "flowChartGroup": "job-postings",
   "edition": "fh",
   "complexity": 1,
   "unlocks": [

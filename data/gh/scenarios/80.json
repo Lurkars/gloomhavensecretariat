@@ -1,6 +1,7 @@
 {
   "index": "80",
   "name": "Vigil Keep",
+  "flowChartGroup": "road-events",
   "coordinates": {
     "x": 85,
     "y": 1594,

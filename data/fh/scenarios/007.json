@@ -1,6 +1,7 @@
 {
   "index": "7",
   "name": "Edge of the World",
+  "flowChartGroup": "lurker",
   "edition": "fh",
   "complexity": 1,
   "unlocks": [

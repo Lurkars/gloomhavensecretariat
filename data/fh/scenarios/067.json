@@ -1,6 +1,7 @@
 {
   "index": "67",
   "name": "Core Attunement",
+  "flowChartGroup": "personal-quests",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

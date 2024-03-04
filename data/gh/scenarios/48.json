@@ -1,6 +1,7 @@
 {
   "index": "48",
   "name": "Shadow Weald",
+  "flowChartGroup": "through-jungles",
   "coordinates": {
     "x": 143,
     "y": 669,

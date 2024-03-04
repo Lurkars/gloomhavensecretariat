@@ -1,6 +1,7 @@
 {
   "index": "89",
   "name": "Syndicate Hideout",
+  "flowChartGroup": "city-events",
   "coordinates": {
     "x": 2484.5999755859375,
     "y": 415,

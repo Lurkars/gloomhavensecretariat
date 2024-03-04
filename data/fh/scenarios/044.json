@@ -1,6 +1,7 @@
 {
   "index": "44",
   "name": "Nerve Center",
+  "flowChartGroup": "unfettered",
   "edition": "fh",
   "complexity": 2,
   "forcedLinks": [

@@ -70,6 +70,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Party/Campaign sheet
   - Item Cards
   - Battle Goals
+  - Building deck (partly!)
 - Other features:
   - i18n support (currently en, de, fr and ko, more translations needed. Many thanks to the contributors of french and korean)
   - PWA for installation on all devices!
@@ -97,8 +98,20 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
 
       > Automatically add/remove time tokens at start of round after defining slow/fast before
     </details>
+    <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-prism.svg" height="20px" style="filter:grayscale(1)"></summary>
+
+      > Toggle Mode Token for summons (inactive if Mode Token set)
+    </details>
+    <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/jotl-demolitionist.svg" height="20px" style="filter:grayscale(1)"></summary>
+
+      > Mech Suit (+5 HP, Heal 10)
+    </details>
+  - Random Dungeon Sections: automatic standees for random monster cards via *Add Section* menu
   - Monster data editor (https://gloomhaven-secretariat.de/editor/monster)
-  - Includes Solo scenarios- Includes the [Seeker of Xorn](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under *Data Management*.
+  - Includes Solo scenarios
+  - Includes the [Seeker of Xorn](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under *Data Management*.
   - Includes the [Satire's Extended Battle Goals](https://boardgamegeek.com/thread/2184131/satires-extended-battle-goals): can be enabled under *Data Management*.
   - Includes [Ice Rift](https://boardgamegeek.com/thread/2341619/custom-campaign-ice-rift): can be enabled under *Data Management*.
   - Includes [Blood and Sand](https://boardgamegeek.com/thread/2613617/blood-and-sand-gloomhaven-campaign-set-red-desert) campaign: can be enabled in *Data Management* (Thanks to [/u/Calm_Construction131](https://www.reddit.com/user/Calm_Construction131) for contribution)

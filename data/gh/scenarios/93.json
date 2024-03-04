@@ -1,6 +1,7 @@
 {
   "index": "93",
   "name": "Sunken Vessel",
+  "flowChartGroup": "city-events",
   "coordinates": {
     "x": 2419.5999755859375,
     "y": 2041,

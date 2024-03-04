@@ -1,6 +1,7 @@
 {
   "index": "87",
   "name": "The Collection",
+  "flowChartGroup": "job-postings",
   "edition": "fh",
   "complexity": 1,
   "unlocks": [

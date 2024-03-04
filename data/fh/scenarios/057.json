@@ -1,6 +1,7 @@
 {
   "index": "57",
   "name": "Sanctuary of Snow",
+  "flowChartGroup": "algox-2",
   "edition": "fh",
   "complexity": 3,
   "requirements": [

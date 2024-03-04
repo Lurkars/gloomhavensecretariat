@@ -1,6 +1,7 @@
 {
   "index": "63",
   "name": "Magma Pit",
+  "flowChartGroup": "random-scenarios",
   "coordinates": {
     "x": 103,
     "y": 1915,

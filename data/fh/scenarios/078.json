@@ -1,6 +1,7 @@
 {
   "index": "78",
   "name": "The Lurker Problem",
+  "flowChartGroup": "job-postings",
   "errata": "scenario78",
   "edition": "fh",
   "complexity": 2,

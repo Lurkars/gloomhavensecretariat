@@ -1,6 +1,7 @@
 {
   "index": "33",
   "name": "Thawed Wood",
+  "flowChartGroup": "lurker",
   "edition": "fh",
   "complexity": 3,
   "requirements": [

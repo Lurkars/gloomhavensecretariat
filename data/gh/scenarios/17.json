@@ -1,6 +1,7 @@
 {
   "index": "17",
   "name": "Lost Island",
+  "flowChartGroup": "the-merchant",
   "coordinates": {
     "x": 2572.5999755859375,
     "y": 1527,

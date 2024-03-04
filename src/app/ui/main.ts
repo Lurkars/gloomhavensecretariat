@@ -38,6 +38,7 @@ export class MainComponent implements OnInit {
   loading: boolean = true;
   cancelLoading: boolean = false;
   welcome: boolean = false;
+  welcomeOtherEditions: boolean = false;
   fullviewChar: Character | undefined;
   showBackupHint: boolean = false;
 
@@ -69,6 +70,7 @@ export class MainComponent implements OnInit {
             this.welcome = false;
           } else if (gameManager.game.figures.length == 0) {
             this.welcome = true;
+            this.welcomeOtherEditions = settingsManager.settings.editions.length < gameManager.editionData.length;
           } else {
             this.fullviewChar = undefined;
             this.welcome = false;

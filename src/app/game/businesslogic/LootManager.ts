@@ -191,7 +191,7 @@ export class LootManager {
             if (item) {
               const identifier = new CountIdentifier('' + item.id, item.edition);
               if (reward.type == TreasureRewardType.item || reward.type == TreasureRewardType.itemFh) {
-                if (settingsManager.settings.characterItems) {
+                if (settingsManager.settings.characterItems || settingsManager.settings.characterSheet) {
                   if (character.progress.items.find((existing) => existing.name == identifier.name && existing.edition == identifier.edition)) {
                     character.progress.gold += gameManager.itemManager.itemSellValue(item);
                   } else {

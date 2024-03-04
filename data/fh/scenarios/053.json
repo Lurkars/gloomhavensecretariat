@@ -1,6 +1,7 @@
 {
   "index": "53",
   "name": "Underwater Throne",
+  "flowChartGroup": "lurker",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

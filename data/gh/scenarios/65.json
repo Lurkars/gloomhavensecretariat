@@ -1,6 +1,7 @@
 {
   "index": "65",
   "name": "Sulfur Mine",
+  "flowChartGroup": "random-scenarios",
   "coordinates": {
     "x": 662.3999938964844,
     "y": 1769,

@@ -1,6 +1,7 @@
 {
   "index": "45",
   "name": "Living Glacier",
+  "flowChartGroup": "algox-3",
   "edition": "fh",
   "complexity": 1,
   "unlocks": [

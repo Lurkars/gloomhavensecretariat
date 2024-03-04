@@ -1,6 +1,7 @@
 {
   "index": "43",
   "name": "Overrun Barricade",
+  "flowChartGroup": "unfettered",
   "edition": "fh",
   "complexity": 3,
   "unlocks": [

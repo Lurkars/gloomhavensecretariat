@@ -1,6 +1,7 @@
 {
   "index": "15",
   "name": "Ancient Spire",
+  "flowChartGroup": "unfettered",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

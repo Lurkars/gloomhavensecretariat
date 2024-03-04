@@ -1,6 +1,7 @@
 {
   "index": "23",
   "name": "Spire Basement",
+  "flowChartGroup": "unfettered",
   "edition": "fh",
   "complexity": 1,
   "unlocks": [

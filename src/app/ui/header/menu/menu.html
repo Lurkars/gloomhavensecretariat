@@ -224,6 +224,8 @@
 
   <ghs-datamanagement-menu *ngSwitchCase="SubMenu.datamanagement"></ghs-datamanagement-menu>
 
+  <ghs-datamanagement-menu *ngSwitchCase="SubMenu.editions" [editionsOnly]="true"></ghs-datamanagement-menu>
+
   <div *ngSwitchCase="SubMenu.about" class="menu-container about">
     <div class="line">
       <p [ghs-label]="'about.ip'"

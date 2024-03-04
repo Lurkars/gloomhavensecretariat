@@ -1,6 +1,7 @@
 {
   "index": "2",
   "name": "Barrow Lair",
+  "flowChartGroup": "intro",
   "coordinates": {
     "x": 1572,
     "y": 965,

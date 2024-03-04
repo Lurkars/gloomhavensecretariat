@@ -1,6 +1,7 @@
 {
   "index": "49",
   "name": "Beneath Sea and Stone",
+  "flowChartGroup": "lurker",
   "edition": "fh",
   "complexity": 3,
   "unlocks": [

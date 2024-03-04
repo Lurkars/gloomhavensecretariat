@@ -1,6 +1,7 @@
 {
   "index": "101",
   "name": "Harrower Library",
+  "flowChartGroup": "job-postings",
   "edition": "fh",
   "complexity": 1,
   "unlocks": [

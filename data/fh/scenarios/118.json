@@ -1,6 +1,7 @@
 {
   "index": "118",
   "name": "Lurker Necromancy",
+  "flowChartGroup": "other",
   "edition": "fh",
   "complexity": 1,
   "requirements": [

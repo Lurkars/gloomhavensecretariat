@@ -1,6 +1,7 @@
 {
   "index": "84",
   "name": "Here There Be Oozes",
+  "flowChartGroup": "job-postings",
   "edition": "fh",
   "complexity": 3,
   "rewards": {

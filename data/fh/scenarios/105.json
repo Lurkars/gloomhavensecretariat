@@ -1,6 +1,7 @@
 {
   "index": "105",
   "name": "Ruins of the Equinox",
+  "flowChartGroup": "random-scenarios",
   "edition": "fh",
   "complexity": 2,
   "requirements": [

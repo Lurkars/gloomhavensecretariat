@@ -1,6 +1,7 @@
 {
   "index": "5",
   "name": "Frozen Crypt",
+  "flowChartGroup": "algox-1",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

@@ -1,6 +1,7 @@
 {
   "index": "81",
   "name": "Ruinous Research Lab",
+  "flowChartGroup": "other",
   "edition": "fh",
   "complexity": 3,
   "allyDeck": true,

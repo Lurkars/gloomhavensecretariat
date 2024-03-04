@@ -1,6 +1,9 @@
 {
   "character": {
-    "demolitionist": "철거전문가",
+    "demolitionist": {
+      ".": "철거전문가",
+      "mech": "%game.characterIconColored.demolitionist%  Mech Suit"
+    },
     "hatchet": "도끼투척수",
     "red-guard": "적위병",
     "voidwarden": "공허감시자"

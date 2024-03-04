@@ -1,6 +1,7 @@
 {
   "index": "2",
   "name": "Algox Scouting",
+  "flowChartGroup": "intro",
   "edition": "fh",
   "complexity": 1,
   "unlocks": [

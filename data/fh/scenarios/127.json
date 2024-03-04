@@ -1,6 +1,7 @@
 {
   "index": "127",
   "name": "Derelict Freighter",
+  "flowChartGroup": "other",
   "edition": "fh",
   "complexity": 1,
   "monsters": [

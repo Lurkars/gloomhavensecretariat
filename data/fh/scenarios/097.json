@@ -1,6 +1,7 @@
 {
   "index": "97",
   "name": "Program Control Nexus",
+  "flowChartGroup": "job-postings",
   "edition": "fh",
   "complexity": 3,
   "unlocks": [

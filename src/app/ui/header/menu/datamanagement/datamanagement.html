@@ -1,6 +1,6 @@
 <div class="menu-container data">
 
-  <div class="columns columns-break">
+  <div *ngIf="!editionsOnly" class="columns columns-break">
     <div class="column">
       <div class="line">
         <a tabclick (click)="exportGame()"><span [ghs-label]="'datamanagement.exportGame'"></span></a>
@@ -181,18 +181,18 @@
     </div>
   </div>
 
-  <div class="separator"></div>
+  <div *ngIf="!editionsOnly" class="separator"></div>
   <div class="columns columns-break">
-    <div class="column">
+    <div *ngIf="!editionsOnly" class="column">
       <div class="line title sticky"
         [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
         <label><span [ghs-label]="'datamanagement.unlocks'"></span></label>
       </div>
       <div class="line">
         <span class="input-button">
-          <input tabclick type="text" #inputUnlock (keyup.enter)="addUnlock()" (keyup)="0"
+          <input tabclick type="text" #inputUnlock (keyup.enter)="addUnlock($event.target)" (keyup)="inputUnlock.classList.remove('error')"
             [ghs-label]="'datamanagement.addUnlock'" [ghs-label-attribute]="'placeholder'">
-          <span class="add-button" (click)="addUnlock()" [ngClass]="{'disabled' : !(inputUnlock.value)}"></span>
+          <span class="add-button" (click)="addUnlock(inputUnlock)" [ngClass]="{'disabled' : !inputUnlock.value}"></span>
         </span>
       </div>
       <div class="line spoilers">
@@ -213,9 +213,9 @@
       </div>
       <div class="line">
         <span class="input-button">
-          <input tabclick type="text" #inputSpoiler (keyup.enter)="addSpoiler()" (keyup)="0"
+          <input tabclick type="text" #inputSpoiler (keyup.enter)="addSpoiler($event.target)" (keyup)="0"
             [ghs-label]="'datamanagement.addSpoiler'" [ghs-label-attribute]="'placeholder'">
-          <span class="add-button" (click)="addSpoiler()" [ngClass]="{'disabled' : !(inputSpoiler.value)}"></span>
+          <span class="add-button" (click)="addSpoiler(inputSpoiler)" [ngClass]="{'disabled' : !(inputSpoiler.value)}"></span>
         </span>
       </div>
       <div class="line spoilers">
@@ -240,10 +240,10 @@
       </div>
       <div class="line">
         <span class="input-button">
-          <input tabclick type="text" #inputEditionDataUrl (keyup.enter)="addEditionDataUrl()"
+          <input tabclick type="text" #inputEditionDataUrl (keyup.enter)="addEditionDataUrl($event.target)"
             (keyup)="inputEditionDataUrl.classList.remove('error')" [ghs-label]="'datamanagement.addEditionDataUrl'"
             [ghs-label-attribute]="'placeholder'">
-          <span class="add-button" (click)="addEditionDataUrl()"
+          <span class="add-button" (click)="addEditionDataUrl(inputEditionDataUrl)"
             [ngClass]="{'disabled' : !inputEditionDataUrl.value}"></span>
         </span>
       </div>
@@ -276,7 +276,7 @@
     </div>
 
 
-    <div class="column">
+    <div *ngIf="!editionsOnly" class="column">
       <ng-container *ngIf="backups > 0">
         <div class="line title">
           <label><span [ghs-label]="'datamanagement.backup'"></span></label>

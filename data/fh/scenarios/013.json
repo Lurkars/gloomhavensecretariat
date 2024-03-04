@@ -1,6 +1,7 @@
 {
   "index": "13",
   "name": "Frozen Fjord",
+  "flowChartGroup": "lurker",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

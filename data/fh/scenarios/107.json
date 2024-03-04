@@ -1,6 +1,7 @@
 {
   "index": "107",
   "name": "My Private Empire",
+  "flowChartGroup": "random-scenarios",
   "edition": "fh",
   "complexity": 2,
   "random": true,

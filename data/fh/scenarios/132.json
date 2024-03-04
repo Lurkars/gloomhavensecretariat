@@ -1,6 +1,7 @@
 {
   "index": "132",
   "name": "Temple of Feline Power",
+  "flowChartGroup": "job-postings",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

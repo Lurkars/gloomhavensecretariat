@@ -1,6 +1,7 @@
 {
   "index": "74",
   "name": "Merchant Ship",
+  "flowChartGroup": "city-events",
   "coordinates": {
     "x": 2050.2999877929688,
     "y": 1324,

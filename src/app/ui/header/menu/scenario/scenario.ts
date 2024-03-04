@@ -8,6 +8,7 @@ import { Spoilable, SpoilableMock } from "src/app/game/model/data/Spoilable";
 import { ScenarioRequirementsComponent } from "src/app/ui/figures/party/requirements/requirements";
 import { Dialog } from "@angular/cdk/dialog";
 import { Subscription } from "rxjs";
+import { ScenarioChartDialogComponent } from "./chart/scenario-chart";
 
 @Component({
   selector: 'ghs-scenario-menu',
@@ -211,5 +212,16 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
     gameManager.game.party.campaignMode = !gameManager.game.party.campaignMode;
     this.scenarioCache = [];
     gameManager.stateManager.after();
+  }
+
+  scenarioChart() {
+    this.dialog.open(ScenarioChartDialogComponent, {
+      panelClass: ['fullscreen-panel'],
+      backdropClass: ['fullscreen-backdrop'],
+      data: {
+        edition: this.edition
+      }
+    })
+    this.close.emit();
   }
 }

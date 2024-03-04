@@ -1,6 +1,7 @@
 {
   "index": "128",
   "name": "A Tall Drunken Tale",
+  "flowChartGroup": "other",
   "edition": "fh",
   "complexity": 3,
   "monsters": [

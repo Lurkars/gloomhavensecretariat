@@ -1,6 +1,7 @@
 {
   "index": "90",
   "name": "Demonic Rift",
+  "flowChartGroup": "road-events",
   "coordinates": {
     "x": 1001.6000061035156,
     "y": 1432,

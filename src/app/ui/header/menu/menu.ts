@@ -31,6 +31,7 @@ export enum SubMenu {
   debug = "debug",
   server = "server",
   datamanagement = "datamanagement",
+  editions = "editions",
   about = "about",
   campaign = "campaign"
 }

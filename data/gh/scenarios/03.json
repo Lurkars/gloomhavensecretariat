@@ -1,6 +1,7 @@
 {
   "index": "3",
   "name": "Inox Encampment",
+  "flowChartGroup": "the-merchant",
   "coordinates": {
     "x": 403.20001220703125,
     "y": 977,

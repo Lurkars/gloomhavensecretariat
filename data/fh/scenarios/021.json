@@ -1,6 +1,7 @@
 {
   "index": "21",
   "name": "Realm of Endless Frost",
+  "flowChartGroup": "lurker",
   "edition": "fh",
   "complexity": 3,
   "requirements": [

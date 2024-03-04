@@ -27,6 +27,9 @@
   </div>
   <div class="line search">
     <input type="text" #search [ghs-label]="'scenario.filter'" [ghs-label-attribute]="'placeholder'">
+
+    <a (click)="scenarioChart()" [ghs-tooltip]="'scenario.chart'"><img class="ghs-svg" src="./assets/images/chart.svg"></a>
+
   </div>
   <div class="line campaign">
     <label *ngIf="gameManager.game.party.campaignMode">

@@ -1,6 +1,7 @@
 {
   "index": "63",
   "name": "The Savvas Seal",
+  "flowChartGroup": "puzzle-book",
   "edition": "fh",
   "complexity": 3,
   "unlocks": [

@@ -1,6 +1,7 @@
 {
   "index": "20",
   "name": "Temple of Liberation",
+  "flowChartGroup": "algox-2",
   "edition": "fh",
   "complexity": 3,
   "rewards": {

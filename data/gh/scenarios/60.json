@@ -1,6 +1,7 @@
 {
   "index": "60",
   "name": "Alchemy Lab",
+  "flowChartGroup": "personal-quests",
   "coordinates": {
     "x": 2247.4000244140625,
     "y": 247,

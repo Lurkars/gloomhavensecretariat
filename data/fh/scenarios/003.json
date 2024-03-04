@@ -1,6 +1,7 @@
 {
   "index": "3",
   "name": "Algox Offensive",
+  "flowChartGroup": "intro",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

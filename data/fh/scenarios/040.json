@@ -1,6 +1,7 @@
 {
   "index": "40",
   "name": "Relief Effort",
+  "flowChartGroup": "algox-2",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

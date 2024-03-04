@@ -1,6 +1,7 @@
 {
   "index": "94",
   "name": "A Grand View",
+  "flowChartGroup": "job-postings",
   "edition": "fh",
   "complexity": 3,
   "requirements": [

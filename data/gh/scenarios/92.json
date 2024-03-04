@@ -1,6 +1,7 @@
 {
   "index": "92",
   "name": "Back Alley Brawl",
+  "flowChartGroup": "city-events",
   "coordinates": {
     "x": 2074.2999877929688,
     "y": 346,

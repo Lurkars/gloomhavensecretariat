@@ -1,6 +1,7 @@
 {
   "index": "64",
   "name": "The Frosthaven Seal",
+  "flowChartGroup": "puzzle-book",
   "edition": "fh",
   "complexity": 3,
   "rewards": {

@@ -1,6 +1,7 @@
 {
   "index": "30",
   "name": "War of the Spire B",
+  "flowChartGroup": "algox-2",
   "edition": "fh",
   "complexity": 2,
   "blocks": [

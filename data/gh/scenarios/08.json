@@ -1,6 +1,7 @@
 {
   "index": "8",
   "name": "Gloomhaven Warehouse",
+  "flowChartGroup": "the-merchant",
   "coordinates": {
     "x": 2610.699951171875,
     "y": 394,

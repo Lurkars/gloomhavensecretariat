@@ -1,6 +1,7 @@
 {
   "index": "66",
   "name": "Elemental Cores",
+  "flowChartGroup": "personal-quests",
   "edition": "fh",
   "complexity": 2,
   "rewards": {

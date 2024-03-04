@@ -1,6 +1,7 @@
 {
   "index": "75",
   "name": "Overgrown Graveyard",
+  "flowChartGroup": "city-events",
   "coordinates": {
     "x": 1851.0999755859375,
     "y": 997,

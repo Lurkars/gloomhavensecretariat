@@ -1,6 +1,7 @@
 {
   "index": "98",
   "name": "Collapsing Vent",
+  "flowChartGroup": "job-postings",
   "edition": "fh",
   "complexity": 1,
   "rewards": {

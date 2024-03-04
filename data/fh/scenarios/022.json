@@ -1,6 +1,7 @@
 {
   "index": "22",
   "name": "Ice Floes",
+  "flowChartGroup": "lurker",
   "edition": "fh",
   "complexity": 2,
   "requirements": [

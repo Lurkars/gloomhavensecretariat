@@ -1,6 +1,7 @@
 {
   "index": "60",
   "name": "Uniting the Crown",
+  "flowChartGroup": "lurker",
   "errata": "scenario60",
   "edition": "fh",
   "complexity": 2,

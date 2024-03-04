@@ -1,6 +1,7 @@
 {
   "index": "64",
   "name": "Underwater Lagoon",
+  "flowChartGroup": "random-scenarios",
   "coordinates": {
     "x": 2417.5,
     "y": 1550,

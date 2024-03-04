@@ -1,6 +1,7 @@
 {
   "index": "16",
   "name": "Derelict Elevator",
+  "flowChartGroup": "unfettered",
   "edition": "fh",
   "complexity": 3,
   "unlocks": [

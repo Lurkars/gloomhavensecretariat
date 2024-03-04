@@ -1,6 +1,7 @@
 {
   "index": "82",
   "name": "Expedition North",
+  "flowChartGroup": "other",
   "edition": "fh",
   "complexity": 2,
   "rewards": {

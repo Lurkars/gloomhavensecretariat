@@ -12,6 +12,13 @@
     "strong"
   ],
   "color": "#e5a26f",
+  "specialActions": [
+    {
+      "name": "mech",
+      "level": 5,
+      "expire": true
+    }
+  ],
   "stats": [
     {
       "level": 1,

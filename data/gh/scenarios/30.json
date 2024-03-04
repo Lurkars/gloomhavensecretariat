@@ -1,6 +1,7 @@
 {
   "index": "30",
   "name": "Shrine of the Depths",
+  "flowChartGroup": "voice",
   "coordinates": {
     "x": 2186.4000244140625,
     "y": 2046,

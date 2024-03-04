@@ -177,6 +177,14 @@
           border-radius: 100%;
         }
       }
+
+      &.off {
+        filter: brightness(0.7);
+
+        &.new::before {
+          display: none;
+        }
+      }
     }
 
     .health {
@@ -236,6 +244,16 @@
         img {
           width: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
           height: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+        }
+
+        &.special-tag {
+          background: none;
+          border: none;
+
+          .token {
+            font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+            margin-top: calc(var(--ghs-unit) * -1 * var(--ghs-text-factor));
+          }
         }
       }
     }

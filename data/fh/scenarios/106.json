@@ -1,6 +1,7 @@
 {
   "index": "106",
   "name": "The Tempus Forge",
+  "flowChartGroup": "random-scenarios",
   "edition": "fh",
   "complexity": 2,
   "rewards": {
