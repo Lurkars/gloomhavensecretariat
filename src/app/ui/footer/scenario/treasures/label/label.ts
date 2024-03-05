@@ -139,7 +139,7 @@ export class TreasureLabelComponent implements OnInit {
                         } else {
                             itemIdValues.push('%game.item% ' + (itemEdition == this.edition ? item.id : item.id + ' [%data.edition.' + item.edition + '%]'));
                         }
-                        itemNameValues.push('"' + settingsManager.getLabel('data.items.' + item.name) + '"');
+                        itemNameValues.push('"' + settingsManager.getLabel('data.items.' + item.edition + '-' + item.id) + '"');
                     } else {
                         console.warn("Invalid Item '" + itemId + "' (Edition " + itemEdition + ") on treasure" + this.index + "' for Edition " + this.edition);
                         itemNameValues.push('<img class="icon ghs-svg" src="./assets/images/warning.svg"> %item%')

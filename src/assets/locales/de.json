@@ -421,7 +421,7 @@
     "condition": {
       "bane": {
         ".": "Ruin",
-        "hint": "%game.conditionIcon.bane% Ruin: Erleide %game.damage:10% am Ende des nächsten Zugs, then remove. Auch bei Heilung entfernt."
+        "hint": "%game.conditionIcon.bane% Ruin: Erleide %game.damage:10% am Ende des nächsten Zugs, anschließend entfernen. Auch bei Heilung entfernt."
       },
       "bless": {
         ".": "Segen",
@@ -1023,6 +1023,7 @@
         },
         "winter": "Winter"
       },
+      "totalTime": "In Szenarios verbrachte Zeit: {0}",
       "townGuard": "Stadtwache",
       "townGuardDeck": "Stadtwachendeck",
       "treasures": {
