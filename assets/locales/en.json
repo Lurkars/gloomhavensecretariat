@@ -2670,7 +2670,11 @@
     ".": "Welcome to Gloomhaven Secretariat",
     "chooseCharacters": "Choose your characters",
     "chooseEdition": "Start a new campaign by choosing your Edition:",
-    "orChooseCharacters": "or start a casual game by adding characters directly"
+    "orChooseCharacters": "or start a casual game by adding characters directly",
+    "settings": {
+      ".": "Settings",
+      "text": "Use various settings to set everything up appropriately:"
+    }
   },
   "wip": "Work In Progress"
 }
