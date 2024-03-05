@@ -10,9 +10,15 @@
       "over": "Over"
     },
     "fist": "Frozen Fist",
-    "kelp": "Deepwraith",
+    "kelp": {
+      ".": "Deepwraith",
+      "trophy_tokens": "%data.characterToken.kelp.trophy% Trophy Tokens"
+    },
     "meteor": "Pyroclast",
-    "prism": "HIVE",
+    "prism": {
+      ".": "HIVE",
+      "prism_mode": "%data.characterToken.prism.mode% Mode Token"
+    },
     "shackles": "Pain Conduit",
     "shards": "Shattersong",
     "snowflake": "Snowdancer",
@@ -970,7 +976,7 @@
     },
     "fh-225": {
       "1": "During your melee attack ability, %game.element.consume.earth% to add +1 %game.action.attack% to one attack and flip this card over.",
-      "2": "During your melee attack ability, %game.element.consume.air% to add %game.action.push% 2 to one attack and flip this card over.",
+      "2": "During your ranged attack ability, %game.element.consume.air% to add %game.action.push% 2 to one attack and flip this card over.",
       ".": "Algox Carving"
     },
     "fh-226": {
@@ -1002,7 +1008,7 @@
       ".": "Orchid Wand"
     },
     "fh-233": {
-      "1": "During you ally's ranged attack ability, add %game.condition.muddle% %game.condition.curse% one attack.",
+      "1": "During an ally's ranged attack ability, add %game.condition.muddle% and %game.condition.curse% one attack.",
       ".": "Dead Raven"
     },
     "fh-234": {

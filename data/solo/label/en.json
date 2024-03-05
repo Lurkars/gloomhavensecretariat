@@ -52,6 +52,11 @@
       "ghost-wolf": {
         "1": "At start of each round:"
       }
+    },
+    "fh": {
+      "errata": {
+        "solo28": "Special rules: \"Snowspeaker\" should be \"Icespeaker\""
+      }
     }
   }
 }

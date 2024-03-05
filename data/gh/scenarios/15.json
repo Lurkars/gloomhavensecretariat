@@ -1,6 +1,7 @@
 {
   "index": "15",
   "name": "Shrine of Strength",
+  "flowChartGroup": "the-merchant",
   "coordinates": {
     "x": 1584,
     "y": 306,

@@ -11,7 +11,7 @@
                 [ngClass]="{'disabled' : gameManager.game.state != GameState.draw || gameManager.game.round > 0}"
                 ghs-pointer-input (singleClick)="toggleEquippedItem(item)"
                 (doubleClick)="toggleEquippedItem(item,true)">
-                <span>{{item.name}}</span>
+                <span [ghs-label]="'data.items.' + item.edition + '-' + item.id"></span>
                 <span *ngIf="item.edition != itemEdition">&nbsp;(<span [ghs-label]="'data.edition.' +
                     item.edition"></span>)</span>
             </span>

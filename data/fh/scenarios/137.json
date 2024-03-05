@@ -1,6 +1,7 @@
 {
   "index": "137",
   "name": "Pirate Queen's Haul",
+  "flowChartGroup": "other",
   "edition": "fh",
   "complexity": 1,
   "rewards": {

@@ -1,6 +1,7 @@
 {
   "index": "26",
   "name": "Ancient Cistern",
+  "flowChartGroup": "sewers",
   "coordinates": {
     "x": 2279.4000244140625,
     "y": 516,

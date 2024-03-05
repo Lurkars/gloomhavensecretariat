@@ -1,6 +1,7 @@
 {
   "index": "41",
   "name": "Unfettered Shard",
+  "flowChartGroup": "algox-2",
   "edition": "fh",
   "complexity": 2,
   "requirements": [

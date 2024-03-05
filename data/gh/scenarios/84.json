@@ -1,6 +1,7 @@
 {
   "index": "84",
   "name": "Crystalline Cave",
+  "flowChartGroup": "sealed",
   "coordinates": {
     "x": 1807.0999755859375,
     "y": 580,

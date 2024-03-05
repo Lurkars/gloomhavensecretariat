@@ -1,6 +1,7 @@
 {
   "index": "9",
   "name": "Diamond Mine",
+  "flowChartGroup": "the-merchant",
   "coordinates": {
     "x": 236.0999755859375,
     "y": 1713,

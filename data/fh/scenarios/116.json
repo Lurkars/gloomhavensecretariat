@@ -1,6 +1,7 @@
 {
   "index": "116",
   "name": "Caravan Guards",
+  "flowChartGroup": "other",
   "edition": "fh",
   "complexity": 2,
   "monsters": [

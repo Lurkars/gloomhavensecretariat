@@ -1,6 +1,7 @@
 {
   "index": "48",
   "name": "Blizzard Island",
+  "flowChartGroup": "algox-2",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

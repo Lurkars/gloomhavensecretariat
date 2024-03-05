@@ -118,6 +118,15 @@
         }
     }
 
+    .errata {
+        text-align: justify;
+        max-width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
+
+        .text {
+            font-style: italic;
+        }
+    }
+
     .additional {
         font-family: var(--ghs-font-text);
         display: flex;

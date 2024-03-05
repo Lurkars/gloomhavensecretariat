@@ -1,6 +1,7 @@
 {
   "index": "88",
   "name": "Plane of Water",
+  "flowChartGroup": "city-events",
   "coordinates": {
     "x": 2425.5,
     "y": 523,

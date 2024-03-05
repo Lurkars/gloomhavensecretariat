@@ -6,7 +6,7 @@ import { CharacterMoveResourcesDialog } from "./move-resources";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/scenario-summary";
 import { PersonalQuest } from "src/app/game/model/data/PersonalQuest";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { BuildingData, BuildingModel } from "src/app/game/model/data/BuildingData";
 
@@ -18,6 +18,7 @@ import { BuildingData, BuildingModel } from "src/app/game/model/data/BuildingDat
 export class CharacterRetirementDialog {
 
     gameManager: GameManager = gameManager;
+    settingsManager: SettingsManager = settingsManager;
 
     conclusion: ScenarioData | undefined;
     personalQuest: PersonalQuest | undefined;

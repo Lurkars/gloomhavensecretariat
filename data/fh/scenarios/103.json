@@ -1,6 +1,7 @@
 {
   "index": "103",
   "name": "The Lead Door",
+  "flowChartGroup": "job-postings",
   "edition": "fh",
   "complexity": 2,
   "rewards": {

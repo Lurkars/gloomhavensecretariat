@@ -1,6 +1,8 @@
 {
   "index": "18",
   "name": "Crystal Fields",
+  "flowChartGroup": "algox-1",
+  "errata": "scenario18",
   "edition": "fh",
   "complexity": 1,
   "rewards": {

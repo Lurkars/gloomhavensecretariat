@@ -1,6 +1,7 @@
 {
   "index": "85",
   "name": "Deadly Pastimes",
+  "flowChartGroup": "job-postings",
   "edition": "fh",
   "complexity": 3,
   "requirements": [

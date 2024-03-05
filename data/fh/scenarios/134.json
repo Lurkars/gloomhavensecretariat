@@ -1,6 +1,7 @@
 {
   "index": "134",
   "name": "Tower of Knowledge",
+  "flowChartGroup": "other",
   "edition": "fh",
   "complexity": 3,
   "rewards": {

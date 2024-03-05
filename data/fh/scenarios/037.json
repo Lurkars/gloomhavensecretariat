@@ -1,6 +1,8 @@
 {
   "index": "37",
   "name": "The Dead Mile",
+  "flowChartGroup": "unfettered",
+  "errata": "scenario36-37|scenario37",
   "edition": "fh",
   "complexity": 1,
   "unlocks": [

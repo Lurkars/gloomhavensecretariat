@@ -1,6 +1,8 @@
 {
   "index": "0",
   "name": "Howling in the Snow",
+  "flowChartGroup": "intro",
+  "errata": "section197-1",
   "edition": "fh",
   "complexity": 1,
   "initial": true,

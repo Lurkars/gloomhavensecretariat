@@ -5,6 +5,10 @@ import { gameManager } from "./GameManager";
 import { storageManager } from "./StorageManager";
 import { BuildingData } from "../model/data/BuildingData";
 import { debugManager } from "./DebugManager";
+import { registerLocaleData } from "@angular/common";
+import localeDe from '@angular/common/locales/de';
+import localeFr from '@angular/common/locales/fr';
+import localeKo from '@angular/common/locales/ko';
 
 declare global {
   interface Window { settingsManager: SettingsManager }
@@ -14,7 +18,7 @@ export class SettingsManager {
 
   defaultLocale: string = 'en';
   defaultEditions: string[] = ["gh", "fh", "jotl", "fc", "cs", "toa", "solo"];
-  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/toa.json", "./assets/data/solo.json", "./assets/data/fh-crossover.json", "./assets/data/gh-envx.json", "./assets/data/toa-envv.json", "./assets/data/sc.json", "./assets/data/sox.json", "./assets/data/ir.json", "./assets/data/bas.json", "./assets/data/cc.json", "./assets/data/r100kc.json"];
+  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/toa.json", "./assets/data/solo.json", "./assets/data/fh-crossover.json", "./assets/data/gh-envx.json", "./assets/data/toa-envv.json", "./assets/data/sc.json", "./assets/data/gh-solo-items.json","./assets/data/sox.json", "./assets/data/ir.json", "./assets/data/bas.json", "./assets/data/cc.json", "./assets/data/r100kc.json"];
 
   settings: Settings = new Settings();
   label: any = {};
@@ -390,6 +394,14 @@ export class SettingsManager {
             return personalQuest;
           })
 
+          if (value.campaign && value.campaign.buildings) {
+            value.campaign.buildings.forEach((buildingData) => {
+              if (!buildingData.edition) {
+                buildingData.edition = value.edition;
+              }
+            })
+          }
+
           gameManager.editionData.push(value);
           gameManager.editionData.sort((a, b) => {
             return this.settings.editionDataUrls.indexOf(a.url) - this.settings.editionDataUrls.indexOf(b.url);
@@ -649,6 +661,22 @@ export class SettingsManager {
     for (let editionData of gameManager.editionData) {
       this.loadDataLabel(editionData);
     }
+
+    switch (locale) {
+      case 'de': {
+        registerLocaleData(localeDe);
+        break;
+      }
+      case 'fr': {
+        registerLocaleData(localeFr);
+        break;
+      }
+      case 'ko': {
+        registerLocaleData(localeKo);
+        break;
+      }
+    }
+
     gameManager.uiChange.emit();
   }
 

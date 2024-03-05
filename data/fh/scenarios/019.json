@@ -1,6 +1,7 @@
 {
   "index": "19",
   "name": "Skyhall",
+  "flowChartGroup": "algox-2",
   "edition": "fh",
   "complexity": 3,
   "rewards": {

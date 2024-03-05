@@ -120,7 +120,7 @@
         position: absolute;
         width: calc(var(--ghs-unit) * 4);
         height: calc(var(--ghs-unit) * 4);
-        background-image: url('/assets/images/summons/minus.svg');
+        background-image: url('~src/assets/images/summons/minus.svg');
         background-size: cover;
         z-index: 2;
       }
@@ -163,7 +163,7 @@
           top: calc(var(--ghs-unit) * 0.8);
           width: calc(var(--ghs-unit) * 2);
           height: calc(var(--ghs-unit) * 2);
-          background-image: url('/assets/images/fh/summons/minus.svg');
+          background-image: url('~src/assets/images/fh/summons/minus.svg');
           z-index: 4;
         }
 
@@ -175,6 +175,14 @@
           color: var(--ghs-color-white);
           border: calc(var(--ghs-unit) * 0.3) solid var(--ghs-color-white);
           border-radius: 100%;
+        }
+      }
+
+      &.off {
+        filter: brightness(0.7);
+
+        &.new::before {
+          display: none;
         }
       }
     }
@@ -194,7 +202,7 @@
         top: calc(var(--ghs-unit) * -0.9 * var(--ghs-text-factor));
         width: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
         height: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
-        background-image: url('/assets/images/status/health.svg');
+        background-image: url('~src/assets/images/status/health.svg');
         background-size: contain;
         background-repeat: no-repeat;
         transform: translateX(-50%);
@@ -236,6 +244,16 @@
         img {
           width: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
           height: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+        }
+
+        &.special-tag {
+          background: none;
+          border: none;
+
+          .token {
+            font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+            margin-top: calc(var(--ghs-unit) * -1 * var(--ghs-text-factor));
+          }
         }
       }
     }

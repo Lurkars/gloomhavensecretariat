@@ -1,6 +1,7 @@
 {
   "index": "82",
   "name": "Burning Mountain",
+  "flowChartGroup": "road-events",
   "coordinates": {
     "x": 845.5,
     "y": 1905,

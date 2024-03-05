@@ -1,6 +1,7 @@
 {
   "index": "115",
   "name": "Pylon Problems",
+  "flowChartGroup": "other",
   "edition": "fh",
   "complexity": 2,
   "rewards": {

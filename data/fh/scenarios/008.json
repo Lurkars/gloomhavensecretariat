@@ -1,6 +1,7 @@
 {
   "index": "8",
   "name": "Crystal Trench",
+  "flowChartGroup": "unfettered",
   "edition": "fh",
   "complexity": 1,
   "unlocks": [

@@ -1,6 +1,7 @@
 {
   "index": "4A",
   "name": "Heart of Ice A",
+  "flowChartGroup": "intro",
   "edition": "fh",
   "complexity": 2,
   "rewards": {

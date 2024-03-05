@@ -1,6 +1,7 @@
 {
   "index": "14",
   "name": "Jagged Shoals",
+  "flowChartGroup": "lurker",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

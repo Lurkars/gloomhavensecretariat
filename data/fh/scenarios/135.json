@@ -1,6 +1,7 @@
 {
   "index": "135",
   "name": "Belara's Keep",
+  "flowChartGroup": "other",
   "edition": "fh",
   "complexity": 3,
   "rewards": {

@@ -10,7 +10,7 @@
   .container {
     width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
     height: 100%;
-    background-image: url('/assets/images/character/character-sheet.svg');
+    background-image: url('~src/assets/images/character/character-sheet.svg');
     background-position: top center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -145,7 +145,7 @@
             top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
             width: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
             height: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-            background-image: url('/assets/images/initiative.svg');
+            background-image: url('~src/assets/images/initiative.svg');
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
@@ -536,7 +536,7 @@
         transform-origin: top left;
         transition: 120ms transform ease-in-out;
         z-index: 1;
-        background-image: url('/assets/images/checkmark.svg');
+        background-image: url('~src/assets/images/checkmark.svg');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -621,7 +621,7 @@
 
   &.cs-sheet {
     .container {
-      background-image: url('/assets/images/cs/character/character-sheet.svg');
+      background-image: url('~src/assets/images/cs/character/character-sheet.svg');
     }
 
     .columns .column.column-right {
@@ -647,7 +647,7 @@
 
   &.fh-sheet {
     .container {
-      background-image: url('/assets/images/fh/character/character-sheet.svg');
+      background-image: url('~src/assets/images/fh/character/character-sheet.svg');
     }
 
     .xp-gold-container {
@@ -857,6 +857,10 @@
         font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
       }
 
+      .notes {
+        height: initial;
+      }
+
       .columns {
         flex-direction: column;
 
@@ -1010,7 +1014,7 @@
       bottom: 0;
       right: 0;
       background-color: var(--ghs-character-color);
-      mask-image: url('/assets/images/character/hand-size.svg');
+      mask-image: url('~src/assets/images/character/hand-size.svg');
       mask-size: 100%;
       mask-repeat: no-repeat;
       z-index: -1;

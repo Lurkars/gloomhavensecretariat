@@ -242,6 +242,25 @@
     "spoilers": "Manage Spoilers",
     "unlocks": "Manage Unlocks"
   },
+  "duration": {
+    "days": "{3} days, {2} hours, {1} minutes and {0} seconds",
+    "gameClock": {
+      ".": "Game Clock",
+      "clockIn": "Clock in to the Game Clock",
+      "clockOut": "Clock out from the Game Clock",
+      "current": "Current: {0}",
+      "off": "Game Clock paused! Doubleclick to clock in.",
+      "paused": "Game Clock paused! Doubleclick to clock in.<br>Total: {0}",
+      "running": "Game Clock running! Doubleclick to clock out.<br>Current: {1}",
+      "runningTotal": "Game Clock running! Doubleclick to clock out.<br>Current: {1}<br>Total: {0}",
+      "timestamp": "Run from {0} for {1}",
+      "total": "Total: {0}"
+    },
+    "hours": "{2} hours, {1} minutes and {0} seconds",
+    "minutes": "{1} minutes and {0} seconds",
+    "seconds": "{0} seconds",
+    "totalHours": "{0}, approx {1} hours"
+  },
   "edition": {
     ".": "Set Edition",
     "all": "All Editions",
@@ -348,6 +367,7 @@
       }
     }
   },
+  "errata": "Errata",
   "escort": {
     ".": "Escort",
     "add": "Add Escort"
@@ -932,6 +952,7 @@
   "hints": {
     "active": "Take turns",
     "active-full": "Take turns, click each figure image",
+    "addAdditionalContent": "Add additional content",
     "addCharacters": "%character.add%",
     "addMonsterEntities": "Use the \"+\" buttons to spawn monsters.",
     "addMonsters": "%monster.add%",
@@ -1145,12 +1166,13 @@
           "addSection": "Add Section to week",
           "calc": "{0} weeks from current week",
           "hint": "Double-click to set/edit sections for week",
+          "lock": "Lock the calendar to avoid accidental edits. Doubleclick to make a permissive lock, allowing to add or remove exactly one week.",
           "openConclusion": "Select continuing section",
           "section": "Section"
         },
         "winter": "Winter"
       },
-      "totalTime": "Played in scenarios for {0} days, {1} hours, {2} minutes and {3} seconds, approx {4} hours",
+      "totalTime": "Played in scenarios for {0}",
       "townGuard": "Town Guard",
       "townGuardDeck": "Town Guard Deck",
       "treasures": {
@@ -1257,6 +1279,7 @@
     ".": "Scenario",
     "blocked": "Blocked",
     "cancel": "Cancel Scenario",
+    "chart": "Flow Chart (%wip%)",
     "conclusion": "Conclusion",
     "custom": "Custom",
     "eventEffects": {
@@ -1692,6 +1715,14 @@
       ".": "Auto fullscreen AM Deck",
       "hint": "Open Attack Modifier Deck (and also Loot Deck) in fullscreen mode when on small devices. (Disabled without Portrait-Mode Optimization)"
     },
+    "automaticGameClock": {
+      ".": "Automatic game clock",
+      "hint": "Automatically start and stop game clock when window openes or closes."
+    },
+    "automaticGameClockFocus": {
+      ".": "Automatic game clock on focus",
+      "hint": "Also start and stop game clock automatically when window gain focus or loses focus."
+    },
     "automaticPassTime": {
       ".": "Automatic pass calendar time",
       "hint": "Automatic pass time by adding a week to the calendar after finishing a scenario. This also automatically adds effects of calendar sections in this week."
@@ -1890,6 +1921,10 @@
       ".": "Elite standees first",
       "hint": "Show elite standees first when ordering standees"
     },
+    "errata": {
+      ".": "Show errata hints",
+      "hint": "Display known erratas for scenarios, sections, etc. In the data itself, all these errata should be fixed, but with the hints it should be easier to understand the differences in printing."
+    },
     "expireConditions": {
       ".": "Automatic expire conditions",
       "hint": "Corresponding conditions will automatically removed after the figures turn, for example Strengthen will be removed after turn"
@@ -1917,6 +1952,14 @@
     "fullscreen": {
       ".": "Fullscreen",
       "hint": "Switch to fullscreen"
+    },
+    "gameClock": {
+      ".": "Game Clock",
+      "hint": "Enable a game clock to track the time the app is running."
+    },
+    "gameClockMerge": {
+      ".": "Merge Game Clocks",
+      "hint": "Merge game clocks from server game with local game clock to get overall game time."
     },
     "gameplay": "Gameplay",
     "ge5Player": {
@@ -2331,6 +2374,12 @@
         "remove": "Remove scenario #{0} {1} ({2}) success",
         "restart": "Restart failed Scenario  #{0} {1} ({2})",
         "success": "Scenario #{0} {1} ({2}) successful"
+      },
+      "gameClock": {
+        "automaticGameClockOut": "Automatic clock out",
+        "clockIn": "Clock In",
+        "clockOut": "Clock out",
+        "merge": "Merge Game Clock"
       },
       "hideScenarioRule": "Don't show scenario rule again",
       "importCharacter": "Import character {0} from file",

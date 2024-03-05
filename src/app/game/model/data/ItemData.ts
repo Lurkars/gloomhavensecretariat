@@ -8,6 +8,7 @@ export class ItemData implements Editional {
 
   id: number = 0;
   name: string = "";
+  replace: boolean = false;
   cost: number = 0;
   count: number = 0;
   edition: string = "";

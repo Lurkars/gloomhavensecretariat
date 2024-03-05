@@ -1,6 +1,7 @@
 {
   "index": "119",
   "name": "Radiant Dust",
+  "flowChartGroup": "other",
   "edition": "fh",
   "complexity": 2,
   "requirements": [

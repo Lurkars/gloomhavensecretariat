@@ -39,6 +39,7 @@ export class ScenarioRulesManager {
       })
     }
 
+    this.addScenarioErrata();
     this.filterDisabledScenarioRules();
   }
 
@@ -60,7 +61,35 @@ export class ScenarioRulesManager {
       })
     }
 
+    this.addScenarioErrata();
     this.filterDisabledScenarioRules();
+  }
+
+  addScenarioErrata() {
+    const scenario = this.game.scenario;
+    if (scenario && scenario.errata) {
+      scenario.errata.split('|').forEach((errata, index) => {
+        this.addScenarioRule(scenario, this.createErrataRule(scenario.edition, errata), -1 - index, false);
+      })
+    }
+
+    if (this.game.sections) {
+      this.game.sections.forEach((section) => {
+        if (section && section.errata) {
+          section.errata.split('|').forEach((errata, index) => {
+            this.addScenarioRule(section, this.createErrataRule(section.edition, errata), -1 - index, false);
+          })
+        }
+      })
+    }
+  }
+
+  createErrataRule(edition: string, errata: string): ScenarioRule {
+    let errataRule = new ScenarioRule("true");
+    errataRule.always = true;
+    errataRule.once = true;
+    errataRule.note = '%errata%:&nbsp;%data.custom.' + edition + '.errata.' + errata + '%';
+    return errataRule;
   }
 
   filterDisabledScenarioRules() {
@@ -68,6 +97,8 @@ export class ScenarioRulesManager {
   }
 
   addScenarioRule(scenarioData: ScenarioData, rule: ScenarioRule, index: number, section: boolean, initial: boolean = false) {
+
+
     const identifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "index": index, "section": section };
 
     let round = rule.round || 'false';
@@ -131,19 +162,19 @@ export class ScenarioRulesManager {
         }
       }
 
-      if (rule.requiredRooms && rule.requiredRooms.length > 0) {
+      if (rule.requiredRooms && rule.requiredRooms.length) {
         rule.requiredRooms.forEach((room) => {
           add = add && gameManager.game.scenario != undefined && gameManager.game.scenario.revealedRooms.indexOf(room) != -1;
         })
       }
 
-      if (rule.requiredRules && rule.requiredRules.length > 0) {
+      if (rule.requiredRules && rule.requiredRules.length) {
         rule.requiredRules.forEach((other) => {
           add = add && this.game.disgardedScenarioRules.some((identifier) => other.edition == identifier.edition && other.scenario == identifier.scenario && other.group == identifier.group && other.index == identifier.index && other.section == identifier.section);
         })
       }
 
-      if (rule.rooms && rule.rooms.every((roomNumber) => gameManager.game.scenario && gameManager.game.scenario.revealedRooms.indexOf(roomNumber) != -1)) {
+      if (rule.rooms && rule.rooms.length && rule.rooms.every((roomNumber) => gameManager.game.scenario && gameManager.game.scenario.revealedRooms.indexOf(roomNumber) != -1)) {
         add = false;
       }
 

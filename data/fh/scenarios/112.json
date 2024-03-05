@@ -1,6 +1,7 @@
 {
   "index": "112",
   "name": "Raised by Wolves",
+  "flowChartGroup": "random-scenarios",
   "edition": "fh",
   "complexity": 1,
   "random": true,

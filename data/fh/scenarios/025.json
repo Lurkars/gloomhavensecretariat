@@ -1,6 +1,7 @@
 {
   "index": "25",
   "name": "Rusted Tunnels",
+  "flowChartGroup": "unfettered",
   "edition": "fh",
   "complexity": 2,
   "blocks": [

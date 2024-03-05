@@ -1,6 +1,7 @@
 {
   "index": "27",
   "name": "Ruinous Rift",
+  "flowChartGroup": "demon-and-rift",
   "coordinates": {
     "x": 879.5,
     "y": 643,

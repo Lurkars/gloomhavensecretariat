@@ -194,7 +194,7 @@
   width: calc(var(--ghs-unit) * 98);
   height: calc(var(--ghs-unit) * 14);
   background-color: var(--ghs-character-color);
-  background-image: url('/assets/images/character/char-mat.png'), url('/assets/images/character/char-mat.png');
+  background-image: url('~src/assets/images/character/char-mat.png'), url('~src/assets/images/character/char-mat.png');
   background-blend-mode: multiply, overlay;
   background-size: 100% 100%;
   display: flex;
@@ -205,7 +205,7 @@
 
   &.dimmed {
     background-color: var(--ghs-color-gray);
-    background-image: url('/assets/images/character/char-mat.png');
+    background-image: url('~src/assets/images/character/char-mat.png');
     background-blend-mode: multiply;
 
     ghs-character-image,
@@ -299,6 +299,7 @@
       z-index: 2;
 
       &.col-1 {
+        height: calc(var(--ghs-unit) * 13 * var(--ghs-text-factor));
         max-width: calc(var(--ghs-unit) * 10);
         overflow: visible;
       }
@@ -689,7 +690,7 @@
       bottom: 0;
       right: 0;
       background-color: var(--ghs-character-color);
-      mask-image: url('/assets/images/character/hand-size-mask.svg');
+      mask-image: url('~src/assets/images/character/hand-size-mask.svg');
       mask-size: 100%;
       mask-repeat: no-repeat;
       filter: brightness(1.6);
@@ -719,7 +720,7 @@
       bottom: 0;
       right: 0;
       background-color: var(--ghs-character-color);
-      mask-image: url('/assets/images/level.svg');
+      mask-image: url('~src/assets/images/level.svg');
       mask-size: 100%;
       mask-repeat: no-repeat;
       z-index: -1;
@@ -744,7 +745,7 @@
       right: 0;
       bottom: 0;
       background-color: var(--ghs-character-color);
-      mask-image: url('/assets/images/fh/character/traits/outer-mask.svg');
+      mask-image: url('~src/assets/images/fh/character/traits/outer-mask.svg');
       mask-size: 100%;
       mask-repeat: no-repeat;
       z-index: 0;
@@ -758,7 +759,7 @@
       right: 0;
       bottom: 0;
       background-color: var(--ghs-character-color);
-      mask-image: url('/assets/images/fh/character/traits/inner-mask.svg');
+      mask-image: url('~src/assets/images/fh/character/traits/inner-mask.svg');
       mask-size: 100%;
       mask-repeat: no-repeat;
       filter: brightness(0.5);
@@ -810,14 +811,15 @@
 
   .special-actions {
     position: absolute;
-    right: calc(var(--ghs-unit) * 19);
+    left: calc(var(--ghs-unit) * 18 * var(--ghs-text-factor));
+    width: calc(var(--ghs-unit) * 62 * var(--ghs-text-factor));
     bottom: calc(var(--ghs-unit) * 0.5);
     color: var(--ghs-color-white);
     font-family: var(--ghs-font-normal);
     font-size: calc(var(--ghs-unit) * 2);
 
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
   }
 
@@ -834,7 +836,7 @@
 
   &.off {
     background-color: var(--ghs-color-gray);
-    background-image: url('/assets/images/character/char-mat.png');
+    background-image: url('~src/assets/images/character/char-mat.png');
     background-blend-mode: multiply;
 
     .title,
@@ -881,7 +883,7 @@
   &.short {
     width: calc(var(--ghs-unit) * 57);
     height: calc(var(--ghs-unit) * 28);
-    background-image: url('/assets/images/character/char-mat-short.png'), url('/assets/images/character/char-mat-short.png');
+    background-image: url('~src/assets/images/character/char-mat-short.png'), url('~src/assets/images/character/char-mat-short.png');
 
     ghs-character-image {
       margin: calc(var(--ghs-unit) * 3.3) calc(var(--ghs-unit) * 0.4);
@@ -917,7 +919,7 @@
 
   &.compact {
     height: calc(var(--ghs-unit) * 10.25);
-    background-image: url('/assets/images/character/char-mat_compact.png'), url('/assets/images/character/char-mat_compact.png');
+    background-image: url('~src/assets/images/character/char-mat_compact.png'), url('~src/assets/images/character/char-mat_compact.png');
 
     ghs-entity-index-key {
       top: calc(var(--ghs-unit) * 3.1);
@@ -975,6 +977,11 @@
           }
         }
 
+        &.col-1 {
+          height: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
+          padding-top: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+        }
+
         &.col-2 {
           margin-right: calc(var(--ghs-unit) * 7);
         }
@@ -1016,6 +1023,11 @@
       display: none;
     }
 
+    .special-actions {
+      left: calc(var(--ghs-unit) * 10);
+      width: calc(var(--ghs-unit) * 70);
+      justify-content: flex-start;
+    }
   }
 
   &.modern {
@@ -1023,13 +1035,13 @@
     border-top-left-radius: calc(var(--ghs-unit) * 13);
     border-top-right-radius: calc(var(--ghs-unit) * 12);
     border-bottom-right-radius: calc(var(--ghs-unit) * 12);
-    background-image: url('/assets/images/modern/character/char-mat_modern.png');
+    background-image: url('~src/assets/images/modern/character/char-mat_modern.png');
     background-blend-mode: hard-light;
     filter: none;
     overflow: hidden;
 
     &.dimmed {
-      background-image: url('/assets/images/modern/character/char-mat_modern.png');
+      background-image: url('~src/assets/images/modern/character/char-mat_modern.png');
     }
 
     ghs-entity-index-key {
@@ -1057,7 +1069,7 @@
 
 
       .title-bar {
-        margin-top: calc(var(--ghs-unit) * -2.7 / var(--ghs-text-factor));
+        margin-top: calc(var(--ghs-unit) * -1 / var(--ghs-text-factor));
 
         .title {
           .icon {
@@ -1077,7 +1089,7 @@
       }
 
       .status-bar {
-        margin-top: calc(var(--ghs-unit) * 3.5);
+        margin-top: calc(var(--ghs-unit) * 2.5);
         min-height: calc(var(--ghs-unit) * 5);
       }
 
@@ -1136,6 +1148,12 @@
         width: calc(var(--ghs-unit) * (15 * 2 / 3) * var(--ghs-text-factor));
         height: calc(var(--ghs-unit) * 15 * var(--ghs-text-factor));
       }
+    }
+
+    .special-actions {
+      left: calc(var(--ghs-unit) * 17);
+      width: calc(var(--ghs-unit) * 55);
+      justify-content: flex-start;
     }
   }
 }

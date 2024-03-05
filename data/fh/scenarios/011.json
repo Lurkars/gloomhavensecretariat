@@ -1,6 +1,7 @@
 {
   "index": "11",
   "name": "Snowscorn Peak",
+  "flowChartGroup": "algox-2",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

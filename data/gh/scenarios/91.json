@@ -1,6 +1,7 @@
 {
   "index": "91",
   "name": "Wild Melee",
+  "flowChartGroup": "city-events",
   "coordinates": {
     "x": 283.0999755859375,
     "y": 647,

@@ -440,7 +440,7 @@
         <span *ngFor="let marker of markers()">
           <a class="item" [ngClass]="{'active' : hasMarker(marker)}" (click)="toggleMarker(marker)">
             <span class="condition marker">
-              <img src="./assets/images/character/icons/{{marker}}.svg" />
+              <img [src]="'./assets/images/character/icons/' + marker + '.svg'" />
             </span>
           </a>
         </span>
@@ -650,11 +650,12 @@
   </div>
 
   <div
-    *ngIf="!levelDialog && data.entity && gameManager.isCharacter(data.entity) && gameManager.isCharacter(data.figure) && gameManager.toCharacter(data.figure).specialActions && gameManager.toCharacter(data.figure).specialActions.length > 0"
+    *ngIf="data.entity && !levelDialog && gameManager.isCharacter(data.figure) && gameManager.toCharacter(data.figure).specialActions && gameManager.toCharacter(data.figure).specialActions.length > 0"
     class="special-actions">
     <ng-container *ngFor="let specialAction of gameManager.toCharacter(data.figure).specialActions">
-      <span *ngIf="!specialAction.level || specialAction.level <= data.figure.level" class="special-action"
-        [ngClass]="{'active-tag' : specialTags.indexOf(specialAction.name) != -1}"
+      <span
+        *ngIf="(!specialAction.level || specialAction.level <= data.figure.level) && (gameManager.isCharacter(data.entity) && !specialAction.summon || gameManager.isSummon(data.entity) && specialAction.summon)"
+        class="special-action" [ngClass]="{'active-tag' : specialTags.indexOf(specialAction.name) != -1}"
         (click)="applySpecialAction(specialAction)">
         <span [ghs-label]="'data.character.' + data.figure.name + '.' + specialAction.name"></span>
       </span>

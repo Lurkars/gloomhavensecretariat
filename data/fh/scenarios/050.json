@@ -1,6 +1,7 @@
 {
   "index": "50",
   "name": "Explosive Descent",
+  "flowChartGroup": "lurker",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

@@ -186,7 +186,7 @@
         font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
         justify-content: space-evenly;
         align-items: center;
-        background-image: url('/assets/images/dialog_background.png');
+        background-image: url('~src/assets/images/dialog_background.png');
         z-index: 10;
 
         &.small {
@@ -385,13 +385,13 @@
 
     &.fh {
         .menu {
-            background-image: url('/assets/images/fh/dialog_background_fh.png');
+            background-image: url('~src/assets/images/fh/dialog_background_fh.png');
         }
     }
 
     &.modern {
         .menu {
-            background-image: url('/assets/images/modern/dialog_background_modern.png');
+            background-image: url('~src/assets/images/modern/dialog_background_modern.png');
         }
     }
 }

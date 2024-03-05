@@ -248,6 +248,19 @@
 
   <div class="separator"></div>
 
+  <!-- Game clock-->
+  <div class="column">
+    <div class="line" ghs-setting-menu="gameClock"></div>
+    <div class="line" ghs-setting-menu="gameClockMerge" [disabled]="!settingsManager.settings.gameClock"></div>
+  </div>
+
+  <div class="column">
+    <div class="line" ghs-setting-menu="automaticGameClock" [disabled]="!settingsManager.settings.gameClock"></div>
+    <div class="line" ghs-setting-menu="automaticGameClockFocus" [disabled]="!settingsManager.settings.gameClock || !settingsManager.settings.automaticGameClock"></div>
+  </div>
+  
+  <div class="separator"></div>
+
   <div class="column">
     <div class="line ">
       <a ghs-pointer-input (singleClick)="zoomOut()" (doubleClick)="zoomOut(true)">
@@ -271,6 +284,8 @@
     <div class="line" ghs-setting-menu="fullscreen"></div>
     <div class="line" ghs-setting-menu="autoscroll"></div>
     <div class="line" ghs-setting-menu="portraitMode"></div>
+    <div class="line" ghs-setting-menu="animations"></div>
+    <div class="line" ghs-setting-menu="statAnimations"></div>
     <div class="line" ghs-setting-menu="barsize" type="range" [min]="0.1" [max]="2"></div>
     <div class="line" ghs-setting-menu="fontsize" type="range" [min]="0.1" [max]="2"></div>
   </div>
@@ -279,10 +294,9 @@
     <div class="line" ghs-setting-menu="hints"></div>
     <div class="line" ghs-setting-menu="tooltips"></div>
     <div class="line" ghs-setting-menu="backupHint"></div>
-    <div class="line" ghs-setting-menu="statAnimations"></div>
+    <div class="line" ghs-setting-menu="errata"></div>
     <div class="line" ghs-setting-menu="columns"></div>
     <div class="line" ghs-setting-menu="columnsForce" [disabled]="!settingsManager.settings.columns"></div>
-    <div class="line" ghs-setting-menu="animations"></div>
     <div class="line" ghs-setting-menu="artwork"></div>
     <div *ngIf="wakeLock" class="line" ghs-setting-menu="wakeLock"></div>
   </div>

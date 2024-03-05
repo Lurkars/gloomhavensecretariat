@@ -53,7 +53,7 @@
       <span *ngIf="marker" class="placeholder placeholder-marker"
         [ghs-label]="'%game.mapMarker.' + marker + '%'"></span>
       <span class="marker" *ngFor="let marker of entity.markers;">
-        <img src="./assets/images/character/icons/{{marker}}.svg" />
+        <img [src]="'./assets/images/character/icons/' + marker + '.svg'" />
       </span>
     </div>
 

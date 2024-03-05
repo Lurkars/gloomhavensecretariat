@@ -105,7 +105,7 @@
 
                 width: calc(var(--ghs-unit) * 40);
                 height: calc(var(--ghs-unit) * 25.5);
-                background-image: url('/assets/images/monster/abilities/monster-ability-front.png');
+                background-image: url('~src/assets/images/monster/abilities/monster-ability-front.png');
                 z-index: 1;
 
                 --ghs-ability-color: var(--ghs-color-red);
@@ -266,14 +266,14 @@
 
 
                 &.bottom-actions {
-                    background-image: url('/assets/images/monster/abilities/monster-ability-front-bottom.png');
+                    background-image: url('~src/assets/images/monster/abilities/monster-ability-front-bottom.png');
                     background-position: top;
                     background-attachment: local;
                     height: calc(var(--ghs-unit) * 54);
 
                     &.character-actions {
                         background-color: var(--ghs-ability-color);
-                        background-image: url('/assets/images/character/abilities/character-ability-front.png'), url('/assets/images/character/abilities/character-ability-front-blend.png');
+                        background-image: url('~src/assets/images/character/abilities/character-ability-front.png'), url('~src/assets/images/character/abilities/character-ability-front-blend.png');
                         background-blend-mode: screen, luminosity;
                         overflow-x: unset;
                         overflow-y: auto;
@@ -401,7 +401,7 @@
                         justify-content: center;
                         align-items: center;
                         background-color: var(--ghs-ability-color);
-                        mask-image: url('/assets/images/level.svg');
+                        mask-image: url('~src/assets/images/level.svg');
                         mask-size: 115% 170%;
                         mask-repeat: no-repeat;
                         mask-position: 60% 66%;
@@ -429,11 +429,11 @@
                 }
 
                 &.fh {
-                    background-image: url('/assets/images/fh/monster/abilities/monster-ability-front.png');
+                    background-image: url('~src/assets/images/fh/monster/abilities/monster-ability-front.png');
 
                     &.character-actions,
                     &.bottom-actions {
-                        background-image: url('/assets/images/fh/character/abilities/character-ability-front.png'), url('/assets/images/fh/character/abilities/character-ability-front-blend.png');
+                        background-image: url('~src/assets/images/fh/character/abilities/character-ability-front.png'), url('~src/assets/images/fh/character/abilities/character-ability-front-blend.png');
 
                         .level {
                             top: 5%;
@@ -492,7 +492,7 @@
                             width: 16%;
                             font-size: 1em;
                             background-color: var(--ghs-color-white);
-                            mask-image: url('/assets/images/experience.svg');
+                            mask-image: url('~src/assets/images/experience.svg');
                             mask-size: 100% 100%;
 
                             input {

@@ -35,6 +35,11 @@
                 [ghs-label]="'character.progress.personalQuest.openEnvelope.building'"
                 [ghs-label-args]="[personalQuestBuilding.id, personalQuestBuilding.name]"></span>
         </div>
+
+        <div class="errata text-white" *ngIf="settingsManager.settings.errata && personalQuest.errata">
+            <span [ghs-label]="'errata'"></span>:&nbsp;<span class="text"
+                [ghs-label]="'data.custom.' + personalQuest.edition + '.errata.' + personalQuest.errata"></span>
+        </div>
     </div>
 
     <div class="additional" *ngIf="gameManager.fhRules()">
@@ -47,8 +52,6 @@
     </div>
 
     <div class="personal-quest" *ngIf="additional">
-
-
         <div class="personal-quest-card">
             <input class="card-id" *ngIf="additional" [value]="additionalPQ && additionalPQ.cardId || ''" type="text"
                 (change)="changeAdditionalPQ($event)">
@@ -74,6 +77,11 @@
             <span class="building" *ngIf="additionalPQBuilding"
                 [ghs-label]="'character.progress.personalQuest.openEnvelope.building'"
                 [ghs-label-args]="[additionalPQBuilding.id, additionalPQBuilding.name]"></span>
+        </div>
+
+        <div class="errata text-white" *ngIf="settingsManager.settings.errata && additionalPQ && additionalPQ.errata">
+            <span [ghs-label]="'errata'"></span>:&nbsp;<span class="text"
+                [ghs-label]="'data.custom.' + additionalPQ.edition + '.errata.' + additionalPQ.errata"></span>
         </div>
     </div>
 

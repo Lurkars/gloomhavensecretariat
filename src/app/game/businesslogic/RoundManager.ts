@@ -267,7 +267,7 @@ export class RoundManager {
 
     if (!skipSummons && figure instanceof Character && settingsManager.settings.activeSummons && gameManager.entityManager.isAlive(figure)) {
       const activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);
-      const nextSummon = figure.summons.find((summon, index, self) => (!activeSummon || index > self.indexOf(activeSummon)) && gameManager.entityManager.isAlive(summon, true));
+      const nextSummon = figure.summons.find((summon, index, self) => (!activeSummon || index > self.indexOf(activeSummon)) && gameManager.entityManager.isAlive(summon, true) && summon.tags.indexOf('prism_mode') == -1);
 
       figure.summons.slice(activeSummon ? figure.summons.indexOf(activeSummon) : 0, nextSummon ? figure.summons.indexOf(nextSummon) : figure.summons.length).forEach((prevSummon, index, self) => {
         prevSummon.active = false;
@@ -408,12 +408,18 @@ export class RoundManager {
       figure.active = false;
       figure.off = false;
       if (figure instanceof Character) {
+        if (figure.name == 'demolitionist' && figure.tags.find((tag) => tag === 'mech')) {
+          figure.maxHealth -= 5;
+          gameManager.entityManager.checkHealth(figure, figure);
+        }
+
         figure.health = figure.maxHealth;
         figure.loot = 0;
         figure.lootCards = [];
         figure.treasures = [];
         figure.experience = 0;
         figure.entityConditions = [];
+        figure.immunities = [];
         figure.summons = [];
         figure.initiative = 0;
         figure.exhausted = false;
@@ -434,6 +440,10 @@ export class RoundManager {
 
         if (figure.tags.find((tag) => tag === 'time_tokens') && figure.primaryToken == 0) {
           figure.tokenValues[0] = 1;
+        }
+
+        if (figure.tags.find((tag) => tag === 'trophy_tokens') && figure.primaryToken == 0 && figure.progress.perks[10] == 1) {
+          figure.tokenValues[0] = 2;
         }
 
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));

@@ -1,6 +1,7 @@
 {
   "index": "1",
   "name": "Black Barrow",
+  "flowChartGroup": "intro",
   "coordinates": {
     "x": 1431.8999938964844,
     "y": 975,

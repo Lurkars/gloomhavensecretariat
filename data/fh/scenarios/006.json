@@ -1,6 +1,7 @@
 {
   "index": "6",
   "name": "Avalanche",
+  "flowChartGroup": "algox-2",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

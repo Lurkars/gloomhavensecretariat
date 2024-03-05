@@ -1,6 +1,7 @@
 {
   "index": "24",
   "name": "Upper Spire",
+  "flowChartGroup": "unfettered",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

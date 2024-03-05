@@ -1,6 +1,7 @@
 {
   "index": "91",
   "name": "Shoreline Scramble",
+  "flowChartGroup": "job-postings",
   "edition": "fh",
   "complexity": 2,
   "rewards": {

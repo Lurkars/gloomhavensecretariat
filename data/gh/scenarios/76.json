@@ -1,6 +1,7 @@
 {
   "index": "76",
   "name": "Harrower Hive",
+  "flowChartGroup": "sealed",
   "coordinates": {
     "x": 464.20001220703125,
     "y": 1744,

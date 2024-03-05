@@ -1,6 +1,7 @@
 {
   "index": "28",
   "name": "Outer Ritual Chamber",
+  "flowChartGroup": "the-merchant",
   "coordinates": {
     "x": 532.2999877929688,
     "y": 670,

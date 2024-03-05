@@ -1,6 +1,7 @@
 {
   "index": "87",
   "name": "Corrupted Cove",
+  "flowChartGroup": "city-events",
   "coordinates": {
     "x": 1362.8000030517578,
     "y": 1350,

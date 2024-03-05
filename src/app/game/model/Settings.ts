@@ -31,6 +31,8 @@ export class Settings {
   autoBackupFinish: boolean = false;
   autoBackupUrl: { url: string, method: string, fileUpload: boolean, username: string | undefined, password: string | undefined, authorization: string | undefined } | undefined;
   automaticAttackModifierFullscreen: boolean = true;
+  automaticGameClock: boolean = true;
+  automaticGameClockFocus: boolean = false;
   automaticPassTime: boolean = true;
   automaticStandees: boolean = true;
   automaticStandeesDialog: boolean = false;
@@ -49,7 +51,7 @@ export class Settings {
   calculate: boolean = true;
   calculateStats: boolean = true;
   calculateShieldStats: boolean = true;
-  calendarLocked: boolean = false;
+  calendarLocked: boolean | 'permissive' = false;
   characterAttackModifierAnimate: boolean = true;
   characterAttackModifierDeck: boolean = true;
   characterAttackModifierDeckPermanent: boolean = false;
@@ -59,7 +61,7 @@ export class Settings {
   characterIdentities: boolean = true;
   characterIdentityHint: boolean = true;
   characterItems: boolean = false;
-  characterItemsApply: boolean = false;
+  characterItemsApply: boolean = true;
   characterItemsPermanent: boolean = false;
   characterItemsPermanentActive: boolean = false;
   characterItemsPermanentEquipped: boolean = true;
@@ -87,11 +89,14 @@ export class Settings {
   editionDataUrls: string[] = [];
   editions: string[] = [];
   eliteFirst: boolean = true;
+  errata: boolean = false;
   excludeEditionDataUrls: string[] = [];
   expireConditions: boolean = true;
   fhGhItems: boolean = false;
   fhStyle: boolean = false;
   fontsize: number = 1;
+  gameClock: boolean = false;
+  gameClockMerge: boolean = true;
   globalFontsize: number = 1;
   fullscreen: boolean = false;
   hideAbsent: boolean = false;
@@ -153,5 +158,5 @@ export class Settings {
 }
 
 export const localSettings: string[] = [
-  "animations", "artwork", "automaticAttackModifierFullscreen", "autoBackup", "autoBackupFinish", "autoBackupUrl", "autoscroll", "automaticTheme", "barsize", "backupHint", "browserNavigation", "buildingEffectsVisible", "buildingInteractionsVisible", "calendarLocked", "characterAttackModifierAnimate", "characterAttackModifierDeckPermanent", "characterAttackModifierDeckPermanentActive", "characterItemsPermanent", "characterItemsPermanentActive", "characterItemsPermanentEquipped", "characterItemsPermanentSorted", "characterItemsPermanentZoom", "characterCompact", "characterSheetCompact", "columns", "columnsForce", "debugRightClick", "disableAnimations", "disableArtwork", "disableColumns", "disableDragFigures", "disablePinchZoom", "disableWakeLock", "dragFigures", "dragValues", "fhStyle", "fontsize", "globalFontsize", "fullscreen", "hideCharacterHP", "hideCharacterLoot", "hideCharacterXP", "hints", "logServerMessages", "pinchZoom", "portraitMode", "pressDoubleClick", "serverAutoconnect", "serverCode", "serverPassword", "serverPort", "serverSettings", "serverUrl", "serverWss", "showAllSections", "showBossMonster", "showHiddenMonster", "showOnlyUnfinishedScenarios", "statAnimations", "theme", "tooltips", "wakeLock", "zoom"
+  "animations", "artwork", "automaticAttackModifierFullscreen", "autoBackup", "autoBackupFinish", "autoBackupUrl", "automaticGameClock", "automaticTheme", "autoscroll", "barsize", "backupHint", "browserNavigation", "buildingEffectsVisible", "buildingInteractionsVisible", "calendarLocked", "characterAttackModifierAnimate", "characterAttackModifierDeckPermanent", "characterAttackModifierDeckPermanentActive", "characterItemsPermanent", "characterItemsPermanentActive", "characterItemsPermanentEquipped", "characterItemsPermanentSorted", "characterItemsPermanentZoom", "characterCompact", "characterSheetCompact", "columns", "columnsForce", "debugRightClick", "disableAnimations", "disableArtwork", "disableColumns", "disableDragFigures", "disablePinchZoom", "disableWakeLock", "dragFigures", "dragValues", "errata", "fhStyle", "fontsize", "gameClock", "globalFontsize", "fullscreen", "hideCharacterHP", "hideCharacterLoot", "hideCharacterXP", "hints", "logServerMessages", "pinchZoom", "portraitMode", "pressDoubleClick", "serverAutoconnect", "serverCode", "serverPassword", "serverPort", "serverSettings", "serverUrl", "serverWss", "showAllSections", "showBossMonster", "showHiddenMonster", "showOnlyUnfinishedScenarios", "statAnimations", "theme", "tooltips", "wakeLock", "zoom"
 ];

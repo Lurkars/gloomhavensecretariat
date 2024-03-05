@@ -1,6 +1,7 @@
 {
   "index": "109",
   "name": "Furious Factory",
+  "flowChartGroup": "random-scenarios",
   "edition": "fh",
   "complexity": 3,
   "random": true,

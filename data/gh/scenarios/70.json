@@ -1,6 +1,7 @@
 {
   "index": "70",
   "name": "Chained Isle",
+  "flowChartGroup": "random-scenarios",
   "coordinates": {
     "x": 2431.5999755859375,
     "y": 1369,

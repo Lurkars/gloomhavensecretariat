@@ -1,6 +1,7 @@
 {
   "index": "74B",
   "name": "Gaps in the Road B",
+  "flowChartGroup": "personal-quests",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

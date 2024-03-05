@@ -1,0 +1,223 @@
+[
+  {
+    "id": 135,
+    "name": "Focusing Ray",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "tinkerer",
+    "slot": "onehand",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.solo-digital-135.1%",
+        "small": true
+      }
+    ],
+    "replace": true
+  },
+  {
+    "id": 137,
+    "name": "Silent Stiletto",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "scoundrel",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.solo-digital-137.1%",
+        "small": true
+      }
+    ],
+    "replace": true
+  },
+  {
+    "id": 138,
+    "name": "Stone Charm",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "cragheart",
+    "slot": "head",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.solo-digital-138.1%",
+        "small": true
+      }
+    ],
+    "replace": true
+  },
+  {
+    "id": 139,
+    "name": "Psychic Knife",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "mindthief",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.solo-digital-139.1%",
+        "small": true
+      }
+    ],
+    "replace": true
+  },
+  {
+    "id": 140,
+    "name": "Sun Shield",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "sun",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.solo-digital-140.1%",
+        "small": true
+      }
+    ],
+    "replace": true
+  },
+  {
+    "id": 143,
+    "name": "Smoke Elixir",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "eclipse",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.solo-digital-143.1%",
+        "small": true
+      }
+    ],
+    "replace": true,
+    "effects": [
+      {
+        "type": "condition",
+        "value": "invisible"
+      }
+    ]
+  },
+  {
+    "id": 144,
+    "name": "Pendant of the Plague",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "squidface",
+    "slot": "onehand",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.solo-digital-144.1%",
+        "small": true
+      }
+    ],
+    "replace": true
+  },
+  {
+    "id": 146,
+    "name": "Master's Lute",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "music-note",
+    "slot": "twohand",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.solo-digital-146.1%",
+        "small": true
+      }
+    ],
+    "replace": true
+  },
+  {
+    "id": 147,
+    "name": "Cloak of the Hunter",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "angry-face",
+    "slot": "body",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.solo-digital-147.1%",
+        "small": true
+      }
+    ],
+    "replace": true
+  },
+  {
+    "id": 148,
+    "name": "Doctor's Coat",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "saw",
+    "slot": "body",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.solo-digital-148.1%",
+        "small": true
+      }
+    ],
+    "replace": true
+  },
+  {
+    "id": 149,
+    "name": "Elemental Boots",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "triangles",
+    "slot": "legs",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.solo-digital-149.1%",
+        "small": true
+      },
+      {
+        "type": "element",
+        "value": "wild"
+      }
+    ],
+    "replace": true
+  },
+  {
+    "id": 150,
+    "name": "Staff of Command",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "two-mini",
+    "slot": "twohand",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.solo-digital-150.1%",
+        "small": true
+      }
+    ],
+    "replace": true
+  }
+]

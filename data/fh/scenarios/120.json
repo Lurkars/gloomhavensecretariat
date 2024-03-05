@@ -1,6 +1,7 @@
 {
   "index": "120",
   "name": "Under the Influence",
+  "flowChartGroup": "other",
   "edition": "fh",
   "complexity": 1,
   "rewards": {

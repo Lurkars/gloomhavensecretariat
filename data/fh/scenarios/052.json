@@ -1,6 +1,7 @@
 {
   "index": "52",
   "name": "Fleeting Permanence",
+  "flowChartGroup": "algox-3",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

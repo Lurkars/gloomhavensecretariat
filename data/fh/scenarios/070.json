@@ -1,6 +1,8 @@
 {
   "index": "70",
   "name": "The True Oak",
+  "flowChartGroup": "personal-quests",
+  "errata": "scenario70",
   "edition": "fh",
   "complexity": 1,
   "rewards": {

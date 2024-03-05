@@ -1,6 +1,7 @@
 {
   "index": "58",
   "name": "Orphan's Core",
+  "flowChartGroup": "unfettered",
   "edition": "fh",
   "complexity": 3,
   "blocks": [

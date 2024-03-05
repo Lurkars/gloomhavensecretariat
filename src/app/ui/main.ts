@@ -38,6 +38,7 @@ export class MainComponent implements OnInit {
   loading: boolean = true;
   cancelLoading: boolean = false;
   welcome: boolean = false;
+  welcomeOtherEditions: boolean = false;
   fullviewChar: Character | undefined;
   showBackupHint: boolean = false;
 
@@ -69,6 +70,7 @@ export class MainComponent implements OnInit {
             this.welcome = false;
           } else if (gameManager.game.figures.length == 0) {
             this.welcome = true;
+            this.welcomeOtherEditions = settingsManager.settings.editions.length < gameManager.editionData.length;
           } else {
             this.fullviewChar = undefined;
             this.welcome = false;
@@ -131,6 +133,18 @@ export class MainComponent implements OnInit {
       gameManager.stateManager.installPrompt = null;
     });
 
+    window.addEventListener('beforeunload', async () => {
+      if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock && !gameManager.stateManager.storageBlocked) {
+        await this.automaticClockOut();
+      }
+    });
+
+    window.addEventListener('blur', async () => {
+      if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock && settingsManager.settings.automaticGameClockFocus && !gameManager.stateManager.storageBlocked) {
+        await this.automaticClockOut();
+      }
+    });
+
     dialog.afterOpened.subscribe({
       next: (dialogRef: DialogRef) => {
         if (dialogRef.overlayRef.backdropElement && dialog.openDialogs.length > 1 && !dialogRef.overlayRef.backdropElement.classList.contains('fullscreen-backdrop')) {
@@ -187,6 +201,11 @@ export class MainComponent implements OnInit {
     document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
     document.body.style.setProperty('--ghs-global-fontsize', settingsManager.settings.globalFontsize + '');
 
+
+    if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock) {
+      this.automaticClockIn();
+    }
+
     const figure = this.figures.find((figure) => figure instanceof Character && figure.fullview);
     if (figure) {
       this.fullviewChar = figure as Character;
@@ -219,6 +238,10 @@ export class MainComponent implements OnInit {
       if (settingsManager.settings.serverAutoconnect && gameManager.stateManager.wsState() != WebSocket.OPEN) {
         gameManager.stateManager.connect();
       }
+
+      if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock && settingsManager.settings.automaticGameClockFocus) {
+        this.automaticClockIn();
+      }
     });
 
     if (settingsManager.settings.wakeLock && "wakeLock" in navigator) {
@@ -229,6 +252,27 @@ export class MainComponent implements OnInit {
           gameManager.stateManager.wakeLock = await navigator.wakeLock.request("screen");
         }
       });
+    }
+  }
+
+  automaticClockIn() {
+    const lastGameClockTimestamp = gameManager.game.gameClock.length ? gameManager.game.gameClock[0] : undefined;
+    if (!lastGameClockTimestamp || lastGameClockTimestamp.clockOut) {
+      // 7 seconds refresh timeout
+      if (lastGameClockTimestamp && lastGameClockTimestamp.clockOut && (new Date().getTime() - lastGameClockTimestamp.clockOut) < 7000) {
+        lastGameClockTimestamp.clockOut = undefined;
+      } else {
+        gameManager.toggleGameClock();
+      }
+    }
+  }
+
+  async automaticClockOut() {
+    const lastGameClockTimestamp = gameManager.game.gameClock.length ? gameManager.game.gameClock[0] : undefined;
+    if (lastGameClockTimestamp && !lastGameClockTimestamp.clockOut) {
+      gameManager.stateManager.before('gameClock.automaticGameClockOut');
+      gameManager.toggleGameClock();
+      await gameManager.stateManager.after();
     }
   }
 

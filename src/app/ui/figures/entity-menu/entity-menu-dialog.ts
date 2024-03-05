@@ -5,7 +5,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Action";
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { Character } from "src/app/game/model/Character";
-import { ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
+import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
 import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
 import { Monster } from "src/app/game/model/Monster";
@@ -125,9 +125,11 @@ export class EntityMenuDialogComponent {
       this.actionHints = gameManager.monsterManager.calcActionHints(this.data.figure, this.data.entity).map((actionHint) => new Action(actionHint.type, actionHint.value, ActionValueType.fixed, actionHint.range ? [new Action(ActionType.range, actionHint.range, ActionValueType.fixed, [], true)] : []));
     }
 
-    if (this.data.figure instanceof Character && this.data.entity instanceof Character && this.data.figure.specialActions) {
+    if (this.data.figure instanceof Character && this.data.figure.specialActions) {
       this.data.figure.specialActions.forEach((specialAction) => {
-        if (this.data.entity instanceof Character && this.data.entity.tags.indexOf(specialAction.name) != -1) {
+        if (this.data.entity instanceof Character && !specialAction.summon && this.data.entity.tags.indexOf(specialAction.name) != -1) {
+          this.specialTags.push(specialAction.name);
+        } else if (this.data.entity instanceof Summon && specialAction.summon && this.data.entity.tags.indexOf(specialAction.name) != -1) {
           this.specialTags.push(specialAction.name);
         }
       })
@@ -941,6 +943,15 @@ export class EntityMenuDialogComponent {
       if (specialTagsToTemove.length) {
         gameManager.stateManager.before("removeSpecialTags", gameManager.characterManager.characterName(this.data.entity), specialTagsToTemove.map((specialTag) => '%data.character.' + this.data.figure.name + '.' + specialTag + '%').join(','));
         this.data.entity.tags = this.data.entity.tags.filter((specialTag) => specialTagsToTemove.indexOf(specialTag) == -1);
+
+        if (this.data.entity.name == 'lightning' && specialTagsToTemove.indexOf('immune') != -1) {
+          this.data.entity.immunities = [];
+        }
+        if (this.data.entity.name == 'demolitionist' && specialTagsToTemove.indexOf('mech') != -1) {
+          this.data.entity.maxHealth -= 5;
+          gameManager.entityManager.checkHealth(this.data.entity, this.data.entity);
+        }
+
         gameManager.stateManager.after();
       }
 
@@ -949,6 +960,17 @@ export class EntityMenuDialogComponent {
       if (specialTagsToAdd.length) {
         gameManager.stateManager.before("addSpecialTags", gameManager.characterManager.characterName(this.data.entity), specialTagsToAdd.map((specialTag) => '%data.character.' + this.data.figure.name + '.' + specialTag + '%').join(','));
         this.data.entity.tags.push(...specialTagsToAdd);
+
+        if (this.data.entity.name == 'lightning' && specialTagsToAdd.indexOf('immune') != -1) {
+          this.data.entity.immunities = gameManager.conditionsForTypes('character', 'negative').map((condition) => condition.name);
+        }
+        if (this.data.entity.name == 'demolitionist' && specialTagsToAdd.indexOf('mech') != -1) {
+          this.data.entity.maxHealth += 5;
+          this.data.entity.health += 10;
+          gameManager.entityManager.addCondition(this.data.entity, new Condition(ConditionName.heal, 10), this.data.entity.active || false, this.data.entity.off || false);
+          gameManager.entityManager.applyCondition(this.data.entity, this.data.entity, ConditionName.heal, true);
+        }
+
         gameManager.stateManager.after();
       }
 
@@ -1101,7 +1123,6 @@ export class EntityMenuDialogComponent {
         gameManager.characterManager.addSummon(this.data.figure, this.data.entity);
         gameManager.stateManager.after();
       } else {
-
         if (this.summonTitleInput) {
           if (this.summonTitleInput.nativeElement.value && this.summonTitleInput.nativeElement.value != this.data.entity.name) {
             if (this.data.entity.title != this.summonTitleInput.nativeElement.value) {
@@ -1139,6 +1160,22 @@ export class EntityMenuDialogComponent {
         if (this.range != 0) {
           gameManager.stateManager.before("changeSummonRange", gameManager.characterManager.characterName(this.data.figure), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name, ghsValueSign(this.range));
           this.data.entity.range += this.range;
+          gameManager.stateManager.after();
+        }
+
+        const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => this.data.figure instanceof Character && this.data.figure.specialActions && this.data.figure.specialActions.find((specialAction) => specialAction.name == specialTag) != undefined && this.specialTags.indexOf(specialTag) == -1);
+
+        if (specialTagsToTemove.length) {
+          gameManager.stateManager.before("removeSpecialTagsSummon", gameManager.characterManager.characterName(this.data.figure), specialTagsToTemove.map((specialTag) => '%data.character.' + this.data.figure.name + '.' + specialTag + '%').join(','));
+          this.data.entity.tags = this.data.entity.tags.filter((specialTag) => specialTagsToTemove.indexOf(specialTag) == -1);
+          gameManager.stateManager.after();
+        }
+
+        const specialTagsToAdd = this.specialTags.filter((specialTag) => this.data.entity && this.data.entity.tags.indexOf(specialTag) == -1);
+
+        if (specialTagsToAdd.length) {
+          gameManager.stateManager.before("addSpecialTagsSummon", gameManager.characterManager.characterName(this.data.figure), specialTagsToAdd.map((specialTag) => '%data.character.' + this.data.figure.name + '.' + specialTag + '%').join(','));
+          this.data.entity.tags.push(...specialTagsToAdd);
           gameManager.stateManager.after();
         }
       }

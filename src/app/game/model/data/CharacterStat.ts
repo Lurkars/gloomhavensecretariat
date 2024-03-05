@@ -13,11 +13,13 @@ export class CharacterSpecialAction {
   level: number;
   noTag: boolean;
   expire: boolean;
+  summon: boolean;
 
-  constructor(name: string, level: number = 0, noTag: boolean = false, expire: boolean = false) {
+  constructor(name: string, level: number = 0, noTag: boolean = false, expire: boolean = false, summon: boolean = false) {
     this.name = name;
     this.level = level;
     this.noTag = noTag;
     this.expire = expire;
+    this.summon = summon;
   }
 }

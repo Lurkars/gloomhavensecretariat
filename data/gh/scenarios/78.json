@@ -1,6 +1,7 @@
 {
   "index": "78",
   "name": "Sacrifice Pit",
+  "flowChartGroup": "city-events",
   "coordinates": {
     "x": 2037.2999877929688,
     "y": 244,

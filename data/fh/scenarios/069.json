@@ -1,6 +1,7 @@
 {
   "index": "69",
   "name": "Sacred Soil",
+  "flowChartGroup": "personal-quests",
   "edition": "fh",
   "complexity": 2,
   "requirements": [

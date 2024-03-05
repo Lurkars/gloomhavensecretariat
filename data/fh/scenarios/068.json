@@ -1,6 +1,7 @@
 {
   "index": "68",
   "name": "The Face of Torment",
+  "flowChartGroup": "personal-quests",
   "edition": "fh",
   "complexity": 2,
   "rewards": {

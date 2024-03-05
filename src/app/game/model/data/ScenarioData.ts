@@ -11,6 +11,7 @@ export class ScenarioData implements Editional, Spoilable {
 
   name: string = "";
   index: string = "";
+  errata: string = "";
   gridLocation: string | undefined = "";
   coordinates: { x: number, y: number, width: number, height: number } | undefined;
   unlocks: string[] = [];
@@ -20,6 +21,7 @@ export class ScenarioData implements Editional, Spoilable {
   links: string[] = [];
   forcedLinks: string[] = [];
   group: string | undefined;
+  flowChartGroup: string | undefined;
   monsters: string[] = [];
   allies: string[] = [];
   allied: string[] = [];
@@ -53,6 +55,7 @@ export class ScenarioData implements Editional, Spoilable {
   constructor(scenarioData: ScenarioData | undefined = undefined) {
     if (scenarioData) {
       this.name = scenarioData.name;
+      this.errata = scenarioData.errata;
       this.index = scenarioData.index;
       this.gridLocation = scenarioData.gridLocation;
       this.unlocks = scenarioData.unlocks;
@@ -62,6 +65,7 @@ export class ScenarioData implements Editional, Spoilable {
       this.links = scenarioData.links;
       this.forcedLinks = scenarioData.forcedLinks;
       this.group = scenarioData.group;
+      this.flowChartGroup = scenarioData.flowChartGroup;
       this.monsters = scenarioData.monsters;
       this.allies = scenarioData.allies;
       this.allied = scenarioData.allied;

@@ -1,9 +1,18 @@
 <div class="attackmodifier-standalone" [ngClass]="{'vertical'  : vertical()}" ghs-keyboard-shortcuts>
     <ghs-header [standalone]="true"></ghs-header>
-    <ghs-attackmodifier-deck [deck]="gameManager.game.monsterAttackModifierDeck" numeration="m" [standalone]="true"
-        [fullscreen]="false" [vertical]="vertical()" (before)="beforeMonsterAttackModifierDeck($event)"
-        (after)="afterMonsterAttackModifierDeck($event)">
+    <ghs-attackmodifier-deck *ngIf="init"
+        [deck]="character ? character.attackModifierDeck : (ally ? gameManager.game.allyAttackModifierDeck : gameManager.game.monsterAttackModifierDeck)"
+        [numeration]="character? '' : (ally ? 'A' : 'm')" [standalone]="true" [fullscreen]="false"
+        [vertical]="vertical()" (before)="beforeAttackModifierDeck($event)" (after)="afterAttackModifierDeck($event)"
+        [ally]="ally" [character]="character" [battleGoals]="false">
     </ghs-attackmodifier-deck>
 
-    <a class="next" (click)="next()"><span [ghs-label]="'game.round.next'"></span></a>
+    <div class="menu" *ngIf="init">
+        <a *ngIf="character" class="character" (click)="openCharacterSheet()">
+            <img [src]="character.iconUrl">
+            <span class="title">{{gameManager.characterManager.characterName(character)}}</span>
+        </a>
+
+        <a class="next" (click)="next()"><span [ghs-label]="'round.next'"></span></a>
+    </div>
 </div>

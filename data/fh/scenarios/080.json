@@ -1,6 +1,7 @@
 {
   "index": "80",
   "name": "Relic Renewed",
+  "flowChartGroup": "job-postings",
   "edition": "fh",
   "complexity": 2,
   "rewards": {

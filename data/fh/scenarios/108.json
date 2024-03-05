@@ -1,6 +1,7 @@
 {
   "index": "108",
   "name": "Lustrous Pit",
+  "flowChartGroup": "random-scenarios",
   "edition": "fh",
   "complexity": 2,
   "random": true,

@@ -37,12 +37,19 @@
           <option><span [ghs-label]="('server.list.' + (selectedServerIndex == -1 ? 'select' : 'deselect'))"></span>
           </option>
           <option *ngFor="let server of publicServer; let i = index;" [value]="i" [selected]="selectedServerIndex == i">
-            {{server.url}}:{{server.port}}
+            {{server.url}}
           </option>
         </select>
       </div>
 
       <div class="server-info" *ngIf="selectedServerIndex != -1">
+
+        <label><span [ghs-label]="'server.url'"></span></label>
+        <p>{{publicServer[selectedServerIndex].url}}</p>
+
+        <label><span [ghs-label]="'server.port'"></span></label>
+        <p>{{publicServer[selectedServerIndex].port}}</p>
+
         <ng-container *ngFor="let url of publicServer[selectedServerIndex].urls | keyvalue">
           <label><span [ghs-label]="'server.info.' + url.key"></span></label>
           <p><a tabclick [href]="url.value" target="_blank">{{url.value.replace('http://', '').replace('https://',

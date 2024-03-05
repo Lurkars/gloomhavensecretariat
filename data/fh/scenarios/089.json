@@ -1,6 +1,7 @@
 {
   "index": "89",
   "name": "A Contained Fire",
+  "flowChartGroup": "job-postings",
   "edition": "fh",
   "complexity": 2,
   "rewards": {

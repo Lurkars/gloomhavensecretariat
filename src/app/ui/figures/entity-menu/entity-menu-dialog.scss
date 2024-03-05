@@ -386,7 +386,7 @@
       position: absolute;
       width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
       height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-      background-image: url('/assets/images/summons/minus.svg');
+      background-image: url('~src/assets/images/summons/minus.svg');
       background-size: cover;
     }
 
@@ -421,7 +421,7 @@
         top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
         width: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
         height: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
-        background-image: url('/assets/images/fh/summons/minus.svg');
+        background-image: url('~src/assets/images/fh/summons/minus.svg');
         z-index: 2;
       }
 

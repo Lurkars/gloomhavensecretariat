@@ -2,7 +2,10 @@
   "character": {
     "brute": "Brute",
     "cragheart": "Cœur de Roche",
-    "demolitionist": "Artificier",
+    "demolitionist": {
+      ".": "Artificier",
+      "mech": "%game.characterIconColored.demolitionist%  Mech Suit"
+    },
     "diviner": "Devineresse",
     "hatchet": "Lanceur de hache",
     "mindthief": "Perce-Esprit",

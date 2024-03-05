@@ -1,6 +1,7 @@
 {
   "index": "123",
   "name": "The Titan",
+  "flowChartGroup": "other",
   "edition": "fh",
   "complexity": 3,
   "rewards": {

@@ -6,8 +6,9 @@
     </a>
   </div>
   <ng-container *ngIf="!standalone">
-    <img *ngIf="gameManager.stateManager.serverError" src="./assets/images/warning.svg" [ghs-tooltip]="gameManager.stateManager.serverError"
-      class="ghs-svg server-connection closed" [ghs-label]="'server.error'" [ghs-label-attribute]="'title'">
+    <img *ngIf="gameManager.stateManager.serverError" src="./assets/images/warning.svg"
+      [ghs-tooltip]="gameManager.stateManager.serverError" class="ghs-svg server-connection closed"
+      [ghs-label]="'server.error'" [ghs-label-attribute]="'title'">
     <ng-container [ngSwitch]="gameManager.stateManager.wsState()">
       <a (click)="openMenu(SubMenu.server)" [ghs-label]="'server.connected'" [ghs-label-attribute]="'title'"
         *ngSwitchCase="WebSocket.OPEN" class="server-connection-status">
@@ -71,12 +72,20 @@
       </ng-container>
     </div>
     <span class="spacer"></span>
-    <div class="event-effects" (click)="openEventEffects()"
-      *ngIf="gameManager.game.scenario && gameManager.characterManager.characterCount() > 0">
+    <div *ngIf="gameManager.game.scenario && gameManager.characterManager.characterCount() > 0" class="event-effects"
+      (click)="openEventEffects()">
       <img class="ghs-svg"
         [src]="'./assets/images/event' + (gameManager.game.round > 0 || gameManager.game.state == GameState.next ? '-effects' : '') + '.svg'">
     </div>
     <ghs-party-sheet #partySheet *ngIf="settingsManager.settings.partySheet"></ghs-party-sheet>
+    <div *ngIf="settingsManager.settings.gameClock" class="game-clock" ghs-pointer-input
+      (singleClick)="openGameClockDialog()" (doubleClick)="toggleGameClock()"
+      [ghs-tooltip]="'duration.gameClock.' + (lastGameClockTimestamp && !lastGameClockTimestamp.clockOut ? (currentGameClock == overallGameClock ?  'running' : 'runningTotal') : (overallGameClock ? 'paused': 'off'))"
+      [ghs-label-args]="[overallGameClock ? (overallGameClock | ghsDurationLabel): '', currentGameClock ? (currentGameClock | ghsDurationLabel) : '']"
+      [overlayX]="'center'">
+      <img class="ghs-svg"
+        [src]="'./assets/images/'+ (lastGameClockTimestamp && !lastGameClockTimestamp.clockOut ? 'clock-out': 'clock-in') + '.svg'">
+    </div>
     <span class="spacer"></span>
     <div class="elements"
       [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.elements}">

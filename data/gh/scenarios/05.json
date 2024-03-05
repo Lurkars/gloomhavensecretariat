@@ -1,6 +1,7 @@
 {
   "index": "5",
   "name": "Ruinous Crypt",
+  "flowChartGroup": "demon-and-rift",
   "coordinates": {
     "x": 849.5,
     "y": 539,

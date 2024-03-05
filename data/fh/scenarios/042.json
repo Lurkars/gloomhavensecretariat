@@ -1,6 +1,7 @@
 {
   "index": "42",
   "name": "Sunless Trench",
+  "flowChartGroup": "lurker",
   "edition": "fh",
   "complexity": 1,
   "requirements": [

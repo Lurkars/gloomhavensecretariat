@@ -1,6 +1,7 @@
 {
   "index": "122",
   "name": "The Eternal Crave",
+  "flowChartGroup": "other",
   "edition": "fh",
   "complexity": 2,
   "lootDeckConfig": {

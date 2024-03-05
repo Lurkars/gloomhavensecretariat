@@ -1,6 +1,7 @@
 {
   "index": "32",
   "name": "Ravens' Roost",
+  "flowChartGroup": "lurker",
   "edition": "fh",
   "complexity": 2,
   "rewards": {

@@ -1,6 +1,7 @@
 {
   "index": "42",
   "name": "Realm of the Voice",
+  "flowChartGroup": "voice",
   "coordinates": {
     "x": 590.4000244140625,
     "y": 328,

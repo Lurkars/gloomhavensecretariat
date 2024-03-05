@@ -44,8 +44,8 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Item Management (automatic unlocks etc.)                                        | ✅         | ⛔         | ⛔        | ✅      | ⛔       |
 | Integrated Map (interactive)                                                    | ⛔         | ⛔         | ⛔        | ✅      | ⛔       |
 | Integrated Scenario/Section Book (interactive)                                  | ⛔         | ⛔         | ⛔        | ✅      | ⛔       |
-| Random Dungeons                                                                 | ⛔         | ⛔         | ⛔        | ✅      | ⛔       |
-| World Map                                                                       | ✅❗[^1.2]  | ⛔         | ⛔        | ❔      | ⛔       |
+| Random Dungeons                                                                 | ✅❗[^1.2]  | ⛔         | ⛔        | ✅      | ⛔       |
+| World Map                                                                       | ✅❗[^1.3]  | ⛔         | ⛔        | ❔      | ⛔       |
 |                                                                                 |           |           |          |        |         |
 | **Editions**                                                                    | *GHS*     | *XHA*     | *FOC*    | *GHFS* | *GHH*   |
 | Gloomhaven                                                                      | ✅         | ✅         | ⛔        | ✅      | ✅       |
@@ -118,7 +118,9 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 
 [^1.1]: Need to be enabled in **Settings** Menu
 
-[^1.2]: Currently Gloomhaven only!
+[^1.2]: Only support monster cards via **Add Section** Menu
+
+[^1.3]: Currently Gloomhaven only!
 
 [^2.1]: Some special rules data not complete, but fully playable
 

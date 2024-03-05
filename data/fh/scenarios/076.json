@@ -1,6 +1,7 @@
 {
   "index": "76",
   "name": "Apotheosis",
+  "flowChartGroup": "personal-quests",
   "edition": "fh",
   "complexity": 3,
   "requirements": [

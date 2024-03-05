@@ -81,7 +81,6 @@
 
   .config {
     margin-bottom: 5%;
-    padding: 2em;
     min-height: 500px;
 
     .title {
@@ -98,7 +97,7 @@
 
       display: grid;
       grid-template-columns: auto auto auto auto;
-      font-size: 2em;
+      font-size: 1.5em;
 
       label {
         color: var(--ghs-color-white);

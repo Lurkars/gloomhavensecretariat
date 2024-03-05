@@ -354,6 +354,10 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   removeCondition(entityCondition: EntityCondition) {
     gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.character, this.character, "removeCondition"), entityCondition.name);
+    const immunityIndex = this.character.immunities.indexOf(entityCondition.name);
+    if (immunityIndex != -1) {
+      this.character.immunities.splice(immunityIndex, 1);
+    }
     gameManager.entityManager.removeCondition(this.character, entityCondition, entityCondition.permanent);
     gameManager.stateManager.after();
   }
@@ -501,6 +505,10 @@ export class CharacterComponent implements OnInit, OnDestroy {
   removeSpecialAction(specialAction: string) {
     gameManager.stateManager.before("removeSpecialTags", gameManager.characterManager.characterName(this.character), '%data.character.' + this.character.name + '.' + specialAction + '%');
     this.character.tags = this.character.tags.filter((specialTag) => specialTag != specialAction);
+
+    if (this.character.name == 'lightning' && this.character.edition == 'gh' && specialAction.indexOf('immune') != -1) {
+      this.character.immunities = [];
+    }
     gameManager.stateManager.after();
   }
 }

@@ -1,6 +1,7 @@
 {
   "index": "61",
   "name": "Life and Death",
+  "flowChartGroup": "puzzle-book",
   "edition": "fh",
   "complexity": 2,
   "rewards": {

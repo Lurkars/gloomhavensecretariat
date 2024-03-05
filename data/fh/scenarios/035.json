@@ -1,6 +1,7 @@
 {
   "index": "35",
   "name": "Scrap Pit",
+  "flowChartGroup": "unfettered",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

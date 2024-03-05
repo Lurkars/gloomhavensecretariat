@@ -1,6 +1,7 @@
 {
   "index": "54",
   "name": "Among the Wreckage",
+  "flowChartGroup": "lurker",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

@@ -1,6 +1,7 @@
 {
   "index": "71",
   "name": "Invasion of the Dock",
+  "flowChartGroup": "personal-quests",
   "edition": "fh",
   "complexity": 3,
   "allyDeck": true,

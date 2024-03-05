@@ -1,6 +1,7 @@
 {
   "index": "95",
   "name": "Payment Due",
+  "flowChartGroup": "city-events",
   "coordinates": {
     "x": 1800.0999755859375,
     "y": 915,

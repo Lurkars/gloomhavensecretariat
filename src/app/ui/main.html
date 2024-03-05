@@ -43,8 +43,14 @@
           <span class="text" *ngIf="!editionData.logoUrl"><span
               [ghs-label]="'data.edition.' + editionData.edition"></span></span>
         </a>
+
+        <a *ngIf="!gameManager.game.edition && this.welcomeOtherEditions" tabclick class="edition add-additional-content"
+          (click)="header.openMenu(SubMenu.editions)">
+          <img class="ghs-svg" src="./assets/images/plus.svg"> <span [ghs-label]="'hints.addAdditionalContent'"></span>
+        </a>
       </div>
     </div>
+
     <p *ngIf="!gameManager.game.edition"><span [ghs-label]="'welcome.orChooseCharacters'"></span></p>
     <p *ngIf="gameManager.game.edition"><span [ghs-label]="'welcome.chooseCharacters'"></span></p>
     <div tabclick class="add-characters" (click)="header.openMenu(SubMenu.character_add)">

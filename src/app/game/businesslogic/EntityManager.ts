@@ -268,33 +268,37 @@ export class EntityManager {
     } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
       const stat = figure.stats.find((monsterStat) => monsterStat.level == entity.level && monsterStat.type == entity.type);
       immune = stat != undefined && stat.immunities != undefined && stat.immunities.indexOf(conditionName) != -1;
-    } else if (figure instanceof Character) {
+    } else if (entity instanceof Character) {
       let immunities: ConditionName[] = [];
-      if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '38')) {
+      if (entity.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '38')) {
         immunities.push(ConditionName.stun, ConditionName.muddle);
       }
-      if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '52')) {
+      if (entity.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '52')) {
         immunities.push(ConditionName.poison, ConditionName.wound);
       }
-      if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '103')) {
+      if (entity.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '103')) {
         immunities.push(ConditionName.poison, ConditionName.wound);
       }
-      if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '57')) {
+      if (entity.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '57')) {
         immunities.push(ConditionName.muddle);
       }
-      if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '138')) {
+      if (entity.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '138')) {
         immunities.push(ConditionName.disarm, ConditionName.stun, ConditionName.muddle);
       }
 
-      if (figure.name == 'blinkblade' && figure.edition == 'fh' && figure.progress.perks[10]) {
+      if (entity.name == 'blinkblade' && entity.edition == 'fh' && entity.progress.perks[10]) {
         immunities.push(ConditionName.immobilize);
-      } else if (figure.name == 'coral' && figure.edition == 'fh' && figure.progress.perks[7]) {
+      } else if (entity.name == 'coral' && entity.edition == 'fh' && entity.progress.perks[7]) {
         immunities.push(ConditionName.impair);
-      } else if (figure.name == 'prism' && figure.edition == 'fh' && figure.progress.perks[9]) {
+      } else if (entity.name == 'prism' && entity.edition == 'fh' && entity.progress.perks[9]) {
         immunities.push(ConditionName.wound);
       }
 
       immune = immunities.indexOf(conditionName) != -1;
+    } else if (entity instanceof Summon) {
+      if (entity.tags.indexOf('prism_mode') != -1) {
+        return true;
+      }
     }
 
     if (!immune) {

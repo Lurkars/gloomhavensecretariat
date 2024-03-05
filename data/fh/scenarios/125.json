@@ -1,6 +1,7 @@
 {
   "index": "125",
   "name": "The Longest Second",
+  "flowChartGroup": "other",
   "edition": "fh",
   "complexity": 2,
   "rewards": {

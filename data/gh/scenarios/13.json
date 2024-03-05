@@ -1,6 +1,7 @@
 {
   "index": "13",
   "name": "Temple of the Seer",
+  "flowChartGroup": "the-merchant",
   "coordinates": {
     "x": 459.20001220703125,
     "y": 2102,

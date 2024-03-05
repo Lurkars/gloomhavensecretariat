@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { storageManager } from "src/app/game/businesslogic/StorageManager";
@@ -15,9 +15,7 @@ import { ghsInputFullScreenCheck } from "src/app/ui/helper/Static";
 })
 export class DatamanagementMenuComponent implements OnInit {
 
-  @ViewChild('inputEditionDataUrl', { static: true }) editionDataUrlElement!: ElementRef;
-  @ViewChild('inputSpoiler', { static: true }) spoilerElement!: ElementRef;
-  @ViewChild('inputUnlock', { static: true }) unlockElement!: ElementRef;
+  @Input() editionsOnly: boolean = false;
 
   settingsManager: SettingsManager = settingsManager;
   gameManager: GameManager = gameManager;
@@ -37,19 +35,21 @@ export class DatamanagementMenuComponent implements OnInit {
     }
   }
 
-  async addEditionDataUrl() {
-    if (this.editionDataUrlElement.nativeElement.value) {
-      this.editionDataUrlElement.nativeElement.classList.remove("error");
-      this.editionDataUrlElement.nativeElement.disabled = true;
-      const success = await settingsManager.addEditionDataUrl(this.editionDataUrlElement.nativeElement.value);
+  async addEditionDataUrl(target: any) {
+    if (target.value) {
+      target.classList.remove("error");
+      target.disabled = true;
+      const success = await settingsManager.addEditionDataUrl(target.value);
 
       if (success) {
-        this.editionDataUrlElement.nativeElement.value = "";
-        this.editionDataUrlElement.nativeElement.disabled = false;
+        target.value = "";
+        target.disabled = false;
       } else {
-        this.editionDataUrlElement.nativeElement.classList.add("error");
-        this.editionDataUrlElement.nativeElement.disabled = false;
-      };
+        setTimeout(() => {
+          target.classList.add("error");
+          target.disabled = false;
+        }, 1)
+      }
     }
   }
 
@@ -79,10 +79,10 @@ export class DatamanagementMenuComponent implements OnInit {
     return this.settingsManager.defaultEditionDataUrls.every((editionDataUrl) => settingsManager.settings.editionDataUrls.indexOf(editionDataUrl) != -1);
   }
 
-  addSpoiler(): void {
-    if (this.spoilerElement.nativeElement.value) {
-      settingsManager.addSpoiler(this.spoilerElement.nativeElement.value);
-      this.spoilerElement.nativeElement.value = "";
+  addSpoiler(target: any): void {
+    if (target.value) {
+      settingsManager.addSpoiler(target.value);
+      target.value = "";
     }
   }
 
@@ -92,15 +92,23 @@ export class DatamanagementMenuComponent implements OnInit {
     }
   }
 
-  addUnlock(): void {
-    const characterName = this.unlockElement.nativeElement.value;
-    if (characterName) {
+  addUnlock(target: any): void {
+    if (target.value) {
+      const characterName = target.value;
+      target.classList.remove("error");
+      target.disabled = true;
       if (gameManager.game.unlockedCharacters.indexOf(characterName) == -1 && gameManager.charactersData(undefined).find((characterData) => characterData.spoiler && characterData.name == characterName)) {
         gameManager.stateManager.before("unlockChar", "data.character." + characterName);
         gameManager.game.unlockedCharacters.push(characterName)
         gameManager.stateManager.after();
+        target.value = "";
+        target.disabled = false;
+      } else {
+        setTimeout(() => {
+          target.classList.add("error");
+          target.disabled = false;
+        }, 1)
       }
-      this.unlockElement.nativeElement.value = "";
     }
   }
 
@@ -348,6 +356,7 @@ export class DatamanagementMenuComponent implements OnInit {
       try {
         console.warn("clear storage");
         await storageManager.clear();
+        gameManager.stateManager.storageBlocked = true;
         console.info("Reload...");
         window.location.reload();
       } catch {

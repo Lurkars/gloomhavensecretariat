@@ -1,6 +1,7 @@
 {
   "index": "26",
   "name": "Quatryl Library",
+  "flowChartGroup": "unfettered",
   "edition": "fh",
   "complexity": 2,
   "blocks": [

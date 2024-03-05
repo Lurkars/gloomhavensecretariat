@@ -1,6 +1,7 @@
 {
   "index": "131",
   "name": "The Dancing Iceberg",
+  "flowChartGroup": "other",
   "edition": "fh",
   "complexity": 3,
   "rewards": {

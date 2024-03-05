@@ -1,6 +1,7 @@
 {
   "index": "46",
   "name": "Dead Pass",
+  "flowChartGroup": "algox-3",
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

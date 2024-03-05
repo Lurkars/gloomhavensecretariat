@@ -145,7 +145,7 @@
             </div>
             <div class="markers">
               <span class="marker" *ngFor="let marker of character.markers;">
-                <img src="./assets/images/character/icons/{{marker}}.svg" />
+                <img [src]="'./assets/images/character/icons/' + marker + '.svg'" />
               </span>
             </div>
 
@@ -289,7 +289,7 @@
     <div class="special-actions" *ngIf="character.specialActions">
       <ng-container *ngFor="let specialAction of character.specialActions">
         <span *ngIf="character.tags.indexOf(specialAction.name) != -1" class="special-tag"
-          [ghs-label]="'data.character.' + character.name + '.' + specialAction.name"  ghs-pointer-input
+          [ghs-label]="'data.character.' + character.name + '.' + specialAction.name" ghs-pointer-input
           (singleClick)="openEntityMenu($event)" (doubleClick)="removeSpecialAction(specialAction.name)"></span>
       </ng-container>
     </div>

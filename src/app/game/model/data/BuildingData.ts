@@ -1,4 +1,6 @@
-export class BuildingData {
+import { Editional } from "./Editional";
+
+export class BuildingData implements Editional {
     id: string = "";
     name: string = "";
     costs: BuildingCosts = { "prosperity": 0, "lumber": 0, "metal": 0, "hide": 0, "gold": 0 };
@@ -14,6 +16,9 @@ export class BuildingData {
     rewards: BuildingRewards[] = [];
     prosperityUnlock: boolean = false;
     envelope: string | undefined = undefined;
+
+    // from editional
+    edition: string = "";
 }
 
 export class BuildingRewards {
@@ -24,6 +29,7 @@ export class BuildingRewards {
     soldiers: number = 0;
     plots: number = 0;
     defense: number = 0;
+    errata: string = "";
 }
 
 export type BuildingCostType = "prosperity" | "lumber" | "metal" | "hide" | "gold";

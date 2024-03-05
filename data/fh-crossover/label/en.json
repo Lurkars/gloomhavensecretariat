@@ -2,7 +2,10 @@
   "character": {
     "brute": "Brute",
     "cragheart": "Cragheart",
-    "demolitionist": "Demolitionist",
+    "demolitionist": {
+      ".": "Demolitionist",
+      "mech": "%game.characterIconColored.demolitionist%  Mech Suit"
+    },
     "diviner": "Diviner",
     "hatchet": "Hatchet",
     "mindthief": "Mindthief",

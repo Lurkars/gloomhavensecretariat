@@ -1,6 +1,7 @@
 {
   "index": "86",
   "name": "The Lady in White",
+  "flowChartGroup": "job-postings",
   "edition": "fh",
   "complexity": 2,
   "rewards": {

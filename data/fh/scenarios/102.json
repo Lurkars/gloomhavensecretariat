@@ -1,6 +1,7 @@
 {
   "index": "102",
   "name": "Into the Black",
+  "flowChartGroup": "job-postings",
   "edition": "fh",
   "complexity": 3,
   "rewards": {

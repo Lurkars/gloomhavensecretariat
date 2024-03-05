@@ -1,6 +1,7 @@
 {
   "index": "133",
   "name": "Bolt",
+  "flowChartGroup": "job-postings",
   "edition": "fh",
   "complexity": 2,
   "rewards": {
