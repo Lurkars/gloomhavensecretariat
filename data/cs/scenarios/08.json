@@ -1,6 +1,7 @@
 {
   "index": "8",
   "name": "Shattered Fortress",
+  "flowChartGroup": "intro",
   "edition": "cs",
   "unlocks": [
     "9"

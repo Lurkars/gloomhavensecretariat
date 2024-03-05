@@ -1,6 +1,7 @@
 {
   "index": "7",
   "name": "Golden Eggs",
+  "flowChartGroup": "intro",
   "edition": "cs",
   "unlocks": [
     "8",

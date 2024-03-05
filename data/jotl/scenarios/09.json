@@ -1,6 +1,7 @@
 {
   "index": "9",
   "name": "Explosive Evolution",
+  "flowChartGroup": "main",
   "edition": "jotl",
   "unlocks": [
     "10"

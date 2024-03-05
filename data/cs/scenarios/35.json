@@ -1,6 +1,7 @@
 {
   "index": "35",
   "name": "Prison Riot",
+  "flowChartGroup": "personal-quests",
   "edition": "cs",
   "unlocks": [
     "36"

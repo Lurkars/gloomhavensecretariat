@@ -33,8 +33,9 @@
       <img class="ghs-svg" src="./assets/images/install.svg"> <span [ghs-label]="'app.install'"></span></a>
 
     <h2><span [ghs-label]="'welcome'"></span></h2>
-    <div class="choose-edition" *ngIf="!gameManager.game.edition">
-      <p><span [ghs-label]="'welcome.chooseEdition'"></span></p>
+
+    <div class="container-row bordered" *ngIf="!gameManager.game.edition">
+      <p [ghs-label]="'welcome.chooseEdition'"></p>
       <div class="editions">
         <a tabclick class="edition" *ngFor="let editionData of gameManager.editionsData()"
           (click)="startCampaign(editionData.edition)">
@@ -44,18 +45,38 @@
               [ghs-label]="'data.edition.' + editionData.edition"></span></span>
         </a>
 
-        <a *ngIf="!gameManager.game.edition && this.welcomeOtherEditions" tabclick class="edition add-additional-content"
-          (click)="header.openMenu(SubMenu.editions)">
+        <a *ngIf="!gameManager.game.edition && this.welcomeOtherEditions" tabclick
+          class="edition add-additional-content" (click)="header.openMenu(SubMenu.editions)">
           <img class="ghs-svg" src="./assets/images/plus.svg"> <span [ghs-label]="'hints.addAdditionalContent'"></span>
         </a>
       </div>
     </div>
 
-    <p *ngIf="!gameManager.game.edition"><span [ghs-label]="'welcome.orChooseCharacters'"></span></p>
-    <p *ngIf="gameManager.game.edition"><span [ghs-label]="'welcome.chooseCharacters'"></span></p>
-    <div tabclick class="add-characters" (click)="header.openMenu(SubMenu.character_add)">
-      <span [ghs-label]="'hints.addCharacters'"></span>
+    <div class="container-row bordered"
+      *ngIf="gameManager.game.edition && gameManager.editionLogo(gameManager.game.edition)">
+      <div class="editions">
+        <a tabclick class="edition" (click)="cancelCampaign(gameManager.game.edition)">
+          <img [src]="gameManager.editionLogo(gameManager.game.edition)"
+            [ghs-label]="'data.edition.' + gameManager.game.edition" [ghs-label-attribute]="'title'">
+        </a>
+      </div>
     </div>
+
+    <div class="container-row bordered">
+      <p *ngIf="!gameManager.game.edition" [ghs-label]="'welcome.orChooseCharacters'"></p>
+      <p *ngIf="gameManager.game.edition" [ghs-label]="'welcome.chooseCharacters'"></p>
+      <a tabclick class="add-characters" (click)="header.openMenu(SubMenu.character_add)">
+        <span [ghs-label]="'hints.addCharacters'"></span>
+      </a>
+    </div>
+
+    <div class="container-row settings">
+      <p [ghs-label]="'welcome.settings.text'"></p>
+      <a tabclick class="settings-menu" (click)="header.openMenu(SubMenu.settings)">
+        <span [ghs-label]="'welcome.settings'"></span>
+      </a>
+    </div>
+
 
     <ng-container *ngIf="loading">
       <span><span [ghs-label]="'app.loading'"></span></span>

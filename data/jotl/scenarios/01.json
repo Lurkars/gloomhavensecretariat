@@ -1,6 +1,7 @@
 {
   "index": "1",
   "name": "Roadside Ambush",
+  "flowChartGroup": "intro",
   "edition": "jotl",
   "initial": true,
   "unlocks": [

@@ -1,6 +1,7 @@
 {
   "index": "23",
   "name": "The Best of the Best",
+  "flowChartGroup": "characters",
   "edition": "jotl",
   "rewards": {
     "items": [

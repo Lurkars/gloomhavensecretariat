@@ -1,6 +1,7 @@
 {
   "index": "105",
   "name": "Monstrosities of a Cult",
+  "flowChartGroup": "citizens",
   "edition": "fc",
   "unlocks": [
     "111"

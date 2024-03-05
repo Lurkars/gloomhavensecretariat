@@ -1,6 +1,7 @@
 {
   "index": "18",
   "name": "The Heist",
+  "flowChartGroup": "main",
   "edition": "jotl",
   "rewards": {
     "experience": 10

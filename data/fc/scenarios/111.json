@@ -1,6 +1,7 @@
 {
   "index": "111",
   "name": "The Shackles Loosen",
+  "flowChartGroup": "citizens",
   "edition": "fc",
   "unlocks": [
     "114"

@@ -1,6 +1,7 @@
 {
   "index": "5",
   "name": "A Deeper Understanding",
+  "flowChartGroup": "intro",
   "edition": "jotl",
   "unlocks": [
     "6"

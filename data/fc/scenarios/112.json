@@ -1,9 +1,17 @@
 {
   "index": "112",
   "name": "The Bottom of It",
+  "flowChartGroup": "the-rift",
   "edition": "fc",
   "unlocks": [
     "114"
+  ],
+  "requirements": [
+    {
+      "global": [
+        "Pieces of an Artifact:3"
+      ]
+    }
   ],
   "monsters": [
     "ancient-artillery",

@@ -1,6 +1,7 @@
 {
   "index": "17",
   "name": "Red Twilight",
+  "flowChartGroup": "main",
   "edition": "jotl",
   "rewards": {
     "gold": 30,

@@ -1,6 +1,7 @@
 {
   "index": "9",
   "name": "Rescue Mission",
+  "flowChartGroup": "intro",
   "edition": "cs",
   "unlocks": [
     "11",

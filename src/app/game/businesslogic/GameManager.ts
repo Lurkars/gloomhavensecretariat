@@ -108,6 +108,14 @@ export class GameManager {
     return this.editionData.filter((editionData) => editions.indexOf(editionData.edition) != -1);
   }
 
+  editionLogo(edition: string): string {
+    const editionData = this.editionData.find((editionData) => editionData.edition == edition);
+    if (editionData && editionData.logoUrl) {
+      return editionData.logoUrl;
+    }
+    return "";
+  }
+
   currentEditions(additional: boolean = false): string[] {
     if (!this.game.edition) {
       return this.editions(false, additional);

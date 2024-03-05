@@ -1,6 +1,7 @@
 {
   "index": "113",
   "name": "The Lost Thread",
+  "flowChartGroup": "tainted-crypt",
   "edition": "fc",
   "unlocks": [
     "114"

@@ -1,6 +1,7 @@
 {
   "index": "24",
   "name": "Warding the Void",
+  "flowChartGroup": "characters",
   "edition": "jotl",
   "rewards": {
     "items": [

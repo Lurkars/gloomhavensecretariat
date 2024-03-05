@@ -1,19 +1,20 @@
 {
-  "index": "8",
-  "name": "Hidden Tumor",
+  "index": "7",
+  "name": "Sunken Tumor",
+  "flowChartGroup": "main",
   "edition": "jotl",
   "unlocks": [
     "9"
   ],
   "blocks": [
-    "7"
+    "8"
   ],
   "rewards": {
     "experience": 20
   },
   "monsters": [
     "blood-tumor",
-    "chaos-demon",
+    "vermling-scout",
     "zealot"
   ],
   "rules": [
@@ -45,35 +46,76 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "jotl08-1",
+      "ref": "jotl07-1",
       "initial": true,
       "rooms": [
         2
       ],
-      "treasures": [
-        4
-      ],
       "monster": [
         {
-          "name": "chaos-demon",
+          "name": "vermling-scout",
           "type": "normal"
         },
         {
-          "name": "chaos-demon",
-          "type": "normal"
+          "name": "vermling-scout",
+          "type": "elite"
         },
         {
-          "name": "chaos-demon",
-          "player3": "normal",
+          "name": "vermling-scout",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
           "player4": "normal"
         },
         {
-          "name": "chaos-demon",
+          "name": "vermling-scout",
           "player4": "normal"
         },
         {
           "name": "zealot",
           "type": "elite"
+        },
+        {
+          "name": "zealot",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "jotl07-2",
+      "rooms": [
+        3
+      ],
+      "treasures": [
+        12
+      ],
+      "monster": [
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
         },
         {
           "name": "zealot",
@@ -86,18 +128,13 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
-        },
-        {
-          "name": "zealot",
-          "player3": "normal",
-          "player4": "elite"
         }
       ]
     },
     {
-      "roomNumber": 2,
-      "ref": "jotl08-2",
-      "marker": "1",
+      "roomNumber": 3,
+      "ref": "jotl07-3",
+      "marker": 1,
       "monster": [
         {
           "name": "blood-tumor",

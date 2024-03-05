@@ -1,6 +1,7 @@
 {
   "index": "6",
   "name": "Corrupted Research",
+  "flowChartGroup": "main",
   "edition": "jotl",
   "unlocks": [
     "7",

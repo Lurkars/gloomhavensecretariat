@@ -1,6 +1,7 @@
 {
   "index": "100",
   "name": "Shifting Gears",
+  "flowChartGroup": "the-rift",
   "edition": "fc",
   "monsters": [
     "stone-golem"

@@ -1,6 +1,7 @@
 {
   "index": "115",
   "name": "Future Uncertain",
+  "flowChartGroup": "corruption",
   "edition": "fc",
   "rewards": {
     "globalAchievements": [

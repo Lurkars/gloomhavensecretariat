@@ -1,6 +1,7 @@
 {
   "index": "11",
   "name": "Defiled Sewers",
+  "flowChartGroup": "main",
   "edition": "jotl",
   "unlocks": [
     "13",

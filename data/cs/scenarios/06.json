@@ -1,6 +1,7 @@
 {
   "index": "6",
   "name": "Poisoned Water",
+  "flowChartGroup": "infectious",
   "edition": "cs",
   "requirements": [
     {

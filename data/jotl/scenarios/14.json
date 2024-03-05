@@ -1,6 +1,7 @@
 {
   "index": "14",
   "name": "Toxic Harvest",
+  "flowChartGroup": "main",
   "edition": "jotl",
   "unlocks": [
     "15"

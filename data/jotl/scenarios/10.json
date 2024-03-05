@@ -1,6 +1,7 @@
 {
   "index": "10",
   "name": "The Gauntlet",
+  "flowChartGroup": "main",
   "edition": "jotl",
   "unlocks": [
     "11",

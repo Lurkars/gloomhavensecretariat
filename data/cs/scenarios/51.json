@@ -1,6 +1,7 @@
 {
   "index": "51",
   "name": "Rodent Warehouse",
+  "flowChartGroup": "side-quests",
   "edition": "cs",
   "rewards": {
     "gold": 30,

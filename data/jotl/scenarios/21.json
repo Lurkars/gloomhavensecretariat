@@ -1,6 +1,7 @@
 {
   "index": "21",
   "name": "Agents of Chaos",
+  "flowChartGroup": "city-events",
   "edition": "jotl",
   "rewards": {
     "gold": 15

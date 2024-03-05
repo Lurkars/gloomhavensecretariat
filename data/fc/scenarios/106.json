@@ -1,6 +1,7 @@
 {
   "index": "106",
   "name": "Intricate Work",
+  "flowChartGroup": "the-rift",
   "edition": "fc",
   "requirements": [
     {
@@ -8,6 +9,9 @@
         "Knowledge is Power:2"
       ]
     }
+  ],
+  "links": [
+    "112"
   ],
   "monsters": [
     "aesther-scout"

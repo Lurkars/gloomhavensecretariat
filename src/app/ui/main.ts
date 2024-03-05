@@ -322,6 +322,13 @@ export class MainComponent implements OnInit {
     gameManager.stateManager.after();
   }
 
+  cancelCampaign(edition: string) {
+    gameManager.stateManager.before("cancelCampaign", 'data.edition.' + edition);
+    gameManager.game.edition = undefined;
+    gameManager.game.party.campaignMode = false;
+    gameManager.stateManager.after();
+  }
+
   calcColumns(scrollTo: HTMLElement | undefined = undefined, skipAnimation: boolean = false): void {
     this.grid = [999];
     if (!settingsManager.settings.columns) {

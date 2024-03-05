@@ -1,6 +1,7 @@
 {
   "index": "15",
   "name": "Ambush of Beasts",
+  "flowChartGroup": "sail",
   "edition": "cs",
   "unlocks": [
     "16"

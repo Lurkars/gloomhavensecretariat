@@ -1,6 +1,7 @@
 {
   "index": "25",
   "name": "The Greatest Job in the World",
+  "flowChartGroup": "characters",
   "edition": "jotl",
   "rewards": {
     "items": [

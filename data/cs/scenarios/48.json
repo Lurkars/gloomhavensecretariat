@@ -1,6 +1,7 @@
 {
   "index": "48",
   "name": "Forest Fire",
+  "flowChartGroup": "road-events",
   "edition": "cs",
   "rewards": {
     "gold": 20,

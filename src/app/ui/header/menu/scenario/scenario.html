@@ -21,14 +21,15 @@
   </div>
   <div class="line editions">
     <label *ngFor="let e of editions;">
-      <input tabclick type="radio" name="radio" [value]="e" (change)="edition = e" [checked]="edition == e">
+      <input tabclick type="radio" name="radio" [value]="e" (change)="setEdition(e)" [checked]="edition == e">
       <span [ghs-label]="'data.edition.' + e"></span>
     </label>
   </div>
   <div class="line search">
     <input type="text" #search [ghs-label]="'scenario.filter'" [ghs-label-attribute]="'placeholder'">
 
-    <a (click)="scenarioChart()" [ghs-tooltip]="'scenario.chart'"><img class="ghs-svg" src="./assets/images/chart.svg"></a>
+    <a (click)="scenarioChart()" [ghs-tooltip]="'scenario.chart'"><img class="ghs-svg"
+        src="./assets/images/chart.svg"></a>
 
   </div>
   <div class="line campaign">
@@ -43,7 +44,11 @@
     </label>
   </div>
   <ng-container *ngFor="let group of groups">
-    <div *ngIf="group" class="line title"><label><span [ghs-label]="'data.scenario.group.' + group"></span></label>
+    <div *ngIf="group" class="line title group">
+      <label [ghs-label]="'data.scenario.group.' + group"></label>
+
+      <a (click)="scenarioChart(group)" [ghs-tooltip]="'scenario.chart'"><img class="ghs-svg"
+          src="./assets/images/chart.svg"></a>
     </div>
     <div class="line scenarios">
       <span tabclick (click)="setScenario(scenario)" class="scenario"

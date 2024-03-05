@@ -1,6 +1,7 @@
 {
   "index": "36",
   "name": "Hunters Bounty",
+  "flowChartGroup": "personal-quests",
   "edition": "cs",
   "rewards": {
     "envelopes": [

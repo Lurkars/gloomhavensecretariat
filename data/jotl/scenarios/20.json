@@ -1,6 +1,7 @@
 {
   "index": "20",
   "name": "Misplaced Goods",
+  "flowChartGroup": "city-events",
   "edition": "jotl",
   "rewards": {
     "gold": 10

@@ -1,6 +1,7 @@
 {
   "index": "13",
   "name": "Vile Harvest",
+  "flowChartGroup": "main",
   "edition": "jotl",
   "unlocks": [
     "15"

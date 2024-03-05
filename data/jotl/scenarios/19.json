@@ -1,6 +1,7 @@
 {
   "index": "19",
   "name": "Den of Thieves",
+  "flowChartGroup": "main",
   "edition": "jotl",
   "rewards": {
     "items": [

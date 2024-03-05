@@ -1,6 +1,7 @@
 {
   "index": "102",
   "name": "Bazaar of Knowledge",
+  "flowChartGroup": "orchid-society",
   "edition": "fc",
   "unlocks": [
     "110"

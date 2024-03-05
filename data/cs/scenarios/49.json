@@ -1,6 +1,7 @@
 {
   "index": "49",
   "name": "Oak Invasion A",
+  "flowChartGroup": "city-events",
   "edition": "cs",
   "requirements": [
     {

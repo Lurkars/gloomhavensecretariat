@@ -2540,9 +2540,13 @@
   "update": "Update - Neu Laden",
   "welcome": {
     ".": "Willkommen zu Gloomhaven Secretariat",
-    "chooseCharacters": "Wählt eure Charaktere aus",
-    "chooseEdition": "Wähle deine Edition um eine neue Kampagne zu starten:",
-    "orChooseCharacters": "oder starte ein freies Spiel indem du direkt deine Charaktere auswählst"
+    "chooseCharacters": "Wähle die Charaktere aus",
+    "chooseEdition": "Wähle eine Edition um eine neue Kampagne zu starten:",
+    "orChooseCharacters": "oder wähle direkt Charaktere aus um ein freies Spiel zu starten",
+    "settings": {
+      ".": "Einstellungen",
+      "text": "Nutze diverse Einstellung um alles passend einzurichten:"
+    }
   },
   "wip": "In Enticklung"
 }

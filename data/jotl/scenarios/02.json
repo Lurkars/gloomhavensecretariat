@@ -1,6 +1,7 @@
 {
   "index": "2",
   "name": "A Hole in the Wall",
+  "flowChartGroup": "intro",
   "edition": "jotl",
   "unlocks": [
     "3"

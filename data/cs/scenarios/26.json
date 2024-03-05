@@ -1,6 +1,7 @@
 {
   "index": "26",
   "name": "Thermal Stone Peak",
+  "flowChartGroup": "chilly",
   "edition": "cs",
   "requirements": [
     {

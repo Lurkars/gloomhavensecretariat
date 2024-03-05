@@ -1,6 +1,7 @@
 {
   "index": "99",
   "name": "Aftershocks",
+  "flowChartGroup": "citizens",
   "edition": "fc",
   "monsters": [
     "black-imp",

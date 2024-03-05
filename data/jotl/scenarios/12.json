@@ -1,6 +1,7 @@
 {
   "index": "12",
   "name": "Beguiling Sewers",
+  "flowChartGroup": "main",
   "edition": "jotl",
   "unlocks": [
     "14",

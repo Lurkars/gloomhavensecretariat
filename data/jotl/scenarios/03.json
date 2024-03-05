@@ -1,6 +1,7 @@
 {
   "index": "3",
   "name": "The Black Ship",
+  "flowChartGroup": "intro",
   "edition": "jotl",
   "unlocks": [
     "4"

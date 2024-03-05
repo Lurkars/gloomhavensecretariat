@@ -1,6 +1,7 @@
 {
   "index": "15",
   "name": "Tainted Blood",
+  "flowChartGroup": "main",
   "edition": "jotl",
   "unlocks": [
     "16"

@@ -1,6 +1,7 @@
 {
   "index": "2",
   "name": "Underground Channels",
+  "flowChartGroup": "intro",
   "edition": "cs",
   "unlocks": [
     "3"

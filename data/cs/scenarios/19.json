@@ -1,6 +1,7 @@
 {
   "index": "19",
   "name": "Elemental Experiments",
+  "flowChartGroup": "wonderous",
   "edition": "cs",
   "unlocks": [
     "23",

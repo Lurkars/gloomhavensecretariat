@@ -1,6 +1,7 @@
 {
   "index": "54",
   "name": "Lair of Horrors",
+  "flowChartGroup": "side-quests",
   "edition": "cs",
   "rewards": {
     "gold": 30,

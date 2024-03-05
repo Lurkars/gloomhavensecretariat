@@ -1,6 +1,7 @@
 {
   "index": "4",
   "name": "A Ritual in Stone",
+  "flowChartGroup": "intro",
   "edition": "jotl",
   "unlocks": [
     "5"

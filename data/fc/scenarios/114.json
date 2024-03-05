@@ -1,6 +1,7 @@
 {
   "index": "114",
   "name": "Ink Not Yet Dry",
+  "flowChartGroup": "corruption",
   "edition": "fc",
   "unlocks": [
     "115"

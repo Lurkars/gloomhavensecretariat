@@ -214,12 +214,13 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
     gameManager.stateManager.after();
   }
 
-  scenarioChart() {
+  scenarioChart(group: string | undefined = undefined) {
     this.dialog.open(ScenarioChartDialogComponent, {
       panelClass: ['fullscreen-panel'],
       backdropClass: ['fullscreen-backdrop'],
       data: {
-        edition: this.edition
+        edition: this.edition,
+        group: group
       }
     })
     this.close.emit();

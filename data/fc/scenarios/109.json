@@ -1,6 +1,7 @@
 {
   "index": "109",
   "name": "Epilogue of a War",
+  "flowChartGroup": "tainted-crypt",
   "edition": "fc",
   "unlocks": [
     "113"

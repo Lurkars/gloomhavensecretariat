@@ -1,11 +1,10 @@
 import { DIALOG_DATA } from "@angular/cdk/dialog";
-import { AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
+import { AfterViewInit, Component,  Inject, OnInit, ViewEncapsulation } from "@angular/core";
 
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import mermaid from 'mermaid';
 import L, { LatLngBoundsLiteral } from 'leaflet';
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-
 
 @Component({
     selector: 'ghs-scenario-chart',
@@ -15,10 +14,8 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 })
 export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
-    @ViewChild("mermaid") mermaidElement!: ElementRef;
-
     flow: string[] = [
-        "flowchart TB",
+        "flowchart LR",
         "classDef default stroke-width:6;",
         "classDef success stroke:#7da82a;",
         "classDef blocked stroke:#e2421f;",
@@ -42,7 +39,6 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 htmlLabels: true,
                 curve: "linear"
             },
-            securityLevel: "loose",
             theme: "base",
             themeVariables: {
                 fontSize: "calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor))",
@@ -71,16 +67,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
             return 0;
         });
 
-
-
         scenarios.forEach((scenarioData) => {
-            if (scenarioData.flowChartGroup && scenarioData.flowChartGroup != subgraph) {
-                if (subgraph) {
-                    this.flow.push("end");
-                }
-                this.flow.push("subgraph \"" + settingsManager.getLabel('data.custom.' + this.edition + '.flowChartGroup.' + scenarioData.flowChartGroup) + "\"");
-                subgraph = scenarioData.flowChartGroup;
-            }
 
             let state = "";
             const success = gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && scenarioModel.index == scenarioData.index) != undefined;
@@ -94,6 +81,19 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 state = success ? ":::success-locked" : ":::locked";
             }
 
+            if (scenarioData.flowChartGroup && scenarioData.flowChartGroup != subgraph || !scenarioData.flowChartGroup && scenarioData.group && scenarioData.group != subgraph) {
+                if (subgraph) {
+                    this.flow.push("end");
+                }
+                if (scenarioData.flowChartGroup) {
+                    this.flow.push("subgraph \"" + settingsManager.getLabel('data.custom.' + this.edition + '.flowChartGroup.' + scenarioData.flowChartGroup) + "\"");
+                    subgraph = scenarioData.flowChartGroup;
+                } else {
+                    this.flow.push("subgraph \"" + settingsManager.getLabel('data.scenario.group.' + scenarioData.group) + "\"");
+                    subgraph = scenarioData.group;
+                }
+            }
+
             this.flow.push("\t" + scenarioData.index + "((" + (pad + scenarioData.index).slice(-pad.length) + "))" + state);
         });
 
@@ -101,6 +101,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
             this.flow.push("end");
         }
 
+        let unlocks: { a: string, b: string }[] = [];
 
         scenarios.forEach((scenarioData) => {
             const success = gameManager.game.party.campaignMode && gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && scenarioModel.index == scenarioData.index) != undefined;
@@ -113,23 +114,27 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                         if (other) {
                             if (gameManager.scenarioManager.isBlocked(other)) {
                                 arrow = " --x ";
+                                this.flow.push("\t" + scenarioData.index + arrow + other.index);
                             } else if (gameManager.scenarioManager.isLocked(other)) {
                                 arrow = " --o ";
+                                this.flow.push("\t" + scenarioData.index + arrow + other.index);
+                            } else if (!unlocks.find((unlock) => unlock.a == scenarioData.index && unlock.b == other.index)) {
+                                unlocks.push({ a: scenarioData.index, b: other.index });
+                                this.flow.push("\t" + scenarioData.index + arrow + other.index);
                             }
-                            this.flow.push("\t" + scenarioData.index + arrow + index);
                         }
                     })
                 }
 
                 if (scenarioData.links) {
                     scenarioData.links.forEach((index) => {
-                        let arrow = ' -.->|🔗| ';
+                        let arrow = ' .->|🔗| ';
                         const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
                         if (other) {
                             if (gameManager.scenarioManager.isBlocked(other)) {
-                                arrow = ' -.-x|🔗| ';
+                                arrow = ' .-x|🔗| ';
                             } else if (gameManager.scenarioManager.isLocked(other)) {
-                                arrow = ' -.-o|🔗| ';
+                                arrow = ' .-o|🔗| ';
                             }
 
                             this.flow.push("\t" + scenarioData.index + arrow + index);
@@ -139,13 +144,13 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
                 if (scenarioData.forcedLinks) {
                     scenarioData.forcedLinks.forEach((index) => {
-                        let arrow = ' -.->|❗🔗| ';
+                        let arrow = ' .->|❗🔗| ';
                         const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
                         if (other) {
                             if (gameManager.scenarioManager.isBlocked(other)) {
-                                arrow = ' -.-x|❗🔗| ';
+                                arrow = ' .-x|❗🔗| ';
                             } else if (gameManager.scenarioManager.isLocked(other)) {
-                                arrow = ' -.-o|❗🔗| ';
+                                arrow = ' .-o|❗🔗| ';
                             }
 
                             this.flow.push("\t" + scenarioData.index + arrow + index);
@@ -159,12 +164,15 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                     const success = gameManager.game.party.campaignMode && gameManager.game.party.conclusions.find((scenarioModel) => scenarioModel.edition == sectionData.edition && scenarioModel.group == sectionData.group && scenarioModel.index == sectionData.index) != undefined;
                     const visible: boolean = !gameManager.game.party.campaignMode || success;
 
-                    if (visible && scenarioData.unlocks) {
+                    if (visible && sectionData.unlocks) {
                         sectionData.unlocks.forEach((index) => {
-                            let arrow = " -.-o ";
+                            let arrow = " --> ";
                             const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
                             if (other) {
-                                this.flow.push("\t" + scenarioData.index + arrow + index);
+                                if (!unlocks.find((unlock) => unlock.a == scenarioData.index && unlock.b == other.index)) {
+                                    unlocks.push({ a: scenarioData.index, b: other.index });
+                                    this.flow.push("\t" + scenarioData.index + arrow + other.index);
+                                }
                             }
                         })
                     }
@@ -194,7 +202,8 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         map.fitBounds(bounds);
         map.zoomIn();
 
-        L.svgOverlay(svgElement, [[height, 0], [0, width]]).addTo(map);
+        const overlay = L.svgOverlay(svgElement, [[height, 0], [0, width]]);
+        overlay.addTo(map);
 
         const container = map.getContainer();
         if (bindFunctions) {

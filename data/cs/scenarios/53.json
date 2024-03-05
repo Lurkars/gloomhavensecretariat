@@ -1,6 +1,7 @@
 {
   "index": "53",
   "name": "Cave of Currents",
+  "flowChartGroup": "side-quests",
   "edition": "cs",
   "rewards": {
     "gold": 5,

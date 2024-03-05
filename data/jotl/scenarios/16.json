@@ -1,6 +1,7 @@
 {
   "index": "16",
   "name": "Mixed Results",
+  "flowChartGroup": "main",
   "edition": "jotl",
   "unlocks": [
     "17"

@@ -258,6 +258,12 @@
       },
       "demolitionist": {
         "1": "All adjacent enemies suffer %game.damage:1%"
+      },
+      "flowChartGroup": {
+        "intro": "Intro",
+        "main": "Main",
+        "city-events": "City Events",
+        "characters": "Characters"
       }
     }
   }

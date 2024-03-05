@@ -1,6 +1,7 @@
 {
   "index": "55",
   "name": "Catacomb Plunder",
+  "flowChartGroup": "side-quests",
   "edition": "cs",
   "rewards": {
     "experience": 10,

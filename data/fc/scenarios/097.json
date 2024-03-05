@@ -1,6 +1,7 @@
 {
   "index": "97",
   "name": "Lore Untold",
+  "flowChartGroup": "diviner",
   "edition": "fc",
   "unlocks": [
     "98",

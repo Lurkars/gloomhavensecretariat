@@ -1,6 +1,7 @@
 {
   "index": "28",
   "name": "Fountain of Bones",
+  "flowChartGroup": "tainted",
   "edition": "cs",
   "unlocks": [
     "29"

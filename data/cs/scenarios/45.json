@@ -1,6 +1,7 @@
 {
   "index": "45",
   "name": "Defend the Swamp",
+  "flowChartGroup": "road-events",
   "edition": "cs",
   "rewards": {
     "reputation": 1,

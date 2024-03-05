@@ -1,6 +1,7 @@
 {
   "index": "101",
   "name": "Shrouded Crypt",
+  "flowChartGroup": "tainted-crypt",
   "edition": "fc",
   "unlocks": [
     "108",

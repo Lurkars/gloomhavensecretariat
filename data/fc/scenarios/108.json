@@ -1,6 +1,7 @@
 {
   "index": "108",
   "name": "Prologue to the End",
+  "flowChartGroup": "tainted-crypt",
   "edition": "fc",
   "requirements": [
     {

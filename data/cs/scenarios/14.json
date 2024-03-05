@@ -1,6 +1,7 @@
 {
   "index": "14",
   "name": "Cultist Cave",
+  "flowChartGroup": "intro",
   "edition": "cs",
   "rewards": {
     "experience": 15
