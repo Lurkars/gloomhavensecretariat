@@ -594,6 +594,16 @@
                 [ghs-label]="rewards.hints.removeEvents[i]"></span>
             </div>
 
+            <div class="item overlay-sticker" *ngIf="rewards.overlayCampaignSticker">
+              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.overlayCampaignSticker'"
+                [ghs-label-args]="[rewards.overlayCampaignSticker.name, rewards.overlayCampaignSticker.location]"></span>
+            </div>
+
+            <div class="item overlay-sticker" *ngIf="rewards.overlaySticker">
+              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.overlaySticker'"
+                [ghs-label-args]="[rewards.overlaySticker.name, rewards.overlaySticker.location]"></span>
+            </div>
+
             <div class="list-inline unlock-character"
               *ngIf="rewards && rewards.chooseUnlockCharacter && rewards.chooseUnlockCharacter.length > 0">
               <span><span [ghs-label]="'scenario.rewards.unlockCharacter'"></span></span>

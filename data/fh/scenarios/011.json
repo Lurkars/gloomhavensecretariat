@@ -2,6 +2,12 @@
   "index": "11",
   "name": "Snowscorn Peak",
   "flowChartGroup": "algox-2",
+  "coordinates": {
+    "x": 886,
+    "y": 956,
+    "width": 96,
+    "height": 70
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

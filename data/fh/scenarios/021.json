@@ -2,6 +2,12 @@
   "index": "21",
   "name": "Realm of Endless Frost",
   "flowChartGroup": "lurker",
+  "coordinates": {
+    "x": 788.25,
+    "y": 372.5,
+    "width": 112,
+    "height": 74
+  },
   "edition": "fh",
   "complexity": 3,
   "requirements": [

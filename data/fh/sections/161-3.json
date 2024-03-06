@@ -1,0 +1,19 @@
+{
+  "index": "161.3",
+  "name": "High Morale",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "prosperity": 2,
+    "overlayCampaignSticker": {
+      "name": "statue",
+      "location": "F",
+      "coordinates": {
+        "x": 791.625,
+        "y": 2334.875,
+        "width": 78,
+        "height": 92
+      }
+    }
+  }
+}

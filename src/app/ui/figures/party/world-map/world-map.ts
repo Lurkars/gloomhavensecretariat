@@ -3,9 +3,11 @@ import { AfterViewInit, Component, Inject, ViewEncapsulation } from "@angular/co
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { Scenario } from "src/app/game/model/Scenario";
-import L, { LatLngBoundsLiteral } from 'leaflet';
+import L, { ImageOverlay, LatLngBounds, LatLngBoundsLiteral } from 'leaflet';
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
+import { BuildingData } from "src/app/game/model/data/BuildingData";
+import { WorldMapCoordinates } from "src/app/game/model/data/WorldMap";
 
 @Component({
     selector: 'ghs-world-map',
@@ -17,8 +19,11 @@ export class WorldMapComponent implements AfterViewInit {
 
     gameManager: GameManager = gameManager;
 
+    map!: L.Map;
     worldMap: { width: number, height: number } | undefined;
     scenarios: ScenarioData[] = [];
+    conclusions: ScenarioData[] = [];
+    buildings: BuildingData[] = [];
     columns: number[] = [];
     rows: number[] = [];
     offsetX: number[] = [];
@@ -36,6 +41,11 @@ export class WorldMapComponent implements AfterViewInit {
             this.worldMap = editionData.worldMap;
             if (this.worldMap) {
                 this.scenarios = gameManager.scenarioManager.scenarioData(this.edition).filter((scenarioData) => scenarioData.coordinates);
+                this.conclusions = gameManager.sectionData(this.edition).filter((sectionData) => sectionData.conclusion && sectionData.rewards && (sectionData.rewards.overlayCampaignSticker || sectionData.rewards.overlaySticker));
+
+                if (editionData.campaign && editionData.campaign.buildings) {
+                    this.buildings = editionData.campaign.buildings.filter((buildingData) => buildingData.coordinates && buildingData.coordinates.length);
+                }
             }
         }
 
@@ -50,47 +60,55 @@ export class WorldMapComponent implements AfterViewInit {
         if (this.worldMap) {
             const width = this.worldMap.width;
             const height = this.worldMap.height;
-            var map = L.map('map', {
+            this.map = L.map('map', {
                 crs: L.CRS.Simple,
                 maxBounds: [[height * -0.5, width * -0.5], [height * 1.5, width * 1.5]],
                 minZoom: -4,
                 attributionControl: false
             });
             var bounds: LatLngBoundsLiteral = [[0, 0], [height, width]];
-            L.imageOverlay('./assets/images/world-map/' + this.edition + '/map.jpg', bounds).addTo(map);
-            map.fitBounds(bounds);
-            map.zoomIn();
+            L.imageOverlay('./assets/images/world-map/' + this.edition + '/map.jpg', bounds).addTo(this.map);
+            this.map.fitBounds(bounds);
+            this.map.zoomIn();
 
-            this.scenarios.forEach((scenarioData, index) => {
-
-                if (gameManager.game.party.scenarios.find((model) => model.edition == scenarioData.edition && model.index == scenarioData.index && model.group == scenarioData.group)) {
-                    this.success[index] = true;
-                }
-
+            this.scenarios.forEach((scenarioData, i) => {
                 if (scenarioData.coordinates) {
-                    let imageIndex = scenarioData.index;
+                    const success = gameManager.game.party.scenarios.find((model) => model.edition == scenarioData.edition && model.index == scenarioData.index && model.group == scenarioData.group);
+
+                    if (success) {
+                        this.success[i] = true;
+                    }
+
+                    let imageIndex = scenarioData.index.replaceAll(/[a-zA-Z]+/g, '');
                     while (imageIndex.length < 3) {
                         imageIndex = '0' + imageIndex;
                     }
-                    let overlay = L.imageOverlay('./assets/images/world-map/' + this.edition + '/scenarios/' + scenarioData.edition + '-' + imageIndex + '.png', [[height - scenarioData.coordinates.y, scenarioData.coordinates.x], [height - scenarioData.coordinates.y - scenarioData.coordinates.height, scenarioData.coordinates.x + scenarioData.coordinates.width]], { interactive: true }).addTo(map);
 
-                    overlay.getElement()?.classList.add('scenario');
-                    if (gameManager.game.party.scenarios.find((model) => model.edition == scenarioData.edition && model.index == scenarioData.index && model.group == scenarioData.group)) {
-                        overlay.getElement()?.classList.add('success');
+                    if (!gameManager.game.party.campaignMode || success) {
+                        if (scenarioData.rewards && scenarioData.rewards.overlaySticker) {
+                            const overlaySticker: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + this.edition + '/overlays/' + scenarioData.edition + '-' + scenarioData.rewards.overlaySticker.name.toLowerCase() + '.png', scenarioData.rewards.overlaySticker.coordinates, height, -1);
+                            overlaySticker.addTo(this.map);
+                            const element = overlaySticker.getElement();
+                            if (element) {
+                                element.classList.add('overlay');
+                            }
+                        }
                     }
 
-                    if (gameManager.scenarioManager.isBlocked(scenarioData)) {
-                        overlay.getElement()?.classList.add('blocked');
-                    } else if (gameManager.scenarioManager.isLocked(scenarioData)) {
-                        overlay.getElement()?.classList.add('locked');
-                    }
+                    const overlay: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + this.edition + '/scenarios/' + scenarioData.edition + '-' + imageIndex + '.png', scenarioData.coordinates, height, i);
 
-                    overlay.setZIndex(index + 1);
+                    overlay.on('mouseover', (event) => {
+                        event.target.setZIndex(this.scenarios.length + 2);
+                    });
+
+                    overlay.on('mouseout', (event) => {
+                        event.target.setZIndex(i + 2);
+                    });
 
                     overlay.on('click', () => {
                         if (!gameManager.stateManager.permissions || gameManager.stateManager.permissions.scenario) {
-                            const scenarioData = this.scenarios[index];
-                            if (!this.success[index] && gameManager.game.party.campaignMode && !gameManager.scenarioManager.isBlocked(scenarioData)) {
+                            const scenarioData = this.scenarios[i];
+                            if (!this.success[i] && gameManager.game.party.campaignMode && !gameManager.scenarioManager.isBlocked(scenarioData)) {
                                 const scenario = new Scenario(scenarioData);
                                 gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
                                 gameManager.scenarioManager.setScenario(scenario);
@@ -99,10 +117,133 @@ export class WorldMapComponent implements AfterViewInit {
                             }
                         }
                     });
-                    overlay.on('mouseover', (event) => { event.target.setZIndex(this.scenarios.length + 1); });
-                    overlay.on('mouseout', (event) => { event.target.setZIndex(index + 1) });
+
+                    overlay.addTo(this.map);
+                    const element = overlay.getElement();
+                    if (element) {
+                        let classes: string[] = ['scenario'];
+                        if (success) {
+                            classes.push('success');
+                        }
+                        if (gameManager.scenarioManager.isBlocked(scenarioData)) {
+                            classes.push('blocked');
+                        } else if (gameManager.scenarioManager.isLocked(scenarioData)) {
+                            classes.push('locked');
+                        }
+                        classes.forEach((c) => element.classList.add(c));
+                    }
                 }
             })
+
+            this.conclusions.forEach((sectionData) => {
+                const success = gameManager.game.party.conclusions.find((model) => model.edition == sectionData.edition && model.index == sectionData.index && model.group == sectionData.group);
+
+                if (!gameManager.game.party.campaignMode || success) {
+
+                    if (sectionData.rewards && sectionData.rewards.overlayCampaignSticker) {
+                        const overlayCampaignSticker: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + this.edition + '/overlays/' + sectionData.edition + '-' + sectionData.rewards.overlayCampaignSticker.name.toLowerCase() + '.png', sectionData.rewards.overlayCampaignSticker.coordinates, height, -1);
+                        overlayCampaignSticker.addTo(this.map);
+                        const element = overlayCampaignSticker.getElement();
+                        if (element) {
+                            element.classList.add('building');
+                        }
+                    }
+
+                    if (sectionData.rewards && sectionData.rewards.overlaySticker) {
+                        const overlaySticker: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + this.edition + '/overlays/' + sectionData.edition + '-' + sectionData.rewards.overlaySticker.name.toLowerCase() + '.png', sectionData.rewards.overlaySticker.coordinates, height, -1);
+                        overlaySticker.addTo(this.map);
+                        const element = overlaySticker.getElement();
+                        if (element) {
+                            element.classList.add('overlay');
+                        }
+                    }
+                }
+            })
+
+            this.buildings.forEach((buildingData) => {
+                const model = gameManager.game.party.buildings.find((model) => model.name == buildingData.name);
+                const level: number | undefined = model ? model.level : (gameManager.buildingsManager.initialBuilding(buildingData) ? 1 : gameManager.buildingsManager.availableBuilding(buildingData) ? 0 : undefined);
+                if (level != undefined) {
+                    if (buildingData.coordinates && buildingData.coordinates.length) {
+                        const overlayData = buildingData.coordinates[level || 0];
+                        if (overlayData) {
+                            const overlayBuilding: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + this.edition + '/buildings/' + buildingData.edition + '-' + (buildingData.id ? buildingData.id + '-' : '') + buildingData.name + (buildingData.upgrades.length > 1 || buildingData.manualUpgrades ? '-' + (level != undefined ? level : '0') : '') + '.png', overlayData, height, -1);
+                            overlayBuilding.addTo(this.map);
+                            const element = overlayBuilding.getElement();
+                            if (element) {
+                                element.classList.add('building');
+                            }
+                        }
+                    }
+                }
+            })
+        }
+    }
+
+    placeOverlay(url: string, coordinates: WorldMapCoordinates, height: number, index: number): ImageOverlay {
+        let overlay = L.imageOverlay(url, [[height - coordinates.y, coordinates.x], [height - coordinates.y - coordinates.height, coordinates.x + coordinates.width]], { interactive: true });
+
+        overlay.setZIndex(index + 2);
+
+        overlay.on('mousedown', (event) => this.editStartDrag(event));
+        overlay.on('mouseleave', (event) => this.editStopDrag(event));
+        overlay.on('mousemove', (event) => this.editMoveDrag(event));
+
+        return overlay;
+    }
+
+    editStartDrag(event: any) {
+        if (settingsManager.settings.debugEditWorldMap) {
+            const target = event.target as ImageOverlay;
+            const element = target.getElement();
+            if (element && !element.getAttribute('drag')) {
+                this.map.dragging.disable();
+                element.setAttribute("drag", "" + true);
+                element.setAttribute("dragLat", "" + event.latlng.lat);
+                element.setAttribute("dragLng", "" + event.latlng.lng);
+                target.setOpacity(0.5);
+            } else {
+                this.editStopDrag(event);
+            }
+        }
+    }
+
+    editStopDrag(event: any) {
+        if (settingsManager.settings.debugEditWorldMap) {
+            const target = event.target as ImageOverlay;
+            const element = target.getElement();
+
+            if (element && element.getAttribute('drag')) {
+                this.map.dragging.enable();
+                this.worldMap && console.debug("\"x\": " + target.getBounds().getSouthWest().lng + ",\n" + "\"y\": " + (this.worldMap.height - target.getBounds().getNorthEast().lat) + ",");
+                element.removeAttribute("drag");
+                element.removeAttribute("dragLat");
+                element.removeAttribute("dragLng");
+                target.setOpacity(1);
+            }
+        }
+    }
+
+    editMoveDrag(event: any) {
+        if (settingsManager.settings.debugEditWorldMap) {
+            const target = event.target as ImageOverlay;
+            const element = target.getElement();
+            if (element && element.getAttribute('drag')) {
+                let lat: number | undefined;
+                let lng: number | undefined;
+                lat = +(element.getAttribute("dragLat") || 0);
+                lng = +(element.getAttribute("dragLng") || 0);
+                if (lat && lng) {
+                    lat = event.latlng.lat - lat;
+                    lng = event.latlng.lng - lng;
+                    const bounds: LatLngBounds = new LatLngBounds([target.getBounds().getSouthWest().lat + lat, target.getBounds().getSouthWest().lng + lng], [target.getBounds().getNorthEast().lat + lat, target.getBounds().getNorthEast().lng + lng]);
+                    target.setBounds(bounds);
+                    (event.target.getElement() as HTMLElement).setAttribute("dragLat", "" + event.latlng.lat);
+                    (event.target.getElement() as HTMLElement).setAttribute("dragLng", "" + event.latlng.lng);
+                    event.originalEvent.preventDefault();
+                    event.originalEvent.stopPropagation();
+                }
+            }
         }
     }
 

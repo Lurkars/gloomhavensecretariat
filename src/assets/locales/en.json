@@ -1390,6 +1390,8 @@
       "lootDeckCard": "Add loot card {0} to every scenario loot deck in addition to the normal loot distribution.",
       "lostPartyAchievements": "Lost Party Achievements",
       "morale": "{0} morale",
+      "overlayCampaignSticker": "Place \"{0}\" campaign sticker on the town map at location {1}",
+      "overlaySticker": "Place map overlay sticker {0} on map in location {0} ({1}).",
       "partyAchievements": "Party Achievements",
       "perks": "Gain {0} perk each",
       "prosperity": "{0} prosperity",

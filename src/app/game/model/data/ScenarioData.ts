@@ -6,6 +6,7 @@ import { RoomData } from "./RoomData";
 import { ScenarioRule } from "./ScenarioRule";
 import { GameScenarioModel } from "../Scenario";
 import { Identifier } from "./Identifier";
+import { WorldMapCoordinates, WorldMapOverlay } from "./WorldMap";
 
 export class ScenarioData implements Editional, Spoilable {
 
@@ -13,7 +14,7 @@ export class ScenarioData implements Editional, Spoilable {
   index: string = "";
   errata: string = "";
   gridLocation: string | undefined = "";
-  coordinates: { x: number, y: number, width: number, height: number } | undefined;
+  coordinates: WorldMapCoordinates | undefined;
   unlocks: string[] = [];
   blocks: string[] = [];
   requires: string[][] = [];
@@ -147,6 +148,8 @@ export class ScenarioRewards {
   lootingGold: number | string | undefined = undefined;
   custom: string = "";
   ignoredBonus: string[] = [];
+  overlaySticker: WorldMapOverlay | undefined = undefined;
+  overlayCampaignSticker: WorldMapOverlay | undefined = undefined;
   hints: ScenarioRewardHints | undefined = undefined;
 
 }

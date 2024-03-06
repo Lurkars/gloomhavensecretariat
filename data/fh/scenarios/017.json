@@ -2,6 +2,12 @@
   "index": "17",
   "name": "Haunted Vault",
   "flowChartGroup": "algox-1",
+  "coordinates": {
+    "x": 1376,
+    "y": 910.75,
+    "width": 113,
+    "height": 74
+  },
   "edition": "fh",
   "complexity": 3,
   "unlocks": [

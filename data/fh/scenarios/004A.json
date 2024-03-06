@@ -2,6 +2,12 @@
   "index": "4A",
   "name": "Heart of Ice A",
   "flowChartGroup": "intro",
+  "coordinates": {
+    "x": 903.5,
+    "y": 1083.5,
+    "width": 111,
+    "height": 70
+  },
   "edition": "fh",
   "complexity": 2,
   "rewards": {

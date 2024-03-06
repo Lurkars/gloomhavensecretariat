@@ -1,4 +1,5 @@
 import { Editional } from "./Editional";
+import { WorldMapCoordinates } from "./WorldMap";
 
 export class BuildingData implements Editional {
     id: string = "";
@@ -16,6 +17,7 @@ export class BuildingData implements Editional {
     rewards: BuildingRewards[] = [];
     prosperityUnlock: boolean = false;
     envelope: string | undefined = undefined;
+    coordinates: (WorldMapCoordinates | false)[] = [];
 
     // from editional
     edition: string = "";

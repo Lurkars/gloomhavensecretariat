@@ -8,6 +8,16 @@
       "B"
     ],
     "prosperity": 1,
-    "custom": "Place \"Boat\" campaign sticker on the town map at location A. You may now play scenarios with the %game.fhIcon:boat% requirement. Name your boat, then write it on the sticker and the front of B-01 and B-02 in the blanks.<br>Shuffle events B-01 to 13 together and use them to create the boat event deck. Store this deck in envelope B when not in use and use the card divider to separate the boat event deck from the other boat event cards."
+    "overlayCampaignSticker": {
+      "name": "boat",
+      "location": "A",
+      "coordinates": {
+        "x": 1696.125,
+        "y": 2563.875,
+        "width": 234,
+        "height": 160
+      }
+    },
+    "custom": "You may now play scenarios with the %game.fhIcon:boat% requirement. Name your boat, then write it on the sticker and the front of B-01 and B-02 in the blanks.<br>Shuffle events B-01 to 13 together and use them to create the boat event deck. Store this deck in envelope B when not in use and use the card divider to separate the boat event deck from the other boat event cards."
   }
 }

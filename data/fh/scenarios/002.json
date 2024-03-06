@@ -2,6 +2,12 @@
   "index": "2",
   "name": "Algox Scouting",
   "flowChartGroup": "intro",
+  "coordinates": {
+    "x": 1078.5,
+    "y": 1073.5,
+    "width": 142,
+    "height": 83
+  },
   "edition": "fh",
   "complexity": 1,
   "unlocks": [
@@ -16,7 +22,16 @@
   ],
   "rewards": {
     "battleGoals": 1,
-    "custom": "Place map overlay sticker W on map in location W (M7)."
+    "overlaySticker": {
+      "name": "W",
+      "location": "M7",
+      "coordinates": {
+        "x": 784.5,
+        "y": 933.5,
+        "width": 288,
+        "height": 274
+      }
+    }
   },
   "monsters": [
     "algox-archer",

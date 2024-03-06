@@ -2,6 +2,12 @@
   "index": "10",
   "name": "Crystal Enclosure",
   "flowChartGroup": "algox-1",
+  "coordinates": {
+    "x": 1637.5,
+    "y": 906.75,
+    "width": 129,
+    "height": 67
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

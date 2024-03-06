@@ -62,6 +62,9 @@
                 }
             }
         }
-    }
 
+        .building:hover {
+            filter: brightness(1.2) drop-shadow(4px 4px 4px var(--ghs-color-darkgray)) drop-shadow(-4px -4px 4px var(--ghs-color-darkgray));
+        }
+    }
 }

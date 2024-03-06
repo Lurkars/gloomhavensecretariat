@@ -2,6 +2,12 @@
   "index": "3",
   "name": "Algox Offensive",
   "flowChartGroup": "intro",
+  "coordinates": {
+    "x": 1049.5,
+    "y": 989.5,
+    "width": 136,
+    "height": 75
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [
@@ -16,7 +22,16 @@
   ],
   "rewards": {
     "battleGoals": 1,
-    "custom": "Place map overlay sticker W on map in location W (M7)."
+    "overlaySticker": {
+      "name": "W",
+      "location": "M7",
+      "coordinates": {
+        "x": 784.5,
+        "y": 933.5,
+        "width": 288,
+        "height": 274
+      }
+    }
   },
   "monsters": [
     "algox-archer",

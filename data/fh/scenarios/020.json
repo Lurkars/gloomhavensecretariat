@@ -2,6 +2,12 @@
   "index": "20",
   "name": "Temple of Liberation",
   "flowChartGroup": "algox-2",
+  "coordinates": {
+    "x": 1045.25,
+    "y": 1249.375,
+    "width": 118,
+    "height": 81
+  },
   "edition": "fh",
   "complexity": 3,
   "rewards": {

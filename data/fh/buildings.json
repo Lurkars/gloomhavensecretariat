@@ -78,7 +78,34 @@
                 "prosperity": 1
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 380.5,
+                "y": 1994,
+                "width": 224,
+                "height": 274
+            },
+            {
+                "x": 377.5,
+                "y": 1991,
+                "width": 237,
+                "height": 281
+            },
+            {
+                "x": 376,
+                "y": 1987,
+                "width": 243,
+                "height": 286
+            },
+            {
+                "x": 372,
+                "y": 1983.5,
+                "width": 251,
+                "height": 293
+            }
+        ]
     },
     {
         "id": "12",
@@ -160,7 +187,34 @@
                 "loseMorale": 1
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 873.75,
+                "y": 2597,
+                "width": 296,
+                "height": 158
+            },
+            {
+                "x": 865.75,
+                "y": 2593.75,
+                "width": 314,
+                "height": 169
+            },
+            {
+                "x": 858,
+                "y": 2590,
+                "width": 326,
+                "height": 176
+            },
+            {
+                "x": 853.5,
+                "y": 2585.5,
+                "width": 337,
+                "height": 182
+            }
+        ]
     },
     {
         "id": "17",
@@ -241,7 +295,34 @@
                 "loseMorale": 1
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 1530.75,
+                "y": 2044.5,
+                "width": 279,
+                "height": 178
+            },
+            {
+                "x": 1526.875,
+                "y": 2041,
+                "width": 290,
+                "height": 235
+            },
+            {
+                "x": 1523.25,
+                "y": 2040.25,
+                "width": 298,
+                "height": 242
+            },
+            {
+                "x": 1520.25,
+                "y": 2036,
+                "width": 305,
+                "height": 251
+            }
+        ]
     },
     {
         "id": "21",
@@ -304,6 +385,32 @@
             },
             {
                 "prosperity": 1
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 907,
+                "y": 2189.25,
+                "width": 129,
+                "height": 86
+            },
+            {
+                "x": 877,
+                "y": 2142.25,
+                "width": 188,
+                "height": 188
+            },
+            {
+                "x": 873,
+                "y": 2137.75,
+                "width": 209,
+                "height": 203
+            },
+            {
+                "x": 864.75,
+                "y": 2124.375,
+                "width": 225,
+                "height": 224
             }
         ]
     },
@@ -1674,6 +1781,28 @@
                 "prosperity": 1,
                 "soldiers": 2
             }
+        ],
+        "coordinates": [
+            false,
+            false,
+            {
+                "x": 1847,
+                "y": 2161,
+                "width": 222,
+                "height": 216
+            },
+            {
+                "x": 1846,
+                "y": 2154,
+                "width": 279,
+                "height": 225
+            },
+            {
+                "x": 1845,
+                "y": 2096.25,
+                "width": 288,
+                "height": 287
+            }
         ]
     },
     {
@@ -1688,7 +1817,16 @@
                 "defense": 5
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 748.25,
+                "y": 1933.75,
+                "width": 212,
+                "height": 111
+            }
+        ]
     },
     {
         "name": "wall-k",
@@ -1704,7 +1842,16 @@
                 "defense": 5
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 944.75,
+                "y": 2737.25,
+                "width": 304,
+                "height": 119
+            }
+        ]
     },
     {
         "name": "wall-l",
@@ -1720,7 +1867,16 @@
                 "defense": 5
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 329.75,
+                "y": 2352.5,
+                "width": 185,
+                "height": 217
+            }
+        ]
     },
     {
         "name": "wall-m",
@@ -1736,7 +1892,16 @@
                 "defense": 5
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 532.25,
+                "y": 2553,
+                "width": 246,
+                "height": 266
+            }
+        ]
     },
     {
         "name": "wall-n",
@@ -1752,6 +1917,15 @@
                 "defense": 5
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 1379,
+                "y": 1929.5,
+                "width": 353,
+                "height": 172
+            }
+        ]
     }
 ]

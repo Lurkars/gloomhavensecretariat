@@ -3,6 +3,12 @@
   "name": "Howling in the Snow",
   "flowChartGroup": "intro",
   "errata": "section197-1",
+  "coordinates": {
+    "x": 803.5,
+    "y": 878,
+    "width": 143,
+    "height": 117
+  },
   "edition": "fh",
   "complexity": 1,
   "initial": true,

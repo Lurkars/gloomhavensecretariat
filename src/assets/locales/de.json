@@ -1242,6 +1242,8 @@
       "lootDeckCard": "Füge Beutekarte {0} in jedem Szenario zusätzlich zum vorgegebenen Beutekarten Deck hinzu.",
       "lostPartyAchievements": "Verlorene Gruppenerfolge",
       "morale": "{0} Moral",
+      "overlayCampaignSticker": "Klebe den Kampagnensticker {0} auf der Stadtkarte an Stelle {1}.",
+      "overlaySticker": "Klebe den Sticker {0} auf der Karte an Stelle {0} ({1}) ein.",
       "partyAchievements": "Gruppenerfolge",
       "perks": "Jeweils {0} Verbesserungen",
       "prosperity": "{0} Wohlstand",
