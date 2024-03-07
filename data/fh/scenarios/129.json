@@ -2,6 +2,12 @@
   "index": "129",
   "name": "How to Lay an Ambush",
   "flowChartGroup": "other",
+  "coordinates": {
+    "x": 1267.5,
+    "y": 1217.75,
+    "width": 103,
+    "height": 65
+  },
   "edition": "fh",
   "complexity": 3,
   "unlocks": [

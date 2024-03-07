@@ -2,6 +2,12 @@
   "index": "23",
   "name": "Spire Basement",
   "flowChartGroup": "unfettered",
+  "coordinates": {
+    "x": 1964.5,
+    "y": 1088.25,
+    "width": 112,
+    "height": 90
+  },
   "edition": "fh",
   "complexity": 1,
   "unlocks": [

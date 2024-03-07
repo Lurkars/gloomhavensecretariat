@@ -2,6 +2,12 @@
   "index": "33",
   "name": "Thawed Wood",
   "flowChartGroup": "lurker",
+  "coordinates": {
+    "x": 312,
+    "y": 474.5,
+    "width": 119,
+    "height": 87
+  },
   "edition": "fh",
   "complexity": 3,
   "requirements": [

@@ -2,6 +2,12 @@
   "index": "136",
   "name": "Abandoned Hideout",
   "flowChartGroup": "other",
+  "coordinates": {
+    "x": 1206,
+    "y": 494.5,
+    "width": 108,
+    "height": 49
+  },
   "edition": "fh",
   "complexity": 2,
   "rewards": {

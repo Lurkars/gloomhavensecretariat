@@ -2,6 +2,12 @@
   "index": "114",
   "name": "Work Freeze",
   "flowChartGroup": "other",
+  "coordinates": {
+    "x": 660.75,
+    "y": 983.5,
+    "width": 95,
+    "height": 77
+  },
   "edition": "fh",
   "complexity": 2,
   "rewards": {

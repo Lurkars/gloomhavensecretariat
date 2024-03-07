@@ -2,6 +2,12 @@
   "index": "25",
   "name": "Rusted Tunnels",
   "flowChartGroup": "unfettered",
+  "coordinates": {
+    "x": 1770,
+    "y": 1233.5,
+    "width": 176,
+    "height": 130
+  },
   "edition": "fh",
   "complexity": 2,
   "blocks": [

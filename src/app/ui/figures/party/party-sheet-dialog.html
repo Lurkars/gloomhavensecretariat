@@ -148,6 +148,10 @@
           </a>
         </div>
 
+        <span class="map ignore-denied" *ngIf="worldMap" (click)="openMap()">
+          <img src="./assets/images/fullscreen.svg"><span [ghs-label]="'party.campaign.map'"></span>
+        </span>
+
         <div class="weeks">
           <div class="week" *ngFor="let week of [] | ghsRange:80; let index = index" ghs-pointer-input
             [ghs-tooltip]="'party.campaign.sheet.weekSections.hint'" (singleClick)="setWeek(index+1 + 80*calendarSheet)"
@@ -312,10 +316,13 @@
         <div class="defense">
           <label><span [ghs-label]="'party.campaign.sheet.defense'"></span></label>
           <div class="grid defense-grid">
-            <span class="section" [ngClass]="{'highlight' : party.morale > 19}">
-              <img src="./assets/images/fh/party/section.svg">
-              {{gameManager.campaignData().highMorale || ''}}
-              <img *ngIf="party.morale > 19" src="./assets/images/checkmark.svg">
+            <span class="sections" [ngClass]="{'highlight' : party.morale > 19}">
+              <span class="section"
+                *ngFor="let conclusion of ((gameManager.campaignData().highMorale || []) | slice:0:highMoraleSolved+1); let i = index"
+                [ngClass]="{'conclusion': isConclusion(gameManager.campaignData().highMorale[i])}">
+                <img src="./assets/images/fh/party/section.svg">
+                {{gameManager.campaignData().highMorale[i] || ''}}
+              </span>
             </span>
             <span class="value" [ngClass]="{'highlight' : moraleDefense == 15}">+15</span>
             <span class="value" [ngClass]="{'highlight' : moraleDefense == 10}">+10</span>
@@ -323,10 +330,13 @@
             <span class="value" [ngClass]="{'highlight' : moraleDefense == 0}">0</span>
             <span class="value" [ngClass]="{'highlight' : moraleDefense == -5}">-5</span>
             <span class="value" [ngClass]="{'highlight' : moraleDefense == -10}">-10</span>
-            <span class="section" [ngClass]="{'highlight' : party.morale < 1}"><img
-                src="./assets/images/fh/party/section.svg">
-              {{gameManager.campaignData().lowMorale || ''}}
-              <img *ngIf="party.morale < 1" src="./assets/images/checkmark.svg">
+            <span class="sections" [ngClass]="{'highlight' : party.morale < 1}">
+              <span class="section"
+                *ngFor="let conclusion of ((gameManager.campaignData().lowMorale || []) | slice:0:lowMoraleSolved+1); let i = index"
+                [ngClass]="{'conclusion': isConclusion(gameManager.campaignData().lowMorale[i])}">
+                <img src="./assets/images/fh/party/section.svg">
+                {{gameManager.campaignData().lowMorale[i] || ''}}
+              </span>
             </span>
           </div>
         </div>

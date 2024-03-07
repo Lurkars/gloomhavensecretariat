@@ -72,6 +72,9 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   calendarSheet: number = 0;
   summer: boolean = false;
 
+  lowMoraleSolved: number = 0;
+  highMoraleSolved: number = 0;
+
   @ViewChild('itemIndex') itemIndex!: ElementRef;
   @ViewChild('treasureIndex') treasureIndex!: ElementRef;
 
@@ -707,6 +710,22 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       this.availableCharacters[characterModel.number - 1] = this.availableCharacters[characterModel.number - 1] || [];
       this.availableCharacters[characterModel.number - 1].push(characterModel);
     })
+
+    if (campaign) {
+      if (campaign.lowMorale && campaign.lowMorale.length) {
+        this.lowMoraleSolved = 0;
+        while (this.isConclusion(campaign.lowMorale[this.lowMoraleSolved]) && this.lowMoraleSolved < campaign.lowMorale.length) {
+          this.lowMoraleSolved++;
+        }
+      }
+
+      if (campaign.highMorale && campaign.highMorale.length) {
+        this.highMoraleSolved = 0;
+        while (this.isConclusion(campaign.highMorale[this.highMoraleSolved]) && this.highMoraleSolved < campaign.highMorale.length) {
+          this.highMoraleSolved++;
+        }
+      }
+    }
   }
 
   characterIcon(name: string): string {
@@ -836,6 +855,9 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   isConclusion(section: string): boolean {
+    if (!section) {
+      return false;
+    }
     return this.party.conclusions.find((model) => model.edition == gameManager.game.edition && model.index == section) != undefined;
   }
 
@@ -1033,10 +1055,28 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     if (value < 0) {
       value = 0;
     }
+    if (value > 20) {
+      value = 20;
+    }
 
     gameManager.stateManager.before("setPartyMorale", "" + value);
+
     this.party.morale = value;
+    const campaignData = gameManager.campaignData();
+    if (value == 0 && campaignData && campaignData.lowMorale && this.lowMoraleSolved <= campaignData.lowMorale.length) {
+      if (this.lowMoraleSolved < campaignData.lowMorale.length) {
+        this.finishConclusion(campaignData.lowMorale[this.lowMoraleSolved]);
+      } else {
+        this.party.conclusions = this.party.conclusions.filter((model) => model.edition != gameManager.game.edition || model.index != campaignData.lowMorale[this.lowMoraleSolved - 1]);
+        this.finishConclusion(campaignData.lowMorale[this.lowMoraleSolved - 1]);
+      }
+
+    } else if (value == 20 && campaignData && campaignData.highMorale && this.highMoraleSolved < campaignData.highMorale.length) {
+      this.finishConclusion(campaignData.highMorale[this.highMoraleSolved]);
+    }
+
     gameManager.stateManager.after();
+
     this.update();
   }
 

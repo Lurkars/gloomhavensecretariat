@@ -2,6 +2,12 @@
   "index": "71",
   "name": "Invasion of the Dock",
   "flowChartGroup": "personal-quests",
+  "coordinates": {
+    "x": 1958.5,
+    "y": 2431,
+    "width": 132,
+    "height": 116
+  },
   "edition": "fh",
   "complexity": 3,
   "allyDeck": true,

@@ -2,6 +2,12 @@
   "index": "82",
   "name": "Expedition North",
   "flowChartGroup": "other",
+  "coordinates": {
+    "x": 553.5,
+    "y": 1110,
+    "width": 113,
+    "height": 83
+  },
   "edition": "fh",
   "complexity": 2,
   "rewards": {

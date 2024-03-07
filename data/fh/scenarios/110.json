@@ -3,6 +3,12 @@
   "name": "Guardian's Temple",
   "flowChartGroup": "random-scenarios",
   "errata": "scenario110",
+  "coordinates": {
+    "x": 364.25,
+    "y": 913,
+    "width": 103,
+    "height": 82
+  },
   "edition": "fh",
   "complexity": 2,
   "random": true,

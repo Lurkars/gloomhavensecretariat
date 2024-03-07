@@ -2,6 +2,12 @@
   "index": "84",
   "name": "Here There Be Oozes",
   "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 325.25,
+    "y": 809,
+    "width": 99,
+    "height": 73
+  },
   "edition": "fh",
   "complexity": 3,
   "rewards": {

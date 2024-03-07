@@ -2,6 +2,12 @@
   "index": "65",
   "name": "A Strong Foundation",
   "flowChartGroup": "personal-quests",
+  "coordinates": {
+    "x": 996.5,
+    "y": 730,
+    "width": 91,
+    "height": 57
+  },
   "edition": "fh",
   "complexity": 1,
   "rewards": {

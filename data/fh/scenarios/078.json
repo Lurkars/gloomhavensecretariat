@@ -3,6 +3,12 @@
   "name": "The Lurker Problem",
   "flowChartGroup": "job-postings",
   "errata": "scenario78",
+  "coordinates": {
+    "x": 1410,
+    "y": 777.75,
+    "width": 111,
+    "height": 71
+  },
   "edition": "fh",
   "complexity": 2,
   "requirements": [

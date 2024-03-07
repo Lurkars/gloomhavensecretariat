@@ -2,6 +2,12 @@
   "index": "67",
   "name": "Core Attunement",
   "flowChartGroup": "personal-quests",
+  "coordinates": {
+    "x": 1046,
+    "y": 676,
+    "width": 124,
+    "height": 116
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

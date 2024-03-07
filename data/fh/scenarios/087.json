@@ -2,6 +2,12 @@
   "index": "87",
   "name": "The Collection",
   "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 1203.25,
+    "y": 1009,
+    "width": 93,
+    "height": 69
+  },
   "edition": "fh",
   "complexity": 1,
   "unlocks": [

@@ -2,6 +2,12 @@
   "index": "119",
   "name": "Radiant Dust",
   "flowChartGroup": "other",
+  "coordinates": {
+    "x": 428.5,
+    "y": 365.5,
+    "width": 104,
+    "height": 70
+  },
   "edition": "fh",
   "complexity": 2,
   "requirements": [

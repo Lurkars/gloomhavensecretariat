@@ -2,6 +2,12 @@
   "index": "128",
   "name": "A Tall Drunken Tale",
   "flowChartGroup": "other",
+  "coordinates": {
+    "x": 1416,
+    "y": 2373,
+    "width": 113,
+    "height": 99
+  },
   "edition": "fh",
   "complexity": 3,
   "monsters": [

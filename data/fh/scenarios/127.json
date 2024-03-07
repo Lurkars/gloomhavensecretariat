@@ -2,6 +2,12 @@
   "index": "127",
   "name": "Derelict Freighter",
   "flowChartGroup": "other",
+  "coordinates": {
+    "x": 1557.25,
+    "y": 2626.75,
+    "width": 176,
+    "height": 134
+  },
   "edition": "fh",
   "complexity": 1,
   "monsters": [

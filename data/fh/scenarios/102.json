@@ -2,6 +2,12 @@
   "index": "102",
   "name": "Into the Black",
   "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 422.75,
+    "y": 996.25,
+    "width": 91,
+    "height": 92
+  },
   "edition": "fh",
   "complexity": 3,
   "rewards": {

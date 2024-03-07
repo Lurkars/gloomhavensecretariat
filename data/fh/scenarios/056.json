@@ -2,6 +2,12 @@
   "index": "56",
   "name": "Call of the Harbinger",
   "flowChartGroup": "algox-1",
+  "coordinates": {
+    "x": 321.25,
+    "y": 639.75,
+    "width": 125,
+    "height": 67
+  },
   "edition": "fh",
   "complexity": 3,
   "rewards": {

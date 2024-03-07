@@ -2,6 +2,12 @@
   "index": "76",
   "name": "Apotheosis",
   "flowChartGroup": "personal-quests",
+  "coordinates": {
+    "x": 2045.75,
+    "y": 474.5,
+    "width": 96,
+    "height": 86
+  },
   "edition": "fh",
   "complexity": 3,
   "requirements": [

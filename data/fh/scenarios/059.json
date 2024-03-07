@@ -2,6 +2,12 @@
   "index": "59",
   "name": "Automaton Uprising",
   "flowChartGroup": "unfettered",
+  "coordinates": {
+    "x": 2048.75,
+    "y": 1400.75,
+    "width": 125,
+    "height": 104
+  },
   "edition": "fh",
   "complexity": 2,
   "blocks": [

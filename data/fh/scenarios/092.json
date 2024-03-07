@@ -2,6 +2,12 @@
   "index": "92",
   "name": "Sinking Ship",
   "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 1307,
+    "y": 638.75,
+    "width": 111,
+    "height": 80
+  },
   "edition": "fh",
   "complexity": 3,
   "requirements": [

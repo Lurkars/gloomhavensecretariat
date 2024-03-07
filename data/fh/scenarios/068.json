@@ -2,6 +2,12 @@
   "index": "68",
   "name": "The Face of Torment",
   "flowChartGroup": "personal-quests",
+  "coordinates": {
+    "x": 1042,
+    "y": 538,
+    "width": 106,
+    "height": 124
+  },
   "edition": "fh",
   "complexity": 2,
   "rewards": {

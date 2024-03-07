@@ -2,6 +2,12 @@
   "index": "105",
   "name": "Ruins of the Equinox",
   "flowChartGroup": "random-scenarios",
+  "coordinates": {
+    "x": 1484.25,
+    "y": 1437.5,
+    "width": 116,
+    "height": 79
+  },
   "edition": "fh",
   "complexity": 2,
   "requirements": [

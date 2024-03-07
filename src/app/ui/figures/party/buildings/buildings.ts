@@ -206,19 +206,21 @@ export class PartyBuildingsComponent implements OnInit {
         }).closed.subscribe({
           next: (result) => {
             if (force && result == true || result instanceof SelectResourceResult) {
-              gameManager.stateManager.before(building.model.level ? "upgradeBuilding" : "buildBuilding", building.data.id, building.model.name, '' + (building.model.level + 1));
-              if (!force && result instanceof SelectResourceResult) {
-                this.applySelectResources(result);
-              }
-              building.model.level++;
-              if (settingsManager.settings.applyBuildingRewards && building.data.rewards && building.data.rewards[building.model.level - 1]) {
-                const rewards = building.data.rewards[building.model.level - 1];
-                gameManager.buildingsManager.applyRewards(rewards);
-                if (rewards.section) {
-                  this.openConclusion(rewards.section);
+              setTimeout(() => {
+                gameManager.stateManager.before(building.model.level ? "upgradeBuilding" : "buildBuilding", building.data.id, building.model.name, '' + (building.model.level + 1));
+                if (!force && result instanceof SelectResourceResult) {
+                  this.applySelectResources(result);
                 }
-              }
-              gameManager.stateManager.after();
+                building.model.level++;
+                if (gameManager.game.party.campaignMode && settingsManager.settings.applyBuildingRewards && building.data.rewards && building.data.rewards[building.model.level - 1]) {
+                  const rewards = building.data.rewards[building.model.level - 1];
+                  gameManager.buildingsManager.applyRewards(rewards);
+                  if (rewards.section) {
+                    this.openConclusion(rewards.section);
+                  }
+                }
+                gameManager.stateManager.after();
+              }, 1)
             }
           }
         })

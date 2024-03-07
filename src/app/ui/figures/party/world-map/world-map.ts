@@ -84,6 +84,17 @@ export class WorldMapComponent implements AfterViewInit {
                         imageIndex = '0' + imageIndex;
                     }
 
+                    if (success) {
+                        if (scenarioData.rewards && scenarioData.rewards.overlayCampaignSticker) {
+                            const overlayCampaignSticker: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + this.edition + '/overlays/' + scenarioData.edition + '-' + scenarioData.rewards.overlayCampaignSticker.name.toLowerCase() + '.png', scenarioData.rewards.overlayCampaignSticker.coordinates, height, i + 3);
+                            overlayCampaignSticker.addTo(this.map);
+                            const element = overlayCampaignSticker.getElement();
+                            if (element) {
+                                element.classList.add('building');
+                            }
+                        }
+                    }
+
                     if (!gameManager.game.party.campaignMode || success) {
                         if (scenarioData.rewards && scenarioData.rewards.overlaySticker) {
                             const overlaySticker: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + this.edition + '/overlays/' + scenarioData.edition + '-' + scenarioData.rewards.overlaySticker.name.toLowerCase() + '.png', scenarioData.rewards.overlaySticker.coordinates, height, -1);
@@ -167,7 +178,7 @@ export class WorldMapComponent implements AfterViewInit {
                     if (buildingData.coordinates && buildingData.coordinates.length) {
                         const overlayData = buildingData.coordinates[level || 0];
                         if (overlayData) {
-                            const overlayBuilding: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + this.edition + '/buildings/' + buildingData.edition + '-' + (buildingData.id ? buildingData.id + '-' : '') + buildingData.name + (buildingData.upgrades.length > 1 || buildingData.manualUpgrades ? '-' + (level != undefined ? level : '0') : '') + '.png', overlayData, height, -1);
+                            const overlayBuilding: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + this.edition + '/buildings/' + buildingData.edition + '-' + (buildingData.id ? buildingData.id + '-' : '') + buildingData.name + (buildingData.upgrades.length || buildingData.manualUpgrades ? '-' + (level != undefined ? level : '0') : '') + '.png', overlayData, height, -1);
                             overlayBuilding.addTo(this.map);
                             const element = overlayBuilding.getElement();
                             if (element) {

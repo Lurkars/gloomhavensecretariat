@@ -3,6 +3,12 @@
   "name": "And Then, a Stream",
   "flowChartGroup": "other",
   "errata": "scenario130",
+  "coordinates": {
+    "x": 1393.5,
+    "y": 1151.25,
+    "width": 110,
+    "height": 65
+  },
   "edition": "fh",
   "complexity": 3,
   "monsters": [

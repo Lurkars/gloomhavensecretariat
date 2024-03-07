@@ -2,6 +2,12 @@
   "index": "81",
   "name": "Ruinous Research Lab",
   "flowChartGroup": "other",
+  "coordinates": {
+    "x": 2122.75,
+    "y": 1497.5,
+    "width": 102,
+    "height": 77
+  },
   "edition": "fh",
   "complexity": 3,
   "allyDeck": true,

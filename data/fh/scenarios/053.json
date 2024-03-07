@@ -2,6 +2,12 @@
   "index": "53",
   "name": "Underwater Throne",
   "flowChartGroup": "lurker",
+  "coordinates": {
+    "x": 1671.25,
+    "y": 476.25,
+    "width": 97,
+    "height": 75
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

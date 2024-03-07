@@ -2,6 +2,12 @@
   "index": "30",
   "name": "War of the Spire B",
   "flowChartGroup": "algox-2",
+  "coordinates": {
+    "x": 1801,
+    "y": 1067.75,
+    "width": 101,
+    "height": 86
+  },
   "edition": "fh",
   "complexity": 2,
   "blocks": [

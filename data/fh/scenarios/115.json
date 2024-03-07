@@ -2,6 +2,12 @@
   "index": "115",
   "name": "Pylon Problems",
   "flowChartGroup": "other",
+  "coordinates": {
+    "x": 708.25,
+    "y": 1071.5,
+    "width": 85,
+    "height": 71
+  },
   "edition": "fh",
   "complexity": 2,
   "rewards": {

@@ -2,6 +2,12 @@
   "index": "85",
   "name": "Deadly Pastimes",
   "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 642.75,
+    "y": 842.25,
+    "width": 125,
+    "height": 75
+  },
   "edition": "fh",
   "complexity": 3,
   "requirements": [

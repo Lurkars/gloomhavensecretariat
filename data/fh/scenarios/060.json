@@ -3,6 +3,12 @@
   "name": "Uniting the Crown",
   "flowChartGroup": "lurker",
   "errata": "scenario60",
+  "coordinates": {
+    "x": 1559,
+    "y": 428.5,
+    "width": 127,
+    "height": 95
+  },
   "edition": "fh",
   "complexity": 2,
   "requirements": [

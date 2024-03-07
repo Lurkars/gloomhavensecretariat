@@ -2,6 +2,12 @@
   "index": "86",
   "name": "The Lady in White",
   "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 1816,
+    "y": 1934.5,
+    "width": 123,
+    "height": 69
+  },
   "edition": "fh",
   "complexity": 2,
   "rewards": {

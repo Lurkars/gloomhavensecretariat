@@ -2,6 +2,12 @@
   "index": "116",
   "name": "Caravan Guards",
   "flowChartGroup": "other",
+  "coordinates": {
+    "x": 648.25,
+    "y": 1144.5,
+    "width": 143,
+    "height": 64
+  },
   "edition": "fh",
   "complexity": 2,
   "monsters": [

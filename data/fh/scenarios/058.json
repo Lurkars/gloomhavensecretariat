@@ -2,6 +2,12 @@
   "index": "58",
   "name": "Orphan's Core",
   "flowChartGroup": "unfettered",
+  "coordinates": {
+    "x": 2128.25,
+    "y": 1297.25,
+    "width": 88,
+    "height": 64
+  },
   "edition": "fh",
   "complexity": 3,
   "blocks": [

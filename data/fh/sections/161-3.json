@@ -3,6 +3,7 @@
   "name": "High Morale",
   "edition": "fh",
   "conclusion": true,
+  "named": true,
   "rewards": {
     "prosperity": 2,
     "overlayCampaignSticker": {

@@ -112,8 +112,8 @@ export class BuildingUpgradeDialog implements OnInit {
     }
 
     ngOnInit(): void {
-        if (this.force && !settingsManager.settings.applyBuildingRewards) {
-            ghsDialogClosingHelper(this.dialogRef, true);
+        if (this.force && (!settingsManager.settings.applyBuildingRewards || !gameManager.game.party.campaignMode)) {
+            this.dialogRef.close(true);
         }
     }
 

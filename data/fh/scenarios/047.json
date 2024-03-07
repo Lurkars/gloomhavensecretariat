@@ -2,6 +2,12 @@
   "index": "47",
   "name": "Carrion Ridge",
   "flowChartGroup": "algox-1",
+  "coordinates": {
+    "x": 297.75,
+    "y": 721.75,
+    "width": 177,
+    "height": 94
+  },
   "edition": "fh",
   "complexity": 1,
   "unlocks": [

@@ -2,6 +2,12 @@
   "index": "62",
   "name": "The Unfettered Seal",
   "flowChartGroup": "puzzle-book",
+  "coordinates": {
+    "x": 2108.5,
+    "y": 1174.5,
+    "width": 117,
+    "height": 109
+  },
   "edition": "fh",
   "complexity": 3,
   "unlocks": [

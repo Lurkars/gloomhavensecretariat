@@ -2,6 +2,12 @@
   "index": "112",
   "name": "Raised by Wolves",
   "flowChartGroup": "random-scenarios",
+  "coordinates": {
+    "x": 1696,
+    "y": 1866.25,
+    "width": 144,
+    "height": 93
+  },
   "edition": "fh",
   "complexity": 1,
   "random": true,

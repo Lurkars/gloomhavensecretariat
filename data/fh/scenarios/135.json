@@ -2,6 +2,12 @@
   "index": "135",
   "name": "Belara's Keep",
   "flowChartGroup": "other",
+  "coordinates": {
+    "x": 641.75,
+    "y": 700.75,
+    "width": 118,
+    "height": 63
+  },
   "edition": "fh",
   "complexity": 3,
   "rewards": {

@@ -3,6 +3,12 @@
   "name": "Summit Meeting",
   "flowChartGroup": "algox-3",
   "errata": "scenario28",
+  "coordinates": {
+    "x": 1264.75,
+    "y": 1118.25,
+    "width": 113,
+    "height": 74
+  },
   "edition": "fh",
   "complexity": 3,
   "allyDeck": true,

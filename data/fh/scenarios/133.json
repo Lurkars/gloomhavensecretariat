@@ -2,6 +2,12 @@
   "index": "133",
   "name": "Bolt",
   "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 551.25,
+    "y": 880.25,
+    "width": 90,
+    "height": 61
+  },
   "edition": "fh",
   "complexity": 2,
   "rewards": {

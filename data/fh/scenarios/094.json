@@ -2,6 +2,12 @@
   "index": "94",
   "name": "A Grand View",
   "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 2057.5,
+    "y": 910.5,
+    "width": 101,
+    "height": 89
+  },
   "edition": "fh",
   "complexity": 3,
   "requirements": [

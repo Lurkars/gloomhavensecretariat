@@ -2,6 +2,12 @@
   "index": "77",
   "name": "Fish King's Ascension",
   "flowChartGroup": "personal-quests",
+  "coordinates": {
+    "x": 2033,
+    "y": 375.75,
+    "width": 112,
+    "height": 86
+  },
   "edition": "fh",
   "complexity": 3,
   "requirements": [

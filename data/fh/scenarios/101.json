@@ -2,6 +2,12 @@
   "index": "101",
   "name": "Harrower Library",
   "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 651.25,
+    "y": 606.25,
+    "width": 102,
+    "height": 73
+  },
   "edition": "fh",
   "complexity": 1,
   "unlocks": [

@@ -2,6 +2,12 @@
   "index": "32",
   "name": "Ravens' Roost",
   "flowChartGroup": "lurker",
+  "coordinates": {
+    "x": 512.75,
+    "y": 561.75,
+    "width": 105,
+    "height": 71
+  },
   "edition": "fh",
   "complexity": 2,
   "rewards": {

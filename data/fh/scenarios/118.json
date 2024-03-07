@@ -2,6 +2,12 @@
   "index": "118",
   "name": "Lurker Necromancy",
   "flowChartGroup": "other",
+  "coordinates": {
+    "x": 1620,
+    "y": 747.5,
+    "width": 101,
+    "height": 73
+  },
   "edition": "fh",
   "complexity": 1,
   "requirements": [
