@@ -790,6 +790,8 @@
     "summon": {
       "spawn": "{1} %data.monster.{0}%",
       "spawnMarker": "{1} %data.monster.{0}% bei %game.mapMarker.{2}%",
+      "spawnObjective": "{1} %data.objective.{0}%",
+      "spawnObjectiveMarker": "{1} %data.objective.{0}% bei %game.mapMarker.{2}%",
       "spawnType": "{2} %game.monsterType.{1}% %data.monster.{0}%",
       "spawnTypeMarker": "{2} %game.monsterType.{1}% %data.monster.{0}% bei %game.mapMarker.{3}%",
       "playerAll": "%game.monsterType.{0}% für alle Charaktere",
@@ -1173,6 +1175,7 @@
     "openRoomRef": "Raum für Kachel '{0}' öffnen",
     "openRoomMarker": "Raum %game.mapMarker.{1}% öffnen",
     "openRoomMarkerRef": "Raum %game.mapMarker.{1}% für Kachel '{0}' öffnen",
+    "random": "Zufallsabenteuer",
     "requirements": {
       ".": "Szenario Vorraussetzungen",
       "all": "Zeige alle Vorraussetzungen (inkl. erfüllte)",
@@ -1300,8 +1303,12 @@
         "remove": "Entferne {0}"
       },
       "hide": "Nicht mehr anzeigen",
+      "finish": {
+        "lost": "Szenario verloren!",
+        "round": "Nächste Runde!",
+        "won": "Szenario erfolgreich!"
+      },
       "finishWithConclusion": "Szenario beenden mit #{0} {1}",
-      "lost": "Szenario verloren!",
       "openRoom": "Raum öffnen",
       "openRoomMarker": "Raum %game.mapMarker.{0}% öffnen",
       "spawn": "Füge {2}%data.monster.{0}% (%game.monsterType.{1}%) hinzu",
@@ -1313,8 +1320,7 @@
       "spawnObjectiveEscort": "Füge Begleiter '{0}' hinzu",
       "spawnObjectiveEscortMarker": "Füge Begleiter '{0}' an %game.mapMarker.{2}% hinzu",
       "spawnObjectivesEscort": "Füge {1} Begleiter '{0}' hinzu",
-      "spawnObjectivesEscortMarker": "Füge {1} Begleiter '{0}' an %game.mapMarker.{2}% hinzu",
-      "won": "Szenario erfolgreich!"
+      "spawnObjectivesEscortMarker": "Füge {1} Begleiter '{0}' an %game.mapMarker.{2}% hinzu"
     },
     "section": {
       ".": "Sektion",
@@ -1717,9 +1723,9 @@
       ".": "Alle verfügbaren Spalten nutzen",
       "hint": "Verteile die Figuren immer auf alle verfügbaren Spalten."
     },
-    "combineSummonAction": {
-      ".": "Beschwörung Aktion kombinieren",
-      "hint": "Führe die Beschwörung Aktion für alle Aufsteller gleichzeitig aus."
+    "combineInteractiveAbilities": {
+      ".": "Interaktive Fertigkeiten kombinieren",
+      "hint": "Führe die interaktiven Fertigkeiten für alle Aufsteller gleichzeitig aus."
     },
     "conditions": "Zustände/Elemente",
     "debug": {
@@ -2365,6 +2371,7 @@
       "setPlayerNumber": "Spielernummer {1} für {0}",
       "setPQ": "Persönliche Quest {1} für {0}",
       "setPQProgress": "Setzte Persönlichen Quest Zähler {1} auf {2} für {0}",
+      "setRandomScenario": "Zufallsabenteuer",
       "setResource": "{1} {2} für {0}",
       "setRetired": "{0} in Ruhestand",
       "setRetirements": "Ruhestände auf {1} für {0}",

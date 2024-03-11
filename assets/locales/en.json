@@ -938,6 +938,8 @@
     "summon": {
       "spawn": "{1} %data.monster.{0}%",
       "spawnMarker": "{1} %data.monster.{0}% at %game.mapMarker.{2}%",
+      "spawnObjective": "{1} %data.objective.{0}%",
+      "spawnObjectiveMarker": "{1} %data.objective.{0}% at %game.mapMarker.{2}%",
       "spawnType": "{2} %game.monsterType.{1}% %data.monster.{0}%",
       "spawnTypeMarker": "{2} %game.monsterType.{1}% %data.monster.{0}% at %game.mapMarker.{3}%",
       "playerAll": "%game.monsterType.{0}% for all characters",
@@ -1320,6 +1322,7 @@
     "openRoomRef": "Open door for tile '{0}'",
     "openRoomMarker": "Open door %game.mapMarker.{1}%",
     "openRoomMarkerRef": "Open door %game.mapMarker.{1}% for tile '{0}'",
+    "random": "Random Dungeon",
     "requirements": {
       ".": "Scenario Requirements",
       "all": "Show all requirements (include fulfilled)",
@@ -1391,7 +1394,7 @@
       "lootDeckCard": "Add loot card {0} to every scenario loot deck in addition to the normal loot distribution.",
       "lostPartyAchievements": "Lost Party Achievements",
       "morale": "{0} morale",
-      "overlayCampaignSticker": "Place \"{0}\" campaign sticker on the town map at location {1}",
+      "overlayCampaignSticker": "Place \"%data.campaignSticker.{0}%\" campaign sticker on the town map at location {1}",
       "overlaySticker": "Place map overlay sticker {0} on map in location {0} ({1}).",
       "partyAchievements": "Party Achievements",
       "perks": "Gain {0} perk each",
@@ -1448,9 +1451,13 @@
         "transfer": "{0} become %data.monster.{1}% {4}",
         "remove": "Remove {0}"
       },
+      "finish": {
+        "lost": "Scenario lost!",
+        "round": "Next round!",
+        "won": "Scenario won!"
+      },
       "finishWithConclusion": "Finish scenario with #{0} {1}",
       "hide": "Don't show again",
-      "lost": "Scenario lost!",
       "openRoom": "Open door",
       "openRoomMarker": "Open door %game.mapMarker.{0}%",
       "spawn": "Spawn {2}%game.monsterType.{1}% %data.monster.{0}%",
@@ -1462,8 +1469,7 @@
       "spawnObjectiveEscort": "Spawn Escort '{0}'",
       "spawnObjectiveEscortMarker": "Spawn Escort '{0}' at %game.mapMarker.{2}%",
       "spawnObjectivesEscort": "Spawn {1} Escorts '{0}'",
-      "spawnObjectivesEscortMarker": "Spawn {1} Escorts '{0}' at %game.mapMarker.{2}%",
-      "won": "Scenario won!"
+      "spawnObjectivesEscortMarker": "Spawn {1} Escorts '{0}' at %game.mapMarker.{2}%"
     },
     "section": {
       ".": "Section",
@@ -1866,9 +1872,9 @@
       ".": "Use all available columns",
       "hint": "Always distribute the figures across all available columns."
     },
-    "combineSummonAction": {
-      ".": "Combine Summon Action",
-      "hint": "Perform Summon Action for all standees at once."
+    "combineInteractiveAbilities": {
+      ".": "Combine Interactive Abilities",
+      "hint": "Perform Interactive Abilities for all standees at once."
     },
     "conditions": "Conditions/Elements",
     "debug": {
@@ -2533,6 +2539,7 @@
       "setPlayerNumber": "Set Player number {1} for {0}",
       "setPQ": "Personal Quest {1} for {0} ",
       "setPQProgress": "Set Personal Quest counter {1} to {2} for {0}",
+      "setRandomScenario": "Set Random Dungeon",
       "setResource": "Set {1} {2} for {0}",
       "setRetired": "{0} retired",
       "setRetirements": "Retirements {1} for {0}",
