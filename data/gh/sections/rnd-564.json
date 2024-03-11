@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Tribal",
   "edition": "gh",
+  "named": true,
   "rooms": [
     {
       "roomNumber": 1,

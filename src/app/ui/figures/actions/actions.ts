@@ -1,12 +1,11 @@
 import { Component, Input, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Action";
 import { Monster } from "src/app/game/model/Monster";
-import { MonsterType } from "src/app/game/model/data/MonsterType";
-import { Objective } from "src/app/game/model/Objective";
-import { Subscription } from "rxjs";
 import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
+import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Action";
+import { MonsterType } from "src/app/game/model/data/MonsterType";
 
 @Component({
   selector: 'ghs-actions',
@@ -17,13 +16,13 @@ export class ActionsComponent implements OnInit, OnDestroy {
 
   @Input() monster: Monster | undefined;
   @Input() monsterType: MonsterType | undefined;
-  @Input() objective: Objective | ObjectiveContainer | undefined;
+  @Input() objective: ObjectiveContainer | undefined;
   @Input() actions!: Action[];
   @Input() relative: boolean = false;
   @Input() inline: boolean = false;
   @Input() right: boolean = false;
   @Input() statsCalculation: boolean = false;
-  @Input() highlightElements: boolean = false;
+  @Input() interactiveAbilities: boolean = false;
   @Input() highlightActions: ActionType[] = [];
   @Input() hexSize!: number;
   @Input() hint!: string | undefined;

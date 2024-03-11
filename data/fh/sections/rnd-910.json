@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Dirty",
   "edition": "fh",
+  "named": true,
   "rules": [
     {
       "round": "true",

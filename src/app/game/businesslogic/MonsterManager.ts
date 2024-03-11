@@ -1,20 +1,20 @@
+import { Action, ActionHint, ActionType, ActionValueType } from "src/app/game/model/data/Action";
+import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
+import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
+import { ghsShuffleArray } from "src/app/ui/helper/Static";
+import { EntityValueFunction } from "../model/Entity";
 import { Game, GameState } from "../model/Game";
 import { Monster } from '../model/Monster';
-import { gameManager } from "./GameManager";
-import { MonsterType } from "../model/data/MonsterType";
-import { MonsterStat } from "../model/data/MonsterStat";
 import { MonsterEntity } from "../model/MonsterEntity";
-import { MonsterData } from "../model/data/MonsterData";
-import { Ability } from "../model/data/Ability";
 import { SummonState } from "../model/Summon";
-import { settingsManager } from "./SettingsManager";
-import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
+import { Ability } from "../model/data/Ability";
 import { ConditionType, EntityConditionState } from "../model/data/Condition";
-import { EntityValueFunction } from "../model/Entity";
-import { ghsShuffleArray } from "src/app/ui/helper/Static";
-import { Action, ActionHint, ActionType, ActionValueType } from "src/app/game/model/data/Action";
+import { MonsterData } from "../model/data/MonsterData";
+import { MonsterStat } from "../model/data/MonsterStat";
+import { MonsterType } from "../model/data/MonsterType";
 import { MonsterSpawnData } from "../model/data/ScenarioRule";
-import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
+import { gameManager } from "./GameManager";
+import { settingsManager } from "./SettingsManager";
 
 export class MonsterManager {
 
@@ -807,5 +807,30 @@ export class MonsterManager {
         this.calcActionHint(monster, entity, type, action.subActions, actionHints, index);
       }
     })
+  }
+
+  sortEntities(a: MonsterEntity, b: MonsterEntity): number {
+    if (a.type == MonsterType.elite && b.type == MonsterType.normal) {
+      return -1;
+    } else if (a.type == MonsterType.normal && b.type == MonsterType.elite) {
+      return 1;
+    }
+    return gameManager.monsterManager.sortEntitiesByNumber(a, b);
+  }
+
+  sortEntitiesByNumber(a: MonsterEntity, b: MonsterEntity): number {
+    if (a.summon == SummonState.new && b.summon != SummonState.new) {
+      return 1;
+    } else if (a.summon != SummonState.new && b.summon == SummonState.new) {
+      return -1;
+    } else if (a.summon == SummonState.new && b.summon == SummonState.new) {
+      return 0;
+    }
+    if (a.number < 0 && b.number >= 0) {
+      return 1;
+    } else if (b.number < 0 && a.number >= 0) {
+      return -1;
+    }
+    return a.number < b.number ? -1 : 1;
   }
 }

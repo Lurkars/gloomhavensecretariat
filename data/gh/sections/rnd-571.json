@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Infected",
   "edition": "gh",
+  "named": true,
   "rooms": [
     {
       "roomNumber": 1,

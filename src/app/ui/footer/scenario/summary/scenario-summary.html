@@ -595,12 +595,18 @@
             </div>
 
             <div class="item overlay-sticker" *ngIf="rewards.overlayCampaignSticker">
-              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.overlayCampaignSticker'"
+              <span *ngIf="rewards.hints && rewards.hints.overlayCampaignSticker" class="placeholder text-white hint"
+                [ghs-label]="rewards.hints.overlayCampaignSticker"></span>
+              <span *ngIf="!rewards.hints || !rewards.hints.overlayCampaignSticker" class="placeholder text-white"
+                [ghs-label]="'scenario.rewards.overlayCampaignSticker'"
                 [ghs-label-args]="[rewards.overlayCampaignSticker.name, rewards.overlayCampaignSticker.location]"></span>
             </div>
 
             <div class="item overlay-sticker" *ngIf="rewards.overlaySticker">
-              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.overlaySticker'"
+              <span *ngIf="rewards.hints && rewards.hints.overlaySticker" class="placeholder text-white hint"
+                [ghs-label]="rewards.hints.overlaySticker"></span>
+              <span *ngIf="!rewards.hints || !rewards.hints.overlaySticker" class="placeholder text-white"
+                [ghs-label]="'scenario.rewards.overlaySticker'"
                 [ghs-label-args]="[rewards.overlaySticker.name, rewards.overlaySticker.location]"></span>
             </div>
 

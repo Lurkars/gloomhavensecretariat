@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Feral",
   "edition": "fh",
+  "named": true,
   "rooms": [
     {
       "roomNumber": 1,

@@ -7,7 +7,6 @@ import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
-import { Objective } from "../model/Objective";
 import { ObjectiveContainer } from "../model/ObjectiveContainer";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
@@ -97,8 +96,6 @@ export class ScenarioRulesManager {
   }
 
   addScenarioRule(scenarioData: ScenarioData, rule: ScenarioRule, index: number, section: boolean, initial: boolean = false) {
-
-
     const identifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "index": index, "section": section };
 
     let round = rule.round || 'false';
@@ -157,6 +154,28 @@ export class ScenarioRulesManager {
                   add = add && count > 0 && count >= value || false;
                 }
               }
+            }
+          })
+        }
+      }
+
+      if (add) {
+        if (rule.figures && rule.figures.filter((figureRule) => figureRule.type == "initiative").length > 0) {
+          rule.figures.filter((figureRule) => figureRule.type == "initiative").forEach((figureRule) => {
+            if (!figureRule.identifier) {
+              add = false;
+            } else {
+              const figures = this.figuresByFigureRule(figureRule, rule);
+              add = add && figures.length && (figures.find((figure) => {
+                if (!figure.active) {
+                  return false;
+                }
+                if (!isNaN(+figureRule.value)) {
+                  return figure.getInitiative() == +figureRule.value;
+                } else {
+                  return eval(figure.getInitiative() + " " + figureRule.value);
+                }
+              }) != undefined || figures.every((figure) => !figure.active && isNaN(+figureRule.value) && !eval(figure.getInitiative() + " " + figureRule.value))) || false;
             }
           })
         }
@@ -253,7 +272,7 @@ export class ScenarioRulesManager {
 
     return gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((figure) => {
       if (figureRule.identifier && figureRule.identifier.health) {
-        if (figure instanceof Character || figure instanceof Objective) {
+        if (figure instanceof Character) {
           const health = EntityValueFunction(figureRule.identifier.health.replaceAll('H', '' + EntityValueFunction(figure.maxHealth)));
           return figure.health <= health;
         } else if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
@@ -269,7 +288,7 @@ export class ScenarioRulesManager {
       }
 
       if (figureRule.identifier && figureRule.identifier.hp) {
-        if (figure instanceof Character || figure instanceof Objective) {
+        if (figure instanceof Character) {
           return eval(figureRule.identifier.hp.replaceAll('HP', '' + figure.health).replaceAll('H', '' + EntityValueFunction(figure.maxHealth)));
         } else if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
           return figure.entities.some((entity) => {
@@ -283,7 +302,7 @@ export class ScenarioRulesManager {
       }
 
       if (figureRule.identifier && figureRule.identifier.conditions) {
-        if (figure instanceof Character || figure instanceof Objective) {
+        if (figure instanceof Character) {
           return figureRule.identifier.conditions.every((condition) => condition.startsWith('!') && !gameManager.entityManager.hasCondition(figure, new Condition(condition.substring(1))) || !condition.startsWith('!') && gameManager.entityManager.hasCondition(figure, new Condition(condition)));
         } else if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
           return figure.entities.some((entity) => {

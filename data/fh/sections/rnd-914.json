@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Swift",
   "edition": "fh",
+  "named": true,
   "rules": [
     {
       "round": "true",

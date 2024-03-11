@@ -6,7 +6,6 @@ import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
-import { Objective } from "../model/Objective";
 import { ObjectiveContainer } from "../model/ObjectiveContainer";
 import { ObjectiveEntity } from "../model/ObjectiveEntity";
 import { Summon, SummonState } from "../model/Summon";
@@ -23,7 +22,7 @@ export class EntityManager {
 
   entities(figure: Figure, acting: boolean = false): Entity[] {
     let entities: Entity[] = [];
-    if (figure instanceof Character || figure instanceof Objective) {
+    if (figure instanceof Character) {
       if (this.isAlive(figure, acting)) {
         entities.push(figure);
       }
@@ -40,8 +39,6 @@ export class EntityManager {
     if (figure instanceof Character && (!alive || this.isAlive(figure, acting))) {
       entities.push(figure);
       entities.push(...figure.summons.filter((summon) => !alive || this.isAlive(summon, acting)));
-    } else if (figure instanceof Objective && (!alive || this.isAlive(figure, acting))) {
-      entities.push(figure);
     } else if (figure instanceof Monster) {
       entities.push(...figure.entities.filter((entity) => !alive || this.isAlive(entity, acting)));
     } else if (figure instanceof ObjectiveContainer) {
@@ -92,9 +89,6 @@ export class EntityManager {
     if (entity instanceof Character) {
       return !entity.exhausted && !entity.absent;
     }
-    if (entity instanceof Objective) {
-      return !entity.exhausted;
-    }
 
     if (entity instanceof MonsterEntity) {
       return !entity.dead && !entity.dormant && (!acting || entity.summon != SummonState.new);
@@ -127,7 +121,7 @@ export class EntityManager {
     }
 
     if (entity.health == 0 && !entity.entityConditions.find((condition) => settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && condition.highlight && condition.types.indexOf(ConditionType.apply) != -1 && settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) == -1)) {
-      if ((entity instanceof Character || entity instanceof Objective) && (!entity.off || !entity.exhausted)) {
+      if ((entity instanceof Character) && (!entity.off || !entity.exhausted)) {
         entity.off = true;
         entity.exhausted = true;
       } else if ((entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && !entity.dead) {
@@ -139,7 +133,7 @@ export class EntityManager {
     }
 
     if (entity.health > 0) {
-      if ((entity instanceof Character || entity instanceof Objective) && entity.exhausted) {
+      if (entity instanceof Character && entity.exhausted) {
         entity.off = false;
         entity.exhausted = false;
       } else if ((entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && entity.dead) {
@@ -714,8 +708,6 @@ export class EntityManager {
       infos.push(prefix + ".char", gameManager.characterManager.characterName(entity))
     } else if (entity instanceof Summon && figure instanceof Character) {
       infos.push(prefix + ".summon", gameManager.characterManager.characterName(figure), "data.summon." + entity.name)
-    } else if (entity instanceof Objective) {
-      infos.push(prefix + ".objective", entity.title || entity.name)
     } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
       infos.push(prefix + ".objectiveContainer", figure.title || figure.name && 'data.objective.' + figure.name || figure.escort ? 'escort' : 'objective', "" + entity.number)
     } else if (figure instanceof Monster && entity instanceof MonsterEntity) {

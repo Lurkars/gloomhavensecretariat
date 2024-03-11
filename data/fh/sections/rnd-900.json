@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Decayed",
   "edition": "fh",
+  "named": true,
   "rules": [
     {
       "round": "true",

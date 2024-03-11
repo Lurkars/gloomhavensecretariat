@@ -1,20 +1,21 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
+import { GameState } from 'src/app/game/model/Game';
+import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 import { ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { ObjectiveData } from 'src/app/game/model/data/ObjectiveData';
-import { GameState } from 'src/app/game/model/Game';
 import { ghsDefaultDialogPositions, ghsValueSign } from '../../helper/Static';
 import { CharacterInitiativeDialogComponent } from '../character/cards/initiative-dialog';
-import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
-import { Subscription } from 'rxjs';
-import { EntityValueFunction } from 'src/app/game/model/Entity';
-import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
-import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
+import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
+import { Monster } from 'src/app/game/model/Monster';
 
 @Component({
   selector: 'ghs-objective-container',
@@ -46,9 +47,6 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
   constructor(private dialog: Dialog, private overlay: Overlay) { }
 
   ngOnInit(): void {
-    if (this.objective && this.objective.objectiveId) {
-      this.objectiveData = gameManager.objectiveDataByScenarioObjectiveIdentifier(this.objective.objectiveId);
-    }
     this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
     this.update();
   }
@@ -78,6 +76,35 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
       }
     } else if (this.objective.entities.flatMap((entity) => entity.marker).every((marker, index, self) => self.indexOf(marker) == 0)) {
       this.marker = this.objective.entities.flatMap((entity) => entity.marker)[0];
+    }
+    if (this.objective && this.objective.objectiveId) {
+      this.objectiveData = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(this.objective.objectiveId);
+
+      if (this.objectiveData && this.objectiveData.initiativeShare) {
+        let offset = 0;
+        const name = this.objectiveData.initiativeShare.split(':')[0];
+        if (this.objectiveData.initiativeShare.split(':').length > 0) {
+          offset = +this.objectiveData.initiativeShare.split(':')[1];
+        }
+
+        const monster = gameManager.game.figures.find((figure) => figure instanceof Monster && figure.name == name);
+        if (monster) {
+          this.objective.initiative = gameManager.game.state == GameState.next && monster.getInitiative() && monster.getInitiative() < 100 ? (offset < 0 ? Math.ceil(monster.getInitiative() + offset) : Math.floor(monster.getInitiative() + offset)) : 0;
+          if (gameManager.game.state == GameState.next && this.objective.initiative && offset && settingsManager.settings.sortFigures) {
+            setTimeout(() => {
+              gameManager.sortFigures();
+              gameManager.game.figures.sort((a, b) => {
+                if (a == monster && b == this.objective) {
+                  return offset < 0 ? 1 : -1;
+                } else if (a == this.objective && b == monster) {
+                  return offset < 0 ? -1 : 1;
+                }
+                return 0;
+              })
+            }, 1)
+          }
+        }
+      }
     }
   }
 

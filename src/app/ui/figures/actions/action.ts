@@ -1,19 +1,18 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Action, ActionType, ActionValueType, ActionSpecialTarget } from 'src/app/game/model/data/Action';
-import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';
-import { Element, ElementState } from 'src/app/game/model/data/Element';
-import { EntityValueFunction, EntityExpressionRegex, EntityValueRegex } from 'src/app/game/model/Entity';
+import { EntityExpressionRegex, EntityValueFunction, EntityValueRegex } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
+import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { Action, ActionSpecialTarget, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
+import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
+import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';
+import { Element, ElementState } from 'src/app/game/model/data/Element';
 import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
-import { Objective } from 'src/app/game/model/Objective';
 import { valueCalc } from '../../helper/valueCalc';
-import { Subscription } from 'rxjs';
-import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
-import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 
 export const ActionTypesIcons: ActionType[] = [ActionType.attack, ActionType.damage, ActionType.fly, ActionType.heal, ActionType.jump, ActionType.loot, ActionType.move, ActionType.range, ActionType.retaliate, ActionType.shield, ActionType.target, ActionType.teleport];
 
@@ -26,13 +25,13 @@ export class ActionComponent implements OnInit, OnDestroy {
 
   @Input() monster: Monster | undefined;
   @Input() monsterType: MonsterType | undefined;
-  @Input() objective: Objective | ObjectiveContainer | undefined;
+  @Input() objective: ObjectiveContainer | undefined;
   @Input('action') origAction!: Action | undefined;
   @Input() relative: boolean = false;
   @Input() inline: boolean = false;
   @Input() right: boolean = false;
   @Input() highlight: boolean = false;
-  @Input() highlightElements: boolean = false;
+  @Input() interactiveAbilities: boolean = false;
   @Input() statsCalculation: boolean = false;
   @Input() hexSize!: number;
   @Input('index') actionIndex: string = "";
@@ -509,7 +508,7 @@ export class ActionComponent implements OnInit, OnDestroy {
         return false;
       }
 
-      return this.highlightElements && (this.monster.active && this.monster && this.monster.entities.find((entity) => this.action && gameManager.entityManager.isAlive(entity, true) && !entity.tags.find((tag) => this.action && tag == 'roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action.type)) != undefined || false);
+      return this.interactiveAbilities && (this.monster.active && this.monster && this.monster.entities.find((entity) => this.action && gameManager.entityManager.isAlive(entity, true) && !entity.tags.find((tag) => this.action && tag == 'roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action.type)) != undefined || false);
     }
     return false;
   }
@@ -518,9 +517,10 @@ export class ActionComponent implements OnInit, OnDestroy {
     if (this.monster && this.highlightAction() && this.action) {
       gameManager.stateManager.before('applyHighlightAction.' + this.action.type, "data.monster." + this.monster.name, '' + this.action.value);
       let after: boolean = true;
-      this.monster.entities.filter((entity) => gameManager.entityManager.isAlive(entity, true)).forEach((entity) => {
-        if (this.action && !entity.tags.find((tag) => tag == 'roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action?.type)) {
-          entity.tags.push('roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action.type);
+      const tag = 'roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action?.type;
+      this.monster.entities.sort(gameManager.monsterManager.sortEntities).filter((entity) => gameManager.entityManager.isAlive(entity, true) && !entity.tags.find((tag) => tag == tag)).filter((entity, index) => settingsManager.settings.combineInteractiveAbilities || index == 0).forEach((entity) => {
+        if (this.action) {
+          entity.tags.push(tag);
           if (this.monster && this.action.type == ActionType.heal) {
             const heal = EntityValueFunction(this.action.value, this.level);
             entity.health += heal;
@@ -585,7 +585,7 @@ export class ActionComponent implements OnInit, OnDestroy {
   }
 
   highlightElement(elementTypes: string[], consume: boolean, index: number): boolean {
-    return this.highlightElements && (this.monster && this.monster.active &&
+    return this.interactiveAbilities && (this.monster && this.monster.active &&
 
       (!consume && (elementTypes[index] == Element.wild || gameManager.game.elementBoard.some((element) => element.type == elementTypes[index] && element.state != ElementState.new && element.state != ElementState.strong && element.state != ElementState.always)) ||
 

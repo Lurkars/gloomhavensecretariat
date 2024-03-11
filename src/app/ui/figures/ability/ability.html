@@ -18,7 +18,7 @@
         <span class="name">{{abilityLabel}}</span>
         <div class="ability-actions">
           <ghs-actions [actions]="ability.actions" [monster]="monster" [hint]="ability.hint"
-            [statsCalculation]="statsCalculation" [relative]="relative" [highlightElements]="highlightElements">
+            [statsCalculation]="statsCalculation" [relative]="relative" [interactiveAbilities]="interactiveAbilities">
           </ghs-actions>
         </div>
         <ng-container *ngIf="ability.bottomActions && ability.bottomActions.length > 0 || character">
@@ -27,7 +27,7 @@
           </span>
           <div class="ability-actions ability-bottom-actions">
             <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hint]="ability.hint"
-              [statsCalculation]="statsCalculation" [relative]="relative" [highlightElements]="highlightElements">
+              [statsCalculation]="statsCalculation" [relative]="relative" [interactiveAbilities]="interactiveAbilities">
             </ghs-actions>
           </div>
         </ng-container>

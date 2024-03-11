@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Horrific",
   "edition": "gh",
+  "named": true,
   "rooms": [
     {
       "roomNumber": 1,

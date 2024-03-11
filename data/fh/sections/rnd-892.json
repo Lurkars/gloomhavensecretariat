@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Stormy",
   "edition": "fh",
+  "named": true,
   "rules": [
     {
       "round": "true",

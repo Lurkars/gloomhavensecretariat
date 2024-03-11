@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Grave",
   "edition": "fh",
+  "named": true,
   "rules": [
     {
       "round": "true",

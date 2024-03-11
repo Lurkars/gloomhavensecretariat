@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Swarming",
   "edition": "fh",
+  "named": true,
   "rules": [
     {
       "round": "true",

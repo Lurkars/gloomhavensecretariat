@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Abandoned",
   "edition": "fh",
+  "named": true,
   "rooms": [
     {
       "roomNumber": 1,

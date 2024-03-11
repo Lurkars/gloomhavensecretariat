@@ -1,11 +1,12 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from "@angular/core";
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Ability } from "src/app/game/model/data/Ability";
 import { Character } from "src/app/game/model/Character";
 import { Monster } from "src/app/game/model/Monster";
+import { Ability } from "src/app/game/model/data/Ability";
+import { Action, ActionType } from "src/app/game/model/data/Action";
 import { applyPlaceholder } from "../../helper/label";
-import { Subscription } from "rxjs";
 
 
 @Component({
@@ -22,7 +23,7 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
   @Input() flipped: boolean = false;
   @Input() reveal: boolean = false;
   @Input() relative: boolean = false;
-  @Input() highlightElements: boolean = false;
+  @Input() interactiveAbilities: boolean = false;
   @Input() statsCalculation: boolean = true;
 
   gameManager: GameManager = gameManager;
@@ -30,6 +31,7 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
 
   abilityIndex: number = -1;
   abilityLabel: string = "";
+  interactiveActions: Action[] = [];
 
   ngOnInit() {
     this.update();
@@ -58,6 +60,7 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
     if (this.ability) {
       this.abilityIndex = this.getAbilityIndex(this.ability);
       this.abilityLabel = this.getAbilityLabel(this.ability);
+      this.calcInteractiveActions(this.ability.actions);
     }
   }
 
@@ -91,5 +94,49 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
     if (this.ability) {
       this.ability.revealed = revealed;
     }
+  }
+
+  calcInteractiveActions(actions: Action[], index: string = "") {
+    if (!index) {
+      this.interactiveActions = [];
+    }
+
+    actions.forEach((action, i) => {
+      if (this.isIntactiveAction(action, (index ? index + '.' : '') + i)) {
+        this.interactiveActions.push(action);
+      } else if (action.subActions && action.subActions.length) {
+        this.calcInteractiveActions(action.subActions, (index ? index + '.' : '') + i);
+      }
+    })
+
+  }
+
+  isIntactiveAction(action: Action, index: string): boolean {
+    const actionTag = 'roundAction-' + index + '-' + action.type;
+    if (this.monster &&
+      (this.isInteractiveHealAction(action) ||
+        this.isInteractiveConditionAction(action) ||
+        this.isIntactiveElementAction(action) ||
+        action.type == ActionType.sufferDamage ||
+        action.type == ActionType.switchType)) {
+      if (action.type == ActionType.heal && this.monster.entities.every((entity) => entity.dead || entity.health < 1 || entity.health >= entity.maxHealth)) {
+        return false;
+      }
+
+      return this.interactiveAbilities && (this.monster.active && this.monster && this.monster.entities.find((entity) => action && gameManager.entityManager.isAlive(entity, true) && !entity.tags.find((tag) => tag == actionTag)) != undefined || false);
+    }
+    return false;
+  }
+
+  isInteractiveHealAction(action: Action): boolean {
+    return action.type == ActionType.heal && action.subActions && action.subActions.length == 1 && action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && ('' + subAction.value).startsWith('self')) != undefined;
+  }
+
+  isInteractiveConditionAction(action: Action): boolean {
+    return action.type == ActionType.condition && action.subActions && action.subActions.length == 1 && action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && ('' + subAction.value).startsWith('self')) != undefined;
+  }
+
+  isIntactiveElementAction(action: Action): boolean {
+    return false;
   }
 }

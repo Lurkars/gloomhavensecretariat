@@ -1,11 +1,11 @@
+import { GameScenarioModel } from "../Scenario";
 import { Editional } from "./Editional";
+import { Identifier } from "./Identifier";
 import { LootDeckConfig, LootType } from "./Loot";
-import { Spoilable } from "./Spoilable";
 import { ObjectiveData } from "./ObjectiveData";
 import { RoomData } from "./RoomData";
 import { ScenarioRule } from "./ScenarioRule";
-import { GameScenarioModel } from "../Scenario";
-import { Identifier } from "./Identifier";
+import { Spoilable } from "./Spoilable";
 import { WorldMapCoordinates, WorldMapOverlay } from "./WorldMap";
 
 export class ScenarioData implements Editional, Spoilable {
@@ -189,6 +189,8 @@ export class ScenarioRewardHints {
   townGuardAm: string[] = [];
   unlockCharacter: string = "";
   chooseUnlockCharacter: string[] = [];
+  overlaySticker: string = "";
+  overlayCampaignSticker: string = "";
 }
 
 export class ScenarioFinish {

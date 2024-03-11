@@ -5,12 +5,11 @@ import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
-import { Objective } from 'src/app/game/model/Objective';
-import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
-import { FooterComponent } from '../footer/footer';
-import { SummonState } from 'src/app/game/model/Summon';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { SummonState } from 'src/app/game/model/Summon';
+import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
 import { EntityMenuDialogComponent } from '../figures/entity-menu/entity-menu-dialog';
+import { FooterComponent } from '../footer/footer';
 import { HeaderComponent } from '../header/header';
 import { KeyboardShortcutsComponent } from '../header/menu/keyboard-shortcuts/keyboard-shortcuts';
 
@@ -214,7 +213,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     gameManager.stateManager.keyboardSelecting = true;
                 } else if (!this.dialogOpen && !event.ctrlKey && event.key === '?') {
                     this.dialog.open(KeyboardShortcutsComponent, {
-                      panelClass: ['dialog'],
+                        panelClass: ['dialog'],
                     });
                     event.preventDefault();
                 }
@@ -312,7 +311,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     gameManager.roundManager.toggleFigure(activeFigure);
                     gameManager.stateManager.after();
                 }
-            } else if (activeFigure instanceof Objective || activeFigure instanceof ObjectiveContainer) {
+            } else if (activeFigure instanceof ObjectiveContainer) {
                 gameManager.stateManager.before(activeFigure.active ? "unsetActive" : "setActive", activeFigure.title || activeFigure.name);
                 gameManager.roundManager.toggleFigure(activeFigure);
                 gameManager.stateManager.after();

@@ -30,7 +30,7 @@ import { MainMenuComponent } from './ui/header/menu/menu';
 import { SettingsMenuComponent } from './ui/header/menu/settings/settings';
 import { CampaignMenuComponent } from './ui/header/menu/campaign/campaign';
 import { CardRevealDirective } from './ui/helper/CardReveal';
-import { GhsCeilPipe, GhsFloorPipe, GhsMinZeroPipe, GhsRangePipe, GhsScenarioSearch, GhsValueSignPipe } from './ui/helper/Pipes';
+import { GhsCeilPipe, GhsDurationLabelPipe, GhsFloorPipe, GhsMinZeroPipe, GhsRangePipe, GhsScenarioSearch, GhsValueSignPipe } from './ui/helper/Pipes';
 import { MainComponent } from './ui/main';
 import { SummonEntityComponent } from './ui/figures/character/summon/summon';
 import { SummonSheetComponent } from './ui/figures/character/summon/sheet/summon-sheet';
@@ -39,7 +39,6 @@ import { DatamanagementMenuComponent } from './ui/header/menu/datamanagement/dat
 import { ScenarioMenuComponent } from './ui/header/menu/scenario/scenario';
 import { CharacterInitiativeComponent } from './ui/figures/character/cards/initiative';
 import { CharacterInitiativeDialogComponent } from './ui/figures/character/cards/initiative-dialog';
-import { ObjectiveComponent } from './ui/figures/objective/objective';
 import { ServerMenuComponent } from './ui/header/menu/server/server';
 import { FigureErrorsComponent, FigureErrorsDialogComponent } from './ui/figures/errors/errors';
 import { SectionMenuComponent } from './ui/header/menu/section/section';
@@ -47,7 +46,7 @@ import { ConditionsComponent } from './ui/figures/conditions/conditions';
 import { ConditionHighlightAnimationDirective, HighlightConditionsComponent } from './ui/figures/conditions/highlight';
 import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
 import { EntityAnimationDirective } from './ui/helper/EntityAnimation';
-import { GhsLabelDirective } from './ui/helper/label';
+import { GhsLabelDirective, GhsLabelElementDirective } from './ui/helper/label';
 import { ValueCalcDirective } from './ui/helper/valueCalc';
 import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-sheet-dialog';
 import { ScenarioComponent } from './ui/footer/scenario/scenario';
@@ -141,6 +140,13 @@ import { EntityIndexKeyComponent } from './ui/figures/standee/entity-index-key/e
 import { PartyResourcesDialogComponent } from './ui/figures/party/resources/resources';
 import { CharacterItemComponent } from './ui/figures/items/character/item-character';
 import { CharacterItemListComponent } from './ui/figures/character/item-list/item-list';
+import { SettingMenuComponent, SettingMenuTitleComponent } from './ui/header/menu/settings/setting/setting';
+import { ScenarioChartDialogComponent } from './ui/header/menu/scenario/chart/scenario-chart';
+import { AbilityCardsDialogComponent } from './ui/figures/character/sheet/ability-cards-dialog';
+import { GameClockDialogComponent } from './ui/header/game-clock/game-clock';
+import { KeyboardShortcutsComponent } from './ui/header/menu/keyboard-shortcuts/keyboard-shortcuts';
+import { GhsNumberInput } from './ui/helper/number-input/number-input';
+import { TabClickDirective } from './ui/helper/tabclick';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -150,7 +156,7 @@ describe('AppComponent', () => {
         MainComponent,
         HeaderComponent, ElementIconComponent, ElementComponent,
         PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, BuildingUpgradeDialog, ScenarioRequirementsComponent, TreasuresDialogComponent, PartyResourcesDialogComponent,
-        MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, CampaignMenuComponent,
+        MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, SettingsMenuComponent, SettingMenuComponent, SettingMenuTitleComponent, DatamanagementMenuComponent, ScenarioMenuComponent, ScenarioChartDialogComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, CampaignMenuComponent,
         FooterComponent,
         LootComponent, LootDeckComponent, LootRandomItemDialogComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
         HintDialogComponent, ScenarioRulesComponent,
@@ -159,9 +165,9 @@ describe('AppComponent', () => {
         ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, StatsListComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent, EventEffectsDialog, EventRandomItemDialogComponent, EventRandomScenarioDialogComponent,
         ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
         EntityMenuDialogComponent, EntitiesMenuDialogComponent, AdditionalAMSelectDialogComponent,
-        CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterItemComponent, CharacterItemListComponent, CharacterSheetComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterRetirementDialog, ItemComponent, ItemDialogComponent, ItemsDialogComponent, ItemsCharacterDialogComponent, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
+        CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterItemComponent, CharacterItemListComponent, CharacterSheetComponent, CharacterSheetDialog, AbilityCardsDialogComponent, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterRetirementDialog, ItemComponent, ItemDialogComponent, ItemsDialogComponent, ItemsCharacterDialogComponent, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
         EventCardComponent, EventConditionLabelComponent, EventRewardLabelComponent,
-        ObjectiveComponent, ObjectiveContainerComponent,
+        ObjectiveContainerComponent,
         SummonEntityComponent, SummonSheetComponent,
         StandeeComponent,
         MonsterComponent,
@@ -172,15 +178,15 @@ describe('AppComponent', () => {
         AbilityComponent, AbiltiesDialogComponent, AbilityDialogComponent,
         ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,
         FigureErrorsComponent, FigureErrorsDialogComponent, EntityIndexKeyComponent,
-        CardRevealDirective, EntityAnimationDirective, GhsLabelDirective, ValueCalcDirective, PointerInputDirective, AutocompleteDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective, ValueSignDirective,
-        GhsValueSignPipe, GhsRangePipe, GhsScenarioSearch, GhsFloorPipe, GhsCeilPipe, GhsMinZeroPipe,
+        CardRevealDirective, EntityAnimationDirective, GhsLabelDirective, GhsLabelElementDirective, ValueCalcDirective, PointerInputDirective, AutocompleteDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective, ValueSignDirective,
+        GhsValueSignPipe, GhsRangePipe, GhsScenarioSearch, GhsFloorPipe, GhsCeilPipe, GhsMinZeroPipe, GhsDurationLabelPipe,
         AttackModifierToolComponent, EventCardsToolComponent, TreasuresToolComponent, DecksToolComponent,
         EditionEditorComponent,
         EditorActionComponent, EditorActionDialogComponent,
         DeckEditorComponent, CharacterEditorComponent, MonsterEditorComponent,
-        GhsTooltipComponent, GhsTooltipDirective,
-        KeyboardShortcuts,
-        FeedbackToolComponent, FeedbackDialogComponent],
+        GhsTooltipComponent, GhsTooltipDirective, GameClockDialogComponent,
+        KeyboardShortcuts, TabClickDirective, GhsNumberInput,
+        FeedbackToolComponent, FeedbackDialogComponent, KeyboardShortcutsComponent],
       imports: [
         BrowserModule,
         AppRoutingModule,

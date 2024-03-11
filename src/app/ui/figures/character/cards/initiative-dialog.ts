@@ -5,7 +5,6 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
-import { Objective } from "src/app/game/model/Objective";
 import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
@@ -23,13 +22,13 @@ export class CharacterInitiativeDialogComponent {
     settingsManager: SettingsManager = settingsManager;
     GameState = GameState;
     character: Character | undefined;
-    objective: Objective | ObjectiveContainer | undefined;
+    objective:  ObjectiveContainer | undefined;
 
 
-    constructor(@Inject(DIALOG_DATA) public figure: Character | Objective | ObjectiveContainer, private dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) public figure: Character |  ObjectiveContainer, private dialogRef: DialogRef) {
         if (this.figure instanceof Character) {
             this.character = this.figure;
-        } else if (this.figure instanceof Objective || this.figure instanceof ObjectiveContainer) {
+        } else if (this.figure instanceof ObjectiveContainer) {
             this.objective = this.figure;
         }
         dialogRef.closed.subscribe({

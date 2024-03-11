@@ -72,7 +72,7 @@
             </span>
           </ng-container>
         </div>
-        <p *ngIf="ruleModel.rule.finish" class="text-white" [ghs-label]="'scenario.rules.' + ruleModel.rule.finish"></p>
+        <p *ngIf="ruleModel.rule.finish" class="text-white" [ghs-label]="'scenario.rules.finish.' + ruleModel.rule.finish"></p>
         <p *ngIf="ruleModel.rule.note" class="text-white" [ghs-label]="ruleModel.rule.note"></p>
         <div class="menu" *ngIf="apply(ruleModel.rule)">
           <a class="apply" (click)="applyRule(ruleElement, index)">

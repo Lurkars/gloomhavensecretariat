@@ -1,16 +1,16 @@
+import { CountIdentifier } from "src/app/game/model/data/Identifier";
 import { Character } from "../model/Character";
+import { EntityValueFunction } from "../model/Entity";
+import { Game, GameState } from "../model/Game";
+import { Monster } from "../model/Monster";
+import { MonsterEntity } from "../model/MonsterEntity";
+import { GameScenarioModel, Scenario } from "../model/Scenario";
+import { LootDeckConfig, LootType, fullLootDeck } from "../model/data/Loot";
 import { MonsterData } from "../model/data/MonsterData";
+import { MonsterType } from "../model/data/MonsterType";
 import { ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
 import { RoomData } from "../model/data/RoomData";
 import { ScenarioData, ScenarioRewards } from "../model/data/ScenarioData";
-import { EntityValueFunction } from "../model/Entity";
-import { Game, GameState } from "../model/Game";
-import { CountIdentifier } from "src/app/game/model/data/Identifier";
-import { LootDeckConfig, LootType, fullLootDeck } from "../model/data/Loot";
-import { Monster } from "../model/Monster";
-import { MonsterEntity } from "../model/MonsterEntity";
-import { MonsterType } from "../model/data/MonsterType";
-import { GameScenarioModel, Scenario } from "../model/Scenario";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
@@ -23,7 +23,7 @@ export class ScenarioManager {
   }
 
   createScenario(): Scenario {
-    return new Scenario(new ScenarioData(), [], true);
+    return new Scenario(new ScenarioData(), [], [], true);
   }
 
   getScenario(index: string, edition: string, group: string | undefined): ScenarioData | undefined {
@@ -31,7 +31,7 @@ export class ScenarioManager {
   }
 
   setScenario(scenario: Scenario | undefined) {
-    this.game.scenario = scenario ? new Scenario(scenario, scenario.revealedRooms, scenario.custom) : undefined;
+    this.game.scenario = scenario ? new Scenario(scenario, scenario.revealedRooms, scenario.additionalSections, scenario.custom) : undefined;
     if (scenario && !scenario.custom) {
       const scenarioData = gameManager.scenarioData().find((scenarioData) => scenarioData.index == scenario.index && scenarioData.edition == scenario.edition && scenarioData.group == scenario.group);
       if (!scenarioData) {
@@ -377,7 +377,8 @@ export class ScenarioManager {
       if (scenarioData.objectives) {
         scenarioData.objectives.forEach((objectiveData, index) => {
           const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "section": section, "index": index };
-          gameManager.objectiveManager.addObjective(objectiveData, undefined, objectiveIdentifier);
+          const objectiveContainer = gameManager.objectiveManager.addObjective(objectiveData, undefined, objectiveIdentifier);
+          gameManager.objectiveManager.addObjectiveEntity(objectiveContainer);
         })
       }
     } else {
@@ -536,9 +537,10 @@ export class ScenarioManager {
       roomData.objectives.forEach((index) => {
         if (typeof index == 'number' && index > 0) {
           const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "section": section, "index": index - 1 };
-          const objective = gameManager.objectiveDataByScenarioObjectiveIdentifier(objectiveIdentifier);
+          const objective = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(objectiveIdentifier);
           if (objective) {
-            gameManager.objectiveManager.addObjective(objective, undefined, objectiveIdentifier);
+            const objectiveContainer = gameManager.objectiveManager.addObjective(objective, undefined, objectiveIdentifier);
+            gameManager.objectiveManager.addObjectiveEntity(objectiveContainer);
           }
         } else if (typeof index == 'string' && index.indexOf(':') != -1) {
           let split = index.split(':');
@@ -546,10 +548,10 @@ export class ScenarioManager {
           const count = EntityValueFunction(split.join(':'));
           if (id > 0 && count > 0) {
             const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "section": section, "index": id - 1 };
-            const objective = gameManager.objectiveDataByScenarioObjectiveIdentifier(objectiveIdentifier);
+            const objective = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(objectiveIdentifier);
             if (objective) {
               const objectiveContainer = gameManager.objectiveManager.addObjective(objective, undefined, objectiveIdentifier);
-              for (let i = 0; i < count - 1; i++) {
+              for (let i = 0; i < count; i++) {
                 gameManager.objectiveManager.addObjectiveEntity(objectiveContainer);
               }
             }
@@ -714,7 +716,7 @@ export class ScenarioManager {
       return [];
     }
 
-    return this.getSections(this.game.scenario).filter((sectionData) =>
+    const sections = this.getSections(this.game.scenario).filter((sectionData) =>
       // filter conclusion
       (!sectionData.conclusion || includeConclusions)
       // filter already active
@@ -723,6 +725,10 @@ export class ScenarioManager {
       && (!sectionData.parentSections || sectionData.parentSections.some((parentSections) => parentSections.every((parentSection) => this.game.sections.find((active) => active.index == parentSection))))
       // filter blocked
       && !this.game.sections.find((active) => active.edition == sectionData.edition && sectionData.blockedSections && sectionData.blockedSections.indexOf(active.index) != -1)).sort(this.sortScenarios);
+
+    const additionalSections = this.game.scenario.additionalSections.map((index) => this.game.scenario && gameManager.sectionData(this.game.scenario.edition).find((sectionData) => sectionData.group == 'randomMonsterCard' && sectionData.index == index)).filter((sectionData) => sectionData && !this.game.sections.find((active) => active.edition == sectionData.edition && active.index == sectionData.index)).map((sectionData) => sectionData as ScenarioData);
+
+    return [...additionalSections, ...sections];
   }
 
   getTreasures(scenario: Scenario, sections: Scenario[], unlooted: boolean = false): ('G' | number)[] {
@@ -930,7 +936,7 @@ export class ScenarioManager {
     return JSON.parse(JSON.stringify(sectionData));
   }
 
-  toModel(scenarioData: ScenarioData, revealedRooms: number[], custom: boolean = false, customName: string = ""): GameScenarioModel {
-    return new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group, custom, customName, JSON.parse(JSON.stringify(revealedRooms)));
+  toModel(scenarioData: ScenarioData, revealedRooms: number[], additionalSections: string[], custom: boolean = false, customName: string = ""): GameScenarioModel {
+    return new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group, custom, customName, JSON.parse(JSON.stringify(revealedRooms)), JSON.parse(JSON.stringify(additionalSections)));
   }
 }

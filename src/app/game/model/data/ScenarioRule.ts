@@ -1,5 +1,6 @@
 import { ElementModel } from "./Element";
 import { AdditionalIdentifier } from "./Identifier";
+import { ObjectiveData } from "./ObjectiveData";
 import { MonsterStandeeData } from "./RoomData";
 
 export class ScenarioRule {
@@ -20,7 +21,7 @@ export class ScenarioRule {
   elements: ElementModel[] = [];
   disableRules: ScenarioRuleIdentifier[] = [];
   treasures: number | string | ('G' | number)[] = [];
-  finish: "won" | "lost" | undefined = undefined;
+  finish: "won" | "lost" | "round" | undefined = undefined;
 
   constructor(round: string) {
     this.round = round;
@@ -30,43 +31,54 @@ export class ScenarioRule {
 export class MonsterSpawnData {
 
   monster: MonsterStandeeData;
-  count: string | number = "";
-  marker: string = "";
-  summon: boolean = false;
-  manual: boolean = false;
-  manualMin: number = 0;
-  manualMax: number = 0;
+  count: string | number;
+  marker: string;
+  summon: boolean;
+  manual: boolean;
+  manualMin: number;
+  manualMax: number;
 
-  constructor(monster: MonsterStandeeData) {
-    this.monster = monster;
+  constructor(monsterSpawnData: MonsterSpawnData | MonsterStandeeData) {
+    if (monsterSpawnData instanceof MonsterSpawnData) {
+      this.monster = monsterSpawnData.monster;
+      this.count = monsterSpawnData.count || "";
+      this.marker = monsterSpawnData.marker || "";
+      this.summon = monsterSpawnData.summon || false;
+      this.manual = monsterSpawnData.manual || false;
+      this.manualMin = monsterSpawnData.manualMin || 0;
+      this.manualMax = monsterSpawnData.manualMax || 0;
+    } else {
+      this.monster = monsterSpawnData;
+      this.count = "";
+      this.marker = "";
+      this.summon = false;
+      this.manual = false;
+      this.manualMin = 0;
+      this.manualMax = 0;
+
+    }
   }
 
 }
 
 export class ObjectiveSpawnData {
 
-  objective: {
-    index: number,
-    name: string | undefined,
-    escort: boolean,
-    marker: string | undefined,
-    tags: string[] | undefined
-  };
-  count: string | number = "";
-  marker: string = "";
-  summon: boolean = false;
-  manual: boolean = false;
-  manualMin: number = 0;
-  manualMax: number = 0;
+  objective: ObjectiveData;
+  count: string | number;
+  marker: string;
+  summon: boolean;
+  manual: boolean;
+  manualMin: number;
+  manualMax: number;
 
-  constructor(objective: {
-    index: number,
-    name: string | undefined,
-    escort: boolean,
-    marker: string | undefined,
-    tags: string[] | undefined
-  }) {
-    this.objective = objective;
+  constructor(objectiveSpawnData: ObjectiveSpawnData) {
+    this.objective = objectiveSpawnData.objective;
+    this.count = objectiveSpawnData.count || "";
+    this.marker = objectiveSpawnData.marker || "";
+    this.summon = objectiveSpawnData.summon || false;
+    this.manual = objectiveSpawnData.manual || false;
+    this.manualMin = objectiveSpawnData.manualMin || 0;
+    this.manualMax = objectiveSpawnData.manualMax || 0;
   }
 
 }
@@ -75,7 +87,7 @@ export class ScenarioFigureRule {
 
   identifier: ScenarioFigureRuleIdentifier | undefined = undefined;
   identifierRef: number | undefined = undefined;
-  type: "present" | "dead" | "killed" | "gainCondition" | "loseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove" | "removeEntity" | "amAdd" | "amRemove" | "setAbility" | "drawAbility" | "discardAbilityToBottom" | "dormant" | "activate" = "present";
+  type: "present" | "dead" | "killed" | "initiative" | "gainCondition" | "loseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove" | "removeEntity" | "amAdd" | "amRemove" | "setAbility" | "drawAbility" | "discardAbilityToBottom" | "dormant" | "activate" = "present";
   value: string = "";
   scenarioEffect: boolean = false;
 

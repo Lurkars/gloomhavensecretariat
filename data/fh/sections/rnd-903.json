@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Daunting",
   "edition": "fh",
+  "named": true,
   "rules": [
     {
       "round": "true",

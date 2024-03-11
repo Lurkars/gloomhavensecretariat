@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Taloned",
   "edition": "fh",
+  "named": true,
   "rules": [
     {
       "round": "true",

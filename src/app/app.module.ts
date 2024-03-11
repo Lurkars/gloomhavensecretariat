@@ -43,7 +43,6 @@ import { ScenarioMenuComponent } from './ui/header/menu/scenario/scenario';
 import { ScenarioChartDialogComponent } from './ui/header/menu/scenario/chart/scenario-chart';
 import { CharacterInitiativeComponent } from './ui/figures/character/cards/initiative';
 import { CharacterInitiativeDialogComponent } from './ui/figures/character/cards/initiative-dialog';
-import { ObjectiveComponent } from './ui/figures/objective/objective';
 import { ServerMenuComponent } from './ui/header/menu/server/server';
 import { FigureErrorsComponent, FigureErrorsDialogComponent } from './ui/figures/errors/errors';
 import { SectionMenuComponent } from './ui/header/menu/section/section';
@@ -177,7 +176,7 @@ export class GhsErrorHandler extends ErrorHandler {
     EntityMenuDialogComponent, EntitiesMenuDialogComponent, AdditionalAMSelectDialogComponent,
     CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterItemComponent, CharacterItemListComponent, CharacterSheetComponent, CharacterSheetDialog, AbilityCardsDialogComponent, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterRetirementDialog, ItemComponent, ItemDialogComponent, ItemsDialogComponent, ItemsCharacterDialogComponent, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
     EventCardComponent, EventConditionLabelComponent, EventRewardLabelComponent,
-    ObjectiveComponent, ObjectiveContainerComponent,
+    ObjectiveContainerComponent,
     SummonEntityComponent, SummonSheetComponent,
     StandeeComponent,
     MonsterComponent,

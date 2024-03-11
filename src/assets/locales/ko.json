@@ -1404,9 +1404,13 @@
         "transfer": "{0} %data.monster.{1}% {4} 전환",
         "remove": "{0} 제거"
       },
+      "finish": {
+        "lost": "시나리오 패배!",
+        "round": "다음 라운드로!",
+        "won": "시나리오 승리!"
+      },
       "finishWithConclusion": "#{0} 시나리오를 {1} 상태로 끝내기",
       "hide": "다시 표시하지 않음",
-      "lost": "시나리오 패배!",
       "openRoom": "문 열기",
       "openRoomMarker": "%game.mapMarker.{0}% 위치의 문 열기",
       "spawn": "{2}%game.monsterType.{1}% %data.monster.{0}% 출현",
@@ -1418,8 +1422,7 @@
       "spawnObjectiveEscort": "호위 대상 '{0}' 출현",
       "spawnObjectiveEscortMarker": "%game.mapMarker.{2}% 위치에 호위 대상 '{0}' 출현",
       "spawnObjectivesEscort": "호위 대상 '{0}' x{1}만큼 출현",
-      "spawnObjectivesEscortMarker": "%game.mapMarker.{2}% 위치에 호위 대상 '{0}' x{1}만큼 출현",
-      "won": "시나리오 승리!"
+      "spawnObjectivesEscortMarker": "%game.mapMarker.{2}% 위치에 호위 대상 '{0}' x{1}만큼 출현"
     },
     "section": {
       ".": "섹션",

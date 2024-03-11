@@ -1,14 +1,14 @@
-import { EditionData } from "../model/data/EditionData";
-import { Settings } from "../model/Settings";
-import { Spoilable } from "../model/data/Spoilable";
-import { gameManager } from "./GameManager";
-import { storageManager } from "./StorageManager";
-import { BuildingData } from "../model/data/BuildingData";
-import { debugManager } from "./DebugManager";
 import { registerLocaleData } from "@angular/common";
 import localeDe from '@angular/common/locales/de';
 import localeFr from '@angular/common/locales/fr';
 import localeKo from '@angular/common/locales/ko';
+import { Settings } from "../model/Settings";
+import { BuildingData } from "../model/data/BuildingData";
+import { EditionData } from "../model/data/EditionData";
+import { Spoilable } from "../model/data/Spoilable";
+import { debugManager } from "./DebugManager";
+import { gameManager } from "./GameManager";
+import { storageManager } from "./StorageManager";
 
 declare global {
   interface Window { settingsManager: SettingsManager }
@@ -18,7 +18,7 @@ export class SettingsManager {
 
   defaultLocale: string = 'en';
   defaultEditions: string[] = ["gh", "fh", "jotl", "fc", "cs", "toa", "solo"];
-  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/toa.json", "./assets/data/solo.json", "./assets/data/fh-crossover.json", "./assets/data/gh-envx.json", "./assets/data/toa-envv.json", "./assets/data/sc.json", "./assets/data/gh-solo-items.json","./assets/data/sox.json", "./assets/data/ir.json", "./assets/data/bas.json", "./assets/data/cc.json", "./assets/data/r100kc.json"];
+  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/toa.json", "./assets/data/solo.json", "./assets/data/fh-crossover.json", "./assets/data/gh-envx.json", "./assets/data/toa-envv.json", "./assets/data/sc.json", "./assets/data/gh-solo-items.json", "./assets/data/sox.json", "./assets/data/ir.json", "./assets/data/bas.json", "./assets/data/cc.json", "./assets/data/r100kc.json"];
 
   settings: Settings = new Settings();
   label: any = {};
@@ -138,6 +138,11 @@ export class SettingsManager {
     if (settings.serverPassword) {
       settings.serverCode = settings.serverPassword;
       settings.serverPassword = undefined;
+    }
+
+    if (!settings.combineSummonAction) {
+      settings.combineInteractiveAbilities = false;
+      settings.combineSummonAction = true;
     }
 
     this.sortSpoilers();

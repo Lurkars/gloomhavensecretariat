@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Reinforced",
   "edition": "fh",
+  "named": true,
   "rooms": [
     {
       "roomNumber": 1,

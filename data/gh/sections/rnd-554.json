@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Mangy",
   "edition": "gh",
+  "named": true,
   "rooms": [
     {
       "roomNumber": 1,

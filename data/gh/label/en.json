@@ -68,6 +68,9 @@
         "wind-demon": "Wind Demon",
         "winged-horror": "Winged Horror"
     },
+    "objective": {
+        "zephyr": "Zephyr"
+    },
     "deck": {
         "archer": "Archer",
         "boss": "Boss",
@@ -305,6 +308,9 @@
             "deep-terror": {
                 "1": "in a hex adjacent to the target"
             },
+            "elder-drake": {
+                "1": "Fly to next perch of boulders"
+            },
             "flame-demon": {
                 "1": "All adjacent enemies suffer %game.damage:2%.",
                 "2": "Create a %game.damage:4% trap in an adjacent empty hex closest to an enemy."
@@ -362,7 +368,7 @@
                 "sealed": "Sealed",
                 "the-merchant": "The Marchant",
                 "demon-and-rift": "Demon and Rift",
-                "sewers":"Sewers",
+                "sewers": "Sewers",
                 "voice": "Voice",
                 "dragons": "Dragons",
                 "through-jungles": "Thorugh Jungles",

@@ -4,11 +4,13 @@ export class Scenario extends ScenarioData {
 
   custom: boolean;
   revealedRooms: number[];
+  additionalSections: string[] = [];
 
-  constructor(scenarioData: ScenarioData, revealedRooms: number[] = [], custom: boolean = false) {
+  constructor(scenarioData: ScenarioData, revealedRooms: number[] = [], additionalSections: string[] = [],  custom: boolean = false) {
     super(scenarioData);
     this.solo = scenarioData.solo;
     this.revealedRooms = JSON.parse(JSON.stringify(revealedRooms));
+    this.additionalSections = JSON.parse(JSON.stringify(additionalSections));
     if (scenarioData.rooms) {
       scenarioData.rooms.forEach((roomData) => {
         if (roomData.initial && this.revealedRooms.indexOf(roomData.roomNumber) == -1) {
@@ -43,18 +45,21 @@ export class GameScenarioModel {
   isCustom: boolean;
   custom: string;
   revealedRooms: number[] | undefined;
+  additionalSections: string[] | undefined;
 
   constructor(index: string,
     edition: string,
     group: string | undefined = undefined,
     isCustom: boolean = false,
     custom: string = '',
-    revealedRooms: number[] | undefined = undefined) {
+    revealedRooms: number[] | undefined = undefined,
+    additionalSections: string[] | undefined = undefined) {
     this.index = index;
     this.edition = edition;
     this.group = group;
     this.isCustom = isCustom;
     this.custom = custom;
     this.revealedRooms = revealedRooms;
+    this.additionalSections = additionalSections;
   }
 }

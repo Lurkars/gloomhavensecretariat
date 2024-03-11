@@ -9,6 +9,7 @@ import { ScenarioRequirementsComponent } from "src/app/ui/figures/party/requirem
 import { Dialog } from "@angular/cdk/dialog";
 import { Subscription } from "rxjs";
 import { ScenarioChartDialogComponent } from "./chart/scenario-chart";
+import { ghsShuffleArray } from "src/app/ui/helper/Static";
 
 @Component({
   selector: 'ghs-scenario-menu',
@@ -25,6 +26,7 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
   edition: string = "";
   editions: string[] = [];
   groups: (string | undefined)[] = [];
+  hasRandom: boolean = false;
 
   constructor(private dialog: Dialog) { }
 
@@ -64,6 +66,7 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
     } else {
       this.editions = gameManager.editionData.filter((editionData) => editionData.scenarios && editionData.scenarios.filter((scenarioData) => scenarioData.edition == editionData.edition && settingsManager.settings.editions.indexOf(scenarioData.edition) != -1).length > 0).map((editionData) => editionData.edition);
     }
+    this.hasRandom = this.edition && gameManager.sectionData(this.edition).find((sectionData) => sectionData.group == 'randomMonsterCard') != undefined || false;
   }
 
   setEdition(edition: string) {
@@ -158,6 +161,23 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
       gameManager.game.scenario.name = event.target.value;
       gameManager.stateManager.after();
     }
+  }
+
+  randomScenario() {
+    const shuffledSections = ghsShuffleArray(gameManager.sectionData(this.edition).filter((sectionData) => sectionData.group == 'randomMonsterCard'));
+
+    if (shuffledSections.length < 3) {
+      return;
+    }
+
+    gameManager.stateManager.before("setRandomScenario");
+    const scenario = gameManager.scenarioManager.createScenario();
+    scenario.name = "%scenario.random%";
+    scenario.additionalSections = shuffledSections.slice(0, 3).map((sectionData) => sectionData.index);
+    gameManager.scenarioManager.setScenario(undefined);
+    gameManager.scenarioManager.setScenario(scenario);
+    gameManager.scenarioManager.addSection(shuffledSections[0]);
+    gameManager.stateManager.after();
   }
 
   manualScenario(input: HTMLInputElement, group: string | undefined) {

@@ -3,17 +3,33 @@
     <div class="column custom-container">
       <div class="line custom-check">
         <label>
-          <input tabclick type="checkbox" [checked]="gameManager.game.scenario && gameManager.game.scenario.custom"
+          <input tabclick type="checkbox"
+            [checked]="gameManager.game.scenario && gameManager.game.scenario.custom && gameManager.game.scenario.name != '%scenario.random%'"
             (change)="customScenario()">
           &lt;<span [ghs-label]="'scenario.custom'"></span>&gt;
         </label>
       </div>
-      <div class="line" *ngIf="gameManager.game.scenario && gameManager.game.scenario.custom">
+    </div>
+    <div class="column"
+      *ngIf="gameManager.game.scenario && gameManager.game.scenario.custom && gameManager.game.scenario.name != '%scenario.random%'">
+
+      <div class="line">
         <input type="text" [value]="gameManager.game.scenario.name" (change)="customScenarioName($event)"
           [ghs-label]="'scenario.title'" [ghs-label-attribute]="'placeholder'">
       </div>
     </div>
-    <div class="column" *ngIf="gameManager.game.scenario && !gameManager.game.scenario.custom">
+  </div>
+  <div class="columns">
+    <div class="column">
+      <div class="line" [ngClass]="{'disabled': !hasRandom}">
+        <label tabclick (click)="randomScenario()">
+          <span [ghs-label]="'scenario.random'"></span>&nbsp;
+          <img class="ghs-svg" src="./assets/images/check.svg"
+            *ngIf="gameManager.game.scenario && gameManager.game.scenario.custom && gameManager.game.scenario.name == '%scenario.random%'">
+        </label>
+      </div>
+    </div>
+    <div class="column" *ngIf="gameManager.game.scenario">
       <div class="line">
         <a tabclick (click)="resetScenario()">&lt;<span [ghs-label]="'scenario.reset'"></span>!&gt;</a>
       </div>

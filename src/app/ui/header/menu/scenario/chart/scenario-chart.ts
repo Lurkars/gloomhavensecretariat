@@ -1,5 +1,5 @@
 import { DIALOG_DATA } from "@angular/cdk/dialog";
-import { AfterViewInit, Component,  Inject, OnInit, ViewEncapsulation } from "@angular/core";
+import { AfterViewInit, Component, Inject, OnInit, ViewEncapsulation } from "@angular/core";
 
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import mermaid from 'mermaid';
@@ -85,12 +85,21 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 if (subgraph) {
                     this.flow.push("end");
                 }
+
                 if (scenarioData.flowChartGroup) {
-                    this.flow.push("subgraph \"" + settingsManager.getLabel('data.custom.' + this.edition + '.flowChartGroup.' + scenarioData.flowChartGroup) + "\"");
-                    subgraph = scenarioData.flowChartGroup;
+                    if (scenarios.find((other) => other != scenarioData && other.flowChartGroup == scenarioData.flowChartGroup)) {
+                        this.flow.push("subgraph \"" + settingsManager.getLabel('data.custom.' + this.edition + '.flowChartGroup.' + scenarioData.flowChartGroup) + "\"");
+                        subgraph = scenarioData.flowChartGroup;
+                    } else {
+                        subgraph = undefined;
+                    }
                 } else {
-                    this.flow.push("subgraph \"" + settingsManager.getLabel('data.scenario.group.' + scenarioData.group) + "\"");
-                    subgraph = scenarioData.group;
+                    if (scenarios.find((other) => other != scenarioData && !other.flowChartGroup && other.group == scenarioData.group)) {
+                        this.flow.push("subgraph \"" + settingsManager.getLabel('data.scenario.group.' + scenarioData.group) + "\"");
+                        subgraph = scenarioData.group;
+                    } else {
+                        subgraph = undefined;
+                    }
                 }
             }
 

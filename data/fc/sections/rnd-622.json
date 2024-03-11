@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Arid",
   "edition": "fc",
+  "named": true,
   "rooms": [
     {
       "roomNumber": 1,

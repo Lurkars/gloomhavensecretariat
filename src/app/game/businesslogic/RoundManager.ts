@@ -1,21 +1,19 @@
 import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
 import { Character } from "../model/Character";
-import { ElementState } from "../model/data/Element";
-import { EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
-import { LootDeck } from "../model/data/Loot";
 import { Monster } from "../model/Monster";
-import { Objective } from "../model/Objective";
+import { MonsterEntity } from "../model/MonsterEntity";
+import { ObjectiveContainer } from "../model/ObjectiveContainer";
+import { Scenario } from "../model/Scenario";
 import { Summon, SummonState } from "../model/Summon";
+import { Condition, ConditionName, ConditionType } from "../model/data/Condition";
+import { ElementState } from "../model/data/Element";
+import { ItemFlags } from "../model/data/ItemData";
+import { LootDeck } from "../model/data/Loot";
+import { ScenarioData } from "../model/data/ScenarioData";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
-import { Condition, ConditionName, ConditionType } from "../model/data/Condition";
-import { MonsterEntity } from "../model/MonsterEntity";
-import { Scenario } from "../model/Scenario";
-import { ScenarioData } from "../model/data/ScenarioData";
-import { ItemFlags } from "../model/data/ItemData";
-import { ObjectiveContainer } from "../model/ObjectiveContainer";
 
 export class RoundManager {
 
@@ -28,7 +26,7 @@ export class RoundManager {
   }
 
   drawAvailable(): boolean {
-    return this.game.figures.length > 0 && (this.game.state == GameState.next || this.game.figures.every((figure) => figure instanceof Monster || figure instanceof Objective && (figure.getInitiative() > 0 || figure.exhausted || !settingsManager.settings.initiativeRequired) || figure instanceof ObjectiveContainer && (figure.getInitiative() > 0 || !settingsManager.settings.initiativeRequired) || figure instanceof Character && (figure.getInitiative() > 0 || figure.exhausted || figure.absent || !settingsManager.settings.initiativeRequired)
+    return this.game.figures.length > 0 && (this.game.state == GameState.next || this.game.figures.every((figure) => figure instanceof Monster || figure instanceof ObjectiveContainer && (figure.getInitiative() > 0 || !settingsManager.settings.initiativeRequired) || figure instanceof Character && (figure.getInitiative() > 0 || figure.exhausted || figure.absent || !settingsManager.settings.initiativeRequired)
     ));
   }
 
@@ -72,7 +70,7 @@ export class RoundManager {
         gameManager.attackModifierManager.draw();
         gameManager.lootManager.draw();
         if (!this.game.scenario) {
-          this.game.scenario = new Scenario(new ScenarioData(), [], true);
+          this.game.scenario = new Scenario(new ScenarioData(), [], [], true);
         }
       }
       this.game.state = GameState.next;
@@ -338,7 +336,7 @@ export class RoundManager {
       }
     }
 
-    if ((figure instanceof Character || figure instanceof Objective) && !gameManager.entityManager.isAlive(figure) || figure instanceof Monster && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity)) || figure instanceof ObjectiveContainer && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity))) {
+    if (figure instanceof Character && !gameManager.entityManager.isAlive(figure) || figure instanceof Monster && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity)) || figure instanceof ObjectiveContainer && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity))) {
       gameManager.roundManager.toggleFigure(figure);
     }
   }
@@ -460,9 +458,6 @@ export class RoundManager {
         figure.ability = -1;
         figure.abilities = [];
         gameManager.monsterManager.resetMonsterAbilities(figure);
-      } else if (figure instanceof Objective) {
-        figure.health = EntityValueFunction(figure.maxHealth);
-        figure.entityConditions = [];
       } else if (figure instanceof ObjectiveContainer) {
         figure.entities = [];
       }
@@ -476,6 +471,13 @@ export class RoundManager {
     }
 
     gameManager.stateManager.standeeDialogCanceled = false;
+
+    if (this.game.scenario && this.game.scenario.custom && this.game.scenario.name == '%scenario.random%' && this.game.scenario.additionalSections && this.game.scenario.additionalSections.length) {
+      const firstRandomCard = gameManager.sectionData(this.game.scenario.edition).find((sectionData) => this.game.scenario && sectionData.group == 'randomMonsterCard' && sectionData.index == this.game.scenario.additionalSections[0]);
+      if (firstRandomCard) {
+        gameManager.scenarioManager.addSection(firstRandomCard);
+      }
+    }
 
     gameManager.uiChange.emit();
   }

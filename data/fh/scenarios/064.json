@@ -23,7 +23,9 @@
         "height": 212
       }
     },
-    "custom": "Open the scenario flowchart window to the right of The Frozen Seal (64) and apply the sticker over the completed scenario",
+    "hints": {
+      "overlayCampaignSticker": "Open the scenario flowchart window to the right of The Frozen Seal (%data.scenarioNumber:64%) and apply the sticker over the completed scenario"
+    },
     "morale": 3
   },
   "monsters": [

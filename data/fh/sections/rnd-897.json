@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Traitorous",
   "edition": "fh",
+  "named": true,
   "rules": [
     {
       "round": "true",

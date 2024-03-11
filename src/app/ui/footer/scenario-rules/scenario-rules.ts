@@ -1,26 +1,25 @@
 import { Dialog } from "@angular/cdk/dialog";
+import { moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
-import { MonsterStandeeData, RoomData } from "src/app/game/model/data/RoomData";
-import { ScenarioRule, ScenarioFigureRule, MonsterSpawnData } from "src/app/game/model/data/ScenarioRule";
 import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
-import { Monster } from "src/app/game/model/Monster";
-import { MonsterType } from "src/app/game/model/data/MonsterType";
-import { Objective } from "src/app/game/model/Objective";
-import { Condition } from "src/app/game/model/data/Condition";
-import { ScenarioData } from "src/app/game/model/data/ScenarioData";
-import { AttackModifier, AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { Figure } from "src/app/game/model/Figure";
-import { ScenarioObjectiveIdentifier } from "src/app/game/model/data/ObjectiveData";
-import { MonsterEntity } from "src/app/game/model/MonsterEntity";
-import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
-import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
-import { ConditionName } from "src/app/game/model/data/Condition";
 import { GameState } from "src/app/game/model/Game";
+import { Monster } from "src/app/game/model/Monster";
+import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
-import { moveItemInArray } from "@angular/cdk/drag-drop";
+import { ObjectiveEntity } from "src/app/game/model/ObjectiveEntity";
+import { AttackModifier, AttackModifierType } from "src/app/game/model/data/AttackModifier";
+import { Condition, ConditionName } from "src/app/game/model/data/Condition";
+import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
+import { MonsterType } from "src/app/game/model/data/MonsterType";
+import { ScenarioObjectiveIdentifier } from "src/app/game/model/data/ObjectiveData";
+import { MonsterStandeeData, RoomData } from "src/app/game/model/data/RoomData";
+import { ScenarioData } from "src/app/game/model/data/ScenarioData";
+import { MonsterSpawnData, ScenarioFigureRule, ScenarioRule } from "src/app/game/model/data/ScenarioRule";
+import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
 
 @Component({
     selector: 'ghs-scenario-rules',
@@ -114,7 +113,7 @@ export class ScenarioRulesComponent {
 
     figureRules(rule: ScenarioRule): ScenarioFigureRule[] {
         return rule.figures && rule.figures.filter((figureRule) => {
-            if (figureRule.type == "present" || figureRule.type == "dead" || figureRule.type == "killed") {
+            if (figureRule.type == "present" || figureRule.type == "dead" || figureRule.type == "killed" || figureRule.type == "initiative") {
                 return false;
             }
 
@@ -188,7 +187,7 @@ export class ScenarioRulesComponent {
                     if (figure instanceof Character) {
                         return settingsManager.getLabel('%game.characterIconColored.' + figure.name + '%') + gameManager.characterManager.characterName(figure);
                     }
-                    if (figure instanceof Objective || figure instanceof ObjectiveContainer) {
+                    if (figure instanceof ObjectiveContainer) {
                         return (figure.title || settingsManager.getLabel('data.objective.' + figure.name)) + (figure.marker ? ' %game.mapMarker.' + figure.marker + '%' : '');
                     }
                     if (figure instanceof Monster) {
@@ -222,7 +221,7 @@ export class ScenarioRulesComponent {
     }
 
     apply(rule: ScenarioRule) {
-        return this.spawns(rule).length > 0 || rule.objectiveSpawns && rule.objectiveSpawns.length > 0 || rule.elements && rule.elements.length > 0 || rule.finish || settingsManager.settings.scenarioRooms && rule.rooms && rule.rooms.length > 0 || rule.sections && rule.sections.length > 0 || rule.figures && rule.figures.length > 0 && rule.figures.some((figureRule) => figureRule.type != "present" && figureRule.type != "dead" && figureRule.type != "killed");
+        return this.spawns(rule).length > 0 || rule.objectiveSpawns && rule.objectiveSpawns.length > 0 || rule.elements && rule.elements.length > 0 || rule.finish || settingsManager.settings.scenarioRooms && rule.rooms && rule.rooms.length > 0 || rule.sections && rule.sections.length > 0 || rule.figures && rule.figures.length > 0 && rule.figures.some((figureRule) => figureRule.type != "present" && figureRule.type != "dead" && figureRule.type != "killed" && figureRule.type != "initiative");
     }
 
     applyRule(element: HTMLElement, index: number) {
@@ -238,9 +237,7 @@ export class ScenarioRulesComponent {
                     rule.figures.filter((figureRule) => figureRule.type == "remove").forEach((figureRule) => {
                         const figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
                         figures.forEach((figure) => {
-                            if (figure instanceof Objective) {
-                                gameManager.characterManager.removeObjective(figure);
-                            } else if (figure instanceof ObjectiveContainer) {
+                            if (figure instanceof ObjectiveContainer) {
                                 gameManager.objectiveManager.removeObjective(figure);
                             } else if (figure instanceof Monster) {
                                 gameManager.monsterManager.removeMonster(figure);
@@ -279,10 +276,10 @@ export class ScenarioRulesComponent {
 
                 if (rule.objectiveSpawns) {
                     rule.objectiveSpawns.forEach((spawn) => {
-                        const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenario.edition, "scenario": scenario.index, "group": scenario.group, "section": section, "index": spawn.objective.index - 1 };
-                        const objectiveData = gameManager.objectiveDataByScenarioObjectiveIdentifier(objectiveIdentifier);
+                        const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenario.edition, "scenario": scenario.index, "group": scenario.group, "section": section, "index": spawn.objective.id - 1 };
+                        const objectiveData = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(objectiveIdentifier);
                         if (objectiveData && spawn.count != 0) {
-                            const count = EntityValueFunction(spawn.count || 1) - 1;
+                            const count = EntityValueFunction(spawn.count || 1);
                             let objective = gameManager.objectiveManager.addObjective(objectiveData, objectiveData.name, objectiveIdentifier);
                             if (objective) {
                                 if (spawn.objective.marker) {
@@ -421,8 +418,8 @@ export class ScenarioRulesComponent {
                                             gameManager.characterManager.removeCharacter(entity);
                                         } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
                                             gameManager.monsterManager.removeMonsterEntity(figure, entity);
-                                        } else if (entity instanceof Objective) {
-                                            gameManager.characterManager.removeObjective(entity);
+                                        } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
+                                            gameManager.objectiveManager.removeObjectiveEntity(figure, entity)
                                         }
                                         if (figureRule.identifier) {
                                             gameManager.entityCounters(figureRule.identifier).forEach((entityCounter) => {
@@ -498,22 +495,6 @@ export class ScenarioRulesComponent {
                                 }
                                 gameManager.sortFigures(monster);
                             }
-                        } else if (figures.length == 1 && figures[0] instanceof Objective) {
-                            const figure = figures[0];
-                            const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenario.edition, "scenario": scenario.index, "group": scenario.group, "section": section, "index": (+figureRule.value) - 1 };
-                            const objective = gameManager.characterManager.addObjective(scenario.objectives[(+figureRule.value) - 1], undefined, objectiveIdentifier);
-                            objective.id = figure.id;
-                            objective.marker = figure.marker;
-                            objective.title = figure.title;
-                            objective.exhausted = figure.exhausted;
-                            objective.off = figure.off;
-                            objective.active = figure.active;
-                            objective.health = figure.health;
-                            if (objective.health > EntityValueFunction(objective.maxHealth)) {
-                                objective.health = EntityValueFunction(objective.maxHealth);
-                            }
-                            objective.entityConditions = figure.entityConditions;
-                            gameManager.characterManager.removeObjective(figure);
                         } else if (figures.length == 1 && figures[0] instanceof ObjectiveContainer) {
                             const figure = figures[0];
                             const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenario.edition, "scenario": scenario.index, "group": scenario.group, "section": section, "index": (+figureRule.value) - 1 };
@@ -610,10 +591,9 @@ export class ScenarioRulesComponent {
                             }
                         })
                     })
-
                 }
 
-                if (rule.finish) {
+                if (rule.finish && ["won", "lost"].indexOf(rule.finish) != -1) {
                     this.dialog.open(ScenarioSummaryComponent, {
                         panelClass: ['dialog'],
                         data: { scenario: scenario, success: rule.finish == "won" }
@@ -626,6 +606,11 @@ export class ScenarioRulesComponent {
                         gameManager.game.disgardedScenarioRules.push(identifier);
                     }
                     gameManager.game.scenarioRules.splice(index, 1)[0];
+
+                    if (rule.finish == "round") {
+                        gameManager.roundManager.nextGameState();
+                    }
+
                     gameManager.stateManager.after();
                 }, !settingsManager.settings.animations ? 0 : 100)
             }

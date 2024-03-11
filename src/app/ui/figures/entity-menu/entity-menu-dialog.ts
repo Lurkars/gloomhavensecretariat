@@ -1,27 +1,26 @@
-import { DialogRef, DIALOG_DATA, Dialog } from "@angular/cdk/dialog";
+import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
+import { Overlay } from "@angular/cdk/overlay";
 import { ChangeDetectorRef, Component, ElementRef, HostListener, Inject, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Action";
-import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { Character } from "src/app/game/model/Character";
-import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
 import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
-import { MonsterType } from "src/app/game/model/data/MonsterType";
-import { Objective, OBJECTIV_MARKERS } from "src/app/game/model/Objective";
+import { OBJECTIV_MARKERS, ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
+import { ObjectiveEntity } from "src/app/game/model/ObjectiveEntity";
 import { Summon, SummonColor, SummonState } from "src/app/game/model/Summon";
+import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Action";
+import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/data/AttackModifier";
+import { CharacterSpecialAction } from "src/app/game/model/data/CharacterStat";
+import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
+import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { ghsDefaultDialogPositions, ghsDialogClosingHelper, ghsModulo, ghsValueSign } from "../../helper/Static";
 import { AttackModiferDeckChange } from "../attackmodifier/attackmodifierdeck";
-import { MonsterNumberPickerDialog } from "../monster/dialogs/numberpicker-dialog";
-import { Overlay } from "@angular/cdk/overlay";
-import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
-import { ObjectiveEntity } from "src/app/game/model/ObjectiveEntity";
-import { AdditionalAMSelectDialogComponent } from "./additional-am-select/additional-am-select";
-import { CharacterSpecialAction } from "src/app/game/model/data/CharacterStat";
 import { CharacterSheetDialog } from "../character/dialogs/character-sheet-dialog";
+import { MonsterNumberPickerDialog } from "../monster/dialogs/numberpicker-dialog";
+import { AdditionalAMSelectDialogComponent } from "./additional-am-select/additional-am-select";
 
 @Component({
   selector: 'ghs-entity-menu-dialog',
@@ -106,7 +105,7 @@ export class EntityMenuDialogComponent {
           }
         }
       }
-    } else if (data.entity instanceof Objective && data.entity.escort || data.figure instanceof ObjectiveContainer && data.figure.escort) {
+    } else if (data.figure instanceof ObjectiveContainer && data.figure.escort) {
       this.conditionType = 'character';
     } else if (data.entity instanceof MonsterEntity) {
       this.conditionType = 'monster';
@@ -471,19 +470,15 @@ export class EntityMenuDialogComponent {
   }
 
   toggleExhausted() {
-    if (this.data.entity instanceof Character || this.data.entity instanceof Objective) {
-      if (this.data.entity instanceof Character) {
-        gameManager.stateManager.before(this.data.entity.exhausted ? "unsetExhausted" : "setExhausted", gameManager.characterManager.characterName(this.data.entity));
-      } else {
-        gameManager.stateManager.before(this.data.entity.exhausted ? "unsetObjectiveExhausted" : "setObjectiveExhausted", this.data.entity.title || this.data.entity.name);
-      }
+    if (this.data.entity instanceof Character) {
+      gameManager.stateManager.before(this.data.entity.exhausted ? "unsetExhausted" : "setExhausted", gameManager.characterManager.characterName(this.data.entity));
       this.exhausted();
       gameManager.stateManager.after();
     }
   }
 
   exhausted() {
-    if (this.data.entity instanceof Character || this.data.entity instanceof Objective) {
+    if (this.data.entity instanceof Character) {
       this.data.entity.exhausted = !this.data.entity.exhausted;
       if (this.data.entity.exhausted) {
         this.data.entity.off = true;
@@ -496,7 +491,7 @@ export class EntityMenuDialogComponent {
 
   changeMaxHealth(value: number) {
     this.maxHp += value;
-    if (!(this.data.entity instanceof Character) && !(this.data.entity instanceof Objective) && !(this.data.figure instanceof ObjectiveContainer)) {
+    if (!(this.data.entity instanceof Character) && !(this.data.figure instanceof ObjectiveContainer)) {
       this.health += value;
     }
 
@@ -565,8 +560,6 @@ export class EntityMenuDialogComponent {
         gameManager.stateManager.before(this.hasMarker(marker) ? "removeMarker" : "addMarker", gameManager.characterManager.characterName(this.data.entity), "data.character." + marker.split('-')[1]);
       } else if (this.data.entity instanceof Summon) {
         gameManager.stateManager.before(this.hasMarker(marker) ? "removeSummonMarker" : "addSummonMarker", gameManager.characterManager.characterName(this.data.figure as Character), "data.summon." + this.data.entity.name, "data.character." + marker.split('-')[1]);
-      } else if (this.data.entity instanceof Objective) {
-        gameManager.stateManager.before(this.hasMarker(marker) ? "removeObjectiveMarker" : "addObjectiveMarker", this.data.entity.title || this.data.entity.name, "data.character." + marker.split('-')[1]);
       } else if (this.data.figure instanceof ObjectiveContainer && this.data.entity instanceof ObjectiveEntity) {
         gameManager.stateManager.before(this.hasMarker(marker) ? "removeObjectiveEntityMarker" : "addObjectiveEntityMarker", this.data.figure.title || this.data.figure.name, "" + this.data.entity.number, "data.character." + marker.split('-')[1]);
       }
@@ -615,8 +608,6 @@ export class EntityMenuDialogComponent {
       this.dead();
     } else if (this.data.entity instanceof Summon) {
       this.dead();
-    } else if (this.data.entity instanceof Objective) {
-      this.dead();
     } else if (this.data.entity instanceof ObjectiveEntity) {
       this.dead();
     }
@@ -648,10 +639,6 @@ export class EntityMenuDialogComponent {
           gameManager.stateManager.after();
         }
       }, !settingsManager.settings.animations ? 0 : 1500);
-    } else if (this.data.entity instanceof Objective) {
-      gameManager.stateManager.before("removeObjective", this.data.entity.title || this.data.entity.name);
-      gameManager.characterManager.removeObjective(this.data.entity);
-      gameManager.stateManager.after();
     } else if (this.data.figure instanceof ObjectiveContainer && this.data.entity instanceof ObjectiveEntity) {
       let name = this.data.figure.name;
       if (!name) {
@@ -719,15 +706,6 @@ export class EntityMenuDialogComponent {
   }
 
   changeId(value: number) {
-    if (this.data.entity instanceof Objective) {
-      this.id = ghsModulo(this.id + value, 12);
-
-      if (gameManager.game.figures.filter((figure) => figure instanceof Objective).length < 12) {
-        while (gameManager.game.figures.some((figure) => figure instanceof Objective && figure.id == this.id)) {
-          this.id = ghsModulo(this.id + value, 12);
-        }
-      }
-    }
     if (this.data.figure instanceof ObjectiveContainer && this.data.entity instanceof ObjectiveEntity) {
       this.id += value;
       let newId = this.data.entity.number + this.id;
@@ -753,7 +731,7 @@ export class EntityMenuDialogComponent {
   }
 
   changeMarker(value: number) {
-    if (this.data.entity instanceof Objective || this.data.figure instanceof ObjectiveContainer) {
+    if (this.data.figure instanceof ObjectiveContainer) {
       this.marker = ghsModulo(this.marker + value, OBJECTIV_MARKERS.length);
     }
   }
@@ -866,8 +844,6 @@ export class EntityMenuDialogComponent {
       this.closeMonster();
     } else if (this.data.entity instanceof Summon) {
       this.closeSummon();
-    } else if (this.data.entity instanceof Objective) {
-      this.closeObjective();
     } else if (this.data.entity instanceof ObjectiveEntity) {
       this.closeObjectiveEntity();
     } else if (this.data.figure instanceof ObjectiveContainer) {
@@ -1187,76 +1163,11 @@ export class EntityMenuDialogComponent {
   }
 
   showMaxHealth(): boolean {
-    if (this.data.entity instanceof Objective) {
-      return !isNaN(+this.data.entity.maxHealth) && EntityValueFunction(this.data.entity.maxHealth) > 0;
-    } else if (this.data.figure instanceof ObjectiveContainer) {
+    if (this.data.figure instanceof ObjectiveContainer) {
       return !isNaN(+this.data.figure.health) && EntityValueFunction(this.data.figure.health) > 0;
     }
     return false;
   }
-
-  closeObjective() {
-    if (this.data.entity instanceof Objective) {
-      if (this.maxHp) {
-        gameManager.stateManager.before("changeObjectiveMaxHp", this.data.entity.title || this.data.entity.name || this.data.entity.escort ? 'escort' : 'objective', ghsValueSign(this.maxHp));
-        if (+this.data.entity.maxHealth + this.maxHp < EntityValueFunction(this.data.entity.maxHealth) || this.data.entity.health == EntityValueFunction(this.data.entity.maxHealth)) {
-          this.data.entity.health = +this.data.entity.maxHealth + this.maxHp;
-        }
-        this.data.entity.maxHealth = +this.data.entity.maxHealth + this.maxHp;
-        gameManager.stateManager.after();
-      }
-
-      if (this.health != 0) {
-        gameManager.stateManager.before("changeHP", this.data.entity.title || this.data.entity.name || this.data.entity.escort ? 'escort' : 'objective', ghsValueSign(this.health));
-        gameManager.entityManager.changeHealth(this.data.entity, this.data.figure, this.health);
-        if (this.data.entity.health <= 0 || this.data.entity.exhausted && this.health >= 0 && this.data.entity.health > 0) {
-          if (this.data.entity.escort) {
-            this.exhausted();
-          } else {
-            gameManager.characterManager.removeObjective(this.data.entity);
-          }
-        }
-        gameManager.stateManager.after();
-        this.health = 0;
-      }
-
-      const newId = ghsModulo(this.id + this.data.entity.id, 12);
-      if (newId != this.data.entity.id) {
-        gameManager.stateManager.before("changeObjectiveId", this.data.entity.title || this.data.entity.name || this.data.entity.escort ? 'escort' : 'objective', "" + (newId + 1));
-        this.data.entity.id = newId;
-        gameManager.stateManager.after();
-      }
-      this.id = 0;
-
-      if (!this.data.entity.marker) {
-        this.data.entity.marker = "";
-      }
-
-      const newMarker = OBJECTIV_MARKERS[ghsModulo(this.marker + OBJECTIV_MARKERS.indexOf(this.data.entity.marker), OBJECTIV_MARKERS.length)];
-
-      if (newMarker != this.data.entity.marker) {
-        gameManager.stateManager.before("changeObjectiveMarker", this.data.entity.title || this.data.entity.name || this.data.entity.escort ? 'escort' : 'objective', newMarker);
-        this.data.entity.marker = newMarker;
-        gameManager.stateManager.after();
-      }
-      this.marker = 0;
-
-      if (this.objectiveTitleInput) {
-        if (this.objectiveTitleInput.nativeElement.value && this.objectiveTitleInput.nativeElement.value != this.data.entity.name) {
-          if (this.data.entity.title != this.objectiveTitleInput.nativeElement.value) {
-            gameManager.stateManager.before("setTitle", this.data.entity.name, this.objectiveTitleInput.nativeElement.value);
-            this.data.entity.title = this.objectiveTitleInput.nativeElement.value;
-            gameManager.stateManager.after();
-          }
-        } else if (this.data.entity.title != "") {
-          gameManager.stateManager.before("unsetTitle", this.data.entity.name || this.data.entity.escort ? 'escort' : 'objective', this.data.entity.title);
-          this.data.entity.title = "";
-          gameManager.stateManager.after();
-        }
-      }
-    }
-  }
-
 
   closeObjectiveEntity() {
     if (this.data.figure instanceof ObjectiveContainer && this.data.entity instanceof ObjectiveEntity) {

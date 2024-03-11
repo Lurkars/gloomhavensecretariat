@@ -71,6 +71,13 @@
       ]
     },
     {
+      "round": "R == 5",
+      "start": true,
+      "sections": [
+        "124.3"
+      ]
+    },
+    {
       "round": "R == 6",
       "start": true,
       "sections": [
@@ -78,10 +85,24 @@
       ]
     },
     {
+      "round": "R == 7",
+      "start": true,
+      "sections": [
+        "166.2"
+      ]
+    },
+    {
       "round": "R == 8",
       "start": true,
       "sections": [
         "132.4"
+      ]
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "sections": [
+        "186.4"
       ]
     },
     {

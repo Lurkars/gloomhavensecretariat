@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Deomesticated",
   "edition": "fh",
+  "named": true,
   "rooms": [
     {
       "roomNumber": 1,

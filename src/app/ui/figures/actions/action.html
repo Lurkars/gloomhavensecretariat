@@ -24,7 +24,7 @@
         <span *ngIf="fhStyle && index > 0">,</span>
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"
           [right]="right" [hexSize]="hexSize" [statsCalculation]="statsCalculation"
-          [highlightElements]="highlightElements" [index]="(actionIndex ? actionIndex + '-' : '') + index"
+          [interactiveAbilities]="interactiveAbilities" [index]="(actionIndex ? actionIndex + '-' : '') + index"
           [monsterType]="monsterType" [style]="style">
         </ghs-action>
       </ng-container>
@@ -78,7 +78,7 @@
         <ghs-action class="element-subaction" [ngClass]="'subaction-' + subAction.type" [action]="subAction"
           [monster]="monster" [relative]="relative || forceRelative" [inline]="inline" [right]="right"
           [hexSize]="hexSize"
-          [highlightElements]="highlightElements && (action.valueType != ActionValueType.minus || elementActionsPerformed(getValues(action), true))"
+          [interactiveAbilities]="interactiveAbilities && (action.valueType != ActionValueType.minus || elementActionsPerformed(getValues(action), true))"
           [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + index"
           [monsterType]="monsterType" [style]="style">
         </ghs-action>
@@ -96,7 +96,7 @@
           <span *ngIf="fhStyle && index > 0">,</span>
           <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster"
             [relative]="relative" [inline]="inline" [right]="right" [hexSize]="hexSize"
-            [highlightElements]="highlightElements" [statsCalculation]="statsCalculation"
+            [interactiveAbilities]="interactiveAbilities" [statsCalculation]="statsCalculation"
             [index]="(actionIndex ? actionIndex + '-' : '') + index" [monsterType]="getMonsterType('' + action.value)"
             [style]="style">
           </ghs-action>
@@ -121,7 +121,7 @@
       <ng-container *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index;">
         <span *ngIf="fhStyle && index > 0">,</span>
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"
-          [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
+          [right]="right" [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities"
           [relative]="relative || forceRelative" [statsCalculation]="statsCalculation"
           [index]="(actionIndex ? actionIndex + '-' : '') + index" [monsterType]="monsterType" [style]="style">
         </ghs-action>
@@ -136,7 +136,7 @@
       <ghs-action [ngClass]="'subaction-' + subAction.type"
         *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index;" [action]="subAction"
         [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
-        [highlightElements]="highlightElements" [relative]="relative || forceRelative"
+        [interactiveAbilities]="interactiveAbilities" [relative]="relative || forceRelative"
         [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + index"
         [monsterType]="monsterType" [style]="style">
       </ghs-action>
@@ -153,7 +153,7 @@
       <ghs-action [ngClass]="'subaction-' + subAction.type"
         *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index" [action]="subAction"
         [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
-        [highlightElements]="highlightElements" [relative]="relative || forceRelative"
+        [interactiveAbilities]="interactiveAbilities" [relative]="relative || forceRelative"
         [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + index"
         [monsterType]="monsterType" [style]="style">
       </ghs-action>
@@ -168,7 +168,7 @@
       <ghs-action [ngClass]="'subaction-' + subAction.type"
         *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index;" [action]="subAction"
         [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
-        [highlightElements]="highlightElements" [relative]="relative || forceRelative"
+        [interactiveAbilities]="interactiveAbilities" [relative]="relative || forceRelative"
         [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + index"
         [monsterType]="monsterType" [style]="style">
       </ghs-action>
@@ -182,7 +182,7 @@
       <ghs-action [ngClass]="'subaction-' + subAction.type"
         *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index" [action]="subAction"
         [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
-        [highlightElements]="highlightElements" [relative]="true" [statsCalculation]="false"
+        [interactiveAbilities]="interactiveAbilities" [relative]="true" [statsCalculation]="false"
         [index]="(actionIndex ? actionIndex + '-' : '') + index" [monsterType]="monsterType" [style]="style">
       </ghs-action>
     </div>
@@ -190,13 +190,13 @@
 
   <span class="action-summon" *ngSwitchCase="ActionType.summon" [ngClass]="{'small' : action.small}">
     <ghs-action-summon [action]="action" [right]="right" [monster]="monster" [objective]="objective"
-      [highlight]="highlightElements" [index]="actionIndex" [monsterType]="monsterType"
+      [interactiveAbilities]="interactiveAbilities" [index]="actionIndex" [monsterType]="monsterType"
       [style]="style"></ghs-action-summon>
     <ng-container *ngIf="subActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type"
         *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index;" [action]="subAction"
         [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
-        [highlightElements]="highlightElements" [relative]="relative || forceRelative"
+        [interactiveAbilities]="interactiveAbilities" [relative]="relative || forceRelative"
         [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + index"
         [monsterType]="monsterType" [style]="style">
       </ghs-action>
@@ -205,13 +205,13 @@
 
   <span class="action-summon" *ngSwitchCase="ActionType.spawn" [ngClass]="{'small' : action.small}">
     <ghs-action-summon [action]="action" [right]="right" [monster]="monster" [objective]="objective" [spawn]="true"
-      [highlight]="highlightElements" [index]="actionIndex" [monsterType]="monsterType"
+      [interactiveAbilities]="interactiveAbilities" [index]="actionIndex" [monsterType]="monsterType"
       [style]="style"></ghs-action-summon>
     <ng-container *ngIf="subActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type"
         *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index" [action]="subAction"
         [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
-        [highlightElements]="highlightElements" [relative]="relative || forceRelative"
+        [interactiveAbilities]="interactiveAbilities" [relative]="relative || forceRelative"
         [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + index"
         [monsterType]="monsterType" [style]="style">
       </ghs-action>
@@ -225,7 +225,7 @@
       <ghs-action [ngClass]="'subaction-' + subAction.type"
         *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index" [action]="subAction"
         [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
-        [highlightElements]="highlightElements" [relative]="relative || forceRelative"
+        [interactiveAbilities]="interactiveAbilities" [relative]="relative || forceRelative"
         [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + index"
         [monsterType]="monsterType" [style]="style">
       </ghs-action>
@@ -237,7 +237,7 @@
       <ng-container
         *ngFor="let subAction of (subActions | slice:(hasAOE ? 1 : 0):(getValues(action).length > 1  ? +(getValues(action)[1]) : subActions.length)); let index = index;">
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"
-          [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
+          [right]="right" [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities"
           [relative]="relative || forceRelative" [statsCalculation]="statsCalculation"
           [index]="(actionIndex ? actionIndex + '-' : '') + index" [monsterType]="monsterType" [style]="style">
         </ghs-action>
@@ -257,7 +257,7 @@
         *ngFor="let subAction of (subActions | slice:+getValues(action)[1] + (hasAOE ? 1 : 0):subActions.length); let index = index;">
         <span *ngIf="fhStyle && index > 0">,</span>
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"
-          [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
+          [right]="right" [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities"
           [relative]="relative || forceRelative" [statsCalculation]="statsCalculation"
           [index]="(actionIndex ? actionIndex + '-' : '') + index" [monsterType]="monsterType" [style]="style">
         </ghs-action>
@@ -270,7 +270,7 @@
       *ngIf="(subActions | slice:(hasAOE ? 1 : 0)).length > 0">
       <ng-container *ngFor="let subAction of (subActions | slice:(hasAOE ? 1 : 0)); let index = index;">
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"
-          [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
+          [right]="right" [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities"
           [relative]="relative || forceRelative" [statsCalculation]="statsCalculation"
           [index]="(actionIndex ? actionIndex + '-' : '') + index" [monsterType]="monsterType" [style]="style">
         </ghs-action>
@@ -284,7 +284,7 @@
     <span class="action-box">
       <ng-container *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index;">
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"
-          [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
+          [right]="right" [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities"
           [relative]="relative || forceRelative" [statsCalculation]="statsCalculation"
           [index]="(actionIndex ? actionIndex + '-' : '') + index" [monsterType]="monsterType" [style]="style">
         </ghs-action>
@@ -299,7 +299,7 @@
     <span class="action-box">
       <ng-container *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index;">
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"
-          [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
+          [right]="right" [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities"
           [relative]="relative || forceRelative" [statsCalculation]="statsCalculation"
           [index]="(actionIndex ? actionIndex + '-' : '') + index" [monsterType]="monsterType" [style]="style">
         </ghs-action>
@@ -314,7 +314,7 @@
     <span class="action-box">
       <ng-container *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index;">
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"
-          [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
+          [right]="right" [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities"
           [relative]="relative || forceRelative" [statsCalculation]="statsCalculation"
           [index]="(actionIndex ? actionIndex + '-' : '') + index" [monsterType]="monsterType" [style]="style">
         </ghs-action>
@@ -344,7 +344,7 @@
     <span class="special-type"><span [ghs-label]="'game.action.' + action.type" [style]="style"></span>
       {{action.value}}:</span>
     <ghs-actions class="special-subactions" [actions]="getSpecial(action)" [monster]="monster" [inline]="inline"
-      [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements" [relative]="relative || forceRelative"
+      [right]="right" [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [relative]="relative || forceRelative"
       [statsCalculation]="statsCalculation" [index]="actionIndex" [style]="style">
     </ghs-actions>
   </span>
@@ -436,7 +436,7 @@
         *ngFor="let subAction of (statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : subActions) | slice:(hasAOE ? 1 : 0); let index = index;">
         <span *ngIf="fhStyle && index > 0">,</span>
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"
-          [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
+          [right]="right" [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities"
           [relative]="relative || forceRelative" [statsCalculation]="statsCalculation"
           [index]="(actionIndex ? actionIndex + '-' : '') + index" [monsterType]="monsterType" [style]="style">
         </ghs-action>
@@ -447,7 +447,7 @@
   <div class="aoe-value" *ngIf="hasAOE" [ngClass]="{'small' : action.small}">
     <ghs-action [ngClass]="'subaction-area'"
       [action]="(statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : subActions)[0]"
-      [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
+      [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities"
       [relative]="relative || forceRelative" [statsCalculation]="statsCalculation" [monsterType]="monsterType"
       [style]="style">
     </ghs-action>
@@ -457,7 +457,7 @@
     <div class="element-actions">
       <ghs-action *ngFor="let subAction of elementActions; let index = index" [ngClass]="'subaction-' + subAction.type"
         [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
-        [highlightElements]="highlightElements" [relative]="relative || forceRelative"
+        [interactiveAbilities]="interactiveAbilities" [relative]="relative || forceRelative"
         [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + index"
         [monsterType]="monsterType" [style]="style">
       </ghs-action>

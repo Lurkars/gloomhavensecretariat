@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Segmented",
   "edition": "fh",
+  "named": true,
   "rules": [
     {
       "round": "true",

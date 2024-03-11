@@ -186,9 +186,6 @@
         <span *ngIf="objective.title || objective.name">(</span>
         <span [ghs-label]="(objective.escort ? 'escort' : 'objective')"></span>
         <span *ngIf="objective.name">)</span>
-        <span class="spacer"></span>
-        <span class="objective-marker"
-          *ngIf="gameManager.isObjective(objective)">{{gameManager.toObjective(objective).id + 1}}</span>
       </a>
     </div>
   </div>

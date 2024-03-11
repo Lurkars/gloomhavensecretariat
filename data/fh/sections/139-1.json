@@ -3,6 +3,11 @@
   "name": "A Tall Drunken Tale",
   "edition": "fh",
   "parent": "128",
+  "parentSections": [
+    [
+      "124.3"
+    ]
+  ],
   "monsters": [
     "abael-scout",
     "lurker-wavethrower-scenario-128",
