@@ -37,23 +37,23 @@ export class ScenarioChartPopupDialog {
 
         this.showTreasures = this.treasures.length > 0 && this.treasures.length == this.lootedTreasures.length || this.showSetup;
 
-        let predecessor = gameManager.scenarioManager.scenarioData(scenarioData.edition).find((other) => other.group == scenarioData.group && other.unlocks && other.unlocks.indexOf(scenarioData.index) != -1 && gameManager.scenarioManager.isSuccess(other));
+        let predecessor = gameManager.scenarioManager.scenarioData(scenarioData.edition).find((other) => other.group == scenarioData.group && other.unlocks && other.unlocks.indexOf(scenarioData.index) != -1 && (!gameManager.game.party.campaignMode || gameManager.scenarioManager.isSuccess(other)));
 
         if (!predecessor) {
             predecessor = gameManager.sectionData(scenarioData.edition).find((sectionData) => sectionData.conclusion && sectionData.group == scenarioData.group && sectionData.parent && sectionData.unlocks && sectionData.unlocks.indexOf(scenarioData.index) != -1 && gameManager.game.party.conclusions.find((conclusion) => conclusion.edition == sectionData.edition && conclusion.group == sectionData.group && conclusion.index == sectionData.index));
             if (predecessor) {
-                predecessor = gameManager.scenarioManager.scenarioData(predecessor.edition).find((other) => predecessor && other.group == predecessor.group && other.index == predecessor.parent && gameManager.scenarioManager.isSuccess(other));
+                predecessor = gameManager.scenarioManager.scenarioData(predecessor.edition).find((other) => predecessor && other.group == predecessor.group && other.index == predecessor.parent && (!gameManager.game.party.campaignMode || gameManager.scenarioManager.isSuccess(other)));
             }
         }
 
         while (predecessor) {
             this.predecessors.unshift(predecessor);
-            let newPredecessor = gameManager.scenarioManager.scenarioData(predecessor.edition).find((other) => predecessor && other.group == predecessor.group && other.unlocks && other.unlocks.indexOf(predecessor.index) != -1 && gameManager.scenarioManager.isSuccess(other));
+            let newPredecessor = gameManager.scenarioManager.scenarioData(predecessor.edition).find((other) => predecessor && other.group == predecessor.group && other.unlocks && other.unlocks.indexOf(predecessor.index) != -1 && (!gameManager.game.party.campaignMode || gameManager.scenarioManager.isSuccess(other)));
 
             if (!newPredecessor) {
                 newPredecessor = gameManager.sectionData(predecessor.edition).find((sectionData) => predecessor && sectionData.conclusion && sectionData.group == predecessor.group && sectionData.parent && sectionData.unlocks && sectionData.unlocks.indexOf(predecessor.index) != -1 && gameManager.game.party.conclusions.find((conclusion) => conclusion.edition == sectionData.edition && conclusion.group == sectionData.group && conclusion.index == sectionData.index));
                 if (newPredecessor) {
-                    newPredecessor = gameManager.scenarioManager.scenarioData(predecessor.edition).find((other) => newPredecessor && other.group == newPredecessor.group && other.index == newPredecessor.parent && gameManager.scenarioManager.isSuccess(other));
+                    newPredecessor = gameManager.scenarioManager.scenarioData(predecessor.edition).find((other) => newPredecessor && other.group == newPredecessor.group && other.index == newPredecessor.parent && (!gameManager.game.party.campaignMode || gameManager.scenarioManager.isSuccess(other)));
                 }
             }
 
