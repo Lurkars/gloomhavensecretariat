@@ -1,10 +1,13 @@
-import { DIALOG_DATA } from "@angular/cdk/dialog";
+import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
 import { AfterViewInit, Component, Inject, OnInit, ViewEncapsulation } from "@angular/core";
 
-import { gameManager } from "src/app/game/businesslogic/GameManager";
-import mermaid from 'mermaid';
+import { Overlay } from "@angular/cdk/overlay";
 import L, { LatLngBoundsLiteral } from 'leaflet';
+import mermaid from 'mermaid';
+import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { ghsDefaultDialogPositions } from "src/app/ui/helper/Static";
+import { ScenarioChartPopupDialog } from "./popup/scenario-chart-popup";
 
 @Component({
     selector: 'ghs-scenario-chart',
@@ -16,8 +19,9 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
     flow: string[] = [
         "flowchart LR",
-        "classDef default stroke-width:6;",
+        "classDef default stroke-width:4;",
         "classDef success stroke:#7da82a;",
+        "classDef unplayed stroke:#56c8ef;",
         "classDef blocked stroke:#e2421f;",
         "classDef locked stroke:#eca610;",
         "classDef success-blocked fill:#7da82a,stroke:#e2421f;",
@@ -27,7 +31,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     edition: string;
     group: string | undefined;
 
-    constructor(@Inject(DIALOG_DATA) public data: { edition: string, group: string | undefined }) {
+    constructor(@Inject(DIALOG_DATA) public data: { edition: string, group: string | undefined }, private dialogRef: DialogRef, private dialog: Dialog, private overlay: Overlay) {
         this.edition = data.edition;
         this.group = data.group;
     }
@@ -69,11 +73,11 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
         scenarios.forEach((scenarioData) => {
 
-            let state = "";
-            const success = gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && scenarioModel.index == scenarioData.index) != undefined;
+            let state = ":::unplayed";
+            const success = gameManager.scenarioManager.isSuccess(scenarioData);
 
             if (success) {
-                state += ":::success";
+                state = ":::success";
             }
             if (gameManager.scenarioManager.isBlocked(scenarioData)) {
                 state = success ? ":::success-blocked" : ":::blocked";
@@ -88,7 +92,8 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
                 if (scenarioData.flowChartGroup) {
                     if (scenarios.find((other) => other != scenarioData && other.flowChartGroup == scenarioData.flowChartGroup)) {
-                        this.flow.push("subgraph \"" + settingsManager.getLabel('data.custom.' + this.edition + '.flowChartGroup.' + scenarioData.flowChartGroup) + "\"");
+                        const subgraphId = "" + settingsManager.getLabel('data.custom.' + this.edition + '.flowChartGroup.' + scenarioData.flowChartGroup) + ""
+                        this.flow.push("subgraph " + subgraphId);
                         subgraph = scenarioData.flowChartGroup;
                     } else {
                         subgraph = undefined;
@@ -113,7 +118,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         let unlocks: { a: string, b: string }[] = [];
 
         scenarios.forEach((scenarioData) => {
-            const success = gameManager.game.party.campaignMode && gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && scenarioModel.index == scenarioData.index) != undefined;
+            const success = gameManager.game.party.campaignMode && gameManager.scenarioManager.isSuccess(scenarioData);
             const visible: boolean = !gameManager.game.party.campaignMode || success;
             if (visible) {
                 if (scenarioData.unlocks) {
@@ -197,21 +202,60 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         const { svg, bindFunctions } = await mermaid.render('graphDiv', this.flowString);
         var parser = new DOMParser();
         var svgElement = parser.parseFromString(svg, "image/svg+xml").lastChild as SVGElement;
+
+        let subgraphs = svgElement.getElementsByClassName('clusters').length ? svgElement.getElementsByClassName('clusters')[0].getElementsByTagName("rect") : [];
+
+        for (let i = 0; i < subgraphs.length; i++) {
+            subgraphs[i].setAttribute("rx", "20");
+            subgraphs[i].setAttribute("ry", "20");
+        }
+
         const viewBox = svgElement.getAttribute('viewBox') || "0 0 600 600";
         const viewBoxArray = viewBox.split(/\s+|,/);
         const width = +viewBoxArray[2];
         const height = +viewBoxArray[3];
+        const boundWidth = Math.max(width, 600);
+        const boundHeight = Math.max(height, 600);
+        const offsetX = boundWidth > width ? (boundWidth - width) / 2 : 0;
+        const offsetY = boundHeight > height ? (boundHeight - height) : 0;
         var map = L.map('map', {
             crs: L.CRS.Simple,
-            maxBounds: [[height * -0.5, width * -0.5], [height * 1.5, width * 1.5]],
+            maxBounds: [[boundHeight * -0.5, boundWidth * -0.5], [boundHeight * 1.5, boundWidth * 1.5]],
             minZoom: -4,
             attributionControl: false
         });
-        var bounds: LatLngBoundsLiteral = [[0, 0], [height * 1.5, width * 1.5]];
+        var bounds: LatLngBoundsLiteral = [[0, 0], [boundHeight * 1.5, boundWidth * 1.5]];
         map.fitBounds(bounds);
         map.zoomIn();
 
-        const overlay = L.svgOverlay(svgElement, [[height, 0], [0, width]]);
+        const overlay = L.svgOverlay(svgElement, [[height + offsetY, offsetX], [offsetY, width + offsetX]], { interactive: true });
+
+        svgElement.addEventListener('click', (event) => {
+            const element = event.target as HTMLElement;
+            if (element && element.classList.contains('nodeLabel')) {
+                let parent = element.parentElement;
+                while (parent && !parent.classList.contains('node')) {
+                    parent = parent.parentElement;
+                }
+                if (parent && 'id' in parent.dataset) {
+                    const scenarioData = gameManager.scenarioData(this.edition).find((scenarioData) => parent && scenarioData.group == this.group && scenarioData.index == parent.dataset['id']);
+                    if (scenarioData) {
+                        this.dialog.open(ScenarioChartPopupDialog, {
+                            panelClass: ['dialog'],
+                            data: scenarioData,
+                            positionStrategy: this.overlay.position().flexibleConnectedTo(element).withPositions(ghsDefaultDialogPositions())
+                        }).closed.subscribe({
+                            next: (result) => {
+                                if (result) {
+                                    this.dialogRef.close();
+                                }
+                            }
+                        })
+                    }
+                }
+            }
+        });
+
         overlay.addTo(map);
 
         const container = map.getContainer();

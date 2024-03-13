@@ -21,6 +21,7 @@ export class ScenarioRule {
   elements: ElementModel[] = [];
   disableRules: ScenarioRuleIdentifier[] = [];
   treasures: number | string | ('G' | number)[] = [];
+  randomDungeon: RandomDungeonRule | undefined;
   finish: "won" | "lost" | "round" | undefined = undefined;
 
   constructor(round: string) {
@@ -87,11 +88,23 @@ export class ScenarioFigureRule {
 
   identifier: ScenarioFigureRuleIdentifier | undefined = undefined;
   identifierRef: number | undefined = undefined;
-  type: "present" | "dead" | "killed" | "initiative" | "gainCondition" | "loseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove" | "removeEntity" | "amAdd" | "amRemove" | "setAbility" | "drawAbility" | "discardAbilityToBottom" | "dormant" | "activate" = "present";
+  type: ScenarioFigureRuleTypes = "present";
   value: string = "";
   scenarioEffect: boolean = false;
 
 }
+
+export class RandomDungeonRule {
+  monsterCount: number = 3;
+  monsterCards: string[] | undefined;
+  dungeonCount: number = 3;
+  dungeonCards: string[] | undefined;
+  initial: boolean = true;
+}
+
+export type ScenarioFigureRuleTypes = "present" | "dead" | "killed" | "initiative" | "gainCondition" | "loseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove" | "removeEntity" | "amAdd" | "amRemove" | "setAbility" | "drawAbility" | "discardAbilityToBottom" | "dormant" | "activate";
+
+export const HiddenScenarioFigureRuleTypes: ScenarioFigureRuleTypes[] = ["present", "dead", "killed", "initiative"];
 
 export class ScenarioFigureRuleIdentifier extends AdditionalIdentifier {
 

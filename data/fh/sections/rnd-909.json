@@ -4,6 +4,10 @@
   "name": "Segmented",
   "edition": "fh",
   "named": true,
+  "monsters": [
+    "burrowing-blade",
+    "spitting-drake"
+  ],
   "rules": [
     {
       "round": "true",

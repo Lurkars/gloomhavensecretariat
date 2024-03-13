@@ -517,8 +517,8 @@ export class ActionComponent implements OnInit, OnDestroy {
     if (this.monster && this.highlightAction() && this.action) {
       gameManager.stateManager.before('applyHighlightAction.' + this.action.type, "data.monster." + this.monster.name, '' + this.action.value);
       let after: boolean = true;
-      const tag = 'roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action?.type;
-      this.monster.entities.sort(gameManager.monsterManager.sortEntities).filter((entity) => gameManager.entityManager.isAlive(entity, true) && !entity.tags.find((tag) => tag == tag)).filter((entity, index) => settingsManager.settings.combineInteractiveAbilities || index == 0).forEach((entity) => {
+      const tag = 'roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action.type;
+      this.monster.entities.sort(gameManager.monsterManager.sortEntities).filter((entity) => gameManager.entityManager.isAlive(entity, true) && !entity.tags.find((entityTag) => entityTag == tag)).filter((entity, index) => settingsManager.settings.combineInteractiveAbilities || index == 0).forEach((entity) => {
         if (this.action) {
           entity.tags.push(tag);
           if (this.monster && this.action.type == ActionType.heal) {

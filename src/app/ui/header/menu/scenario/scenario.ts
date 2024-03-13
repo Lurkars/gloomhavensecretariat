@@ -97,27 +97,19 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
 
     model = { edition: this.edition, group: group, filterSuccess: filterSuccess, includeSpoiler: includeSpoiler, all: all, scenarios: [] };
 
-    model.scenarios = gameManager.scenarioManager.scenarioData(this.edition, all).filter((scenarioData) => scenarioData.group == group && (includeSpoiler || (!scenarioData.spoiler || gameManager.game.unlockedCharacters.indexOf(scenarioData.name) != -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) != -1)) && (!filterSuccess || !this.scenarioSuccess(scenarioData) && !gameManager.scenarioManager.isBlocked(scenarioData))).sort(gameManager.scenarioManager.sortScenarios).map((scenarioData) => new ScenarioCache(scenarioData, this.scenarioSuccess(scenarioData), gameManager.scenarioManager.isBlocked(scenarioData), gameManager.scenarioManager.isLocked(scenarioData)));
+    model.scenarios = gameManager.scenarioManager.scenarioData(this.edition, all).filter((scenarioData) => scenarioData.group == group && (includeSpoiler || (!scenarioData.spoiler || gameManager.game.unlockedCharacters.indexOf(scenarioData.name) != -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) != -1)) && (!filterSuccess || !gameManager.scenarioManager.isSuccess(scenarioData) && !gameManager.scenarioManager.isBlocked(scenarioData))).sort(gameManager.scenarioManager.sortScenarios).map((scenarioData) => new ScenarioCache(scenarioData, gameManager.scenarioManager.isSuccess(scenarioData), gameManager.scenarioManager.isBlocked(scenarioData), gameManager.scenarioManager.isLocked(scenarioData)));
 
     this.scenarioCache.push(model);
 
     return model.scenarios;
   }
 
-  scenarioSuccess(scenario: ScenarioData): boolean {
-    return gameManager.game.party.scenarios && gameManager.game.party.scenarios.find((identifier) => scenario.index == identifier.index && scenario.edition == identifier.edition && scenario.group == identifier.group) != undefined;
-  }
-
   maxScenario(group: string | undefined) {
     return Math.max(...this.scenarios(group).map((scenarioData) => scenarioData.index.length));
   }
 
-  hasScenario(scenarioData: ScenarioData): boolean {
-    return gameManager.game.scenario != undefined && gameManager.game.scenario.edition == scenarioData.edition && gameManager.game.scenario.index == scenarioData.index && gameManager.game.scenario.group == scenarioData.group && gameManager.game.scenario.solo == scenarioData.solo;
-  }
-
   setScenario(scenarioData: ScenarioData) {
-    if (!this.hasScenario(scenarioData)) {
+    if (!gameManager.scenarioManager.isCurrent(scenarioData)) {
       if (gameManager.scenarioManager.isLocked(scenarioData)) {
         this.dialog.open(ScenarioRequirementsComponent, {
           panelClass: ['dialog'],

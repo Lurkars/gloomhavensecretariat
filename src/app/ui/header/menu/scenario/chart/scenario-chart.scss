@@ -14,5 +14,23 @@
         overflow: auto;
         background: none;
         line-height: initial !important;
+
+        svg {
+            cursor: grab;
+
+            .node {
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 0.7;
+                }
+
+                &.success,
+                &.locked:not(.blocked),
+                &.blocked {
+                    cursor: initial;
+                }
+            }
+        }
     }
 }

@@ -4,6 +4,11 @@
   "name": "Bleak",
   "edition": "fh",
   "named": true,
+  "monsters": [
+    "living-bones",
+    "living-doom",
+    "living-spirit"
+  ],
   "rules": [
     {
       "round": "true",

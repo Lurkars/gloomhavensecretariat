@@ -4,6 +4,11 @@
   "name": "Wild",
   "edition": "gh",
   "named": true,
+  "monsters": [
+    "cave-bear",
+    "forest-imp",
+    "hound"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

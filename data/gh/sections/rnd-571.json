@@ -4,6 +4,10 @@
   "name": "Infected",
   "edition": "gh",
   "named": true,
+  "monsters": [
+    "giant-viper",
+    "ooze"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

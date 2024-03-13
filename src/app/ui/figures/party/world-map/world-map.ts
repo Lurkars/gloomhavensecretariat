@@ -1,13 +1,14 @@
-import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
+import { Overlay } from "@angular/cdk/overlay";
 import { AfterViewInit, Component, Inject, ViewEncapsulation } from "@angular/core";
-import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
-import { ScenarioData } from "src/app/game/model/data/ScenarioData";
-import { Scenario } from "src/app/game/model/Scenario";
 import L, { ImageOverlay, LatLngBounds, LatLngBoundsLiteral } from 'leaflet';
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { BuildingData } from "src/app/game/model/data/BuildingData";
+import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { WorldMapCoordinates } from "src/app/game/model/data/WorldMap";
+import { ScenarioChartPopupDialog } from "src/app/ui/header/menu/scenario/chart/popup/scenario-chart-popup";
+import { ghsDefaultDialogPositions, ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
     selector: 'ghs-world-map',
@@ -33,7 +34,7 @@ export class WorldMapComponent implements AfterViewInit {
     scale: number = 1;
     zooming: boolean = false;
 
-    constructor(@Inject(DIALOG_DATA) public edition: string, public dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) public edition: string, public dialogRef: DialogRef, private dialog: Dialog, private overlay : Overlay) {
         const pinchZoom = settingsManager.settings.pinchZoom;
         settingsManager.settings.pinchZoom = false;
         const editionData = gameManager.editionData.find((editionData) => editionData.edition == this.edition);
@@ -73,7 +74,7 @@ export class WorldMapComponent implements AfterViewInit {
 
             this.scenarios.forEach((scenarioData, i) => {
                 if (scenarioData.coordinates) {
-                    const success = gameManager.game.party.scenarios.find((model) => model.edition == scenarioData.edition && model.index == scenarioData.index && model.group == scenarioData.group);
+                    const success = gameManager.scenarioManager.isSuccess(scenarioData);
 
                     if (success) {
                         this.success[i] = true;
@@ -116,16 +117,21 @@ export class WorldMapComponent implements AfterViewInit {
                         event.target.setZIndex(i + 2);
                     });
 
-                    overlay.on('click', () => {
+                    overlay.on('click', (event) => {
                         if (!gameManager.stateManager.permissions || gameManager.stateManager.permissions.scenario) {
                             const scenarioData = this.scenarios[i];
-                            if (!this.success[i] && gameManager.game.party.campaignMode && !gameManager.scenarioManager.isBlocked(scenarioData)) {
-                                const scenario = new Scenario(scenarioData);
-                                gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
-                                gameManager.scenarioManager.setScenario(scenario);
-                                this.close();
-                                gameManager.stateManager.after();
-                            }
+                            const element = event.target.getElement();
+                            this.dialog.open(ScenarioChartPopupDialog, {
+                                panelClass: ['dialog'],
+                                data: scenarioData,
+                                positionStrategy: this.overlay.position().flexibleConnectedTo(element).withPositions(ghsDefaultDialogPositions())
+                            }).closed.subscribe({
+                                next: (result) => {
+                                    if (result) {
+                                        this.dialogRef.close();
+                                    }
+                                }
+                            })
                         }
                     });
 

@@ -4,6 +4,10 @@
   "name": "Smashing",
   "edition": "fh",
   "named": true,
+  "monsters": [
+    "algox-archer",
+    "algox-icespeaker"
+  ],
   "rules": [
     {
       "round": "true",

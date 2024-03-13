@@ -51,7 +51,7 @@ export class TreasuresDialogComponent implements OnInit, OnDestroy {
         this.treasures = {};
         this.looted = [];
         this.selected = [];
-        gameManager.scenarioManager.scenarioData(this.edition).filter((scenarioData) => (gameManager.game.party.scenarios.find((value) => scenarioData.index == value.index && scenarioData.edition == value.edition && scenarioData.group == value.group) || gameManager.game.party.casualScenarios.find((value) => scenarioData.index == value.index && scenarioData.edition == value.edition && scenarioData.group == value.group))).forEach((scenarioData) => {
+        gameManager.scenarioManager.scenarioData(this.edition).filter((scenarioData) => (gameManager.scenarioManager.isSuccess(scenarioData) || gameManager.game.party.casualScenarios.find((value) => scenarioData.index == value.index && scenarioData.edition == value.edition && scenarioData.group == value.group))).forEach((scenarioData) => {
             let treasures: number[] = gameManager.scenarioManager.getAllTreasures(scenarioData).filter((value) => typeof value === 'number').map((value) => +value);
 
             if (!this.select) {

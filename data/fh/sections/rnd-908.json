@@ -4,6 +4,10 @@
   "name": "Taloned",
   "edition": "fh",
   "named": true,
+  "monsters": [
+    "rending-drake",
+    "shrike-fiend"
+  ],
   "rules": [
     {
       "round": "true",

@@ -1,7 +1,8 @@
 <div class="scenario-container" [ngClass]="{'setup' : gameManager.game.round < 1}">
   <div class="button" (click)="open($event)">
     <div class="scenario" *ngIf="gameManager.game.scenario">
-      <span *ngIf="gameManager.game.scenario.index" class="index">#{{gameManager.game.scenario.index}}</span>
+      <span *ngIf="gameManager.game.scenario.index && !gameManager.game.scenario.hideIndex"
+        class="index">#{{gameManager.game.scenario.index}}</span>
       <span *ngIf="gameManager.game.scenario" class="name">
         <span
           [ghs-label]="(gameManager.game.scenario.name ? 'data.scenario.' + gameManager.game.scenario.name : (gameManager.game.scenario.custom ? 'scenario.custom' : 'scenario.set'))"></span>

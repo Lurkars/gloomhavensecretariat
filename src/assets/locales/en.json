@@ -1282,7 +1282,15 @@
     ".": "Scenario",
     "blocked": "Blocked",
     "cancel": "Cancel Scenario",
-    "chart": "Flow Chart (%wip%)",
+    "chart": {
+      ".": "Scenario Flow Chart",
+      "setup": "Show Scenario Setup",
+      "start": "Start Scenario",
+      "treasures": {
+        ".": "Show treasures (if any)",
+        "empty": "No treasures"
+      }
+    },
     "conclusion": "Conclusion",
     "custom": "Custom",
     "eventEffects": {
@@ -1460,6 +1468,16 @@
       "hide": "Don't show again",
       "openRoom": "Open door",
       "openRoomMarker": "Open door %game.mapMarker.{0}%",
+      "randomDungeon": {
+        "monster": {
+          ".": "Add {0} random cards from the random monster card deck.",
+          "cards": "Add {0} random cards from the random monster card deck. Only use cards:<i>{1}</i>."
+        },
+        "dungeon": {
+          ".": "Draw {0} random cards from the random dungeon card deck. (manual)",
+          "cards": "Draw {0} random cards from the random dungeon card deck. Only use cards:<i>{1}</i>. (manual)"
+        }
+      },
       "spawn": "Spawn {2}%game.monsterType.{1}% %data.monster.{0}%",
       "spawnMarker": "Spawn {2}%game.monsterType.{1}% %data.monster.{0}% at %game.mapMarker.{3}%",
       "spawnObjective": "Spawn Objective '{0}'",

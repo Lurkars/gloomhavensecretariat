@@ -3,8 +3,9 @@
     <span class="title">
       <span
         [ghs-label]="conclusionOnly ? 'scenario.conclusion' : (rewardsOnly ? 'scenario.summary.rewards' : 'scenario.summary')"></span>
-      <span class="name">#{{scenario.index}} <span class="text-white"
-          [ghs-label]="'data.scenario.' + scenario.name"></span></span>
+      <span class="name">
+        <span *ngIf="scenario.index && !scenario.hideIndex">#{{scenario.index}}</span>
+        <span class="text-white" [ghs-label]="'data.scenario.' + scenario.name"></span></span>
     </span>
     <span *ngIf="success && !conclusionOnly && !rewardsOnly" class="success"><span
         [ghs-label]="'scenario.finish.success'"></span></span>

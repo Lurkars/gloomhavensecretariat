@@ -4,6 +4,11 @@
   "name": "Corrupted",
   "edition": "gh",
   "named": true,
+  "monsters": [
+    "cultist",
+    "living-bones",
+    "night-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

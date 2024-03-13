@@ -4,6 +4,11 @@
   "name": "Tamed",
   "edition": "fh",
   "named": true,
+  "monsters": [
+    "polar-bear",
+    "vermling-priest",
+    "vermling-scout"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

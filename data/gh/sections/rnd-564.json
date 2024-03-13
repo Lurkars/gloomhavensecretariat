@@ -4,6 +4,11 @@
   "name": "Tribal",
   "edition": "gh",
   "named": true,
+  "monsters": [
+    "inox-archer",
+    "inox-guard",
+    "inox-shaman"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

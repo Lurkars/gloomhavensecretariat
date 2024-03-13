@@ -4,6 +4,11 @@
   "name": "Rusted",
   "edition": "fh",
   "named": true,
+  "monsters": [
+    "flaming-bladespinner",
+    "ruined-machine",
+    "steel-automaton"
+  ],
   "rules": [
     {
       "round": "true",

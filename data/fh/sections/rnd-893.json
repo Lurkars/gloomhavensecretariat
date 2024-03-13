@@ -4,6 +4,10 @@
   "name": "Territorial",
   "edition": "fh",
   "named": true,
+  "monsters": [
+    "algox-priest",
+    "algox-scout"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

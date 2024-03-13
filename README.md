@@ -71,6 +71,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Item Cards
   - Battle Goals
   - Building deck (partly!)
+  - World Map (GH/FH)
 - Other features:
   - i18n support (currently en, de, fr and ko, more translations needed. Many thanks to the contributors of french and korean)
   - PWA for installation on all devices!
@@ -108,7 +109,8 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
 
       > Mech Suit (+5 HP, Heal 10)
     </details>
-  - Random Dungeon Sections: automatic standees for random monster cards via *Add Section* menu
+  - Random Dungeons
+  - Scenario Flow Chart
   - Monster data editor (https://gloomhaven-secretariat.de/editor/monster)
   - Includes Solo scenarios
   - Includes the [Seeker of Xorn](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under *Data Management*.

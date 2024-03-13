@@ -388,6 +388,7 @@ export class RoundManager {
     this.game.sections = [];
     if (this.game.scenario) {
       this.game.scenario.revealedRooms = [];
+      this.game.scenario.additionalSections = [];
     }
     this.game.scenarioRules = [];
     this.game.disgardedScenarioRules = [];
@@ -471,14 +472,6 @@ export class RoundManager {
     }
 
     gameManager.stateManager.standeeDialogCanceled = false;
-
-    if (this.game.scenario && this.game.scenario.custom && this.game.scenario.name == '%scenario.random%' && this.game.scenario.additionalSections && this.game.scenario.additionalSections.length) {
-      const firstRandomCard = gameManager.sectionData(this.game.scenario.edition).find((sectionData) => this.game.scenario && sectionData.group == 'randomMonsterCard' && sectionData.index == this.game.scenario.additionalSections[0]);
-      if (firstRandomCard) {
-        gameManager.scenarioManager.addSection(firstRandomCard);
-      }
-    }
-
     gameManager.uiChange.emit();
   }
 }

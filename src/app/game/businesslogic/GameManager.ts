@@ -195,8 +195,8 @@ export class GameManager {
     return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).flatMap((editionData) => editionData.scenarios).filter((scenarioData) => !edition || scenarioData.edition == edition);
   }
 
-  sectionData(edition: string | undefined = undefined): ScenarioData[] {
-    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).flatMap((editionData) => editionData.sections).filter((sectionData) => !edition || sectionData.edition == edition);
+  sectionData(edition: string | undefined = undefined, extension: boolean = false): ScenarioData[] {
+    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || editionData.additional && this.editionExtensions(editionData.edition).indexOf(edition) != -1 || extension && this.editionExtensions(edition).indexOf(editionData.edition) != -1)).flatMap((editionData) => editionData.sections).filter((sectionData) => !edition || sectionData.edition == edition || extension);
   }
 
   itemData(edition: string | undefined = undefined, all: boolean = false): ItemData[] {

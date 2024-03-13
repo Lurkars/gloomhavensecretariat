@@ -4,6 +4,11 @@
   "name": "Cutthroat",
   "edition": "gh",
   "named": true,
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard",
+    "hound"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

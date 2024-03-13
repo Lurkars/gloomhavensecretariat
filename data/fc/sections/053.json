@@ -9,6 +9,27 @@
     ]
   ],
   "marker": "c",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "randomDungeon": {
+        "monsterCount": 1,
+        "monsterCards": [
+          "570",
+          "560",
+          "555",
+          "554",
+          "561",
+          "564",
+          "568",
+          "558"
+        ],
+        "initial": true
+      }
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 3,

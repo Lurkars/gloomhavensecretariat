@@ -4,6 +4,11 @@
   "name": "Venomous",
   "edition": "gh",
   "named": true,
+  "monsters": [
+    "black-imp",
+    "giant-viper",
+    "harrower-infester"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

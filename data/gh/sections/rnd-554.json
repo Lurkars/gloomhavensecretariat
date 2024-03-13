@@ -4,6 +4,11 @@
   "name": "Mangy",
   "edition": "gh",
   "named": true,
+  "monsters": [
+    "cave-bear",
+    "vermling-scout",
+    "vermling-shaman"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

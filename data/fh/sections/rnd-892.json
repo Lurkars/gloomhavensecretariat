@@ -4,6 +4,10 @@
   "name": "Stormy",
   "edition": "fh",
   "named": true,
+  "monsters": [
+    "algox-guard",
+    "algox-snowspeaker"
+  ],
   "rules": [
     {
       "round": "true",

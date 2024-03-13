@@ -4,6 +4,10 @@
   "name": "Archaic",
   "edition": "gh",
   "named": true,
+  "monsters": [
+    "ancient-artillery",
+    "stone-golem"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

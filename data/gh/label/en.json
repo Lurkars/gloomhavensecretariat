@@ -82,6 +82,7 @@
     "ability": {},
     "scenario": {
         "group": {
+            "randomDungeon": "%scenario.random%",
             "randomMonsterCard": "Random Monster Cards"
         },
         "rules": {
@@ -366,7 +367,7 @@
             "flowChartGroup": {
                 "intro": "Intro",
                 "sealed": "Sealed",
-                "the-merchant": "The Marchant",
+                "the-merchant": "The Merchant",
                 "demon-and-rift": "Demon and Rift",
                 "sewers": "Sewers",
                 "voice": "Voice",

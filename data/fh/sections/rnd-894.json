@@ -4,6 +4,11 @@
   "name": "Feral",
   "edition": "fh",
   "named": true,
+  "monsters": [
+    "hound",
+    "polar-bear",
+    "snow-imp"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

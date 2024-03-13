@@ -3,33 +3,17 @@
     <div class="column custom-container">
       <div class="line custom-check">
         <label>
-          <input tabclick type="checkbox"
-            [checked]="gameManager.game.scenario && gameManager.game.scenario.custom && gameManager.game.scenario.name != '%scenario.random%'"
+          <input tabclick type="checkbox" [checked]="gameManager.game.scenario && gameManager.game.scenario.custom"
             (change)="customScenario()">
           &lt;<span [ghs-label]="'scenario.custom'"></span>&gt;
         </label>
       </div>
-    </div>
-    <div class="column"
-      *ngIf="gameManager.game.scenario && gameManager.game.scenario.custom && gameManager.game.scenario.name != '%scenario.random%'">
-
-      <div class="line">
+      <div class="line" *ngIf="gameManager.game.scenario && gameManager.game.scenario.custom">
         <input type="text" [value]="gameManager.game.scenario.name" (change)="customScenarioName($event)"
           [ghs-label]="'scenario.title'" [ghs-label-attribute]="'placeholder'">
       </div>
     </div>
-  </div>
-  <div class="columns">
-    <div class="column">
-      <div class="line" [ngClass]="{'disabled': !hasRandom}">
-        <label tabclick (click)="randomScenario()">
-          <span [ghs-label]="'scenario.random'"></span>&nbsp;
-          <img class="ghs-svg" src="./assets/images/check.svg"
-            *ngIf="gameManager.game.scenario && gameManager.game.scenario.custom && gameManager.game.scenario.name == '%scenario.random%'">
-        </label>
-      </div>
-    </div>
-    <div class="column" *ngIf="gameManager.game.scenario">
+    <div class="column" *ngIf="gameManager.game.scenario && !gameManager.game.scenario.custom">
       <div class="line">
         <a tabclick (click)="resetScenario()">&lt;<span [ghs-label]="'scenario.reset'"></span>!&gt;</a>
       </div>
@@ -68,10 +52,10 @@
     </div>
     <div class="line scenarios">
       <span tabclick (click)="setScenario(scenario)" class="scenario"
-        [ngClass]="{'current' : hasScenario(scenario), 'blocked' : scenario.isBlocked , 'locked' : scenario.isLocked}"
+        [ngClass]="{'current' : gameManager.scenarioManager.isCurrent(scenario), 'blocked' : scenario.isBlocked , 'locked' : scenario.isLocked}"
         [ghs-tooltip]="'scenario.tooltip' + (scenario.isBlocked ? '.blocked' : (scenario.isLocked ? '.locked' : ''))"
         [ghs-label-args]="['data.scenario.' + scenario.name]"
-        *ngFor="let scenario of scenarios(group, settingsManager.settings.showOnlyUnfinishedScenarios) | ghsScenarioSearch:search.value">
+        *ngFor="let scenario of scenarios(group, gameManager.game.party.campaignMode && settingsManager.settings.showOnlyUnfinishedScenarios) | ghsScenarioSearch:search.value">
         <ng-container *ngIf="!scenario.solo">
           <span *ngIf="maxScenario(group) > 2 && scenario.index.length < 3">0</span><span
             *ngIf="maxScenario(group) > 1 && scenario.index.length < 2">0</span>
@@ -84,7 +68,7 @@
         <ng-container *ngIf="scenario.solo">
           <img class="ghs-svg solo" [src]="gameManager.characterManager.characterIcon(scenario.solo)" />
         </ng-container>
-        <span *ngIf="scenarioSuccess(scenario)" class="state success">
+        <span *ngIf="gameManager.scenarioManager.isSuccess(scenario)" class="state success">
           <img src="./assets/images/check.svg" />
         </span>
         <span *ngIf="scenario.isBlocked" class="state blocked">

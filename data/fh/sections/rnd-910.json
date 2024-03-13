@@ -4,6 +4,11 @@
   "name": "Dirty",
   "edition": "fh",
   "named": true,
+  "monsters": [
+    "earth-demon",
+    "forest-imp",
+    "ooze"
+  ],
   "rules": [
     {
       "round": "true",

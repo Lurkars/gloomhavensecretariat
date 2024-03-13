@@ -33,6 +33,31 @@
           "scenarioEffect": true
         }
       ]
+    },
+    {
+      "round": "R == 1",
+      "start": true,
+      "randomDungeon": {
+        "monsterCount": 3,
+        "monsterCards": [
+          "554",
+          "558",
+          "560",
+          "564",
+          "567",
+          "571"
+        ],
+        "dungeonCount": 3,
+        "dungeonCards": [
+          "Trail",
+          "Encampment",
+          "Clearing",
+          "Road",
+          "Cabin",
+          "Crossroads"
+        ],
+        "initial": true
+      }
     }
   ]
 }

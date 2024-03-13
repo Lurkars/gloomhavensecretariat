@@ -11,6 +11,7 @@ import { GameState } from "src/app/game/model/Game";
 import { Condition, ConditionName, ConditionType } from "src/app/game/model/data/Condition";
 import { Party } from "src/app/game/model/Party";
 import { WorldMapComponent } from "src/app/ui/figures/party/world-map/world-map";
+import { ScenarioChartDialogComponent } from "../scenario/chart/scenario-chart";
 
 
 @Component({
@@ -124,6 +125,17 @@ export class CampaignMenuComponent implements OnInit {
             panelClass: ['fullscreen-panel'],
             backdropClass: ['fullscreen-backdrop'],
             data: gameManager.game.edition
+        })
+        this.close.emit();
+    }
+
+    openFlowChart() {
+        this.dialog.open(ScenarioChartDialogComponent, {
+            panelClass: ['fullscreen-panel'],
+            backdropClass: ['fullscreen-backdrop'],
+            data: {
+                edition: gameManager.game.edition
+            }
         })
         this.close.emit();
     }

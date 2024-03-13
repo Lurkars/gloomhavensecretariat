@@ -30,6 +30,26 @@
       "marker": "a"
     }
   ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "randomDungeon": {
+        "monsterCount": 1,
+        "monsterCards": [
+          "570",
+          "560",
+          "555",
+          "554",
+          "561",
+          "564",
+          "568",
+          "558"
+        ],
+        "initial": true
+      }
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

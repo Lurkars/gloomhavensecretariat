@@ -18,7 +18,8 @@ import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { ScenarioObjectiveIdentifier } from "src/app/game/model/data/ObjectiveData";
 import { MonsterStandeeData, RoomData } from "src/app/game/model/data/RoomData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
-import { MonsterSpawnData, ScenarioFigureRule, ScenarioRule } from "src/app/game/model/data/ScenarioRule";
+import { HiddenScenarioFigureRuleTypes, MonsterSpawnData, ScenarioFigureRule, ScenarioRule } from "src/app/game/model/data/ScenarioRule";
+import { ghsShuffleArray } from "../../helper/Static";
 import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
 
 @Component({
@@ -74,6 +75,40 @@ export class ScenarioRulesComponent {
         return EntityValueFunction(count || (spawn.manual ? 0 : 1));
     }
 
+    randomDungeonsMonsterLabel(rule: ScenarioRule): string[] {
+        if (!rule.randomDungeon || !rule.randomDungeon.monsterCards || !rule.randomDungeon.monsterCards.length) {
+            return [];
+        }
+
+        return rule.randomDungeon.monsterCards.filter((cardId) => !gameManager.game.scenario || !gameManager.game.scenario.additionalSections || gameManager.game.scenario.additionalSections.indexOf(cardId) == -1).map((cardId) => {
+            if (gameManager.game.scenario) {
+                const section = gameManager.sectionData(gameManager.game.scenario.edition, true).find((sectionData) => sectionData.index == cardId && sectionData.group == 'randomMonsterCard');
+                if (section) {
+                    return "&nbsp%data.section." + section.name + '% (#' + section.index + ")";
+                }
+            }
+
+            return '&nbsp' + cardId;
+        })
+    }
+
+    randomDungeonsDungeonLabel(rule: ScenarioRule): string[] {
+        if (!rule.randomDungeon || !rule.randomDungeon.dungeonCards || !rule.randomDungeon.dungeonCards.length) {
+            return [];
+        }
+
+        return rule.randomDungeon.dungeonCards.filter((cardId) => !gameManager.game.scenario || !gameManager.game.scenario.additionalSections || gameManager.game.scenario.additionalSections.indexOf(cardId) == -1).map((cardId) => {
+            if (gameManager.game.scenario) {
+                const section = gameManager.sectionData(gameManager.game.scenario.edition, true).find((sectionData) => sectionData.index == cardId && sectionData.group == 'randomDungeonCard');
+                if (section) {
+                    return "&nbsp%data.section." + section.name + '% (#' + section.index + ")";
+                }
+            }
+
+            return '&nbsp' + cardId;
+        })
+    }
+
     prevent(event: any) {
         event.preventDefault();
         event.stopPropagation();
@@ -113,7 +148,7 @@ export class ScenarioRulesComponent {
 
     figureRules(rule: ScenarioRule): ScenarioFigureRule[] {
         return rule.figures && rule.figures.filter((figureRule) => {
-            if (figureRule.type == "present" || figureRule.type == "dead" || figureRule.type == "killed" || figureRule.type == "initiative") {
+            if (HiddenScenarioFigureRuleTypes.indexOf(figureRule.type) != -1) {
                 return false;
             }
 
@@ -213,7 +248,7 @@ export class ScenarioRulesComponent {
                 return false;
             }
 
-            if (this.spawns(rule).length > 0 || rule.objectiveSpawns && rule.objectiveSpawns.length > 0 || rule.elements && rule.elements.length > 0 && rule.elements.some((elementModel) => gameManager.game.elementBoard.find((element) => element.type == elementModel.type)?.state != elementModel.state) || this.sections(index).length > 0 || this.rooms(index).length > 0 || this.figureRules(rule).length > 0 || rule.note || rule.finish) {
+            if (this.spawns(rule).length > 0 || rule.objectiveSpawns && rule.objectiveSpawns.length > 0 || rule.elements && rule.elements.length > 0 && rule.elements.some((elementModel) => gameManager.game.elementBoard.find((element) => element.type == elementModel.type)?.state != elementModel.state) || this.sections(index).length > 0 || this.rooms(index).length > 0 || this.figureRules(rule).length > 0 || rule.note || rule.finish || rule.randomDungeon) {
                 return true;
             }
         }
@@ -221,7 +256,7 @@ export class ScenarioRulesComponent {
     }
 
     apply(rule: ScenarioRule) {
-        return this.spawns(rule).length > 0 || rule.objectiveSpawns && rule.objectiveSpawns.length > 0 || rule.elements && rule.elements.length > 0 || rule.finish || settingsManager.settings.scenarioRooms && rule.rooms && rule.rooms.length > 0 || rule.sections && rule.sections.length > 0 || rule.figures && rule.figures.length > 0 && rule.figures.some((figureRule) => figureRule.type != "present" && figureRule.type != "dead" && figureRule.type != "killed" && figureRule.type != "initiative");
+        return this.spawns(rule).length > 0 || rule.objectiveSpawns && rule.objectiveSpawns.length > 0 || rule.elements && rule.elements.length > 0 || rule.finish || settingsManager.settings.scenarioRooms && rule.rooms && rule.rooms.length > 0 || rule.sections && rule.sections.length > 0 || rule.randomDungeon || rule.figures && rule.figures.length > 0 && rule.figures.some((figureRule) => HiddenScenarioFigureRuleTypes.indexOf(figureRule.type) == -1);
     }
 
     applyRule(element: HTMLElement, index: number) {
@@ -598,6 +633,17 @@ export class ScenarioRulesComponent {
                         panelClass: ['dialog'],
                         data: { scenario: scenario, success: rule.finish == "won" }
                     })
+                }
+
+                if (rule.randomDungeon && rule.randomDungeon.monsterCount && gameManager.game.scenario) {
+                    const shuffledSections = ghsShuffleArray(gameManager.sectionData(gameManager.game.scenario.edition, true).filter((sectionData) => sectionData.group == 'randomMonsterCard' && rule.randomDungeon && (!rule.randomDungeon.monsterCards || rule.randomDungeon.monsterCards.indexOf(sectionData.index) != -1) && (!gameManager.game.scenario || !gameManager.game.scenario.additionalSections || gameManager.game.scenario.additionalSections.indexOf(sectionData.index) == -1)));
+                    if (shuffledSections.length >= rule.randomDungeon.monsterCount) {
+                        gameManager.game.scenario.additionalSections = gameManager.game.scenario.additionalSections || [];
+                        gameManager.game.scenario.additionalSections.push(...shuffledSections.slice(0, rule.randomDungeon.monsterCount).map((sectionData) => sectionData.index));
+                        if (rule.randomDungeon.initial) {
+                            gameManager.scenarioManager.addSection(shuffledSections[0]);
+                        }
+                    }
                 }
 
                 element.classList.add('closed');

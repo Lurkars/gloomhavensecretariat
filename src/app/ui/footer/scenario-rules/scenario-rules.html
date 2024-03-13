@@ -72,7 +72,19 @@
             </span>
           </ng-container>
         </div>
-        <p *ngIf="ruleModel.rule.finish" class="text-white" [ghs-label]="'scenario.rules.finish.' + ruleModel.rule.finish"></p>
+        <div class="random-dungeon" *ngIf="ruleModel.rule.randomDungeon">
+          <p *ngIf="ruleModel.rule.randomDungeon.dungeonCount" class="text-white"
+            [ghs-label]="'scenario.rules.randomDungeon.dungeon' + (ruleModel.rule.randomDungeon.dungeonCards && ruleModel.rule.randomDungeon.dungeonCards.length ? '.cards' : '')"
+            [ghs-label-args]="['' + ruleModel.rule.randomDungeon.dungeonCount, randomDungeonsDungeonLabel(ruleModel.rule).toString()]">
+          </p>
+          <br *ngIf="ruleModel.rule.randomDungeon.dungeonCount && ruleModel.rule.randomDungeon.monsterCount">
+          <p *ngIf="ruleModel.rule.randomDungeon.monsterCount" class="text-white"
+            [ghs-label]="'scenario.rules.randomDungeon.monster' + (ruleModel.rule.randomDungeon.monsterCards && ruleModel.rule.randomDungeon.monsterCards.length ? '.cards' : '')"
+            [ghs-label-args]="['' + ruleModel.rule.randomDungeon.monsterCount, randomDungeonsMonsterLabel(ruleModel.rule).toString()]">
+          </p>
+        </div>
+        <p *ngIf="ruleModel.rule.finish" class="text-white"
+          [ghs-label]="'scenario.rules.finish.' + ruleModel.rule.finish"></p>
         <p *ngIf="ruleModel.rule.note" class="text-white" [ghs-label]="ruleModel.rule.note"></p>
         <div class="menu" *ngIf="apply(ruleModel.rule)">
           <a class="apply" (click)="applyRule(ruleElement, index)">
