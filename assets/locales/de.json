@@ -1135,7 +1135,15 @@
     ".": "Szenario",
     "blocked": "Gesperrt",
     "cancel": "Szenario abbrechen",
-    "chart": "Flussdiagramm (%wip%)",
+    "chart": {
+      ".": "Szenario Flussdiagramm",
+      "setup": "Zeige Szenario Setup",
+      "start": "Szenario starten",
+      "treasures": {
+        ".": "Zeige Schätze (falls vorhanden)",
+        "empty": "Keine Schätze"
+      }
+    },
     "conclusion": "Lösung",
     "custom": "Benutzerdefiniert",
     "eventEffects": {
@@ -1311,6 +1319,16 @@
       "finishWithConclusion": "Szenario beenden mit #{0} {1}",
       "openRoom": "Raum öffnen",
       "openRoomMarker": "Raum %game.mapMarker.{0}% öffnen",
+      "randomDungeon": {
+        "monster": {
+          ".": "Ziehe {0} zufällige Karten vom Monsterkarten Deck.",
+          "cards": "Ziehe {0} zufällige Karten vom Monsterkarten Deck. Verwende nur die folgenden Karten:<i>{1}</i>."
+        },
+        "dungeon": {
+          ".": "Ziehe {0} zufällige Karten vom Raumkarten Deck. (manuell)",
+          "cards": "Ziehe {0} zufällige Karten vom Raumkarten Deck. Verwende nur die folgenden Karten:<i>{1}</i>. (manuell)"
+        }
+      },
       "spawn": "Füge {2}%data.monster.{0}% (%game.monsterType.{1}%) hinzu",
       "spawnMarker": "Füge {2}%data.monster.{0}% (%game.monsterType.{1}%) an %game.mapMarker.{3}% hinzu",
       "spawnObjective": "Füge Ziel '{0}' hinzu",
