@@ -157,9 +157,52 @@ export class AttackModifierManager {
   }
 
   drawModifier(attackModifierDeck: AttackModifierDeck) {
+    if (!attackModifierDeck.state) {
+      attackModifierDeck.current = attackModifierDeck.current + 1;
+      if (attackModifierDeck.current == attackModifierDeck.cards.length) {
+        this.shuffleModifiers(attackModifierDeck);
+      }
+    } else {
+      this.drawAdvantage(attackModifierDeck);
+    }
+  }
+
+  drawAdvantage(attackModifierDeck: AttackModifierDeck) {
+    let additionalDraw = false;
+    const fhRules = gameManager.fhRules() || settingsManager.settings.alwaysFhAdvantage;
     attackModifierDeck.current = attackModifierDeck.current + 1;
     if (attackModifierDeck.current == attackModifierDeck.cards.length) {
-      this.shuffleModifiers(attackModifierDeck);
+      return;
+    }
+    gameManager.uiChange.emit();
+    let card = attackModifierDeck.cards[attackModifierDeck.current];
+
+    if (card.rolling) {
+      additionalDraw = fhRules;
+    } else {
+      attackModifierDeck.current = attackModifierDeck.current + 1;
+      card = attackModifierDeck.cards[attackModifierDeck.current];
+      gameManager.uiChange.emit();
+      if (attackModifierDeck.current == attackModifierDeck.cards.length || !fhRules) {
+        return;
+      }
+    }
+
+    while (card.rolling) {
+      attackModifierDeck.current = attackModifierDeck.current + 1;
+      card = attackModifierDeck.cards[attackModifierDeck.current];
+      gameManager.uiChange.emit();
+      if (attackModifierDeck.current == attackModifierDeck.cards.length) {
+        return;
+      }
+    }
+
+    if (additionalDraw) {
+      attackModifierDeck.current = attackModifierDeck.current + 1;
+      if (attackModifierDeck.current == attackModifierDeck.cards.length) {
+        return;
+      }
+      gameManager.uiChange.emit();
     }
   }
 
@@ -538,6 +581,7 @@ export class AttackModifierManager {
     attackModifierDeck.cards = model.cards.map((id) => this.cardById(attackModifierDeck, id) || new AttackModifier(AttackModifierType.invalid, 0, AttackModifierValueType.default, id));
     attackModifierDeck.disgarded = model.disgarded || [];
     attackModifierDeck.active = model.active;
+    attackModifierDeck.state = model.state;
   }
 
 }

@@ -1,5 +1,5 @@
 import { DialogRef, DIALOG_DATA, Dialog } from "@angular/cdk/dialog";
-import { Component, Inject } from "@angular/core";
+import { Component, Inject, OnDestroy } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { Character } from "src/app/game/model/Character";
 import { ItemData } from "src/app/game/model/data/ItemData";
@@ -22,7 +22,7 @@ import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
     templateUrl: './scenario-summary.html',
     styleUrls: ['./scenario-summary.scss']
 })
-export class ScenarioSummaryComponent {
+export class ScenarioSummaryComponent implements OnDestroy {
 
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;

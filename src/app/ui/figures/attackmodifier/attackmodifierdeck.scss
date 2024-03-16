@@ -55,9 +55,10 @@
         position: absolute;
         font-size: 2em;
         line-height: 1em;
-        right: 6%;
+        left: 50%;
         bottom: 0%;
         z-index: 500;
+        transform: translateX(-50%);
 
         &.has-shuffle {
           top: 0;
@@ -111,7 +112,9 @@
     }
 
     .settings,
-    .fullscreen {
+    .fullscreen,
+    .advantage,
+    .disadvantage {
       cursor: pointer;
       position: absolute;
       left: -14%;
@@ -154,15 +157,43 @@
         }
       }
 
+      &.advantage,
+      &.disadvantage {
+        left: initial;
+        right: 0;
+        transition: transform 100ms ease-in-out;
+        z-index: 499;
+
+        &.without-fullscreen {
+          left: -14%;
+          right: initial;
+        }
+
+        &:hover {
+          transform: scale(1.4);
+        }
+      }
+
+      &.advantage {
+        top: -9%;
+      }
+
+      &.disadvantage {
+        bottom: -9%;
+      }
+
       img {
         height: 60%;
         width: auto;
         align-self: center;
-        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+
+        &.ghs-svg {
+          filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+        }
       }
 
       &:hover {
-        img {
+        img.ghs-svg {
           filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
         }
       }

@@ -67,6 +67,11 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
             event.preventDefault();
             event.stopPropagation();
           }
+        } else if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'n') {
+          const current = document.getElementById('initiative-input-' + tabindex);
+          if (current && document.activeElement == current) {
+            current.blur();
+          }
         }
       })
     }

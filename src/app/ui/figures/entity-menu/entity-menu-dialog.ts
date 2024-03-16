@@ -121,7 +121,7 @@ export class EntityMenuDialogComponent {
     }
 
     if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
-      this.actionHints = gameManager.monsterManager.calcActionHints(this.data.figure, this.data.entity).map((actionHint) => new Action(actionHint.type, actionHint.value, ActionValueType.fixed, actionHint.range ? [new Action(ActionType.range, actionHint.range, ActionValueType.fixed, [], true)] : []));
+      this.actionHints = gameManager.actionsManager.calcActionHints(this.data.figure, this.data.entity).map((actionHint) => new Action(actionHint.type, actionHint.value, ActionValueType.fixed, actionHint.range ? [new Action(ActionType.range, actionHint.range, ActionValueType.fixed, [], true)] : []));
     }
 
     if (this.data.figure instanceof Character && this.data.figure.specialActions) {
@@ -1234,6 +1234,7 @@ export class EntityMenuDialogComponent {
   closeObjectiveContainer() {
     if (this.data.figure instanceof ObjectiveContainer) {
 
+      this.data.figure.marker = this.data.figure.marker || "";
       const newMarker = OBJECTIV_MARKERS[ghsModulo(this.marker + OBJECTIV_MARKERS.indexOf(this.data.figure.marker), OBJECTIV_MARKERS.length)];
 
       if (newMarker != this.data.figure.marker) {

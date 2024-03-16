@@ -1,5 +1,6 @@
-import { Component, Input, OnDestroy, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angular/core";
 import { Subscription } from "rxjs";
+import { InteractiveAction } from "src/app/game/businesslogic/ActionsManager";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Monster } from "src/app/game/model/Monster";
@@ -22,7 +23,8 @@ export class ActionsComponent implements OnInit, OnDestroy {
   @Input() inline: boolean = false;
   @Input() right: boolean = false;
   @Input() statsCalculation: boolean = false;
-  @Input() interactiveAbilities: boolean = false;
+  @Input() interactiveActions: InteractiveAction[] = [];
+  @Output() interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
   @Input() highlightActions: ActionType[] = [];
   @Input() hexSize!: number;
   @Input() hint!: string | undefined;
@@ -86,6 +88,7 @@ export class ActionsComponent implements OnInit, OnDestroy {
         this.divider[index] = this.calcDivider(action, index);
       })
     }
+
   }
 
   calcDivider(action: Action, index: number): boolean {
@@ -114,6 +117,10 @@ export class ActionsComponent implements OnInit, OnDestroy {
     }
 
     return true;
+  }
+
+  onInteractiveActionsChange(change: InteractiveAction[]) {
+    this.interactiveActionsChange.emit(change);
   }
 
 } 

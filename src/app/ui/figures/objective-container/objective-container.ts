@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -16,6 +16,7 @@ import { CharacterInitiativeDialogComponent } from '../character/cards/initiativ
 import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
 import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
 import { Monster } from 'src/app/game/model/Monster';
+import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 
 @Component({
   selector: 'ghs-objective-container',
@@ -43,6 +44,9 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
   marker: string = "";
 
   nonDead: number = 0;
+
+  interactiveActions: InteractiveAction[] = [];
+  interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
 
   constructor(private dialog: Dialog, private overlay: Overlay) { }
 
@@ -241,6 +245,11 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
       gameManager.entityManager.removeCondition(this.entity, entityCondition, entityCondition.permanent);
       gameManager.stateManager.after();
     }
+  }
+
+  onInteractiveActionsChange(change: InteractiveAction[]) {
+    this.interactiveActionsChange.emit(change);
+    this.interactiveActions = change;
   }
 
 }

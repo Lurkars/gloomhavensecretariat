@@ -117,7 +117,7 @@
             </ghs-pointer-input>
           </span>
 
-          <ng-container *ngIf="!settingsManager.settings.alwaysLootDeck && !gameManager.fhRules()">
+          <ng-container *ngIf="(!settingsManager.settings.lootDeck || !settingsManager.settings.alwaysLootDeck && !gameManager.fhRules()) && !settingsManager.settings.hideCharacterLoot">
             <span class="item">
               <ghs-pointer-input class="button"
                 [ngClass]="{'disabled' : gameManager.toCharacter(data.entity).loot + loot == 0}"

@@ -1,4 +1,4 @@
-import { Action, ActionHint, ActionType, ActionValueType } from "src/app/game/model/data/Action";
+import { Action, ActionType } from "src/app/game/model/data/Action";
 import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
 import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
@@ -755,58 +755,6 @@ export class MonsterManager {
 
   hasBottomActions(monster: Monster): boolean {
     return gameManager.abilities(monster).length > 0 && gameManager.abilities(monster).every((ability) => gameManager.hasBottomAbility(ability));
-  }
-
-  calcActionHints(monster: Monster, entity: MonsterEntity): ActionHint[] {
-    let actionHints: ActionHint[] = [];
-    const stat = gameManager.monsterManager.getStat(monster, entity.type);
-    this.calcActionHint(monster, entity, ActionType.shield, stat.actions, actionHints);
-    this.calcActionHint(monster, entity, ActionType.retaliate, stat.actions, actionHints);
-    if (gameManager.entityManager.isAlive(entity, true) && (!entity.active || monster.active)) {
-      const activeFigure = gameManager.game.figures.find((figure) => figure.active);
-      if (monster.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(monster))) {
-        let ability = gameManager.monsterManager.getAbility(monster);
-        if (ability) {
-          this.calcActionHint(monster, entity, ActionType.shield, ability.actions, actionHints);
-          this.calcActionHint(monster, entity, ActionType.retaliate, ability.actions, actionHints);
-        }
-      }
-    }
-
-    return actionHints.sort((a, b) => {
-      if (a.type == ActionType.shield && b.type != ActionType.shield) {
-        return -1;
-      } else if (b.type == ActionType.shield && a.type != ActionType.shield) {
-        return 1;
-      }
-      return a.range - b.range;
-    });
-  }
-
-  calcActionHint(monster: Monster, entity: MonsterEntity, type: ActionType, actions: Action[], actionHints: ActionHint[], parentIndex: number = 0) {
-    actions.forEach((action, index) => {
-      if (action.type == type && action.value != 'X') {
-        let actionHint: ActionHint = { type: type, value: EntityValueFunction(action.value), range: 0 };
-        if (action.subActions && action.subActions.length > 0) {
-          let rangeSubAction = action.subActions.find((subAction) => subAction.type == ActionType.range && (!subAction.valueType || subAction.valueType == ActionValueType.fixed));
-          if (rangeSubAction) {
-            actionHint.range = EntityValueFunction(rangeSubAction.value);
-          }
-        }
-
-        let existingActionHint = actionHints.find((existing) => existing.type == actionHint.type && existing.range == actionHint.range);
-
-        if (existingActionHint) {
-          existingActionHint.value += actionHint.value;
-        } else {
-          actionHints.push(actionHint)
-        }
-      } else if (action.type == ActionType.monsterType && action.value == entity.type) {
-        this.calcActionHint(monster, entity, type, action.subActions, actionHints, index);
-      } else if (action.type == ActionType.element && action.valueType == ActionValueType.minus && monster.entities.find((monsterEntity) => monsterEntity.tags.find((tag) => tag == 'roundAction-element-consume-' + index + '-' + parentIndex + '-' + action.value))) {
-        this.calcActionHint(monster, entity, type, action.subActions, actionHints, index);
-      }
-    })
   }
 
   sortEntities(a: MonsterEntity, b: MonsterEntity): number {

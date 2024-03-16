@@ -207,7 +207,7 @@ export class MonsterAbilityCardComponent implements OnInit, OnDestroy {
         this.dialog.open(AbilityDialogComponent, {
           panelClass: ['fullscreen-panel'],
           disableClose: true,
-          data: { ability: second ? this.secondAbility : this.ability, monster: this.monster }
+          data: { ability: second ? this.secondAbility : this.ability, monster: this.monster, interactive: settingsManager.settings.interactiveAbilities }
         });
       } else {
         this.openAbilities(event);

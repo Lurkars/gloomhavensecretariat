@@ -41,7 +41,7 @@
               {{objective.title}}</span>
             <span *ngIf="!objective.title" [ghs-label]="objective.name ? ('data.objective.' + objective.name) :
           (objective.escort ? 'escort' : 'objective')"></span>
-          <ghs-entity-index-key [entity]="entity"></ghs-entity-index-key>
+            <ghs-entity-index-key [entity]="entity"></ghs-entity-index-key>
           </div>
         </div>
         <div class="status-bar">
@@ -93,10 +93,18 @@
       </div>
 
     </ng-container>
-
-    <div class="actions" *ngIf="objectiveData && objectiveData.actions" (click)="openEntityMenu($event)">
-      <ghs-actions [actions]="objectiveData.actions"></ghs-actions>
+    <div class="actions-container">
+      <div class="actions" *ngIf="objectiveData && objectiveData.actions" ghs-pointer-input
+        (singleClick)="openEntityMenu($event)">
+        <ghs-actions [objective]="objective" [actions]="objectiveData.actions" [interactiveActions]="interactiveActions"
+          (interactiveActionsChange)="onInteractiveActionsChange($event)"></ghs-actions>
+      </div>
+      <div class="bottom-spacer" *ngIf="interactiveActions.length">
+      </div>
     </div>
+
+    <ghs-interactive-actions *ngIf="objectiveData && objectiveData.actions" [figure]="objective"
+      [actions]="objectiveData.actions" [(interactiveActions)]="interactiveActions"></ghs-interactive-actions>
 
     <span class="spacer" (click)="openEntityMenu($event)"></span>
 

@@ -115,31 +115,34 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     if (!this.footer.disabled()) {
                         this.footer.next();
                     }
-                } else if ((!this.dialogOpen || this.allowed.indexOf('am') != -1) && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && gameManager.game.state == GameState.next && event.key.toLowerCase() === 'm') {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('am') != -1) && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && gameManager.game.state == GameState.next && (event.key.toLowerCase() === 'm' || settingsManager.settings.amAdvantage && (event.key.toLowerCase() === 'a' || event.key.toLowerCase() === 'd'))) {
                     const activeFigure = gameManager.game.figures.find((figure) => figure.active);
                     let deck: AttackModifierDeck | undefined = undefined;
+                    const state: 'advantage' | 'disadvantage' | undefined = settingsManager.settings.amAdvantage && event.key.toLowerCase() === 'a' ? 'advantage' : (settingsManager.settings.amAdvantage && event.key.toLowerCase() === 'd' ? 'disadvantage' : undefined);
+
                     if (!activeFigure || activeFigure instanceof Monster && (!activeFigure.isAlly && !activeFigure.isAllied || !gameManager.fhRules() && !settingsManager.settings.alwaysAllyAttackModifierDeck || !settingsManager.settings.allyAttackModifierDeck)) {
-                        gameManager.stateManager.before("updateAttackModifierDeck.draw", "monster");
+                        gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), "monster");
                         deck = gameManager.game.monsterAttackModifierDeck;
                     } else if (activeFigure instanceof Monster) {
-                        gameManager.stateManager.before("updateAttackModifierDeck.draw", "ally");
+                        gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), "ally");
                         deck = gameManager.game.allyAttackModifierDeck;
                     } else if (activeFigure instanceof Character) {
                         if (settingsManager.settings.characterAttackModifierDeck) {
                             if (activeFigure.attackModifierDeckVisible) {
-                                gameManager.stateManager.before("updateAttackModifierDeck.draw", gameManager.characterManager.characterName(activeFigure));
+                                gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), gameManager.characterManager.characterName(activeFigure));
                                 deck = activeFigure.attackModifierDeck;
                             } else {
                                 activeFigure.attackModifierDeckVisible = true;
                             }
                         } else {
-                            gameManager.stateManager.before("updateAttackModifierDeck.draw", "monster");
+                            gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), "monster");
                             deck = gameManager.game.monsterAttackModifierDeck;
                         }
                     }
 
                     if (deck) {
                         deck.active = true;
+                        deck.state = state;
                         gameManager.attackModifierManager.drawModifier(deck);
                         gameManager.stateManager.after();
                     }

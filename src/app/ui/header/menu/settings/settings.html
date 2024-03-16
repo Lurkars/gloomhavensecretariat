@@ -175,6 +175,9 @@
     <div class="line" ghs-setting-menu="automaticPassTime" [disabled]="!gameManager.fhRules()"></div>
     <div class="line" ghs-setting-menu="applyBuildingRewards" [disabled]="!gameManager.fhRules()"></div>
     <div class="line" ghs-setting-menu="unlockEnvelopeBuildings" [disabled]="!gameManager.fhRules()"></div>
+    <div class="line" ghs-setting-menu="fhGhItems"
+      [disabled]="!settingsManager.settings.characterItems && !settingsManager.settings.characterSheet || !gameManager.fhRules()">
+    </div>
   </div>
 
   <div class="column">
@@ -192,9 +195,9 @@
       [checked]="gameManager.fhRules()"></div>
     <div class="line" ghs-setting-menu="alwaysFhSolo" [disabled]="gameManager.fhRules()"
       [checked]="gameManager.fhRules()"></div>
-    <div class="line" ghs-setting-menu="fhGhItems"
-      [disabled]="!settingsManager.settings.characterItems && !settingsManager.settings.characterSheet || !gameManager.fhRules()">
-    </div>
+    <div class="line" ghs-setting-menu="alwaysFhAdvantage"
+      [disabled]="!settingsManager.settings.amAdvantage || gameManager.fhRules()"
+      [checked]="settingsManager.settings.amAdvantage && gameManager.fhRules()"></div>
   </div>
 
   <div class="separator"></div>
@@ -214,6 +217,7 @@
     <div class="line" ghs-setting-menu="allyAttackModifierDeck"></div>
     <div class="line" ghs-setting-menu="monsters"></div>
     <div class="line" ghs-setting-menu="monsterAttackModifierDeck"></div>
+    <div class="line" ghs-setting-menu="amAdvantage"></div>
   </div>
 
   <!-- INTERFACE -->
@@ -256,9 +260,10 @@
 
   <div class="column">
     <div class="line" ghs-setting-menu="automaticGameClock" [disabled]="!settingsManager.settings.gameClock"></div>
-    <div class="line" ghs-setting-menu="automaticGameClockFocus" [disabled]="!settingsManager.settings.gameClock || !settingsManager.settings.automaticGameClock"></div>
+    <div class="line" ghs-setting-menu="automaticGameClockFocus"
+      [disabled]="!settingsManager.settings.gameClock || !settingsManager.settings.automaticGameClock"></div>
   </div>
-  
+
   <div class="separator"></div>
 
   <div class="column">

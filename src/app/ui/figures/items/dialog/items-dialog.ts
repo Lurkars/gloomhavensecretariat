@@ -1,5 +1,5 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
-import { Component, Inject } from "@angular/core";
+import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -15,7 +15,7 @@ import { ItemsBrewDialog } from "../brew/brew";
     templateUrl: './items-dialog.html',
     styleUrls: ['./items-dialog.scss']
 })
-export class ItemsDialogComponent {
+export class ItemsDialogComponent implements OnInit, OnDestroy {
 
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;

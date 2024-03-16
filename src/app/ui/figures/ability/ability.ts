@@ -1,11 +1,12 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from "@angular/core";
+import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from "@angular/core";
 import { Subscription } from "rxjs";
+import { InteractiveAction } from "src/app/game/businesslogic/ActionsManager";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { Monster } from "src/app/game/model/Monster";
 import { Ability } from "src/app/game/model/data/Ability";
-import { Action, ActionType } from "src/app/game/model/data/Action";
+import { ActionValueType } from "src/app/game/model/data/Action";
 import { applyPlaceholder } from "../../helper/label";
 
 
@@ -28,10 +29,19 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
+  ActionValueType = ActionValueType;
 
   abilityIndex: number = -1;
   abilityLabel: string = "";
-  interactiveActions: Action[] = [];
+
+  interactiveActions: InteractiveAction[] = [];
+  interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
+  interactiveBottomActions: InteractiveAction[] = [];
+  interactiveBottomActionsChange = new EventEmitter<InteractiveAction[]>();
+
+  fontsize: string = "";
+
+  constructor(public elementRef: ElementRef) { }
 
   ngOnInit() {
     this.update();
@@ -55,12 +65,12 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   update() {
+    this.fontsize = (this.elementRef.nativeElement.offsetWidth * 0.04) + 'px'
     this.abilityIndex = -1;
     this.abilityLabel = "";
     if (this.ability) {
       this.abilityIndex = this.getAbilityIndex(this.ability);
       this.abilityLabel = this.getAbilityLabel(this.ability);
-      this.calcInteractiveActions(this.ability.actions);
     }
   }
 
@@ -96,47 +106,14 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
     }
   }
 
-  calcInteractiveActions(actions: Action[], index: string = "") {
-    if (!index) {
-      this.interactiveActions = [];
-    }
-
-    actions.forEach((action, i) => {
-      if (this.isIntactiveAction(action, (index ? index + '.' : '') + i)) {
-        this.interactiveActions.push(action);
-      } else if (action.subActions && action.subActions.length) {
-        this.calcInteractiveActions(action.subActions, (index ? index + '.' : '') + i);
-      }
-    })
-
+  onInteractiveActionsChange(change: InteractiveAction[]) {
+    this.interactiveActionsChange.emit(change);
+    this.interactiveActions = change;
   }
 
-  isIntactiveAction(action: Action, index: string): boolean {
-    const actionTag = 'roundAction-' + index + '-' + action.type;
-    if (this.monster &&
-      (this.isInteractiveHealAction(action) ||
-        this.isInteractiveConditionAction(action) ||
-        this.isIntactiveElementAction(action) ||
-        action.type == ActionType.sufferDamage ||
-        action.type == ActionType.switchType)) {
-      if (action.type == ActionType.heal && this.monster.entities.every((entity) => entity.dead || entity.health < 1 || entity.health >= entity.maxHealth)) {
-        return false;
-      }
-
-      return this.interactiveAbilities && (this.monster.active && this.monster && this.monster.entities.find((entity) => action && gameManager.entityManager.isAlive(entity, true) && !entity.tags.find((tag) => tag == actionTag)) != undefined || false);
-    }
-    return false;
+  onInteractiveBottomActionsChange(change: InteractiveAction[]) {
+    this.interactiveBottomActionsChange.emit(change);
+    this.interactiveBottomActions = change;
   }
 
-  isInteractiveHealAction(action: Action): boolean {
-    return action.type == ActionType.heal && action.subActions && action.subActions.length == 1 && action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && ('' + subAction.value).startsWith('self')) != undefined;
-  }
-
-  isInteractiveConditionAction(action: Action): boolean {
-    return action.type == ActionType.condition && action.subActions && action.subActions.length == 1 && action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && ('' + subAction.value).startsWith('self')) != undefined;
-  }
-
-  isIntactiveElementAction(action: Action): boolean {
-    return false;
-  }
 }

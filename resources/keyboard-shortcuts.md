@@ -11,6 +11,8 @@ The following keyboard shortcuts are currently implemented:
 - <kbd>↹</kbd>: toggle active figure when drawn / toggle initiative input when focused input
 - <kbd>n</kbd>: next round / draw
 - <kbd>m</kbd>: draw AM card (deck depending on active figure, monster deck when not active, disabled when **Draw**)
+- <kbd>a</kbd> like <kbd>m</kbd>, but draw with Advantage if enabled
+- <kbd>d</kbd> like <kbd>m<</kbd>, but draw with Disadvantage if enabled
 - <kbd>l</kbd>: draw from LootDeck
 - <kbd>1-6</kbd>: toggle through element state
 - <kbd>h</kbd>: toggle *Hide absent figures*

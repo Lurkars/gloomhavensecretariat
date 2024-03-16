@@ -17,6 +17,7 @@ import { AbilityDialogComponent } from './ui/figures/ability/ability-dialog';
 import { ActionComponent } from './ui/figures/actions/action';
 import { ActionsComponent } from './ui/figures/actions/actions';
 import { ActionHexComponent } from './ui/figures/actions/area/action-hex';
+import { InteractiveActionsComponent } from './ui/figures/actions/interactive/interactive-actions';
 import { ActionSummonComponent } from './ui/figures/actions/summon/action-summon';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
 import { AttackModifierDrawComponent } from './ui/figures/attackmodifier/attackmodifier-draw';
@@ -95,10 +96,10 @@ import { LevelComponent } from './ui/footer/level/level';
 import { LevelDialogComponent } from './ui/footer/level/level-dialog';
 import { ScenarioRulesComponent } from './ui/footer/scenario-rules/scenario-rules';
 import { ScenarioDialogComponent } from './ui/footer/scenario/dialog/scenario-dialog';
-import { ScenarioSetupComponent } from './ui/footer/scenario/scenario-setup/scenario-setup';
 import { StatsListComponent } from './ui/footer/scenario/dialog/stats-list/stats-list';
 import { ScenarioComponent } from './ui/footer/scenario/scenario';
 import { ScenarioConclusionComponent } from './ui/footer/scenario/scenario-conclusion/scenario-conclusion';
+import { ScenarioSetupComponent } from './ui/footer/scenario/scenario-setup/scenario-setup';
 import { SectionDialogComponent } from './ui/footer/scenario/section/section-dialog';
 import { ScenarioSummaryComponent } from './ui/footer/scenario/summary/scenario-summary';
 import { TreasureLabelComponent } from './ui/footer/scenario/treasures/label/label';
@@ -114,8 +115,8 @@ import { SettingsDebugMenuComponent } from './ui/header/menu/debug/debug';
 import { KeyboardShortcutsComponent } from './ui/header/menu/keyboard-shortcuts/keyboard-shortcuts';
 import { MainMenuComponent } from './ui/header/menu/menu';
 import { MonsterMenuComponent } from './ui/header/menu/monster/monster';
-import { ScenarioChartDialogComponent } from './ui/header/menu/scenario/chart/scenario-chart';
 import { ScenarioChartPopupDialog } from './ui/header/menu/scenario/chart/popup/scenario-chart-popup';
+import { ScenarioChartDialogComponent } from './ui/header/menu/scenario/chart/scenario-chart';
 import { ScenarioMenuComponent } from './ui/header/menu/scenario/scenario';
 import { SectionMenuComponent } from './ui/header/menu/section/section';
 import { ServerMenuComponent } from './ui/header/menu/server/server';
@@ -187,7 +188,7 @@ export class GhsErrorHandler extends ErrorHandler {
     MonsterStatDialogComponent, MonsterStatsDialogComponent, MonsterLevelDialogComponent,
     MonsterNumberPicker, MonsterNumberPickerDialog, MonsterImageDialogComponent,
     AbilityComponent, AbiltiesDialogComponent, AbilityDialogComponent,
-    ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,
+    ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent, InteractiveActionsComponent,
     FigureErrorsComponent, FigureErrorsDialogComponent, EntityIndexKeyComponent,
     CardRevealDirective, EntityAnimationDirective, GhsLabelDirective, GhsLabelElementDirective, ValueCalcDirective, PointerInputDirective, AutocompleteDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective, ValueSignDirective,
     GhsValueSignPipe, GhsRangePipe, GhsScenarioSearch, GhsFloorPipe, GhsCeilPipe, GhsMinZeroPipe, GhsDurationLabelPipe,

@@ -225,7 +225,7 @@ export class EntityManager {
           shield.value = 0;
 
           if (entity instanceof MonsterEntity && figure instanceof Monster) {
-            let actionHints = gameManager.monsterManager.calcActionHints(figure, entity);
+            let actionHints = gameManager.actionsManager.calcActionHints(figure, entity);
             actionHints.forEach((actionHint) => {
               if (shield && actionHint.type == ActionType.shield) {
                 shield.value += actionHint.value;

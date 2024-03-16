@@ -1,15 +1,13 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { EntityExpressionRegex, EntityValueFunction, EntityValueRegex } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';
-import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { Action, ActionSpecialTarget, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
-import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
-import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';
-import { Element, ElementState } from 'src/app/game/model/data/Element';
+import { Condition, ConditionType } from 'src/app/game/model/data/Condition';
 import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { valueCalc } from '../../helper/valueCalc';
@@ -31,7 +29,8 @@ export class ActionComponent implements OnInit, OnDestroy {
   @Input() inline: boolean = false;
   @Input() right: boolean = false;
   @Input() highlight: boolean = false;
-  @Input() interactiveAbilities: boolean = false;
+  @Input() interactiveActions: InteractiveAction[] = [];
+  @Output() interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
   @Input() statsCalculation: boolean = false;
   @Input() hexSize!: number;
   @Input('index') actionIndex: string = "";
@@ -161,10 +160,7 @@ export class ActionComponent implements OnInit, OnDestroy {
   }
 
   getValues(action: Action): string[] {
-    if (action.value && typeof action.value === "string") {
-      return action.value.split(':');
-    }
-    return [];
+    return gameManager.actionsManager.getValues(action);
   }
 
   getSpecial(action: Action): Action[] {
@@ -283,11 +279,14 @@ export class ActionComponent implements OnInit, OnDestroy {
     if (!this.action) {
       return;
     }
+    this.elementActions = [];
     if (settingsManager.settings.fhStyle && [ActionType.element, ActionType.concatenation, ActionType.box].indexOf(this.action.type) == -1) {
-      this.elementActions = this.action.subActions.filter((action) => action.type == ActionType.element);
+      this.action.subActions.forEach((action) => {
+        if (action.type == ActionType.element) {
+          this.elementActions.push(action)
+        }
+      });
       this.action.subActions = this.action.subActions.filter((action) => action.type != ActionType.element);
-    } else {
-      this.elementActions = [];
     }
 
     this.additionalSubActions = JSON.parse(JSON.stringify(this.action.subActions));
@@ -503,150 +502,51 @@ export class ActionComponent implements OnInit, OnDestroy {
   }
 
   highlightAction(): boolean {
-    if (this.monster && this.action && ((this.action.type == ActionType.heal || this.action.type == ActionType.condition) && (this.action.subActions && this.action.subActions.length == 1 && this.action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && ('' + subAction.value).startsWith('self'))) || this.action.type == ActionType.sufferDamage || this.action.type == ActionType.switchType)) {
-      if (this.action.type == ActionType.heal && this.monster.entities.every((entity) => entity.dead || entity.health < 1 || entity.health >= entity.maxHealth)) {
-        return false;
-      }
-
-      return this.interactiveAbilities && (this.monster.active && this.monster && this.monster.entities.find((entity) => this.action && gameManager.entityManager.isAlive(entity, true) && !entity.tags.find((tag) => this.action && tag == 'roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action.type)) != undefined || false);
-    }
-    return false;
+    return this.interactiveActions.find((interactiveAction) => interactiveAction.index == this.actionIndex) != undefined || false;
   }
 
-  applyHighlightAction(event: TouchEvent | MouseEvent) {
-    if (this.monster && this.highlightAction() && this.action) {
-      gameManager.stateManager.before('applyHighlightAction.' + this.action.type, "data.monster." + this.monster.name, '' + this.action.value);
-      let after: boolean = true;
-      const tag = 'roundAction-' + (this.actionIndex ? this.actionIndex + '-' : '') + this.action.type;
-      this.monster.entities.sort(gameManager.monsterManager.sortEntities).filter((entity) => gameManager.entityManager.isAlive(entity, true) && !entity.tags.find((entityTag) => entityTag == tag)).filter((entity, index) => settingsManager.settings.combineInteractiveAbilities || index == 0).forEach((entity) => {
-        if (this.action) {
-          entity.tags.push(tag);
-          if (this.monster && this.action.type == ActionType.heal) {
-            const heal = EntityValueFunction(this.action.value, this.level);
-            entity.health += heal;
-            gameManager.entityManager.addCondition(entity, new Condition(ConditionName.heal, heal), this.monster && this.monster.active || false, this.monster && this.monster.off || false);
-            gameManager.entityManager.applyCondition(entity, this.monster, ConditionName.heal, true);
-          } else if (this.action.type == ActionType.condition) {
-            if (this.action.value == 'bless' || this.action.value == 'curse') {
-              const am = settingsManager.settings.allyAttackModifierDeck && (gameManager.fhRules() || settingsManager.settings.alwaysAllyAttackModifierDeck) && (this.monster?.isAlly || this.monster?.isAllied) ? gameManager.game.allyAttackModifierDeck : gameManager.game.monsterAttackModifierDeck;
-              gameManager.attackModifierManager.addModifier(am, new AttackModifier(this.action.value == 'bless' ? AttackModifierType.bless : AttackModifierType.curse));
-            } else {
-              gameManager.entityManager.addCondition(entity, new Condition('' + this.action.value), this.monster?.active || false, this.monster?.off || false);
-            }
-          } else if (this.action.type == ActionType.sufferDamage) {
-            entity.health -= EntityValueFunction(this.action.value, this.level);
-            if (entity.health <= 0) {
-              entity.health = 0;
-              entity.dead = true;
-            }
-            if (this.monster && entity.dead) {
-              after = false;
-              setTimeout(() => {
-                if (this.monster && entity.dead) {
-                  gameManager.monsterManager.removeMonsterEntity(this.monster, entity);
-                  if (this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0 || !monsterEntity.active)) {
-                    this.monster.off = true;
-                    if (this.monster.active) {
-                      gameManager.roundManager.toggleFigure(this.monster);
-                    }
-                  }
-                }
-                gameManager.stateManager.after();
-              }, !settingsManager.settings.animations ? 0 : 1500);
-            }
+  isInteractiveApplicableAction(): boolean {
+    return this.monster && this.monster.entities.some((entity) => this.action && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex)) || this.objective && this.objective.entities.some((entity) => this.action && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex)) || false;
+  }
+
+  toggleHighlight(event: MouseEvent | TouchEvent) {
+    if (this.isInteractiveApplicableAction()) {
+      if (this.highlightAction()) {
+        this.interactiveActions = this.interactiveActions.filter((interactiveAction) => !interactiveAction.index.startsWith(this.actionIndex));
+      } else if (this.action) {
+        this.interactiveActions.push({ action: this.action, index: this.actionIndex });
+        if (this.action.subActions) {
+          let interactiveSubActions: InteractiveAction[] = [];
+          if (this.monster) {
+            interactiveSubActions = gameManager.actionsManager.getAllInteractiveActions(this.monster, this.action.subActions, this.actionIndex);
+          } else if (this.objective) {
+            interactiveSubActions = gameManager.actionsManager.getAllInteractiveActions(this.objective, this.action.subActions, this.actionIndex);
           }
+          interactiveSubActions.forEach((interactiveSubAction) => {
+            if (!this.interactiveActions.some((interactiveAction) => interactiveAction.index == interactiveSubAction.index)) {
+              this.interactiveActions.push(interactiveSubAction);
+            }
+          })
         }
-      })
-
-      if (this.action.type == ActionType.switchType && this.monster) {
-        const normalStat = this.monster.stats.find((stat) => this.monster && stat.level == this.monster.level && stat.type == MonsterType.normal);
-        const eliteStat = this.monster.stats.find((stat) => this.monster && stat.level == this.monster.level && stat.type == MonsterType.elite);
-        if (normalStat && eliteStat) {
-          this.monster.entities.forEach((entity) => {
-            if (this.monster && gameManager.entityManager.isAlive(entity)) {
-              entity.type = entity.type == MonsterType.elite ? MonsterType.normal : MonsterType.elite;
-              entity.maxHealth = EntityValueFunction(entity.type == MonsterType.normal ? normalStat.health : eliteStat.health, this.monster.level)
-              if (entity.health > entity.maxHealth) {
-                entity.health = entity.maxHealth;
-              } else if (entity.health < entity.maxHealth && entity.health == EntityValueFunction(entity.type == MonsterType.normal ? eliteStat.health : normalStat.health, this.monster.level)) {
-                entity.health = entity.maxHealth;
-              }
-            }
-          });
-        }
+        this.interactiveActionsChange.emit(this.interactiveActions);
+        event.preventDefault();
+        event.stopPropagation();
       }
-
-      if (after) {
-        gameManager.stateManager.after();
-      }
-      event.stopPropagation();
-      event.preventDefault();
     }
   }
 
-  highlightElement(elementTypes: string[], consume: boolean, index: number): boolean {
-    return this.interactiveAbilities && (this.monster && this.monster.active &&
-
-      (!consume && (elementTypes[index] == Element.wild || gameManager.game.elementBoard.some((element) => element.type == elementTypes[index] && element.state != ElementState.new && element.state != ElementState.strong && element.state != ElementState.always)) ||
-
-        consume && gameManager.game.elementBoard.some((element) => (element.type == elementTypes[index] || elementTypes[index] == Element.wild) && (element.state == ElementState.strong || element.state == ElementState.waning || element.state == ElementState.always)))
-
-      && (index == 0 || this.elementActionPerformed(elementTypes[index - 1], consume, index - 1))
-
-      && this.elementActionPerformed(elementTypes[index], consume, index) == undefined || false);
-  }
-
-  wildToConsume(): Element[] {
-    return gameManager.game.elementBoard.filter((element) => element.state != ElementState.inert && element.state != ElementState.new).map((element) => element.type);
-  }
-
-  wildToCreate(): Element[] {
-    return gameManager.game.elementBoard.filter((element) => element.state != ElementState.new && element.state != ElementState.strong && element.state != ElementState.always).map((element) => element.type);
-  }
-
-  elementAction(event: any, action: Action, element: string, index: number, wild: boolean = false) {
-    if (this.monster && this.highlightElement(this.getValues(action), action.valueType == ActionValueType.minus, index)) {
-      const entity = this.monster && this.monster.entities.find((entity) => gameManager.entityManager.isAlive(entity) && !entity.tags.some((tag) => tag == 'roundAction-element-' + (action.valueType == ActionValueType.minus ? 'consume-' : '') + (this.actionIndex ? this.actionIndex + '-' : '') + index + element));
-      if (action.valueType == ActionValueType.minus) {
-        gameManager.game.elementBoard.forEach((elementModel) => {
-          if (elementModel.type == element && this.monster) {
-            gameManager.stateManager.before("monsterConsumeElement", "data.monster." + this.monster.name, "game.element." + element);
-            if (elementModel.state != ElementState.always) {
-              elementModel.state = ElementState.consumed;
-            }
-            if (entity) {
-              entity.tags.push('roundAction-element-consume-' + (this.actionIndex ? this.actionIndex + '-' : '') + index + '-' + (wild ? 'wild' : element));
-            }
-            gameManager.stateManager.after();
-          }
-        })
-      } else {
-        gameManager.game.elementBoard.forEach((elementModel) => {
-          if (elementModel.type == element && this.monster) {
-            gameManager.stateManager.before("monsterInfuseElement", "data.monster." + this.monster.name, "game.element." + element);
-            if (elementModel.state != ElementState.always) {
-              elementModel.state = ElementState.new;
-            }
-            if (entity) {
-              entity.tags.push('roundAction-element-' + (this.actionIndex ? this.actionIndex + '-' : '') + index + '-' + (wild ? 'wild' : element));
-            }
-            gameManager.stateManager.after();
-          }
-        })
+  getOrigIndex(action: Action): number {
+    if (this.origAction && this.origAction.subActions) {
+      const origAction = this.origAction.subActions.find((subAction) => JSON.stringify(action) == JSON.stringify(subAction));
+      if (origAction) {
+        return this.origAction.subActions.indexOf(origAction);
       }
-      event.preventDefault();
     }
+
+    return -1;
   }
 
-  elementActionPerformed(elementType: string, consume: boolean, index: number): MonsterEntity | undefined {
-    return this.monster && this.monster.entities.find((entity) => gameManager.entityManager.isAlive(entity) && entity.tags.some((tag) => tag == 'roundAction-element-' + (consume ? 'consume-' : '') + (this.actionIndex ? this.actionIndex + '-' : '') + index + '-' + elementType));
-  }
-
-  elementActionsPerformed(elementTypes: string[], consume: boolean): boolean {
-    return this.monster && elementTypes.every((elementType, index) => this.monster && this.monster.entities.find((entity) => gameManager.entityManager.isAlive(entity) && entity.tags.some((tag) => tag == 'roundAction-element-' + (consume ? 'consume-' : '') + (this.actionIndex ? this.actionIndex + '-' : '') + index + '-' + elementType))) || false;
-  }
-
-  elementActionsPerformedSome(elementTypes: string[], consume: boolean): boolean {
-    return this.monster && elementTypes.some((elementType, index) => this.monster && this.monster.entities.find((entity) => gameManager.entityManager.isAlive(entity) && entity.tags.some((tag) => tag == 'roundAction-element-' + (consume ? 'consume-' : '') + (this.actionIndex ? this.actionIndex + '-' : '') + index + '-' + elementType))) || true;
+  onInteractiveActionsChange(change: InteractiveAction[]) {
+    this.interactiveActionsChange.emit(change);
   }
 }

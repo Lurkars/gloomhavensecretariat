@@ -1,8 +1,9 @@
-<div class="ability-dialog" (click)="close()" [ngClass]="{'closed' : !opened, 'opened' : opened}">
+<div class="ability-dialog" ghs-pointer-input (singleClick)="close()"
+  [ngClass]="{'closed' : !opened, 'opened' : opened}">
   <div class="ability-container"
     [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0 || false}">
     <ghs-ability [ability]="ability" [monster]="monster" [character]="character" [flipped]="opened"
-      [relative]="relative"></ghs-ability>
+      [relative]="relative" [interactiveAbilities]="interactiveAbilities"></ghs-ability>
   </div>
 </div>
 <div class="close-container" (click)="close()"></div>

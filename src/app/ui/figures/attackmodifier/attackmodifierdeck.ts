@@ -220,18 +220,20 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
           this.queue = 0;
         }
       }
+      this.calcRolling();
     }, !settingsManager.settings.animations ? 0 : (this.vertical ? 1050 : 1850));
   }
 
-  draw(event: any) {
+  draw(event: any, state: 'advantage' | 'disadvantage' | undefined = undefined) {
     if (this.compact && this.fullscreen) {
       this.openFullscreen(event);
     } else if (!this.disabled) {
       if (!this.drawTimeout && this.deck.current < (this.deck.cards.length - (this.queue == 0 ? 0 : 1))) {
         this.drawTimeout = setTimeout(() => {
-          this.before.emit(new AttackModiferDeckChange(this.deck, "draw"));
+          this.before.emit(new AttackModiferDeckChange(this.deck, "draw" + (state ? state : '')));
+          this.deck.state = state;
           gameManager.attackModifierManager.drawModifier(this.deck);
-          this.after.emit(new AttackModiferDeckChange(this.deck, "draw"));
+          this.after.emit(new AttackModiferDeckChange(this.deck, "draw" + (state ? state : '')));
           this.drawTimeout = null;
         }, !settingsManager.settings.animations ? 0 : 150)
       }
@@ -288,7 +290,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
     });
 
     this.deck.cards.forEach((card, index) => {
-      if (this.current > 1 && !card.rolling && index < (this.current - 1) && this.deck.cards[index + 1].rolling && this.deck.cards[this.current - 1].rolling && (this.rollingIndex[index + 1] || index == this.current - 2)) {
+      if ((gameManager.fhRules() || settingsManager.settings.alwaysFhAdvantage) && this.current > 1 && !card.rolling && index < (this.current - 1) && this.deck.cards[index + 1].rolling && this.deck.cards[this.current - 1].rolling && (this.rollingIndex[index + 1] || index == this.current - 2)) {
         this.rollingIndex[index] = this.rollingIndex[index + 1] + (index == this.current - 2 ? 2 : 1);
       }
     })

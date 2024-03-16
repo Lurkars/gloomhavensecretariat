@@ -163,15 +163,37 @@
   }
 
 
-  .actions {
-    width: calc(var(--ghs-unit) * 28);
-    height: calc(var(--ghs-unit) * 11);
-    margin: calc(var(--ghs-unit) * 1.5) 0;
+  .actions-container {
+    margin: calc(var(--ghs-unit) * 1) 0;
     margin-left: calc(var(--ghs-unit) * 1);
-    display: flex;
-    justify-content: center;
-    font-size: calc(var(--ghs-unit) * 2.5);
+    position: relative;
     overflow: auto;
+
+    .actions {
+      position: relative;
+      width: calc(var(--ghs-unit) * 28);
+      display: flex;
+      justify-content: center;
+      font-size: calc(var(--ghs-unit) * 2.5);
+    }
+
+    .bottom-spacer {
+      display: block;
+      position: relative;
+      margin-top: 2em;
+    }
+  }
+
+  ghs-interactive-actions {
+    position: absolute;
+    font-size: calc(var(--ghs-unit) * 1.5);
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    z-index: 999;
+    border-bottom-left-radius: calc(var(--ghs-unit) * 0.5);
+    border-bottom-right-radius: calc(var(--ghs-unit) * 0.5);
+    overflow: hidden;
   }
 
   .image-container {

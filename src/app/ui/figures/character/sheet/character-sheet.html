@@ -249,7 +249,7 @@
             <input [value]="character.number" type="number" min="1" (change)="setPlayerNumber($event)"
               (keyup)="setPlayerNumber($event)">
           </div>
-          <div class="personal-quest">
+          <div class="personal-quest" *ngIf="!gameManager.editionRules('jotl')">
             <label><span [ghs-label]="'character.progress.personalQuest'"></span>:</label>
             <div class="personal-quest-card">
               <input class="card-id" [value]="character.progress.personalQuest" type="text"
@@ -299,7 +299,7 @@
             </div>
 
           </div>
-          <div class="retirements">
+          <div class="retirements" *ngIf="!gameManager.editionRules('jotl')">
             <label><span [ghs-label]="'character.progress.retirements'"></span>:</label>
             <input [value]="character.progress.retirements" type="number" min="0" (change)="setRetirements($event)"
               (keyup)="setRetirements($event)">

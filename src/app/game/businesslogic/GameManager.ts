@@ -38,6 +38,7 @@ import { ScenarioManager } from "./ScenarioManager";
 import { ScenarioRulesManager } from "./ScenarioRulesManager";
 import { settingsManager } from "./SettingsManager";
 import { StateManager } from "./StateManager";
+import { ActionsManager } from "./ActionsManager";
 
 declare global {
   interface Window { gameManager: GameManager }
@@ -53,6 +54,7 @@ export class GameManager {
   monsterManager: MonsterManager;
   objectiveManager: ObjectiveManager;
   attackModifierManager: AttackModifierManager;
+  actionsManager: ActionsManager;
   levelManager: LevelManager;
   scenarioManager: ScenarioManager;
   scenarioRulesManager: ScenarioRulesManager;
@@ -72,6 +74,7 @@ export class GameManager {
     this.monsterManager = new MonsterManager(this.game);
     this.objectiveManager = new ObjectiveManager(this.game);
     this.attackModifierManager = new AttackModifierManager(this.game);
+    this.actionsManager = new ActionsManager();
     this.levelManager = new LevelManager(this.game);
     this.scenarioManager = new ScenarioManager(this.game);
     this.scenarioRulesManager = new ScenarioRulesManager(this.game);

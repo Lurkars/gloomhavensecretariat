@@ -14,10 +14,12 @@ export class Settings {
   addAllMonsters: boolean = false;
   allyAttackModifierDeck: boolean = true;
   alwaysAllyAttackModifierDeck: boolean = false;
+  alwaysFhAdvantage: boolean = false;
   alwaysFhSolo: boolean = false;
   alwaysHazardousTerrain: boolean = false;
   alwaysLootApplyDialog = false;
   alwaysLootDeck: boolean = false;
+  amAdvantage: boolean = false;
   animations: boolean = true;
   applyBuildingRewards: boolean = true;
   applyConditions: boolean = true;

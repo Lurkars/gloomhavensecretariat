@@ -506,7 +506,9 @@
       "coverAll": "Cover All",
       "defaultSort": "Sort",
       "draw": "Draw",
+      "drawAdvantage": "Draw with Advantage",
       "drawAnother": "Draw Another",
+      "drawDisadvantage": "Draw with Disadvantage",
       "drawExtra": "Draw Extra",
       "edit": "Edit",
       "fullscreen": "Show Fullscreen",
@@ -977,6 +979,7 @@
       "elite": "Spawn Elite Monster",
       "normal": "Spawn Normal Monster"
     },
+    "applyInteractiveActions": "Apply highlighted abilities for",
     "boss": "Boss",
     "cancelNumberpicker": "Cancel",
     "changeStandee": "Change %game.monsterType.{0}% standee #{1}",
@@ -999,6 +1002,7 @@
     "setStandees": "Setup {1} %game.monsterType.{0}% standees",
     "showBoss": "Show Boss Monster",
     "showHidden": "Show Hidden Monster",
+    "toggleAction": "Toggle applicable ability",
     "toggleAllied": {
       "off": "Turn <span class=\"monster-allied-off\">Allied</span> off",
       "on": "Turn <span class=\"monster-allied-on\">Allied</span> on"
@@ -1684,6 +1688,10 @@
       ".": "Always Hazardous Terrain",
       "hint": "Always apply Frosthaven rules for Hazardous Terrain calculation (Automatic enabled when playing Frosthaven)"
     },
+    "alwaysFhAdvantage": {
+      ".": "Always Frosthaven Advantage/Disadvantage Rules",
+      "hint": "Always apply Frosthaven rules for drawing Attack Modifier with Advantage or Disadvantage (Automatic enabled when playing Frosthaven)"
+    },
     "alwaysFhSolo": {
       ".": "Always Frosthaven Solo Rules",
       "hint": "Always apply Frosthaven rules for Solo level calculation (Automatic enabled when playing Frosthaven)"
@@ -1695,6 +1703,10 @@
     "alwaysLootDeck": {
       ".": "Always use Loot Deck",
       "hint": "Show Loot Deck for every scenario (Automatic enabled when playing Frosthaven)"
+    },
+    "amAdvantage": {
+      ".": "Attack Modifier Deck with Advantage/Disadvantage",
+      "hint": "Add Advantage and Disadvantage buttons and keyboard shortcuts to Attack Modifier Decks. Currently %wip%!"
     },
     "animations": {
       ".": "Animations",
@@ -2027,7 +2039,7 @@
     },
     "interactiveAbilities": {
       ".": "Interactive Abilities",
-      "hint": "On ability cards, click on a highlighted action like summons or element actions to perform that action directly."
+      "hint": "Apply certain highlighted abilities, such as summons or elemental actions, directly by clicking on the appropriate area of the ability card."
     },
     "interface": "Interface",
     "levelAdjustment": {
@@ -2276,11 +2288,16 @@
         "summon": "Apply %game.condition.{2}% to '{1}' of {0}"
       },
       "applyHighlightAction": {
-        "condition": "Apply action %game.condition.{1}% to {0}",
-        "heal": "Apply action %game.action.heal% {1} to {0}",
-        "switchType": "Apply switching of %game.monsterType.normal% and %game.monsterType.elite% standees to {0}",
-        "sufferDamage": "Apply action suffer %game.damage:{1}% to {0}"
+        "condition": "%game.condition.{0}%",
+        "elementConsume": "Consume {0}",
+        "elementInfuse": "Infuse {0}",
+        "heal": "%game.action.heal% {0}",
+        "summon": "Summon",
+        "spawn": "Spawn",
+        "sufferDamage": "Suffer %game.damage:{0}%",
+        "switchType": "Switching of %game.monsterType.normal% and %game.monsterType.elite%"
       },
+      "applyInteractiveActions": "Apply {0} for standees {1} of {2}",
       "applyScenarioRule": "Apply scenario rule",
       "battleGoals": {
         "drawCard": "Draw another Battle Goal card for {0}",
@@ -2594,6 +2611,8 @@
         "amDeckHide": "Hide {0} AM deck",
         "amDeckShow": "Show {0} AM deck",
         "draw": "Draw {0} AM",
+        "drawadvantage": "Draw {0} AM width Advantage",
+        "drawdisadvantage": "Draw {0} AM width Disadvantage",
         "removeBless": "Remove Bless from {0} AM deck",
         "removeCard": "Remove card {1} from {0} AM deck ",
         "removeCurse": "Remove Curse from {0} AM deck",
@@ -2689,7 +2708,13 @@
       }
     },
     "keyboard": {
-      ".": "Keyboard Shortcuts"
+      ".": "Keyboard Shortcuts",
+      "draw AM card (deck depending on active figure, monster deck when not active, disabled when Draw)": "draw AM card (deck depending on active figure, monster deck when not active, disabled when <b>Draw</b>)",
+      "like m, but draw with Advantage if enabled": "like <kbd><span>m</span></kbd>, but draw with Advantage if enabled",
+      "like m, but draw with Disadvantage if enabled": "like <kbd><span>m</span></kbd>, but draw with Disadvantage if enabled",
+      "toggle Hide absend figures": "toggle <i>Hide absent figures</i>",
+      "toggle Display hand size and level": "toggle <i>Display hand size and level",
+      "toggle Display traits": "toggle <i>Display traits</i>"
     },
     "validateEditionData": "Validate Edition Data"
   },

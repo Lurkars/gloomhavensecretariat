@@ -163,10 +163,13 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "characterColored") {
         const characterName = split[2];
         replace = '<span style="color: ' + gameManager.characterManager.characterColor(characterName) + ';">' + value + '</span>'
-      } 
+      }
       else if (type == "monsterType" && split.length == 3) {
         const monsterType = split[2];
         replace = '<span class="placeholder-monster-type ' + monsterType + '">' + settingsManager.getLabel('game.monster.' + monsterType) + '</span>';
+      } else if (type == "monsterType" && split.length == 4) {
+        const monsterType = split[2];
+        replace = '<span class="placeholder-monster-type ' + monsterType + '">' + split[3] + '</span>';
       } else if (type == "mapMarker" && split.length == 3) {
         if (split[2] == ('element')) {
           image = '<img src="./assets/images/element/' + value + '.svg">';

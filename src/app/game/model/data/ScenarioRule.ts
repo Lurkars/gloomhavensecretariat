@@ -41,7 +41,7 @@ export class MonsterSpawnData {
 
   constructor(monsterSpawnData: MonsterSpawnData | MonsterStandeeData) {
     if (monsterSpawnData instanceof MonsterSpawnData) {
-      this.monster = monsterSpawnData.monster;
+      this.monster = monsterSpawnData.monster as MonsterStandeeData;
       this.count = monsterSpawnData.count || "";
       this.marker = monsterSpawnData.marker || "";
       this.summon = monsterSpawnData.summon || false;
