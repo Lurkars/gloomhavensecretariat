@@ -142,8 +142,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
 
                     if (deck) {
                         deck.active = true;
-                        deck.state = state;
-                        gameManager.attackModifierManager.drawModifier(deck);
+                        gameManager.attackModifierManager.drawModifier(deck, state);
                         gameManager.stateManager.after();
                     }
                     event.preventDefault();

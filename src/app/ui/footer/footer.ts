@@ -76,11 +76,11 @@ export class FooterComponent implements OnInit {
     }, 1000)
 
     setTimeout(() => {
-      this.compact = this.monsterDeck.nativeElement.clientWidth > this.footer.nativeElement.clientWidth * 0.3;
+      this.compact = this.monsterDeck && this.monsterDeck.nativeElement.clientWidth > this.footer.nativeElement.clientWidth * 0.3;
     }, 100)
 
     window.addEventListener('resize', (event) => {
-      this.compact = this.monsterDeck.nativeElement.clientWidth > this.footer.nativeElement.clientWidth * 0.3;
+      this.compact = this.monsterDeck && this.monsterDeck.nativeElement.clientWidth > this.footer.nativeElement.clientWidth * 0.3;
     });
   }
 

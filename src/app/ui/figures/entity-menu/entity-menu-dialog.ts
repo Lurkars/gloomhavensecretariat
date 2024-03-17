@@ -939,6 +939,7 @@ export class EntityMenuDialogComponent {
 
         if (this.data.entity.name == 'lightning' && specialTagsToAdd.indexOf('immune') != -1) {
           this.data.entity.immunities = gameManager.conditionsForTypes('character', 'negative').map((condition) => condition.name);
+          this.data.entity.immunities.push(ConditionName.curse);
         }
         if (this.data.entity.name == 'demolitionist' && specialTagsToAdd.indexOf('mech') != -1) {
           this.data.entity.maxHealth += 5;

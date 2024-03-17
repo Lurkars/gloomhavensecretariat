@@ -1,31 +1,31 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild } from "@angular/core";
-import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
+import { Subscription } from "rxjs";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
-import { FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "src/app/game/model/data/EditionData";
-import { ItemData } from "src/app/game/model/data/ItemData";
-import { ScenarioData } from "src/app/game/model/data/ScenarioData";
-import { CountIdentifier, Identifier } from "src/app/game/model/data/Identifier";
-import { LootType } from "src/app/game/model/data/Loot";
 import { Party } from "src/app/game/model/Party";
 import { GameScenarioModel, Scenario, ScenarioCache } from "src/app/game/model/Scenario";
+import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
+import { FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "src/app/game/model/data/EditionData";
+import { CountIdentifier, Identifier } from "src/app/game/model/data/Identifier";
+import { ItemData } from "src/app/game/model/data/ItemData";
+import { LootType } from "src/app/game/model/data/Loot";
+import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { AttackModiferDeckChange } from "../../figures/attackmodifier/attackmodifierdeck";
-import { ghsDialogClosingHelper, ghsInputFullScreenCheck } from "../../helper/Static";
-import { CharacterMoveResourcesDialog } from "../../figures/character/sheet/move-resources";
-import { ScenarioConclusionComponent } from "../../footer/scenario/scenario-conclusion/scenario-conclusion";
-import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
-import { Subscription } from "rxjs";
-import { ScenarioSummaryComponent } from "../../footer/scenario/summary/scenario-summary";
 import { BattleGoalSetupDialog } from "../../figures/battlegoal/setup/battlegoal-setup";
-import { ScenarioRequirementsComponent } from "./requirements/requirements";
-import { WorldMapComponent } from "./world-map/world-map";
+import { CharacterMoveResourcesDialog } from "../../figures/character/sheet/move-resources";
 import { ItemDialogComponent } from "../../figures/items/dialog/item-dialog";
-import { TreasuresDialogComponent } from "./treasures/treasures-dialog";
+import { ScenarioConclusionComponent } from "../../footer/scenario/scenario-conclusion/scenario-conclusion";
+import { ScenarioSummaryComponent } from "../../footer/scenario/summary/scenario-summary";
+import { ghsDialogClosingHelper, ghsInputFullScreenCheck } from "../../helper/Static";
 import { AutocompleteItem } from "../../helper/autocomplete";
-import { PartyResourcesDialogComponent } from "./resources/resources";
 import { CharacterSheetDialog } from "../character/dialogs/character-sheet-dialog";
+import { ScenarioRequirementsComponent } from "./requirements/requirements";
+import { PartyResourcesDialogComponent } from "./resources/resources";
+import { TreasuresDialogComponent } from "./treasures/treasures-dialog";
+import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
+import { WorldMapComponent } from "./world-map/world-map";
 
 @Component({
   selector: 'ghs-party-sheet-dialog',
