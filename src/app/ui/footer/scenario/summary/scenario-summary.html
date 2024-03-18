@@ -714,22 +714,34 @@
     [ngClass]="{'denied' : gameManager.stateManager.permissions && (!gameManager.stateManager.permissions.round  || !gameManager.stateManager.permissions.scenario || !gameManager.stateManager.permissions.characters)}">
     <a class="cancel" (click)="close()"><span [ghs-label]="'scenario.summary.cancel'"></span></a>
     <span class="links"
-      *ngIf="success && (gameManager.game.party.campaignMode || forceCampaign) && (scenario.links && scenario.links.length > 0 || scenario.forcedLinks && scenario.forcedLinks.length > 0)">
+      *ngIf="success && (gameManager.game.party.campaignMode || forceCampaign) && (scenario.links && scenario.links.length > 0 || scenario.forcedLinks && scenario.forcedLinks.length > 0 || conclusion && conclusion.forcedLinks && conclusion.forcedLinks.length > 0)">
       <ng-container *ngIf="scenario.forcedLinks && scenario.forcedLinks.length > 0">
         <span class="text"><span [ghs-label]="'scenario.summary.forcedLinks'"></span></span>
         <a class="apply forced-link" (click)="finish(index)" *ngFor="let index of scenario.forcedLinks">
           <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
         </a>
       </ng-container>
-      <ng-container *ngIf="(!scenario.forcedLinks || scenario.forcedLinks.length == 0)">
+      <ng-container *ngIf="conclusion && conclusion.forcedLinks && conclusion.forcedLinks.length > 0">
+        <span class="text"><span [ghs-label]="'scenario.summary.forcedLinks'"></span></span>
+        <a class="apply forced-link" (click)="finish(index)" *ngFor="let index of conclusion.forcedLinks">
+          <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
+        </a>
+      </ng-container>
+      <ng-container
+        *ngIf="(!scenario.forcedLinks || scenario.forcedLinks.length == 0) && (!conclusion || !conclusion.forcedLinks || conclusion.forcedLinks.length == 0)">
         <span class="text"><span [ghs-label]="'scenario.summary.links'"></span></span>
         <a class="link" (click)="finish(index)" *ngFor="let index of scenario.links">
           <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
         </a>
+        <ng-container *ngIf="conclusion && conclusion.links">
+          <a class="link" (click)="finish(index)" *ngFor="let index of conclusion.links">
+            <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
+          </a>
+        </ng-container>
       </ng-container>
     </span>
     <a class="apply"
-      *ngIf="!success || !gameManager.game.party.campaignMode || alreadyWarning || forceCampaign || !scenario.forcedLinks || scenario.forcedLinks.length == 0"
+      *ngIf="!success || !gameManager.game.party.campaignMode || alreadyWarning || forceCampaign || ((!scenario.forcedLinks || scenario.forcedLinks.length == 0) && (!conclusion || !conclusion.forcedLinks || conclusion.forcedLinks.length == 0))"
       (click)="finish()"><span
         [ghs-label]="conclusionOnly ? 'scenario.summary.solve' : 'scenario.summary.apply'"></span></a>
     <a class="restart" *ngIf="!success" (click)="restart()"><span [ghs-label]="(lootColumns.length > 0 ?

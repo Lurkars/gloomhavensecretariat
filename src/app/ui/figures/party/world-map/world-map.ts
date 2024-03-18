@@ -65,6 +65,9 @@ export class WorldMapComponent implements AfterViewInit {
                 crs: L.CRS.Simple,
                 maxBounds: [[height * -0.5, width * -0.5], [height * 1.5, width * 1.5]],
                 minZoom: -4,
+                zoomDelta: 0.25,
+                zoomSnap: 0.25,
+                wheelPxPerZoomLevel: 240,
                 attributionControl: false
             });
             var bounds: LatLngBoundsLiteral = [[0, 0], [height, width]];

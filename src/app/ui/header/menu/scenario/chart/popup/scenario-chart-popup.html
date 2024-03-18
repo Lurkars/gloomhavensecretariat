@@ -20,7 +20,7 @@
     <div class="spoiler-block" [ngClass]="{'visible': showTreasures}">
         <div class="treasures">
             <div class="hint-container" *ngFor="let treasure of treasures;">
-                <div class="treasure hint-trigger"
+                <div class="treasure hint-trigger" (click)="openTreasureDialog(+treasure.split(':')[0])"
                     [ngClass]="{'looted' : lootedTreasures.indexOf(+treasure.split(':')[0]) != -1}">
                     <span *ngIf="+treasure.split(':')[0] < 10">0</span>
                     {{+treasure.split(':')[0]}}

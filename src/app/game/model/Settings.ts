@@ -20,6 +20,7 @@ export class Settings {
   alwaysLootApplyDialog = false;
   alwaysLootDeck: boolean = false;
   amAdvantage: boolean = false;
+  amAdvantageHouseRule: boolean = false;
   animations: boolean = true;
   applyBuildingRewards: boolean = true;
   applyConditions: boolean = true;

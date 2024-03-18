@@ -178,7 +178,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                         event.stopPropagation();
                     }
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('level') != -1) && this.footer && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'd' && this.footer.ghsLevel) {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('level') != -1) && this.footer && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'x' && this.footer.ghsLevel) {
                     this.footer.ghsLevel.open();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('scenario') != -1) && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'e') {
                     if (gameManager.game.scenario && this.header) {

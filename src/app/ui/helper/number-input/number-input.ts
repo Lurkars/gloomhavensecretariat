@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 
 @Component({
     selector: 'ghs-number-input',
     styleUrls: ['./number-input.scss'],
     templateUrl: './number-input.html'
 })
-export class GhsNumberInput {
+export class GhsNumberInput implements OnInit {
 
     @Input()
     model: number = 0;
@@ -26,6 +26,12 @@ export class GhsNumberInput {
 
     @Input()
     relative: boolean = false;
+
+    stepsNegative: number[] = this.steps.map((value) => value).reverse();
+
+    ngOnInit(): void {
+        this.stepsNegative = this.steps.map((value) => value).reverse();
+    }
 
     change(value: number) {
         this.modelChange.emit(this.model + value);

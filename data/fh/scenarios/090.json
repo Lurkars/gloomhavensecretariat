@@ -10,12 +10,6 @@
   },
   "edition": "fh",
   "complexity": 2,
-  "unlocks": [
-    "91"
-  ],
-  "forcedLinks": [
-    "91"
-  ],
   "monsters": [
     "frozen-corpse",
     "ice-wraith",

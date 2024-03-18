@@ -396,7 +396,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
     }
 
     addWeek(): boolean {
-        return gameManager.fhRules() && ((gameManager.game.party.campaignMode || this.forceCampaign) && this.success && !this.conclusionOnly && !this.scenario.solo) && !this.scenario.conclusion && !this.scenario.forcedLinks && settingsManager.settings.automaticPassTime && settingsManager.settings.partySheet;
+        return gameManager.fhRules() && ((gameManager.game.party.campaignMode || this.forceCampaign) && this.success && !this.conclusionOnly && !this.scenario.solo) && !this.scenario.conclusion && (!this.scenario.forcedLinks || !this.scenario.forcedLinks.length) && (!this.conclusion || !this.conclusion.forcedLinks || !this.conclusion.forcedLinks.length) && settingsManager.settings.automaticPassTime && settingsManager.settings.partySheet;
     }
 
     weekSections(): ScenarioData[] {

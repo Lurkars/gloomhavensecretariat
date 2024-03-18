@@ -193,22 +193,29 @@ export class AttackModifierManager {
 
     if (card.rolling) {
       additionalDraw = fhRules;
+      while (card.rolling) {
+        if (attackModifierDeck.current == attackModifierDeck.cards.length - 1) {
+          return;
+        }
+        attackModifierDeck.current = attackModifierDeck.current + 1;
+        card = attackModifierDeck.cards[attackModifierDeck.current];
+        gameManager.uiChange.emit();
+      }
     } else {
-      if (attackModifierDeck.current == attackModifierDeck.cards.length - 1 || !fhRules) {
-        return;
-      }
       attackModifierDeck.current = attackModifierDeck.current + 1;
       card = attackModifierDeck.cards[attackModifierDeck.current];
       gameManager.uiChange.emit();
-    }
 
-    while (card.rolling) {
-      gameManager.uiChange.emit();
-      if (attackModifierDeck.current == attackModifierDeck.cards.length - 1) {
-        return;
+      if (fhRules && settingsManager.settings.amAdvantageHouseRule && card.rolling) {
+        while (card.rolling) {
+          if (attackModifierDeck.current == attackModifierDeck.cards.length - 1) {
+            return;
+          }
+          attackModifierDeck.current = attackModifierDeck.current + 1;
+          card = attackModifierDeck.cards[attackModifierDeck.current];
+          gameManager.uiChange.emit();
+        }
       }
-      attackModifierDeck.current = attackModifierDeck.current + 1;
-      card = attackModifierDeck.cards[attackModifierDeck.current];
     }
 
     if (additionalDraw) {

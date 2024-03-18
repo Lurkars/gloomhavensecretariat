@@ -124,7 +124,7 @@
         margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
         font-family: var(--ghs-font-title);
         font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
 
         a {
@@ -149,6 +149,14 @@
         .disabled {
             pointer-events: none;
             color: var(--ghs-color-gray);
+        }
+
+        .loot {
+            color: var(--ghs-color-yellow);
+
+            &.disabled {
+                color: var(--ghs-color-darkgray);
+            }
         }
     }
 }

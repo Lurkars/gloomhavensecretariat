@@ -198,6 +198,8 @@
     <div class="line" ghs-setting-menu="alwaysFhAdvantage"
       [disabled]="!settingsManager.settings.amAdvantage || gameManager.fhRules()"
       [checked]="settingsManager.settings.amAdvantage && gameManager.fhRules()"></div>
+    <div *ngIf="settingsManager.settings.amAdvantage" class="line" ghs-setting-menu="amAdvantageHouseRule"
+      [disabled]="!settingsManager.settings.alwaysFhAdvantage && !gameManager.fhRules()"></div>
   </div>
 
   <div class="separator"></div>
@@ -338,6 +340,12 @@
   <div class="line">
     <a tabclick (click)="helperDefaults()">
       <span [ghs-label]="'settings.helperDefaults'"></span>
+    </a>
+  </div>
+
+  <div class="line">
+    <a tabclick (click)="lurkarsDefaults()">
+      <span [ghs-label]="'settings.lurkarsDefaults'"></span>
     </a>
   </div>
 

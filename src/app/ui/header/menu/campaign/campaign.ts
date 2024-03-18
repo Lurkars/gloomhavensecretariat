@@ -55,6 +55,7 @@ export class CampaignMenuComponent implements OnInit {
         this.conditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => condition.types.indexOf(ConditionType.hidden) == -1);
         this.amConditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => condition.types.indexOf(ConditionType.amDeck) != -1);
         this.editionConditions = gameManager.conditions(gameManager.game.edition, true).map((condition) => condition.name);
+        this.worldMap = false;
         const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.game.edition);
         if (editionData) {
             if (editionData.worldMap) {
@@ -74,7 +75,7 @@ export class CampaignMenuComponent implements OnInit {
         }
         gameManager.game.edition = edition;
         gameManager.game.party.edition = edition;
-        this.editionConditions = gameManager.conditions(gameManager.game.edition, true).map((condition) => condition.name);
+        this.update();
         gameManager.stateManager.after();
     }
 

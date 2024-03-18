@@ -4,6 +4,7 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { Scenario } from "src/app/game/model/Scenario";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ScenarioRequirementsComponent } from "src/app/ui/figures/party/requirements/requirements";
+import { TreasuresDialogComponent } from "src/app/ui/figures/party/treasures/treasures-dialog";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
@@ -84,6 +85,15 @@ export class ScenarioChartPopupDialog {
                 gameManager.stateManager.after();
                 ghsDialogClosingHelper(this.dialogRef, true);
             }
+        }
+    }
+
+    openTreasureDialog(treasure: number) {
+        if (this.lootedTreasures.indexOf(treasure) == -1) {
+            this.dialog.open(TreasuresDialogComponent, {
+                panelClass: ['dialog'],
+                data: { edition: this.scenario.edition, scenario: this.scenario }
+            })
         }
     }
 }

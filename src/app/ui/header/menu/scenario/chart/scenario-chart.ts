@@ -120,6 +120,8 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         scenarios.forEach((scenarioData) => {
             const success = gameManager.game.party.campaignMode && gameManager.scenarioManager.isSuccess(scenarioData);
             const visible: boolean = !gameManager.game.party.campaignMode || success;
+            let links: string[] = [];
+            let forcedLinks: string[] = [];
             if (visible) {
                 if (scenarioData.unlocks) {
                     scenarioData.unlocks.forEach((index) => {
@@ -144,7 +146,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                     scenarioData.links.forEach((index) => {
                         let arrow = ' .->|🔗| ';
                         const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
-                        if (other) {
+                        if (other && links.indexOf(index) == -1) {
                             if (gameManager.scenarioManager.isBlocked(other)) {
                                 arrow = ' .-x|🔗| ';
                             } else if (gameManager.scenarioManager.isLocked(other)) {
@@ -152,6 +154,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                             }
 
                             this.flow.push("\t" + scenarioData.index + arrow + index);
+                            links.push(index);
                         }
                     })
                 }
@@ -160,7 +163,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                     scenarioData.forcedLinks.forEach((index) => {
                         let arrow = ' .->|❗🔗| ';
                         const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
-                        if (other) {
+                        if (other && forcedLinks.indexOf(index) == -1) {
                             if (gameManager.scenarioManager.isBlocked(other)) {
                                 arrow = ' .-x|❗🔗| ';
                             } else if (gameManager.scenarioManager.isLocked(other)) {
@@ -168,6 +171,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                             }
 
                             this.flow.push("\t" + scenarioData.index + arrow + index);
+                            forcedLinks.push(index);
                         }
                     })
                 }
@@ -189,6 +193,41 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                                 }
                             }
                         })
+
+                        if (sectionData.links) {
+                            sectionData.links.forEach((index) => {
+                                let arrow = ' .->|🔗| ';
+                                const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
+                                if (other && links.indexOf(index) == -1) {
+                                    if (gameManager.scenarioManager.isBlocked(other)) {
+                                        arrow = ' .-x|🔗| ';
+                                    } else if (gameManager.scenarioManager.isLocked(other)) {
+                                        arrow = ' .-o|🔗| ';
+                                    }
+
+                                    this.flow.push("\t" + scenarioData.index + arrow + index);
+                                    links.push(index);
+                                }
+                            })
+                        }
+
+
+                        if (sectionData.forcedLinks) {
+                            sectionData.forcedLinks.forEach((index) => {
+                                let arrow = ' .->|❗🔗| ';
+                                const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
+                                if (other && forcedLinks.indexOf(index) == -1) {
+                                    if (gameManager.scenarioManager.isBlocked(other)) {
+                                        arrow = ' .-x|❗🔗| ';
+                                    } else if (gameManager.scenarioManager.isLocked(other)) {
+                                        arrow = ' .-o|❗🔗| ';
+                                    }
+
+                                    this.flow.push("\t" + scenarioData.index + arrow + index);
+                                    forcedLinks.push(index);
+                                }
+                            })
+                        }
                     }
                 })
             }
@@ -222,6 +261,9 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
             crs: L.CRS.Simple,
             maxBounds: [[boundHeight * -0.5, boundWidth * -0.5], [boundHeight * 1.5, boundWidth * 1.5]],
             minZoom: -4,
+            zoomDelta: 0.25,
+            zoomSnap: 0.25,
+            wheelPxPerZoomLevel: 240,
             attributionControl: false
         });
         var bounds: LatLngBoundsLiteral = [[0, 0], [boundHeight * 1.5, boundWidth * 1.5]];

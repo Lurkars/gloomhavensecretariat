@@ -22,10 +22,11 @@ export class TreasuresDialogComponent implements OnInit, OnDestroy {
     treasures: Record<string, number[]> = {};
     looted: number[] = [];
     selected: number[] = [];
-    select: boolean = true;
+    batchSelect: boolean = true;
 
-    constructor(@Inject(DIALOG_DATA) data: { edition: string }, private dialogRef: DialogRef, private dialog: Dialog) {
+    constructor(@Inject(DIALOG_DATA) public data: { edition: string, scenario: ScenarioData | undefined }, private dialogRef: DialogRef, private dialog: Dialog) {
         this.edition = data.edition;
+        this.batchSelect = data.scenario == undefined;
     }
 
 
@@ -51,10 +52,10 @@ export class TreasuresDialogComponent implements OnInit, OnDestroy {
         this.treasures = {};
         this.looted = [];
         this.selected = [];
-        gameManager.scenarioManager.scenarioData(this.edition).filter((scenarioData) => (gameManager.scenarioManager.isSuccess(scenarioData) || gameManager.game.party.casualScenarios.find((value) => scenarioData.index == value.index && scenarioData.edition == value.edition && scenarioData.group == value.group))).forEach((scenarioData) => {
+        gameManager.scenarioManager.scenarioData(this.edition).filter((scenarioData) => !this.data.scenario && (gameManager.scenarioManager.isSuccess(scenarioData) || gameManager.game.party.casualScenarios.find((value) => scenarioData.index == value.index && scenarioData.edition == value.edition && scenarioData.group == value.group)) || this.data.scenario && scenarioData.edition == this.data.scenario.edition && scenarioData.index == this.data.scenario.index && scenarioData.group == this.data.scenario.group).forEach((scenarioData) => {
             let treasures: number[] = gameManager.scenarioManager.getAllTreasures(scenarioData).filter((value) => typeof value === 'number').map((value) => +value);
 
-            if (!this.select) {
+            if (!this.batchSelect) {
                 treasures = treasures.filter((value) => !this.hasTreasure('' + value, this.edition));
             }
 
@@ -70,9 +71,16 @@ export class TreasuresDialogComponent implements OnInit, OnDestroy {
         })
     }
 
-    toggleTreasure(index: number) {
-        if (this.select) {
+    toggleTreasure(index: number, forceLoot: boolean = false) {
+        if (this.batchSelect && !forceLoot) {
             if (this.selected.indexOf(index) == -1) {
+                this.selected.push(index);
+            } else {
+                this.selected.splice(this.selected.indexOf(index), 1);
+            }
+        } else if (this.data.scenario && !forceLoot) {
+            if (this.selected.indexOf(index) == -1) {
+                this.selected = [];
                 this.selected.push(index);
             } else {
                 this.selected.splice(this.selected.indexOf(index), 1);
