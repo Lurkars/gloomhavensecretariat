@@ -1036,7 +1036,8 @@
       "treasures": {
         ".": "Schätze",
         "applySelect": "Auswahl anwenden",
-        "batchSelect": "Mehrere gleichzeitig auswählen"
+        "batchSelect": "Mehrere gleichzeitig auswählen",
+        "loot": "Schatz erbeuten"
       }
     },
     "campaignMode": "Kampagnenmodus",
@@ -1556,8 +1557,12 @@
       "hint": "Beute Deck für jeden Szenario aktivieren (Für Frosthaven automatisch immer aktiviert)"
     },
     "amAdvantage": {
-      ".": "Angriffsmodifikatordeck mit Vor-/Nachteil ",
-      "hint": "Füge Schaltflächen und Tastaturkürzel für Vor- und Nachteil zu Angriffsmodifikatordecks hinzu. Aktuell %wip%!"
+      ".": "Angriffsmodifikatordeck mit Vor-/Nachteil",
+      "hint": "Füge Schaltflächen und Tastaturkürzel für Vor- und Nachteil zu Angriffsmodifikatordecks hinzu."
+    },
+    "amAdvantageHouseRule": {
+      ".": "Hausregel Zusatzmodifikator bei Vor-/Nachteil",
+      "hint": "Anstatt den Zusatzmodifikator beim zweiten Ziehen zu ignorieren, weitere Karten ziehen bis eine Karte ohne Zusatzmodifikator gezogen wurde."
     },
     "animations": {
       ".": "Animationen",
@@ -1913,6 +1918,7 @@
       ".": "Beute Deck",
       "hint": "Beute Deck aktivieren"
     },
+    "lurkarsDefaults": "Lurkars' persönliche Einstellungen anwenden",
     "maxUndo": {
       ".": "Max. Anzahl Rückgängigvorgänge",
       "hint": {
@@ -2541,49 +2547,55 @@
     },
     "keyboard": {
       ".": "Tastenkürzel",
-      "Keyboard Shortcuts": "%tools.keyboard%",
-      "The following keyboard shortcuts are currently implemented:": "Die folgenden Tastaturkürzel sind derzeit implementiert:",
-      "CTRL": "STRG",
-      "undo": "Rückgängig",
-      "SHIFT": "UMSCHALT",
+      "am": "AM Karte ziehen (Kartendeck abhängig von aktiver Figure, Deck für Monster wenn keine Figure aktiv, deaktivert währen <b>Ziehen</b>)",
+      "amAdvantage": "wie <kbd><span>m</span></kbd>, aber mit Vorteil ziehen wenn eingeschaltet",
+      "amDisadvantage": "wie <kbd><span>m</span></kbd>, aber mit Nachteil ziehen wenn eingeschaltet",
+      "ctrl": "STRG",
+      "difficulty": "Schwierigkeitsgrad/Level Menü",
+      "enter": "↵",
+      "entityMenu": {
+        ".": "In jedem geöffneten Figure/Aufsteller-Menü sind diese Tastenkombinationen deaktiviert, derzeit verfügbare Kürzel im Figur/Aufsteller Menü:",
+        "blessDec": "dek. Segen",
+        "blessInc": "ink. Segen",
+        "characterSheet": "Charakterbogen öffnen",
+        "curseDec": "dek. Flüche",
+        "curseInc": "ink. Flüche",
+        "hpDec": "dek. aktuelle TP",
+        "hpInc": "ink. aktuelle TP",
+        "kill": "Kill / Exhaust",
+        "maxHpDec": "dek. max. TP",
+        "maxHpInc": "ink. max. TP",
+        "toggleCondition": "Zustände/Zustandsmodifikator umschalten"
+      },
+      "esc": "ESC",
+      "events": "Ereigniseffekte Menü",
+      "finish": "Szenario (beenden) Menü",
+      "global": "Die folgenden Tastaturkürzel sind derzeit implementiert:",
+      "keyboard": "Zeige Tastenkürzel an",
+      "loot": "Karte aus dem Beute Deck ziehen",
+      "mainMenu": {
+        ".": "Hauptmenü öffnen",
+        "confirm": "Aktion bestätigen / Untermenü öffnen",
+        "decline": "Aktion ablehnen / Menü schließen",
+        "open": "Bei geöffnetem Menu:",
+        "select": "Aktion auswählen"
+      },
+      "party": "Gruppenbogen öffnen",
       "redo": "Wiederherstellen",
-      "ESC": "ESC",
-      "open main menu": "Hauptmenü öffnen",
-      "zoom-in": "Reinzoomen",
-      "zoom-out": "Rauszoomen",
-      "reset zoom": "Zoom zurücksetzen",
-      "toggle active figure when drawn / toggle initiative input when focused input": "Aktive Figure umschalten währende der Runde / Fokus für Eingabefeld der Initivative umschalten",
-      "next round / draw": "Nächste Runde / Ziehen",
-      "draw AM card (deck depending on active figure, monster deck when not active, disabled when Draw)": "AM Karte ziehen (Kartendeck abhängig von aktiver Figure, Deck für Monster wenn keine Figure aktiv, deaktivert währen <b>Ziehen</b>)",
-      "like m, but draw with Advantage if enabled": "wie <kbd><span>m</span></kbd>, aber mit Vorteil ziehen wenn eingeschaltet",
-      "like m, but draw with Disadvantage if enabled": "wie <kbd><span>m</span></kbd>, aber mit Nachteil ziehen wenn eingeschaltet",
-      "draw from Loot Deck": "Karte aus dem Beute Deck ziehen",
-      "toggle through element state": "Elementen Status durchschalten",
-      "toggle Hide absend figures": "<i>Abwesende Figuren ausblenden<i> umschalten",
-      "toggle Display hand size and level": "<i>Handkartenanzahl und Stufe anzeigen<i> umschalten",
-      "toggle Display traits": "<i>Eigenschaften anzeigen<i> umschalten",
-      "select figure/standee for opening menu with number key": "Figur/Aufsteller Menü öffnen durch Auswählen mit Nummertasten",
-      "difficulty/level menu": "Schwierigkeitsgrad/Level Menü",
-      "scenario effects menu": "Ereigniseffekte Menü",
-      "(finish) scenario menu": "Szenario (beenden) Menü",
-      "open party sheet": "Gruppenbogen öffnen",
-      "On any open figure/standee menu, those shortcuts are disabled, currently shortcuts available in figure/standee menu:": "In jedem geöffneten Figure/Aufsteller-Menü sind diese Tastenkombinationen deaktiviert, derzeit verfügbare Kürzel im Figur/Aufsteller Menü:",
-      "dec. current HP": "dek. aktuelle TP",
-      "inc. current HP": "ink. aktuelle TP",
-      "toggle condition/condition modifier": "Zustände/Zustandsmodifikator umschalten",
-      "inc. Bless": "ink. Segen",
-      "dec. Bless": "dek. Segen",
-      "inc. Curse": "ink. Flüche",
-      "dec. Curse": "dek. Flüche",
-      "kill/exhaust": "Tot/Erschöpft",
-      "dec. max. HP": "dek. max. TP",
-      "inc. max HP": "ink. max. TP",
-      "open character sheet": "Charakterbogen öffnen",
-      "On open menu:": "Bei geöffnetem Menu:",
-      "SPACE": "Leertaste",
-      "confirm action / open submenu": "Aktion bestätigen / Untermenü öffnen",
-      "decline action / close menu": "Aktion ablehnen / Menü schließen",
-      "select action": "Aktion auswählen"
+      "round": "Nächste Runde / Ziehen",
+      "select": "Figur/Aufsteller Menü öffnen durch Auswählen mit Nummertasten",
+      "shift": "UMSCHALT",
+      "space": "Leertaste",
+      "tab": "↹",
+      "toggleAbsent": "<i>Abwesende Figuren ausblenden<i> umschalten",
+      "toggleElements": "Elementen Status durchschalten",
+      "toggleHandSize": "<i>Handkartenanzahl und Stufe anzeigen<i> umschalten",
+      "toggelTab": "Aktive Figure umschalten währende der Runde / Fokus für Eingabefeld der Initivative umschalten",
+      "toggleTraits": "<i>Eigenschaften anzeigen<i> umschalten",
+      "undo": "Rückgängig",
+      "zoomIn": "Reinzoomen",
+      "zoomOut": "Rauszoomen",
+      "zoomReset": "Zoom zurücksetzen"
     },
     "validateEditionData": "Verifiziere Editionsdaten"
   },

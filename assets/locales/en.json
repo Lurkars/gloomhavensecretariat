@@ -1185,7 +1185,8 @@
       "treasures": {
         ".": "Treasures",
         "applySelect": "Apply Selection",
-        "batchSelect": "Multiselect"
+        "batchSelect": "Multiselect",
+        "loot": "Loot Treasure"
       }
     },
     "campaignMode": "Campaign Mode",
@@ -1706,7 +1707,11 @@
     },
     "amAdvantage": {
       ".": "Attack Modifier Deck with Advantage/Disadvantage",
-      "hint": "Add Advantage and Disadvantage buttons and keyboard shortcuts to Attack Modifier Decks. Currently %wip%!"
+      "hint": "Add Advantage and Disadvantage buttons and keyboard shortcuts to Attack Modifier Decks."
+    },
+    "amAdvantageHouseRule": {
+      ".": "Advantage/Disadvantage Rolling House Rule",
+      "hint": "Instead of ignore rolling on second draw, also draw additional modifiers until non-rolling drawn."
     },
     "animations": {
       ".": "Animations",
@@ -2061,6 +2066,7 @@
       ".": "Loot Deck",
       "hint": "Enable Loot Deck"
     },
+    "lurkarsDefaults": "Apply Lurkars' personal settings",
     "maxUndo": {
       ".": "Max. number of undos",
       "hint": {
@@ -2709,12 +2715,55 @@
     },
     "keyboard": {
       ".": "Keyboard Shortcuts",
-      "draw AM card (deck depending on active figure, monster deck when not active, disabled when Draw)": "draw AM card (deck depending on active figure, monster deck when not active, disabled when <b>Draw</b>)",
-      "like m, but draw with Advantage if enabled": "like <kbd><span>m</span></kbd>, but draw with Advantage if enabled",
-      "like m, but draw with Disadvantage if enabled": "like <kbd><span>m</span></kbd>, but draw with Disadvantage if enabled",
-      "toggle Hide absend figures": "toggle <i>Hide absent figures</i>",
-      "toggle Display hand size and level": "toggle <i>Display hand size and level",
-      "toggle Display traits": "toggle <i>Display traits</i>"
+      "am": "Draw AM card (deck depending on active figure, monster deck when not active, disabled when <b>Draw</b>)",
+      "amAdvantage": "Same like <kbd><span>m</span></kbd>, but draw with Advantage if enabled",
+      "amDisadvantage": "like <kbd><span>m</span></kbd>, but draw with Disadvantage if enabled",
+      "ctrl": "CTRL",
+      "difficulty": "Difficulty/Level menu",
+      "enter": "↵",
+      "entityMenu": {
+        ".": "On any open figure/standee menu, those shortcuts are disabled, currently shortcuts available in figure/standee menu:",
+        "blessDec": "Dec. Bless",
+        "blessInc": "Inc. Bless",
+        "characterSheet": "Open Character sheet",
+        "curseDec": "Dec. Curse",
+        "curseInc": "Inc. Curse",
+        "hpDec": "Dec. current HP",
+        "hpInc": "Inc. current HP",
+        "kill": "Kill / Exhaust",
+        "maxHpDec": "Dec. max. HP",
+        "maxHpInc": "Inc. max. HP",
+        "toggleCondition": "Toggle Condition/Condition modifier"
+      },
+      "esc": "ESC",
+      "events": "Event effects menu",
+      "finish": "(finish) scenario menu",
+      "global": "The following keyboard shortcuts are currently implemented:",
+      "keyboard": "Show keyboard shortcuts",
+      "loot": "Draw from Loot Deck",
+      "mainMenu": {
+        ".": "Open main menu",
+        "confirm": "Confirm action / Open submenu",
+        "decline": "Decline action / Close menu",
+        "open": "On open menu",
+        "select": "Select action"
+      },
+      "party": "Open Party sheet",
+      "redo": "Redo",
+      "round": "Next round / Draw",
+      "select": "select figure/standee for opening menu with number key",
+      "shift": "SHIFT",
+      "space": "SPACE",
+      "tab": "↹",
+      "toggleAbsent": "Toggle <i>Hide absent figures</i>",
+      "toggleElements": "Toggle through element state",
+      "toggleHandSize": "Toggle <i>Display hand size and level</i>",
+      "toggelTab": "Toggle active figure when drawn / Toggle initiative input when focused input",
+      "toggleTraits": "Toggle <i>Display traits</i>",
+      "undo": "Undo",
+      "zoomIn": "Zoom-in",
+      "zoomOut": "Zoom-out",
+      "zoomReset": "Reset Zoom"
     },
     "validateEditionData": "Validate Edition Data"
   },
