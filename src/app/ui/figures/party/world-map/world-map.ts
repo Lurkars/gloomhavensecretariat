@@ -22,6 +22,7 @@ export class WorldMapComponent implements AfterViewInit {
 
     map!: L.Map;
     worldMap: { width: number, height: number } | undefined;
+    mapEdition: string;
     scenarios: ScenarioData[] = [];
     conclusions: ScenarioData[] = [];
     buildings: BuildingData[] = [];
@@ -33,16 +34,47 @@ export class WorldMapComponent implements AfterViewInit {
 
     scale: number = 1;
     zooming: boolean = false;
+    highlighting: boolean = true;
+    showExtended: boolean = false;
 
-    constructor(@Inject(DIALOG_DATA) public edition: string, public dialogRef: DialogRef, private dialog: Dialog, private overlay : Overlay) {
+    constructor(@Inject(DIALOG_DATA) public edition: string, public dialogRef: DialogRef, private dialog: Dialog, private overlay: Overlay) {
         const pinchZoom = settingsManager.settings.pinchZoom;
         settingsManager.settings.pinchZoom = false;
-        const editionData = gameManager.editionData.find((editionData) => editionData.edition == this.edition);
-        if (editionData) {
+        this.mapEdition = this.edition;
+        let editionData = gameManager.editionData.find((editionData) => editionData.edition == this.edition);
+        if (editionData && !editionData.worldMap && editionData.extendWorldMap) {
+            editionData = gameManager.editionData.find((other) => editionData && other.edition == editionData.extendWorldMap && other.worldMap);
+        }
+        if (editionData && editionData.worldMap) {
             this.worldMap = editionData.worldMap;
+            this.mapEdition = editionData.edition;
             if (this.worldMap) {
                 this.scenarios = gameManager.scenarioManager.scenarioData(this.edition).filter((scenarioData) => scenarioData.coordinates);
+
+                if (this.mapEdition != this.edition && this.showExtended) {
+                    this.scenarios.push(...gameManager.scenarioManager.scenarioData(this.mapEdition).filter((scenarioData) => scenarioData.coordinates))
+                }
+
+                gameManager.sectionData(this.edition).filter((sectionData) => sectionData.conclusion && sectionData.coordinates && sectionData.unlocks && sectionData.unlocks.length).forEach((sectionData) => {
+                    const visible = !gameManager.game.party.campaignMode || gameManager.game.party.conclusions.find((model) => model.edition == sectionData.edition && model.index == sectionData.index && model.group == sectionData.group);
+                    if (visible) {
+                        sectionData.unlocks.forEach((index) => {
+                            let scenarioData = gameManager.scenarioData(sectionData.edition).find((scenarioData) => scenarioData.edition == sectionData.edition && scenarioData.group == sectionData.group && scenarioData.index == index && !scenarioData.coordinates);
+                            if (scenarioData) {
+                                const conclusionScenario = new ScenarioData(scenarioData);
+                                conclusionScenario.coordinates = sectionData.coordinates;
+                                this.scenarios.push(conclusionScenario);
+                            }
+                        })
+                    }
+
+                })
+
                 this.conclusions = gameManager.sectionData(this.edition).filter((sectionData) => sectionData.conclusion && sectionData.rewards && (sectionData.rewards.overlayCampaignSticker || sectionData.rewards.overlaySticker));
+
+                if (this.mapEdition != this.edition && this.showExtended) {
+                    this.conclusions.push(...gameManager.sectionData(this.mapEdition).filter((sectionData) => sectionData.conclusion && sectionData.rewards && (sectionData.rewards.overlayCampaignSticker || sectionData.rewards.overlaySticker)))
+                }
 
                 if (editionData.campaign && editionData.campaign.buildings) {
                     this.buildings = editionData.campaign.buildings.filter((buildingData) => buildingData.coordinates && buildingData.coordinates.length);
@@ -71,7 +103,7 @@ export class WorldMapComponent implements AfterViewInit {
                 attributionControl: false
             });
             var bounds: LatLngBoundsLiteral = [[0, 0], [height, width]];
-            L.imageOverlay('./assets/images/world-map/' + this.edition + '/map.jpg', bounds).addTo(this.map);
+            L.imageOverlay('./assets/images/world-map/' + this.mapEdition + '/map.jpg', bounds).addTo(this.map);
             this.map.fitBounds(bounds);
             this.map.zoomIn();
 
@@ -90,7 +122,8 @@ export class WorldMapComponent implements AfterViewInit {
 
                     if (success) {
                         if (scenarioData.rewards && scenarioData.rewards.overlayCampaignSticker) {
-                            const overlayCampaignSticker: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + this.edition + '/overlays/' + scenarioData.edition + '-' + scenarioData.rewards.overlayCampaignSticker.name.toLowerCase() + '.png', scenarioData.rewards.overlayCampaignSticker.coordinates, height, i + 3);
+                            const imageName = scenarioData.rewards.overlayCampaignSticker.coordinates.image || scenarioData.edition + '-' + scenarioData.rewards.overlayCampaignSticker.name.toLowerCase();
+                            const overlayCampaignSticker: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + scenarioData.edition + '/overlays/' + imageName + '.png', scenarioData.rewards.overlayCampaignSticker.coordinates, height, i + 3);
                             overlayCampaignSticker.addTo(this.map);
                             const element = overlayCampaignSticker.getElement();
                             if (element) {
@@ -101,7 +134,8 @@ export class WorldMapComponent implements AfterViewInit {
 
                     if (!gameManager.game.party.campaignMode || success) {
                         if (scenarioData.rewards && scenarioData.rewards.overlaySticker) {
-                            const overlaySticker: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + this.edition + '/overlays/' + scenarioData.edition + '-' + scenarioData.rewards.overlaySticker.name.toLowerCase() + '.png', scenarioData.rewards.overlaySticker.coordinates, height, -1);
+                            const imageName = scenarioData.rewards.overlaySticker.coordinates.image || scenarioData.edition + '-' + scenarioData.rewards.overlaySticker.name.toLowerCase();
+                            const overlaySticker: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + scenarioData.edition + '/overlays/' + imageName + '.png', scenarioData.rewards.overlaySticker.coordinates, height, -1);
                             overlaySticker.addTo(this.map);
                             const element = overlaySticker.getElement();
                             if (element) {
@@ -110,7 +144,8 @@ export class WorldMapComponent implements AfterViewInit {
                         }
                     }
 
-                    const overlay: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + this.edition + '/scenarios/' + scenarioData.edition + '-' + imageIndex + '.png', scenarioData.coordinates, height, i);
+                    const imageName = scenarioData.coordinates.image || scenarioData.edition + '-' + imageIndex;
+                    const overlay: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + scenarioData.edition + '/scenarios/' + imageName + '.png', scenarioData.coordinates, height, i);
 
                     overlay.on('mouseover', (event) => {
                         event.target.setZIndex(this.scenarios.length + 2);
@@ -121,7 +156,7 @@ export class WorldMapComponent implements AfterViewInit {
                     });
 
                     overlay.on('click', (event) => {
-                        if (!gameManager.stateManager.permissions || gameManager.stateManager.permissions.scenario) {
+                        if (!settingsManager.settings.debugEditWorldMap && (!gameManager.stateManager.permissions || gameManager.stateManager.permissions.scenario)) {
                             const scenarioData = this.scenarios[i];
                             const element = event.target.getElement();
                             this.dialog.open(ScenarioChartPopupDialog, {
@@ -161,7 +196,8 @@ export class WorldMapComponent implements AfterViewInit {
                 if (!gameManager.game.party.campaignMode || success) {
 
                     if (sectionData.rewards && sectionData.rewards.overlayCampaignSticker) {
-                        const overlayCampaignSticker: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + this.edition + '/overlays/' + sectionData.edition + '-' + sectionData.rewards.overlayCampaignSticker.name.toLowerCase() + '.png', sectionData.rewards.overlayCampaignSticker.coordinates, height, -1);
+                        const imageName = sectionData.rewards.overlayCampaignSticker.coordinates.image || sectionData.edition + '-' + sectionData.rewards.overlayCampaignSticker.name.toLowerCase();
+                        const overlayCampaignSticker: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + sectionData.edition + '/overlays/' + imageName + '.png', sectionData.rewards.overlayCampaignSticker.coordinates, height, -1);
                         overlayCampaignSticker.addTo(this.map);
                         const element = overlayCampaignSticker.getElement();
                         if (element) {
@@ -170,7 +206,8 @@ export class WorldMapComponent implements AfterViewInit {
                     }
 
                     if (sectionData.rewards && sectionData.rewards.overlaySticker) {
-                        const overlaySticker: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + this.edition + '/overlays/' + sectionData.edition + '-' + sectionData.rewards.overlaySticker.name.toLowerCase() + '.png', sectionData.rewards.overlaySticker.coordinates, height, -1);
+                        const imageName = sectionData.rewards.overlaySticker.coordinates.image || sectionData.edition + '-' + sectionData.rewards.overlaySticker.name.toLowerCase();
+                        const overlaySticker: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + sectionData.edition + '/overlays/' + imageName + '.png', sectionData.rewards.overlaySticker.coordinates, height, -1);
                         overlaySticker.addTo(this.map);
                         const element = overlaySticker.getElement();
                         if (element) {
@@ -187,7 +224,8 @@ export class WorldMapComponent implements AfterViewInit {
                     if (buildingData.coordinates && buildingData.coordinates.length) {
                         const overlayData = buildingData.coordinates[level || 0];
                         if (overlayData) {
-                            const overlayBuilding: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + this.edition + '/buildings/' + buildingData.edition + '-' + (buildingData.id ? buildingData.id + '-' : '') + buildingData.name + (buildingData.upgrades.length || buildingData.manualUpgrades ? '-' + (level != undefined ? level : '0') : '') + '.png', overlayData, height, -1);
+                            const imageName = overlayData.image || buildingData.edition + '-' + (buildingData.id ? buildingData.id + '-' : '') + buildingData.name + (buildingData.upgrades.length || buildingData.manualUpgrades ? '-' + (level != undefined ? level : '0') : '');
+                            const overlayBuilding: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + buildingData.edition + '/buildings/' + imageName + '.png', overlayData, height, -1);
                             overlayBuilding.addTo(this.map);
                             const element = overlayBuilding.getElement();
                             if (element) {

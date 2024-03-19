@@ -2,6 +2,13 @@
   "index": "1",
   "name": "Roadside Ambush",
   "flowChartGroup": "intro",
+  "coordinates": {
+    "x": 15,
+    "y": 372.75,
+    "width": 283,
+    "height": 192,
+    "gridLocation": "B1"
+  },
   "edition": "jotl",
   "initial": true,
   "unlocks": [

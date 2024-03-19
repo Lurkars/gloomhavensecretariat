@@ -58,7 +58,7 @@ export class CampaignMenuComponent implements OnInit {
         this.worldMap = false;
         const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.game.edition);
         if (editionData) {
-            if (editionData.worldMap) {
+            if (editionData.worldMap || editionData.extendWorldMap) {
                 this.worldMap = true;
             }
         }

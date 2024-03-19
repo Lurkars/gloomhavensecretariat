@@ -28,6 +28,7 @@ export class EditionData implements Editional {
   events: EventCard[] = [];
   personalQuests: PersonalQuest[] = [];
   worldMap: { width: number, height: number } | undefined;
+  extendWorldMap: string | undefined;
   label: any = {};
   labelSpoiler: any = {};
   url: string = "";

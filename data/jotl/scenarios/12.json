@@ -2,6 +2,13 @@
   "index": "12",
   "name": "Beguiling Sewers",
   "flowChartGroup": "main",
+  "coordinates": {
+    "x": 1062.5,
+    "y": 441.25,
+    "width": 252,
+    "height": 166,
+    "gridLocation": "B5"
+  },
   "edition": "jotl",
   "unlocks": [
     "14",

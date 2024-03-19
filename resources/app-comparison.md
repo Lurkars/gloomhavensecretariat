@@ -73,6 +73,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Update Elements                                                                 | ✅        | ✅         | ✅        | ✅      | ✅       |
 | Consume Elements by Monsters                                                    | ✅        | ⛔         | ⛔        | ✅      | ⛔       |
 | Expire Conditions                                                               | ✅        | ✅         | ⛔        | ✅      | ✅       |
+| Automatic Advantage/Disadvantage Draw for AM Decks                              | ✅        | ⛔         | ⛔        | ⛔      | ⛔       |
 | Automaitc apply Conditions  (like wound, regenarate etc.)                       | ✅        | ⛔         | ⛔        | ✅      | ⛔       |
 | Automatic ask for applying Conditions  (like poison, ward etc.)                 | ✅        | ⛔         | ⛔        | ⛔      | ⛔       |
 | Character Ability Cards Enhancements                                            | ⛔        | ⛔         | ⛔        | ✅      | ⛔       |

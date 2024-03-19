@@ -10,6 +10,10 @@
     "curse",
     "bless"
   ],
+  "worldMap": {
+    "width": 2486,
+    "height": 1905
+  },
   "edition": "jotl",
   "logoUrl": "./assets/images/logos/jotl.png"
 }

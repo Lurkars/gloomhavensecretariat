@@ -2,6 +2,13 @@
   "index": "5",
   "name": "A Deeper Understanding",
   "flowChartGroup": "intro",
+  "coordinates": {
+    "x": 357.75,
+    "y": 732.75,
+    "width": 340,
+    "height": 174,
+    "gridLocation": "C2"
+  },
   "edition": "jotl",
   "unlocks": [
     "6"

@@ -2,6 +2,13 @@
   "index": "101",
   "name": "Shrouded Crypt",
   "flowChartGroup": "tainted-crypt",
+  "coordinates": {
+    "x": 1358.75,
+    "y": 1591.75,
+    "width": 155,
+    "height": 123,
+    "gridLocation": "K-9"
+  },
   "edition": "fc",
   "unlocks": [
     "108",

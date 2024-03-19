@@ -2,6 +2,13 @@
   "index": "103",
   "name": "Where It Is Needed",
   "flowChartGroup": "orchid-society",
+  "coordinates": {
+    "x": 1121,
+    "y": 1134.75,
+    "width": 212,
+    "height": 128,
+    "gridLocation": "H-8"
+  },
   "edition": "fc",
   "unlocks": [
     "110"

@@ -2,6 +2,13 @@
   "index": "4",
   "name": "A Ritual in Stone",
   "flowChartGroup": "intro",
+  "coordinates": {
+    "x": 279,
+    "y": 627.75,
+    "width": 314,
+    "height": 203,
+    "gridLocation": "C2"
+  },
   "edition": "jotl",
   "unlocks": [
     "5"

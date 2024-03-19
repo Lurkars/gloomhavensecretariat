@@ -2,6 +2,13 @@
   "index": "6",
   "name": "Corrupted Research",
   "flowChartGroup": "main",
+  "coordinates": {
+    "x": 806,
+    "y": 471,
+    "width": 319,
+    "height": 205,
+    "gridLocation": "B4"
+  },
   "edition": "jotl",
   "unlocks": [
     "7",

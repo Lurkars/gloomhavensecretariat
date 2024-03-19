@@ -664,9 +664,10 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     this.partyAchievements = [];
     this.globalAchievements = [];
     this.campaignStickers = [];
+    this.worldMap = false;
     const editionData = gameManager.editionData.find((editionData) => this.partyEdition && editionData.edition == this.partyEdition);
     if (editionData) {
-      if (editionData.worldMap) {
+      if (editionData.worldMap || editionData.extendWorldMap) {
         this.worldMap = true;
       }
       if (editionData.label && editionData.label[settingsManager.settings.locale] && editionData.label[settingsManager.settings.locale].partyAchievements) {

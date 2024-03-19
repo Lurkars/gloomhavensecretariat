@@ -2,6 +2,13 @@
   "index": "24",
   "name": "Warding the Void",
   "flowChartGroup": "characters",
+  "coordinates": {
+    "x": 608.25,
+    "y": 157.75,
+    "width": 311,
+    "height": 245,
+    "gridLocation": "A3"
+  },
   "edition": "jotl",
   "rewards": {
     "items": [

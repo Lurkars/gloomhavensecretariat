@@ -2,6 +2,13 @@
   "index": "109",
   "name": "Epilogue of a War",
   "flowChartGroup": "tainted-crypt",
+  "coordinates": {
+    "x": 600,
+    "y": 2036,
+    "width": 171,
+    "height": 124,
+    "gridLocation": "N-4"
+  },
   "edition": "fc",
   "unlocks": [
     "113"

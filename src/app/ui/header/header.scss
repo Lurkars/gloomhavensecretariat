@@ -189,16 +189,10 @@ header {
     height: 100%;
     align-items: center;
 
-    .element {
-      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
-      width: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor));
-      height: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor));
-      cursor: pointer;
-
-      span {
-        height: 100%;
-        width: 100%;
-      }
+    ghs-element {
+      margin: 0 calc(var(--ghs-unit) * 0.25 * var(--ghs-barsize));
+      width: calc(var(--ghs-unit) * 7.4 * var(--ghs-barsize));
+      height: calc(var(--ghs-unit) * 7.4 * var(--ghs-barsize));
     }
   }
 }

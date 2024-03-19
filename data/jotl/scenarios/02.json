@@ -2,6 +2,13 @@
   "index": "2",
   "name": "A Hole in the Wall",
   "flowChartGroup": "intro",
+  "coordinates": {
+    "x": 129.5,
+    "y": 519,
+    "width": 291,
+    "height": 184,
+    "gridLocation": "B1"
+  },
   "edition": "jotl",
   "unlocks": [
     "3"

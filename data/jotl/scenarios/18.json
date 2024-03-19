@@ -2,6 +2,13 @@
   "index": "18",
   "name": "The Heist",
   "flowChartGroup": "main",
+  "coordinates": {
+    "x": 1106.25,
+    "y": 288.75,
+    "width": 220,
+    "height": 205,
+    "gridLocation": "A5"
+  },
   "edition": "jotl",
   "rewards": {
     "experience": 10

@@ -2,6 +2,13 @@
   "index": "112",
   "name": "The Bottom of It",
   "flowChartGroup": "the-rift",
+  "coordinates": {
+    "x": 2349.5,
+    "y": 639.5,
+    "width": 160,
+    "height": 119,
+    "gridLocation": "E-16"
+  },
   "edition": "fc",
   "unlocks": [
     "114"

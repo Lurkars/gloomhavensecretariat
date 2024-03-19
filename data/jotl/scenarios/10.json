@@ -2,6 +2,13 @@
   "index": "10",
   "name": "The Gauntlet",
   "flowChartGroup": "main",
+  "coordinates": {
+    "x": 390.5,
+    "y": 1329.5,
+    "width": 300,
+    "height": 208,
+    "gridLocation": "E2"
+  },
   "edition": "jotl",
   "unlocks": [
     "11",

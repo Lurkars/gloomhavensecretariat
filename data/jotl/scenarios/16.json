@@ -2,6 +2,13 @@
   "index": "16",
   "name": "Mixed Results",
   "flowChartGroup": "main",
+  "coordinates": {
+    "x": 763.25,
+    "y": 367.5,
+    "width": 274,
+    "height": 167,
+    "gridLocation": "B4"
+  },
   "edition": "jotl",
   "unlocks": [
     "17"

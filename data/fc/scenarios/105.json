@@ -2,6 +2,13 @@
   "index": "105",
   "name": "Monstrosities of a Cult",
   "flowChartGroup": "citizens",
+  "coordinates": {
+    "x": 1380.25,
+    "y": 150.25,
+    "width": 193,
+    "height": 177,
+    "gridLocation": "B-10"
+  },
   "edition": "fc",
   "unlocks": [
     "111"

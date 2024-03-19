@@ -2,6 +2,13 @@
   "index": "111",
   "name": "The Shackles Loosen",
   "flowChartGroup": "citizens",
+  "coordinates": {
+    "x": 2642.25,
+    "y": 174.75,
+    "width": 172,
+    "height": 154,
+    "gridLocation": "B-18"
+  },
   "edition": "fc",
   "unlocks": [
     "114"

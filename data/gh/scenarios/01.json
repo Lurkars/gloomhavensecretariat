@@ -3,10 +3,11 @@
   "name": "Black Barrow",
   "flowChartGroup": "intro",
   "coordinates": {
-    "x": 1431.8999938964844,
+    "x": 1434,
     "y": 975,
     "width": 182,
-    "height": 140
+    "height": 140,
+    "gridLocation": "G-10"
   },
   "edition": "gh",
   "initial": true,

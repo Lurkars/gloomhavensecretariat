@@ -2,6 +2,13 @@
   "index": "99",
   "name": "Aftershocks",
   "flowChartGroup": "citizens",
+  "coordinates": {
+    "x": 2358.25,
+    "y": 247.5,
+    "width": 145,
+    "height": 71,
+    "gridLocation": "B-16"
+  },
   "edition": "fc",
   "monsters": [
     "black-imp",

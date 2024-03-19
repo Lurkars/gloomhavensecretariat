@@ -2,10 +2,14 @@
   "index": "8",
   "name": "Hidden Tumor",
   "flowChartGroup": "main",
+  "coordinates": {
+    "x": 942.25,
+    "y": 797.25,
+    "width": 281,
+    "height": 196,
+    "gridLocation": "C4"
+  },
   "edition": "jotl",
-  "unlocks": [
-    "9"
-  ],
   "blocks": [
     "7"
   ],

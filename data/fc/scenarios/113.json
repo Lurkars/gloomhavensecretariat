@@ -2,6 +2,13 @@
   "index": "113",
   "name": "The Lost Thread",
   "flowChartGroup": "tainted-crypt",
+  "coordinates": {
+    "x": 2481,
+    "y": 1143.75,
+    "width": 176,
+    "height": 139,
+    "gridLocation": "H-16"
+  },
   "edition": "fc",
   "unlocks": [
     "114"

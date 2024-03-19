@@ -2,6 +2,13 @@
   "index": "3",
   "name": "The Black Ship",
   "flowChartGroup": "intro",
+  "coordinates": {
+    "x": 1074.5,
+    "y": 928,
+    "width": 283,
+    "height": 202,
+    "gridLocation": "D5"
+  },
   "edition": "jotl",
   "unlocks": [
     "4"

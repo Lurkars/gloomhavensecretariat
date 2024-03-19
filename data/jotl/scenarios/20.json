@@ -2,6 +2,13 @@
   "index": "20",
   "name": "Misplaced Goods",
   "flowChartGroup": "city-events",
+  "coordinates": {
+    "x": 1191.75,
+    "y": 749.25,
+    "width": 318,
+    "height": 170,
+    "gridLocation": "C5"
+  },
   "edition": "jotl",
   "rewards": {
     "gold": 10

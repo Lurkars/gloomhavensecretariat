@@ -2,6 +2,13 @@
   "index": "22",
   "name": "Unfriendly Message",
   "flowChartGroup": "characters",
+  "coordinates": {
+    "x": 22.75,
+    "y": 842.75,
+    "width": 324,
+    "height": 238,
+    "gridLocation": "D1"
+  },
   "edition": "jotl",
   "rewards": {
     "items": [

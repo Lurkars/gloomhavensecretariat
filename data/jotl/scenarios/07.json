@@ -2,10 +2,14 @@
   "index": "7",
   "name": "Sunken Tumor",
   "flowChartGroup": "main",
+  "coordinates": {
+    "x": 408.5,
+    "y": 1035.5,
+    "width": 301,
+    "height": 206,
+    "gridLocation": "D2"
+  },
   "edition": "jotl",
-  "unlocks": [
-    "9"
-  ],
   "blocks": [
     "8"
   ],

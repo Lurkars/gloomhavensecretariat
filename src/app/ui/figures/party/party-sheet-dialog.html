@@ -424,6 +424,9 @@
             <span class="checkbox" [ngClass]="{'checked' : party.campaignMode}"></span>
             <span [ghs-label]="'party.campaignMode'"></span>
           </span>
+          <span class="map ignore-denied" *ngIf="worldMap" (click)="openMap()">
+            <img src="./assets/images/fullscreen.svg"><span [ghs-label]="'party.campaign.map'"></span>
+          </span>
         </div>
 
         <div class="row title">

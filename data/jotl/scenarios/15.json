@@ -2,6 +2,13 @@
   "index": "15",
   "name": "Tainted Blood",
   "flowChartGroup": "main",
+  "coordinates": {
+    "x": 787,
+    "y": 678.5,
+    "width": 247,
+    "height": 195,
+    "gridLocation": "C4"
+  },
   "edition": "jotl",
   "unlocks": [
     "16"

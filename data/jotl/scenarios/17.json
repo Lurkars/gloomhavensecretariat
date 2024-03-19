@@ -2,6 +2,13 @@
   "index": "17",
   "name": "Red Twilight",
   "flowChartGroup": "main",
+  "coordinates": {
+    "x": 1482.25,
+    "y": 709.25,
+    "width": 258,
+    "height": 247,
+    "gridLocation": "C6"
+  },
   "edition": "jotl",
   "rewards": {
     "gold": 30,
