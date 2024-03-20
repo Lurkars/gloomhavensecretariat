@@ -854,6 +854,7 @@
     "setStandees": "{1} %game.monsterType.{0}% Aufsteller festlegen",
     "showBoss": "Boss Monster anzeigen",
     "showHidden": "Ausgeblendete Monster anzeigen",
+    "skipInteractiveActions": "Interaktive Fähigkeiten auslassen für",
     "toggleAction": "Schalte anwendbare Fähigkeit um",
     "toggleAllied": {
       "off": "<span class=\"monster-allied-off\">Verbündet</span> ausschalten",
@@ -2423,6 +2424,7 @@
       "setXP": "EP {1} für {0}",
       "shuffleAbilityDeck": "Fertigkeiten mischen für {0}",
       "shuffleAbilityDeckUpcoming": "Nicht gezogene Fertigkeiten mischen für {0}",
+      "skipInteractiveActions": "Interaktive Fertigkeiten auslassen für Aufsteller {1} von {2}",
       "summonActive": "Beschwörung '{1}' von {0} aktiv",
       "summonDead": "Töte Beschwörung '{1}' von {0}",
       "summonInactive": "Beschwörung '{1}' von {0} nicht aktiv",
