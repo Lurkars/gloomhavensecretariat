@@ -460,7 +460,11 @@ export class GameModel {
     this.elementBoard = JSON.parse(JSON.stringify(elementBoard));
     this.solo = solo;
     this.party = JSON.parse(JSON.stringify(party));
+    this.party.players = this.party.players.map((value) => value || "");
     this.parties = JSON.parse(JSON.stringify(parties));
+    this.parties.forEach((party) => {
+      party.players = party.players.map((value) => value || "");
+    })
     this.lootDeck = JSON.parse(JSON.stringify(lootDeck));
     this.lootDeckEnhancements = JSON.parse(JSON.stringify(lootDeckEnhancements));
     this.lootDeckFixed = JSON.parse(JSON.stringify(lootDeckFixed));
