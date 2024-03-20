@@ -98,7 +98,7 @@ export class InteractiveActionsComponent implements OnInit, OnDestroy {
             }
         }
 
-        if (this.interactiveActionEntities.length) {
+        if (this.interactiveActionEntities.length || this.interactiveActionEntities.length) {
             let after = true;
 
             const interactiveActionsLabel = (settingsManager.settings.combineInteractiveAbilities ? this.interactiveActions : gameManager.actionsManager.getInteractiveActions(this.interactiveActionEntities[0], this.figure, this.actions, this.preIndex)).filter((interactiveAction) => this.interactiveActions.find((other) => other.index == interactiveAction.index)).map((interactiveAction) => {
@@ -132,7 +132,7 @@ export class InteractiveActionsComponent implements OnInit, OnDestroy {
 
             const entitiesLabel = this.interactiveActionEntities.map((entity) => entity instanceof MonsterEntity ? '%game.monsterType.' + entity.type + '.' + entity.number + '%' : entity.number).join(', ');
 
-            gameManager.stateManager.before('applyInteractiveActions', interactiveActionsLabel, entitiesLabel, this.figure instanceof Monster ? "data.monster." + this.figure.name : gameManager.objectiveManager.objectiveName(this.figure));
+            gameManager.stateManager.before(this.interactiveActions.length ? 'applyInteractiveActions' : 'skipInteractiveActions', interactiveActionsLabel, entitiesLabel, this.figure instanceof Monster ? "data.monster." + this.figure.name : gameManager.objectiveManager.objectiveName(this.figure));
             this.interactiveActionEntities.forEach((entity) => {
 
                 let interactiveActions = gameManager.actionsManager.getInteractiveActions(entity, this.figure, this.actions, this.preIndex).filter((interactiveAction) => this.interactiveActions.find((other) => other.index == interactiveAction.index));
@@ -151,6 +151,14 @@ export class InteractiveActionsComponent implements OnInit, OnDestroy {
 
                     interactiveAction = interactiveActions[0] || undefined;
                 }
+
+                const disabledInteractiveActions = gameManager.actionsManager.getInteractiveActions(entity, this.figure, this.actions, this.preIndex).filter((interactiveAction) => !this.interactiveActions.find((other) => other.index == interactiveAction.index));
+                disabledInteractiveActions.forEach((interactiveAction) => {
+                    const tag = gameManager.actionsManager.roundTag(interactiveAction.action, interactiveAction.index);
+                    if (entity.tags.indexOf(tag) == -1) {
+                        entity.tags.push(tag);
+                    }
+                })
             })
 
             if (this.interactiveActionEntities.some((entity) => entity.dead)) {

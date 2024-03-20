@@ -1002,6 +1002,7 @@
     "setStandees": "Setup {1} %game.monsterType.{0}% standees",
     "showBoss": "Show Boss Monster",
     "showHidden": "Show Hidden Monster",
+    "skipInteractiveActions": "Skip interactive abilities for",
     "toggleAction": "Toggle applicable ability",
     "toggleAllied": {
       "off": "Turn <span class=\"monster-allied-off\">Allied</span> off",
@@ -2591,6 +2592,7 @@
       "setXP": "XP {1} for {0}",
       "shuffleAbilityDeck": "Shuffle abilities of {0}",
       "shuffleAbilityDeckUpcoming": "Shuffle upcoming abilities of {0}",
+      "skipInteractiveActions": "Skip interactive abilities for standees {1} of {2}",
       "summonActive": "Summon '{1}' von {0} active",
       "summonDead": "Kill summon '{1}' of {0}",
       "summonInactive": "Summon '{1}' von {0} inactive",

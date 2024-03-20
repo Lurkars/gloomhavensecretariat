@@ -6,7 +6,8 @@
     "x": 1169,
     "y": 716.75,
     "width": 114,
-    "height": 92
+    "height": 92,
+    "gridLocation": "J4"
   },
   "edition": "fh",
   "complexity": 2,

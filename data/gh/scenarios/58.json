@@ -6,7 +6,8 @@
     "x": 2234.5,
     "y": 699,
     "width": 173,
-    "height": 123
+    "height": 123,
+    "gridLocation": "E-15"
   },
   "edition": "gh",
   "rewards": {

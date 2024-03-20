@@ -528,10 +528,10 @@ export class ActionComponent implements OnInit, OnDestroy {
             }
           })
         }
-        this.interactiveActionsChange.emit(this.interactiveActions);
-        event.preventDefault();
-        event.stopPropagation();
       }
+      this.interactiveActionsChange.emit(this.interactiveActions);
+      event.preventDefault();
+      event.stopPropagation();
     }
   }
 

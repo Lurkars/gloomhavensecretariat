@@ -5,7 +5,8 @@
     "x": 2256.5,
     "y": 132,
     "width": 151,
-    "height": 151
+    "height": 151,
+    "gridLocation": "A-15"
   },
   "edition": "gh",
   "requirements": [

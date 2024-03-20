@@ -6,7 +6,8 @@
     "x": 103,
     "y": 1915,
     "width": 200,
-    "height": 192
+    "height": 192,
+    "gridLocation": "M-1"
   },
   "edition": "gh",
   "random": true,

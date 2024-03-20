@@ -6,7 +6,8 @@
     "x": 1478.25,
     "y": 1334,
     "width": 278,
-    "height": 128
+    "height": 128,
+    "gridLocation": "F10"
   },
   "edition": "fh",
   "complexity": 2,

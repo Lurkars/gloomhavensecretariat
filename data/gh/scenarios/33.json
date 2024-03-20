@@ -5,7 +5,8 @@
     "x": 945.5,
     "y": 94,
     "width": 173,
-    "height": 159
+    "height": 159,
+    "gridLocation": "A-7"
   },
   "edition": "gh",
   "requires": [

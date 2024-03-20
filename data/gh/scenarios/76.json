@@ -6,7 +6,8 @@
     "x": 464.25,
     "y": 1744,
     "width": 211,
-    "height": 160
+    "height": 160,
+    "gridLocation": "L-3"
   },
   "edition": "gh",
   "monsters": [

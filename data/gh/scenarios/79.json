@@ -6,7 +6,8 @@
     "x": 1804,
     "y": 1537,
     "width": 172,
-    "height": 132
+    "height": 132,
+    "gridLocation": "K-12"
   },
   "edition": "gh",
   "requirements": [

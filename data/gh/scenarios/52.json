@@ -6,7 +6,8 @@
     "x": 2032.25,
     "y": 460,
     "width": 165,
-    "height": 131
+    "height": 131,
+    "gridLocation": "D-14"
   },
   "edition": "gh",
   "unlocks": [

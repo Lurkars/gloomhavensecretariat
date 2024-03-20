@@ -7,7 +7,8 @@
     "x": 1559,
     "y": 428.5,
     "width": 127,
-    "height": 95
+    "height": 95,
+    "gridLocation": "G2"
   },
   "edition": "fh",
   "complexity": 2,

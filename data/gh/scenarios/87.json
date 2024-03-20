@@ -6,7 +6,8 @@
     "x": 1362.75,
     "y": 1350,
     "width": 193,
-    "height": 162
+    "height": 162,
+    "gridLocation": "I-9"
   },
   "edition": "gh",
   "requires": [

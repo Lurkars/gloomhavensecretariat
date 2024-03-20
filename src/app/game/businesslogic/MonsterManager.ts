@@ -206,8 +206,6 @@ export class MonsterManager {
       gameManager.sortFigures(monster);
     }
 
-    gameManager.uiChange.emit();
-
     return monster;
   }
 
@@ -403,7 +401,11 @@ export class MonsterManager {
         type = MonsterType.boss;
       }
 
-      return this.addMonsterEntity(monster, number, type, summon);
+      const entity = this.addMonsterEntity(monster, number, type, summon);
+      if (entity) {
+        entity.revealed = true;
+      }
+      return entity;
     }
     return undefined;
   }
