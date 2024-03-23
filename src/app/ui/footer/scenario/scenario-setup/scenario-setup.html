@@ -27,29 +27,29 @@
             </div>
         </div>
         <div class="monsters">
-            <div tabclick class="monster" *ngFor="let monsterData of monsters" (click)="openStats(monsterData)">
+            <div tabclick class="monster" *ngFor="let monster of monsters" (click)="openStats(monster)">
                 <div class="image">
                     <div class="outer-border">
                         <div class="inner-border">
                             <div class="image-container">
-                                <img *ngIf="!monsterData.noThumbnail && settingsManager.settings.artwork"
-                                    [src]="gameManager.monsterManager.monsterThumbnail(monsterData)">
-                                <span *ngIf="monsterData.noThumbnail || !settingsManager.settings.artwork"
+                                <img *ngIf="!monster.noThumbnail && settingsManager.settings.artwork"
+                                    [src]="gameManager.monsterManager.monsterThumbnail(monster)">
+                                <span *ngIf="monster.noThumbnail || !settingsManager.settings.artwork"
                                     class="letter">
                                     <span
-                                        *ngFor="let namePart of (settingsManager.getLabel('data.monster.' + monsterData.name).split(' '))">{{namePart[0]}}</span>
+                                        *ngFor="let namePart of (settingsManager.getLabel('data.monster.' + monster.name).split(' '))">{{namePart[0]}}</span>
                                 </span>
                             </div>
                         </div>
                     </div>
-                    <span class="boss" *ngIf="monsterData.boss || monsterData.tags.indexOf('boss') != -1"><img
+                    <span class="boss" *ngIf="monster.boss || monster.tags.indexOf('boss') != -1"><img
                             src="./assets/images/monster/enemy.png" /></span>
-                    <span class="custom" *ngIf="monsterData.standeeShare">*</span>
+                    <span class="custom" *ngIf="monster.standeeShare || monster.statEffect">*</span>
                 </div>
-                <div class="name"><span [ghs-label]="'data.monster.' + monsterData.name"></span></div>
+                <div class="name"><span [ghs-label]="'data.monster.' + monster.name"></span></div>
 
                 <ng-container *ngIf="detailed">
-                    <ghs-monster-stats [monster]="toMonster(monsterData)" [forceStats]="true" [noClick]="true"
+                    <ghs-monster-stats [monster]="monster" [forceStats]="true" [noClick]="true"
                         [disablePoup]="true"></ghs-monster-stats>
                 </ng-container>
             </div>

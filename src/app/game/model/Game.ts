@@ -28,6 +28,7 @@ export class Game {
   scenario: Scenario | undefined = undefined;
   sections: Scenario[] = [];
   scenarioRules: { identifier: ScenarioRuleIdentifier, rule: ScenarioRule }[] = [];
+  appliedScenarioRules: ScenarioRuleIdentifier[] = [];
   disgardedScenarioRules: ScenarioRuleIdentifier[] = [];
   level: number = 1;
   levelCalculation: boolean = true;
@@ -62,7 +63,7 @@ export class Game {
   }
 
   toModel(): GameModel {
-    return new GameModel(this.revision, this.revisionOffset, this.edition, this.conditions, this.battleGoalEditions, this.filteredBattleGoals, this.figures.map((figure) => figure.edition + '-' + figure.name), this.entitiesCounter, this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof ObjectiveContainer).map((figure) => ((figure as ObjectiveContainer).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.revealedRooms, this.scenario.additionalSections, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((section) => gameManager.scenarioManager.toModel(section, section.revealedRooms, section.additionalSections)), this.scenarioRules.map((value) => value.identifier), this.disgardedScenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.playerCount, this.round, this.roundResets, this.roundResetsHidden, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck, this.lootDeckEnhancements, this.lootDeckFixed, this.lootDeckSections, this.unlockedCharacters, this.server, this.finish, this.gameClock);
+    return new GameModel(this.revision, this.revisionOffset, this.edition, this.conditions, this.battleGoalEditions, this.filteredBattleGoals, this.figures.map((figure) => figure.edition + '-' + figure.name), this.entitiesCounter, this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof ObjectiveContainer).map((figure) => ((figure as ObjectiveContainer).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.revealedRooms, this.scenario.additionalSections, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((section) => gameManager.scenarioManager.toModel(section, section.revealedRooms, section.additionalSections)), this.scenarioRules.map((value) => value.identifier), this.appliedScenarioRules, this.disgardedScenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.playerCount, this.round, this.roundResets, this.roundResetsHidden, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck, this.lootDeckEnhancements, this.lootDeckFixed, this.lootDeckSections, this.unlockedCharacters, this.server, this.finish, this.gameClock);
   }
 
   fromModel(model: GameModel, server: boolean = false) {
@@ -154,7 +155,8 @@ export class Game {
       })
     }
 
-    this.disgardedScenarioRules = model.disgardedScenarioRules;
+    this.appliedScenarioRules = model.appliedScenarioRules || [];
+    this.disgardedScenarioRules = model.disgardedScenarioRules || [];
 
     this.levelCalculation = model.levelCalculation;
     this.levelAdjustment = model.levelAdjustment;
@@ -359,6 +361,7 @@ export class GameModel {
   scenario: GameScenarioModel | undefined;
   sections: GameScenarioModel[];
   scenarioRules: ScenarioRuleIdentifier[];
+  appliedScenarioRules: ScenarioRuleIdentifier[];
   disgardedScenarioRules: ScenarioRuleIdentifier[];
   level: number;
   levelCalculation: boolean;
@@ -402,6 +405,7 @@ export class GameModel {
     scenario: GameScenarioModel | undefined = undefined,
     sections: GameScenarioModel[] = [],
     scenarioRules: ScenarioRuleIdentifier[] = [],
+    appliedScenarioRules: ScenarioRuleIdentifier[] = [],
     disgardedScenarioRules: ScenarioRuleIdentifier[] = [],
     level: number = 0,
     levelCalculation: boolean = true,
@@ -443,6 +447,7 @@ export class GameModel {
     this.scenario = scenario;
     this.sections = sections;
     this.scenarioRules = JSON.parse(JSON.stringify(scenarioRules));
+    this.appliedScenarioRules = JSON.parse(JSON.stringify(appliedScenarioRules));
     this.disgardedScenarioRules = JSON.parse(JSON.stringify(disgardedScenarioRules));
     this.level = level;
     this.levelCalculation = levelCalculation;

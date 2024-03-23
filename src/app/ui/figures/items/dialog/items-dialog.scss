@@ -177,7 +177,7 @@
 
     .menu {
         position: sticky;
-        top: 0;
+        top: -1px;
         left: 0;
         height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
         max-width: 100%;

@@ -7,6 +7,7 @@ import { Scenario } from "src/app/game/model/Scenario";
 import { LootType } from "src/app/game/model/data/Loot";
 import { MonsterData } from "src/app/game/model/data/MonsterData";
 import { StatsListComponent } from "../dialog/stats-list/stats-list";
+import { StatEffectRule } from "src/app/game/model/data/ScenarioRule";
 
 @Component({
     selector: 'ghs-scenario-setup',
@@ -23,7 +24,7 @@ export class ScenarioSetupComponent implements OnInit {
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
 
-    monsters: MonsterData[] = [];
+    monsters: Monster[] = [];
     lootConfig: { type: LootType, value: number }[] = [];
     lootRandomItem: boolean = false;
     hasSpoiler: boolean = false;
@@ -49,16 +50,17 @@ export class ScenarioSetupComponent implements OnInit {
     updateMonster() {
         this.monsters = [];
         this.hasSpoiler = false;
-        gameManager.scenarioManager.getMonsters(this.scenario, this.scenario.custom).forEach((monster) => {
+        gameManager.scenarioManager.getMonsters(this.scenario, this.scenario.custom).forEach((monsterData) => {
+            let monster: Monster = new Monster(monsterData);
             if (this.spoiler || !monster.standeeShare || gameManager.scenarioManager.openRooms().find((room) => room.initial && room.monster.find((standee) => standee.name.split(':')[0] == monster.name)) || gameManager.game.figures.some((figure) => figure instanceof Monster && figure.name == monster.name && figure.edition == monster.edition)) {
-                if (this.monsters.indexOf(monster) == -1) {
+                if (!this.monsters.find((m) => m.edition == monster.edition && m.name == monster.name)) {
                     monster.tags = [];
                     this.monsters.push(monster);
                 }
             } else {
                 const standee = gameManager.monstersData().find((monsterData) => monsterData.name == monster.standeeShare && monsterData.edition == (monster.standeeShareEdition || monster.edition));
                 if (standee) {
-                    const changedStandee = JSON.parse(JSON.stringify(standee)) as MonsterData;
+                    const changedStandee = new Monster(JSON.parse(JSON.stringify(standee)) as MonsterData);
                     changedStandee.tags = changedStandee.tags || [];
                     if (gameManager.editionRules('cs')) {
                         if (monster.boss) {
@@ -70,17 +72,29 @@ export class ScenarioSetupComponent implements OnInit {
                     if (!otherStandee) {
                         this.hasSpoiler = true;
                         this.monsters.push(changedStandee);
-                    } else
-                        if (!this.spoiler && gameManager.editionRules('cs')) {
-                            otherStandee.tags = otherStandee.tags || [];
-                            if (monster.boss) {
-                                this.hasSpoiler = true;
-                                otherStandee.tags.push('boss');
-                            }
+                    } else if (!this.spoiler && gameManager.editionRules('cs')) {
+                        otherStandee.tags = otherStandee.tags || [];
+                        if (monster.boss) {
+                            this.hasSpoiler = true;
+                            otherStandee.tags.push('boss');
                         }
-
+                    }
                 }
             }
+
+            if (this.scenario.rules) {
+                const statEffectRules = this.scenario.rules.filter((rule) => rule.statEffects).flatMap((rule) => rule.statEffects);
+                const statEffectRule: StatEffectRule | undefined = statEffectRules.find((statEffectRule) => gameManager.figuresByIdentifier(statEffectRule.identifier, false, [monster]).length);
+
+                if (statEffectRule) {
+                    this.hasSpoiler = true;
+                    if (this.spoiler) {
+                        monster.statEffect = statEffectRule.statEffect;
+                        monster.statEffect.note = statEffectRule.note;
+                    }
+                }
+            }
+
         })
 
         this.monsters = this.monsters.filter((monsterData, index, self) => !self.find((m) => monsterData.standeeShare == m.edition && monsterData.standeeShareEdition == m.name)).sort((a, b) => {
@@ -90,14 +104,8 @@ export class ScenarioSetupComponent implements OnInit {
         });
     }
 
-    toMonster(monsterData: MonsterData): Monster {
-        return new Monster(monsterData, gameManager.game.level);
-    }
-
-    openStats(monsterData: MonsterData) {
-        const monster = new Monster(monsterData, gameManager.game.level);
-        monster.tags = monsterData.tags;
+    openStats(monster: Monster) {
         gameManager.monsterManager.resetMonsterAbilities(monster);
-        this.dialog.open(StatsListComponent, { panelClass: ['dialog'], data: monster });
+        this.dialog.open(StatsListComponent, { panelClass: ['dialog'], data: { monster: monster, statEffectNote: monster.statEffect ? monster.statEffect.note : '' } });
     }
 }

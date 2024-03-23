@@ -25,7 +25,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
     editions: string[];
     editionItems: ItemData[] = [];
     items: ItemData[] = [];
-    itemsMeta: { canAdd: boolean, canBuy: boolean, canCraft: boolean, owned: boolean, assigned: number, countAvailable: number }[] = [];
+    itemsMeta: { edition: string, id: number, canAdd: boolean, canBuy: boolean, canCraft: boolean, owned: boolean, assigned: number, countAvailable: number }[] = [];
     selected: ItemData | undefined;
     character: Character | undefined;
     filter: string = "";
@@ -138,20 +138,44 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
             this.sorted = this.character != undefined && this.character.progress.items.length > 0;
             this.update();
         } else {
+
+            this.itemsMeta = [];
+            if (this.character) {
+                this.items.forEach((itemData) => {
+                    if (this.character) {
+                        this.itemsMeta.push({ edition: itemData.edition, id: itemData.id, canAdd: gameManager.itemManager.canAdd(itemData, this.character), canBuy: gameManager.itemManager.canBuy(itemData, this.character), canCraft: gameManager.itemManager.canCraft(itemData, this.character), owned: gameManager.itemManager.owned(itemData, this.character), assigned: gameManager.itemManager.assigned(itemData), countAvailable: gameManager.itemManager.countAvailable(itemData) })
+                    }
+                })
+
+                if (gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings) {
+                    const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist');
+                    if (alchemist && alchemist.level) {
+                        this.brewing = alchemist.level < 3 ? 2 : 3;
+                    }
+                }
+            }
+
             this.items.sort((a, b) => {
                 if (this.sorted) {
                     if (this.character) {
-                        if (gameManager.itemManager.owned(a, this.character) && !gameManager.itemManager.owned(b, this.character)) {
+                        const A = this.itemsMeta.find((value) => value.edition == a.edition && value.id == a.id);
+                        const B = this.itemsMeta.find((value) => value.edition == b.edition && value.id == b.id);
+
+                        if (!A || !B) {
+                            return 0;
+                        }
+
+                        if (A.owned && !B.owned) {
                             return -1;
-                        } else if (gameManager.itemManager.owned(b, this.character) && !gameManager.itemManager.owned(a, this.character)) {
+                        } else if (!A.owned && B.owned) {
                             return 1;
-                        } else if ((gameManager.itemManager.canBuy(a, this.character) || gameManager.itemManager.canCraft(a, this.character)) && !gameManager.itemManager.canBuy(b, this.character) && !gameManager.itemManager.canCraft(b, this.character)) {
+                        } else if ((A.canBuy || A.canCraft) && !B.canBuy && !B.canCraft) {
                             return -1;
-                        } else if ((gameManager.itemManager.canBuy(b, this.character) || gameManager.itemManager.canCraft(b, this.character)) && !gameManager.itemManager.canBuy(a, this.character) && !gameManager.itemManager.canCraft(a, this.character)) {
+                        } else if ((B.canBuy || B.canCraft) && !A.canBuy && !A.canCraft) {
                             return 1;
-                        } else if (gameManager.itemManager.canAdd(a, this.character) && !gameManager.itemManager.canAdd(b, this.character)) {
+                        } else if (A.canAdd && !B.canAdd) {
                             return -1;
-                        } else if (gameManager.itemManager.canAdd(b, this.character) && !gameManager.itemManager.canAdd(a, this.character)) {
+                        } else if (!A.canAdd && B.canAdd) {
                             return 1;
                         } else if (a.slot && !b.slot) {
                             return -1;
@@ -173,25 +197,20 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
                     return a.id - b.id;
                 }
             })
+
+            this.itemsMeta.sort((a,b) => {
+                const A = this.items.find((value) => value.edition == a.edition && value.id == a.id);
+                const B = this.items.find((value) => value.edition == b.edition && value.id == b.id);
+
+                if (!A || !B) {
+                    return 0;
+                }
+
+                return this.items.indexOf(A) - this.items.indexOf(B);
+            })
         }
 
         this.brewing = 0;
-
-        if (this.character) {
-            this.itemsMeta = [];
-            this.items.forEach((itemData) => {
-                if (this.character) {
-                    this.itemsMeta.push({ canAdd: gameManager.itemManager.canAdd(itemData, this.character), canBuy: gameManager.itemManager.canBuy(itemData, this.character), canCraft: gameManager.itemManager.canCraft(itemData, this.character), owned: gameManager.itemManager.owned(itemData, this.character), assigned: gameManager.itemManager.assigned(itemData), countAvailable: gameManager.itemManager.countAvailable(itemData) })
-                }
-            })
-
-            if (gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings) {
-                const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist');
-                if (alchemist && alchemist.level) {
-                    this.brewing = alchemist.level < 3 ? 2 : 3;
-                }
-            }
-        }
     }
 
     toggleItemSlotFilter(slot: ItemSlot | "undefined", add: boolean = false) {

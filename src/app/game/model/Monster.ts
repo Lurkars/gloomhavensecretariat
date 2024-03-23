@@ -1,13 +1,15 @@
-import { GameMonsterEntityModel, MonsterEntity } from "./MonsterEntity";
-import { Ability } from "./data/Ability";
-import { Figure } from "./Figure";
-import { MonsterData } from "./data/MonsterData";
 import { gameManager } from "../businesslogic/GameManager";
+import { Figure } from "./Figure";
+import { GameMonsterEntityModel, MonsterEntity } from "./MonsterEntity";
 import { SummonColor } from "./Summon";
+import { Ability } from "./data/Ability";
+import { MonsterData } from "./data/MonsterData";
+import { GameMonsterStatEffectModel, MonsterStatEffect } from "./data/MonsterStat";
 
 export class Monster extends MonsterData implements Figure {
 
   summonColor: SummonColor = SummonColor.blue;
+  statEffect: MonsterStatEffect | undefined;
 
   // from figure
   level: number;
@@ -72,7 +74,7 @@ export class Monster extends MonsterData implements Figure {
   }
 
   toModel(): GameMonsterModel {
-    return new GameMonsterModel(this.name, this.edition, this.level, this.off, this.active, this.drawExtra, this.lastDraw, this.ability, this.abilities, this.entities.map((value) => value.toModel()), this.isAlly, this.isAllied)
+    return new GameMonsterModel(this.name, this.edition, this.level, this.off, this.active, this.drawExtra, this.lastDraw, this.ability, this.abilities, this.entities.map((value) => value.toModel()), this.isAlly, this.isAllied, this.statEffect)
   }
 
 
@@ -107,6 +109,12 @@ export class Monster extends MonsterData implements Figure {
     })
     this.isAlly = model.isAlly;
     this.isAllied = model.isAllied;
+    if (model.statEffect) {
+      this.statEffect = new MonsterStatEffect();
+      this.statEffect.fromModel(model.statEffect);
+    } else {
+      this.statEffect = undefined;
+    }
   }
 }
 
@@ -123,6 +131,7 @@ export class GameMonsterModel {
   entities: GameMonsterEntityModel[];
   isAlly: boolean;
   isAllied: boolean;
+  statEffect: GameMonsterStatEffectModel | undefined;
 
   constructor(name: string,
     edition: string,
@@ -135,7 +144,8 @@ export class GameMonsterModel {
     abilities: number[],
     entities: GameMonsterEntityModel[],
     isAlly: boolean,
-    isAllied: boolean) {
+    isAllied: boolean,
+    statEffect: MonsterStatEffect | undefined) {
     this.name = name;
     this.edition = edition;
     this.level = level;
@@ -148,5 +158,6 @@ export class GameMonsterModel {
     this.entities = JSON.parse(JSON.stringify(entities));
     this.isAlly = isAlly;
     this.isAllied = isAllied;
+    this.statEffect = statEffect ? statEffect.toModel() : undefined;
   }
 }

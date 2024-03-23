@@ -19,10 +19,35 @@
     "unlockCharacter": "squidface"
   },
   "monsters": [
-    "cave-bear-scenario-54",
+    "cave-bear",
     "frost-demon",
     "harrower-infester",
     "living-spirit"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "cave-bear"
+          },
+          "statEffect": {
+            "actions": [
+              {
+                "type": "condition",
+                "value": "poison"
+              }
+            ]
+          },
+          "note": "%data.scenario.rules.gh.54.1%"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -34,17 +59,17 @@
       ],
       "monster": [
         {
-          "name": "cave-bear-scenario-54",
+          "name": "cave-bear",
           "type": "normal"
         },
         {
-          "name": "cave-bear-scenario-54",
+          "name": "cave-bear",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "cave-bear-scenario-54",
+          "name": "cave-bear",
           "player4": "normal"
         }
       ]

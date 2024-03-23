@@ -90,6 +90,12 @@
                 "19": {
                     "1": "towards the altar %game.mapMarker.b%"
                 },
+                "22": {
+                    "1": "For each altar that isn't destroyed, regardless of whether it has been revealed, the maximum hit point and attack values of all demons is increased by 1 and their movement and range values are increased by 0.5 (rounded up). Melee attacks do not increase in range."
+                },
+                "36": {
+                    "1": "The Prime Demon starts the scenario with twice the number of hit points indicated on its stat card."
+                },
                 "38": {
                     "1": "towards the shaman on the D tile"
                 },
@@ -100,6 +106,9 @@
                     "4": "All characters and character summons suffer 1 damage at the start of each of their turns.",
                     "5": "All characters and character summons gain Disadvantage on all their attacks.",
                     "6": "All characters and character summons deduct -1 Attack from all their attacks."
+                },
+                "54": {
+                    "1": "All Cave Bears add %game.condition.poison% to all their attacks."
                 },
                 "71": {
                     "1": "Move left",
@@ -113,11 +122,19 @@
                 "74": {
                     "1": "Add water tile."
                 },
+                "78": {
+                    "1": "The two Cultists %game.mapMarker.b%, as well as the victim %game.mapMarker.a%, are immune to forced movement, %game.condition.immobilize%, and %game.condition.stun%, and can also open doors.",
+                    "2": "Immune to forced movement",
+                    "3": "Can open doors"
+                },
                 "79": {
                     "1": "Move to starting location, if moved off, then perform"
                 },
                 "86": {
                     "1": "towards the end of the docks %game.mapMarker.b%"
+                },
+                "89": {
+                    "1": "All Cultists summon elite Giant Vipers instead of normal Living Bones."
                 }
             }
         }

@@ -11,6 +11,13 @@
   },
   "edition": "fh",
   "complexity": 2,
+  "requirements": [
+    {
+      "buildings": [
+        "boat"
+      ]
+    }
+  ],
   "rewards": {
     "gold": 20,
     "items": [

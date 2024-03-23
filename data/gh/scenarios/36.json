@@ -48,7 +48,7 @@
     "earth-demon",
     "flame-demon",
     "frost-demon",
-    "prime-demon-scenario-36",
+    "prime-demon",
     "wind-demon"
   ],
   "allies": [
@@ -62,6 +62,25 @@
     }
   ],
   "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "prime-demon"
+          },
+          "statEffect": {
+            "health": "Hx2",
+            "absolute": true
+          },
+          "note": "%data.scenario.rules.gh.36.1%"
+        }
+      ]
+    },
     {
       "round": "R % 4 == 1",
       "spawns": [
@@ -136,7 +155,7 @@
           "identifier": {
             "type": "monster",
             "edition": "gh",
-            "name": "prime-demon-scenario-36"
+            "name": "prime-demon"
           }
         }
       ]
@@ -185,7 +204,7 @@
           "player4": "normal"
         },
         {
-          "name": "prime-demon-scenario-36",
+          "name": "prime-demon",
           "type": "boss"
         },
         {

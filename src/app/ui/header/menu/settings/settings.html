@@ -1,6 +1,11 @@
 <div class="menu-container two-column settings"
   [ngClass]="{'connected' : gameManager.stateManager.wsState() == WebSocket.OPEN}">
 
+  <div class="line">
+    <input [(ngModel)]="filter" type="text"
+    [ghs-label]="'settings.filter'" [ghs-label-attribute]="'placeholder'" (change)="updateFilter()" (keyup)="updateFilter()">
+  </div>
+  
   <!-- GAMEPLAY -->
   <div class="line title span" ghs-setting-title-menu="gameplay" [sync]="true"></div>
 

@@ -15,6 +15,83 @@
     width: 100%;
   }
 
+  .stat-effect {
+    margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--ghs-color-white);
+
+    .title {
+      font-size: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      max-width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
+
+      .stat {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor)) 0;
+
+        .type {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 1.5em;
+          margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+          margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        }
+
+        img {
+          height: 1.2em;
+          width: auto;
+          filter: var(--ghs-filter-white);
+        }
+      }
+    }
+
+    .immunities {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+
+      .immunity {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        width: 1.5em;
+        height: 1.5em;
+        margin: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .deck {
+      cursor: pointer;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+      text-align: center;
+    }
+  }
+
   .menu {
 
     display: flex;
@@ -39,7 +116,7 @@
     flex-direction: column;
     align-items: center;
     margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-    max-height: 80vh;
+    max-height: 60vh;
     overflow-y: auto;
     overflow-x: hidden;
 

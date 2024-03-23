@@ -1,5 +1,6 @@
 import { ElementModel } from "./Element";
 import { AdditionalIdentifier } from "./Identifier";
+import { MonsterStatEffect } from "./MonsterStat";
 import { ObjectiveData } from "./ObjectiveData";
 import { MonsterStandeeData } from "./RoomData";
 
@@ -7,6 +8,7 @@ export class ScenarioRule {
   round: string;
   start: boolean = false;
   always: boolean = false;
+  alwaysApply: boolean = false;
   once: boolean = false;
   requiredRooms: number[] = [];
   requiredRules: ScenarioRuleIdentifier[] = [];
@@ -22,6 +24,7 @@ export class ScenarioRule {
   disableRules: ScenarioRuleIdentifier[] = [];
   treasures: number | string | ('G' | number)[] = [];
   randomDungeon: RandomDungeonRule | undefined;
+  statEffects: StatEffectRule[] = [];
   finish: "won" | "lost" | "round" | undefined = undefined;
 
   constructor(round: string) {
@@ -94,14 +97,6 @@ export class ScenarioFigureRule {
 
 }
 
-export class RandomDungeonRule {
-  monsterCount: number = 3;
-  monsterCards: string[] | undefined;
-  dungeonCount: number = 3;
-  dungeonCards: string[] | undefined;
-  initial: boolean = true;
-}
-
 export type ScenarioFigureRuleTypes = "present" | "dead" | "killed" | "initiative" | "gainCondition" | "loseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove" | "removeEntity" | "amAdd" | "amRemove" | "setAbility" | "drawAbility" | "discardAbilityToBottom" | "dormant" | "activate";
 
 export const HiddenScenarioFigureRuleTypes: ScenarioFigureRuleTypes[] = ["present", "dead", "killed", "initiative"];
@@ -112,6 +107,30 @@ export class ScenarioFigureRuleIdentifier extends AdditionalIdentifier {
   health: string | undefined;
   conditions: string[] | undefined;
 
+}
+
+export class RandomDungeonRule {
+  monsterCount: number = 3;
+  monsterCards: string[] | undefined;
+  dungeonCount: number = 3;
+  dungeonCards: string[] | undefined;
+  initial: boolean = true;
+}
+
+export class StatEffectRule {
+  identifier: ScenarioFigureRuleIdentifier;
+  reference: ScenarioFigureRule | undefined = undefined;
+  statEffect: MonsterStatEffect;
+  note: string;
+
+  constructor(identifier: ScenarioFigureRuleIdentifier,
+    reference: ScenarioFigureRule | undefined,
+    statEffect: MonsterStatEffect, note: string) {
+    this.identifier = identifier;
+    this.reference = reference;
+    this.statEffect = statEffect;
+    this.note = note;
+  }
 }
 
 export class ScenarioRuleIdentifier {

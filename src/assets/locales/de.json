@@ -855,6 +855,10 @@
     "showBoss": "Boss Monster anzeigen",
     "showHidden": "Ausgeblendete Monster anzeigen",
     "skipInteractiveActions": "Interaktive Fähigkeiten auslassen für",
+    "statEffect": {
+      ".": "Folgende Änderungen werden durch Sonderregeln angwendet:",
+      "deck": "Verwendet geänderte Fertigkeiten:<br>\"{0}\""
+    },
     "toggleAction": "Schalte anwendbare Fähigkeit um",
     "toggleAllied": {
       "off": "<span class=\"monster-allied-off\">Verbündet</span> ausschalten",
@@ -1292,6 +1296,7 @@
       "addSectionIndex": "Sektion #{0} {1} öffnen",
       "addSectionMarker": "Sektion {1} %game.mapMarker.{2}% öffnen",
       "addSectionMarkerIndex": "Sektion #{0} {1} %game.mapMarker.{2}% öffnen",
+      "alwaysApply": "Automatisch anwenden",
       "apply": "Anwenden",
       "dismiss": "Schließen",
       "figures": {

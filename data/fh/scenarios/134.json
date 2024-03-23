@@ -11,6 +11,13 @@
   },
   "edition": "fh",
   "complexity": 3,
+  "requirements": [
+    {
+      "campaignSticker": [
+        "into-the-forest"
+      ]
+    }
+  ],
   "rewards": {
     "items": [
       "219"

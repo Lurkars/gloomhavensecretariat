@@ -107,13 +107,17 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   onInteractiveActionsChange(change: InteractiveAction[]) {
-    this.interactiveActionsChange.emit(change);
-    this.interactiveActions = change;
+    if (this.interactiveAbilities) {
+      this.interactiveActionsChange.emit(change);
+      this.interactiveActions = change;
+    }
   }
 
   onInteractiveBottomActionsChange(change: InteractiveAction[]) {
-    this.interactiveBottomActionsChange.emit(change);
-    this.interactiveBottomActions = change;
+    if (this.interactiveAbilities) {
+      this.interactiveBottomActionsChange.emit(change);
+      this.interactiveBottomActions = change;
+    }
   }
 
 }

@@ -93,6 +93,7 @@ export class GameManager {
         if (settingsManager.settings.scenarioRules) {
           if (this.game.round > 0) {
             this.scenarioRulesManager.addScenarioRulesAlways();
+            this.scenarioRulesManager.applyScenarioRulesAlways();
           };
         }
         this.roundManager.firstRound = this.game.round == 0 && this.game.roundResets.length == 0 && this.game.roundResetsHidden.length == 0;
@@ -384,7 +385,16 @@ export class GameManager {
   }
 
   deckData(figure: Monster | Character, ignoreError: boolean = false): DeckData {
-    let deckData = this.decksData(figure.edition).find((deck) => (deck.name == figure.deck || deck.name == figure.name));
+    let deckData: DeckData | undefined
+
+    // find stat effect deck
+    if (figure instanceof Monster && figure.statEffect && figure.statEffect.deck) {
+      deckData = this.decksData().find((deck) => (figure instanceof Monster && figure.statEffect && figure.statEffect.deck && figure.statEffect.deck == deck.name) && (deck.edition == figure.edition || this.editionExtensions(figure.edition).indexOf(deck.edition) != -1));
+    }
+
+    if (!deckData) {
+      deckData = this.decksData(figure.edition).find((deck) => (deck.name == figure.deck || deck.name == figure.name));
+    }
 
     // find extensions decks
     if (!deckData) {
@@ -495,26 +505,29 @@ export class GameManager {
     return (figure instanceof Monster || figure instanceof ObjectiveContainer) && this.entityManager.entitiesAll(figure, true).length > 0 || figure instanceof Character && gameManager.entityManager.isAlive(figure);
   }
 
-  figuresByIdentifier(identifier: AdditionalIdentifier | undefined, scenarioEffect: boolean = false): Figure[] {
+  figuresByIdentifier(identifier: AdditionalIdentifier | undefined, scenarioEffect: boolean = false, figures : Figure[] = []): Figure[] {
+    if (figures.length == 0) {
+      figures = this.game.figures;
+    }
     if (identifier && identifier.type) {
       const type = identifier.type;
       if (type == "all") {
-        return scenarioEffect ? this.game.figures.filter((figure) => {
+        return scenarioEffect ? figures.filter((figure) => {
           if (!(figure instanceof Character)) {
             return true
           } else {
             return !this.characterManager.ignoreNegativeScenarioffects(figure);
           }
-        }) : this.game.figures;
+        }) :figures;
       }
       if (identifier.name) {
         const edition = identifier.edition;
         const name = new RegExp('^' + identifier.name + '$');
         switch (type) {
           case "monster":
-            return this.game.figures.filter((figure) => figure instanceof Monster && (!edition || figure.edition == edition) && figure.name.match(name) && (!identifier.marker || figure.entities.some((entity) => entity.marker == identifier.marker)) && (!identifier.tags || identifier.tags.length == 0 || figure.entities.some((entity) => identifier.tags && identifier.tags.every((tag) => entity.tags && entity.tags.indexOf(tag) != -1))));
+            return figures.filter((figure) => figure instanceof Monster && (!edition || figure.edition == edition) && figure.name.match(name) && (!identifier.marker || figure.entities.some((entity) => entity.marker == identifier.marker)) && (!identifier.tags || identifier.tags.length == 0 || figure.entities.some((entity) => identifier.tags && identifier.tags.every((tag) => entity.tags && entity.tags.indexOf(tag) != -1))));
           case "character":
-            return this.game.figures.filter((figure) => {
+            return figures.filter((figure) => {
               if (figure instanceof Character && !figure.absent && (!edition || figure.edition == edition) && figure.name.match(name) && (!identifier.tags || identifier.tags.length == 0 || identifier.tags && identifier.tags.every((tag) => figure.tags && figure.tags.indexOf(tag) != -1))) {
                 if (scenarioEffect) {
                   return !this.characterManager.ignoreNegativeScenarioffects(figure);

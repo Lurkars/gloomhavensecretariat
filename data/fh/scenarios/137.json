@@ -11,6 +11,13 @@
   },
   "edition": "fh",
   "complexity": 1,
+  "requirements": [
+    {
+      "buildings": [
+        "boat"
+      ]
+    }
+  ],
   "rewards": {
     "gold": 30,
     "prosperity": 2,

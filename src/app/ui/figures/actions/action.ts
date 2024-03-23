@@ -29,6 +29,7 @@ export class ActionComponent implements OnInit, OnDestroy {
   @Input() inline: boolean = false;
   @Input() right: boolean = false;
   @Input() highlight: boolean = false;
+  @Input() interactiveAbilities: boolean = false;
   @Input() interactiveActions: InteractiveAction[] = [];
   @Output() interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
   @Input() statsCalculation: boolean = false;
@@ -226,10 +227,10 @@ export class ActionComponent implements OnInit, OnDestroy {
 
           break;
         case ActionType.move:
-          statValue = stat.movement;
+          statValue = EntityValueFunction(stat.movement, this.level);
           break;
         case ActionType.range:
-          statValue = stat.range;
+          statValue = EntityValueFunction(stat.range, this.level);
           break;
       }
 
@@ -506,7 +507,7 @@ export class ActionComponent implements OnInit, OnDestroy {
   }
 
   isInteractiveApplicableAction(): boolean {
-    return this.monster && this.monster.entities.some((entity) => this.action && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex)) || this.objective && this.objective.entities.some((entity) => this.action && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex)) || false;
+    return this.interactiveAbilities && this.monster && this.monster.entities.some((entity) => this.action && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex)) || this.objective && this.objective.entities.some((entity) => this.action && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex)) || false;
   }
 
   toggleHighlight(event: MouseEvent | TouchEvent) {

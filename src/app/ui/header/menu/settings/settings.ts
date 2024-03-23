@@ -1,11 +1,13 @@
-import { Component, EventEmitter, Output } from "@angular/core";
-import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { GameState } from "src/app/game/model/Game";
-import { SubMenu } from "../menu";
-import { StorageManager, storageManager } from "src/app/game/businesslogic/StorageManager";
 import { Platform } from "@angular/cdk/platform";
+import { Component, EventEmitter, Output, QueryList, ViewChildren } from "@angular/core";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { StorageManager, storageManager } from "src/app/game/businesslogic/StorageManager";
+import { GameState } from "src/app/game/model/Game";
 import { Condition, ConditionName, ConditionType } from "src/app/game/model/data/Condition";
+import { SubMenu } from "../menu";
+import { SettingMenuComponent } from "./setting/setting";
+import { ghsTextSearch } from "src/app/ui/helper/Static";
 
 @Component({
   selector: 'ghs-settings-menu',
@@ -14,6 +16,7 @@ import { Condition, ConditionName, ConditionType } from "src/app/game/model/data
 })
 export class SettingsMenuComponent {
 
+  @ViewChildren(SettingMenuComponent) settingMenus!: QueryList<SettingMenuComponent>;
   @Output() setMenu: EventEmitter<SubMenu> = new EventEmitter<SubMenu>();
 
   gameManager: GameManager = gameManager;
@@ -26,6 +29,7 @@ export class SettingsMenuComponent {
   activeApplyConditionsExcludes: Condition[] = [];
   WebSocket = WebSocket;
   ConditionType = ConditionType;
+  filter: string = "";
 
   constructor(public platform: Platform) {
     this.wakeLock = 'wakeLock' in navigator;
@@ -40,6 +44,19 @@ export class SettingsMenuComponent {
         }
       }
     })
+  }
+
+  updateFilter() {
+    this.settingMenus.forEach((item) => {
+      if (!this.filter) {
+        item.elementRef.nativeElement.classList.remove('hidden');
+      } else if (ghsTextSearch(item.setting, this.filter) || ghsTextSearch(settingsManager.getLabel('settings.' + item.setting), this.filter) || ghsTextSearch(settingsManager.getLabel('settings.' + item.setting + '.hint'), this.filter)) {
+        item.elementRef.nativeElement.classList.remove('hidden');
+      } else {
+        item.elementRef.nativeElement.classList.add('hidden');
+      }
+    })
+
   }
 
   doubleClick: any = null;

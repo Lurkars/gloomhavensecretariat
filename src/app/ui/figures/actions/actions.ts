@@ -23,6 +23,7 @@ export class ActionsComponent implements OnInit, OnDestroy {
   @Input() inline: boolean = false;
   @Input() right: boolean = false;
   @Input() statsCalculation: boolean = false;
+  @Input() interactiveAbilities: boolean = false;
   @Input() interactiveActions: InteractiveAction[] = [];
   @Output() interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
   @Input() highlightActions: ActionType[] = [];

@@ -391,6 +391,7 @@ export class RoundManager {
       this.game.scenario.additionalSections = [];
     }
     this.game.scenarioRules = [];
+    this.game.appliedScenarioRules = [];
     this.game.disgardedScenarioRules = [];
     this.game.round = 0;
     this.game.roundResets = [];

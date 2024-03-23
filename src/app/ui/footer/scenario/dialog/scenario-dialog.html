@@ -35,7 +35,7 @@
     <div class="open-sections">
       <span tabclick *ngFor="let roomData of closedRooms" class="section room available" (click)="openRoom(roomData)">
         <img class="ghs-svg" src="./assets/images/scenario/door.svg">
-        <span [ghs-label]="roomData.marker ? 'scenario.openRoomMarker' : 'scenario.openRoom'"
+        <span [ghs-label]="roomData.marker ? 'scenario.openRoomMarkerRef' : 'scenario.openRoomRef'"
           [ghs-label-args]="[roomData.ref, roomData.marker || '']"></span>
       </span>
       <span tabclick *ngFor="let section of availableSections" class="section available" (click)="addSection(section)">

@@ -28,6 +28,7 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
   @Input() right: boolean = false;
   @Input('spawn') isSpawn: boolean = false;
   @Input() additional: boolean = false;
+  @Input() interactiveAbilities: boolean = false;
   @Input() interactiveActions: InteractiveAction[] = [];
   @Output() interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
   @Input('index') actionIndex: string = "";
@@ -107,7 +108,7 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
   }
 
   isInteractiveApplicableAction(): boolean {
-    return this.monster && this.monster.entities.some((entity) => this.action && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex)) || this.objective && this.objective.entities.some((entity) => this.action && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex)) || false;
+    return this.interactiveAbilities && this.monster && this.monster.entities.some((entity) => this.action && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex)) || this.objective && this.objective.entities.some((entity) => this.action && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex)) || false;
   }
 
   toggleHighlight(event: MouseEvent | TouchEvent) {

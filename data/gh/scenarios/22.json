@@ -54,6 +54,39 @@
       "marker": "a"
     }
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "requiredRooms": [
+        2
+      ],
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": ".*demon.*"
+          },
+          "reference": {
+            "identifier": {
+              "type": "objective",
+              "name": "Altar"
+            },
+            "type": "present"
+          },
+          "statEffect": {
+            "health": "X",
+            "movement": "[X/2{$math.ceil}]",
+            "attack": "X",
+            "range": "[X/2{$math.ceil}]"
+          },
+          "note": "%data.scenario.rules.gh.22.1%"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -110,6 +143,12 @@
           "player3": "normal",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1
       ]
     },
     {
@@ -125,9 +164,6 @@
           "player3": "normal",
           "player4": "normal"
         }
-      ],
-      "objectives": [
-        1
       ]
     },
     {
@@ -142,9 +178,6 @@
           "name": "wind-demon",
           "player4": "normal"
         }
-      ],
-      "objectives": [
-        1
       ]
     },
     {
@@ -159,9 +192,6 @@
           "name": "frost-demon",
           "player4": "normal"
         }
-      ],
-      "objectives": [
-        1
       ]
     },
     {
@@ -177,9 +207,6 @@
           "player3": "normal",
           "player4": "normal"
         }
-      ],
-      "objectives": [
-        1
       ]
     }
   ]

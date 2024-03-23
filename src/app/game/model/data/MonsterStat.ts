@@ -6,9 +6,9 @@ export class MonsterStat {
   type: MonsterType;
   level: number;
   health: number | string;
-  movement: number;
+  movement: number | string;
   attack: number | string;
-  range: number;
+  range: number | string;
   actions: Action[];
   immunities: ConditionName[];
   special: Action[][];
@@ -17,9 +17,9 @@ export class MonsterStat {
   constructor(type: MonsterType,
     level: number,
     health: number | string,
-    movement: number,
+    movement: number | string,
     attack: number | string,
-    range: number,
+    range: number | string,
     actions: Action[] = [],
     immunities: ConditionName[] = [],
     special: Action[][] = [],
@@ -45,12 +45,13 @@ export class MonsterStatEffect {
   attack: number | string = 0;
   range: number | string = 0;
   actions: Action[] | undefined = undefined;
-  additionalActions: Action[] | undefined = undefined;
   immunities: ConditionName[] | undefined = undefined;
-  additionalImmunities: ConditionName[] | undefined = undefined;
+  deck: string | undefined = undefined;
+  absolute: boolean = false;
+  note: string = "";
 
   toModel(): GameMonsterStatEffectModel {
-    return new GameMonsterStatEffectModel(this.health, this.movement, this.attack, this.range, this.actions, this.additionalActions, this.immunities, this.additionalImmunities);
+    return new GameMonsterStatEffectModel(this.health, this.movement, this.attack, this.range, this.actions, this.immunities, this.deck, this.absolute);
   }
 
   fromModel(model: GameMonsterStatEffectModel) {
@@ -59,9 +60,9 @@ export class MonsterStatEffect {
     this.attack = model.attack;
     this.range = model.range;
     this.actions = model.actions ? (JSON.parse(model.actions) as Action[]).map((action) => action as Action) : undefined;
-    this.additionalActions = model.additionalActions ? (JSON.parse(model.additionalActions) as Action[]).map((action) => action as Action) : undefined;
     this.immunities = model.immunities;
-    this.additionalImmunities = model.additionalImmunities;
+    this.deck = model.deck;
+    this.absolute = model.absolute;
   }
 
 }
@@ -74,25 +75,25 @@ export class GameMonsterStatEffectModel {
   attack: number | string;
   range: number | string;
   actions: string | undefined;
-  additionalActions: string | undefined;
   immunities: ConditionName[] | undefined;
-  additionalImmunities: ConditionName[] | undefined;
+  deck: string | undefined;
+  absolute: boolean;
 
   constructor(health: number | string,
     movement: number | string,
     attack: number | string,
     range: number | string,
     actions: Action[] | undefined,
-    additionalActions: Action[] | undefined,
     immunities: ConditionName[] | undefined,
-    additionalImmunities: ConditionName[] | undefined) {
+    deck: string | undefined,
+    absolute: boolean) {
     this.health = health;
     this.movement = movement;
     this.attack = attack;
     this.range = range;
     this.actions = actions ? JSON.stringify(actions) : undefined;
-    this.additionalActions = additionalActions ? JSON.stringify(additionalActions) : undefined;
     this.immunities = immunities;
-    this.additionalImmunities = additionalImmunities;
+    this.deck = deck;
+    this.absolute = absolute;
   }
 }
