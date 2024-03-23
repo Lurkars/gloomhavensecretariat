@@ -1,7 +1,7 @@
 <div class="menu-container two-column settings"
   [ngClass]="{'connected' : gameManager.stateManager.wsState() == WebSocket.OPEN}">
 
-  <div class="line">
+  <div class="line hidden">
     <input [(ngModel)]="filter" type="text"
     [ghs-label]="'settings.filter'" [ghs-label-attribute]="'placeholder'" (change)="updateFilter()" (keyup)="updateFilter()">
   </div>
