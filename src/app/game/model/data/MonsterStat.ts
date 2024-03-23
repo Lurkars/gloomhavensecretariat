@@ -51,7 +51,7 @@ export class MonsterStatEffect {
   note: string = "";
 
   toModel(): GameMonsterStatEffectModel {
-    return new GameMonsterStatEffectModel(this.health, this.movement, this.attack, this.range, this.actions, this.immunities, this.deck, this.absolute);
+    return new GameMonsterStatEffectModel(this.health, this.movement, this.attack, this.range, this.actions, this.immunities, this.deck, this.absolute, this.note);
   }
 
   fromModel(model: GameMonsterStatEffectModel) {
@@ -63,6 +63,7 @@ export class MonsterStatEffect {
     this.immunities = model.immunities;
     this.deck = model.deck;
     this.absolute = model.absolute;
+    this.note = model.note;
   }
 
 }
@@ -78,6 +79,7 @@ export class GameMonsterStatEffectModel {
   immunities: ConditionName[] | undefined;
   deck: string | undefined;
   absolute: boolean;
+  note: string;
 
   constructor(health: number | string,
     movement: number | string,
@@ -86,7 +88,8 @@ export class GameMonsterStatEffectModel {
     actions: Action[] | undefined,
     immunities: ConditionName[] | undefined,
     deck: string | undefined,
-    absolute: boolean) {
+    absolute: boolean,
+    note: string) {
     this.health = health;
     this.movement = movement;
     this.attack = attack;
@@ -95,5 +98,6 @@ export class GameMonsterStatEffectModel {
     this.immunities = immunities;
     this.deck = deck;
     this.absolute = absolute;
+    this.note = note;
   }
 }

@@ -23,10 +23,10 @@
     "algox-archer",
     "algox-guard",
     "algox-priest",
-    "city-guard-scenario-1"
+    "city-guard"
   ],
   "allies": [
-    "city-guard-scenario-1"
+    "city-guard"
   ],
   "lootDeckConfig": {
     "money": 6,
@@ -36,6 +36,36 @@
     "rockroot": 1,
     "snowthistle": 2
   },
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "city-guard"
+          },
+          "statEffect": {
+            "actions": [
+              {
+                "type": "shield",
+                "value": 1
+              },
+              {
+                "type": "retaliate",
+                "value": 2
+              }
+            ],
+            "deck": "city-guard-scenario-1"
+          },
+          "note": "%data.scenario.rules.fh.1%"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -61,7 +91,7 @@
           "player4": "elite"
         },
         {
-          "name": "city-guard-scenario-1",
+          "name": "city-guard",
           "type": "normal"
         }
       ]

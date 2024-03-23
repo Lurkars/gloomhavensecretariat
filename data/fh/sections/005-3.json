@@ -8,7 +8,7 @@
     "algox-archer",
     "algox-guard",
     "algox-priest",
-    "city-guard-scenario-1"
+    "city-guard"
   ],
   "rooms": [
     {
@@ -59,20 +59,20 @@
           "player4": "normal"
         },
         {
-          "name": "city-guard-scenario-1",
+          "name": "city-guard",
           "type": "normal"
         },
         {
-          "name": "city-guard-scenario-1",
+          "name": "city-guard",
           "type": "normal"
         },
         {
-          "name": "city-guard-scenario-1",
+          "name": "city-guard",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "city-guard-scenario-1",
+          "name": "city-guard",
           "player4": "normal"
         }
       ]

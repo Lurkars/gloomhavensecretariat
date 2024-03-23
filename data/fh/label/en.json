@@ -136,7 +136,9 @@
     },
     "rules": {
       "fh": {
-        "97": "To add monster abilities to a character's hand, open the Ability Cards menu and remove the cards from the deck. To play that card, simply add it back in the Edit menu."
+        "1": "City Guards do not perform turns but instead gain an additional innate %game.action.shield% 1 (for a total of %game.action.shield% 2 at level 1) and %game.action.retaliate% 2, and have an initiative of 50 for the purpose of focusing.",
+        "97": "To add monster abilities to a character's hand, open the Ability Cards menu and remove the cards from the deck. To play that card, simply add it back in the Edit menu.",
+        "129": "All City Guards use Archer monster ability cards instead of their own."
       }
     }
   },

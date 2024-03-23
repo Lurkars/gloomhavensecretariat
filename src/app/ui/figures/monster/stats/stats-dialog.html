@@ -78,7 +78,7 @@
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity+ '.svg'" />
       </span>
     </div>
-    <span class="deck" (click)="openAbilities()" *ngIf="monster.statEffect.deck" [ghs-label]="'monster.statEffect.deck'"
+    <span class="deck text-white" (click)="openAbilities()" *ngIf="monster.statEffect.deck" [ghs-label]="'monster.statEffect.deck'"
       [ghs-label-args]="[monster.statEffect.note]"></span>
   </div>
 

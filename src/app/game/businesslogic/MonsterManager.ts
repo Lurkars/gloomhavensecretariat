@@ -78,6 +78,7 @@ export class MonsterManager {
       statEffect.actions = monster.statEffect.actions;
       statEffect.immunities = monster.statEffect.immunities;
       statEffect.absolute = monster.statEffect.absolute;
+      statEffect.note = monster.statEffect.note;
       if (statEffect.absolute) {
         if (statEffect.health) {
           stat.health = '[' + statEffect.health + ']';

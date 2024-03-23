@@ -730,47 +730,49 @@ export class ScenarioRulesManager {
         })
       }
 
-      rule.statEffects.forEach((statEffectRule) => {
-        const figures: Figure[] = gameManager.figuresByIdentifier(statEffectRule.identifier);
-        let referenceValue: number = 0;
-        if (statEffectRule.reference && (statEffectRule.reference.type == "present" || statEffectRule.reference.type == "killed")) {
-          const referenceCount = gameManager.scenarioRulesManager.presentEntitiesByFigureRule(statEffectRule.reference, rule).length;
-          const offset: number = statEffectRule.reference.value ? EntityValueFunction(statEffectRule.reference.value.split(':')[0]) : 0;
-          referenceValue = statEffectRule.reference.type == "present" ? referenceCount + offset : offset - referenceCount;
-        }
-
-        figures.forEach((figure) => {
-          if (figure instanceof Monster) {
-            let statEffect = new MonsterStatEffect();
-
-            if (statEffectRule.statEffect.health) {
-              statEffect.health = ('' + statEffectRule.statEffect.health).replaceAll('X', '' + referenceValue);
-            }
-            if (statEffectRule.statEffect.movement) {
-              statEffect.movement = ('' + statEffectRule.statEffect.movement).replaceAll('X', '' + referenceValue);
-            }
-            if (statEffectRule.statEffect.attack) {
-              statEffect.attack = ('' + statEffectRule.statEffect.attack).replaceAll('X', '' + referenceValue);
-            }
-            if (statEffectRule.statEffect.range) {
-              statEffect.range = ('' + statEffectRule.statEffect.range).replaceAll('X', '' + referenceValue);
-            }
-
-            statEffect.actions = statEffectRule.statEffect.actions;
-            statEffect.immunities = statEffectRule.statEffect.immunities;
-            statEffect.deck = statEffectRule.statEffect.deck;
-            statEffect.absolute = statEffectRule.statEffect.absolute || false;
-
-            statEffect.note = statEffectRule.note;
-
-            if (statEffect.absolute || (statEffect.health || statEffect.movement || statEffect.attack || statEffect.range || statEffect.actions && statEffect.actions.length || statEffect.immunities && statEffect.immunities.length || statEffect.deck)) {
-              figure.statEffect = statEffect;
-            } else {
-              figure.statEffect = undefined;
-            }
+      if (rule.statEffects) {
+        rule.statEffects.forEach((statEffectRule) => {
+          const figures: Figure[] = gameManager.figuresByIdentifier(statEffectRule.identifier);
+          let referenceValue: number = 0;
+          if (statEffectRule.reference && (statEffectRule.reference.type == "present" || statEffectRule.reference.type == "killed")) {
+            const referenceCount = gameManager.scenarioRulesManager.presentEntitiesByFigureRule(statEffectRule.reference, rule).length;
+            const offset: number = statEffectRule.reference.value ? EntityValueFunction(statEffectRule.reference.value.split(':')[0]) : 0;
+            referenceValue = statEffectRule.reference.type == "present" ? referenceCount + offset : offset - referenceCount;
           }
+
+          figures.forEach((figure) => {
+            if (figure instanceof Monster) {
+              let statEffect = new MonsterStatEffect();
+
+              if (statEffectRule.statEffect.health) {
+                statEffect.health = ('' + statEffectRule.statEffect.health).replaceAll('X', '' + referenceValue);
+              }
+              if (statEffectRule.statEffect.movement) {
+                statEffect.movement = ('' + statEffectRule.statEffect.movement).replaceAll('X', '' + referenceValue);
+              }
+              if (statEffectRule.statEffect.attack) {
+                statEffect.attack = ('' + statEffectRule.statEffect.attack).replaceAll('X', '' + referenceValue);
+              }
+              if (statEffectRule.statEffect.range) {
+                statEffect.range = ('' + statEffectRule.statEffect.range).replaceAll('X', '' + referenceValue);
+              }
+
+              statEffect.actions = statEffectRule.statEffect.actions;
+              statEffect.immunities = statEffectRule.statEffect.immunities;
+              statEffect.deck = statEffectRule.statEffect.deck;
+              statEffect.absolute = statEffectRule.statEffect.absolute || false;
+
+              statEffect.note = statEffectRule.note;
+
+              if (statEffect.absolute || (statEffect.health || statEffect.movement || statEffect.attack || statEffect.range || statEffect.actions && statEffect.actions.length || statEffect.immunities && statEffect.immunities.length || statEffect.deck)) {
+                figure.statEffect = statEffect;
+              } else {
+                figure.statEffect = undefined;
+              }
+            }
+          })
         })
-      })
+      }
 
       if (rule.randomDungeon && rule.randomDungeon.monsterCount && gameManager.game.scenario) {
         const shuffledSections = ghsShuffleArray(gameManager.sectionData(gameManager.game.scenario.edition, true).filter((sectionData) => sectionData.group == 'randomMonsterCard' && rule.randomDungeon && (!rule.randomDungeon.monsterCards || rule.randomDungeon.monsterCards.indexOf(sectionData.index) != -1) && (!gameManager.game.scenario || !gameManager.game.scenario.additionalSections || gameManager.game.scenario.additionalSections.indexOf(sectionData.index) == -1)));

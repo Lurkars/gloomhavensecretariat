@@ -22,10 +22,10 @@
     "custom": "Note the amount of remaining sun agates"
   },
   "monsters": [
-    "city-guard-scenario-129"
+    "city-guard"
   ],
   "allies": [
-    "city-guard-scenario-129"
+    "city-guard"
   ],
   "lootDeckConfig": {
     "money": 10,
@@ -42,6 +42,24 @@
       "sections": [
         "148.5"
       ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "city-guard"
+          },
+          "statEffect": {
+            "deck": "archer"
+          },
+          "note": "%data.scenario.rules.fh.129%"
+        }
+      ]
     }
   ],
   "rooms": [
@@ -50,20 +68,20 @@
       "initial": true,
       "monster": [
         {
-          "name": "city-guard-scenario-129",
+          "name": "city-guard",
           "type": "elite"
         },
         {
-          "name": "city-guard-scenario-129",
+          "name": "city-guard",
           "type": "elite"
         },
         {
-          "name": "city-guard-scenario-129",
+          "name": "city-guard",
           "player2": "elite",
           "player3": "elite"
         },
         {
-          "name": "city-guard-scenario-129",
+          "name": "city-guard",
           "player2": "elite"
         }
       ]

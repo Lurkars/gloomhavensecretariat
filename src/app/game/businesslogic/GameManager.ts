@@ -39,6 +39,7 @@ import { ScenarioRulesManager } from "./ScenarioRulesManager";
 import { settingsManager } from "./SettingsManager";
 import { StateManager } from "./StateManager";
 import { ActionsManager } from "./ActionsManager";
+import { ghsShuffleArray } from "src/app/ui/helper/Static";
 
 declare global {
   interface Window { gameManager: GameManager }
@@ -390,6 +391,13 @@ export class GameManager {
     // find stat effect deck
     if (figure instanceof Monster && figure.statEffect && figure.statEffect.deck) {
       deckData = this.decksData().find((deck) => (figure instanceof Monster && figure.statEffect && figure.statEffect.deck && figure.statEffect.deck == deck.name) && (deck.edition == figure.edition || this.editionExtensions(figure.edition).indexOf(deck.edition) != -1));
+      if (deckData && figure.abilities.length != deckData.abilities.length) {
+        figure.abilities = deckData.abilities.filter((ability) => isNaN(+ability.level) || +ability.level <= (figure && figure.level || 0)).map((ability) => deckData ? deckData.abilities.indexOf(ability) : -1);
+        ghsShuffleArray(figure.abilities);
+        if (this.game.state == GameState.next) {
+          figure.ability = 1;
+        }
+      }
     }
 
     if (!deckData) {
@@ -505,7 +513,7 @@ export class GameManager {
     return (figure instanceof Monster || figure instanceof ObjectiveContainer) && this.entityManager.entitiesAll(figure, true).length > 0 || figure instanceof Character && gameManager.entityManager.isAlive(figure);
   }
 
-  figuresByIdentifier(identifier: AdditionalIdentifier | undefined, scenarioEffect: boolean = false, figures : Figure[] = []): Figure[] {
+  figuresByIdentifier(identifier: AdditionalIdentifier | undefined, scenarioEffect: boolean = false, figures: Figure[] = []): Figure[] {
     if (figures.length == 0) {
       figures = this.game.figures;
     }
@@ -518,7 +526,7 @@ export class GameManager {
           } else {
             return !this.characterManager.ignoreNegativeScenarioffects(figure);
           }
-        }) :figures;
+        }) : figures;
       }
       if (identifier.name) {
         const edition = identifier.edition;
