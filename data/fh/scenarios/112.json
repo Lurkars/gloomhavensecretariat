@@ -18,10 +18,10 @@
   "monsters": [
     "burrowing-blade",
     "earth-demon",
-    "hound-scenario-112"
+    "hound"
   ],
   "allies": [
-    "hound-scenario-112"
+    "hound"
   ],
   "lootDeckConfig": {
     "money": 8,
@@ -41,13 +41,32 @@
           "identifier": {
             "type": "monster",
             "edition": "fh",
-            "name": "hound-scenario-112"
+            "name": "hound"
           },
           "type": "killed",
           "value": "1"
         }
       ],
       "finish": "lost"
+    },
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "hound"
+          },
+          "statEffect": {
+            "health": "Hx2",
+            "absolute": true
+          },
+          "note": "%data.scenario.rules.fh.112%"
+        }
+      ]
     }
   ],
   "rooms": [
@@ -82,11 +101,11 @@
           "player4": "elite"
         },
         {
-          "name": "hound-scenario-112",
+          "name": "hound",
           "type": "normal"
         },
         {
-          "name": "hound-scenario-112",
+          "name": "hound",
           "type": "elite"
         }
       ]

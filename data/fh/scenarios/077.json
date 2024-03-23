@@ -28,7 +28,7 @@
     "custom": "\"Threat from the Deep\" quest complete"
   },
   "monsters": [
-    "fish-king-scenario-77",
+    "fish-king",
     "piranha-pig"
   ],
   "lootDeckConfig": {
@@ -67,7 +67,7 @@
         {
           "identifier": {
             "type": "monster",
-            "name": "fish-king-scenario-77",
+            "name": "fish-king",
             "health": "[Hx3/4{$math.ceil}]"
           },
           "type": "present"
@@ -75,10 +75,123 @@
         {
           "identifier": {
             "type": "monster",
-            "name": "fish-king-scenario-77"
+            "name": "fish-king"
           },
           "type": "setHp",
           "value": "[Hx3/4{$math.ceil}]"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "fish-king"
+          },
+          "statEffect": {
+            "movement": "0",
+            "actions": [
+              {
+                "type": "custom",
+                "value": "%data.scenario.rules.fh.77.2%"
+              }
+            ],
+            "special": [
+              [
+                {
+                  "type": "move",
+                  "value": 0,
+                  "valueType": "plus"
+                },
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "enemiesAdjacent",
+                      "small": true
+                    },
+                    {
+                      "type": "push",
+                      "value": 2,
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "summon",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "piranha-pig",
+                        "player2": "normal",
+                        "player3": "elite",
+                        "player4": "elite"
+                      }
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "type": "move",
+                  "value": 0,
+                  "valueType": "plus"
+                },
+                {
+                  "type": "specialTarget",
+                  "value": "focusEnemyFarthest",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 0,
+                      "valueType": "plus",
+                      "subActions": [
+                        {
+                          "type": "range",
+                          "value": 5,
+                          "small": true
+                        },
+                        {
+                          "type": "pull",
+                          "value": 4,
+                          "small": true
+                        },
+                        {
+                          "type": "condition",
+                          "value": "poison",
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.fish-king-scenario-77.1%",
+                  "small": true
+                }
+              ]
+            ],
+            "immunities": [
+              "poison",
+              "immobilize",
+              "disarm",
+              "stun",
+              "muddle"
+            ],
+            "absolute": true
+          },
+          "note": "%data.scenario.rules.fh.77.1%"
         }
       ]
     }
@@ -89,7 +202,7 @@
       "initial": true,
       "monster": [
         {
-          "name": "fish-king-scenario-77",
+          "name": "fish-king",
           "type": "boss"
         },
         {

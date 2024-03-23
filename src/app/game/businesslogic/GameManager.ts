@@ -92,10 +92,8 @@ export class GameManager {
           this.levelManager.calculateScenarioLevel();
         }
         if (settingsManager.settings.scenarioRules) {
-          if (this.game.round > 0) {
-            this.scenarioRulesManager.addScenarioRulesAlways();
-            this.scenarioRulesManager.applyScenarioRulesAlways();
-          };
+          this.scenarioRulesManager.addScenarioRulesAlways();
+          this.scenarioRulesManager.applyScenarioRulesAlways();
         }
         this.roundManager.firstRound = this.game.round == 0 && this.game.roundResets.length == 0 && this.game.roundResetsHidden.length == 0;
       }

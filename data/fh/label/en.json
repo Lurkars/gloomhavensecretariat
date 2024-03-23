@@ -136,8 +136,16 @@
     },
     "rules": {
       "fh": {
+        "0": "Do not set up the Hound monster ability deck. Instead, each round on initiative 26, all Hounds perform %game.action.move% 2; %game.action.attack% 2.",
         "1": "City Guards do not perform turns but instead gain an additional innate %game.action.shield% 1 (for a total of %game.action.shield% 2 at level 1) and %game.action.retaliate% 2, and have an initiative of 50 for the purpose of focusing.",
+        "65": "All monsters add %game.action.push% 1 to all their attacks. If the scenario level is 4 or higher, increase this to %game.action.push% 2.",
+        "76": "Divide the Fish King's maximum hit point value by 2 (rounded down). The Fish King does not act, cannot be targeted by heal abilities, is immune to all conditions, and has an initiative of 01 for the purpose of focusing.",
+        "77": {
+          "1": "The Fish King cannot perform any move abilities and is immune to forced movement. (Also adjusted Boss Specials!)",
+          "2": "Immune to forced movement"
+        },
         "97": "To add monster abilities to a character's hand, open the Ability Cards menu and remove the cards from the deck. To play that card, simply add it back in the Edit menu.",
+        "112": "The two Hounds have twice their maximum hit point values.",
         "129": "All City Guards use Archer monster ability cards instead of their own."
       }
     }

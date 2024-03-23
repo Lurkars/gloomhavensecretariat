@@ -76,6 +76,7 @@ export class MonsterManager {
       statEffect.attack = typeof monster.statEffect.attack === 'string' ? monster.statEffect.attack.replaceAll('H', '' + stat.health).replace('[', '').replace(']', '') : monster.statEffect.attack;
       statEffect.range = typeof monster.statEffect.range === 'string' ? monster.statEffect.range.replaceAll('H', '' + stat.health).replace('[', '').replace(']', '') : monster.statEffect.range;
       statEffect.actions = monster.statEffect.actions;
+      statEffect.special = monster.statEffect.special;
       statEffect.immunities = monster.statEffect.immunities;
       statEffect.absolute = monster.statEffect.absolute;
       statEffect.note = monster.statEffect.note;
@@ -95,6 +96,9 @@ export class MonsterManager {
 
         if (statEffect.actions) {
           stat.actions = statEffect.actions;
+        }
+        if (statEffect.special) {
+          stat.special = statEffect.special;
         }
         if (statEffect.immunities) {
           stat.immunities = statEffect.immunities;

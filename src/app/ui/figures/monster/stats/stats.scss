@@ -630,6 +630,10 @@
         }
       }
     }
+
+    &.boss {
+      z-index: 1;
+    }
   }
 
   &.no-click {

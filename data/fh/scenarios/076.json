@@ -21,12 +21,12 @@
   "monsters": [
     "algox-archer",
     "algox-guard",
-    "fish-king-scenario-76",
+    "fish-king",
     "lurker-mindsnipper",
     "piranha-pig"
   ],
   "allies": [
-    "fish-king-scenario-76",
+    "fish-king",
     "piranha-pig"
   ],
   "lootDeckConfig": {
@@ -112,6 +112,38 @@
       "sections": [
         "56.2"
       ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "fish-king"
+          },
+          "statEffect": {
+            "health": "H/2",
+            "actions": [],
+            "special": [],
+            "immunities": [
+              "bane",
+              "brittle",
+              "poison",
+              "wound",
+              "curse",
+              "regenerate",
+              "ward",
+              "invisible"
+            ],
+            "deck": "fish-king-scenario-76",
+            "absolute": true
+          },
+          "note": "%data.scenario.rules.fh.76%"
+        }
+      ]
     }
   ],
   "rooms": [
@@ -137,7 +169,7 @@
           "player4": "normal"
         },
         {
-          "name": "fish-king-scenario-76",
+          "name": "fish-king",
           "type": "boss"
         },
         {

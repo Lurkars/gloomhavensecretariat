@@ -54,7 +54,7 @@ export class ScenarioRulesManager {
   addScenarioRulesAlways() {
     const scenario = this.game.scenario;
     if (scenario && scenario.rules) {
-      scenario.rules.filter((rule) => rule.always).forEach((rule) => {
+      scenario.rules.filter((rule) => this.game.round > 0 && rule.always || rule.alwaysApply).forEach((rule) => {
         this.addScenarioRule(scenario, rule, scenario.rules.indexOf(rule), false);
       })
     }
@@ -62,7 +62,7 @@ export class ScenarioRulesManager {
     if (this.game.sections) {
       this.game.sections.forEach((section) => {
         if (section.rules) {
-          section.rules.filter((rule) => rule.always).forEach((rule) => {
+          section.rules.filter((rule) => this.game.round > 0 && rule.always || rule.alwaysApply).forEach((rule) => {
             this.addScenarioRule(section, rule, section.rules.indexOf(rule), true);
           })
         }
@@ -758,6 +758,7 @@ export class ScenarioRulesManager {
               }
 
               statEffect.actions = statEffectRule.statEffect.actions;
+              statEffect.special = statEffectRule.statEffect.special;
               statEffect.immunities = statEffectRule.statEffect.immunities;
               statEffect.deck = statEffectRule.statEffect.deck;
               statEffect.absolute = statEffectRule.statEffect.absolute || false;
