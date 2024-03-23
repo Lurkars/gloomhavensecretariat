@@ -1003,6 +1003,10 @@
     "showBoss": "Show Boss Monster",
     "showHidden": "Show Hidden Monster",
     "skipInteractiveActions": "Skip interactive abilities for",
+    "statEffect": {
+      ".": "Special Rules apply following changes:",
+      "deck": "Use modified abilities:<br>\"{0}\""
+    },
     "toggleAction": "Toggle applicable ability",
     "toggleAllied": {
       "off": "Turn <span class=\"monster-allied-off\">Allied</span> off",
@@ -1441,6 +1445,7 @@
       "addSectionIndex": "Open Section #{0} {1}",
       "addSectionMarker": "Open Section {1} %game.mapMarker.{2}%",
       "addSectionMarkerIndex": "Open Section #{0} {1} %game.mapMarker.{2}%",
+      "alwaysApply": "Apply automatically",
       "apply": "Apply",
       "dismiss": "Dismiss",
       "figures": {
