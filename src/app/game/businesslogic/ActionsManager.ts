@@ -299,7 +299,7 @@ export class ActionsManager {
                     if (spawn.monster && spawn.monster.type) {
                         const monster = gameManager.monsterManager.addMonsterByName(spawn.monster.name, figure.edition || gameManager.currentEdition());
                         if (monster) {
-                            const count = Math.min(EntityValueFunction(monster.standeeCount || monster.count, monster.level) - gameManager.monsterManager.monsterStandeeCount(monster), EntityValueFunction(spawn.count || 1, figure.level));
+                            const count = Math.min(gameManager.monsterManager.monsterStandeeMax(monster) - gameManager.monsterManager.monsterStandeeCount(monster), EntityValueFunction(spawn.count || 1, figure.level));
                             for (let i = 0; i < count; i++) {
                                 const spawnEntity = gameManager.monsterManager.spawnMonsterEntity(monster, spawn.monster.type, monster.isAlly, monster.isAllied, monster.drawExtra, action.type == ActionType.summon);
                                 if (spawnEntity) {

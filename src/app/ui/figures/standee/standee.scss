@@ -1,6 +1,7 @@
 .entity-border {
   position: relative;
   touch-action: none;
+
   &:hover {
     z-index: 999;
   }

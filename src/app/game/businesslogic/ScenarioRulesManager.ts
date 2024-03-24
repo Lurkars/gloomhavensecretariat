@@ -744,6 +744,8 @@ export class ScenarioRulesManager {
             if (figure instanceof Monster) {
               let statEffect = new MonsterStatEffect();
 
+              statEffect.name = statEffectRule.statEffect.name;
+
               if (statEffectRule.statEffect.health) {
                 statEffect.health = ('' + statEffectRule.statEffect.health).replaceAll('X', '' + referenceValue);
               }

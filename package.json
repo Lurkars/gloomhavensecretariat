@@ -1,6 +1,6 @@
 {
   "name": "gloomhavensecretariat",
-  "version": "0.93.2",
+  "version": "0.93.3",
   "license": "AGPL3",
   "description": "Gloomhaven Secretariat is a Gloomhaven/Frosthaven Companion app.",
   "homepage": "https://gloomhaven-secretariat.de",
@@ -115,6 +115,6 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "nodemon": "^3.1.0",
-    "typescript": "~5.4.2"
+    "typescript": "~5.4.3"
   }
 }

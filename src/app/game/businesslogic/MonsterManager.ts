@@ -70,6 +70,7 @@ export class MonsterManager {
 
     if (monster.statEffect) {
       let statEffect = new MonsterStatEffect();
+      statEffect.name = monster.statEffect.name;
       const oldHP = EntityValueFunction(stat.health, monster.level);
       statEffect.health = typeof monster.statEffect.health === 'string' ? monster.statEffect.health.replaceAll('H', '' + stat.health).replace('[', '').replace(']', '') : monster.statEffect.health;
       statEffect.movement = typeof monster.statEffect.movement === 'string' ? monster.statEffect.movement.replaceAll('H', '' + stat.health).replace('[', '').replace(']', '') : monster.statEffect.movement;
@@ -355,8 +356,8 @@ export class MonsterManager {
   }
 
   monsterStandeeMax(monster: Monster): number {
-    let max = EntityValueFunction(monster.standeeCount || monster.count, monster.level);
-    if (monster.standeeShare) {
+    let max = EntityValueFunction(monster.standeeCount || monster.count || 0, monster.level);
+    if (!max && monster.standeeShare) {
       const share = gameManager.monstersData(monster.standeeShareEdition || monster.edition).find((value) => value.name == monster.standeeShare);
       if (share) {
         max = EntityValueFunction(share.standeeCount || share.count, monster.level);

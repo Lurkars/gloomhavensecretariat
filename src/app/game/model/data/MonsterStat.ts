@@ -40,6 +40,7 @@ export class MonsterStat {
 
 export class MonsterStatEffect {
 
+  name: string | undefined;
   health: number | string = 0;
   movement: number | string = 0;
   attack: number | string = 0;

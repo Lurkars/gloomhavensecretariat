@@ -49,6 +49,25 @@
       "sections": [
         "194.2"
       ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "lurker-wavethrower"
+          },
+          "statEffect": {
+            "attack": 1,
+            "deck": "lurker-wavethrower-scenario-131"
+          },
+          "note": "%data.scenario.rules.fh.131%"
+        }
+      ]
     }
   ],
   "rooms": [
