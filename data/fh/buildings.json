@@ -78,7 +78,34 @@
                 "prosperity": 1
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 380.5,
+                "y": 1994,
+                "width": 224,
+                "height": 274
+            },
+            {
+                "x": 377.5,
+                "y": 1991,
+                "width": 237,
+                "height": 281
+            },
+            {
+                "x": 376,
+                "y": 1987,
+                "width": 243,
+                "height": 286
+            },
+            {
+                "x": 372,
+                "y": 1983.5,
+                "width": 251,
+                "height": 293
+            }
+        ]
     },
     {
         "id": "12",
@@ -160,7 +187,34 @@
                 "loseMorale": 1
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 873.75,
+                "y": 2597,
+                "width": 296,
+                "height": 158
+            },
+            {
+                "x": 865.75,
+                "y": 2593.75,
+                "width": 314,
+                "height": 169
+            },
+            {
+                "x": 858,
+                "y": 2590,
+                "width": 326,
+                "height": 176
+            },
+            {
+                "x": 853.5,
+                "y": 2585.5,
+                "width": 337,
+                "height": 182
+            }
+        ]
     },
     {
         "id": "17",
@@ -241,7 +295,34 @@
                 "loseMorale": 1
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 1530.75,
+                "y": 2044.5,
+                "width": 279,
+                "height": 178
+            },
+            {
+                "x": 1526.875,
+                "y": 2041,
+                "width": 290,
+                "height": 235
+            },
+            {
+                "x": 1523.25,
+                "y": 2040.25,
+                "width": 298,
+                "height": 242
+            },
+            {
+                "x": 1520.25,
+                "y": 2036,
+                "width": 305,
+                "height": 251
+            }
+        ]
     },
     {
         "id": "21",
@@ -304,6 +385,32 @@
             },
             {
                 "prosperity": 1
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 907,
+                "y": 2189.25,
+                "width": 129,
+                "height": 86
+            },
+            {
+                "x": 877,
+                "y": 2142.25,
+                "width": 188,
+                "height": 188
+            },
+            {
+                "x": 873,
+                "y": 2137.75,
+                "width": 209,
+                "height": 203
+            },
+            {
+                "x": 864.75,
+                "y": 2124.375,
+                "width": 225,
+                "height": 224
             }
         ]
     },
@@ -387,6 +494,38 @@
                 "prosperity": 1,
                 "loseMorale": 1,
                 "plots": 1
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 536.5,
+                "y": 2447.5,
+                "width": 127,
+                "height": 82
+            },
+            {
+                "x": 495,
+                "y": 2397,
+                "width": 217,
+                "height": 190
+            },
+            {
+                "x": 495,
+                "y": 2397,
+                "width": 217,
+                "height": 190
+            },
+            {
+                "x": 495,
+                "y": 2397,
+                "width": 217,
+                "height": 190
+            },
+            {
+                "x": 495,
+                "y": 2397,
+                "width": 217,
+                "height": 190
             }
         ]
     },
@@ -579,6 +718,58 @@
                 "items": "46-50",
                 "loseMorale": 1
             }
+        ],
+        "coordinates": [
+            false,
+            false,
+            {
+                "x": 702,
+                "y": 2560,
+                "width": 181,
+                "height": 159
+            },
+            {
+                "x": 697,
+                "y": 2555.5,
+                "width": 188,
+                "height": 168
+            },
+            {
+                "x": 692.5,
+                "y": 2551.5,
+                "width": 197,
+                "height": 174
+            },
+            {
+                "x": 687.5,
+                "y": 2549.75,
+                "width": 207,
+                "height": 181
+            },
+            {
+                "x": 646.75,
+                "y": 2542.75,
+                "width": 250,
+                "height": 193
+            },
+            {
+                "x": 641.5,
+                "y": 2539.5,
+                "width": 256,
+                "height": 199
+            },
+            {
+                "x": 641.5,
+                "y": 2532,
+                "width": 258,
+                "height": 210
+            },
+            {
+                "x": 641.75,
+                "y": 2531.75,
+                "width": 259,
+                "height": 210
+            }
         ]
     },
     {
@@ -650,6 +841,22 @@
             {
                 "prosperity": 1,
                 "section": "183.5"
+            }
+        ],
+        "coordinates": [
+            false,
+            false,
+            {
+                "x": 1057.75,
+                "y": 2124.75,
+                "width": 150,
+                "height": 148
+            },
+            {
+                "x": 1035.5,
+                "y": 2078.75,
+                "width": 176,
+                "height": 197
             }
         ]
     },
@@ -747,6 +954,38 @@
                 "section": "196.2",
                 "loseMorale": 1
             }
+        ],
+        "coordinates": [
+            {
+                "x": 1000.5,
+                "y": 2020,
+                "width": 125,
+                "height": 71
+            },
+            {
+                "x": 990.5,
+                "y": 2000,
+                "width": 147,
+                "height": 112
+            },
+            {
+                "x": 987.75,
+                "y": 1997.5,
+                "width": 153,
+                "height": 117
+            },
+            {
+                "x": 985,
+                "y": 1986,
+                "width": 158,
+                "height": 131
+            },
+            {
+                "x": 977,
+                "y": 1980,
+                "width": 169,
+                "height": 141
+            }
         ]
     },
     {
@@ -813,6 +1052,32 @@
                 "prosperity": 1,
                 "items": "164-167",
                 "loseMorale": 1
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 791,
+                "y": 2052.5,
+                "width": 127,
+                "height": 77
+            },
+            {
+                "x": 755.75,
+                "y": 2042.25,
+                "width": 175,
+                "height": 105
+            },
+            {
+                "x": 753.25,
+                "y": 2030.75,
+                "width": 180,
+                "height": 121
+            },
+            {
+                "x": 752.75,
+                "y": 2012.25,
+                "width": 228,
+                "height": 141
             }
         ]
     },
@@ -883,6 +1148,32 @@
             {
                 "prosperity": 5,
                 "loseMorale": 1
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 902,
+                "y": 2416.25,
+                "width": 141,
+                "height": 87
+            },
+            {
+                "x": 886.75,
+                "y": 2370,
+                "width": 172,
+                "height": 157
+            },
+            {
+                "x": 875.25,
+                "y": 2357,
+                "width": 190,
+                "height": 182
+            },
+            {
+                "x": 871.25,
+                "y": 2352.75,
+                "width": 203,
+                "height": 193
             }
         ]
     },
@@ -985,6 +1276,38 @@
                 "prosperity": 1,
                 "section": "56.3"
             }
+        ],
+        "coordinates": [
+            {
+                "x": 694.75,
+                "y": 2432.5,
+                "width": 140,
+                "height": 78
+            },
+            {
+                "x": 690.25,
+                "y": 2426.25,
+                "width": 146,
+                "height": 102
+            },
+            {
+                "x": 685.5,
+                "y": 2406,
+                "width": 155,
+                "height": 123
+            },
+            {
+                "x": 673.25,
+                "y": 2397.25,
+                "width": 170,
+                "height": 131
+            },
+            {
+                "x": 628.75,
+                "y": 2361,
+                "width": 220,
+                "height": 174
+            }
         ]
     },
     {
@@ -1036,6 +1359,26 @@
             },
             {
                 "prosperity": 2
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 665,
+                "y": 2121.25,
+                "width": 139,
+                "height": 75
+            },
+            {
+                "x": 631.25,
+                "y": 2095.5,
+                "width": 187,
+                "height": 139
+            },
+            {
+                "x": 628.25,
+                "y": 2093.25,
+                "width": 195,
+                "height": 144
             }
         ]
     },
@@ -1089,6 +1432,26 @@
             {
                 "prosperity": 2
             }
+        ],
+        "coordinates": [
+            {
+                "x": 1363.5,
+                "y": 2164.25,
+                "width": 144,
+                "height": 77
+            },
+            {
+                "x": 1341.75,
+                "y": 2140.5,
+                "width": 167,
+                "height": 131
+            },
+            {
+                "x": 1338.75,
+                "y": 2119.5,
+                "width": 204,
+                "height": 155
+            }
         ]
     },
     {
@@ -1140,6 +1503,26 @@
             },
             {
                 "prosperity": 2
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 1079.5,
+                "y": 2469.75,
+                "width": 120,
+                "height": 78
+            },
+            {
+                "x": 1076,
+                "y": 2416.75,
+                "width": 137,
+                "height": 174
+            },
+            {
+                "x": 1075,
+                "y": 2406.25,
+                "width": 146,
+                "height": 195
             }
         ]
     },
@@ -1208,6 +1591,32 @@
                 "section": "113.1",
                 "errata": "tavern3"
             }
+        ],
+        "coordinates": [
+            {
+                "x": 1323.25,
+                "y": 2535.25,
+                "width": 130,
+                "height": 79
+            },
+            {
+                "x": 1307.5,
+                "y": 2497,
+                "width": 172,
+                "height": 142
+            },
+            {
+                "x": 1205.5,
+                "y": 2476,
+                "width": 278,
+                "height": 165
+            },
+            {
+                "x": 1200.25,
+                "y": 2469.25,
+                "width": 286,
+                "height": 178
+            }
         ]
     },
     {
@@ -1253,6 +1662,26 @@
             },
             {
                 "prosperity": 1
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 505.25,
+                "y": 2254.5,
+                "width": 141,
+                "height": 78
+            },
+            {
+                "x": 452,
+                "y": 2198.5,
+                "width": 232,
+                "height": 176
+            },
+            {
+                "x": 448.5,
+                "y": 2179.5,
+                "width": 239,
+                "height": 199
             }
         ]
     },
@@ -1319,6 +1748,32 @@
             {
                 "prosperity": 1,
                 "section": "89.2"
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 703.5,
+                "y": 2263.25,
+                "width": 138,
+                "height": 76
+            },
+            {
+                "x": 697.75,
+                "y": 2242.75,
+                "width": 145,
+                "height": 109
+            },
+            {
+                "x": 696.75,
+                "y": 2215.25,
+                "width": 170,
+                "height": 145
+            },
+            {
+                "x": 693.75,
+                "y": 2199.25,
+                "width": 200,
+                "height": 164
             }
         ]
     },
@@ -1448,6 +1903,26 @@
             {
                 "prosperity": 1
             }
+        ],
+        "coordinates": [
+            {
+                "x": 1312.5,
+                "y": 2051,
+                "width": 146,
+                "height": 78
+            },
+            {
+                "x": 1302.5,
+                "y": 2039.5,
+                "width": 169,
+                "height": 106
+            },
+            {
+                "x": 1278,
+                "y": 2017,
+                "width": 201,
+                "height": 135
+            }
         ]
     },
     {
@@ -1535,6 +2010,38 @@
                 "prosperity": 1,
                 "loseMorale": 1
             }
+        ],
+        "coordinates": [
+            {
+                "x": 1764,
+                "y": 2415,
+                "width": 151,
+                "height": 78
+            },
+            {
+                "x": 1756.5,
+                "y": 2395.75,
+                "width": 171,
+                "height": 113
+            },
+            {
+                "x": 1750.75,
+                "y": 2385.75,
+                "width": 186,
+                "height": 130
+            },
+            {
+                "x": 1741.75,
+                "y": 2381,
+                "width": 205,
+                "height": 142
+            },
+            {
+                "x": 1738.75,
+                "y": 2369.25,
+                "width": 216,
+                "height": 155
+            }
         ]
     },
     {
@@ -1603,6 +2110,32 @@
             },
             {
                 "prosperity": 1
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 1209.5,
+                "y": 2233.75,
+                "width": 139,
+                "height": 79
+            },
+            {
+                "x": 1196.5,
+                "y": 2202.25,
+                "width": 164,
+                "height": 145
+            },
+            {
+                "x": 1140.75,
+                "y": 2194.25,
+                "width": 228,
+                "height": 190
+            },
+            {
+                "x": 1126,
+                "y": 2190.5,
+                "width": 291,
+                "height": 249
             }
         ]
     },
@@ -1674,6 +2207,28 @@
                 "prosperity": 1,
                 "soldiers": 2
             }
+        ],
+        "coordinates": [
+            false,
+            false,
+            {
+                "x": 1847,
+                "y": 2161,
+                "width": 222,
+                "height": 216
+            },
+            {
+                "x": 1846,
+                "y": 2154,
+                "width": 279,
+                "height": 225
+            },
+            {
+                "x": 1845,
+                "y": 2096.25,
+                "width": 288,
+                "height": 287
+            }
         ]
     },
     {
@@ -1683,12 +2238,24 @@
             "lumber": 4,
             "gold": 10
         },
+        "effectNormal": [
+            "%data.buildings.wall-effect%"
+        ],
         "rewards": [
             {
                 "defense": 5
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 748.25,
+                "y": 1933.75,
+                "width": 212,
+                "height": 111
+            }
+        ]
     },
     {
         "name": "wall-k",
@@ -1704,7 +2271,19 @@
                 "defense": 5
             }
         ],
-        "prosperityUnlock": true
+        "effectNormal": [
+            "%data.buildings.wall-effect%"
+        ],
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 944.75,
+                "y": 2737.25,
+                "width": 304,
+                "height": 119
+            }
+        ]
     },
     {
         "name": "wall-l",
@@ -1715,12 +2294,24 @@
             "hide": 1,
             "gold": 10
         },
+        "effectNormal": [
+            "%data.buildings.wall-effect%"
+        ],
         "rewards": [
             {
                 "defense": 5
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 329.75,
+                "y": 2352.5,
+                "width": 185,
+                "height": 217
+            }
+        ]
     },
     {
         "name": "wall-m",
@@ -1731,12 +2322,24 @@
             "hide": 3,
             "gold": 10
         },
+        "effectNormal": [
+            "%data.buildings.wall-effect%"
+        ],
         "rewards": [
             {
                 "defense": 5
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 532.25,
+                "y": 2553,
+                "width": 246,
+                "height": 266
+            }
+        ]
     },
     {
         "name": "wall-n",
@@ -1752,6 +2355,18 @@
                 "defense": 5
             }
         ],
-        "prosperityUnlock": true
+        "effectNormal": [
+            "%data.buildings.wall-effect%"
+        ],
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 1379,
+                "y": 1929.5,
+                "width": 353,
+                "height": 172
+            }
+        ]
     }
 ]

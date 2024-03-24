@@ -2,6 +2,13 @@
   "index": "91",
   "name": "Shoreline Scramble",
   "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 1169,
+    "y": 716.75,
+    "width": 114,
+    "height": 92,
+    "gridLocation": "J4"
+  },
   "edition": "fh",
   "complexity": 2,
   "rewards": {

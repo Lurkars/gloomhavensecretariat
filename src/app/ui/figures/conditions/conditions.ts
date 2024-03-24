@@ -2,14 +2,13 @@ import { Component, EventEmitter, HostListener, Input, OnInit, Output } from "@a
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
-import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
 import { Entity } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
-import { Objective } from "src/app/game/model/Objective";
-import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
+import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
+import { MonsterType } from "src/app/game/model/data/MonsterType";
 
 @Component({
   selector: 'ghs-conditions',
@@ -87,7 +86,7 @@ export class ConditionsComponent implements OnInit {
 
   selectCondition() {
     const index = this.numberStore;
-    if ((!(this.entity instanceof Objective) || this.entity.escort) && (!(this.figure instanceof ObjectiveContainer) || this.figure.escort)) {
+    if (!(this.figure instanceof ObjectiveContainer) || this.figure.escort) {
       let condition: Condition | undefined;
       if (index <= this.conditions.length) {
         condition = this.conditions[index - 1];

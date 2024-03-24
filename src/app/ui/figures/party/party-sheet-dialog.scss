@@ -598,6 +598,12 @@
           z-index: 2;
         }
 
+        .map {
+          position: absolute;
+          top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+          right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        }
+
         .weeks {
           position: absolute;
           top: calc(var(--ghs-unit) * 6.3 * var(--ghs-dialog-factor));
@@ -989,19 +995,29 @@
             }
 
             &.defense-grid {
-              .section {
+              .sections {
                 position: relative;
                 display: flex;
                 align-items: center;
+                flex-wrap: wrap;
                 width: 100%;
                 height: calc(var(--ghs-unit) * 1.92 * var(--ghs-dialog-factor));
                 font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
                 z-index: 2;
 
-                img {
-                  height: 1em;
-                  width: auto;
-                  margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+                .section {
+                  display: flex;
+                  align-items: center;
+                  margin-left: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
+
+                  img {
+                    height: 1em;
+                    width: auto;
+                  }
+
+                  &.conclusion {
+                    text-decoration: line-through;
+                  }
                 }
               }
 

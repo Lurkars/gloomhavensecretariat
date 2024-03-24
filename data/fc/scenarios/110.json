@@ -1,6 +1,14 @@
 {
   "index": "110",
   "name": "A Circular Solution",
+  "flowChartGroup": "orchid-society",
+  "coordinates": {
+    "x": 2785.5,
+    "y": 1707.5,
+    "width": 216,
+    "height": 192,
+    "gridLocation": "L-19"
+  },
   "edition": "fc",
   "unlocks": [
     "114"

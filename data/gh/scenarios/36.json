@@ -3,10 +3,11 @@
   "name": "Gloomhaven Battlements B",
   "flowChartGroup": "demon-and-rift",
   "coordinates": {
-    "x": 2103.2999877929688,
+    "x": 2103.25,
     "y": 136,
     "width": 206,
-    "height": 185
+    "height": 185,
+    "gridLocation": "B-14"
   },
   "edition": "gh",
   "requires": [
@@ -47,7 +48,7 @@
     "earth-demon",
     "flame-demon",
     "frost-demon",
-    "prime-demon-scenario-36",
+    "prime-demon",
     "wind-demon"
   ],
   "allies": [
@@ -61,6 +62,25 @@
     }
   ],
   "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "prime-demon"
+          },
+          "statEffect": {
+            "health": "Hx2",
+            "absolute": true
+          },
+          "note": "%data.scenario.rules.gh.36.1%"
+        }
+      ]
+    },
     {
       "round": "R % 4 == 1",
       "spawns": [
@@ -135,7 +155,7 @@
           "identifier": {
             "type": "monster",
             "edition": "gh",
-            "name": "prime-demon-scenario-36"
+            "name": "prime-demon"
           }
         }
       ]
@@ -184,7 +204,7 @@
           "player4": "normal"
         },
         {
-          "name": "prime-demon-scenario-36",
+          "name": "prime-demon",
           "type": "boss"
         },
         {

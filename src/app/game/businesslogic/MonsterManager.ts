@@ -1,20 +1,20 @@
+import { Action, ActionType } from "src/app/game/model/data/Action";
+import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
+import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
+import { ghsShuffleArray } from "src/app/ui/helper/Static";
+import { EntityValueFunction } from "../model/Entity";
 import { Game, GameState } from "../model/Game";
 import { Monster } from '../model/Monster';
-import { gameManager } from "./GameManager";
-import { MonsterType } from "../model/data/MonsterType";
-import { MonsterStat } from "../model/data/MonsterStat";
 import { MonsterEntity } from "../model/MonsterEntity";
-import { MonsterData } from "../model/data/MonsterData";
-import { Ability } from "../model/data/Ability";
 import { SummonState } from "../model/Summon";
-import { settingsManager } from "./SettingsManager";
-import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
+import { Ability } from "../model/data/Ability";
 import { ConditionType, EntityConditionState } from "../model/data/Condition";
-import { EntityValueFunction } from "../model/Entity";
-import { ghsShuffleArray } from "src/app/ui/helper/Static";
-import { Action, ActionHint, ActionType, ActionValueType } from "src/app/game/model/data/Action";
+import { MonsterData } from "../model/data/MonsterData";
+import { MonsterStat, MonsterStatEffect } from "../model/data/MonsterStat";
+import { MonsterType } from "../model/data/MonsterType";
 import { MonsterSpawnData } from "../model/data/ScenarioRule";
-import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
+import { gameManager } from "./GameManager";
+import { settingsManager } from "./SettingsManager";
 
 export class MonsterManager {
 
@@ -54,7 +54,7 @@ export class MonsterManager {
   }
 
   getStat(monster: Monster, type: MonsterType): MonsterStat {
-    const stat = monster.stats.find((monsterStat) => {
+    let stat = monster.stats.find((monsterStat) => {
       return monsterStat.level == monster.level && monsterStat.type == type;
     });
     if (!stat) {
@@ -65,6 +65,73 @@ export class MonsterManager {
       }
       return new MonsterStat(type, monster.level, 0, 0, 0, 0);
     }
+
+    stat = JSON.parse(JSON.stringify(stat)) as MonsterStat;
+
+    if (monster.statEffect) {
+      let statEffect = new MonsterStatEffect();
+      const oldHP = EntityValueFunction(stat.health, monster.level);
+      statEffect.health = typeof monster.statEffect.health === 'string' ? monster.statEffect.health.replaceAll('H', '' + stat.health).replace('[', '').replace(']', '') : monster.statEffect.health;
+      statEffect.movement = typeof monster.statEffect.movement === 'string' ? monster.statEffect.movement.replaceAll('H', '' + stat.health).replace('[', '').replace(']', '') : monster.statEffect.movement;
+      statEffect.attack = typeof monster.statEffect.attack === 'string' ? monster.statEffect.attack.replaceAll('H', '' + stat.health).replace('[', '').replace(']', '') : monster.statEffect.attack;
+      statEffect.range = typeof monster.statEffect.range === 'string' ? monster.statEffect.range.replaceAll('H', '' + stat.health).replace('[', '').replace(']', '') : monster.statEffect.range;
+      statEffect.actions = monster.statEffect.actions;
+      statEffect.special = monster.statEffect.special;
+      statEffect.immunities = monster.statEffect.immunities;
+      statEffect.absolute = monster.statEffect.absolute;
+      statEffect.note = monster.statEffect.note;
+      if (statEffect.absolute) {
+        if (statEffect.health) {
+          stat.health = '[' + statEffect.health + ']';
+        }
+        if (statEffect.movement) {
+          stat.movement = '[' + statEffect.movement + ']';
+        }
+        if (statEffect.attack) {
+          stat.attack = '[' + statEffect.attack + ']';
+        }
+        if (statEffect.range) {
+          stat.range = '[' + statEffect.range + ']';
+        }
+
+        if (statEffect.actions) {
+          stat.actions = statEffect.actions;
+        }
+        if (statEffect.special) {
+          stat.special = statEffect.special;
+        }
+        if (statEffect.immunities) {
+          stat.immunities = statEffect.immunities;
+        }
+      } else {
+        stat.health = '[' + stat.health + '+' + statEffect.health + ']';
+        stat.movement = '[' + stat.movement + '+' + statEffect.movement + ']';
+        stat.attack = '[' + stat.attack + '+' + statEffect.attack + ']';
+        if (EntityValueFunction(stat.range)) {
+          stat.range = '[' + stat.range + '+' + statEffect.range + ']';
+        }
+        if (statEffect.actions) {
+          stat.actions = stat.actions || [];
+          stat.actions = [...stat.actions, ...statEffect.actions];
+        }
+        if (statEffect.immunities) {
+          stat.immunities = stat.immunities || [];
+          stat.immunities = [...stat.immunities, ...statEffect.immunities];
+        }
+      }
+
+      if (statEffect.health) {
+        monster.entities.forEach((monsterEntity) => {
+          if (stat && monsterEntity.type == type && monsterEntity.maxHealth != EntityValueFunction(stat.health, monster.level)) {
+            monsterEntity.maxHealth = EntityValueFunction(stat.health, monster.level);
+            if (monsterEntity.health == oldHP || monsterEntity.health > monsterEntity.maxHealth) {
+              monsterEntity.health = monsterEntity.maxHealth;
+            }
+          }
+        })
+      }
+    }
+
     return stat;
   }
 
@@ -205,8 +272,6 @@ export class MonsterManager {
     if (gameManager.game.state == GameState.next) {
       gameManager.sortFigures(monster);
     }
-
-    gameManager.uiChange.emit();
 
     return monster;
   }
@@ -403,7 +468,11 @@ export class MonsterManager {
         type = MonsterType.boss;
       }
 
-      return this.addMonsterEntity(monster, number, type, summon);
+      const entity = this.addMonsterEntity(monster, number, type, summon);
+      if (entity) {
+        entity.revealed = true;
+      }
+      return entity;
     }
     return undefined;
   }
@@ -757,55 +826,28 @@ export class MonsterManager {
     return gameManager.abilities(monster).length > 0 && gameManager.abilities(monster).every((ability) => gameManager.hasBottomAbility(ability));
   }
 
-  calcActionHints(monster: Monster, entity: MonsterEntity): ActionHint[] {
-    let actionHints: ActionHint[] = [];
-    const stat = gameManager.monsterManager.getStat(monster, entity.type);
-    this.calcActionHint(monster, entity, ActionType.shield, stat.actions, actionHints);
-    this.calcActionHint(monster, entity, ActionType.retaliate, stat.actions, actionHints);
-    if (gameManager.entityManager.isAlive(entity, true) && (!entity.active || monster.active)) {
-      const activeFigure = gameManager.game.figures.find((figure) => figure.active);
-      if (monster.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(monster))) {
-        let ability = gameManager.monsterManager.getAbility(monster);
-        if (ability) {
-          this.calcActionHint(monster, entity, ActionType.shield, ability.actions, actionHints);
-          this.calcActionHint(monster, entity, ActionType.retaliate, ability.actions, actionHints);
-        }
-      }
+  sortEntities(a: MonsterEntity, b: MonsterEntity): number {
+    if (a.type == MonsterType.elite && b.type == MonsterType.normal) {
+      return -1;
+    } else if (a.type == MonsterType.normal && b.type == MonsterType.elite) {
+      return 1;
     }
-
-    return actionHints.sort((a, b) => {
-      if (a.type == ActionType.shield && b.type != ActionType.shield) {
-        return -1;
-      } else if (b.type == ActionType.shield && a.type != ActionType.shield) {
-        return 1;
-      }
-      return a.range - b.range;
-    });
+    return gameManager.monsterManager.sortEntitiesByNumber(a, b);
   }
 
-  calcActionHint(monster: Monster, entity: MonsterEntity, type: ActionType, actions: Action[], actionHints: ActionHint[], parentIndex: number = 0) {
-    actions.forEach((action, index) => {
-      if (action.type == type && action.value != 'X') {
-        let actionHint: ActionHint = { type: type, value: EntityValueFunction(action.value), range: 0 };
-        if (action.subActions && action.subActions.length > 0) {
-          let rangeSubAction = action.subActions.find((subAction) => subAction.type == ActionType.range && (!subAction.valueType || subAction.valueType == ActionValueType.fixed));
-          if (rangeSubAction) {
-            actionHint.range = EntityValueFunction(rangeSubAction.value);
-          }
-        }
-
-        let existingActionHint = actionHints.find((existing) => existing.type == actionHint.type && existing.range == actionHint.range);
-
-        if (existingActionHint) {
-          existingActionHint.value += actionHint.value;
-        } else {
-          actionHints.push(actionHint)
-        }
-      } else if (action.type == ActionType.monsterType && action.value == entity.type) {
-        this.calcActionHint(monster, entity, type, action.subActions, actionHints, index);
-      } else if (action.type == ActionType.element && action.valueType == ActionValueType.minus && monster.entities.find((monsterEntity) => monsterEntity.tags.find((tag) => tag == 'roundAction-element-consume-' + index + '-' + parentIndex + '-' + action.value))) {
-        this.calcActionHint(monster, entity, type, action.subActions, actionHints, index);
-      }
-    })
+  sortEntitiesByNumber(a: MonsterEntity, b: MonsterEntity): number {
+    if (a.summon == SummonState.new && b.summon != SummonState.new) {
+      return 1;
+    } else if (a.summon != SummonState.new && b.summon == SummonState.new) {
+      return -1;
+    } else if (a.summon == SummonState.new && b.summon == SummonState.new) {
+      return 0;
+    }
+    if (a.number < 0 && b.number >= 0) {
+      return 1;
+    } else if (b.number < 0 && a.number >= 0) {
+      return -1;
+    }
+    return a.number < b.number ? -1 : 1;
   }
 }

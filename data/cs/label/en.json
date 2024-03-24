@@ -236,6 +236,18 @@
         "1": "your maximum hit point value",
         "2": "%game.action.teleport% to an unoccupied hex adjacent to the enemy and perform",
         "3": "If no legal hex exists for the %game.action.teleport% perform instead"
+      },
+      "flowChartGroup": {
+        "intro": "Intro",
+        "infectious": "Infectious",
+        "wonderous": "Wonderous",
+        "chilly": "Chilly",
+        "sail": "Sail",
+        "tainted": "Tainted",
+        "personal-quests": "Personal Quests",
+        "side-quests": "Side Quests",
+        "city-events": "City Events",
+        "road-events": "Road Events"
       }
     },
     "perks": {

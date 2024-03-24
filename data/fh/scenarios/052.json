@@ -2,6 +2,13 @@
   "index": "52",
   "name": "Fleeting Permanence",
   "flowChartGroup": "algox-3",
+  "coordinates": {
+    "x": 1501.5,
+    "y": 999.375,
+    "width": 131,
+    "height": 58,
+    "gridLocation": "G7"
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

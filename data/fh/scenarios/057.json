@@ -2,6 +2,13 @@
   "index": "57",
   "name": "Sanctuary of Snow",
   "flowChartGroup": "algox-2",
+  "coordinates": {
+    "x": 1816,
+    "y": 377.75,
+    "width": 101,
+    "height": 74,
+    "gridLocation": "D1"
+  },
   "edition": "fh",
   "complexity": 3,
   "requirements": [

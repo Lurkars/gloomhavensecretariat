@@ -101,6 +101,7 @@
       "gold-notes": "Gold Notes",
       "import": "Import",
       "level": "Level",
+      "lock": "Lock the character sheet to avoid accidental edits.",
       "masteries": "Masteries",
       "name": "Name",
       "notes": "Notes",
@@ -505,7 +506,9 @@
       "coverAll": "Cover All",
       "defaultSort": "Sort",
       "draw": "Draw",
+      "drawAdvantage": "Draw with Advantage",
       "drawAnother": "Draw Another",
+      "drawDisadvantage": "Draw with Disadvantage",
       "drawExtra": "Draw Extra",
       "edit": "Edit",
       "fullscreen": "Show Fullscreen",
@@ -937,6 +940,8 @@
     "summon": {
       "spawn": "{1} %data.monster.{0}%",
       "spawnMarker": "{1} %data.monster.{0}% at %game.mapMarker.{2}%",
+      "spawnObjective": "{1} %data.objective.{0}%",
+      "spawnObjectiveMarker": "{1} %data.objective.{0}% at %game.mapMarker.{2}%",
       "spawnType": "{2} %game.monsterType.{1}% %data.monster.{0}%",
       "spawnTypeMarker": "{2} %game.monsterType.{1}% %data.monster.{0}% at %game.mapMarker.{3}%",
       "playerAll": "%game.monsterType.{0}% for all characters",
@@ -974,6 +979,7 @@
       "elite": "Spawn Elite Monster",
       "normal": "Spawn Normal Monster"
     },
+    "applyInteractiveActions": "Apply highlighted abilities for",
     "boss": "Boss",
     "cancelNumberpicker": "Cancel",
     "changeStandee": "Change %game.monsterType.{0}% standee #{1}",
@@ -996,6 +1002,12 @@
     "setStandees": "Setup {1} %game.monsterType.{0}% standees",
     "showBoss": "Show Boss Monster",
     "showHidden": "Show Hidden Monster",
+    "skipInteractiveActions": "Skip interactive abilities for",
+    "statEffect": {
+      ".": "Special Rules apply following changes:",
+      "deck": "Use modified abilities:<br>\"{0}\""
+    },
+    "toggleAction": "Toggle applicable ability",
     "toggleAllied": {
       "off": "Turn <span class=\"monster-allied-off\">Allied</span> off",
       "on": "Turn <span class=\"monster-allied-on\">Allied</span> on"
@@ -1178,7 +1190,8 @@
       "treasures": {
         ".": "Treasures",
         "applySelect": "Apply Selection",
-        "batchSelect": "Multiselect"
+        "batchSelect": "Multiselect",
+        "loot": "Loot Treasure"
       }
     },
     "campaignMode": "Campaign Mode",
@@ -1279,7 +1292,15 @@
     ".": "Scenario",
     "blocked": "Blocked",
     "cancel": "Cancel Scenario",
-    "chart": "Flow Chart (%wip%)",
+    "chart": {
+      ".": "Scenario Flow Chart",
+      "setup": "Show Scenario Setup",
+      "start": "Start Scenario",
+      "treasures": {
+        ".": "Show treasures (if any)",
+        "empty": "No treasures"
+      }
+    },
     "conclusion": "Conclusion",
     "custom": "Custom",
     "eventEffects": {
@@ -1319,6 +1340,7 @@
     "openRoomRef": "Open door for tile '{0}'",
     "openRoomMarker": "Open door %game.mapMarker.{1}%",
     "openRoomMarkerRef": "Open door %game.mapMarker.{1}% for tile '{0}'",
+    "random": "Random Dungeon",
     "requirements": {
       ".": "Scenario Requirements",
       "all": "Show all requirements (include fulfilled)",
@@ -1390,6 +1412,8 @@
       "lootDeckCard": "Add loot card {0} to every scenario loot deck in addition to the normal loot distribution.",
       "lostPartyAchievements": "Lost Party Achievements",
       "morale": "{0} morale",
+      "overlayCampaignSticker": "Place \"%data.campaignSticker.{0}%\" campaign sticker on the town map at location {1}",
+      "overlaySticker": "Place map overlay sticker {0} on map in location {0} ({1}).",
       "partyAchievements": "Party Achievements",
       "perks": "Gain {0} perk each",
       "prosperity": "{0} prosperity",
@@ -1421,6 +1445,7 @@
       "addSectionIndex": "Open Section #{0} {1}",
       "addSectionMarker": "Open Section {1} %game.mapMarker.{2}%",
       "addSectionMarkerIndex": "Open Section #{0} {1} %game.mapMarker.{2}%",
+      "alwaysApply": "Apply automatically",
       "apply": "Apply",
       "dismiss": "Dismiss",
       "figures": {
@@ -1445,11 +1470,25 @@
         "transfer": "{0} become %data.monster.{1}% {4}",
         "remove": "Remove {0}"
       },
+      "finish": {
+        "lost": "Scenario lost!",
+        "round": "Next round!",
+        "won": "Scenario won!"
+      },
       "finishWithConclusion": "Finish scenario with #{0} {1}",
       "hide": "Don't show again",
-      "lost": "Scenario lost!",
       "openRoom": "Open door",
       "openRoomMarker": "Open door %game.mapMarker.{0}%",
+      "randomDungeon": {
+        "monster": {
+          ".": "Add {0} random cards from the random monster card deck.",
+          "cards": "Add {0} random cards from the random monster card deck. Only use cards:<i>{1}</i>."
+        },
+        "dungeon": {
+          ".": "Draw {0} random cards from the random dungeon card deck. (manual)",
+          "cards": "Draw {0} random cards from the random dungeon card deck. Only use cards:<i>{1}</i>. (manual)"
+        }
+      },
       "spawn": "Spawn {2}%game.monsterType.{1}% %data.monster.{0}%",
       "spawnMarker": "Spawn {2}%game.monsterType.{1}% %data.monster.{0}% at %game.mapMarker.{3}%",
       "spawnObjective": "Spawn Objective '{0}'",
@@ -1459,8 +1498,7 @@
       "spawnObjectiveEscort": "Spawn Escort '{0}'",
       "spawnObjectiveEscortMarker": "Spawn Escort '{0}' at %game.mapMarker.{2}%",
       "spawnObjectivesEscort": "Spawn {1} Escorts '{0}'",
-      "spawnObjectivesEscortMarker": "Spawn {1} Escorts '{0}' at %game.mapMarker.{2}%",
-      "won": "Scenario won!"
+      "spawnObjectivesEscortMarker": "Spawn {1} Escorts '{0}' at %game.mapMarker.{2}%"
     },
     "section": {
       ".": "Section",
@@ -1657,6 +1695,10 @@
       ".": "Always Hazardous Terrain",
       "hint": "Always apply Frosthaven rules for Hazardous Terrain calculation (Automatic enabled when playing Frosthaven)"
     },
+    "alwaysFhAdvantage": {
+      ".": "Always Frosthaven Advantage/Disadvantage Rules",
+      "hint": "Always apply Frosthaven rules for drawing Attack Modifier with Advantage or Disadvantage (Automatic enabled when playing Frosthaven)"
+    },
     "alwaysFhSolo": {
       ".": "Always Frosthaven Solo Rules",
       "hint": "Always apply Frosthaven rules for Solo level calculation (Automatic enabled when playing Frosthaven)"
@@ -1668,6 +1710,14 @@
     "alwaysLootDeck": {
       ".": "Always use Loot Deck",
       "hint": "Show Loot Deck for every scenario (Automatic enabled when playing Frosthaven)"
+    },
+    "amAdvantage": {
+      ".": "Attack Modifier Deck with Advantage/Disadvantage",
+      "hint": "Add Advantage and Disadvantage buttons and keyboard shortcuts to Attack Modifier Decks."
+    },
+    "amAdvantageHouseRule": {
+      ".": "Advantage/Disadvantage Rolling House Rule",
+      "hint": "Instead of ignore rolling on second draw, also draw additional modifiers until non-rolling drawn."
     },
     "animations": {
       ".": "Animations",
@@ -1863,9 +1913,9 @@
       ".": "Use all available columns",
       "hint": "Always distribute the figures across all available columns."
     },
-    "combineSummonAction": {
-      ".": "Combine Summon Action",
-      "hint": "Perform Summon Action for all standees at once."
+    "combineInteractiveAbilities": {
+      ".": "Combine Interactive Abilities",
+      "hint": "Perform Interactive Abilities for all standees at once."
     },
     "conditions": "Conditions/Elements",
     "debug": {
@@ -2000,7 +2050,7 @@
     },
     "interactiveAbilities": {
       ".": "Interactive Abilities",
-      "hint": "On ability cards, click on a highlighted action like summons or element actions to perform that action directly."
+      "hint": "Apply certain highlighted abilities, such as summons or elemental actions, directly by clicking on the appropriate area of the ability card."
     },
     "interface": "Interface",
     "levelAdjustment": {
@@ -2022,6 +2072,7 @@
       ".": "Loot Deck",
       "hint": "Enable Loot Deck"
     },
+    "lurkarsDefaults": "Apply Lurkars' personal settings",
     "maxUndo": {
       ".": "Max. number of undos",
       "hint": {
@@ -2249,11 +2300,16 @@
         "summon": "Apply %game.condition.{2}% to '{1}' of {0}"
       },
       "applyHighlightAction": {
-        "condition": "Apply action %game.condition.{1}% to {0}",
-        "heal": "Apply action %game.action.heal% {1} to {0}",
-        "switchType": "Apply switching of %game.monsterType.normal% and %game.monsterType.elite% standees to {0}",
-        "sufferDamage": "Apply action suffer %game.damage:{1}% to {0}"
+        "condition": "%game.condition.{0}%",
+        "elementConsume": "Consume {0}",
+        "elementInfuse": "Infuse {0}",
+        "heal": "%game.action.heal% {0}",
+        "summon": "Summon",
+        "spawn": "Spawn",
+        "sufferDamage": "Suffer %game.damage:{0}%",
+        "switchType": "Switching of %game.monsterType.normal% and %game.monsterType.elite%"
       },
+      "applyInteractiveActions": "Apply {0} for standees {1} of {2}",
       "applyScenarioRule": "Apply scenario rule",
       "battleGoals": {
         "drawCard": "Draw another Battle Goal card for {0}",
@@ -2530,6 +2586,7 @@
       "setPlayerNumber": "Set Player number {1} for {0}",
       "setPQ": "Personal Quest {1} for {0} ",
       "setPQProgress": "Set Personal Quest counter {1} to {2} for {0}",
+      "setRandomScenario": "Set Random Dungeon",
       "setResource": "Set {1} {2} for {0}",
       "setRetired": "{0} retired",
       "setRetirements": "Retirements {1} for {0}",
@@ -2540,6 +2597,7 @@
       "setXP": "XP {1} for {0}",
       "shuffleAbilityDeck": "Shuffle abilities of {0}",
       "shuffleAbilityDeckUpcoming": "Shuffle upcoming abilities of {0}",
+      "skipInteractiveActions": "Skip interactive abilities for standees {1} of {2}",
       "summonActive": "Summon '{1}' von {0} active",
       "summonDead": "Kill summon '{1}' of {0}",
       "summonInactive": "Summon '{1}' von {0} inactive",
@@ -2566,6 +2624,8 @@
         "amDeckHide": "Hide {0} AM deck",
         "amDeckShow": "Show {0} AM deck",
         "draw": "Draw {0} AM",
+        "drawadvantage": "Draw {0} AM width Advantage",
+        "drawdisadvantage": "Draw {0} AM width Disadvantage",
         "removeBless": "Remove Bless from {0} AM deck",
         "removeCard": "Remove card {1} from {0} AM deck ",
         "removeCurse": "Remove Curse from {0} AM deck",
@@ -2661,7 +2721,56 @@
       }
     },
     "keyboard": {
-      ".": "Keyboard Shortcuts"
+      ".": "Keyboard Shortcuts",
+      "am": "Draw AM card (deck depending on active figure, monster deck when not active, disabled when <b>Draw</b>)",
+      "amAdvantage": "Same like <kbd><span>m</span></kbd>, but draw with Advantage if enabled",
+      "amDisadvantage": "like <kbd><span>m</span></kbd>, but draw with Disadvantage if enabled",
+      "ctrl": "CTRL",
+      "difficulty": "Difficulty/Level menu",
+      "enter": "↵",
+      "entityMenu": {
+        ".": "On any open figure/standee menu, those shortcuts are disabled, currently shortcuts available in figure/standee menu:",
+        "blessDec": "Dec. Bless",
+        "blessInc": "Inc. Bless",
+        "characterSheet": "Open Character sheet",
+        "curseDec": "Dec. Curse",
+        "curseInc": "Inc. Curse",
+        "hpDec": "Dec. current HP",
+        "hpInc": "Inc. current HP",
+        "kill": "Kill / Exhaust",
+        "maxHpDec": "Dec. max. HP",
+        "maxHpInc": "Inc. max. HP",
+        "toggleCondition": "Toggle Condition/Condition modifier"
+      },
+      "esc": "ESC",
+      "events": "Event effects menu",
+      "finish": "(finish) scenario menu",
+      "global": "The following keyboard shortcuts are currently implemented:",
+      "keyboard": "Show keyboard shortcuts",
+      "loot": "Draw from Loot Deck",
+      "mainMenu": {
+        ".": "Open main menu",
+        "confirm": "Confirm action / Open submenu",
+        "decline": "Decline action / Close menu",
+        "open": "On open menu",
+        "select": "Select action"
+      },
+      "party": "Open Party sheet",
+      "redo": "Redo",
+      "round": "Next round / Draw",
+      "select": "select figure/standee for opening menu with number key",
+      "shift": "SHIFT",
+      "space": "SPACE",
+      "tab": "↹",
+      "toggleAbsent": "Toggle <i>Hide absent figures</i>",
+      "toggleElements": "Toggle through element state",
+      "toggleHandSize": "Toggle <i>Display hand size and level</i>",
+      "toggelTab": "Toggle active figure when drawn / Toggle initiative input when focused input",
+      "toggleTraits": "Toggle <i>Display traits</i>",
+      "undo": "Undo",
+      "zoomIn": "Zoom-in",
+      "zoomOut": "Zoom-out",
+      "zoomReset": "Reset Zoom"
     },
     "validateEditionData": "Validate Edition Data"
   },
@@ -2670,7 +2779,11 @@
     ".": "Welcome to Gloomhaven Secretariat",
     "chooseCharacters": "Choose your characters",
     "chooseEdition": "Start a new campaign by choosing your Edition:",
-    "orChooseCharacters": "or start a casual game by adding characters directly"
+    "orChooseCharacters": "or start a casual game by adding characters directly",
+    "settings": {
+      ".": "Settings",
+      "text": "Use various settings to set everything up appropriately:"
+    }
   },
   "wip": "Work In Progress"
 }

@@ -3,6 +3,11 @@
   "group": "randomMonsterCard",
   "name": "Putrid",
   "edition": "gh",
+  "named": true,
+  "monsters": [
+    "living-corpse",
+    "ooze"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

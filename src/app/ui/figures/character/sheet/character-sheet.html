@@ -1,7 +1,7 @@
 <div class="light character-sheet" [style.--ghs-character-color]="character.color"
   [ngClass]="{'cs-sheet' : csSheet, 'fh-sheet' : fhSheet, 'compact': settingsManager.settings.characterSheetCompact}">
   <div class="container"
-    [ngClass]="{'denied' : !forceEdit && (!editable || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]), 'view-only' : !forceEdit && !editable}">
+    [ngClass]="{'denied' : !forceEdit && (!editable || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]) || settingsManager.settings.characterSheetLocked, 'view-only' : !forceEdit && !editable || settingsManager.settings.characterSheetLocked}">
     <div class="columns">
       <div class="column column-left">
         <div class="row title">
@@ -181,7 +181,7 @@
         <div class="row perks">
           <label *ngIf="!fhSheet" class="headline"><span [ghs-label]="'game.attackModifiers.perks'"></span></label>
           <div class="list ignore-denied"
-            [ngClass]="{'denied' : !editable || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'view-only' : !editable}">
+            [ngClass]="{'denied' : !editable || settingsManager.settings.characterSheetLocked || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'view-only' : !editable|| settingsManager.settings.characterSheetLocked}">
             <div class="perk" *ngFor="let perk of character.perks; let i = index;">
               <div class="checkboxes" [ngClass]="{'combined' : perk.combined}">
                 <span class="checkbox" *ngFor="let count of []|ghsRange:perk.count"
@@ -249,7 +249,7 @@
             <input [value]="character.number" type="number" min="1" (change)="setPlayerNumber($event)"
               (keyup)="setPlayerNumber($event)">
           </div>
-          <div class="personal-quest">
+          <div class="personal-quest" *ngIf="!gameManager.editionRules('jotl')">
             <label><span [ghs-label]="'character.progress.personalQuest'"></span>:</label>
             <div class="personal-quest-card">
               <input class="card-id" [value]="character.progress.personalQuest" type="text"
@@ -299,7 +299,7 @@
             </div>
 
           </div>
-          <div class="retirements">
+          <div class="retirements" *ngIf="!gameManager.editionRules('jotl')">
             <label><span [ghs-label]="'character.progress.retirements'"></span>:</label>
             <input [value]="character.progress.retirements" type="number" min="0" (change)="setRetirements($event)"
               (keyup)="setRetirements($event)">

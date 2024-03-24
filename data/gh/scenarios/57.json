@@ -3,10 +3,11 @@
   "name": "Investigation",
   "flowChartGroup": "personal-quests",
   "coordinates": {
-    "x": 2038.2999877929688,
+    "x": 2038.25,
     "y": 539,
     "width": 231,
-    "height": 157
+    "height": 157,
+    "gridLocation": "D-14"
   },
   "edition": "gh",
   "unlocks": [

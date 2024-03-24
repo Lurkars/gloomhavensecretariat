@@ -1,10 +1,10 @@
-import { ConditionName, EntityCondition, GameEntityConditionModel } from "./data/Condition";
 import { Entity, EntityValueFunction } from "./Entity";
-import { FigureError, FigureErrorType } from "./data/FigureError";
 import { Monster } from "./Monster";
+import { SummonState } from "./Summon";
+import { ConditionName, EntityCondition, GameEntityConditionModel } from "./data/Condition";
+import { FigureError, FigureErrorType } from "./data/FigureError";
 import { MonsterStat } from "./data/MonsterStat";
 import { MonsterType } from "./data/MonsterType";
-import { SummonState } from "./Summon";
 
 export class MonsterEntity implements Entity {
   number: number;

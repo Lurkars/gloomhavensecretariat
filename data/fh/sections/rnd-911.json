@@ -3,6 +3,12 @@
   "group": "randomMonsterCard",
   "name": "Grave",
   "edition": "fh",
+  "named": true,
+  "monsters": [
+    "deep-terror",
+    "ice-wraith",
+    "night-demon"
+  ],
   "rules": [
     {
       "round": "true",

@@ -3,10 +3,11 @@
   "name": "Sacrifice Pit",
   "flowChartGroup": "city-events",
   "coordinates": {
-    "x": 2037.2999877929688,
+    "x": 2037.25,
     "y": 244,
     "width": 166,
-    "height": 125
+    "height": 125,
+    "gridLocation": "B-14"
   },
   "edition": "gh",
   "rewards": {
@@ -19,6 +20,42 @@
     "cultist",
     "cultist-scenario-78",
     "living-bones"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "requiredRooms": [
+        2
+      ],
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "cultist-scenario-78"
+          },
+          "statEffect": {
+            "actions": [
+              {
+                "type": "custom",
+                "value": "%data.scenario.rules.gh.78.2%"
+              },
+              {
+                "type": "custom",
+                "value": "%data.scenario.rules.gh.78.3%"
+              }
+            ],
+            "immunities": [
+              "immobilize",
+              "stun"
+            ]
+          },
+          "note": "%data.scenario.rules.gh.78.1%"
+        }
+      ]
+    }
   ],
   "rooms": [
     {

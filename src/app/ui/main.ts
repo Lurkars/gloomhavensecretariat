@@ -1,22 +1,22 @@
+import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { CdkDragDrop, CdkDragEnter, CdkDragExit, CdkDragRelease, CdkDragStart, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
-import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { Subscription } from 'rxjs';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GameState } from 'src/app/game/model/Game';
 import { environment } from 'src/environments/environment';
 import { SettingsManager, settingsManager } from '../game/businesslogic/SettingsManager';
+import { storageManager } from '../game/businesslogic/StorageManager';
 import { Character } from '../game/model/Character';
+import { Figure } from '../game/model/Figure';
+import { Monster } from '../game/model/Monster';
+import { MonsterType } from '../game/model/data/MonsterType';
+import { MonsterNumberPickerDialog } from './figures/monster/dialogs/numberpicker-dialog';
 import { FooterComponent } from './footer/footer';
 import { SubMenu } from './header/menu/menu';
-import { Monster } from '../game/model/Monster';
-import { Figure } from '../game/model/Figure';
-import { Dialog, DialogRef } from '@angular/cdk/dialog';
-import { MonsterNumberPickerDialog } from './figures/monster/dialogs/numberpicker-dialog';
-import { MonsterType } from '../game/model/data/MonsterType';
-import { storageManager } from '../game/businesslogic/StorageManager';
-import { PointerInputService } from './helper/pointer-input';
-import { Subscription } from 'rxjs';
 import { ghsDialogClosingHelper } from './helper/Static';
+import { PointerInputService } from './helper/pointer-input';
 
 @Component({
   selector: 'ghs-main',
@@ -319,6 +319,13 @@ export class MainComponent implements OnInit {
       }
     }
     gameManager.game.party.campaignMode = true;
+    gameManager.stateManager.after();
+  }
+
+  cancelCampaign(edition: string) {
+    gameManager.stateManager.before("cancelCampaign", 'data.edition.' + edition);
+    gameManager.game.edition = undefined;
+    gameManager.game.party.campaignMode = false;
     gameManager.stateManager.after();
   }
 

@@ -101,6 +101,7 @@
       "gold-notes": "Gold Notizen",
       "import": "Importieren",
       "level": "Level",
+      "lock": "Sperrt den Charakterbogen um unabsichtliche Änderungen zu vermeiden.",
       "masteries": "Errungenschaften",
       "name": "Name",
       "notes": "Notizen",
@@ -404,7 +405,9 @@
       "coverAll": "Alle Verdecken",
       "defaultSort": "Sortieren",
       "draw": "Aufdecken",
+      "drawAdvantage": "Mit Vorteil aufdecken",
       "drawAnother": "Weitere Aufdecken",
+      "drawDisadvantage": "Mit Nachteil aufdecken",
       "drawExtra": "Zusätzlich Aufdecken",
       "edit": "Editieren",
       "fullscreen": "Vollbildansicht",
@@ -789,6 +792,8 @@
     "summon": {
       "spawn": "{1} %data.monster.{0}%",
       "spawnMarker": "{1} %data.monster.{0}% bei %game.mapMarker.{2}%",
+      "spawnObjective": "{1} %data.objective.{0}%",
+      "spawnObjectiveMarker": "{1} %data.objective.{0}% bei %game.mapMarker.{2}%",
       "spawnType": "{2} %game.monsterType.{1}% %data.monster.{0}%",
       "spawnTypeMarker": "{2} %game.monsterType.{1}% %data.monster.{0}% bei %game.mapMarker.{3}%",
       "playerAll": "%game.monsterType.{0}% für alle Charaktere",
@@ -826,6 +831,7 @@
       "elite": "Elite Monster platzieren",
       "normal": "Normales Monster platzieren"
     },
+    "applyInteractiveActions": "hervorgehobene Fähigkeiten anwenden für",
     "boss": "Boss",
     "cancelNumberpicker": "Abbrechen",
     "changeStandee": "%game.monsterType.{0}% Aufsteller #{1} ändern",
@@ -848,6 +854,12 @@
     "setStandees": "{1} %game.monsterType.{0}% Aufsteller festlegen",
     "showBoss": "Boss Monster anzeigen",
     "showHidden": "Ausgeblendete Monster anzeigen",
+    "skipInteractiveActions": "Interaktive Fähigkeiten auslassen für",
+    "statEffect": {
+      ".": "Folgende Änderungen werden durch Sonderregeln angwendet:",
+      "deck": "Verwendet geänderte Fertigkeiten:<br>\"{0}\""
+    },
+    "toggleAction": "Schalte anwendbare Fähigkeit um",
     "toggleAllied": {
       "off": "<span class=\"monster-allied-off\">Verbündet</span> ausschalten",
       "on": "<span class=\"monster-allied-on\">Verbündet</span> anschalten"
@@ -1029,7 +1041,8 @@
       "treasures": {
         ".": "Schätze",
         "applySelect": "Auswahl anwenden",
-        "batchSelect": "Mehrere gleichzeitig auswählen"
+        "batchSelect": "Mehrere gleichzeitig auswählen",
+        "loot": "Schatz erbeuten"
       }
     },
     "campaignMode": "Kampagnenmodus",
@@ -1132,7 +1145,15 @@
     ".": "Szenario",
     "blocked": "Gesperrt",
     "cancel": "Szenario abbrechen",
-    "chart": "Flussdiagramm (%wip%)",
+    "chart": {
+      ".": "Szenario Flussdiagramm",
+      "setup": "Zeige Szenario Setup",
+      "start": "Szenario starten",
+      "treasures": {
+        ".": "Zeige Schätze (falls vorhanden)",
+        "empty": "Keine Schätze"
+      }
+    },
     "conclusion": "Lösung",
     "custom": "Benutzerdefiniert",
     "eventEffects": {
@@ -1172,6 +1193,7 @@
     "openRoomRef": "Raum für Kachel '{0}' öffnen",
     "openRoomMarker": "Raum %game.mapMarker.{1}% öffnen",
     "openRoomMarkerRef": "Raum %game.mapMarker.{1}% für Kachel '{0}' öffnen",
+    "random": "Zufallsabenteuer",
     "requirements": {
       ".": "Szenario Vorraussetzungen",
       "all": "Zeige alle Vorraussetzungen (inkl. erfüllte)",
@@ -1242,6 +1264,8 @@
       "lootDeckCard": "Füge Beutekarte {0} in jedem Szenario zusätzlich zum vorgegebenen Beutekarten Deck hinzu.",
       "lostPartyAchievements": "Verlorene Gruppenerfolge",
       "morale": "{0} Moral",
+      "overlayCampaignSticker": "Klebe den Kampagnensticker {0} auf der Stadtkarte an Stelle {1}.",
+      "overlaySticker": "Klebe den Sticker {0} auf der Karte an Stelle {0} ({1}) ein.",
       "partyAchievements": "Gruppenerfolge",
       "perks": "Jeweils {0} Verbesserungen",
       "prosperity": "{0} Wohlstand",
@@ -1272,6 +1296,7 @@
       "addSectionIndex": "Sektion #{0} {1} öffnen",
       "addSectionMarker": "Sektion {1} %game.mapMarker.{2}% öffnen",
       "addSectionMarkerIndex": "Sektion #{0} {1} %game.mapMarker.{2}% öffnen",
+      "alwaysApply": "Automatisch anwenden",
       "apply": "Anwenden",
       "dismiss": "Schließen",
       "figures": {
@@ -1297,10 +1322,24 @@
         "remove": "Entferne {0}"
       },
       "hide": "Nicht mehr anzeigen",
+      "finish": {
+        "lost": "Szenario verloren!",
+        "round": "Nächste Runde!",
+        "won": "Szenario erfolgreich!"
+      },
       "finishWithConclusion": "Szenario beenden mit #{0} {1}",
-      "lost": "Szenario verloren!",
       "openRoom": "Raum öffnen",
       "openRoomMarker": "Raum %game.mapMarker.{0}% öffnen",
+      "randomDungeon": {
+        "monster": {
+          ".": "Ziehe {0} zufällige Karten vom Monsterkarten Deck.",
+          "cards": "Ziehe {0} zufällige Karten vom Monsterkarten Deck. Verwende nur die folgenden Karten:<i>{1}</i>."
+        },
+        "dungeon": {
+          ".": "Ziehe {0} zufällige Karten vom Raumkarten Deck. (manuell)",
+          "cards": "Ziehe {0} zufällige Karten vom Raumkarten Deck. Verwende nur die folgenden Karten:<i>{1}</i>. (manuell)"
+        }
+      },
       "spawn": "Füge {2}%data.monster.{0}% (%game.monsterType.{1}%) hinzu",
       "spawnMarker": "Füge {2}%data.monster.{0}% (%game.monsterType.{1}%) an %game.mapMarker.{3}% hinzu",
       "spawnObjective": "Füge Ziel '{0}' hinzu",
@@ -1310,8 +1349,7 @@
       "spawnObjectiveEscort": "Füge Begleiter '{0}' hinzu",
       "spawnObjectiveEscortMarker": "Füge Begleiter '{0}' an %game.mapMarker.{2}% hinzu",
       "spawnObjectivesEscort": "Füge {1} Begleiter '{0}' hinzu",
-      "spawnObjectivesEscortMarker": "Füge {1} Begleiter '{0}' an %game.mapMarker.{2}% hinzu",
-      "won": "Szenario erfolgreich!"
+      "spawnObjectivesEscortMarker": "Füge {1} Begleiter '{0}' an %game.mapMarker.{2}% hinzu"
     },
     "section": {
       ".": "Sektion",
@@ -1512,6 +1550,10 @@
       ".": "Immer Frosthaven Solo Regeln",
       "hint": "Immer Frosthaven Regel für Solo Levelberechnung anwenden (Für Frosthaven automatisch immer aktiviert)"
     },
+    "alwaysFhAdvantage": {
+      ".": "Immer Frosthaven Vor-/Nachteil Regeln",
+      "hint": "Immer Frosthaven Regel für das Ziehen von Angriffsmodifikatoren mit Vor- und Nachteil anwenden (Für Frosthaven automatisch immer aktiviert)"
+    },
     "alwaysLootApplyDialog": {
       ".": "Beute zuweisen Dialog immer anzeigen",
       "hint": "Immer den Charakterauswahldialog anzeigen anstatt den aktiven Charakter zu verwenden nachdem eine Beute Karte gezogen wurde"
@@ -1519,6 +1561,14 @@
     "alwaysLootDeck": {
       ".": "Immer Beute Deck verwenden",
       "hint": "Beute Deck für jeden Szenario aktivieren (Für Frosthaven automatisch immer aktiviert)"
+    },
+    "amAdvantage": {
+      ".": "Angriffsmodifikatordeck mit Vor-/Nachteil",
+      "hint": "Füge Schaltflächen und Tastaturkürzel für Vor- und Nachteil zu Angriffsmodifikatordecks hinzu."
+    },
+    "amAdvantageHouseRule": {
+      ".": "Hausregel Zusatzmodifikator bei Vor-/Nachteil",
+      "hint": "Anstatt den Zusatzmodifikator beim zweiten Ziehen zu ignorieren, weitere Karten ziehen bis eine Karte ohne Zusatzmodifikator gezogen wurde."
     },
     "animations": {
       ".": "Animationen",
@@ -1714,9 +1764,9 @@
       ".": "Alle verfügbaren Spalten nutzen",
       "hint": "Verteile die Figuren immer auf alle verfügbaren Spalten."
     },
-    "combineSummonAction": {
-      ".": "Beschwörung Aktion kombinieren",
-      "hint": "Führe die Beschwörung Aktion für alle Aufsteller gleichzeitig aus."
+    "combineInteractiveAbilities": {
+      ".": "Interaktive Fertigkeiten kombinieren",
+      "hint": "Führe die interaktiven Fertigkeiten für alle Aufsteller gleichzeitig aus."
     },
     "conditions": "Zustände/Elemente",
     "debug": {
@@ -1852,7 +1902,7 @@
     },
     "interactiveAbilities": {
       ".": "Interaktive Fertigkeitskarten",
-      "hint": "Auf Fertigkeitskarten können herorgehoben Aktionen wie Beschwörungen oder Element durch Klick direkt ausgeführt werden."
+      "hint": "Bestimmte hervorgehobene Fähigkeiten, wie Beschwörungen oder Elementaktionen, durch Klicken auf den entsprechenden Bereich der Fähigkeitskarte automatisch anwenden."
     },
     "interface": "Oberfläche",
     "levelAdjustment": {
@@ -1874,6 +1924,7 @@
       ".": "Beute Deck",
       "hint": "Beute Deck aktivieren"
     },
+    "lurkarsDefaults": "Lurkars' persönliche Einstellungen anwenden",
     "maxUndo": {
       ".": "Max. Anzahl Rückgängigvorgänge",
       "hint": {
@@ -2100,11 +2151,16 @@
         "summon": "%game.condition.{2}% anwenden auf '{1}' von {0}"
       },
       "applyHighlightAction": {
-        "condition": "Aktion %game.condition.{1}% anwenden auf {0}",
-        "heal": "Aktion %game.action.heal% {1} anwenden auf {0}",
-        "switchType": "Tauschen von %game.monsterType.normal% und %game.monsterType.elite% Aufstellern anwenden auf {0}",
-        "sufferDamage": "Aktion %game.damage:{1}% erleiden andwenden auf {0}"
+        "condition": "%game.condition.{0}%",
+        "elementConsume": "Reiche {0} an",
+        "elementInfuse": "Verbrauche {0}",
+        "heal": "%game.action.heal% {0}",
+        "summon": "Beschwörung",
+        "spawn": "Hervorbringen",
+        "sufferDamage": "%game.damage:{0}% erleiden",
+        "switchType": "Tauschen von %game.monsterType.normal% und %game.monsterType.elite% Aufstellern"
       },
+      "applyInteractiveActions": "Anwenden von {0} für Aufsteller {1} von {2}",
       "applyScenarioRule": "Szenario Regel anwenden",
       "battleGoals": {
         "drawCard": "Weitere Kampfzielkarte für {0} ziehen",
@@ -2362,6 +2418,7 @@
       "setPlayerNumber": "Spielernummer {1} für {0}",
       "setPQ": "Persönliche Quest {1} für {0}",
       "setPQProgress": "Setzte Persönlichen Quest Zähler {1} auf {2} für {0}",
+      "setRandomScenario": "Zufallsabenteuer",
       "setResource": "{1} {2} für {0}",
       "setRetired": "{0} in Ruhestand",
       "setRetirements": "Ruhestände auf {1} für {0}",
@@ -2372,6 +2429,7 @@
       "setXP": "EP {1} für {0}",
       "shuffleAbilityDeck": "Fertigkeiten mischen für {0}",
       "shuffleAbilityDeckUpcoming": "Nicht gezogene Fertigkeiten mischen für {0}",
+      "skipInteractiveActions": "Interaktive Fertigkeiten auslassen für Aufsteller {1} von {2}",
       "summonActive": "Beschwörung '{1}' von {0} aktiv",
       "summonDead": "Töte Beschwörung '{1}' von {0}",
       "summonInactive": "Beschwörung '{1}' von {0} nicht aktiv",
@@ -2398,6 +2456,8 @@
         "amDeckHide": "{0} AM Deck ausblenden",
         "amDeckShow": "{0} AM Deck einblenden",
         "draw": "{0} AM Karte ziehen",
+        "drawAdvantage": "{0} AM Karten mit Vorteil ziehen",
+        "drawDisadvantage": "{0} AM Karten mit Vorteil ziehen",
         "removeBless": "Segen von {0} AM Deck entfernen",
         "removeCard": "Karte {1} von {0} AM Deck entfernen",
         "removeCurse": "Fluch von {0} AM Deck entfernen",
@@ -2494,56 +2554,68 @@
     },
     "keyboard": {
       ".": "Tastenkürzel",
-      "Keyboard Shortcuts": "%tools.keyboard%",
-      "The following keyboard shortcuts are currently implemented:": "Die folgenden Tastaturkürzel sind derzeit implementiert:",
-      "CTRL": "STRG",
-      "undo": "Rückgängig",
-      "SHIFT": "UMSCHALT",
+      "am": "AM Karte ziehen (Kartendeck abhängig von aktiver Figure, Deck für Monster wenn keine Figure aktiv, deaktivert währen <b>Ziehen</b>)",
+      "amAdvantage": "wie <kbd><span>m</span></kbd>, aber mit Vorteil ziehen wenn eingeschaltet",
+      "amDisadvantage": "wie <kbd><span>m</span></kbd>, aber mit Nachteil ziehen wenn eingeschaltet",
+      "ctrl": "STRG",
+      "difficulty": "Schwierigkeitsgrad/Level Menü",
+      "enter": "↵",
+      "entityMenu": {
+        ".": "In jedem geöffneten Figure/Aufsteller-Menü sind diese Tastenkombinationen deaktiviert, derzeit verfügbare Kürzel im Figur/Aufsteller Menü:",
+        "blessDec": "dek. Segen",
+        "blessInc": "ink. Segen",
+        "characterSheet": "Charakterbogen öffnen",
+        "curseDec": "dek. Flüche",
+        "curseInc": "ink. Flüche",
+        "hpDec": "dek. aktuelle TP",
+        "hpInc": "ink. aktuelle TP",
+        "kill": "Kill / Exhaust",
+        "maxHpDec": "dek. max. TP",
+        "maxHpInc": "ink. max. TP",
+        "toggleCondition": "Zustände/Zustandsmodifikator umschalten"
+      },
+      "esc": "ESC",
+      "events": "Ereigniseffekte Menü",
+      "finish": "Szenario (beenden) Menü",
+      "global": "Die folgenden Tastaturkürzel sind derzeit implementiert:",
+      "keyboard": "Zeige Tastenkürzel an",
+      "loot": "Karte aus dem Beute Deck ziehen",
+      "mainMenu": {
+        ".": "Hauptmenü öffnen",
+        "confirm": "Aktion bestätigen / Untermenü öffnen",
+        "decline": "Aktion ablehnen / Menü schließen",
+        "open": "Bei geöffnetem Menu:",
+        "select": "Aktion auswählen"
+      },
+      "party": "Gruppenbogen öffnen",
       "redo": "Wiederherstellen",
-      "ESC": "ESC",
-      "open main menu": "Hauptmenü öffnen",
-      "zoom-in": "Reinzoomen",
-      "zoom-out": "Rauszoomen",
-      "reset zoom": "Zoom zurücksetzen",
-      "toggle active figure when drawn / toggle initiative input when focused input": "Aktive Figure umschalten währende der Runde / Fokus für Eingabefeld der Initivative umschalten",
-      "next round / draw": "Nächste Runde / Ziehen",
-      "draw AM card (deck depending on active figure, monster deck when not active, disabled when Draw)": "AM Karte ziehen (Kartendeck abhängig von aktiver Figure, Deck für Monster wenn keine Figure aktiv, deaktivert währen <b>Ziehen</b>)",
-      "draw from Loot Deck": "Karte aus dem Beute Deck ziehen",
-      "toggle through element state": "Elementen Status durchschalten",
-      "toggle Hide absend figures": "<i>Abwesende Figuren ausblenden<i> umschalten",
-      "toggle Display hand size and level": "<i>Handkartenanzahl und Stufe anzeigen<i> umschalten",
-      "toggle Display traits": "<i>Eigenschaften anzeigen<i> umschalten",
-      "select figure/standee for opening menu with number key": "Figur/Aufsteller Menü öffnen durch Auswählen mit Nummertasten",
-      "difficulty/level menu": "Schwierigkeitsgrad/Level Menü",
-      "scenario effects menu": "Ereigniseffekte Menü",
-      "(finish) scenario menu": "Szenario (beenden) Menü",
-      "open party sheet": "Gruppenbogen öffnen",
-      "On any open figure/standee menu, those shortcuts are disabled, currently shortcuts available in figure/standee menu:": "In jedem geöffneten Figure/Aufsteller-Menü sind diese Tastenkombinationen deaktiviert, derzeit verfügbare Kürzel im Figur/Aufsteller Menü:",
-      "dec. current HP": "dek. aktuelle TP",
-      "inc. current HP": "ink. aktuelle TP",
-      "toggle condition/condition modifier": "Zustände/Zustandsmodifikator umschalten",
-      "inc. Bless": "ink. Segen",
-      "dec. Bless": "dek. Segen",
-      "inc. Curse": "ink. Flüche",
-      "dec. Curse": "dek. Flüche",
-      "kill/exhaust": "Tot/Erschöpft",
-      "dec. max. HP": "dek. max. TP",
-      "inc. max HP": "ink. max. TP",
-      "open character sheet": "Charakterbogen öffnen",
-      "On open menu:": "Bei geöffnetem Menu:",
-      "SPACE": "Leertaste",
-      "confirm action / open submenu": "Aktion bestätigen / Untermenü öffnen",
-      "decline action / close menu": "Aktion ablehnen / Menü schließen",
-      "select action": "Aktion auswählen"
+      "round": "Nächste Runde / Ziehen",
+      "select": "Figur/Aufsteller Menü öffnen durch Auswählen mit Nummertasten",
+      "shift": "UMSCHALT",
+      "space": "Leertaste",
+      "tab": "↹",
+      "toggleAbsent": "<i>Abwesende Figuren ausblenden<i> umschalten",
+      "toggleElements": "Elementen Status durchschalten",
+      "toggleHandSize": "<i>Handkartenanzahl und Stufe anzeigen<i> umschalten",
+      "toggelTab": "Aktive Figure umschalten währende der Runde / Fokus für Eingabefeld der Initivative umschalten",
+      "toggleTraits": "<i>Eigenschaften anzeigen<i> umschalten",
+      "undo": "Rückgängig",
+      "zoomIn": "Reinzoomen",
+      "zoomOut": "Rauszoomen",
+      "zoomReset": "Zoom zurücksetzen"
     },
     "validateEditionData": "Verifiziere Editionsdaten"
   },
   "update": "Update - Neu Laden",
   "welcome": {
     ".": "Willkommen zu Gloomhaven Secretariat",
-    "chooseCharacters": "Wählt eure Charaktere aus",
-    "chooseEdition": "Wähle deine Edition um eine neue Kampagne zu starten:",
-    "orChooseCharacters": "oder starte ein freies Spiel indem du direkt deine Charaktere auswählst"
+    "chooseCharacters": "Wähle die Charaktere aus",
+    "chooseEdition": "Wähle eine Edition um eine neue Kampagne zu starten:",
+    "orChooseCharacters": "oder wähle direkt Charaktere aus um ein freies Spiel zu starten",
+    "settings": {
+      ".": "Einstellungen",
+      "text": "Nutze diverse Einstellung um alles passend einzurichten:"
+    }
   },
-  "wip": "In Enticklung"
+  "wip": "In Entwicklung"
 }

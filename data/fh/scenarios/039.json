@@ -2,6 +2,13 @@
   "index": "39",
   "name": "Corrupted Camp",
   "flowChartGroup": "algox-1",
+  "coordinates": {
+    "x": 456.5,
+    "y": 681.5,
+    "width": 129,
+    "height": 94,
+    "gridLocation": "Q4"
+  },
   "edition": "fh",
   "complexity": 3,
   "unlocks": [

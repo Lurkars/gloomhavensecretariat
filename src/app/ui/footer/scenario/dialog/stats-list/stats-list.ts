@@ -16,8 +16,15 @@ export class StatsListComponent {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
+  monster: Monster;
+  hideStats: boolean;
+  statEffectNote: string;
 
-  constructor(@Inject(DIALOG_DATA) public monster: Monster, public dialogRef: DialogRef, private dialog: Dialog) { }
+  constructor(@Inject(DIALOG_DATA) public data: { monster: Monster, hideStats: boolean, statEffectNote: string }, public dialogRef: DialogRef, private dialog: Dialog) {
+    this.monster = data.monster;
+    this.hideStats = data.hideStats;
+    this.statEffectNote = data.statEffectNote || "";
+  }
 
   openAbility(ability: Ability): void {
     this.dialog.open(AbilityDialogComponent, {

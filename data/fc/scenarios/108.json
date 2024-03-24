@@ -1,6 +1,14 @@
 {
   "index": "108",
   "name": "Prologue to the End",
+  "flowChartGroup": "tainted-crypt",
+  "coordinates": {
+    "x": 89.75,
+    "y": 2218.75,
+    "width": 223,
+    "height": 176,
+    "gridLocation": "O-1"
+  },
   "edition": "fc",
   "requirements": [
     {

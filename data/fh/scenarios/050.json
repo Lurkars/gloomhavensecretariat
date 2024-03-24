@@ -2,6 +2,13 @@
   "index": "50",
   "name": "Explosive Descent",
   "flowChartGroup": "lurker",
+  "coordinates": {
+    "x": 1531.75,
+    "y": 371.75,
+    "width": 104,
+    "height": 65,
+    "gridLocation": "G1"
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

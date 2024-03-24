@@ -3,10 +3,11 @@
   "name": "Vibrant Grotto",
   "flowChartGroup": "the-merchant",
   "coordinates": {
-    "x": 1788.0999755859375,
+    "x": 1788,
     "y": 402,
     "width": 184,
-    "height": 155
+    "height": 155,
+    "gridLocation": "C-12"
   },
   "edition": "gh",
   "unlocks": [

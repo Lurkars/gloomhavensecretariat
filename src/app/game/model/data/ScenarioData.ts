@@ -1,19 +1,19 @@
+import { GameScenarioModel } from "../Scenario";
 import { Editional } from "./Editional";
+import { Identifier } from "./Identifier";
 import { LootDeckConfig, LootType } from "./Loot";
-import { Spoilable } from "./Spoilable";
 import { ObjectiveData } from "./ObjectiveData";
 import { RoomData } from "./RoomData";
 import { ScenarioRule } from "./ScenarioRule";
-import { GameScenarioModel } from "../Scenario";
-import { Identifier } from "./Identifier";
+import { Spoilable } from "./Spoilable";
+import { WorldMapCoordinates, WorldMapOverlay } from "./WorldMap";
 
 export class ScenarioData implements Editional, Spoilable {
 
   name: string = "";
   index: string = "";
   errata: string = "";
-  gridLocation: string | undefined = "";
-  coordinates: { x: number, y: number, width: number, height: number } | undefined;
+  coordinates: WorldMapCoordinates | undefined;
   unlocks: string[] = [];
   blocks: string[] = [];
   requires: string[][] = [];
@@ -57,7 +57,6 @@ export class ScenarioData implements Editional, Spoilable {
       this.name = scenarioData.name;
       this.errata = scenarioData.errata;
       this.index = scenarioData.index;
-      this.gridLocation = scenarioData.gridLocation;
       this.unlocks = scenarioData.unlocks;
       this.blocks = scenarioData.blocks;
       this.requires = scenarioData.requires;
@@ -147,6 +146,8 @@ export class ScenarioRewards {
   lootingGold: number | string | undefined = undefined;
   custom: string = "";
   ignoredBonus: string[] = [];
+  overlaySticker: WorldMapOverlay | undefined = undefined;
+  overlayCampaignSticker: WorldMapOverlay | undefined = undefined;
   hints: ScenarioRewardHints | undefined = undefined;
 
 }
@@ -186,6 +187,8 @@ export class ScenarioRewardHints {
   townGuardAm: string[] = [];
   unlockCharacter: string = "";
   chooseUnlockCharacter: string[] = [];
+  overlaySticker: string = "";
+  overlayCampaignSticker: string = "";
 }
 
 export class ScenarioFinish {

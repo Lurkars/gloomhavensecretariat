@@ -1,6 +1,7 @@
 {
   "index": "46",
   "name": "Vermling Gardens",
+  "flowChartGroup": "road-events",
   "edition": "cs",
   "rewards": {
     "experience": 15,

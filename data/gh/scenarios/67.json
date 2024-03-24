@@ -3,10 +3,11 @@
   "name": "Arcane Library",
   "flowChartGroup": "random-scenarios",
   "coordinates": {
-    "x": 231.0999755859375,
+    "x": 231,
     "y": 1518,
     "width": 193,
-    "height": 164
+    "height": 164,
+    "gridLocation": "K-2"
   },
   "edition": "gh",
   "random": true,

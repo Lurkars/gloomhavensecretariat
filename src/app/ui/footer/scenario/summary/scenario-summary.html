@@ -3,8 +3,9 @@
     <span class="title">
       <span
         [ghs-label]="conclusionOnly ? 'scenario.conclusion' : (rewardsOnly ? 'scenario.summary.rewards' : 'scenario.summary')"></span>
-      <span class="name">#{{scenario.index}} <span class="text-white"
-          [ghs-label]="'data.scenario.' + scenario.name"></span></span>
+      <span class="name">
+        <span *ngIf="scenario.index && !scenario.hideIndex">#{{scenario.index}}</span>
+        <span class="text-white" [ghs-label]="'data.scenario.' + scenario.name"></span></span>
     </span>
     <span *ngIf="success && !conclusionOnly && !rewardsOnly" class="success"><span
         [ghs-label]="'scenario.finish.success'"></span></span>
@@ -594,6 +595,22 @@
                 [ghs-label]="rewards.hints.removeEvents[i]"></span>
             </div>
 
+            <div class="item overlay-sticker" *ngIf="rewards.overlayCampaignSticker">
+              <span *ngIf="rewards.hints && rewards.hints.overlayCampaignSticker" class="placeholder text-white hint"
+                [ghs-label]="rewards.hints.overlayCampaignSticker"></span>
+              <span *ngIf="!rewards.hints || !rewards.hints.overlayCampaignSticker" class="placeholder text-white"
+                [ghs-label]="'scenario.rewards.overlayCampaignSticker'"
+                [ghs-label-args]="[rewards.overlayCampaignSticker.name, rewards.overlayCampaignSticker.location]"></span>
+            </div>
+
+            <div class="item overlay-sticker" *ngIf="rewards.overlaySticker">
+              <span *ngIf="rewards.hints && rewards.hints.overlaySticker" class="placeholder text-white hint"
+                [ghs-label]="rewards.hints.overlaySticker"></span>
+              <span *ngIf="!rewards.hints || !rewards.hints.overlaySticker" class="placeholder text-white"
+                [ghs-label]="'scenario.rewards.overlaySticker'"
+                [ghs-label-args]="[rewards.overlaySticker.name, rewards.overlaySticker.location]"></span>
+            </div>
+
             <div class="list-inline unlock-character"
               *ngIf="rewards && rewards.chooseUnlockCharacter && rewards.chooseUnlockCharacter.length > 0">
               <span><span [ghs-label]="'scenario.rewards.unlockCharacter'"></span></span>
@@ -697,22 +714,34 @@
     [ngClass]="{'denied' : gameManager.stateManager.permissions && (!gameManager.stateManager.permissions.round  || !gameManager.stateManager.permissions.scenario || !gameManager.stateManager.permissions.characters)}">
     <a class="cancel" (click)="close()"><span [ghs-label]="'scenario.summary.cancel'"></span></a>
     <span class="links"
-      *ngIf="success && (gameManager.game.party.campaignMode || forceCampaign) && (scenario.links && scenario.links.length > 0 || scenario.forcedLinks && scenario.forcedLinks.length > 0)">
+      *ngIf="success && (gameManager.game.party.campaignMode || forceCampaign) && (scenario.links && scenario.links.length > 0 || scenario.forcedLinks && scenario.forcedLinks.length > 0 || conclusion && conclusion.forcedLinks && conclusion.forcedLinks.length > 0)">
       <ng-container *ngIf="scenario.forcedLinks && scenario.forcedLinks.length > 0">
         <span class="text"><span [ghs-label]="'scenario.summary.forcedLinks'"></span></span>
         <a class="apply forced-link" (click)="finish(index)" *ngFor="let index of scenario.forcedLinks">
           <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
         </a>
       </ng-container>
-      <ng-container *ngIf="(!scenario.forcedLinks || scenario.forcedLinks.length == 0)">
+      <ng-container *ngIf="conclusion && conclusion.forcedLinks && conclusion.forcedLinks.length > 0">
+        <span class="text"><span [ghs-label]="'scenario.summary.forcedLinks'"></span></span>
+        <a class="apply forced-link" (click)="finish(index)" *ngFor="let index of conclusion.forcedLinks">
+          <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
+        </a>
+      </ng-container>
+      <ng-container
+        *ngIf="(!scenario.forcedLinks || scenario.forcedLinks.length == 0) && (!conclusion || !conclusion.forcedLinks || conclusion.forcedLinks.length == 0)">
         <span class="text"><span [ghs-label]="'scenario.summary.links'"></span></span>
         <a class="link" (click)="finish(index)" *ngFor="let index of scenario.links">
           <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
         </a>
+        <ng-container *ngIf="conclusion && conclusion.links">
+          <a class="link" (click)="finish(index)" *ngFor="let index of conclusion.links">
+            <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
+          </a>
+        </ng-container>
       </ng-container>
     </span>
     <a class="apply"
-      *ngIf="!success || !gameManager.game.party.campaignMode || alreadyWarning || forceCampaign || !scenario.forcedLinks || scenario.forcedLinks.length == 0"
+      *ngIf="!success || !gameManager.game.party.campaignMode || alreadyWarning || forceCampaign || ((!scenario.forcedLinks || scenario.forcedLinks.length == 0) && (!conclusion || !conclusion.forcedLinks || conclusion.forcedLinks.length == 0))"
       (click)="finish()"><span
         [ghs-label]="conclusionOnly ? 'scenario.summary.solve' : 'scenario.summary.apply'"></span></a>
     <a class="restart" *ngIf="!success" (click)="restart()"><span [ghs-label]="(lootColumns.length > 0 ?

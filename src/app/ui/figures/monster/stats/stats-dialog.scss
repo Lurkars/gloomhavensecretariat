@@ -34,14 +34,101 @@
   }
 
   .stats-container {
+    position: relative;
     text-align: initial;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-    max-height: 80vh;
+    max-height: 60vh;
     overflow-y: auto;
     overflow-x: hidden;
+
+    .stat-effect {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--ghs-color-white);
+      background-image: url('~src/assets/images/dialog_background.png');
+      z-index: 2;
+    
+      &.fh {
+        background-image: url('~src/assets/images/fh/dialog_background_fh.png');
+      }
+    
+      &.modern {
+        background-image: url('~src/assets/images/modern/dialog_background_modern.png');
+      }
+  
+      .title {
+        font-size: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
+      }
+  
+      .stat-changes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        max-width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
+  
+        .stat {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+          margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor)) 0;
+  
+          .type {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1.5em;
+            margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+          }
+  
+          img {
+            height: 1.2em;
+            width: auto;
+            filter: var(--ghs-filter-white);
+          }
+        }
+      }
+  
+      .immunities {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+  
+        .immunity {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+          width: 1.5em;
+          height: 1.5em;
+          margin: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+  
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+  
+      .deck {
+        cursor: pointer;
+        font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        text-align: center;
+      }
+    }
+
 
     .stats {
       cursor: pointer;
@@ -49,6 +136,7 @@
       width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
       min-height: calc(var(--ghs-unit) * 21.5 * var(--ghs-dialog-factor));
       margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      z-index: 1;
     }
 
     ghs-monster-stats {

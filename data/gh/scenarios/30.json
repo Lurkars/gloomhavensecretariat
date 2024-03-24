@@ -3,10 +3,11 @@
   "name": "Shrine of the Depths",
   "flowChartGroup": "voice",
   "coordinates": {
-    "x": 2186.4000244140625,
+    "x": 2186.5,
     "y": 2046,
     "width": 215,
-    "height": 156
+    "height": 156,
+    "gridLocation": "N-15"
   },
   "edition": "gh",
   "unlocks": [

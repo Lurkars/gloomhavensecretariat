@@ -3,6 +3,11 @@
   "group": "randomMonsterCard",
   "name": "Crushing",
   "edition": "gh",
+  "named": true,
+  "monsters": [
+    "earth-demon",
+    "wind-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

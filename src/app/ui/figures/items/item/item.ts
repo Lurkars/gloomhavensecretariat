@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Action, ActionType } from "src/app/game/model/data/Action";
@@ -10,8 +10,9 @@ import { ItemData } from "src/app/game/model/data/ItemData";
     templateUrl: './item.html',
     styleUrls: ['./item.scss']
 })
-export class ItemComponent implements OnInit {
+export class ItemComponent implements OnInit, AfterViewInit {
 
+    @ViewChild('container') containerElement!: ElementRef;
     @Input() item!: ItemData | undefined;
     @Input() identifier: Identifier | undefined | false;
     @Input() flipped: boolean = false;
@@ -35,6 +36,7 @@ export class ItemComponent implements OnInit {
 
     settingsManager: SettingsManager = settingsManager;
     gameManager: GameManager = gameManager;
+    fontsize: string = "1em";
 
     ngOnInit(): void {
         if (!this.item && this.identifier) {
@@ -69,8 +71,19 @@ export class ItemComponent implements OnInit {
                 action.small = true;
                 this.item.actions.push(action);
             }
-
         }
+
+        gameManager.uiChange.subscribe({
+            next: () => {
+                this.fontsize = (this.containerElement.nativeElement.offsetWidth * 0.072) + 'px';;
+            }
+        })
+    }
+
+    ngAfterViewInit(): void {
+        setTimeout(() => {
+            this.fontsize = (this.containerElement.nativeElement.offsetWidth * 0.072) + 'px';
+        }, 1);
     }
 
     applySlots(slotCount: number, actions: Action[]) {

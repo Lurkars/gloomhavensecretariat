@@ -1,13 +1,16 @@
+import { v4 as uuidv4 } from 'uuid';
 import { EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
-import { Objective } from "../model/Objective";
+import { Monster } from "../model/Monster";
 import { ObjectiveContainer } from "../model/ObjectiveContainer";
 import { ObjectiveEntity } from "../model/ObjectiveEntity";
+import { ActionType } from "../model/data/Action";
 import { AdditionalIdentifier } from "../model/data/Identifier";
+import { MonsterType } from "../model/data/MonsterType";
 import { ObjectiveData, ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
+import { ObjectiveSpawnData } from "../model/data/ScenarioRule";
 import { gameManager } from "./GameManager";
-import { v4 as uuidv4 } from 'uuid';
 
 
 export class ObjectiveManager {
@@ -22,8 +25,8 @@ export class ObjectiveManager {
     return objective.title || objective.name && "data.objective." + objective.name || objective.escort ? 'escort' : 'objective';
   }
 
-  addObjective(objectiveData: ObjectiveData | undefined = undefined, name: string | undefined = undefined, objectiveId: ScenarioObjectiveIdentifier | undefined = undefined): ObjectiveContainer {
-    let objectiveContainer = gameManager.game.figures.find((figure) => figure instanceof ObjectiveContainer && (!objectiveId && objectiveData && !figure.objectiveId && figure.name == objectiveData.name && figure.health == EntityValueFunction("" + objectiveData.health) && figure.escort == objectiveData.escort && figure.initiative == (objectiveData.initiative || 99) || objectiveId && figure.objectiveId && gameManager.objectiveDataByScenarioObjectiveIdentifier(objectiveId) == gameManager.objectiveDataByScenarioObjectiveIdentifier(figure.objectiveId))) as ObjectiveContainer;
+  addObjective(objectiveData: ObjectiveData | undefined = undefined, name: string | undefined = undefined, objectiveId: AdditionalIdentifier | ScenarioObjectiveIdentifier | undefined = undefined): ObjectiveContainer {
+    let objectiveContainer = gameManager.game.figures.find((figure) => figure instanceof ObjectiveContainer && (!objectiveId && objectiveData && !figure.objectiveId && figure.name == objectiveData.name && figure.health == EntityValueFunction("" + objectiveData.health) && figure.escort == objectiveData.escort && figure.initiative == (objectiveData.initiative || 99) || objectiveId && figure.objectiveId && this.objectiveDataByObjectiveIdentifier(objectiveId) == this.objectiveDataByObjectiveIdentifier(figure.objectiveId))) as ObjectiveContainer;
 
     if (!objectiveContainer) {
       objectiveContainer = new ObjectiveContainer(uuidv4(), objectiveId);
@@ -43,7 +46,6 @@ export class ObjectiveManager {
     }
     gameManager.addEntityCount(objectiveContainer);
     gameManager.sortFigures(objectiveContainer);
-    this.addObjectiveEntity(objectiveContainer, undefined, objectiveData);
     return objectiveContainer;
   }
 
@@ -109,7 +111,7 @@ export class ObjectiveManager {
         if (!figure.objectiveId) {
           return true;
         } else {
-          const objectiveData = gameManager.objectiveDataByScenarioObjectiveIdentifier(figure.objectiveId);
+          const objectiveData = this.objectiveDataByObjectiveIdentifier(figure.objectiveId);
           if (!objectiveData || !objectiveData.actions || objectiveData.actions.length == 0) {
             return true;
           }
@@ -119,21 +121,53 @@ export class ObjectiveManager {
     return false;
   }
 
+  objectiveDataByObjectiveIdentifier(objectiveIdentifier: AdditionalIdentifier | ScenarioObjectiveIdentifier): ObjectiveData | undefined {
+    if (!("scenario" in objectiveIdentifier)) {
+      // TODO: generalize code, now specialized for Elder Drake
+      const figures = gameManager.figuresByIdentifier(objectiveIdentifier);
+      if (figures.length == 1) {
+        let result: ObjectiveData | undefined = undefined;
+        const figure: Figure = figures[0];
+        if (figure instanceof Monster && figure.boss) {
+          const bossStats = gameManager.monsterManager.getStat(figure, MonsterType.boss);
+          bossStats.special.forEach((special) => {
+            special.forEach((action) => {
+              if (!result && (action.type == ActionType.summon || action.type == ActionType.spawn) && action.value == "objectiveSpawn") {
+                result = (action.valueObject as ObjectiveSpawnData[])[0].objective as ObjectiveData;
+              }
+            })
+          })
+        }
+        return result;
+      }
+    } else {
+      const scenarioData = (objectiveIdentifier.section ? gameManager.sectionData(objectiveIdentifier.edition).find((sectionData) => sectionData.index == objectiveIdentifier.scenario && sectionData.group == objectiveIdentifier.group) : gameManager.scenarioData(objectiveIdentifier.edition).find((scenarioData) => scenarioData.index == objectiveIdentifier.scenario && scenarioData.group == objectiveIdentifier.group));
+      if (scenarioData) {
+        if (objectiveIdentifier.section && !scenarioData.objectives) {
+          const parent = gameManager.scenarioData(objectiveIdentifier.edition).find((scenario) => scenario.index == scenarioData.parent && scenario.group == scenarioData.group);
+          if (parent && parent.objectives && parent.objectives.length > objectiveIdentifier.index) {
+            return parent.objectives[objectiveIdentifier.index];
+          }
+        } else if (scenarioData.objectives.length > objectiveIdentifier.index) {
+          return scenarioData.objectives[objectiveIdentifier.index];
+        }
+      }
+    }
+
+    return undefined;
+  }
+
   next() {
     this.game.figures.forEach((figure) => {
-      if (figure instanceof Objective || figure instanceof ObjectiveContainer) {
+      if (figure instanceof ObjectiveContainer) {
         figure.off = false;
-      } 
+      }
     })
   }
 
   draw() {
     this.game.figures.forEach((figure) => {
-      if (figure instanceof Objective) {
-        if (gameManager.entityManager.isAlive(figure)) {
-          figure.off = false;
-        }
-      } else if (figure instanceof ObjectiveContainer) {
+      if (figure instanceof ObjectiveContainer) {
         if (figure.entities.some((objectiveEntity) => gameManager.entityManager.isAlive(objectiveEntity))) {
           figure.off = false;
         }

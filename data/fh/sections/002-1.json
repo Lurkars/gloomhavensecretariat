@@ -5,7 +5,7 @@
   "parent": "0",
   "marker": "1",
   "monsters": [
-    "hound-scenario-0"
+    "hound"
   ],
   "rooms": [
     {
@@ -17,30 +17,30 @@
       ],
       "monster": [
         {
-          "name": "hound-scenario-0",
+          "name": "hound",
           "type": "normal"
         },
         {
-          "name": "hound-scenario-0",
+          "name": "hound",
           "type": "normal"
         },
         {
-          "name": "hound-scenario-0",
+          "name": "hound",
           "player2": "elite",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "hound-scenario-0",
+          "name": "hound",
           "player3": "elite",
           "player4": "normal"
         },
         {
-          "name": "hound-scenario-0",
+          "name": "hound",
           "player4": "elite"
         },
         {
-          "name": "hound-scenario-0",
+          "name": "hound",
           "player4": "elite"
         }
       ]

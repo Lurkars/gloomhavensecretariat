@@ -11,6 +11,7 @@ export class ObjectiveData {
   actions: Action[] = [];
   allyDeck: boolean = false;
   tags: string[] = [];
+  initiativeShare : string | undefined;
 
   constructor(name: string, health: number | string, escort: boolean = false, id: number = -1, marker: string = "", tags: string[] = [], initiative: number | undefined = undefined) {
     this.name = name;
@@ -24,4 +25,10 @@ export class ObjectiveData {
 
 }
 
-export type ScenarioObjectiveIdentifier = { "edition": string, "scenario": string, "group": string | undefined, "section": boolean, "index": number };
+export class ScenarioObjectiveIdentifier {
+  edition: string = "";
+  scenario: string = "";
+  group: string | undefined;
+  section: boolean = false;
+  index: number = 0;
+}

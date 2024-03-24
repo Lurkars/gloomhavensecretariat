@@ -28,6 +28,7 @@ export class EditionData implements Editional {
   events: EventCard[] = [];
   personalQuests: PersonalQuest[] = [];
   worldMap: { width: number, height: number } | undefined;
+  extendWorldMap: string | undefined;
   label: any = {};
   labelSpoiler: any = {};
   url: string = "";
@@ -74,8 +75,8 @@ export class CampaignData {
 
   campaignStickers: string[] = [];
   buildings: BuildingData[] = [];
-  highMorale: string = "";
-  lowMorale: string = "";
+  highMorale: string[] = [];
+  lowMorale: string[] = [];
   lootSpecial1Sections: string[] = [];
   lootSpecial2Sections: string[] = [];
   townGuardPerks: TownGuardPerk[] = [];

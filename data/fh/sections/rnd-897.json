@@ -3,6 +3,11 @@
   "group": "randomMonsterCard",
   "name": "Traitorous",
   "edition": "fh",
+  "named": true,
+  "monsters": [
+    "chaos-demon",
+    "city-guard"
+  ],
   "rules": [
     {
       "round": "true",

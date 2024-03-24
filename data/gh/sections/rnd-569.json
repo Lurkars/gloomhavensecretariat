@@ -3,6 +3,12 @@
   "group": "randomMonsterCard",
   "name": "Unstable",
   "edition": "gh",
+  "named": true,
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "savvas-lavaflow"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

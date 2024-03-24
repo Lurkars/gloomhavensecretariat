@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
+import { Component, ElementRef, Input, OnInit, ViewEncapsulation } from "@angular/core";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 @Component({
@@ -23,8 +23,7 @@ export class SettingMenuComponent implements OnInit {
 
     settingsManager: SettingsManager = settingsManager;
 
-    matchSearch: boolean = true;
-
+    constructor(public elementRef: ElementRef) { }
 
     ngOnInit(): void {
         if (this.type === 'checkbox' && this.values.length > 0) {

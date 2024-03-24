@@ -32,6 +32,10 @@ export function EntityValueFunction(value: string | number, L: number | undefine
     return value;
   }
 
+  if (value == '-') {
+    return 0;
+  }
+
   let expression = value;
   let func = undefined;
 

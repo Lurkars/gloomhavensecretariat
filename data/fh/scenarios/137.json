@@ -2,8 +2,22 @@
   "index": "137",
   "name": "Pirate Queen's Haul",
   "flowChartGroup": "other",
+  "coordinates": {
+    "x": 1829.25,
+    "y": 648.25,
+    "width": 101,
+    "height": 67,
+    "gridLocation": "D3"
+  },
   "edition": "fh",
   "complexity": 1,
+  "requirements": [
+    {
+      "buildings": [
+        "boat"
+      ]
+    }
+  ],
   "rewards": {
     "gold": 30,
     "prosperity": 2,

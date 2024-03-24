@@ -1355,9 +1355,13 @@
         "toggleOn": "{0} à actif",
         "transfer": "{0} devient %data.monster.{1}% {4}"
       },
+      "finish": {
+        "lost": "Scénario perdu !",
+        "round": "Round suivant!",
+        "won": "Scénario gagné !"
+      },
       "finishWithConclusion": "Terminer le scénario avec #{0} {1}",
       "hide": "Ne plus montrer",
-      "lost": "Scénario perdu !",
       "openRoom": "Ouvrir la porte",
       "openRoomMarker": "Ouvrir la porte %game.mapMarker.{0}%",
       "spawn": "Faire apparaitre {2}%game.monsterType.{1}% %data.monster.{0}%",
@@ -1369,8 +1373,7 @@
       "spawnObjectives": "Lancer {1} Objectifs '{0}'",
       "spawnObjectivesEscort": "Créer {1} escortes '{0}'.",
       "spawnObjectivesEscortMarker": "Créer {1} Escortes '{0}' à %game.mapMarker.{2}%",
-      "spawnObjectivesMarker": "Créer {1} Objectifs '{0}' à %game.mapMarker.{2}%.",
-      "won": "Scénario gagné !"
+      "spawnObjectivesMarker": "Créer {1} Objectifs '{0}' à %game.mapMarker.{2}%."
     },
     "section": {
       ".": "Section",

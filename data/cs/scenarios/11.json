@@ -1,6 +1,7 @@
 {
   "index": "11",
   "name": "Voyage Abound",
+  "flowChartGroup": "sail",
   "edition": "cs",
   "unlocks": [
     "12"

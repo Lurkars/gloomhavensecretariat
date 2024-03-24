@@ -3,6 +3,11 @@
   "group": "randomMonsterCard",
   "name": "Defiled",
   "edition": "gh",
+  "named": true,
+  "monsters": [
+    "forest-imp",
+    "sun-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

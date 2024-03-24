@@ -2,6 +2,13 @@
   "index": "83",
   "name": "Rising Brine",
   "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 1721.25,
+    "y": 680.25,
+    "width": 79,
+    "height": 62,
+    "gridLocation": "E3"
+  },
   "edition": "fh",
   "complexity": 2,
   "requirements": [

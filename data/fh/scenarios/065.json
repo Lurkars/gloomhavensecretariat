@@ -2,6 +2,13 @@
   "index": "65",
   "name": "A Strong Foundation",
   "flowChartGroup": "personal-quests",
+  "coordinates": {
+    "x": 996.5,
+    "y": 730,
+    "width": 91,
+    "height": 57,
+    "gridLocation": "L4"
+  },
   "edition": "fh",
   "complexity": 1,
   "rewards": {
@@ -20,9 +27,9 @@
     ]
   },
   "monsters": [
-    "frozen-corpse-scenario-65",
-    "living-bones-scenario-65",
-    "snow-imp-scenario-65"
+    "frozen-corpse",
+    "living-bones",
+    "snow-imp"
   ],
   "lootDeckConfig": {
     "money": 8,
@@ -32,43 +39,68 @@
     "snowthistle": 2,
     "arrowvine": 2
   },
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": ".*"
+          },
+          "statEffect": {
+            "actions": [
+              {
+                "type": "push",
+                "value": "[(L+1)/4{$math.ceil}]"
+              }
+            ]
+          },
+          "note": "%data.scenario.rules.fh.65%"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
       "initial": true,
       "monster": [
         {
-          "name": "frozen-corpse-scenario-65",
+          "name": "frozen-corpse",
           "type": "elite"
         },
         {
-          "name": "frozen-corpse-scenario-65",
+          "name": "frozen-corpse",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "frozen-corpse-scenario-65",
+          "name": "frozen-corpse",
           "player4": "normal"
         },
         {
-          "name": "living-bones-scenario-65",
+          "name": "living-bones",
           "type": "normal"
         },
         {
-          "name": "living-bones-scenario-65",
+          "name": "living-bones",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "snow-imp-scenario-65",
+          "name": "snow-imp",
           "type": "normal"
         },
         {
-          "name": "snow-imp-scenario-65",
+          "name": "snow-imp",
           "type": "normal"
         },
         {
-          "name": "snow-imp-scenario-65",
+          "name": "snow-imp",
           "player4": "elite"
         }
       ]

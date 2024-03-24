@@ -76,7 +76,7 @@ export class StandeeComponent implements OnInit, OnDestroy {
     this.actionHints = [];
 
     if (settingsManager.settings.standeeStats && this.figure instanceof Monster && this.entity instanceof MonsterEntity) {
-      this.actionHints = gameManager.monsterManager.calcActionHints(this.figure, this.entity);
+      this.actionHints = gameManager.actionsManager.calcActionHints(this.figure, this.entity);
     }
     if (this.entity.revealed) {
       const activeFigure = gameManager.game.figures.find((figure) => figure.active);

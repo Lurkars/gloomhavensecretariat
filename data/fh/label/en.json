@@ -136,7 +136,17 @@
     },
     "rules": {
       "fh": {
-        "97": "To add monster abilities to a character's hand, open the Ability Cards menu and remove the cards from the deck. To play that card, simply add it back in the Edit menu."
+        "0": "Do not set up the Hound monster ability deck. Instead, each round on initiative 26, all Hounds perform %game.action.move% 2; %game.action.attack% 2.",
+        "1": "City Guards do not perform turns but instead gain an additional innate %game.action.shield% 1 (for a total of %game.action.shield% 2 at level 1) and %game.action.retaliate% 2, and have an initiative of 50 for the purpose of focusing.",
+        "65": "All monsters add %game.action.push% 1 to all their attacks. If the scenario level is 4 or higher, increase this to %game.action.push% 2.",
+        "76": "Divide the Fish King's maximum hit point value by 2 (rounded down). The Fish King does not act, cannot be targeted by heal abilities, is immune to all conditions, and has an initiative of 01 for the purpose of focusing.",
+        "77": {
+          "1": "The Fish King cannot perform any move abilities and is immune to forced movement. (Also adjusted Boss Specials!)",
+          "2": "Immune to forced movement"
+        },
+        "97": "To add monster abilities to a character's hand, open the Ability Cards menu and remove the cards from the deck. To play that card, simply add it back in the Edit menu.",
+        "112": "The two Hounds have twice their maximum hit point values.",
+        "129": "All City Guards use Archer monster ability cards instead of their own."
       }
     }
   },
@@ -153,7 +163,9 @@
     }
   },
   "campaignSticker": {
+    "boat": "Boat",
     "brummix": "Brummix",
+    "climbing-gear": "Climbing Gear",
     "bug-in-a-jar": "Bug in a Jar",
     "charged-core": "Charged Core",
     "coral-shard": "Coral Shard",
@@ -168,6 +180,8 @@
     "friend-of-the-snowspeakers": "Friend of the Snowspeakers",
     "into-the-forest": "Into the Forest",
     "shard-seeker": "Shard Seeker",
+    "sled": "Sled",
+    "statue": "Statue",
     "uncharged-core": "Uncharged Core",
     "unfettered-allies": "Unfettered Allies",
     "unfettered-deactivated": "Unfettered Deactivated"
@@ -563,6 +577,7 @@
       "8": "Buy up to four items",
       "9": "Buy items"
     },
+    "wall-effect": "+5 Defense",
     "wall-j": {
       ".": "Wall J"
     },
@@ -873,42 +888,42 @@
         "5": "Lose at least one ability card each round"
       },
       "errata": {
-        "env24": "Envelope 24  should list sticker 10",
-        "env37": "Envelope 37 should list sticker 11 and 13",
-        "env44": "Envelope 44 should list sticker 12 and 14",
-        "env85": "Envelope 85 should list sticker 15",
-        "env90": "Envelope 90 should list sticker 1,5,8 and 9",
-        "env81": "There is a deck of cards in envelope 81 whose order should be reversed. If you pull it out and the visible card is titled \"T___ of W___\", reverse the order of the deck so that card is the first drawn when the deck is face-down.",
-        "scenario18": "Map layout and map: The right 11 tile should be 11-C.",
-        "scenario28": "Archers should spawn at D and Guards at E. The exit hexes are likewise swapped.(Fixed in GHS!)",
-        "scenario36-37": "Add the blueprint for Item 067 to the Scenario Rewards. (Fixed in GHS!)",
-        "scenario37": "Treasure Chest should be #56. (Fixed in GHS!)",
-        "scenario60": "should have Item 224 as a scenario reward. (Fixed in GHS!)",
-        "scenario70": "has two Random Items on the Loot Deck. This is a typo; there should be 1. (Fixed in GHS!)",
-        "scenario78": "has a tricky map issue - Change the Map Layout image, flipping 13-D and 13-B in that image (and also flipping 13-B in the map depiction on the intro page).",
-        "scenraio104": "Second to last line of the special rules: \"Ice Wraith\" should be \"Savvas Icestorm\". (Fixed in GHS!)",
-        "scenario110": "the water hexes are difficult terrain, not corridor.",
-        "scenario111": "The door positions from Section 182.2 are correct. Section 138.2 should link to Section 147.2.",
-        "scenario130": "Key - Shrike Fiend has an image of Night Demon. (Fixed in GHS!)",
-        "section14-2": "Map: Ice Wraith should be Frost Demon. (Fixed in GHS!)",
-        "section25-3": "Section 25.3 - instead of Door 3 opening Section 62.3, this should read Door 1. (Fixed in GHS!)",
-        "section111-2": "Map: Lurker Soldier should be Lurker Clawcrusher (Fixed in GHS!)",
-        "section154-1": "Map: Black Imp should be Forest Imp. (Fixed in GHS!)",
-        "section197-1": "Section 197.1 has outdated descriptions and names of some cards.",
-        "tavern3": "This should have a requirement to build of already having 3 coins."
+        "env24": "1st Printing: Envelope 24  should list sticker 10",
+        "env37": "1st Printing: Envelope 37 should list sticker 11 and 13",
+        "env44": "1st Printing: Envelope 44 should list sticker 12 and 14",
+        "env85": "1st Printing: Envelope 85 should list sticker 15",
+        "env90": "1st Printing: Envelope 90 should list sticker 1,5,8 and 9",
+        "env81": "1st Printing: There is a deck of cards in envelope 81 whose order should be reversed. If you pull it out and the visible card is titled \"T___ of W___\", reverse the order of the deck so that card is the first drawn when the deck is face-down.",
+        "scenario18": "1st Printing: Map layout and map: The right 11 tile should be 11-C.",
+        "scenario28": "1st Printing: Archers should spawn at D and Guards at E. The exit hexes are likewise swapped.(Fixed in GHS!)",
+        "scenario36-37": "1st Printing: Add the blueprint for Item 067 to the Scenario Rewards. (Fixed in GHS!)",
+        "scenario37": "1st Printing: Treasure Chest should be #56. (Fixed in GHS!)",
+        "scenario60": "1st Printing: should have Item 224 as a scenario reward. (Fixed in GHS!)",
+        "scenario70": "1st Printing: has two Random Items on the Loot Deck. This is a typo; there should be 1. (Fixed in GHS!)",
+        "scenario78": "1st Printing: has a tricky map issue - Change the Map Layout image, flipping 13-D and 13-B in that image (and also flipping 13-B in the map depiction on the intro page).",
+        "scenraio104": "1st Printing: Second to last line of the special rules: \"Ice Wraith\" should be \"Savvas Icestorm\". (Fixed in GHS!)",
+        "scenario110": "1st Printing: the water hexes are difficult terrain, not corridor.",
+        "scenario111": "1st Printing: The door positions from Section 182.2 are correct. Section 138.2 should link to Section 147.2.",
+        "scenario130": "1st Printing: Key - Shrike Fiend has an image of Night Demon. (Fixed in GHS!)",
+        "section14-2": "1st Printing: Map: Ice Wraith should be Frost Demon. (Fixed in GHS!)",
+        "section25-3": "1st Printing: Section 25.3 - instead of Door 3 opening Section 62.3, this should read Door 1. (Fixed in GHS!)",
+        "section111-2": "1st Printing: Map: Lurker Soldier should be Lurker Clawcrusher (Fixed in GHS!)",
+        "section154-1": "1st Printing: Map: Black Imp should be Forest Imp. (Fixed in GHS!)",
+        "section197-1": "1st Printing: Section 197.1 has outdated descriptions and names of some cards.",
+        "tavern3": "1st Printing: This should have a requirement to build of already having 3 coins."
       },
       "flowChartGroup": {
-          "intro": "Intro",
-          "algox-1": "Algox",
-          "algox-2": "Algox",
-          "algox-3": "Algox",
-          "lurker": "Lurker",
-          "unfettered": "Unfettered",
-          "puzzle-book": "Puzzle Book",
-          "personal-quests": "Personal Quests",
-          "job-postings": "Job Postings",
-          "other": "Other",
-          "random-scenarios": "Random Scenarios"
+        "intro": "Intro",
+        "algox-1": "Algox",
+        "algox-2": "Algox",
+        "algox-3": "Algox",
+        "lurker": "Lurker",
+        "unfettered": "Unfettered",
+        "puzzle-book": "Puzzle Book",
+        "personal-quests": "Personal Quests",
+        "job-postings": "Job Postings",
+        "other": "Other",
+        "random-scenarios": "Random Scenarios"
       }
     }
   }

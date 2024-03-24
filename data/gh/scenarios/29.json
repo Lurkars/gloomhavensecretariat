@@ -3,10 +3,11 @@
   "name": "Sanctuary of Gloom",
   "flowChartGroup": "the-merchant",
   "coordinates": {
-    "x": 396.20001220703125,
+    "x": 396.25,
     "y": 679,
     "width": 200,
-    "height": 159
+    "height": 159,
+    "gridLocation": "E-3"
   },
   "edition": "gh",
   "requires": [

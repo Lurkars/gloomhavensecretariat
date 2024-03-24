@@ -3,10 +3,11 @@
   "name": "Inox Encampment",
   "flowChartGroup": "the-merchant",
   "coordinates": {
-    "x": 403.20001220703125,
+    "x": 403.25,
     "y": 977,
     "width": 222,
-    "height": 153
+    "height": 153,
+    "gridLocation": "G-3"
   },
   "edition": "gh",
   "unlocks": [

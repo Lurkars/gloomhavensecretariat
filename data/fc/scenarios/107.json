@@ -1,6 +1,14 @@
 {
   "index": "107",
   "name": "Mechanical Genius",
+  "flowChartGroup": "the-rift",
+  "coordinates": {
+    "x": 2046,
+    "y": 888.5,
+    "width": 214,
+    "height": 124,
+    "gridLocation": "F-14"
+  },
   "edition": "fc",
   "requirements": [
     {
@@ -8,6 +16,9 @@
         "Knowledge is Power:2"
       ]
     }
+  ],
+  "links": [
+    "112"
   ],
   "rewards": {
     "experience": 5

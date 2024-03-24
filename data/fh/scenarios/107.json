@@ -2,6 +2,13 @@
   "index": "107",
   "name": "My Private Empire",
   "flowChartGroup": "random-scenarios",
+  "coordinates": {
+    "x": 1179.5,
+    "y": 1276.75,
+    "width": 102,
+    "height": 70,
+    "gridLocation": "J10"
+  },
   "edition": "fh",
   "complexity": 2,
   "random": true,

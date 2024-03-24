@@ -2,6 +2,13 @@
   "index": "26",
   "name": "Quatryl Library",
   "flowChartGroup": "unfettered",
+  "coordinates": {
+    "x": 1761.5,
+    "y": 1353,
+    "width": 153,
+    "height": 94,
+    "gridLocation": "E10"
+  },
   "edition": "fh",
   "complexity": 2,
   "blocks": [

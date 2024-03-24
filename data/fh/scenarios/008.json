@@ -2,6 +2,13 @@
   "index": "8",
   "name": "Crystal Trench",
   "flowChartGroup": "unfettered",
+  "coordinates": {
+    "x": 1570.25,
+    "y": 1158.875,
+    "width": 146,
+    "height": 100,
+    "gridLocation": "G8"
+  },
   "edition": "fh",
   "complexity": 1,
   "unlocks": [
@@ -9,7 +16,16 @@
     "16"
   ],
   "rewards": {
-    "custom": "Place map overlay sticker X on map in location X (C7)",
+    "overlaySticker": {
+      "name": "X",
+      "location": "C7",
+      "coordinates": {
+        "x": 1891,
+        "y": 866,
+        "width": 204,
+        "height": 336
+      }
+    },
     "collectiveResources": [
       {
         "type": "lumber",

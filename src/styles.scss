@@ -1643,6 +1643,7 @@ input[type="radio"] {
 
   .element {
     &.consume {
+      margin-right: 0.2em;
       &::before {
         left: 45%;
         top: 45%;
@@ -1661,6 +1662,7 @@ input[type="radio"] {
     height: initial;
 
     &.consume {
+      margin-right: 0.2em;
       &::before {
         left: 75%;
         top: 45%;

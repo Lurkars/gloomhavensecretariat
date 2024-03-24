@@ -3,10 +3,11 @@
   "name": "Bandit's Wood",
   "flowChartGroup": "personal-quests",
   "coordinates": {
-    "x": 533.2999877929688,
+    "x": 533.25,
     "y": 1017,
     "width": 182,
-    "height": 166
+    "height": 166,
+    "gridLocation": "G-4"
   },
   "edition": "gh",
   "rewards": {

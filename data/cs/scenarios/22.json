@@ -1,6 +1,7 @@
 {
   "index": "22",
   "name": "Imp Temple",
+  "flowChartGroup": "intro",
   "edition": "cs",
   "rewards": {
     "custom": "Each character gains +2 gold and 2 experience for each money token looted"

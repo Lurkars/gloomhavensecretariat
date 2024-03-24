@@ -16,16 +16,18 @@ export class AbilityDialogComponent implements OnInit {
   monster: Monster | undefined;
   character: Character | undefined;
   relative: boolean;
+  interactiveAbilities: boolean;
 
   opened: boolean = false;
 
   gameManager: GameManager = gameManager;
 
-  constructor(@Inject(DIALOG_DATA) data: { ability: Ability, monster: Monster, character: Character, relative: boolean }, private dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) data: { ability: Ability, monster: Monster, character: Character, relative: boolean, interactive: boolean }, private dialogRef: DialogRef) {
     this.ability = data.ability;
     this.monster = data.monster || undefined;
     this.character = data.character || undefined;
     this.relative = data.relative;
+    this.interactiveAbilities = data.interactive;
   }
 
   ngOnInit(): void {

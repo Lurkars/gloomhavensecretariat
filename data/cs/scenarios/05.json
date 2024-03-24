@@ -1,6 +1,7 @@
 {
   "index": "5",
   "name": "Blood of the Oozes",
+  "flowChartGroup": "infectious",
   "edition": "cs",
   "rewards": {
     "partyAchievements": [

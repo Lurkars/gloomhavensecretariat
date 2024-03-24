@@ -31,13 +31,32 @@
       ],
       [
         {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus"
+          "type": "custom",
+          "value": "%data.custom.gh.elder-drake.1%"
         },
         {
           "type": "summon",
-          "value": "zephyrs:2"
+          "value": "objectiveSpawn",
+          "valueObject": [
+            {
+              "objective": {
+                "name": "zephyr",
+                "health": 0,
+                "initiativeShare": "elder-drake:-0.5",
+                "actions": [
+                  {
+                    "type": "move",
+                    "value": 2
+                  },
+                  {
+                    "type": "attack",
+                    "value": "C"
+                  }
+                ]
+              },
+              "count": 2
+            }
+          ]
         }
       ]
     ]

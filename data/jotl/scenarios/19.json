@@ -1,6 +1,14 @@
 {
   "index": "19",
   "name": "Den of Thieves",
+  "flowChartGroup": "main",
+  "coordinates": {
+    "x": 238.5,
+    "y": 944.25,
+    "width": 248,
+    "height": 158,
+    "gridLocation": "D2"
+  },
   "edition": "jotl",
   "rewards": {
     "items": [

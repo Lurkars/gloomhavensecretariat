@@ -1,6 +1,7 @@
 {
   "index": "10",
   "name": "Den of Monstrosity",
+  "flowChartGroup": "wonderous",
   "edition": "cs",
   "unlocks": [
     "17",

@@ -1,6 +1,7 @@
 {
   "index": "18",
   "name": "Grab and Go",
+  "flowChartGroup": "intro",
   "edition": "cs",
   "unlocks": [
     "20",

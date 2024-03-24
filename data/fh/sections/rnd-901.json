@@ -3,6 +3,12 @@
   "group": "randomMonsterCard",
   "name": "Deomesticated",
   "edition": "fh",
+  "named": true,
+  "monsters": [
+    "abael-herder",
+    "abael-scout",
+    "piranha-pig"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

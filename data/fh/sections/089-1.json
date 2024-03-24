@@ -10,10 +10,10 @@
   ],
   "marker": "2",
   "monsters": [
-    "frozen-corpse-scenario-65",
-    "living-bones-scenario-65",
+    "frozen-corpse",
+    "living-bones",
     "rimeheart",
-    "snow-imp-scenario-65"
+    "snow-imp"
   ],
   "objectives": [
     {
@@ -31,25 +31,25 @@
       ],
       "monster": [
         {
-          "name": "frozen-corpse-scenario-65",
+          "name": "frozen-corpse",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "frozen-corpse-scenario-65",
+          "name": "frozen-corpse",
           "player4": "normal"
         },
         {
-          "name": "living-bones-scenario-65",
+          "name": "living-bones",
           "type": "normal"
         },
         {
-          "name": "living-bones-scenario-65",
+          "name": "living-bones",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "living-bones-scenario-65",
+          "name": "living-bones",
           "player4": "normal"
         },
         {
@@ -57,11 +57,11 @@
           "type": "elite"
         },
         {
-          "name": "snow-imp-scenario-65",
+          "name": "snow-imp",
           "type": "elite"
         },
         {
-          "name": "snow-imp-scenario-65",
+          "name": "snow-imp",
           "type": "elite"
         }
       ],

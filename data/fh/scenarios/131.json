@@ -2,6 +2,13 @@
   "index": "131",
   "name": "The Dancing Iceberg",
   "flowChartGroup": "other",
+  "coordinates": {
+    "x": 1138.5,
+    "y": 453.5,
+    "width": 98,
+    "height": 53,
+    "gridLocation": "K2"
+  },
   "edition": "fh",
   "complexity": 3,
   "rewards": {

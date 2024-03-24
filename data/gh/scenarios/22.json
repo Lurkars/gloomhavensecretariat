@@ -2,10 +2,11 @@
   "index": "22",
   "name": "Temple of the Elements",
   "coordinates": {
-    "x": 1168.6999969482422,
+    "x": 1168.75,
     "y": 1583,
     "width": 206,
-    "height": 162
+    "height": 162,
+    "gridLocation": "K-8"
   },
   "edition": "gh",
   "unlocks": [
@@ -51,6 +52,39 @@
       "name": "Altar",
       "health": "4+(CxL)",
       "marker": "a"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "requiredRooms": [
+        2
+      ],
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": ".*demon.*"
+          },
+          "reference": {
+            "identifier": {
+              "type": "objective",
+              "name": "Altar"
+            },
+            "type": "present"
+          },
+          "statEffect": {
+            "health": "X",
+            "movement": "[X/2{$math.ceil}]",
+            "attack": "X",
+            "range": "[X/2{$math.ceil}]"
+          },
+          "note": "%data.scenario.rules.gh.22.1%"
+        }
+      ]
     }
   ],
   "rooms": [
@@ -109,6 +143,12 @@
           "player3": "normal",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1
       ]
     },
     {
@@ -124,9 +164,6 @@
           "player3": "normal",
           "player4": "normal"
         }
-      ],
-      "objectives": [
-        1
       ]
     },
     {
@@ -141,9 +178,6 @@
           "name": "wind-demon",
           "player4": "normal"
         }
-      ],
-      "objectives": [
-        1
       ]
     },
     {
@@ -158,9 +192,6 @@
           "name": "frost-demon",
           "player4": "normal"
         }
-      ],
-      "objectives": [
-        1
       ]
     },
     {
@@ -176,9 +207,6 @@
           "player3": "normal",
           "player4": "normal"
         }
-      ],
-      "objectives": [
-        1
       ]
     }
   ]

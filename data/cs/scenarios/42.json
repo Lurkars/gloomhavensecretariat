@@ -1,6 +1,7 @@
 {
   "index": "42",
   "name": "Unnatural Beasts",
+  "flowChartGroup": "city-events",
   "edition": "cs",
   "rewards": {
     "experience": 10,

@@ -6,10 +6,9 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
-import { Objective } from "src/app/game/model/Objective";
+import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 import { ghsDefaultDialogPositions } from "src/app/ui/helper/Static";
 import { CharacterInitiativeDialogComponent } from "./initiative-dialog";
-import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 
 
 @Component({
@@ -19,15 +18,14 @@ import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 })
 export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
 
-  @Input() figure!: Character | Objective | ObjectiveContainer;
-  @ViewChild('initativeInput', { static: false }) initiativeInput!: ElementRef;
+  @Input() figure!: Character | ObjectiveContainer;
+  @ViewChild('initiativeInput', { static: false }) initiativeInput!: ElementRef;
 
   characterManager: CharacterManager = gameManager.characterManager;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   character: Character | undefined;
-  objective: Objective | undefined;
   objectiveContainer: ObjectiveContainer | undefined;
 
   constructor(private dialog: Dialog, private overlay: Overlay, public elementRef: ElementRef) { };
@@ -35,8 +33,6 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     if (this.figure instanceof Character) {
       this.character = this.figure;
-    } else if (this.figure instanceof Objective) {
-      this.objective = this.figure;
     } else if (this.figure instanceof ObjectiveContainer) {
       this.objectiveContainer = this.figure;
     }
@@ -71,6 +67,11 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
             event.preventDefault();
             event.stopPropagation();
           }
+        } else if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'n') {
+          const current = document.getElementById('initiative-input-' + tabindex);
+          if (current && document.activeElement == current) {
+            current.blur();
+          }
         }
       })
     }
@@ -98,8 +99,6 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
         if (initiative == 99) {
           this.character.longRest = true;
         }
-      } else if (this.objective) {
-        gameManager.stateManager.before("setInitiative", "data.objective." + this.figure.name, "" + initiative);
       }
       this.figure.initiative = initiative;
       if (gameManager.game.state == GameState.next) {

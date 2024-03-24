@@ -2,6 +2,13 @@
   "index": "35",
   "name": "Scrap Pit",
   "flowChartGroup": "unfettered",
+  "coordinates": {
+    "x": 1876.25,
+    "y": 1396.25,
+    "width": 116,
+    "height": 83,
+    "gridLocation": "C10"
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

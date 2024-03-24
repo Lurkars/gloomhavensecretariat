@@ -1,0 +1,31 @@
+{
+  "index": "rnd",
+  "group": "randomDungeon",
+  "name": "Random Dungeon",
+  "edition": "fh",
+  "hideIndex": true,
+  "initial": true,
+  "lootDeckConfig": {
+    "money": 12,
+    "lumber": 2,
+    "metal": 2,
+    "hide": 2,
+    "snowthistle": 1,
+    "arrowvine": 1,
+    "axenut": 1,
+    "flamefruit": 1,
+    "corpsecap": 1,
+    "rockroot": 1
+  },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "randomDungeon": {
+        "monsterCount": 3,
+        "dungeonCount": 3,
+        "initial": true
+      }
+    }
+  ]
+}

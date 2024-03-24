@@ -1,6 +1,7 @@
 {
   "index": "21",
   "name": "A Fiery Death",
+  "flowChartGroup": "intro",
   "edition": "cs",
   "unlocks": [
     "27"

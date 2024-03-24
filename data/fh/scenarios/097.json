@@ -2,6 +2,13 @@
   "index": "97",
   "name": "Program Control Nexus",
   "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 1811.75,
+    "y": 1545.25,
+    "width": 110,
+    "height": 83,
+    "gridLocation": "D12"
+  },
   "edition": "fh",
   "complexity": 3,
   "unlocks": [

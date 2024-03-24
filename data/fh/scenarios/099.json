@@ -2,6 +2,13 @@
   "index": "99",
   "name": "Prison Break",
   "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 2125.75,
+    "y": 700.75,
+    "width": 70,
+    "height": 72,
+    "gridLocation": "A4"
+  },
   "edition": "fh",
   "complexity": 1,
   "unlocks": [

@@ -3,6 +3,13 @@
   "name": "Buried Ducts",
   "flowChartGroup": "unfettered",
   "errata": "scenario36-37",
+  "coordinates": {
+    "x": 1960,
+    "y": 1267.25,
+    "width": 110,
+    "height": 71,
+    "gridLocation": "C9"
+  },
   "edition": "fh",
   "complexity": 1,
   "unlocks": [

@@ -2,6 +2,13 @@
   "index": "19",
   "name": "Skyhall",
   "flowChartGroup": "algox-2",
+  "coordinates": {
+    "x": 819.125,
+    "y": 1013.375,
+    "width": 90,
+    "height": 82,
+    "gridLocation": "N7"
+  },
   "edition": "fh",
   "complexity": 3,
   "rewards": {

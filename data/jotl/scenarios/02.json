@@ -1,0 +1,87 @@
+{
+  "index": "2",
+  "name": "A Hole in the Wall",
+  "flowChartGroup": "intro",
+  "coordinates": {
+    "x": 129.5,
+    "y": 519,
+    "width": 291,
+    "height": 184,
+    "gridLocation": "B1"
+  },
+  "edition": "jotl",
+  "unlocks": [
+    "3"
+  ],
+  "rewards": {
+    "gold": 25,
+    "itemDesigns": [
+      "1-13"
+    ],
+    "ignoredBonus": [
+      "experience"
+    ]
+  },
+  "monsters": [
+    "basic-vermling-raider"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl02-1",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "basic-vermling-raider",
+          "type": "normal"
+        },
+        {
+          "name": "basic-vermling-raider",
+          "type": "normal"
+        },
+        {
+          "name": "basic-vermling-raider",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "basic-vermling-raider",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "basic-vermling-raider",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "jotl02-2",
+      "treasures": [
+        14
+      ],
+      "monster": [
+        {
+          "name": "basic-vermling-raider",
+          "type": "normal"
+        },
+        {
+          "name": "basic-vermling-raider",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "basic-vermling-raider",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

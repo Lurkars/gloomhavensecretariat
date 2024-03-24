@@ -83,20 +83,10 @@
           <span class="actions" *ngIf="settingsManager.settings.characterShieldRetaliate">
             <span class="action" *ngIf="character.shield" ghs-pointer-input (singleClick)="openEntityMenu($event)"
               (doubleClick)="removeShield()">
-              <!--
-              <span class="shield-overlay">
-                <span class="text-white" [ghs-label]="'%game.card.round%'"></span>
-              </span>
-              -->
               <ghs-action [action]="character.shield" [style]="'fh'"></ghs-action>
             </span>
             <span class="action" *ngFor="let retaliate of character.retaliate; let i = index;" ghs-pointer-input
               (singleClick)="openEntityMenu($event)" (doubleClick)="removeRetaliate(i)">
-              <!--
-              <span class="shield-overlay">
-                <span class="text-white" [ghs-label]="'%game.card.round%'"></span>
-              </span>
-              -->
               <ghs-action [action]="retaliate" [style]="'fh'"></ghs-action>
             </span>
 

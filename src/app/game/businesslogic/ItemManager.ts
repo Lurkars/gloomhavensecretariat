@@ -288,11 +288,6 @@ export class ItemManager {
     }
 
     countAvailable(item: ItemData): number {
-        const existing = gameManager.itemManager.getItems(item.edition).find((available) => available.id == item.id && available.edition == item.edition);
-        if (!existing) {
-            return -1;
-        }
-
         const assigned = this.assigned(item);
         if (!this.isItemAvailable(item, item.edition, false)) {
             const unlocked = gameManager.game.party.unlockedItems.find((identifier) => +identifier.name == item.id && identifier.edition == item.edition);
@@ -302,6 +297,7 @@ export class ItemManager {
                 }
                 return unlocked.count - assigned;
             }
+            return -1;
         }
 
         if (item.count - assigned < 0) {

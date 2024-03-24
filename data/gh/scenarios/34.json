@@ -3,10 +3,11 @@
   "name": "Scorched Summit",
   "flowChartGroup": "dragons",
   "coordinates": {
-    "x": 524.2999877929688,
+    "x": 524.25,
     "y": 47,
     "width": 191,
-    "height": 165
+    "height": 165,
+    "gridLocation": "A-4"
   },
   "edition": "gh",
   "requires": [

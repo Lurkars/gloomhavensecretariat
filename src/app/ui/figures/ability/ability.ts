@@ -1,11 +1,13 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from "@angular/core";
+import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from "@angular/core";
+import { Subscription } from "rxjs";
+import { InteractiveAction } from "src/app/game/businesslogic/ActionsManager";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Ability } from "src/app/game/model/data/Ability";
 import { Character } from "src/app/game/model/Character";
 import { Monster } from "src/app/game/model/Monster";
+import { Ability } from "src/app/game/model/data/Ability";
+import { ActionValueType } from "src/app/game/model/data/Action";
 import { applyPlaceholder } from "../../helper/label";
-import { Subscription } from "rxjs";
 
 
 @Component({
@@ -22,14 +24,24 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
   @Input() flipped: boolean = false;
   @Input() reveal: boolean = false;
   @Input() relative: boolean = false;
-  @Input() highlightElements: boolean = false;
+  @Input() interactiveAbilities: boolean = false;
   @Input() statsCalculation: boolean = true;
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
+  ActionValueType = ActionValueType;
 
   abilityIndex: number = -1;
   abilityLabel: string = "";
+
+  interactiveActions: InteractiveAction[] = [];
+  interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
+  interactiveBottomActions: InteractiveAction[] = [];
+  interactiveBottomActionsChange = new EventEmitter<InteractiveAction[]>();
+
+  fontsize: string = "";
+
+  constructor(public elementRef: ElementRef) { }
 
   ngOnInit() {
     this.update();
@@ -53,6 +65,7 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   update() {
+    this.fontsize = (this.elementRef.nativeElement.offsetWidth * 0.04) + 'px'
     this.abilityIndex = -1;
     this.abilityLabel = "";
     if (this.ability) {
@@ -92,4 +105,19 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
       this.ability.revealed = revealed;
     }
   }
+
+  onInteractiveActionsChange(change: InteractiveAction[]) {
+    if (this.interactiveAbilities) {
+      this.interactiveActionsChange.emit(change);
+      this.interactiveActions = change;
+    }
+  }
+
+  onInteractiveBottomActionsChange(change: InteractiveAction[]) {
+    if (this.interactiveAbilities) {
+      this.interactiveBottomActionsChange.emit(change);
+      this.interactiveBottomActions = change;
+    }
+  }
+
 }

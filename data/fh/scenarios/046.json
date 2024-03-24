@@ -2,6 +2,13 @@
   "index": "46",
   "name": "Dead Pass",
   "flowChartGroup": "algox-3",
+  "coordinates": {
+    "x": 2025.5,
+    "y": 1570.75,
+    "width": 130,
+    "height": 92,
+    "gridLocation": "B12"
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

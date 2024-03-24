@@ -3,10 +3,11 @@
   "name": "Overgrown Graveyard",
   "flowChartGroup": "city-events",
   "coordinates": {
-    "x": 1851.0999755859375,
+    "x": 1851,
     "y": 997,
     "width": 200,
-    "height": 130
+    "height": 130,
+    "gridLocation": "G-12"
   },
   "edition": "gh",
   "requirements": [

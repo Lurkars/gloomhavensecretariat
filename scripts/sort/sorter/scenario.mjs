@@ -43,7 +43,7 @@ export const sortScenario = function (scenario) {
             scenario.rewards.hints = sortObjectKeys(scenario.rewards.hints, "globalAchievements", "partyAchievements", "lostPartyAchievements", "envelopes", "gold", "experience", "collectiveGold", "reputation", "prosperity", "perks", "battleGoals", "items", "chooseItem", "itemDesigns", "events", "custom");
         }
 
-        scenario.rewards = sortObjectKeys(scenario.rewards, "globalAchievements", "partyAchievements", "lostPartyAchievements", "envelopes", "gold", "experience", "collectiveGold", "reputation", "prosperity", "perks", "battleGoals", "items", "chooseItem", "itemDesigns", "events", "custom", "ignoredBonus", "hints");
+        scenario.rewards = sortObjectKeys(scenario.rewards, "globalAchievements", "partyAchievements", "lostPartyAchievements", "envelopes", "gold", "experience", "collectiveGold", "reputation", "prosperity", "perks", "battleGoals", "items", "chooseItem", "itemDesigns", "events", "overlayCampaignSticker", "overlaySticker", "custom", "ignoredBonus", "hints");
     }
 
     if (scenario.rules) {
@@ -54,5 +54,5 @@ export const sortScenario = function (scenario) {
         scenario.requirements = scenario.requirements.map((requirements) => sortObjectKeys(requirements, 'global', 'party', 'buildings', 'campaignSticker', 'puzzle', 'solo'));
     }
 
-    return sortObjectKeys(scenario, 'index', 'group', 'name', 'flowChartGroup', 'errata', 'gridLocation', 'coordinates', 'edition', 'complexity', 'parent', 'parentSections', 'conclusion', 'named', 'hideIndex', 'blockedSections', 'marker', 'spoiler', 'initial', 'random', 'solo', 'allyDeck', 'resetRound', 'unlocks', 'requires', 'requirements', 'blocks', 'links', "forcedLinks", "rewards", 'monsters', 'allies', 'allied', 'drawExtra', 'objectives', 'lootDeckConfig', 'rules', 'rooms');
+    return sortObjectKeys(scenario, 'index', 'group', 'name', 'flowChartGroup', 'errata', 'coordinates', 'edition', 'complexity', 'parent', 'parentSections', 'conclusion', 'named', 'hideIndex', 'blockedSections', 'marker', 'spoiler', 'initial', 'random', 'solo', 'allyDeck', 'resetRound', 'unlocks', 'requires', 'requirements', 'blocks', 'links', "forcedLinks", "rewards", 'monsters', 'allies', 'allied', 'drawExtra', 'objectives', 'lootDeckConfig', 'rules', 'rooms');
 }

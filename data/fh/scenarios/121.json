@@ -2,6 +2,13 @@
   "index": "121",
   "name": "Black Memories",
   "flowChartGroup": "other",
+  "coordinates": {
+    "x": 1930.75,
+    "y": 1640.5,
+    "width": 100,
+    "height": 97,
+    "gridLocation": "C13"
+  },
   "edition": "fh",
   "complexity": 3,
   "monsters": [

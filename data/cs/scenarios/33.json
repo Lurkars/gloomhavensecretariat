@@ -1,6 +1,7 @@
 {
   "index": "33",
   "name": "Siege Tower",
+  "flowChartGroup": "personal-quests",
   "edition": "cs",
   "unlocks": [
     "34"

@@ -3,10 +3,11 @@
   "name": "Diamond Mine",
   "flowChartGroup": "the-merchant",
   "coordinates": {
-    "x": 236.0999755859375,
-    "y": 1713,
+    "x": 235.5,
+    "y": 1713.75,
     "width": 202,
-    "height": 176
+    "height": 176,
+    "gridLocation": "L-2"
   },
   "edition": "gh",
   "unlocks": [

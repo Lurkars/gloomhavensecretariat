@@ -1,6 +1,7 @@
 {
   "index": "32a",
   "name": "Confronting the Past A",
+  "flowChartGroup": "intro",
   "edition": "cs",
   "requirements": [
     {

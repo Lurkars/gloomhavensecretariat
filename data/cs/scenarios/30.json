@@ -1,6 +1,7 @@
 {
   "index": "30",
   "name": "Undead Terrors",
+  "flowChartGroup": "tainted",
   "edition": "cs",
   "monsters": [
     "living-corpse",

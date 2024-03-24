@@ -2,6 +2,13 @@
   "index": "113",
   "name": "Lush Grotto",
   "flowChartGroup": "other",
+  "coordinates": {
+    "x": 1496.75,
+    "y": 1241.75,
+    "width": 89,
+    "height": 71,
+    "gridLocation": "G9"
+  },
   "edition": "fh",
   "complexity": 1,
   "rewards": {

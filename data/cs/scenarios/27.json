@@ -1,6 +1,7 @@
 {
   "index": "27",
   "name": "Frostbite Cavern",
+  "flowChartGroup": "intro",
   "edition": "cs",
   "unlocks": [
     "28"

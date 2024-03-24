@@ -3,6 +3,11 @@
   "group": "randomMonsterCard",
   "name": "Horrific",
   "edition": "gh",
+  "named": true,
+  "monsters": [
+    "black-imp",
+    "deep-terror"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

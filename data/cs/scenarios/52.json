@@ -1,6 +1,7 @@
 {
   "index": "52",
   "name": "Wishing Well",
+  "flowChartGroup": "side-quests",
   "edition": "cs",
   "rewards": {
     "items": [

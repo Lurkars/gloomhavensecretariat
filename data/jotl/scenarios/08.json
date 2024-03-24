@@ -1,0 +1,126 @@
+{
+  "index": "8",
+  "name": "Hidden Tumor",
+  "flowChartGroup": "main",
+  "coordinates": {
+    "x": 942.25,
+    "y": 797.25,
+    "width": 281,
+    "height": 196,
+    "gridLocation": "C4"
+  },
+  "edition": "jotl",
+  "blocks": [
+    "7"
+  ],
+  "rewards": {
+    "experience": 20
+  },
+  "monsters": [
+    "blood-tumor",
+    "chaos-demon",
+    "zealot"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "blood-tumor"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "blood-tumor"
+          },
+          "type": "damage",
+          "value": "Cx2"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl08-1",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "treasures": [
+        4
+      ],
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "zealot",
+          "type": "elite"
+        },
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "zealot",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "jotl08-2",
+      "marker": "1",
+      "monster": [
+        {
+          "name": "blood-tumor",
+          "type": "boss"
+        },
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

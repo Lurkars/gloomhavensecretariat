@@ -1,0 +1,18 @@
+{
+  "index": "9-7",
+  "name": "Sunken Tumor",
+  "coordinates": {
+    "x": 409.5,
+    "y": 1024.5,
+    "width": 292,
+    "height": 211,
+    "gridLocation": "D2",
+    "image": "jotl-009-7"
+  },
+  "edition": "jotl",
+  "parent": "7",
+  "conclusion": true,
+  "unlocks": [
+    "9"
+  ]
+}

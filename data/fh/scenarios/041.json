@@ -2,6 +2,13 @@
   "index": "41",
   "name": "Unfettered Shard",
   "flowChartGroup": "algox-2",
+  "coordinates": {
+    "x": 1678.25,
+    "y": 1481.75,
+    "width": 85,
+    "height": 67,
+    "gridLocation": "E12"
+  },
   "edition": "fh",
   "complexity": 2,
   "requirements": [

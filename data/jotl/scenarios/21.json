@@ -1,6 +1,14 @@
 {
   "index": "21",
   "name": "Agents of Chaos",
+  "flowChartGroup": "city-events",
+  "coordinates": {
+    "x": 2012.25,
+    "y": 756.25,
+    "width": 294,
+    "height": 262,
+    "gridLocation": "C9"
+  },
   "edition": "jotl",
   "rewards": {
     "gold": 15

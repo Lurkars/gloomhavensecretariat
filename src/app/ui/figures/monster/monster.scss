@@ -52,6 +52,8 @@
 
   ghs-monster-ability-card {
     margin: 0 calc(var(--ghs-unit) * 0.5);
+    overflow: hidden;
+    border-radius: calc(var(--ghs-unit) * 1);
   }
 
   ghs-monster-numberpicker {

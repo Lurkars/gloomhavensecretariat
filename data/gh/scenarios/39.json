@@ -3,10 +3,11 @@
   "name": "Treacherous Divide",
   "flowChartGroup": "atop-mountains",
   "coordinates": {
-    "x": 1555,
-    "y": 191,
+    "x": 1556.25,
+    "y": 192.5,
     "width": 202,
-    "height": 148
+    "height": 148,
+    "gridLocation": "B-11"
   },
   "edition": "gh",
   "unlocks": [

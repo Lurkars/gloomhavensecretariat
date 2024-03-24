@@ -1,13 +1,15 @@
-import { GameMonsterEntityModel, MonsterEntity } from "./MonsterEntity";
-import { Ability } from "./data/Ability";
-import { Figure } from "./Figure";
-import { MonsterData } from "./data/MonsterData";
 import { gameManager } from "../businesslogic/GameManager";
+import { Figure } from "./Figure";
+import { GameMonsterEntityModel, MonsterEntity } from "./MonsterEntity";
 import { SummonColor } from "./Summon";
+import { Ability } from "./data/Ability";
+import { MonsterData } from "./data/MonsterData";
+import { MonsterStatEffect } from "./data/MonsterStat";
 
 export class Monster extends MonsterData implements Figure {
 
   summonColor: SummonColor = SummonColor.blue;
+  statEffect: MonsterStatEffect | undefined;
 
   // from figure
   level: number;
@@ -107,6 +109,7 @@ export class Monster extends MonsterData implements Figure {
     })
     this.isAlly = model.isAlly;
     this.isAllied = model.isAllied;
+    this.statEffect = undefined;
   }
 }
 

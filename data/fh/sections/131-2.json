@@ -34,7 +34,7 @@
         {
           "identifier": {
             "type": "monster",
-            "name": "fish-king-scenario-77",
+            "name": "fish-king",
             "health": "[H/2{$math.ceil}]"
           },
           "type": "present"
@@ -42,7 +42,7 @@
         {
           "identifier": {
             "type": "monster",
-            "name": "fish-king-scenario-77"
+            "name": "fish-king"
           },
           "type": "setHp",
           "value": "[H/2{$math.ceil}]"

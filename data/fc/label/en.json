@@ -184,6 +184,14 @@
       "valrath-savage": {
         "1": "All adjacent allies add +1 %game.action.attack% to all attacks",
         "2": "All adjacent allies add +2 %game.action.attack% to all attacks"
+      },
+      "flowChartGroup": {
+        "diviner": "Diviner",
+        "orchid-society": "Orchid society",
+        "citizens": "Citizens of Gloomhaven",
+        "the-rift": "The rift device",
+        "tainted-crypt": "Tainted crypt",
+        "corruption": "Corruption"
       }
     }
   }

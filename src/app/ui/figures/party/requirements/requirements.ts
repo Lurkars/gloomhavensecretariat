@@ -169,7 +169,7 @@ export class ScenarioRequirementsComponent {
         gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(this.scenarioData)));
         gameManager.scenarioManager.setScenario(new Scenario(this.scenarioData));
         gameManager.stateManager.after();
-        this.close();
+        ghsDialogClosingHelper(this.dialogRef, true);
     }
 
     close() {

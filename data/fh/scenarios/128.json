@@ -2,6 +2,13 @@
   "index": "128",
   "name": "A Tall Drunken Tale",
   "flowChartGroup": "other",
+  "coordinates": {
+    "x": 1416,
+    "y": 2373,
+    "width": 113,
+    "height": 99,
+    "gridLocation": "FR"
+  },
   "edition": "fh",
   "complexity": 3,
   "monsters": [
@@ -65,6 +72,13 @@
       ]
     },
     {
+      "round": "R == 5",
+      "start": true,
+      "sections": [
+        "124.3"
+      ]
+    },
+    {
       "round": "R == 6",
       "start": true,
       "sections": [
@@ -72,10 +86,24 @@
       ]
     },
     {
+      "round": "R == 7",
+      "start": true,
+      "sections": [
+        "166.2"
+      ]
+    },
+    {
       "round": "R == 8",
       "start": true,
       "sections": [
         "132.4"
+      ]
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "sections": [
+        "186.4"
       ]
     },
     {

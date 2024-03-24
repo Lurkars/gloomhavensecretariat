@@ -1,5 +1,5 @@
 import { Game } from "../model/Game";
-import { BuildingRewards } from "../model/data/BuildingData";
+import { BuildingData, BuildingRewards } from "../model/data/BuildingData";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { gameManager } from "./GameManager";
 
@@ -64,5 +64,13 @@ export class BuildingsManager {
 
       return result;
     }
+  }
+
+  initialBuilding(buildingData: BuildingData): boolean {
+    return buildingData.costs.prosperity == 0 && buildingData.costs.lumber == 0 && buildingData.costs.metal == 0 && buildingData.costs.hide == 0 && buildingData.costs.gold == 0;
+  }
+
+  availableBuilding(buildingData: BuildingData): boolean {
+    return buildingData.prosperityUnlock && buildingData.costs.prosperity <= gameManager.prosperityLevel() && !gameManager.game.party.buildings.find((model) => buildingData.name == model.name && model.level) && (!buildingData.requires || gameManager.game.party.buildings.find((model) => model.name == buildingData.requires && model.level) != undefined);
   }
 }

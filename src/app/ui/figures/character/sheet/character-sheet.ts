@@ -412,7 +412,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   addPerk(index: number, value: number, force: boolean = false) {
     const disabled: boolean = !this.forceEdit && (gameManager.game.state != GameState.draw || gameManager.game.round > 0) || this.character.progress.perks[index] < value && this.availablePerks < value - this.character.progress.perks[index];
 
-    if (!disabled || force) {
+    if (!disabled || force && !settingsManager.settings.characterSheetLocked && this.editable) {
       gameManager.stateManager.before("setPerk", gameManager.characterManager.characterName(this.character), "" + index, "" + value);
       const lowerShacklesHP = this.character.name == 'shackles' && this.character.edition == 'fh' && index == 11 && this.character.progress.perks[index] == 2;
       if (this.character.progress.perks[index] && this.character.progress.perks[index] == value) {

@@ -1,6 +1,7 @@
 {
   "index": "24",
   "name": "Eerie Grotto",
+  "flowChartGroup": "chilly",
   "edition": "cs",
   "unlocks": [
     "26"

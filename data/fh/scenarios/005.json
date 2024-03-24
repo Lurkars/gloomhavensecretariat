@@ -2,6 +2,13 @@
   "index": "5",
   "name": "Frozen Crypt",
   "flowChartGroup": "algox-1",
+  "coordinates": {
+    "x": 1293.5,
+    "y": 961.75,
+    "width": 127,
+    "height": 77,
+    "gridLocation": "I6"
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

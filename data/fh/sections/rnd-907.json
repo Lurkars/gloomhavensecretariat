@@ -3,6 +3,12 @@
   "group": "randomMonsterCard",
   "name": "Unsettling",
   "edition": "fh",
+  "named": true,
+  "monsters": [
+    "black-imp",
+    "chaos-demon",
+    "ooze"
+  ],
   "rules": [
     {
       "round": "true",

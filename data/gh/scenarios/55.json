@@ -6,7 +6,8 @@
     "x": 656,
     "y": 980,
     "width": 176,
-    "height": 157
+    "height": 157,
+    "gridLocation": "G-5"
   },
   "edition": "gh",
   "unlocks": [
@@ -33,6 +34,31 @@
           "scenarioEffect": true
         }
       ]
+    },
+    {
+      "round": "R == 1",
+      "start": true,
+      "randomDungeon": {
+        "monsterCount": 3,
+        "monsterCards": [
+          "554",
+          "558",
+          "560",
+          "564",
+          "567",
+          "571"
+        ],
+        "dungeonCount": 3,
+        "dungeonCards": [
+          "Trail",
+          "Encampment",
+          "Clearing",
+          "Road",
+          "Cabin",
+          "Crossroads"
+        ],
+        "initial": true
+      }
     }
   ]
 }

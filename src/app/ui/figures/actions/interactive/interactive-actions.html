@@ -1,0 +1,25 @@
+<div *ngIf="interactiveActions.length || interactiveActionEntities.length" class="interactive-entities" ghs-pointer-input
+    (singleClick)="applyInteractiveActions($event)">
+    <span [ghs-label]="interactiveActions.length ? 'monster.applyInteractiveActions' : 'monster.skipInteractiveActions'"></span>
+    <span class="entity-numbers">
+        <span class="entity" *ngFor="let entity of interactiveActionEntities; let i = index">
+            <span *ngIf="i > 0">,</span>
+            <span class="number"
+                [class]="gameManager.isMonsterEntity(entity) && gameManager.toMonsterEntity(entity).type || ''">{{entity.number}}</span>
+        </span>
+    </span>
+
+    <span class="choose-element-container" *ngIf="chooseElementAction">
+        <span class="element" [ngClass]="{'consume' : chooseElementAction.action.valueType == ActionValueType.minus}">
+            <img
+                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/wild.svg'" />
+        </span>
+        <span class="element choose-element"
+            [ngClass]="{'consume' : chooseElementAction.action.valueType == ActionValueType.minus}" ghs-pointer-input
+            (singleClick)="selectWildElement($event, chooseElement)"
+            *ngFor="let chooseElement of (chooseElementAction.action.valueType == ActionValueType.minus ? wildToConsume() : wildToCreate())">
+            <img
+                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/' + chooseElement + '.svg'" />
+        </span>
+    </span>
+</div>

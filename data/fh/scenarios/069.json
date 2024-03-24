@@ -2,6 +2,13 @@
   "index": "69",
   "name": "Sacred Soil",
   "flowChartGroup": "personal-quests",
+  "coordinates": {
+    "x": 558.25,
+    "y": 476.75,
+    "width": 140,
+    "height": 97,
+    "gridLocation": "P2"
+  },
   "edition": "fh",
   "complexity": 2,
   "requirements": [

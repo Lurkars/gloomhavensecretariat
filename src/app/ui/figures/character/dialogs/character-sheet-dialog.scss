@@ -5,4 +5,35 @@
   ghs-character-sheet {
     display: block;
   }
+
+  .lock-toggle {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    overflow: visible;
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: calc(var(--ghs-unit) * 3.2 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 3.2 * var(--ghs-dialog-factor));
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &.permissive {
+      opacity: 0.6;
+    }
+
+    z-index: 2;
+  }
 }

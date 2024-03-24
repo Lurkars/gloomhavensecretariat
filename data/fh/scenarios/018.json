@@ -3,6 +3,13 @@
   "name": "Crystal Fields",
   "flowChartGroup": "algox-1",
   "errata": "scenario18",
+  "coordinates": {
+    "x": 1755.5,
+    "y": 960.75,
+    "width": 141,
+    "height": 99,
+    "gridLocation": "E7"
+  },
   "edition": "fh",
   "complexity": 1,
   "rewards": {

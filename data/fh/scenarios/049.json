@@ -2,6 +2,13 @@
   "index": "49",
   "name": "Beneath Sea and Stone",
   "flowChartGroup": "lurker",
+  "coordinates": {
+    "x": 1492.5,
+    "y": 530.5,
+    "width": 130,
+    "height": 86,
+    "gridLocation": "G3"
+  },
   "edition": "fh",
   "complexity": 3,
   "unlocks": [

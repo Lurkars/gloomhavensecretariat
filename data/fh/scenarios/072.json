@@ -2,6 +2,13 @@
   "index": "72",
   "name": "A Giant Block of Ice",
   "flowChartGroup": "personal-quests",
+  "coordinates": {
+    "x": 2147.25,
+    "y": 813.25,
+    "width": 89,
+    "height": 74,
+    "gridLocation": "A5"
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

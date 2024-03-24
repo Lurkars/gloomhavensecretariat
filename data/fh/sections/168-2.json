@@ -12,6 +12,16 @@
     "50"
   ],
   "rewards": {
-    "custom": "Place map overlay sticker Z on map in location Z (F2).<br>Do not resolve an outpost event this week."
+    "overlaySticker": {
+      "name": "Z",
+      "location": "F2",
+      "coordinates": {
+        "x": 1444,
+        "y": 350,
+        "width": 366,
+        "height": 288
+      }
+    },
+    "custom": "Do not resolve an outpost event this week."
   }
 }

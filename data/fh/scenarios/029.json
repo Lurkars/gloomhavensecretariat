@@ -2,6 +2,13 @@
   "index": "29",
   "name": "War of the Spire A",
   "flowChartGroup": "algox-1",
+  "coordinates": {
+    "x": 1679.75,
+    "y": 1062,
+    "width": 109,
+    "height": 99,
+    "gridLocation": "F8"
+  },
   "edition": "fh",
   "complexity": 2,
   "blocks": [

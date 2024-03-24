@@ -2,6 +2,13 @@
   "index": "14",
   "name": "Jagged Shoals",
   "flowChartGroup": "lurker",
+  "coordinates": {
+    "x": 1006.5,
+    "y": 455.5,
+    "width": 120,
+    "height": 71,
+    "gridLocation": "L2"
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

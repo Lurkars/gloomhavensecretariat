@@ -1,0 +1,39 @@
+{
+  "index": "53",
+  "name": "A Steep, Rocky Path",
+  "edition": "fc",
+  "parent": "103",
+  "parentSections": [
+    [
+      "9"
+    ]
+  ],
+  "marker": "c",
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "randomDungeon": {
+        "monsterCount": 1,
+        "monsterCards": [
+          "570",
+          "560",
+          "555",
+          "554",
+          "561",
+          "564",
+          "568",
+          "558"
+        ],
+        "initial": true
+      }
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "ref": "M1b"
+    }
+  ]
+}

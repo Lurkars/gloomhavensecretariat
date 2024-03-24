@@ -3,10 +3,11 @@
   "name": "Slave Pens",
   "flowChartGroup": "through-jungles",
   "coordinates": {
-    "x": 286.0999755859375,
+    "x": 286,
     "y": 960,
     "width": 173,
-    "height": 174
+    "height": 174,
+    "gridLocation": "G-2"
   },
   "edition": "gh",
   "unlocks": [

@@ -1,6 +1,14 @@
 {
   "index": "23",
   "name": "The Best of the Best",
+  "flowChartGroup": "characters",
+  "coordinates": {
+    "x": 1138.5,
+    "y": 574.5,
+    "width": 287,
+    "height": 182,
+    "gridLocation": "B5"
+  },
   "edition": "jotl",
   "rewards": {
     "items": [

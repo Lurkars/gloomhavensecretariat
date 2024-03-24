@@ -1,5 +1,5 @@
 import { DialogRef, DIALOG_DATA, Dialog } from "@angular/cdk/dialog";
-import { Component, Inject } from "@angular/core";
+import { Component, Inject, OnDestroy } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { Character } from "src/app/game/model/Character";
 import { ItemData } from "src/app/game/model/data/ItemData";
@@ -22,7 +22,7 @@ import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
     templateUrl: './scenario-summary.html',
     styleUrls: ['./scenario-summary.scss']
 })
-export class ScenarioSummaryComponent {
+export class ScenarioSummaryComponent implements OnDestroy {
 
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
@@ -120,7 +120,7 @@ export class ScenarioSummaryComponent {
             this.totalGold += gameManager.lootManager.getTotal(gameManager.game.lootDeck, LootType.special2);
         }
 
-        this.alreadyWarning = !this.rewardsOnly && gameManager.game.party.campaignMode && this.success && (gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == this.scenario.index && scenarioModel.edition == this.scenario.edition && scenarioModel.group == this.scenario.group) != undefined || this.conclusion && gameManager.game.party.conclusions.find((scenarioModel) => this.conclusion && scenarioModel.index == this.conclusion.index && scenarioModel.edition == this.conclusion.edition && scenarioModel.group == this.conclusion.group) != undefined) || false;
+        this.alreadyWarning = !this.rewardsOnly && gameManager.game.party.campaignMode && this.success && (gameManager.scenarioManager.isSuccess(this.scenario) || this.conclusion && gameManager.game.party.conclusions.find((scenarioModel) => this.conclusion && scenarioModel.index == this.conclusion.index && scenarioModel.edition == this.conclusion.edition && scenarioModel.group == this.conclusion.group) != undefined) || false;
 
         this.characterProgress = !this.rewardsOnly && !this.conclusionOnly && (gameManager.game.party.campaignMode || !gameManager.fhRules());
         this.gainRewards = gameManager.game.party.campaignMode;
@@ -385,7 +385,7 @@ export class ScenarioSummaryComponent {
 
     hasRewards(): boolean {
         const rewards = this.rewards;
-        if (rewards && (rewards.envelopes || rewards.gold || rewards.experience || rewards.collectiveGold || rewards.resources || rewards.collectiveResources || rewards.reputation || rewards.prosperity || rewards.inspiration || rewards.morale || rewards.perks || rewards.battleGoals || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.itemBlueprints || rewards.randomItemBlueprint || rewards.randomItemBlueprints || rewards.events || rewards.chooseUnlockCharacter || rewards.unlockCharacter || rewards.custom || rewards.lootDeckCards || rewards.removeLootDeckCards || rewards.townGuardAm)) {
+        if (rewards && (rewards.envelopes || rewards.gold || rewards.experience || rewards.collectiveGold || rewards.resources || rewards.collectiveResources || rewards.reputation || rewards.prosperity || rewards.inspiration || rewards.morale || rewards.perks || rewards.battleGoals || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.itemBlueprints || rewards.randomItemBlueprint || rewards.randomItemBlueprints || rewards.events || rewards.chooseUnlockCharacter || rewards.unlockCharacter || rewards.custom || rewards.lootDeckCards || rewards.removeLootDeckCards || rewards.townGuardAm || rewards.overlayCampaignSticker || rewards.overlaySticker)) {
             return true;
         }
         return false;
@@ -396,7 +396,7 @@ export class ScenarioSummaryComponent {
     }
 
     addWeek(): boolean {
-        return gameManager.fhRules() && ((gameManager.game.party.campaignMode || this.forceCampaign) && this.success && !this.conclusionOnly && !this.scenario.solo) && !this.scenario.conclusion && !this.scenario.forcedLinks && settingsManager.settings.automaticPassTime && settingsManager.settings.partySheet;
+        return gameManager.fhRules() && ((gameManager.game.party.campaignMode || this.forceCampaign) && this.success && !this.conclusionOnly && !this.scenario.solo) && !this.scenario.conclusion && (!this.scenario.forcedLinks || !this.scenario.forcedLinks.length) && (!this.conclusion || !this.conclusion.forcedLinks || !this.conclusion.forcedLinks.length) && settingsManager.settings.automaticPassTime && settingsManager.settings.partySheet;
     }
 
     weekSections(): ScenarioData[] {

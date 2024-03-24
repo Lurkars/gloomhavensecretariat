@@ -3,10 +3,11 @@
   "name": "Demonic Rift",
   "flowChartGroup": "road-events",
   "coordinates": {
-    "x": 1001.6000061035156,
+    "x": 1001.5,
     "y": 1432,
     "width": 204,
-    "height": 180
+    "height": 180,
+    "gridLocation": "J-7"
   },
   "edition": "gh",
   "rewards": {

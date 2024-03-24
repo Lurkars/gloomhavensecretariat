@@ -2,10 +2,11 @@
   "index": "14",
   "name": "Frozen Hollow",
   "coordinates": {
-    "x": 1464.8999938964844,
-    "y": 372,
+    "x": 1467,
+    "y": 371,
     "width": 178,
-    "height": 155
+    "height": 155,
+    "gridLocation": "C-10"
   },
   "edition": "gh",
   "rewards": {

@@ -3,6 +3,12 @@
   "group": "randomMonsterCard",
   "name": "Scaled",
   "edition": "gh",
+  "named": true,
+  "monsters": [
+    "giant-viper",
+    "rending-drake",
+    "spitting-drake"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

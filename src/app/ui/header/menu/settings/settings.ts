@@ -1,11 +1,13 @@
-import { Component, EventEmitter, Output } from "@angular/core";
-import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { GameState } from "src/app/game/model/Game";
-import { SubMenu } from "../menu";
-import { StorageManager, storageManager } from "src/app/game/businesslogic/StorageManager";
 import { Platform } from "@angular/cdk/platform";
+import { Component, EventEmitter, Output, QueryList, ViewChildren } from "@angular/core";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { StorageManager, storageManager } from "src/app/game/businesslogic/StorageManager";
+import { GameState } from "src/app/game/model/Game";
 import { Condition, ConditionName, ConditionType } from "src/app/game/model/data/Condition";
+import { SubMenu } from "../menu";
+import { SettingMenuComponent } from "./setting/setting";
+import { ghsTextSearch } from "src/app/ui/helper/Static";
 
 @Component({
   selector: 'ghs-settings-menu',
@@ -14,6 +16,7 @@ import { Condition, ConditionName, ConditionType } from "src/app/game/model/data
 })
 export class SettingsMenuComponent {
 
+  @ViewChildren(SettingMenuComponent) settingMenus!: QueryList<SettingMenuComponent>;
   @Output() setMenu: EventEmitter<SubMenu> = new EventEmitter<SubMenu>();
 
   gameManager: GameManager = gameManager;
@@ -26,6 +29,7 @@ export class SettingsMenuComponent {
   activeApplyConditionsExcludes: Condition[] = [];
   WebSocket = WebSocket;
   ConditionType = ConditionType;
+  filter: string = "";
 
   constructor(public platform: Platform) {
     this.wakeLock = 'wakeLock' in navigator;
@@ -40,6 +44,19 @@ export class SettingsMenuComponent {
         }
       }
     })
+  }
+
+  updateFilter() {
+    this.settingMenus.forEach((item) => {
+      if (!this.filter) {
+        item.elementRef.nativeElement.classList.remove('hidden');
+      } else if (ghsTextSearch(item.setting, this.filter) || ghsTextSearch(settingsManager.getLabel('settings.' + item.setting), this.filter) || ghsTextSearch(settingsManager.getLabel('settings.' + item.setting + '.hint'), this.filter)) {
+        item.elementRef.nativeElement.classList.remove('hidden');
+      } else {
+        item.elementRef.nativeElement.classList.add('hidden');
+      }
+    })
+
   }
 
   doubleClick: any = null;
@@ -194,5 +211,115 @@ export class SettingsMenuComponent {
     settingsManager.settings.turnConfirmation = false;
     settingsManager.settings.theme = 'fh';
     settingsManager.storeSettings();
+  }
+
+  lurkarsDefaults() {
+    settingsManager.settings.abilities = true;
+    settingsManager.settings.abilityNumbers = true;
+    settingsManager.settings.abilityReveal = true;
+    settingsManager.settings.activeApplyConditions = true;
+    settingsManager.settings.activeApplyConditionsExcludes = [
+      ConditionName.shield,
+      ConditionName.poison,
+      ConditionName.poison_x
+    ];
+    settingsManager.settings.activeStandees = false;
+    settingsManager.settings.activeSummons = true;
+    settingsManager.settings.addAllMonsters = false;
+    settingsManager.settings.allyAttackModifierDeck = true;
+    settingsManager.settings.alwaysAllyAttackModifierDeck = false;
+    settingsManager.settings.alwaysFhAdvantage = true;
+    settingsManager.settings.alwaysFhSolo = false;
+    settingsManager.settings.alwaysHazardousTerrain = false;
+    settingsManager.settings.alwaysLootApplyDialog = false;
+    settingsManager.settings.alwaysLootDeck = false;
+    settingsManager.settings.amAdvantage = true;
+    settingsManager.settings.amAdvantageHouseRule = true;
+    settingsManager.settings.animations = true;
+    settingsManager.settings.applyBuildingRewards = true;
+    settingsManager.settings.applyConditions = true;
+    settingsManager.settings.applyConditionsExcludes = [ConditionName.shield];
+    settingsManager.settings.applyLongRest = true;
+    settingsManager.settings.applyLoot = true;
+    settingsManager.settings.applyLootRandomItem = true;
+    settingsManager.settings.applyRetirement = true;
+    settingsManager.settings.artwork = true;
+    settingsManager.settings.automaticAttackModifierFullscreen = false;
+    settingsManager.settings.automaticGameClock = true;
+    settingsManager.settings.automaticGameClockFocus = false;
+    settingsManager.settings.automaticPassTime = true;
+    settingsManager.settings.automaticStandees = true;
+    settingsManager.settings.automaticStandeesDialog = false;
+    settingsManager.settings.automaticTheme = true;
+    settingsManager.settings.automaticUnlocking = true;
+    settingsManager.settings.backupHint = false;
+    settingsManager.settings.battleGoals = true;
+    settingsManager.settings.battleGoalsCharacter = false;
+    settingsManager.settings.battleGoalsFh = false;
+    settingsManager.settings.battleGoalsReminder = true;
+    settingsManager.settings.calculate = true;
+    settingsManager.settings.calculateStats = true;
+    settingsManager.settings.calculateShieldStats = false;
+    settingsManager.settings.characterAttackModifierAnimate = true;
+    settingsManager.settings.characterAttackModifierDeck = true;
+    settingsManager.settings.characterAttackModifierDeckPermanent = true;
+    settingsManager.settings.characterAttackModifierDeckPermanentActive = false;
+    settingsManager.settings.characterCompact = false;
+    settingsManager.settings.characterHandSize = true;
+    settingsManager.settings.characterIdentities = true;
+    settingsManager.settings.characterIdentityHint = true;
+    settingsManager.settings.characterItems = true;
+    settingsManager.settings.characterItemsApply = true;
+    settingsManager.settings.characterItemsPermanent = false;
+    settingsManager.settings.characterSheet = true;
+    settingsManager.settings.characterSheetCompact = false;
+    settingsManager.settings.characterShieldRetaliate = true;
+    settingsManager.settings.characterTraits = true;
+    settingsManager.settings.columns = true;
+    settingsManager.settings.columnsForce = true;
+    settingsManager.settings.combineInteractiveAbilities = false;
+    settingsManager.settings.combineSummonAction = true;
+    settingsManager.settings.dragFigures = true;
+    settingsManager.settings.dragValues = true;
+    settingsManager.settings.eliteFirst = true;
+    settingsManager.settings.errata = true;
+    settingsManager.settings.expireConditions = true;
+    settingsManager.settings.fhGhItems = true;
+    settingsManager.settings.fhStyle = false;
+    settingsManager.settings.hideCharacterHP = false;
+    settingsManager.settings.hideCharacterLoot = false;
+    settingsManager.settings.hideCharacterXP = false;
+    settingsManager.settings.hideStats = false;
+    settingsManager.settings.initiativeRequired = true;
+    settingsManager.settings.interactiveAbilities = true;
+    settingsManager.settings.lootDeck = true;
+    settingsManager.settings.portraitMode = true;
+    settingsManager.settings.monsters = true;
+    settingsManager.settings.monsterAttackModifierDeck = true;
+    settingsManager.settings.moveElements = true;
+    settingsManager.settings.partySheet = true;
+    settingsManager.settings.pinchZoom = true;
+    settingsManager.settings.pressDoubleClick = true;
+    settingsManager.settings.randomStandees = true;
+    settingsManager.settings.removeUnusedMonster = true;
+    settingsManager.settings.scenarioRewards = true;
+    settingsManager.settings.scenarioRewardsItems = true;
+    settingsManager.settings.scenarioRooms = true;
+    settingsManager.settings.scenarioRules = true;
+    settingsManager.settings.showExpandedAbilityCard = true;
+    settingsManager.settings.showFullAbilityCard = false;
+    settingsManager.settings.sortFigures = true;
+    settingsManager.settings.standees = true;
+    settingsManager.settings.standeeStats = true;
+    settingsManager.settings.statAnimations = false;
+    settingsManager.settings.stats = true;
+    settingsManager.settings.summons = true;
+    settingsManager.settings.tooltips = true;
+    settingsManager.settings.treasures = true;
+    settingsManager.settings.treasuresLoot = true;
+    settingsManager.settings.treasuresLootItem = true;
+    settingsManager.settings.treasuresLootScenario = true;
+    settingsManager.settings.turnConfirmation = false;
+    settingsManager.settings.unlockEnvelopeBuildings = true;
   }
 }

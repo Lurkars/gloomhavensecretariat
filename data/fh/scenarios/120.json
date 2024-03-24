@@ -2,6 +2,13 @@
   "index": "120",
   "name": "Under the Influence",
   "flowChartGroup": "other",
+  "coordinates": {
+    "x": 308.25,
+    "y": 2493.5,
+    "width": 119,
+    "height": 95,
+    "gridLocation": "FR"
+  },
   "edition": "fh",
   "complexity": 1,
   "rewards": {

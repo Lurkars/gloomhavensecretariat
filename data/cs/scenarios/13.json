@@ -1,6 +1,7 @@
 {
   "index": "13",
   "name": "Corpse Cavern",
+  "flowChartGroup": "intro",
   "edition": "cs",
   "rewards": {
     "prosperity": 1,

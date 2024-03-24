@@ -3,10 +3,11 @@
   "name": "Sunken Vessel",
   "flowChartGroup": "city-events",
   "coordinates": {
-    "x": 2419.5999755859375,
+    "x": 2419.5,
     "y": 2041,
     "width": 258,
-    "height": 233
+    "height": 233,
+    "gridLocation": "N-17"
   },
   "edition": "gh",
   "requirements": [

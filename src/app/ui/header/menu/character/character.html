@@ -6,7 +6,7 @@
         [ngClass]="{'active' : level + 1 == characterLevel}" (click)="characterLevel = level+1">{{level
         +1}}</a></span>
     <div class="line search">
-      <input tabclick [(ngModel)]="filter" (change)="update()" (keyup)="update()" type="text"
+      <input [(ngModel)]="filter" (change)="update()" (keyup)="update()" type="text"
         [ghs-label]="'character.filter'" [ghs-label-attribute]="'placeholder'">
       <label *ngIf="gameManager.game.edition">
         <input tabclick type="checkbox" [checked]="allEditions" (change)="allEditions = !allEditions; update()">

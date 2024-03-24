@@ -3,6 +3,13 @@
   "name": "The Dead Mile",
   "flowChartGroup": "unfettered",
   "errata": "scenario36-37|scenario37",
+  "coordinates": {
+    "x": 1955.25,
+    "y": 1407.75,
+    "width": 104,
+    "height": 103,
+    "gridLocation": "C11"
+  },
   "edition": "fh",
   "complexity": 1,
   "unlocks": [

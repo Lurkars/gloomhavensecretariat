@@ -2,6 +2,13 @@
   "index": "6",
   "name": "Avalanche",
   "flowChartGroup": "algox-2",
+  "coordinates": {
+    "x": 989,
+    "y": 1142.875,
+    "width": 92,
+    "height": 64,
+    "gridLocation": "L8"
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

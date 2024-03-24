@@ -1,6 +1,7 @@
 {
   "index": "1",
   "name": "The Dark Lake",
+  "flowChartGroup": "intro",
   "edition": "cs",
   "initial": true,
   "unlocks": [

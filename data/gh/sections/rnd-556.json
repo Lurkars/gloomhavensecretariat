@@ -3,6 +3,11 @@
   "group": "randomMonsterCard",
   "name": "Hopeless",
   "edition": "gh",
+  "named": true,
+  "monsters": [
+    "black-imp",
+    "night-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

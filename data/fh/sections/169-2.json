@@ -5,6 +5,16 @@
   "conclusion": true,
   "rewards": {
     "prosperity": 1,
-    "custom": "Place \"Sled\" campaign sticker on the town map at location B. You may now play scenarios with the %game.fhIcon:sled% requirement."
+    "overlayCampaignSticker": {
+      "name": "sled",
+      "location": "B",
+      "coordinates": {
+        "x": 1579.375,
+        "y": 2462.375,
+        "width": 111,
+        "height": 71
+      }
+    },
+    "custom": "You may now play scenarios with the %game.fhIcon:sled% requirement."
   }
 }

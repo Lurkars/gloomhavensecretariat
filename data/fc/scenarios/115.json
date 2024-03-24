@@ -1,6 +1,14 @@
 {
   "index": "115",
   "name": "Future Uncertain",
+  "flowChartGroup": "corruption",
+  "coordinates": {
+    "x": 2294.75,
+    "y": 1135.75,
+    "width": 171,
+    "height": 141,
+    "gridLocation": "H-16"
+  },
   "edition": "fc",
   "rewards": {
     "globalAchievements": [

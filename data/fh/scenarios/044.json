@@ -2,6 +2,13 @@
   "index": "44",
   "name": "Nerve Center",
   "flowChartGroup": "unfettered",
+  "coordinates": {
+    "x": 2027.25,
+    "y": 1335,
+    "width": 107,
+    "height": 76,
+    "gridLocation": "B10"
+  },
   "edition": "fh",
   "complexity": 2,
   "forcedLinks": [

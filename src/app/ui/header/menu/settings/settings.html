@@ -1,6 +1,11 @@
 <div class="menu-container two-column settings"
   [ngClass]="{'connected' : gameManager.stateManager.wsState() == WebSocket.OPEN}">
 
+  <div class="line hidden">
+    <input [(ngModel)]="filter" type="text"
+    [ghs-label]="'settings.filter'" [ghs-label-attribute]="'placeholder'" (change)="updateFilter()" (keyup)="updateFilter()">
+  </div>
+  
   <!-- GAMEPLAY -->
   <div class="line title span" ghs-setting-title-menu="gameplay" [sync]="true"></div>
 
@@ -71,7 +76,7 @@
 
     <div class="column">
       <div class="line" ghs-setting-menu="interactiveAbilities" [disabled]="!settingsManager.settings.abilities"></div>
-      <div class="line" ghs-setting-menu="combineSummonAction"
+      <div class="line" ghs-setting-menu="combineInteractiveAbilities"
         [disabled]="!settingsManager.settings.abilities || !settingsManager.settings.interactiveAbilities"></div>
       <div class="line" ghs-setting-menu="abilityNumbers" [disabled]="!settingsManager.settings.abilities"></div>
       <div class="line" ghs-setting-menu="showExpandedAbilityCard" [disabled]="!settingsManager.settings.abilities">
@@ -175,6 +180,9 @@
     <div class="line" ghs-setting-menu="automaticPassTime" [disabled]="!gameManager.fhRules()"></div>
     <div class="line" ghs-setting-menu="applyBuildingRewards" [disabled]="!gameManager.fhRules()"></div>
     <div class="line" ghs-setting-menu="unlockEnvelopeBuildings" [disabled]="!gameManager.fhRules()"></div>
+    <div class="line" ghs-setting-menu="fhGhItems"
+      [disabled]="!settingsManager.settings.characterItems && !settingsManager.settings.characterSheet || !gameManager.fhRules()">
+    </div>
   </div>
 
   <div class="column">
@@ -192,9 +200,11 @@
       [checked]="gameManager.fhRules()"></div>
     <div class="line" ghs-setting-menu="alwaysFhSolo" [disabled]="gameManager.fhRules()"
       [checked]="gameManager.fhRules()"></div>
-    <div class="line" ghs-setting-menu="fhGhItems"
-      [disabled]="!settingsManager.settings.characterItems && !settingsManager.settings.characterSheet || !gameManager.fhRules()">
-    </div>
+    <div class="line" ghs-setting-menu="alwaysFhAdvantage"
+      [disabled]="!settingsManager.settings.amAdvantage || gameManager.fhRules()"
+      [checked]="settingsManager.settings.amAdvantage && gameManager.fhRules()"></div>
+    <div *ngIf="settingsManager.settings.amAdvantage" class="line" ghs-setting-menu="amAdvantageHouseRule"
+      [disabled]="!settingsManager.settings.alwaysFhAdvantage && !gameManager.fhRules()"></div>
   </div>
 
   <div class="separator"></div>
@@ -214,6 +224,7 @@
     <div class="line" ghs-setting-menu="allyAttackModifierDeck"></div>
     <div class="line" ghs-setting-menu="monsters"></div>
     <div class="line" ghs-setting-menu="monsterAttackModifierDeck"></div>
+    <div class="line" ghs-setting-menu="amAdvantage"></div>
   </div>
 
   <!-- INTERFACE -->
@@ -256,9 +267,10 @@
 
   <div class="column">
     <div class="line" ghs-setting-menu="automaticGameClock" [disabled]="!settingsManager.settings.gameClock"></div>
-    <div class="line" ghs-setting-menu="automaticGameClockFocus" [disabled]="!settingsManager.settings.gameClock || !settingsManager.settings.automaticGameClock"></div>
+    <div class="line" ghs-setting-menu="automaticGameClockFocus"
+      [disabled]="!settingsManager.settings.gameClock || !settingsManager.settings.automaticGameClock"></div>
   </div>
-  
+
   <div class="separator"></div>
 
   <div class="column">
@@ -333,6 +345,12 @@
   <div class="line">
     <a tabclick (click)="helperDefaults()">
       <span [ghs-label]="'settings.helperDefaults'"></span>
+    </a>
+  </div>
+
+  <div class="line">
+    <a tabclick (click)="lurkarsDefaults()">
+      <span [ghs-label]="'settings.lurkarsDefaults'"></span>
     </a>
   </div>
 

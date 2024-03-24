@@ -1,31 +1,31 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild } from "@angular/core";
-import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
+import { Subscription } from "rxjs";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
-import { FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "src/app/game/model/data/EditionData";
-import { ItemData } from "src/app/game/model/data/ItemData";
-import { ScenarioData } from "src/app/game/model/data/ScenarioData";
-import { CountIdentifier, Identifier } from "src/app/game/model/data/Identifier";
-import { LootType } from "src/app/game/model/data/Loot";
 import { Party } from "src/app/game/model/Party";
 import { GameScenarioModel, Scenario, ScenarioCache } from "src/app/game/model/Scenario";
+import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
+import { FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "src/app/game/model/data/EditionData";
+import { CountIdentifier, Identifier } from "src/app/game/model/data/Identifier";
+import { ItemData } from "src/app/game/model/data/ItemData";
+import { LootType } from "src/app/game/model/data/Loot";
+import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { AttackModiferDeckChange } from "../../figures/attackmodifier/attackmodifierdeck";
-import { ghsDialogClosingHelper, ghsInputFullScreenCheck } from "../../helper/Static";
-import { CharacterMoveResourcesDialog } from "../../figures/character/sheet/move-resources";
-import { ScenarioConclusionComponent } from "../../footer/scenario/scenario-conclusion/scenario-conclusion";
-import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
-import { Subscription } from "rxjs";
-import { ScenarioSummaryComponent } from "../../footer/scenario/summary/scenario-summary";
 import { BattleGoalSetupDialog } from "../../figures/battlegoal/setup/battlegoal-setup";
-import { ScenarioRequirementsComponent } from "./requirements/requirements";
-import { WorldMapComponent } from "./world-map/world-map";
+import { CharacterMoveResourcesDialog } from "../../figures/character/sheet/move-resources";
 import { ItemDialogComponent } from "../../figures/items/dialog/item-dialog";
-import { TreasuresDialogComponent } from "./treasures/treasures-dialog";
+import { ScenarioConclusionComponent } from "../../footer/scenario/scenario-conclusion/scenario-conclusion";
+import { ScenarioSummaryComponent } from "../../footer/scenario/summary/scenario-summary";
+import { ghsDialogClosingHelper, ghsInputFullScreenCheck } from "../../helper/Static";
 import { AutocompleteItem } from "../../helper/autocomplete";
-import { PartyResourcesDialogComponent } from "./resources/resources";
 import { CharacterSheetDialog } from "../character/dialogs/character-sheet-dialog";
+import { ScenarioRequirementsComponent } from "./requirements/requirements";
+import { PartyResourcesDialogComponent } from "./resources/resources";
+import { TreasuresDialogComponent } from "./treasures/treasures-dialog";
+import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
+import { WorldMapComponent } from "./world-map/world-map";
 
 @Component({
   selector: 'ghs-party-sheet-dialog',
@@ -71,6 +71,9 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   calendarSheet: number = 0;
   summer: boolean = false;
+
+  lowMoraleSolved: number = 0;
+  highMoraleSolved: number = 0;
 
   @ViewChild('itemIndex') itemIndex!: ElementRef;
   @ViewChild('treasureIndex') treasureIndex!: ElementRef;
@@ -582,7 +585,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     const editions = this.partyEdition && [this.partyEdition] || gameManager.editions();
     this.scenarioEditions = [];
     editions.forEach((edition) => {
-      let scenarioData = gameManager.scenarioManager.scenarioData(edition).filter((scenarioData) => (!scenarioData.spoiler || settingsManager.settings.spoilers.indexOf(scenarioData.name) != -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) != -1)).map((scenarioData) => new ScenarioCache(scenarioData, this.countFinished(scenarioData) > 0, gameManager.scenarioManager.isBlocked(scenarioData), gameManager.scenarioManager.isLocked(scenarioData)));;
+      let scenarioData = gameManager.scenarioManager.scenarioData(edition).filter((scenarioData) => !scenarioData.hideIndex && (!scenarioData.spoiler || settingsManager.settings.spoilers.indexOf(scenarioData.name) != -1 || scenarioData.solo && gameManager.game.unlockedCharacters.indexOf(scenarioData.solo) != -1)).map((scenarioData) => new ScenarioCache(scenarioData, this.countFinished(scenarioData) > 0, gameManager.scenarioManager.isBlocked(scenarioData), gameManager.scenarioManager.isLocked(scenarioData)));;
       if (scenarioData.length > 0) {
         this.scenarios[edition] = scenarioData.sort((a, b) => {
           if (a.group && !b.group) {
@@ -661,9 +664,10 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     this.partyAchievements = [];
     this.globalAchievements = [];
     this.campaignStickers = [];
+    this.worldMap = false;
     const editionData = gameManager.editionData.find((editionData) => this.partyEdition && editionData.edition == this.partyEdition);
     if (editionData) {
-      if (editionData.worldMap) {
+      if (editionData.worldMap || editionData.extendWorldMap) {
         this.worldMap = true;
       }
       if (editionData.label && editionData.label[settingsManager.settings.locale] && editionData.label[settingsManager.settings.locale].partyAchievements) {
@@ -707,6 +711,22 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       this.availableCharacters[characterModel.number - 1] = this.availableCharacters[characterModel.number - 1] || [];
       this.availableCharacters[characterModel.number - 1].push(characterModel);
     })
+
+    if (campaign) {
+      if (campaign.lowMorale && campaign.lowMorale.length) {
+        this.lowMoraleSolved = 0;
+        while (this.isConclusion(campaign.lowMorale[this.lowMoraleSolved]) && this.lowMoraleSolved < campaign.lowMorale.length) {
+          this.lowMoraleSolved++;
+        }
+      }
+
+      if (campaign.highMorale && campaign.highMorale.length) {
+        this.highMoraleSolved = 0;
+        while (this.isConclusion(campaign.highMorale[this.highMoraleSolved]) && this.highMoraleSolved < campaign.highMorale.length) {
+          this.highMoraleSolved++;
+        }
+      }
+    }
   }
 
   characterIcon(name: string): string {
@@ -836,6 +856,9 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   isConclusion(section: string): boolean {
+    if (!section) {
+      return false;
+    }
     return this.party.conclusions.find((model) => model.edition == gameManager.game.edition && model.index == section) != undefined;
   }
 
@@ -1033,10 +1056,28 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     if (value < 0) {
       value = 0;
     }
+    if (value > 20) {
+      value = 20;
+    }
 
     gameManager.stateManager.before("setPartyMorale", "" + value);
+
     this.party.morale = value;
+    const campaignData = gameManager.campaignData();
+    if (value == 0 && campaignData && campaignData.lowMorale && this.lowMoraleSolved <= campaignData.lowMorale.length) {
+      if (this.lowMoraleSolved < campaignData.lowMorale.length) {
+        this.finishConclusion(campaignData.lowMorale[this.lowMoraleSolved]);
+      } else {
+        this.party.conclusions = this.party.conclusions.filter((model) => model.edition != gameManager.game.edition || model.index != campaignData.lowMorale[this.lowMoraleSolved - 1]);
+        this.finishConclusion(campaignData.lowMorale[this.lowMoraleSolved - 1]);
+      }
+
+    } else if (value == 20 && campaignData && campaignData.highMorale && this.highMoraleSolved < campaignData.highMorale.length) {
+      this.finishConclusion(campaignData.highMorale[this.highMoraleSolved]);
+    }
+
     gameManager.stateManager.after();
+
     this.update();
   }
 

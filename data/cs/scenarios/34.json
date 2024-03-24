@@ -1,6 +1,7 @@
 {
   "index": "34",
   "name": "Great Oak Rescue",
+  "flowChartGroup": "personal-quests",
   "edition": "cs",
   "rewards": {
     "envelopes": [

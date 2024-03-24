@@ -1,6 +1,7 @@
 {
   "index": "37",
   "name": "Burning Stones",
+  "flowChartGroup": "personal-quests",
   "edition": "cs",
   "unlocks": [
     "38"

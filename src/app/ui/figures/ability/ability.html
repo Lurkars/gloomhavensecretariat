@@ -1,8 +1,8 @@
-<div class="card-container ability" [ngClass]="{'fh' : settingsManager.settings.fhStyle, 'expand' : flipped || ability && ability.revealed}"
+<div class="card-container ability"
+  [ngClass]="{'fh' : settingsManager.settings.fhStyle, 'expand' : flipped || ability && ability.revealed}"
   [style.--ghs-ability-color]="character && character.color">
   <div class="card" [ngClass]="{'flipped' : flipped || ability && ability.revealed}" card-reveal
-    (change)="onChange($event)" [disabled]="!reveal || !ability" #card
-    [style.fontSize]=" card.offsetWidth * 0.04 + 'px'">
+    (change)="onChange($event)" [disabled]="!reveal || !ability" #card [style.fontSize]="fontsize">
     <div class=" card-back ability-back"
       [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0 && !character, 'character-actions' : character}">
       <div class="touch"></div>
@@ -16,20 +16,39 @@
       <ng-container *ngIf="ability">
         <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
         <span class="name">{{abilityLabel}}</span>
-        <div class="ability-actions">
-          <ghs-actions [actions]="ability.actions" [monster]="monster" [hint]="ability.hint"
-            [statsCalculation]="statsCalculation" [relative]="relative" [highlightElements]="highlightElements">
-          </ghs-actions>
+        <div class="ability-actions-container">
+          <div class="ability-actions">
+            <ghs-actions [actions]="ability.actions" [monster]="monster" [hint]="ability.hint"
+              [statsCalculation]="statsCalculation" [relative]="relative" [interactiveAbilities]="interactiveAbilities"
+              [interactiveActions]="interactiveActions" (interactiveActionsChange)="onInteractiveActionsChange($event)">
+            </ghs-actions>
+          </div>
+          <div class="bottom-spacer"
+            *ngIf="interactiveActions.length || settingsManager.settings.interactiveAbilities && settingsManager.settings.showExpandedAbilityCard">
+          </div>
         </div>
+        <ghs-interactive-actions
+          [ngClass]="{'interactive-actions-top' : ability.bottomActions && ability.bottomActions.length > 0 || character}"
+          *ngIf="interactiveAbilities && monster" [figure]="monster" [actions]="ability.actions"
+          [(interactiveActions)]="interactiveActions"></ghs-interactive-actions>
+
         <ng-container *ngIf="ability.bottomActions && ability.bottomActions.length > 0 || character">
           <span class="level">
             <span class="text">{{ability.level || 0}}</span>
           </span>
-          <div class="ability-actions ability-bottom-actions">
-            <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hint]="ability.hint"
-              [statsCalculation]="statsCalculation" [relative]="relative" [highlightElements]="highlightElements">
-            </ghs-actions>
+          <div class="ability-actions-container">
+            <div class="ability-actions ability-bottom-actions">
+              <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hint]="ability.hint"
+                [statsCalculation]="statsCalculation" [relative]="relative"
+                [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveBottomActions"
+                (interactiveActionsChange)="onInteractiveBottomActionsChange($event)" [index]="'bottom'">
+              </ghs-actions>
+            </div>
           </div>
+
+          <ghs-interactive-actions class="interactive-actions-bottom" *ngIf="interactiveAbilities && monster"
+            [figure]="monster" [actions]="ability.bottomActions" [(interactiveActions)]="interactiveBottomActions"
+            [preIndex]="'bottom'"></ghs-interactive-actions>
         </ng-container>
         <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
         <div class="bottom-shuffle" *ngIf="ability.bottomShuffle"><img src="./assets/images/shuffle.svg"></div>
@@ -49,6 +68,7 @@
           <img src="./assets/images/action/card/lost.svg">
           <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
         </span>
+
       </ng-container>
     </div>
   </div>

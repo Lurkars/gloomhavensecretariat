@@ -66,6 +66,9 @@
     "white-owl": "White Owl",
     "wraith": "Wraith"
   },
+  "campaignSticker": {
+    "42-temple": "Temple"
+  },
   "items": {
     "fh-1": {
       "1": "During your attack ability, gain advantage on one attack.",

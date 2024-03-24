@@ -1,11 +1,11 @@
-import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, ElementRef, EventEmitter, Inject, OnInit, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { AttackModifier, AttackModifierDeck, AttackModifierType, additionalTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
+import { AttackModifier, AttackModifierDeck, AttackModifierType, additionalTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
 import { AttackModiferDeckChange } from "./attackmodifierdeck";
 
 @Component({

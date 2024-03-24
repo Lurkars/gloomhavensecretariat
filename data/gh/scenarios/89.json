@@ -3,10 +3,11 @@
   "name": "Syndicate Hideout",
   "flowChartGroup": "city-events",
   "coordinates": {
-    "x": 2484.5999755859375,
+    "x": 2484.5,
     "y": 415,
     "width": 173,
-    "height": 114
+    "height": 114,
+    "gridLocation": "C-17"
   },
   "edition": "gh",
   "requirements": [
@@ -22,8 +23,28 @@
   "monsters": [
     "bandit-archer",
     "bandit-guard",
-    "cultist-scenario-89",
+    "cultist",
     "giant-viper"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "cultist"
+          },
+          "statEffect": {
+            "deck": "cultist-scenario-89"
+          },
+          "note": "%data.scenario.rules.gh.89.1%"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -72,19 +93,19 @@
       ],
       "monster": [
         {
-          "name": "cultist-scenario-89",
+          "name": "cultist",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "cultist-scenario-89",
+          "name": "cultist",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "cultist-scenario-89",
+          "name": "cultist",
           "player4": "normal"
         },
         {
@@ -136,7 +157,7 @@
           "player4": "elite"
         },
         {
-          "name": "cultist-scenario-89",
+          "name": "cultist",
           "type": "elite"
         }
       ]
@@ -192,7 +213,7 @@
       ],
       "monster": [
         {
-          "name": "cultist-scenario-89",
+          "name": "cultist",
           "type": "elite"
         },
         {

@@ -2,6 +2,13 @@
   "index": "66",
   "name": "Elemental Cores",
   "flowChartGroup": "personal-quests",
+  "coordinates": {
+    "x": 915,
+    "y": 668.25,
+    "width": 120,
+    "height": 105,
+    "gridLocation": "L4"
+  },
   "edition": "fh",
   "complexity": 2,
   "rewards": {

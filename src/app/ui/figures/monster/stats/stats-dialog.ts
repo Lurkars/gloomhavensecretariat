@@ -1,8 +1,10 @@
-import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component, Inject } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { EntityValueFunction } from "src/app/game/model/Entity";
 import { Monster } from "src/app/game/model/Monster";
+import { StatsListComponent } from "src/app/ui/footer/scenario/dialog/stats-list/stats-list";
 import { MonsterStatDialogComponent } from "./stat-dialog";
 
 @Component({
@@ -14,11 +16,15 @@ export class MonsterStatsDialogComponent {
 
   settingsManager: SettingsManager = settingsManager;
   levels: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
+  monsters: Monster[] = [];
+  edition: string = "";
+  EntityValueFunction = EntityValueFunction;
 
-  constructor(@Inject(DIALOG_DATA) public monster: Monster, public dialogRef: DialogRef, private dialog: Dialog) { }
-
-  getEdition(): string {
-    return gameManager.getEdition(this.monster);
+  constructor(@Inject(DIALOG_DATA) public monster: Monster, public dialogRef: DialogRef, private dialog: Dialog) {
+    this.levels.forEach((level) => {
+      this.monsters.push(this.getMonsterForLevel(level));
+    })
+    this.edition = gameManager.getEdition(this.monster);
   }
 
   getMonsterForLevel(level: number): Monster {
@@ -26,6 +32,7 @@ export class MonsterStatsDialogComponent {
     monster.isAlly = this.monster.isAlly;
     monster.isAllied = this.monster.isAllied;
     monster.errors = this.monster.errors;
+    monster.statEffect = this.monster.statEffect;
     return monster;
   }
 
@@ -48,5 +55,14 @@ export class MonsterStatsDialogComponent {
       disableClose: true,
       data: { monster: monster, forceStats: true }
     });
+  }
+
+  openAbilities(): void {
+    const monster = new Monster(this.monster, this.monster.level);
+    monster.statEffect = this.monster.statEffect;
+    gameManager.monsterManager.resetMonsterAbilities(monster);
+    if (monster.statEffect) {
+      this.dialog.open(StatsListComponent, { panelClass: ['dialog'], data: { monster: monster, hideStats: true, statEffectNote: monster.statEffect.note } });
+    }
   }
 }

@@ -3,6 +3,7 @@
   "group": "randomMonsterCard",
   "name": "Ethereal",
   "edition": "fc",
+  "named": true,
   "rooms": [
     {
       "roomNumber": 1,
