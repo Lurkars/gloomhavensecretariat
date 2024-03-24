@@ -1,5 +1,6 @@
 .summon-border {
   position: relative;
+  touch-action: none;
   height: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
 
   &::before {
