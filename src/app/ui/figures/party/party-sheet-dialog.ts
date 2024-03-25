@@ -65,6 +65,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   fhSheet: boolean = false;
   csSheet: boolean = false;
+  disableShortcuts: boolean = false;
 
   LootType = LootType;
 
@@ -82,6 +83,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   constructor(@Inject(DIALOG_DATA) public data: { campaign: boolean, partySheet: boolean, disableShortcuts: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
     this.campaign = data && data.campaign;
     this.party = gameManager.game.party;
+    this.disableShortcuts = data.disableShortcuts;
 
     if (gameManager.game.edition && !this.party.edition) {
       this.party.edition = gameManager.game.edition;
@@ -169,7 +171,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   @HostListener('document:keydown', ['$event'])
   keyboardShortcuts(event: KeyboardEvent) {
-    if (!this.data.disableShortcuts) {
+    if (!this.disableShortcuts) {
       if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'g' && this.worldMap) {
         this.openMap();
         event.stopPropagation();
