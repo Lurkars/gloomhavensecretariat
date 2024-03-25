@@ -1,14 +1,16 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Overlay } from "@angular/cdk/overlay";
-import { AfterViewInit, Component, Inject, ViewEncapsulation } from "@angular/core";
+import { AfterViewInit, Component, HostListener, Inject, ViewEncapsulation } from "@angular/core";
 import L, { ImageOverlay, LatLngBounds, LatLngBoundsLiteral } from 'leaflet';
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { BuildingData } from "src/app/game/model/data/BuildingData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { WorldMapCoordinates } from "src/app/game/model/data/WorldMap";
 import { ScenarioChartPopupDialog } from "src/app/ui/header/menu/scenario/chart/popup/scenario-chart-popup";
+import { ScenarioChartDialogComponent } from "src/app/ui/header/menu/scenario/chart/scenario-chart";
 import { ghsDefaultDialogPositions, ghsDialogClosingHelper } from "src/app/ui/helper/Static";
+import { PartySheetDialogComponent } from "../party-sheet-dialog";
 
 @Component({
     selector: 'ghs-world-map',
@@ -19,6 +21,7 @@ import { ghsDefaultDialogPositions, ghsDialogClosingHelper } from "src/app/ui/he
 export class WorldMapComponent implements AfterViewInit {
 
     gameManager: GameManager = gameManager;
+    settingsManager: SettingsManager = settingsManager;
 
     map!: L.Map;
     worldMap: { width: number, height: number } | undefined;
@@ -34,8 +37,8 @@ export class WorldMapComponent implements AfterViewInit {
 
     scale: number = 1;
     zooming: boolean = false;
-    highlighting: boolean = true;
     showExtended: boolean = false;
+    campaignSheet: boolean = false;
 
     constructor(@Inject(DIALOG_DATA) public edition: string, public dialogRef: DialogRef, private dialog: Dialog, private overlay: Overlay) {
         const pinchZoom = settingsManager.settings.pinchZoom;
@@ -302,6 +305,42 @@ export class WorldMapComponent implements AfterViewInit {
                     event.originalEvent.stopPropagation();
                 }
             }
+        }
+    }
+
+    @HostListener('document:keydown', ['$event'])
+    keyboardShortcuts(event: KeyboardEvent) {
+        if (!this.campaignSheet) {
+            if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'p' && settingsManager.settings.partySheet) {
+                this.openCampaignSheet();
+                event.stopPropagation();
+                event.preventDefault();
+            } else if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'c' && gameManager.game.edition) {
+                this.openFlowChart();
+                event.stopPropagation();
+                event.preventDefault();
+            }
+        }
+    }
+
+    openFlowChart() {
+        this.dialogRef.close();
+        setTimeout(() => {
+            this.dialog.open(ScenarioChartDialogComponent, {
+                panelClass: ['fullscreen-panel'],
+                backdropClass: ['fullscreen-backdrop'],
+                data: { edition: this.edition }
+            });
+        }, 1)
+    }
+
+    openCampaignSheet() {
+        if (!this.campaignSheet) {
+            this.campaignSheet = true;
+            this.dialog.open(PartySheetDialogComponent, {
+                panelClass: ['dialog-invert'],
+                data: { campaign: true, disableShortcuts: true }
+            }).closed.subscribe({ next: () => this.campaignSheet = false });
         }
     }
 

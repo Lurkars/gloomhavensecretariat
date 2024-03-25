@@ -232,6 +232,10 @@ export class EntityMenuDialogComponent {
         this.changeMaxHealth(-1);
         event.preventDefault();
         event.stopPropagation();
+      } else if (!event.ctrlKey && event.key.toLowerCase() === 'x') {
+        this.changeExperience(event.shiftKey ? -1 : 1);
+        event.preventDefault();
+        event.stopPropagation();
       } else if (!event.ctrlKey && event.key.toLowerCase() === 'b') {
         this.changeBless(event.shiftKey ? -1 : 1);
         event.preventDefault();
@@ -940,6 +944,9 @@ export class EntityMenuDialogComponent {
         if (this.data.entity.name == 'lightning' && specialTagsToAdd.indexOf('immune') != -1) {
           this.data.entity.immunities = gameManager.conditionsForTypes('character', 'negative').map((condition) => condition.name);
           this.data.entity.immunities.push(ConditionName.curse);
+          if (this.hasCondition(ConditionName.enfeeble)) {
+            this.data.entity.immunities.push(ConditionName.enfeeble);
+          }
         }
         if (this.data.entity.name == 'demolitionist' && specialTagsToAdd.indexOf('mech') != -1) {
           this.data.entity.maxHealth += 5;

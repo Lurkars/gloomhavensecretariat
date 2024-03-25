@@ -23,7 +23,8 @@
       }
     }
 
-    .curse-bless {
+    .curse-bless,
+    .additional-modifier {
 
       display: flex;
       max-width: calc(100% - calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor)) * 2);
@@ -75,6 +76,15 @@
         color: var(--ghs-color-white);
         font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
         text-shadow: var(--ghs-outline);
+
+        &.badge-character-icon {
+          bottom: calc(var(--ghs-unit) * -0.8 * var(--ghs-dialog-factor));
+          right: calc(var(--ghs-unit) * 4.5 * var(--ghs-dialog-factor));
+
+          img {
+            height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+          }
+        }
       }
 
       .warning {
@@ -87,6 +97,11 @@
           height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
           width: auto;
         }
+      }
+
+      &.additional-modifier {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
       }
     }
 

@@ -14,6 +14,7 @@
         max-height: 100%;
         overflow: auto;
         background: none;
+        z-index: 1;
 
         .scenario {
             z-index: 2;
@@ -32,7 +33,7 @@
 
         &.highlighting {
             .scenario {
-                
+
                 filter: brightness(1.2) drop-shadow(4px 4px 4px var(--ghs-color-darkgray)) drop-shadow(-4px -4px 4px var(--ghs-color-darkgray));
 
                 &:hover {
@@ -78,6 +79,42 @@
                 }
             }
 
+        }
+    }
+
+    .menu {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        padding: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        color: var(--ghs-color-gray);
+        display: flex;
+        align-items: center;
+        z-index: 2;
+        background-color: var(--ghs-color-darkgray);
+        border-top-right-radius: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+        a,
+        label {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            margin: 0 calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+            img {
+                filter: var(--ghs-filter-gray);
+                height: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+                width: auto;
+            }
+
+            &:hover {
+                color: var(--ghs-color-white);
+
+                img {
+                    filter: var(--ghs-filter-white);
+                }
+            }
         }
     }
 }

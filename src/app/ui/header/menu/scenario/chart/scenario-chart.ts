@@ -1,11 +1,13 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
-import { AfterViewInit, Component, Inject, OnInit, ViewEncapsulation } from "@angular/core";
+import { AfterViewInit, Component, HostListener, Inject, OnInit, ViewEncapsulation } from "@angular/core";
 
 import { Overlay } from "@angular/cdk/overlay";
 import L, { LatLngBoundsLiteral } from 'leaflet';
 import mermaid from 'mermaid';
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { PartySheetDialogComponent } from "src/app/ui/figures/party/party-sheet-dialog";
+import { WorldMapComponent } from "src/app/ui/figures/party/world-map/world-map";
 import { ghsDefaultDialogPositions } from "src/app/ui/helper/Static";
 import { ScenarioChartPopupDialog } from "./popup/scenario-chart-popup";
 
@@ -30,6 +32,8 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     flowString: string = "";
     edition: string;
     group: string | undefined;
+    worldMap: boolean = false;
+    campaignSheet: boolean = false;
 
     constructor(@Inject(DIALOG_DATA) public data: { edition: string, group: string | undefined }, private dialogRef: DialogRef, private dialog: Dialog, private overlay: Overlay) {
         this.edition = data.edition;
@@ -58,6 +62,13 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
         let pad = "000";
         let subgraph: string | undefined = undefined;
+
+        this.worldMap = false;
+        const editionData = gameManager.editionData.find((editionData) => this.edition && editionData.edition == this.edition);
+        if (editionData && (editionData.worldMap || editionData.extendWorldMap)) {
+            this.worldMap = true;
+        }
+
         const scenarios = gameManager.scenarioManager.scenarioData(this.edition).filter((scenarioData) => scenarioData.group == this.group).sort(gameManager.scenarioManager.sortScenarios).sort((a, b) => {
             if (a.flowChartGroup == b.flowChartGroup) {
                 return 0;
@@ -257,7 +268,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         const boundHeight = Math.max(height, 600);
         const offsetX = boundWidth > width ? (boundWidth - width) / 2 : 0;
         const offsetY = boundHeight > height ? (boundHeight - height) : 0;
-        var map = L.map('map', {
+        var chart = L.map('chart', {
             crs: L.CRS.Simple,
             maxBounds: [[boundHeight * -0.5, boundWidth * -0.5], [boundHeight * 1.5, boundWidth * 1.5]],
             minZoom: -4,
@@ -267,8 +278,8 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
             attributionControl: false
         });
         var bounds: LatLngBoundsLiteral = [[0, 0], [boundHeight * 1.5, boundWidth * 1.5]];
-        map.fitBounds(bounds);
-        map.zoomIn();
+        chart.fitBounds(bounds);
+        chart.zoomIn();
 
         const overlay = L.svgOverlay(svgElement, [[height + offsetY, offsetX], [offsetY, width + offsetX]], { interactive: true });
 
@@ -298,11 +309,49 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
             }
         });
 
-        overlay.addTo(map);
+        overlay.addTo(chart);
 
-        const container = map.getContainer();
+        const container = chart.getContainer();
         if (bindFunctions) {
             bindFunctions(container);
+        }
+    }
+
+    @HostListener('document:keydown', ['$event'])
+    keyboardShortcuts(event: KeyboardEvent) {
+        if (!this.campaignSheet) {
+            if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'p' && settingsManager.settings.partySheet) {
+                this.openCampaignSheet();
+                event.stopPropagation();
+                event.preventDefault();
+            } else if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'g' && this.worldMap) {
+                this.openWorldMap();
+                event.stopPropagation();
+                event.preventDefault();
+            }
+        }
+    }
+
+    openWorldMap() {
+        if (this.worldMap) {
+            this.dialogRef.close();
+            setTimeout(() => {
+                this.dialog.open(WorldMapComponent, {
+                    panelClass: ['fullscreen-panel'],
+                    backdropClass: ['fullscreen-backdrop'],
+                    data: this.edition
+                });
+            }, 1);
+        }
+    }
+
+    openCampaignSheet() {
+        if (!this.campaignSheet) {
+            this.campaignSheet = true;
+            this.dialog.open(PartySheetDialogComponent, {
+                panelClass: ['dialog-invert'],
+                data: { campaign: true, disableShortcuts: true }
+            }).closed.subscribe({ next: () => this.campaignSheet = false });
         }
     }
 }

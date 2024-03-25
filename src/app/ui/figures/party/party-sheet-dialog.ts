@@ -1,5 +1,5 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
-import { Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild } from "@angular/core";
+import { Component, ElementRef, HostListener, Inject, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -26,6 +26,7 @@ import { PartyResourcesDialogComponent } from "./resources/resources";
 import { TreasuresDialogComponent } from "./treasures/treasures-dialog";
 import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
 import { WorldMapComponent } from "./world-map/world-map";
+import { ScenarioChartDialogComponent } from "../../header/menu/scenario/chart/scenario-chart";
 
 @Component({
   selector: 'ghs-party-sheet-dialog',
@@ -78,7 +79,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   @ViewChild('itemIndex') itemIndex!: ElementRef;
   @ViewChild('treasureIndex') treasureIndex!: ElementRef;
 
-  constructor(@Inject(DIALOG_DATA) public data: { campaign: boolean, partySheet: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
+  constructor(@Inject(DIALOG_DATA) public data: { campaign: boolean, partySheet: boolean, disableShortcuts: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
     this.campaign = data && data.campaign;
     this.party = gameManager.game.party;
 
@@ -166,6 +167,21 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     }
   }
 
+  @HostListener('document:keydown', ['$event'])
+  keyboardShortcuts(event: KeyboardEvent) {
+    if (!this.data.disableShortcuts) {
+      if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'g' && this.worldMap) {
+        this.openMap();
+        event.stopPropagation();
+        event.preventDefault();
+      } else if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'c' && gameManager.game.edition) {
+        this.openFlowChart();
+        event.stopPropagation();
+        event.preventDefault();
+      }
+    }
+  }
+
   close() {
     ghsDialogClosingHelper(this.dialogRef);
   }
@@ -178,12 +194,23 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   openMap() {
-    this.dialog.open(WorldMapComponent, {
+    if (this.worldMap) {
+      this.dialogRef.close();
+      this.dialog.open(WorldMapComponent, {
+        panelClass: ['fullscreen-panel'],
+        backdropClass: ['fullscreen-backdrop'],
+        data: this.partyEdition
+      })
+    }
+  }
+
+  openFlowChart() {
+    this.dialogRef.close();
+    this.dialog.open(ScenarioChartDialogComponent, {
       panelClass: ['fullscreen-panel'],
       backdropClass: ['fullscreen-backdrop'],
-      data: this.partyEdition
+      data: { edition: this.partyEdition }
     })
-    this.close();
   }
 
   changePlayer(event: any, index: number) {
@@ -1101,6 +1128,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       gameManager.stateManager.before(index == -1 ? "addPartyTownGuardPerkSection" : "removePartyTownGuardPerkSection", section);
       if (index == -1) {
         this.party.townGuardPerkSections.push(section);
+        this.finishConclusion(section);
       } else {
         this.party.townGuardPerkSections.splice(index, 1);
       }
