@@ -83,7 +83,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   constructor(@Inject(DIALOG_DATA) public data: { campaign: boolean, partySheet: boolean, disableShortcuts: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
     this.campaign = data && data.campaign;
     this.party = gameManager.game.party;
-    this.disableShortcuts = data.disableShortcuts;
+    this.disableShortcuts = data && data.disableShortcuts;
 
     if (gameManager.game.edition && !this.party.edition) {
       this.party.edition = gameManager.game.edition;
