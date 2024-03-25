@@ -20,7 +20,10 @@
     "battleGoals": "Battle Goal Setup",
     "character": "Character Sheets",
     "items": "Itemcards Overview",
-    "map": "Global Map",
+    "map": {
+      ".": "Global Map",
+      "highlighting": "Highlighting"
+    },
     "party": "Party/Campaign Sheet",
     "campaignManagement": {
       ".": "Manage Campaign",
@@ -2740,12 +2743,15 @@
         "kill": "Kill / Exhaust",
         "maxHpDec": "Dec. max. HP",
         "maxHpInc": "Inc. max. HP",
-        "toggleCondition": "Toggle Condition/Condition modifier"
+        "toggleCondition": "Toggle Condition/Condition modifier",
+        "xpDec": "Dec. XP",
+        "xpInc": "Inc. XP"
       },
       "esc": "ESC",
       "events": "Event effects menu",
       "finish": "(finish) scenario menu",
       "global": "The following keyboard shortcuts are currently implemented:",
+      "globalMap": "Open Global Map",
       "keyboard": "Show keyboard shortcuts",
       "loot": "Draw from Loot Deck",
       "mainMenu": {
@@ -2758,6 +2764,7 @@
       "party": "Open Party sheet",
       "redo": "Redo",
       "round": "Next round / Draw",
+      "scenarioChart": "Show Scenario Flow Chart",
       "select": "select figure/standee for opening menu with number key",
       "shift": "SHIFT",
       "space": "SPACE",
