@@ -8,6 +8,7 @@ export class Settings {
   abilityNumbers: boolean = true;
   abilityReveal: boolean = true;
   activeApplyConditions: boolean = true;
+  activeApplyConditionsAuto: ConditionName[] = [];
   activeApplyConditionsExcludes: ConditionName[] = [ConditionName.shield];
   activeStandees: boolean = true;
   activeSummons: boolean = true;

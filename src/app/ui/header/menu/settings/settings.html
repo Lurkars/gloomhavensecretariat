@@ -2,10 +2,10 @@
   [ngClass]="{'connected' : gameManager.stateManager.wsState() == WebSocket.OPEN}">
 
   <div class="line hidden">
-    <input [(ngModel)]="filter" type="text"
-    [ghs-label]="'settings.filter'" [ghs-label-attribute]="'placeholder'" (change)="updateFilter()" (keyup)="updateFilter()">
+    <input [(ngModel)]="filter" type="text" [ghs-label]="'settings.filter'" [ghs-label-attribute]="'placeholder'"
+      (change)="updateFilter()" (keyup)="updateFilter()">
   </div>
-  
+
   <!-- GAMEPLAY -->
   <div class="line title span" ghs-setting-title-menu="gameplay" [sync]="true"></div>
 
@@ -144,12 +144,11 @@
     </div>
 
     <div class="column">
-      <div class="line"
-        [ngClass]="{'disabled' : !settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions}">
+      <div class="line">
         <div class="condition-list">
           <div class="hint-container" *ngFor="let condition of activeApplyConditionsExcludes; let i = index">
             <div tabclick class="condition"
-              [ngClass]="{'immunity': settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) != -1}"
+              [ngClass]="{'immunity': settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) != -1, 'disabled' : !settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions}"
               (click)="toggleActiveApplyConditionsExclude(condition.name)">
               <img
                 [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
@@ -160,6 +159,39 @@
               <span class="text" [ghs-label]="'settings.activeApplyConditions.hint.' + condition.name"></span>
             </span>
           </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="column"
+      *ngIf="settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions">
+      <div class="line"
+        [ngClass]="{'disabled' : !settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions}">
+        <div class="hint-container inline">
+          <label [ghs-label]="'settings.activeApplyConditions.auto'"></label>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <span class="hint">
+            <span class="text" [ghs-label]="'settings.activeApplyConditions.auto.hint'"></span>
+          </span>
+        </div>
+        <div class="condition-list">
+          <ng-container *ngFor="let condition of activeApplyConditionsAuto; let i = index">
+            <div class="hint-container"
+              *ngIf="settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) == -1">
+              <div tabclick class="condition"
+                [ngClass]="{'immunity': settingsManager.settings.activeApplyConditionsAuto.indexOf(condition.name) == -1 || settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) != -1, 'disabled': settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) != -1}"
+                (click)="toggleActiveApplyConditionsAuto(condition.name)">
+                <img
+                  [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+                <span *ngIf="condition.types.indexOf(ConditionType.value) != -1" class="value">X</span>
+              </div>
+              <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+              <span class="hint" [ngClass]="{'right': i > 2}">
+                <span class="text" [ghs-label]="'settings.activeApplyConditions.auto.hint.' + condition.name"></span>
+              </span>
+            </div>
+          </ng-container>
         </div>
       </div>
     </div>

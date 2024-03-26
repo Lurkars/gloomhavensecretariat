@@ -83,6 +83,8 @@ import { BuildingUpgradeDialog } from './ui/figures/party/buildings/upgrade-dial
 import { PartySheetDialogComponent } from './ui/figures/party/party-sheet-dialog';
 import { ScenarioRequirementsComponent } from './ui/figures/party/requirements/requirements';
 import { PartyResourcesDialogComponent } from './ui/figures/party/resources/resources';
+import { ScenarioChartPopupDialog } from './ui/figures/party/scenario-chart/popup/scenario-chart-popup';
+import { ScenarioChartDialogComponent } from './ui/figures/party/scenario-chart/scenario-chart';
 import { TreasuresDialogComponent } from './ui/figures/party/treasures/treasures-dialog';
 import { PartyWeekDialogComponent } from './ui/figures/party/week-dialog/week-dialog';
 import { WorldMapComponent } from './ui/figures/party/world-map/world-map';
@@ -113,8 +115,6 @@ import { SettingsDebugMenuComponent } from './ui/header/menu/debug/debug';
 import { KeyboardShortcutsComponent } from './ui/header/menu/keyboard-shortcuts/keyboard-shortcuts';
 import { MainMenuComponent } from './ui/header/menu/menu';
 import { MonsterMenuComponent } from './ui/header/menu/monster/monster';
-import { ScenarioChartPopupDialog } from './ui/header/menu/scenario/chart/popup/scenario-chart-popup';
-import { ScenarioChartDialogComponent } from './ui/header/menu/scenario/chart/scenario-chart';
 import { ScenarioMenuComponent } from './ui/header/menu/scenario/scenario';
 import { SectionMenuComponent } from './ui/header/menu/section/section';
 import { ServerMenuComponent } from './ui/header/menu/server/server';

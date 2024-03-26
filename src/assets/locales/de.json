@@ -1514,13 +1514,23 @@
     },
     "activeApplyConditions": {
       ".": "Bestätige anwendbare Zustände",
+      "auto": {
+        ".": "Automatisch Bestätigen",
+        "hint": {
+          ".": "Nicht nach Bestätigung fragen und stattdessen die Zustände automatisch anwenden.<br><br>Mit Vorsicht verwenden!",
+          "brittle": "Nach erhaltenden Schaden automatisch %game.condition.brittle% anwenden und den Schaden zu erhöhen.<br><br>Funktioniert nicht automatisch bei %game.condition.poison%!",
+          "heal": "Wenn die Trefferpunkte erhöht werden automatisch %game.action.heal% anwenden und entsprechende Zustände entfernen.",
+          "shield": "Nach erhaltenden Schaden automatisch %game.action.shield% anwenden und den Schaden reduzieren.",
+          "ward": "Nach erhaltenden Schaden automatisch %game.condition.ward% anwenden und den Schaden reduzieren.<br><br>Funktioniert nicht automatisch bei %game.condition.poison%!"
+        }
+      },
       "hint": {
         ".": "Einige Zustände benötigen eine Bestätigung um angewendet zu werden, z.B. wenn der TP Wert bei Gift gesenkt wird, kann durch Bestätigung 1 extra TP vom Gift abgezogen werden",
         "brittle": "Nachfragen ob nach erhaltenden Schaden %game.condition.brittle% angewendet werden soll um den Schaden zu erhöhen.",
         "heal": "Kein Zustand, aber eine Hilfe ob %game.action.heal% angwendet werden soll wenn die Trefferpunkte erhöht werden.",
         "poison": "Nachfragen ob nach erhaltenden Schaden %game.action.attack% +1 von %game.condition.poison% angewendet werden soll (inklusive %game.attackmodifier.double%).",
         "poison_x": "Nachfragen ob nach erhaltenden Schaden %game.action.attack% +X von %game.condition.poison_x:X% angewendet werden soll (inklusive %game.attackmodifier.double%).",
-        "shield": "Kein Zustand, aber eine Hilfe ob nach erhaltenden Schaden %game.action.shield% angwendet werden soll.",
+        "shield": "Kein Zustand, aber eine Hilfe ob nach erhaltenden Schaden %game.action.shield% angwendet werden soll um den erhaltenden Schaden zu reduzieren.",
         "ward": "Nachfragen ob nach erhaltenden Schaden %game.condition.ward% angewendet werden soll um den erhaltenden Schaden zu reduzieren."
       }
     },

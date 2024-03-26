@@ -23,10 +23,10 @@ import { AutocompleteItem } from "../../helper/autocomplete";
 import { CharacterSheetDialog } from "../character/dialogs/character-sheet-dialog";
 import { ScenarioRequirementsComponent } from "./requirements/requirements";
 import { PartyResourcesDialogComponent } from "./resources/resources";
+import { ScenarioChartDialogComponent } from "./scenario-chart/scenario-chart";
 import { TreasuresDialogComponent } from "./treasures/treasures-dialog";
 import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
 import { WorldMapComponent } from "./world-map/world-map";
-import { ScenarioChartDialogComponent } from "../../header/menu/scenario/chart/scenario-chart";
 
 @Component({
   selector: 'ghs-party-sheet-dialog',

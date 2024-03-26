@@ -350,7 +350,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
             this.campaignSheet = true;
             this.dialog.open(PartySheetDialogComponent, {
                 panelClass: ['dialog-invert'],
-                data: { campaign: true, disableShortcuts: true }
+                data: { disableShortcuts: true }
             }).closed.subscribe({ next: () => this.campaignSheet = false });
         }
     }

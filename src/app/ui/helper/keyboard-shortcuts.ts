@@ -9,12 +9,12 @@ import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { SummonState } from 'src/app/game/model/Summon';
 import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
 import { EntityMenuDialogComponent } from '../figures/entity-menu/entity-menu-dialog';
+import { PartySheetDialogComponent } from '../figures/party/party-sheet-dialog';
+import { ScenarioChartDialogComponent } from '../figures/party/scenario-chart/scenario-chart';
+import { WorldMapComponent } from '../figures/party/world-map/world-map';
 import { FooterComponent } from '../footer/footer';
 import { HeaderComponent } from '../header/header';
 import { KeyboardShortcutsComponent } from '../header/menu/keyboard-shortcuts/keyboard-shortcuts';
-import { WorldMapComponent } from '../figures/party/world-map/world-map';
-import { ScenarioChartDialogComponent } from '../header/menu/scenario/chart/scenario-chart';
-import { PartySheetDialogComponent } from '../figures/party/party-sheet-dialog';
 
 
 export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario" | "handSize" | "traits" | "party" | "map" | "chart";
@@ -216,7 +216,6 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                         }
                     }
                 } else if ((!this.dialogOpen || this.allowed.indexOf('chart') != -1) && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'c' && gameManager.game.edition) {
-                    console.log("c");
                     if (this.dialogOpen) {
                         this.dialog.closeAll();
                     }

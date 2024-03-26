@@ -1,15 +1,15 @@
+import { Dialog } from "@angular/cdk/dialog";
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from "@angular/core";
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { ScenarioData } from "src/app/game/model/data/ScenarioData";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameState } from "src/app/game/model/Game";
 import { GameScenarioModel, Scenario, ScenarioCache } from "src/app/game/model/Scenario";
+import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { Spoilable, SpoilableMock } from "src/app/game/model/data/Spoilable";
 import { ScenarioRequirementsComponent } from "src/app/ui/figures/party/requirements/requirements";
-import { Dialog } from "@angular/cdk/dialog";
-import { Subscription } from "rxjs";
-import { ScenarioChartDialogComponent } from "./chart/scenario-chart";
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
+import { ScenarioChartDialogComponent } from "../../../figures/party/scenario-chart/scenario-chart";
 
 @Component({
   selector: 'ghs-scenario-menu',

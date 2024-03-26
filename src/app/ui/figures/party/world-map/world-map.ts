@@ -7,8 +7,8 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { BuildingData } from "src/app/game/model/data/BuildingData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { WorldMapCoordinates } from "src/app/game/model/data/WorldMap";
-import { ScenarioChartPopupDialog } from "src/app/ui/header/menu/scenario/chart/popup/scenario-chart-popup";
-import { ScenarioChartDialogComponent } from "src/app/ui/header/menu/scenario/chart/scenario-chart";
+import { ScenarioChartPopupDialog } from "src/app/ui/figures/party/scenario-chart/popup/scenario-chart-popup";
+import { ScenarioChartDialogComponent } from "src/app/ui/figures/party/scenario-chart/scenario-chart";
 import { ghsDefaultDialogPositions, ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { PartySheetDialogComponent } from "../party-sheet-dialog";
 
@@ -319,6 +319,10 @@ export class WorldMapComponent implements AfterViewInit {
                 this.openFlowChart();
                 event.stopPropagation();
                 event.preventDefault();
+            } else if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'h') {
+                settingsManager.toggle('globalMapHighlighting');
+                event.stopPropagation();
+                event.preventDefault();
             }
         }
     }
@@ -339,7 +343,7 @@ export class WorldMapComponent implements AfterViewInit {
             this.campaignSheet = true;
             this.dialog.open(PartySheetDialogComponent, {
                 panelClass: ['dialog-invert'],
-                data: { campaign: true, disableShortcuts: true }
+                data: { disableShortcuts: true }
             }).closed.subscribe({ next: () => this.campaignSheet = false });
         }
     }
