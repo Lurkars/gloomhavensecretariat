@@ -2109,12 +2109,6 @@
             align-items: flex-end;
             height: 100%;
             overflow: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-
-            &::-webkit-scrollbar {
-              display: none;
-            }
 
             .tick {
               display: flex;
@@ -2191,13 +2185,7 @@
             align-items: center;
             height: 100%;
             overflow: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-
-            &::-webkit-scrollbar {
-              display: none;
-            }
-
+            
             .donation {
               position: relative;
               display: flex;

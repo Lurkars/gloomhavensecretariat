@@ -598,7 +598,7 @@ export class ScenarioRulesManager {
               monster.ability = figure.ability;
               monster.isAlly = figure.isAlly;
               monster.isAllied = figure.isAllied;
-              monster.entities = figure.entities;
+              monster.entities = [...monster.entities, ...figure.entities];
 
               monster.entities.forEach((entity) => {
                 const figureStat = figure.stats.find((stat) => {
@@ -759,6 +759,7 @@ export class ScenarioRulesManager {
                 statEffect.range = ('' + statEffectRule.statEffect.range).replaceAll('X', '' + referenceValue);
               }
 
+              statEffect.flying = statEffectRule.statEffect.flying;
               statEffect.actions = statEffectRule.statEffect.actions;
               statEffect.special = statEffectRule.statEffect.special;
               statEffect.immunities = statEffectRule.statEffect.immunities;
@@ -767,7 +768,7 @@ export class ScenarioRulesManager {
 
               statEffect.note = statEffectRule.note;
 
-              if (statEffect.absolute || (statEffect.health || statEffect.movement || statEffect.attack || statEffect.range || statEffect.actions && statEffect.actions.length || statEffect.immunities && statEffect.immunities.length || statEffect.deck)) {
+              if (statEffect.absolute || (statEffect.health || statEffect.movement || statEffect.attack || statEffect.range || statEffect.actions && statEffect.actions.length || statEffect.immunities && statEffect.immunities.length || statEffect.deck || statEffect.name || statEffect.flying != undefined)) {
                 figure.statEffect = statEffect;
               } else {
                 figure.statEffect = undefined;

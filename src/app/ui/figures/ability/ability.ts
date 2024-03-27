@@ -31,6 +31,7 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
   settingsManager: SettingsManager = settingsManager;
   ActionValueType = ActionValueType;
 
+  deckLabel: string = "";
   abilityIndex: number = -1;
   abilityLabel: string = "";
 
@@ -66,6 +67,19 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
 
   update() {
     this.fontsize = (this.elementRef.nativeElement.offsetWidth * 0.04) + 'px'
+    if (this.monster) {
+      const deck = this.monster.statEffect && this.monster.statEffect.deck && !this.monster.statEffect.deck.startsWith(this.monster.name) ? this.monster.statEffect.deck : (this.monster.deck ? this.monster.deck : this.monster.name);
+      this.deckLabel = 'data.deck.' + deck;
+      if (deck == settingsManager.getLabel(this.deckLabel)) {
+        this.deckLabel = 'data.monster.' + deck;
+      }
+    } else if (this.character) {
+      const deck = this.character.deck ? this.character.deck : this.character.name;
+      this.deckLabel = 'data.deck.' + deck;
+      if (deck == settingsManager.getLabel(this.deckLabel)) {
+        this.deckLabel = 'data.character.' + deck;
+      }
+    }
     this.abilityIndex = -1;
     this.abilityLabel = "";
     if (this.ability) {
@@ -88,13 +102,8 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
 
     if (label) {
       label = 'data.ability.' + label;
-    } else if (this.monster && this.monster.deck && this.monster.deck != this.monster.name) {
-      label = 'data.deck.' + this.monster.deck;
-      if (label.split('.')[label.split('.').length - 1] === applyPlaceholder(settingsManager.getLabel(label)) && this.monster.deck) {
-        label = 'data.monster.' + this.monster.deck;
-      }
-    } else if (this.monster) {
-      label = 'data.monster.' + this.monster.name;
+    } else {
+      label = this.deckLabel;
     }
 
     return applyPlaceholder(settingsManager.getLabel(label));

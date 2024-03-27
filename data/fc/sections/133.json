@@ -10,7 +10,36 @@
   ],
   "marker": "k",
   "monsters": [
-    "ancient-artillery-section-133"
+    "ancient-artillery"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "ancient-artillery"
+          },
+          "statEffect": {
+            "actions": [
+              {
+                "type": "shield",
+                "value": 2
+              },
+              {
+                "type": "custom",
+                "value": "%data.section.rules.fc.133.2%"
+              }
+            ]
+          },
+          "note": "%data.section.rules.fc.133.1%"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -22,7 +51,7 @@
       ],
       "monster": [
         {
-          "name": "ancient-artillery-section-133",
+          "name": "ancient-artillery",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"

@@ -6,8 +6,37 @@
   "marker": "2",
   "monsters": [
     "bandit-guard",
-    "bear-drake-abomination",
+    "cave-bear",
     "valrath-tracker"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "cave-bear"
+          },
+          "statEffect": {
+            "name": "bear-drake-abomination",
+            "health": "[(HxC)/2{$math.ceil}]",
+            "flying": true,
+            "immunities": [
+              "immobilize",
+              "disarm",
+              "stun"
+            ],
+            "deck": "bear-drake-abomination",
+            "absolute": true
+          },
+          "note": "%data.section.rules.fc.28%"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -28,8 +57,8 @@
           "player4": "normal"
         },
         {
-          "name": "bear-drake-abomination",
-          "type": "boss"
+          "name": "cave-bear",
+          "type": "elite"
         },
         {
           "name": "valrath-tracker",

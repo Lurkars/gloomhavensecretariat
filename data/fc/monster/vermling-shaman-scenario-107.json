@@ -2,6 +2,7 @@
   "name": "vermling-shaman-scenario-107",
   "edition": "fc",
   "deck": "shaman",
+  "hidden": true,
   "count": 6,
   "standeeShare": "vermling-shaman",
   "standeeShareEdition": "gh",

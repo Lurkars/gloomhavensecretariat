@@ -18,7 +18,7 @@
       <span class="ally" *ngIf="monster.isAlly"><span [ghs-label]="'game.ally'"></span></span>
       <span class="allied" *ngIf="monster.isAllied"><span [ghs-label]="'game.allied'"></span></span>
     </span>
-    <span *ngIf="monster.flying" class="flying"><img
+    <span *ngIf="flying" class="flying"><img
         [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
     <span class="edition" *ngIf="edition">[<span [ghs-label]="'data.edition.' + edition"></span>]</span>
     <span *ngIf="catching" class="catching"><img class="ghs-svg" src="./assets/images/fh/catching.svg"></span>
@@ -41,7 +41,7 @@
         [empty]="true"></span>
     </span>
     <span class="stat-icon"><img
-        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/' + (monster.flying ? 'fly' : 'move') + '.svg'" /></span>
+        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/' + (flying ? 'fly' : 'move') + '.svg'" /></span>
 
     <span class="stat boss"
       [ngClass]="{'hidden' : hideStats, 'bordered' : hideStats || stats.range }">
@@ -83,7 +83,7 @@
         [empty]="true"></span>
     </span>
     <span class="stat-icon"><img
-        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/' + (monster.flying ? 'fly' : 'move') + '.svg'" /></span>
+        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/' + (flying ? 'fly' : 'move') + '.svg'" /></span>
     <span class="stat elite bordered" [ngClass]="{'hidden' : hideEliteStats}">
       <span class="value" [value-calc]="eliteStats.movement" [level]="monster.level"
         [empty]="true"></span>

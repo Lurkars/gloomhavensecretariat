@@ -7,7 +7,7 @@
     {
       "round": "true",
       "always": true,
-      "note": "%data.scenario.rules.fc.106%"
+      "note": "%data.scenario.rules.fc.106.1%"
     },
     {
       "round": "true",

@@ -73,9 +73,10 @@ export class MonsterManager {
       statEffect.name = monster.statEffect.name;
       const oldHP = EntityValueFunction(stat.health, monster.level);
       statEffect.health = typeof monster.statEffect.health === 'string' ? monster.statEffect.health.replaceAll('H', '' + stat.health).replace('[', '').replace(']', '') : monster.statEffect.health;
-      statEffect.movement = typeof monster.statEffect.movement === 'string' ? monster.statEffect.movement.replaceAll('H', '' + stat.health).replace('[', '').replace(']', '') : monster.statEffect.movement;
-      statEffect.attack = typeof monster.statEffect.attack === 'string' ? monster.statEffect.attack.replaceAll('H', '' + stat.health).replace('[', '').replace(']', '') : monster.statEffect.attack;
-      statEffect.range = typeof monster.statEffect.range === 'string' ? monster.statEffect.range.replaceAll('H', '' + stat.health).replace('[', '').replace(']', '') : monster.statEffect.range;
+      statEffect.movement = typeof monster.statEffect.movement === 'string' ? monster.statEffect.movement.replaceAll('M', '' + stat.movement).replace('[', '').replace(']', '') : monster.statEffect.movement;
+      statEffect.attack = typeof monster.statEffect.attack === 'string' ? monster.statEffect.attack.replaceAll('A', '' + stat.attack).replace('[', '').replace(']', '') : monster.statEffect.attack;
+      statEffect.range = typeof monster.statEffect.range === 'string' ? monster.statEffect.range.replaceAll('R', '' + stat.range).replace('[', '').replace(']', '') : monster.statEffect.range;
+      statEffect.flying = monster.statEffect.flying;
       statEffect.actions = monster.statEffect.actions;
       statEffect.special = monster.statEffect.special;
       statEffect.immunities = monster.statEffect.immunities;
@@ -94,7 +95,6 @@ export class MonsterManager {
         if (statEffect.range) {
           stat.range = '[' + statEffect.range + ']';
         }
-
         if (statEffect.actions) {
           stat.actions = statEffect.actions;
         }
@@ -105,10 +105,16 @@ export class MonsterManager {
           stat.immunities = statEffect.immunities;
         }
       } else {
-        stat.health = '[' + stat.health + '+' + statEffect.health + ']';
-        stat.movement = '[' + stat.movement + '+' + statEffect.movement + ']';
-        stat.attack = '[' + stat.attack + '+' + statEffect.attack + ']';
-        if (EntityValueFunction(stat.range)) {
+        if (statEffect.health) {
+          stat.health = '[' + stat.health + '+' + statEffect.health + ']';
+        }
+        if (statEffect.movement) {
+          stat.movement = '[' + stat.movement + '+' + statEffect.movement + ']';
+        }
+        if (statEffect.attack) {
+          stat.attack = '[' + stat.attack + '+' + statEffect.attack + ']';
+        }
+        if (statEffect.range && EntityValueFunction(stat.range)) {
           stat.range = '[' + stat.range + '+' + statEffect.range + ']';
         }
         if (statEffect.actions) {

@@ -37,6 +37,7 @@ export class MonsterStatsComponent implements OnInit {
   highlightActions: ActionType[] = [ActionType.shield, ActionType.retaliate];
   edition: string = "";
   catching: boolean = false;
+  flying: boolean = false;
   monsterCopy!: Monster;
 
   @ViewChild('levelButton', { read: ElementRef }) levelButton!: ElementRef;
@@ -52,6 +53,7 @@ export class MonsterStatsComponent implements OnInit {
     }
     this.edition = gameManager.getEdition(this.monster);
     this.catching = this.monster.catching && gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'stables' && buildingModel.level > 0 && buildingModel.state != 'wrecked') != undefined;
+    this.flying = this.monster.flying && (!this.monster.statEffect || this.monster.statEffect.flying != 'disabled') || this.monster.statEffect != undefined && this.monster.statEffect.flying == true;
     gameManager.uiChange.subscribe({
       next: () => {
         if (!settingsManager.settings.statAnimations) {
@@ -62,6 +64,7 @@ export class MonsterStatsComponent implements OnInit {
         this.edition = gameManager.getEdition(this.monster);
         this.catching = this.monster.catching && gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'stables' && buildingModel.level > 0 && buildingModel.state != 'wrecked') != undefined;
         this.setStats();
+        this.flying = this.monster.flying && (!this.monster.statEffect || this.monster.statEffect.flying != 'disabled') || this.monster.statEffect != undefined && this.monster.statEffect.flying == true;
       }
     })
   }

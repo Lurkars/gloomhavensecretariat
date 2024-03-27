@@ -7,8 +7,7 @@
       [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0 && !character, 'character-actions' : character}">
       <div class="touch"></div>
       <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
-      <span class="name" *ngIf="monster"><span
-          [ghs-label]="monster.statEffect && monster.statEffect.deck && !monster.statEffect.deck.startsWith(monster.name) ? 'data.deck.' + monster.statEffect.deck : (monster.deck ? 'data.deck.' + monster.deck :  'data.monster.' + monster.name)"></span></span>
+      <span class="name" *ngIf="monster" [ghs-label]="deckLabel"></span>
       <span class="name" *ngIf="character"><span [ghs-label]="'data.character.' + character.name"></span></span>
       <span class="logo" *ngIf="character"><img [src]="character.iconUrl" /></span>
     </div>

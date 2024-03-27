@@ -62,7 +62,7 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
 
   setEditions() {
     if (gameManager.game.edition) {
-      this.editions = [gameManager.game.edition, ...gameManager.editionExtensions(gameManager.game.edition)];
+      this.editions = [gameManager.game.edition, ...gameManager.editionExtensions(gameManager.game.edition), ...gameManager.editionScenarioExtensions(gameManager.game.edition)];
     } else {
       this.editions = gameManager.editionData.filter((editionData) => editionData.scenarios && editionData.scenarios.filter((scenarioData) => scenarioData.edition == editionData.edition && settingsManager.settings.editions.indexOf(scenarioData.edition) != -1).length > 0).map((editionData) => editionData.edition);
     }

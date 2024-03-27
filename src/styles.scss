@@ -139,7 +139,7 @@ body {
   }
 }
 
-*::-webkit-scrollbar {
+*::-webkit-scrollbar, *::-webkit-scrollbar:horizontal {
   width: 5px;
   height: 8px;
   border-radius: 10px;
@@ -151,7 +151,7 @@ body {
   }
 }
 
-*::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb, *::-webkit-scrollbar-thumb:horizontal {
   background: var(--ghs-color-gray);
   border-radius: 10px;
   border: 5px solid transparent;

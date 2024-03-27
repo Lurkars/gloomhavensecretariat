@@ -87,12 +87,6 @@
         height: calc(var(--ghs-unit) * 5.5 * var(--ghs-text-factor));
         transition: height 500ms ease-out, width 500ms ease-out;
         overflow: auto;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-
-        &::-webkit-scrollbar {
-          display: none;
-        }
       }
     }
 

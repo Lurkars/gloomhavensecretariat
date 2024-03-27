@@ -385,10 +385,10 @@
         <span class="type"><span [ghs-label]="'game.action.' + action.type" [style]="style"></span></span>
 
         <span class="action-icon">
-          <img *ngIf="action.type != ActionType.move || !monster || !monster.flying"
+          <img *ngIf="action.type != ActionType.move || !flying"
             [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/' + action.type + '.svg'" class="icon"
             [ngClass]="{'ghs-svg' : isGhsSvg(action.type)}" />
-          <img *ngIf="action.type == ActionType.move && monster && monster.flying"
+          <img *ngIf="action.type == ActionType.move && flying"
             [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/fly.svg'" class="icon"
             [ngClass]="{'ghs-svg' : isGhsSvg(action.type)}" />
         </span>
@@ -450,10 +450,10 @@
           <span [ghs-label]="'game.action.' + action.type" [style]="style"></span>
         </span>
 
-        <img *ngIf="action.type != ActionType.move || !monster || !monster.flying"
+        <img *ngIf="action.type != ActionType.move || !flying"
           [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/' + action.type + '.svg'" class="icon"
           [ngClass]="{'ghs-svg' : isGhsSvg(action.type)}" />
-        <img *ngIf="action.type == ActionType.move && monster && monster.flying"
+        <img *ngIf="action.type == ActionType.move && flying"
           [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/fly.svg'" class="icon"
           [ngClass]="{'ghs-svg' : isGhsSvg(action.type)}" />
       </ng-container>

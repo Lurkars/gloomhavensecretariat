@@ -40,6 +40,7 @@ export class ActionComponent implements OnInit, OnDestroy {
   action!: Action | undefined;
   subActions: Action[] = [];
   fhStyle: boolean = false;
+  flying: boolean = false;
 
   settingsManager: SettingsManager = settingsManager;
   EntityValueFunction = EntityValueFunction;
@@ -104,6 +105,11 @@ export class ActionComponent implements OnInit, OnDestroy {
       this.level = this.monster.level;
     } else {
       this.level = gameManager.game.level;
+    }
+
+    this.flying = false;
+    if (this.monster) {
+      this.flying = this.monster.flying && (!this.monster.statEffect || this.monster.statEffect.flying != 'disabled') || this.monster.statEffect != undefined && this.monster.statEffect.flying == true;
     }
   }
 

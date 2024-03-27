@@ -135,6 +135,12 @@
       }
     }
 
+    .stat-effects {
+      .text {
+        margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor)) 0;
+      }
+    }
+
     p {
       margin: 0;
       padding: 0;

@@ -6,9 +6,30 @@
   "marker": "1",
   "monsters": [
     "ancient-artillery",
-    "avatar-of-ashtar",
     "earth-demon",
-    "flame-demon"
+    "flame-demon",
+    "savvas-lavaflow"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "savvas-lavaflow"
+          },
+          "statEffect": {
+            "name": "avatar-of-ashtar",
+            "count": 1
+          },
+          "note": "%data.section.rules.fc.13%"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -29,18 +50,18 @@
           "player4": "normal"
         },
         {
-          "name": "avatar-of-ashtar",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
           "name": "earth-demon",
           "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "flame-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         }

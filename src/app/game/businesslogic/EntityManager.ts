@@ -405,9 +405,9 @@ export class EntityManager {
             }
             this.checkHealth(entity, figure);
           }
-          condition.value = 1;
-          condition.expired = true;
         }
+        condition.value = 1;
+        condition.expired = true;
       }
 
       if (condition.name == ConditionName.brittle) {
@@ -452,16 +452,11 @@ export class EntityManager {
         condition.expired = true;
       }
 
-      if (highlight) {
-        const expired = condition.expired;
+      if (highlight && settingsManager.settings.animations) {
         condition.highlight = true;
-        if (expired) {
-          condition.expired = !expired;
-        }
         setTimeout(() => {
           condition.highlight = false;
-          condition.expired = expired;
-        }, settingsManager.settings.animations ? 1000 : 0);
+        }, 1000);
       } else {
         condition.highlight = false;
       }
@@ -694,7 +689,7 @@ export class EntityManager {
   }
 
   highlightedConditions(entity: Entity): EntityCondition[] {
-    return entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.highlight).sort((a, b) => b.types.indexOf(ConditionType.double) - a.types.indexOf(ConditionType.double));
+    return entity.entityConditions.filter((entityCondition) => entityCondition.highlight).sort((a, b) => b.types.indexOf(ConditionType.double) - a.types.indexOf(ConditionType.double));
   }
 
   hasMarker(entity: Entity, marker: string) {
