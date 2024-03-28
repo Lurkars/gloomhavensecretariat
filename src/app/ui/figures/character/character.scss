@@ -38,15 +38,17 @@
   &.permanent.active {
     position: relative;
     width: calc(var(--ghs-unit) * 98);
-    height: calc(var(--ghs-unit) * 13 * var(--ghs-text-factor));
+    height: calc(var(--ghs-unit) * 15.6);
 
     .scroll-container {
-      height: calc(var(--ghs-unit) * 17 * var(--ghs-text-factor));
+      height: calc(var(--ghs-unit) * 20);
     }
 
     ghs-attackmodifier-deck {
-      top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+      top: calc(var(--ghs-unit) * 2.3);
       left: calc(var(--ghs-unit) * 17);
+      width: calc(var(--ghs-unit) * 45 * var(--ghs-text-factor));
+      height: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor));
     }
   }
 

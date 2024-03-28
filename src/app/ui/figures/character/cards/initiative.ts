@@ -27,6 +27,7 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
   GameState = GameState;
   character: Character | undefined;
   objectiveContainer: ObjectiveContainer | undefined;
+  reveal: number = 0;
 
   constructor(private dialog: Dialog, private overlay: Overlay, public elementRef: ElementRef) { };
 
@@ -47,8 +48,8 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
           let next = document.getElementById('initiative-input-' + nextIndex);
           if (!next && tabindex > 0) {
             next = document.getElementById('initiative-input-0');
-          } else if (!next && nextIndex < 0) {
-            nextIndex = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length - 1;
+          } else if (nextIndex < 0) {
+            nextIndex = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent && (figure.initiativeVisible || !figure.initiative)).length - 1;
             next = document.getElementById('initiative-input-' + nextIndex);
             while (!next && nextIndex > 0) {
               nextIndex--;
@@ -82,11 +83,33 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
   }
 
   updateInitiative(event: any) {
+    if (this.reveal) {
+      this.disableReveal();
+    }
     const initiative: number = isNaN(+event.target.value) ? 0 : +event.target.value;
     if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0 || initiative > 0) && initiative < 100) {
       this.setInitiative(initiative);
     } else {
       event.target.value = (this.figure.initiative < 10 ? '0' : '') + this.figure.initiative;
+    }
+  }
+
+  enableReveal(event: any) {
+    if (this.initiativeInput) {
+      this.reveal = this.figure.initiative;
+      this.figure.initiative = 0;
+      setTimeout(() => {
+        this.initiativeInput.nativeElement.focus();
+      }, 1);
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }
+
+  disableReveal() {
+    if (this.reveal) {
+      this.figure.initiative = this.reveal;
+      this.reveal = 0;
     }
   }
 
@@ -129,10 +152,7 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
   }
 
   tabindex(): number {
-    return gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent && !figure.exhausted).indexOf(this.figure);
-  }
-
-  focusNext(event: KeyboardEvent) {
+    return gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent && !figure.exhausted && (figure.initiativeVisible || !figure.initiative)).indexOf(this.figure);
   }
 
 }

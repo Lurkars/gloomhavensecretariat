@@ -79,7 +79,7 @@ export class ItemManager {
     }
 
     getItem(id: number, edition: string, all: boolean): ItemData | undefined {
-        return gameManager.itemData(undefined, true).find((itemData) => (itemData && itemData.id == id && itemData.edition == edition && (all || this.isItemAvailable(itemData, edition))));
+        return gameManager.itemData().find((itemData) => (itemData && itemData.id == id && itemData.edition == edition && (all || this.isItemAvailable(itemData, edition))));
     }
 
     maxItemIndex(edition: string): number {
