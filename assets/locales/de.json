@@ -295,6 +295,7 @@
       "loot": "Beute",
       "monsterType": "Monster Variante",
       "move": "Bewegung",
+      "nonCalc": "org. Aktion",
       "pierce": "Durchstechen",
       "pull": "Ziehen",
       "push": "Schieben",
@@ -536,7 +537,13 @@
       "instead": "Stattdessen",
       "math": {
         "ceil": "(aufgerundet)",
-        "floor": "(abgerundet)"
+        "floor": "(abgerundet)",
+        "max": ", bis zu einem Maximum von %game.number.{0}%",
+        "maxCeil": "(abgerundet), bis zu einem Maximum von %game.number.{0}%",
+        "maxFloor": "(abgerundet), bis zu einem Maximum von %game.number.{0}%",
+        "min": ", mindestens aber %game.number.{0}%",
+        "minCeil": "(aufgerundet), mindestens aber %game.number.{0}%",
+        "minFloor": "(abgerundet), mindestens aber %game.number.{0}%"
       },
       "ondeath": "Bei Tod:",
       "perks": {

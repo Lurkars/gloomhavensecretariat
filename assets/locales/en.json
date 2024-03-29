@@ -396,6 +396,7 @@
       "loot": "Loot",
       "monsterType": "Monster Type",
       "move": "Move",
+      "nonCalc": "org. Action",
       "pierce": "Pierce",
       "pull": "Pull",
       "push": "Push",
@@ -637,7 +638,13 @@
       "instead": "Instead",
       "math": {
         "ceil": "(rounded up)",
-        "floor": "(rounded down)"
+        "floor": "(rounded down)",
+        "max": ", up to a maximum of %game.number.{0}%",
+        "maxCeil": "(rounded up), up to a maximum of %game.number.{0}%",
+        "maxFloor": "(rounded down), up to a maximum of %game.number.{0}%",
+        "min": ", but at least %game.number.{0}%",
+        "minCeil": "(rounded up), but at least %game.number.{0}%",
+        "minFloor": "(rounded down), but at least of %game.number.{0}%"
       },
       "ondeath": "On death:",
       "perks": {
