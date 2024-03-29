@@ -72,7 +72,16 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
     } else if (this.objective instanceof ObjectiveContainer) {
       this.spawners = gameManager.entityManager.entities(this.objective, true).map((entity) => entity as ObjectiveEntity)
     }
-    this.monsters = gameManager.actionsManager.getMonsterSpawnData(this.action);
+    this.monsters = gameManager.actionsManager.getMonsterSpawnData(this.action).map((value) => {
+      const spawn = new MonsterSpawnData(value);
+      if (settingsManager.settings.calculate && !settingsManager.settings.combineInteractiveAbilities && this.isInteractiveApplicableAction() && typeof spawn.count === 'string' && this.spawners.length) {
+        const spawner = this.spawners.find((entity) => gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex));
+        if (spawner) {
+          spawn.count = EntityValueFunction(spawn.count.replaceAll('HP', '' + spawner.health).replaceAll('H', '' + EntityValueFunction(spawner.maxHealth)), spawner.level);
+        }
+      }
+      return spawn;
+    });
     this.objectives = gameManager.actionsManager.getObjectiveSpawnData(this.action);
     this.count = undefined;
     this.type = undefined;

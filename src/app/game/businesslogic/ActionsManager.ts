@@ -275,7 +275,20 @@ export class ActionsManager {
                     elements.forEach((element) => {
                         gameManager.game.elementBoard.forEach((elementModel) => {
                             if (elementModel.type == element && (elementModel.state == ElementState.strong || elementModel.state == ElementState.waning)) {
-                                elementModel.state = ElementState.consumed;
+                                elementModel.state = ElementState.partlyConsumed;
+                                if (figure instanceof Monster && entity instanceof MonsterEntity) {
+                                    const entities = figure.entities.filter((entity) => this.isInteractiveApplicableAction(entity, action, index));
+                                    if (entities.length && entities.indexOf(entity) == entities.length - 1) {
+                                        elementModel.state = ElementState.consumed;
+                                    }
+                                } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
+                                    const entities = figure.entities.filter((entity) => this.isInteractiveApplicableAction(entity, action, index));
+                                    if (entities.length && entities.indexOf(entity) == entities.length - 1) {
+                                        elementModel.state = ElementState.consumed;
+                                    }
+                                } else {
+                                    elementModel.state = ElementState.consumed;
+                                }
                             }
                         })
                     })
@@ -299,7 +312,8 @@ export class ActionsManager {
                     if (spawn.monster && spawn.monster.type) {
                         const monster = gameManager.monsterManager.addMonsterByName(spawn.monster.name, figure.edition || gameManager.currentEdition());
                         if (monster) {
-                            const count = Math.min(gameManager.monsterManager.monsterStandeeMax(monster) - gameManager.monsterManager.monsterStandeeCount(monster), EntityValueFunction(spawn.count || 1, figure.level));
+                            const spawnCount: number = typeof spawn.count == 'string' ? EntityValueFunction(spawn.count.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)), entity.level) : spawn.count;
+                            const count = Math.min(gameManager.monsterManager.monsterStandeeMax(monster) - gameManager.monsterManager.monsterStandeeCount(monster), spawnCount);
                             for (let i = 0; i < count; i++) {
                                 const spawnEntity = gameManager.monsterManager.spawnMonsterEntity(monster, spawn.monster.type, monster.isAlly, monster.isAllied, monster.drawExtra, action.type == ActionType.summon);
                                 if (spawnEntity) {
@@ -404,7 +418,7 @@ export class ActionsManager {
                 const summonValue = value.split(':');
                 let monsterStandee = new MonsterStandeeData(summonValue[0]);
                 monsterStandee.type = MonsterType.normal;
-                let monsterSpawn = new MonsterSpawnData(monsterStandee);
+                let monsterSpawn = new MonsterSpawnData(undefined, monsterStandee);
 
                 if (summonValue.length > 1) {
                     if (!isNaN(+summonValue[1])) {

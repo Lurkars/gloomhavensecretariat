@@ -247,11 +247,16 @@ export const applyValueCalc = function (value: string, relative: boolean): strin
         return "" + result;
       } else {
         let func = args[2];
+        let funcArgs: string[] = [];
         const funcLabel = func && func.startsWith('$');
         if (funcLabel) {
           func = func.replace('$', '');
+          if (func.indexOf(':') != -1) {
+            funcArgs = [func.split(':')[1]];
+            func = func.split(':')[0];
+          }
         }
-        return funcLabel ? args[0] + ' ' + settingsManager.getLabel('game.custom.' + func) : args[0];
+        return funcLabel ? args[0] + ' ' + settingsManager.getLabel('game.custom.' + func, funcArgs) : args[0];
       }
     });
   }
@@ -259,11 +264,16 @@ export const applyValueCalc = function (value: string, relative: boolean): strin
   while (value.match(EntityValueRegexExtended)) {
     value = value.replace(EntityValueRegexExtended, (match, ...args) => {
       let func = args[2];
+      let funcArgs: string[] = [];
       const funcLabel = func && func.startsWith('$');
       if (funcLabel) {
         func = func.replace('$', '');
+        if (func.indexOf(':') != -1) {
+          funcArgs = [func.split(':')[1]];
+          func = func.split(':')[0];
+        }
       }
-      return funcLabel ? args[0] + ' ' + settingsManager.getLabel('game.custom.' + func) : args[0];
+      return funcLabel ? args[0] + ' ' + settingsManager.getLabel('game.custom.' + func, funcArgs) : args[0];
     });
   }
 

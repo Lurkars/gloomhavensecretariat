@@ -374,7 +374,7 @@ export class RoundManager {
       if (element.state == ElementState.new) {
         element.state = ElementState.strong;
       }
-      if (element.state == ElementState.consumed) {
+      if (element.state == ElementState.consumed || element.state == ElementState.partlyConsumed) {
         element.state = ElementState.inert;
       }
     })

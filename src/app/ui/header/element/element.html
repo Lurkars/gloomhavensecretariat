@@ -1,5 +1,5 @@
 <span class="element"
-  [ngClass]="{'consume' :element.state == ElementState.consumed, 'fh' : settingsManager.settings.fhStyle}">
+  [ngClass]="{'consume' :element.state == ElementState.consumed || element.state == ElementState.partlyConsumed}">
   <ghs-element-icon [element]="element"></ghs-element-icon>
   <ghs-pointer-input (singleClick)="toggleElement()" (doubleClick)="toggleElement(true)"></ghs-pointer-input>
 </span>

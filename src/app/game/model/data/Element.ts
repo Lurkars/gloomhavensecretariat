@@ -14,6 +14,7 @@ export enum ElementState {
   inert = "inert",
   new = "new",
   consumed = "consumed",
+  partlyConsumed = "partlyConsumed",
   always = "always"
 }
 

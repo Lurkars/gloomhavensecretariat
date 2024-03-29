@@ -46,7 +46,7 @@ export class MonsterStatsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.monsterCopy = new Monster(this.monster, this.monster.level);
+    this.monsterCopy = JSON.parse(JSON.stringify(this.monster));
     this.setStats();
     if (!settingsManager.settings.statAnimations) {
       this.highlightActions = [];
