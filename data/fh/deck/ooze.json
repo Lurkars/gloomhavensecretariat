@@ -189,6 +189,7 @@
       ]
     },
     {
+      "name": "Split",
       "cardId": 872,
       "initiative": 94,
       "shuffle": true,

@@ -419,6 +419,7 @@ export class ActionsManager {
                 let monsterStandee = new MonsterStandeeData(summonValue[0]);
                 monsterStandee.type = MonsterType.normal;
                 let monsterSpawn = new MonsterSpawnData(undefined, monsterStandee);
+                monsterSpawn.count = 1;
 
                 if (summonValue.length > 1) {
                     if (!isNaN(+summonValue[1])) {
