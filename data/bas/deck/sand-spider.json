@@ -156,7 +156,15 @@
       "actions": [
         {
           "type": "summon",
-          "value": "sand-spider:normal"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "sand-spider",
+                "type": "normal"
+              }
+            }
+          ]
         }
       ]
     }

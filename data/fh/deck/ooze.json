@@ -176,7 +176,16 @@
         },
         {
           "type": "summon",
-          "value": "ooze:normal:1:H",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "ooze",
+                "type": "normal",
+                "health": "H"
+              }
+            }
+          ],
           "small": true,
           "subActions": [
             {
@@ -200,7 +209,16 @@
         },
         {
           "type": "summon",
-          "value": "ooze:normal:1:H",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "ooze",
+                "type": "normal",
+                "health": "H"
+              }
+            }
+          ],
           "small": true,
           "subActions": [
             {

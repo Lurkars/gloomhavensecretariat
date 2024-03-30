@@ -21,7 +21,16 @@
         },
         {
           "type": "summon",
-          "value": "blood-ooze:normal:1:H-2",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "ooze",
+                "type": "normal",
+                "health": "H-2"
+              }
+            }
+          ],
           "small": true,
           "subActions": [
             {
@@ -39,7 +48,16 @@
       "actions": [
         {
           "type": "summon",
-          "value": "blood-ooze:normal:1:4",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "blood-ooze",
+                "type": "normal",
+                "health": "4"
+              }
+            }
+          ],
           "small": true,
           "subActions": [
             {
@@ -49,7 +67,16 @@
               "subActions": [
                 {
                   "type": "summon",
-                  "value": "blood-ooze:normal:1:3",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "blood-ooze",
+                        "type": "normal",
+                        "health": "3"
+                      }
+                    }
+                  ],
                   "subActions": [
                     {
                       "type": "custom",

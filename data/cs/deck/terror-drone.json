@@ -204,7 +204,15 @@
         },
         {
           "type": "summon",
-          "value": "undead-archer:normal",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "undead-archer",
+                "type": "normal"
+              }
+            }
+          ],
           "small": true,
           "subActions": [
             {

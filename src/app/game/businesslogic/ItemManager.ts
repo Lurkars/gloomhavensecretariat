@@ -296,8 +296,9 @@ export class ItemManager {
                     console.warn("More items assigend than available:", item);
                 }
                 return unlocked.count - assigned;
+            } else if (!unlocked) {
+                return -1;
             }
-            return -1;
         }
 
         if (item.count - assigned < 0) {

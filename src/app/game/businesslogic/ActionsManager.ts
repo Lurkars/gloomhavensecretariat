@@ -11,7 +11,6 @@ import { AttackModifier, AttackModifierType } from "../model/data/AttackModifier
 import { Condition, ConditionName } from "../model/data/Condition";
 import { Element, ElementModel, ElementState } from "../model/data/Element";
 import { MonsterType } from "../model/data/MonsterType";
-import { MonsterStandeeData } from "../model/data/RoomData";
 import { MonsterSpawnData, ObjectiveSpawnData } from "../model/data/ScenarioRule";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
@@ -312,7 +311,7 @@ export class ActionsManager {
                     if (spawn.monster && spawn.monster.type) {
                         const monster = gameManager.monsterManager.addMonsterByName(spawn.monster.name, figure.edition || gameManager.currentEdition());
                         if (monster) {
-                            const spawnCount: number = typeof spawn.count == 'string' ? EntityValueFunction(spawn.count.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)), entity.level) : spawn.count;
+                            const spawnCount: number = typeof spawn.count == 'string' ? EntityValueFunction(spawn.count.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)), entity.level) : spawn.count || 1;
                             const count = Math.min(gameManager.monsterManager.monsterStandeeMax(monster) - gameManager.monsterManager.monsterStandeeCount(monster), spawnCount);
                             for (let i = 0; i < count; i++) {
                                 const spawnEntity = gameManager.monsterManager.spawnMonsterEntity(monster, spawn.monster.type, monster.isAlly, monster.isAllied, monster.drawExtra, action.type == ActionType.summon);
@@ -413,34 +412,7 @@ export class ActionsManager {
                     }
                 }
             })
-        } else if (action.value != 'objectiveSpawn') {
-            ('' + action.value).split('|').forEach((value) => {
-                const summonValue = value.split(':');
-                let monsterStandee = new MonsterStandeeData(summonValue[0]);
-                monsterStandee.type = MonsterType.normal;
-                let monsterSpawn = new MonsterSpawnData(undefined, monsterStandee);
-                monsterSpawn.count = 1;
-
-                if (summonValue.length > 1) {
-                    if (!isNaN(+summonValue[1])) {
-                        monsterSpawn.count = +summonValue[1];
-                    } else {
-                        monsterStandee.type = summonValue[1] as unknown as MonsterType;
-                    }
-                }
-
-                if (summonValue.length > 2 && summonValue[2]) {
-                    monsterSpawn.count = summonValue[2];
-                }
-
-                if (summonValue.length > 3 && summonValue[3]) {
-                    monsterStandee.health = summonValue[3];
-                }
-
-                result.push(monsterSpawn);
-            });
         }
-
         return result;
     }
 

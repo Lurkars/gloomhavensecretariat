@@ -14,7 +14,15 @@
         "subActions": [
           {
             "type": "spawn",
-            "value": "black-imp:elite"
+            "value": "monsterStandee",
+            "valueObject": [
+              {
+                "monster": {
+                  "name": "black-imp",
+                  "type": "elite"
+                }
+              }
+            ]
           }
         ]
       }
@@ -93,7 +101,15 @@
           "subActions": [
             {
               "type": "spawn",
-              "value": "black-imp:elite"
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "black-imp",
+                    "type": "elite"
+                  }
+                }
+              ]
             }
           ]
         }
@@ -116,7 +132,15 @@
           "subActions": [
             {
               "type": "spawn",
-              "value": "black-imp:elite"
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "black-imp",
+                    "type": "elite"
+                  }
+                }
+              ]
             }
           ]
         }
@@ -139,7 +163,15 @@
           "subActions": [
             {
               "type": "spawn",
-              "value": "black-imp:elite"
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "black-imp",
+                    "type": "elite"
+                  }
+                }
+              ]
             }
           ]
         }
@@ -162,7 +194,15 @@
           "subActions": [
             {
               "type": "spawn",
-              "value": "black-imp:elite"
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "black-imp",
+                    "type": "elite"
+                  }
+                }
+              ]
             }
           ]
         }
@@ -185,7 +225,15 @@
           "subActions": [
             {
               "type": "spawn",
-              "value": "black-imp:elite"
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "black-imp",
+                    "type": "elite"
+                  }
+                }
+              ]
             }
           ]
         }
@@ -208,7 +256,15 @@
           "subActions": [
             {
               "type": "spawn",
-              "value": "black-imp:elite"
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "black-imp",
+                    "type": "elite"
+                  }
+                }
+              ]
             }
           ]
         }
@@ -231,7 +287,15 @@
           "subActions": [
             {
               "type": "spawn",
-              "value": "black-imp:elite"
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "black-imp",
+                    "type": "elite"
+                  }
+                }
+              ]
             }
           ]
         }

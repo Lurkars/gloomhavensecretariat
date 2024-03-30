@@ -138,7 +138,6 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
             this.sorted = this.character != undefined && this.character.progress.items.length > 0;
             this.update();
         } else {
-
             this.itemsMeta = [];
             if (this.character) {
                 this.items.forEach((itemData) => {
@@ -198,7 +197,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
                 }
             })
 
-            this.itemsMeta.sort((a,b) => {
+            this.itemsMeta.sort((a, b) => {
                 const A = this.items.find((value) => value.edition == a.edition && value.id == a.id);
                 const B = this.items.find((value) => value.edition == b.edition && value.id == b.id);
 

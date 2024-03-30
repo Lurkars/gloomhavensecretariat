@@ -73,7 +73,15 @@
       "actions": [
         {
           "type": "summon",
-          "value": "piranha-pig:normal"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "piranha-pig",
+                "type": "normal"
+              }
+            }
+          ]
         }
       ]
     },
@@ -147,7 +155,15 @@
           "subActions": [
             {
               "type": "summon",
-              "value": "piranha-pig:normal"
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "piranha-pig",
+                    "type": "normal"
+                  }
+                }
+              ]
             }
           ]
         }

@@ -30,7 +30,15 @@
           "subActions": [
             {
               "type": "summon",
-              "value": "black-imp:normal"
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "black-imp",
+                    "type": "normal"
+                  }
+                }
+              ]
             }
           ]
         }
