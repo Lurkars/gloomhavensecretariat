@@ -30,6 +30,13 @@
   "monsters": [
     "ancient-artillery"
   ],
+  "objectives": [
+    {
+      "name": "Metal Cabinet",
+      "health": "(2+L)xC/2",
+      "marker": "b"
+    }
+  ],
   "lootDeckConfig": {
     "money": 11,
     "lumber": 2,
@@ -50,7 +57,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Metal Cabinet"
+            "name": "Metal Cabinet",
+            "marker": "b"
           },
           "type": "killed",
           "value": "4"

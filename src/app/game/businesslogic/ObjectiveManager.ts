@@ -42,6 +42,7 @@ export class ObjectiveManager {
           objectiveContainer.initiative = objectiveData.initiative;
         }
       }
+      objectiveContainer.edition = objectiveContainer.escort ? 'escort' : 'objective';
       this.game.figures.push(objectiveContainer);
     }
     gameManager.addEntityCount(objectiveContainer);
