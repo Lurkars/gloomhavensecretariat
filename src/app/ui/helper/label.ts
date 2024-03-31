@@ -247,11 +247,16 @@ export const applyValueCalc = function (value: string, relative: boolean): strin
         return "" + result;
       } else {
         let func = args[2];
+        let funcArgs: string[] = [];
         const funcLabel = func && func.startsWith('$');
         if (funcLabel) {
           func = func.replace('$', '');
+          if (func.indexOf(':') != -1) {
+            funcArgs = [func.split(':')[1]];
+            func = func.split(':')[0];
+          }
         }
-        return funcLabel ? args[0] + ' ' + settingsManager.getLabel('game.custom.' + func) : args[0];
+        return funcLabel ? args[0] + ' ' + settingsManager.getLabel('game.custom.' + func, funcArgs) : args[0];
       }
     });
   }
@@ -259,11 +264,16 @@ export const applyValueCalc = function (value: string, relative: boolean): strin
   while (value.match(EntityValueRegexExtended)) {
     value = value.replace(EntityValueRegexExtended, (match, ...args) => {
       let func = args[2];
+      let funcArgs: string[] = [];
       const funcLabel = func && func.startsWith('$');
       if (funcLabel) {
         func = func.replace('$', '');
+        if (func.indexOf(':') != -1) {
+          funcArgs = [func.split(':')[1]];
+          func = func.split(':')[0];
+        }
       }
-      return funcLabel ? args[0] + ' ' + settingsManager.getLabel('game.custom.' + func) : args[0];
+      return funcLabel ? args[0] + ' ' + settingsManager.getLabel('game.custom.' + func, funcArgs) : args[0];
     });
   }
 
@@ -275,7 +285,7 @@ export const applyValueCalc = function (value: string, relative: boolean): strin
 })
 export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
 
-  @Input('ghs-label') value!: string;
+  @Input('ghs-label') value!: string | number;
   @Input('ghs-label-args') args: string[] = [];
   @Input('ghs-label-args-replace') argLabel: boolean = true;
   @Input('ghs-label-empty') empty: boolean = true;
@@ -336,7 +346,7 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
       args = args.map((arg) => applyPlaceholder(settingsManager.getLabel(arg, [], false, this.empty), [], this.relative, this.style));
     }
 
-    const value = this.value && applyPlaceholder(settingsManager.getLabel(this.value, args, false, this.empty), args, this.relative, this.style) || "";
+    const value = typeof this.value === 'number' ? this.value : (this.value && applyPlaceholder(settingsManager.getLabel(this.value, args, false, this.empty), args, this.relative, this.style) || "");
     if (this.attribute) {
       this.el.nativeElement.setAttribute(this.attribute, value);
     } else {

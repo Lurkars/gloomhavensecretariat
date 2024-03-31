@@ -6,8 +6,31 @@
   "marker": "1",
   "monsters": [
     "bandit-guard",
-    "valrath-tracker",
-    "wolf-viper-abomination"
+    "hound",
+    "valrath-tracker"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "hound"
+          },
+          "statEffect": {
+            "name": "wolf-viper-abomination",
+            "health": "[H+3]",
+            "deck": "wolf-viper-abomination",
+            "absolute": true
+          },
+          "note": "%data.section.rules.fc.6%"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -35,6 +58,32 @@
           "player4": "elite"
         },
         {
+          "name": "hound",
+          "player2": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "elite"
+        },
+        {
           "name": "valrath-tracker",
           "player2": "normal",
           "player4": "normal"
@@ -51,32 +100,6 @@
         {
           "name": "valrath-tracker",
           "player4": "normal"
-        },
-        {
-          "name": "wolf-viper-abomination",
-          "player2": "normal"
-        },
-        {
-          "name": "wolf-viper-abomination",
-          "player2": "normal"
-        },
-        {
-          "name": "wolf-viper-abomination",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "wolf-viper-abomination",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "wolf-viper-abomination",
-          "player3": "normal"
-        },
-        {
-          "name": "wolf-viper-abomination",
-          "player4": "elite"
         }
       ]
     }

@@ -10,7 +10,7 @@
   ],
   "monsters": [
     "abael-scout",
-    "steel-automaton-scenario-128"
+    "steel-automaton"
   ],
   "rules": [
     {
@@ -87,11 +87,11 @@
           "player4": "normal"
         },
         {
-          "name": "steel-automaton-scenario-128",
+          "name": "steel-automaton",
           "type": "elite"
         },
         {
-          "name": "steel-automaton-scenario-128",
+          "name": "steel-automaton",
           "player3": "normal",
           "player4": "elite"
         }

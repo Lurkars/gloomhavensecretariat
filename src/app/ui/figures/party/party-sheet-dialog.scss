@@ -16,15 +16,11 @@
       margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
       img {
-        height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-        margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-      }
+        height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
-      &:hover {
-        color: var(--ghs-color-gray);
-
-        img {
-          filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+        &:hover {
+          filter: var(--ghs-filter-gray);
         }
       }
     }
@@ -2113,12 +2109,6 @@
             align-items: flex-end;
             height: 100%;
             overflow: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-
-            &::-webkit-scrollbar {
-              display: none;
-            }
 
             .tick {
               display: flex;
@@ -2195,13 +2185,7 @@
             align-items: center;
             height: 100%;
             overflow: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-
-            &::-webkit-scrollbar {
-              display: none;
-            }
-
+            
             .donation {
               position: relative;
               display: flex;

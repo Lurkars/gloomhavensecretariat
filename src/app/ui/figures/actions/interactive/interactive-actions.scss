@@ -9,6 +9,11 @@
     color: var(--ghs-color-gray);
     height: 1.8em;
 
+    &.fh {
+        height: 2.2em;
+        padding-bottom: 0.4em;
+    }
+
     span {
         z-index: 1;
     }

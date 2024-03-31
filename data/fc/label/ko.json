@@ -6,16 +6,14 @@
     "fc": "잊힌 비술"
   },
   "monster": {
-    "ancient-artillery-section-133": "고대 대포 #133",
     "aesther-ashblade": "에스더 잿빛칼날",
     "aesther-scout": "에스더 정찰병",
     "avatar-of-ashtar": "Avatar of Ashtar",
     "avatar-of-thelija": "Avatar of Thelija",
     "bear-drake-abomination": "Bear-Drake Abomination",
     "elham": "Elham",
+    "guardian-of-the-firmament": "Guardian of the Firmament",
     "human-commander": "Human Commander",
-    "icestorm-guardian-of-the-firmament": "Icestorm Guardian of the Firmament",
-    "lavaflow-guardian-of-the-firmament": "Lavaflow Guardian of the Firmament",
     "manifestation-of-corruption": "Manifestation Of Corruption",
     "naaret": "Naaret",
     "selah-naberis": "Selah Naberis",
@@ -106,9 +104,6 @@
   },
   "custom": {
     "fc": {
-      "ancient-artillery-section-133": {
-        "1": "Immune to all forced movement"
-      },
       "ashblade": {
         "1": "Focus on the enemy with the highest initiative.",
         "2": "%game.action.teleport% to the closest unoccupied hex adjacent to the focus."

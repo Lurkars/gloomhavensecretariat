@@ -8,6 +8,7 @@ export class Settings {
   abilityNumbers: boolean = true;
   abilityReveal: boolean = true;
   activeApplyConditions: boolean = true;
+  activeApplyConditionsAuto: ConditionName[] = [];
   activeApplyConditionsExcludes: ConditionName[] = [ConditionName.shield];
   activeStandees: boolean = true;
   activeSummons: boolean = true;
@@ -104,6 +105,7 @@ export class Settings {
   gameClock: boolean = false;
   gameClockMerge: boolean = true;
   globalFontsize: number = 1;
+  globalMapHighlighting: boolean = true;
   fullscreen: boolean = false;
   hideAbsent: boolean = false;
   hideCharacterHP: boolean = false;
@@ -164,5 +166,5 @@ export class Settings {
 }
 
 export const localSettings: string[] = [
-  "animations", "artwork", "automaticAttackModifierFullscreen", "autoBackup", "autoBackupFinish", "autoBackupUrl", "automaticGameClock", "automaticTheme", "autoscroll", "barsize", "backupHint", "browserNavigation", "buildingEffectsVisible", "buildingInteractionsVisible", "calendarLocked", "characterAttackModifierAnimate", "characterAttackModifierDeckPermanent", "characterAttackModifierDeckPermanentActive", "characterItemsPermanent", "characterItemsPermanentActive", "characterItemsPermanentEquipped", "characterItemsPermanentSorted", "characterItemsPermanentZoom", "characterCompact", "characterSheetCompact", "characterSheetLocked", "columns", "columnsForce", "debugEditWorldMap", "debugRightClick", "disableAnimations", "disableArtwork", "disableColumns", "disableDragFigures", "disablePinchZoom", "disableWakeLock", "dragFigures", "dragValues", "errata", "fhStyle", "fontsize", "gameClock", "globalFontsize", "fullscreen", "hideCharacterHP", "hideCharacterLoot", "hideCharacterXP", "hints", "logServerMessages", "pinchZoom", "portraitMode", "pressDoubleClick", "serverAutoconnect", "serverCode", "serverPassword", "serverPort", "serverSettings", "serverUrl", "serverWss", "showAllSections", "showBossMonster", "showHiddenMonster", "showOnlyUnfinishedScenarios", "statAnimations", "theme", "tooltips", "wakeLock", "zoom"
+  "animations", "artwork", "automaticAttackModifierFullscreen", "autoBackup", "autoBackupFinish", "autoBackupUrl", "automaticGameClock", "automaticTheme", "autoscroll", "barsize", "backupHint", "browserNavigation", "buildingEffectsVisible", "buildingInteractionsVisible", "calendarLocked", "characterAttackModifierAnimate", "characterAttackModifierDeckPermanent", "characterAttackModifierDeckPermanentActive", "characterItemsPermanent", "characterItemsPermanentActive", "characterItemsPermanentEquipped", "characterItemsPermanentSorted", "characterItemsPermanentZoom", "characterCompact", "characterSheetCompact", "characterSheetLocked", "columns", "columnsForce", "debugEditWorldMap", "debugRightClick", "disableAnimations", "disableArtwork", "disableColumns", "disableDragFigures", "disablePinchZoom", "disableWakeLock", "dragFigures", "dragValues", "errata", "fhStyle", "fontsize", "gameClock", "globalFontsize", "globalMapHighlighting", "fullscreen", "hideCharacterHP", "hideCharacterLoot", "hideCharacterXP", "hints", "logServerMessages", "pinchZoom", "portraitMode", "pressDoubleClick", "serverAutoconnect", "serverCode", "serverPassword", "serverPort", "serverSettings", "serverUrl", "serverWss", "showAllSections", "showBossMonster", "showHiddenMonster", "showOnlyUnfinishedScenarios", "statAnimations", "theme", "tooltips", "wakeLock", "zoom"
 ];

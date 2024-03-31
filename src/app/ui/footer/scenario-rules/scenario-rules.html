@@ -84,8 +84,8 @@
           </p>
         </div>
         <div class="stat-effects" *ngIf="ruleModel.rule.statEffects && ruleModel.rule.statEffects.length">
-          <span class="text-white" *ngFor="let statEffectRule of ruleModel.rule.statEffects"
-            [ghs-label]="statEffectRule.note"></span>
+          <div class="text text-white" *ngFor="let statEffectRule of ruleModel.rule.statEffects"
+            [ghs-label]="statEffectRule.note"></div>
         </div>
         <p *ngIf="ruleModel.rule.finish" class="text-white"
           [ghs-label]="'scenario.rules.finish.' + ruleModel.rule.finish"></p>

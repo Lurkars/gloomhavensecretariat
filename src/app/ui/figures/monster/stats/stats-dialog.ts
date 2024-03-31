@@ -33,6 +33,7 @@ export class MonsterStatsDialogComponent {
     monster.isAllied = this.monster.isAllied;
     monster.errors = this.monster.errors;
     monster.statEffect = this.monster.statEffect;
+    monster.flying = this.monster.flying && (!this.monster.statEffect || this.monster.statEffect.flying != 'disabled') || this.monster.statEffect != undefined && this.monster.statEffect.flying == true;
     return monster;
   }
 

@@ -5,7 +5,7 @@
   "parent": "128",
   "monsters": [
     "abael-scout",
-    "lurker-wavethrower-scenario-128"
+    "lurker-wavethrower"
   ],
   "rules": [
     {
@@ -47,20 +47,20 @@
           "player4": "elite"
         },
         {
-          "name": "lurker-wavethrower-scenario-128",
+          "name": "lurker-wavethrower",
           "type": "normal"
         },
         {
-          "name": "lurker-wavethrower-scenario-128",
+          "name": "lurker-wavethrower",
           "type": "normal"
         },
         {
-          "name": "lurker-wavethrower-scenario-128",
+          "name": "lurker-wavethrower",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "lurker-wavethrower-scenario-128",
+          "name": "lurker-wavethrower",
           "player4": "normal"
         }
       ]

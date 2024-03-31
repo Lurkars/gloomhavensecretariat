@@ -82,18 +82,26 @@ export class ScenarioSetupComponent implements OnInit {
                 }
             }
 
-            if (this.scenario.rules) {
-                const statEffectRules = this.scenario.rules.filter((rule) => rule.statEffects).flatMap((rule) => rule.statEffects);
-                const statEffectRule: StatEffectRule | undefined = statEffectRules.find((statEffectRule) => gameManager.figuresByIdentifier(statEffectRule.identifier, false, [monster]).length);
+            let statEffectRules = this.scenario.rules ? this.scenario.rules.filter((rule) => rule.statEffects).flatMap((rule) => rule.statEffects) : [];
+            let statEffectRule: StatEffectRule | undefined = statEffectRules.find((statEffectRule) => gameManager.figuresByIdentifier(statEffectRule.identifier, false, [monster]).length);
 
-                if (statEffectRule) {
-                    this.hasSpoiler = true;
-                    if (this.spoiler) {
-                        monster.statEffect = statEffectRule.statEffect;
-                        monster.statEffect.note = statEffectRule.note;
+            if (!statEffectRule) {
+                gameManager.scenarioManager.getSections(this.scenario).forEach((sectionData) => {
+                    if (!statEffectRule && sectionData.rules) {
+                        statEffectRules = sectionData.rules.filter((rule) => rule.statEffects).flatMap((rule) => rule.statEffects);
+                        statEffectRule = statEffectRules.find((statEffectRule) => gameManager.figuresByIdentifier(statEffectRule.identifier, false, [monster]).length);
                     }
+                })
+            }
+
+            if (statEffectRule) {
+                this.hasSpoiler = true;
+                if (this.spoiler) {
+                    monster.statEffect = statEffectRule.statEffect;
+                    monster.statEffect.note = statEffectRule.note;
                 }
             }
+
 
         })
 

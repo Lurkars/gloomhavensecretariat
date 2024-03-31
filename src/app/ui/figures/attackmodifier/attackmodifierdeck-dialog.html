@@ -78,6 +78,52 @@
           </a>
         </span>
       </div>
+      <div class="additional-modifier" *ngIf="!edit && !townGuard && (empowerChars.length || enfeebleChars.length)">
+        <ng-container *ngFor="let empowerChar of empowerChars; let i = index;">
+          <span class="item">
+            <a class="button"
+              [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.empower, 'additional-' + empowerChar.name) == 0}"
+              (click)="changeEmpower(i,-1)">
+              <img class="ghs-svg" src="./assets/images/minus.svg">
+            </a>
+          </span>
+          <span class="item" [ghs-label]="'game.attackmodifiers.types.empower'" [ghs-label-attribute]="'title'">
+            <img src="./assets/images/attackmodifier/icons/empower.png" />
+            <span class="badge">{{countUpcomingAttackModifier(AttackModifierType.empower, 'additional-' +
+              empowerChar.name)}}</span>
+            <span class="badge badge-character-icon">
+              <img [src]="empowerChar.iconUrl" />
+            </span>
+          </span>
+          <span class="item">
+            <a class="button" (click)="changeEmpower(i,1)" [ngClass]="{'disabled' : countEmpower(i) ==  0}">
+              <img class="ghs-svg" src="./assets/images/plus.svg">
+            </a>
+          </span>
+        </ng-container>
+
+        <ng-container *ngFor="let enfeebleChar of enfeebleChars; let i = index;">
+          <span class="item">
+            <a class="button" (click)="changeEnfeeble(i,-1)"
+              [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.enfeeble, 'additional-' + enfeebleChar.name) == 0}">
+              <img class="ghs-svg" src="./assets/images/minus.svg">
+            </a>
+          </span>
+          <span class="item" [ghs-label]="'game.attackmodifiers.types.enfeeble'" [ghs-label-attribute]="'title'">
+            <img src="./assets/images/attackmodifier/icons/enfeeble.png" />
+            <span class="badge">{{countUpcomingAttackModifier(AttackModifierType.enfeeble, 'additional-' +
+              enfeebleChar.name)}}</span>
+            <span class="badge badge-character-icon">
+              <img [src]="enfeebleChar.iconUrl" />
+            </span>
+          </span>
+          <span class="item">
+            <a class="button" (click)="changeEnfeeble(i,1)" [ngClass]="{'disabled' : countEnfeeble(i) ==  0}">
+              <img class="ghs-svg" src="./assets/images/plus.svg">
+            </a>
+          </span>
+        </ng-container>
+      </div>
 
 
       <a *ngIf="edit" (click)="restoreDefault()"><span [ghs-label]="'game.cards.restore'"></span></a>

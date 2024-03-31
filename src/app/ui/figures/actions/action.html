@@ -142,6 +142,24 @@
     </div>
   </span>
 
+  <span class="action-custom" *ngSwitchCase="ActionType.nonCalc" ghs-pointer-input
+    (singleClick)="toggleHighlight($event)" [clickBehind]="!isInteractiveApplicableAction()"
+    [ghs-tooltip]="'monster.toggleAction'" [delay]="1" [disabled]="!isInteractiveApplicableAction()"
+    [ngClass]="{'action-interactive' : isInteractiveApplicableAction(), 'action-interactive-highlight': highlightAction()}">
+    <span class="custom-value" [ghs-label]="action.value + ''" [relative]="relative || forceRelative" [style]="style"
+      [ngClass]="{'small' : action.small,'text-white' : !right}"></span>
+    <div class="custom-subactions" *ngIf="subActions.length > 0">
+      <ghs-action [ngClass]="'subaction-' + subAction.type"
+        *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index;" [action]="subAction"
+        [monster]="monster" [objective]="objective" [inline]="inline" [right]="right" [hexSize]="hexSize"
+        [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
+        (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
+        [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+        [monsterType]="monsterType" [style]="style">
+      </ghs-action>
+    </div>
+  </span>
+
   <span class="action-custom" *ngSwitchCase="ActionType.sufferDamage" ghs-pointer-input
     (singleClick)="toggleHighlight($event)" [clickBehind]="!isInteractiveApplicableAction()"
     [ghs-tooltip]="'monster.toggleAction'" [delay]="1" [disabled]="!isInteractiveApplicableAction()"
@@ -385,10 +403,10 @@
         <span class="type"><span [ghs-label]="'game.action.' + action.type" [style]="style"></span></span>
 
         <span class="action-icon">
-          <img *ngIf="action.type != ActionType.move || !monster || !monster.flying"
+          <img *ngIf="action.type != ActionType.move || !flying"
             [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/' + action.type + '.svg'" class="icon"
             [ngClass]="{'ghs-svg' : isGhsSvg(action.type)}" />
-          <img *ngIf="action.type == ActionType.move && monster && monster.flying"
+          <img *ngIf="action.type == ActionType.move && flying"
             [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/fly.svg'" class="icon"
             [ngClass]="{'ghs-svg' : isGhsSvg(action.type)}" />
         </span>
@@ -450,10 +468,10 @@
           <span [ghs-label]="'game.action.' + action.type" [style]="style"></span>
         </span>
 
-        <img *ngIf="action.type != ActionType.move || !monster || !monster.flying"
+        <img *ngIf="action.type != ActionType.move || !flying"
           [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/' + action.type + '.svg'" class="icon"
           [ngClass]="{'ghs-svg' : isGhsSvg(action.type)}" />
-        <img *ngIf="action.type == ActionType.move && monster && monster.flying"
+        <img *ngIf="action.type == ActionType.move && flying"
           [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/fly.svg'" class="icon"
           [ngClass]="{'ghs-svg' : isGhsSvg(action.type)}" />
       </ng-container>

@@ -91,6 +91,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
       this.characterIcon = this.character.iconUrl;
     } else {
       this.battleGoals = false;
+      this.characterIcon = "";
     }
     this.current = this.deck.current;
     this.lastVisible = this.deck.lastVisible;
@@ -150,6 +151,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
       this.characterIcon = this.character.iconUrl;
     } else {
       this.battleGoals = false;
+      this.characterIcon = "";
     }
     this.disabled = !this.standalone && (!this.townGuard && gameManager.game.state == GameState.draw || this.townGuard && gameManager.game.scenario != undefined);
 

@@ -3,9 +3,6 @@
   "name": "Sardonic Smile",
   "edition": "fc",
   "parent": "111",
-  "monsters": [
-    "the-husk-section-66"
-  ],
   "rules": [
     {
       "round": "true",
@@ -20,7 +17,8 @@
           "identifier": {
             "type": "monster",
             "edition": "fc",
-            "name": "the-husk"
+            "name": "aesther-ashblade",
+            "tag": "the-husk"
           },
           "type": "loseCondition",
           "value": "wound"
@@ -29,7 +27,8 @@
           "identifier": {
             "type": "monster",
             "edition": "fc",
-            "name": "the-husk"
+            "name": "aesther-ashblade",
+            "tag": "the-husk"
           },
           "type": "loseCondition",
           "value": "muddle"
@@ -38,7 +37,8 @@
           "identifier": {
             "type": "monster",
             "edition": "fc",
-            "name": "the-husk"
+            "name": "aesther-ashblade",
+            "tag": "the-husk"
           },
           "type": "loseCondition",
           "value": "poison"
@@ -47,19 +47,56 @@
           "identifier": {
             "type": "monster",
             "edition": "fc",
-            "name": "the-husk"
+            "name": "aesther-ashblade",
+            "tag": "the-husk"
           },
           "type": "setHp",
           "value": "HP/2"
-        },
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "fc",
+          "scenario": "111",
+          "index": 2,
+          "section": false
+        }
+      ],
+      "alwaysApply": true,
+      "statEffects": [
         {
           "identifier": {
             "type": "monster",
             "edition": "fc",
-            "name": "the-husk"
+            "name": "aesther-ashblade",
+            "tag": "the-husk"
           },
-          "type": "transfer",
-          "value": "the-husk-section-66"
+          "statEffect": {
+            "name": "the-husk",
+            "health": "[HxC]",
+            "attack": "[A+1]",
+            "actions": [
+              {
+                "type": "shield",
+                "value": 1
+              },
+              {
+                "type": "custom",
+                "value": "%data.scenario.rules.fc.111.2%"
+              }
+            ],
+            "immunities": [
+              "stun",
+              "disarm",
+              "immobilize"
+            ],
+            "absolute": true
+          },
+          "note": "%data.scenario.rules.fc.111.3%"
         }
       ]
     }

@@ -53,6 +53,11 @@
                     left: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
                     transform: translateX(-50%);
                 }
+
+                &.disabled {
+                    filter: grayscale(0.6);
+                    pointer-events: none;
+                }
             }
 
             .hint-trigger {
@@ -64,10 +69,6 @@
             }
 
         }
-    }
-
-    &.disabled .condition-list .hint-container .condition {
-        filter: grayscale(0.6);
     }
 
     &.hidden {

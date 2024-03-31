@@ -162,6 +162,10 @@ export class GameManager {
     return extensions;
   }
 
+  editionScenarioExtensions(edition: string, all: boolean = false): string[] {
+    return this.editionData.filter((additional) => additional.additional && additional.scenarios && additional.scenarios.length && additional.scenarios.some((scenarioData) => scenarioData.edition == additional.edition) && additional.extensions.indexOf(edition) != -1).map((additional) => additional.edition);
+  }
+
   newAmStyle(edition: string): boolean {
     const editionData = this.editionData.find((editionData) => editionData.edition == edition);
     if (editionData && (editionData.newAmStyle || editionData.extensions && editionData.extensions.some((edition) => this.newAmStyle(edition)))) {
@@ -388,7 +392,7 @@ export class GameManager {
 
     // find stat effect deck
     if (figure instanceof Monster && figure.statEffect && figure.statEffect.deck) {
-      deckData = this.decksData().find((deck) => (figure instanceof Monster && figure.statEffect && figure.statEffect.deck && figure.statEffect.deck == deck.name) && (deck.edition == figure.edition || this.editionExtensions(figure.edition).indexOf(deck.edition) != -1));
+      deckData = this.decksData().find((deck) => (figure instanceof Monster && figure.statEffect && figure.statEffect.deck && figure.statEffect.deck == deck.name) && (deck.edition == figure.edition || deck.edition == gameManager.currentEdition() || this.editionExtensions(deck.edition).indexOf(gameManager.currentEdition(figure.edition)) != -1));
       if (deckData && figure.abilities.length != deckData.abilities.length) {
         figure.abilities = deckData.abilities.filter((ability) => isNaN(+ability.level) || +ability.level <= (figure && figure.level || 0)).map((ability) => deckData ? deckData.abilities.indexOf(ability) : -1);
         ghsShuffleArray(figure.abilities);

@@ -20,7 +20,10 @@
     "battleGoals": "Kampfziele einrichten",
     "character": "Charakterbogen",
     "items": "Gegenstandskarten Übersicht",
-    "map": "Globale Karte",
+    "map": {
+      ".": "Globale Karte",
+      "highlighting": "Hervorheben"
+    },
     "party": "Gruppen-/Kampagnenbogen",
     "campaignManagement": {
       ".": "Kampagnen verwalten",
@@ -292,6 +295,7 @@
       "loot": "Beute",
       "monsterType": "Monster Variante",
       "move": "Bewegung",
+      "nonCalc": "org. Aktion",
       "pierce": "Durchstechen",
       "pull": "Ziehen",
       "push": "Schieben",
@@ -533,7 +537,13 @@
       "instead": "Stattdessen",
       "math": {
         "ceil": "(aufgerundet)",
-        "floor": "(abgerundet)"
+        "floor": "(abgerundet)",
+        "max": ", bis zu einem Maximum von %game.number.{0}%",
+        "maxCeil": "(abgerundet), bis zu einem Maximum von %game.number.{0}%",
+        "maxFloor": "(abgerundet), bis zu einem Maximum von %game.number.{0}%",
+        "min": ", mindestens aber %game.number.{0}%",
+        "minCeil": "(aufgerundet), mindestens aber %game.number.{0}%",
+        "minFloor": "(abgerundet), mindestens aber %game.number.{0}%"
       },
       "ondeath": "Bei Tod:",
       "perks": {
@@ -1511,13 +1521,23 @@
     },
     "activeApplyConditions": {
       ".": "Bestätige anwendbare Zustände",
+      "auto": {
+        ".": "Automatisch Bestätigen",
+        "hint": {
+          ".": "Nicht nach Bestätigung fragen und stattdessen die Zustände automatisch anwenden.<br><br>Mit Vorsicht verwenden!",
+          "brittle": "Nach erhaltenden Schaden automatisch %game.condition.brittle% anwenden und den Schaden zu erhöhen.<br><br>Funktioniert nicht automatisch bei %game.condition.poison%!",
+          "heal": "Wenn die Trefferpunkte erhöht werden automatisch %game.action.heal% anwenden und entsprechende Zustände entfernen.",
+          "shield": "Nach erhaltenden Schaden automatisch %game.action.shield% anwenden und den Schaden reduzieren.",
+          "ward": "Nach erhaltenden Schaden automatisch %game.condition.ward% anwenden und den Schaden reduzieren.<br><br>Funktioniert nicht automatisch bei %game.condition.poison%!"
+        }
+      },
       "hint": {
         ".": "Einige Zustände benötigen eine Bestätigung um angewendet zu werden, z.B. wenn der TP Wert bei Gift gesenkt wird, kann durch Bestätigung 1 extra TP vom Gift abgezogen werden",
         "brittle": "Nachfragen ob nach erhaltenden Schaden %game.condition.brittle% angewendet werden soll um den Schaden zu erhöhen.",
         "heal": "Kein Zustand, aber eine Hilfe ob %game.action.heal% angwendet werden soll wenn die Trefferpunkte erhöht werden.",
         "poison": "Nachfragen ob nach erhaltenden Schaden %game.action.attack% +1 von %game.condition.poison% angewendet werden soll (inklusive %game.attackmodifier.double%).",
         "poison_x": "Nachfragen ob nach erhaltenden Schaden %game.action.attack% +X von %game.condition.poison_x:X% angewendet werden soll (inklusive %game.attackmodifier.double%).",
-        "shield": "Kein Zustand, aber eine Hilfe ob nach erhaltenden Schaden %game.action.shield% angwendet werden soll.",
+        "shield": "Kein Zustand, aber eine Hilfe ob nach erhaltenden Schaden %game.action.shield% angwendet werden soll um den erhaltenden Schaden zu reduzieren.",
         "ward": "Nachfragen ob nach erhaltenden Schaden %game.condition.ward% angewendet werden soll um den erhaltenden Schaden zu reduzieren."
       }
     },
@@ -2572,12 +2592,15 @@
         "kill": "Kill / Exhaust",
         "maxHpDec": "dek. max. TP",
         "maxHpInc": "ink. max. TP",
-        "toggleCondition": "Zustände/Zustandsmodifikator umschalten"
+        "toggleCondition": "Zustände/Zustandsmodifikator umschalten",
+        "xpDec": "dek. EP",
+        "xpInc": "ink. EP"
       },
       "esc": "ESC",
       "events": "Ereigniseffekte Menü",
       "finish": "Szenario (beenden) Menü",
       "global": "Die folgenden Tastaturkürzel sind derzeit implementiert:",
+      "globalMap": "Globale Karte öffnen",
       "keyboard": "Zeige Tastenkürzel an",
       "loot": "Karte aus dem Beute Deck ziehen",
       "mainMenu": {
@@ -2590,6 +2613,7 @@
       "party": "Gruppenbogen öffnen",
       "redo": "Wiederherstellen",
       "round": "Nächste Runde / Ziehen",
+      "scenarioChart": "Szenario Flussdiagramm anzeigen",
       "select": "Figur/Aufsteller Menü öffnen durch Auswählen mit Nummertasten",
       "shift": "UMSCHALT",
       "space": "Leertaste",

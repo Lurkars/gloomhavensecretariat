@@ -11,7 +11,6 @@ import { AttackModifier, AttackModifierType } from "../model/data/AttackModifier
 import { Condition, ConditionName } from "../model/data/Condition";
 import { Element, ElementModel, ElementState } from "../model/data/Element";
 import { MonsterType } from "../model/data/MonsterType";
-import { MonsterStandeeData } from "../model/data/RoomData";
 import { MonsterSpawnData, ObjectiveSpawnData } from "../model/data/ScenarioRule";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
@@ -275,7 +274,20 @@ export class ActionsManager {
                     elements.forEach((element) => {
                         gameManager.game.elementBoard.forEach((elementModel) => {
                             if (elementModel.type == element && (elementModel.state == ElementState.strong || elementModel.state == ElementState.waning)) {
-                                elementModel.state = ElementState.consumed;
+                                elementModel.state = ElementState.partlyConsumed;
+                                if (figure instanceof Monster && entity instanceof MonsterEntity) {
+                                    const entities = figure.entities.filter((entity) => this.isInteractiveApplicableAction(entity, action, index));
+                                    if (entities.length && entities.indexOf(entity) == entities.length - 1) {
+                                        elementModel.state = ElementState.consumed;
+                                    }
+                                } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
+                                    const entities = figure.entities.filter((entity) => this.isInteractiveApplicableAction(entity, action, index));
+                                    if (entities.length && entities.indexOf(entity) == entities.length - 1) {
+                                        elementModel.state = ElementState.consumed;
+                                    }
+                                } else {
+                                    elementModel.state = ElementState.consumed;
+                                }
                             }
                         })
                     })
@@ -299,7 +311,8 @@ export class ActionsManager {
                     if (spawn.monster && spawn.monster.type) {
                         const monster = gameManager.monsterManager.addMonsterByName(spawn.monster.name, figure.edition || gameManager.currentEdition());
                         if (monster) {
-                            const count = Math.min(EntityValueFunction(monster.standeeCount || monster.count, monster.level) - gameManager.monsterManager.monsterStandeeCount(monster), EntityValueFunction(spawn.count || 1, figure.level));
+                            const spawnCount: number = typeof spawn.count == 'string' ? EntityValueFunction(spawn.count.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)), entity.level) : spawn.count || 1;
+                            const count = Math.min(gameManager.monsterManager.monsterStandeeMax(monster) - gameManager.monsterManager.monsterStandeeCount(monster), spawnCount);
                             for (let i = 0; i < count; i++) {
                                 const spawnEntity = gameManager.monsterManager.spawnMonsterEntity(monster, spawn.monster.type, monster.isAlly, monster.isAllied, monster.drawExtra, action.type == ActionType.summon);
                                 if (spawnEntity) {
@@ -399,33 +412,7 @@ export class ActionsManager {
                     }
                 }
             })
-        } else if (action.value != 'objectiveSpawn') {
-            ('' + action.value).split('|').forEach((value) => {
-                const summonValue = value.split(':');
-                let monsterStandee = new MonsterStandeeData(summonValue[0]);
-                monsterStandee.type = MonsterType.normal;
-                let monsterSpawn = new MonsterSpawnData(monsterStandee);
-
-                if (summonValue.length > 1) {
-                    if (!isNaN(+summonValue[1])) {
-                        monsterSpawn.count = +summonValue[1];
-                    } else {
-                        monsterStandee.type = summonValue[1] as unknown as MonsterType;
-                    }
-                }
-
-                if (summonValue.length > 2 && summonValue[2]) {
-                    monsterSpawn.count = summonValue[2];
-                }
-
-                if (summonValue.length > 3 && summonValue[3]) {
-                    monsterStandee.health = summonValue[3];
-                }
-
-                result.push(monsterSpawn);
-            });
         }
-
         return result;
     }
 

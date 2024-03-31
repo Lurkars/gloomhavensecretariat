@@ -53,6 +53,7 @@ export enum ActionType {
   switchType = "switchType",
   target = "target",
   teleport = "teleport",
+  nonCalc = "nonCalc",
   trigger = "trigger",
   concatenation = "concatenation",
   grid = "grid",

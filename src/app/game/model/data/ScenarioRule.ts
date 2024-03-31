@@ -42,25 +42,14 @@ export class MonsterSpawnData {
   manualMin: number;
   manualMax: number;
 
-  constructor(monsterSpawnData: MonsterSpawnData | MonsterStandeeData) {
-    if (monsterSpawnData instanceof MonsterSpawnData) {
-      this.monster = monsterSpawnData.monster as MonsterStandeeData;
-      this.count = monsterSpawnData.count || "";
-      this.marker = monsterSpawnData.marker || "";
-      this.summon = monsterSpawnData.summon || false;
-      this.manual = monsterSpawnData.manual || false;
-      this.manualMin = monsterSpawnData.manualMin || 0;
-      this.manualMax = monsterSpawnData.manualMax || 0;
-    } else {
-      this.monster = monsterSpawnData;
-      this.count = "";
-      this.marker = "";
-      this.summon = false;
-      this.manual = false;
-      this.manualMin = 0;
-      this.manualMax = 0;
-
-    }
+  constructor(monsterSpawnData: MonsterSpawnData) {
+    this.monster = monsterSpawnData.monster as MonsterStandeeData;
+    this.count = monsterSpawnData.count || 1;
+    this.marker = monsterSpawnData.marker || "";
+    this.summon = monsterSpawnData.summon || false;
+    this.manual = monsterSpawnData.manual || false;
+    this.manualMin = monsterSpawnData.manualMin || 0;
+    this.manualMax = monsterSpawnData.manualMax || 0;
   }
 
 }

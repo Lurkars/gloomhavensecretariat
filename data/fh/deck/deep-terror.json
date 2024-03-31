@@ -216,7 +216,15 @@
           "subActions": [
             {
               "type": "summon",
-              "value": "deep-terror:normal",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "deep-terror",
+                    "type": "normal"
+                  }
+                }
+              ],
               "subActions": [
                 {
                   "type": "custom",

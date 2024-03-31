@@ -40,6 +40,7 @@ export class ActionComponent implements OnInit, OnDestroy {
   action!: Action | undefined;
   subActions: Action[] = [];
   fhStyle: boolean = false;
+  flying: boolean = false;
 
   settingsManager: SettingsManager = settingsManager;
   EntityValueFunction = EntityValueFunction;
@@ -85,6 +86,12 @@ export class ActionComponent implements OnInit, OnDestroy {
     if (this.action && !this.action.subActions) {
       this.action.subActions = [];
     }
+    if (!settingsManager.settings.calculate && this.action && this.action.subActions) {
+      const nonCalcAction = this.action.subActions.find((subAction) => subAction.type == ActionType.nonCalc);
+      if (nonCalcAction) {
+        this.action = nonCalcAction;
+      }
+    }
     if (this.action && this.action.value === undefined) {
       this.action.value = "";
     }
@@ -104,6 +111,11 @@ export class ActionComponent implements OnInit, OnDestroy {
       this.level = this.monster.level;
     } else {
       this.level = gameManager.game.level;
+    }
+
+    this.flying = false;
+    if (this.monster) {
+      this.flying = this.monster.flying && (!this.monster.statEffect || this.monster.statEffect.flying != 'disabled') || this.monster.statEffect != undefined && this.monster.statEffect.flying == true;
     }
   }
 
@@ -284,11 +296,13 @@ export class ActionComponent implements OnInit, OnDestroy {
     if (settingsManager.settings.fhStyle && [ActionType.element, ActionType.concatenation, ActionType.box].indexOf(this.action.type) == -1) {
       this.action.subActions.forEach((action) => {
         if (action.type == ActionType.element) {
-          this.elementActions.push(action)
+          this.elementActions.push(action);
         }
       });
       this.action.subActions = this.action.subActions.filter((action) => action.type != ActionType.element);
     }
+
+    this.action.subActions = this.action.subActions.filter((action) => action.type != ActionType.nonCalc);
 
     this.additionalSubActions = JSON.parse(JSON.stringify(this.action.subActions));
     this.hasAOE = this.additionalSubActions.some((subAction, index) => index == 0 && subAction.type == ActionType.area) && (this.action.type != ActionType.element || this.action.valueType != ActionValueType.minus);
@@ -507,21 +521,21 @@ export class ActionComponent implements OnInit, OnDestroy {
   }
 
   isInteractiveApplicableAction(): boolean {
-    return this.interactiveAbilities && this.monster && this.monster.entities.some((entity) => this.action && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex)) || this.objective && this.objective.entities.some((entity) => this.action && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.action, this.actionIndex)) || false;
+    return this.interactiveAbilities && this.monster && this.monster.entities.some((entity) => this.origAction && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.origAction, this.actionIndex)) || this.objective && this.objective.entities.some((entity) => this.origAction && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.origAction, this.actionIndex)) || false;
   }
 
   toggleHighlight(event: MouseEvent | TouchEvent) {
     if (this.isInteractiveApplicableAction()) {
       if (this.highlightAction()) {
         this.interactiveActions = this.interactiveActions.filter((interactiveAction) => !interactiveAction.index.startsWith(this.actionIndex));
-      } else if (this.action) {
-        this.interactiveActions.push({ action: this.action, index: this.actionIndex });
-        if (this.action.subActions) {
+      } else if (this.origAction) {
+        this.interactiveActions.push({ action: this.origAction, index: this.actionIndex });
+        if (this.origAction.subActions) {
           let interactiveSubActions: InteractiveAction[] = [];
           if (this.monster) {
-            interactiveSubActions = gameManager.actionsManager.getAllInteractiveActions(this.monster, this.action.subActions, this.actionIndex);
+            interactiveSubActions = gameManager.actionsManager.getAllInteractiveActions(this.monster, this.origAction.subActions, this.actionIndex);
           } else if (this.objective) {
-            interactiveSubActions = gameManager.actionsManager.getAllInteractiveActions(this.objective, this.action.subActions, this.actionIndex);
+            interactiveSubActions = gameManager.actionsManager.getAllInteractiveActions(this.objective, this.origAction.subActions, this.actionIndex);
           }
           interactiveSubActions.forEach((interactiveSubAction) => {
             if (!this.interactiveActions.some((interactiveAction) => interactiveAction.index == interactiveSubAction.index)) {

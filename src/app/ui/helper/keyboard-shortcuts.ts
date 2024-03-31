@@ -9,12 +9,15 @@ import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { SummonState } from 'src/app/game/model/Summon';
 import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
 import { EntityMenuDialogComponent } from '../figures/entity-menu/entity-menu-dialog';
+import { PartySheetDialogComponent } from '../figures/party/party-sheet-dialog';
+import { ScenarioChartDialogComponent } from '../figures/party/scenario-chart/scenario-chart';
+import { WorldMapComponent } from '../figures/party/world-map/world-map';
 import { FooterComponent } from '../footer/footer';
 import { HeaderComponent } from '../header/header';
 import { KeyboardShortcutsComponent } from '../header/menu/keyboard-shortcuts/keyboard-shortcuts';
 
 
-export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario" | "handSize" | "traits";
+export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario" | "handSize" | "traits" | "party" | "map" | "chart";
 
 @Directive({
     selector: '[ghs-keyboard-shortcuts]'
@@ -28,13 +31,14 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
     zoomInterval: any = null;
     currentZoom: number = 0;
     dialogOpen: boolean = false;
+    dialogClosing: boolean = false;
     keydown: any;
     keyup: any;
     timeout: any;
 
     constructor(private dialog: Dialog) {
-        this.dialog.afterOpened.subscribe({ next: (dialog) => { this.dialogOpen = true; } });
-        this.dialog.afterAllClosed.subscribe({ next: () => setTimeout(() => { this.dialogOpen = false; }, 250) });
+        this.dialog.afterOpened.subscribe({ next: () => { this.dialogOpen = true; this.dialogClosing = false; } });
+        this.dialog.afterAllClosed.subscribe({ next: () => { this.dialogClosing = true; setTimeout(() => { if (this.dialogClosing) { this.dialogOpen = false; } }, 250) } });
     }
 
     applySelect() {
@@ -188,8 +192,42 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     }
                 } else if ((!this.dialogOpen || this.allowed.indexOf('scenario') != -1) && this.footer && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'f' && this.footer.ghsScenario && gameManager.game.scenario) {
                     this.footer.ghsScenario.open(event);
-                } else if ((!this.dialogOpen || this.allowed.indexOf('level') != -1) && this.header && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'p' && this.header.partySheet) {
-                    this.header.partySheet.open();
+                } else if ((!this.dialogOpen || this.allowed.indexOf('party') != -1) && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'p' && settingsManager.settings.partySheet) {
+                    this.dialog.open(PartySheetDialogComponent, {
+                        panelClass: ['dialog-invert'],
+                        data: { partySheet: true }
+                    });
+                    event.stopPropagation();
+                    event.preventDefault();
+                } else if ((!this.dialogOpen || this.allowed.indexOf('map') != -1) && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'g' && gameManager.game.edition) {
+                    const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.game.edition);
+                    if (editionData) {
+                        if (editionData.worldMap || editionData.extendWorldMap) {
+                            if (this.dialogOpen) {
+                                this.dialog.closeAll();
+                            }
+                            this.dialog.open(WorldMapComponent, {
+                                panelClass: ['fullscreen-panel'],
+                                backdropClass: ['fullscreen-backdrop'],
+                                data: gameManager.game.edition
+                            })
+                            event.stopPropagation();
+                            event.preventDefault();
+                        }
+                    }
+                } else if ((!this.dialogOpen || this.allowed.indexOf('chart') != -1) && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'c' && gameManager.game.edition) {
+                    if (this.dialogOpen) {
+                        this.dialog.closeAll();
+                    }
+                    this.dialog.open(ScenarioChartDialogComponent, {
+                        panelClass: ['fullscreen-panel'],
+                        backdropClass: ['fullscreen-backdrop'],
+                        data: {
+                            edition: gameManager.game.edition
+                        }
+                    })
+                    event.stopPropagation();
+                    event.preventDefault();
                 } else if (!this.dialogOpen && !event.ctrlKey && this.header && event.key === 'Escape') {
                     this.header.openMenu();
                     event.stopPropagation();

@@ -8,13 +8,6 @@
     "ancient-artillery",
     "flaming-bladespinner"
   ],
-  "objectives": [
-    {
-      "name": "Metal Cabinet",
-      "health": "(2+L)xC/2",
-      "marker": "b"
-    }
-  ],
   "rules": [
     {
       "round": "true",

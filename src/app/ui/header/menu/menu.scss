@@ -122,6 +122,11 @@
 
     .hint-container {
       width: 100%;
+
+      &.inline {
+        width: initial;
+        margin-right: 1em;
+      }
     }
 
     .input-container {

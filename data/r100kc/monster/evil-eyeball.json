@@ -111,7 +111,15 @@
           "subActions": [
             {
               "type": "spawn",
-              "value": "evil-eyeball:normal",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "evil-eyeball",
+                    "type": "normal"
+                  }
+                }
+              ],
               "subActions": [
                 {
                   "type": "custom",
@@ -136,7 +144,15 @@
           "subActions": [
             {
               "type": "spawn",
-              "value": "evil-eyeball:normal",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "evil-eyeball",
+                    "type": "normal"
+                  }
+                }
+              ],
               "subActions": [
                 {
                   "type": "custom",
@@ -169,7 +185,15 @@
           "subActions": [
             {
               "type": "spawn",
-              "value": "evil-eyeball:normal",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "evil-eyeball",
+                    "type": "normal"
+                  }
+                }
+              ],
               "subActions": [
                 {
                   "type": "custom",
@@ -202,7 +226,15 @@
           "subActions": [
             {
               "type": "spawn",
-              "value": "evil-eyeball:normal",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "evil-eyeball",
+                    "type": "normal"
+                  }
+                }
+              ],
               "subActions": [
                 {
                   "type": "custom",
@@ -235,7 +267,15 @@
           "subActions": [
             {
               "type": "spawn",
-              "value": "evil-eyeball:normal",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "evil-eyeball",
+                    "type": "normal"
+                  }
+                }
+              ],
               "subActions": [
                 {
                   "type": "custom",
@@ -268,7 +308,15 @@
           "subActions": [
             {
               "type": "spawn",
-              "value": "evil-eyeball:normal",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "evil-eyeball",
+                    "type": "normal"
+                  }
+                }
+              ],
               "subActions": [
                 {
                   "type": "custom",
@@ -301,7 +349,15 @@
           "subActions": [
             {
               "type": "spawn",
-              "value": "evil-eyeball:normal",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "evil-eyeball",
+                    "type": "normal"
+                  }
+                }
+              ],
               "subActions": [
                 {
                   "type": "custom",
@@ -334,7 +390,15 @@
           "subActions": [
             {
               "type": "spawn",
-              "value": "evil-eyeball:normal",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "evil-eyeball",
+                    "type": "normal"
+                  }
+                }
+              ],
               "subActions": [
                 {
                   "type": "custom",

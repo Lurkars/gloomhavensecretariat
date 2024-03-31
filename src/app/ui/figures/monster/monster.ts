@@ -4,7 +4,6 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
@@ -44,7 +43,7 @@ export class MonsterComponent implements OnInit, OnDestroy {
 
   update() {
     this.nonDead = gameManager.monsterManager.monsterEntityCount(this.monster);
-    this.count = EntityValueFunction(this.monster.count, this.monster.level);
+    this.count = gameManager.monsterManager.monsterStandeeMax(this.monster);
     this.sortedEntites = settingsManager.settings.eliteFirst ? this.monster.entities.sort(gameManager.monsterManager.sortEntities) : this.monster.entities.sort(gameManager.monsterManager.sortEntitiesByNumber);
   }
 

@@ -177,10 +177,11 @@ export class ScenarioRulesComponent {
                         return (figure.title || settingsManager.getLabel('data.objective.' + figure.name)) + (figure.marker ? ' %game.mapMarker.' + figure.marker + '%' : '');
                     }
                     if (figure instanceof Monster) {
+                        const name = figure.statEffect && figure.statEffect.name ? figure.statEffect.name : figure.name;
                         if (figureRule.type == 'removeEntity') {
-                            return settingsManager.getLabel('data.monster.' + figure.name) + ' [' + gameManager.scenarioRulesManager.entitiesByFigureRule(figureRule, scenarioRule).filter((entity) => entity instanceof MonsterEntity && figure.entities.indexOf(entity) != -1).map((entity) => '' + entity.number).join(', ') + ']';
+                            return settingsManager.getLabel('data.monster.' + name) + ' [' + gameManager.scenarioRulesManager.entitiesByFigureRule(figureRule, scenarioRule).filter((entity) => entity instanceof MonsterEntity && figure.entities.indexOf(entity) != -1).map((entity) => '' + entity.number).join(', ') + ']';
                         }
-                        return settingsManager.getLabel('data.monster.' + figure.name);
+                        return settingsManager.getLabel('data.monster.' + name);
                     }
 
                     return figure.name;
@@ -200,7 +201,8 @@ export class ScenarioRulesComponent {
                 return (figure.title || settingsManager.getLabel('data.objective.' + figure.name)) + (figure.marker ? ' %game.mapMarker.' + figure.marker + '%' : '');
             }
             if (figure instanceof Monster) {
-                return settingsManager.getLabel('data.monster.' + figure.name);
+                const name = figure.statEffect && figure.statEffect.name ? figure.statEffect.name : figure.name;
+                return settingsManager.getLabel('data.monster.' + name);
             }
 
             return figure.name;

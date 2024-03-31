@@ -6,9 +6,30 @@
   "marker": "2",
   "monsters": [
     "ancient-artillery",
-    "avatar-of-thelija",
     "frost-demon",
+    "savvas-icestorm",
     "wind-demon"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "savvas-icestorm"
+          },
+          "statEffect": {
+            "name": "avatar-of-thelija",
+            "count": 1
+          },
+          "note": "%data.section.rules.fc.35%"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -29,13 +50,13 @@
           "player4": "normal"
         },
         {
-          "name": "avatar-of-thelija",
-          "player2": "normal",
+          "name": "frost-demon",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "frost-demon",
+          "name": "savvas-icestorm",
+          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },

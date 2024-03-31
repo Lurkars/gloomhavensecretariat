@@ -17,6 +17,7 @@ export class SectionMenuComponent implements OnInit, OnDestroy {
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   edition: string = "";
+  editions: string[] = [];
 
   sectionCache: { edition: string, group: string | undefined, all: boolean, sections: ScenarioCache[] }[] = [];
 
@@ -30,8 +31,11 @@ export class SectionMenuComponent implements OnInit, OnDestroy {
       // set edition or first
       gameManager.currentEdition();
 
+    this.setEditions();
+
     this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
+        this.setEditions();
         this.sectionCache = [];
       }
     })
@@ -45,9 +49,12 @@ export class SectionMenuComponent implements OnInit, OnDestroy {
     }
   }
 
-
-  editions(): string[] {
-    return gameManager.editionData.filter((editionData) => editionData.sections && editionData.sections.filter((sectionData) => sectionData.edition == editionData.edition && settingsManager.settings.editions.indexOf(sectionData.edition) != -1).length > 0).map((editionData) => editionData.edition);
+  setEditions() {
+    if (gameManager.game.edition) {
+      this.editions = [gameManager.game.edition, ...gameManager.editionExtensions(gameManager.game.edition), ...gameManager.editionScenarioExtensions(gameManager.game.edition)];
+    } else {
+      this.editions = gameManager.editionData.filter((editionData) => editionData.sections && editionData.sections.filter((sectionData) => sectionData.edition == editionData.edition && settingsManager.settings.editions.indexOf(sectionData.edition) != -1).length > 0).map((editionData) => editionData.edition);
+    }
   }
 
   groups(): (string | undefined)[] {

@@ -63,6 +63,7 @@
     "flaming-sword-of-justice": "Flaming Sword of Justice",
     "forest-imp": "Forest Imp",
     "fracture-of-the-deep": "Fracture of the Deep",
+    "fractured-lieutenant": "Fractured Lieutenant",
     "frost-demon": "Frost Demon",
     "frozen-corpse": "Frozen Corpse",
     "frozen-fist": "Frozen Fist",
@@ -86,13 +87,10 @@
     "living-spirit": "Living Spirit",
     "lord-of-chaos": "Lord of Chaos",
     "lurker-clawcrusher": "Lurker Clawcrusher",
-    "lurker-clawcrusher-scenario-60": "Fractured Lieutenant (Clawcrusher)",
     "lurker-conductor": "Lurker Conductor",
     "lurker-mindsnipper": "Lurker Mindsnipper",
-    "lurker-mindsnipper-scenario-60": "Fractured Lieutenant (Mindsnipper)",
     "lurker-soldier": "Lurker Soldier",
     "lurker-wavethrower": "Lurker Wavethrower",
-    "lurker-wavethrower-scenario-60": "Fractured Lieutenant (Wavethrower)",
     "night-demon": "Night Demon",
     "ooze": "Ooze",
     "orphan": "Orphan",
@@ -138,6 +136,7 @@
       "fh": {
         "0": "Do not set up the Hound monster ability deck. Instead, each round on initiative 26, all Hounds perform %game.action.move% 2; %game.action.attack% 2.",
         "1": "City Guards do not perform turns but instead gain an additional innate %game.action.shield% 1 (for a total of %game.action.shield% 2 at level 1) and %game.action.retaliate% 2, and have an initiative of 50 for the purpose of focusing.",
+        "60": "All six Lurkers on tiles 13-B and 13-D are Fractured Lieutenants and add +1 %game.action.attack% to all their attacks.",
         "65": "All monsters add %game.action.push% 1 to all their attacks. If the scenario level is 4 or higher, increase this to %game.action.push% 2.",
         "76": "Divide the Fish King's maximum hit point value by 2 (rounded down). The Fish King does not act, cannot be targeted by heal abilities, is immune to all conditions, and has an initiative of 01 for the purpose of focusing.",
         "77": {
@@ -146,7 +145,13 @@
         },
         "97": "To add monster abilities to a character's hand, open the Ability Cards menu and remove the cards from the deck. To play that card, simply add it back in the Edit menu.",
         "112": "The two Hounds have twice their maximum hit point values.",
-        "129": "All City Guards use Archer monster ability cards instead of their own."
+        "128": {
+          "1": "All Steel Automatons use the Imp monster ability deck.",
+          "2": "Whenever any Lurker Wavethrower would summon a Lightening Eel, it summons one Vermling Scout with a current hit point value of 1 instead."
+        },
+        "129": "All City Guards use Archer monster ability cards instead of their own.",
+        "131": "Lurker Wavethrowers add +1 %game.action.attack% to all their attacks and do not summon Lightning Eels. Instead, whenever Aid from Below is performed, all Lurker Wavethrowers perform: \" %game.action.attack% +1, %game.action.range% 4; %game.action.teleport% to the leftmost empty hex if it is an odd round or rightmost if it is even. If there are several valid hexes to teleport to, choose the hex furthest away from any character.\"",
+        "134": "The Steel Automaton has HxC/2 hit points (rounded up)."
       }
     }
   },
@@ -904,6 +909,7 @@
         "scenraio104": "1st Printing: Second to last line of the special rules: \"Ice Wraith\" should be \"Savvas Icestorm\". (Fixed in GHS!)",
         "scenario110": "1st Printing: the water hexes are difficult terrain, not corridor.",
         "scenario111": "1st Printing: The door positions from Section 182.2 are correct. Section 138.2 should link to Section 147.2.",
+        "scenario117": "1st Printing: This scenario setup has 5 Polar bears but there are only 4 standees. A fifth Polar bear should be 'proxied' from other available standees or minis. (Fixed in GHS!)",
         "scenario130": "1st Printing: Key - Shrike Fiend has an image of Night Demon. (Fixed in GHS!)",
         "section14-2": "1st Printing: Map: Ice Wraith should be Frost Demon. (Fixed in GHS!)",
         "section25-3": "1st Printing: Section 25.3 - instead of Door 3 opening Section 62.3, this should read Door 1. (Fixed in GHS!)",

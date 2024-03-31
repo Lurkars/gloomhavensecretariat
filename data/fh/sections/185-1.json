@@ -9,7 +9,7 @@
     ]
   ],
   "monsters": [
-    "lurker-wavethrower-scenario-131"
+    "lurker-wavethrower"
   ],
   "rooms": [
     {
@@ -17,20 +17,20 @@
       "initial": true,
       "monster": [
         {
-          "name": "lurker-wavethrower-scenario-131",
+          "name": "lurker-wavethrower",
           "type": "normal"
         },
         {
-          "name": "lurker-wavethrower-scenario-131",
+          "name": "lurker-wavethrower",
           "type": "normal"
         },
         {
-          "name": "lurker-wavethrower-scenario-131",
+          "name": "lurker-wavethrower",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "lurker-wavethrower-scenario-131",
+          "name": "lurker-wavethrower",
           "player4": "normal"
         }
       ]

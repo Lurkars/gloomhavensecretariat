@@ -20,7 +20,10 @@
     "battleGoals": "Battle Goal Setup",
     "character": "Character Sheets",
     "items": "Itemcards Overview",
-    "map": "Global Map",
+    "map": {
+      ".": "Global Map",
+      "highlighting": "Highlighting"
+    },
     "party": "Party/Campaign Sheet",
     "campaignManagement": {
       ".": "Manage Campaign",
@@ -393,6 +396,7 @@
       "loot": "Loot",
       "monsterType": "Monster Type",
       "move": "Move",
+      "nonCalc": "org. Action",
       "pierce": "Pierce",
       "pull": "Pull",
       "push": "Push",
@@ -634,7 +638,13 @@
       "instead": "Instead",
       "math": {
         "ceil": "(rounded up)",
-        "floor": "(rounded down)"
+        "floor": "(rounded down)",
+        "max": ", up to a maximum of %game.number.{0}%",
+        "maxCeil": "(rounded up), up to a maximum of %game.number.{0}%",
+        "maxFloor": "(rounded down), up to a maximum of %game.number.{0}%",
+        "min": ", but at least %game.number.{0}%",
+        "minCeil": "(rounded up), but at least %game.number.{0}%",
+        "minFloor": "(rounded down), but at least of %game.number.{0}%"
       },
       "ondeath": "On death:",
       "perks": {
@@ -1660,14 +1670,24 @@
     },
     "activeApplyConditions": {
       ".": "Confirm applicable conditions",
+      "auto": {
+        ".": "Automatic confirm",
+        "hint": {
+          ".": "Do not ask for confirmation and apply those conditions automatically.<br><br>Enable this with care!",
+          "brittle": "On suffering damage, automatic apply %game.condition.brittle% and increase damage.<br><br>Does not work automatically on %game.condition.poison%!",
+          "heal": "When increasing hitpoints automatic apply %game.action.heal% and remove corresponding conditions.",
+          "shield": "On suffering damage, automatic apply %game.action.shield% and lower damage.",
+          "ward": "On suffering damage, automatic apply %game.condition.ward% and lower damage.<br><br>Does not work automatically on %game.condition.poison%!"
+        }
+      },
       "hint": {
         ".": "Certain conditions need confirmation to be applied, for example when decreasing HP with Poison confirm to lose 1 extra HP ",
         "brittle": "On suffering damage, ask to apply %game.condition.brittle% and increase damage.",
         "heal": "No condition, but helper if %game.action.heal% should be applied when increasing hitpoints.",
         "poison": "On suffering damage, ask to apply %game.action.attack% +1 from %game.condition.poison% (including %game.attackmodifier.double%).",
         "poison_x": "On suffering damage, ask to apply %game.action.attack% +X from %game.condition.poison_x:X% (including %game.attackmodifier.double%).",
-        "shield": "No condition, but helper if %game.action.shield% should be applied when taking damage.",
-        "ward": "On suffering damage, ask to apply %game.condition.ward% and lowering damage."
+        "shield": "No condition, but helper if %game.action.shield% should be applied when taking damage and lower damage.",
+        "ward": "On suffering damage, ask to apply %game.condition.ward% and lower damage."
       }
     },
     "activeStandees": {
@@ -2740,12 +2760,15 @@
         "kill": "Kill / Exhaust",
         "maxHpDec": "Dec. max. HP",
         "maxHpInc": "Inc. max. HP",
-        "toggleCondition": "Toggle Condition/Condition modifier"
+        "toggleCondition": "Toggle Condition/Condition modifier",
+        "xpDec": "Dec. XP",
+        "xpInc": "Inc. XP"
       },
       "esc": "ESC",
       "events": "Event effects menu",
       "finish": "(finish) scenario menu",
       "global": "The following keyboard shortcuts are currently implemented:",
+      "globalMap": "Open Global Map",
       "keyboard": "Show keyboard shortcuts",
       "loot": "Draw from Loot Deck",
       "mainMenu": {
@@ -2758,6 +2781,7 @@
       "party": "Open Party sheet",
       "redo": "Redo",
       "round": "Next round / Draw",
+      "scenarioChart": "Show Scenario Flow Chart",
       "select": "select figure/standee for opening menu with number key",
       "shift": "SHIFT",
       "space": "SPACE",

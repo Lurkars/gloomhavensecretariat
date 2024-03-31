@@ -26,7 +26,7 @@
     "custom": "Remove all %game.action.custom.fh-unfettered% events from all outpost event decks",
     "morale": 2,
     "campaignSticker": [
-      "Unfettered Allies"
+      "unfettered-allies"
     ],
     "unlockCharacter": "prism",
     "townGuardAm": [

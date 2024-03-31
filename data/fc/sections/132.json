@@ -28,7 +28,8 @@
           "identifier": {
             "type": "monster",
             "edition": "fc",
-            "name": "the-husk.*"
+            "name": "aesther-ashblade",
+            "tag": "the-husk"
           },
           "type": "drawAbility"
         }
@@ -51,7 +52,8 @@
           "identifier": {
             "type": "monster",
             "edition": "fc",
-            "name": "the-husk.*"
+            "name": "aesther-ashblade",
+            "tag": "the-husk"
           },
           "type": "discardAbilityToBottom"
         }

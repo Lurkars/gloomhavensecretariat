@@ -21,6 +21,8 @@ The following keyboard shortcuts are currently implemented:
 - <kbd>e</kbd>: scenario effects menu
 - <kbd>f</kbd>: (finish) scenario menu
 - <kbd>p</kbd>: open party sheet
+- <kbd>g</kbd>: open global map
+- <kbd>c</kbd>: open scenario chart
 - <kbd>SHIFT</kbd> + <kbd>H</kbd>: toggle *Display hand size and level*
 - <kbd>t</kbd>: toggle *Display traits*
 - <kbd>?</kbd>: show keyboard shortcuts
@@ -29,6 +31,8 @@ On any open figure/standee menu, those shortcuts are disabled, currently shortcu
 - <kbd>→</kbd>: inc. current HP
 - <kbd>←</kbd>: dec. current HP
 - <kbd>0</kbd>-<kbd>9</kbd>: toggle condition/condition modifier
+- <kbd>x</kbd>: inc. XP
+- <kbd>SHIFT</kbd> + <kbd>X</kbd>: dec. XP
 - <kbd>b</kbd>: inc. Bless
 - <kbd>SHIFT</kbd> + <kbd>B</kbd>: dec. Bless
 - <kbd>c</kbd>: inc. Curse

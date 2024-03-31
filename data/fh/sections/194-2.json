@@ -18,7 +18,7 @@
       "spawns": [
         {
           "monster": {
-            "name": "lurker-wavethrower-scenario-131",
+            "name": "lurker-wavethrower",
             "player3": "normal",
             "player4": "normal"
           },

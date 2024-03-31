@@ -73,7 +73,7 @@ export class ConditionHighlightAnimationDirective implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
-        if (this.condition.highlight && (!settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions || settingsManager.settings.activeApplyConditionsExcludes.indexOf(this.condition.name) != -1)) {
+        if (this.condition.highlight && !this.condition.expired &&(!settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions || settingsManager.settings.activeApplyConditionsExcludes.indexOf(this.condition.name) != -1)) {
           this.playAnimation();
         }
       }

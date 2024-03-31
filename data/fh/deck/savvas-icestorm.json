@@ -57,7 +57,15 @@
       "actions": [
         {
           "type": "summon",
-          "value": "wind-demon:normal"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "wind-demon",
+                "type": "normal"
+              }
+            }
+          ]
         },
         {
           "type": "element",
@@ -72,7 +80,15 @@
       "actions": [
         {
           "type": "summon",
-          "value": "frost-demon:normal"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "frost-demon",
+                "type": "normal"
+              }
+            }
+          ]
         },
         {
           "type": "element",

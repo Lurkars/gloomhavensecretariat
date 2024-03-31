@@ -10,7 +10,28 @@
     ]
   ],
   "monsters": [
-    "steel-automaton-scenario-134"
+    "steel-automaton"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "steel-automaton"
+          },
+          "statEffect": {
+            "health": "[HxC/2{$math.ceil}]",
+            "absolute": true
+          },
+          "note": "%data.scenario.rules.fh.134%"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -18,7 +39,7 @@
       "initial": true,
       "monster": [
         {
-          "name": "steel-automaton-scenario-134",
+          "name": "steel-automaton",
           "type": "elite"
         }
       ]

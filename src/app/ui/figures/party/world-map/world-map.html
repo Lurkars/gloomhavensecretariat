@@ -1,4 +1,17 @@
 <div class="world-map-container">
-  <div #map class="world-map" [ngClass]="{'highlighting' : highlighting}" id="map"></div>
-
+  <div #map class="world-map" [ngClass]="{'highlighting' : settingsManager.settings.globalMapHighlighting}" id="map">
+  </div>
+  <div class="menu">
+    <a (click)="openFlowChart()" [ghs-tooltip]="'scenario.chart'">
+      <img src="./assets/images/chart.svg">
+    </a>
+    <a (click)="openCampaignSheet()" [ghs-tooltip]="'party.campaign.manage'">
+      <img src="./assets/images/sheet.svg">
+    </a>
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.globalMapHighlighting"
+        (click)="settingsManager.toggle('globalMapHighlighting')">
+      <span [ghs-label]="'campaign.map.highlighting'"></span>
+    </label>
+  </div>
 </div>

@@ -144,7 +144,14 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus"
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump",
+              "value": "",
+              "small": true
+            }
+          ]
         },
         {
           "type": "attack",

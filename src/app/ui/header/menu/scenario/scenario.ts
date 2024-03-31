@@ -1,15 +1,15 @@
+import { Dialog } from "@angular/cdk/dialog";
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from "@angular/core";
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { ScenarioData } from "src/app/game/model/data/ScenarioData";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameState } from "src/app/game/model/Game";
 import { GameScenarioModel, Scenario, ScenarioCache } from "src/app/game/model/Scenario";
+import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { Spoilable, SpoilableMock } from "src/app/game/model/data/Spoilable";
 import { ScenarioRequirementsComponent } from "src/app/ui/figures/party/requirements/requirements";
-import { Dialog } from "@angular/cdk/dialog";
-import { Subscription } from "rxjs";
-import { ScenarioChartDialogComponent } from "./chart/scenario-chart";
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
+import { ScenarioChartDialogComponent } from "../../../figures/party/scenario-chart/scenario-chart";
 
 @Component({
   selector: 'ghs-scenario-menu',
@@ -62,7 +62,7 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
 
   setEditions() {
     if (gameManager.game.edition) {
-      this.editions = [gameManager.game.edition, ...gameManager.editionExtensions(gameManager.game.edition)];
+      this.editions = [gameManager.game.edition, ...gameManager.editionExtensions(gameManager.game.edition), ...gameManager.editionScenarioExtensions(gameManager.game.edition)];
     } else {
       this.editions = gameManager.editionData.filter((editionData) => editionData.scenarios && editionData.scenarios.filter((scenarioData) => scenarioData.edition == editionData.edition && settingsManager.settings.editions.indexOf(scenarioData.edition) != -1).length > 0).map((editionData) => editionData.edition);
     }

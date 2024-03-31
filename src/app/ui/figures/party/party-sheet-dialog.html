@@ -20,8 +20,10 @@
                 </option>
               </select>
               <span class="spacer"></span>
-              <span class="map ignore-denied" *ngIf="worldMap" (click)="openMap()">
-                <img src="./assets/images/fullscreen.svg"><span [ghs-label]="'party.campaign.map'"></span>
+              <span class="map ignore-denied" *ngIf="!disableShortcuts">
+                <img (click)="openFlowChart()" src="./assets/images/chart.svg" [ghs-tooltip]="'scenario.chart'">
+                <img *ngIf="worldMap" (click)="openMap()" src="./assets/images/map.svg"
+                  [ghs-tooltip]="'party.campaign.map'">
               </span>
             </div>
             <div class="row name">
@@ -148,8 +150,9 @@
           </a>
         </div>
 
-        <span class="map ignore-denied" *ngIf="worldMap" (click)="openMap()">
-          <img src="./assets/images/fullscreen.svg"><span [ghs-label]="'party.campaign.map'"></span>
+        <span class="map ignore-denied" *ngIf="!disableShortcuts">
+          <img (click)="openFlowChart()" src="./assets/images/chart.svg" [ghs-tooltip]="'scenario.chart'">
+          <img *ngIf="worldMap" (click)="openMap()" src="./assets/images/map.svg" [ghs-tooltip]="'party.campaign.map'">
         </span>
 
         <div class="weeks">
@@ -424,8 +427,10 @@
             <span class="checkbox" [ngClass]="{'checked' : party.campaignMode}"></span>
             <span [ghs-label]="'party.campaignMode'"></span>
           </span>
-          <span class="map ignore-denied" *ngIf="worldMap" (click)="openMap()">
-            <img src="./assets/images/fullscreen.svg"><span [ghs-label]="'party.campaign.map'"></span>
+          <span class="map ignore-denied" *ngIf="!disableShortcuts">
+            <img (click)="openFlowChart()" src="./assets/images/chart.svg" [ghs-tooltip]="'scenario.chart'">
+            <img *ngIf="worldMap" (click)="openMap()" src="./assets/images/map.svg"
+              [ghs-tooltip]="'party.campaign.map'">
           </span>
         </div>
 

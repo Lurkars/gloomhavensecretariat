@@ -26,6 +26,7 @@ export class SettingsMenuComponent {
   SubMenu = SubMenu;
   wakeLock: boolean;
   applyConditionsExcludes: Condition[] = [];
+  activeApplyConditionsAuto: Condition[] = [];
   activeApplyConditionsExcludes: Condition[] = [];
   WebSocket = WebSocket;
   ConditionType = ConditionType;
@@ -39,7 +40,13 @@ export class SettingsMenuComponent {
       if (!gameManager.game.edition || gameManager.conditions(gameManager.game.edition).map((condition) => condition.name).indexOf(condition.name) != -1 || condition.types.indexOf(ConditionType.hidden) != -1) {
         if (condition.types.indexOf(ConditionType.turn) != -1 || condition.types.indexOf(ConditionType.afterTurn) != -1) {
           this.applyConditionsExcludes.push(condition);
-        } if (condition.types.indexOf(ConditionType.apply) != -1) {
+        }
+
+        if (condition.types.indexOf(ConditionType.autoApply) != -1) {
+          this.activeApplyConditionsAuto.push(condition);
+        }
+
+        if (condition.types.indexOf(ConditionType.apply) != -1) {
           this.activeApplyConditionsExcludes.push(condition);
         }
       }
@@ -67,6 +74,16 @@ export class SettingsMenuComponent {
       settingsManager.settings.applyConditionsExcludes.push(condition);
     } else {
       settingsManager.settings.applyConditionsExcludes.splice(index, 1);
+    }
+    settingsManager.storeSettings();
+  }
+
+  toggleActiveApplyConditionsAuto(condition: ConditionName) {
+    let index = settingsManager.settings.activeApplyConditionsAuto.indexOf(condition);
+    if (index == -1) {
+      settingsManager.settings.activeApplyConditionsAuto.push(condition);
+    } else {
+      settingsManager.settings.activeApplyConditionsAuto.splice(index, 1);
     }
     settingsManager.storeSettings();
   }
