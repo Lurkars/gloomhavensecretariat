@@ -409,26 +409,15 @@ export class ScenarioRulesManager {
         let checkActive: string[] = [];
         rule.spawns.forEach((spawn) => {
           const type = this.spawnType(spawn.monster);
+          if (scenario && (type == MonsterType.boss || type == MonsterType.elite)) {
+            checkActive.push(...this.applySpawnRule(scenario, rule, spawn, type));
+          }
+        })
 
-          if (type && scenario) {
-            const monster = gameManager.monsterManager.addMonsterByName(spawn.monster.name, scenario.edition);
-            if (monster) {
-              for (let i = 0; i < this.spawnCount(rule, spawn); i++) {
-                let entity = gameManager.monsterManager.spawnMonsterEntity(monster, type, scenario.allies && scenario.allies.indexOf(spawn.monster.name) != -1, scenario.allied && scenario.allied.indexOf(spawn.monster.name) != -1, scenario.drawExtra && scenario.drawExtra.indexOf(spawn.monster.name) != -1, spawn.summon);
-                if (entity) {
-                  if (spawn.monster.marker) {
-                    entity.marker = spawn.monster.marker;
-                  }
-                  if (spawn.monster.tags) {
-                    entity.tags = spawn.monster.tags;
-                  }
-                  checkActive.push(spawn.monster.name);
-                  if (entity.marker || entity.tags.length > 0) {
-                    gameManager.addEntityCount(monster, entity);
-                  }
-                }
-              }
-            }
+        rule.spawns.forEach((spawn) => {
+          const type = this.spawnType(spawn.monster);
+          if (scenario && type == MonsterType.normal) {
+            checkActive.push(...this.applySpawnRule(scenario, rule, spawn, type));
           }
         })
       }
@@ -829,5 +818,30 @@ export class ScenarioRulesManager {
     }
 
     return EntityValueFunction(count || (spawn.manual ? 0 : 1));
+  }
+
+
+
+  applySpawnRule(scenario: ScenarioData, rule: ScenarioRule, spawn: MonsterSpawnData, type: MonsterType): string[] {
+    const monster = gameManager.monsterManager.addMonsterByName(spawn.monster.name, scenario.edition);
+    let checkActive: string[] = [];
+    if (monster) {
+      for (let i = 0; i < this.spawnCount(rule, spawn); i++) {
+        let entity = gameManager.monsterManager.spawnMonsterEntity(monster, type, scenario.allies && scenario.allies.indexOf(spawn.monster.name) != -1, scenario.allied && scenario.allied.indexOf(spawn.monster.name) != -1, scenario.drawExtra && scenario.drawExtra.indexOf(spawn.monster.name) != -1, spawn.summon);
+        if (entity) {
+          if (spawn.monster.marker) {
+            entity.marker = spawn.monster.marker;
+          }
+          if (spawn.monster.tags) {
+            entity.tags = spawn.monster.tags;
+          }
+          checkActive.push(spawn.monster.name);
+          if (entity.marker || entity.tags.length > 0) {
+            gameManager.addEntityCount(monster, entity);
+          }
+        }
+      }
+    }
+    return checkActive;
   }
 }

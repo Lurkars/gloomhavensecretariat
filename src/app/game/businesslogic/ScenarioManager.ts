@@ -9,7 +9,7 @@ import { LootDeckConfig, LootType, fullLootDeck } from "../model/data/Loot";
 import { MonsterData } from "../model/data/MonsterData";
 import { MonsterType } from "../model/data/MonsterType";
 import { ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
-import { RoomData } from "../model/data/RoomData";
+import { MonsterStandeeData, RoomData } from "../model/data/RoomData";
 import { ScenarioData, ScenarioRewards } from "../model/data/ScenarioData";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
@@ -475,6 +475,7 @@ export class ScenarioManager {
 
     if (roomData.monster) {
       let entities: MonsterEntity[] = [];
+      // boss / elite first
       roomData.monster.forEach((monsterStandeeData) => {
         let type: MonsterType | undefined = monsterStandeeData.type;
 
@@ -489,32 +490,28 @@ export class ScenarioManager {
           }
         }
 
-        if (type) {
-          const monsterName = monsterStandeeData.name.split(':')[0];
-          const isAlly = scenarioData.allies && scenarioData.allies.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allies && gameManager.game.scenario.allies.indexOf(monsterName) != -1 || false;
-          const isAllied = scenarioData.allied && scenarioData.allied.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allied && gameManager.game.scenario.allied.indexOf(monsterName) != -1 || false;
-          const drawExtra = scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.drawExtra && gameManager.game.scenario.drawExtra.indexOf(monsterName) != -1 || false;
-          const monster = gameManager.monsterManager.addMonsterByName(monsterStandeeData.name, scenarioData.edition);
-          if (monster) {
-            if (settingsManager.settings.standees || !monster.entities.find((entity) => entity.type == type)) {
-              const entity = gameManager.monsterManager.spawnMonsterEntity(monster, type, isAlly, isAllied, drawExtra);
-              if (entity) {
-                if (monsterStandeeData.marker) {
-                  entity.marker = monsterStandeeData.marker;
-                }
-                if (monsterStandeeData.tags) {
-                  entity.tags = monsterStandeeData.tags;
-                }
-                if (monsterStandeeData.health) {
-                  entity.health = EntityValueFunction(monsterStandeeData.health)
-                }
-                entities.push(entity);
-                if (entity.marker || entity.tags.length > 0) {
-                  gameManager.addEntityCount(monster, entity);
-                }
-              }
-            }
+        if (type == MonsterType.boss || type == MonsterType.elite) {
+          entities.push(...this.applyRoomSpawn(scenarioData, monsterStandeeData, type, section));
+        }
+      })
+
+      // normal
+      roomData.monster.forEach((monsterStandeeData) => {
+        let type: MonsterType | undefined = monsterStandeeData.type;
+
+        if (!type) {
+          const charCount = gameManager.characterManager.characterCount();
+          if (charCount < 3) {
+            type = monsterStandeeData.player2;
+          } else if (charCount == 3) {
+            type = monsterStandeeData.player3;
+          } else {
+            type = monsterStandeeData.player4;
           }
+        }
+
+        if (type == MonsterType.normal) {
+          entities.push(...this.applyRoomSpawn(scenarioData, monsterStandeeData, type, section));
         }
       })
 
@@ -559,6 +556,36 @@ export class ScenarioManager {
         }
       })
     }
+  }
+
+  applyRoomSpawn(scenarioData: ScenarioData, monsterStandeeData: MonsterStandeeData, type: MonsterType, section: boolean): MonsterEntity[] {
+    let entities: MonsterEntity[] = [];
+    const monsterName = monsterStandeeData.name.split(':')[0];
+    const isAlly = scenarioData.allies && scenarioData.allies.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allies && gameManager.game.scenario.allies.indexOf(monsterName) != -1 || false;
+    const isAllied = scenarioData.allied && scenarioData.allied.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allied && gameManager.game.scenario.allied.indexOf(monsterName) != -1 || false;
+    const drawExtra = scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.drawExtra && gameManager.game.scenario.drawExtra.indexOf(monsterName) != -1 || false;
+    const monster = gameManager.monsterManager.addMonsterByName(monsterStandeeData.name, scenarioData.edition);
+    if (monster) {
+      if (settingsManager.settings.standees || !monster.entities.find((entity) => entity.type == type)) {
+        const entity = gameManager.monsterManager.spawnMonsterEntity(monster, type, isAlly, isAllied, drawExtra);
+        if (entity) {
+          if (monsterStandeeData.marker) {
+            entity.marker = monsterStandeeData.marker;
+          }
+          if (monsterStandeeData.tags) {
+            entity.tags = monsterStandeeData.tags;
+          }
+          if (monsterStandeeData.health) {
+            entity.health = EntityValueFunction(monsterStandeeData.health)
+          }
+          entities.push(entity);
+          if (entity.marker || entity.tags.length > 0) {
+            gameManager.addEntityCount(monster, entity);
+          }
+        }
+      }
+    }
+    return entities;
   }
 
   scenarioData(edition: string | undefined, all: boolean = false): ScenarioData[] {
@@ -812,11 +839,11 @@ export class ScenarioManager {
 
   treasureRewardsFromString(treasure: string): string[][] {
     if (treasure.split(':').length < 2) {
-        return [];
+      return [];
     } else {
-        return treasure.split(':').slice(1).join(':').split('|').map((value) => value.split('+'));
+      return treasure.split(':').slice(1).join(':').split('|').map((value) => value.split('+'));
     }
-}
+  }
 
   getMonsters(scenario: Scenario, custom: boolean = false): MonsterData[] {
     let monsters: MonsterData[] = [];
