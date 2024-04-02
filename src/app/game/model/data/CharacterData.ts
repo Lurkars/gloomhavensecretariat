@@ -56,6 +56,7 @@ export class CharacterData implements Editional, Spoilable {
 
   deck: string = "";
 
+  perkWarning: boolean = false;
   perks: Perk[] = [];
 
   additionalModifier: PerkCard[] = [];
@@ -101,6 +102,7 @@ export class CharacterData implements Editional, Spoilable {
       this.specialActions = characterData.specialActions || [];
       this.locked = characterData.locked || false;
       this.deck = characterData.deck || "";
+      this.perkWarning = characterData.perkWarning;
       this.perks = characterData.perks || [];
       this.additionalModifier = characterData.additionalModifier || [];
       this.masteries = characterData.masteries || [];

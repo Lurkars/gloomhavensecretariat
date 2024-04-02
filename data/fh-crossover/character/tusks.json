@@ -1,0 +1,162 @@
+{
+  "name": "tusks",
+  "characterClass": "orchid",
+  "icon": "cs-tusks",
+  "thumbnail": "cs-tusks",
+  "edition": "fh-crossover",
+  "handSize": 10,
+  "color": "#76c6c4",
+  "spoiler": true,
+  "stats": [
+    {
+      "level": 1,
+      "health": 8
+    },
+    {
+      "level": 2,
+      "health": 9
+    },
+    {
+      "level": 3,
+      "health": 11
+    },
+    {
+      "level": 4,
+      "health": 12
+    },
+    {
+      "level": 5,
+      "health": 14
+    },
+    {
+      "level": 6,
+      "health": 15
+    },
+    {
+      "level": 7,
+      "health": 17
+    },
+    {
+      "level": 8,
+      "health": 18
+    },
+    {
+      "level": 9,
+      "health": 20
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "fighting-bull",
+      "cardId": "088",
+      "level": 1,
+      "health": 4,
+      "attack": 2,
+      "movement": 2
+    },
+    {
+      "name": "speedy-ostrich",
+      "cardId": "089",
+      "level": 1,
+      "health": 4,
+      "attack": 1,
+      "movement": 3
+    },
+    {
+      "name": "giant-tortoise",
+      "cardId": "094",
+      "level": 1,
+      "health": 6,
+      "attack": 1,
+      "movement": 1
+    },
+    {
+      "name": "scout-dog",
+      "cardId": "096",
+      "level": 1,
+      "health": 4,
+      "attack": 1,
+      "movement": 3
+    },
+    {
+      "name": "pack-mule",
+      "cardId": "098",
+      "level": 1,
+      "health": 4,
+      "movement": 3
+    },
+    {
+      "name": "cavalry-camel",
+      "cardId": "100",
+      "level": 1,
+      "health": 5,
+      "attack": 1,
+      "movement": 2
+    },
+    {
+      "name": "swamp-hippo",
+      "level": 1,
+      "health": 6,
+      "attack": 3,
+      "movement": 1
+    },
+    {
+      "name": "warrior-hawk",
+      "level": 1,
+      "health": 4,
+      "attack": 1,
+      "movement": 3
+    },
+    {
+      "name": "black-panther",
+      "cardId": "104",
+      "level": 3,
+      "health": 5,
+      "attack": 1,
+      "movement": 3
+    },
+    {
+      "name": "lowland-gorilla",
+      "cardId": "107",
+      "level": 5,
+      "health": 7,
+      "attack": 2,
+      "movement": 3
+    },
+    {
+      "name": "cottonmouth-snake",
+      "cardId": "110",
+      "level": 6,
+      "health": 5,
+      "attack": 1,
+      "movement": 4
+    },
+    {
+      "name": "battle-rhinoceros",
+      "cardId": "111",
+      "level": 7,
+      "health": 7,
+      "attack": 2,
+      "movement": 2
+    },
+    {
+      "name": "war-elephant",
+      "cardId": "113",
+      "level": 8,
+      "health": 8,
+      "attack": 3,
+      "movement": 2
+    },
+    {
+      "name": "sabretooth-tiger",
+      "cardId": "116",
+      "level": 9,
+      "health": 8,
+      "attack": 3,
+      "movement": 3
+    }
+  ],
+  "perkWarning": true,
+  "perks": [],
+  "masteries": []
+}

@@ -397,7 +397,7 @@ export class GameManager {
         figure.abilities = deckData.abilities.filter((ability) => isNaN(+ability.level) || +ability.level <= (figure && figure.level || 0)).map((ability) => deckData ? deckData.abilities.indexOf(ability) : -1);
         ghsShuffleArray(figure.abilities);
         if (this.game.state == GameState.next) {
-          figure.ability = 1;
+          figure.ability = 0;
         }
       }
     }

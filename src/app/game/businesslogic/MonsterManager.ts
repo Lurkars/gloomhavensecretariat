@@ -268,6 +268,7 @@ export class MonsterManager {
       figure instanceof MonsterData && figure.name == monsterData.name && figure.edition == monsterData.edition) as Monster;
     if (!monster) {
       monster = new Monster(monsterData);
+      this.applySameDeck(monster);
       this.setLevel(monster, level);
       monster.off = true;
       this.resetMonsterAbilities(monster);

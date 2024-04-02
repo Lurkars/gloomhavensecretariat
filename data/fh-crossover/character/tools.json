@@ -1,10 +1,15 @@
 {
   "name": "tools",
   "characterClass": "quatryl",
-  "edition": "cs",
+  "icon": "cs-tools",
+  "thumbnail": "cs-tools",
+  "edition": "fh-crossover",
   "handSize": 9,
-  "unlockEvent": "QA1",
-  "retireEvent": "QA2",
+  "traits": [
+    "educated",
+    "nimble",
+    "resourceful"
+  ],
   "color": "#79bcda",
   "spoiler": true,
   "stats": [
@@ -102,6 +107,7 @@
       "movement": 3
     }
   ],
+  "perkWarning": true,
   "perks": [
     {
       "type": "replace",
@@ -165,6 +171,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
+            "rolling": true,
             "effects": [
               {
                 "type": "push",
@@ -189,6 +196,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
+            "rolling": true,
             "effects": [
               {
                 "type": "pull",
@@ -355,6 +363,15 @@
           }
         }
       ]
+    },
+    {
+      "type": "custom",
+      "custom": "%data.custom.fh.tools.1%",
+      "count": 1
     }
+  ],
+  "masteries": [
+    "%data.custom.fh.tools.2%",
+    "%data.custom.fh.tools.3%"
   ]
 }

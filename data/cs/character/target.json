@@ -181,7 +181,7 @@
                     "effects": [
                       {
                         "type": "custom",
-                        "value": "%data.custom.perks.target.2%"
+                        "value": "%data.custom.perks.target.3%"
                       }
                     ]
                   }

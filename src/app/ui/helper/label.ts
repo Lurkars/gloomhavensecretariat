@@ -201,7 +201,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "checkmark") {
         replace = '<span class="placeholder-checkmark"><img src="./assets/images/check.svg" class="icon ghs-svg"></span>';
       } else if (type == "itemSlot" && value) {
-        replace = '<span class="placeholder-items-slot"><img src="./assets/images/items/slot/' + value + '.svg" class="icon ghs-svg"></span>';
+        replace = '<span class="placeholder-items-slot"><img src="./assets/images/items/slots/' + value + '.svg" class="icon ghs-svg"></span>';
       } else if (type == "townGuardAm" && split.length == 3 && value) {
         const valueType = split[2];
         let valueSign = "";

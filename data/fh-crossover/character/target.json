@@ -1,13 +1,17 @@
 {
-  "name": "envv",
-  "characterClass": "valrath",
-  "edition": "toa",
+  "name": "target",
+  "characterClass": "quatryl",
+  "icon": "cs-target",
+  "thumbnail": "cs-target",
+  "edition": "fh-crossover",
   "handSize": 9,
-  "unlockEvent": "74",
-  "retireEvent": "75",
-  "color": "#d3423e",
+  "traits": [
+    "armored",
+    "educated",
+    "resourceful"
+  ],
+  "color": "#a59786",
   "spoiler": true,
-  "locked": true,
   "stats": [
     {
       "level": 1,
@@ -46,85 +50,16 @@
       "health": 26
     }
   ],
+  "perkWarning": true,
   "perks": [
     {
-      "type": "replace",
+      "type": "remove",
       "count": 1,
       "cards": [
         {
           "count": 2,
           "attackModifier": {
             "type": "minus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "muddle"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 1,
-      "cards": [
-        {
-          "count": 2,
-          "attackModifier": {
-            "type": "minus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "minus1",
-            "effects": [
-              {
-                "type": "heal",
-                "value": "2",
-                "effects": [
-                  {
-                    "type": "specialTarget",
-                    "value": "self"
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "minus2"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "minus1",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "poison"
-              },
-              {
-                "type": "condition",
-                "value": "wound"
-              }
-            ]
           }
         }
       ]
@@ -136,97 +71,7 @@
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus0"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1",
-            "effects": [
-              {
-                "type": "heal",
-                "value": "1",
-                "effects": [
-                  {
-                    "type": "specialTarget",
-                    "value": "self"
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 1,
-      "cards": [
-        {
-          "count": 2,
-          "attackModifier": {
-            "type": "plus0"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "curse"
-              }
-            ]
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "immobilize"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 2,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus2",
-            "effects": [
-              {
-                "type": "elementHalf",
-                "value": "fire|air"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus2"
+            "type": "minus1"
           }
         },
         {
@@ -236,8 +81,8 @@
             "rolling": true,
             "effects": [
               {
-                "type": "custom",
-                "value": "%data.custom.perks.envv.1%"
+                "type": "shield",
+                "value": 1
               }
             ]
           }
@@ -245,29 +90,48 @@
       ]
     },
     {
-      "type": "add",
+      "type": "replace",
       "count": 2,
       "cards": [
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus1",
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
             "effects": [
               {
-                "type": "retaliate",
-                "value": 1,
+                "type": "changeType",
+                "value": "plus3",
                 "effects": [
                   {
-                    "type": "specialTarget",
-                    "value": "self"
+                    "type": "custom",
+                    "value": "%data.custom.perks.target.1%",
+                    "hint": "%data.custom.perks.target.2%"
                   }
                 ]
               }
             ]
           }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0"
+          }
         },
         {
-          "count": 1,
+          "count": 2,
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
@@ -282,9 +146,39 @@
       ]
     },
     {
-      "type": "add",
+      "type": "replace",
       "count": 1,
       "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "wound"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
         {
           "count": 1,
           "attackModifier": {
@@ -292,7 +186,61 @@
             "effects": [
               {
                 "type": "condition",
-                "value": "bless",
+                "value": "stun"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "retaliate",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "range",
+                    "value": 3
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "strengthen",
                 "effects": [
                   {
                     "type": "specialTarget",
@@ -307,22 +255,16 @@
     },
     {
       "type": "add",
-      "count": 1,
+      "count": 2,
       "cards": [
         {
-          "count": 2,
+          "count": 1,
           "attackModifier": {
-            "type": "plus1",
+            "type": "plus2",
             "effects": [
               {
-                "type": "changeType",
-                "value": "plus2",
-                "effects": [
-                  {
-                    "type": "custom",
-                    "value": "%data.custom.perks.envv.2%"
-                  }
-                ]
+                "type": "condition",
+                "value": "immobilize"
               }
             ]
           }
@@ -334,17 +276,18 @@
       "count": 1,
       "cards": [
         {
-          "count": 1,
+          "count": 2,
           "attackModifier": {
-            "type": "plus2",
+            "type": "plus0",
+            "rolling": true,
             "effects": [
               {
-                "type": "changeType",
-                "value": "plus3",
+                "type": "heal",
+                "value": 1,
                 "effects": [
                   {
-                    "type": "custom",
-                    "value": "%data.custom.perks.envv.2%"
+                    "type": "specialTarget",
+                    "value": "self"
                   }
                 ]
               }
@@ -354,17 +297,75 @@
       ]
     },
     {
-      "type": "remove",
+      "type": "add",
       "custom": "%game.custom.perks.ignoreNegativeScenario%",
       "count": 1,
       "cards": [
         {
           "count": 1,
           "attackModifier": {
-            "type": "minus1"
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "pull",
+                "value": 3,
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self",
+                    "effects": [
+                      {
+                        "type": "custom",
+                        "value": "%data.custom.perks.target.3%"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           }
         }
       ]
+    },
+    {
+      "type": "add",
+      "custom": "%game.custom.perks.ignoreNegativeItemFh%",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "pull",
+                "value": 3,
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self",
+                    "effects": [
+                      {
+                        "type": "custom",
+                        "value": "%data.custom.perks.target.3%"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "custom": "%data.custom.fh.target.1%",
+      "count": 1
     }
+  ],
+  "masteries": [
+    "%data.custom.fh.target.2%",
+    "%data.custom.fh.target.3%"
   ]
 }

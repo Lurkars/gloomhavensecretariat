@@ -1,0 +1,70 @@
+{
+  "name": "ladder-axe",
+  "characterClass": "valrath",
+  "icon": "cs-ladder-axe",
+  "thumbnail": "cs-ladder-axe",
+  "edition": "fh-crossover",
+  "handSize": 10,
+  "color": "#cd2127",
+  "spoiler": true,
+  "stats": [
+    {
+      "level": 1,
+      "health": 9
+    },
+    {
+      "level": 2,
+      "health": 10
+    },
+    {
+      "level": 3,
+      "health": 12
+    },
+    {
+      "level": 4,
+      "health": 14
+    },
+    {
+      "level": 5,
+      "health": 16
+    },
+    {
+      "level": 6,
+      "health": 17
+    },
+    {
+      "level": 7,
+      "health": 19
+    },
+    {
+      "level": 8,
+      "health": 21
+    },
+    {
+      "level": 9,
+      "health": 23
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "spotted-hound",
+      "cardId": "128",
+      "level": 1,
+      "health": 4,
+      "attack": 1,
+      "movement": 2
+    },
+    {
+      "name": "reigniting-drakefiend",
+      "cardId": "144",
+      "level": 9,
+      "health": 1,
+      "attack": 2,
+      "movement": 3,
+      "range": 2
+    }
+  ],
+  "perkWarning": true,
+  "perks": [],
+  "masteries": []
+}

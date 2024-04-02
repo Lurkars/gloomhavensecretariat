@@ -1,58 +1,79 @@
 {
-  "name": "envv",
-  "characterClass": "valrath",
-  "edition": "toa",
-  "handSize": 9,
-  "unlockEvent": "74",
-  "retireEvent": "75",
-  "color": "#d3423e",
+  "name": "flask",
+  "characterClass": "human",
+  "icon": "cs-flask",
+  "thumbnail": "cs-flask",
+  "edition": "fh-crossover",
+  "handSize": 11,
+  "traits": [
+    "chaotic",
+    "educated",
+    "resourceful"
+  ],
+  "color": "#caad2e",
   "spoiler": true,
-  "locked": true,
   "stats": [
     {
       "level": 1,
-      "health": 10
+      "health": 8
     },
     {
       "level": 2,
-      "health": 12
+      "health": 9
     },
     {
       "level": 3,
-      "health": 14
+      "health": 11
     },
     {
       "level": 4,
-      "health": 16
+      "health": 12
     },
     {
       "level": 5,
-      "health": 18
+      "health": 14
     },
     {
       "level": 6,
-      "health": 20
+      "health": 15
     },
     {
       "level": 7,
-      "health": 22
+      "health": 17
     },
     {
       "level": 8,
-      "health": 24
+      "health": 18
     },
     {
       "level": 9,
-      "health": 26
+      "health": 20
     }
   ],
+  "availableSummons": [
+    {
+      "name": "metal-detector",
+      "cardId": "046",
+      "level": 3,
+      "health": 6,
+      "movement": 1
+    },
+    {
+      "name": "black-hole",
+      "cardId": "053",
+      "level": 7,
+      "health": 4,
+      "range": 4
+    }
+  ],
+  "perkWarning": true,
   "perks": [
     {
       "type": "replace",
-      "count": 1,
+      "count": 3,
       "cards": [
         {
-          "count": 2,
+          "count": 1,
           "attackModifier": {
             "type": "minus1"
           }
@@ -63,36 +84,12 @@
             "type": "plus0",
             "effects": [
               {
-                "type": "condition",
-                "value": "muddle"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 1,
-      "cards": [
-        {
-          "count": 2,
-          "attackModifier": {
-            "type": "minus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "minus1",
-            "effects": [
-              {
-                "type": "heal",
-                "value": "2",
+                "type": "elementConsume",
+                "value": "wild",
                 "effects": [
                   {
-                    "type": "specialTarget",
-                    "value": "self"
+                    "type": "attack",
+                    "value": "+2"
                   }
                 ]
               }
@@ -114,15 +111,10 @@
         {
           "count": 1,
           "attackModifier": {
-            "type": "minus1",
+            "type": "minus2",
             "effects": [
               {
-                "type": "condition",
-                "value": "poison"
-              },
-              {
-                "type": "condition",
-                "value": "wound"
+                "type": "recoverRandomDiscard"
               }
             ]
           }
@@ -134,7 +126,7 @@
       "count": 2,
       "cards": [
         {
-          "count": 1,
+          "count": 2,
           "attackModifier": {
             "type": "plus0"
           }
@@ -146,11 +138,11 @@
             "effects": [
               {
                 "type": "heal",
-                "value": "1",
+                "value": 1,
                 "effects": [
                   {
                     "type": "specialTarget",
-                    "value": "self"
+                    "value": "allyAffectRange:2"
                   }
                 ]
               }
@@ -172,23 +164,17 @@
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus0",
+            "type": "plus1",
             "effects": [
               {
-                "type": "condition",
-                "value": "curse"
-              }
-            ]
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "immobilize"
+                "type": "shield",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "allyAffectRange:2"
+                  }
+                ]
               }
             ]
           }
@@ -211,33 +197,8 @@
             "type": "plus2",
             "effects": [
               {
-                "type": "elementHalf",
-                "value": "fire|air"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus2"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "custom",
-                "value": "%data.custom.perks.envv.1%"
+                "type": "element",
+                "value": "wild"
               }
             ]
           }
@@ -254,14 +215,93 @@
             "type": "plus1",
             "effects": [
               {
-                "type": "retaliate",
-                "value": 1,
+                "type": "condition",
+                "value": "strengthen",
                 "effects": [
                   {
                     "type": "specialTarget",
-                    "value": "self"
+                    "value": "allyAffectRange:2"
                   }
                 ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "or",
+                "value": "",
+                "effects": [
+                  {
+                    "type": "push",
+                    "value": 1
+                  },
+                  {
+                    "type": "pull",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "value": "air"
+              }
+            ]
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "immobilize"
+              },
+              {
+                "type": "element",
+                "value": "ice"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "heal",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "range",
+                    "value": 3
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "value": "light"
               }
             ]
           }
@@ -274,7 +314,11 @@
             "effects": [
               {
                 "type": "pierce",
-                "value": 3
+                "value": 2
+              },
+              {
+                "type": "element",
+                "value": "fire"
               }
             ]
           }
@@ -286,65 +330,18 @@
       "count": 1,
       "cards": [
         {
-          "count": 1,
+          "count": 3,
           "attackModifier": {
             "type": "plus0",
+            "rolling": true,
             "effects": [
               {
-                "type": "condition",
-                "value": "bless",
+                "type": "elementConsume",
+                "value": "wild",
                 "effects": [
                   {
-                    "type": "specialTarget",
-                    "value": "self"
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 2,
-          "attackModifier": {
-            "type": "plus1",
-            "effects": [
-              {
-                "type": "changeType",
-                "value": "plus2",
-                "effects": [
-                  {
-                    "type": "custom",
-                    "value": "%data.custom.perks.envv.2%"
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus2",
-            "effects": [
-              {
-                "type": "changeType",
-                "value": "plus3",
-                "effects": [
-                  {
-                    "type": "custom",
-                    "value": "%data.custom.perks.envv.2%"
+                    "type": "element",
+                    "value": "wild"
                   }
                 ]
               }
