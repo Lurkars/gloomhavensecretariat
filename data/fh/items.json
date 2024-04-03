@@ -4679,7 +4679,7 @@
     "edition": "fh",
     "slot": "onehand",
     "consumed": true,
-    "minusOne": 1,
+    "minusOne": 3,
     "actions": [
       {
         "type": "custom",

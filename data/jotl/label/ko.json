@@ -2,7 +2,7 @@
   "character": {
     "demolitionist": {
       ".": "철거전문가",
-      "mech": "%game.characterIconColored.demolitionist%  Mech Suit"
+      "mech": "Mech Suit"
     },
     "hatchet": "도끼투척수",
     "red-guard": "적위병",

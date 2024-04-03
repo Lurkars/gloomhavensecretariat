@@ -7,13 +7,14 @@ import { MonsterEntity } from "../model/MonsterEntity";
 import { ObjectiveContainer } from "../model/ObjectiveContainer";
 import { Scenario } from "../model/Scenario";
 import { Summon, SummonState } from "../model/Summon";
-import { Condition, ConditionName, ConditionType } from "../model/data/Condition";
+import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "../model/data/Condition";
 import { ElementState } from "../model/data/Element";
 import { ItemFlags } from "../model/data/ItemData";
 import { LootDeck } from "../model/data/Loot";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
+import { EntityValueFunction } from "../model/Entity";
 
 export class RoundManager {
 
@@ -358,6 +359,18 @@ export class RoundManager {
         }
       }
 
+      if (figure instanceof Character && figure.name == 'fist' && figure.tags.indexOf('gift-of-the-mountain') != -1 && (figure.health < EntityValueFunction(figure.maxHealth, figure.level) || figure.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && !condition.permanent && !condition.expired))) {
+        let heal = figure.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.heal);
+        if (!heal) {
+          heal = new EntityCondition(ConditionName.heal, 2);
+          figure.entityConditions.push(heal);
+        }
+        heal.value = 2;
+        heal.expired = false;
+        heal.state = EntityConditionState.normal;
+        figure.health += 2;
+        gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
+      }
 
       gameManager.entityManager.entitiesAll(figure).forEach((entity) => {
         if (settingsManager.settings.expireConditions) {

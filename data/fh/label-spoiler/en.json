@@ -9,7 +9,11 @@
       "regular": "Regular",
       "over": "Over"
     },
-    "fist": "Frozen Fist",
+    "fist": {
+      ".": "Frozen Fist",
+      "gift-of-the-mountain": "At end of turn, %game.action.heal% 2, self",
+      "one-with-the-mountain": "Permanent %game.condition.regenerate%"
+    },
     "kelp": {
       ".": "Deepwraith",
       "trophy_tokens": "%data.characterToken.kelp.trophy% Trophy Tokens"

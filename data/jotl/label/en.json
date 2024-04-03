@@ -2,7 +2,7 @@
   "character": {
     "demolitionist": {
       ".": "Demolitionist",
-      "mech": "%game.characterIconColored.demolitionist%  Mech Suit"
+      "mech": "Mech Suit"
     },
     "hatchet": "Hatchet",
     "red-guard": "Red Guard",

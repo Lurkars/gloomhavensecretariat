@@ -7,7 +7,10 @@
       "slow": "Slow",
       "time_tokens": "%data.characterToken.blinkblade.time% Time Tokens"
     },
-    "boneshaper": "Boneshaper",
+    "boneshaper": {
+      ".": "Boneshaper",
+      "bone-dagger": "Add +1 %game.action.attack%"
+    },
     "deathwalker": "Deathwalker",
     "drifter": "Drifter",
     "geminate": {

@@ -309,7 +309,8 @@ export class ActionsManager {
                 const monsterSpawns = this.getMonsterSpawnData(action);
                 for (let spawn of monsterSpawns) {
                     if (spawn.monster && spawn.monster.type) {
-                        const monster = gameManager.monsterManager.addMonsterByName(spawn.monster.name, figure.edition || gameManager.currentEdition());
+                        const edition = figure instanceof Monster ? figure.edition : (gameManager.game.scenario ? gameManager.game.scenario.edition : gameManager.currentEdition());
+                        const monster = gameManager.monsterManager.addMonsterByName(spawn.monster.name, edition);
                         if (monster) {
                             const spawnCount: number = typeof spawn.count == 'string' ? EntityValueFunction(spawn.count.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)), entity.level) : spawn.count || 1;
                             const count = Math.min(gameManager.monsterManager.monsterStandeeMax(monster) - gameManager.monsterManager.monsterStandeeCount(monster), spawnCount);

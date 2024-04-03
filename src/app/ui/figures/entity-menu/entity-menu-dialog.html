@@ -591,7 +591,7 @@
     <ng-container *ngFor="let specialAction of gameManager.toCharacter(data.figure).specialActions">
       <span
         *ngIf="(!specialAction.level || specialAction.level <= data.figure.level) && (gameManager.isCharacter(data.entity) && !specialAction.summon || gameManager.isSummon(data.entity) && specialAction.summon)"
-        class="special-action" [ngClass]="{'active-tag' : specialTags.indexOf(specialAction.name) != -1}"
+        class="special-action text-white" [ngClass]="{'active-tag' : specialTags.indexOf(specialAction.name) != -1}"
         (click)="applySpecialAction(specialAction)">
         <span [ghs-label]="'data.character.' + data.figure.name + '.' + specialAction.name"></span>
       </span>

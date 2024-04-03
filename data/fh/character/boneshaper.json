@@ -9,6 +9,13 @@
     "intimidating"
   ],
   "color": "#49a967",
+  "specialActions": [
+    {
+      "name": "bone-dagger",
+      "expire": true,
+      "summon": true
+    }
+  ],
   "stats": [
     {
       "level": 1,

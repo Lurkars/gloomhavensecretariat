@@ -324,6 +324,8 @@ export class Game {
     this.finish = model.finish;
     if (settingsManager.settings.gameClockMerge) {
       this.gameClock = gameManager.mergeGameClocks(this.gameClock, model.gameClock);
+    } else if (!server) {
+      this.gameClock = model.gameClock;
     }
   }
 }

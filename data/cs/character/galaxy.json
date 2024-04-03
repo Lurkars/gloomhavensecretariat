@@ -218,7 +218,7 @@
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus0",
+            "type": "plus1",
             "effects": [
               {
                 "type": "heal",
