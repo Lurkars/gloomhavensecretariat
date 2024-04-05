@@ -191,7 +191,7 @@ export class AttackModifierManager {
     gameManager.uiChange.emit();
     let card = attackModifierDeck.cards[attackModifierDeck.current];
 
-    if (card.rolling) {
+    if (card && card.rolling) {
       additionalDraw = fhRules;
       while (card.rolling) {
         if (attackModifierDeck.current == attackModifierDeck.cards.length - 1) {
@@ -206,7 +206,7 @@ export class AttackModifierManager {
       card = attackModifierDeck.cards[attackModifierDeck.current];
       gameManager.uiChange.emit();
 
-      if (fhRules && settingsManager.settings.amAdvantageHouseRule && card.rolling) {
+      if (fhRules && settingsManager.settings.amAdvantageHouseRule && card && card.rolling) {
         while (card.rolling) {
           if (attackModifierDeck.current == attackModifierDeck.cards.length - 1) {
             return;

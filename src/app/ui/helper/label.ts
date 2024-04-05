@@ -84,6 +84,11 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         replace = '<span class="attack-modifier-effect placeholder-element-half element-half-placeholder' + (fh ? ' fh' : '') + '"><span class="element-half-container' + (consume ? ' consume' : '') + '"><span class="element-half"><img src="./assets/images/' + (fh ? 'fh/' : '') + 'element/' + elements[0] + '.svg"></span><span class="element-half"><img src="./assets/images/' + (fh ? 'fh/' : '') + 'element/' + elements[1] + '.svg"></span></span></span>';
       } else if (type == "action" && split[2].startsWith('area')) {
         replace = '<span class="placeholder-area">'
+
+        if (split[2] == 'areaRotated') {
+          replace = '<span class="placeholder-area" style="transform:rotate(-90deg);">';
+        }
+
         value.split('|').forEach((hexValue) => {
           const hex: ActionHex | null = ActionHex.fromString(hexValue);
           if (hex != null) {

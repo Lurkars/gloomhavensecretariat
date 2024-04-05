@@ -147,13 +147,13 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.uiChangeSubscription = gameManager.uiChange.subscribe({
-      next: () => {
+      next: (server: boolean) => {
         if (this.party != gameManager.game.party) {
           this.party = gameManager.game.party;
           this.update();
         }
 
-        if (this.townGuardDeck && this.party.townGuardDeck) {
+        if (server && this.townGuardDeck && this.party.townGuardDeck) {
           gameManager.attackModifierManager.fromModel(this.townGuardDeck, this.party.townGuardDeck);
         }
       }

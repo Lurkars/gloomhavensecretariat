@@ -86,8 +86,14 @@
             "type": "plus0",
             "effects": [
               {
-                "type": "custom",
-                "value": "%data.custom.perks.chain-helmet.2%"
+                "type": "changeType",
+                "value": "plus2",
+                "effects": [
+                  {
+                    "type": "custom",
+                    "value": "%data.custom.perks.chain-helmet.2%"
+                  }
+                ]
               }
             ]
           }

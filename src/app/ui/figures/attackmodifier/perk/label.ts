@@ -209,8 +209,12 @@ export class PerkLabelComponent {
                 }
                 if (effect.effects) {
                     effect.effects.forEach((subEffect) => {
-                        html += this.attackModifierEffectHtml(subEffect);
+                        html += this.attackModifierEffectHtml(subEffect, true);
                     })
+                }
+                
+                if (!noQuotes) {
+                    html = '"' + html + '"';
                 }
                 return html;
             default:

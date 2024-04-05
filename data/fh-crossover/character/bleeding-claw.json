@@ -5,6 +5,11 @@
   "thumbnail": "cs-bleeding-claw",
   "edition": "fh-crossover",
   "handSize": 11,
+  "traits": [
+    "chaotic",
+    "intimidating",
+    "outcast"
+  ],
   "color": "#c12729",
   "spoiler": true,
   "stats": [
@@ -46,8 +51,181 @@
     }
   ],
   "perkWarning": true,
-  "perks": [],
-  "masteries": [],
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "rupture"
+              },
+              {
+                "type": "condition",
+                "value": "wound"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "rupture"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "wound"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "changeType",
+                "value": "plus3",
+                "effects": [
+                  {
+                    "type": "custom",
+                    "value": "%data.custom.perks.bleeding-claw.1%"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "heal",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              },
+              {
+                "type": "condition",
+                "value": "empower"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "remove",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.fh.bleeding-claw.1%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.fh.bleeding-claw.2%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.fh.bleeding-claw.3%"
+    }
+  ],
+  "masteries": [
+    "%data.custom.fh.bleeding-claw.4%",
+    "%data.custom.fh.bleeding-claw.5%"
+  ],
   "additionalModifier": [
     {
       "count": 10,

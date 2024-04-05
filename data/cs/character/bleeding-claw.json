@@ -138,8 +138,14 @@
             "type": "plus1",
             "effects": [
               {
-                "type": "custom",
-                "value": "%data.custom.perks.bleeding-claw.1%"
+                "type": "changeType",
+                "value": "plus3",
+                "effects": [
+                  {
+                    "type": "custom",
+                    "value": "%data.custom.perks.bleeding-claw.1%"
+                  }
+                ]
               }
             ]
           }

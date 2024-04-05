@@ -256,20 +256,20 @@
         "2": "where X is the number of active Cultivate %data.action.custom.cs-cultivate% actions"
       },
       "bleeding-claw": {
-        "1": "Add %game.attackmodifier.plus3% instead if the target has %game.condition.rupture% or %game.condition.wound%",
+        "1": "if the target has %game.condition.rupture% or %game.condition.wound%",
         "2": "Once each scenario, become %game.action.custom.cs-sated% after collecting your fifth loot token",
         "3": "Become %game.action.custom.cs-sated% each time you lose a card to negate suffering damage",
         "4": "Whenever one of your abilities causes at least one enemy to gain %game.condition.rupture%, immediately after that ability perform \"%game.action.move:1%\""
       },
       "chain-helmet": {
         "1": "Shackle %data.characterIcon.chain-helmet%",
-        "2": "%game.attackmodifier.plus2% if the target is Shackled %data.characterIcon.chain-helmet%",
+        "2": "if the target is Shackled %data.characterIcon.chain-helmet%",
         "3": "%game.condition.disarm% if the target is Shackled %data.characterIcon.chain-helmet%",
         "4": "Create a %game.damage:2% trap in an empty hex within %game.action.range:2%"
       },
       "crescent-sun": {
         "1": "Perform one Glow %data.characterIcon.crescent-sun% ability",
-        "2": "Target all enemies in the depicted '%game.action.area:(0,1,active)|(1,0,target)|(1,2,target)|(1,1,target)%'"
+        "2": "Target all enemies in the depicted '%game.action.areaRotated:(0,1,active)|(1,0,target)|(1,2,target)|(1,1,target)%'"
       },
       "galaxy": {
         "1": "%game.attackmodifier.plus3% if you are at full health",
