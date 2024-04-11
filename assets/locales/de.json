@@ -1159,6 +1159,7 @@
       ".": "Szenario Flussdiagramm",
       "setup": "Zeige Szenario Setup",
       "start": "Szenario starten",
+      "success": "Als erfolgreich markieren",
       "treasures": {
         ".": "Zeige Schätze (falls vorhanden)",
         "empty": "Keine Schätze"
@@ -1329,6 +1330,7 @@
         "toggleOff": "{0} inaktiv setzen",
         "toggleOn": "{0} aktiv setzen",
         "transfer": "{0} wird zu %data.monster.{1}% {4}",
+        "transferEntities": "{0} wird zu %data.monster.{1}% {4}",
         "remove": "Entferne {0}"
       },
       "hide": "Nicht mehr anzeigen",

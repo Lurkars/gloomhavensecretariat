@@ -1306,6 +1306,7 @@
       ".": "Scenario Flow Chart",
       "setup": "Show Scenario Setup",
       "start": "Start Scenario",
+      "success": "Mark as completed",
       "treasures": {
         ".": "Show treasures (if any)",
         "empty": "No treasures"
@@ -1478,6 +1479,7 @@
         "toggleOff": "{0} to inactive",
         "toggleOn": "{0} to active",
         "transfer": "{0} become %data.monster.{1}% {4}",
+        "transferEntities": "{0} become %data.monster.{1}% {4}",
         "remove": "Remove {0}"
       },
       "finish": {
