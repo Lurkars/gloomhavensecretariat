@@ -8,6 +8,12 @@
         </span>
     </div>
 
+    <div class="spoiler-block visible" *ngIf="hasRequirements">
+        <label [ghs-label]="'scenario.requirements'"></label>
+        <ghs-requirements [scenarioData]="scenarioData" [all]="true" [allToggle]="false"></ghs-requirements>
+        <div class="background"></div>
+    </div>
+
     <div class="spoiler-block" [ngClass]="{'visible': showSetup}">
         <ghs-scenario-setup [scenario]="scenario" [details]="false" [title]="false"
             [spoiler]="gameManager.scenarioManager.isSuccess(scenario)"></ghs-scenario-setup>
@@ -52,5 +58,6 @@
         <a class="play"
             [ngClass]="{'casual': !gameManager.game.party.campaignMode, 'success': gameManager.scenarioManager.isSuccess(scenario), 'locked': gameManager.scenarioManager.isLocked(scenario), 'blocked': gameManager.scenarioManager.isBlocked(scenario)}"
             (click)="setScenario()" [ghs-label]="'scenario.chart.start'"></a>
+        <a *ngIf="!isSuccess" class="success" (click)="addSuccess()" [ghs-label]="'scenario.chart.success'"></a>
     </div>
 </div>

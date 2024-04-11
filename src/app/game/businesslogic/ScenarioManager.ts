@@ -4,7 +4,7 @@ import { EntityValueFunction } from "../model/Entity";
 import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
-import { GameScenarioModel, Scenario } from "../model/Scenario";
+import { GameScenarioModel, Scenario, ScenarioMissingRequirements } from "../model/Scenario";
 import { LootDeckConfig, LootType, fullLootDeck } from "../model/data/Loot";
 import { MonsterData } from "../model/data/MonsterData";
 import { MonsterType } from "../model/data/MonsterType";
@@ -741,6 +741,116 @@ export class ScenarioManager {
         })) ||
       scenarioData.solo && !this.game.figures.find((figure) => figure instanceof Character && figure.name == scenarioData.solo && figure.level >= 5) || false;
   }
+
+  getRequirements(scenarioData: ScenarioData, all: boolean = false): ScenarioMissingRequirements[] {
+    let missingRequirements: ScenarioMissingRequirements[] = [];
+    if (scenarioData.requirements) {
+        scenarioData.requirements.forEach((requirement) => {
+            let add: boolean = false;
+            let missingRequirement = new ScenarioMissingRequirements();
+            if (requirement.global) {
+                requirement.global.forEach((achievement) => {
+                    if (achievement.startsWith('!')) {
+                        if (all || gameManager.game.party.globalAchievementsList.find((globalAchievement) => globalAchievement.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim())) {
+                            missingRequirement.globalAchievementsMissing.push(achievement.substring(1, achievement.length));
+                            add = true;
+                        }
+                    } else if (achievement.indexOf(':') != -1 && (!isNaN(+achievement.split(':')[1]))) {
+                        let count = +achievement.split(':')[1];
+                        gameManager.game.party.globalAchievementsList.forEach((partyAchievement) => {
+                            if (partyAchievement.toLowerCase().trim() == achievement.split(':')[0].toLowerCase().trim()) {
+                                count--;
+                            }
+                        })
+                        if (all || count > 0) {
+                            missingRequirement.globalAchievementsCount.push({ name: achievement.split(':')[0], count: count, required: +achievement.split(':')[1] });
+                            add = true;
+                        }
+                    } else if (all || !gameManager.game.party.globalAchievementsList.find((globalAchievement) => globalAchievement.toLowerCase().trim() == achievement.toLowerCase().trim())) {
+                        missingRequirement.globalAchievements.push(achievement);
+                        add = true;
+                    }
+                })
+            }
+
+            if (requirement.party) {
+                requirement.party.forEach((achievement) => {
+                    if (achievement.startsWith('!')) {
+                        if (all || gameManager.game.party.achievementsList.find((partyAchievement) => partyAchievement.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim())) {
+                            missingRequirement.partyAchievementsMissing.push(achievement.substring(1, achievement.length));
+                            add = true;
+                        }
+                    } else if (achievement.indexOf(':') != -1 && (!isNaN(+achievement.split(':')[1]))) {
+                        let count = +achievement.split(':')[1];
+                        gameManager.game.party.achievementsList.forEach((partyAchievement) => {
+                            if (partyAchievement.toLowerCase().trim() == achievement.split(':')[0].toLowerCase().trim()) {
+                                count--;
+                            }
+                        })
+                        if (count > 0) {
+                            missingRequirement.partyAchievementsCount.push({ name: achievement.split(':')[0], count: count, required: +achievement.split(':')[1] });
+                            add = true;
+                        }
+                    } else if (all || !gameManager.game.party.achievementsList.find((partyAchievement) => partyAchievement.toLowerCase().trim() == achievement.toLowerCase().trim())) {
+                        missingRequirement.partyAchievements.push(achievement);
+                        add = true;
+                    }
+                })
+            }
+
+            if (requirement.campaignSticker) {
+                requirement.campaignSticker.forEach((achievement) => {
+                    if (achievement.startsWith('!')) {
+                        if (all || gameManager.game.party.campaignStickers.find((campaignSticker) => campaignSticker.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim())) {
+                            missingRequirement.campaignStickersMissing.push(achievement.substring(1, achievement.length));
+                            add = true;
+                        }
+                    } else if (achievement.indexOf(':') != -1 && (!isNaN(+achievement.split(':')[1]))) {
+                        let count = +achievement.split(':')[1];
+                        gameManager.game.party.campaignStickers.forEach((campaignSticker) => {
+                            if (campaignSticker.toLowerCase().trim() == achievement.split(':')[0].toLowerCase().trim()) {
+                                count--;
+                            }
+                        })
+                        if (count > 0) {
+                            missingRequirement.campaignStickersCount.push({ name: achievement.split(':')[0], count: count, required: +achievement.split(':')[1] });
+                            add = true;
+                        }
+                    } else if (all || !gameManager.game.party.campaignStickers.find((campaignSticker) => campaignSticker.toLowerCase().trim() == achievement.toLowerCase().trim())) {
+                        missingRequirement.campaignStickers.push(achievement);
+                        add = true;
+                    }
+                })
+            }
+
+            if (requirement.buildings) {
+                requirement.buildings.forEach((achievement) => {
+                    if (achievement.startsWith('!')) {
+                        if (all || gameManager.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim() && buildingModel.level > 0)) {
+                            missingRequirement.buildingsMissing.push(achievement.substring(1, achievement.length));
+                            add = true;
+                        }
+                    } else if (achievement.indexOf(':') != -1) {
+                        let level = +achievement.split(':')[1];
+                        if (all || !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.split(':')[0].toLowerCase().trim() && buildingModel.level >= level)) {
+                            missingRequirement.buildingsLevel.push({ name: achievement.split(':')[0], level: level });
+                            add = true;
+                        }
+                    } else if (all || !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.toLowerCase().trim() && buildingModel.level > 0)) {
+                        missingRequirement.buildings.push(achievement);
+                        add = true;
+                    }
+                })
+            }
+
+            if (add) {
+                missingRequirements.push(missingRequirement);
+            }
+        });
+    }
+
+    return missingRequirements;
+}
 
   getSections(scenario: ScenarioData): ScenarioData[] {
     return gameManager.sectionData().filter((sectionData) => sectionData.edition == scenario.edition && sectionData.parent == scenario.index && sectionData.group == scenario.group)

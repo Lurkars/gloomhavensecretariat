@@ -101,21 +101,6 @@
             }
         }
 
-
-        label {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
-            color: var(--ghs-color-white);
-            z-index: 2;
-        }
-
         .background {
             cursor: pointer;
             position: absolute;
@@ -125,8 +110,20 @@
             bottom: 0;
             z-index: 1;
 
+
             label {
                 cursor: pointer;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+                color: var(--ghs-color-white);
+                z-index: 2;
             }
 
             &::before {
@@ -164,7 +161,6 @@
                 pointer-events: none;
             }
         }
-
     }
 
     .buttons {

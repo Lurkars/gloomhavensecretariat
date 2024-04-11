@@ -26,7 +26,9 @@
   },
   "monsters": [
     "frozen-corpse",
-    "living-bones"
+    "frozen-corpse-scenario-118",
+    "living-bones",
+    "living-bones-scenario-118"
   ],
   "lootDeckConfig": {
     "money": 8,
@@ -36,6 +38,51 @@
     "rockroot": 1,
     "snowthistle": 2
   },
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "frozen-corpse",
+            "number": "N % 2 == 1"
+          },
+          "type": "transferEntities",
+          "value": "frozen-corpse-scenario-118"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "living-bones",
+            "number": "N % 2 == 1"
+          },
+          "type": "transferEntities",
+          "value": "living-bones-scenario-118"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "frozen-corpse-scenario-118",
+            "number": "N % 2 == 0"
+          },
+          "type": "transferEntities",
+          "value": "frozen-corpse"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "living-bones-scenario-118",
+            "number": "N % 2 == 0"
+          },
+          "type": "transferEntities",
+          "value": "living-bones"
+        }
+      ],
+      "alwaysApply": true
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

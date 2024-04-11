@@ -86,7 +86,7 @@ export class ScenarioFigureRule {
 
 }
 
-export type ScenarioFigureRuleTypes = "present" | "dead" | "killed" | "initiative" | "gainCondition" | "loseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove" | "removeEntity" | "amAdd" | "amRemove" | "setAbility" | "drawAbility" | "discardAbilityToBottom" | "dormant" | "activate";
+export type ScenarioFigureRuleTypes = "present" | "dead" | "killed" | "initiative" | "gainCondition" | "loseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "transferEntities" | "remove" | "removeEntity" | "amAdd" | "amRemove" | "setAbility" | "drawAbility" | "discardAbilityToBottom" | "dormant" | "activate";
 
 export const HiddenScenarioFigureRuleTypes: ScenarioFigureRuleTypes[] = ["present", "dead", "killed", "initiative"];
 
@@ -95,6 +95,7 @@ export class ScenarioFigureRuleIdentifier extends AdditionalIdentifier {
   hp: string | undefined;
   health: string | undefined;
   conditions: string[] | undefined;
+  number: string | undefined;
 
 }
 

@@ -304,6 +304,12 @@ export class ScenarioRulesManager {
     }
 
     return gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((figure) => {
+      if (figureRule.identifier && figureRule.identifier.number) {
+        if (figure instanceof Monster && figure.entities.every((entity) => figureRule.identifier && figureRule.identifier.number && !eval(figureRule.identifier.number.replaceAll('N', '' + entity.number)))) {
+          return false;
+        }
+      }
+
       if (figureRule.identifier && figureRule.identifier.health) {
         if (figure instanceof Character) {
           const health = EntityValueFunction(figureRule.identifier.health.replaceAll('H', '' + EntityValueFunction(figure.maxHealth)));
@@ -361,25 +367,30 @@ export class ScenarioRulesManager {
         return [];
       }
     }
-    if (!figureRule.identifier || !figureRule.identifier.health && !figureRule.identifier.hp && (!figureRule.identifier.conditions || figureRule.identifier.conditions.length == 0)) {
+    if (!figureRule.identifier || !figureRule.identifier.number && !figureRule.identifier.health && !figureRule.identifier.hp && (!figureRule.identifier.conditions || figureRule.identifier.conditions.length == 0)) {
       return gameManager.entitiesByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
     }
 
     return gameManager.entitiesByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((entity) => {
+      let filter = true;
       if (figureRule.identifier && figureRule.identifier.health && gameManager.entityManager.isAlive(entity)) {
         const health = EntityValueFunction(figureRule.identifier.health.replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
-        return entity.health <= health;
+        filter = filter && entity.health <= health;
       }
 
       if (figureRule.identifier && figureRule.identifier.hp && gameManager.entityManager.isAlive(entity)) {
-        return eval(figureRule.identifier.hp.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
+        filter = filter && eval(figureRule.identifier.hp.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
       }
 
       if (figureRule.identifier && figureRule.identifier.conditions) {
-        return figureRule.identifier.conditions && figureRule.identifier.conditions.every((condition) => condition.startsWith('!') && !gameManager.entityManager.hasCondition(entity, new Condition(condition.substring(1))) || !condition.startsWith('!') && gameManager.entityManager.hasCondition(entity, new Condition(condition)));
+        filter = filter && figureRule.identifier.conditions.every((condition) => condition.startsWith('!') && !gameManager.entityManager.hasCondition(entity, new Condition(condition.substring(1))) || !condition.startsWith('!') && gameManager.entityManager.hasCondition(entity, new Condition(condition)));
       }
 
-      return false;
+      if (figureRule.identifier && figureRule.identifier.number) {
+        filter = filter && eval(figureRule.identifier.number.replaceAll('N', '' + entity.number));
+      }
+
+      return filter;
     });
   }
 
@@ -570,8 +581,9 @@ export class ScenarioRulesManager {
           })
         })
 
-        rule.figures.filter((figureRule) => figureRule.type == "transfer").forEach((figureRule) => {
+        rule.figures.filter((figureRule) => figureRule.type == "transfer" || figureRule.type == "transferEntities").forEach((figureRule) => {
           const figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
+          const entities: Entity[] = gameManager.scenarioRulesManager.entitiesByFigureRule(figureRule, rule);
           if (figures.length == 1 && figures[0] instanceof Monster) {
             const figure = figures[0];
             const monster = gameManager.monsterManager.addMonsterByName(figureRule.value, scenario.edition);
@@ -587,7 +599,28 @@ export class ScenarioRulesManager {
               monster.ability = figure.ability;
               monster.isAlly = figure.isAlly;
               monster.isAllied = figure.isAllied;
-              monster.entities = [...monster.entities, ...figure.entities];
+
+              if (figureRule.type == "transfer") {
+                if (figureRule.identifier) {
+                  gameManager.entityCounters(figureRule.identifier).forEach((entityCounter) => {
+                    entityCounter.total -= figure.entities.length;
+                  })
+                }
+                monster.entities = [...monster.entities, ...figure.entities];
+                figure.entities.forEach((entity) => {
+                  gameManager.addEntityCount(monster, entity);
+                })
+              } else {
+                if (figureRule.identifier) {
+                  gameManager.entityCounters(figureRule.identifier).forEach((entityCounter) => {
+                    entityCounter.total -= entities.length;
+                  })
+                }
+                monster.entities = [...monster.entities, ...entities.filter((entity) => entity instanceof MonsterEntity).map((entity) => entity as MonsterEntity)];
+                entities.forEach((entity) => {
+                  gameManager.addEntityCount(monster, entity);
+                })
+              }
 
               monster.entities.forEach((entity) => {
                 const figureStat = figure.stats.find((stat) => {
@@ -617,7 +650,11 @@ export class ScenarioRulesManager {
               })
 
               if (monster != figure) {
-                gameManager.monsterManager.removeMonster(figure);
+                if (figureRule.type == "transfer") {
+                  gameManager.monsterManager.removeMonster(figure);
+                } else {
+                  figure.entities = figure.entities.filter((entity) => entities.indexOf(entity) == -1);
+                }
               }
               gameManager.sortFigures(monster);
             }

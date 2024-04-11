@@ -7,7 +7,7 @@ import { GameState } from "src/app/game/model/Game";
 import { GameScenarioModel, Scenario, ScenarioCache } from "src/app/game/model/Scenario";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { Spoilable, SpoilableMock } from "src/app/game/model/data/Spoilable";
-import { ScenarioRequirementsComponent } from "src/app/ui/figures/party/requirements/requirements";
+import { ScenarioRequirementsDialogComponent } from "src/app/ui/figures/party/requirements/requirements";
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { ScenarioChartDialogComponent } from "../../../figures/party/scenario-chart/scenario-chart";
 
@@ -111,7 +111,7 @@ export class ScenarioMenuComponent implements OnInit, OnDestroy {
   setScenario(scenarioData: ScenarioData) {
     if (!gameManager.scenarioManager.isCurrent(scenarioData)) {
       if (gameManager.scenarioManager.isLocked(scenarioData)) {
-        this.dialog.open(ScenarioRequirementsComponent, {
+        this.dialog.open(ScenarioRequirementsDialogComponent, {
           panelClass: ['dialog'],
           data: { scenarioData: scenarioData }
         })

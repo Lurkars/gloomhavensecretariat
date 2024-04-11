@@ -163,7 +163,7 @@ export class GameManager {
   }
 
   editionScenarioExtensions(edition: string, all: boolean = false): string[] {
-    return this.editionData.filter((additional) => additional.additional && additional.scenarios && additional.scenarios.length && additional.scenarios.some((scenarioData) => scenarioData.edition == additional.edition) && additional.extensions.indexOf(edition) != -1).map((additional) => additional.edition);
+    return this.editionData.filter((additional) => (all || settingsManager.settings.editions.indexOf(additional.edition) != -1) && additional.additional && additional.scenarios && additional.scenarios.length && additional.scenarios.some((scenarioData) => scenarioData.edition == additional.edition) && additional.extensions.indexOf(edition) != -1).map((additional) => additional.edition);
   }
 
   newAmStyle(edition: string): boolean {

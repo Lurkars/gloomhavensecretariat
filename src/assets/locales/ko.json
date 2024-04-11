@@ -1402,6 +1402,7 @@
         "toggleOff": "{0} 비활성화",
         "toggleOn": "{0} 활성화",
         "transfer": "{0} %data.monster.{1}% {4} 전환",
+        "transferEntities": "{0} %data.monster.{1}% {4} 전환",
         "remove": "{0} 제거"
       },
       "finish": {
